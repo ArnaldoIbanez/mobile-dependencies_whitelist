@@ -35,6 +35,12 @@ class TrackDefinition {
         this
     }
 
+    def addProperty(Object[] args) {
+        this.addProperty(new TrackDefinitionProperty(args[0]))
+        this
+    }
+
+    //obsolate
     def Boolean validate(Track t) {
         def comments = ""
         def status = true;
@@ -46,13 +52,62 @@ class TrackDefinition {
             }
         }
         properties.each { k , v ->
-            if(v.required && t.properties.get(v.name)==null) {
+
+            def trackValueForThisProperty = t.properties.get(v.name)
+            if(v.required && trackValueForThisProperty == null) {
                 status = false;
                 comments+="Property ${k} is required\n"
             }
+
+            if(v.values.size() > 0 && !v.values.find{va -> va.equals(trackValueForThisProperty)}) {
+                status = false;
+                comments += "Property ${k} has invalid value '${trackValueForThisProperty}'. (possible values: ${v.values})"
+            }
+
+
         }
 
         println(comments);
         return status
+    }
+
+    def TrackValidationResponse validateTrack(Track t) {
+        def response = new TrackValidationResponse()
+
+        // are all the track's properties in my definition?:
+        t.properties.each { property, value ->
+            if(!properties.get(property))
+                response.addValidation(false, "Property ${property} is not cataloged")
+        }
+
+        // someone of my required properties miss? and the valid values?:
+        properties.each { key , v ->
+
+            def trackValueForThisProperty = t.properties.get(v.name)
+            if(v.required && trackValueForThisProperty == null)
+                response.addValidation(false, "Property ${key} (${v.description}) is required")
+
+            if(v.values && v.values.size() > 0 && !v.values.find{va -> va.equals(trackValueForThisProperty)})
+                response.addValidation(false, "Property ${key} (${v.description}) has invalid value '${trackValueForThisProperty}'. (possible values: ${v.values})")
+        }
+
+        return response
+    }
+}
+
+class TrackValidationResponse {
+
+    boolean status = true
+    ArrayList<String> menssages
+
+    def TrackValidationResponse(){
+        menssages = new ArrayList<String>()
+    }
+
+    def addValidation(boolean status, String message){
+        // if all the status are true -> the result is true!
+        // if one is false -> the result es false :(
+        this.status = this.status && status
+        this.menssages.push(message)
     }
 }
