@@ -1,6 +1,10 @@
+package com.ml.melidata.catalog
+
 /**
  * Created by geisbruch on 11/10/14.
  */
+
+
 class Catalog {
 
 
