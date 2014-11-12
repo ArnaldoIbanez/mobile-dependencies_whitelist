@@ -1,8 +1,10 @@
 package com.melidata.catalog.test
 
+import com.ml.melidata.catalog.Platform
 import com.ml.melidata.catalog.Track
 import com.ml.melidata.catalog.TrackDefinition
 import com.ml.melidata.catalog.TrackDefinitionProperty
+import com.ml.melidata.catalog.TrackType
 import org.junit.Test
 import static org.junit.Assert.*
 /**
@@ -21,8 +23,8 @@ class DefinitionTest {
 
         // Assert
         assertTrue(definition.properties.size() == 2)
-        assertEquals(definition.properties.get("layout").description, "The layout used in the search query")
-        assertEquals(definition.properties.get("query").required, true)
+        assertEquals(definition.getDefinitionProperty("layout").description, "The layout used in the search query")
+        assertEquals(definition.getDefinitionProperty("query").required, true)
     }
 
     @Test void shouldEnableAddPropertiesWithTrackDefinitionProperty() {
@@ -37,8 +39,8 @@ class DefinitionTest {
 
         // Assert
         assertTrue(definition.properties.size() == 2)
-        assertEquals(definition.properties.get("layout").description, "The layout used in the search query")
-        assertEquals(definition.properties.get("query").required, true)
+        assertEquals(definition.getDefinitionProperty("layout").description, "The layout used in the search query")
+        assertEquals(definition.getDefinitionProperty("query").required, true)
     }
 
     @Test void shouldEnableAddPropertiesValues() {
@@ -50,10 +52,10 @@ class DefinitionTest {
         definition.addProperty(name:"layout", values:["stack", "gallery", "mosaic"], description: "platform", required: true)
 
         // Assert
-        assertTrue(definition.properties.get("layout").values.size() == 3)
-        assertTrue(definition.properties.get("layout").values[0] == "stack")
-        assertTrue(definition.properties.get("layout").values[1] == "gallery")
-        assertTrue(definition.properties.get("layout").values[2] == "mosaic")
+        assertTrue(definition.getDefinitionProperty("layout").values.size() == 3)
+        assertTrue(definition.getDefinitionProperty("layout").hasValue("stack"))
+        assertTrue(definition.getDefinitionProperty("layout").hasValue("gallery"))
+        assertTrue(definition.getDefinitionProperty("layout").hasValue("mosaic"))
     }
 
     @Test void shouldEnableAddPropertiesRequired() {
@@ -65,7 +67,7 @@ class DefinitionTest {
         definition.addProperty(name: "platform", description: "platform", required: true)
 
         // Assert
-        assertTrue(definition.properties.get("platform").required)
+        assertTrue(definition.getDefinitionProperty("platform").required)
     }
 
     @Test void shouldEnableAddPropertiesRequiredFalseByDefault() {
@@ -77,7 +79,7 @@ class DefinitionTest {
         definition.addProperty(name: "platform", description: "platform")
 
         // Assert
-        assertFalse(definition.properties.get("platform").required)
+        assertFalse(definition.getDefinitionProperty("platform").required)
     }
 
     @Test void shouldValidateTrackWithValidValue() {
@@ -87,11 +89,7 @@ class DefinitionTest {
                 .addProperty(name: "layout", values:["stack", "gallery", "mosaic"], description: "client layout", required: true)
 
         // Act
-        def track = new Track()
-        track.path ="/search";
-        track.properties.putAll(["layout":"gallery"])
-        def result = definition.validateTrack(track)
-
+        def result = definition.validateTrack(new Track(path: "/search", properties: ["layout":"gallery"]))
 
         // Assert
         assertTrue(result.status)
@@ -105,11 +103,7 @@ class DefinitionTest {
                 .addProperty(name: "layout", values:["stack", "gallery", "mosaic"], description: "client layout", required: true)
 
         // Act
-        def track = new Track()
-        track.path ="/search";
-        track.properties.putAll(["layout":"galeria"])
-        def result = definition.validateTrack(track)
-
+        def result = definition.validateTrack(new Track(path: "/search", properties: ["layout":"galeria"]))
 
         // Assert
         assertEquals(result.status, false)
@@ -125,13 +119,9 @@ class DefinitionTest {
                 .addProperty(name: "query", description: "query params", required: false)
 
         // Act
-        def track = new Track()
-        track.path = "/search";
-        track.properties.putAll(["platform":"mobile"])
-        def result = definition.validateTrack(track)
+        def result = definition.validateTrack(new Track(path:"/search", properties:["platform":"mobile"]))
 
         // Assert
-
         assertEquals(result.status, true)
         assertEquals(result.menssages.size(), 0)
         //println result.menssages
@@ -145,15 +135,49 @@ class DefinitionTest {
                 .addProperty(name: "query", description: "query params", required: true)
 
         // Act
-        def track = new Track()
-        track.path = "/search";
-        track.properties.putAll(["platform":"mobile"])
-        def result = definition.validateTrack(track)
+        def result = definition.validateTrack(new Track(path:"/search", properties:["platform":"mobile"]))
 
         // Assert
         assertEquals(result.status, false)
         assertEquals(result.menssages.size(), 1)
         //println result.menssages
+    }
+
+    @Test void shouldValidateTrackWithManyProperties() {
+
+        // Arrange
+        def definition = new TrackDefinition("/search")
+                .addProperty(name: "limit", description: "limit of query result")
+                .addProperty(name: "offset", description: "offset of query data", required: true)
+                .addProperty(name: "query", description: "string query", required: true)
+                .addProperty(name: "total_result", description: "count of result query", required: true)
+
+        // Act
+        /*"event_data":{
+            "path":"/search",
+            "limit":50,
+            "offset":0,
+            "query":"ipod",
+            "custom":{},
+            "total_results":1230
+        }*/
+        def result = definition.validateTrack(
+                new Track(path:"/search", properties: ["limit":50,"offset":0,"query":"ipod","total_result":1230]))
+
+        // Assert
+        //println result.menssages
+        assertEquals(result.status, true)
+        assertEquals(result.menssages.size(), 0)
+
+    }
+
+    @Test void shouldCreateTrackView(){
+
+        // solo para probar variantes creacionales
+        def track = Track.createTrack("/search", TrackType.View, Platform.Mobile)
+                .addProperties(["platform":"mobile"])
+
+        assertTrue(track.trackType.equals(TrackType.View))
     }
 
 }

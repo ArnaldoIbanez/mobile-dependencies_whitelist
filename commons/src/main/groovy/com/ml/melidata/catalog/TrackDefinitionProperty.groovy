@@ -24,6 +24,10 @@ class TrackDefinitionProperty {
         return true
     }
 
+    def hasValue(String value){
+        return this.values.find {v -> v.equals(value)} != null
+    }
+
     int hashCode() {
         int result
         result = (name != null ? name.hashCode() : 0)

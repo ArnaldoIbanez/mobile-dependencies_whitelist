@@ -16,11 +16,13 @@ enum TrackType {
 }
 
 class TrackDefinition {
+
     def String path = ""
     def Platform platform;
     def SubPlatform subPlatform;
     def Map<String,TrackDefinitionProperty> properties = [:];
     def TrackType type;
+
     def TrackDefinition(String path, TrackType type = TrackType.View,
                         Platform platform = Platform.all, SubPlatform subPlatform = SubPlatform.all) {
         this.path = path;
@@ -40,10 +42,17 @@ class TrackDefinition {
         this
     }
 
-    //obsolate
+    def getDefinitionProperty(String name){
+        return this.properties.get(name)
+    }
+
+    /**
+     * Obsolete
+     * */
     def Boolean validate(Track t) {
         def comments = ""
         def status = true;
+
         t.properties.each { property, value ->
             def p = properties.get(property);
             if(!p) {
@@ -63,14 +72,16 @@ class TrackDefinition {
                 status = false;
                 comments += "Property ${k} has invalid value '${trackValueForThisProperty}'. (possible values: ${v.values})"
             }
-
-
         }
 
         println(comments);
         return status
     }
 
+    /**
+     * Validate the track properties for track parameter
+     * no validate the type, platform and path because that catalogs responsibility
+     * */
     def TrackValidationResponse validateTrack(Track t) {
         def response = new TrackValidationResponse()
 
@@ -80,7 +91,7 @@ class TrackDefinition {
                 response.addValidation(false, "Property ${property} is not cataloged")
         }
 
-        // someone of my required properties miss? and the valid values?:
+        // someone of my required properties miss? and what about the valid values?:
         properties.each { key , v ->
 
             def trackValueForThisProperty = t.properties.get(v.name)
