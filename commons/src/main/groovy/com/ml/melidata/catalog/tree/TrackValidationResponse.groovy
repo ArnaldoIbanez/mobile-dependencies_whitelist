@@ -12,10 +12,11 @@ class TrackValidationResponse {
         menssages = new ArrayList<String>()
     }
 
-    def addValidation(boolean status, String message){
+    def addValidation(boolean status, String message = null){
         // if all the status are true -> the result is true!
         // if one is false -> the result es false :(
         this.status = this.status && status
-        this.menssages.push(message)
+        if(message)
+            this.menssages.push(message)
     }
 }

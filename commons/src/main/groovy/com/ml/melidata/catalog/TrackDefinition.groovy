@@ -40,43 +40,12 @@ class TrackDefinition {
         return this.properties.get(name)
     }
 
-    /**
-     * Obsolete
-     * */
-    def Boolean validate(Track t) {
-        def comments = ""
-        def status = true;
-
-        t.properties.each { property, value ->
-            def p = properties.get(property);
-            if(!p) {
-                status = false;
-                comments+="Property ${property} is not cataloged\n";
-            }
-        }
-        properties.each { k , v ->
-
-            def trackValueForThisProperty = t.properties.get(v.name)
-            if(v.required && trackValueForThisProperty == null) {
-                status = false;
-                comments+="Property ${k} is required\n"
-            }
-
-            if(v.values.size() > 0 && !v.values.find{va -> va.equals(trackValueForThisProperty)}) {
-                status = false;
-                comments += "Property ${k} has invalid value '${trackValueForThisProperty}'. (possible values: ${v.values})"
-            }
-        }
-
-        println(comments);
-        return status
-    }
 
     /**
      * Validate the track properties for track parameter
      * no validate the type, platform and path because that catalogs responsibility
      * */
-    def TrackValidationResponse validateTrack(Track t) {
+    def TrackValidationResponse validate(Track t) {
         def response = new TrackValidationResponse()
 
         // are all the track's properties in my definition?:

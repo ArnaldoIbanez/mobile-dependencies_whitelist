@@ -20,13 +20,27 @@ class PlatformTree extends TreeNode<CatalogTree> {
         return platformTree
     }
 
-    def addTrackDefinition(TrackDefinition definition) {
-        platformTree.addNode(definition.path, definition);
+    /**
+     * This helper will add the node to the platform and propagate the change
+     * to all sub-platforms
+     *
+     * @param definition
+     * @param override
+     * @return
+     */
+    def addTrackDefinition(TrackDefinition definition, Boolean override = true) {
+        platformTree.addNode(definition.path, definition, override);
         this.children.each {k,c ->
-            c.addTrackDefinition(definition);
+            //On sub-elements should not override
+            c.addTrackDefinition(definition, false);
         }
     }
 
+    /**
+     * It will look in the catalog tree for the definition
+     * @param path
+     * @return
+     */
     def getTrackDefinition(String path) {
         def catalogNode = platformTree.getNodeByPath(path);
         if(!catalogNode) {

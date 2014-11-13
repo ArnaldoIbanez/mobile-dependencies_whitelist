@@ -89,7 +89,7 @@ class DefinitionTest {
                 .addProperty(name: "layout", values:["stack", "gallery", "mosaic"], description: "client layout", required: true)
 
         // Act
-        def result = definition.validateTrack(new Track(path: "/search", properties: ["layout":"gallery"]))
+        def result = definition.validate(new Track(path: "/search", properties: ["layout":"gallery"]))
 
         // Assert
         assertTrue(result.status)
@@ -103,7 +103,7 @@ class DefinitionTest {
                 .addProperty(name: "layout", values:["stack", "gallery", "mosaic"], description: "client layout", required: true)
 
         // Act
-        def result = definition.validateTrack(new Track(path: "/search", properties: ["layout":"galeria"]))
+        def result = definition.validate(new Track(path: "/search", properties: ["layout":"galeria"]))
 
         // Assert
         assertEquals(result.status, false)
@@ -119,7 +119,7 @@ class DefinitionTest {
                 .addProperty(name: "query", description: "query params", required: false)
 
         // Act
-        def result = definition.validateTrack(new Track(path:"/search", properties:["platform":"mobile"]))
+        def result = definition.validate(new Track(path:"/search", properties:["platform":"mobile"]))
 
         // Assert
         assertEquals(result.status, true)
@@ -135,7 +135,7 @@ class DefinitionTest {
                 .addProperty(name: "query", description: "query params", required: true)
 
         // Act
-        def result = definition.validateTrack(new Track(path:"/search", properties:["platform":"mobile"]))
+        def result = definition.validate(new Track(path:"/search", properties:["platform":"mobile"]))
 
         // Assert
         assertEquals(result.status, false)
@@ -161,7 +161,7 @@ class DefinitionTest {
             "custom":{},
             "total_results":1230
         }*/
-        def result = definition.validateTrack(
+        def result = definition.validate(
                 new Track(path:"/search", properties: ["limit":50,"offset":0,"query":"ipod","total_result":1230]))
 
         // Assert
