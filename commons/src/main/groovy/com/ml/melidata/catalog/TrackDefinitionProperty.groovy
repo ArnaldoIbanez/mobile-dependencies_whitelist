@@ -11,6 +11,7 @@ class TrackDefinitionProperty {
     def String description;
     def PropertyType type = PropertyType.String;
     def Boolean required = false;
+    def ArrayList<String> values
 
     boolean equals(o) {
         if (this.is(o)) return true
@@ -21,6 +22,10 @@ class TrackDefinitionProperty {
         if (name != that.name) return false
 
         return true
+    }
+
+    def hasValue(String value){
+        return this.values.find {v -> v.equals(value)} != null
     }
 
     int hashCode() {
