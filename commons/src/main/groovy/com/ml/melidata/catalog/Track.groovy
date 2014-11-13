@@ -7,11 +7,11 @@ class Track {
     def path = "";
     def properties = [:]
     def TrackType trackType = TrackType.View
-    def Platform platform = Platform.Mobile
+    def String platform = "/"
 
 
     // tiene sentido hacer un create method por convinacion type and platform?? depende: que tanto puede crecer?
-    public static Track createTrack(String path, TrackType type, Platform platform){
+    public static Track createTrack(String path, TrackType type, String platform){
         return new Track(path:path, trackType: type, platform: platform)
     }
 

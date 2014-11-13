@@ -1,15 +1,11 @@
 package com.ml.melidata.catalog
+
+import com.ml.melidata.catalog.tree.TrackValidationResponse
+
 /**
  * Created by geisbruch on 11/10/14.
  */
 
-enum Platform {
-    Desktop, Mobile, all
-}
-
-enum SubPlatform {
-    Android, IOS, all
-}
 
 enum TrackType {
     View, Event, Email
@@ -18,16 +14,14 @@ enum TrackType {
 class TrackDefinition {
 
     def String path = ""
-    def Platform platform;
-    def SubPlatform subPlatform;
+    def String platform;
     def Map<String,TrackDefinitionProperty> properties = [:];
     def TrackType type;
 
     def TrackDefinition(String path, TrackType type = TrackType.View,
-                        Platform platform = Platform.all, SubPlatform subPlatform = SubPlatform.all) {
+                        String platform = "/") {
         this.path = path;
         this.platform = platform;
-        this.subPlatform = subPlatform;
         this.type = type;
     }
 
@@ -106,19 +100,4 @@ class TrackDefinition {
     }
 }
 
-class TrackValidationResponse {
 
-    boolean status = true
-    ArrayList<String> menssages
-
-    def TrackValidationResponse(){
-        menssages = new ArrayList<String>()
-    }
-
-    def addValidation(boolean status, String message){
-        // if all the status are true -> the result is true!
-        // if one is false -> the result es false :(
-        this.status = this.status && status
-        this.menssages.push(message)
-    }
-}

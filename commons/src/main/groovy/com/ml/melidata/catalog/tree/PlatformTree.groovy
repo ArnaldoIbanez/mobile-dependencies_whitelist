@@ -1,6 +1,7 @@
 package com.ml.melidata.catalog.tree
 
 import com.ml.melidata.catalog.TrackDefinition
+import com.ml.melidata.catalog.exceptions.CatalogException
 
 /**
  * Created by geisbruch on 11/11/14.
@@ -27,7 +28,11 @@ class PlatformTree extends TreeNode<CatalogTree> {
     }
 
     def getTrackDefinition(String path) {
-        platformTree.getNodeByPath(path).getNodeData();
+        def catalogNode = platformTree.getNodeByPath(path);
+        if(!catalogNode) {
+            throw  new CatalogException("Track definition ${path} not found in catalog")
+        }
+        return catalogNode.getNodeData();
     }
 
     def CatalogTree getNodeData(){

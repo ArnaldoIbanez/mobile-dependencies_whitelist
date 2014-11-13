@@ -1,6 +1,6 @@
 package com.melidata.catalog.test
 
-import com.ml.melidata.catalog.Platform
+
 import com.ml.melidata.catalog.Track
 import com.ml.melidata.catalog.TrackDefinition
 import com.ml.melidata.catalog.TrackDefinitionProperty
@@ -174,8 +174,7 @@ class DefinitionTest {
     @Test void shouldCreateTrackView(){
 
         // solo para probar variantes creacionales
-        def track = Track.createTrack("/search", TrackType.View, Platform.Mobile)
-                .addProperties(["platform":"mobile"])
+        def track = Track.createTrack("/search", TrackType.View, "/mobile")
 
         assertTrue(track.trackType.equals(TrackType.View))
     }

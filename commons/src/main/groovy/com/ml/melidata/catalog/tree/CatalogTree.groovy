@@ -23,7 +23,7 @@ class CatalogTree extends TreeNode<TrackDefinition> {
             originalDefinition = data
         }
 
-        TrackDefinition newDefinition = new TrackDefinition(data.path, data.type, data.platform, data.subPlatform);
+        TrackDefinition newDefinition = new TrackDefinition(data.path, data.type, data.platform);
         parents.each { p ->
             def nodeData = p.getNodeData()
             if (nodeData)
