@@ -17,20 +17,23 @@ class CatalogTree extends TreeNode<TrackDefinition> {
 
     @Override
     def setNodeData(TrackDefinition data, List<TreeNode<TrackDefinition>> parents, Boolean override) {
-        //Check for override or merge
-        if (!override && originalDefinition) {
-            //Keep original data
-            data.properties.putAll(originalDefinition.properties);
+        //Check for override
+        if (override) {
+            //If override original data is removed
             originalDefinition = data
         }
-        originalDefinition = data;
+
         TrackDefinition newDefinition = new TrackDefinition(data.path, data.type, data.platform, data.subPlatform);
         parents.each { p ->
             def nodeData = p.getNodeData()
             if (nodeData)
                 newDefinition.properties.putAll(nodeData.properties)
         }
-        newDefinition.properties.putAll(originalDefinition.properties)
+        newDefinition.properties.putAll(data.properties)
+        //If original definition is set
+        if(originalDefinition) {
+            newDefinition.properties.putAll(originalDefinition.properties)
+        }
         definition = newDefinition;
         fireDataChange();
 
