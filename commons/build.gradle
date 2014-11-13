@@ -10,3 +10,9 @@ dependencies {
         testCompile 'junit:junit:4.+'
     testCompile 'org.assertj:assertj-core:1.7.0'
 }
+
+test {
+  afterTest { desc, result -> 
+    println "Executing test ${desc.name} [${desc.className}] with result: ${result.resultType}"
+  }
+}
