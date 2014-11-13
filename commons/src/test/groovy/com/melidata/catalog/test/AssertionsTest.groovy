@@ -9,11 +9,12 @@ import org.junit.Test
  */
 class AssertionsTest {
 
-
+/*
+TODO: DO
     @Test
     public void shouldTrackAssertFireError(){
         assertThat("/Users/apetalas/search.json");
     }
-
+*/
 
 }
