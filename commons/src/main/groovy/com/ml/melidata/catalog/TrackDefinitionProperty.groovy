@@ -7,11 +7,13 @@ enum PropertyType {
     String, Numeric, Timestamp
 }
 class TrackDefinitionProperty {
+
     def String name;
     def String description;
     def PropertyType type = PropertyType.String;
     def Boolean required = false;
     def ArrayList<String> values
+    def ArrayList<Validator> validators
 
     boolean equals(o) {
         if (this.is(o)) return true
@@ -33,5 +35,9 @@ class TrackDefinitionProperty {
         result = (name != null ? name.hashCode() : 0)
 
         return result
+    }
+
+    def validate(TrackValidationResponse response, def trackPropertyValue){
+        validators.each { v -> v.validate(response, trackPropertyValue)}
     }
 }

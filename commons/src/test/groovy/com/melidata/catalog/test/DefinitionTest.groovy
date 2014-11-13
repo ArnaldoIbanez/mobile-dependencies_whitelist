@@ -1,10 +1,13 @@
 package com.melidata.catalog.test
 
+import com.ml.melidata.catalog.CategoryValidator
 import com.ml.melidata.catalog.Platform
 import com.ml.melidata.catalog.Track
 import com.ml.melidata.catalog.TrackDefinition
 import com.ml.melidata.catalog.TrackDefinitionProperty
 import com.ml.melidata.catalog.TrackType
+import com.ml.melidata.catalog.TypeValidator
+import com.ml.melidata.catalog.ValuesValidator
 import org.junit.Test
 import static org.junit.Assert.*
 /**
@@ -86,7 +89,7 @@ class DefinitionTest {
 
         // Arrange
         def definition = new TrackDefinition("/search")
-                .addProperty(name: "layout", values:["stack", "gallery", "mosaic"], description: "client layout", required: true)
+                .addProperty(name: "layout", validators:[new ValuesValidator(["stack", "gallery", "mosaic"])], description: "client layout", required: true)
 
         // Act
         def result = definition.validateTrack(new Track(path: "/search", properties: ["layout":"gallery"]))
@@ -100,7 +103,7 @@ class DefinitionTest {
 
         // Arrange
         def definition = new TrackDefinition("/search")
-                .addProperty(name: "layout", values:["stack", "gallery", "mosaic"], description: "client layout", required: true)
+                .addProperty(name: "layout", validators:[new ValuesValidator(["stack", "gallery", "mosaic"])], description: "client layout", required: true)
 
         // Act
         def result = definition.validateTrack(new Track(path: "/search", properties: ["layout":"galeria"]))
@@ -168,6 +171,54 @@ class DefinitionTest {
         //println result.menssages
         assertEquals(result.status, true)
         assertEquals(result.menssages.size(), 0)
+
+    }
+
+    @Test void shouldValidateTrackWithTypeValidator() {
+
+        // Arrange
+        def definition = new TrackDefinition("/search")
+                .addProperty(name: "limit", description: "limit of query result", validators:[new TypeValidator(Integer)])
+
+        def result = definition.validateTrack(
+                new Track(path:"/search", properties: ["limit":50]))
+
+        // Assert
+        //println result.menssages
+        assertEquals(result.status, true)
+        assertEquals(result.menssages.size(), 0)
+
+    }
+
+    @Test void shouldFailValidateTrackWithTypeValidator() {
+
+        // Arrange
+        def definition = new TrackDefinition("/search")
+                .addProperty(name: "limit", description: "limit of query result", validators:[new TypeValidator(Integer)])
+
+        def result = definition.validateTrack(
+                new Track(path:"/search", properties: ["limit":"50"]))
+
+        // Assert
+        //println result.menssages
+        assertEquals(result.status, false)
+        assertEquals(result.menssages.size(), 1)
+
+    }
+
+    @Test void shouldFailValidateTrackWithInvalidFormatCategory() {
+
+        // Arrange
+        def definition = new TrackDefinition("/search")
+                .addProperty(name: "category", description: "category of", validators:[new CategoryValidator()])
+
+        def result = definition.validateTrack(
+                new Track(path:"/search", properties: ["category":"MARGEN1234"]))
+
+        // Assert
+        println result.menssages
+        assertEquals(result.status, false)
+        assertEquals(result.menssages.size(), 1)
 
     }
 

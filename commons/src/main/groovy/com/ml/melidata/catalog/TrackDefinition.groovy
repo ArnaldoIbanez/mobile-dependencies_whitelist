@@ -98,8 +98,12 @@ class TrackDefinition {
             if(v.required && trackValueForThisProperty == null)
                 response.addValidation(false, "Property ${key} (${v.description}) is required")
 
-            if(v.values && v.values.size() > 0 && !v.values.find{va -> va.equals(trackValueForThisProperty)})
+
+            v.validate(response, trackValueForThisProperty)
+
+            /*if(v.values && v.values.size() > 0 && !v.values.find{va -> va.equals(trackValueForThisProperty)})
                 response.addValidation(false, "Property ${key} (${v.description}) has invalid value '${trackValueForThisProperty}'. (possible values: ${v.values})")
+            */
         }
 
         return response
