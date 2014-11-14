@@ -2,9 +2,9 @@ package com.melidata.catalog.test
 
 import com.ml.melidata.catalog.CategoryValidator
 import com.ml.melidata.catalog.RegexValidator
-import com.ml.melidata.catalog.TrackValidationResponse
 import com.ml.melidata.catalog.TypeValidator
 import com.ml.melidata.catalog.ValuesValidator
+import com.ml.melidata.catalog.tree.TrackValidationResponse
 import org.junit.Test
 import static org.junit.Assert.assertEquals
 

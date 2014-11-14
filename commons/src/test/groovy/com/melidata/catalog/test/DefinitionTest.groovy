@@ -1,7 +1,9 @@
 package com.melidata.catalog.test
 
+
 import com.ml.melidata.catalog.CategoryValidator
-import com.ml.melidata.catalog.Platform
+
+
 import com.ml.melidata.catalog.Track
 import com.ml.melidata.catalog.TrackDefinition
 import com.ml.melidata.catalog.TrackDefinitionProperty
@@ -92,7 +94,7 @@ class DefinitionTest {
                 .addProperty(name: "layout", validators:[new ValuesValidator(["stack", "gallery", "mosaic"])], description: "client layout", required: true)
 
         // Act
-        def result = definition.validateTrack(new Track(path: "/search", properties: ["layout":"gallery"]))
+        def result = definition.validate(new Track(path: "/search", properties: ["layout":"gallery"]))
 
         // Assert
         assertTrue(result.status)
@@ -106,7 +108,7 @@ class DefinitionTest {
                 .addProperty(name: "layout", validators:[new ValuesValidator(["stack", "gallery", "mosaic"])], description: "client layout", required: true)
 
         // Act
-        def result = definition.validateTrack(new Track(path: "/search", properties: ["layout":"galeria"]))
+        def result = definition.validate(new Track(path: "/search", properties: ["layout":"galeria"]))
 
         // Assert
         assertEquals(result.status, false)
@@ -122,7 +124,7 @@ class DefinitionTest {
                 .addProperty(name: "query", description: "query params", required: false)
 
         // Act
-        def result = definition.validateTrack(new Track(path:"/search", properties:["platform":"mobile"]))
+        def result = definition.validate(new Track(path:"/search", properties:["platform":"mobile"]))
 
         // Assert
         assertEquals(result.status, true)
@@ -138,7 +140,7 @@ class DefinitionTest {
                 .addProperty(name: "query", description: "query params", required: true)
 
         // Act
-        def result = definition.validateTrack(new Track(path:"/search", properties:["platform":"mobile"]))
+        def result = definition.validate(new Track(path:"/search", properties:["platform":"mobile"]))
 
         // Assert
         assertEquals(result.status, false)
@@ -164,7 +166,7 @@ class DefinitionTest {
             "custom":{},
             "total_results":1230
         }*/
-        def result = definition.validateTrack(
+        def result = definition.validate(
                 new Track(path:"/search", properties: ["limit":50,"offset":0,"query":"ipod","total_result":1230]))
 
         // Assert
@@ -180,7 +182,7 @@ class DefinitionTest {
         def definition = new TrackDefinition("/search")
                 .addProperty(name: "limit", description: "limit of query result", validators:[new TypeValidator(Integer)])
 
-        def result = definition.validateTrack(
+        def result = definition.validate(
                 new Track(path:"/search", properties: ["limit":50]))
 
         // Assert
@@ -196,7 +198,7 @@ class DefinitionTest {
         def definition = new TrackDefinition("/search")
                 .addProperty(name: "limit", description: "limit of query result", validators:[new TypeValidator(Integer)])
 
-        def result = definition.validateTrack(
+        def result = definition.validate(
                 new Track(path:"/search", properties: ["limit":"50"]))
 
         // Assert
@@ -212,7 +214,7 @@ class DefinitionTest {
         def definition = new TrackDefinition("/search")
                 .addProperty(name: "category", description: "category of", validators:[new CategoryValidator()])
 
-        def result = definition.validateTrack(
+        def result = definition.validate(
                 new Track(path:"/search", properties: ["category":"MARGEN1234"]))
 
         // Assert
@@ -225,8 +227,7 @@ class DefinitionTest {
     @Test void shouldCreateTrackView(){
 
         // solo para probar variantes creacionales
-        def track = Track.createTrack("/search", TrackType.View, Platform.Mobile)
-                .addProperties(["platform":"mobile"])
+        def track = Track.createTrack("/search", TrackType.View, "/mobile")
 
         assertTrue(track.trackType.equals(TrackType.View))
     }

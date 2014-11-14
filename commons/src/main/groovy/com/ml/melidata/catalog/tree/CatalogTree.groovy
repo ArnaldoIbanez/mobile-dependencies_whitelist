@@ -7,9 +7,9 @@ import com.ml.melidata.catalog.TrackDefinition
  */
 class CatalogTree extends TreeNode<TrackDefinition> {
 
-    def TrackDefinition originalDefinition;
-
     def TrackDefinition definition;
+
+    def TrackDefinition basicDefinition;
 
     CatalogTree(String path) {
         super(path)
@@ -17,23 +17,30 @@ class CatalogTree extends TreeNode<TrackDefinition> {
 
     @Override
     def setNodeData(TrackDefinition data, List<TreeNode<TrackDefinition>> parents, Boolean override) {
-        //Check for override
-        if (override) {
-            //If override original data is removed
-            originalDefinition = data
+
+        if(override) {
+            basicDefinition = data;
         }
 
-        TrackDefinition newDefinition = new TrackDefinition(data.path, data.type, data.platform, data.subPlatform);
+        TrackDefinition newDefinition = new TrackDefinition(data.path, data.type, data.platform);
+
+        /**
+         * If definition is already set, the new definition starts at least with
+         * the actual content
+         */
+        if(definition)
+            newDefinition.properties.putAll(definition.properties)
+
         parents.each { p ->
             def nodeData = p.getNodeData()
             if (nodeData)
                 newDefinition.properties.putAll(nodeData.properties)
         }
         newDefinition.properties.putAll(data.properties)
-        //If original definition is set
-        if(originalDefinition) {
-            newDefinition.properties.putAll(originalDefinition.properties)
-        }
+
+        if(basicDefinition)
+            newDefinition.properties.putAll(basicDefinition.properties)
+
         definition = newDefinition;
         fireDataChange();
 

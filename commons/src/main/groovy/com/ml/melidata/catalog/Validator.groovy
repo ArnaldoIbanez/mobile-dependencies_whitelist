@@ -1,5 +1,7 @@
 package com.ml.melidata.catalog
 
+import com.ml.melidata.catalog.tree.TrackValidationResponse
+
 /**
  * Created by apetalas on 13/11/14.
  */
