@@ -1,9 +1,9 @@
 package com.melidata.catalog.test
 
+import com.ml.melidata.catalog.CategoryValidator
 import com.ml.melidata.catalog.PropertyType
 import com.ml.melidata.catalog.Track
 
-import static com.ml.melidata.catalog.parsers.dsl.UtilDsl.utils
 import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.catalog
 import org.junit.Test
 import static org.junit.Assert.*
@@ -14,19 +14,7 @@ import static org.junit.Assert.*
  */
 public class DslTest {
 
-    @Test void shouldCreateEnumForPlatforms(){
 
-
-
-        utils {
-            platform "mobile", default:true
-            platform "mobile/ios"
-            platform "mobile/android"
-
-            eventType "view", default: true
-            eventType "action"
-        }
-    }
 
     @Test void platformsTest() {
         def j = catalog {
@@ -44,12 +32,15 @@ public class DslTest {
             tracks {
                 "/search"(platform: "/") {
                     limit(description:"amount of search items returned")
-                    offset(type: PropertyType.Numeric, values: [1, 2, 3, 4])
+                    offset(type: PropertyType.Numeric, values: [1, 2, 3, 4], validators:[new CategoryValidator()])
                 }
             }
         }
-        Track t =  new Track(path:"/search", properties: ["limit":50,"offset":1])
-        print(j.validate(t))
+        Track t =  new Track(path:"/search", properties: ["limit":50,"offset":0])
+
+        def result = j.validate(t)
+        assertNotNull(result)
+        assertFalse(result.status)
     }
 
     @Test void shouldCreateATrackFromTrackDSL(){

@@ -19,8 +19,16 @@ class TrackDefinitionProperty {
     def ArrayList<Validator> validators
 
     public TrackDefinitionProperty(Map map) {
+        this.validators = new ArrayList<Validator>()
         map?.each { k, v ->
-            this[k] = v
+            if(k=="type")
+                this.validators.add(new TypeValidator(v))
+            else if(k=="values")
+                this.validators.add(new ValuesValidator(v))
+            else if(k=="validators")
+                v.each {this.validators.add(it)}
+            else
+                this[k] = v
         }
     }
 
