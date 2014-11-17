@@ -10,10 +10,14 @@ class Track {
     def String platform = "/"
 
 
-    def Track(path, trackType = TrackType.View, platform = "/"){
+    def Track(String path, trackType = TrackType.View, platform = "/"){
         this.path = path
         this.trackType = trackType
         this.platform = platform
+    }
+
+    public Track(Map map) {
+        map?.each { k, v -> this[k] = v }
     }
 
 
