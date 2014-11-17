@@ -25,6 +25,10 @@ class TrackDefinition {
         this.type = type;
     }
 
+    public TrackDefinition(Map map) {
+        map?.each { k, v -> this[k] = v }
+    }
+
 
     def addProperty(TrackDefinitionProperty p) {
         this.properties.put(p.name, p);

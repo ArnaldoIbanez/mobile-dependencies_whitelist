@@ -5,6 +5,6 @@ package com.ml.melidata.catalog.exceptions
  */
 class CatalogException extends Exception{
     def CatalogException(String msg) {
-        super(msg);
+        super(msg)
     }
 }

@@ -154,17 +154,47 @@ class CatalogTest {
         validationResponse = c.validate(t);
         assertTrue(validationResponse.status)
     }
-/*
-    @Test void shouldKeepIfPathIsOutOfOrder() {
-        fail()
-    }
 
-    @Test void shouldValidateOnCatalog() {
-        fail()
-    }
+    @Test void shouldUseTreeHierarchyInAllPlatforms() {
 
-    @Test void shouldValidateOnCatalogCheckingPlatformSubTree() {
-        fail()
+        Catalog c = getDefaultEmptyCatalog()
+        c.addTrackDefinition(new TrackDefinition("/search")
+                .addProperty(new TrackDefinitionProperty(name:"category", description: "category", required: true))
+                .addProperty(new TrackDefinitionProperty(name:"query", description: "query", required: true)));
+
+        c.addTrackDefinition(new TrackDefinition("/search/refine")
+                .addProperty(new TrackDefinitionProperty(name:"filter", description: "filter", required: true)));
+        c.addTrackDefinition(new TrackDefinition("/search/refine/filter")
+                .addProperty(new TrackDefinitionProperty(name:"selection", description: "selection", required: true)));
+
+
+
+        Track t = Track.createTrack("/search/refine/filter",TrackType.View,"/desktop");
+        t.properties["query"] = "q"
+        t.properties["category"] = "c"
+        def validationResponse = c.validate(t);
+        assertFalse(validationResponse.status)
+        t.properties["filter"] = "test"
+        validationResponse = c.validate(t);
+        assertFalse(validationResponse.status)
+        t.properties["selection"] = "test"
+        validationResponse = c.validate(t);
+        assertTrue(validationResponse.status)
+
+        t = Track.createTrack("/search/refine/filter",TrackType.View,"/mobile");
+        t.properties["query"] = "q"
+        t.properties["category"] = "c"
+        t.properties["filter"] = "test"
+        t.properties["selection"] = "test"
+        validationResponse = c.validate(t);
+        assertTrue(validationResponse.status)
+
+        t = Track.createTrack("/search/refine/filter",TrackType.View,"/mobile/android");
+        t.properties["query"] = "q"
+        t.properties["category"] = "c"
+        t.properties["filter"] = "test"
+        t.properties["selection"] = "test"
+        validationResponse = c.validate(t);
+        assertTrue(validationResponse.status)
     }
-*/
 }

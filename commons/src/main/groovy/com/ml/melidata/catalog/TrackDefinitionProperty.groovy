@@ -18,6 +18,12 @@ class TrackDefinitionProperty {
     def ArrayList<String> values
     def ArrayList<Validator> validators
 
+    public TrackDefinitionProperty(Map map) {
+        map?.each { k, v ->
+            this[k] = v
+        }
+    }
+
     boolean equals(o) {
         if (this.is(o)) return true
         if (getClass() != o.class) return false

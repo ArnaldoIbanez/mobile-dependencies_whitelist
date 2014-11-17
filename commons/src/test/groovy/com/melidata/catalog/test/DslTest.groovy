@@ -1,9 +1,12 @@
 package com.melidata.catalog.test
 
+import com.ml.melidata.catalog.PropertyType
+import com.ml.melidata.catalog.Track
+import com.ml.melidata.catalog.dsl.Platforms
 import org.junit.Assert
 
 import static com.ml.melidata.catalog.dsl.UtilDsl.utils
-import static com.ml.melidata.catalog.dsl.TracksDsl.tracks
+import static com.ml.melidata.catalog.dsl.CatalogDsl.catalog
 import org.junit.Test
 import static org.junit.Assert.*
 
@@ -15,6 +18,8 @@ public class DslTest {
 
     @Test void shouldCreateEnumForPlatforms(){
 
+
+
         utils {
             platform "mobile", default:true
             platform "mobile/ios"
@@ -25,25 +30,36 @@ public class DslTest {
         }
     }
 
-    @Test void shouldCreateATrackFromTrackDSL(){
+    @Test void platformsTest() {
+        def j = catalog {
 
-        def tracksCreated = tracks {
-            "/search" (platform:"mobile") {
-                layout (
-                        type: int,
-                        values: [1,2,4]
-                )
-                query (
-                        type:String
-                )
-            }
+            platforms = [
+                    "/mobile",
+                    "/pepito"
+            ]
 
-            "/search/active" (platform: "web") {
-                query (
-                    type: String
-                )
+            business = [
+                    "mercadolibre",
+                    "tucarro"
+            ]
+
+            tracks {
+                "/search"(platform: "/") {
+                    limit()
+                    offset(type: PropertyType.Numeric, values: [1, 2, 3, 4])
+                }
             }
         }
+        Track t =  new Track(path:"/search", properties: ["limit":50,"offset":1])
+        print(j.validate(t))
+    }
+
+    @Test void shouldCreateATrackFromTrackDSL(){
+
+
+
+
+
 
         assertNotNull(tracksCreated)
         assertEquals(tracksCreated.size(), 2)
