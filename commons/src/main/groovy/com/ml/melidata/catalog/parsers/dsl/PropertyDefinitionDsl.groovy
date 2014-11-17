@@ -1,4 +1,4 @@
-package com.ml.melidata.catalog.dsl
+package com.ml.melidata.catalog.parsers.dsl
 
 import com.ml.melidata.catalog.TrackDefinitionProperty
 

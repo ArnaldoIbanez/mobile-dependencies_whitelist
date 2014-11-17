@@ -2,11 +2,9 @@ package com.melidata.catalog.test
 
 import com.ml.melidata.catalog.PropertyType
 import com.ml.melidata.catalog.Track
-import com.ml.melidata.catalog.dsl.Platforms
-import org.junit.Assert
 
-import static com.ml.melidata.catalog.dsl.UtilDsl.utils
-import static com.ml.melidata.catalog.dsl.CatalogDsl.catalog
+import static com.ml.melidata.catalog.parsers.dsl.UtilDsl.utils
+import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.catalog
 import org.junit.Test
 import static org.junit.Assert.*
 
@@ -45,7 +43,7 @@ public class DslTest {
 
             tracks {
                 "/search"(platform: "/") {
-                    limit()
+                    limit(description:"amount of search items returned")
                     offset(type: PropertyType.Numeric, values: [1, 2, 3, 4])
                 }
             }
