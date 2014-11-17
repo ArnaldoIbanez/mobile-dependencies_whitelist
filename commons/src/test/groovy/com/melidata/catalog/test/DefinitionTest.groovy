@@ -227,7 +227,7 @@ class DefinitionTest {
     @Test void shouldCreateTrackView(){
 
         // solo para probar variantes creacionales
-        def track = Track.createTrack("/search", TrackType.View, "/mobile")
+        def track = new Track("/search", TrackType.View, "/mobile")
 
         assertTrue(track.trackType.equals(TrackType.View))
     }

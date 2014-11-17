@@ -32,7 +32,7 @@ class CatalogTest {
                 .addProperty(new TrackDefinitionProperty(name:"query", description: "query", required: true)));
 
 
-        Track t = Track.createTrack("/search",TrackType.View,"/mobile");
+        Track t = new Track("/search",TrackType.View,"/mobile");
         TrackValidationResponse validationResponse = c.validate(t);
         assertFalse(validationResponse.status)
         t.properties["query"] = "q"
@@ -56,7 +56,7 @@ class CatalogTest {
          * Test that all properties on /search should be in /search/refine + their own properties, but
          * properties of /search/refine for ios are not present
          */
-        Track t = Track.createTrack("/search/refine",TrackType.View,"/mobile");
+        Track t = new Track("/search/refine",TrackType.View,"/mobile");
         TrackValidationResponse validationResponse = c.validate(t);
         assertFalse(validationResponse.status)
         t.properties["query"] = "q"
@@ -82,7 +82,7 @@ class CatalogTest {
                 .addProperty(new TrackDefinitionProperty(name:"position", description: "position", required: true)));
 
 
-        Track t = Track.createTrack("/search/refine",TrackType.View,"/mobile/ios");
+        Track t = new  Track("/search/refine",TrackType.View,"/mobile/ios");
         t.properties["query"] = "q"
         t.properties["category"] = "c"
         t.properties["filter"] = "c"
@@ -104,7 +104,7 @@ class CatalogTest {
         c.addTrackDefinition(new TrackDefinition("/search/refine")
                 .addProperty(new TrackDefinitionProperty(name:"filter", description: "filter", required: true)));
 
-        Track t = Track.createTrack("/search/refine",TrackType.View,"/mobile/ios");
+        Track t = new Track("/search/refine",TrackType.View,"/mobile/ios");
         t.properties["query"] = "q"
         t.properties["category"] = "c"
         t.properties["filter"] = "c"
@@ -130,13 +130,13 @@ class CatalogTest {
                 .addProperty(new TrackDefinitionProperty(name:"filter", description: "filter", required: true)));
 
 
-        Track t = Track.createTrack("/search/refine",TrackType.View,"/mobile/ios");
+        Track t = new Track("/search/refine",TrackType.View,"/mobile/ios");
         t.properties["query"] = "q"
         t.properties["category"] = "c"
         def validationResponse = c.validate(t);
         assertTrue(validationResponse.status)
 
-        t = Track.createTrack("/search/refine",TrackType.View,"/mobile");
+        t = new Track("/search/refine",TrackType.View,"/mobile");
         t.properties["query"] = "q"
         t.properties["category"] = "c"
         validationResponse = c.validate(t);
@@ -145,7 +145,7 @@ class CatalogTest {
         validationResponse = c.validate(t);
         assertTrue(validationResponse.status)
 
-        t = Track.createTrack("/search/refine",TrackType.View,"/desktop");
+        t = new Track("/search/refine",TrackType.View,"/desktop");
         t.properties["query"] = "q"
         t.properties["category"] = "c"
         validationResponse = c.validate(t);
@@ -169,7 +169,7 @@ class CatalogTest {
 
 
 
-        Track t = Track.createTrack("/search/refine/filter",TrackType.View,"/desktop");
+        Track t = new Track("/search/refine/filter",TrackType.View,"/desktop");
         t.properties["query"] = "q"
         t.properties["category"] = "c"
         def validationResponse = c.validate(t);
@@ -181,7 +181,7 @@ class CatalogTest {
         validationResponse = c.validate(t);
         assertTrue(validationResponse.status)
 
-        t = Track.createTrack("/search/refine/filter",TrackType.View,"/mobile");
+        t = new Track("/search/refine/filter",TrackType.View,"/mobile");
         t.properties["query"] = "q"
         t.properties["category"] = "c"
         t.properties["filter"] = "test"
@@ -189,7 +189,7 @@ class CatalogTest {
         validationResponse = c.validate(t);
         assertTrue(validationResponse.status)
 
-        t = Track.createTrack("/search/refine/filter",TrackType.View,"/mobile/android");
+        t = new Track("/search/refine/filter",TrackType.View,"/mobile/android");
         t.properties["query"] = "q"
         t.properties["category"] = "c"
         t.properties["filter"] = "test"

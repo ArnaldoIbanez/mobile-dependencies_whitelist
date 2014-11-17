@@ -5,14 +5,22 @@ package com.ml.melidata.catalog
 class Track {
 
     def path = "";
-    def properties = [:]
+    def Map<String, TrackDefinitionProperty> properties = [:]
     def TrackType trackType = TrackType.View
     def String platform = "/"
 
 
-    // tiene sentido hacer un create method por convinacion type and platform?? depende: que tanto puede crecer?
-    public static Track createTrack(String path, TrackType type, String platform){
-        return new Track(path:path, trackType: type, platform: platform)
+    def Track(path, trackType = TrackType.View, platform = "/"){
+        this.path = path
+        this.trackType = trackType
+        this.platform = platform
+    }
+
+
+
+    def addProperty(key, value){
+        this.properties.put(key, value)
+        return this
     }
 
     def addProperties(Object[] args){
