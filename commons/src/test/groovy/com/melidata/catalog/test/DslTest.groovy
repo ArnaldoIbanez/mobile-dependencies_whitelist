@@ -35,7 +35,7 @@ public class DslTest {
             }
         }
         Track t =  new Track(path:"/search", properties: ["limit":50,"offset":1])
-        assertTrue(j.validate(t))
+        assertTrue(j.validate(t).status)
     }
 
 
