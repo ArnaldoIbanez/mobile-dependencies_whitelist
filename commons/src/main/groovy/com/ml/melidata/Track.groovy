@@ -14,9 +14,6 @@ class Track {
     def id
     def timestamp
     def path = "";
-    def user
-    def device
-    def application
     def event_data = [:]
     def TrackType type = TrackType.View
     def String platform = "/"
