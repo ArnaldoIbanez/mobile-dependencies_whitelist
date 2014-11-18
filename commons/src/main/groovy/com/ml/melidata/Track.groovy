@@ -32,15 +32,9 @@ class Track {
         map?.each { k, v -> this[k] = v }
     }
 
-
-
     def addProperty(key, value){
         this.event_data.put(key, value)
         return this
     }
 
-    def addProperties(Object[] args){
-        this.event_data.putAll(args[0])
-        return this
-    }
 }

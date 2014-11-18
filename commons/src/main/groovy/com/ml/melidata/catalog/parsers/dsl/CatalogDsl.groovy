@@ -42,9 +42,5 @@ class CatalogDsl {
             catalog.addPlatform(p)
         }
     }
-
-    def methodMissing(method, args) {
-        printf(method)
-    }
-
+    
 }
