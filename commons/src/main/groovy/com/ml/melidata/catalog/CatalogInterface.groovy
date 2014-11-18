@@ -1,5 +1,7 @@
 package com.ml.melidata.catalog
 
+import com.ml.melidata.Track
+
 /**
  * Created by geisbruch on 11/11/14.
  */

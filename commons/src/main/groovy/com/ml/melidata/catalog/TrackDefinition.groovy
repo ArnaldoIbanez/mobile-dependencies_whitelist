@@ -1,5 +1,7 @@
 package com.ml.melidata.catalog
 
+import com.ml.melidata.Track
+import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.tree.TrackValidationResponse
 
 /**
@@ -7,9 +9,7 @@ import com.ml.melidata.catalog.tree.TrackValidationResponse
  */
 
 
-enum TrackType {
-    View, Event, Email
-}
+
 
 class TrackDefinition {
 
@@ -46,22 +46,22 @@ class TrackDefinition {
 
 
     /**
-     * Validate the track properties for track parameter
+     * Validate the track event_data for track parameter
      * no validate the type, platform and path because that catalogs responsibility
      * */
     def TrackValidationResponse validate(Track t) {
         def response = new TrackValidationResponse()
 
-        // are all the track's properties in my definition?:
-        t.properties.each { property, value ->
+        // are all the track's event_data in my definition?:
+        t.event_data.each { property, value ->
             if(!properties.get(property))
                 response.addValidation(false, "Property ${property} is not cataloged")
         }
 
-        // someone of my required properties miss? and what about the valid values?:
+        // someone of my required event_data miss? and what about the valid values?:
         properties.each { key , v ->
 
-            def trackValueForThisProperty = t.properties.get(v.name)
+            def trackValueForThisProperty = t.event_data.get(v.name)
             if(v.required && trackValueForThisProperty == null)
                 response.addValidation(false, "Property ${key} (${v.description}) is required")
 

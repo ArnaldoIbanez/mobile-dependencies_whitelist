@@ -1,5 +1,6 @@
 package com.ml.melidata.catalog
 
+import com.ml.melidata.Track
 import com.ml.melidata.catalog.exceptions.CatalogException
 import com.ml.melidata.catalog.tree.CatalogTree
 import com.ml.melidata.catalog.tree.PlatformTree

@@ -1,10 +1,10 @@
 package com.melidata.catalog.test
 
+import com.ml.melidata.Track
+import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.Catalog
-import com.ml.melidata.catalog.Track
 import com.ml.melidata.catalog.TrackDefinition
 import com.ml.melidata.catalog.TrackDefinitionProperty
-import com.ml.melidata.catalog.TrackType
 import com.ml.melidata.catalog.tree.TrackValidationResponse
 import org.junit.Test
 import static org.junit.Assert.*
@@ -35,10 +35,10 @@ class CatalogTest {
         Track t = new Track("/search",TrackType.View,"/mobile");
         TrackValidationResponse validationResponse = c.validate(t);
         assertFalse(validationResponse.status)
-        t.properties["query"] = "q"
+        t.event_data["query"] = "q"
         validationResponse = c.validate(t);
         assertFalse(validationResponse.status)
-        t.properties["category"] = "c"
+        t.event_data["category"] = "c"
         validationResponse = c.validate(t);
         assertTrue(validationResponse.status)
     }
@@ -53,20 +53,20 @@ class CatalogTest {
         c.addTrackDefinition(new TrackDefinition("/search/refine",TrackType.View, "/mobile/ios")
                 .addProperty(new TrackDefinitionProperty(name:"position", description: "position", required: true)));
         /**
-         * Test that all properties on /search should be in /search/refine + their own properties, but
-         * properties of /search/refine for ios are not present
+         * Test that all event_data on /search should be in /search/refine + their own event_data, but
+         * event_data of /search/refine for ios are not present
          */
         Track t = new Track("/search/refine",TrackType.View,"/mobile");
         TrackValidationResponse validationResponse = c.validate(t);
         assertFalse(validationResponse.status)
-        t.properties["query"] = "q"
-        t.properties["category"] = "c"
+        t.event_data["query"] = "q"
+        t.event_data["category"] = "c"
         validationResponse = c.validate(t);
         assertFalse(validationResponse.status)
-        t.properties["filter"] = "c"
+        t.event_data["filter"] = "c"
         validationResponse = c.validate(t);
         assertTrue(validationResponse.status)
-        t.properties["position"] = "c"
+        t.event_data["position"] = "c"
         validationResponse = c.validate(t);
         assertFalse(validationResponse.status)
     }
@@ -83,12 +83,12 @@ class CatalogTest {
 
 
         Track t = new  Track("/search/refine",TrackType.View,"/mobile/ios");
-        t.properties["query"] = "q"
-        t.properties["category"] = "c"
-        t.properties["filter"] = "c"
+        t.event_data["query"] = "q"
+        t.event_data["category"] = "c"
+        t.event_data["filter"] = "c"
         def validationResponse = c.validate(t);
         assertFalse(validationResponse.status)
-        t.properties["position"] = "c"
+        t.event_data["position"] = "c"
         validationResponse = c.validate(t);
         assertTrue(validationResponse.status)
 
@@ -105,12 +105,12 @@ class CatalogTest {
                 .addProperty(new TrackDefinitionProperty(name:"filter", description: "filter", required: true)));
 
         Track t = new Track("/search/refine",TrackType.View,"/mobile/ios");
-        t.properties["query"] = "q"
-        t.properties["category"] = "c"
-        t.properties["filter"] = "c"
+        t.event_data["query"] = "q"
+        t.event_data["category"] = "c"
+        t.event_data["filter"] = "c"
         def validationResponse = c.validate(t);
         assertFalse(validationResponse.status)
-        t.properties["position"] = "c"
+        t.event_data["position"] = "c"
         validationResponse = c.validate(t);
         assertTrue(validationResponse.status)
 
@@ -131,26 +131,26 @@ class CatalogTest {
 
 
         Track t = new Track("/search/refine",TrackType.View,"/mobile/ios");
-        t.properties["query"] = "q"
-        t.properties["category"] = "c"
+        t.event_data["query"] = "q"
+        t.event_data["category"] = "c"
         def validationResponse = c.validate(t);
         assertTrue(validationResponse.status)
 
         t = new Track("/search/refine",TrackType.View,"/mobile");
-        t.properties["query"] = "q"
-        t.properties["category"] = "c"
+        t.event_data["query"] = "q"
+        t.event_data["category"] = "c"
         validationResponse = c.validate(t);
         assertFalse(validationResponse.status)
-        t.properties["filter"] = "c"
+        t.event_data["filter"] = "c"
         validationResponse = c.validate(t);
         assertTrue(validationResponse.status)
 
         t = new Track("/search/refine",TrackType.View,"/desktop");
-        t.properties["query"] = "q"
-        t.properties["category"] = "c"
+        t.event_data["query"] = "q"
+        t.event_data["category"] = "c"
         validationResponse = c.validate(t);
         assertFalse(validationResponse.status)
-        t.properties["filter"] = "c"
+        t.event_data["filter"] = "c"
         validationResponse = c.validate(t);
         assertTrue(validationResponse.status)
     }
@@ -170,30 +170,30 @@ class CatalogTest {
 
 
         Track t = new Track("/search/refine/filter",TrackType.View,"/desktop");
-        t.properties["query"] = "q"
-        t.properties["category"] = "c"
+        t.event_data["query"] = "q"
+        t.event_data["category"] = "c"
         def validationResponse = c.validate(t);
         assertFalse(validationResponse.status)
-        t.properties["filter"] = "test"
+        t.event_data["filter"] = "test"
         validationResponse = c.validate(t);
         assertFalse(validationResponse.status)
-        t.properties["selection"] = "test"
+        t.event_data["selection"] = "test"
         validationResponse = c.validate(t);
         assertTrue(validationResponse.status)
 
         t = new Track("/search/refine/filter",TrackType.View,"/mobile");
-        t.properties["query"] = "q"
-        t.properties["category"] = "c"
-        t.properties["filter"] = "test"
-        t.properties["selection"] = "test"
+        t.event_data["query"] = "q"
+        t.event_data["category"] = "c"
+        t.event_data["filter"] = "test"
+        t.event_data["selection"] = "test"
         validationResponse = c.validate(t);
         assertTrue(validationResponse.status)
 
         t = new Track("/search/refine/filter",TrackType.View,"/mobile/android");
-        t.properties["query"] = "q"
-        t.properties["category"] = "c"
-        t.properties["filter"] = "test"
-        t.properties["selection"] = "test"
+        t.event_data["query"] = "q"
+        t.event_data["category"] = "c"
+        t.event_data["filter"] = "test"
+        t.event_data["selection"] = "test"
         validationResponse = c.validate(t);
         assertTrue(validationResponse.status)
     }

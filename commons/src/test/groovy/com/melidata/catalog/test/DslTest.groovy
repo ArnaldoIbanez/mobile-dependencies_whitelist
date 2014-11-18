@@ -1,7 +1,8 @@
 package com.melidata.catalog.test
 
+import com.ml.melidata.Track
 import com.ml.melidata.catalog.PropertyType
-import com.ml.melidata.catalog.Track
+
 
 
 import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.catalog
@@ -19,7 +20,7 @@ public class DslTest {
 
             platforms = [
                     "/mobile",
-                    "/pepito"
+                    "/mobile/ios"
             ]
 
             business = [
@@ -32,9 +33,15 @@ public class DslTest {
                     limit(description:"amount of search items returned")
                     offset(type: PropertyType.Numeric, values: [1, 2, 3, 4])
                 }
+                "/search"(platform: "/mobile") {
+                    position(values: ["horizonal","landscape"])
+                }
+                "/search/refine"(platform: "/") {
+
+                }
             }
         }
-        Track t =  new Track(path:"/search", properties: ["limit":50,"offset":1])
+        Track t =  new Track(path:"/search", event_data: ["limit":50,"offset":1])
         assertTrue(j.validate(t).status)
     }
 

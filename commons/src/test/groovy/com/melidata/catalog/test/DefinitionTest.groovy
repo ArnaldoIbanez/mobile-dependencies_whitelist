@@ -1,13 +1,12 @@
 package com.melidata.catalog.test
 
-
+import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.CategoryValidator
 
 
-import com.ml.melidata.catalog.Track
+import com.ml.melidata.Track
 import com.ml.melidata.catalog.TrackDefinition
 import com.ml.melidata.catalog.TrackDefinitionProperty
-import com.ml.melidata.catalog.TrackType
 import com.ml.melidata.catalog.TypeValidator
 import com.ml.melidata.catalog.ValuesValidator
 import org.junit.Test
@@ -94,7 +93,7 @@ class DefinitionTest {
                 .addProperty(name: "layout", validators:[new ValuesValidator(["stack", "gallery", "mosaic"])], description: "client layout", required: true)
 
         // Act
-        def result = definition.validate(new Track(path: "/search", properties: ["layout":"gallery"]))
+        def result = definition.validate(new Track(path: "/search", event_data: ["layout":"gallery"]))
 
         // Assert
         assertTrue(result.status)
@@ -108,7 +107,7 @@ class DefinitionTest {
                 .addProperty(name: "layout", validators:[new ValuesValidator(["stack", "gallery", "mosaic"])], description: "client layout", required: true)
 
         // Act
-        def result = definition.validate(new Track(path: "/search", properties: ["layout":"galeria"]))
+        def result = definition.validate(new Track(path: "/search", event_data: ["layout":"galeria"]))
 
         // Assert
         assertEquals(result.status, false)
@@ -124,7 +123,7 @@ class DefinitionTest {
                 .addProperty(name: "query", description: "query params", required: false)
 
         // Act
-        def result = definition.validate(new Track(path:"/search", properties:["platform":"mobile"]))
+        def result = definition.validate(new Track(path:"/search", event_data:["platform":"mobile"]))
 
         // Assert
         assertEquals(result.status, true)
@@ -140,7 +139,7 @@ class DefinitionTest {
                 .addProperty(name: "query", description: "query params", required: true)
 
         // Act
-        def result = definition.validate(new Track(path:"/search", properties:["platform":"mobile"]))
+        def result = definition.validate(new Track(path:"/search", event_data:["platform":"mobile"]))
 
         // Assert
         assertEquals(result.status, false)
@@ -167,7 +166,7 @@ class DefinitionTest {
             "total_results":1230
         }*/
         def result = definition.validate(
-                new Track(path:"/search", properties: ["limit":50,"offset":0,"query":"ipod","total_result":1230]))
+                new Track(path:"/search", event_data: ["limit":50,"offset":0,"query":"ipod","total_result":1230]))
 
         // Assert
         //println result.menssages
@@ -183,7 +182,7 @@ class DefinitionTest {
                 .addProperty(name: "limit", description: "limit of query result", validators:[new TypeValidator(Integer)])
 
         def result = definition.validate(
-                new Track(path:"/search", properties: ["limit":50]))
+                new Track(path:"/search", event_data: ["limit":50]))
 
         // Assert
         //println result.menssages
@@ -199,7 +198,7 @@ class DefinitionTest {
                 .addProperty(name: "limit", description: "limit of query result", validators:[new TypeValidator(Integer)])
 
         def result = definition.validate(
-                new Track(path:"/search", properties: ["limit":"50"]))
+                new Track(path:"/search", event_data: ["limit":"50"]))
 
         // Assert
         //println result.menssages
@@ -215,7 +214,7 @@ class DefinitionTest {
                 .addProperty(name: "category", description: "category of", validators:[new CategoryValidator()])
 
         def result = definition.validate(
-                new Track(path:"/search", properties: ["category":"MARGEN1234"]))
+                new Track(path:"/search", event_data: ["category":"MARGEN1234"]))
 
         // Assert
         println result.menssages
@@ -229,7 +228,7 @@ class DefinitionTest {
         // solo para probar variantes creacionales
         def track = new Track("/search", TrackType.View, "/mobile")
 
-        assertTrue(track.trackType.equals(TrackType.View))
+        assertTrue(track.type.equals(TrackType.View))
     }
 
 }

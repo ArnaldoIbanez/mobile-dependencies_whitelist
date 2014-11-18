@@ -1,3 +1,4 @@
+apply plugin: "jacoco"
 apply plugin: 'groovy'
 apply plugin: 'idea'
 
@@ -16,3 +17,24 @@ test {
     println "Executing test ${desc.name} [${desc.className}] with result: ${result.resultType}"
   }
 }
+
+
+jacoco {
+  toolVersion = "0.7.1.201405082137"
+  reportsDir = file("$buildDir/customJacocoReportDir")
+}
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/jacocoHtml"
+    }
+}
+
+task coverage << {
+  test
+  println "Check ${buildDir}/jacocoHtml"
+}
+coverage.shouldRunAfter test
+coverage.shouldRunAfter jacocoTestReport
+
