@@ -1,9 +1,7 @@
 package com.melidata.catalog.test
-
 import com.ml.melidata.Track
+import com.ml.melidata.catalog.CategoryValidator
 import com.ml.melidata.catalog.PropertyType
-
-
 
 import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.catalog
 import org.junit.Test
@@ -31,7 +29,7 @@ public class DslTest {
             tracks {
                 "/search"(platform: "/") {
                     limit(description:"amount of search items returned")
-                    offset(type: PropertyType.Numeric, values: [1, 2, 3, 4])
+                    offset(type: PropertyType.Numeric, values: [1, 2, 3, 4], validators:[new CategoryValidator()])
                 }
                 "/search"(platform: "/mobile") {
                     position(values: ["horizonal","landscape"])
@@ -41,8 +39,12 @@ public class DslTest {
                 }
             }
         }
+
         Track t =  new Track(path:"/search", event_data: ["limit":50,"offset":1])
         assertTrue(j.validate(t).status)
+        def result = j.validate(t)
+        assertNotNull(result)
+        assertTrue(result.status)
     }
 
 

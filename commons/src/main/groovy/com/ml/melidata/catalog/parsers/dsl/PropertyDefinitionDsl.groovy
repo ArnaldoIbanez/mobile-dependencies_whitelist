@@ -1,6 +1,8 @@
 package com.ml.melidata.catalog.parsers.dsl
 
 import com.ml.melidata.catalog.TrackDefinitionProperty
+import com.ml.melidata.catalog.TypeValidator
+import com.ml.melidata.catalog.Validator
 
 /**
  * Created by geisbruch on 11/17/14.
