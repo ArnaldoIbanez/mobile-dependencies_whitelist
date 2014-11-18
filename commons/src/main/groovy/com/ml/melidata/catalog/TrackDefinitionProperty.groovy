@@ -30,27 +30,11 @@ class TrackDefinitionProperty {
         }
     }
 
-    boolean equals(o) {
-        if (this.is(o)) return true
-        if (getClass() != o.class) return false
-
-        TrackDefinitionProperty that = (TrackDefinitionProperty) o
-
-        if (name != that.name) return false
-
-        return true
-    }
 
     def hasValue(String value){
         return this.values.find {v -> v.equals(value)} != null
     }
 
-    int hashCode() {
-        int result
-        result = (name != null ? name.hashCode() : 0)
-
-        return result
-    }
 
     def validate(TrackValidationResponse response, def trackPropertyValue){
         validators.each { v -> v.validate(response, trackPropertyValue)}

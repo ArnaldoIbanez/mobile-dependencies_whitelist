@@ -83,13 +83,13 @@ class CatalogTest {
 
 
         Track t = new  Track("/search/refine",TrackType.View,"/mobile/ios");
-        t.event_data["query"] = "q"
-        t.event_data["category"] = "c"
-        t.event_data["filter"] = "c"
-        def validationResponse = c.validate(t);
+        t.addProperty("query", "q")
+                .addProperty("category", "c")
+                .addProperty("filter", "c")
+        def validationResponse = c.validate(t)
         assertFalse(validationResponse.status)
-        t.event_data["position"] = "c"
-        validationResponse = c.validate(t);
+        t.addProperty("position", "c")
+        validationResponse = c.validate(t)
         assertTrue(validationResponse.status)
 
     }
