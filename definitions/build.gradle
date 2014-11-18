@@ -1,0 +1,48 @@
+apply plugin: "jacoco"
+apply plugin: 'groovy'
+apply plugin: 'idea'
+
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
+}
+
+repositories {
+      mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.3.7'
+    compile project(':..:commons')
+    testCompile 'junit:junit:4.+'
+    testCompile 'org.assertj:assertj-core:1.7.0'
+}
+
+test {
+  afterTest { desc, result -> 
+    println "Executing test ${desc.name} [${desc.className}] with result: ${result.resultType}"
+  }
+}
+
+
+jacoco {
+  toolVersion = "0.7.1.201405082137"
+  reportsDir = file("$buildDir/customJacocoReportDir")
+}
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/jacocoHtml"
+    }
+}
+
+task coverage(dependsOn:[":test",":jacocoTestReport"]) << {
+  println("Coverage, check: ${buildDir}/jacocoHtml")
+}
+
+
+task validateTracks << {
+}
+
