@@ -31,10 +31,6 @@ jacocoTestReport {
     }
 }
 
-task coverage << {
-  test
-  println "Check ${buildDir}/jacocoHtml"
+task coverage(dependsOn:[":test",":jacocoTestReport"]) << {
+  println("Coverage, check: ${buildDir}/jacocoHtml")
 }
-coverage.shouldRunAfter test
-coverage.shouldRunAfter jacocoTestReport
-

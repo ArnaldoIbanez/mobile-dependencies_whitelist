@@ -1,5 +1,6 @@
 package com.ml.melidata.catalog
 
+import com.ml.melidata.catalog.exceptions.CatalogException
 import com.ml.melidata.catalog.tree.TrackValidationResponse
 
 /**
@@ -15,20 +16,17 @@ class TrackDefinitionProperty {
     def String description;
     def PropertyType type = PropertyType.String;
     def Boolean required = false;
-    def ArrayList<String> values
+    def ArrayList<String> values = null
+    def String regex = null
     def ArrayList<Validator> validators
 
     public TrackDefinitionProperty(Map map) {
         this.validators = new ArrayList<Validator>()
         map?.each { k, v ->
-            if(k=="type")
-                this.validators.add(new TypeValidator(v))
-            else if(k=="values")
-                this.validators.add(new ValuesValidator(v))
-            else if(k=="validators")
-                v.each {this.validators.add(it)}
-            else
-                this[k] = v
+          this[k] = v
+        }
+        if(regex && values) {
+            throw new CatalogException("Regex and Values can't be defined together in the same property");
         }
     }
 

@@ -11,7 +11,7 @@ import static org.junit.Assert.*
 /**
  * Created by apetalas on 14/11/14.
  */
-public class DslTest {
+public class    DslTest {
 
     @Test void platformsTest() {
         def j = catalog {
@@ -29,7 +29,7 @@ public class DslTest {
             tracks {
                 "/search"(platform: "/") {
                     limit(description:"amount of search items returned")
-                    offset(type: PropertyType.Numeric, values: [1, 2, 3, 4], validators:[new CategoryValidator()])
+                    offset(type: PropertyType.Numeric, regex:".*")
                 }
                 "/search"(platform: "/mobile") {
                     position(values: ["horizonal","landscape"])
