@@ -3,6 +3,7 @@ package com.melidata.catalog.test
 import com.ml.melidata.catalog.CategoryValidator
 import com.ml.melidata.catalog.RegexValidator
 import com.ml.melidata.catalog.TypeValidator
+import com.ml.melidata.catalog.Validator
 import com.ml.melidata.catalog.ValuesValidator
 import com.ml.melidata.catalog.tree.TrackValidationResponse
 import org.junit.Test
@@ -19,7 +20,7 @@ class ValidatorTest {
 
         // Arrange
         def response = new TrackValidationResponse()
-        def validator = new ValuesValidator(["mobile", "web"])
+        def validator = Validator.CreateValuesValidator(["mobile", "web"])
 
         validator.validate(response, "webs")
 
@@ -33,7 +34,7 @@ class ValidatorTest {
 
         // Arrange
         def response = new TrackValidationResponse()
-        def validator = new ValuesValidator(["mobile", "web"])
+        def validator = Validator.CreateValuesValidator(["mobile", "web"])
 
         validator.validate(response, "web")
 
@@ -47,7 +48,7 @@ class ValidatorTest {
 
         // Arrange
         def response = new TrackValidationResponse()
-        def validator = new RegexValidator(/mob[iI]le/)
+        def validator = Validator.CreateRegexValidator(/mob[iI]le/)
 
         validator.validate(response, "mobIle")
 
@@ -61,7 +62,7 @@ class ValidatorTest {
 
         // Arrange
         def response = new TrackValidationResponse()
-        def validator = new TypeValidator(Integer)
+        def validator = Validator.CreateTypeValidator(Integer)
 
         validator.validate(response, 1)
 
@@ -75,7 +76,7 @@ class ValidatorTest {
 
         // Arrange
         def response = new TrackValidationResponse()
-        def validator = new CategoryValidator()
+        def validator = Validator.CreateCategoryValidator()
 
         validator.validate(response, "MLA1334")
 
@@ -90,7 +91,7 @@ class ValidatorTest {
 
         // Arrange
         def response = new TrackValidationResponse()
-        def validator = new CategoryValidator()
+        def validator = Validator.CreateCategoryValidator()
 
         validator.validate(response, "MLAA1334")
 

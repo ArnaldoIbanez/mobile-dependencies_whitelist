@@ -42,10 +42,5 @@ public class    DslTest {
 
         Track t =  new Track(path:"/search", event_data: ["limit":50,"offset":1])
         assertTrue(j.validate(t).status)
-        def result = j.validate(t)
-        assertNotNull(result)
-        assertTrue(result.status)
     }
-
-
 }

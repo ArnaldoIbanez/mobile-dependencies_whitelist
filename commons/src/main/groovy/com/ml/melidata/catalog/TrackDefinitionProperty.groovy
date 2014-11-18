@@ -20,6 +20,21 @@ class TrackDefinitionProperty {
     def String regex = null
     def ArrayList<Validator> validators
 
+    def setRegex(String regex){
+        this.validators.push(Validator.CreateRegexValidator(regex))
+        this.regex = regex
+    }
+
+    def setType(PropertyType type){
+        this.validators.push(Validator.CreateTypeValidator(type))
+        this.type = type
+    }
+
+    def setValues(ArrayList<String> vals){
+        this.validators.push(Validator.CreateValuesValidator(vals))
+        this.values = vals
+    }
+
     public TrackDefinitionProperty(Map map) {
         this.validators = new ArrayList<Validator>()
         map?.each { k, v ->

@@ -1,5 +1,6 @@
 package com.ml.melidata.catalog
 
+import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.tree.TrackValidationResponse
 
 /**
@@ -9,6 +10,22 @@ import com.ml.melidata.catalog.tree.TrackValidationResponse
 public abstract class Validator {
 
     abstract void validate(TrackValidationResponse response, Object value)
+
+    public static CreateValuesValidator(ArrayList<String> values){
+        return new ValuesValidator(values)
+    }
+
+    public static CreateRegexValidator(regex){
+        return new RegexValidator(regex)
+    }
+
+    public static CreateTypeValidator(type){
+        return new TypeValidator(type)
+    }
+
+    public static CreateCategoryValidator(){
+        return new CategoryValidator()
+    }
 }
 
 public class ValuesValidator extends Validator{
@@ -51,6 +68,8 @@ public class TypeValidator extends Validator {
 
     @Override
     void validate(TrackValidationResponse response, Object value) {
+        if(type == PropertyType.Numeric && value.class == Integer.class)
+            return
         if(value.class != type)
             response.addValidation(false, "Property has invalid type '${value.class}'. (value must be: ${this.type})")
 
