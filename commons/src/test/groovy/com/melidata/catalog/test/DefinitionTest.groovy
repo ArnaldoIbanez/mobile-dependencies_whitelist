@@ -5,10 +5,12 @@ import com.ml.melidata.catalog.CategoryValidator
 
 
 import com.ml.melidata.Track
+import com.ml.melidata.catalog.PropertyType
 import com.ml.melidata.catalog.TrackDefinition
 import com.ml.melidata.catalog.TrackDefinitionProperty
 import com.ml.melidata.catalog.TypeValidator
 import com.ml.melidata.catalog.ValuesValidator
+import com.ml.melidata.catalog.exceptions.CatalogException
 import org.junit.Test
 import static org.junit.Assert.*
 /**
@@ -90,7 +92,7 @@ class DefinitionTest {
 
         // Arrange
         def definition = new TrackDefinition("/search")
-                .addProperty(name: "layout", validators:[new ValuesValidator(["stack", "gallery", "mosaic"])], description: "client layout", required: true)
+                .addProperty(name: "layout", values:["stack", "gallery", "mosaic"], description: "client layout")
 
         // Act
         def result = definition.validate(new Track(path: "/search", event_data: ["layout":"gallery"]))
@@ -104,7 +106,7 @@ class DefinitionTest {
 
         // Arrange
         def definition = new TrackDefinition("/search")
-                .addProperty(name: "layout", validators:[new ValuesValidator(["stack", "gallery", "mosaic"])], description: "client layout", required: true)
+                .addProperty(name: "layout", values:["stack", "gallery", "mosaic"], description: "client layout")
 
         // Act
         def result = definition.validate(new Track(path: "/search", event_data: ["layout":"galeria"]))
@@ -179,7 +181,7 @@ class DefinitionTest {
 
         // Arrange
         def definition = new TrackDefinition("/search")
-                .addProperty(name: "limit", description: "limit of query result", validators:[new TypeValidator(Integer)])
+                .addProperty(name: "limit", description: "limit of query result", type:PropertyType.Numeric)
 
         def result = definition.validate(
                 new Track(path:"/search", event_data: ["limit":50]))
@@ -195,7 +197,7 @@ class DefinitionTest {
 
         // Arrange
         def definition = new TrackDefinition("/search")
-                .addProperty(name: "limit", description: "limit of query result", validators:[new TypeValidator(Integer)])
+                .addProperty(name: "limit", description: "limit of query result", type: PropertyType.Numeric)
 
         def result = definition.validate(
                 new Track(path:"/search", event_data: ["limit":"50"]))
@@ -204,14 +206,13 @@ class DefinitionTest {
         //println result.menssages
         assertEquals(result.status, false)
         assertEquals(result.menssages.size(), 1)
-
     }
 
     @Test void shouldFailValidateTrackWithInvalidFormatCategory() {
 
         // Arrange
         def definition = new TrackDefinition("/search")
-                .addProperty(name: "category", description: "category of", validators:[new CategoryValidator()])
+                .addProperty(name: "category", description: "category of", regex:"/[a-zA-Z]{1,3}[0-9]+/")
 
         def result = definition.validate(
                 new Track(path:"/search", event_data: ["category":"MARGEN1234"]))
@@ -221,6 +222,18 @@ class DefinitionTest {
         assertEquals(result.status, false)
         assertEquals(result.menssages.size(), 1)
 
+    }
+
+    @Test void shouldThrowExceptionWhenRegexAndValuesArePresent(){
+
+        // Arrange
+        try{
+            def definition = new TrackDefinition("/search")
+                    .addProperty(name: "category", description: "category of", values:["a", "b"],regex:"/[a-zA-Z]{1,3}[0-9]+/")
+        }
+        catch (Exception x){
+            assertEquals(x.class, CatalogException)
+        }
     }
 
     @Test void shouldCreateTrackView(){

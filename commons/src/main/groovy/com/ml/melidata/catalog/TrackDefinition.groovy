@@ -10,7 +10,6 @@ import com.ml.melidata.catalog.tree.TrackValidationResponse
 
 
 
-
 class TrackDefinition {
 
     def String path = ""
@@ -47,7 +46,7 @@ class TrackDefinition {
 
     /**
      * Validate the track event_data for track parameter
-     * no validate the type, platform and path because that catalogs responsibility
+     * no validate the platform and path because that catalogs responsibility
      * */
     def TrackValidationResponse validate(Track t) {
         def response = new TrackValidationResponse()
@@ -67,10 +66,6 @@ class TrackDefinition {
 
 
             v.validate(response, trackValueForThisProperty)
-
-            /*if(v.values && v.values.size() > 0 && !v.values.find{va -> va.equals(trackValueForThisProperty)})
-                response.addValidation(false, "Property ${key} (${v.description}) has invalid value '${trackValueForThisProperty}'. (possible values: ${v.values})")
-            */
         }
 
         return response
