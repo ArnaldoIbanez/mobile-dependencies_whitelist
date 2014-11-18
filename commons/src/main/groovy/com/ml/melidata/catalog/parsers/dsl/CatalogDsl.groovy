@@ -42,5 +42,5 @@ class CatalogDsl {
             catalog.addPlatform(p)
         }
     }
-    
+
 }
