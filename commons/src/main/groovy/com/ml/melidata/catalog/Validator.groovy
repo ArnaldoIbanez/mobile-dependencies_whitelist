@@ -3,6 +3,8 @@ package com.ml.melidata.catalog
 import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.tree.TrackValidationResponse
 
+import java.sql.Timestamp
+
 /**
  * Created by apetalas on 13/11/14.
  */
@@ -70,8 +72,14 @@ public class TypeValidator extends Validator {
     void validate(TrackValidationResponse response, Object value) {
         if(type == PropertyType.Numeric && value.class == Integer.class)
             return
-        if(value.class != type)
-            response.addValidation(false, "Property has invalid type '${value.class}'. (value must be: ${this.type})")
+        if(type == PropertyType.String && value.class == String.class)
+            return
+        if(type == PropertyType.Timestamp && value.class == Timestamp.class)
+            return
+        if(type == value.class)
+            return
+
+        response.addValidation(false, "Property has invalid type '${value.class}'. (value must be: ${this.type})")
 
     }
 }

@@ -15,7 +15,7 @@ class TrackDefinitionProperty {
     def String name;
     def String description;
     def PropertyType type = PropertyType.String;
-    def Boolean required = false;
+    def Boolean required = true;
     def ArrayList<String> values = null
     def String regex = null
     def ArrayList<Validator> validators

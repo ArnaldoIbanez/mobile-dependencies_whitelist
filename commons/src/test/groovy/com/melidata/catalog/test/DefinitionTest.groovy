@@ -85,7 +85,7 @@ class DefinitionTest {
         definition.addProperty(name: "platform", description: "platform")
 
         // Assert
-        assertFalse(definition.getDefinitionProperty("platform").required)
+        assertTrue(definition.getDefinitionProperty("platform").required)
     }
 
     @Test void shouldValidateTrackWithValidValue() {
@@ -212,7 +212,7 @@ class DefinitionTest {
 
         // Arrange
         def definition = new TrackDefinition("/search")
-                .addProperty(name: "category", description: "category of", regex:"/[a-zA-Z]{1,3}[0-9]+/")
+                .addProperty(name: "category", description: "category of", regex:/[a-zA-Z]{1,3}[0-9]+/)
 
         def result = definition.validate(
                 new Track(path:"/search", event_data: ["category":"MARGEN1234"]))
@@ -221,6 +221,36 @@ class DefinitionTest {
         println result.menssages
         assertEquals(result.status, false)
         assertEquals(result.menssages.size(), 1)
+
+    }
+
+    @Test void shouldValidateTrackWithValidFormatCategory() {
+
+        // Arrange
+        def definition = new TrackDefinition("/search")
+                .addProperty(name: "category", description: "category of", regex:/[a-zA-Z]{1,3}[0-9]+/)
+
+        def result = definition.validate(
+                new Track(path:"/search", event_data: ["category":"MAR123"]))
+
+        // Assert
+        println result.menssages
+        assertEquals(result.status, true)
+
+    }
+
+    @Test void shouldFailTrackWithPropertyNotCataloged() {
+
+        // Arrange
+        def definition = new TrackDefinition("/search")
+                .addProperty(name: "category", description: "category of", regex:/[a-zA-Z]{1,3}[0-9]+/)
+
+        def result = definition.validate(
+                new Track(path:"/search", event_data: ["layout":"ver"]))
+
+        // Assert
+        assertEquals(result.status, false)
+        println result.menssages
 
     }
 

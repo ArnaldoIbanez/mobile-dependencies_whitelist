@@ -1,12 +1,16 @@
 package com.melidata.catalog.test
 
 import com.ml.melidata.catalog.CategoryValidator
+import com.ml.melidata.catalog.PropertyType
 import com.ml.melidata.catalog.RegexValidator
 import com.ml.melidata.catalog.TypeValidator
 import com.ml.melidata.catalog.Validator
 import com.ml.melidata.catalog.ValuesValidator
 import com.ml.melidata.catalog.tree.TrackValidationResponse
 import org.junit.Test
+
+import java.security.Timestamp
+
 import static org.junit.Assert.assertEquals
 
 /**
@@ -58,17 +62,75 @@ class ValidatorTest {
         //println result.menssages
     }
 
-    @Test void shouldValidateTrackWithTypeValidator() {
+    @Test void shouldValidateTrackWithTypeValidatorNumeric() {
 
         // Arrange
         def response = new TrackValidationResponse()
-        def validator = Validator.CreateTypeValidator(Integer)
+        def validator = Validator.CreateTypeValidator(PropertyType.Numeric)
 
         validator.validate(response, 1)
 
         // Assert
         assertEquals(response.status, true)
         assertEquals(response.menssages.size(), 0)
+        //println result.menssages
+    }
+
+    @Test void shouldValidateTrackWithTypeValidatorString() {
+
+        // Arrange
+        def response = new TrackValidationResponse()
+        def validator = Validator.CreateTypeValidator(PropertyType.String)
+
+        validator.validate(response, "1")
+
+        // Assert
+        assertEquals(response.status, true)
+        assertEquals(response.menssages.size(), 0)
+        //println result.menssages
+    }
+
+    @Test void shouldValidateTrackWithTypeValidatorTimeStamp() {
+
+        // Arrange
+        def response = new TrackValidationResponse()
+        def validator = Validator.CreateTypeValidator(PropertyType.Timestamp)
+
+
+        validator.validate(response, new java.sql.Timestamp(123123123))
+
+        // Assert
+        assertEquals(response.status, true)
+        assertEquals(response.menssages.size(), 0)
+        //println result.menssages
+    }
+
+    @Test void shouldValidateTrackWithTypeValidatorAndTypeAsString() {
+
+        // Arrange
+        def response = new TrackValidationResponse()
+        def validator = Validator.CreateTypeValidator(Integer)
+
+
+        validator.validate(response, 1)
+
+        // Assert
+        assertEquals(response.status, true)
+        assertEquals(response.menssages.size(), 0)
+        //println result.menssages
+    }
+
+    @Test void shouldFailValidateTrackWithTypeValidator() {
+
+        // Arrange
+        def response = new TrackValidationResponse()
+        def validator = Validator.CreateTypeValidator(PropertyType.Numeric)
+
+
+        validator.validate(response, "a")
+
+        // Assert
+        assertEquals(response.status, false)
         //println result.menssages
     }
 

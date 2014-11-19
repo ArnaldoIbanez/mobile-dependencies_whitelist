@@ -52,15 +52,15 @@ class TrackDefinition {
         def response = new TrackValidationResponse()
 
         // are all the track's event_data in my definition?:
-        t.event_data.each { property, value ->
+        t?.event_data?.each { property, value ->
             if(!properties.get(property))
                 response.addValidation(false, "Property ${property} is not cataloged")
         }
 
         // someone of my required event_data miss? and what about the valid values?:
-        properties.each { key , v ->
+        properties?.each { key , v ->
 
-            def trackValueForThisProperty = t.event_data.get(v.name)
+            def trackValueForThisProperty = t.event_data?.get(v.name)
             if(v.required && trackValueForThisProperty == null)
                 response.addValidation(false, "Property ${key} (${v.description}) is required")
 
