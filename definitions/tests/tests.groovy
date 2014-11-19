@@ -1,26 +1,20 @@
-
+import static TrackTestDsl.trackTests
 
 trackTests {
-
   test("Search gallery with 50 items, first page" ) {
-      "/search"(platform:"/mobile") {
+      "/search"(platform:"/") {
           limit = 10
           offset = 0
       }
-      "/search/refine" {
+
+      "/search"(platform:"/") {
           limit = 10
-          offset = 0
+          offset = "0"
+      }
+
+      "/search"(platform:"/") {
+          limit = 50
+          offset = 10
       }
   } 
-
-  test("Search gallery with 50 items, first page" ) {
-      "/search"(platform:"/mobile") {
-          limit = 10
-          offset = 0
-      }
-      "/search/refine" {
-          limit: 10
-          offset: 0
-      }
-  }  
 }

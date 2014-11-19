@@ -38,11 +38,11 @@ jacocoTestReport {
     }
 }
 
-task coverage(dependsOn:[":test",":jacocoTestReport"]) << {
+task coverage (dependsOn:[":test",":jacocoTestReport"]) << {
   println("Coverage, check: ${buildDir}/jacocoHtml")
 }
 
-
-task validateTracks << {
+task validateTracks (dependsOn: 'classes', type: JavaExec) {
+    main = 'run'
+    classpath = sourceSets.main.runtimeClasspath
 }
-
