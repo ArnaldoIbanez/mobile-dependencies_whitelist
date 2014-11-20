@@ -29,7 +29,7 @@ class TestDsl{
         closure()
     }
 
-    def assertThat(catalog){
+    def assertValid(catalog){
         def result = null
 
         this.tracks.each { singleTrack ->

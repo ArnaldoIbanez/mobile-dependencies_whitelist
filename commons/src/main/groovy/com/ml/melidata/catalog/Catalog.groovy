@@ -54,7 +54,16 @@ class Catalog implements CatalogInterface{
         TrackValidationResponse tr = new TrackValidationResponse();
         try {
             def PlatformTree platformNode = platformTree.getNodeByPath(track.platform);
+            if(!platformNode) {
+                printf("B***********************************************")
+                throw  new CatalogException("Platform '${track.platform}' not found")
+            }
             def catalogDefinition = platformNode.getTrackDefinition(track.path);
+            printf("-----> ${track.path}")
+            if(!catalogDefinition) {
+                printf("A***********************************************")
+                throw  new CatalogException("Path '${track.path}' not found")
+            }
             return catalogDefinition.validate(track)
         }catch (CatalogException e) {
             tr.addValidation(false, e.message)

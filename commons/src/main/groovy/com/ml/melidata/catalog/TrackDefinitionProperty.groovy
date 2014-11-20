@@ -51,7 +51,7 @@ class TrackDefinitionProperty {
     }
 
 
-    def validate(TrackValidationResponse response, def trackPropertyValue){
-        validators.each { v -> v.validate(response, trackPropertyValue, required)}
+    def validate(TrackValidationResponse response, def property, def trackPropertyValue){
+        validators.each { v -> v.validate(response, property, trackPropertyValue, required)}
     }
 }

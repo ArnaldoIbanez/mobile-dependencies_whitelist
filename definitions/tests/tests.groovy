@@ -19,10 +19,20 @@ trackTests {
           limit = "50"
           offset = 10
       }
-  } 
+  }
   test("Search refine"){
     "/checkout"(platform:"/"){
       category = "MLA333"
     }
   }
+    test("/pepito1"){
+        "/pepito1"(platform:"/"){
+            category = "MLA333"
+        }
+    }
+    test("/pepito2"){
+        "/search"(platform:"/"){
+            nana = "leader"
+        }
+    }
 }

@@ -9,17 +9,22 @@ import com.ml.melidata.catalog.Catalog
  */
 class TestRunner {
 
-    def static run(Catalog catalog, ArrayList<TestDsl> tests, TestOut out){
-
+    def static boolean run(Catalog catalog, ArrayList<TestDsl> tests, TestOut out){
+        def runOk = true
         out.beforeRun(catalog, tests)
         tests?.each { singleTest ->
-            singleTest.assertThat(catalog) ? out.success(singleTest) : out.fail(singleTest)
+            if(singleTest.assertValid(catalog)) {
+                out.success(singleTest)
+            } else {
+                out.fail(singleTest)
+                runOk = false
+            }
         }
-
         out.afterRun()
+        return runOk
     }
 
-    def static run(String pathCatalog, String pathTests, TestOut out){
+    def static boolean run(String pathCatalog, String pathTests, TestOut out){
         GroovyShell shell = new GroovyShell()
 
         def catalogScript = shell.parse(new File(pathCatalog))
@@ -27,7 +32,7 @@ class TestRunner {
         def catalog = catalogScript.run()
         def tests = testsScript.run()
 
-        TestRunner.run(catalog, tests, out)
+        return TestRunner.run(catalog, tests, out)
 
 
     }

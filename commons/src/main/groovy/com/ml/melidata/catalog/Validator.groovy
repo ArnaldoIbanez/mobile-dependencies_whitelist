@@ -11,7 +11,7 @@ import java.sql.Timestamp
 
 public abstract class Validator {
 
-    abstract void validate(TrackValidationResponse response, Object value, boolean required=true)
+    abstract void validate(TrackValidationResponse response, String property,Object value, boolean required)
 
     public static CreateValuesValidator(ArrayList<String> values){
         return new ValuesValidator(values)
@@ -38,12 +38,12 @@ public class ValuesValidator extends Validator{
         this.values = values
     }
 
-    @Override
-    void validate(TrackValidationResponse response, Object value, boolean required=true) {
+
+    void validate(TrackValidationResponse response, String property,Object value, boolean required=true) {
         if(!required && value == null)
             return;
         if(!values.find{va -> va.equals(value)})
-            response.addValidation(false, "Property has invalid value '${value}'. (possible values: ${this.values})")
+            response.addValidation(false, "Property '${property}' has invalid value '${value}'. (possible values: ${this.values})")
     }
 }
 
@@ -55,10 +55,10 @@ public class RegexValidator extends Validator{
         this.regex = regex
     }
 
-    @Override
-    void validate(TrackValidationResponse response, Object value, boolean required=true) {
+
+    void validate(TrackValidationResponse response, String property,Object value, boolean required=true) {
         if(!(value ==~ regex))
-            response.addValidation(false, "Property has invalid value '${value}'. (value must match with: ${this.regex})")
+            response.addValidation(false, "Property '${property}' has invalid value '${value}'. (value must match with: ${this.regex})")
     }
 }
 
@@ -70,8 +70,8 @@ public class TypeValidator extends Validator {
         this.type = type
     }
 
-    @Override
-    void validate(TrackValidationResponse response, Object value, boolean required=true) {
+
+    void validate(TrackValidationResponse response, String property,Object value, boolean required=true) {
         if(type == PropertyType.Numeric && value?.class == Integer.class)
             return
         if(type == PropertyType.String && value?.class == String.class)
@@ -81,7 +81,7 @@ public class TypeValidator extends Validator {
         if(type == value?.class)
             return
 
-        response.addValidation(false, "Property has invalid type '${value?.class}'. (value must be: ${type})")
+        response.addValidation(false, "Property '${property}' has invalid type '${value?.class}'. (value must be: ${type})")
 
     }
 }
