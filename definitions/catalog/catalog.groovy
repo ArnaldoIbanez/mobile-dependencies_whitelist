@@ -1,5 +1,4 @@
 import com.ml.melidata.catalog.PropertyType
-
 import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.catalog
 
 /**
@@ -26,12 +25,8 @@ catalog {
         "/search"(platform: "/mobile") {
             position(values: ["horizonal","landscape"])
         }
-        "/search/refine"(platform: "/") {
-
+        "/checkout"(platform: "/") {
+          category(regex:/[a-zA-Z]{1,3}[0-9]+/)
         }
     }
 }
-
-
-
-

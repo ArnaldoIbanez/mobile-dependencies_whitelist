@@ -133,6 +133,24 @@ class DefinitionTest {
         //println result.menssages
     }
 
+    @Test void shouldValidateTrackWithNonRequiredButWithValuesProperties() {
+
+        // Arrange
+        def definition = new TrackDefinition("/search")
+                .addProperty(name: "platform", values:["mobile", "web"], description: "client platform", required: false)
+                .addProperty(name: "query", description: "query params", required: false)
+
+        // Act
+        def result = definition.validate(new Track(path:"/search", event_data:["query":"iphone"]))
+
+        // Assert
+        println result.menssages
+
+        assertEquals(result.status, true)
+        assertEquals(result.menssages.size(), 0)
+        //println result.menssages
+    }
+
     @Test void shouldValidateTrackWithRequiredProperties() {
 
         // Arrange

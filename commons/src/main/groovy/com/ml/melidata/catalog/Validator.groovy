@@ -11,7 +11,7 @@ import java.sql.Timestamp
 
 public abstract class Validator {
 
-    abstract void validate(TrackValidationResponse response, Object value)
+    abstract void validate(TrackValidationResponse response, Object value, boolean required=true)
 
     public static CreateValuesValidator(ArrayList<String> values){
         return new ValuesValidator(values)
@@ -39,7 +39,9 @@ public class ValuesValidator extends Validator{
     }
 
     @Override
-    void validate(TrackValidationResponse response, Object value) {
+    void validate(TrackValidationResponse response, Object value, boolean required=true) {
+        if(!required && value == null)
+            return;
         if(!values.find{va -> va.equals(value)})
             response.addValidation(false, "Property has invalid value '${value}'. (possible values: ${this.values})")
     }
@@ -54,32 +56,32 @@ public class RegexValidator extends Validator{
     }
 
     @Override
-    void validate(TrackValidationResponse response, Object value) {
-        if(!(value ==~ this.regex))
+    void validate(TrackValidationResponse response, Object value, boolean required=true) {
+        if(!(value ==~ regex))
             response.addValidation(false, "Property has invalid value '${value}'. (value must match with: ${this.regex})")
     }
 }
 
 public class TypeValidator extends Validator {
 
-    private def type
+    private def type = null
 
     def TypeValidator(type){
         this.type = type
     }
 
     @Override
-    void validate(TrackValidationResponse response, Object value) {
-        if(type == PropertyType.Numeric && value.class == Integer.class)
+    void validate(TrackValidationResponse response, Object value, boolean required=true) {
+        if(type == PropertyType.Numeric && value?.class == Integer.class)
             return
-        if(type == PropertyType.String && value.class == String.class)
+        if(type == PropertyType.String && value?.class == String.class)
             return
-        if(type == PropertyType.Timestamp && value.class == Timestamp.class)
+        if(type == PropertyType.Timestamp && value?.class == Timestamp.class)
             return
-        if(type == value.class)
+        if(type == value?.class)
             return
 
-        response.addValidation(false, "Property has invalid type '${value.class}'. (value must be: ${this.type})")
+        response.addValidation(false, "Property has invalid type '${value?.class}'. (value must be: ${type})")
 
     }
 }

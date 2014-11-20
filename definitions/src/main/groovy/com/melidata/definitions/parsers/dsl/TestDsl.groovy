@@ -1,3 +1,5 @@
+package com.melidata.definitions.parsers.dsl
+
 import com.ml.melidata.Track
 
 /**
@@ -8,6 +10,8 @@ class TestDsl{
 
     def ArrayList<Track> tracks = []
     def String name
+    def messages = []
+    def status = true
 
     def propertyMissing(String name, value){
         this.tracks.last().event_data[name] = value
@@ -20,10 +24,21 @@ class TestDsl{
         for(def i =0; i < args.size() -1 ; i++) {
             trackArgs = trackArgs+args[i]
         }
-
-        this.tracks.push(new Track(path))
+        this.tracks.push(new Track(trackArgs))
         def closure = args[-1]
         closure()
+    }
+
+    def assertThat(catalog){
+        def result = null
+
+        this.tracks.each { singleTrack ->
+            result = catalog.validate(singleTrack)
+            status = status && result.status;
+            messages = messages + result.menssages
+        }
+
+        return status
     }
 }
 

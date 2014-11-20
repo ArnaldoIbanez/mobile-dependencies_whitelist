@@ -1,20 +1,28 @@
-import static TrackTestDsl.trackTests
+import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
-  test("Search gallery with 50 items, first page" ) {
-      "/search"(platform:"/") {
+  test("Search gallery with 10 items, first page" ) {
+      "/search"(platform: "/") {
           limit = 10
           offset = 0
       }
-
-      "/search"(platform:"/") {
+  }
+  test("Search gallery with 10 items, second page" ) {
+      "/search"(platform: "/") {
           limit = 10
-          offset = "0"
+          offset = "2"
       }
+  }
+  test("Search gallery with 50 items" ) {
 
-      "/search"(platform:"/") {
-          limit = 50
+      "/search"(platform:"/mobile") {
+          limit = "50"
           offset = 10
       }
   } 
+  test("Search refine"){
+    "/checkout"(platform:"/"){
+      category = "MLA333"
+    }
+  }
 }

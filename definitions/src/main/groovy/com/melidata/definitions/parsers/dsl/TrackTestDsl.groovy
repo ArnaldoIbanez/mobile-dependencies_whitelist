@@ -1,3 +1,5 @@
+package com.melidata.definitions.parsers.dsl
+
 import com.ml.melidata.Track
 
 /**
@@ -9,11 +11,11 @@ class TrackTestDsl {
     def ArrayList<Track> tracksToValidate = [];
     def ArrayList<TestDsl> tests = [];
 
-    def static trackTests(clousure) {
+    def static trackTests(closure) {
         TrackTestDsl dsl = new TrackTestDsl()
-        clousure.delegate = dsl
-        clousure.resolveStrategy = Closure.DELEGATE_FIRST
-        clousure()
+        closure.delegate = dsl
+        closure.resolveStrategy = Closure.DELEGATE_FIRST
+        closure()
         return dsl.tests
     }
 
