@@ -1,0 +1,18 @@
+image: 
+git:
+  dept:1
+script:
+  - make test
+deploy:
+  bash:
+    script:
+      - ./definitions/do_deploy.sh
+notify:
+  slack:
+    team: meli
+    channel: #arquitectura
+    username: drone
+    token: bJw9OWbLfF9SaUaJ0tWqlEL4
+    on_started: false
+    on_failure: true
+    on_success: false
