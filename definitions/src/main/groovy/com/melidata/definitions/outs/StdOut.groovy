@@ -24,24 +24,45 @@ class StdOut implements TestOut {
 
     @Override
     def beforeRun(catalog, tests) {
-        println "\n\n*************************************"
+        println "\n\n"+starBar()
         println "Ready to run ${tests.size()} track's test"
-        println "*************************************\n"
+        println starBar()+"\n"
     }
 
     @Override
     def afterRun() {
         println("\033[32m - Success Tests: "+successTests+"\033[0m")
         println("\033[31m - Failed Tests: "+failTests+"\033[0m")
-        println "\n*************************************"
+
+        if(this.messages.size() >=0 ) {
+            printFails()
+        } else {
+            printOk()
+        }
+
+
+    }
+
+    def starBar() {
+        return "*************************************"
+    }
+
+    def printOk() {
+        println "\n"+starBar()
+        println("\tTest run successfully")
+        println starBar()+"\n"
+    }
+
+    def printFails() {
+        println "\n"+starBar()
         println("\tFails Details")
-        println "*************************************\n"
+        println starBar()+"\n"
         this.messages.each { test, msgs ->
             print " - ${test}: \n"
             msgs.each {m -> print("\033[31m  -  "+m+"\033[0m\n")}
             print "\n"
         }
-        println "*************************************"
+        println starBar()
     }
 }
 

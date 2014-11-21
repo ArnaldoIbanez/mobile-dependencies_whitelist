@@ -44,7 +44,8 @@ class PlatformTree extends TreeNode<CatalogTree> {
     def getTrackDefinition(String path) {
         def catalogNode = platformTree.getNodeByPath(path);
         if(!catalogNode) {
-            throw  new CatalogException("Track definition ${path} not found in catalog")
+            throw  new CatalogException("Path '${path}' not found in catalog (check if it's defined in " +
+                    "the catalog file and if it's defined for the specified platform)")
         }
         return catalogNode.getNodeData();
     }
