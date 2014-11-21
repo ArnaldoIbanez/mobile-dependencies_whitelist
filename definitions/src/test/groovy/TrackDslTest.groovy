@@ -1,4 +1,5 @@
 import com.ml.melidata.catalog.PropertyType
+import org.junit.Before
 import org.junit.Test
 
 import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.catalog
@@ -10,10 +11,12 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
  */
 class TrackDslTest {
 
+    def catalog = null
+    def tests = null
 
-    @Test void ShouldCreateATestTrackWithTrackDSL(){
 
-        def catalog = catalog {
+    @Before void BuildCatalogTest(){
+        this.catalog = catalog {
             /**
              * All available platfrom
              */
@@ -32,33 +35,129 @@ class TrackDslTest {
                     offset(type: PropertyType.Numeric, regex:".*")
                 }
                 "/search"(platform: "/mobile") {
-                    position(values: ["horizonal","landscape"])
+                    position(values: ["horizontal","landscape"])
                 }
                 "/checkout"(platform: "/") {
                     category(regex:/[a-zA-Z]{1,3}[0-9]+/)
                 }
             }
         }
+    }
+
+    @Test void ShouldCreateATestCountComplaintWithDSL(){
 
         def tests = trackTests {
-            test("Search gallery with 50 items, first page" ) {
+            test("Search gallery with 50 items, first page") {
                 "/search"(platform:"/mobile") {
-                    limit = 10
-                    offset = 0
-                }
-                "/search/refine" {
-                    limit = 10
+                    position = "horizontal"
+                    limit = 1
                     offset = 0
                 }
             }
-
-            test("dos"){
-                "/checkout"{
-                    limit = 0
-                }
+            test("Search gallery with 50 items, first page"){
             }
         }
-
-        tests.each { assertTrue(it.assertThat(catalog)) }
+        assertEquals(tests.size(), 2)
     }
+
+    @Test void ShouldCreateATestComplaintWithDSL(){
+
+        def singleTest = trackTests {
+            test("Search gallery with 50 items, first page") {
+                "/search"(platform:"/mobile") {
+                    position = "horizontal"
+                    limit = 1
+                    offset = 0
+                }
+            }
+        }.first()
+
+        assertEquals(singleTest.name, "Search gallery with 50 items, first page")
+    }
+
+    @Test void ShouldCreateATestTrackWithRightEventData(){
+
+        def singleTest = trackTests {
+            test("Search gallery with 50 items, first page" ) {
+                "/search"(platform:"/mobile") {
+                    position = "horizontal"
+                    limit = 1
+                    offset = 0
+                }
+            }
+        }.first()
+
+
+        def eventData = singleTest.tracks.first().event_data
+        assertEquals(eventData["position"], "horizontal")
+        assertEquals(eventData["limit"], 1)
+        assertEquals(eventData["offset"], 0)
+    }
+
+    @Test void ShouldValidatePropertysHeredadasTrue() {
+        //Arrange
+        def singleTest = trackTests {
+            test("Search gallery with 50 items, first page") {
+                "/search"(platform: "/mobile") {
+                    position = "horizontal"
+                    limit = 1
+                    offset = 0
+                }
+            }
+        }.first()
+
+        assertTrue(singleTest.assertValid(this.catalog))
+    }
+
+    @Test void ShouldCreateATestTrackWithTrackDSL(){
+        def singleTest = trackTests {
+            test("Search gallery with 50 items, first page" ) {
+                "/search"(platform:"/mobile") {
+                    position = "horizontal"
+                    limit = 1
+                    offset = 0
+                }
+            }
+        }.first()
+
+        assertEquals(singleTest.tracks.size(), 1)
+    }
+
+    @Test void ShouldCreateATestTrackWithRightProperties(){
+
+        def singleTest = trackTests {
+            test("Search gallery with 50 items, first page" ) {
+                "/search"(platform:"/mobile") {
+                    position = "horizontal"
+                    limit = 1
+                    offset = 0
+                }
+            }
+        }.first()
+
+        def track = singleTest.tracks.first()
+
+
+        assertEquals(track.path, "/search")
+        assertEquals(track.platform, "/mobile")
+    }
+
+    @Test void ShouldValidatePropertysInChildNodeTrue(){
+        //Arrange
+        def singleTest = trackTests {
+            test("Search gallery with 50 items, first page" ) {
+                "/search"(platform:"/mobile") {
+                    position = "horizontal"
+                    limit = 1
+                    offset = 0
+                }
+            }
+        }.first()
+
+        assertTrue(singleTest.assertValid(this.catalog))
+    }
+
+
+
+
 }
