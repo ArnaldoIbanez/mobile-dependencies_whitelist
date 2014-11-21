@@ -31,8 +31,8 @@ class StdOut implements TestOut {
 
     @Override
     def afterRun() {
-        println("\033[32m - Success Tests: "+successTests+"\033[0m")
-        println("\033[31m - Failed Tests: "+failTests+"\033[0m")
+        println("\033[92m - Successful Tests: "+successTests+"\033[0m")
+        println("\033[91m - Failed Tests: "+failTests+"\033[0m")
 
         if(this.messages.size() >=0 ) {
             printFails()
@@ -59,7 +59,7 @@ class StdOut implements TestOut {
         println starBar()+"\n"
         this.messages.each { test, msgs ->
             print " - ${test}: \n"
-            msgs.each {m -> print("\033[31m  -  "+m+"\033[0m\n")}
+            msgs.each {m -> print("\033[91m  -  "+m+"\033[0m\n")}
             print "\n"
         }
         println starBar()
