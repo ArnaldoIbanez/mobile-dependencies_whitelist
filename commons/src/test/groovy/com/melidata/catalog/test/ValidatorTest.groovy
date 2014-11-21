@@ -26,7 +26,7 @@ class ValidatorTest {
         def response = new TrackValidationResponse()
         def validator = Validator.CreateValuesValidator(["mobile", "web"])
 
-        validator.validate(response, "webs")
+        validator.validate(response,"" ,"webs")
 
         // Assert
         assertEquals(response.status, false)
@@ -40,7 +40,7 @@ class ValidatorTest {
         def response = new TrackValidationResponse()
         def validator = Validator.CreateValuesValidator(["mobile", "web"])
 
-        validator.validate(response, "web")
+        validator.validate(response, "","web")
 
         // Assert
         assertEquals(response.status, true)
@@ -54,7 +54,7 @@ class ValidatorTest {
         def response = new TrackValidationResponse()
         def validator = Validator.CreateRegexValidator(/mob[iI]le/)
 
-        validator.validate(response, "mobIle")
+        validator.validate(response,"", "mobIle")
 
         // Assert
         assertEquals(response.status, true)
@@ -68,7 +68,7 @@ class ValidatorTest {
         def response = new TrackValidationResponse()
         def validator = Validator.CreateTypeValidator(PropertyType.Numeric)
 
-        validator.validate(response, 1)
+        validator.validate(response,"" ,1)
 
         // Assert
         assertEquals(response.status, true)
@@ -82,7 +82,7 @@ class ValidatorTest {
         def response = new TrackValidationResponse()
         def validator = Validator.CreateTypeValidator(PropertyType.String)
 
-        validator.validate(response, "1")
+        validator.validate(response, "", "1")
 
         // Assert
         assertEquals(response.status, true)
@@ -97,7 +97,7 @@ class ValidatorTest {
         def validator = Validator.CreateTypeValidator(PropertyType.Timestamp)
 
 
-        validator.validate(response, new java.sql.Timestamp(123123123))
+        validator.validate(response, "", new java.sql.Timestamp(123123123))
 
         // Assert
         assertEquals(response.status, true)
@@ -112,7 +112,7 @@ class ValidatorTest {
         def validator = Validator.CreateTypeValidator(Integer)
 
 
-        validator.validate(response, 1)
+        validator.validate(response, "propertyname", 1)
 
         // Assert
         assertEquals(response.status, true)
@@ -127,7 +127,7 @@ class ValidatorTest {
         def validator = Validator.CreateTypeValidator(PropertyType.Numeric)
 
 
-        validator.validate(response, "a")
+        validator.validate(response, "propertyname", "a")
 
         // Assert
         assertEquals(response.status, false)
@@ -140,7 +140,7 @@ class ValidatorTest {
         def response = new TrackValidationResponse()
         def validator = Validator.CreateCategoryValidator()
 
-        validator.validate(response, "MLA1334")
+        validator.validate(response, "propertyname", "MLA1334")
 
         // Assert
         //println response.menssages
@@ -155,7 +155,7 @@ class ValidatorTest {
         def response = new TrackValidationResponse()
         def validator = Validator.CreateCategoryValidator()
 
-        validator.validate(response, "MLAA1334")
+        validator.validate(response,"propertyname", "MLAA1334")
 
         // Assert
         //println response.menssages

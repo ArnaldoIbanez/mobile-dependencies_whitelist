@@ -1,7 +1,7 @@
 package com.melidata.definitions
 
 import com.melidata.definitions.parsers.dsl.TestDsl
-import com.melidata.definitions.outs.TestOut
+import com.melidata.definitions.outs.DefinitionsOut
 import com.ml.melidata.catalog.Catalog
 
 /**
@@ -9,7 +9,7 @@ import com.ml.melidata.catalog.Catalog
  */
 class TestRunner {
 
-    def static boolean run(Catalog catalog, ArrayList<TestDsl> tests, TestOut out){
+    def static boolean run(Catalog catalog, ArrayList<TestDsl> tests, DefinitionsOut out){
         def runOk = true
         out.beforeRun(catalog, tests)
         tests?.each { singleTest ->
@@ -24,16 +24,28 @@ class TestRunner {
         return runOk
     }
 
-    def static boolean run(String pathCatalog, String pathTests, TestOut out){
+    def static boolean run(String pathCatalog, String pathTests, DefinitionsOut out){
+
+        try{
+            def catalogScript = getScriptFromFile(pathCatalog)
+            def testsScript = getScriptFromFile(pathTests)
+
+            def catalog = runScript(catalogScript)
+            def tests = runScript(testsScript)
+
+            return TestRunner.run(catalog, tests, out)
+        }
+        catch (FileNotFoundException x){
+            throw x
+        }
+    }
+
+    def static Script getScriptFromFile(String path){
         GroovyShell shell = new GroovyShell()
+        return shell.parse(new File(path))
+    }
 
-        def catalogScript = shell.parse(new File(pathCatalog))
-        def testsScript = shell.parse(new File(pathTests))
-        def catalog = catalogScript.run()
-        def tests = testsScript.run()
-
-        return TestRunner.run(catalog, tests, out)
-
-
+    def static Object runScript(Script toRun){
+        return toRun.run()
     }
 }

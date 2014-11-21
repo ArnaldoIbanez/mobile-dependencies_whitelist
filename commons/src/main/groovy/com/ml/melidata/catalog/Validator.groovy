@@ -56,7 +56,7 @@ public class RegexValidator extends Validator{
     }
 
 
-    void validate(TrackValidationResponse response, String property,Object value, boolean required=true) {
+    void validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
         if(!(value ==~ regex))
             response.addValidation(false, "Property '${property}' has invalid value '${value}'. (value must match with: ${this.regex})")
     }
@@ -71,7 +71,7 @@ public class TypeValidator extends Validator {
     }
 
 
-    void validate(TrackValidationResponse response, String property,Object value, boolean required=true) {
+    void validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
         if(type == PropertyType.Numeric && value?.class == Integer.class)
             return
         if(type == PropertyType.String && value?.class == String.class)
