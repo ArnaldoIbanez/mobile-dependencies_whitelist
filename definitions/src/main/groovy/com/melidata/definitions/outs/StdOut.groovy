@@ -2,7 +2,7 @@ package com.melidata.definitions.outs
 /**
  * Created by apetalas on 20/11/14.
  */
-class StdOut implements TestOut {
+class StdOut implements DefinitionsOut {
 
     def messages = [:]
 
