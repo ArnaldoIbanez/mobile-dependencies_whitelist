@@ -4,7 +4,6 @@ import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.PropertyType
 import org.junit.Before
 import org.junit.Test
-
 import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.catalog
 import static org.junit.Assert.*
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
@@ -47,9 +46,6 @@ class TestRunnerTest {
                 }
             }
         }
-
-
-
     }
 
     @Test void shouldRunTestRunner() {
@@ -71,7 +67,16 @@ class TestRunnerTest {
     }
 
     @Test void shouldRunTestRunnerWithPaths(){
-        def result = TestRunner.run(PATH_CATALOG, PATH_TEST, new OutTest())
+
+        def result = null
+
+        try {
+            result = TestRunner.run(PATH_CATALOG, PATH_TEST, new OutTest())
+
+        }catch (FileNotFoundException){
+            result = TestRunner.run("definitions/" + PATH_CATALOG, "definitions/" + PATH_TEST, new OutTest())
+        }
+
         assertFalse(result)
     }
 
@@ -85,17 +90,33 @@ class TestRunnerTest {
     }
 
     @Test void shouldGetScriptFromFile(){
-        def script = TestRunner.getScriptFromFile(PATH_CATALOG)
-        assertNotNull(script)
+        def script = null
+
+        try{
+            script = TestRunner.getScriptFromFile(PATH_CATALOG)
+            assertNotNull(script)
+
+        }catch (NotFileException){
+
+            // El classpath es distinto al correr esta test con idea
+            script = TestRunner.getScriptFromFile("definitions/" + PATH_CATALOG)
+            assertNotNull(script)
+        }
     }
 
     @Test void shouldRunScriptFromFile(){
-        def script =  TestRunner.getScriptFromFile(PATH_CATALOG)
+        def script =  null
+        try{
+            script = TestRunner.getScriptFromFile(PATH_CATALOG)
+        }catch (FileNotFoundException){
+            script = TestRunner.getScriptFromFile("definitions/" + PATH_CATALOG)
+        }
+
         def result = TestRunner.runScript(script)
         assertEquals(result.class, Catalog)
     }
 
-    @Test void should(){
+    @Test void shouldCallDefinitionsOutWhenFailAndSuccessSingleTest(){
 
         def std = new OutTest()
         def tests = trackTests {
