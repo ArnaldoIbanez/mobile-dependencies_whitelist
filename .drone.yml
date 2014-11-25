@@ -1,4 +1,4 @@
-image: 
+image: meli/melidata-catalog 
 git:
   dept:1
 script:
