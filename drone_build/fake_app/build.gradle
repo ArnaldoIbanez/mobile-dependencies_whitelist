@@ -1,0 +1,18 @@
+apply plugin: "jacoco"
+apply plugin: 'groovy'
+apply plugin: 'idea'
+
+repositories {
+      mavenCentral()
+}
+
+dependencies {
+      compile 'org.codehaus.groovy:groovy-all:2.3.7'
+      compile 'junit:junit:4.+'
+}
+
+task cacheDependencies(type: JavaExec) {
+  main = 'fake'
+  classpath = sourceSets.main.runtimeClasspath
+}
+
