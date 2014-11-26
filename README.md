@@ -26,10 +26,10 @@ In the file we should add a new test case whith one or more tracks to test. When
 Then, to add a new track to the catalog you should add their definition to **definitions/catalog/catalog.groovy**
 
 ``` groovy
-        "/search"(platform: "/") { // <-- Path and platform (use "/" for all)
-            limit(description:"amount of search items returned") // <-- Property, by default are strings and content could be anything
-            offset(type: PropertyType.Numeric, regex:".*") // <-- Property, type numeric and validated by regex
-        } 
+    "/search"(platform: "/") { // <-- Path and platform (use "/" for all)
+        limit(description:"amount of search items returned") // <-- Property, by default are strings and content could be anything
+        offset(type: PropertyType.Numeric, regex:".*") // <-- Property, type numeric and validated by regex
+    } 
 ```
 
 ## Types
