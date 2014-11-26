@@ -10,29 +10,15 @@ trackTests {
   test("Search gallery with 10 items, second page" ) {
       "/search"(platform: "/") {
           limit = 10
-          offset = "2"
+          offset = 2
       }
   }
   test("Search gallery with 50 items" ) {
 
       "/search"(platform:"/mobile") {
-          limit = "50"
+          limit = 50
           offset = 10
+          position = "horizontal"
       }
   }
-  test("Search refine"){
-    "/checkout"(platform:"/"){
-      category = "MLA333"
-    }
-  }
-    test("/pepito1"){
-        "/pepito1"(platform:"/"){
-            category = "MLA333"
-        }
-    }
-    test("/pepito2"){
-        "/search"(platform:"/"){
-            nana = "leader"
-        }
-    }
 }

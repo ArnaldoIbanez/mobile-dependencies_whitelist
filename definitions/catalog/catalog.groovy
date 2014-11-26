@@ -23,10 +23,7 @@ catalog {
             offset(type: PropertyType.Numeric, regex:".*")
         }
         "/search"(platform: "/mobile") {
-            position(values: ["horizonal","landscape"])
-        }
-        "/checkout"(platform: "/") {
-          category(regex:/[a-zA-Z]{1,3}[0-9]+/)
+            position(values: ["horizontal","landscape"])
         }
     }
 }
