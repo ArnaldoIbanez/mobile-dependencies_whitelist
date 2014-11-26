@@ -72,17 +72,11 @@ public class TypeValidator extends Validator {
 
 
     void validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
-        if(type == PropertyType.Numeric && value?.class == Integer.class)
-            return
-        if(type == PropertyType.String && value?.class == String.class)
-            return
-        if(type == PropertyType.Timestamp && value?.class == Timestamp.class)
-            return
-        if(type == value?.class)
+
+        if(type?.validate(value))
             return
 
         response.addValidation(false, "Property '${property}' has invalid type '${value?.class}'. (value must be: ${type})")
-
     }
 }
 
