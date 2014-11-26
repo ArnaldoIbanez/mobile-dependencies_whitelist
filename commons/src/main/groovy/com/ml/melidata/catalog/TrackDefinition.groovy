@@ -60,7 +60,6 @@ class TrackDefinition {
 
         // someone of my required event_data miss? and what about the valid values?:
         properties?.each { key , v ->
-
             def trackValueForThisProperty = t.event_data?.get(v.name)
             if(v.required && trackValueForThisProperty == null) {
                 response.addValidation(false, "Property '${key}'" +

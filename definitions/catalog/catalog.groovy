@@ -21,6 +21,7 @@ catalog {
         "/search"(platform: "/") {
             limit(description:"amount of search items returned")
             offset(type: PropertyType.Numeric, regex:".*")
+
         }
         "/search"(platform: "/mobile") {
             position(values: ["horizontal","landscape"])

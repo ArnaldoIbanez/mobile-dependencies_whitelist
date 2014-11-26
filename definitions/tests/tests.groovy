@@ -21,4 +21,13 @@ trackTests {
           position = "horizontal"
       }
   }
+
+  test("Search gallery with 50 items" ) {
+
+      "/search"(platform:"/mobile") {
+          limit = 50
+          offset = 10
+          position = "horizontal"
+      }
+  }
 }

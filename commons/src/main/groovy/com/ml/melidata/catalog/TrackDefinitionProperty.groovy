@@ -2,13 +2,38 @@ package com.ml.melidata.catalog
 
 import com.ml.melidata.catalog.exceptions.CatalogException
 import com.ml.melidata.catalog.tree.TrackValidationResponse
+import java.sql.Timestamp
 
 /**
  * Created by geisbruch on 11/10/14.
  */
 
 enum PropertyType {
-    String, Numeric, Timestamp
+    String {
+        public Boolean validate(Object value) {
+            return value instanceof String
+        }
+    }, 
+    Numeric {
+        public Boolean validate(Object value) {
+            return value instanceof Integer
+        }
+    }, 
+    Timestamp {
+        public Boolean validate(Object value) {
+            return value instanceof Timestamp
+        }
+    }, 
+    ArrayList {
+        public Boolean validate(Object value) {
+            return value instanceof ArrayList
+        }
+    }, 
+    Map {
+        public Boolean validate(Object value) {
+            return value instanceof Map
+        }
+    }
 }
 class TrackDefinitionProperty {
 
