@@ -14,11 +14,34 @@ trackTests {
       }
   }
   test("Search gallery with 50 items" ) {
-
       "/search"(platform:"/mobile") {
           limit = 50
           offset = 10
           position = "horizontal"
       }
+  }
+
+  test("Vip core tracking in android") {
+    "/vip"(platform:"/mobile/android") {
+      item_id = "MLA533657947"
+      buying_mode = "buy_it_now"
+      vertical = "code"
+      category_id = "MLA43718"
+      quantity = 3
+      item_condition = "new"
+      currency_id = "ARS"
+      price = 15.3 
+      item_status = "active"
+      official_store_id = "1"
+      seller_id = "131662738"
+      power_seller_status = "platinum"
+      listing_type_id = "gold_special"
+      start_time = "2014-11-17T14:00:50.000Z"
+      stop_time = "2015-01-16T14:00:50.000Z"
+      shipping_mode = "me2"
+      free_shipping = true
+      local_pick_up = false
+      category_path = ["MLA1234","MLA6789"]
+    }
   }
 }
