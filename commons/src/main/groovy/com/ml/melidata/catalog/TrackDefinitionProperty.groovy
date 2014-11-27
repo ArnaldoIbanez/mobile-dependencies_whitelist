@@ -8,7 +8,7 @@ import java.sql.Timestamp
  * Created by geisbruch on 11/10/14.
  */
 
-enum PropertyType {
+public enum PropertyType {
     String {
         public Boolean validate(Object value) {
             return value instanceof String
@@ -16,7 +16,7 @@ enum PropertyType {
     }, 
     Numeric {
         public Boolean validate(Object value) {
-            return value instanceof Integer
+            return value instanceof Number
         }
     }, 
     Timestamp {
