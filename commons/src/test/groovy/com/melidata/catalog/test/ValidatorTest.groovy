@@ -105,21 +105,6 @@ class ValidatorTest {
         //println result.menssages
     }
 
-    @Test void shouldValidateTrackWithTypeValidatorAndTypeAsString() {
-
-        // Arrange
-        def response = new TrackValidationResponse()
-        def validator = Validator.CreateTypeValidator(Integer)
-
-
-        validator.validate(response, "propertyname", 1)
-
-        // Assert
-        assertEquals(response.status, true)
-        assertEquals(response.menssages.size(), 0)
-        //println result.menssages
-    }
-
     @Test void shouldFailValidateTrackWithTypeValidator() {
 
         // Arrange

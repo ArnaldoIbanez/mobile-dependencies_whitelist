@@ -77,7 +77,7 @@ class TestRunnerTest {
             result = TestRunner.run("definitions/" + PATH_CATALOG, "definitions/" + PATH_TEST, new OutTest())
         }
 
-        assertFalse(result)
+        assertTrue(result)
     }
 
     @Test void shouldRunThrowNotFoundException(){

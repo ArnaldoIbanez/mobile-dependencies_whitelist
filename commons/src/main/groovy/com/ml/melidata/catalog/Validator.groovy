@@ -64,25 +64,19 @@ public class RegexValidator extends Validator{
 
 public class TypeValidator extends Validator {
 
-    private def type = null
+    private def PropertyType type = null
 
-    def TypeValidator(type){
+    def TypeValidator(PropertyType type){
         this.type = type
     }
 
 
     void validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
-        if(type == PropertyType.Numeric && value?.class == Integer.class)
-            return
-        if(type == PropertyType.String && value?.class == String.class)
-            return
-        if(type == PropertyType.Timestamp && value?.class == Timestamp.class)
-            return
-        if(type == value?.class)
+
+        if(type?.validate(value))
             return
 
         response.addValidation(false, "Property '${property}' has invalid type '${value?.class}'. (value must be: ${type})")
-
     }
 }
 

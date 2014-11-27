@@ -21,6 +21,7 @@ catalog {
         "/search"(platform: "/") {
             limit(description:"amount of search items returned")
             offset(type: PropertyType.Numeric, regex:".*")
+
         }
         "/search"(platform: "/mobile") {
             position(values: ["horizontal","landscape"])
@@ -45,7 +46,7 @@ catalog {
               shipping_mode()
               free_shipping()
               local_pick_up()
-              category_path(type: PropertyType.Array)
+              category_path(type: PropertyType.ArrayList)
         }
     }
 }
