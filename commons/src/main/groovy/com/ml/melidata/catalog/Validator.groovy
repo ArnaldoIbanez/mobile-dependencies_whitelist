@@ -64,9 +64,9 @@ public class RegexValidator extends Validator{
 
 public class TypeValidator extends Validator {
 
-    private def type = null
+    private def PropertyType type = null
 
-    def TypeValidator(type){
+    def TypeValidator(PropertyType type){
         this.type = type
     }
 
