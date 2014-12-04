@@ -18,13 +18,9 @@ catalog {
   ]
 
    tracks {
-      "/search"(platform: "/") {
-            
-      }
+      "/search"(platform: "/") { }
 
-      "/search"(platform: "/mobile") {
-            
-      }
+      "/search"(platform: "/mobile") { }
 
       "/search"(platform: "/mobile/android") {
         query()
@@ -37,18 +33,21 @@ catalog {
         filter_user_applied(required:false)
       }
 
+      "/search/cancel"(platform: "/mobile/android"){}
+      "/search/abort"(platform: "/mobile/android"){}
+
     "/search/refine" (platform: "/mobile/android"){ }
     "/search/refine/apply" (platform: "/mobile/android"){ } //event
     "/search/refine/cancel" (platform: "/mobile/android"){ } //event
     "/search/refine/select_filter" (platform: "/mobile/android"){
       filter_name()
     } 
-    "/search/refine/select_filter/choose"(platform: "/mobile/android"){
+    "/search/refine/select_filter/apply"(platform: "/mobile/android"){
       filter_value()
     }
 
     "/search/change_view" (platform: "/mobile/android"){ } 
-    "/search/change_view/choose" (platform: "/mobile/android"){ //event
+    "/search/change_view/apply" (platform: "/mobile/android"){ //event
       list_mode()
     } 
     "/search/bookmark" (platform: "/mobile/android"){ //event
