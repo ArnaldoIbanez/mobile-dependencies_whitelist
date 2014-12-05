@@ -32,13 +32,13 @@ trackTests {
         defaultSearchInformation()
         filter_name = "sort"
       }
-      "/search/refine/select_filter/choose"(platform: "/mobile/android"){
+      "/search/refine/select_filter/apply"(platform: "/mobile/android"){
         defaultSearchInformation()
         filter_name = "sort"
         filter_value = "relevance"
       }
       "/search/change_view" (platform: "/mobile/android", defaultSearchInformation)
-      "/search/change_view/choose" (platform: "/mobile/android"){
+      "/search/change_view/apply" (platform: "/mobile/android"){
         defaultSearchInformation()
         list_mode = "mosaic"
       }
@@ -46,6 +46,7 @@ trackTests {
         defaultSearchInformation()
         item_id = "MLA32089"
       }
+    }
 
   test("Vip core tracking in android") {
     def dataSet = {

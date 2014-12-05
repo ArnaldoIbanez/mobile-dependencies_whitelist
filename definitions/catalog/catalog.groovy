@@ -48,12 +48,12 @@ catalog {
 		"/search/refine/select_filter" (platform: "/mobile/android"){
 		  filter_name()
 		}
-		"/search/refine/select_filter/choose"(platform: "/mobile/android"){
+		"/search/refine/select_filter/apply"(platform: "/mobile/android"){
 		  filter_value()
 		}
 
 		"/search/change_view" (platform: "/mobile/android"){ }
-		"/search/change_view/choose" (platform: "/mobile/android"){ //event
+		"/search/change_view/apply" (platform: "/mobile/android"){ //event
 		  list_mode()
 		}
 		"/search/bookmark" (platform: "/mobile/android"){ //event
