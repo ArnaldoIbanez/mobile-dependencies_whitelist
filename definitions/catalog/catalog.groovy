@@ -26,6 +26,7 @@ catalog {
  * - back:  the event of back from a page, speacially in mobile
  * - delete: when something is deleted
  * - apply: when a criteria is applied
+ * - post: create a new entity
  */
 
    tracks {
@@ -104,10 +105,10 @@ catalog {
 		"/vip/description"(platform:"/mobile") { }
 
 		//Vip events
-		"/vip/bookmark/add"(platform:"/mobile", type: TrackType.Event) {
+		"/bookmarks/post"(platform:"/mobile", type: TrackType.Event) {
 		  item_id();
 		}
-		"/vip/bookmark/remove"(platform:"/mobile", type: TrackType.Event) {
+		"/bookmarks/delete"(platform:"/mobile", type: TrackType.Event) {
 		  item_id();
 		}
 
@@ -122,7 +123,7 @@ catalog {
       context();
     }
     
-    "/questions/ask/"(platform: "/mobile", type: TrackType.Event) {
+    "/questions/ask/post"(platform: "/mobile", type: TrackType.Event) {
     }
 
 		//Checkout views
