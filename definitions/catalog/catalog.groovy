@@ -146,7 +146,7 @@ catalog {
 		   available_methods()
 	   }
 
-	   "/checkout/payment_selection/creditcard"(platform:"/mobile") {
+	   "/checkout/payment_selection/credit_card"(platform:"/mobile") {
 	   	//TODO
 	   }
 

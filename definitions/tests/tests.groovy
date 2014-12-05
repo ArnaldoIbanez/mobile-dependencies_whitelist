@@ -105,4 +105,44 @@ trackTests {
 
     }
   }
+
+  test("Checkout test"){
+
+    def checkout_default = {
+      item_id = "MCO412584037"
+    }
+
+    "/checkout"(platform:"/") {
+      checkout_default()
+    }
+
+    def payment_selection_default = {
+      current_type="credit_card"
+      available_other_methods=true
+      available_types=[]
+      current_method="visa"
+    }
+
+    "/checkout/payment_selection" (platform:"/mobile/android"){
+      checkout_default()
+      payment_selection_default()
+    }
+
+    "/checkout/payment_selection/credit_card" (platform:"/mobile/android"){
+      checkout_default()
+      payment_selection_default()
+    }
+
+    def shipping_selection_default = {
+      available_types=[]
+      current_type="to_agree"
+      current_option="to_agree"
+    }
+
+    "/checkout/shipping_selection" (platform:"/mobile/android"){
+      checkout_default()
+      shipping_selection_default()
+    }
+
+  }
 }
