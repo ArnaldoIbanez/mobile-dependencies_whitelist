@@ -82,27 +82,8 @@ trackTests {
  }
 
   test("Vip bookmark tracking in android") {
-    "/vip/bookmark/add" (platform:"/mobile/android", type: TrackType.Event) {
+    "/bookmarks/post" (platform:"/mobile/android", type: TrackType.Event) {
       item_id = "MLA533657947"
-      buying_mode = "buy_it_now"
-      vertical = "code"
-      category_id = "MLA43718"
-      quantity = 3
-      item_condition = "new"
-      currency_id = "ARS"
-      price = 15.3 
-      item_status = "active"
-      official_store_id = "1"
-      seller_id = "131662738"
-      power_seller_status = "platinum"
-      listing_type_id = "gold_special"
-      start_time = "2014-11-17T14:00:50.000Z"
-      stop_time = "2015-01-16T14:00:50.000Z"
-      shipping_mode = "me2"
-      free_shipping = true
-      local_pick_up = false
-      category_path = ["MLA1234","MLA6789"]
-
     }
   }
 
@@ -118,4 +99,43 @@ trackTests {
 
   }
 
+  test("Checkout test"){
+
+    def checkout_default = {
+      item_id = "MCO412584037"
+    }
+
+    "/checkout"(platform:"/") {
+      checkout_default()
+    }
+
+    def payment_selection_default = {
+      current_type="credit_card"
+      available_other_methods=true
+      available_types=[]
+      current_method="visa"
+    }
+
+    "/checkout/payment_selection" (platform:"/mobile/android"){
+      checkout_default()
+      payment_selection_default()
+    }
+
+    "/checkout/payment_selection/credit_card" (platform:"/mobile/android"){
+      checkout_default()
+      payment_selection_default()
+    }
+
+    def shipping_selection_default = {
+      available_types=[]
+      current_type="to_agree"
+      current_option="to_agree"
+    }
+
+    "/checkout/shipping_selection" (platform:"/mobile/android"){
+      checkout_default()
+      shipping_selection_default()
+    }
+
+  }
 }

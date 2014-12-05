@@ -58,9 +58,12 @@ catalog {
     }
 
 		"/search/refine" (platform: "/mobile/android"){ }
-		"/search/refine/apply" (platform: "/mobile/android", type: TrackType.Event){ } //event
-		"/search/refine/back" (platform: "/mobile/android", type: TrackType.Event){ } //event
-		"/search/refine/select_filter" (platform: "/mobile/android"){
+		
+    "/search/refine/apply" (platform: "/mobile/android", type: TrackType.Event){ }
+		
+    "/search/refine/back" (platform: "/mobile/android", type: TrackType.Event){ }
+		
+    "/search/refine/select_filter" (platform: "/mobile/android"){
 		  filter_name()
 		}
 		"/search/refine/select_filter/apply"(platform: "/mobile/android"){
@@ -68,10 +71,11 @@ catalog {
 		}
 
 		"/search/change_view" (platform: "/mobile/android"){ }
-		"/search/change_view/apply" (platform: "/mobile/android", type: TrackType.Event){ //event
+
+		"/search/change_view/apply" (platform: "/mobile/android", type: TrackType.Event){
 		  list_mode()
 		}
-		"/search/bookmark" (platform: "/mobile/android", type: TrackType.Event){ //event
+		"/search/bookmark" (platform: "/mobile/android", type: TrackType.Event){
 			item_id()
 		}
 
@@ -103,11 +107,13 @@ catalog {
 		"/vip/questions"(platform:"/mobile") { }
 		"/vip/payments"(platform:"/mobile") { }
 		"/vip/description"(platform:"/mobile") { }
+    
+    "/vip/back"(platform:"/mobile", type: TrackType.Event) { }
 
-		//Vip events
-		"/bookmarks/post"(platform:"/mobile", type: TrackType.Event) {
-		  item_id();
-		}
+		//Bookmarks
+    "/bookmarks/post"(platform:"/mobile", type: TrackType.Event) {
+	    item_id();
+    } 
 		"/bookmarks/delete"(platform:"/mobile", type: TrackType.Event) {
 		  item_id();
 		}
@@ -126,42 +132,46 @@ catalog {
     "/questions/ask/post"(platform: "/mobile", type: TrackType.Event) {
     }
 
-		//Checkout views
+		//Checkout
 		"/checkout"(platform:"/") {
 			item_id()
 		}
 
-		"/checkout/back"(platform:"/", type: TrackType.Event) {}
+		"/checkout/back"(platform:"/mobile", type: TrackType.Event) {}
 
-		"/checkout/congrats"(platform:"/") {
+		"/checkout/congrats"(platform:"/mobile") {
 
 		}
 
-		"/checkout/quantity_changed"(platform:"/", type: TrackType.Event) {
+	   "/checkout/congrats/back"(platform:"/mobile", type: TrackType.Event) {}
+
+	   	"/checkout/error"(platform: "/mobile", type: TrackType.Event) {
+			error_message()
+		}
+
+		"/checkout/quantity_changed"(platform:"/mobile", type: TrackType.Event) {
 			quantity()
 		}
 
-	   "/checkout/shipping_selection"(platform:"/mobile") {
+	   "/checkout/shipping_selection"(platform:"/mobile") {  //TODO flow
 		   available_types()
 		   current_type()
 		   current_option()
 	   }
 
-	   "/checkout/shipping_selection/apply"(platform:"/mobile", type: TrackType.Event) {
+	   "/checkout/shipping_selection/apply"(platform:"/mobile", type: TrackType.Event) {}
 
-	   }
+	   "/checkout/shipping_selection/back"(platform:"/mobile", type: TrackType.Event) {}
 
-	   "/checkout/shipping_cost"(platform:"/mobile") {
+	   "/checkout/shipping_cost"(platform:"/mobile") {}
 
-	   }
-
-	   "/checkout/shipping_cost/back"(platform:"/mobile") {
-
-	   }
+	   "/checkout/shipping_cost/back"(platform:"/mobile") {}
 
 	   "/checkout/shipping_cost/apply"(platform:"/mobile", type: TrackType.Event) {
-			//TODO
+		   //TODO
 	   }
+
+	   "/checkout/shipping_cost/back"(platform:"/mobile") {}
 
 	   "/checkout/payment_selection"(platform:"/mobile") {
 		   available_types(type: PropertyType.ArrayList)
@@ -174,24 +184,25 @@ catalog {
 		   available_methods()
 	   }
 
-	   "/checkout/payment_selection/creditcard"(platform:"/mobile") {
-	   	//TODO
+	   "/checkout/payment_selection/credit_card"(platform:"/mobile") {
+	   	//TODO flow
 	   }
 
-	   "/checkout/payment_selection/apply"(platform:"/mobile", type: TrackType.Event) {
-	   }
+	   "/checkout/payment_selection/apply"(platform:"/mobile", type: TrackType.Event) {}
 
-	   "/checkout/contact_seller_call"(platform:"/mobile", type: TrackType.Event) {
-	   }
+	   "/checkout/payment_selection/back"(platform:"/mobile", type: TrackType.Event) {}
 
-	   "/checkout/contact_seller_email"(platform:"/mobile", type: TrackType.Event) {
-	   }
+	   "/checkout/order_total"(platform:"/mobile") {}
 
-	   "/checkout/contact_add"(platform:"/mobile", type: TrackType.Event) {
-	   }
+	   "/checkout/order_total/back"(platform:"/mobile", type: TrackType.Event) {}
 
-	   "/checkout/screenshot"(platform:"/mobile", type: TrackType.Event) {
-	   }
+	   "/checkout/contact_seller_call"(platform:"/mobile", type: TrackType.Event) {}
+
+	   "/checkout/contact_seller_email"(platform:"/mobile", type: TrackType.Event) {}
+
+	   "/checkout/contact_add"(platform:"/mobile", type: TrackType.Event) {}
+
+	   "/checkout/screenshot"(platform:"/mobile", type: TrackType.Event) {}
 
 
 
