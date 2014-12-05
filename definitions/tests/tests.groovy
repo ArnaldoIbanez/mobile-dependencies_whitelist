@@ -27,7 +27,7 @@ trackTests {
       "/search"(platform: "/mobile/android", defaultSearchInformation)
       "/search/refine"(platform: "/mobile/android", defaultSearchInformation)
       "/search/refine/apply"(platform: "/mobile/android", defaultSearchInformation)
-      "/search/refine/cancel" (platform: "/mobile/android", defaultSearchInformation)  
+      "/search/refine/back" (platform: "/mobile/android", defaultSearchInformation)  
       "/search/refine/select_filter" (platform: "/mobile/android"){
         defaultSearchInformation()
         filter_name = "sort"
@@ -105,4 +105,17 @@ trackTests {
 
     }
   }
+
+  test("Questions") {
+    "/questions/list"(platform: "/mobile") {
+      item_id = "MLA12345"
+      context = "/vip"
+    }
+    "/questions/ask"(platform: "/mobile") {
+      item_id = "MLA12345"
+      context = "/vip"
+    }
+
+  }
+
 }

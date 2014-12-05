@@ -17,34 +17,48 @@ catalog {
     "/mobile/web"
   ]
 
+/**
+ *
+ * The events means actions that happens without launch a View, 
+ * as example of that we can consider Bookmark an item in a VIP page
+ * Every event is an action, so the verbs available are:
+ * 
+ * - back:  the event of back from a page, speacially in mobile
+ * - delete: when something is deleted
+ * - apply: when a criteria is applied
+ */
+
    tracks {
+    
+    def categoryRegex = /[a-zA-Z]{1,3}[0-9]+/
+  
 
 	  "/splash"(platform:"/mobile") {}
 
 	  "/home"(platform:"/mobile") {}
 
-      "/search"(platform: "/") {
-            
-      }
+    "/search"(platform: "/") {
+          
+    }
 
-      "/search"(platform: "/mobile") {
-            
-      }
+    "/search"(platform: "/mobile") {
+          
+    }
 
-      "/search"(platform: "/mobile/android") {
-        query()
-        limit()
-        offset()
-        total(description:"amount of search items returned", required:false)
-        category_id(regex:/[a-zA-Z]{1,3}[0-9]+/, required:false)
-        category_path(description:"path from root category", required:false)
-        sort_id(required:false)
-        filter_user_applied(required:false)
-      }
+    "/search"(platform: "/mobile/android") {
+      query()
+      limit()
+      offset()
+      total(description:"amount of search items returned", required:false)
+      category_id(regex:categoryRegex, required:false)
+      category_path(description:"path from root category", required:false)
+      sort_id(required:false)
+      filter_user_applied(required:false)
+    }
 
 		"/search/refine" (platform: "/mobile/android"){ }
-		"/search/refine/apply" (platform: "/mobile/android"){ } //event
-		"/search/refine/cancel" (platform: "/mobile/android"){ } //event
+		"/search/refine/apply" (platform: "/mobile/android", type: TrackType.Event){ } //event
+		"/search/refine/back" (platform: "/mobile/android", type: TrackType.Event){ } //event
 		"/search/refine/select_filter" (platform: "/mobile/android"){
 		  filter_name()
 		}
@@ -53,10 +67,10 @@ catalog {
 		}
 
 		"/search/change_view" (platform: "/mobile/android"){ }
-		"/search/change_view/apply" (platform: "/mobile/android"){ //event
+		"/search/change_view/apply" (platform: "/mobile/android", type: TrackType.Event){ //event
 		  list_mode()
 		}
-		"/search/bookmark" (platform: "/mobile/android"){ //event
+		"/search/bookmark" (platform: "/mobile/android", type: TrackType.Event){ //event
 			item_id()
 		}
 
@@ -64,7 +78,7 @@ catalog {
 			  item_id()
 			  buying_mode()
 			  vertical()
-			  category_id(regex:"[A-Z]{3}\\d+")
+			  category_id(regex:categoryRegex)
 			  quantity(type: PropertyType.Numeric)
 			  item_condition()
 			  currency_id()
@@ -97,13 +111,26 @@ catalog {
 		  item_id();
 		}
 
+    // Questions
+    "/questions/list"(platform: "/mobile") {
+      item_id();
+      context();
+    }
+
+    "/questions/ask"(platform: "/mobile") {
+      item_id();
+      context();
+    }
+    
+    "/questions/ask/"(platform: "/mobile", type: TrackType.Event) {
+    }
 
 		//Checkout views
 		"/checkout"(platform:"/") {
 			item_id()
 		}
 
-		"/checkout/cancel"(platform:"/", type: TrackType.Event) {}
+		"/checkout/back"(platform:"/", type: TrackType.Event) {}
 
 		"/checkout/congrats"(platform:"/") {
 
@@ -127,7 +154,7 @@ catalog {
 
 	   }
 
-	   "/checkout/shipping_cost/cancel"(platform:"/mobile") {
+	   "/checkout/shipping_cost/back"(platform:"/mobile") {
 
 	   }
 
