@@ -19,7 +19,6 @@ catalog {
 
    tracks {
 
-
 	  "/splash"(platform:"/mobile") {}
 
 	  "/home"(platform:"/mobile") {}
@@ -28,7 +27,9 @@ catalog {
             
       }
 
-      "/search"(platform: "/mobile") { }
+      "/search"(platform: "/mobile") {
+            
+      }
 
       "/search"(platform: "/mobile/android") {
         query()
@@ -41,64 +42,62 @@ catalog {
         filter_user_applied(required:false)
       }
 
-      "/search/cancel"(platform: "/mobile/android"){}
-      "/search/abort"(platform: "/mobile/android"){}
+		"/search/refine" (platform: "/mobile/android"){ }
+		"/search/refine/apply" (platform: "/mobile/android"){ } //event
+		"/search/refine/cancel" (platform: "/mobile/android"){ } //event
+		"/search/refine/select_filter" (platform: "/mobile/android"){
+		  filter_name()
+		}
+		"/search/refine/select_filter/choose"(platform: "/mobile/android"){
+		  filter_value()
+		}
 
-	    "/search/refine" (platform: "/mobile/android"){ }
-	    "/search/refine/apply" (platform: "/mobile/android"){ } //event
-	    "/search/refine/cancel" (platform: "/mobile/android"){ } //event
-	    "/search/refine/select_filter" (platform: "/mobile/android"){
-	      filter_name()
-	    } 
-	    "/search/refine/select_filter/apply"(platform: "/mobile/android"){
-	      filter_value()
-	    }
+		"/search/change_view" (platform: "/mobile/android"){ }
+		"/search/change_view/choose" (platform: "/mobile/android"){ //event
+		  list_mode()
+		}
+		"/search/bookmark" (platform: "/mobile/android"){ //event
+			item_id()
+		}
 
-	    "/search/change_view" (platform: "/mobile/android"){ } 
-	    "/search/change_view/apply" (platform: "/mobile/android"){ //event
-	      list_mode()
-	    } 
-	    "/search/bookmark" (platform: "/mobile/android"){ //event
-	        item_id()
-	    }
+		"/vip"(platform:"/") {
+			  item_id()
+			  buying_mode()
+			  vertical()
+			  category_id(regex:"[A-Z]{3}\\d+")
+			  quantity(type: PropertyType.Numeric)
+			  item_condition()
+			  currency_id()
+			  price(type: PropertyType.Numeric)
+			  item_status()
+			  official_store_id(required: false)
+			  seller_id()
+			  power_seller_status()
+			  listing_type_id()
+			  start_time()
+			  stop_time()
+			  shipping_mode()
+			  free_shipping()
+			  local_pick_up()
+			  category_path(type: PropertyType.ArrayList)
+		}
+		"/vip/seller_reputation"(platform:"/mobile") { }
+		"/vip/seller_reputation/ratings"(platform:"/mobile") { }
+		"/vip/mercadoenvios"(platform:"/mobile") { }
+		"/vip/color_and_size"(platform:"/mobile") { }
+		"/vip/questions"(platform:"/mobile") { }
+		"/vip/payments"(platform:"/mobile") { }
+		"/vip/description"(platform:"/mobile") { }
 
-	    "/vip"(platform:"/") {
-	          item_id()
-	          buying_mode()
-	          vertical()
-	          category_id(regex:"[A-Z]{3}\\d+")
-	          quantity(type: PropertyType.Numeric)
-	          item_condition()
-	          currency_id()
-	          price(type: PropertyType.Numeric)
-	          item_status()
-	          official_store_id(required: false)
-	          seller_id()
-	          power_seller_status()
-	          listing_type_id()
-	          start_time()
-	          stop_time()
-	          shipping_mode()
-	          free_shipping()
-	          local_pick_up()
-	          category_path(type: PropertyType.ArrayList)
-	    }
-	    "/vip/seller_reputation"(platform:"/mobile") { }
-	    "/vip/seller_reputation/ratings"(platform:"/mobile") { }
-	    "/vip/mercadoenvios"(platform:"/mobile") { }
-	    "/vip/color_and_size"(platform:"/mobile") { }
-	    "/vip/questions"(platform:"/mobile") { }
-	    "/vip/payments"(platform:"/mobile") { }
-	    "/vip/description"(platform:"/mobile") { }
-	    
-	    //Vip events
-	    "/vip/bookmark/add"(platform:"/mobile", type: TrackType.Event) {
-	      item_id();
-	    }
-	    "/vip/bookmark/remove"(platform:"/mobile", type: TrackType.Event) {
-	      item_id();
-	    }
-  
+		//Vip events
+		"/vip/bookmark/add"(platform:"/mobile", type: TrackType.Event) {
+		  item_id();
+		}
+		"/vip/bookmark/remove"(platform:"/mobile", type: TrackType.Event) {
+		  item_id();
+		}
+
+
 		//Checkout views
 		"/checkout"(platform:"/") {
 			item_id()
@@ -165,5 +164,8 @@ catalog {
 
 	   "/checkout/screenshot"(platform:"/mobile", type: TrackType.Event) {
 	   }
+
+
+
    }
 }

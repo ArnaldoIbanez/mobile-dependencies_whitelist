@@ -14,17 +14,17 @@ public enum PropertyType {
             return value instanceof String
         }
     },
-	Numeric {
-		public Boolean validate(Object value) {
-			return value instanceof Number
-		}
-	},
-	Boolean {
-		public Boolean validate(Object value) {
-			return value instanceof Boolean
-		}
-	},
-	Timestamp {
+    Numeric {
+        public Boolean validate(Object value) {
+            return value instanceof Number
+        }
+    },
+    Boolean {
+        public Boolean validate(Object value) {
+            return value instanceof Boolean
+        }
+    },
+    Timestamp {
         public Boolean validate(Object value) {
             return value instanceof Timestamp
         }
