@@ -44,7 +44,7 @@ catalog {
 
 		"/search/refine" (platform: "/mobile/android"){ }
 		"/search/refine/apply" (platform: "/mobile/android"){ } //event
-		"/search/refine/cancel" (platform: "/mobile/android"){ } //event
+		"/search/refine/back" (platform: "/mobile/android"){ } //event
 		"/search/refine/select_filter" (platform: "/mobile/android"){
 		  filter_name()
 		}
@@ -90,7 +90,9 @@ catalog {
 		"/vip/description"(platform:"/mobile") { }
 
 		//Vip events
-		"/vip/bookmark/add"(platform:"/mobile", type: TrackType.Event) {
+	   "/vip/back"(platform:"/mobile", type: TrackType.Event) { }
+
+	   "/vip/bookmark/add"(platform:"/mobile", type: TrackType.Event) {
 		  item_id();
 		}
 		"/vip/bookmark/remove"(platform:"/mobile", type: TrackType.Event) {
@@ -98,42 +100,45 @@ catalog {
 		}
 
 
-		//Checkout views
+		//Checkout
 		"/checkout"(platform:"/") {
 			item_id()
 		}
 
-		"/checkout/cancel"(platform:"/", type: TrackType.Event) {}
+		"/checkout/back"(platform:"/mobile", type: TrackType.Event) {}
 
-		"/checkout/congrats"(platform:"/") {
+		"/checkout/congrats"(platform:"/mobile") {
 
 		}
 
-		"/checkout/quantity_changed"(platform:"/", type: TrackType.Event) {
+	   "/checkout/congrats/back"(platform:"/mobile", type: TrackType.Event) {}
+
+	   	"/checkout/error"(platform: "/mobile", type: TrackType.Event) {
+			error_message()
+		}
+
+		"/checkout/quantity_changed"(platform:"/mobile", type: TrackType.Event) {
 			quantity()
 		}
 
-	   "/checkout/shipping_selection"(platform:"/mobile") {
+	   "/checkout/shipping_selection"(platform:"/mobile") {  //TODO flow
 		   available_types()
 		   current_type()
 		   current_option()
 	   }
 
-	   "/checkout/shipping_selection/apply"(platform:"/mobile", type: TrackType.Event) {
+	   "/checkout/shipping_selection/apply"(platform:"/mobile", type: TrackType.Event) {}
 
-	   }
+	   "/checkout/shipping_selection/back"(platform:"/mobile", type: TrackTye.Event) {}
 
-	   "/checkout/shipping_cost"(platform:"/mobile") {
+	   "/checkout/shipping_cost"(platform:"/mobile") {}
 
-	   }
-
-	   "/checkout/shipping_cost/cancel"(platform:"/mobile") {
-
-	   }
 
 	   "/checkout/shipping_cost/apply"(platform:"/mobile", type: TrackType.Event) {
-			//TODO
+		   //TODO
 	   }
+
+	   "/checkout/shipping_cost/back"(platform:"/mobile") {}
 
 	   "/checkout/payment_selection"(platform:"/mobile") {
 		   available_types(type: PropertyType.ArrayList)
@@ -147,23 +152,24 @@ catalog {
 	   }
 
 	   "/checkout/payment_selection/credit_card"(platform:"/mobile") {
-	   	//TODO
+	   	//TODO flow
 	   }
 
-	   "/checkout/payment_selection/apply"(platform:"/mobile", type: TrackType.Event) {
-	   }
+	   "/checkout/payment_selection/apply"(platform:"/mobile", type: TrackType.Event) {}
 
-	   "/checkout/contact_seller_call"(platform:"/mobile", type: TrackType.Event) {
-	   }
+	   "/checkout/payment_selection/back"(platform:"/moble", type: TrackType.Event) {}
 
-	   "/checkout/contact_seller_email"(platform:"/mobile", type: TrackType.Event) {
-	   }
+	   "/checkout/order_total"(platform:"/mobile") {}
 
-	   "/checkout/contact_add"(platform:"/mobile", type: TrackType.Event) {
-	   }
+	   "/checkout/order_total/back"(platform:"/mobile", type: TrackType.Event) {}
 
-	   "/checkout/screenshot"(platform:"/mobile", type: TrackType.Event) {
-	   }
+	   "/checkout/contact_seller_call"(platform:"/mobile", type: TrackType.Event) {}
+
+	   "/checkout/contact_seller_email"(platform:"/mobile", type: TrackType.Event) {}
+
+	   "/checkout/contact_add"(platform:"/mobile", type: TrackType.Event) {}
+
+	   "/checkout/screenshot"(platform:"/mobile", type: TrackType.Event) {}
 
 
 
