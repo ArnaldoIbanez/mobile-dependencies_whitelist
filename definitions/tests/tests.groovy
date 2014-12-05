@@ -133,16 +133,27 @@ trackTests {
       payment_selection_default()
     }
 
+    "/checkout/payment_selection/othertype" (platform: "/mobile/android"){
+      checkout_default()
+      payment_selection_default()
+      available_methods=["efecty", "davivienda"]
+    }
+
     def shipping_selection_default = {
       available_types=[]
       current_type="to_agree"
       current_option="to_agree"
-    }
+    } 
 
     "/checkout/shipping_selection" (platform:"/mobile/android"){
       checkout_default()
       shipping_selection_default()
     }
 
+    "/checkout/shipping_cost" (platform: "/mobile/android"){
+      checkout_default()
+    }
+
+    
   }
 }
