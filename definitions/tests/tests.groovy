@@ -138,4 +138,11 @@ trackTests {
     }
 
   }
+
+  test("Shipping Mercadoenvios calculate cost") {
+    "/mercadoenvios/calculate_cost"(platform: "/mobile") {
+      item_id = "MLA12345"
+      context = "/vip"
+    }
+  }
 }
