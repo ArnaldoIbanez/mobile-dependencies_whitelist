@@ -100,9 +100,7 @@ catalog {
 		}
 		"/vip/seller_reputation"(platform:"/mobile") { }
 		"/vip/seller_reputation/ratings"(platform:"/mobile") { }
-		"/vip/mercadoenvios"(platform:"/mobile") { }
 		"/vip/color_and_size"(platform:"/mobile") { }
-		"/vip/questions"(platform:"/mobile") { }
 		"/vip/payments"(platform:"/mobile") { }
 		"/vip/description"(platform:"/mobile") { }
 
@@ -204,11 +202,12 @@ catalog {
 
 		"/checkout/screenshot"(platform:"/mobile", type: TrackType.Event) {}
 
-     "/mercadoenvios/calculate_cost"(platform:"/mobile") {
+    "/shipping/mercadoenvios/calculate_cost"(platform:"/mobile") {
        item_id()
        context()
      }
 
-
-   }
+    "/shipping/mercadoenvios/calculate_cost/get"(platform:"/mobile", type: TrackType.Event) {}
+    "/shipping/mercadoenvios/calculate_cost/apply"(platform:"/mobile", type: TrackType.Event) {}
+  }
 }

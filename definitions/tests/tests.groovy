@@ -84,9 +84,7 @@ trackTests {
     "/vip"(platform:"/mobile", dataSet) 
     "/vip/seller_reputation"(platform:"/mobile", dataSet) 
     "/vip/seller_reputation/ratings"(platform:"/mobile", dataSet) 
-    "/vip/mercadoenvios"(platform:"/mobile", dataSet) 
     "/vip/color_and_size"(platform:"/mobile", dataSet) 
-    "/vip/questions"(platform:"/mobile", dataSet) 
     "/vip/payments"(platform:"/mobile", dataSet) 
     "/vip/description"(platform:"/mobile", dataSet) 
  }
@@ -165,7 +163,15 @@ trackTests {
   }
 
   test("Shipping Mercadoenvios calculate cost") {
-    "/mercadoenvios/calculate_cost"(platform: "/mobile") {
+    "/shipping/mercadoenvios/calculate_cost"(platform: "/mobile") {
+      item_id = "MLA12345"
+      context = "/vip"
+    }
+    "/shipping/mercadoenvios/calculate_cost/get"(platform: "/mobile", type: TrackType.Event) {
+      item_id = "MLA12345"
+      context = "/vip"
+    }
+    "/shipping/mercadoenvios/calculate_cost/apply"(platform: "/mobile", type: TrackType.Event) {
       item_id = "MLA12345"
       context = "/vip"
     }
