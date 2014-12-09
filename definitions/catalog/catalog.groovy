@@ -23,60 +23,58 @@ catalog {
  * as example of that we can consider Bookmark an item in a VIP page
  * Every event is an action, so the verbs available are:
  * 
- * - back:  the event of back from a page, speacially in mobile
+ * - back:  the event of back from a page, specially in mobile
+ * - abort: the user abort the action (e.g: back pressed before api response)
  * - delete: when something is deleted
  * - apply: when a criteria is applied
  * - post: create a new entity
  */
 
    tracks {
-    
-    def categoryRegex = /[a-zA-Z]{1,3}[0-9]+/
-  
 
-	  "/splash"(platform:"/mobile") {}
+		def categoryRegex = /[a-zA-Z]{1,3}[0-9]+/
 
-	  "/home"(platform:"/mobile") {}
+		"/splash"(platform:"/mobile") {}
 
-    "/search"(platform: "/") {
-          
-    }
+		"/home"(platform:"/mobile") {}
 
-    "/search"(platform: "/mobile") {
-          
-    }
-
-    "/search"(platform: "/mobile/android") {
-      query()
-      limit()
-      offset()
-      total(description:"amount of search items returned", required:false)
-      category_id(regex:categoryRegex, required:false)
-      category_path(description:"path from root category", required:false)
-      sort_id(required:false)
-      filter_user_applied(required:false)
-    }
-
-		"/search/refine" (platform: "/mobile/android"){ }
-		
-    "/search/refine/apply" (platform: "/mobile/android", type: TrackType.Event){ }
-		
-    "/search/refine/back" (platform: "/mobile/android", type: TrackType.Event){ }
-		
-    "/search/refine/select_filter" (platform: "/mobile/android"){
-		  filter_name()
-		}
-		"/search/refine/select_filter/apply"(platform: "/mobile/android"){
-		  filter_value()
+		"/search"(platform: "/mobile") {
+		  query(required: false)
+		  limit()
+		  offset()
+		  total(description:"amount of search items returned", required:false)
+		  category_id(regex:categoryRegex, required:false)
+		  category_path(description:"path from root category", required:false)
+		  sort_id(required:false)
+		  filter_user_applied(required:false)
 		}
 
-		"/search/change_view" (platform: "/mobile/android"){ }
+		"/search/failure" (platform: "/mobile", type: TrackType.Event){
+			error_message()
+		}
 
-		"/search/change_view/apply" (platform: "/mobile/android", type: TrackType.Event){
+		"/search/back" (platform: "/mobile", type: TrackType.Event){ }
+
+		"/search/abort" (platform: "/mobile", type: TrackType.Event){ }
+
+	   	"/search/refine" (platform: "/mobile"){ }
+
+		"/search/refine/apply" (platform: "/mobile", type: TrackType.Event){ }
+
+		"/search/refine/back" (platform: "/mobile", type: TrackType.Event){ }
+
+		"/search/refine/select_filter" (platform: "/mobile"){
+			  filter_name()
+		}
+
+		"/search/refine/select_filter/apply"(platform: "/mobile"){
+			  filter_value()
+		}
+
+		"/search/change_view" (platform: "/mobile"){ }
+
+		"/search/change_view/apply" (platform: "/mobile", type: TrackType.Event){
 		  list_mode()
-		}
-		"/search/bookmark" (platform: "/mobile/android", type: TrackType.Event){
-			item_id()
 		}
 
 		"/vip"(platform:"/") {
@@ -107,30 +105,32 @@ catalog {
 		"/vip/questions"(platform:"/mobile") { }
 		"/vip/payments"(platform:"/mobile") { }
 		"/vip/description"(platform:"/mobile") { }
-    
-    "/vip/back"(platform:"/mobile", type: TrackType.Event) { }
+
+		"/vip/back"(platform:"/mobile", type: TrackType.Event) { }
 
 		//Bookmarks
-    "/bookmarks/post"(platform:"/mobile", type: TrackType.Event) {
-	    item_id();
-    } 
+
+		"/bookmarks/post"(platform:"/mobile", type: TrackType.Event) {
+			item_id();
+		}
+
 		"/bookmarks/delete"(platform:"/mobile", type: TrackType.Event) {
 		  item_id();
 		}
 
-    // Questions
-    "/questions/list"(platform: "/mobile") {
-      item_id();
-      context();
-    }
+		// Questions
+		"/questions/list"(platform: "/mobile") {
+		  item_id();
+		  context();
+		}
 
-    "/questions/ask"(platform: "/mobile") {
-      item_id();
-      context();
-    }
-    
-    "/questions/ask/post"(platform: "/mobile", type: TrackType.Event) {
-    }
+		"/questions/ask"(platform: "/mobile") {
+		  item_id();
+		  context();
+		}
+
+		"/questions/ask/post"(platform: "/mobile", type: TrackType.Event) {
+		}
 
 		//Checkout
 		"/checkout"(platform:"/") {
@@ -143,9 +143,9 @@ catalog {
 
 		}
 
-	   "/checkout/congrats/back"(platform:"/mobile", type: TrackType.Event) {}
+		"/checkout/congrats/back"(platform:"/mobile", type: TrackType.Event) {}
 
-	   	"/checkout/error"(platform: "/mobile", type: TrackType.Event) {
+		"/checkout/failure"(platform: "/mobile", type: TrackType.Event) {
 			error_message()
 		}
 
@@ -153,56 +153,56 @@ catalog {
 			quantity()
 		}
 
-	   "/checkout/shipping_selection"(platform:"/mobile") {  //TODO flow
+		"/checkout/shipping_selection"(platform:"/mobile") {  //TODO flow
 		   available_types()
 		   current_type()
 		   current_option()
-	   }
+		}
 
-	   "/checkout/shipping_selection/apply"(platform:"/mobile", type: TrackType.Event) {}
+		"/checkout/shipping_selection/apply"(platform:"/mobile", type: TrackType.Event) {}
 
-	   "/checkout/shipping_selection/back"(platform:"/mobile", type: TrackType.Event) {}
+		"/checkout/shipping_selection/back"(platform:"/mobile", type: TrackType.Event) {}
 
-	   "/checkout/shipping_cost"(platform:"/mobile") {}
+		"/checkout/shipping_cost"(platform:"/mobile") {}
 
-	   "/checkout/shipping_cost/back"(platform:"/mobile") {}
+		"/checkout/shipping_cost/back"(platform:"/mobile") {}
 
-	   "/checkout/shipping_cost/apply"(platform:"/mobile", type: TrackType.Event) {
+		"/checkout/shipping_cost/apply"(platform:"/mobile", type: TrackType.Event) {
 		   //TODO
-	   }
+		}
 
-	   "/checkout/shipping_cost/back"(platform:"/mobile") {}
+		"/checkout/shipping_cost/back"(platform:"/mobile") {}
 
-	   "/checkout/payment_selection"(platform:"/mobile") {
+		"/checkout/payment_selection"(platform:"/mobile") {
 		   available_types(type: PropertyType.ArrayList)
 		   available_other_methods(type: PropertyType.Boolean)
 		   current_type()
 		   current_method()
-	   }
+		}
 
-	   "/checkout/payment_selection/othertype"(platform:"/mobile") {
+		"/checkout/payment_selection/othertype"(platform:"/mobile") {
 		   available_methods()
-	   }
+		}
 
-	   "/checkout/payment_selection/credit_card"(platform:"/mobile") {
-	   	//TODO flow
-	   }
+		"/checkout/payment_selection/credit_card"(platform:"/mobile") {
+		//TODO flow
+		}
 
-	   "/checkout/payment_selection/apply"(platform:"/mobile", type: TrackType.Event) {}
+		"/checkout/payment_selection/apply"(platform:"/mobile", type: TrackType.Event) {}
 
-	   "/checkout/payment_selection/back"(platform:"/mobile", type: TrackType.Event) {}
+		"/checkout/payment_selection/back"(platform:"/mobile", type: TrackType.Event) {}
 
-	   "/checkout/order_total"(platform:"/mobile") {}
+		"/checkout/order_total"(platform:"/mobile") {}
 
-	   "/checkout/order_total/back"(platform:"/mobile", type: TrackType.Event) {}
+		"/checkout/order_total/back"(platform:"/mobile", type: TrackType.Event) {}
 
-	   "/checkout/contact_seller_call"(platform:"/mobile", type: TrackType.Event) {}
+		"/checkout/contact_seller_call"(platform:"/mobile", type: TrackType.Event) {}
 
-	   "/checkout/contact_seller_email"(platform:"/mobile", type: TrackType.Event) {}
+		"/checkout/contact_seller_email"(platform:"/mobile", type: TrackType.Event) {}
 
-	   "/checkout/contact_add"(platform:"/mobile", type: TrackType.Event) {}
+		"/checkout/contact_add"(platform:"/mobile", type: TrackType.Event) {}
 
-	   "/checkout/screenshot"(platform:"/mobile", type: TrackType.Event) {}
+		"/checkout/screenshot"(platform:"/mobile", type: TrackType.Event) {}
 
 
 
