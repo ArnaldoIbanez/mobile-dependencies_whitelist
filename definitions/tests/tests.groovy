@@ -33,8 +33,8 @@ trackTests {
       "/search"(platform: "/mobile", defaultSearchInformation)
 
 	  "/search/failure"(platform: "/mobile") {
-		defaultSearchInformation()
-		error_message = "No connection error"
+		  defaultSearchInformation()
+		  error_message = "No connection error"
 	  }
 
 	  "/search/back"(platform: "/mobile", defaultSearchInformation)
@@ -111,7 +111,7 @@ trackTests {
 
   }
 
-  test("Checkout test"){
+  test("Checkout Basic Flow test"){
 
     def defaultCheckoutInformation = {
       item_id = "MCO412584037"
@@ -133,15 +133,40 @@ trackTests {
       defaultCheckoutPaymentInformation()
     }
 
-    "/checkout/payment_selection/credit_card" (platform:"/mobile"){
+    "/checkout/payment_selection/othertype" (platform: "/mobile"){
       defaultCheckoutInformation()
       defaultCheckoutPaymentInformation()
+      available_methods=["efecty", "davivienda"]
     }
 
     "/checkout/payment_selection/othertype" (platform: "/mobile"){
       defaultCheckoutInformation()
       defaultCheckoutPaymentInformation()
       available_methods=["efecty", "davivienda"]
+    }
+
+    "/credit_cards"(platform:"/mobile", type: TrackType.View) {
+      available_cards=["visa", "amex", "master", "diners"]
+    }
+
+    "/credit_cards/new_card"(platform:"/mobile", type: TrackType.View) {
+      payment_method_id = "diners"
+    }
+
+    "/credit_cards/new_card/apply"(platform:"/mobile", type: TrackType.Event) {
+      payment_method_id = "diners"
+      card_number = 123123123123
+    }
+
+    "/credit_cards/new_card/installments" (platform:"/mobile", type: TrackType.View) {
+      payment_method_id = "diners"
+      available_installments = [1, 2, 3, 5, 6]
+    }
+
+    "/credit_cards/new_card/installments/apply"(platform:"/mobile", type: TrackType.Event) {
+      payment_method_id = "diners"
+      available_installments = [1, 2, 3, 5, 6]
+      installment=6
     }
 
     def defaultCheckoutShippingInformation = {
@@ -155,10 +180,27 @@ trackTests {
       defaultCheckoutShippingInformation()
     }
 
+    "/checkout/shipping_selection/address_selection" (platform:"/mobile"){
+      defaultCheckoutInformation()
+      defaultCheckoutShippingInformation()
+      invalid_address = 1
+      valid_address = 0
+    }
+
+    "/checkout/shipping_selection/address_selection/back" (platform:"/mobile"){
+      defaultCheckoutInformation()
+      defaultCheckoutShippingInformation()
+      invalid_address = 1
+      valid_address = 0
+    }
+
+    "/address/add_address"(platform:"/mobile", type: TrackType.View){}
+    "/address/add_address/back"(platform:"/mobile", type: TrackType.Event){}
+    "/address/add_address/apply"(platform:"/mobile", type: TrackType.Event){}
+
     "/checkout/shipping_cost" (platform: "/mobile"){
       defaultCheckoutInformation()
     }
-
     
   }
 
