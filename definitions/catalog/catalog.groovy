@@ -204,6 +204,10 @@ catalog {
 
 	   "/checkout/screenshot"(platform:"/mobile", type: TrackType.Event) {}
 
+     "/mercadoenvios/calculate_cost"(platform:"/mobile") {
+       item_id()
+       context()
+     }
 
 
    }
