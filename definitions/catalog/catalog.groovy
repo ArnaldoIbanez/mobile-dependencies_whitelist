@@ -235,6 +235,7 @@ catalog {
 
 		"/checkout/contact_add"(platform:"/mobile", type: TrackType.Event) {}
 
+
 		"/checkout/screenshot"(platform:"/mobile", type: TrackType.Event) {}
 
 	    "/shipping/mercadoenvios/calculate_cost"(platform:"/mobile") {
