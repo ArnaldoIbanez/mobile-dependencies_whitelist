@@ -1,6 +1,7 @@
 .class
 target/
 commons.iml
+melidata-catalog.iml
 .idea
 .gradle
 build/

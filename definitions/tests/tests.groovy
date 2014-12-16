@@ -4,7 +4,7 @@ import com.ml.melidata.TrackType;
 trackTests {
 
   test("Search gallery with 10 items, first page" ) {
-      "/search"(platform: "/mobile/android") {
+      "/search"(platform: "/mobile") {
           limit = 10
           offset = 0
           category_id="MLA32089"
@@ -24,27 +24,37 @@ trackTests {
           sort_id="relevance"
       }
 
-      "/search"(platform: "/mobile/android", defaultSearchInformation)
-      "/search/refine"(platform: "/mobile/android", defaultSearchInformation)
-      "/search/refine/apply"(platform: "/mobile/android", defaultSearchInformation)
-      "/search/refine/back" (platform: "/mobile/android", defaultSearchInformation)  
-      "/search/refine/select_filter" (platform: "/mobile/android"){
+	  def defaultEmptySearchInformation = {
+		  limit=20
+		  query="ipod"
+		  offset=0
+	  }
+
+      "/search"(platform: "/mobile", defaultSearchInformation)
+
+	  "/search/failure"(platform: "/mobile") {
+		  defaultSearchInformation()
+		  error_message = "No connection error"
+	  }
+
+	  "/search/back"(platform: "/mobile", defaultSearchInformation)
+	  "/search/abort"(platform: "/mobile", defaultEmptySearchInformation)
+	  "/search/refine"(platform: "/mobile", defaultSearchInformation)
+      "/search/refine/apply"(platform: "/mobile", defaultSearchInformation)
+      "/search/refine/back" (platform: "/mobile", defaultSearchInformation)  
+      "/search/refine/select_filter" (platform: "/mobile"){
         defaultSearchInformation()
         filter_name = "sort"
       }
-      "/search/refine/select_filter/apply"(platform: "/mobile/android"){
+      "/search/refine/select_filter/apply"(platform: "/mobile"){
         defaultSearchInformation()
         filter_name = "sort"
         filter_value = "relevance"
       }
-      "/search/change_view" (platform: "/mobile/android", defaultSearchInformation)
-      "/search/change_view/apply" (platform: "/mobile/android"){
+      "/search/change_view" (platform: "/mobile", defaultSearchInformation)
+      "/search/change_view/apply" (platform: "/mobile"){
         defaultSearchInformation()
         list_mode = "mosaic"
-      }
-      "/search/bookmark" (platform: "/mobile/android"){
-        defaultSearchInformation()
-        item_id = "MLA32089"
       }
     }
 
@@ -71,20 +81,22 @@ trackTests {
       category_path = ["MLA1234","MLA6789"]
     }
 
-    "/vip"(platform:"/mobile/android", dataSet) 
-    "/vip/seller_reputation"(platform:"/mobile/android", dataSet) 
-    "/vip/seller_reputation/ratings"(platform:"/mobile/android", dataSet) 
-    "/vip/mercadoenvios"(platform:"/mobile/android", dataSet) 
-    "/vip/color_and_size"(platform:"/mobile/android", dataSet) 
-    "/vip/questions"(platform:"/mobile/android", dataSet) 
-    "/vip/payments"(platform:"/mobile/android", dataSet) 
-    "/vip/description"(platform:"/mobile/android", dataSet) 
+    "/vip"(platform:"/mobile", dataSet) 
+    "/vip/seller_reputation"(platform:"/mobile", dataSet) 
+    "/vip/seller_reputation/ratings"(platform:"/mobile", dataSet) 
+    "/vip/color_and_size"(platform:"/mobile", dataSet) 
+    "/vip/payments"(platform:"/mobile", dataSet) 
+    "/vip/description"(platform:"/mobile", dataSet) 
  }
 
-  test("Vip bookmark tracking in android") {
-    "/bookmarks/post" (platform:"/mobile/android", type: TrackType.Event) {
+  test("Bookmark tracking in android") {
+    "/bookmarks/post" (platform:"/mobile", type: TrackType.Event) {
       item_id = "MLA533657947"
     }
+
+	"/bookmarks/delete" (platform:"/mobile", type: TrackType.Event) {
+	  item_id = "MLA533657947"
+  	}
   }
 
   test("Questions") {
@@ -99,44 +111,112 @@ trackTests {
 
   }
 
-  test("Checkout test"){
+  test("Checkout Basic Flow test"){
 
-    def checkout_default = {
+    def defaultCheckoutInformation = {
       item_id = "MCO412584037"
     }
 
     "/checkout"(platform:"/") {
-      checkout_default()
+      defaultCheckoutInformation()
     }
 
-    def payment_selection_default = {
+    def defaultCheckoutPaymentInformation = {
       current_type="credit_card"
       available_other_methods=true
       available_types=[]
       current_method="visa"
     }
 
-    "/checkout/payment_selection" (platform:"/mobile/android"){
-      checkout_default()
-      payment_selection_default()
+    "/checkout/payment_selection" (platform:"/mobile"){
+      defaultCheckoutInformation()
+      defaultCheckoutPaymentInformation()
     }
 
-    "/checkout/payment_selection/credit_card" (platform:"/mobile/android"){
-      checkout_default()
-      payment_selection_default()
+    "/checkout/payment_selection/othertype" (platform: "/mobile"){
+      defaultCheckoutInformation()
+      defaultCheckoutPaymentInformation()
+      available_methods=["efecty", "davivienda"]
     }
 
-    def shipping_selection_default = {
+    "/checkout/payment_selection/othertype" (platform: "/mobile"){
+      defaultCheckoutInformation()
+      defaultCheckoutPaymentInformation()
+      available_methods=["efecty", "davivienda"]
+    }
+
+    "/credit_cards"(platform:"/mobile", type: TrackType.View) {
+      available_cards=["visa", "amex", "master", "diners"]
+    }
+
+    "/credit_cards/new_card"(platform:"/mobile", type: TrackType.View) {
+      payment_method_id = "diners"
+    }
+
+    "/credit_cards/new_card/apply"(platform:"/mobile", type: TrackType.Event) {
+      payment_method_id = "diners"
+      card_number = 123123123123
+    }
+
+    "/credit_cards/new_card/installments" (platform:"/mobile", type: TrackType.View) {
+      payment_method_id = "diners"
+      available_installments = [1, 2, 3, 5, 6]
+    }
+
+    "/credit_cards/new_card/installments/apply"(platform:"/mobile", type: TrackType.Event) {
+      payment_method_id = "diners"
+      available_installments = [1, 2, 3, 5, 6]
+      installment=6
+    }
+
+    def defaultCheckoutShippingInformation = {
       available_types=[]
       current_type="to_agree"
       current_option="to_agree"
+    } 
+
+    "/checkout/shipping_selection" (platform:"/mobile"){
+      defaultCheckoutInformation()
+      defaultCheckoutShippingInformation()
     }
 
-    "/checkout/shipping_selection" (platform:"/mobile/android"){
-      checkout_default()
-      shipping_selection_default()
+    "/checkout/shipping_selection/address_selection" (platform:"/mobile"){
+      defaultCheckoutInformation()
+      defaultCheckoutShippingInformation()
+      invalid_address = 1
+      valid_address = 0
     }
 
+    "/checkout/shipping_selection/address_selection/back" (platform:"/mobile"){
+      defaultCheckoutInformation()
+      defaultCheckoutShippingInformation()
+      invalid_address = 1
+      valid_address = 0
+    }
+
+    "/address/add_address"(platform:"/mobile", type: TrackType.View){}
+    "/address/add_address/back"(platform:"/mobile", type: TrackType.Event){}
+    "/address/add_address/apply"(platform:"/mobile", type: TrackType.Event){}
+
+    "/checkout/shipping_cost" (platform: "/mobile"){
+      defaultCheckoutInformation()
+    }
+    
+  }
+
+  test("Shipping Mercadoenvios calculate cost") {
+    "/shipping/mercadoenvios/calculate_cost"(platform: "/mobile") {
+      item_id = "MLA12345"
+      context = "/vip"
+    }
+    "/shipping/mercadoenvios/calculate_cost/get"(platform: "/mobile", type: TrackType.Event) {
+      item_id = "MLA12345"
+      context = "/vip"
+    }
+    "/shipping/mercadoenvios/calculate_cost/apply"(platform: "/mobile", type: TrackType.Event) {
+      item_id = "MLA12345"
+      context = "/vip"
+    }
   }
 
   test("Shipping Mercadoenvios calculate cost") {
