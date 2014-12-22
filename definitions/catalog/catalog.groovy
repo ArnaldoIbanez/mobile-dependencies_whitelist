@@ -1,6 +1,7 @@
 import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.catalog
 import com.ml.melidata.TrackType;
+
 /**
  * Main catalog definitions
  */

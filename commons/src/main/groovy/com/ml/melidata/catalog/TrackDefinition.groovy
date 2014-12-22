@@ -43,6 +43,10 @@ class TrackDefinition {
         return this.properties.get(name)
     }
 
+    def getProperties() {
+        return this.properties;
+    }
+
 
     /**
      * Validate the track event_data for track parameter

@@ -1,7 +1,12 @@
 apply plugin: "jacoco"
 apply plugin: 'groovy'
 apply plugin: 'idea'
+apply plugin:'application'
+apply plugin:'maven'
+apply plugin:'java'
 
+project.version = '0.0.4'
+project.group = 'com.mercadolibre.melidata.catalog'
 
 
 task wrapper(type: Wrapper) {
@@ -14,6 +19,8 @@ repositories {
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.3.7'
+    compile 'com.amazonaws:aws-java-sdk:1.9.10'
+    compile 'commons-io:commons-io:2.4'
     compile project(':..:commons')
     testCompile 'junit:junit:4.+'
 }
@@ -44,4 +51,31 @@ task coverage (dependsOn:[":test",":jacocoTestReport"]) << {
 task validateTracks (dependsOn: 'classes', type: JavaExec) {
     main = 'run'
     classpath = sourceSets.main.runtimeClasspath
+}
+
+task uploadCatalog(type:JavaExec) {
+   main = 'com.melidata.definitions.uploader.Uploader' 
+   classpath = sourceSets.main.runtimeClasspath
+   def file = project.ext.has("file") ? project.ext["file"] : null
+   def bucket = project.ext.has("bucket") ? project.ext["bucket"] : null
+   def apiKey = project.ext.has("apiKey") ? project.ext["apiKey"] : null
+   def secretKey = project.ext.has("secretKey") ? project.ext["secretKey"] : null
+   if( file && bucket && apiKey && secretKey) {
+	   args = [file, bucket, apiKey, secretKey]
+   } else {
+	   println("To upload catalog you should use ./gradlew uploadCatalog -Pfile=<file> -Pbucket=<bucket> -PapiKey=<apiKey> -PsecretKey=<secretKey>")
+   }
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+              repository(url: 'http://git.ml.com/nexus/content/repositories/releases') {
+                  authentication(userName: 'mlGrailsPluginDeployer', password: '123456')
+              }
+              pom.groupId = project.group
+              pom.artifactId = 'definitions'
+              pom.version = project.version
+        }
+    }
 }

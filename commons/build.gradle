@@ -2,9 +2,10 @@ apply plugin: "jacoco"
 apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'maven'
+apply plugin: 'java'
 
-project.version = '0.0.1'
-project.group = 'com.ml.melidata.catalog'
+project.version = '0.0.3'
+project.group = 'com.mercadolibre.melidata.catalog'
 
 
 repositories {
@@ -12,9 +13,11 @@ repositories {
 }
 
 dependencies {
-      compile 'org.codehaus.groovy:groovy-all:2.3.7'
-        testCompile 'junit:junit:4.+'
+    compile 'org.codehaus.groovy:groovy-all:2.3.7'
+    compile 'com.googlecode.json-simple:json-simple:1.1'
+    testCompile 'junit:junit:4.+'
     testCompile 'org.assertj:assertj-core:1.7.0'
+
 }
 
 test {
@@ -43,7 +46,7 @@ task coverage(dependsOn:[":test",":jacocoTestReport"]) << {
 uploadArchives {
     repositories {
         mavenDeployer {
-              repository(url: 'http://git.ml.com:8081/nexus/content/repositories/releases') {
+              repository(url: 'http://git.ml.com/nexus/content/repositories/releases') {
                   authentication(userName: 'mlGrailsPluginDeployer', password: '123456')
               }
               pom.groupId = project.group
@@ -52,4 +55,3 @@ uploadArchives {
         }
     }
 }
-
