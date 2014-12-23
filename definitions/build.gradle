@@ -56,15 +56,6 @@ task validateTracks (dependsOn: 'classes', type: JavaExec) {
 task uploadCatalog(type:JavaExec) {
    main = 'com.melidata.definitions.uploader.Uploader' 
    classpath = sourceSets.main.runtimeClasspath
-   def file = project.ext.has("file") ? project.ext["file"] : null
-   def bucket = project.ext.has("bucket") ? project.ext["bucket"] : null
-   def apiKey = project.ext.has("apiKey") ? project.ext["apiKey"] : null
-   def secretKey = project.ext.has("secretKey") ? project.ext["secretKey"] : null
-   if( file && bucket && apiKey && secretKey) {
-	   args = [file, bucket, apiKey, secretKey]
-   } else {
-	   println("To upload catalog you should use ./gradlew uploadCatalog -Pfile=<file> -Pbucket=<bucket> -PapiKey=<apiKey> -PsecretKey=<secretKey>")
-   }
 }
 
 uploadArchives {

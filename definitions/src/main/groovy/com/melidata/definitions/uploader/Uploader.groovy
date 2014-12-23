@@ -23,17 +23,21 @@ class Uploader {
     }
 
     def static void main(String[] args) {
-        if(args.size() != 4) {
+        def catalogFile = System.getenv().get("CATALOG_DSL_FILE")
+        def s3Bucket = System.getenv().get("S3_BUCKET")
+        def accessKey = System.getenv().get("AWS_ACCESS_KEY_ID")
+        def secretKey = System.getenv().get("AWS_SECRET_KEY")
+        if(catalogFile == null || s3Bucket == null || accessKey == null || secretKey == null) {
             println """
-                    This program espect 4 arguments
-                    - Catalog file
-                    - S3 bucket
-                    - Access key
+                    This program espect 4 env variables
+                    - CATALOG_DSL_FILE
+                    - S3_BUCKET
+                    - AWS_ACCESS_KEY_ID
                     - Secret key
             """
             System.exit(1)
         }
-        new Uploader(args[0],args[1],args[2],args[3]).upload();
+        new Uploader(catalogFile,s3Bucket,accessKey,secretKey).upload();
     }
 
     def upload() {

@@ -1,5 +1,6 @@
 package com.melidata.definitions.uploader
 
+import com.amazonaws.ClientConfiguration
 import com.amazonaws.services.s3.model.CannedAccessControlList
 import com.amazonaws.services.s3.model.CanonicalGrantee
 import org.apache.commons.io.IOUtils
@@ -27,7 +28,16 @@ class S3Controller {
 
     def S3Controller(String bucket, String accessKey, String secretKey) {
         credentials = new BasicAWSCredentials(accessKey, secretKey)
-        s3 = new AmazonS3Client(credentials)
+        ClientConfiguration config = new ClientConfiguration();
+        if(System.getenv().containsKey("proxyHost")){
+            config.setProxyHost(System.getenv().get("proxyHost"))
+        }
+        if(System.getenv().containsKey("proxyPort")){
+            config.setProxyPort(Integer.parseInt(System.getenv().get("proxyPort")))
+        }
+
+        s3 = new AmazonS3Client(credentials, config)
+
         this.bucket = bucket;
     }
 
