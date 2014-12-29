@@ -15,19 +15,17 @@ RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true 
 RUN apt-get install -y oracle-java7-installer
 
 #Instal make
-RUN apt-get -y install make git-core
+RUN apt-get -y install make git-core unzip
 
-#Install gradlew
-ADD ./fake_app /tmp/fake_app
-WORKDIR /tmp/fake_app
 
-RUN ./gradlew cacheDependencies
-
-ENV AWS_ACCESS_KEY_ID AKIAJ7EIGFFJQC475PBQ
-ENV AWS_SECRET_KEY Tn94YZD+EoeWjk4aQ9BVCJvn3ld+/fe4csjiXsOW
+ENV AWS_ACCESS_KEY_ID change_it 
+ENV AWS_SECRET_KEY change_it 
 ENV S3_BUCKET melidata-catalog-versions
 ENV CATALOG_DSL_FILE ./catalog/catalog.groovy
 ENV proxyHost 172.16.0.89 
 ENV proxyPort 80
-
-
+#Install gradle
+WORKDIR /tmp/fake_app
+ADD fake_app /tmp/fake_app
+RUN cd /tmp/fake_app
+RUN ./gradlew cacheDependencies
