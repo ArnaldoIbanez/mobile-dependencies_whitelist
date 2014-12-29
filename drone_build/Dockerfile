@@ -21,3 +21,10 @@ RUN apt-get install make
 ADD ./fake_app /tmp/fake_app
 WORKDIR /tmp/fake_app
 RUN ./gradlew cacheDependencies
+
+ENV AWS_ACCESS_KEY_ID AKIAJ7EIGFFJQC475PBQ
+ENV AWS_SECRET_KEY Tn94YZD+EoeWjk4aQ9BVCJvn3ld+/fe4csjiXsOW
+ENV S3_BUCKET melidata-catalog-versions
+ENV CATALOG_DSL_FILE ./definitions/catalog/catalog.groovy
+ENV proxyHost proxy.meliglobal.com
+ENV proxyPort 80
