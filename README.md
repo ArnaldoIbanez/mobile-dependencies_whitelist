@@ -40,3 +40,4 @@ Then, to add a new track to the catalog you should add their definition to **def
 ## Validators
   - regex: a regular expresion to match the property
   - values: an array of valid values
+
