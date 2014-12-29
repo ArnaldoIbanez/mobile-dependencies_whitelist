@@ -2,11 +2,11 @@ image: docker-registry.melicloud.com/meli/melidata-commons:0.0.3
 git:
   dept:1
 script:
-  - export GRADLE_USER_HOME=/var/gradle && make test
+  - make test
 deploy:
   bash:
     script:
-      - export GRADLE_USER_HOME=/var/gradle && ./definitions/do_deploy.sh
+      - ./definitions/do_deploy.sh
 notify:
   slack:
     team: meli
