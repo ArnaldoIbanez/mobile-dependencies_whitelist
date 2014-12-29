@@ -1,12 +1,12 @@
-image: docker-registry.melicloud.com/meli/melidata-commons:0.0.2
+image: docker-registry.melicloud.com/meli/melidata-commons:0.0.3
 git:
   dept:1
 script:
-  - cd definitions; gradle validateTracks 
+  - make test
 deploy:
   bash:
     script:
-      - ./do_deploy.sh
+      - ./definitions/do_deploy.sh
 notify:
   slack:
     team: meli
