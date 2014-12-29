@@ -1,4 +1,4 @@
-image: docker-registry.melicloud.com/meli/melidata-catalog:latest 
+image: docker-registry.melicloud.com/meli/pepito:latest 
 git:
   dept:1
 script:

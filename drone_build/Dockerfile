@@ -15,7 +15,7 @@ RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true 
 RUN apt-get install -y oracle-java7-installer
 
 #Instal make
-RUN apt-get install make
+RUN apt-get -y install make git-core
 
 #Install gradlew
 ADD ./fake_app /tmp/fake_app
@@ -28,3 +28,4 @@ ENV S3_BUCKET melidata-catalog-versions
 ENV CATALOG_DSL_FILE ./definitions/catalog/catalog.groovy
 ENV proxyHost proxy.meliglobal.com
 ENV proxyPort 80
+	
