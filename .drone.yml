@@ -6,7 +6,7 @@ script:
 deploy:
   bash:
     script:
-      - ./definitions/do_deploy.sh
+      - ./do_deploy.sh
 notify:
   slack:
     team: meli
