@@ -2,7 +2,7 @@ image: docker-registry.melicloud.com/meli/melidata-commons:0.0.2
 git:
   dept:1
 script:
-  - make test
+  - gradle validateTracks 
 deploy:
   bash:
     script:
