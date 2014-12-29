@@ -1,4 +1,4 @@
-image: docker-registry.melicloud.com/meli/melidata-commons:latest 
+image: docker-registry.melicloud.com/meli/melidata-commons:0.0.1 
 git:
   dept:1
 script:
