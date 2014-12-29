@@ -35,7 +35,7 @@ catalog {
 
 		def categoryRegex = /[a-zA-Z]{1,3}[0-9]+/
 		
-		"/application_open" (platform:"/mobile" {}
+		"/application_open" (platform:"/mobile") {}
 
 		"/splash"(platform:"/mobile") {}
 
