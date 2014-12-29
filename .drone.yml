@@ -2,7 +2,7 @@ image: docker-registry.melicloud.com/meli/melidata-commons:0.0.3
 git:
   dept:1
 script:
-  - make test
+  - export GRADLE_USER_HOME=/var/gradle && make test
 deploy:
   bash:
     script:
