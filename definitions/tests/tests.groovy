@@ -216,6 +216,7 @@ trackTests {
     "/shipping/mercadoenvios/calculate_cost/apply"(platform: "/mobile", type: TrackType.Event) {
       item_id = "MLA12345"
       context = "/vip"
+      saraza = "should fail"
     }
   }
 }
