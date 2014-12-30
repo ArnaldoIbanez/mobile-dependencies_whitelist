@@ -3,6 +3,10 @@ import com.ml.melidata.TrackType;
 
 trackTests {
 
+  test("Test track when aplication open" ) {
+      "/application_open"(platform: "/mobile", type:TrackType.Event) {}
+  }
+
   test("Search gallery with 10 items, first page" ) {
       "/search"(platform: "/mobile") {
           limit = 10
@@ -13,16 +17,18 @@ trackTests {
   }
   test("Search core tracking"){
 
-      def defaultSearchInformation = {
-          total=5876 
-          limit=20
-          query="iphone"
-          category_path=["MLA1051", "MLA1055", "MLA32089"]
-          category_id="MLA32089"
-          filter_user_applied=[]
-          offset=0
-          sort_id="relevance"
-      }
+    def defaultSearchInformation = {
+        total=5876 
+        limit=20
+        query="iphone"
+        time=1361
+        category_path=["MLA1051", "MLA1055", "MLA32089"]
+        category_id="MLA32089"
+        filter_user_applied=[]
+        offset=0
+        sort_id="relevance"
+        mode="DEFERRED"
+    }
 
 	  def defaultEmptySearchInformation = {
 		  limit=20
@@ -30,7 +36,7 @@ trackTests {
 		  offset=0
 	  }
 
-      "/search"(platform: "/mobile", defaultSearchInformation)
+    "/search"(platform: "/mobile", defaultSearchInformation)
 
 	  "/search/failure"(platform: "/mobile") {
 		  defaultSearchInformation()
@@ -40,23 +46,24 @@ trackTests {
 	  "/search/back"(platform: "/mobile", defaultSearchInformation)
 	  "/search/abort"(platform: "/mobile", defaultEmptySearchInformation)
 	  "/search/refine"(platform: "/mobile", defaultSearchInformation)
-      "/search/refine/apply"(platform: "/mobile", defaultSearchInformation)
-      "/search/refine/back" (platform: "/mobile", defaultSearchInformation)  
-      "/search/refine/select_filter" (platform: "/mobile"){
-        defaultSearchInformation()
-        filter_name = "sort"
-      }
-      "/search/refine/select_filter/apply"(platform: "/mobile"){
-        defaultSearchInformation()
-        filter_name = "sort"
-        filter_value = "relevance"
-      }
-      "/search/change_view" (platform: "/mobile", defaultSearchInformation)
-      "/search/change_view/apply" (platform: "/mobile"){
-        defaultSearchInformation()
-        list_mode = "mosaic"
-      }
+    "/search/refine/apply"(platform: "/mobile", defaultSearchInformation)
+    "/search/refine/back" (platform: "/mobile", defaultSearchInformation)  
+    "/search/refine/select_filter" (platform: "/mobile"){
+      defaultSearchInformation()
+      filter_id = "9997262-AMLA_7262_2"
     }
+    "/search/refine/select_filter/apply"(platform: "/mobile"){
+      defaultSearchInformation()
+      filter_id = "9997262-AMLA_7262_2"
+      filter_value_id = "9997262-AMLA_7262_1-MMLA6838"
+      filter_value_name = "IPod touch"
+    }
+    "/search/change_view" (platform: "/mobile", defaultSearchInformation)
+    "/search/change_view/apply" (platform: "/mobile", type: TrackType.Event){
+      defaultSearchInformation()
+      list_mode = "mosaic"
+    }
+  }
 
   test("Vip core tracking in android") {
     def dataSet = {
@@ -94,8 +101,8 @@ trackTests {
       item_id = "MLA533657947"
     }
 
-	"/bookmarks/delete" (platform:"/mobile", type: TrackType.Event) {
-	  item_id = "MLA533657947"
+	 "/bookmarks/delete" (platform:"/mobile", type: TrackType.Event) {
+	   item_id = "MLA533657947"
   	}
   }
 
@@ -119,6 +126,8 @@ trackTests {
 
     "/checkout"(platform:"/") {
       defaultCheckoutInformation()
+      quantity_pre_selected=1
+      order_payment_required=false
     }
 
     def defaultCheckoutPaymentInformation = {
@@ -131,6 +140,13 @@ trackTests {
     "/checkout/payment_selection" (platform:"/mobile"){
       defaultCheckoutInformation()
       defaultCheckoutPaymentInformation()
+      
+    }
+
+    "/checkout/payment_selection/apply" (platform:"/mobile", type:TrackType.Event){
+      defaultCheckoutInformation()
+      defaultCheckoutPaymentInformation()
+      type = "cash"
     }
 
     "/checkout/payment_selection/othertype" (platform: "/mobile"){
@@ -143,30 +159,6 @@ trackTests {
       defaultCheckoutInformation()
       defaultCheckoutPaymentInformation()
       available_methods=["efecty", "davivienda"]
-    }
-
-    "/credit_cards"(platform:"/mobile", type: TrackType.View) {
-      available_cards=["visa", "amex", "master", "diners"]
-    }
-
-    "/credit_cards/new_card"(platform:"/mobile", type: TrackType.View) {
-      payment_method_id = "diners"
-    }
-
-    "/credit_cards/new_card/apply"(platform:"/mobile", type: TrackType.Event) {
-      payment_method_id = "diners"
-      card_number = 123123123123
-    }
-
-    "/credit_cards/new_card/installments" (platform:"/mobile", type: TrackType.View) {
-      payment_method_id = "diners"
-      available_installments = [1, 2, 3, 5, 6]
-    }
-
-    "/credit_cards/new_card/installments/apply"(platform:"/mobile", type: TrackType.Event) {
-      payment_method_id = "diners"
-      available_installments = [1, 2, 3, 5, 6]
-      installment=6
     }
 
     def defaultCheckoutShippingInformation = {
@@ -176,6 +168,11 @@ trackTests {
     } 
 
     "/checkout/shipping_selection" (platform:"/mobile"){
+      defaultCheckoutInformation()
+      defaultCheckoutShippingInformation()
+    }
+
+    "/checkout/shipping_selection/back" (platform:"/mobile", type:TrackType.Event){
       defaultCheckoutInformation()
       defaultCheckoutShippingInformation()
     }
@@ -194,14 +191,60 @@ trackTests {
       valid_address = 0
     }
 
-    "/address/add_address"(platform:"/mobile", type: TrackType.View){}
-    "/address/add_address/back"(platform:"/mobile", type: TrackType.Event){}
-    "/address/add_address/apply"(platform:"/mobile", type: TrackType.Event){}
-
     "/checkout/shipping_cost" (platform: "/mobile"){
       defaultCheckoutInformation()
     }
-    
+  }
+
+  test("checkout congrats"){
+    "/checkout/congrats"(platform:"/mobile", type:TrackType.View) {
+        shipping_type="local_pick_up"
+        item_id="MLA538444567"
+        order_cost=13.00
+        selected_card="146872309"
+        quantity=1
+        variation_id="7570143361"
+        financed_order_cost_for_card=13.00
+        payment_method="amex"
+        payment_type="credit_card"
+        installments=3
+     }
+  }
+
+  
+
+  test("credit cards"){
+
+    "/credit_cards"(platform:"/mobile", type: TrackType.View) {
+      available_cards=["visa", "amex", "master", "diners"]
+      context = "/checkout"
+      time=1230
+      mode="DEFERRED"
+    }
+
+    "/credit_cards/new_card"(platform:"/mobile", type: TrackType.View) {
+      payment_method_id = "diners"
+      context = "/checkout"
+    }
+
+    "/credit_cards/new_card/apply"(platform:"/mobile", type: TrackType.Event) {
+      payment_method_id = "diners"
+      card_number = 123123123123
+      context = "/checkout"
+    }
+
+    "/credit_cards/new_card/installments" (platform:"/mobile", type: TrackType.View) {
+      payment_method_id = "diners"
+      available_installments = [1, 2, 3, 5, 6]
+      context = "/checkout"
+    }
+
+    "/credit_cards/new_card/installments/apply"(platform:"/mobile", type: TrackType.Event) {
+      payment_method_id = "diners"
+      available_installments = [1, 2, 3, 5, 6]
+      installment=6
+      context = "/checkout"
+    }
   }
 
   test("Shipping Mercadoenvios calculate cost") {
@@ -219,10 +262,15 @@ trackTests {
     }
   }
 
-  test("Shipping Mercadoenvios calculate cost") {
-    "/mercadoenvios/calculate_cost"(platform: "/mobile") {
-      item_id = "MLA12345"
-      context = "/vip"
+  test("address"){
+    "/address/add_address"(platform:"/mobile", type: TrackType.View){
+      context = "/checkout"
     }
-  }
+    "/address/add_address/back"(platform:"/mobile", type: TrackType.Event){
+      context = "/checkout"
+    }
+    "/address/add_address/apply"(platform:"/mobile", type: TrackType.Event){
+      context = "/checkout"
+    }
+  }  
 }
