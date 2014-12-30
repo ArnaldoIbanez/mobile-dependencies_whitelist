@@ -104,14 +104,14 @@ catalog {
 			  item_status()
 			  official_store_id(required: false)
 			  seller_id()
-			  power_seller_status()
+			  power_seller_status(required:false)
 			  listing_type_id()
-			  start_time()
+			  start_time(required:false)
 			  stop_time()
 			  shipping_mode()
 			  free_shipping()
 			  local_pick_up()
-			  category_path(type: PropertyType.ArrayList)
+			  category_path(type: PropertyType.ArrayList, required:false)
 		}
 		"/vip/seller_reputation"(platform:"/mobile") { }
 		"/vip/seller_reputation/ratings"(platform:"/mobile") { }
