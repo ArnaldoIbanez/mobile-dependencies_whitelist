@@ -39,9 +39,18 @@ catalog {
 
 		"/splash"(platform:"/mobile") {}
 
+		"/application_open"(platform:"/mobile", type:TrackType.Event){}
+
 		"/home"(platform:"/mobile") {}
 
-		"/search"(platform: "/mobile") {
+		//SEARCH FLOW
+
+		"/" (platform:"/mobile"){
+			mode(required:false)
+			time(required:false)
+		}
+
+		"/search" (platform: "/mobile") {
 		  query(required: false)
 		  limit()
 		  offset()
@@ -67,18 +76,21 @@ catalog {
 		"/search/refine/back" (platform: "/mobile", type: TrackType.Event){ }
 
 		"/search/refine/select_filter" (platform: "/mobile"){
-			  filter_name()
+			  filter_id()
 		}
 
 		"/search/refine/select_filter/apply"(platform: "/mobile"){
-			  filter_value()
-		}
+			  filter_value_id()
+			  filter_value_name()
+  		}
 
 		"/search/change_view" (platform: "/mobile"){ }
 
 		"/search/change_view/apply" (platform: "/mobile", type: TrackType.Event){
 		  list_mode()
 		}
+
+		//VIP FLOW
 
 		"/vip"(platform:"/") {
 			  item_id()
@@ -133,15 +145,27 @@ catalog {
 		"/questions/ask/post"(platform: "/mobile", type: TrackType.Event) {
 		}
 
-		//Checkout
+		//Checkout FLOW
 		"/checkout"(platform:"/") {
 			item_id()
+			reloaded(required:false)
+			quantity_pre_selected(required:false)
+			order_payment_required(required:false)
 		}
 
+		"/checkout/abort"(platform:"/mobile", type: TrackType.Event) {}
 		"/checkout/back"(platform:"/mobile", type: TrackType.Event) {}
 
 		"/checkout/congrats"(platform:"/mobile") {
-
+			shipping_type(required:false)
+        	order_cost(required:false)
+        	selected_card(required:false)
+        	quantity(required:false)
+        	variation_id(required:false)
+        	financed_order_cost_for_card(required:false)
+        	payment_method(required:false)
+        	payment_type(required:false)
+        	installments(required:false)
 		}
 
 		"/checkout/congrats/back"(platform:"/mobile", type: TrackType.Event) {}
@@ -154,15 +178,15 @@ catalog {
 			quantity()
 		}
 
-		//--> SHIPPING FLOW
+		//--> SHIPPING flow
 		"/checkout/shipping_selection"(platform:"/mobile") {  //TODO flow
 		   available_types()
-		   current_type()
-		   current_option()
+		   current_type(required:false)
+		   current_option(required:false)
 		}
 
 		"/checkout/shipping_selection/apply"(platform:"/mobile", type: TrackType.Event) {
-
+			type()
 		}
 
 		"/checkout/shipping_selection/back"(platform:"/mobile", type: TrackType.Event) {}
@@ -175,10 +199,6 @@ catalog {
 			invalid_address()
 			valid_address()
 		}
-
-		"/address/add_address"(platform:"/mobile", type: TrackType.View){}
-		"/address/add_address/back"(platform:"/mobile", type: TrackType.Event){}
-		"/address/add_address/apply"(platform:"/mobile", type: TrackType.Event){}
 
 		"/checkout/shipping_cost"(platform:"/mobile") {}
 
@@ -195,19 +215,51 @@ catalog {
 		"/checkout/payment_selection"(platform:"/mobile") {
 		   available_types(type: PropertyType.ArrayList)
 		   available_other_methods(type: PropertyType.Boolean)
-		   current_type()
-		   current_method()
+		   current_type(required:false)
+		   current_method(required:false)
 		}
 		"/checkout/payment_selection/apply"(platform:"/mobile", type: TrackType.Event) {
-
+			type()
 		}
 		"/checkout/payment_selection/back"(platform:"/mobile", type: TrackType.Event) {}
 		"/checkout/payment_selection/othertype"(platform:"/mobile") {
 		   available_methods()
 		}
+
+		// <--- PAYMENT FLOW
+		"/checkout/order_total"(platform:"/mobile") {}
+
+		"/checkout/order_total/back"(platform:"/mobile", type: TrackType.Event) {}
+
+		"/checkout/contact_seller_call"(platform:"/mobile", type: TrackType.Event) {}
+
+		"/checkout/contact_seller_email"(platform:"/mobile", type: TrackType.Event) {}
+
+		"/checkout/contact_add"(platform:"/mobile", type: TrackType.Event) {}
+
+
+		"/checkout/screenshot"(platform:"/mobile", type: TrackType.Event) {}
+
+		// Address
+		"/address/add_address"(platform:"/mobile", type: TrackType.View){
+			context()
+		}
+		"/address/add_address/back"(platform:"/mobile", type: TrackType.Event){}
+		"/address/add_address/apply"(platform:"/mobile", type: TrackType.Event){}
+
 		"/credit_cards"(platform:"/mobile", type: TrackType.View) {
 			available_cards()
+			context()
 		}
+
+		"/credit_cards/abort"(platform:"/mobile", type: TrackType.Event) {
+			available_cards(required:false)
+		}
+
+		"/credit_cards/back"(platform:"/mobile", type: TrackType.Event) {
+			available_cards(required:false)
+		}
+
 		"/credit_cards/new_card"(platform:"/mobile", type: TrackType.View) {
 			available_cards(required:false)
 			payment_method_id();
@@ -217,6 +269,7 @@ catalog {
 			available_cards(required:false)
 			card_number()
 		}
+		"/credit_cards/new_card/back"(platform:"/mobile", type:TrackType.Event){}
 		"/credit_cards/new_card/installments" (platform:"/mobile", type: TrackType.View) {
 			available_cards(required:false)
 			available_installments()
