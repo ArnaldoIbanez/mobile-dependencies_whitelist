@@ -107,7 +107,7 @@ catalog {
 			  power_seller_status(required:false)
 			  listing_type_id()
 			  start_time(required:false)
-			  stop_time()
+			  stop_time(required:false)
 			  shipping_mode()
 			  free_shipping()
 			  local_pick_up()
