@@ -1,6 +1,7 @@
 import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.catalog
 import com.ml.melidata.TrackType;
+
 /**
  * Main catalog definitions
  */
@@ -33,6 +34,8 @@ catalog {
    tracks {
 
 		def categoryRegex = /[a-zA-Z]{1,3}[0-9]+/
+		
+		"/application_open" (platform:"/mobile") {}
 
 		"/splash"(platform:"/mobile") {}
 
@@ -275,6 +278,20 @@ catalog {
 			available_cards(required:false)
 			installment()
 		}
+
+		// <--- PAYMENT FLOW
+
+		"/checkout/order_total"(platform:"/mobile") {}
+
+		"/checkout/order_total/back"(platform:"/mobile", type: TrackType.Event) {}
+
+		"/checkout/contact_seller_call"(platform:"/mobile", type: TrackType.Event) {}
+
+		"/checkout/contact_seller_email"(platform:"/mobile", type: TrackType.Event) {}
+
+		"/checkout/contact_add"(platform:"/mobile", type: TrackType.Event) {}
+
+		"/checkout/screenshot"(platform:"/mobile", type: TrackType.Event) {}
 
 	    "/shipping/mercadoenvios/calculate_cost"(platform:"/mobile") {
 	       item_id()

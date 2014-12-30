@@ -8,16 +8,16 @@ import com.ml.melidata.catalog.exceptions.CatalogException
  */
 class PlatformTree extends TreeNode<CatalogTree> {
 
-    CatalogTree platformTree;
+    CatalogTree tracksTree;
 
     PlatformTree(String path) {
         super(path)
-        platformTree = new CatalogTree();
+        tracksTree = new CatalogTree();
     }
 
     def setNodeData(CatalogTree data, List<TreeNode<CatalogTree>> parents, Boolean override = false) {
-        data != null ? platformTree = data: platformTree;
-        return platformTree
+        data != null ? tracksTree = data: tracksTree;
+        return tracksTree
     }
 
     /**
@@ -29,7 +29,7 @@ class PlatformTree extends TreeNode<CatalogTree> {
      * @return
      */
     def addTrackDefinition(TrackDefinition definition, Boolean override = true) {
-        platformTree.addNode(definition.path, definition, override);
+        tracksTree.addNode(definition.path, definition, override);
         this.children.each {k,c ->
             //On sub-elements should not override
             c.addTrackDefinition(definition, false);
@@ -42,7 +42,7 @@ class PlatformTree extends TreeNode<CatalogTree> {
      * @return
      */
     def getTrackDefinition(String path) {
-        def catalogNode = platformTree.getNodeByPath(path);
+        def catalogNode = tracksTree.getNodeByPath(path);
         if(!catalogNode) {
             throw  new CatalogException("Path '${path}' not found in catalog (check if it's defined in " +
                     "the catalog file and if it's defined for the specified platform)")
@@ -51,6 +51,6 @@ class PlatformTree extends TreeNode<CatalogTree> {
     }
 
     def CatalogTree getNodeData(){
-        return platformTree
+        return tracksTree
     }
 }

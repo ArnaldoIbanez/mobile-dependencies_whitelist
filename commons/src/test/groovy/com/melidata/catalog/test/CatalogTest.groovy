@@ -5,7 +5,10 @@ import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.TrackDefinition
 import com.ml.melidata.catalog.TrackDefinitionProperty
+import com.ml.melidata.catalog.parsers.json.CatalogJsonOutput
 import com.ml.melidata.catalog.tree.TrackValidationResponse
+import org.json.simple.JSONObject
+import org.json.simple.parser.JSONParser
 import org.junit.Test
 import static org.junit.Assert.*
 
@@ -198,5 +201,42 @@ class CatalogTest {
         t.event_data["selection"] = "test"
         validationResponse = c.validate(t);
         assertTrue(validationResponse.status)
+    }
+
+    @Test void testJsonOutput() {
+        Catalog c = new Catalog()
+        c.addPlatform("/");
+        c.addPlatform("/mobile/ios");
+        c.addTrackDefinition(new TrackDefinition("/search")
+                .addProperty(new TrackDefinitionProperty(name:"category", description: "category", required: true))
+                .addProperty(new TrackDefinitionProperty(name:"query", description: "query", required: false)));
+
+
+        c.addTrackDefinition(new TrackDefinition(path: "/search",platform: "/mobile/ios"))
+
+
+
+        JSONParser parser = new JSONParser();
+        JSONObject j = parser.parse(new CatalogJsonOutput().toJson(c));
+        assertTrue(j.containsKey("platforms"))
+        assertTrue(j.containsKey("tracks"))
+        assertEquals(3,j.get("platforms").size())
+        assertEquals(3,j.get("tracks").size())
+        j.get("tracks").each { t ->
+            assertEquals("/search",t.get("path"))
+            def props = t.get("properties");
+            assertEquals(2, props.size())
+            props.each {v ->
+                if(v.get("name") == "category") {
+                    assertEquals("category",v.get("description"))
+                    assertTrue(v.get("required"))
+                }else if(v.get("name") == "query") {
+                    assertEquals("query",v.get("description"))
+                    assertFalse(v.get("required"))
+                } else {
+                    fail();
+                }
+            }
+        }
     }
 }

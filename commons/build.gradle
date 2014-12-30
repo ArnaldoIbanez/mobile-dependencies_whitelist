@@ -1,15 +1,23 @@
 apply plugin: "jacoco"
 apply plugin: 'groovy'
 apply plugin: 'idea'
+apply plugin: 'maven'
+apply plugin: 'java'
+
+project.version = '0.0.3'
+project.group = 'com.mercadolibre.melidata.catalog'
+
 
 repositories {
       mavenCentral()
 }
 
 dependencies {
-      compile 'org.codehaus.groovy:groovy-all:2.3.7'
-        testCompile 'junit:junit:4.+'
+    compile 'org.codehaus.groovy:groovy-all:2.3.7'
+    compile 'com.googlecode.json-simple:json-simple:1.1'
+    testCompile 'junit:junit:4.+'
     testCompile 'org.assertj:assertj-core:1.7.0'
+
 }
 
 test {
@@ -33,4 +41,17 @@ jacocoTestReport {
 
 task coverage(dependsOn:[":test",":jacocoTestReport"]) << {
   println("Coverage, check: ${buildDir}/jacocoHtml")
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+              repository(url: 'http://git.ml.com/nexus/content/repositories/releases') {
+                  authentication(userName: 'mlGrailsPluginDeployer', password: '123456')
+              }
+              pom.groupId = project.group
+              pom.artifactId = 'commons'
+              pom.version = project.version
+        }
+    }
 }

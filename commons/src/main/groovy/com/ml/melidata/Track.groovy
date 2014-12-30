@@ -5,6 +5,16 @@ import com.ml.melidata.TrackType
 
 enum TrackType {
     View, Event, Email
+
+    public static TrackType fromString(String a){
+        def result;
+        switch (a.toUpperCase()) {
+            case "VIEW": result = View; break;
+            case "EVENT":result = Event; break;
+            case "EMAIL": result = Email; break;
+        }
+        return result;
+    }
 }
 /**
  * Created by geisbruch on 11/10/14.

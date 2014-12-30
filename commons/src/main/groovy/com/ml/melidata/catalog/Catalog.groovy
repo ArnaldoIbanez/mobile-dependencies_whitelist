@@ -50,7 +50,7 @@ class Catalog implements CatalogInterface{
      * @return
      */
     @Override
-    def validate(Track track) {
+    def TrackValidationResponse validate(Track track) {
         TrackValidationResponse tr = new TrackValidationResponse();
         try {
             def PlatformTree platformNode = platformTree.getNodeByPath(track.platform);

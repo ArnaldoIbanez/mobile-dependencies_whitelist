@@ -1,5 +1,5 @@
 # Melidata Catalog
-[![Build Status](http://drone.melicloud.com/github.com/mercadolibre/melidata-catalog/status.svg?branch=master)](http://drone.melicloud.com/github.com/mercadolibre/melidata-catalog)
+[![Build Status](https://216.33.196.24:443/drone-test/api/badge/github.com/mercadolibre/melidata-catalog/status.svg?branch=master)](http://drone-test.melicloud.com/github.com/mercadolibre/melidata-catalog)
 
 This repository contains a all the definitions about the information thacked thougth *melidata* platform
 
@@ -40,3 +40,4 @@ Then, to add a new track to the catalog you should add their definition to **def
 ## Validators
   - regex: a regular expresion to match the property
   - values: an array of valid values
+
