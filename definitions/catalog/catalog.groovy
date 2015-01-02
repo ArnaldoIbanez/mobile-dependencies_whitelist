@@ -321,6 +321,8 @@ catalog {
 	      item_id(required:false)
 	    } 
 
+    	"/seller_reputation/back"(platform:"/mobile"){}
 	    "/seller_reputation/ratings"(platform:"/mobile"){}
+	    "/seller_reputation/ratings/back"(platform:"/mobile"){}
   }
 }
