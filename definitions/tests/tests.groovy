@@ -92,6 +92,7 @@ trackTests {
     
     "/vip/color_and_size"(platform:"/mobile", dataSet)     
     "/vip/description"(platform:"/mobile", dataSet) 
+    "/vip/description/abort"(platform:"/mobile", dataSet) 
  }
 
   test("Bookmark tracking in android") {
@@ -292,7 +293,16 @@ trackTests {
       context = "/vip"
       item_id = "MLA539399952"
     } 
+    "/seller_reputation/back"(platform:"/mobile"){
+      context = "/vip"
+      item_id = "MLA539399952"
+    } 
     "/seller_reputation/ratings"(platform:"/mobile"){
+      context = "/vip"
+      item_id = "MLA539399952"
+    }
+
+    "/seller_reputation/ratings/back"(platform:"/mobile"){
       context = "/vip"
       item_id = "MLA539399952"
     } 

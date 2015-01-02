@@ -116,6 +116,7 @@ catalog {
 		"/vip/color_and_size"(platform:"/mobile") { }
 
 		"/vip/description"(platform:"/mobile") { }
+		"/vip/description/abort"(platform:"/mobile") { }
 
 		"/vip/back"(platform:"/mobile", type: TrackType.Event) { }
 
@@ -320,6 +321,8 @@ catalog {
 	      item_id(required:false)
 	    } 
 
+    	"/seller_reputation/back"(platform:"/mobile"){}
 	    "/seller_reputation/ratings"(platform:"/mobile"){}
+	    "/seller_reputation/ratings/back"(platform:"/mobile"){}
   }
 }
