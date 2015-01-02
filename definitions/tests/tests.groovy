@@ -89,8 +89,7 @@ trackTests {
     }
 
     "/vip"(platform:"/mobile", dataSet) 
-    "/vip/seller_reputation"(platform:"/mobile", dataSet) 
-    "/vip/seller_reputation/ratings"(platform:"/mobile", dataSet) 
+    
     "/vip/color_and_size"(platform:"/mobile", dataSet)     
     "/vip/description"(platform:"/mobile", dataSet) 
  }
@@ -287,4 +286,15 @@ trackTests {
       item_id="MLA539399952"
     }
   }  
+
+  test("seller reputation"){
+    "/seller_reputation"(platform:"/mobile"){
+      context = "/vip"
+      item_id = "MLA539399952"
+    } 
+    "/seller_reputation/ratings"(platform:"/mobile"){
+      context = "/vip"
+      item_id = "MLA539399952"
+    } 
+  }
 }
