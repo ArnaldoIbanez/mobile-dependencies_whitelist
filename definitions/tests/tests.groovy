@@ -91,8 +91,7 @@ trackTests {
     "/vip"(platform:"/mobile", dataSet) 
     "/vip/seller_reputation"(platform:"/mobile", dataSet) 
     "/vip/seller_reputation/ratings"(platform:"/mobile", dataSet) 
-    "/vip/color_and_size"(platform:"/mobile", dataSet) 
-    "/vip/payments"(platform:"/mobile", dataSet) 
+    "/vip/color_and_size"(platform:"/mobile", dataSet)     
     "/vip/description"(platform:"/mobile", dataSet) 
  }
 
@@ -275,6 +274,17 @@ trackTests {
     }
     "/address/add_address/apply"(platform:"/mobile", type: TrackType.Event){
       context = "/checkout"
+    }
+  }
+
+  test("payments"){
+    "/payments"(platform:"/mobile", type:TrackType.View){
+      context = "vip"
+      item_id="MLA539399952"
+    }
+    "/payments/back"(platform:"/mobile", type:TrackType.Event){
+      context = "vip"
+      item_id="MLA539399952"
     }
   }  
 }
