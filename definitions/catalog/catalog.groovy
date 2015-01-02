@@ -303,9 +303,12 @@ catalog {
 	    "/shipping/mercadoenvios/shipping_cost"(platform:"/mobile") {
 	       item_id()
 	       context()
+	       zip_code(required:false)
 	     }
 
 	    "/shipping/mercadoenvios/shipping_cost/get"(platform:"/mobile", type: TrackType.Event) {}
-	    "/shipping/mercadoenvios/shipping_cost/apply"(platform:"/mobile", type: TrackType.Event) {}
+	    "/shipping/mercadoenvios/shipping_cost/apply"(platform:"/mobile", type: TrackType.Event) {
+	    	shipping_id()
+	    }
   }
 }
