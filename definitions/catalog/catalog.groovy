@@ -116,7 +116,7 @@ catalog {
 		"/vip/seller_reputation"(platform:"/mobile") { }
 		"/vip/seller_reputation/ratings"(platform:"/mobile") { }
 		"/vip/color_and_size"(platform:"/mobile") { }
-		"/vip/payments"(platform:"/mobile") { }
+
 		"/vip/description"(platform:"/mobile") { }
 
 		"/vip/back"(platform:"/mobile", type: TrackType.Event) { }
@@ -310,5 +310,12 @@ catalog {
 	    "/shipping/mercadoenvios/shipping_cost/apply"(platform:"/mobile", type: TrackType.Event) {
 	    	shipping_id()
 	    }
+
+	    "/payments"(platform:"/mobile", type:TrackType.View){
+	    	context()
+	    	item_id()
+	    }
+	    "/payments/back"(platform:"/mobile", type:TrackType.Event){}
+
   }
 }
