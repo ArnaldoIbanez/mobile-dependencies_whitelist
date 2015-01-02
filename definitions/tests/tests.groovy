@@ -93,6 +93,7 @@ trackTests {
     "/vip/color_and_size"(platform:"/mobile", dataSet)     
     "/vip/description"(platform:"/mobile", dataSet) 
     "/vip/description/abort"(platform:"/mobile", dataSet) 
+    "/vip/description/back"(platform:"/mobile", dataSet) 
  }
 
   test("Bookmark tracking in android") {
