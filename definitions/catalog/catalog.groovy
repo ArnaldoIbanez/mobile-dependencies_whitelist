@@ -193,10 +193,12 @@ catalog {
 		   available_types()
 		   current_type(required:false)
 		   current_option(required:false)
+		   
 		}
 
 		"/checkout/shipping_selection/apply"(platform:"/mobile", type: TrackType.Event) {
 			type()
+			option(required:false)
 		}
 
 		"/checkout/shipping_selection/back"(platform:"/mobile", type: TrackType.Event) {}
@@ -305,6 +307,12 @@ catalog {
 
 		"/checkout/screenshot"(platform:"/mobile", type: TrackType.Event) {}
 
+		"/shipping/shipping_cost"(platform:"/mobile"){
+			context()
+			item_id()
+		}
+
+		"/shipping/shipping_cost/back"(platform:"/mobile", type:TrackType.Event){}
 	    "/shipping/mercadoenvios/shipping_cost"(platform:"/mobile") {
 	       item_id()
 	       context()
