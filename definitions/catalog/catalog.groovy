@@ -123,6 +123,10 @@ catalog {
 
 		//Bookmarks
 
+		"/bookmarks"(platform:"/mobile", type: TrackType.Event) {
+			context(required:false)
+		}
+
 		"/bookmarks/post"(platform:"/mobile", type: TrackType.Event) {
 			item_id();
 		}
@@ -143,6 +147,9 @@ catalog {
 		}
 
 		"/questions/ask/post"(platform: "/mobile", type: TrackType.Event) {
+		}
+
+		"/questions/ask/back"(platform: "/mobile", type: TrackType.Event) {
 		}
 
 		//Checkout FLOW
@@ -293,12 +300,12 @@ catalog {
 
 		"/checkout/screenshot"(platform:"/mobile", type: TrackType.Event) {}
 
-	    "/shipping/mercadoenvios/calculate_cost"(platform:"/mobile") {
+	    "/shipping/mercadoenvios/shipping_cost"(platform:"/mobile") {
 	       item_id()
 	       context()
 	     }
 
-	    "/shipping/mercadoenvios/calculate_cost/get"(platform:"/mobile", type: TrackType.Event) {}
-	    "/shipping/mercadoenvios/calculate_cost/apply"(platform:"/mobile", type: TrackType.Event) {}
+	    "/shipping/mercadoenvios/shipping_cost/get"(platform:"/mobile", type: TrackType.Event) {}
+	    "/shipping/mercadoenvios/shipping_cost/apply"(platform:"/mobile", type: TrackType.Event) {}
   }
 }

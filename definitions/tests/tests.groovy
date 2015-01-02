@@ -99,6 +99,7 @@ trackTests {
   test("Bookmark tracking in android") {
     "/bookmarks/post" (platform:"/mobile", type: TrackType.Event) {
       item_id = "MLA533657947"
+      context = "/search"
     }
 
 	 "/bookmarks/delete" (platform:"/mobile", type: TrackType.Event) {
@@ -248,15 +249,15 @@ trackTests {
   }
 
   test("Shipping Mercadoenvios calculate cost") {
-    "/shipping/mercadoenvios/calculate_cost"(platform: "/mobile") {
+    "/shipping/mercadoenvios/shipping_cost"(platform: "/mobile") {
       item_id = "MLA12345"
       context = "/vip"
     }
-    "/shipping/mercadoenvios/calculate_cost/get"(platform: "/mobile", type: TrackType.Event) {
+    "/shipping/mercadoenvios/shipping_cost/get"(platform: "/mobile", type: TrackType.Event) {
       item_id = "MLA12345"
       context = "/vip"
     }
-    "/shipping/mercadoenvios/calculate_cost/apply"(platform: "/mobile", type: TrackType.Event) {
+    "/shipping/mercadoenvios/shipping_cost/apply"(platform: "/mobile", type: TrackType.Event) {
       item_id = "MLA12345"
       context = "/vip"
     }
