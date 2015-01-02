@@ -159,6 +159,8 @@ catalog {
 			quantity_pre_selected(required:false)
 			order_payment_required(required:false)
 			shipping_pre_selected(required:false)
+			payment_pre_selected(required:false)
+			quantity_pre_selected(required:false)
 		}
 
 		"/checkout/abort"(platform:"/mobile", type: TrackType.Event) {}
