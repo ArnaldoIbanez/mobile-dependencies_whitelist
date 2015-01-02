@@ -117,6 +117,7 @@ catalog {
 
 		"/vip/description"(platform:"/mobile") { }
 		"/vip/description/abort"(platform:"/mobile") { }
+		"/vip/description/back"(platform:"/mobile") { }
 
 		"/vip/back"(platform:"/mobile", type: TrackType.Event) { }
 
@@ -157,6 +158,7 @@ catalog {
 			reloaded(required:false)
 			quantity_pre_selected(required:false)
 			order_payment_required(required:false)
+			shipping_pre_selected(required:false)
 		}
 
 		"/checkout/abort"(platform:"/mobile", type: TrackType.Event) {}
@@ -199,6 +201,7 @@ catalog {
 		"/checkout/shipping_selection/address_selection"(platform:"/mobile", type: TrackType.View) {
 			invalid_address()
 			valid_address()
+			available_other_methods(required:false)
 		}
 
 		"/checkout/shipping_selection/address_selection/back" (platform:"/mobile", type: TrackType.Event) {
@@ -223,6 +226,7 @@ catalog {
 		   available_other_methods(type: PropertyType.Boolean)
 		   current_type(required:false)
 		   current_method(required:false)
+		   method(required:false)
 		}
 		"/checkout/payment_selection/apply"(platform:"/mobile", type: TrackType.Event) {
 			type()
