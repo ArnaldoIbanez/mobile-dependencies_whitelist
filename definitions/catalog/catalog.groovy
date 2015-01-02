@@ -113,8 +113,6 @@ catalog {
 			  local_pick_up()
 			  category_path(type: PropertyType.ArrayList, required:false)
 		}
-		"/vip/seller_reputation"(platform:"/mobile") { }
-		"/vip/seller_reputation/ratings"(platform:"/mobile") { }
 		"/vip/color_and_size"(platform:"/mobile") { }
 
 		"/vip/description"(platform:"/mobile") { }
@@ -317,5 +315,11 @@ catalog {
 	    }
 	    "/payments/back"(platform:"/mobile", type:TrackType.Event){}
 
+	    "/seller_reputation"(platform:"/mobile"){
+	      context()
+	      item_id(required:false)
+	    } 
+
+	    "/seller_reputation/ratings"(platform:"/mobile"){}
   }
 }
