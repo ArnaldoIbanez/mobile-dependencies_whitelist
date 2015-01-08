@@ -12,9 +12,12 @@ import com.ml.melidata.catalog.tree.TreeNode
  */
 class Catalog implements CatalogInterface{
 
-    PlatformTree platformTree;
+    def Map<String,PlatformTree> platformTrees;
+
+    def List<String> business;
 
     def Catalog() {
+        platformTrees = new HashMap<String, >()
         platformTree = new PlatformTree();
     }
 
@@ -42,6 +45,9 @@ class Catalog implements CatalogInterface{
        platformNode.addTrackDefinition(trackDefinition);
     }
 
+    def TrackValidationResponse validate(Track track, String platform) {
+
+    }
     /**
      * It should validate a track object checking if the track matches the
      * definition

@@ -12,7 +12,9 @@ class CatalogDsl {
 
     def platforms;
 
-    def business;
+    def List<String> business;
+
+    def String default_business;
 
     def CatalogDsl() {
         catalog = new Catalog()
@@ -32,6 +34,12 @@ class CatalogDsl {
        closure.resolveStrategy = Closure.DELEGATE_FIRST
        closure();
        trackDsl.trackDefinitions.each { tr ->
+           if(!tr.business) {
+               tr.business = default_business;
+           }
+           if(business.indexOf(tr.business)) {
+               throw new RuntimeException(tr.business+" is not a valid business");
+           }
            catalog.addTrackDefinition(tr)
        }
     }

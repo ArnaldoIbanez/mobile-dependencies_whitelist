@@ -14,6 +14,7 @@ class TrackDefinition {
 
     def String path = ""
     def String platform;
+    def String business;
     def Map<String,TrackDefinitionProperty> properties = [:];
     def TrackType type;
 
