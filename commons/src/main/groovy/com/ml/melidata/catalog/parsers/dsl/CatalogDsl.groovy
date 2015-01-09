@@ -12,7 +12,9 @@ class CatalogDsl {
 
     def platforms;
 
-    def business;
+    def List<String> business;
+
+    def String defaultBusiness;
 
     def CatalogDsl() {
         catalog = new Catalog()
@@ -26,12 +28,30 @@ class CatalogDsl {
         return dsl.catalog
     }
 
+    def setBusiness(arr) {
+        business = arr;
+        business.each { b ->
+            catalog.addBusiness(b);
+        }
+    }
+
+    def setDefaultBusiness(business) {
+        defaultBusiness = business
+        catalog.setDefaultBusiness(business)
+    }
+
     def tracks(closure) {
        TrackDsl trackDsl = new TrackDsl();
        closure.delegate = trackDsl
        closure.resolveStrategy = Closure.DELEGATE_FIRST
        closure();
        trackDsl.trackDefinitions.each { tr ->
+           if(!tr.business) {
+               tr.business = defaultBusiness;
+           }
+           if(business.indexOf(tr.business)) {
+               throw new RuntimeException(tr.business+" is not a valid business");
+           }
            catalog.addTrackDefinition(tr)
        }
     }

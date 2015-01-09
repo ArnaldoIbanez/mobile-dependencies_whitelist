@@ -7,6 +7,19 @@ import com.ml.melidata.TrackType;
  */
 catalog {
   /**
+   * All available business units
+   */
+
+  business = [
+	"mercadolibre"
+  ]
+
+  /*
+   * Business to be used as default
+   */
+  defaultBusiness = "mercadolibre"
+
+  /**
    * All available platfrom
    */
   platforms = [
@@ -101,6 +114,7 @@ catalog {
 			  local_pick_up()
 			  category_path(type: PropertyType.ArrayList)
 		}
+
 		"/vip/seller_reputation"(platform:"/mobile") { }
 		"/vip/seller_reputation/ratings"(platform:"/mobile") { }
 		"/vip/color_and_size"(platform:"/mobile") { }

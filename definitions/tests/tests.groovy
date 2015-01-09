@@ -58,7 +58,11 @@ trackTests {
       }
     }
 
-  test("Vip core tracking in android") {
+    
+
+
+
+   test("Vip core tracking in android") {
     def dataSet = {
       item_id = "MLA533657947"
       buying_mode = "buy_it_now"
@@ -87,7 +91,7 @@ trackTests {
     "/vip/color_and_size"(platform:"/mobile", dataSet) 
     "/vip/payments"(platform:"/mobile", dataSet) 
     "/vip/description"(platform:"/mobile", dataSet) 
- }
+  }
 
   test("Bookmark tracking in android") {
     "/bookmarks/post" (platform:"/mobile", type: TrackType.Event) {

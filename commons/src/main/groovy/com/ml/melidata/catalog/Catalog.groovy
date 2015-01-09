@@ -12,14 +12,36 @@ import com.ml.melidata.catalog.tree.TreeNode
  */
 class Catalog implements CatalogInterface{
 
-    PlatformTree platformTree;
+    //This map is <Business, PlatformTree>
+    def Map<String,PlatformTree> platformTrees;
+
+    def platforms = []
+
+    def defaultBusiness;
 
     def Catalog() {
-        platformTree = new PlatformTree();
+        platformTrees = new HashMap<String,PlatformTree>()
+    }
+
+    def addBusiness(String business) {
+        def p = new PlatformTree();
+        platforms.each {platform ->
+            addPlatform(p, platform)
+        }
+        platformTrees.put(business, p);
+
     }
 
     def addPlatform(String platform) {
-        platformTree.addNode(platform, new CatalogTree(), true);
+        platforms.add(platform)
+        platformTrees.each { k, v ->
+            addPlatform(v,platform)
+        }
+
+    }
+
+    def addPlatform(PlatformTree tree , String platform) {
+        tree.addNode(platform, new CatalogTree(), true);
     }
 
 
@@ -35,13 +57,21 @@ class Catalog implements CatalogInterface{
      */
     @Override
     def addTrackDefinition(TrackDefinition trackDefinition) {
-        def platformNode = platformTree.getNodeByPath(trackDefinition.platform);
+        def business = getDefaultBusiness(trackDefinition.business)
+        def platformTree = platformTrees.get(business)
+        if(platformTree == null ) {
+            throw new CatalogException("Business ${business} not found");
+        }
+        def platformNode = platformTree.getNodeByPath(getDefaultBusiness(trackDefinition.platform));
         if(!platformNode) {
             throw new CatalogException("Platform ${platformPath} not found");
         }
        platformNode.addTrackDefinition(trackDefinition);
     }
 
+    def TrackValidationResponse validate(Track track, String platform) {
+
+    }
     /**
      * It should validate a track object checking if the track matches the
      * definition
@@ -51,8 +81,13 @@ class Catalog implements CatalogInterface{
      */
     @Override
     def TrackValidationResponse validate(Track track) {
+        def business = getDefaultBusiness(track.business);
         TrackValidationResponse tr = new TrackValidationResponse();
         try {
+            def platformTree = platformTrees.get(business);
+            if(!platformTree) {
+                throw new CatalogException("Business ${business} not found");
+            }
             def PlatformTree platformNode = platformTree.getNodeByPath(track.platform);
             if(!platformNode) {
                 throw  new CatalogException("Platform '${track.platform}' not found")
@@ -65,5 +100,9 @@ class Catalog implements CatalogInterface{
             return tr
         }
 
+    }
+
+    def String getDefaultBusiness(b) {
+        return b != null ? b : defaultBusiness
     }
 }
