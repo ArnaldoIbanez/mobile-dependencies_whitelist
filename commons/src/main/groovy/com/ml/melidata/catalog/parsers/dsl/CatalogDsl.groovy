@@ -14,7 +14,7 @@ class CatalogDsl {
 
     def List<String> business;
 
-    def String default_business;
+    def String defaultBusiness;
 
     def CatalogDsl() {
         catalog = new Catalog()
@@ -28,6 +28,18 @@ class CatalogDsl {
         return dsl.catalog
     }
 
+    def setBusiness(arr) {
+        business = arr;
+        business.each { b ->
+            catalog.addBusiness(b);
+        }
+    }
+
+    def setDefaultBusiness(business) {
+        defaultBusiness = business
+        catalog.setDefaultBusiness(business)
+    }
+
     def tracks(closure) {
        TrackDsl trackDsl = new TrackDsl();
        closure.delegate = trackDsl
@@ -35,7 +47,7 @@ class CatalogDsl {
        closure();
        trackDsl.trackDefinitions.each { tr ->
            if(!tr.business) {
-               tr.business = default_business;
+               tr.business = defaultBusiness;
            }
            if(business.indexOf(tr.business)) {
                throw new RuntimeException(tr.business+" is not a valid business");

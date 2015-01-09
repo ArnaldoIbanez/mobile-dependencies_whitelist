@@ -19,10 +19,11 @@ class TrackDefinition {
     def TrackType type;
 
     def TrackDefinition(String path, TrackType type = TrackType.View,
-                        String platform = "/") {
+                        String platform = "/", String business = null) {
         this.path = path;
         this.platform = platform;
         this.type = type;
+        this.business = business;
     }
 
     public TrackDefinition(Map map) {

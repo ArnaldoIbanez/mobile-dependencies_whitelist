@@ -21,6 +21,8 @@ class CatalogTest {
 
     Catalog getDefaultEmptyCatalog() {
         Catalog c = new Catalog()
+        c.addBusiness("ml")
+        c.setDefaultBusiness("ml");
         c.addPlatform("/");
         c.addPlatform("/mobile");
         c.addPlatform("/mobile/ios");
@@ -28,6 +30,16 @@ class CatalogTest {
         c.addPlatform("/mobile/web");
         c.addPlatform("/desktop");
         return c;
+    }
+
+    @Test void shouldCheckBusiness() {
+        Catalog c = getDefaultEmptyCatalog()
+        c.addBusiness("test")
+        c.addTrackDefinition(new TrackDefinition(path:  "/search", business: "test"));
+        TrackValidationResponse validationResponse = c.validate(new Track("/search",TrackType.View,"/mobile"));
+        assertFalse(validationResponse.status)
+        validationResponse = c.validate(new Track("/search",TrackType.View,"/mobile", "test"));
+        assertTrue(validationResponse.status)
     }
 
     @Test void shouldEnableAddTracks() {
@@ -50,6 +62,7 @@ class CatalogTest {
 
     @Test void shouldKeepHierarchy() {
         Catalog c = getDefaultEmptyCatalog()
+
         c.addTrackDefinition(new TrackDefinition("/search")
                 .addProperty(new TrackDefinitionProperty(name:"category", description: "category", required: true))
                 .addProperty(new TrackDefinitionProperty(name:"query", description: "query", required: true)));
@@ -205,6 +218,8 @@ class CatalogTest {
 
     @Test void testJsonOutput() {
         Catalog c = new Catalog()
+        c.addBusiness("ml")
+        c.setDefaultBusiness("ml");
         c.addPlatform("/");
         c.addPlatform("/mobile/ios");
         c.addTrackDefinition(new TrackDefinition("/search")

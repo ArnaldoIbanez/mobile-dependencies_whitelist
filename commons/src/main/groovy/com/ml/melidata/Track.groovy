@@ -23,16 +23,18 @@ class Track {
 
     def id
     def timestamp
-    def path = "";
+    def String path = "";
     def event_data = [:]
     def TrackType type = TrackType.View
+    def String business
     def String platform = "/"
 
 
-    def Track(String path, type = TrackType.View, platform = "/"){
+    def Track(String path, type = TrackType.View, platform = "/", String business = null){
         this.path = path
         this.type = type
         this.platform = platform
+        this.business = business;
     }
 
     public Track(Map map) {

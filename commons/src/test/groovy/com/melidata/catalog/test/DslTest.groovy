@@ -17,15 +17,19 @@ public class DslTest {
     @Test void platformsTest() {
         def j = catalog {
 
+            business = [
+                    "mercadolibre",
+                    "tucarro"
+            ]
+
+            defaultBusiness = "mercadolibre"
+
             platforms = [
                     "/mobile",
                     "/mobile/ios"
             ]
 
-            business = [
-                    "mercadolibre",
-                    "tucarro"
-            ]
+
 
             tracks {
                 "/search"(platform: "/") {
@@ -48,6 +52,11 @@ public class DslTest {
     @Test void shouldFailTrackPropertyTypeIncorrect() {
 
         def catalogo = catalog {
+            business=[
+                    "ml"
+            ]
+
+            defaultBusiness = "ml"
             platforms = [
                     "/mobile",
                     "/mobile/ios"
@@ -68,10 +77,17 @@ public class DslTest {
     @Test void shouldFailTrackRegexValidateIncorrect() {
 
         def catalogo = catalog {
+            business=[
+                    "ml"
+            ]
+
+            defaultBusiness = "ml"
+
             platforms = [
                     "/mobile",
                     "/mobile/ios"
             ]
+
 
             tracks {
                 "/search"(platform: "/") {
@@ -90,6 +106,13 @@ public class DslTest {
     @Test void shouldFailTrackWithPropertyCatalogedAndNotTracked() {
 
         def catalogo = catalog {
+
+            business = [
+                    "ml"
+            ]
+
+            defaultBusiness = "ml"
+
             platforms = [
                     "/mobile",
                     "/mobile/ios"
@@ -110,6 +133,11 @@ public class DslTest {
     @Test void shouldValidateTrackPropertyNotCataloged() {
 
         def catalogo = catalog {
+            business=[
+                    "ml"
+            ]
+
+            defaultBusiness = "ml"
             platforms = [
                     "/mobile",
                     "/mobile/ios",

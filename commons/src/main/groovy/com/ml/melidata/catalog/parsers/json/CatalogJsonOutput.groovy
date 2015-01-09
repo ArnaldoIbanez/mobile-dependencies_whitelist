@@ -21,20 +21,23 @@ class CatalogJsonOutput {
     def toMap(Catalog c) {
         def tracks = []
         def platforms = []
-
-        plainTree(c.platformTree).each { platformPath, PlatformTree pTree ->
-            platforms.add(platformPath)
-            if(pTree.nodeData) {
-                plainTree(pTree.nodeData).each { path, CatalogTree cTree ->
-                    def track = tracksFromNodeTree(cTree)
-                    if(track.size() != 0) {
-                        track["platform"] = platformPath
-                        tracks.add(track)
+        c.platformTrees.each { business, platformTree ->
+            plainTree(platformTree).each { platformPath, PlatformTree pTree ->
+                platforms.add(platformPath)
+                    if(pTree.nodeData) {
+                    plainTree(
+                            pTree.nodeData).each { path, CatalogTree cTree ->
+                        def track = tracksFromNodeTree(cTree)
+                        if(track.size() != 0) {
+                            track["platform"] = platformPath
+                            track["business"] = business
+                            tracks.add(track)
+                        }
                     }
                 }
             }
         }
-        return ["platforms":platforms, "tracks":tracks]
+        return ["platforms":platforms, "tracks":tracks, "business":c.platformTrees.keySet().toList(), "default_business":c.defaultBusiness]
     }
 
     def tracksFromNodeTree(CatalogTree cTree){
