@@ -13,6 +13,7 @@ trackTests {
           offset = 0
           category_id="MLA32089"
           query="iphone"
+          deferred_time=122
       }
   }
   test("Search core tracking"){
@@ -128,10 +129,11 @@ trackTests {
       item_id = "MCO412584037"
     }
 
-    "/checkout"(platform:"/") {
+    "/checkout"(platform:"/mobile") {
       defaultCheckoutInformation()
       quantity_pre_selected=1
       order_payment_required=false
+      deferred_time=1
     }
 
     def defaultCheckoutPaymentInformation = {
@@ -212,6 +214,7 @@ trackTests {
         payment_method="amex"
         payment_type="credit_card"
         installments=3
+        shipping_option=1
      }
   }
 
@@ -238,7 +241,7 @@ trackTests {
     }
 
     "/credit_cards/new_card/installments" (platform:"/mobile", type: TrackType.View) {
-      payment_method_id = "diners"
+      //payment_method_id = "diners"
       available_installments = [1, 2, 3, 5, 6]
       context = "/checkout"
     }
@@ -310,5 +313,16 @@ trackTests {
       context = "/vip"
       item_id = "MLA539399952"
     } 
+  }
+
+  test("statistics"){
+    "/melidata/statistics"(platform:"/mobile", type:TrackType.Control){
+      errors_counter = ["java.io.EOFException":2, "nullpointer":3]
+      last_send_timestamp="2015-01-21T13:14:09.415-0300"
+      total_pending_tracks=2
+      send_counter=6
+      database_size=16384
+      tracks_counter=12
+    }
   }
 }
