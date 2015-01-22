@@ -67,7 +67,7 @@ catalog {
 			deferred_time(required:false)
 		}
 
-		"/melidata/statistics"(platform:"/mobile", type:TrackType.Control){
+		"/melidata/statistics"(platform:"/mobile", type:TrackType.Event){
 			errors_counter(type:PropertyType.Map)
       		last_send_timestamp()
 			total_pending_tracks()

@@ -316,7 +316,7 @@ trackTests {
   }
 
   test("statistics"){
-    "/melidata/statistics"(platform:"/mobile", type:TrackType.Control){
+    "/melidata/statistics"(platform:"/mobile", type:TrackType.Event){
       errors_counter = ["java.io.EOFException":2, "nullpointer":3]
       last_send_timestamp="2015-01-21T13:14:09.415-0300"
       total_pending_tracks=2
