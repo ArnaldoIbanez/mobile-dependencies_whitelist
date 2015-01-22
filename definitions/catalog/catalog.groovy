@@ -47,7 +47,10 @@ catalog {
    tracks {
 
 		def categoryRegex = /[a-zA-Z]{1,3}[0-9]+/
+
 		
+		
+
 		"/application_open" (platform:"/mobile") {}
 
 		"/splash"(platform:"/mobile") {}
@@ -61,6 +64,16 @@ catalog {
 		"/" (platform:"/mobile"){
 			mode(required:false)
 			time(required:false)
+			deferred_time(required:false)
+		}
+
+		"/melidata/statistics"(platform:"/mobile", type:TrackType.Control){
+			errors_counter(type:PropertyType.Map)
+      		last_send_timestamp()
+			total_pending_tracks()
+			send_counter()
+			database_size()
+			tracks_counter()
 		}
 
 		"/search" (platform: "/mobile") {
@@ -108,10 +121,10 @@ catalog {
 		"/vip"(platform:"/") {
 			  item_id()
 			  buying_mode()
-			  vertical()
+			  vertical(required:false)
 			  category_id(regex:categoryRegex)
 			  quantity(type: PropertyType.Numeric)
-			  item_condition()
+			  item_condition(required:false)
 			  currency_id()
 			  price(type: PropertyType.Numeric)
 			  item_status()
@@ -169,7 +182,7 @@ catalog {
 		}
 
 		//Checkout FLOW
-		"/checkout"(platform:"/") {
+		"/checkout"(platform:"/mobile") {
 			item_id()
 			reloaded(required:false)
 			quantity_pre_selected(required:false)
@@ -192,6 +205,7 @@ catalog {
         	payment_method(required:false)
         	payment_type(required:false)
         	installments(required:false)
+        	shipping_option(required:false)
 		}
 
 		"/checkout/congrats/back"(platform:"/mobile", type: TrackType.Event) {}
@@ -303,6 +317,7 @@ catalog {
 		"/credit_cards/new_card/installments" (platform:"/mobile", type: TrackType.View) {
 			available_cards(required:false)
 			available_installments()
+			payment_method_id(required:false)
 		}
 		"/credit_cards/new_card/installments/apply"(platform:"/mobile", type: TrackType.Event) {
 			available_cards(required:false)
@@ -354,5 +369,7 @@ catalog {
     	"/seller_reputation/back"(platform:"/mobile"){}
 	    "/seller_reputation/ratings"(platform:"/mobile"){}
 	    "/seller_reputation/ratings/back"(platform:"/mobile"){}
+
+
   }
 }

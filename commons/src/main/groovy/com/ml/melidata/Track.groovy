@@ -4,7 +4,7 @@ import com.ml.melidata.TrackType
 
 
 enum TrackType {
-    View, Event, Email
+    View, Event, Email, Control
 
     public static TrackType fromString(String a){
         def result;
@@ -12,6 +12,7 @@ enum TrackType {
             case "VIEW": result = View; break;
             case "EVENT":result = Event; break;
             case "EMAIL": result = Email; break;
+            case "CONTROL": result = Control; break;
         }
         return result;
     }
