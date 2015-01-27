@@ -203,6 +203,21 @@ trackTests {
   }
 
   test("checkout congrats"){
+
+    "/checkout/complete"(platform:"/mobile", type:TrackType.Event) {
+        shipping_type="local_pick_up"
+        item_id="MLA538444567"
+        order_cost=13.00
+        selected_card="146872309"
+        quantity=1
+        variation_id="7570143361"
+        financed_order_cost_for_card=13.00
+        payment_method="amex"
+        payment_type="credit_card"
+        installments=3
+        shipping_option=1
+     }
+
     "/checkout/congrats"(platform:"/mobile", type:TrackType.View) {
         shipping_type="local_pick_up"
         item_id="MLA538444567"

@@ -208,6 +208,19 @@ catalog {
         	shipping_option(required:false)
 		}
 
+		"/checkout/complete" (platform:"/mobile", type:TrackType.Event){
+			shipping_type(required:false)
+        	order_cost(required:false)
+        	selected_card(required:false)
+        	quantity(required:false)
+        	variation_id(required:false)
+        	financed_order_cost_for_card(required:false)
+        	payment_method(required:false)
+        	payment_type(required:false)
+        	installments(required:false)
+        	shipping_option(required:false)
+		}
+
 		"/checkout/congrats/back"(platform:"/mobile", type: TrackType.Event) {}
 
 		"/checkout/failure"(platform: "/mobile", type: TrackType.Event) {
