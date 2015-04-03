@@ -68,6 +68,14 @@ catalog {
       sent_again(required:false)
 		}
 
+		"/" (platform:"/web"){
+			headers(required:false)
+			cookies(required:false)
+			http_url(required:false)
+      http_referer(required:false)
+		}
+
+
 		"/melidata/statistics"(platform:"/mobile", type:TrackType.Event){
 			errors_counter(type:PropertyType.Map)
       		last_send_timestamp()
@@ -88,6 +96,10 @@ catalog {
 		  filter_user_applied(required:false)
 		}
 
+    "/search"(platform: "/web") {
+      visual_id(required:false)
+      config_version(required:false)
+    }
 		"/search/failure" (platform: "/mobile", type: TrackType.Event){
 			error_message()
 		}
