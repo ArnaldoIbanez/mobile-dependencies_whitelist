@@ -65,6 +65,7 @@ catalog {
 			mode(required:false)
 			time(required:false)
 			deferred_time(required:false)
+      sent_again(required:false)
 		}
 
 		"/melidata/statistics"(platform:"/mobile", type:TrackType.Event){
@@ -76,18 +77,7 @@ catalog {
 			tracks_counter()
 		}
     
-    "/search" (platform: "/mobile") {
-		  query(required: false)
-		  limit()
-		  offset()
-		  total(description:"amount of search items returned", required:false)
-		  category_id(regex:categoryRegex, required:false)
-		  category_path(description:"path from root category", required:false)
-		  sort_id(required:false)
-		  filter_user_applied(required:false)
-		}
-
-		"/search" (platform: "/mobile") {
+    "/search" (platform: "/") {
 		  query(required: false)
 		  limit()
 		  offset()
