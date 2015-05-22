@@ -7,3 +7,4 @@ melidata-catalog.iml
 build/
 *.iws
 *.ipr
+*.iml
