@@ -1,7 +1,5 @@
 package com.ml.melidata.catalog.tree
 
-import com.ml.melidata.catalog.TrackDefinition
-import sun.reflect.generics.tree.Tree
 
 /**
  * Created by geisbruch on 11/11/14.
@@ -34,7 +32,7 @@ abstract class TreeNode<P>{
     public abstract def setNodeData(P data, List<TreeNode<P>> parents, Boolean override);
 
     def getSegments(String path) {
-        def segments = path.split("/");
+        def segments = path.split("/") as List;
         if(segments.size() == 0) {
             segments+="/"
         }else {

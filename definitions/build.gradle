@@ -5,9 +5,10 @@ apply plugin:'application'
 apply plugin:'maven'
 apply plugin:'java'
 
-project.version = '0.0.6_2.1'
+project.version = '0.0.19_2.1'
 project.group = 'com.mercadolibre.melidata.catalog'
 
+mainClassName = 'com.melidata.definitions.uploader.Uploader'
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.1'

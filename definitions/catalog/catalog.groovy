@@ -27,8 +27,9 @@ catalog {
     "/web",
     "/web/desktop",
     "/web/mobile",
+	"/mobile",
     "/mobile/android",
-    "/mobile/ios",
+    "/mobile/ios"
   ]
 
 /**
