@@ -63,7 +63,7 @@ uploadArchives {
     repositories {
         mavenDeployer {
               repository(url: 'http://git.ml.com/nexus/content/repositories/releases') {
-                  authentication(userName: 'admin', password: 'noculpesalanoche')
+                  authentication(userName: 'mlGrailsPluginDeployer', password: '123456')
               }
               pom.groupId = project.group
               pom.artifactId = 'definitions'
