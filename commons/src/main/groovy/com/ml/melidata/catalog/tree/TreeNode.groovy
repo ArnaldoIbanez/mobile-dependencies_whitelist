@@ -43,6 +43,8 @@ abstract class TreeNode<P>{
     public abstract def P getNodeData();
 
     def TreeNode<P> getNodeByPath(String path) {
+        if (!path) return null
+
         def segments = getSegments(path)
         def localNode = this;
         for(s in segments) {
