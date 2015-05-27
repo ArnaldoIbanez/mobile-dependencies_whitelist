@@ -67,7 +67,8 @@ class S3Controller {
         s3.putObject(new PutObjectRequest(bucket, fileName,stream,metadata)
                         .withCannedAcl(CannedAccessControlList.AuthenticatedRead))
 
-
     }
+
+    S3Object getObject(String name) { s3.getObject(bucket,name) }
 
 }
