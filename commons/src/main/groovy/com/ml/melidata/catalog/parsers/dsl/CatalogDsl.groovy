@@ -59,11 +59,7 @@ class CatalogDsl {
     def setPlatforms(arr) {
         platforms.addAll(arr)
         platforms.each {p ->
-            try {
-                catalog.addPlatform(p)
-            } catch (Exception e) {
-                e.printStackTrace()
-            }
+            catalog.addPlatform(p)
         }
     }
 
