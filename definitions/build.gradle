@@ -5,9 +5,10 @@ apply plugin:'application'
 apply plugin:'maven'
 apply plugin:'java'
 
-project.version = '0.0.6'
+project.version = '0.1.1'
 project.group = 'com.mercadolibre.melidata.catalog'
 
+mainClassName = 'com.melidata.definitions.uploader.Uploader'
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.1'
@@ -18,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.3.7'
+    compile 'org.codehaus.groovy:groovy-all:1.8.6'
     compile 'com.amazonaws:aws-java-sdk:1.9.10'
     compile 'commons-io:commons-io:2.4'
     compile project(':..:commons')
@@ -62,7 +63,7 @@ uploadArchives {
     repositories {
         mavenDeployer {
               repository(url: 'http://git.ml.com/nexus/content/repositories/releases') {
-                  authentication(userName: 'mlGrailsPluginDeployer', password: '123456')
+                  authentication(userName: 'admin', password: 'noculpesalanoche')
               }
               pom.groupId = project.group
               pom.artifactId = 'definitions'

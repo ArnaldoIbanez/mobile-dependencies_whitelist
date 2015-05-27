@@ -10,7 +10,7 @@ class CatalogDsl {
 
     def Catalog catalog;
 
-    def platforms;
+    def platforms = []
 
     def List<String> business;
 
@@ -57,7 +57,7 @@ class CatalogDsl {
     }
 
     def setPlatforms(arr) {
-        platforms = arr
+        platforms.addAll(arr)
         platforms.each {p ->
             catalog.addPlatform(p)
         }

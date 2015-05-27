@@ -18,7 +18,6 @@ class TrackDsl {
             trackArgs = trackArgs+args[i]
         }
         TrackDefinition trackDefinition = new TrackDefinition(trackArgs)
-        //printf(method)
         def closure = args[-1]
         PropertyDefinitionDsl propertyDefinitionDsl = new PropertyDefinitionDsl();
         closure.resolveStrategy = Closure.DELEGATE_FIRST

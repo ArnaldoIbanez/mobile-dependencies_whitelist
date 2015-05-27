@@ -21,7 +21,7 @@ RUN apt-get -y install make git-core unzip
 ENV AWS_ACCESS_KEY_ID AKIAJ7EIGFFJQC475PBQ
 ENV AWS_SECRET_KEY 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
 ENV S3_BUCKET melidata-catalog-versions
-ENV CATALOG_DSL_FILE ./catalog/catalog.groovy
+ENV CATALOG_DSL_FILE ./src/main/resources/catalog.groovy
 ENV proxyHost 172.16.0.89 
 ENV proxyPort 80
 #Install gradle
