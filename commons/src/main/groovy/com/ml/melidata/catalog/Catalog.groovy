@@ -5,7 +5,6 @@ import com.ml.melidata.catalog.exceptions.CatalogException
 import com.ml.melidata.catalog.tree.CatalogTree
 import com.ml.melidata.catalog.tree.PlatformTree
 import com.ml.melidata.catalog.tree.TrackValidationResponse
-import com.ml.melidata.catalog.tree.TreeNode
 
 /**
  * Created by geisbruch on 11/13/14.
@@ -80,7 +79,7 @@ class Catalog implements CatalogInterface{
      * @return
      */
     @Override
-    def TrackValidationResponse validate(Track track) {
+    def TrackValidationResponse validate(Track track, TrackSourceType sourceType = TrackSourceType.CLIENT) {
         def business = getDefaultBusiness(track.business);
         TrackValidationResponse tr = new TrackValidationResponse();
         try {
@@ -94,7 +93,7 @@ class Catalog implements CatalogInterface{
             }
             def catalogDefinition = platformNode.getTrackDefinition(track.path);
 
-            return catalogDefinition.validate(track)
+            return catalogDefinition.validate(track,sourceType)
         }catch (CatalogException e) {
             tr.addValidation(false, e.message)
             return tr
