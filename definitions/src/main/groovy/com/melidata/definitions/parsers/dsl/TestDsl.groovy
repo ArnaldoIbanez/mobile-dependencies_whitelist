@@ -1,7 +1,6 @@
 package com.melidata.definitions.parsers.dsl
 
 import com.ml.melidata.Track
-import com.ml.melidata.catalog.TrackSourceType
 
 /**
  * Created by apetalas on 19/11/14.
@@ -9,10 +8,10 @@ import com.ml.melidata.catalog.TrackSourceType
 
 class TestDsl{
 
-    List<Track> tracks = []
-    String name
-    List messages = []
-    boolean status = true
+    def ArrayList<Track> tracks = []
+    def String name
+    def messages = []
+    def status = true
 
     def propertyMissing(String name, value){
         this.tracks.last().event_data[name] = value
@@ -30,11 +29,11 @@ class TestDsl{
         closure()
     }
 
-    def assertValid(def catalog, TrackSourceType sourceType = TrackSourceType.CLIENT){
+    def assertValid(catalog){
         def result = null
 
         this.tracks.each { singleTrack ->
-            result = catalog.validate(singleTrack, sourceType)
+            result = catalog.validate(singleTrack)
             status = status && result.status;
             messages = messages + result.menssages
         }

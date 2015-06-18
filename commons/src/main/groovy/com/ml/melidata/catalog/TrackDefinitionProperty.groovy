@@ -42,14 +42,13 @@ public enum PropertyType {
 }
 class TrackDefinitionProperty {
 
-    String name
-    String description
-    PropertyType type = PropertyType.String
-    Boolean required = true
-    List<String> values = null
-    String regex = null
-    TrackSourceType sourceType = TrackSourceType.CLIENT
-    List<Validator> validators
+    def String name;
+    def String description;
+    def PropertyType type = PropertyType.String;
+    def Boolean required = true;
+    def ArrayList<String> values = null
+    def String regex = null
+    def ArrayList<Validator> validators
 
     def setRegex(String regex){
         this.validators.push(Validator.CreateRegexValidator(regex))
@@ -76,11 +75,13 @@ class TrackDefinitionProperty {
         }
     }
 
+
     def hasValue(String value){
         return this.values.find {v -> v.equals(value)} != null
     }
 
-    def validate(TrackValidationResponse response, def property, def trackPropertyValue, TrackSourceType globalSourceType){
-        validators.each { v -> v.validate(response, property, trackPropertyValue, required, sourceType, globalSourceType)}
+
+    def validate(TrackValidationResponse response, def property, def trackPropertyValue){
+        validators.each { v -> v.validate(response, property, trackPropertyValue, required)}
     }
 }

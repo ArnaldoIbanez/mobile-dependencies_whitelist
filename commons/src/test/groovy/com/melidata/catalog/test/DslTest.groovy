@@ -2,7 +2,6 @@ package com.melidata.catalog.test
 import com.ml.melidata.Track
 import com.ml.melidata.catalog.CategoryValidator
 import com.ml.melidata.catalog.PropertyType
-import com.ml.melidata.catalog.TrackSourceType
 import org.junit.Before
 
 import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.catalog
@@ -155,31 +154,6 @@ public class DslTest {
         assertFalse(result.status)
     }
 
-    @Test void shouldPassTrackWithPropertyCatalogedAndNotTrackedOfDifferentSource() {
 
-        def catalogo = catalog {
-
-            business = [
-                    "ml"
-            ]
-
-            defaultBusiness = "ml"
-
-            platforms = [
-                    "/mobile",
-                    "/mobile/ios"
-            ]
-
-            tracks {
-                "/search"(platform: "/") {
-                    limit(description: "amount of search items returned", sourceType: TrackSourceType.SERVER)
-                    category(regex: "/[a-zA-Z]{1,3}[0-9]+/")
-                }
-            }
-        }
-
-        def result = catalogo.validate(new Track(path:"/search", event_data: ["category":"MLA234"]), TrackSourceType.CLIENT)
-        assertTrue(result.status)
-    }
 
 }

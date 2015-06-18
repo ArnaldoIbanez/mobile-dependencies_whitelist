@@ -1,9 +1,15 @@
 package com.melidata.catalog.test
 
+import com.ml.melidata.catalog.CategoryValidator
 import com.ml.melidata.catalog.PropertyType
+import com.ml.melidata.catalog.RegexValidator
+import com.ml.melidata.catalog.TypeValidator
 import com.ml.melidata.catalog.Validator
+import com.ml.melidata.catalog.ValuesValidator
 import com.ml.melidata.catalog.tree.TrackValidationResponse
 import org.junit.Test
+
+import java.security.Timestamp
 
 import static org.junit.Assert.assertEquals
 

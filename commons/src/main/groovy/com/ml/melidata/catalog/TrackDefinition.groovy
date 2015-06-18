@@ -54,7 +54,7 @@ class TrackDefinition {
      * Validate the track event_data for track parameter
      * no validate the platform and path because that catalogs responsibility
      * */
-    def TrackValidationResponse validate(Track t, TrackSourceType sourceType = TrackSourceType.CLIENT) {
+    def TrackValidationResponse validate(Track t) {
         def response = new TrackValidationResponse()
 
         // are all the track's event_data in my definition?:
@@ -68,12 +68,12 @@ class TrackDefinition {
         properties?.each { key , v ->
             def trackValueForThisProperty = t.event_data?.get(v.name)
             if(trackValueForThisProperty == null){
-                if(v.required && (sourceType in [TrackSourceType.ALL,v.sourceType])) {
+                if(v.required){
                     response.addValidation(false, "Property '${key}'" +
                         "${v.description?'('+v.description+')':''} is required")    
                 }
             } else {
-                v.validate(response, key,trackValueForThisProperty, sourceType)
+                v.validate(response, key,trackValueForThisProperty)
             }
         }
 

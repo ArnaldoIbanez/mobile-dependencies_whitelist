@@ -216,7 +216,6 @@ trackTests {
         payment_type="credit_card"
         installments=3
         shipping_option=1
-        category_path=["MLA1"]
      }
 
     "/checkout/congrats"(platform:"/mobile", type:TrackType.View) {
