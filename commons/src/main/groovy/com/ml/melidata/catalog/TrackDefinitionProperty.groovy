@@ -68,7 +68,7 @@ class TrackDefinitionProperty {
     public TrackDefinitionProperty(Map map) {
         this.validators = new ArrayList<Validator>()
         map?.each { k, v ->
-          this[k] = v
+          if (this.hasProperty(k)) this[k] = v
         }
         if(regex && values) {
             throw new CatalogException("Regex and Values can't be defined together in the same property");
