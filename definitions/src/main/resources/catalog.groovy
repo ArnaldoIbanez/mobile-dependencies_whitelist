@@ -1,4 +1,6 @@
 import com.ml.melidata.catalog.PropertyType
+import com.ml.melidata.catalog.TrackSourceType
+
 import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.catalog
 import com.ml.melidata.TrackType;
 
@@ -233,6 +235,7 @@ catalog {
         	payment_type(required:false)
         	installments(required:false)
         	shipping_option(required:false)
+			category_path(required:true, sourceType: TrackSourceType.SERVER)
 		}
 
 		"/checkout/congrats/back"(platform:"/mobile", type: TrackType.Event) {}

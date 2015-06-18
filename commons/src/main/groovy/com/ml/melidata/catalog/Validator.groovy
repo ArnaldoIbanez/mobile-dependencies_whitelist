@@ -1,9 +1,7 @@
 package com.ml.melidata.catalog
 
-import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.tree.TrackValidationResponse
 
-import java.sql.Timestamp
 
 /**
  * Created by apetalas on 13/11/14.
@@ -11,9 +9,9 @@ import java.sql.Timestamp
 
 public abstract class Validator {
 
-    abstract void validate(TrackValidationResponse response, String property,Object value, boolean required)
+    abstract void validate(TrackValidationResponse response, String property,Object value, boolean required, TrackSourceType sourceType, TrackSourceType globalSourceType)
 
-    public static CreateValuesValidator(ArrayList<String> values){
+    public static CreateValuesValidator(List<String> values){
         return new ValuesValidator(values)
     }
 
@@ -38,11 +36,10 @@ public class ValuesValidator extends Validator{
         this.values = values
     }
 
-
-    void validate(TrackValidationResponse response, String property,Object value, boolean required=true) {
+    void validate(TrackValidationResponse response, String property,Object value, boolean required=true, TrackSourceType sourceType = TrackSourceType.CLIENT, TrackSourceType globalSourceType = TrackSourceType.CLIENT) {
         if(!required && value == null)
             return;
-        if(!values.find{va -> va.equals(value)})
+        if(!values.find{va -> va.equals(value)} && (globalSourceType in [TrackSourceType.ALL, sourceType]))
             response.addValidation(false, "Property '${property}' has invalid value '${value}'. (possible values: ${this.values})")
     }
 }
@@ -55,8 +52,7 @@ public class RegexValidator extends Validator{
         this.regex = regex
     }
 
-
-    void validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
+    void validate(TrackValidationResponse response, String property, Object value, boolean required=true, TrackSourceType sourceType = TrackSourceType.CLIENT, TrackSourceType globalSourceType = TrackSourceType.CLIENT) {
         if(!(value ==~ regex))
             response.addValidation(false, "Property '${property}' has invalid value '${value}'. (value must match with: ${this.regex})")
     }
@@ -70,8 +66,7 @@ public class TypeValidator extends Validator {
         this.type = type
     }
 
-
-    void validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
+    void validate(TrackValidationResponse response, String property, Object value, boolean required=true, TrackSourceType sourceType = TrackSourceType.CLIENT, TrackSourceType globalSourceType = TrackSourceType.CLIENT) {
 
         if(type?.validate(value))
             return
