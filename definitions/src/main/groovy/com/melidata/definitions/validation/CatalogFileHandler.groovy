@@ -67,7 +67,7 @@ class CatalogFileHandler {
     Catalog getCatalog() {
         if (_catalog) return _catalog
         try {
-            GroovyShell shell = new GroovyShell()
+            GroovyShell shell = new GroovyShell(Thread.currentThread().contextClassLoader)
             Script script = shell.parse(_lastDSL ?: _embeddedDSL)
             _catalog = script.run()
             return _catalog
