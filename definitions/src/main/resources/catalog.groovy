@@ -397,6 +397,10 @@ catalog {
 	    "/seller_reputation/ratings"(platform:"/mobile"){}
 	    "/seller_reputation/ratings/back"(platform:"/mobile"){}
 
-
+		"/catalog/test"(platform:"/web/mobile") {
+			offset()
+			limit()
+			length(required:false)
+		}
   }
 }
