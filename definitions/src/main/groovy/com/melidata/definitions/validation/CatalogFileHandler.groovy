@@ -13,6 +13,7 @@ class CatalogFileHandler {
     private static final String DEFAULT_BUCKET = 'melidata-catalog-versions'
     private static final String LAST_DSL_NAME = 'last.dsl'
     private static final String CATALOG_NAME = 'catalog.groovy'
+    private static final String LAST_VERSION_NAME = 'lastVersion'
 
     protected String dslName
     protected S3Controller s3Controller
@@ -20,6 +21,7 @@ class CatalogFileHandler {
     protected String _lastDSL
     protected String _embeddedDSL
     protected Catalog _catalog
+    protected String _lastVersion
 
     CatalogFileHandler() {
         s3Controller = new S3Controller(DEFAULT_BUCKET, AWS_KEY, AWS_SECRET)
@@ -42,6 +44,15 @@ class CatalogFileHandler {
         }
     }
 
+    String getLastVersion() {
+        try {
+            S3Object o = s3Controller.getObject(LAST_VERSION_NAME)
+            return IOUtils.toString(o.objectContent)
+        } catch (Exception e) {
+            return null
+        }
+    }
+
     String getEmbeddedDSL() {
         try {
             InputStream s = Thread.currentThread().contextClassLoader.getResourceAsStream(CATALOG_NAME)
@@ -53,6 +64,7 @@ class CatalogFileHandler {
 
     protected void loadFiles() {
         _lastDSL = lastDSL
+        _lastVersion = lastVersion
         _embeddedDSL = embeddedDSL
     }
 
@@ -61,7 +73,7 @@ class CatalogFileHandler {
     }
 
     boolean hasLastDSL() {
-        _lastDSL != null
+        lastVersion == _lastVersion
     }
 
     Catalog getCatalog() {
