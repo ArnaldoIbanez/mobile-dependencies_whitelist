@@ -31,6 +31,24 @@ Then, to add a new track to the catalog you should add their definition to **def
   } 
 ```
 
+## Validate Tracks 
+
+To validate a single json track 
+
+```
+cd definitions
+./gradlew validate -Dtrack=[JSON]
+```
+
+To validate a list of json tracks
+
+```
+cd definitions
+./gradlew validate -Dtrack=[FILE_NAME]
+```
+
+
+
 ## Types
   - String
   - Numeric

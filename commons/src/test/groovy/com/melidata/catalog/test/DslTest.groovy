@@ -100,7 +100,7 @@ public class DslTest {
         def result = catalogo.validate(new Track(path:"/search", event_data: ["category":"MLA323"]))
 
         assertFalse(result.status)
-        println result.menssages
+        println result.messages
     }
 
     @Test void shouldFailTrackWithPropertyCatalogedAndNotTracked() {

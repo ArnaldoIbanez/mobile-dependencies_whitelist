@@ -23,4 +23,14 @@ interface CatalogInterface {
      * @return
      */
     def validate(Track track);
+
+    /**
+     * It should validate a track object checking if the track matches the
+     * definition
+     *
+     * @param track
+     * @param serverSide if the validate occurs on server o client side
+     * @return
+     */
+    def validate(Track track, boolean serverSide)
 }

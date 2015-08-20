@@ -6,10 +6,10 @@ package com.ml.melidata.catalog.tree
 class TrackValidationResponse {
 
     boolean status = true
-    ArrayList<String> menssages
+    ArrayList<String> messages
 
     def TrackValidationResponse(){
-        menssages = new ArrayList<String>()
+        this.messages = new ArrayList<String>()
     }
 
     def addValidation(boolean status, String message = null){
@@ -17,6 +17,6 @@ class TrackValidationResponse {
         // if one is false -> the result es false :(
         this.status = this.status && status
         if(message)
-            this.menssages.push(message)
+            this.messages.push(message)
     }
 }

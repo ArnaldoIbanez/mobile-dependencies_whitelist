@@ -1,3 +1,7 @@
 test:
-	./gradlew validateTracks
+	./gradlew tests
+
+validate:
+	./gradlew validate
+
 .PHONY: test
