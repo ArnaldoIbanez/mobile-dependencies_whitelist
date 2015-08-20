@@ -34,8 +34,10 @@ class TestDsl{
 
         this.tracks.each { singleTrack ->
             result = catalog.validate(singleTrack)
-            status = status && result.status;
-            messages = messages + result.menssages
+            status = status && result.status
+            if ( !result.status ) {
+                messages = messages + [(singleTrack.path): result.messages]
+            }
         }
 
         return status

@@ -69,9 +69,10 @@ class Catalog implements CatalogInterface{
        platformNode.addTrackDefinition(trackDefinition);
     }
 
-    def TrackValidationResponse validate(Track track, String platform) {
+//    def TrackValidationResponse validate(Track track, String platform) {
+//
+//    }
 
-    }
     /**
      * It should validate a track object checking if the track matches the
      * definition
@@ -81,6 +82,19 @@ class Catalog implements CatalogInterface{
      */
     @Override
     def TrackValidationResponse validate(Track track) {
+        return validate(track, false)
+    }
+
+    /**
+     * It should validate a track object checking if the track matches the
+     * definition
+     *
+     * @param track
+     * @param serverSide if the validate occurs on server o client side
+     * @return
+     */
+    @Override
+    def TrackValidationResponse validate(Track track, boolean serverSide) {
         def business = getDefaultBusiness(track.business);
         TrackValidationResponse tr = new TrackValidationResponse();
         try {
@@ -94,7 +108,12 @@ class Catalog implements CatalogInterface{
             }
             def catalogDefinition = platformNode.getTrackDefinition(track.path);
 
-            return catalogDefinition.validate(track)
+            if ( catalogDefinition != null ) {
+                return catalogDefinition.validate(track, serverSide)
+            } else {
+                tr.addValidation(false, "Path '${track.path}' not found in catalog (check if it's defined in the catalog file and if it's defined for the specified platform")
+                return tr
+            }
         }catch (CatalogException e) {
             tr.addValidation(false, e.message)
             return tr

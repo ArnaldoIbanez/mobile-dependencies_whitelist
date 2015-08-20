@@ -22,7 +22,7 @@ class CatalogTree extends TreeNode<TrackDefinition> {
             basicDefinition = data;
         }
 
-        TrackDefinition newDefinition = new TrackDefinition(data.path, data.type, data.platform);
+        TrackDefinition newDefinition = new TrackDefinition(data.path, data.type, data.platform, data.business, data.parentPropertiesInherited);
 
         /**
          * If definition is already set, the new definition starts at least with
@@ -31,10 +31,29 @@ class CatalogTree extends TreeNode<TrackDefinition> {
         if(definition)
             newDefinition.properties.putAll(definition.properties)
 
-        parents.each { p ->
-            def nodeData = p.getNodeData()
-            if (nodeData)
-                newDefinition.properties.putAll(nodeData.properties)
+        if ( newDefinition.parentPropertiesInherited ) {
+            def validParents = []
+            def stopAdding = false
+            parents.reverseEach { p ->
+                //add parents until first parentPropertiesInherited = false
+                if ( !stopAdding ) {
+                    validParents << p
+                    if (p.getNodeData() != null && !p.getNodeData().getParentPropertiesInherited()) {
+                        stopAdding = true
+                    }
+                }
+            }
+            validParents.reverseEach { p ->
+                def nodeData = p.getNodeData()
+                if (nodeData) {
+                    nodeData.properties.each { name, property ->
+                        if ( property.inheritable ) {
+                            newDefinition.properties.put(name, property)
+                        }
+                    }
+
+                }
+            }
         }
         newDefinition.properties.putAll(data.properties)
 

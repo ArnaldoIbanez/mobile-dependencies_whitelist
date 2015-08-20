@@ -42,13 +42,15 @@ public enum PropertyType {
 }
 class TrackDefinitionProperty {
 
-    def String name;
-    def String description;
-    def PropertyType type = PropertyType.String;
-    def Boolean required = true;
+    def String name
+    def String description
+    def PropertyType type = PropertyType.String
+    def Boolean required = true
     def ArrayList<String> values = null
     def String regex = null
     def ArrayList<Validator> validators
+    def Boolean serverSide = false
+    def Boolean inheritable = true
 
     def setRegex(String regex){
         this.validators.push(Validator.CreateRegexValidator(regex))
@@ -65,6 +67,14 @@ class TrackDefinitionProperty {
         this.values = vals
     }
 
+    def setServerSide(Boolean value) {
+        this.serverSide = value
+    }
+
+    def setInheritable(Boolean value) {
+        this.inheritable = value
+    }
+
     public TrackDefinitionProperty(Map map) {
         this.validators = new ArrayList<Validator>()
         map?.each { k, v ->
@@ -75,11 +85,9 @@ class TrackDefinitionProperty {
         }
     }
 
-
     def hasValue(String value){
         return this.values.find {v -> v.equals(value)} != null
     }
-
 
     def validate(TrackValidationResponse response, def property, def trackPropertyValue){
         validators.each { v -> v.validate(response, property, trackPropertyValue, required)}

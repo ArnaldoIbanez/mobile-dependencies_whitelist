@@ -13,17 +13,19 @@ import com.ml.melidata.catalog.tree.TrackValidationResponse
 class TrackDefinition {
 
     def String path = ""
-    def String platform;
-    def String business;
-    def Map<String,TrackDefinitionProperty> properties = [:];
-    def TrackType type;
+    def String platform
+    def String business
+    def Map<String,TrackDefinitionProperty> properties = [:]
+    def TrackType type
+    def Boolean parentPropertiesInherited = true
 
     def TrackDefinition(String path, TrackType type = TrackType.View,
-                        String platform = "/", String business = null) {
-        this.path = path;
-        this.platform = platform;
-        this.type = type;
-        this.business = business;
+                        String platform = "/", String business = null, Boolean parentPropertiesInherited = true) {
+        this.path = path
+        this.platform = platform
+        this.type = type
+        this.business = business
+        this.parentPropertiesInherited = parentPropertiesInherited
     }
 
     public TrackDefinition(Map map) {
@@ -32,7 +34,7 @@ class TrackDefinition {
 
 
     def addProperty(TrackDefinitionProperty p) {
-        this.properties.put(p.name, p);
+        this.properties.put(p.name, p)
         this
     }
 
@@ -53,8 +55,17 @@ class TrackDefinition {
     /**
      * Validate the track event_data for track parameter
      * no validate the platform and path because that catalogs responsibility
+     * By Default: ServerSideValidation = false
      * */
     def TrackValidationResponse validate(Track t) {
+        return validate(t, false)
+    }
+
+    /**
+     * Validate the track event_data for track parameter
+     * no validate the platform and path because that catalogs responsibility
+     * */
+    def TrackValidationResponse validate(Track t, boolean serverSideValidation) {
         def response = new TrackValidationResponse()
 
         // are all the track's event_data in my definition?:
@@ -68,7 +79,7 @@ class TrackDefinition {
         properties?.each { key , v ->
             def trackValueForThisProperty = t.event_data?.get(v.name)
             if(trackValueForThisProperty == null){
-                if(v.required){
+                if(v.required && ((v.serverSide && serverSideValidation) || !v.serverSide)){ //required and (serverSide if is serverSideValidation)
                     response.addValidation(false, "Property '${key}'" +
                         "${v.description?'('+v.description+')':''} is required")    
                 }

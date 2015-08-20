@@ -3,26 +3,13 @@ import com.ml.melidata.TrackType;
 
 trackTests {
 
-  test("Test track when aplication open" ) {
-      "/application_open"(platform: "/mobile", type:TrackType.Event) {}
-  }
-
-  test("Search gallery with 10 items, first page" ) {
-      "/search"(platform: "/mobile") {
-          limit = 10
-          offset = 0
-          category_id="MLA32089"
-          query="iphone"
-          deferred_time=122
-      }
-  }
   test("Search core tracking"){
 
     def defaultSearchInformation = {
         total=5876 
         limit=20
         query="iphone"
-        time=1361
+        deferred_time=1361
         category_path=["MLA1051", "MLA1055", "MLA32089"]
         category_id="MLA32089"
         filter_user_applied=[]
@@ -31,24 +18,24 @@ trackTests {
         mode="DEFERRED"
     }
 
-	  def defaultEmptySearchInformation = {
-		  limit=20
-		  query="ipod"
-		  offset=0
-	  }
+    def defaultEmptySearchInformation = {
+        limit=20
+        query="ipod"
+        offset=0
+    }
 
     "/search"(platform: "/mobile", defaultSearchInformation)
 
-	  "/search/failure"(platform: "/mobile") {
-		  defaultSearchInformation()
-		  error_message = "No connection error"
-	  }
+    "/search/failure"(platform: "/mobile") {
+        defaultSearchInformation()
+        error_message = "No connection error"
+    }
 
-	  "/search/back"(platform: "/mobile", defaultSearchInformation)
-	  "/search/abort"(platform: "/mobile", defaultEmptySearchInformation)
-	  "/search/refine"(platform: "/mobile", defaultSearchInformation)
+    "/search/back"(platform: "/mobile", defaultSearchInformation)
+    "/search/abort"(platform: "/mobile", defaultEmptySearchInformation)
+    "/search/refine"(platform: "/mobile", defaultSearchInformation)
     "/search/refine/apply"(platform: "/mobile", defaultSearchInformation)
-    "/search/refine/back" (platform: "/mobile", defaultSearchInformation)  
+    "/search/refine/back" (platform: "/mobile", defaultSearchInformation)
     "/search/refine/select_filter" (platform: "/mobile"){
       defaultSearchInformation()
       filter_id = "9997262-AMLA_7262_2"
@@ -66,11 +53,28 @@ trackTests {
     }
   }
 
-    
+  test("Search gallery with 10 items, first page" ) {
+    "/search"(platform: "/mobile") {
+      limit = 10
+      offset = 0
+      category_id="MLA32089"
+      query="iphone"
+      deferred_time=122
+    }
+  }
+
+  test("Search category_id ROOT" ) {
+    "/search"(platform: "/mobile") {
+      limit = 10
+      offset = 0
+      category_id="ROOT"
+      query="iphone"
+    }
+  }
 
 
-
-   test("Vip core tracking in android") {
+  //VIP FLOW
+  test("Vip core tracking in android") {
     def dataSet = {
       item_id = "MLA533657947"
       buying_mode = "buy_it_now"
@@ -95,18 +99,38 @@ trackTests {
 
     "/vip"(platform:"/mobile", dataSet) 
     
-    "/vip/color_and_size"(platform:"/mobile", dataSet)     
-    "/vip/description"(platform:"/mobile", dataSet) 
-    "/vip/description/abort"(platform:"/mobile", dataSet) 
-    "/vip/description/back"(platform:"/mobile", dataSet) 
+    "/vip/color_and_size"(platform:"/mobile", {
+      item_id = "MLA533657947"
+    })
+
+    "/vip/description"(platform:"/mobile", {
+      item_id = "MLA533657947"
+      buying_mode = "buy_it_now"
+      category_id = "MLA43718"
+      quantity = 3
+      currency_id = "ARS"
+      price = 15.3
+      item_status = "active"
+      seller_id = "131662738"
+      listing_type_id = "gold_special"
+      shipping_mode = "me2"
+      free_shipping = true
+      local_pick_up = false
+      empty_description = false
+    })
+
+    "/vip/description/abort"(platform:"/mobile", dataSet)
+
+    "/vip/description/back"(platform:"/mobile", dataSet)
   }
+
   test("Bookmark tracking in android") {
-    "/bookmarks/post" (platform:"/mobile", type: TrackType.Event) {
+    "/bookmarks/action/post" (platform:"/mobile", type: TrackType.Event) {
       item_id = "MLA533657947"
       context = "/search"
     }
 
-	 "/bookmarks/delete" (platform:"/mobile", type: TrackType.Event) {
+    "/bookmarks/action/delete" (platform:"/mobile", type: TrackType.Event) {
 	   item_id = "MLA533657947"
   	}
   }
@@ -116,6 +140,7 @@ trackTests {
       item_id = "MLA12345"
       context = "/vip"
     }
+
     "/questions/ask"(platform: "/mobile") {
       item_id = "MLA12345"
       context = "/vip"
@@ -204,32 +229,16 @@ trackTests {
 
   test("checkout congrats"){
 
-    "/checkout/complete"(platform:"/mobile", type:TrackType.Event) {
-        shipping_type="local_pick_up"
-        item_id="MLA538444567"
-        order_cost=13.00
-        selected_card="146872309"
-        quantity=1
-        variation_id="7570143361"
-        financed_order_cost_for_card=13.00
-        payment_method="amex"
-        payment_type="credit_card"
-        installments=3
-        shipping_option=1
-     }
-
     "/checkout/congrats"(platform:"/mobile", type:TrackType.View) {
         shipping_type="local_pick_up"
         item_id="MLA538444567"
-        order_cost=13.00
         selected_card="146872309"
-        quantity=1
-        variation_id="7570143361"
         financed_order_cost_for_card=13.00
         payment_method="amex"
         payment_type="credit_card"
         installments=3
         shipping_option=1
+        order_id=912391
      }
   }
 
@@ -240,7 +249,7 @@ trackTests {
     "/credit_cards"(platform:"/mobile", type: TrackType.View) {
       available_cards=["visa", "amex", "master", "diners"]
       context = "/checkout"
-      time=1230
+      deferred_time=1230
       mode="DEFERRED"
     }
 
@@ -338,6 +347,8 @@ trackTests {
       send_counter=6
       database_size=16384
       tracks_counter=12
+      average_ok_time=10
+      average_error_time=11
     }
   }
 }

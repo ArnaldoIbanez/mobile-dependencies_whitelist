@@ -49,14 +49,21 @@ task coverage (dependsOn:[":test",":jacocoTestReport"]) << {
   println("Coverage, check: ${buildDir}/jacocoHtml")
 }
 
-task validateTracks (dependsOn: 'classes', type: JavaExec) {
-    main = 'run'
+task tests (dependsOn: 'classes', type: JavaExec) {
+    main = 'tests'
     classpath = sourceSets.main.runtimeClasspath
 }
 
 task uploadCatalog(type:JavaExec) {
    main = 'com.melidata.definitions.uploader.Uploader' 
    classpath = sourceSets.main.runtimeClasspath
+}
+
+task validate(dependsOn: 'classes', type: JavaExec) {
+    main = 'validate'
+    classpath = sourceSets.main.runtimeClasspath
+    systemProperty "onlyPrintFails", System.getProperty("onlyPrintFails")
+    systemProperty "track", System.getProperty("track")
 }
 
 uploadArchives {

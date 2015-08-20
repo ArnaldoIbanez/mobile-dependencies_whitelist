@@ -30,8 +30,8 @@ class ValidatorTest {
 
         // Assert
         assertEquals(response.status, false)
-        assertEquals(response.menssages.size(), 1)
-        //println result.menssages
+        assertEquals(response.messages.size(), 1)
+        //println result.messages
     }
 
     @Test void shouldNotFailValuesValidatorWithValidValue() {
@@ -44,8 +44,8 @@ class ValidatorTest {
 
         // Assert
         assertEquals(response.status, true)
-        assertEquals(response.menssages.size(), 0)
-        //println result.menssages
+        assertEquals(response.messages.size(), 0)
+        //println result.messages
     }
 
     @Test void shouldValidateTrackWithRegexValidator() {
@@ -58,8 +58,8 @@ class ValidatorTest {
 
         // Assert
         assertEquals(response.status, true)
-        assertEquals(response.menssages.size(), 0)
-        //println result.menssages
+        assertEquals(response.messages.size(), 0)
+        //println result.messages
     }
 
     @Test void shouldValidateTrackWithTypeValidatorNumeric() {
@@ -72,8 +72,8 @@ class ValidatorTest {
 
         // Assert
         assertEquals(response.status, true)
-        assertEquals(response.menssages.size(), 0)
-        //println result.menssages
+        assertEquals(response.messages.size(), 0)
+        //println result.messages
     }
 
     @Test void shouldValidateTrackWithTypeValidatorString() {
@@ -86,8 +86,8 @@ class ValidatorTest {
 
         // Assert
         assertEquals(response.status, true)
-        assertEquals(response.menssages.size(), 0)
-        //println result.menssages
+        assertEquals(response.messages.size(), 0)
+        //println result.messages
     }
 
     @Test void shouldValidateTrackWithTypeValidatorTimeStamp() {
@@ -101,8 +101,8 @@ class ValidatorTest {
 
         // Assert
         assertEquals(response.status, true)
-        assertEquals(response.menssages.size(), 0)
-        //println result.menssages
+        assertEquals(response.messages.size(), 0)
+        //println result.messages
     }
 
     @Test void shouldFailValidateTrackWithTypeValidator() {
@@ -116,7 +116,7 @@ class ValidatorTest {
 
         // Assert
         assertEquals(response.status, false)
-        //println result.menssages
+        //println result.messages
     }
 
     @Test void shouldValidateTrackWithCategoryValidator() {
@@ -128,9 +128,9 @@ class ValidatorTest {
         validator.validate(response, "propertyname", "MLA1334")
 
         // Assert
-        //println response.menssages
+        //println response.messages
         assertEquals(response.status, true)
-        assertEquals(response.menssages.size(), 0)
+        assertEquals(response.messages.size(), 0)
 
     }
 
@@ -143,9 +143,9 @@ class ValidatorTest {
         validator.validate(response,"propertyname", "MLAA1334")
 
         // Assert
-        //println response.menssages
+        //println response.messages
         assertEquals(response.status, false)
-        assertEquals(response.menssages.size(), 1)
+        assertEquals(response.messages.size(), 1)
 
     }
 

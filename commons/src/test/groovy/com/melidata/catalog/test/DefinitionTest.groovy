@@ -99,7 +99,7 @@ class DefinitionTest {
 
         // Assert
         assertTrue(result.status)
-        assertEquals(result.menssages.size(), 0)
+        assertEquals(result.messages.size(), 0)
     }
 
     @Test void shouldValidateTrackWithInvalidValue() {
@@ -113,8 +113,7 @@ class DefinitionTest {
 
         // Assert
         assertEquals(result.status, false)
-        assertEquals(result.menssages.size(), 1)
-        //println result.menssages
+        assertEquals(result.messages.size(), 1)
     }
 
     @Test void shouldValidateTrackWithNonRequiredProperties() {
@@ -129,8 +128,7 @@ class DefinitionTest {
 
         // Assert
         assertEquals(result.status, true)
-        assertEquals(result.menssages.size(), 0)
-        //println result.menssages
+        assertEquals(result.messages.size(), 0)
     }
 
     @Test void shouldValidateTrackWithNonRequiredButWithValuesProperties() {
@@ -144,11 +142,8 @@ class DefinitionTest {
         def result = definition.validate(new Track(path:"/search", event_data:["query":"iphone"]))
 
         // Assert
-        println result.menssages
-
         assertEquals(result.status, true)
-        assertEquals(result.menssages.size(), 0)
-        //println result.menssages
+        assertEquals(result.messages.size(), 0)
     }
 
     @Test void shouldValidateTrackWithRequiredProperties() {
@@ -163,8 +158,7 @@ class DefinitionTest {
 
         // Assert
         assertEquals(result.status, false)
-        assertEquals(result.menssages.size(), 1)
-        //println result.menssages
+        assertEquals(result.messages.size(), 1)
     }
 
     @Test void shouldValidateTrackWithManyProperties() {
@@ -189,9 +183,8 @@ class DefinitionTest {
                 new Track(path:"/search", event_data: ["limit":50,"offset":0,"query":"ipod","total_result":1230]))
 
         // Assert
-        //println result.menssages
         assertEquals(result.status, true)
-        assertEquals(result.menssages.size(), 0)
+        assertEquals(result.messages.size(), 0)
 
     }
 
@@ -205,9 +198,8 @@ class DefinitionTest {
                 new Track(path:"/search", event_data: ["limit":50]))
 
         // Assert
-        //println result.menssages
         assertEquals(result.status, true)
-        assertEquals(result.menssages.size(), 0)
+        assertEquals(result.messages.size(), 0)
 
     }
 
@@ -221,9 +213,8 @@ class DefinitionTest {
                 new Track(path:"/search", event_data: ["limit":"50"]))
 
         // Assert
-        //println result.menssages
         assertEquals(result.status, false)
-        assertEquals(result.menssages.size(), 1)
+        assertEquals(result.messages.size(), 1)
     }
 
     @Test void shouldFailValidateTrackWithInvalidFormatCategory() {
@@ -236,9 +227,8 @@ class DefinitionTest {
                 new Track(path:"/search", event_data: ["category":"MARGEN1234"]))
 
         // Assert
-        println result.menssages
         assertEquals(result.status, false)
-        assertEquals(result.menssages.size(), 1)
+        assertEquals(result.messages.size(), 1)
 
     }
 
@@ -252,7 +242,6 @@ class DefinitionTest {
                 new Track(path:"/search", event_data: ["category":"MAR123"]))
 
         // Assert
-        println result.menssages
         assertEquals(result.status, true)
 
     }
@@ -268,7 +257,6 @@ class DefinitionTest {
 
         // Assert
         assertEquals(result.status, false)
-        println result.menssages
 
     }
 

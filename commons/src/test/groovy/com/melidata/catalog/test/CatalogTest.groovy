@@ -254,4 +254,144 @@ class CatalogTest {
             }
         }
     }
+
+    @Test void shouldNOTKeepHierarchy() {
+        //use of parentPropertiesInherited to override default behavior of inherite properties of parent path
+
+        Catalog c = getDefaultEmptyCatalog()
+
+        c.addTrackDefinition(new TrackDefinition("/search")
+                .addProperty(new TrackDefinitionProperty(name:"category", required: true))
+                .addProperty(new TrackDefinitionProperty(name:"query", required: true)));
+
+        c.addTrackDefinition(new TrackDefinition(path: "/search/refine", parentPropertiesInherited: false)
+                .addProperty(new TrackDefinitionProperty(name:"filter", required: true)));
+
+        /**
+         * Test that all event_data on /search not should be in /search/refine but their own event_data
+         */
+        Track t = new Track("/search/refine",TrackType.View,"/mobile");
+        TrackValidationResponse validationResponse = c.validate(t);
+        assertFalse(validationResponse.status)
+
+        t.event_data["filter"] = "c"
+        validationResponse = c.validate(t);
+        assertTrue(validationResponse.status)
+
+        t.event_data["query"] = "q"
+        t.event_data["category"] = "c"
+        validationResponse = c.validate(t);
+        assertFalse(validationResponse.status)
+    }
+
+    @Test void shouldNOTKeepHierarchySecondLevel() {
+        //use of parentPropertiesInherited to override default behavior of inherite properties of parent path
+
+        Catalog c = getDefaultEmptyCatalog()
+
+        c.addTrackDefinition(new TrackDefinition("/search")
+                .addProperty(new TrackDefinitionProperty(name:"category", required: true))
+                .addProperty(new TrackDefinitionProperty(name:"query", required: true)));
+
+        c.addTrackDefinition(new TrackDefinition(path: "/search/refine", parentPropertiesInherited: false)
+                .addProperty(new TrackDefinitionProperty(name:"filter", required: true)));
+
+        c.addTrackDefinition(new TrackDefinition(path: "/search/refine/child")
+                .addProperty(new TrackDefinitionProperty(name:"child_filter", required: true)));
+
+        /**
+         * Test that all event_data on /search not should be in /search/refine/child but filter should be
+         */
+        Track t = new Track("/search/refine/child",TrackType.View,"/mobile");
+        t.event_data["filter"] = "c1"
+        t.event_data["child_filter"] = "c2"
+        def validationResponse = c.validate(t);
+        assertTrue(validationResponse.status)
+
+        t.event_data["query"] = "q"
+        t.event_data["category"] = "c"
+        validationResponse = c.validate(t);
+        assertFalse(validationResponse.status)
+    }
+
+    @Test void shouldNOTKeepHierarchyThirdLevel() {
+        //use of parentPropertiesInherited to override default behavior of inherite properties of parent path
+
+        Catalog c = getDefaultEmptyCatalog()
+
+        c.addTrackDefinition(new TrackDefinition("/search")
+                .addProperty(new TrackDefinitionProperty(name:"category", required: true))
+                .addProperty(new TrackDefinitionProperty(name:"query", required: true)));
+
+        c.addTrackDefinition(new TrackDefinition(path: "/search/refine", parentPropertiesInherited: false)
+                .addProperty(new TrackDefinitionProperty(name:"filter", required: true)));
+
+        c.addTrackDefinition(new TrackDefinition(path: "/search/refine/child")
+                .addProperty(new TrackDefinitionProperty(name:"child_filter", required: true)));
+
+        c.addTrackDefinition(new TrackDefinition(path: "/search/refine/child/child2")
+                .addProperty(new TrackDefinitionProperty(name:"child2_filter", required: true)));
+
+        /**
+         * Test that all event_data on /search not should be in /search/refine/child but filter should be
+         */
+        Track t = new Track("/search/refine/child/child2",TrackType.View,"/mobile");
+        t.event_data["filter"] = "c1"
+        t.event_data["child_filter"] = "c2"
+        def validationResponse = c.validate(t);
+        assertFalse(validationResponse.status)
+
+        t.event_data["child2_filter"] = "c3"
+        validationResponse = c.validate(t);
+        assertTrue(validationResponse.status)
+
+        t.event_data["query"] = "q"
+        t.event_data["category"] = "c"
+        validationResponse = c.validate(t);
+        assertFalse(validationResponse.status)
+    }
+
+    @Test void shouldNotInheritableProperty() {
+        Catalog c = getDefaultEmptyCatalog()
+
+        c.addTrackDefinition(new TrackDefinition("/search")
+                .addProperty(new TrackDefinitionProperty(name:"category", required: true))
+                .addProperty(new TrackDefinitionProperty(name:"only_local", required: true, inheritable: false)));
+
+        c.addTrackDefinition(new TrackDefinition(path: "/search/refine")
+                .addProperty(new TrackDefinitionProperty(name:"filter", required: true)));
+
+        Track t = new Track("/search/refine",TrackType.View,"/mobile");
+        t.event_data["category"] = "c1"
+        t.event_data["filter"] = "c2"
+        def validationResponse = c.validate(t);
+        assertTrue(validationResponse.status)
+
+        t.event_data["only_local"] = "c3"
+        validationResponse = c.validate(t);
+        assertFalse(validationResponse.status)
+    }
+
+    @Test void shouldValidateServerSide() {
+        Catalog c = getDefaultEmptyCatalog()
+
+        c.addTrackDefinition(new TrackDefinition("/search")
+                .addProperty(new TrackDefinitionProperty(name:"category", required: true))
+                .addProperty(new TrackDefinitionProperty(name:"query", description: "query", required: true))
+                .addProperty(new TrackDefinitionProperty(name:"server_property", required: true, serverSide: true)));
+
+        Track t = new Track("/search",TrackType.View,"/mobile");
+        t.event_data["category"] = "category"
+        t.event_data["query"] = "query"
+        def validationResponse = c.validate(t);
+        assertTrue(validationResponse.status)
+
+        validationResponse = c.validate(t, true);
+        assertFalse(validationResponse.status)
+
+        t.event_data["server_property"] = "anyvalue"
+        validationResponse = c.validate(t, true);
+        assertTrue(validationResponse.status)
+    }
+
 }
