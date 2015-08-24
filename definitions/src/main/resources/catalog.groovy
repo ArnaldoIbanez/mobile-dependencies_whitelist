@@ -336,6 +336,7 @@ catalog {
 			shipping_type(required:false)
 			shipping_option(required:false)
 			financed_order_cost_for_card(required: false)
+			payment_must_call_for_authorize(required: false)
 			payment_method(required:false)
 			payment_type(required:false)
 			installments(required:false)
@@ -536,6 +537,10 @@ catalog {
 		// REGISTER
 
 		"/register/success"(platform:"/mobile") {
+			source()
+		}
+		
+		"/register/failure"(platform:"/mobile") {
 			source()
 		}
 	}
