@@ -306,12 +306,14 @@ trackTests {
       item_id = "MLA12345"
       context = "/vip"
       zip_code="1414"
+      destination = "1234"
     }
     "/shipping/mercadoenvios/shipping_cost/apply"(platform: "/mobile", type: TrackType.Event) {
       item_id = "MLA12345"
       context = "/vip"
       shipping_id = "509341521"
       zip_code="1414"
+      destination = "1234"
     }
   }
 

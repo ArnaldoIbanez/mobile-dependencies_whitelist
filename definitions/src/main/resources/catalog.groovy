@@ -97,6 +97,7 @@ catalog {
 			category_id(regex:categoryRegex, required:false)
 			category_path(description:"path from root category", regex:categoryPathRegex, type: PropertyType.ArrayList, required:false)
 			sort_id(required:false)
+			filters(required:false)
 			filter_user_applied(deprecated: true, required: false)
 		}
 
@@ -151,7 +152,8 @@ catalog {
 			category_id(regex:categoryRegex, required:false)
 			category_path(description:"path from root category", regex:categoryPathRegex, type: PropertyType.ArrayList, required:false)
 			sort_id(required:false)
-			filter_user_applied(required:false)
+			filters(required:false)
+			filter_user_applied(deprecated: true, required:false)
 			tienda_oficial(deprecated: true, required: false)
 			official_store_id(deprecated: true, required: false)
 			deal(deprecated: true, required: false)
@@ -258,6 +260,8 @@ catalog {
 		"/vip/item_gallery/back"(platform:"/mobile") { }
 
 		"/vip/contact_seller"(platform:"/mobile") { }
+		
+		"/vip/map/"(platform:"/mobile") { }
 
 		//BOOKMARKS
 
