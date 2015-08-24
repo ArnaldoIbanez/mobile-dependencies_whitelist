@@ -74,7 +74,26 @@ trackTests {
 
 
   //VIP FLOW
-  test("Vip core tracking in android") {
+  test("Vip min core tracking in android") {
+    def dataSet = {
+      item_id = "MLA533657947"
+    }
+
+    "/vip"(platform:"/mobile", dataSet)
+
+    "/vip/color_and_size"(platform:"/mobile", dataSet)
+
+    "/vip/description"(platform:"/mobile", {
+      item_id = "MLA533657947"
+      empty_description = false
+    })
+
+    "/vip/description/abort"(platform:"/mobile", dataSet)
+
+    "/vip/description/back"(platform:"/mobile", dataSet)
+  }
+
+  test("Vip core tracking in android deprecated") {
     def dataSet = {
       item_id = "MLA533657947"
       buying_mode = "buy_it_now"
@@ -287,12 +306,14 @@ trackTests {
       item_id = "MLA12345"
       context = "/vip"
       zip_code="1414"
+      destination = "1234"
     }
     "/shipping/mercadoenvios/shipping_cost/apply"(platform: "/mobile", type: TrackType.Event) {
       item_id = "MLA12345"
       context = "/vip"
       shipping_id = "509341521"
       zip_code="1414"
+      destination = "1234"
     }
   }
 

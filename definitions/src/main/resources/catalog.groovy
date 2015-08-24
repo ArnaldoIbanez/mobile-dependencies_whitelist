@@ -82,6 +82,10 @@ catalog {
 			context()
 		}
 
+		"/melidata/delete_old_tracks"(platform: "/mobile") {
+			count()
+		}
+
 		//EXTERNAL
 		//TODO revisar /external/XXX
 
@@ -93,6 +97,7 @@ catalog {
 			category_id(regex:categoryRegex, required:false)
 			category_path(description:"path from root category", regex:categoryPathRegex, type: PropertyType.ArrayList, required:false)
 			sort_id(required:false)
+			filters(required:false)
 			filter_user_applied(deprecated: true, required: false)
 		}
 
@@ -147,7 +152,8 @@ catalog {
 			category_id(regex:categoryRegex, required:false)
 			category_path(description:"path from root category", regex:categoryPathRegex, type: PropertyType.ArrayList, required:false)
 			sort_id(required:false)
-			filter_user_applied(required:false)
+			filters(required:false)
+			filter_user_applied(deprecated: true, required:false)
 			tienda_oficial(deprecated: true, required: false)
 			official_store_id(deprecated: true, required: false)
 			deal(deprecated: true, required: false)
@@ -156,7 +162,7 @@ catalog {
 		"/search"(platform: "/web") {
 			visual_id(required:false)
 			config_version(required:false)
-			filters()
+			filters(required:false)
 		}
 
 		"/search"(platform: "/mobile") {
@@ -206,24 +212,24 @@ catalog {
 
 		"/vip"(platform:"/") {
 			item_id()
-			buying_mode()
-			vertical(required:false)
-			category_id(regex:categoryRegex)
-			quantity(type: PropertyType.Numeric)
-			item_condition(required:false)
-			currency_id()
-			price(type: PropertyType.Numeric)
-			item_status()
-			official_store_id(required: false)
-			seller_id()
-			power_seller_status(required:false)
-			listing_type_id()
-			start_time(required:false)
-			stop_time(required:false)
-			shipping_mode()
-			free_shipping()
-			local_pick_up()
-			category_path(type: PropertyType.ArrayList, regex:categoryPathRegex, required:false)
+			buying_mode(deprecated: true, required: false)
+			vertical(deprecated: true, required: false)
+			category_id(deprecated: true, required: false)
+			quantity(deprecated: true, required: false)
+			item_condition(deprecated: true, required: false)
+			currency_id(deprecated: true, required: false)
+			price(deprecated: true, required: false)
+			item_status(deprecated: true, required: false)
+			official_store_id(deprecated: true, required: false)
+			seller_id(deprecated: true, required: false)
+			power_seller_status(deprecated: true, required: false)
+			listing_type_id(deprecated: true, required: false)
+			start_time(deprecated: true, required: false)
+			stop_time(deprecated: true, required: false)
+			shipping_mode(deprecated: true, required: false)
+			free_shipping(deprecated: true, required: false)
+			local_pick_up(deprecated: true, required: false)
+			category_path(deprecated: true, required: false)
 		}
 
 		"/vip/back"(platform:"/mobile", type: TrackType.Event) { }
@@ -232,17 +238,13 @@ catalog {
 
 		"/vip/seller_reputation/ratings"(platform:"/mobile") { }
 
-		"/vip/color_and_size"(platform:"/mobile", parentPropertiesInherited: false) {
-			item_id()
-			//TODO. remove this when inhereted from / is solved
-			mode(required:false)
-			sent_again(required:false)
-			from_background(required:false)
-		}
+		"/vip/color_and_size"(platform:"/mobile") { }
 
 		"/vip/description"(platform:"/mobile") {
-			empty_description(type:PropertyType.Boolean, required: true, inheritable: false)
+			empty_description(type:PropertyType.Boolean, required: false, inheritable: false)
 		}
+
+		"/vip/description/failure"(platform:"/mobile") { }
 
 		"/vip/description/abort"(platform:"/mobile") { }
 
@@ -258,6 +260,8 @@ catalog {
 		"/vip/item_gallery/back"(platform:"/mobile") { }
 
 		"/vip/contact_seller"(platform:"/mobile") { }
+		
+		"/vip/map/"(platform:"/mobile") { }
 
 		//BOOKMARKS
 
@@ -265,7 +269,15 @@ catalog {
 			context(required:false)
 		}
 
-		"/bookmarks/action"(platform:"/mobile", type: TrackType.Event) {}
+		//deprecated: true
+		"/bookmarks/post"(platform:"/mobile", type: TrackType.Event) {
+			item_id()
+		}
+
+		//deprecated: true
+		"/bookmarks/delete"(platform:"/mobile", type: TrackType.Event) {
+			item_id()
+		}
 
 		"/bookmarks/action/post"(platform:"/mobile", type: TrackType.Event) {
 			item_id()
@@ -313,18 +325,18 @@ catalog {
 		}
 
 		"/checkout"(platform:"/mobile") {
-			item_id(deprecated: true, required: false)
+			order_id(required: false)
 			order_items(required: false, description: "New: optional for old versions of mobile")
 			reloaded(required:false)
 			quantity_pre_selected(required:false)
 			order_payment_required(required:false)
 			shipping_pre_selected(required:false)
 			payment_pre_selected(required:false)
-			quantity_pre_selected(required:false)
 			selected_card(required:false)
 			shipping_type(required:false)
 			shipping_option(required:false)
 			financed_order_cost_for_card(required: false)
+			payment_must_call_for_authorize(required: false)
 			payment_method(required:false)
 			payment_type(required:false)
 			installments(required:false)
@@ -333,6 +345,10 @@ catalog {
 			total_amount(required: false, type: PropertyType.Numeric)
 			status(required:false)
 			status_detail(required:false)
+
+			item_id(deprecated: true, required: false)
+			quantity(deprecated: true, required: false)
+			order_cost(deprecated: true, required: false)
 		}
 
 		"/checkout/abort"(platform:"/mobile", type: TrackType.Event) {}
@@ -340,8 +356,6 @@ catalog {
 		"/checkout/back"(platform:"/mobile", type: TrackType.Event) {}
 
 		"/checkout/congrats"(platform:"/mobile") {
-			order_id()
-
 			congrats_seq(serverSide: true)
 			total_amount_local(serverSide: true)
 			total_amount_usd(serverSide: true)
@@ -360,11 +374,12 @@ catalog {
 		}
 
 		//--> SHIPPING flow
+
 		"/checkout/shipping_selection"(platform:"/mobile") {  //TODO flow
 			available_types()
 			current_type(required:false)
 			current_option(required:false)
-
+			available_other_methods(required:false)
 		}
 
 		"/checkout/shipping_selection/apply"(platform:"/mobile", type: TrackType.Event) {
@@ -410,6 +425,8 @@ catalog {
 		"/checkout/payment_selection/othertype"(platform:"/mobile") {
 			available_methods()
 		}
+
+		"/checkout/payment_selection/othertype/back"(platform:"/mobile") {}
 
 		"/checkout/order_total"(platform:"/mobile") {}
 
@@ -486,10 +503,13 @@ catalog {
 			zip_code(required:false)
 		}
 
-		"/shipping/mercadoenvios/shipping_cost/get"(platform:"/mobile", type: TrackType.Event) {}
+		"/shipping/mercadoenvios/shipping_cost/get"(platform:"/mobile", type: TrackType.Event) {
+			destination()
+		}
 
 		"/shipping/mercadoenvios/shipping_cost/apply"(platform:"/mobile", type: TrackType.Event) {
 			shipping_id()
+			destination()
 		}
 
 		// PAYMENTS FLOW
@@ -517,6 +537,10 @@ catalog {
 		// REGISTER
 
 		"/register/success"(platform:"/mobile") {
+			source()
+		}
+		
+		"/register/failure"(platform:"/mobile") {
 			source()
 		}
 	}
