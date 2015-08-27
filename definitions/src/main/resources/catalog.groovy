@@ -99,13 +99,14 @@ catalog {
 			sort_id(required:false)
 			filters(required:false)
 			filter_user_applied(deprecated: true, required: false)
-		}
 
-		"/external/search" (platform: "/mobile") {
 			news_id(required: false)
 			notification_type(required: false)
 			deal_id(required: false)
 			url(required: false)
+		}
+
+		"/external/search" (platform: "/mobile") {
 		}
 
 		"/external/failure" (platform: "/mobile") {
@@ -127,7 +128,7 @@ catalog {
 		}
 
 		"/home/failure"(platform:"/mobile") {
-			error_message()
+			error_message(required: false)
 		}
 
 		"/home/back"(platform:"/mobile") {
@@ -172,11 +173,16 @@ catalog {
 
 		"/search/failure" (platform: "/mobile", type: TrackType.Event){
 			error_message()
+			limit(required: false, description: "override required property")
+			offset(required: false, description: "override required property")
 		}
 
 		"/search/back" (platform: "/mobile", type: TrackType.Event){ }
 
-		"/search/abort" (platform: "/mobile", type: TrackType.Event){ }
+		"/search/abort" (platform: "/mobile", type: TrackType.Event){
+			limit(required: false, description: "override required property")
+			offset(required: false, description: "override required property")
+		}
 
 		"/search/refine" (platform: "/mobile"){ }
 
@@ -298,6 +304,7 @@ catalog {
 		"/questions/ask"(platform: "/mobile") {}
 
 		"/questions/ask/post"(platform: "/mobile", type: TrackType.Event) {
+		    //TODO revisar si no conviene pasar failed() a otro path "/questions/ask/post/failed"
 			failed()
 			question_id(required: false, description: "it has no value if failed is true")
 		}
@@ -356,6 +363,7 @@ catalog {
 		"/checkout/back"(platform:"/mobile", type: TrackType.Event) {}
 
 		"/checkout/congrats"(platform:"/mobile") {
+			duplicated_error(required: false)
 			congrats_seq(serverSide: true)
 			total_amount_local(serverSide: true)
 			total_amount_usd(serverSide: true)
@@ -366,7 +374,8 @@ catalog {
 		"/checkout/congrats/back"(platform:"/mobile", type: TrackType.Event) {}
 
 		"/checkout/failure"(platform: "/mobile", type: TrackType.Event) {
-			error_message()
+			error()
+			message()
 		}
 
 		"/checkout/quantity_changed"(platform:"/mobile", type: TrackType.Event) {
