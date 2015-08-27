@@ -20,7 +20,7 @@ class TestRunner {
                 runOk = false
             }
         }
-        out.afterRun()
+        out.afterRun(catalog)
         return runOk
     }
 

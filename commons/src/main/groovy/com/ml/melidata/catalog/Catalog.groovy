@@ -13,14 +13,17 @@ import com.ml.melidata.catalog.tree.TreeNode
 class Catalog implements CatalogInterface{
 
     //This map is <Business, PlatformTree>
-    def Map<String,PlatformTree> platformTrees;
+    def Map<String,PlatformTree> platformTrees
 
     def platforms = []
 
-    def defaultBusiness;
+    def defaultBusiness
+
+    def CatalogCoverage catalogCoverage
 
     def Catalog() {
         platformTrees = new HashMap<String,PlatformTree>()
+        catalogCoverage = new CatalogCoverage(this)
     }
 
     def addBusiness(String business) {
