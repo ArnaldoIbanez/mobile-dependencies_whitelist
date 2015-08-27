@@ -1,0 +1,1 @@
+../../../../definitions/src/main/resources/catalog.groovy
