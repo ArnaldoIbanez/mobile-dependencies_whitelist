@@ -238,6 +238,8 @@ catalog {
 			category_path(deprecated: true, required: false)
 		}
 
+		"/vip/abort"(platform:"/mobile", type: TrackType.Event) { }
+
 		"/vip/back"(platform:"/mobile", type: TrackType.Event) { }
 
 		"/vip/seller_reputation"(platform:"/mobile") { }
@@ -520,6 +522,10 @@ catalog {
 			shipping_id()
 			destination()
 		}
+
+		"/shipping/mercadoenvios/shipping_cost/fail"(platform:"/mobile", type: TrackType.Event) {
+		}
+
 
 		// PAYMENTS FLOW
 
