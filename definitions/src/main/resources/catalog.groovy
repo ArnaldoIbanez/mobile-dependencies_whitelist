@@ -99,13 +99,14 @@ catalog {
 			sort_id(required:false)
 			filters(required:false)
 			filter_user_applied(deprecated: true, required: false)
-		}
 
-		"/external/search" (platform: "/mobile") {
 			news_id(required: false)
 			notification_type(required: false)
 			deal_id(required: false)
 			url(required: false)
+		}
+
+		"/external/search" (platform: "/mobile") {
 		}
 
 		"/external/failure" (platform: "/mobile") {
