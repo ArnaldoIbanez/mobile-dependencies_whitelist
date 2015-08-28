@@ -31,6 +31,9 @@ class StdOut implements DefinitionsOut {
 
     @Override
     def afterRun(catalog) {
+        catalog.catalogCoverage.printCoverage()
+
+
         println("\033[92m - Successful Tests: "+successTests+"\033[0m")
         println("\033[91m - Failed Tests: "+failTests+"\033[0m")
 
@@ -40,8 +43,7 @@ class StdOut implements DefinitionsOut {
             printOk()
         }
 
-        catalog.catalogCoverage.getCoverage()
-
+        catalog.catalogCoverage.assertCoverage()
     }
 
     def starBar() {
