@@ -1,6 +1,7 @@
 package com.melidata.definitions.parsers.dsl
 
 import com.ml.melidata.Track
+import com.ml.melidata.catalog.CatalogCoverage
 
 /**
  * Created by apetalas on 19/11/14.
@@ -10,8 +11,10 @@ class TestDsl{
 
     def ArrayList<Track> tracks = []
     def String name
-    def messages = []
-    def status = true
+
+    //prefix fields with _ to avoid conflict with test properties definition
+    def _messages = []
+    def _status = true
 
     def propertyMissing(String name, value){
         this.tracks.last().event_data[name] = value
@@ -33,14 +36,16 @@ class TestDsl{
         def result = null
 
         this.tracks.each { singleTrack ->
+            catalog.catalogCoverage.addTestRun(singleTrack.path)
             result = catalog.validate(singleTrack)
-            status = status && result.status
+            _status = _status && result.status
             if ( !result.status ) {
-                messages = messages + [(singleTrack.path): result.messages]
+                _messages = _messages + [(singleTrack.path): result.messages]
             }
         }
 
-        return status
+        return _status
     }
+
 }
 
