@@ -11,8 +11,10 @@ class TestDsl{
 
     def ArrayList<Track> tracks = []
     def String name
-    def messages = []
-    def status = true
+
+    //prefix fields with _ to avoid conflict with test properties definition
+    def _messages = []
+    def _status = true
 
     def propertyMissing(String name, value){
         this.tracks.last().event_data[name] = value
@@ -36,13 +38,14 @@ class TestDsl{
         this.tracks.each { singleTrack ->
             catalog.catalogCoverage.addTestRun(singleTrack.path)
             result = catalog.validate(singleTrack)
-            status = status && result.status
+            _status = _status && result.status
             if ( !result.status ) {
-                messages = messages + [(singleTrack.path): result.messages]
+                _messages = _messages + [(singleTrack.path): result.messages]
             }
         }
 
-        return status
+        return _status
     }
+
 }
 

@@ -3,8 +3,6 @@ package com.ml.melidata.catalog
 import com.ml.melidata.catalog.tree.CatalogTree
 import com.ml.melidata.catalog.tree.PlatformTree
 
-import java.text.NumberFormat
-
 /**
  * Created by mtencer on 20/8/15.
  */
@@ -15,6 +13,10 @@ class CatalogCoverage {
 
 	def Map<String, Boolean> coverage
 	def Double coveragePercent
+
+	//TODO. esto es temporal, calcular los path internos que no son tracks validos (no estan en el catalogo) para no validarlos
+	def exceptions = ["/address", "/bookmarks", "/bookmarks/action", "/melidata", "/questions", "/register", "/shipping", "/shipping/mercadoenvios"].toSet()
+
 
 	def CatalogCoverage(Catalog catalog) {
 		this.catalog = catalog
@@ -29,11 +31,27 @@ class CatalogCoverage {
 	}
 
 	def traverse(PlatformTree t) {
-		return t.children ? t.children.collect{k,v -> def c = traverse(v); c ? c.collect{new MapEntry(k+(k != '/' ? '/' : '')+it.key,it.value)} : [new MapEntry(k,v)]}.flatten() : []
+		return t.children ? t.children.collect { k,v ->
+			def c = traverse(v)
+			c ?
+				c.collect {
+					new MapEntry(k+(k != '/' ? '/' : '')+it.key,it.value)
+				}
+			:
+				[new MapEntry(k,v)]}.flatten()
+		: []
 	}
 
 	def traverse(CatalogTree t) {
-		return t.children ? t.children.collect{k,v -> def c = traverse(v); c ? [k] + c.collect{k+(k != '/' ? '/' : '')+it} : [k]}.flatten() : []
+		return t.children ? t.children.collect { k,v ->
+			def c = traverse(v)
+			c ?
+				[k] + c.collect{
+					k+(k != '/' ? '/' : '')+it
+				}
+			: [k]
+			}.flatten()
+		: []
 	}
 
 	def getPlatforms(def t) {
@@ -60,7 +78,7 @@ class CatalogCoverage {
 
 			coverage = [:]
 			allPaths.toList().sort().each { path ->
-				def tested = testedPaths.contains(path)
+				def tested = testedPaths.contains(path) || exceptions.contains(path)
 				coverage.put(path, tested)
 				totalCount++
 				if (tested) testsCount++
@@ -75,17 +93,19 @@ class CatalogCoverage {
 		computeCoverage()
 
 		coverage.each { path, tested ->
-			println "${path}: ${tested ? "TESTED" : "MISSING"}"
+			if ( ! tested ) {
+				println "${path}: MISSING"
+			}
 		}
 
-		printf("\nCoverage: %3.2f %%\n", coveragePercent)
+		printf("\nCoverage: %3.2f %%\n\n", coveragePercent)
 	}
 
 	def assertCoverage() {
 		computeCoverage()
 
-		if ( coveragePercent < 50 ) {
-			throw new RuntimeException("Low Coverage (50 % expected but was ${coveragePercent} %%)")
+		if ( coveragePercent < 100 ) {
+			throw new RuntimeException("Low Coverage (100 % expected but was ${coveragePercent} %)")
 		}
 	}
 }
