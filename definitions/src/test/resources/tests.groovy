@@ -109,6 +109,8 @@ trackTests {
 
     "/vip"(platform:"/mobile", dataSet)
 
+    "/vip/abort"(platform:"/mobile", dataSet)
+
     "/vip/back"(platform:"/mobile", dataSet)
 
     "/vip/color_and_size"(platform:"/mobile", dataSet)
@@ -262,7 +264,8 @@ trackTests {
     "/checkout/abort"(platform:"/mobile") {}
 
     "/checkout/failure"(platform:"/mobile") {
-      error_message = "error loading checkout"
+      error = "error loading checkout"
+      message = "content"
     }
 
     "/checkout/payment_selection" (platform:"/mobile"){
@@ -520,6 +523,10 @@ trackTests {
       shipping_id = "509341521"
       zip_code="1414"
       destination = "1234"
+    }
+    "/shipping/mercadoenvios/shipping_cost/fail"(platform: "/mobile", type: TrackType.Event) {
+      item_id = "MLA12345"
+      context = "/vip"
     }
     "/shipping/shipping_cost"(platform: "/mobile", type: TrackType.Event) {
       item_id = "MLA12345"
