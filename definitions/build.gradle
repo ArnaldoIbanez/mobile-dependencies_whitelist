@@ -5,7 +5,7 @@ apply plugin:'application'
 apply plugin:'maven'
 apply plugin:'java'
 
-project.version = '0.1.8'
+project.version = '0.1.10'
 project.group = 'com.mercadolibre.melidata.catalog'
 
 mainClassName = 'com.melidata.definitions.uploader.Uploader'
@@ -57,6 +57,10 @@ task tests (dependsOn: 'classes', type: JavaExec) {
 task uploadCatalog(type:JavaExec) {
    main = 'com.melidata.definitions.uploader.Uploader' 
    classpath = sourceSets.main.runtimeClasspath
+    systemProperty "CATALOG_DSL_FILE", System.getProperty("CATALOG_DSL_FILE")
+    systemProperty "S3_BUCKET", System.getProperty("S3_BUCKET")
+    systemProperty "AWS_ACCESS_KEY_ID", System.getProperty("AWS_ACCESS_KEY_ID")
+    systemProperty "AWS_SECRET_KEY", System.getProperty("AWS_SECRET_KEY")
 }
 
 task validate(dependsOn: 'classes', type: JavaExec) {

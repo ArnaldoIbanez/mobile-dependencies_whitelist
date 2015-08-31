@@ -13,7 +13,7 @@ class StdOut implements DefinitionsOut {
 
     @Override
     def fail(Object test) {
-        messages.put(test.name, test.messages)
+        messages.put(test.name, test._messages)
         failTests++
     }
 
@@ -30,16 +30,19 @@ class StdOut implements DefinitionsOut {
     }
 
     @Override
-    def afterRun() {
+    def afterRun(catalog) {
+        catalog.catalogCoverage.printCoverage()
+
+
         println("\033[92m - Successful Tests: "+successTests+"\033[0m")
         println("\033[91m - Failed Tests: "+failTests+"\033[0m")
 
-        if(this.messages.size() >=0 ) {
+        if(this.messages.size() > 0 ) {
             printFails()
         } else {
             printOk()
+            catalog.catalogCoverage.assertCoverage()
         }
-
 
     }
 

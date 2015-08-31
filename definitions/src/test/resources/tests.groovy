@@ -3,6 +3,30 @@ import com.ml.melidata.TrackType;
 
 trackTests {
 
+  test("Root tracking") {
+    "/"(platform: "/mobile") {}
+
+    "/"(platform: "/web/desktop") {}
+  }
+
+  test("Home core tracking") {
+    "/home"(platform: "/mobile") {}
+
+    "/home/abort"(platform: "/mobile") {}
+
+    "/home/back"(platform: "/mobile") {}
+
+    "/home/failure"(platform: "/mobile", {
+      error_message = "error loading home"
+    })
+
+    "/home/tap"(platform: "/mobile", {
+      position = 1
+      section = "history"
+      tag_id = "MLB681933310"
+    })
+  }
+
   test("Search core tracking"){
 
     def defaultSearchInformation = {
@@ -25,6 +49,10 @@ trackTests {
     }
 
     "/search"(platform: "/mobile", defaultSearchInformation)
+
+    "/search/input"(platform: "/mobile") {}
+
+    "/search/input/back"(platform: "/mobile") {}
 
     "/search/failure"(platform: "/mobile") {
         defaultSearchInformation()
@@ -81,6 +109,10 @@ trackTests {
 
     "/vip"(platform:"/mobile", dataSet)
 
+    "/vip/abort"(platform:"/mobile", dataSet)
+
+    "/vip/back"(platform:"/mobile", dataSet)
+
     "/vip/color_and_size"(platform:"/mobile", dataSet)
 
     "/vip/description"(platform:"/mobile", {
@@ -91,6 +123,22 @@ trackTests {
     "/vip/description/abort"(platform:"/mobile", dataSet)
 
     "/vip/description/back"(platform:"/mobile", dataSet)
+
+    "/vip/description/failure"(platform:"/mobile", dataSet)
+
+    "/vip/contact_seller"(platform:"/mobile", dataSet)
+
+    "/vip/description/failure"(platform:"/mobile", dataSet)
+
+    "/vip/item_gallery"(platform:"/mobile") {}
+
+    "/vip/item_gallery/back"(platform:"/mobile") {}
+
+    "/vip/map"(platform:"/mobile", dataSet)
+
+    "/vip/seller_reputation"(platform:"/mobile", dataSet)
+
+    "/vip/seller_reputation/ratings"(platform:"/mobile", dataSet)
   }
 
   test("Vip core tracking in android deprecated") {
@@ -144,6 +192,16 @@ trackTests {
   }
 
   test("Bookmark tracking in android") {
+    "/bookmarks/post" (platform:"/mobile", type: TrackType.Event) {
+      item_id = "MLA533657947"
+      context = "/search"
+    }
+
+    "/bookmarks/delete" (platform:"/mobile", type: TrackType.Event) {
+      item_id = "MLA533657947"
+      context = "/search"
+    }
+
     "/bookmarks/action/post" (platform:"/mobile", type: TrackType.Event) {
       item_id = "MLA533657947"
       context = "/search"
@@ -165,19 +223,22 @@ trackTests {
       context = "/vip"
     }
 
+    "/questions/ask/post"(platform: "/mobile") {
+      item_id = "MLA12345"
+      context = "/vip"
+      failed = false
+    }
+
+    "/questions/ask/back"(platform: "/mobile") {
+      item_id = "MLA12345"
+      context = "/vip"
+    }
   }
 
-  test("Checkout Basic Flow test"){
+  test("Checkout Basic Flow test") {
 
     def defaultCheckoutInformation = {
       item_id = "MCO412584037"
-    }
-
-    "/checkout"(platform:"/mobile") {
-      defaultCheckoutInformation()
-      quantity_pre_selected=1
-      order_payment_required=false
-      deferred_time=1
     }
 
     def defaultCheckoutPaymentInformation = {
@@ -187,10 +248,29 @@ trackTests {
       current_method="visa"
     }
 
+    "/checkout"(platform:"/mobile") {
+      defaultCheckoutInformation()
+      quantity_pre_selected=1
+      order_payment_required=false
+      deferred_time=1
+    }
+
+    "/checkout/abort"(platform:"/mobile") {}
+
+    "/checkout/back"(platform:"/mobile") {}
+
+    "/checkout/congrats/back"(platform:"/mobile") {}
+
+    "/checkout/abort"(platform:"/mobile") {}
+
+    "/checkout/failure"(platform:"/mobile") {
+      error = "error loading checkout"
+      message = "content"
+    }
+
     "/checkout/payment_selection" (platform:"/mobile"){
       defaultCheckoutInformation()
       defaultCheckoutPaymentInformation()
-      
     }
 
     "/checkout/payment_selection/apply" (platform:"/mobile", type:TrackType.Event){
@@ -199,7 +279,19 @@ trackTests {
       type = "cash"
     }
 
+    "/checkout/payment_selection/back" (platform:"/mobile"){
+      defaultCheckoutInformation()
+      defaultCheckoutPaymentInformation()
+
+    }
+
     "/checkout/payment_selection/othertype" (platform: "/mobile"){
+      defaultCheckoutInformation()
+      defaultCheckoutPaymentInformation()
+      available_methods=["efecty", "davivienda"]
+    }
+
+    "/checkout/payment_selection/othertype/back" (platform: "/mobile"){
       defaultCheckoutInformation()
       defaultCheckoutPaymentInformation()
       available_methods=["efecty", "davivienda"]
@@ -220,6 +312,12 @@ trackTests {
     "/checkout/shipping_selection" (platform:"/mobile"){
       defaultCheckoutInformation()
       defaultCheckoutShippingInformation()
+    }
+
+    "/checkout/shipping_selection/apply" (platform:"/mobile"){
+      defaultCheckoutInformation()
+      defaultCheckoutShippingInformation()
+      type = "known_cost"
     }
 
     "/checkout/shipping_selection/back" (platform:"/mobile", type:TrackType.Event){
@@ -244,6 +342,36 @@ trackTests {
     "/checkout/shipping_cost" (platform: "/mobile"){
       defaultCheckoutInformation()
     }
+
+    "/checkout/shipping_cost/apply" (platform: "/mobile"){
+      defaultCheckoutInformation()
+    }
+
+    "/checkout/shipping_cost/back" (platform: "/mobile"){
+      defaultCheckoutInformation()
+    }
+
+    "/checkout/contact_add" (platform: "/mobile"){}
+
+    "/checkout/contact_seller_call" (platform: "/mobile"){}
+
+    "/checkout/contact_seller_email" (platform: "/mobile"){}
+
+    "/checkout/order_total" (platform: "/mobile"){}
+
+    "/checkout/order_total/back" (platform: "/mobile"){}
+
+    "/checkout/quantity_changed" (platform: "/mobile"){
+      quantity = 10
+    }
+
+    "/checkout/screenshot" (platform: "/mobile"){}
+
+    "/checkout/" (platform: "/mobile"){}
+
+    "/checkout/" (platform: "/mobile"){}
+
+    "/checkout/" (platform: "/mobile"){}
   }
 
   test("checkout congrats"){
@@ -259,9 +387,71 @@ trackTests {
         shipping_option=1
         order_id=912391
      }
-  }
 
-  
+    "/checkout/orderCreated"(platform:"/web/desktop", type:TrackType.Event) {
+        congrats_seq = 1
+        total_amount = 70
+        order_id = 991687837
+        status = "payment_required"
+        seller = [ id: 135201044, nickname: "JPS PAULO" ]
+        first_for_order = true
+        errors = false
+        buyer = [ id: 75961818, nickname: "CIA51" ]
+        order_items = [
+              [
+                currency_id: "BRL",
+                item: [
+                  id: "MLB683236263",
+                  category_path: [ "MLB1499", "MLB2467", "MLB30216" ],
+                  buying_mode: "buy_it_now",
+                  category_id: "MLB30216",
+                  variation_id: null
+                ],
+                quantity: 1,
+                unit_price: 70
+              ]
+            ]
+        order_api = [
+          total_amount: 70,
+          tags: [ "not_delivered", "not_paid" ],
+          currency_id: "BRL",
+          mediations: [],
+          status: "payment_required",
+          date_created: "2015-08-28T06:44:34.000-04:00",
+          status_detail: [ description: "Order only in MercadoLibre Site.", code: "item_price_restriction" ],
+          seller: [ "id": 135201044, "nickname": "JPS PAULO" ],
+          feedback: [ purchase: null, sale: null ],
+          id: 991687837,
+          shipping: [ status: "to_be_agreed", receiver_address: null, sender_address: null ],
+          expiration_date: null,
+          payments: [],
+          buyer: [ id: 75961818, nickname: "CIA51" ],
+          date_closed: null,
+          order_items: [
+                  [
+                    currency_id: "BRL",
+                    item:[
+                      id: "MLB683236263",
+                      title: "Conector 12 Vias Baquelite - 1,5/6,0mm² - Caixa Com 10",
+                      variation_attributes: [],
+                      category_id: "MLB30216",
+                      variation_id: null ],
+                    quantity: 1,
+                    unit_price: 70
+                  ]
+          ],
+          total_amount_with_shipping: 70,
+          last_updated: "2015-08-28T06:44:34.000-04:00",
+          paid_amount: 0,
+          coupon: [ "id": null, "amount": 0 ],
+          comments :null
+        ]
+        total_amount_local = 70
+        total_amount_usd = 19.72
+        mobile = false
+      }
+    }
+
 
   test("credit cards"){
 
@@ -272,7 +462,26 @@ trackTests {
       mode="DEFERRED"
     }
 
+    "/credit_cards/abort"(platform:"/mobile", type: TrackType.View) {
+      available_cards=["visa", "amex", "master", "diners"]
+      context = "/checkout"
+      deferred_time=1230
+      mode="DEFERRED"
+    }
+
+    "/credit_cards/back"(platform:"/mobile", type: TrackType.View) {
+      available_cards=["visa", "amex", "master", "diners"]
+      context = "/checkout"
+      deferred_time=1230
+      mode="DEFERRED"
+    }
+
     "/credit_cards/new_card"(platform:"/mobile", type: TrackType.View) {
+      payment_method_id = "diners"
+      context = "/checkout"
+    }
+
+    "/credit_cards/new_card/back"(platform:"/mobile", type: TrackType.View) {
       payment_method_id = "diners"
       context = "/checkout"
     }
@@ -314,6 +523,18 @@ trackTests {
       shipping_id = "509341521"
       zip_code="1414"
       destination = "1234"
+    }
+    "/shipping/mercadoenvios/shipping_cost/fail"(platform: "/mobile", type: TrackType.Event) {
+      item_id = "MLA12345"
+      context = "/vip"
+    }
+    "/shipping/shipping_cost"(platform: "/mobile", type: TrackType.Event) {
+      item_id = "MLA12345"
+      context = "/vip"
+    }
+    "/shipping/shipping_cost/back"(platform: "/mobile", type: TrackType.Event) {
+      item_id = "MLA12345"
+      context = "/vip"
     }
   }
 
@@ -360,7 +581,59 @@ trackTests {
     } 
   }
 
-  test("statistics"){
+  test("Register") {
+    "/register/success"(platform: "/mobile") {
+      source = "facebook"
+    }
+
+    "/register/failure"(platform: "/mobile") {
+      source = "facebook"
+    }
+  }
+
+  test("external tracking"){
+
+    def defaultSearchInformation = {
+      total=5876
+      limit=20
+      query="iphone"
+      deferred_time=1361
+      category_path=["MLA1051", "MLA1055", "MLA32089"]
+      category_id="MLA32089"
+      filter_user_applied=[]
+      offset=0
+      sort_id="relevance"
+      mode="DEFERRED"
+    }
+
+    "/external"(platform:"/mobile", type:TrackType.View) { defaultSearchInformation }
+
+    "/external/abort"(platform:"/mobile", type:TrackType.View) { defaultSearchInformation }
+
+    "/external/back"(platform:"/mobile", type:TrackType.View) { defaultSearchInformation }
+
+    "/external/failure"(platform:"/mobile", type:TrackType.View) {
+      defaultSearchInformation
+      error_message = "error loading search"
+    }
+
+    "/external/search"(platform:"/mobile", type:TrackType.View) { defaultSearchInformation }
+
+    "/external/vip"(platform:"/mobile", type:TrackType.View) {
+      item_id = "MLA123"
+    }
+  }
+
+
+  test("melidata"){
+    "/melidata/delete_old_tracks" (platform:"/mobile", type:TrackType.Event) {
+      count = 10
+    }
+
+    "/melidata/null_track" (platform:"/mobile", type:TrackType.Event) {
+      context = "DescriptionFragment"
+    }
+
     "/melidata/statistics"(platform:"/mobile", type:TrackType.Event){
       errors_counter = ["java.io.EOFException":2, "nullpointer":3]
       last_send_timestamp="2015-01-21T13:14:09.415-0300"

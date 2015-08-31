@@ -165,7 +165,7 @@ public class OutTest implements DefinitionsOut{
     }
 
     @Override
-    def afterRun() {
+    def afterRun(Object catalog) {
         afterRunCalls++
     }
 }

@@ -10,7 +10,7 @@ public interface DefinitionsOut {
 
     def beforeRun(catalog, tests)
 
-    def afterRun()
+    def afterRun(catalog)
 
 }
 
