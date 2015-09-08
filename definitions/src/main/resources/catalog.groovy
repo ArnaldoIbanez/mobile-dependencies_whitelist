@@ -1,7 +1,5 @@
-import com.ml.melidata.catalog.PropertyType
-import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.catalog
 import com.ml.melidata.TrackType
-
+import com.ml.melidata.catalog.PropertyType
 /**
  * Main catalog definitions
  */
@@ -558,5 +556,45 @@ catalog {
 		"/register/failure"(platform:"/mobile") {
 			source()
 		}
+
+		 /**
+		  * Mobile Notifications
+		  * types of events defined by @event_type: sent, received, dismiss, open
+		  **/
+		 "/notification"(platform:"/mobile") {
+			  news_id(required: true)
+			  event_type(required: true)
+			  deeplink()
+		 }
+
+		 "/notification/deal"(platform: "/mobile"){
+			  deal_id(required: true)
+		 }
+
+		 "/notification/seller_question"(platform: "/mobile") {
+			  question_id(required: false)
+		 }
+
+		 "/notification/buyer_question"(platform: "/mobile") {
+			  question_id(required: false)
+		 }
+
+		 "/notification/new_sale"(platform: "/mobile") {
+			  order_id(required: false)
+		 }
+
+		 "/notification/shipping/shipped"(platform:"/mobile") {}
+
+		 "/notification/shipping/agency_withdrawal"(platform: "/mobile"){
+			  order_id(required: false)
+		 }
+
+		 "/notification/collections/approved"(platform: "/mobile"){ }
+
+		 "/notification/purchases/dropout"(platform: "/mobile") {
+			  item_id(required: true)
+		 }
+
+
 	}
 }
