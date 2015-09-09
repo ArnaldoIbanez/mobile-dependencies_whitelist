@@ -558,5 +558,50 @@ catalog {
 		"/register/failure"(platform:"/mobile") {
 			source()
 		}
+
+		 /**
+		  * NOTIFICATIONS
+		  * disclaimer: when the action_type is set, the event_type should be always 'open'
+		  **/
+		 "/notification"(platform:"/mobile") {
+			  news_id(required: true, description: "Identifier of the notification generated")
+			  event_type(required: true, values: ["sent", "arrived", "received", "dismiss", "discarded", "open"], description: "Type of notification event")
+			  action_type(required: false, values: ["buy", "directions", "favorite", "reply", "ask", "postpone"])
+			  deeplink(required: false, description: "The link were the notification should navigate to, if applies")
+		 }
+		 //Tu producto está en camino
+		 "/notification/shipping_shipped"(platform:"/mobile") {
+			  order_id(required: false, type : PropertyType.Numeric, description: "The order of the bought item which has been shipped")
+		 }
+		 //Retiro en sucursal
+		 "/notification/shipping_agency_withdrawal"(platform: "/mobile"){
+			  order_id(required: false, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
+		 }
+		 //Seller questions
+		 "/notification/questions_new"(platform: "/mobile") {
+			  question_id(required: false)
+		 }
+		 //Buyer questions
+		 "/notification/questions_answered"(platform: "/mobile") {
+			  question_id(required: false)
+		 }
+		 //New Sale
+		 "/notification/orders_new"(platform: "/mobile") {
+			  order_id(required: false)
+		 }
+		 //MKT Deals
+		 "/notification/campaigns_deals"(platform: "/mobile"){
+			  deal_id(required: true, description: "Id of the deal related to the mkt notification sent.")
+		 }
+		 //Tu cobro fué acreditado
+		 "/notification/collections_approved"(platform: "/mobile"){ }
+
+		 //Dropout de CHO
+		 "/notification/purchases_pending"(platform: "/mobile") {
+			  item_id(required: true)
+		 }
+		 //Loyalty
+		 "/notification/reputation_buyer_in"(platform: "/mobile") { }
+
 	}
 }
