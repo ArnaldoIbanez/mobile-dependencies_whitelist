@@ -567,35 +567,37 @@ catalog {
 			  deeplink(required: false, description: "The link were the notification should navigate to, if applies")
 		 }
 
-		 "/notification/deal"(platform: "/mobile"){
-			  deal_id(required: true, description: "Id of the deal related to the mkt notification sent.")
+		 "/notification/shipping_shipped"(platform:"/mobile", description: "Tu producto está en camino") {
+			  order_id(required: false, type : PropertyType.Numeric, description: "The order of the bought item which has been shipped")
 		 }
 
-		 "/notification/seller_question"(platform: "/mobile") {
-			  question_id(required: false)
-		 }
-
-		 "/notification/buyer_question"(platform: "/mobile") {
-			  question_id(required: false)
-		 }
-
-		 "/notification/new_sale"(platform: "/mobile") {
-			  order_id(required: false)
-		 }
-
-		 "/notification/shipping_shipped"(platform:"/mobile") {}
-
-		 "/notification/shipping_agency_withdrawal"(platform: "/mobile"){
+		 "/notification/shipping_agency_withdrawal"(platform: "/mobile", description: "Retiro en sucursal"){
 			  order_id(required: false, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
 		 }
 
-		 // Notification of type: 'Tienes dinero en cuenta'
-		 "/notification/collections_approved"(platform: "/mobile"){ }
+		 "/notification/questions_new"(platform: "/mobile", description: "Seller questions") {
+			  question_id(required: false)
+		 }
 
-		 //Dropout of CHO.
-		 "/notification/purchases_dropout"(platform: "/mobile") {
+		 "/notification/questions_answered"(platform: "/mobile", description: "Buyer questions") {
+			  question_id(required: false)
+		 }
+
+		 "/notification/orders_new"(platform: "/mobile", description: "New Sale") {
+			  order_id(required: false)
+		 }
+
+		 "/notification/deals_campaigns"(platform: "/mobile", description: "MKT Deals"){
+			  deal_id(required: true, description: "Id of the deal related to the mkt notification sent.")
+		 }
+
+		 "/notification/collections_approved"(platform: "/mobile", description: "Tu cobro fué acreditado"){ }
+
+		 "/notification/purchases_pending"(platform: "/mobile", description: "Dropout de CHO") {
 			  item_id(required: true)
 		 }
+
+		 "/notification/reputation_buyer_in"(platform: "/mobile") { }
 
 
 	}
