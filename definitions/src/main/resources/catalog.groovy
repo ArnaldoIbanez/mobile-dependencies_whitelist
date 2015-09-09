@@ -1,5 +1,7 @@
-import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
+import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.catalog
+import com.ml.melidata.TrackType
+
 /**
  * Main catalog definitions
  */
@@ -559,14 +561,12 @@ catalog {
 
 		 /**
 		  * NOTIFICATIONS
-		  * even_type values: sent, received, dismiss, discarded, open
-		  * action_type: notifications actions tracks (e.g.: buy, directions, favorite).
-		  * When action_type is set, the event_type should be always 'open'
+		  * disclaimer: when the action_type is set, the event_type should be always 'open'
 		  **/
 		 "/notification"(platform:"/mobile") {
 			  news_id(required: true, description: "Identifier of the notification generated")
-			  event_type(required: true, description: "Type of notification event, possible: sent, received, dismiss, discarded, open")
-			  action_type(required: false)
+			  event_type(required: true, values: ["sent", "arrived", "received", "dismiss", "discarded", "open"], description: "Type of notification event")
+			  action_type(required: false, values: ["buy", "directions", "favorite", "reply", "ask", "postpone"])
 			  deeplink(required: false, description: "The link were the notification should navigate to, if applies")
 		 }
 		 //Tu producto está en camino
