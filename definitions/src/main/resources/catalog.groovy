@@ -562,13 +562,13 @@ catalog {
 		  * types of events defined by @event_type: sent, received, dismiss, open
 		  **/
 		 "/notification"(platform:"/mobile") {
-			  news_id(required: true)
-			  event_type(required: true)
-			  deeplink()
+			  news_id(required: true, description: "Identifier of the notification generated")
+			  event_type(required: true, description: "Type of notification event, possible: sent, received, dismiss, discarted, open")
+			  deeplink(required: false, description: "The link were the notification should navigate to, if applies")
 		 }
 
 		 "/notification/deal"(platform: "/mobile"){
-			  deal_id(required: true)
+			  deal_id(required: true, description: "Id of the deal related to the mkt notification sent.")
 		 }
 
 		 "/notification/seller_question"(platform: "/mobile") {
@@ -583,15 +583,17 @@ catalog {
 			  order_id(required: false)
 		 }
 
-		 "/notification/shipping/shipped"(platform:"/mobile") {}
+		 "/notification/shipping_shipped"(platform:"/mobile") {}
 
-		 "/notification/shipping/agency_withdrawal"(platform: "/mobile"){
-			  order_id(required: false)
+		 "/notification/shipping_agency_withdrawal"(platform: "/mobile"){
+			  order_id(required: false, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
 		 }
 
-		 "/notification/collections/approved"(platform: "/mobile"){ }
+		 // Notification of type: 'Tienes dinero en cuenta'
+		 "/notification/collections_approved"(platform: "/mobile"){ }
 
-		 "/notification/purchases/dropout"(platform: "/mobile") {
+		 //Dropout of CHO.
+		 "/notification/purchases_dropout"(platform: "/mobile") {
 			  item_id(required: true)
 		 }
 
