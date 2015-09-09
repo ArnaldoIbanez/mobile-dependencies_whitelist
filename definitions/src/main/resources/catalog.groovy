@@ -558,47 +558,50 @@ catalog {
 		}
 
 		 /**
-		  * Mobile Notifications
-		  * types of events defined by @event_type: sent, received, dismiss, open
+		  * NOTIFICATIONS
+		  * even_type values: sent, received, dismiss, discarded, open
+		  * action_type: notifications actions tracks (e.g.: buy, directions, favorite).
+		  * When action_type is set, the event_type should be always 'open'
 		  **/
 		 "/notification"(platform:"/mobile") {
 			  news_id(required: true, description: "Identifier of the notification generated")
-			  event_type(required: true, description: "Type of notification event, possible: sent, received, dismiss, discarted, open")
+			  event_type(required: true, description: "Type of notification event, possible: sent, received, dismiss, discarded, open")
+			  action_type(required: false)
 			  deeplink(required: false, description: "The link were the notification should navigate to, if applies")
 		 }
-
-		 "/notification/shipping_shipped"(platform:"/mobile", description: "Tu producto está en camino") {
+		 //Tu producto está en camino
+		 "/notification/shipping_shipped"(platform:"/mobile") {
 			  order_id(required: false, type : PropertyType.Numeric, description: "The order of the bought item which has been shipped")
 		 }
-
-		 "/notification/shipping_agency_withdrawal"(platform: "/mobile", description: "Retiro en sucursal"){
+		 //Retiro en sucursal
+		 "/notification/shipping_agency_withdrawal"(platform: "/mobile"){
 			  order_id(required: false, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
 		 }
-
-		 "/notification/questions_new"(platform: "/mobile", description: "Seller questions") {
+		 //Seller questions
+		 "/notification/questions_new"(platform: "/mobile") {
 			  question_id(required: false)
 		 }
-
-		 "/notification/questions_answered"(platform: "/mobile", description: "Buyer questions") {
+		 //Buyer questions
+		 "/notification/questions_answered"(platform: "/mobile") {
 			  question_id(required: false)
 		 }
-
-		 "/notification/orders_new"(platform: "/mobile", description: "New Sale") {
+		 //New Sale
+		 "/notification/orders_new"(platform: "/mobile") {
 			  order_id(required: false)
 		 }
-
-		 "/notification/deals_campaigns"(platform: "/mobile", description: "MKT Deals"){
+		 //MKT Deals
+		 "/notification/campaigns_deals"(platform: "/mobile"){
 			  deal_id(required: true, description: "Id of the deal related to the mkt notification sent.")
 		 }
+		 //Tu cobro fué acreditado
+		 "/notification/collections_approved"(platform: "/mobile"){ }
 
-		 "/notification/collections_approved"(platform: "/mobile", description: "Tu cobro fué acreditado"){ }
-
-		 "/notification/purchases_pending"(platform: "/mobile", description: "Dropout de CHO") {
+		 //Dropout de CHO
+		 "/notification/purchases_pending"(platform: "/mobile") {
 			  item_id(required: true)
 		 }
-
+		 //Loyalty
 		 "/notification/reputation_buyer_in"(platform: "/mobile") { }
-
 
 	}
 }
