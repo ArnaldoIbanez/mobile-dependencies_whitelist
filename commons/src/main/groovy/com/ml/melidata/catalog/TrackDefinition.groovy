@@ -80,7 +80,6 @@ class TrackDefinition {
             def trackValueForThisProperty = t.event_data?.get(v.name)
             if(trackValueForThisProperty == null){
                 if(v.required && ((v.serverSide && serverSideValidation) || !v.serverSide)){ //required and (serverSide if is serverSideValidation)
-                    println "AA2 ${key} ${v.name} ${t.type} ${t.event_data}"
                     response.addValidation(false, "Property '${key}'" +
                         "${v.description?'('+v.description+')':''} is required")    
                 }
