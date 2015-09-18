@@ -602,6 +602,5 @@ catalog {
 		 }
 		 //Loyalty
 		 "/notification/reputation_buyer_in"(platform: "/mobile") { }
-
 	}
 }
