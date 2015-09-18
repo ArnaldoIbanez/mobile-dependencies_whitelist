@@ -711,7 +711,7 @@ trackTests {
       news_id = "12332323"
       event_type = "open"
       item_id = "MLA122211"
-      action_type = "buy"
+      action_type = "deeplinking"
     }
 
     //Favorite action
