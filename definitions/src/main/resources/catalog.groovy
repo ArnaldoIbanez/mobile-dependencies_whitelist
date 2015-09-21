@@ -566,7 +566,7 @@ catalog {
 		 "/notification"(platform:"/mobile") {
 			  news_id(required: true, description: "Identifier of the notification generated")
 			  event_type(required: true, values: ["sent", "arrived", "received", "dismiss", "discarded", "open"], description: "Type of notification event")
-			  action_type(required: false, values: ["buy", "directions", "favorite", "reply", "ask", "postpone"])
+			  action_type(required: false, values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone"])
 			  deeplink(required: false, description: "The link were the notification should navigate to, if applies")
 		 }
 		 //Tu producto está en camino
@@ -602,6 +602,5 @@ catalog {
 		 }
 		 //Loyalty
 		 "/notification/reputation_buyer_in"(platform: "/mobile") { }
-
 	}
 }
