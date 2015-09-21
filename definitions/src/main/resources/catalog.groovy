@@ -142,6 +142,22 @@ catalog {
 			section()
 			tag_id()
 		}
+		
+		//REVIEWS FRONTEND
+		"/reviews/form" (platform: "/") {
+			itemId()
+			reviewerId()
+		}
+		
+		"/reviews/congrats" (platform: "/") {
+			itemId()
+			reviewerId()
+		}
+		
+		"/reviews/error" (platform: "/") {
+			itemId()
+			reviewerId()
+		}
 
 		//SEARCH FLOW
 
