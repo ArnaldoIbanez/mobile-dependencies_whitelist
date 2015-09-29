@@ -568,6 +568,8 @@ catalog {
 			  event_type(required: true, values: ["sent", "arrived", "received", "dismiss", "discarded", "open"], description: "Type of notification event")
 			  action_type(required: false, values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone"])
 			  deeplink(required: false, description: "The link were the notification should navigate to, if applies")
+			  status(required: false, values: ["read", "unread"], description: "The current notification status, used only when tracking from notification center.")
+			  context(required: false, values: ["notification", "notification_center"], description: "Current context of the notification")
 		 }
 		 //Tu producto está en camino
 		 "/notification/shipping_shipped"(platform:"/mobile") {

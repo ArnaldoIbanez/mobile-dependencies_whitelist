@@ -651,6 +651,7 @@ trackTests {
     "/notification"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "sent"
+      context = "notification"
     }
 
     "/notification/campaigns_deals"(platform: "/mobile") {
@@ -658,52 +659,61 @@ trackTests {
       event_type = "received"
       deeplink ="meli://search?q=sony"
       deal_id = "mkt_campaign_co"
+      context = "notification"
     }
 
     "/notification/questions_new"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "dismiss"
       deeplink ="meli://seller_question/12221"
+      context = "notification"
     }
 
     "/notification/questions_answered"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
       deeplink ="meli://buyer_questions"
+      context = "notification"
     }
 
     "/notification/orders_new"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
       order_id = 12132
+      context = "notification"
     }
 
     "/notification/shipping_shipped"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
       order_id = 11222
+      context = "notification"
     }
 
     "/notification/shipping_agency_withdrawal"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "arrived"
       deeplink = "meli://purchases/sales"
+      context = "notification"
     }
 
     "/notification/collections_approved"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "dismiss"
+      context = "notification"
     }
 
     "/notification/purchases_pending"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
       item_id = "MLA122211"
+      context = "notification"
     }
 
     "/notification/reputation_buyer_in"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "dismiss"
+      context = "notification"
     }
 
     //Buy action
@@ -712,6 +722,7 @@ trackTests {
       event_type = "open"
       item_id = "MLA122211"
       action_type = "deeplinking"
+      context = "notification"
     }
 
     //Favorite action
@@ -720,6 +731,17 @@ trackTests {
       event_type = "open"
       item_id = "MLA122211"
       action_type = "favorite"
+      context = "notification"
+    }
+
+    //Notif center tracking
+    "/notification/purchases_pending"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "open"
+      item_id = "MLA122211"
+      action_type = "favorite"
+      status = "unread"
+      context = "notification_center"
     }
 
   }
