@@ -682,17 +682,27 @@ trackTests {
       news_id = "12332323"
       event_type = "open"
       order_id = 11222
+      shipping_id = 1234
     }
 
     "/notification/shipping_agency_withdrawal"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "arrived"
       deeplink = "meli://purchases/sales"
+      shipping_id = 1234
     }
-
+    
+    "/notification/shipping_delayed_bonus"(platform: "/mobile"){
+      news_id = "12332323"
+      event_type = "arrived"
+      deeplink = "meli://purchases/sales"
+      shipping_id = 1234
+    }
+    
     "/notification/collections_approved"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "dismiss"
+      order_id = 1234
     }
 
     "/notification/purchases_pending"(platform: "/mobile") {
@@ -719,6 +729,14 @@ trackTests {
       news_id = "12332323"
       event_type = "open"
       item_id = "MLA122211"
+      action_type = "favorite"
+    }
+    
+    "/notification/purchases_pending"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "open"
+      order_id = 1234
+      claim_id = 3123
       action_type = "favorite"
     }
 
