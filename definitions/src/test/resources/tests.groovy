@@ -754,7 +754,7 @@ trackTests {
       context = "notification_center"
     }
     
-    "/notification/purchases_pending"(platform: "/mobile") {
+    "/notification/mediations_complainant"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
       order_id = 1234

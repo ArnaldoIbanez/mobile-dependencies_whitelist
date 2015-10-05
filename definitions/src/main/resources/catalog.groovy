@@ -615,7 +615,7 @@ catalog {
 		 "/notification/reputation_buyer_in"(platform: "/mobile") { }
 		 
 		 //Mediations
-		 "/notification/purchases_pending"(platform: "/mobile") {
+		 "/notification/mediations_complainant"(platform: "/mobile") {
 			  order_id(required: false, type: PropertyType.Numeric, description: "The order related to the claim")
 			  claim_id(required: false)
 		 }
