@@ -574,11 +574,18 @@ catalog {
 		 //Tu producto está en camino
 		 "/notification/shipping_shipped"(platform:"/mobile") {
 			  order_id(required: false, type : PropertyType.Numeric, description: "The order of the bought item which has been shipped")
+			  shipping_id(required: false, type: PropertyType.Numeric)
 		 }
 		 //Retiro en sucursal
 		 "/notification/shipping_agency_withdrawal"(platform: "/mobile"){
 			  order_id(required: false, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
+			  shipping_id(required: false, type: PropertyType.Numeric)
 		 }
+		 //Devolución de costo de envío por demora
+		 "/notification/shipping_delayed_bonus"(platform: "/mobile"){
+			  order_id(required: false, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
+			  shipping_id(required: false, type: PropertyType.Numeric)
+		 }			 
 		 //Seller questions
 		 "/notification/questions_new"(platform: "/mobile") {
 			  question_id(required: false)
@@ -596,7 +603,9 @@ catalog {
 			  deal_id(required: true, description: "Id of the deal related to the mkt notification sent.")
 		 }
 		 //Tu cobro fué acreditado
-		 "/notification/collections_approved"(platform: "/mobile"){ }
+		 "/notification/collections_approved"(platform: "/mobile"){
+		 	order_id(required: false)
+		 }
 
 		 //Dropout de CHO
 		 "/notification/purchases_pending"(platform: "/mobile") {
@@ -604,5 +613,11 @@ catalog {
 		 }
 		 //Loyalty
 		 "/notification/reputation_buyer_in"(platform: "/mobile") { }
+		 
+		 //Mediations
+		 "/notification/mediations_complainant"(platform: "/mobile") {
+			  order_id(required: false, type: PropertyType.Numeric, description: "The order related to the claim")
+			  claim_id(required: false)
+		 }
 	}
 }
