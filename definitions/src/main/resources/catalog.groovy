@@ -165,6 +165,11 @@ catalog {
 			reviewerId()
 		}
 
+		"/reviews" (platform: "/") {
+			itemId()
+			reviewerId()
+		}
+
 		//SEARCH FLOW
 
 		"/search" (platform: "/") {

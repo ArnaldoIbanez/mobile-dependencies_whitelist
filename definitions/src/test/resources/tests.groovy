@@ -114,6 +114,8 @@ trackTests {
   	"/reviews/congrats"(platform:"/", dataSet)
   	
   	"/reviews/email"(platform:"/email", dataSet)
+
+    "/reviews"(platform:"/email", dataSet)
   }
 
   //VIP FLOW
