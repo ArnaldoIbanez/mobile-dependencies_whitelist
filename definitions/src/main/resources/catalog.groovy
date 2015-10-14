@@ -32,7 +32,8 @@ catalog {
 			"/web/mobile/static",
 			"/mobile",
 			"/mobile/android",
-			"/mobile/ios"
+			"/mobile/ios",
+			"/email"
 	]
 
 /**
@@ -159,7 +160,7 @@ catalog {
 			reviewerId()
 		}
 		
-		"/reveiws/email (platform: "/email") {
+		"/reviews/email" (platform: "/email") {
 			itemId()
 			reviewerId()
 		}

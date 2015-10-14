@@ -103,24 +103,19 @@ trackTests {
   //Reviews
   test("Reviews tracks") {
   	def dataSet = {
-  		itemId="MLA533657947",
+  		itemId="MLA533657947"
   		reviewerId=18912312
   	}
   	
-  	"/reviews/form"(platform:"/web/desktop", dataSet)
+  	"/reviews/form"(platform:"/", dataSet)
   	
-  	"/reviews/error"(platform:"/web/desktop", dataSet)
+  	"/reviews/error"(platform:"/", dataSet)
   	
-  	"/reviews/success"(platform:"/web/desktop", dataSet)
-  	
-  	"/reviews/form"(platform:"/web/mobile", dataSet)
-  	
-  	"/reviews/error"(platform:"/web/mobile", dataSet)
-  	
-  	"/reviews/success"(platform:"/web/mobile", dataSet)
+  	"/reviews/congrats"(platform:"/", dataSet)
   	
   	"/reviews/email"(platform:"/email", dataSet)
   }
+
   //VIP FLOW
   test("Vip min core tracking in android") {
     def dataSet = {
