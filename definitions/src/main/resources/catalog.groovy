@@ -158,6 +158,11 @@ catalog {
 			itemId()
 			reviewerId()
 		}
+		
+		"/reveiws/email (platform: "/email") {
+			itemId()
+			reviewerId()
+		}
 
 		//SEARCH FLOW
 
