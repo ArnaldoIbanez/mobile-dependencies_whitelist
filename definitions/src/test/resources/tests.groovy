@@ -667,6 +667,7 @@ trackTests {
       event_type = "dismiss"
       deeplink ="meli://seller_question/12221"
       context = "notification"
+      question_id = 1234
     }
 
     "/notification/questions_answered"(platform: "/mobile") {
@@ -674,6 +675,7 @@ trackTests {
       event_type = "open"
       deeplink ="meli://buyer_questions"
       context = "notification"
+      question_id = 1234		
     }
 
     "/notification/orders_new"(platform: "/mobile") {
@@ -696,6 +698,7 @@ trackTests {
       event_type = "arrived"
       deeplink = "meli://purchases/sales"
       shipping_id = 1234
+      order_id = 11222		
       context = "notification"
     }
     
@@ -703,6 +706,7 @@ trackTests {
       news_id = "12332323"
       event_type = "arrived"
       deeplink = "meli://purchases/sales"
+      order_id = 11222		
       shipping_id = 1234
     }
     
