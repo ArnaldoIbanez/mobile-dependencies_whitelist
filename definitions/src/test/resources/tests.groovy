@@ -648,6 +648,8 @@ trackTests {
 
   test("Mobile Notifications"){
 
+    "/notification_center"(platform: "/mobile"){}
+
     "/notification"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "sent"

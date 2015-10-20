@@ -559,6 +559,8 @@ catalog {
 			source()
 		}
 
+		 "/notification_center"(platform: "/mobile"){}
+
 		 /**
 		  * NOTIFICATIONS
 		  * disclaimer: when the action_type is set, the event_type should be always 'open'
