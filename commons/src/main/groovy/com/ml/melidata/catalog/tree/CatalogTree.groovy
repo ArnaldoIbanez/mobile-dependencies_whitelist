@@ -22,7 +22,7 @@ class CatalogTree extends TreeNode<TrackDefinition> {
             basicDefinition = data;
         }
 
-        TrackDefinition newDefinition = new TrackDefinition(data.path, data.type, data.platform, data.business, data.parentPropertiesInherited);
+        TrackDefinition newDefinition = new TrackDefinition(data.path, data.type, data.platform, data.business, data.parentPropertiesInherited, data.isAbstract);
 
         /**
          * If definition is already set, the new definition starts at least with
