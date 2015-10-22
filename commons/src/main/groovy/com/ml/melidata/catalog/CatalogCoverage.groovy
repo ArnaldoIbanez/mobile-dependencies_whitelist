@@ -93,6 +93,7 @@ class CatalogCoverage {
 			def testsCount = 0
 
 			coverage = [:]
+
 			allPaths.toList().sort().each { path ->
 				def tested = testedPaths.contains(path) || exceptions.contains(path)
 				coverage.put(path, tested)
