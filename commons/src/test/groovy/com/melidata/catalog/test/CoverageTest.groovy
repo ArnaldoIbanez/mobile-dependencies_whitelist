@@ -1,7 +1,5 @@
 package com.melidata.catalog.test
 
-import com.ml.melidata.catalog.tree.CatalogTree
-import com.ml.melidata.catalog.tree.PlatformTree
 import org.junit.Test
 
 import static org.junit.Assert.*
@@ -16,7 +14,7 @@ class CoverageTest {
         shell.parse(data).run()
     }
 
-    @Test
+    /*@Test
     void shouldReturnTrees() {
         def catalog = getCatalog()
         def catalogCoverage = catalog.catalogCoverage
@@ -31,6 +29,16 @@ class CoverageTest {
 
         assertNotNull platforms
         assertNotNull out
+    }*/
+
+    @Test
+    void shouldGetAbstractPaths() {
+        def c = catalog
+        def coverage = c.catalogCoverage
+
+        coverage.exceptions.each { println(it) }
+
+        assertTrue true
     }
 
 }

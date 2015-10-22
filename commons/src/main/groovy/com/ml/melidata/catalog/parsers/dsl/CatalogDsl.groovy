@@ -20,11 +20,11 @@ class CatalogDsl {
         catalog = new Catalog()
     }
 
-    def static catalog(clousure) {
+    def static catalog(Closure closure) {
         CatalogDsl dsl = new CatalogDsl()
-        clousure.delegate = dsl
-        clousure.resolveStrategy = Closure.DELEGATE_FIRST
-        clousure()
+        closure.delegate = dsl
+        closure.resolveStrategy = Closure.DELEGATE_FIRST
+        closure()
         return dsl.catalog
     }
 
