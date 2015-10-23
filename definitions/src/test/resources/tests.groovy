@@ -213,9 +213,18 @@ trackTests {
   }
 
   test("Questions") {
+
     "/questions/list"(platform: "/mobile") {
       item_id = "MLA12345"
       context = "/vip"
+    }
+
+    "/questions/list"(platform: "/mobile") {
+      context = "/seller_questions"
+    }
+
+    "/questions/list"(platform: "/mobile") {
+      context = "/buyer_questions"
     }
 
     "/questions/ask"(platform: "/mobile") {
@@ -233,6 +242,29 @@ trackTests {
       item_id = "MLA12345"
       context = "/vip"
     }
+
+    "/questions/answer"(platform: "/mobile") {
+      item_id = "MLA12345"
+      context = "/notifications"
+    }
+
+    "/questions/answer/post"(platform: "/mobile") {
+      item_id = "MLA12345"
+      context = "/notifications"
+      failed = false
+    }
+
+    "/questions/answer/post"(platform: "/mobile") {
+      item_id = "MLA12345"
+      context = "/notifications"
+      failed = true
+    }
+
+    "/questions/answer/back"(platform: "/mobile") {
+      item_id = "MLA12345"
+      context = "/vip"
+    }
+
   }
 
   test("Checkout Basic Flow test") {

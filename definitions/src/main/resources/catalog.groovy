@@ -297,11 +297,11 @@ catalog {
 
 		// Questions
 		"/questions"(platform: "/mobile") {
-			item_id()
+			item_id(required: false)
 			context()
 		}
 
-		"/questions/list"(platform: "/mobile") {}
+		 "/questions/list"(platform: "/mobile") { }
 
 		"/questions/ask"(platform: "/mobile") {}
 
@@ -313,6 +313,16 @@ catalog {
 
 		"/questions/ask/back"(platform: "/mobile", type: TrackType.Event) {
 		}
+
+		 "/questions/answer"(platform: "/mobile") {}
+
+		 "/questions/answer/post"(platform: "/mobile", type: TrackType.Event) {
+			  failed()
+			  question_id(required: false, description: "it has no value if failed is true")
+		 }
+
+		 "/questions/answer/back"(platform: "/mobile", type: TrackType.Event) {
+		 }
 
 		//CHECKOUT FLOW
 
