@@ -12,20 +12,23 @@ import com.ml.melidata.catalog.tree.TrackValidationResponse
 
 class TrackDefinition {
 
-    def String path = ""
-    def String platform
-    def String business
-    def Map<String,TrackDefinitionProperty> properties = [:]
-    def TrackType type
-    def Boolean parentPropertiesInherited = true
+    String path = ""
+    String platform
+    String business
+    Map<String,TrackDefinitionProperty> properties = [:]
+    TrackType type
+    Boolean parentPropertiesInherited = true
 
-    def TrackDefinition(String path, TrackType type = TrackType.View,
-                        String platform = "/", String business = null, Boolean parentPropertiesInherited = true) {
+    Boolean isAbstract
+
+    TrackDefinition(String path, TrackType type = TrackType.View,
+                        String platform = "/", String business = null, Boolean parentPropertiesInherited = true, Boolean isAbstract) {
         this.path = path
         this.platform = platform
         this.type = type
         this.business = business
         this.parentPropertiesInherited = parentPropertiesInherited
+        this.isAbstract = isAbstract
     }
 
     public TrackDefinition(Map map) {

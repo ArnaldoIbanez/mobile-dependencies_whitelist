@@ -52,19 +52,21 @@ catalog {
 		def categoryRegex = /(ROOT|[a-zA-Z]{1,3}[0-9]+)/
 		def categoryPathRegex = /\[([a-zA-Z]{1,3}[0-9]+(, )?)*\]/
 
-		"/" (platform:"/mobile"){
+		"/" (platform:"/mobile", isAbstract: true){
 			mode(required:false)
 			deferred_time(required:false)
 			sent_again(required:false)
 			from_background(required:false)
 		}
 
-		"/" (platform:"/web"){
+		"/" (platform:"/web", isAbstract: true){
 			headers(required:false)
 			cookies(required:false)
 			http_url(required:false)
 			http_referer(required:false)
 		}
+
+		"/melidata"(platform: "/mobile", isAbstract: true){}
 
 		"/melidata/statistics"(platform:"/mobile", type:TrackType.Event){
 			errors_counter(type:PropertyType.Map)
@@ -273,7 +275,9 @@ catalog {
 
 		//BOOKMARKS
 
-		"/bookmarks"(platform:"/mobile", type: TrackType.Event) {
+		"/bookmarks/action"(platform: "/mobile", isAbstract: true){}
+
+		"/bookmarks"(platform:"/mobile", type: TrackType.Event, isAbstract: true) {
 			context(required:false)
 		}
 
@@ -296,7 +300,7 @@ catalog {
 		}
 
 		// Questions
-		"/questions"(platform: "/mobile") {
+		"/questions"(platform: "/mobile", isAbstract: true) {
 			item_id(required: false)
 			context()
 		}
@@ -463,6 +467,8 @@ catalog {
 
 		// ADDRESS
 
+		"/address"(platform: "/mobile", isAbstract: true){}
+
 		"/address/add_address"(platform:"/mobile", type: TrackType.View){
 			context()
 		}
@@ -510,6 +516,10 @@ catalog {
 		}
 
 		// SHIPPING FLOW
+
+		"/shipping"(platform: '/mobile', isAbstract: true){}
+
+		"/shipping/mercadoenvios"(platform: '/mobile', isAbstract: true){}
 
 		"/shipping/shipping_cost"(platform:"/mobile"){
 			context()
@@ -560,6 +570,8 @@ catalog {
 		"/seller_reputation/ratings/back"(platform:"/mobile"){}
 
 		// REGISTER
+
+		"/register"(platform:"/mobile", isAbstract: true){}
 
 		"/register/success"(platform:"/mobile") {
 			source()

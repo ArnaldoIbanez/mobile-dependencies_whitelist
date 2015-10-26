@@ -15,7 +15,14 @@ class CatalogCoverage {
 	def Double coveragePercent
 
 	//TODO. esto es temporal, calcular los path internos que no son tracks validos (no estan en el catalogo) para no validarlos
-	def exceptions = ["/address", "/bookmarks", "/bookmarks/action", "/melidata", "/questions", "/register", "/shipping", "/shipping/mercadoenvios"].toSet()
+	private def _exceptions
+
+	def getExceptions() {
+		if (!_exceptions)
+			_exceptions = findAbstracts(getPlatforms(catalog.platformTrees.mercadolibre))
+
+		_exceptions
+	}
 
 
 	def CatalogCoverage(Catalog catalog) {
@@ -62,6 +69,15 @@ class CatalogCoverage {
 		return p.collectEntries{k,v -> [k,traverse(v.tracksTree)]}
 	}
 
+	def findAbstracts(def p) {
+		def c = p.children.values()
+		c ? c.findAll{ it.definition?.isAbstract }*.definition?.path + c.collect{findAbstracts(it)}.flatten() : []
+	}
+
+	def findAbstracts(Map m) {
+		m ? m.collect{findAbstracts(it.value.tracksTree)}.flatten().toSet() : []
+	}
+
 	def private computeCoverage() {
 		if ( coverage == null ) {
 
@@ -77,6 +93,7 @@ class CatalogCoverage {
 			def testsCount = 0
 
 			coverage = [:]
+
 			allPaths.toList().sort().each { path ->
 				def tested = testedPaths.contains(path) || exceptions.contains(path)
 				coverage.put(path, tested)
