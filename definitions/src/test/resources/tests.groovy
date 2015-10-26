@@ -682,8 +682,6 @@ trackTests {
 
     "/notification_center"(platform: "/mobile"){}
 
-    "/notification_center/apply"(platform: "/mobile"){}
-
     "/notification_center/abort"(platform: "/mobile"){}
 
     "/notification_center/back"(platform: "/mobile"){}

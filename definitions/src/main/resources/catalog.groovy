@@ -571,8 +571,6 @@ catalog {
 
 		 "/notification_center"(platform: "/mobile", type: TrackType.Event){}
 
-		 "/notification_center/apply" (platform: "/mobile", type: TrackType.Event){ }
-
 		 "/notification_center/abort" (platform: "/mobile", type: TrackType.Event){ }
 
 		 "/notification_center/back" (platform: "/mobile", type: TrackType.Event){ }
