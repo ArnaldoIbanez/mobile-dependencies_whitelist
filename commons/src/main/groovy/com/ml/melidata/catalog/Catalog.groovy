@@ -107,7 +107,7 @@ class Catalog implements CatalogInterface{
             }
             def PlatformTree platformNode = platformTree.getNodeByPath(track.platform);
             if(!platformNode) {
-                throw  new CatalogException("Platform '${track.platform}' not found")
+                throw new CatalogException("Platform '${track.platform}' not found")
             }
             def catalogDefinition = platformNode.getTrackDefinition(track.path);
 
