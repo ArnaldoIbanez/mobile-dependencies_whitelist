@@ -301,11 +301,11 @@ catalog {
 
 		// Questions
 		"/questions"(platform: "/mobile", isAbstract: true) {
-			item_id()
+			item_id(required: false)
 			context()
 		}
 
-		"/questions/list"(platform: "/mobile") {}
+		 "/questions/list"(platform: "/mobile") { }
 
 		"/questions/ask"(platform: "/mobile") {}
 
@@ -317,6 +317,16 @@ catalog {
 
 		"/questions/ask/back"(platform: "/mobile", type: TrackType.Event) {
 		}
+
+		 "/questions/answer"(platform: "/mobile") {}
+
+		 "/questions/answer/post"(platform: "/mobile", type: TrackType.Event) {
+			  failed()
+			  question_id(required: false, description: "it has no value if failed is true")
+		 }
+
+		 "/questions/answer/back"(platform: "/mobile", type: TrackType.Event) {
+		 }
 
 		//CHECKOUT FLOW
 
@@ -570,6 +580,15 @@ catalog {
 		"/register/failure"(platform:"/mobile") {
 			source()
 		}
+
+		 "/notification_center"(platform: "/mobile", type: TrackType.Event){}
+
+		 "/notification_center/abort" (platform: "/mobile", type: TrackType.Event){ }
+
+		 "/notification_center/back" (platform: "/mobile", type: TrackType.Event){ }
+
+		 "/notification_center/failure" (platform: "/mobile", type: TrackType.Event){ }
+
 
 		 /**
 		  * NOTIFICATIONS
