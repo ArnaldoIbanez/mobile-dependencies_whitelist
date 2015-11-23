@@ -483,17 +483,33 @@ trackTests {
         mobile = false
       }
 
-    "/checkout/congrats/accord"(platform:"/web/desktop") {
+    "/checkout/congrats"(platform:"/web/desktop") {
         order_id = 991687837
         status = "payment_required"
         total_amount = 70       
         payments_result = [
-              [
+              payment:[
                 id: 5672342343,
                 method: "rapipago",
                 type: "ticket"
               ]
-            ]
+        ]
+        mobile = false
+      }
+
+    "/checkout/payments"(platform:"/web/desktop") {
+        order_id = 991687837
+        status = "payment_required"
+        total_amount = 70       
+        parent_page = "congratsAccordSecureSiteLogo"
+        mobile = false
+      }
+
+    "/checkout/payments"(platform:"/web/desktop") {
+        order_id = 991687837
+        status = "payment_required"
+        total_amount = 70       
+        parent_page = null
         mobile = false
       }
 
