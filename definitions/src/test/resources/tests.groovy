@@ -492,7 +492,12 @@ trackTests {
                 id: 5672342343,
                 method: "rapipago",
                 type: "ticket"
-              ]
+              ],
+              payment:[
+                id: 5672342344,
+                method: "visa",
+                type: "credit_card"
+              ],
         ]
         mobile = false
       }
