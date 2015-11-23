@@ -482,6 +482,21 @@ trackTests {
         total_amount_usd = 19.72
         mobile = false
       }
+
+    "/checkout/congrats/accord"(platform:"/web/desktop") {
+        order_id = 991687837
+        status = "payment_required"
+        total_amount = 70       
+        payments_result = [
+              [
+                id: 5672342343,
+                method: "rapipago",
+                type: "ticket"
+              ]
+            ]
+        mobile = false
+      }
+
     }
 
 
@@ -807,7 +822,6 @@ trackTests {
     }
 
   }
-
 
 }
 

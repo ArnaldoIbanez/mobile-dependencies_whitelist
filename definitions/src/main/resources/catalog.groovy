@@ -330,6 +330,9 @@ catalog {
 
 		//CHECKOUT FLOW
 
+		"/checkout" (platform: "/web", isAbstract: true){
+		}
+
 		"/checkout/orderCreated"(platform:"/web", type: TrackType.Event) {
 			order_id()
 			status()
@@ -345,6 +348,17 @@ catalog {
 			total_amount_local(serverSide: true)
 			total_amount_usd(serverSide: true)
 			order_api(serverSide: true)
+		}
+
+		"/checkout/congrats" (platform: "/web", isAbstract: true){  
+		}
+
+		"/checkout/congrats/accord"(platform:"/web") {
+			order_id(required: true, description: "OrderId")
+			status(required: true, description: "status")
+			total_amount(required: true, description: "totalAmount")
+			payments_result(required: true, description: "paymentsResult")
+			mobile(type: PropertyType.Boolean)
 		}
 
 		"/checkout"(platform:"/mobile") {
