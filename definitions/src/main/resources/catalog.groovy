@@ -241,6 +241,10 @@ catalog {
 		}
 
 		"/vip/abort"(platform:"/mobile", type: TrackType.Event) { }
+		
+		"/vip/failure"(platform:"/mobile", type: TrackType.Event) { 
+			error_message()
+		}
 
 		"/vip/back"(platform:"/mobile", type: TrackType.Event) { }
 
