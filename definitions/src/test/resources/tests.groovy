@@ -109,6 +109,11 @@ trackTests {
 
     "/vip"(platform:"/mobile", dataSet)
 
+    "/vip/failure"(platform:"/mobile", {
+	item_id = "MLA533657947"
+	error_message = "any message"
+    })
+    
     "/vip/abort"(platform:"/mobile", dataSet)
 
     "/vip/back"(platform:"/mobile", dataSet)
