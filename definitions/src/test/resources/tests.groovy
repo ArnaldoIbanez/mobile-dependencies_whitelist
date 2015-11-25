@@ -100,6 +100,23 @@ trackTests {
     }
   }
 
+  //Reviews
+  test("Reviews tracks") {
+  	def dataSet = {
+  		itemId="MLA533657947"
+  		reviewerId=18912312
+  	}
+  	
+  	"/reviews/form"(platform:"/", dataSet)
+  	
+  	"/reviews/error"(platform:"/", dataSet)
+  	
+  	"/reviews/congrats"(platform:"/", dataSet)
+  	
+  	"/reviews/email"(platform:"/email", dataSet)
+
+    "/reviews"(platform:"/email", dataSet)
+  }
 
   //VIP FLOW
   test("Vip min core tracking in android") {
@@ -146,6 +163,15 @@ trackTests {
     "/vip/seller_reputation/ratings"(platform:"/mobile", dataSet)
   }
 
+  test("Vip web mobile tracking") {
+    
+    "/vip"(platform:"/web/mobile") {
+        category_id = "MLA1234"
+        item_id="MLA1891239"
+    }
+     
+  }
+
   test("Vip core tracking in android deprecated") {
     def dataSet = {
       item_id = "MLA533657947"
@@ -169,7 +195,7 @@ trackTests {
       category_path = ["MLA1234","MLA6789"]
     }
 
-    "/vip"(platform:"/mobile", dataSet) 
+    "/vip"(platform:"/mobile", dataSet)
     
     "/vip/color_and_size"(platform:"/mobile", {
       item_id = "MLA533657947"

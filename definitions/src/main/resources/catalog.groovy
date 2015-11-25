@@ -32,7 +32,8 @@ catalog {
 			"/web/mobile/static",
 			"/mobile",
 			"/mobile/android",
-			"/mobile/ios"
+			"/mobile/ios",
+			"/email"
 	]
 
 /**
@@ -144,6 +145,32 @@ catalog {
 			section()
 			tag_id()
 		}
+		
+		//REVIEWS FRONTEND
+		"/reviews/form" (platform: "/") {
+			itemId()
+			reviewerId()
+		}
+		
+		"/reviews/congrats" (platform: "/") {
+			itemId()
+			reviewerId()
+		}
+		
+		"/reviews/error" (platform: "/") {
+			itemId()
+			reviewerId()
+		}
+		
+		"/reviews/email" (platform: "/email") {
+			itemId()
+			reviewerId()
+		}
+
+		"/reviews" (platform: "/") {
+			itemId()
+			reviewerId()
+		}
 
 		//SEARCH FLOW
 
@@ -220,6 +247,7 @@ catalog {
 
 		"/vip"(platform:"/") {
 			item_id()
+			category_id()
 			buying_mode(deprecated: true, required: false)
 			vertical(deprecated: true, required: false)
 			category_id(deprecated: true, required: false)
