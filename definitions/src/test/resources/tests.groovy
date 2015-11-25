@@ -506,7 +506,7 @@ trackTests {
         order_id = 991687837
         status = "payment_required"
         total_amount = 70       
-        parent_page = "congratsAccordSecureSiteLogo"
+        tracking_referer_page = "congratsAccordSecureSiteLogo"
         mobile = false
       }
 
@@ -514,7 +514,7 @@ trackTests {
         order_id = 991687837
         status = "payment_required"
         total_amount = 70       
-        parent_page = null
+        tracking_referer_page = null
         mobile = false
       }
 
@@ -522,7 +522,7 @@ trackTests {
         order_id = 991687837
         status = "payment_required"
         total_amount = null       
-        parent_page = null
+        tracking_referer_page = null
         mobile = false
       }
 

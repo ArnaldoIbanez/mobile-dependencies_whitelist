@@ -366,7 +366,7 @@ catalog {
 			order_id(required: true, description: "OrderId")
 			status(required: true, description: "status")
 			total_amount(required: false, description: "totalAmount")
-			parent_page(required: false, description: "parentPage")
+			tracking_referer_page(required: false, description: "tracking referer page from where the request came")
 			mobile(type: PropertyType.Boolean)
 
 			total_amount_local(serverSide: true)
