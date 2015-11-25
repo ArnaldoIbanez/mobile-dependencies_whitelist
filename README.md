@@ -54,7 +54,25 @@ cd definitions
   - Numeric
   - Timestamp: format yyyy-MM-ddTHH:mm:ss.ZZZ
 
-## Validators
+## Validators
   - regex: a regular expresion to match the property
   - values: an array of valid values
+
+## FAQ
+  - Is it ok to define a child element (ex: ```'/reviews/form'```) without it's parent element?
+ 
+ Yes, but you have to declare the parent track (ex: ```'/reviews'```) as abstract:
+  ```
+  "/reviews"(platform: "/mobile", isAbstract: true) {}
+  
+  "/reviews/form"(platform: "/mobile") {
+  	item_id(required: true, description: "Item being reviewed")
+  	is_product(required: true, type: TrackType.Boolean)
+  }
+  ```
+  - I have this error, what do I do?
+  
+  ```Exception in thread "main" groovy.lang.MissingMethodException: No signature of method: java.util.LinkedHashMap.call() is applicable for argument types: () values: []```
+
+  This might happen if you forgot to set a TrackType on your test ```"/reviews/form"(platform: "/mobile", type: TrackType.View)  ```
 

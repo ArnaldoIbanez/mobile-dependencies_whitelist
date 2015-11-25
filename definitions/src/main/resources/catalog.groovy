@@ -53,19 +53,21 @@ catalog {
 		def categoryRegex = /(ROOT|[a-zA-Z]{1,3}[0-9]+)/
 		def categoryPathRegex = /\[([a-zA-Z]{1,3}[0-9]+(, )?)*\]/
 
-		"/" (platform:"/mobile"){
+		"/" (platform:"/mobile", isAbstract: true){
 			mode(required:false)
 			deferred_time(required:false)
 			sent_again(required:false)
 			from_background(required:false)
 		}
 
-		"/" (platform:"/web"){
+		"/" (platform:"/web", isAbstract: true){
 			headers(required:false)
 			cookies(required:false)
 			http_url(required:false)
 			http_referer(required:false)
 		}
+
+		"/melidata"(platform: "/mobile", isAbstract: true){}
 
 		"/melidata/statistics"(platform:"/mobile", type:TrackType.Event){
 			errors_counter(type:PropertyType.Map)
@@ -266,6 +268,10 @@ catalog {
 		}
 
 		"/vip/abort"(platform:"/mobile", type: TrackType.Event) { }
+		
+		"/vip/failure"(platform:"/mobile", type: TrackType.Event) { 
+			error_message()
+		}
 
 		"/vip/back"(platform:"/mobile", type: TrackType.Event) { }
 
@@ -300,7 +306,9 @@ catalog {
 
 		//BOOKMARKS
 
-		"/bookmarks"(platform:"/mobile", type: TrackType.Event) {
+		"/bookmarks/action"(platform: "/mobile", isAbstract: true){}
+
+		"/bookmarks"(platform:"/mobile", type: TrackType.Event, isAbstract: true) {
 			context(required:false)
 		}
 
@@ -323,12 +331,12 @@ catalog {
 		}
 
 		// Questions
-		"/questions"(platform: "/mobile") {
-			item_id()
+		"/questions"(platform: "/mobile", isAbstract: true) {
+			item_id(required: false)
 			context()
 		}
 
-		"/questions/list"(platform: "/mobile") {}
+		 "/questions/list"(platform: "/mobile") { }
 
 		"/questions/ask"(platform: "/mobile") {}
 
@@ -341,7 +349,20 @@ catalog {
 		"/questions/ask/back"(platform: "/mobile", type: TrackType.Event) {
 		}
 
+		 "/questions/answer"(platform: "/mobile") {}
+
+		 "/questions/answer/post"(platform: "/mobile", type: TrackType.Event) {
+			  failed()
+			  question_id(required: false, description: "it has no value if failed is true")
+		 }
+
+		 "/questions/answer/back"(platform: "/mobile", type: TrackType.Event) {
+		 }
+
 		//CHECKOUT FLOW
+
+		"/checkout"(platform: "/web", isAbstract: true){
+		}
 
 		"/checkout/orderCreated"(platform:"/web", type: TrackType.Event) {
 			order_id()
@@ -355,6 +376,30 @@ catalog {
 
 			congrats_seq(serverSide: true)
 			first_for_order(serverSide: true)
+			total_amount_local(serverSide: true)
+			total_amount_usd(serverSide: true)
+			order_api(serverSide: true)
+		}
+
+		"/checkout/congrats"(platform:"/web") {
+			order_id(required: true, description: "OrderId")
+			status(required: true, description: "status")
+			total_amount(required: true, description: "totalAmount")
+			payments_result(required: true, description: "The payments result has several payments information")
+			mobile(type: PropertyType.Boolean)
+
+			total_amount_local(serverSide: true)
+			total_amount_usd(serverSide: true)
+			order_api(serverSide: true)
+		}
+
+		"/checkout/payments"(platform:"/web") {
+			order_id(required: true, description: "OrderId")
+			status(required: true, description: "status")
+			total_amount(required: false, description: "totalAmount")
+			parent_page(required: false, description: "parentPage")
+			mobile(type: PropertyType.Boolean)
+
 			total_amount_local(serverSide: true)
 			total_amount_usd(serverSide: true)
 			order_api(serverSide: true)
@@ -480,6 +525,8 @@ catalog {
 
 		// ADDRESS
 
+		"/address"(platform: "/mobile", isAbstract: true){}
+
 		"/address/add_address"(platform:"/mobile", type: TrackType.View){
 			context()
 		}
@@ -527,6 +574,10 @@ catalog {
 		}
 
 		// SHIPPING FLOW
+
+		"/shipping"(platform: '/mobile', isAbstract: true){}
+
+		"/shipping/mercadoenvios"(platform: '/mobile', isAbstract: true){}
 
 		"/shipping/shipping_cost"(platform:"/mobile"){
 			context()
@@ -578,6 +629,8 @@ catalog {
 
 		// REGISTER
 
+		"/register"(platform:"/mobile", isAbstract: true){}
+
 		"/register/success"(platform:"/mobile") {
 			source()
 		}
@@ -585,6 +638,15 @@ catalog {
 		"/register/failure"(platform:"/mobile") {
 			source()
 		}
+
+		 "/notification_center"(platform: "/mobile", type: TrackType.Event){}
+
+		 "/notification_center/abort" (platform: "/mobile", type: TrackType.Event){ }
+
+		 "/notification_center/back" (platform: "/mobile", type: TrackType.Event){ }
+
+		 "/notification_center/failure" (platform: "/mobile", type: TrackType.Event){ }
+
 
 		 /**
 		  * NOTIFICATIONS
@@ -600,30 +662,30 @@ catalog {
 		 }
 		 //Tu producto está en camino
 		 "/notification/shipping_shipped"(platform:"/mobile") {
-			  order_id(required: false, type : PropertyType.Numeric, description: "The order of the bought item which has been shipped")
-			  shipping_id(required: false, type: PropertyType.Numeric)
+			  order_id(required: true, type : PropertyType.Numeric, description: "The order of the bought item which has been shipped")
+			  shipping_id(required: true, type: PropertyType.Numeric)
 		 }
 		 //Retiro en sucursal
 		 "/notification/shipping_agency_withdrawal"(platform: "/mobile"){
-			  order_id(required: false, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
-			  shipping_id(required: false, type: PropertyType.Numeric)
+			  order_id(required: true, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
+			  shipping_id(required: true, type: PropertyType.Numeric)
 		 }
 		 //Devolución de costo de envío por demora
 		 "/notification/shipping_delayed_bonus"(platform: "/mobile"){
-			  order_id(required: false, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
-			  shipping_id(required: false, type: PropertyType.Numeric)
+			  order_id(required: true, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
+			  shipping_id(required: true, type: PropertyType.Numeric)
 		 }			 
 		 //Seller questions
 		 "/notification/questions_new"(platform: "/mobile") {
-			  question_id(required: false)
+			  question_id(required: true)
 		 }
 		 //Buyer questions
 		 "/notification/questions_answered"(platform: "/mobile") {
-			  question_id(required: false)
+			  question_id(required: true, type: PropertyType.Numeric)
 		 }
 		 //New Sale
 		 "/notification/orders_new"(platform: "/mobile") {
-			  order_id(required: false)
+			  order_id(required: true, type: PropertyType.Numeric)
 		 }
 		 //MKT Deals
 		 "/notification/campaigns_deals"(platform: "/mobile"){
@@ -631,7 +693,7 @@ catalog {
 		 }
 		 //Tu cobro fué acreditado
 		 "/notification/collections_approved"(platform: "/mobile"){
-		 	order_id(required: false)
+		 	order_id(required: true, type: PropertyType.Numeric)
 		 }
 
 		 //Dropout de CHO
@@ -643,8 +705,8 @@ catalog {
 		 
 		 //Mediations
 		 "/notification/mediations_complainant"(platform: "/mobile") {
-			  order_id(required: false, type: PropertyType.Numeric, description: "The order related to the claim")
-			  claim_id(required: false)
+			  order_id(required: true, type: PropertyType.Numeric, description: "The order related to the claim")
+			  claim_id(required: true, type: PropertyType.Numeric)
 		 }
 	}
 }

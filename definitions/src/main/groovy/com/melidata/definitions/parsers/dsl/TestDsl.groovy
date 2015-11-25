@@ -1,7 +1,6 @@
 package com.melidata.definitions.parsers.dsl
 
 import com.ml.melidata.Track
-import com.ml.melidata.catalog.CatalogCoverage
 
 /**
  * Created by apetalas on 19/11/14.

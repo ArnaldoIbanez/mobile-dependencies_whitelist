@@ -126,6 +126,11 @@ trackTests {
 
     "/vip"(platform:"/mobile", dataSet)
 
+    "/vip/failure"(platform:"/mobile", {
+	item_id = "MLA533657947"
+	error_message = "any message"
+    })
+    
     "/vip/abort"(platform:"/mobile", dataSet)
 
     "/vip/back"(platform:"/mobile", dataSet)
@@ -230,9 +235,18 @@ trackTests {
   }
 
   test("Questions") {
+
     "/questions/list"(platform: "/mobile") {
       item_id = "MLA12345"
       context = "/vip"
+    }
+
+    "/questions/list"(platform: "/mobile") {
+      context = "/seller_questions"
+    }
+
+    "/questions/list"(platform: "/mobile") {
+      context = "/buyer_questions"
     }
 
     "/questions/ask"(platform: "/mobile") {
@@ -250,6 +264,29 @@ trackTests {
       item_id = "MLA12345"
       context = "/vip"
     }
+
+    "/questions/answer"(platform: "/mobile") {
+      item_id = "MLA12345"
+      context = "/notifications"
+    }
+
+    "/questions/answer/post"(platform: "/mobile") {
+      item_id = "MLA12345"
+      context = "/notifications"
+      failed = false
+    }
+
+    "/questions/answer/post"(platform: "/mobile") {
+      item_id = "MLA12345"
+      context = "/notifications"
+      failed = true
+    }
+
+    "/questions/answer/back"(platform: "/mobile") {
+      item_id = "MLA12345"
+      context = "/vip"
+    }
+
   }
 
   test("Checkout Basic Flow test") {
@@ -467,6 +504,50 @@ trackTests {
         total_amount_usd = 19.72
         mobile = false
       }
+
+    "/checkout/congrats"(platform:"/web/desktop") {
+        order_id = 991687837
+        status = "payment_required"
+        total_amount = 70       
+        payments_result = [
+              payment:[
+                id: 5672342343,
+                method: "rapipago",
+                type: "ticket"
+              ],
+              payment:[
+                id: 5672342344,
+                method: "visa",
+                type: "credit_card"
+              ],
+        ]
+        mobile = false
+      }
+
+    "/checkout/payments"(platform:"/web/desktop") {
+        order_id = 991687837
+        status = "payment_required"
+        total_amount = 70       
+        parent_page = "congratsAccordSecureSiteLogo"
+        mobile = false
+      }
+
+    "/checkout/payments"(platform:"/web/desktop") {
+        order_id = 991687837
+        status = "payment_required"
+        total_amount = 70       
+        parent_page = null
+        mobile = false
+      }
+
+      "/checkout/payments"(platform:"/web/desktop") {
+        order_id = 991687837
+        status = "payment_required"
+        total_amount = null       
+        parent_page = null
+        mobile = false
+      }
+
     }
 
 
@@ -665,6 +746,14 @@ trackTests {
 
   test("Mobile Notifications"){
 
+    "/notification_center"(platform: "/mobile"){}
+
+    "/notification_center/abort"(platform: "/mobile"){}
+
+    "/notification_center/back"(platform: "/mobile"){}
+
+    "/notification_center/failure"(platform: "/mobile"){}
+
     "/notification"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "sent"
@@ -684,6 +773,7 @@ trackTests {
       event_type = "dismiss"
       deeplink ="meli://seller_question/12221"
       context = "notification"
+      question_id = 1234
     }
 
     "/notification/questions_answered"(platform: "/mobile") {
@@ -691,6 +781,7 @@ trackTests {
       event_type = "open"
       deeplink ="meli://buyer_questions"
       context = "notification"
+      question_id = 1234		
     }
 
     "/notification/orders_new"(platform: "/mobile") {
@@ -713,6 +804,7 @@ trackTests {
       event_type = "arrived"
       deeplink = "meli://purchases/sales"
       shipping_id = 1234
+      order_id = 11222		
       context = "notification"
     }
     
@@ -720,6 +812,7 @@ trackTests {
       news_id = "12332323"
       event_type = "arrived"
       deeplink = "meli://purchases/sales"
+      order_id = 11222		
       shipping_id = 1234
     }
     
@@ -780,7 +873,6 @@ trackTests {
     }
 
   }
-
 
 }
 
