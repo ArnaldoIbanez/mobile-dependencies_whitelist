@@ -497,7 +497,12 @@ trackTests {
                 id: 5672342343,
                 method: "rapipago",
                 type: "ticket"
-              ]
+              ],
+              payment:[
+                id: 5672342344,
+                method: "visa",
+                type: "credit_card"
+              ],
         ]
         mobile = false
       }
@@ -514,6 +519,14 @@ trackTests {
         order_id = 991687837
         status = "payment_required"
         total_amount = 70       
+        parent_page = null
+        mobile = false
+      }
+
+      "/checkout/payments"(platform:"/web/desktop") {
+        order_id = 991687837
+        status = "payment_required"
+        total_amount = null       
         parent_page = null
         mobile = false
       }

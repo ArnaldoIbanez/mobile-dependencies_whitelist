@@ -358,7 +358,7 @@ catalog {
 			order_id(required: true, description: "OrderId")
 			status(required: true, description: "status")
 			total_amount(required: true, description: "totalAmount")
-			payments_result(required: true, description: "paymentsResult")
+			payments_result(required: true, description: "The payments result has several payments information")
 			mobile(type: PropertyType.Boolean)
 
 			total_amount_local(serverSide: true)
@@ -369,7 +369,7 @@ catalog {
 		"/checkout/payments"(platform:"/web") {
 			order_id(required: true, description: "OrderId")
 			status(required: true, description: "status")
-			total_amount(required: true, description: "totalAmount")
+			total_amount(required: false, description: "totalAmount")
 			parent_page(required: false, description: "parentPage")
 			mobile(type: PropertyType.Boolean)
 
