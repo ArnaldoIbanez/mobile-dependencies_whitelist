@@ -163,6 +163,15 @@ trackTests {
     "/vip/seller_reputation/ratings"(platform:"/mobile", dataSet)
   }
 
+  test("Vip web mobile tracking") {
+    
+    "/vip"(platform:"/web/mobile") {
+        category_id = "MLA1234"
+        item_id="MLA1891239"
+    }
+     
+  }
+
   test("Vip core tracking in android deprecated") {
     def dataSet = {
       item_id = "MLA533657947"
@@ -186,7 +195,7 @@ trackTests {
       category_path = ["MLA1234","MLA6789"]
     }
 
-    "/vip"(platform:"/mobile", dataSet) 
+    "/vip"(platform:"/mobile", dataSet)
     
     "/vip/color_and_size"(platform:"/mobile", {
       item_id = "MLA533657947"
