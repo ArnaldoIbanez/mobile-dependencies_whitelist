@@ -518,6 +518,14 @@ trackTests {
         mobile = false
       }
 
+      "/checkout/payments"(platform:"/web/desktop") {
+        order_id = 991687837
+        status = "payment_required"
+        total_amount = null       
+        parent_page = null
+        mobile = false
+      }
+
     }
 
 
