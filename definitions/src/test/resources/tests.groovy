@@ -484,6 +484,14 @@ trackTests {
       }
 
     "/checkout/congrats"(platform:"/web/desktop") {
+        order_id = 991687836
+        status = "confirmed"
+        total_amount = null       
+        payments_result = null
+        mobile = false
+      }
+
+    "/checkout/congrats"(platform:"/web/desktop") {
         order_id = 991687837
         status = "payment_required"
         total_amount = 70       
