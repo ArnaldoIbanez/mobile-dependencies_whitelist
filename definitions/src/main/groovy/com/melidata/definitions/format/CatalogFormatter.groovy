@@ -22,7 +22,11 @@ abstract class CatalogFormatter {
     }
 
     def combine(def a, def b) {
-        a ? [a] + b.collect {new MapEntry((a.key + '/' + it.key).replaceAll("/{2,}","/"), it.value)} : b
+        a ? [a] + b.collect {new MapEntry(concatenateKeys(a.key, it.key), it.value)} : b
+    }
+
+    def concatenateKeys(def a, def b) {
+        (a + '/' + b).replaceAll("/{2,}","/")
     }
 
 }
