@@ -70,6 +70,11 @@ task validate(dependsOn: 'classes', type: JavaExec) {
     systemProperty "track", System.getProperty("track")
 }
 
+task execute(type:JavaExec) {
+    main = mainClass
+    classpath = sourceSets.main.runtimeClasspath
+}
+
 uploadArchives {
     repositories {
         mavenDeployer {
