@@ -5,6 +5,8 @@ import com.ml.melidata.catalog.tree.PlatformTree
 
 abstract class CatalogFormatter {
 
+    abstract def generate()
+
     protected Catalog getCatalog() {
         ClassLoader cl = Thread.currentThread().contextClassLoader
         GroovyShell shell = new GroovyShell(cl)
