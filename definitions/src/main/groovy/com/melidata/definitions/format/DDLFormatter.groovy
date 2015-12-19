@@ -2,17 +2,16 @@ package com.melidata.definitions.format
 
 import groovy.json.JsonOutput
 
-
-class JSONFormatter extends CatalogFormatter {
+class DDLFormatter extends CatalogFormatter {
 
     def generate() {
         def platforms = getPlatforms(catalog.platformTrees.mercadolibre)
 
-        platforms.collectEntries{k,v -> [k,getTrackInfo(v.tracksTree.children)]}
+        platforms.collectEntries{k,v -> [k,getPathInfo(v.tracksTree.children)]}
     }
 
-    def getLine(def k, def v) {
-        [properties: extractProps(v), children: getTrackInfo(v.children)]
+    def getPathInfo(def c) {
+        getTrackInfo(c).collectEntries{[it.key,it.value]}.findAll{it.value}
     }
 
     def getTrackInfo(def c) {
@@ -20,7 +19,11 @@ class JSONFormatter extends CatalogFormatter {
             def v = c.'/'
             return getLine('/',v)
         } else
-            return c ? c.collectEntries {k,v -> [k,getLine(k,v)] } : [:]
+            return c ? c.collect {k,v -> getLine(k,v) }.flatten() : []
+    }
+
+    def getLine(def k, def v) {
+        combine(new MapEntry(k,extractProps(v)), getTrackInfo(v.children))
     }
 
     def formatOutput(def data) {
@@ -31,7 +34,6 @@ class JSONFormatter extends CatalogFormatter {
         def file = new File("catalog.json")
         file.delete()
 
-        file << new JSONFormatter().output
+        file << new DDLFormatter().output
     }
-
 }

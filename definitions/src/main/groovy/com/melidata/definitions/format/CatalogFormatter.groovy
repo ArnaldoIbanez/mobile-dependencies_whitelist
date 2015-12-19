@@ -3,9 +3,16 @@ package com.melidata.definitions.format
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.tree.PlatformTree
 
+
 abstract class CatalogFormatter {
 
+    abstract def getLine(def k, def v)
     abstract def generate()
+    abstract def formatOutput(def data)
+
+    def extractProps(def t) {
+        t.definition ? t.definition.properties.collectEntries{k,v -> [k,[v.type,v.required,v.serverSide,v.description]]} : [:]
+    }
 
     protected Catalog getCatalog() {
         ClassLoader cl = Thread.currentThread().contextClassLoader
@@ -29,6 +36,10 @@ abstract class CatalogFormatter {
 
     def concatenateKeys(def a, def b) {
         (a + '/' + b).replaceAll("/{2,}","/")
+    }
+
+    def getOutput() {
+        formatOutput(generate())
     }
 
 }
