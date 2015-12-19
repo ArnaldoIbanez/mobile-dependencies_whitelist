@@ -1,8 +1,6 @@
 package com.melidata.definitions.format
 
-import groovy.json.JsonOutput
-
-class DDLFormatter extends CatalogFormatter {
+class HiveFormatter extends CatalogFormatter {
 
     def generate() {
         def platforms = getPlatforms(catalog.platformTrees.mercadolibre)
@@ -27,13 +25,26 @@ class DDLFormatter extends CatalogFormatter {
     }
 
     def formatOutput(def data) {
-        JsonOutput.toJson(data)
+        def b = new StringBuilder()
+        data.each { platform, trackInfo ->
+            trackInfo.each { path, params ->
+                params.each { name, attrs ->
+                    def vals = [name,platform,path] + attrs
+                    def line = vals.join('\t')
+                    b.append(line + System.lineSeparator())
+                }
+            }
+        }
+
+        b.length = Math.max(b.length() - 1, 0)
+        b.toString()
     }
 
+
     static void main(String[] args) {
-        def file = new File("catalog.json")
+        def file = new File("catalog.csv")
         file.delete()
 
-        file << new DDLFormatter().output
+        file << new HiveFormatter().output
     }
 }

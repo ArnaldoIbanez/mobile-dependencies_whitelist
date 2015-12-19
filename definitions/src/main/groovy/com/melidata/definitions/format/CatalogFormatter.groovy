@@ -11,7 +11,7 @@ abstract class CatalogFormatter {
     abstract def formatOutput(def data)
 
     def extractProps(def t) {
-        t.definition ? t.definition.properties.collectEntries{k,v -> [k,[v.type,v.required,v.serverSide,v.description]]} : [:]
+        t.definition ? t.definition.properties.collectEntries{k,v -> [k,[v.type?.toString(),v.required,v.serverSide,v.description]]} : [:]
     }
 
     protected Catalog getCatalog() {
