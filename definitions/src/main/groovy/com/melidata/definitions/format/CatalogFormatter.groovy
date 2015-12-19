@@ -1,6 +1,7 @@
 package com.melidata.definitions.format
 
 import com.ml.melidata.catalog.Catalog
+import com.ml.melidata.catalog.CatalogFactory
 import com.ml.melidata.catalog.tree.PlatformTree
 
 
@@ -15,11 +16,7 @@ abstract class CatalogFormatter {
     }
 
     protected Catalog getCatalog() {
-        ClassLoader cl = Thread.currentThread().contextClassLoader
-        GroovyShell shell = new GroovyShell(cl)
-        Reader data = new InputStreamReader(cl.getResourceAsStream("catalog.groovy"))
-
-        (Catalog) shell.parse(data).run()
+        CatalogFactory.catalog
     }
 
     def getPlatforms(def t) {
