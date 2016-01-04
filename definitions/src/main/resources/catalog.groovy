@@ -155,6 +155,7 @@ catalog {
 		"/reviews/congrats" (platform: "/") {
 			itemId()
 			reviewerId()
+			reviewLength()
 		}
 		
 		"/reviews/error" (platform: "/") {

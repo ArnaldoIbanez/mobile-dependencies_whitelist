@@ -106,12 +106,18 @@ trackTests {
   		itemId="MLA533657947"
   		reviewerId=18912312
   	}
+
+    def dataSetCongrats = {
+      itemId="MLA533657947"
+      reviewerId=18912312
+      reviewLength=321
+    }
   	
   	"/reviews/form"(platform:"/", dataSet)
   	
   	"/reviews/error"(platform:"/", dataSet)
   	
-  	"/reviews/congrats"(platform:"/", dataSet)
+  	"/reviews/congrats"(platform:"/", dataSetCongrats)
   	
   	"/reviews/email"(platform:"/email", dataSet)
 
