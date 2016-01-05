@@ -605,12 +605,12 @@ catalog {
 		
 		 //MKT Deals
 		 "/notification/campaigns_deals"(platform: "/mobile"){
-			  campaign_id(required: true, description: "Id of the deal related to the mkt notification sent.")
+			  campaign_id(required: true, description: "Id of the campaign related to the mkt notification sent.")
 		 }
 		
 		 //Freemium SYI
 		 "/notification/campaigns_syi_freemium"(platform: "/mobile"){
-			  campaign_id(required: true, description: "Id of the deal related to the mkt notification sent.")
+			  campaign_id(required: true, description: "Id of the campaign related to the SYI Freemium notification sent.")
 		 }		
 		 //Tu cobro fué acreditado
 		 "/notification/collections_approved"(platform: "/mobile"){
