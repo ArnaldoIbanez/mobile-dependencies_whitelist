@@ -787,10 +787,26 @@ trackTests {
       news_id = "12332323"
       event_type = "received"
       deeplink ="meli://search?q=sony"
-      deal_id = "mkt_campaign_co"
+      campaign_id = "mkt_campaign_co"
       context = "notification"
     }
 
+    "/notification/campaigns_syi_freemium"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "received"
+      deeplink ="meli://search?q=sony"
+      campaign_id = "registered_between_1_and_2_weeks_ago_and_have_not_listed_in_core"
+      context = "notification"
+    }	 
+
+    "/notification/deals_campaigns"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "received"
+      deeplink ="meli://search?q=sony"
+      deal_id = "mkt_campaign_co"
+      context = "notification"
+    }
+	  
     "/notification/questions_new"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "dismiss"

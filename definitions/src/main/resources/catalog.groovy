@@ -689,10 +689,20 @@ catalog {
 		 "/notification/orders_new"(platform: "/mobile") {
 			  order_id(required: true, type: PropertyType.Numeric)
 		 }
-		 //MKT Deals
-		 "/notification/campaigns_deals"(platform: "/mobile"){
+		 //MKT Deals DEPRECADO
+		 "/notification/deals_campaigns"(platform: "/mobile"){
 			  deal_id(required: true, description: "Id of the deal related to the mkt notification sent.")
 		 }
+		
+		 //MKT Deals
+		 "/notification/campaigns_deals"(platform: "/mobile"){
+			  campaign_id(required: true, description: "Id of the campaign related to the mkt notification sent.")
+		 }
+		
+		 //Freemium SYI
+		 "/notification/campaigns_syi_freemium"(platform: "/mobile"){
+			  campaign_id(required: true, description: "Id of the campaign related to the SYI Freemium notification sent.")
+		 }		
 		 //Tu cobro fué acreditado
 		 "/notification/collections_approved"(platform: "/mobile"){
 		 	order_id(required: true, type: PropertyType.Numeric)
