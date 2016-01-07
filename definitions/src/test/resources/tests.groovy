@@ -201,7 +201,7 @@ trackTests {
       category_path = ["MLA1234","MLA6789"]
     }
 
-    "/vip"(platform:"/mobile", dataSet) 
+    "/vip"(platform:"/mobile", dataSet)
     
     "/vip/color_and_size"(platform:"/mobile", {
       item_id = "MLA533657947"
@@ -526,7 +526,7 @@ trackTests {
         total_amount = null
         payments_result = null
         mobile = false
-    }
+      }
 
     "/checkout/congrats"(platform:"/web/desktop") {
         order_id = 991687837
