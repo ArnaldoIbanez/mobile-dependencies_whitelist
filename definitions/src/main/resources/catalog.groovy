@@ -656,10 +656,11 @@ catalog {
 		  **/
 		 "/notification"(platform:"/mobile") {
 			  news_id(required: true, description: "Identifier of the notification generated")
-			  event_type(required: true, values: ["sent", "arrived", "received", "dismiss", "discarded", "open"], description: "Type of notification event")
+			  event_type(required: true, values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss"], description: "Type of notification event")
 			  action_type(required: false, values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone"])
 			  deeplink(required: false, description: "The link were the notification should navigate to, if applies")
 			  status(required: false, values: ["read", "unread"], description: "The current notification status, used only when tracking from notification center.")
+			  notification_style (required: false, description: "The notification style used when displaying the notification to the user.")
 			  context(required: false, values: ["notification", "notification_center"], description: "Current context of the notification")
 		 }
 		 //Tu producto está en camino

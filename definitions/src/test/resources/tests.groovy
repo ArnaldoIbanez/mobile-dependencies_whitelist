@@ -112,13 +112,13 @@ trackTests {
       reviewerId=18912312
       reviewLength=321
     }
-  	
+
   	"/reviews/form"(platform:"/", dataSet)
-  	
+
   	"/reviews/error"(platform:"/", dataSet)
-  	
+
   	"/reviews/congrats"(platform:"/", dataSetCongrats)
-  	
+
   	"/reviews/email"(platform:"/email", dataSet)
 
     "/reviews"(platform:"/email", dataSet)
@@ -136,7 +136,7 @@ trackTests {
 	item_id = "MLA533657947"
 	error_message = "any message"
     })
-    
+
     "/vip/abort"(platform:"/mobile", dataSet)
 
     "/vip/back"(platform:"/mobile", dataSet)
@@ -170,12 +170,12 @@ trackTests {
   }
 
   test("Vip web mobile tracking") {
-    
+
     "/vip"(platform:"/web/mobile") {
         category_id = "MLA1234"
         item_id="MLA1891239"
     }
-     
+
   }
 
   test("Vip core tracking in android deprecated") {
@@ -201,7 +201,7 @@ trackTests {
       category_path = ["MLA1234","MLA6789"]
     }
 
-    "/vip"(platform:"/mobile", dataSet)
+    "/vip"(platform:"/mobile", dataSet) 
     
     "/vip/color_and_size"(platform:"/mobile", {
       item_id = "MLA533657947"
@@ -523,15 +523,15 @@ trackTests {
     "/checkout/congrats"(platform:"/web/desktop") {
         order_id = 991687836
         status = "confirmed"
-        total_amount = null       
+        total_amount = null
         payments_result = null
         mobile = false
-      }
+    }
 
     "/checkout/congrats"(platform:"/web/desktop") {
         order_id = 991687837
         status = "payment_required"
-        total_amount = 70       
+        total_amount = 70
         payments_result = [
               payment:[
                 id: 5672342343,
@@ -550,7 +550,7 @@ trackTests {
     "/checkout/payments"(platform:"/web/desktop") {
         order_id = 991687837
         status = "payment_required"
-        total_amount = 70       
+        total_amount = 70
         tracking_referer_page = "congratsAccordSecureSiteLogo"
         mobile = false
       }
@@ -558,7 +558,7 @@ trackTests {
     "/checkout/payments"(platform:"/web/desktop") {
         order_id = 991687837
         status = "payment_required"
-        total_amount = 70       
+        total_amount = 70
         tracking_referer_page = null
         mobile = false
       }
@@ -566,7 +566,7 @@ trackTests {
       "/checkout/payments"(platform:"/web/desktop") {
         order_id = 991687837
         status = "payment_required"
-        total_amount = null       
+        total_amount = null
         tracking_referer_page = null
         mobile = false
       }
@@ -797,7 +797,7 @@ trackTests {
       deeplink ="meli://search?q=sony"
       campaign_id = "registered_between_1_and_2_weeks_ago_and_have_not_listed_in_core"
       context = "notification"
-    }	 
+    }
 
     "/notification/deals_campaigns"(platform: "/mobile") {
       news_id = "12332323"
@@ -806,7 +806,7 @@ trackTests {
       deal_id = "mkt_campaign_co"
       context = "notification"
     }
-	  
+
     "/notification/questions_new"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "dismiss"
@@ -875,7 +875,22 @@ trackTests {
       context = "notification"
     }
 
+    "/notification/reputation_buyer_in"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "auto_dismiss"
+      context = "notification"
+    }
+
     //Buy action
+    "/notification/purchases_pending"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "open"
+      item_id = "MLA122211"
+      action_type = "deeplinking"
+      notification_style = "BigTextStyle"
+      context = "notification"
+    }
+
     "/notification/purchases_pending"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
@@ -890,6 +905,7 @@ trackTests {
       event_type = "open"
       item_id = "MLA122211"
       action_type = "favorite"
+      notification_style = "BigTextStyle"
       context = "notification"
     }
 
@@ -899,6 +915,7 @@ trackTests {
       event_type = "open"
       item_id = "MLA122211"
       action_type = "favorite"
+      notification_style = "BigPictureStyle"
       status = "unread"
       context = "notification_center"
     }
@@ -906,12 +923,37 @@ trackTests {
     "/notification/mediations_complainant"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
+      notification_style = "BigTextStyle"
       order_id = 1234
       claim_id = 3123
       action_type = "favorite"
     }
 
+    "/notification/mediations_complainant"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "auto_dismiss"
+      notification_style = "BigTextStyle"
+      order_id = 1234
+      claim_id = 3123
+      action_type = "favorite"
+    }
+
+    "/notification/questions_new"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      notification_style = "BigTextStyle"
+      question_id = 1234
+    }
+
+    "/notification/questions_new"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      notification_style = "BigTextStyle"
+      question_id = 1234
+    }
+
   }
+
 
 }
 
