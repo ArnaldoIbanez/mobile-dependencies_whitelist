@@ -32,7 +32,8 @@ catalog {
 			"/web/mobile/static",
 			"/mobile",
 			"/mobile/android",
-			"/mobile/ios"
+			"/mobile/ios",
+			"/email"
 	]
 
 /**
@@ -144,6 +145,33 @@ catalog {
 			section()
 			tag_id()
 		}
+		
+		//REVIEWS FRONTEND
+		"/reviews/form" (platform: "/") {
+			itemId()
+			reviewerId()
+		}
+		
+		"/reviews/congrats" (platform: "/") {
+			itemId()
+			reviewerId()
+			reviewLength()
+		}
+		
+		"/reviews/error" (platform: "/") {
+			itemId()
+			reviewerId()
+		}
+		
+		"/reviews/email" (platform: "/email") {
+			itemId()
+			reviewerId()
+		}
+
+		"/reviews" (platform: "/") {
+			itemId()
+			reviewerId()
+		}
 
 		//SEARCH FLOW
 
@@ -220,6 +248,7 @@ catalog {
 
 		"/vip"(platform:"/") {
 			item_id()
+			category_id()
 			buying_mode(deprecated: true, required: false)
 			vertical(deprecated: true, required: false)
 			category_id(deprecated: true, required: false)
@@ -241,6 +270,10 @@ catalog {
 		}
 
 		"/vip/abort"(platform:"/mobile", type: TrackType.Event) { }
+		
+		"/vip/failure"(platform:"/mobile", type: TrackType.Event) { 
+			error_message()
+		}
 
 		"/vip/back"(platform:"/mobile", type: TrackType.Event) { }
 
@@ -623,10 +656,11 @@ catalog {
 		  **/
 		 "/notification"(platform:"/mobile") {
 			  news_id(required: true, description: "Identifier of the notification generated")
-			  event_type(required: true, values: ["sent", "arrived", "received", "dismiss", "discarded", "open"], description: "Type of notification event")
+			  event_type(required: true, values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss"], description: "Type of notification event")
 			  action_type(required: false, values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone"])
 			  deeplink(required: false, description: "The link were the notification should navigate to, if applies")
 			  status(required: false, values: ["read", "unread"], description: "The current notification status, used only when tracking from notification center.")
+			  notification_style (required: false, description: "The notification style used when displaying the notification to the user.")
 			  context(required: false, values: ["notification", "notification_center"], description: "Current context of the notification")
 		 }
 		 //Tu producto está en camino
@@ -656,10 +690,20 @@ catalog {
 		 "/notification/orders_new"(platform: "/mobile") {
 			  order_id(required: true, type: PropertyType.Numeric)
 		 }
-		 //MKT Deals
-		 "/notification/campaigns_deals"(platform: "/mobile"){
+		 //MKT Deals DEPRECADO
+		 "/notification/deals_campaigns"(platform: "/mobile"){
 			  deal_id(required: true, description: "Id of the deal related to the mkt notification sent.")
 		 }
+		
+		 //MKT Deals
+		 "/notification/campaigns_deals"(platform: "/mobile"){
+			  campaign_id(required: true, description: "Id of the campaign related to the mkt notification sent.")
+		 }
+		
+		 //Freemium SYI
+		 "/notification/campaigns_syi_freemium"(platform: "/mobile"){
+			  campaign_id(required: true, description: "Id of the campaign related to the SYI Freemium notification sent.")
+		 }		
 		 //Tu cobro fué acreditado
 		 "/notification/collections_approved"(platform: "/mobile"){
 		 	order_id(required: true, type: PropertyType.Numeric)
