@@ -510,6 +510,47 @@ trackTests {
         mobile = false
       }
 
+    "/checkout/congrats"(platform:"/web/desktop") {
+      order_id = 991687837
+      status = "payment_required"
+      total_amount = 70       
+      payments_result = [
+            payment:[
+              id: 5672342343,
+              method: "rapipago",
+              type: "ticket",
+              installments: 1
+            ],
+            payment:[
+              id: 5672342344,
+              method: "visa",
+              type: "credit_card",
+              installments: 12
+            ],
+      ]
+      mobile = false
+    }
+
+    "/checkout/congrats"(platform:"/web/desktop") {
+      order_id = 991687837
+      status = "payment_required"
+      total_amount = 70       
+      payments_result = [
+            payment:[
+              id: 5672342343,
+              method: "otherMethod",
+              type: "otherType",
+              installments: null
+            ],
+            payment:[
+              id: 5672342344,
+              method: "otherMethod",
+              type: "otherType"
+            ],
+      ]
+      mobile = false
+    }
+
     "/checkout/payments"(platform:"/web/desktop") {
         order_id = 991687837
         status = "payment_required"
