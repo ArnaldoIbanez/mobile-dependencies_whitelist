@@ -641,6 +641,13 @@ catalog {
 			source()
 		}
 
+		"/traffic"(platform:"/", isAbstract: true){}
+
+		"/traffic/inbound"(platform:"/") {
+			tool(type: PropertyType.Numeric, description:"Referrer's ID, this could identify Google, Facebook or any other channel")
+			word(type: PropertyType.String, description: "This is the name of the marketing campaign.")
+		}
+
 		 "/notification_center"(platform: "/mobile", type: TrackType.Event){}
 
 		 "/notification_center/abort" (platform: "/mobile", type: TrackType.Event){ }

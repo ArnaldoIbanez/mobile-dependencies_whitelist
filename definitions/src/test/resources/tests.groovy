@@ -712,6 +712,13 @@ trackTests {
     }
   }
 
+  test("Traffic") {
+    "/traffic/inbound"(platform: "/") {
+      tool = 123456
+      word = "campaignName"
+    }
+  }
+
   test("external tracking"){
 
     def defaultSearchInformation = {
