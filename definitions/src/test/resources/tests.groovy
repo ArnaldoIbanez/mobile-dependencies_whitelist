@@ -713,7 +713,7 @@ trackTests {
   }
 
   test("Traffic") {
-    "/traffic/inbound"(platform: "/") {
+    "/traffic/inbound/matt"(platform: "/") {
       tool = 123456
       word = "campaignName"
     }

@@ -643,7 +643,9 @@ catalog {
 
 		"/traffic"(platform:"/", isAbstract: true){}
 
-		"/traffic/inbound"(platform:"/") {
+		"/traffic/inbound"(platform:"/", isAbstract: true){}
+
+		"/traffic/inbound/matt"(platform:"/") {
 			tool(type: PropertyType.Numeric, description:"Referrer's ID, this could identify Google, Facebook or any other channel")
 			word(type: PropertyType.String, description: "This is the name of the marketing campaign.")
 		}
