@@ -38,7 +38,7 @@ catalog {
 
 /**
  *
- * The events means actions that happens without launch a View, 
+ * The events means actions that happens without launch a View,
  * as example of that we can consider Bookmark an item in a VIP page
  * Every event is an action, so the verbs available are:
  *
@@ -137,6 +137,9 @@ catalog {
 		"/home/back"(platform:"/mobile") {
 		}
 
+        "/home/scroll"(platform:"/mobile",type: TrackType.Event) {
+        }
+
 		"/home/abort"(platform:"/mobile") {
 		}
 
@@ -198,9 +201,9 @@ catalog {
 
 		"/search"(platform: "/mobile") {
 			filter_user_applied(deprecated:true, required: false)
+            context(required:false)
 		}
-
-
+        
 		"/search/failure" (platform: "/mobile", type: TrackType.Event){
 			error_message()
 			limit(required: false, description: "override required property")
@@ -269,6 +272,10 @@ catalog {
 			category_path(deprecated: true, required: false)
 		}
 
+        "/vip"(platform:"/mobile") {
+            context(required:false)
+        }
+
 		"/vip/abort"(platform:"/mobile", type: TrackType.Event) { }
 		
 		"/vip/failure"(platform:"/mobile", type: TrackType.Event) { 
@@ -303,7 +310,7 @@ catalog {
 		"/vip/item_gallery/back"(platform:"/mobile") { }
 
 		"/vip/contact_seller"(platform:"/mobile") { }
-		
+
 		"/vip/map/"(platform:"/mobile") { }
 
 		//BOOKMARKS
@@ -360,6 +367,8 @@ catalog {
 
 		 "/questions/answer/back"(platform: "/mobile", type: TrackType.Event) {
 		 }
+
+        "/questions/back"(platform: "/mobile") {}
 
 		//CHECKOUT FLOW
 
@@ -636,7 +645,7 @@ catalog {
 		"/register/success"(platform:"/mobile") {
 			source()
 		}
-		
+
 		"/register/failure"(platform:"/mobile") {
 			source()
 		}
@@ -686,7 +695,7 @@ catalog {
 		 "/notification/shipping_delayed_bonus"(platform: "/mobile"){
 			  order_id(required: true, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
 			  shipping_id(required: true, type: PropertyType.Numeric)
-		 }			 
+		 }
 		 //Seller questions
 		 "/notification/questions_new"(platform: "/mobile") {
 			  question_id(required: true)
@@ -724,7 +733,7 @@ catalog {
 		 }
 		 //Loyalty
 		 "/notification/reputation_buyer_in"(platform: "/mobile") { }
-		 
+
 		 //Mediations
 		 "/notification/mediations_complainant"(platform: "/mobile") {
 			  order_id(required: true, type: PropertyType.Numeric, description: "The order related to the claim")
