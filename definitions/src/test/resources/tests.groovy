@@ -20,7 +20,13 @@ trackTests {
       error_message = "error loading home"
     })
 
+    "/home/pulltorefresh"(platform:"/mobile") {}
+
+    "/home/pulltorefresh/abort"(platform:"/mobile") {}
+
     "/home/scroll"(platform: "/mobile/android") {}
+
+    "/home/scroll/abort"(platform: "/mobile/android") {}
 
     "/home/tap"(platform: "/mobile", {
       position = 1
@@ -575,7 +581,7 @@ trackTests {
     "/checkout/congrats"(platform:"/web/desktop") {
       order_id = 991687837
       status = "payment_required"
-      total_amount = 70       
+      total_amount = 70
       payments_result = [
             payment:[
               id: 5672342343,
@@ -596,7 +602,7 @@ trackTests {
     "/checkout/congrats"(platform:"/web/desktop") {
       order_id = 991687837
       status = "payment_required"
-      total_amount = 70       
+      total_amount = 70
       payments_result = [
             payment:[
               id: 5672342343,

@@ -137,10 +137,19 @@ catalog {
 		"/home/back"(platform:"/mobile") {
 		}
 
+        "/home/pulltorefresh"(platform:"/mobile",type: TrackType.Event) {
+        }
+
+        "/home/pulltorefresh/abort"(platform:"/mobile",type: TrackType.Event) {
+        }
+
         "/home/scroll"(platform:"/mobile",type: TrackType.Event) {
         }
 
-		"/home/abort"(platform:"/mobile") {
+        "/home/scroll/abort"(platform:"/mobile",type: TrackType.Event) {
+        }
+
+        "/home/abort"(platform:"/mobile") {
 		}
 
 		"/home/tap"(platform:"/mobile") {
@@ -305,6 +314,7 @@ catalog {
 			mode(required:false)
 			sent_again(required:false)
 			from_background(required:false)
+            context(required: false)
 		}
 
 		"/vip/item_gallery/back"(platform:"/mobile") { }
