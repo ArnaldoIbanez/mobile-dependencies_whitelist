@@ -41,6 +41,7 @@ trackTests {
         filter_user_applied=[]
         offset=0
         sort_id="relevance"
+        view_mode="MOSAIC"
         mode="DEFERRED"
     }
 
