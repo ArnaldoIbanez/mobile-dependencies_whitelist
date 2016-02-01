@@ -627,7 +627,7 @@ trackTests {
         total_amount = 70
         tracking_referer_page = null
         mobile = false
-      }
+      }  
 
     "/checkout/payments"(platform:"/web/desktop") {
         order_id = 991687837
