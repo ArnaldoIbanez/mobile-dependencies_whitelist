@@ -416,6 +416,18 @@ catalog {
 			order_api(serverSide: true)
 		}
 
+		"/checkout/payments/installment_selector"(platform:"/web") {
+			order_id(required: true, description: "OrderId")
+			status(required: true, description: "status")
+			total_amount(required: false, description: "totalAmount")
+			tracking_referer_page(required: false, description: "tracking referer page from where the request came")
+			mobile(type: PropertyType.Boolean)
+
+			total_amount_local(serverSide: true)
+			total_amount_usd(serverSide: true)
+			order_api(serverSide: true)
+		}
+
 		"/checkout"(platform:"/mobile") {
 			order_id(required: false)
 			order_items(required: false, description: "New: optional for old versions of mobile")
