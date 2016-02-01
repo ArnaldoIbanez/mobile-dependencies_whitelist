@@ -20,6 +20,8 @@ trackTests {
       error_message = "error loading home"
     })
 
+    "/home/scroll"(platform: "/mobile/android") {}
+
     "/home/tap"(platform: "/mobile", {
       position = 1
       section = "history"
@@ -49,6 +51,17 @@ trackTests {
     }
 
     "/search"(platform: "/mobile", defaultSearchInformation)
+
+    "/search"(platform: "/mobile", {
+        total = 258
+        limit = 0
+        context = "deeplinking"
+        category_path = []
+        offset = 50.0
+        sort_id = "relevance"
+        filters = {official_store="140"}
+    })
+
 
     "/search/input"(platform: "/mobile") {}
 
@@ -144,6 +157,12 @@ trackTests {
     "/vip/color_and_size"(platform:"/mobile", dataSet)
 
     "/vip/description"(platform:"/mobile", {
+        item_id = "MLA533657947"
+        empty_description = false
+        context="/vip"
+    })
+
+      "/vip/description"(platform:"/mobile", {
       item_id = "MLA533657947"
       empty_description = false
     })
@@ -300,6 +319,12 @@ trackTests {
     "/questions/answer/back"(platform: "/mobile") {
       item_id = "MLA12345"
       context = "/vip"
+    }
+
+
+    "/questions/back"(platform: "/mobile") {
+        item_id = "MLA12345"
+        context = "/vip"
     }
 
   }
@@ -774,6 +799,13 @@ trackTests {
 
     "/register/failure"(platform: "/mobile") {
       source = "facebook"
+    }
+  }
+
+  test("Traffic") {
+    "/traffic/inbound/matt"(platform: "/") {
+      tool = 123456
+      word = "campaignName"
     }
   }
 
