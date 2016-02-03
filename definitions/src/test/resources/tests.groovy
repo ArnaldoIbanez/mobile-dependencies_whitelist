@@ -705,9 +705,33 @@ trackTests {
         total_amount = 70
         tracking_referer_page = null
         mobile = false
+      }  
+
+    "/checkout/payments"(platform:"/web/desktop") {
+        order_id = 991687837
+        status = "payment_required"
+        total_amount = null
+        tracking_referer_page = null
+        mobile = false
       }
 
-      "/checkout/payments"(platform:"/web/desktop") {
+    "/checkout/payments/installment_selector"(platform:"/web/desktop") {
+        order_id = 991687837
+        status = "payment_required"
+        total_amount = 70
+        tracking_referer_page = "congratsAccordSecureSiteLogo"
+        mobile = false
+      }
+
+    "/checkout/payments/installment_selector"(platform:"/web/desktop") {
+        order_id = 991687837
+        status = "payment_required"
+        total_amount = 70
+        tracking_referer_page = null
+        mobile = false
+      }
+
+      "/checkout/payments/installment_selector"(platform:"/web/desktop") {
         order_id = 991687837
         status = "payment_required"
         total_amount = null
