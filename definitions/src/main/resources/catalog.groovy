@@ -157,24 +157,24 @@ catalog {
 			section()
 			tag_id()
 		}
-		
+
 		//REVIEWS FRONTEND
 		"/reviews/form" (platform: "/") {
 			itemId()
 			reviewerId()
 		}
-		
+
 		"/reviews/congrats" (platform: "/") {
 			itemId()
 			reviewerId()
 			reviewLength()
 		}
-		
+
 		"/reviews/error" (platform: "/") {
 			itemId()
 			reviewerId()
 		}
-		
+
 		"/reviews/email" (platform: "/email") {
 			itemId()
 			reviewerId()
@@ -212,7 +212,7 @@ catalog {
 			filter_user_applied(deprecated:true, required: false)
             context(required:false)
 		}
-        
+
 		"/search/failure" (platform: "/mobile", type: TrackType.Event){
 			error_message()
 			limit(required: false, description: "override required property")
@@ -286,8 +286,8 @@ catalog {
         }
 
 		"/vip/abort"(platform:"/mobile", type: TrackType.Event) { }
-		
-		"/vip/failure"(platform:"/mobile", type: TrackType.Event) { 
+
+		"/vip/failure"(platform:"/mobile", type: TrackType.Event) {
 			error_message()
 		}
 
@@ -385,15 +385,25 @@ catalog {
 		"/checkout"(platform: "/web", isAbstract: true){
 		}
 
-		"/checkout/orderCreated"(platform:"/web", type: TrackType.Event) {
+		"/checkout/ordercreated"(platform:"/web", type: TrackType.Event) {
 			order_id()
 			status()
 			total_amount()
 			order_items()
-			buyer()
-			seller()
+                 //item
+                    //id
+                    //variation_id
+                    //buying_mode
+                    //category_id
+                    //deal_ids
+                //quantity
+                //unit_price
+                //currency_id
+            mobile(type: PropertyType.Boolean)
+
+            buyer()
+            seller()
 			errors()
-			mobile(type: PropertyType.Boolean)
 
 			congrats_seq(serverSide: true)
 			first_for_order(serverSide: true)
@@ -406,8 +416,31 @@ catalog {
 			order_id(required: true, description: "OrderId")
 			status(required: true, description: "status")
 			total_amount(required: false, description: "totalAmount")
-			payments_result(required: false, description: "The payments result has several payments information")
+            order_items( description: "Array of items in the order" )
+                //item
+                    //id
+                    //variation_id
+                    //buying_mode
+                    //category_id
+                    //deal_ids
+                //quantity
+                //unit_price
+                //currency_id
 			mobile(type: PropertyType.Boolean)
+
+            shipping( required: false)
+                //shipping_type
+                //shipping_option
+
+            payments(required: false, description: "Array of payments information") //
+                // id
+                // payment_method,
+                // payment_type,
+                // installments,
+                // selected_card
+
+            buyer(required: true)
+            seller(required: true)
 
 			total_amount_local(serverSide: true)
 			total_amount_usd(serverSide: true)
@@ -420,6 +453,12 @@ catalog {
 			total_amount(required: false, description: "totalAmount")
 			tracking_referer_page(required: false, description: "tracking referer page from where the request came")
 			mobile(type: PropertyType.Boolean)
+            payments(required: false) //
+                // id
+                // payment_method,
+                // payment_type,
+                // installments,
+                // selected_card
 
 			total_amount_local(serverSide: true)
 			total_amount_usd(serverSide: true)
@@ -428,25 +467,37 @@ catalog {
 
 		"/checkout"(platform:"/mobile") {
 			order_id(required: false)
-			order_items(required: false, description: "New: optional for old versions of mobile")
-			reloaded(required:false)
-			quantity_pre_selected(required:false)
+            status(required:false)
+            total_amount(required: false, type: PropertyType.Numeric)
+			order_items(required: false, description: "Array of items in the order. New: optional for old versions of mobile")
+                //item
+                    //id
+                    //variation_id
+                    //buying_mode
+                    //category_id
+                    //deal_ids
+                //quantity
+                //unit_price
+                //currency_id
+
+            shipping( required: false)
+                //shipping_type
+                //shipping_option
+
+            payments(required: false, description: "Array of payment information") //
+                // id
+                // payment_method,
+                // payment_type,
+                // installments,
+                // selected_card
+                // financed_order_cost_for_card
+                // payment_must_call_for_authorize
+
+            status_detail(required:false)
+            reloaded(required:false)
+            quantity_pre_selected(required:false)
 			order_payment_required(required:false)
 			shipping_pre_selected(required:false)
-			payment_pre_selected(required:false)
-			selected_card(required:false)
-			shipping_type(required:false)
-			shipping_option(required:false)
-			financed_order_cost_for_card(required: false)
-			payment_must_call_for_authorize(required: false)
-			payment_method(required:false)
-			payment_type(required:false)
-			installments(required:false)
-			buyer(required:false)
-			seller(required:false)
-			total_amount(required: false, type: PropertyType.Numeric)
-			status(required:false)
-			status_detail(required:false)
 
 			item_id(deprecated: true, required: false)
 			quantity(deprecated: true, required: false)
@@ -458,6 +509,9 @@ catalog {
 		"/checkout/back"(platform:"/mobile", type: TrackType.Event) {}
 
 		"/checkout/congrats"(platform:"/mobile") {
+            buyer(required: false )
+            seller(required: false)
+
 			duplicated_error(required: false)
 			congrats_seq(serverSide: true)
 			total_amount_local(serverSide: true)

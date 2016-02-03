@@ -477,18 +477,26 @@ trackTests {
   test("checkout congrats"){
 
     "/checkout/congrats"(platform:"/mobile", type:TrackType.View) {
-        shipping_type="local_pick_up"
         item_id="MLA538444567"
-        selected_card="146872309"
-        financed_order_cost_for_card=13.00
-        payment_method="amex"
-        payment_type="credit_card"
-        installments=3
-        shipping_option=1
+        payments = [
+            [
+                payment_method:"amex",
+                payment_type:"credit_card",
+                installments:3,
+                selected_card:"146872309",
+                financed_order_cost_for_card:13.00
+
+            ]
+        ]
+        shipping =[
+                shipping_type:"mercadoenvios",
+                shipping_option:1
+        ]
+
         order_id=912391
      }
 
-    "/checkout/orderCreated"(platform:"/web/desktop", type:TrackType.Event) {
+    "/checkout/ordercreated"(platform:"/web/desktop", type:TrackType.Event) {
         congrats_seq = 1
         total_amount = 70
         order_id = 991687837
@@ -555,41 +563,77 @@ trackTests {
         order_id = 991687836
         status = "confirmed"
         total_amount = null
-        payments_result = null
+        payments = null
+        seller = [ id: 135201044, nickname: "JPS PAULO" ]
+        buyer = [ id: 75961818, nickname: "CIA51" ]
         mobile = false
+        order_items = [
+                [
+                        currency_id: "BRL",
+                        item:[
+                                id: "MLB683236263",
+                                title: "Conector 12 Vias Baquelite - 1,5/6,0mm² - Caixa Com 10",
+                                variation_attributes: [],
+                                category_id: "MLB30216",
+                                variation_id: null ],
+                        quantity: 1,
+                        unit_price: 70
+                ]
+        ]
       }
 
     "/checkout/congrats"(platform:"/web/desktop") {
         order_id = 991687837
         status = "payment_required"
         total_amount = 70
-        payments_result = [
-              payment:[
+        seller = [ id: 135201044, nickname: "JPS PAULO" ]
+        buyer = [ id: 75961818, nickname: "CIA51" ]
+        payments = [
+              [
                 id: 5672342343,
                 method: "rapipago",
                 type: "ticket"
               ],
-              payment:[
+              [
                 id: 5672342344,
                 method: "visa",
                 type: "credit_card"
               ],
         ]
+        shipping =[
+                shipping_type:"store_pick_up",
+                shipping_option:1
+        ]
         mobile = false
+        order_items = [
+                [
+                        currency_id: "BRL",
+                        item:[
+                                id: "MLB683236263",
+                                title: "Conector 12 Vias Baquelite - 1,5/6,0mm² - Caixa Com 10",
+                                variation_attributes: [],
+                                category_id: "MLB30216",
+                                variation_id: null ],
+                        quantity: 1,
+                        unit_price: 70
+                ]
+        ]
       }
 
     "/checkout/congrats"(platform:"/web/desktop") {
       order_id = 991687837
       status = "payment_required"
       total_amount = 70
-      payments_result = [
-            payment:[
+      seller = [ id: 135201044, nickname: "JPS PAULO" ]
+      buyer = [ id: 75961818, nickname: "CIA51" ]
+      payments = [
+            [
               id: 5672342343,
               method: "rapipago",
               type: "ticket",
               installments: 1
             ],
-            payment:[
+            [
               id: 5672342344,
               method: "visa",
               type: "credit_card",
@@ -597,26 +641,54 @@ trackTests {
             ],
       ]
       mobile = false
+      order_items = [
+                [
+                        currency_id: "BRL",
+                        item:[
+                                id: "MLB683236263",
+                                title: "Conector 12 Vias Baquelite - 1,5/6,0mm² - Caixa Com 10",
+                                variation_attributes: [],
+                                category_id: "MLB30216",
+                                variation_id: null ],
+                        quantity: 1,
+                        unit_price: 70
+                ]
+      ]
     }
 
     "/checkout/congrats"(platform:"/web/desktop") {
       order_id = 991687837
       status = "payment_required"
       total_amount = 70
-      payments_result = [
-            payment:[
+      seller = [ id: 135201044, nickname: "JPS PAULO" ]
+      buyer = [ id: 75961818, nickname: "CIA51" ]
+      payments= [
+            [
               id: 5672342343,
               method: "otherMethod",
               type: "otherType",
               installments: null
             ],
-            payment:[
+            [
               id: 5672342344,
               method: "otherMethod",
               type: "otherType"
             ],
       ]
       mobile = false
+      order_items =  [
+                [
+                        currency_id: "BRL",
+                        item:[
+                                id: "MLB683236263",
+                                title: "Conector 12 Vias Baquelite - 1,5/6,0mm² - Caixa Com 10",
+                                variation_attributes: [],
+                                category_id: "MLB30216",
+                                variation_id: null ],
+                        quantity: 1,
+                        unit_price: 70
+                ]
+      ]
     }
 
     "/checkout/payments"(platform:"/web/desktop") {
