@@ -200,7 +200,7 @@ trackTests {
     "/vip"(platform:"/web/mobile") {
         category_id = "MLA1234"
         item_id="MLA1891239"
-        review_rate=null
+        review_rate=-1
     }
   }
 
@@ -217,7 +217,7 @@ trackTests {
     "/vip"(platform:"/web/desktop") {
         category_id = "MLA1234"
         item_id="MLA1891239"
-        review_rate=null
+        review_rate=-1
     }
   }
 

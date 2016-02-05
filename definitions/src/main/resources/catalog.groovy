@@ -262,7 +262,6 @@ catalog {
 		"/vip"(platform:"/") {
 			item_id()
 			category_id()
-			review_rate(required: false)
 			buying_mode(deprecated: true, required: false)
 			vertical(deprecated: true, required: false)
 			category_id(deprecated: true, required: false)
@@ -281,6 +280,10 @@ catalog {
 			free_shipping(deprecated: true, required: false)
 			local_pick_up(deprecated: true, required: false)
 			category_path(deprecated: true, required: false)
+		}
+
+		"/vip"(platform:"/web") {
+			review_rate(inheritable: false)
 		}
 
         "/vip"(platform:"/mobile") {
