@@ -262,6 +262,7 @@ catalog {
 		"/vip"(platform:"/") {
 			item_id()
 			category_id()
+			review_rate(required: false)
 			buying_mode(deprecated: true, required: false)
 			vertical(deprecated: true, required: false)
 			category_id(deprecated: true, required: false)

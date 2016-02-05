@@ -195,13 +195,38 @@ trackTests {
     "/vip/seller_reputation/ratings"(platform:"/mobile", dataSet)
   }
 
-  test("Vip web mobile tracking") {
+  test("Vip web mobile tracking without reviews") {
 
     "/vip"(platform:"/web/mobile") {
         category_id = "MLA1234"
         item_id="MLA1891239"
+        review_rate=null
     }
+  }
 
+
+  test("Vip web mobile with reviews") {
+    "/vip"(platform:"/web/mobile") {
+        category_id = "MLA1234"
+        item_id="MLA1891239"
+        review_rate=3.5
+    }
+  }
+
+  test("Vip web desktop without reviews") {
+    "/vip"(platform:"/web/desktop") {
+        category_id = "MLA1234"
+        item_id="MLA1891239"
+        review_rate=null
+    }
+  }
+
+  test("Vip web desktop with reviews") {
+    "/vip"(platform:"/web/desktop") {
+        category_id = "MLA1234"
+        item_id="MLA1891239"
+        review_rate=5
+    }
   }
 
   test("Vip core tracking in android deprecated") {
