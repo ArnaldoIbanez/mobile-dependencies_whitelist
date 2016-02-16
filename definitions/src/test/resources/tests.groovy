@@ -581,6 +581,8 @@ trackTests {
                         unit_price: 70
                 ]
         ]
+        proactive_two_payment = null
+        buy_equal_pay = null
       }
 
     "/checkout/congrats"(platform:"/web/desktop") {
@@ -619,6 +621,8 @@ trackTests {
                         unit_price: 70
                 ]
         ]
+        proactive_two_payment = false
+        buy_equal_pay = true
       }
 
     "/checkout/congrats"(platform:"/web/desktop") {
@@ -655,6 +659,9 @@ trackTests {
                         unit_price: 70
                 ]
       ]
+
+      proactive_two_payment = true
+      buy_equal_pay = false
     }
 
     "/checkout/congrats"(platform:"/web/desktop") {
@@ -698,6 +705,7 @@ trackTests {
         total_amount = 70
         tracking_referer_page = "congratsAccordSecureSiteLogo"
         mobile = false
+        buy_equal_pay = false
       }
 
     "/checkout/payments"(platform:"/web/desktop") {
@@ -714,6 +722,7 @@ trackTests {
         total_amount = null
         tracking_referer_page = null
         mobile = false
+        buy_equal_pay = null
       }
 
     "/checkout/payments/installment_selector"(platform:"/web/desktop") {
