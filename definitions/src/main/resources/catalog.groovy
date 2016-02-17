@@ -450,6 +450,11 @@ catalog {
 			total_amount_local(serverSide: true)
 			total_amount_usd(serverSide: true)
 			order_api(serverSide: true)
+
+			proactive_two_payment(required: false, description: "tracking proactive two payment selection")
+			buy_equal_pay(required: false, description: "BP flag")
+
+
 		}
 
 		"/checkout/payments"(platform:"/web") {
@@ -468,6 +473,8 @@ catalog {
 			total_amount_local(serverSide: true)
 			total_amount_usd(serverSide: true)
 			order_api(serverSide: true)
+			buy_equal_pay(required: false, description: "BP flag")
+
 		}
 
 		"/checkout/payments/installment_selector"(platform:"/web") {
