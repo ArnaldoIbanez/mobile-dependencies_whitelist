@@ -282,6 +282,10 @@ catalog {
 			category_path(deprecated: true, required: false)
 		}
 
+		"/vip"(platform:"/web") {
+			review_rate(inheritable: false)
+		}
+
         "/vip"(platform:"/mobile") {
             context(required:false)
         }
