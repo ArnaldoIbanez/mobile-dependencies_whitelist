@@ -1036,15 +1036,15 @@ trackTests {
     "/notification/orders_new"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
-      order_id = 12132
+      order_id = "12132"
       context = "notification"
     }
 
     "/notification/shipping_shipped"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
-      order_id = 11222
-      shipping_id = 1234
+      order_id = "11222"
+      shipment_id = 1234
       context = "notification"
     }
 
@@ -1052,8 +1052,8 @@ trackTests {
       news_id = "12332323"
       event_type = "arrived"
       deeplink = "meli://purchases/sales"
-      shipping_id = 1234
-      order_id = 11222		
+      shipment_id = 1234
+      order_id = "11222"
       context = "notification"
     }
     
@@ -1061,18 +1061,18 @@ trackTests {
       news_id = "12332323"
       event_type = "arrived"
       deeplink = "meli://purchases/sales"
-      order_id = 11222		
-      shipping_id = 1234
+      order_id = "11222"
+      shipment_id = 1234
     }
     
     "/notification/collections_approved"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "dismiss"
-      order_id = 1234
+      order_id = "1234"
       context = "notification"
     }
 
-    "/notification/purchases_pending"(platform: "/mobile") {
+    "/notification/purchase_pending"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
       item_id = "MLA122211"
@@ -1092,7 +1092,7 @@ trackTests {
     }
 
     //Buy action
-    "/notification/purchases_pending"(platform: "/mobile") {
+    "/notification/purchase_pending"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
       item_id = "MLA122211"
@@ -1101,7 +1101,7 @@ trackTests {
       context = "notification"
     }
 
-    "/notification/purchases_pending"(platform: "/mobile") {
+    "/notification/purchase_pending"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
       item_id = "MLA122211"
@@ -1110,7 +1110,7 @@ trackTests {
     }
 
     //Favorite action
-    "/notification/purchases_pending"(platform: "/mobile") {
+    "/notification/purchase_pending"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
       item_id = "MLA122211"
@@ -1120,7 +1120,7 @@ trackTests {
     }
 
     //Notif center tracking
-    "/notification/purchases_pending"(platform: "/mobile") {
+    "/notification/purchase_pending"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
       item_id = "MLA122211"
@@ -1134,8 +1134,8 @@ trackTests {
       news_id = "12332323"
       event_type = "open"
       notification_style = "BigTextStyle"
-      order_id = 1234
-      claim_id = 3123
+      order_id = "1234"
+      claim_id = "3123"
       action_type = "favorite"
     }
 
@@ -1143,8 +1143,8 @@ trackTests {
       news_id = "12332323"
       event_type = "auto_dismiss"
       notification_style = "BigTextStyle"
-      order_id = 1234
-      claim_id = 3123
+      order_id = "1234"
+      claim_id = "3123"
       action_type = "favorite"
     }
 
