@@ -443,6 +443,7 @@ catalog {
                 // payment_type,
                 // installments,
                 // selected_card
+                // paid_amount
 
             buyer(required: true)
             seller(required: true)
@@ -453,6 +454,8 @@ catalog {
 
 			proactive_two_payment(required: false, description: "tracking proactive two payment selection")
 			buy_equal_pay(required: false, description: "BP flag")
+			recovery_flow(required: false, description: "Is recovery CHO flow")
+			register_int(required: false, description: "Integer registration")
 
 
 		}

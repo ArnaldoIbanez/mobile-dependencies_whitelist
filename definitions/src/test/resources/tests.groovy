@@ -608,6 +608,8 @@ trackTests {
         ]
         proactive_two_payment = null
         buy_equal_pay = null
+        recovery_flow = null
+        register_int = null
       }
 
     "/checkout/congrats"(platform:"/web/desktop") {
@@ -620,12 +622,14 @@ trackTests {
               [
                 id: 5672342343,
                 method: "rapipago",
-                type: "ticket"
+                type: "ticket",
+                paid_amount: 40
               ],
               [
                 id: 5672342344,
                 method: "visa",
-                type: "credit_card"
+                type: "credit_card",
+                paid_amount: 30
               ],
         ]
         shipping =[
@@ -648,6 +652,8 @@ trackTests {
         ]
         proactive_two_payment = false
         buy_equal_pay = true
+        recovery_flow = true
+        register_int = true
       }
 
     "/checkout/congrats"(platform:"/web/desktop") {
@@ -661,7 +667,9 @@ trackTests {
               id: 5672342343,
               method: "rapipago",
               type: "ticket",
-              installments: 1
+              installments: 1,
+              paid_amount: 2
+
             ],
             [
               id: 5672342344,
@@ -687,6 +695,9 @@ trackTests {
 
       proactive_two_payment = true
       buy_equal_pay = false
+      recovery_flow = false
+      register_int = false
+
     }
 
     "/checkout/congrats"(platform:"/web/desktop") {
