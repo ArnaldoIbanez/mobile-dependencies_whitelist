@@ -764,8 +764,8 @@ catalog {
 		  * disclaimer: when the action_type is set, the event_type should be always 'open'
 		  **/
 		 "/notification"(platform:"/mobile") {
-			  news_id(required: true, description: "Identifier of the notification generated")
-			  event_type(required: true, values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss"], description: "Type of notification event")
+			  news_id(required: false, description: "Identifier of the notification generated")
+			  event_type(required: true, values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown"], description: "Type of notification event")
 			  action_type(required: false, values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone"])
 			  deeplink(required: false, description: "The link were the notification should navigate to, if applies")
 			  status(required: false, values: ["read", "unread"], description: "The current notification status, used only when tracking from notification center.")
@@ -774,18 +774,18 @@ catalog {
 		 }
 		 //Tu producto está en camino
 		 "/notification/shipping_shipped"(platform:"/mobile") {
-			  order_id(required: true, type : PropertyType.Numeric, description: "The order of the bought item which has been shipped")
-			  shipping_id(required: true, type: PropertyType.Numeric)
+			  order_id(required: true, type : PropertyType.String, description: "The order of the bought item which has been shipped")
+			  shipment_id(required: true, type: PropertyType.Numeric)
 		 }
 		 //Retiro en sucursal
 		 "/notification/shipping_agency_withdrawal"(platform: "/mobile"){
-			  order_id(required: true, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
-			  shipping_id(required: true, type: PropertyType.Numeric)
+			  order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+			  shipment_id(required: true, type: PropertyType.Numeric)
 		 }
 		 //Devolución de costo de envío por demora
 		 "/notification/shipping_delayed_bonus"(platform: "/mobile"){
-			  order_id(required: true, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
-			  shipping_id(required: true, type: PropertyType.Numeric)
+			  order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+			  shipment_id(required: true, type: PropertyType.Numeric)
 		 }
 		 //Seller questions
 		 "/notification/questions_new"(platform: "/mobile") {
@@ -797,7 +797,7 @@ catalog {
 		 }
 		 //New Sale
 		 "/notification/orders_new"(platform: "/mobile") {
-			  order_id(required: true, type: PropertyType.Numeric)
+			  order_id(required: true, type: PropertyType.String)
 		 }
 		 //MKT Deals DEPRECADO
 		 "/notification/deals_campaigns"(platform: "/mobile"){
@@ -815,11 +815,11 @@ catalog {
 		 }		
 		 //Tu cobro fué acreditado
 		 "/notification/collections_approved"(platform: "/mobile"){
-		 	order_id(required: true, type: PropertyType.Numeric)
+		 	order_id(required: true, type: PropertyType.String)
 		 }
 
 		 //Dropout de CHO
-		 "/notification/purchases_pending"(platform: "/mobile") {
+		 "/notification/purchase_pending"(platform: "/mobile") {
 			  item_id(required: true)
 		 }
 		 //Loyalty
@@ -827,8 +827,8 @@ catalog {
 
 		 //Mediations
 		 "/notification/mediations_complainant"(platform: "/mobile") {
-			  order_id(required: true, type: PropertyType.Numeric, description: "The order related to the claim")
-			  claim_id(required: true, type: PropertyType.Numeric)
+			  order_id(required: true, type: PropertyType.String, description: "The order related to the claim")
+			  claim_id(required: true, type: PropertyType.String)
 		 }
 	}
 }
