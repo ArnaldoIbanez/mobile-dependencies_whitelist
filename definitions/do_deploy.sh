@@ -9,7 +9,7 @@ if [[ $DRONE_BRANCH == "master" && $DRONE_BUILD_DIR != "" ]]; then
   echo "Starting upload"
   echo $(pwd)
   ls
-  ./gradlew uploadCatalog uploadCatalog2 
+  ./gradlew uploadCatalog 
 else
   echo "This branch / fork doesn't deploy"
 fi
