@@ -6,7 +6,9 @@ MAINTAINER Alexis Petalas, Gabriel Eisbruch <arquitectura@mercadolibre.com>
 #ENV https_proxy http://proxy.meliglobal.com
 
 RUN sed 's/main$/main universe/' -i /etc/apt/sources.list
-RUN apt-get update && apt-get install -y software-properties-common python-software-properties
+RUN apt-get update && apt-get install -y software-properties-common python-software-properties python python-pip python-dev build-essential
+RUN pip install --upgrade pip
+RUN pip install --upgrade virtualenv
 RUN add-apt-repository ppa:webupd8team/java -y
 
 # Install Java
