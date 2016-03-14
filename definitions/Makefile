@@ -1,4 +1,4 @@
 test:
-	./gradlew tests uploadCatalog
+	./gradlew tests
 
 .PHONY: test
