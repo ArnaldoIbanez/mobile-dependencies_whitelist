@@ -16,13 +16,3 @@ notify:
     on_started: false
     on_failure: true
     on_success: false
-publish:
-  s3:
-    acl: bucket-owner-full-control
-    region: "us-east-1"
-    bucket: "melidata-jobs"
-    access_key: "AKIAIRJ4DFA72UDCX7QA"
-    secret_key: "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"
-    source: /var/cache/drone/src/github.com/mercadolibre/melidata-catalog/definitions/catalog.csv
-    target: /catalog/
-    recursive: false
