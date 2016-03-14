@@ -7,8 +7,6 @@ if [[ $DRONE_BRANCH == "master" && $DRONE_BUILD_DIR != "" ]]; then
   cd $P
   echo "Uploading path script: $P"
   echo "Starting upload"
-  echo $(pwd)
-  ls
   ./gradlew uploadCatalog 
 else
   echo "This branch / fork doesn't deploy"

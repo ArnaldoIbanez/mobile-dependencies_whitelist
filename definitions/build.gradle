@@ -61,19 +61,6 @@ task uploadCatalog(type:JavaExec) {
     systemProperty "S3_BUCKET", System.getProperty("S3_BUCKET")
     systemProperty "AWS_ACCESS_KEY_ID", System.getProperty("AWS_ACCESS_KEY_ID")
     systemProperty "AWS_SECRET_KEY", System.getProperty("AWS_SECRET_KEY")
-    println "We are uploading catalog [DSL FILE]: "+System.getProperty("CATALOG_DSL_FILE")
-    println "We are uploading catalog [BUCKET]: "+System.getProperty("S3_BUCKET")
-}
-
-task uploadCatalog2(type:JavaExec) {
-   main = 'com.melidata.definitions.uploader.S3Uploader'
-   classpath = sourceSets.main.runtimeClasspath
-    systemProperty "CATALOG_FILE", System.getProperty("CATALOG_DSL_FILE")
-    systemProperty "PRESTO_S3_BUCKET", "/melidata-jobs/catalog/"
-    systemProperty "PRESTO_AWS_ACCESS_KEY_ID", System.getProperty("PRESTO_AWS_ACCESS_KEY_ID")
-    systemProperty "PRESTO_AWS_SECRET_KEY", System.getProperty("PRESTO_AWS_SECRET_KEY")
-    println "We are uploading catalog [DSL FILE]: "+System.getProperty("CATALOG_FILE")
-    println "We are uploading catalog [BUCKET]: "+System.getProperty("PRESTO_S3_BUCKET")
 }
 
 task validate(dependsOn: 'classes', type: JavaExec) {
@@ -84,7 +71,6 @@ task validate(dependsOn: 'classes', type: JavaExec) {
 }
 
 task export(type:JavaExec) {
-    println "Invoking export goal"
     def mainClass
     if (format == 'hive')
         mainClass = "com.melidata.definitions.format.HiveFormatter"
