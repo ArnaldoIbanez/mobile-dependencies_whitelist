@@ -1,4 +1,4 @@
 test:
-	./gradlew tests
+	./gradlew tests export
 
 .PHONY: test
