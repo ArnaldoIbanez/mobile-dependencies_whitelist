@@ -61,6 +61,8 @@ task uploadCatalog(type:JavaExec) {
     systemProperty "S3_BUCKET", System.getProperty("S3_BUCKET")
     systemProperty "AWS_ACCESS_KEY_ID", System.getProperty("AWS_ACCESS_KEY_ID")
     systemProperty "AWS_SECRET_KEY", System.getProperty("AWS_SECRET_KEY")
+    println "We are uploading catalog [DSL FILE]: "+System.getProperty("CATALOG_DSL_FILE")
+    println "We are uploading catalog [BUCKET]: "+System.getProperty("S3_BUCKET")
 }
 
 task validate(dependsOn: 'classes', type: JavaExec) {
