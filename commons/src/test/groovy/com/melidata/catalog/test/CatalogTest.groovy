@@ -35,10 +35,21 @@ class CatalogTest {
     @Test void shouldCheckBusiness() {
         Catalog c = getDefaultEmptyCatalog()
         c.addBusiness("test")
+        c.addBusiness("test2")
+
         c.addTrackDefinition(new TrackDefinition(path:  "/search", business: "test"));
+        c.addTrackDefinition(new TrackDefinition(path:  "/search2", business: "test2"));
+
         TrackValidationResponse validationResponse = c.validate(new Track("/search",TrackType.View,"/mobile"));
         assertFalse(validationResponse.status)
+
         validationResponse = c.validate(new Track("/search",TrackType.View,"/mobile", "test"));
+        assertTrue(validationResponse.status)
+
+        validationResponse = c.validate(new Track("/search",TrackType.View,"/mobile", "test2"));
+        assertFalse(validationResponse.status)
+
+        validationResponse = c.validate(new Track("/search2",TrackType.View,"/mobile", "test2"));
         assertTrue(validationResponse.status)
     }
 
