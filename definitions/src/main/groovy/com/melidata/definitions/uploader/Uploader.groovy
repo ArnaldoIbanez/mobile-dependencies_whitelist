@@ -25,8 +25,8 @@ class Uploader {
     def static void main(String[] args) {
         def catalogFile = System.getenv().get("CATALOG_DSL_FILE")
         def s3Bucket = System.getenv().get("S3_BUCKET")
-        def accessKey = System.getenv().get("AWS_ACCESS_KEY_ID")
-        def secretKey = System.getenv().get("AWS_SECRET_KEY")
+        def accessKey = System.getenv().get("CAT_AWS_ACCESS_KEY_ID")
+        def secretKey = System.getenv().get("CAT_AWS_SECRET_KEY")
         if(catalogFile == null || s3Bucket == null || accessKey == null || secretKey == null) {
             println """
                     This program espect 4 env variables
