@@ -20,7 +20,13 @@ trackTests {
       error_message = "error loading home"
     })
 
+    "/home/pulltorefresh"(platform:"/mobile") {}
+
+    "/home/pulltorefresh/abort"(platform:"/mobile") {}
+
     "/home/scroll"(platform: "/mobile/android") {}
+
+    "/home/scroll/abort"(platform: "/mobile/android") {}
 
     "/home/tap"(platform: "/mobile", {
       position = 1
@@ -191,13 +197,38 @@ trackTests {
     "/vip/seller_reputation/ratings"(platform:"/mobile", dataSet)
   }
 
-  test("Vip web mobile tracking") {
+  test("Vip web mobile tracking without reviews") {
 
     "/vip"(platform:"/web/mobile") {
         category_id = "MLA1234"
         item_id="MLA1891239"
+        review_rate=-1
     }
+  }
 
+
+  test("Vip web mobile with reviews") {
+    "/vip"(platform:"/web/mobile") {
+        category_id = "MLA1234"
+        item_id="MLA1891239"
+        review_rate=3.5
+    }
+  }
+
+  test("Vip web desktop without reviews") {
+    "/vip"(platform:"/web/desktop") {
+        category_id = "MLA1234"
+        item_id="MLA1891239"
+        review_rate=-1
+    }
+  }
+
+  test("Vip web desktop with reviews") {
+    "/vip"(platform:"/web/desktop") {
+        category_id = "MLA1234"
+        item_id="MLA1891239"
+        review_rate=5
+    }
   }
 
   test("Vip core tracking in android deprecated") {
@@ -474,18 +505,26 @@ trackTests {
   test("checkout congrats"){
 
     "/checkout/congrats"(platform:"/mobile", type:TrackType.View) {
-        shipping_type="local_pick_up"
         item_id="MLA538444567"
-        selected_card="146872309"
-        financed_order_cost_for_card=13.00
-        payment_method="amex"
-        payment_type="credit_card"
-        installments=3
-        shipping_option=1
+        payments = [
+            [
+                payment_method:"amex",
+                payment_type:"credit_card",
+                installments:3,
+                selected_card:"146872309",
+                financed_order_cost_for_card:13.00
+
+            ]
+        ]
+        shipping =[
+                shipping_type:"mercadoenvios",
+                shipping_option:1
+        ]
+
         order_id=912391
      }
 
-    "/checkout/orderCreated"(platform:"/web/desktop", type:TrackType.Event) {
+    "/checkout/ordercreated"(platform:"/web/desktop", type:TrackType.Event) {
         congrats_seq = 1
         total_amount = 70
         order_id = 991687837
@@ -552,41 +591,89 @@ trackTests {
         order_id = 991687836
         status = "confirmed"
         total_amount = null
-        payments_result = null
+        payments = null
+        seller = [ id: 135201044, nickname: "JPS PAULO" ]
+        buyer = [ id: 75961818, nickname: "CIA51" ]
         mobile = false
+        order_items = [
+                [
+                        currency_id: "BRL",
+                        item:[
+                                id: "MLB683236263",
+                                title: "Conector 12 Vias Baquelite - 1,5/6,0mm² - Caixa Com 10",
+                                variation_attributes: [],
+                                category_id: "MLB30216",
+                                variation_id: null ],
+                        quantity: 1,
+                        unit_price: 70
+                ]
+        ]
+        proactive_two_payment = null
+        buy_equal_pay = null
+        recovery_flow = null
+        register_int = null
       }
 
     "/checkout/congrats"(platform:"/web/desktop") {
         order_id = 991687837
         status = "payment_required"
         total_amount = 70
-        payments_result = [
-              payment:[
+        seller = [ id: 135201044, nickname: "JPS PAULO" ]
+        buyer = [ id: 75961818, nickname: "CIA51" ]
+        payments = [
+              [
                 id: 5672342343,
                 method: "rapipago",
-                type: "ticket"
+                type: "ticket",
+                paid_amount: 40
               ],
-              payment:[
+              [
                 id: 5672342344,
                 method: "visa",
-                type: "credit_card"
+                type: "credit_card",
+                paid_amount: 30
               ],
         ]
+        shipping =[
+                shipping_type:"store_pick_up",
+                shipping_option:1
+        ]
         mobile = false
+        order_items = [
+                [
+                        currency_id: "BRL",
+                        item:[
+                                id: "MLB683236263",
+                                title: "Conector 12 Vias Baquelite - 1,5/6,0mm² - Caixa Com 10",
+                                variation_attributes: [],
+                                category_id: "MLB30216",
+                                variation_id: null ],
+                        quantity: 1,
+                        unit_price: 70
+                ]
+        ]
+        proactive_two_payment = false
+        buy_equal_pay = true
+        recovery_flow = true
+        register_int = true
       }
 
     "/checkout/congrats"(platform:"/web/desktop") {
       order_id = 991687837
       status = "payment_required"
-      total_amount = 70       
-      payments_result = [
-            payment:[
+      total_amount = 70
+      seller = [ id: 135201044, nickname: "JPS PAULO" ]
+      buyer = [ id: 75961818, nickname: "CIA51" ]
+      payments = [
+            [
               id: 5672342343,
               method: "rapipago",
               type: "ticket",
-              installments: 1
+              installments: 1,
+              paid_amount: 2
+
             ],
-            payment:[
+            [
               id: 5672342344,
               method: "visa",
               type: "credit_card",
@@ -594,26 +681,60 @@ trackTests {
             ],
       ]
       mobile = false
+      order_items = [
+                [
+                        currency_id: "BRL",
+                        item:[
+                                id: "MLB683236263",
+                                title: "Conector 12 Vias Baquelite - 1,5/6,0mm² - Caixa Com 10",
+                                variation_attributes: [],
+                                category_id: "MLB30216",
+                                variation_id: null ],
+                        quantity: 1,
+                        unit_price: 70
+                ]
+      ]
+
+      proactive_two_payment = true
+      buy_equal_pay = false
+      recovery_flow = false
+      register_int = false
+
     }
 
     "/checkout/congrats"(platform:"/web/desktop") {
       order_id = 991687837
       status = "payment_required"
-      total_amount = 70       
-      payments_result = [
-            payment:[
+      total_amount = 70
+      seller = [ id: 135201044, nickname: "JPS PAULO" ]
+      buyer = [ id: 75961818, nickname: "CIA51" ]
+      payments= [
+            [
               id: 5672342343,
               method: "otherMethod",
               type: "otherType",
               installments: null
             ],
-            payment:[
+            [
               id: 5672342344,
               method: "otherMethod",
               type: "otherType"
             ],
       ]
       mobile = false
+      order_items =  [
+                [
+                        currency_id: "BRL",
+                        item:[
+                                id: "MLB683236263",
+                                title: "Conector 12 Vias Baquelite - 1,5/6,0mm² - Caixa Com 10",
+                                variation_attributes: [],
+                                category_id: "MLB30216",
+                                variation_id: null ],
+                        quantity: 1,
+                        unit_price: 70
+                ]
+      ]
     }
 
     "/checkout/payments"(platform:"/web/desktop") {
@@ -622,6 +743,7 @@ trackTests {
         total_amount = 70
         tracking_referer_page = "congratsAccordSecureSiteLogo"
         mobile = false
+        buy_equal_pay = false
       }
 
     "/checkout/payments"(platform:"/web/desktop") {
@@ -630,9 +752,34 @@ trackTests {
         total_amount = 70
         tracking_referer_page = null
         mobile = false
+      }  
+
+    "/checkout/payments"(platform:"/web/desktop") {
+        order_id = 991687837
+        status = "payment_required"
+        total_amount = null
+        tracking_referer_page = null
+        mobile = false
+        buy_equal_pay = null
       }
 
-      "/checkout/payments"(platform:"/web/desktop") {
+    "/checkout/payments/installment_selector"(platform:"/web/desktop") {
+        order_id = 991687837
+        status = "payment_required"
+        total_amount = 70
+        tracking_referer_page = "congratsAccordSecureSiteLogo"
+        mobile = false
+      }
+
+    "/checkout/payments/installment_selector"(platform:"/web/desktop") {
+        order_id = 991687837
+        status = "payment_required"
+        total_amount = 70
+        tracking_referer_page = null
+        mobile = false
+      }
+
+      "/checkout/payments/installment_selector"(platform:"/web/desktop") {
         order_id = 991687837
         status = "payment_required"
         total_amount = null
@@ -902,15 +1049,15 @@ trackTests {
     "/notification/orders_new"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
-      order_id = 12132
+      order_id = "12132"
       context = "notification"
     }
 
     "/notification/shipping_shipped"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
-      order_id = 11222
-      shipping_id = 1234
+      order_id = "11222"
+      shipment_id = 1234
       context = "notification"
     }
 
@@ -918,8 +1065,8 @@ trackTests {
       news_id = "12332323"
       event_type = "arrived"
       deeplink = "meli://purchases/sales"
-      shipping_id = 1234
-      order_id = 11222		
+      shipment_id = 1234
+      order_id = "11222"
       context = "notification"
     }
     
@@ -927,18 +1074,18 @@ trackTests {
       news_id = "12332323"
       event_type = "arrived"
       deeplink = "meli://purchases/sales"
-      order_id = 11222		
-      shipping_id = 1234
+      order_id = "11222"
+      shipment_id = 1234
     }
     
     "/notification/collections_approved"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "dismiss"
-      order_id = 1234
+      order_id = "1234"
       context = "notification"
     }
 
-    "/notification/purchases_pending"(platform: "/mobile") {
+    "/notification/purchase_pending"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
       item_id = "MLA122211"
@@ -958,7 +1105,7 @@ trackTests {
     }
 
     //Buy action
-    "/notification/purchases_pending"(platform: "/mobile") {
+    "/notification/purchase_pending"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
       item_id = "MLA122211"
@@ -967,7 +1114,7 @@ trackTests {
       context = "notification"
     }
 
-    "/notification/purchases_pending"(platform: "/mobile") {
+    "/notification/purchase_pending"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
       item_id = "MLA122211"
@@ -976,7 +1123,7 @@ trackTests {
     }
 
     //Favorite action
-    "/notification/purchases_pending"(platform: "/mobile") {
+    "/notification/purchase_pending"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
       item_id = "MLA122211"
@@ -986,7 +1133,7 @@ trackTests {
     }
 
     //Notif center tracking
-    "/notification/purchases_pending"(platform: "/mobile") {
+    "/notification/purchase_pending"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "open"
       item_id = "MLA122211"
@@ -1000,8 +1147,8 @@ trackTests {
       news_id = "12332323"
       event_type = "open"
       notification_style = "BigTextStyle"
-      order_id = 1234
-      claim_id = 3123
+      order_id = "1234"
+      claim_id = "3123"
       action_type = "favorite"
     }
 
@@ -1009,8 +1156,8 @@ trackTests {
       news_id = "12332323"
       event_type = "auto_dismiss"
       notification_style = "BigTextStyle"
-      order_id = 1234
-      claim_id = 3123
+      order_id = "1234"
+      claim_id = "3123"
       action_type = "favorite"
     }
 

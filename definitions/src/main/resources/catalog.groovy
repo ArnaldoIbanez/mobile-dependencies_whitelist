@@ -137,10 +137,19 @@ catalog {
 		"/home/back"(platform:"/mobile") {
 		}
 
+        "/home/pulltorefresh"(platform:"/mobile",type: TrackType.Event) {
+        }
+
+        "/home/pulltorefresh/abort"(platform:"/mobile",type: TrackType.Event) {
+        }
+
         "/home/scroll"(platform:"/mobile",type: TrackType.Event) {
         }
 
-		"/home/abort"(platform:"/mobile") {
+        "/home/scroll/abort"(platform:"/mobile",type: TrackType.Event) {
+        }
+
+        "/home/abort"(platform:"/mobile") {
 		}
 
 		"/home/tap"(platform:"/mobile") {
@@ -148,24 +157,24 @@ catalog {
 			section()
 			tag_id()
 		}
-		
+
 		//REVIEWS FRONTEND
 		"/reviews/form" (platform: "/") {
 			itemId()
 			reviewerId()
 		}
-		
+
 		"/reviews/congrats" (platform: "/") {
 			itemId()
 			reviewerId()
 			reviewLength()
 		}
-		
+
 		"/reviews/error" (platform: "/") {
 			itemId()
 			reviewerId()
 		}
-		
+
 		"/reviews/email" (platform: "/email") {
 			itemId()
 			reviewerId()
@@ -205,7 +214,7 @@ catalog {
 			filter_user_applied(deprecated:true, required: false)
             context(required:false)
 		}
-        
+
 		"/search/failure" (platform: "/mobile", type: TrackType.Event){
 			error_message()
 			limit(required: false, description: "override required property")
@@ -276,13 +285,17 @@ catalog {
 			category_path(deprecated: true, required: false)
 		}
 
+		"/vip"(platform:"/web") {
+			review_rate(inheritable: false)
+		}
+
         "/vip"(platform:"/mobile") {
             context(required:false)
         }
 
 		"/vip/abort"(platform:"/mobile", type: TrackType.Event) { }
-		
-		"/vip/failure"(platform:"/mobile", type: TrackType.Event) { 
+
+		"/vip/failure"(platform:"/mobile", type: TrackType.Event) {
 			error_message()
 		}
 
@@ -309,6 +322,7 @@ catalog {
 			mode(required:false)
 			sent_again(required:false)
 			from_background(required:false)
+            context(required: false)
 		}
 
 		"/vip/item_gallery/back"(platform:"/mobile") { }
@@ -379,15 +393,25 @@ catalog {
 		"/checkout"(platform: "/web", isAbstract: true){
 		}
 
-		"/checkout/orderCreated"(platform:"/web", type: TrackType.Event) {
+		"/checkout/ordercreated"(platform:"/web", type: TrackType.Event) {
 			order_id()
 			status()
 			total_amount()
 			order_items()
-			buyer()
-			seller()
+                 //item
+                    //id
+                    //variation_id
+                    //buying_mode
+                    //category_id
+                    //deal_ids
+                //quantity
+                //unit_price
+                //currency_id
+            mobile(type: PropertyType.Boolean)
+
+            buyer()
+            seller()
 			errors()
-			mobile(type: PropertyType.Boolean)
 
 			congrats_seq(serverSide: true)
 			first_for_order(serverSide: true)
@@ -400,15 +424,66 @@ catalog {
 			order_id(required: true, description: "OrderId")
 			status(required: true, description: "status")
 			total_amount(required: false, description: "totalAmount")
-			payments_result(required: false, description: "The payments result has several payments information")
+            order_items( description: "Array of items in the order" )
+                //item
+                    //id
+                    //variation_id
+                    //buying_mode
+                    //category_id
+                    //deal_ids
+                //quantity
+                //unit_price
+                //currency_id
 			mobile(type: PropertyType.Boolean)
+
+            shipping( required: false)
+                //shipping_type
+                //shipping_option
+
+            payments(required: false, description: "Array of payments information") //
+                // id
+                // payment_method,
+                // payment_type,
+                // installments,
+                // selected_card
+                // paid_amount
+
+            buyer(required: true)
+            seller(required: true)
 
 			total_amount_local(serverSide: true)
 			total_amount_usd(serverSide: true)
 			order_api(serverSide: true)
+
+			proactive_two_payment(required: false, description: "tracking proactive two payment selection")
+			buy_equal_pay(required: false, description: "BP flag")
+			recovery_flow(required: false, description: "Is recovery CHO flow")
+			register_int(required: false, description: "Integer registration")
+
+
 		}
 
 		"/checkout/payments"(platform:"/web") {
+			order_id(required: true, description: "OrderId")
+			status(required: true, description: "status")
+			total_amount(required: false, description: "totalAmount")
+			tracking_referer_page(required: false, description: "tracking referer page from where the request came")
+			mobile(type: PropertyType.Boolean)
+            payments(required: false) //
+                // id
+                // payment_method,
+                // payment_type,
+                // installments,
+                // selected_card
+
+			total_amount_local(serverSide: true)
+			total_amount_usd(serverSide: true)
+			order_api(serverSide: true)
+			buy_equal_pay(required: false, description: "BP flag")
+
+		}
+
+		"/checkout/payments/installment_selector"(platform:"/web") {
 			order_id(required: true, description: "OrderId")
 			status(required: true, description: "status")
 			total_amount(required: false, description: "totalAmount")
@@ -422,25 +497,37 @@ catalog {
 
 		"/checkout"(platform:"/mobile") {
 			order_id(required: false)
-			order_items(required: false, description: "New: optional for old versions of mobile")
-			reloaded(required:false)
-			quantity_pre_selected(required:false)
+            status(required:false)
+            total_amount(required: false, type: PropertyType.Numeric)
+			order_items(required: false, description: "Array of items in the order. New: optional for old versions of mobile")
+                //item
+                    //id
+                    //variation_id
+                    //buying_mode
+                    //category_id
+                    //deal_ids
+                //quantity
+                //unit_price
+                //currency_id
+
+            shipping( required: false)
+                //shipping_type
+                //shipping_option
+
+            payments(required: false, description: "Array of payment information") //
+                // id
+                // payment_method,
+                // payment_type,
+                // installments,
+                // selected_card
+                // financed_order_cost_for_card
+                // payment_must_call_for_authorize
+
+            status_detail(required:false)
+            reloaded(required:false)
+            quantity_pre_selected(required:false)
 			order_payment_required(required:false)
 			shipping_pre_selected(required:false)
-			payment_pre_selected(required:false)
-			selected_card(required:false)
-			shipping_type(required:false)
-			shipping_option(required:false)
-			financed_order_cost_for_card(required: false)
-			payment_must_call_for_authorize(required: false)
-			payment_method(required:false)
-			payment_type(required:false)
-			installments(required:false)
-			buyer(required:false)
-			seller(required:false)
-			total_amount(required: false, type: PropertyType.Numeric)
-			status(required:false)
-			status_detail(required:false)
 
 			item_id(deprecated: true, required: false)
 			quantity(deprecated: true, required: false)
@@ -452,6 +539,9 @@ catalog {
 		"/checkout/back"(platform:"/mobile", type: TrackType.Event) {}
 
 		"/checkout/congrats"(platform:"/mobile") {
+            buyer(required: false )
+            seller(required: false)
+
 			duplicated_error(required: false)
 			congrats_seq(serverSide: true)
 			total_amount_local(serverSide: true)
@@ -677,8 +767,8 @@ catalog {
 		  * disclaimer: when the action_type is set, the event_type should be always 'open'
 		  **/
 		 "/notification"(platform:"/mobile") {
-			  news_id(required: true, description: "Identifier of the notification generated")
-			  event_type(required: true, values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss"], description: "Type of notification event")
+			  news_id(required: false, description: "Identifier of the notification generated")
+			  event_type(required: true, values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown"], description: "Type of notification event")
 			  action_type(required: false, values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone"])
 			  deeplink(required: false, description: "The link were the notification should navigate to, if applies")
 			  status(required: false, values: ["read", "unread"], description: "The current notification status, used only when tracking from notification center.")
@@ -687,18 +777,18 @@ catalog {
 		 }
 		 //Tu producto está en camino
 		 "/notification/shipping_shipped"(platform:"/mobile") {
-			  order_id(required: true, type : PropertyType.Numeric, description: "The order of the bought item which has been shipped")
-			  shipping_id(required: true, type: PropertyType.Numeric)
+			  order_id(required: true, type : PropertyType.String, description: "The order of the bought item which has been shipped")
+			  shipment_id(required: true, type: PropertyType.Numeric)
 		 }
 		 //Retiro en sucursal
 		 "/notification/shipping_agency_withdrawal"(platform: "/mobile"){
-			  order_id(required: true, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
-			  shipping_id(required: true, type: PropertyType.Numeric)
+			  order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+			  shipment_id(required: true, type: PropertyType.Numeric)
 		 }
 		 //Devolución de costo de envío por demora
 		 "/notification/shipping_delayed_bonus"(platform: "/mobile"){
-			  order_id(required: true, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
-			  shipping_id(required: true, type: PropertyType.Numeric)
+			  order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+			  shipment_id(required: true, type: PropertyType.Numeric)
 		 }
 		 //Seller questions
 		 "/notification/questions_new"(platform: "/mobile") {
@@ -710,7 +800,7 @@ catalog {
 		 }
 		 //New Sale
 		 "/notification/orders_new"(platform: "/mobile") {
-			  order_id(required: true, type: PropertyType.Numeric)
+			  order_id(required: true, type: PropertyType.String)
 		 }
 		 //MKT Deals DEPRECADO
 		 "/notification/deals_campaigns"(platform: "/mobile"){
@@ -728,11 +818,11 @@ catalog {
 		 }		
 		 //Tu cobro fué acreditado
 		 "/notification/collections_approved"(platform: "/mobile"){
-		 	order_id(required: true, type: PropertyType.Numeric)
+		 	order_id(required: true, type: PropertyType.String)
 		 }
 
 		 //Dropout de CHO
-		 "/notification/purchases_pending"(platform: "/mobile") {
+		 "/notification/purchase_pending"(platform: "/mobile") {
 			  item_id(required: true)
 		 }
 		 //Loyalty
@@ -740,8 +830,8 @@ catalog {
 
 		 //Mediations
 		 "/notification/mediations_complainant"(platform: "/mobile") {
-			  order_id(required: true, type: PropertyType.Numeric, description: "The order related to the claim")
-			  claim_id(required: true, type: PropertyType.Numeric)
+			  order_id(required: true, type: PropertyType.String, description: "The order related to the claim")
+			  claim_id(required: true, type: PropertyType.String)
 		 }
 	}
 }
