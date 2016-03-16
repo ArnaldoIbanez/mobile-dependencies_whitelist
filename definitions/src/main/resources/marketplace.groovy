@@ -759,7 +759,7 @@ tracks {
 
 		 //Dropout de CHO
 		 "/notification/purchase_pending"(platform: "/mobile") {
-			  item_id(required: true)
+			  item_id(required: true, type: PropertyType.String)
 		 }
 		 //Loyalty
 		 "/notification/reputation_buyer_in"(platform: "/mobile") { }
@@ -768,5 +768,47 @@ tracks {
 		 "/notification/mediations_complainant"(platform: "/mobile") {
 			  order_id(required: true, type: PropertyType.String, description: "The order related to the claim")
 			  claim_id(required: true, type: PropertyType.String)
+		 }
+
+		 //Moderation
+		 "/notification/moderation_item_to_patch"(platform: "/mobile") {
+			  item_id(required: true, type: PropertyType.String)
+		 }
+
+		 "/notification/moderation_item_forbidden"(platform: "/mobile") {
+			  item_id(required: true, type: PropertyType.String)
+		 }
+
+
+		 "/notification/moderation_item_warning"(platform: "/mobile") {
+			  item_id(required: true, type: PropertyType.String)
+		 }
+
+
+		 "/notification/moderation_message_banned"(platform: "/mobile") {
+		 }
+
+		//Payments
+		"/notification/payments_pending_remainder"(platform: "/mobile") {
+			item_id(required: true, type: PropertyType.String)
+			order_id(required: true, type: PropertyType.Numeric)
+		 }
+
+		 "/notification/payments_approved"(platform: "/mobile") {
+			item_id(required: true, type: PropertyType.String)
+			order_id(required: true, type: PropertyType.Numeric)
+		 }
+
+		 "/notification/payments_rejected"(platform: "/mobile") {
+			item_id(required: true, type: PropertyType.String)
+			order_id(required: true, type: PropertyType.Numeric)
+		 }
+
+		 "/notification/orders_cancelled"(platform: "/mobile") {
+			item_id(required: true, type: PropertyType.String)
+		 }
+
+		//Messages
+		"/notification/messages_new"(platform: "/mobile") {
 		 }
 	}
