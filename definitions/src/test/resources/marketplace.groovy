@@ -3,6 +3,8 @@ import com.ml.melidata.TrackType;
 
 trackTests {
 
+  defaultBusiness = "mercadolibre"
+
   test("Root tracking") {
     "/"(platform: "/mobile") {}
 
@@ -41,14 +43,12 @@ trackTests {
         total=5876 
         limit=20
         query="iphone"
-        deferred_time=1361
         category_path=["MLA1051", "MLA1055", "MLA32089"]
         category_id="MLA32089"
         filter_user_applied=[]
         offset=0
         sort_id="relevance"
         view_mode="MOSAIC"
-        mode="DEFERRED"
     }
 
     def defaultEmptySearchInformation = {
@@ -99,6 +99,9 @@ trackTests {
       defaultSearchInformation()
       list_mode = "mosaic"
     }
+
+    //test tucarro
+    "/search"(platform: "/web/desktop", business: "tucarro", defaultSearchInformation)
   }
 
   test("Search gallery with 10 items, first page" ) {
@@ -107,7 +110,6 @@ trackTests {
       offset = 0
       category_id="MLA32089"
       query="iphone"
-      deferred_time=122
     }
   }
 
@@ -378,7 +380,6 @@ trackTests {
       defaultCheckoutInformation()
       quantity_pre_selected=1
       order_payment_required=false
-      deferred_time=1
     }
 
     "/checkout/abort"(platform:"/mobile") {}
@@ -793,22 +794,16 @@ trackTests {
     "/credit_cards"(platform:"/mobile", type: TrackType.View) {
       available_cards=["visa", "amex", "master", "diners"]
       context = "/checkout"
-      deferred_time=1230
-      mode="DEFERRED"
     }
 
     "/credit_cards/abort"(platform:"/mobile", type: TrackType.View) {
       available_cards=["visa", "amex", "master", "diners"]
       context = "/checkout"
-      deferred_time=1230
-      mode="DEFERRED"
     }
 
     "/credit_cards/back"(platform:"/mobile", type: TrackType.View) {
       available_cards=["visa", "amex", "master", "diners"]
       context = "/checkout"
-      deferred_time=1230
-      mode="DEFERRED"
     }
 
     "/credit_cards/new_card"(platform:"/mobile", type: TrackType.View) {
@@ -939,13 +934,11 @@ trackTests {
       total=5876
       limit=20
       query="iphone"
-      deferred_time=1361
       category_path=["MLA1051", "MLA1055", "MLA32089"]
       category_id="MLA32089"
       filter_user_applied=[]
       offset=0
       sort_id="relevance"
-      mode="DEFERRED"
     }
 
     "/external"(platform:"/mobile", type:TrackType.View) { defaultSearchInformation }
@@ -1174,7 +1167,6 @@ trackTests {
     }
 
   }
-
 
 }
 

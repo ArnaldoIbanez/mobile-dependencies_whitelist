@@ -10,6 +10,7 @@ class TestDsl{
 
     def ArrayList<Track> tracks = []
     def String name
+    def String defaultBusiness
 
     //prefix fields with _ to avoid conflict with test properties definition
     def _messages = []
@@ -26,7 +27,11 @@ class TestDsl{
         for(def i =0; i < args.size() -1 ; i++) {
             trackArgs = trackArgs+args[i]
         }
-        this.tracks.push(new Track(trackArgs))
+        def track = new Track(trackArgs)
+        if (!track.business) {
+            track.business = defaultBusiness
+        }
+        this.tracks.push(track)
         def closure = args[-1]
         closure()
     }

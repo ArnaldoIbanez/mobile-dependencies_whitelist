@@ -7,12 +7,11 @@ import com.ml.melidata.catalog.Catalog
  */
 class CatalogDsl {
 
+    def String baseDir = "catalog/"
 
     def Catalog catalog;
 
     def platforms = []
-
-    def List<String> business;
 
     def String defaultBusiness;
 
@@ -28,13 +27,6 @@ class CatalogDsl {
         return dsl.catalog
     }
 
-    def setBusiness(arr) {
-        business = arr;
-        business.each { b ->
-            catalog.addBusiness(b);
-        }
-    }
-
     def setDefaultBusiness(business) {
         defaultBusiness = business
         catalog.setDefaultBusiness(business)
@@ -45,15 +37,27 @@ class CatalogDsl {
        closure.delegate = trackDsl
        closure.resolveStrategy = Closure.DELEGATE_FIRST
        closure();
-       trackDsl.trackDefinitions.each { tr ->
-           if(!tr.business) {
-               tr.business = defaultBusiness;
-           }
-           if(business.indexOf(tr.business)) {
-               throw new RuntimeException(tr.business+" is not a valid business");
-           }
-           catalog.addTrackDefinition(tr)
-       }
+       add(trackDsl.trackDefinitions, defaultBusiness)
+    }
+
+    def include(String fileName) {
+        include(defaultBusiness, fileName)
+    }
+
+    def include(String business, String fileName) {
+        GroovyShell shell = new GroovyShell()
+        def trackDsl = shell.parse(new File(baseDir + fileName)).run()
+        add(trackDsl, business)
+    }
+
+    def add(list, overridedBusiness) {
+        list.each { tr ->
+            if(!tr.business) {
+                tr.business = overridedBusiness;
+            }
+            catalog.addBusiness(tr.business)
+            catalog.addTrackDefinition(tr)
+        }
     }
 
     def setPlatforms(arr) {
