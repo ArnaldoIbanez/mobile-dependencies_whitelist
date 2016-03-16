@@ -5,12 +5,6 @@ trackTests {
 
   defaultBusiness = "mercadopago"
 
-  test("mercadopago") {
-    "/mp/test"(platform: "/", business: "mercadopago") {
-      id = "123"
-    }
-
-  }
 
 }
 
