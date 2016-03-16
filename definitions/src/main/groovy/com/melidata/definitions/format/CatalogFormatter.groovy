@@ -8,8 +8,14 @@ import com.ml.melidata.catalog.tree.PlatformTree
 abstract class CatalogFormatter {
 
     abstract def getLine(def k, def v)
-    abstract def generate()
+    abstract def generate(String business)
     abstract def formatOutput(def data)
+
+    def generate() {
+        catalog.platformTrees.keySet().collect { business ->
+            [business, generate(business)]
+        }
+    }
 
     def extractProps(def t) {
         t.definition ? t.definition.properties.collectEntries{k,v -> [k,[v.type?.toString(),v.required,v.serverSide,v.description]]} : [:]
