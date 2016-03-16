@@ -100,7 +100,7 @@ class Catalog implements CatalogInterface{
         try {
             def platformTree = platformTrees.get(business);
             if(!platformTree) {
-                throw new CatalogException("BusinessYYY ${business} not found");
+                throw new CatalogException("Business ${business} not found");
             }
             def PlatformTree platformNode = platformTree.getNodeByPath(track.platform);
             if(!platformNode) {

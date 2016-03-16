@@ -100,8 +100,6 @@ trackTests {
       list_mode = "mosaic"
     }
 
-    //test tucarro
-    "/search"(platform: "/web/desktop", business: "tucarro", defaultSearchInformation)
   }
 
   test("Search gallery with 10 items, first page" ) {
