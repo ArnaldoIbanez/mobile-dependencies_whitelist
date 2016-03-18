@@ -10,7 +10,9 @@ If you want to run the tests, you should execute **```make test```**
 
 ## Add a new track
 
-When you add a new track the most important thing to do is to add a test to validate the track we're adding. To do that we should add a new test case for our new track to **definitions/tests/tests.groovy**
+When you add a new track the most important thing to do is to add a test to validate the track we're adding. To do that we should add a new test case for our new track to **definitions/tests/marketplace.groovy**
+
+To create a catalog, please look at  **marketplace.groovy** and check where your business name should be included.
 
 In the file we should add a new test case with one or more tracks to test. When we run the tests each track will be checked to see if these are valid
 ``` groovy

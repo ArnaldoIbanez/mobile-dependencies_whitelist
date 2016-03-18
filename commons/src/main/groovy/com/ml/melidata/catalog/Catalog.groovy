@@ -27,12 +27,13 @@ class Catalog implements CatalogInterface{
     }
 
     def addBusiness(String business) {
-        def p = new PlatformTree();
-        platforms.each {platform ->
-            addPlatform(p, platform)
+        if ( ! platformTrees.containsKey(business) ) {
+            def p = new PlatformTree()
+            platforms.each { platform ->
+                addPlatform(p, platform)
+            }
+            platformTrees.put(business, p);
         }
-        platformTrees.put(business, p);
-
     }
 
     def addPlatform(String platform) {
@@ -65,16 +66,12 @@ class Catalog implements CatalogInterface{
         if(platformTree == null ) {
             throw new CatalogException("Business ${business} not found");
         }
-        def platformNode = platformTree.getNodeByPath(getDefaultBusiness(trackDefinition.platform));
+        def platformNode = platformTree.getNodeByPath(trackDefinition.platform);
         if(!platformNode) {
             throw new CatalogException("Platform ${trackDefinition.platform} not found");
         }
        platformNode.addTrackDefinition(trackDefinition);
     }
-
-//    def TrackValidationResponse validate(Track track, String platform) {
-//
-//    }
 
     /**
      * It should validate a track object checking if the track matches the

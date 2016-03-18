@@ -15,11 +15,15 @@ class CatalogCoverage {
 	def Double coveragePercent
 
 	//TODO. esto es temporal, calcular los path internos que no son tracks validos (no estan en el catalogo) para no validarlos
-	private def _exceptions
+	private Set<String> _exceptions
 
 	def getExceptions() {
-		if (!_exceptions)
-			_exceptions = findAbstracts(getPlatforms(catalog.platformTrees.mercadolibre))
+		if (!_exceptions) {
+			_exceptions = new HashSet<String>()
+			catalog.platformTrees.each { b,v ->
+				_exceptions.addAll(findAbstracts(getPlatforms(v)))
+			}
+		}
 
 		_exceptions
 	}
@@ -69,39 +73,40 @@ class CatalogCoverage {
 		return p.collectEntries{k,v -> [k,traverse(v.tracksTree)]}
 	}
 
-	def findAbstracts(def p) {
+	Set<String> findAbstracts(def p) {
 		def c = p.children.values()
 		c ? c.findAll{ it.definition?.isAbstract }*.definition?.path + c.collect{findAbstracts(it)}.flatten() : []
 	}
 
-	def findAbstracts(Map m) {
+	Set<String> findAbstracts(Map m) {
 		m ? m.collect{findAbstracts(it.value.tracksTree)}.flatten().toSet() : []
 	}
 
 	def private computeCoverage() {
 		if ( coverage == null ) {
 
-			//compute coverage of all paths without platform
-			def platforms = getPlatforms(catalog.platformTrees.mercadolibre)
-			def pathsByPlatform = getPaths(platforms)
-			def allPaths = new HashSet<String>()
-			pathsByPlatform.each { platform, platformPaths ->
-				allPaths.addAll(platformPaths)
-			}
-
 			def totalCount = 0
 			def testsCount = 0
 
 			coverage = [:]
+			def allPaths = new HashSet<String>()
 
-			allPaths.toList().sort().each { path ->
-				def tested = testedPaths.contains(path) || exceptions.contains(path)
-				coverage.put(path, tested)
-				totalCount++
-				if (tested) testsCount++
+			//compute coverage of all paths without platform
+			catalog.platformTrees.each { b, v ->
+				def platforms = getPlatforms(v)
+				def pathsByPlatform = getPaths(platforms)
+				pathsByPlatform.each { platform, platformPaths ->
+					allPaths.addAll(platformPaths)
+				}
+
+				allPaths.toList().sort().each { path ->
+					def tested = testedPaths.contains(path) || exceptions.contains(path)
+					coverage.put(path, tested)
+					totalCount++
+					if (tested) testsCount++
+				}
+
 			}
-
-
 			coveragePercent = testsCount * 100 / totalCount
 		}
 	}

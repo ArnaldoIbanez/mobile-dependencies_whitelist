@@ -17,11 +17,6 @@ public class DslTest {
     @Test void platformsTest() {
         def j = catalog {
 
-            business = [
-                    "mercadolibre",
-                    "tucarro"
-            ]
-
             defaultBusiness = "mercadolibre"
 
             platforms = [
@@ -42,19 +37,23 @@ public class DslTest {
                 "/search/refine"(platform: "/") {
 
                 }
+                "/tucarro"(platform: "/", business: "tucarro") {
+                    id()
+                }
             }
         }
 
         Track t =  new Track(path:"/search", event_data: ["limit":50,"offset":1])
         assertTrue(j.validate(t).status)
+
+
+        Track t2 =  new Track(path:"/tucarro", event_data: ["id":5], business: "tucarro")
+        assertTrue(j.validate(t2).status)
     }
 
     @Test void shouldFailTrackPropertyTypeIncorrect() {
 
         def catalogo = catalog {
-            business=[
-                    "ml"
-            ]
 
             defaultBusiness = "ml"
             platforms = [
@@ -77,9 +76,6 @@ public class DslTest {
     @Test void shouldFailTrackRegexValidateIncorrect() {
 
         def catalogo = catalog {
-            business=[
-                    "ml"
-            ]
 
             defaultBusiness = "ml"
 
@@ -107,10 +103,6 @@ public class DslTest {
 
         def catalogo = catalog {
 
-            business = [
-                    "ml"
-            ]
-
             defaultBusiness = "ml"
 
             platforms = [
@@ -133,11 +125,8 @@ public class DslTest {
     @Test void shouldValidateTrackPropertyNotCataloged() {
 
         def catalogo = catalog {
-            business=[
-                    "ml"
-            ]
-
             defaultBusiness = "ml"
+
             platforms = [
                     "/mobile",
                     "/mobile/ios",
@@ -152,6 +141,72 @@ public class DslTest {
 
         def result = catalogo.validate(new Track(path:"/search", event_data: ["category":"MLA234"]))
         assertFalse(result.status)
+    }
+
+    @Test void includeTest() {
+
+        def catalogo = catalog {
+
+            baseDir = "mocks/"
+
+            platforms = [
+                    "/mobile",
+                    "/mobile/ios",
+            ]
+
+            include "b1", "file1.groovy"
+            include "b2", "file2.groovy"
+        }
+
+        def result = catalogo.validate(new Track(path:"/search1", event_data: ["category":"MLA234"], business: "b1"))
+        assertTrue(result.status)
+
+
+        result = catalogo.validate(new Track(path:"/search2", event_data: ["category":"MLA234"], business: "b2"))
+        assertTrue(result.status)
+    }
+
+    @Test void includeReuseTest() {
+
+        def catalogo = catalog {
+
+            baseDir = "mocks/"
+
+            platforms = [
+                    "/mobile",
+                    "/mobile/ios",
+            ]
+
+            include "b1", "file1.groovy"
+            include "b2", "file1.groovy"
+        }
+
+        def result = catalogo.validate(new Track(path:"/search1", event_data: ["category":"MLA234"], business: "b1"))
+        assertTrue(result.status)
+
+
+        result = catalogo.validate(new Track(path:"/search1", event_data: ["category":"MLA234"], business: "b2"))
+        assertTrue(result.status)
+    }
+
+
+    @Test void includeExtendTest() {
+
+        def catalogo = catalog {
+
+            baseDir = "mocks/"
+
+            platforms = [
+                    "/mobile",
+                    "/mobile/ios",
+            ]
+
+            include "b1", "file1.groovy"
+            include "b1", "file3.groovy"
+        }
+
+        def result = catalogo.validate(new Track(path:"/search1", event_data: ["category":"MLA234", "extra": true], business: "b1"))
+        assertTrue(result.status)
     }
 
 
