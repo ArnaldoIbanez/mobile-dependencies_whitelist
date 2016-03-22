@@ -1166,6 +1166,70 @@ trackTests {
 
   }
 
+    test("orders feed from commons tracker cards"){
+        def defaultOrderinformation = {
+            order_id = 99999999
+            status = "paid"
+            status_detail = ""
+            total_amount = 100
+            total_amount_with_shipping = 120
+
+            seller = [ id: 135201044, nickname: "XXXXXX" ]
+            buyer = [ id: 75961818, nickname: "YYYYYY" ]
+
+            shipping = [
+                    cost: 20,
+                    id : 21524852258,
+                    shipping_mode : "me2",
+                    shipping_option : [ id : 509341546, name : "Retiro en sucursal OCA", shipping_method_id : 501045]
+            ]
+
+            payments = [
+                    [
+                            id: 5672342343,
+                            method: "rapipago",
+                            type: "ticket",
+                            installments: 1,
+                            paid_amount: 60,
+                            without_fee : true,
+                            status: "approved",
+                            status_detail: "accredited"
+                    ],
+                    [
+                            id: 5672342344,
+                            payment_method: "visa",
+                            paymet_type: "credit_card",
+                            installments: 3,
+                            paid_amount: 60,
+                            installment_amount: 20,
+                            without_fee : true,
+                            status: "approved",
+                            status_detail: "accredited"
+                    ],
+            ]
+
+            order_items = [
+                    [
+                            currency_id: "BRL",
+                            item:[
+                                    id: "MLB683236263",
+                                    title: "Conector 12 Vias Baquelite - 1,5/6,0mm² - Caixa Com 10",
+                                    variation_attributes: [],
+                                    category_id: "MLB30216",
+                                    variation_id: null ],
+                            quantity: 1,
+                            unit_price: 70
+                    ]
+            ]
+        }
+
+        "/orders/ordercreated" (platform:"/mobile/ios", type: TrackType.View,  ) {defaultOrderinformation()}
+        "/orders/ordercreated" (platform:"/mobile/android", type: TrackType.View) {defaultOrderinformation()}
+        "/orders/ordercreated" (platform:"/web/desktop", type: TrackType.View) {defaultOrderinformation()}
+        "/orders/ordercreated" (platform:"/web/mobile", type: TrackType.View) {defaultOrderinformation()}
+
+    }
+
 }
 
 
