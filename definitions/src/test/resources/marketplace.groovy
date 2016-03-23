@@ -57,6 +57,14 @@ trackTests {
         query="ipod"
         offset=0
     }
+    "/search"(platform: "/web",{
+        visual_id="STD"
+        config_version= "111"
+        filters = { seller_id = "47316577" }
+        only_in_type="Seller"
+        limit=20
+        offset=0
+    })
 
     "/search"(platform: "/mobile", defaultSearchInformation)
 
