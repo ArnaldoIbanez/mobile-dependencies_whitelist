@@ -885,35 +885,35 @@ catalog {
             total_amount_with_shipping(required: false, description: "order amount including shipping cost")
             order_items(description: "Array of items in the order")
             //item
-            //id
-            //title
-            //selle_custom_fields
-            //variation_attributes
-            //category_id
-            //variation_id
+                //id
+                //title
+                //selle_custom_fields
+                //variation_attributes
+                //category_id
+                //variation_id
             //quantity
             //unit_price
             //currency_id
             //sale_fee
 
             shipping(required: false)
-            //id
-            //cost
-            //shipping_mode
-            //shipping_option
-            //id
-            //name
-            //shipping_method_id
+                //id
+                //cost
+                //shipping_mode
+                //shipping_option
+                    //id
+                    //name
+                    //shipping_method_id
 
             payments(required: false, description: "Array of payments information")
-            // id
-            // payment_method,
-            // payment_type,
-            // paid_amount
-            // installments,
-            // withou_fee
-            // status
-            // status_detail
+                // id
+                // payment_method
+                // payment_type
+                // paid_amount
+                // installments
+                // without_fee
+                // status
+                // status_detail
 
             buyer(required: true, description: "buyer information") // id, nickname
             seller(required: true, description: "seller information") // id, nickname
