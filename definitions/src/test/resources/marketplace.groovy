@@ -49,6 +49,7 @@ trackTests {
         offset=0
         sort_id="relevance"
         view_mode="MOSAIC"
+        filter_tags=["locationFromHistory"]
     }
 
     def defaultEmptySearchInformation = {
@@ -56,6 +57,14 @@ trackTests {
         query="ipod"
         offset=0
     }
+    "/search"(platform: "/web",{
+        visual_id="STD"
+        config_version= "111"
+        filters = { seller_id = "47316577" }
+        only_in_type="Seller"
+        limit=20
+        offset=0
+    })
 
     "/search"(platform: "/mobile", defaultSearchInformation)
 
@@ -79,6 +88,7 @@ trackTests {
         error_message = "No connection error"
     }
 
+    "/search/filters"(platform: "/mobile", defaultSearchInformation)
     "/search/back"(platform: "/mobile", defaultSearchInformation)
     "/search/abort"(platform: "/mobile", defaultEmptySearchInformation)
     "/search/refine"(platform: "/mobile", defaultSearchInformation)
@@ -1164,7 +1174,264 @@ trackTests {
       question_id = 1234
     }
 
+    "/notification/moderation_item_to_patch"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      notification_style = "BigTextStyle"
+      item_id = "MLA1234"
+    }
+
+    "/notification/moderation_item_to_patch"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+ 
+    "/notification/moderation_item_to_patch"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "dismiss"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+ 
+    "/notification/moderation_item_forbidden"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+ 
+    "/notification/moderation_item_forbidden"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "dismiss"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+ 
+    "/notification/moderation_item_forbidden"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+
+    "/notification/payments_pending_remainder"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      item_id = "MLA1234"
+      order_id = 1234321
+      context = "notification"
+    }
+
+    "/notification/payments_pending_remainder"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "dismiss"
+      item_id = "MLA1234"
+      order_id = 1234321
+      context = "notification"
+    }
+
+    "/notification/payments_pending_remainder"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      item_id = "MLA1234"
+      order_id = 1234321
+      context = "notification"
+    }
+
+    "/notification/payments_approved"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "dismiss"
+      item_id = "MLA1234"
+      order_id = 1234321
+      context = "notification"
+    }
+
+    "/notification/payments_approved"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      item_id = "MLA1234"
+      order_id = 1234321
+      context = "notification"
+    }
+
+    "/notification/payments_approved"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      item_id = "MLA1234"
+      order_id = 1234321
+      context = "notification"
+    }
+
+    "/notification/payments_rejected"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      item_id = "MLA1234"
+      order_id = 1234321
+      context = "notification"
+    }
+
+    "/notification/payments_rejected"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      item_id = "MLA1234"
+      order_id = 1234321
+      context = "notification"
+    }
+
+    "/notification/payments_rejected"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "dismiss"
+      item_id = "MLA1234"
+      order_id = 1234321
+      context = "notification"
+    }
+
+    "/notification/orders_cancelled"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+
+    "/notification/orders_cancelled"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+
+
+    "/notification/orders_cancelled"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "dismiss"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+
+    "/notification/messages_new"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      context = "notification"
+    }
+
+    "/notification/messages_new"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "dismiss"
+      context = "notification"
+    }
+
+    "/notification/messages_new"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      context = "notification"
+    }
+
+    "/notification/moderation_item_warning"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+
+    "/notification/moderation_item_warning"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "dismiss"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+
+    "/notification/moderation_item_warning"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+
+    "/notification/moderation_message_banned"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      context = "notification"
+    }
+
+    "/notification/moderation_message_banned"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "dismiss"
+      context = "notification"
+    }
+
+    "/notification/moderation_message_banned"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      context = "notification"
+    }
   }
+
+    test("orders feed from commons tracker cards"){
+        def defaultOrderinformation = {
+            order_id = 99999999
+            status = "paid"
+            status_detail = ""
+            total_amount = 100
+            total_amount_with_shipping = 120
+
+            seller = [ id: 135201044, nickname: "XXXXXX" ]
+            buyer = [ id: 75961818, nickname: "YYYYYY" ]
+
+            shipping = [
+                    cost: 20,
+                    id : 21524852258,
+                    shipping_mode : "me2",
+                    shipping_option : [ id : 509341546, name : "Retiro en sucursal OCA", shipping_method_id : 501045]
+            ]
+
+            payments = [
+                    [
+                            id: 5672342343,
+                            method: "rapipago",
+                            type: "ticket",
+                            installments: 1,
+                            paid_amount: 60,
+                            without_fee : true,
+                            status: "approved",
+                            status_detail: "accredited"
+                    ],
+                    [
+                            id: 5672342344,
+                            payment_method: "visa",
+                            paymet_type: "credit_card",
+                            installments: 3,
+                            paid_amount: 60,
+                            installment_amount: 20,
+                            without_fee : true,
+                            status: "approved",
+                            status_detail: "accredited"
+                    ],
+            ]
+
+            order_items = [
+                    [
+                            currency_id: "BRL",
+                            item:[
+                                    id: "MLB683236263",
+                                    title: "Conector 12 Vias Baquelite - 1,5/6,0mm² - Caixa Com 10",
+                                    variation_attributes: [],
+                                    category_id: "MLB30216",
+                                    variation_id: null ],
+                            quantity: 1,
+                            unit_price: 70
+                    ]
+            ]
+        }
+
+        "/orders/ordercreated" (platform:"/mobile/ios", type: TrackType.View,  ) {defaultOrderinformation()}
+        "/orders/ordercreated" (platform:"/mobile/android", type: TrackType.View) {defaultOrderinformation()}
+        "/orders/ordercreated" (platform:"/web/desktop", type: TrackType.View) {defaultOrderinformation()}
+        "/orders/ordercreated" (platform:"/web/mobile", type: TrackType.View) {defaultOrderinformation()}
+
+    }
+
 
 }
 
