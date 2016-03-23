@@ -49,6 +49,7 @@ trackTests {
         offset=0
         sort_id="relevance"
         view_mode="MOSAIC"
+        filter_tags=["locationFromHistory"]
     }
 
     def defaultEmptySearchInformation = {
@@ -79,6 +80,7 @@ trackTests {
         error_message = "No connection error"
     }
 
+    "/search/filters"(platform: "/mobile", defaultSearchInformation)
     "/search/back"(platform: "/mobile", defaultSearchInformation)
     "/search/abort"(platform: "/mobile", defaultEmptySearchInformation)
     "/search/refine"(platform: "/mobile", defaultSearchInformation)

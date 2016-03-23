@@ -201,6 +201,7 @@ catalog {
 			tienda_oficial(deprecated: true, required: false)
 			official_store_id(deprecated: true, required: false)
 			deal(deprecated: true, required: false)
+			filter_tags(required: false, PropertyType.ArrayList)
 		}
 
 		"/search"(platform: "/web") {
@@ -226,6 +227,8 @@ catalog {
 			limit(required: false, description: "override required property")
 			offset(required: false, description: "override required property")
 		}
+
+		"/search/filters" (platform: "/mobile"){ }
 
 		"/search/refine" (platform: "/mobile"){ }
 
