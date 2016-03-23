@@ -622,125 +622,60 @@ trackTests {
       }
 
     "/checkout/congrats"(platform:"/web/desktop") {
-        order_id = 991687837
-        status = "payment_required"
-        total_amount = 70
-        seller = [ id: 135201044, nickname: "JPS PAULO" ]
-        buyer = [ id: 75961818, nickname: "CIA51" ]
-        payments = [
-              [
-                id: 5672342343,
-                method: "rapipago",
-                type: "ticket",
-                paid_amount: 40
-              ],
-              [
-                id: 5672342344,
-                method: "visa",
-                type: "credit_card",
-                paid_amount: 30
-              ],
+      order_id=1080989310
+      status="payment_required"
+      total_amount=2000
+      total_amount_with_shipping=2087.99
+      total_paid_amount=3373.98
+      buy_equal_pay=true
+      recovery_flow=false
+      register_int=false
+      mobile=false
+      payments=[  
+        [
+          id:1883908868
+          payment_method:"visa"
+          payment_type:"credit_card"
+          installments:12
+          paid_amount:3373.98
+          installment_amount:281.17
+          withOutFee:false
+          status:"approved"
+          status_detail:"accredited"
         ]
-        shipping =[
-                shipping_type:"store_pick_up",
-                shipping_option:1
+      ]
+      shipping=[  
+        cost:87.99
+        shipping_option:[  
+          id:"391232427"
+          name:"Prioritario a domicilio"
+          shipping_method_id:"73330"
         ]
-        mobile = false
-        order_items = [
-                [
-                        currency_id: "BRL",
-                        item:[
-                                id: "MLB683236263",
-                                title: "Conector 12 Vias Baquelite - 1,5/6,0mm² - Caixa Com 10",
-                                variation_attributes: [],
-                                category_id: "MLB30216",
-                                variation_id: null ],
-                        quantity: 1,
-                        unit_price: 70
-                ]
+        id:21531848862
+        shipping_mode:"me2"
+      ]
+      order_items=[  
+        [  
+          item:[  
+            id:"MLA612959175"
+            variation_id:null
+            buying_mode:"buy_it_now"
+            shipping_mode:"me2"
+            category_id:"MLA1915"
+            deal_ids:null
+          ]
+          quantity:1
+          unit_price:2000
+          currency_id:"ARS"
         ]
-        proactive_two_payment = false
-        buy_equal_pay = true
-        recovery_flow = true
-        register_int = true
-      }
-
-    "/checkout/congrats"(platform:"/web/desktop") {
-      order_id = 991687837
-      status = "payment_required"
-      total_amount = 70
-      seller = [ id: 135201044, nickname: "JPS PAULO" ]
-      buyer = [ id: 75961818, nickname: "CIA51" ]
-      payments = [
-            [
-              id: 5672342343,
-              method: "rapipago",
-              type: "ticket",
-              installments: 1,
-              paid_amount: 2
-
-            ],
-            [
-              id: 5672342344,
-              method: "visa",
-              type: "credit_card",
-              installments: 12
-            ],
+      ],
+      buyer=[  
+        id:205038163
+        nickname:"TETE4270171"
       ]
-      mobile = false
-      order_items = [
-                [
-                        currency_id: "BRL",
-                        item:[
-                                id: "MLB683236263",
-                                title: "Conector 12 Vias Baquelite - 1,5/6,0mm² - Caixa Com 10",
-                                variation_attributes: [],
-                                category_id: "MLB30216",
-                                variation_id: null ],
-                        quantity: 1,
-                        unit_price: 70
-                ]
-      ]
-
-      proactive_two_payment = true
-      buy_equal_pay = false
-      recovery_flow = false
-      register_int = false
-
-    }
-
-    "/checkout/congrats"(platform:"/web/desktop") {
-      order_id = 991687837
-      status = "payment_required"
-      total_amount = 70
-      seller = [ id: 135201044, nickname: "JPS PAULO" ]
-      buyer = [ id: 75961818, nickname: "CIA51" ]
-      payments= [
-            [
-              id: 5672342343,
-              method: "otherMethod",
-              type: "otherType",
-              installments: null
-            ],
-            [
-              id: 5672342344,
-              method: "otherMethod",
-              type: "otherType"
-            ],
-      ]
-      mobile = false
-      order_items =  [
-                [
-                        currency_id: "BRL",
-                        item:[
-                                id: "MLB683236263",
-                                title: "Conector 12 Vias Baquelite - 1,5/6,0mm² - Caixa Com 10",
-                                variation_attributes: [],
-                                category_id: "MLB30216",
-                                variation_id: null ],
-                        quantity: 1,
-                        unit_price: 70
-                ]
+      seller=[  
+        id:209209721
+        nickname:"TESTPC1CXM61"
       ]
     }
 
@@ -768,30 +703,6 @@ trackTests {
         tracking_referer_page = null
         mobile = false
         buy_equal_pay = null
-      }
-
-    "/checkout/payments/installment_selector"(platform:"/web/desktop") {
-        order_id = 991687837
-        status = "payment_required"
-        total_amount = 70
-        tracking_referer_page = "congratsAccordSecureSiteLogo"
-        mobile = false
-      }
-
-    "/checkout/payments/installment_selector"(platform:"/web/desktop") {
-        order_id = 991687837
-        status = "payment_required"
-        total_amount = 70
-        tracking_referer_page = null
-        mobile = false
-      }
-
-      "/checkout/payments/installment_selector"(platform:"/web/desktop") {
-        order_id = 991687837
-        status = "payment_required"
-        total_amount = null
-        tracking_referer_page = null
-        mobile = false
       }
 
     }

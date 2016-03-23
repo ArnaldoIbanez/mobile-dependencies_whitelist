@@ -434,7 +434,7 @@ catalog {
 
 			buy_equal_pay(required: true, description: "BP flag")
 			recovery_flow(required: true, description: "Is recovery CHO flow")
-			reg_int(required: true, description: "Integrated registration") 			
+			reg_int(required: false, description: "Integrated registration") 			
 			mobile(type: PropertyType.Boolean)
 
             payments(required: false, description: "Array of payments information")
@@ -492,7 +492,7 @@ catalog {
 
 			buy_equal_pay(required: true, description: "BP flag")
 			recovery_flow(required: true, description: "Is recovery CHO flow")
-			reg_int(required: true, description: "Integrated registration") 			
+			reg_int(required: false, description: "Integrated registration") 			
 			mobile(type: PropertyType.Boolean)
 
             payments(required: false, description: "Array of payments information")
