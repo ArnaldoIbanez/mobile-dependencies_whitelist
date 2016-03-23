@@ -332,6 +332,16 @@ catalog {
 
         "/vip/map/"(platform: "/mobile") {}
 
+        "/vip/buy_intention"(platform: "/mobile") {}
+
+        "/vip/payment_method"(platform: "/mobile") {}
+
+        "/vip/payment_method/back"(platform: "/mobile") {}
+
+        "/vip/variations"(platform: "/mobile") {}
+
+        "/vip/variations/back"(platform: "/mobile") {}
+
         //BOOKMARKS
 
         "/bookmarks/action"(platform: "/mobile", isAbstract: true) {}
