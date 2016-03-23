@@ -529,7 +529,7 @@ trackTests {
         ]
 
         order_id=912391
-     }
+     }     
 
     "/checkout/ordercreated"(platform:"/web/desktop", type:TrackType.Event) {
         congrats_seq = 1
@@ -595,33 +595,6 @@ trackTests {
       }
 
     "/checkout/congrats"(platform:"/web/desktop") {
-        order_id = 991687836
-        status = "confirmed"
-        total_amount = null
-        payments = null
-        seller = [ id: 135201044, nickname: "JPS PAULO" ]
-        buyer = [ id: 75961818, nickname: "CIA51" ]
-        mobile = false
-        order_items = [
-                [
-                        currency_id: "BRL",
-                        item:[
-                                id: "MLB683236263",
-                                title: "Conector 12 Vias Baquelite - 1,5/6,0mm² - Caixa Com 10",
-                                variation_attributes: [],
-                                category_id: "MLB30216",
-                                variation_id: null ],
-                        quantity: 1,
-                        unit_price: 70
-                ]
-        ]
-        proactive_two_payment = null
-        buy_equal_pay = null
-        recovery_flow = null
-        register_int = null
-      }
-
-    "/checkout/congrats"(platform:"/web/desktop") {
       order_id=1080989310
       status="payment_required"
       total_amount=2000
@@ -633,79 +606,101 @@ trackTests {
       mobile=false
       payments=[  
         [
-          id:1883908868
-          payment_method:"visa"
-          payment_type:"credit_card"
-          installments:12
-          paid_amount:3373.98
-          installment_amount:281.17
-          withOutFee:false
-          status:"approved"
+          id:1883908868,
+          payment_method:"visa",
+          payment_type:"credit_card",
+          installments:12,
+          paid_amount:3373.98,
+          installment_amount:281.17,
+          withOutFee:false,
+          status:"approved",
           status_detail:"accredited"
         ]
       ]
       shipping=[  
-        cost:87.99
+        cost:87.99,
         shipping_option:[  
-          id:"391232427"
-          name:"Prioritario a domicilio"
+          id:"391232427",
+          name:"Prioritario a domicilio",
           shipping_method_id:"73330"
-        ]
-        id:21531848862
+        ],
+        id:21531848862,
         shipping_mode:"me2"
       ]
       order_items=[  
         [  
           item:[  
-            id:"MLA612959175"
-            variation_id:null
-            buying_mode:"buy_it_now"
-            shipping_mode:"me2"
-            category_id:"MLA1915"
+            id:"MLA612959175",
+            variation_id:null,
+            buying_mode:"buy_it_now",
+            shipping_mode:"me2",
+            category_id:"MLA1915",
             deal_ids:null
-          ]
-          quantity:1
-          unit_price:2000
+          ],
+          quantity:1,
+          unit_price:2000,
           currency_id:"ARS"
         ]
-      ],
+      ]
       buyer=[  
-        id:205038163
+        id:205038163,
         nickname:"TETE4270171"
       ]
       seller=[  
-        id:209209721
+        id:209209721,
         nickname:"TESTPC1CXM61"
       ]
     }
 
     "/checkout/payments"(platform:"/web/desktop") {
-        order_id = 991687837
-        status = "payment_required"
-        total_amount = 70
-        tracking_referer_page = "congratsAccordSecureSiteLogo"
-        mobile = false
-        buy_equal_pay = false
-      }
-
-    "/checkout/payments"(platform:"/web/desktop") {
-        order_id = 991687837
-        status = "payment_required"
-        total_amount = 70
-        tracking_referer_page = null
-        mobile = false
-      }  
-
-    "/checkout/payments"(platform:"/web/desktop") {
-        order_id = 991687837
-        status = "payment_required"
-        total_amount = null
-        tracking_referer_page = null
-        mobile = false
-        buy_equal_pay = null
-      }
-
+      order_id=1080989310
+      status="payment_required"
+      total_amount=2000
+      total_amount_with_shipping=2087.99
+      total_paid_amount=3373.98
+      buy_equal_pay=true
+      recovery_flow=false
+      register_int=false
+      mobile=false
+      payments=[  
+        [
+          id:1883908868,
+          payment_method:"visa",
+          payment_type:"credit_card",
+          installments:12,
+          paid_amount:3373.98,
+          installment_amount:281.17,
+          withOutFee:false
+        ]
+      ]
+      shipping=[  
+        cost:87.99,
+        shipping_option:[  
+          id:"391232427",
+          name:"Prioritario a domicilio",
+          shipping_method_id:"73330"
+        ],
+        id:21531848862,
+        shipping_mode:"me2"
+      ]
+      order_items=[  
+        [  
+          item:[  
+            id:"MLA612959175",
+            variation_id:null,
+            buying_mode:"buy_it_now",
+            shipping_mode:"me2",
+            category_id:"MLA1915",
+            deal_ids:null
+          ],
+          quantity:1,
+          unit_price:2000,
+          currency_id:"ARS"
+        ]
+      ]
     }
+        
+  }
 
 
   test("credit cards"){
