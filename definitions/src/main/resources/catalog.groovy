@@ -207,6 +207,7 @@ catalog {
 			visual_id(required:false)
 			config_version(required:false)
 			filters(required:false)
+            only_in_type(required:false)
 		}
 
 		"/search"(platform: "/mobile") {
