@@ -594,8 +594,8 @@ trackTests {
         mobile = false
       }
 
-    "/checkout/congrats"(platform:"/web/desktop") {
-      order_id=1080989310
+    "/checkout/payments"(platform:"/web/desktop") {
+      order_id=1234
       status="payment_required"
       total_amount=2000
       total_amount_with_shipping=2087.99
@@ -606,7 +606,122 @@ trackTests {
       mobile=false
       payments=[  
         [
-          id:1883908868,
+          id:333,
+          payment_method:"visa",
+          payment_type:"credit_card",
+          installments:12,
+          paid_amount:3373.98,
+          installment_amount:281.17,
+          withOutFee:false
+        ]
+      ]
+      shipping=[  
+        cost:87.99,
+        shipping_option:[  
+          id:"391232427",
+          name:"Prioritario a domicilio",
+          shipping_method_id:"73330"
+        ],
+        id:21531848862,
+        shipping_mode:"me2"
+      ]
+      order_items=[  
+        [  
+          item:[  
+            id:"MLA9876",
+            variation_id:null,
+            buying_mode:"buy_it_now",
+            shipping_mode:"me2",
+            category_id:"MLA1915",
+            deal_ids:null
+          ],
+          quantity:1,
+          unit_price:2000,
+          currency_id:"ARS"
+        ]
+      ]
+    }
+
+    "/checkout/payments"(platform:"/web/desktop") {
+      order_id=1234
+      status="payment_required"
+      total_amount=200
+      total_amount_with_shipping=200
+      total_paid_amount=200
+      buy_equal_pay=true
+      recovery_flow=false
+      register_int=false
+      mobile=false
+      order_items=[  
+        [  
+          item:[  
+            id:"MLA9876",
+            variation_id:null,
+            buying_mode:"buy_it_now",
+            shipping_mode:"me2",
+            category_id:"MLA1915",
+            deal_ids:null
+          ],
+          quantity:1,
+          unit_price:200,
+          currency_id:"BRL"
+        ]
+      ]
+      tracking_referer_page=null
+    }
+
+    "/checkout/payments"(platform:"/web/desktop") {
+      order_id=1234
+      status="payment_required"
+      total_amount=200
+      total_amount_with_shipping=200
+      total_paid_amount=200
+      buy_equal_pay=true
+      recovery_flow=false
+      register_int=false
+      mobile=false
+      payments=[  
+        [
+          id:333,
+          payment_method:"bolbradesco",
+          payment_type:"ticket",
+          installments:1,
+          paid_amount:200,
+          installment_amount:200,
+          withOutFee:true
+        ]
+      ]
+      order_items=[  
+        [  
+          item:[  
+            id:"MLA9876",
+            variation_id:null,
+            buying_mode:"buy_it_now",
+            shipping_mode:"me2",
+            category_id:"MLA1915",
+            deal_ids:null
+          ],
+          quantity:1,
+          unit_price:200,
+          currency_id:"BRL"
+        ]
+      ]
+      tracking_referer_page="congratsAccordSecureSiteLogo"
+    }
+
+    "/checkout/congrats"(platform:"/web/desktop") {
+      order_id=1234
+      status="payment_required"
+      total_amount=2000
+      total_amount_with_shipping=2087.99
+      total_paid_amount=3373.98
+      buy_equal_pay=true
+      recovery_flow=false
+      register_int=false
+      mobile=false
+      payments=[  
+        [
+          id:333,
           payment_method:"visa",
           payment_type:"credit_card",
           installments:12,
@@ -630,7 +745,7 @@ trackTests {
       order_items=[  
         [  
           item:[  
-            id:"MLA612959175",
+            id:"MLA9876",
             variation_id:null,
             buying_mode:"buy_it_now",
             shipping_mode:"me2",
@@ -643,50 +758,29 @@ trackTests {
         ]
       ]
       buyer=[  
-        id:205038163,
-        nickname:"TETE4270171"
+        id:111111,
+        nickname:"buyer01"
       ]
       seller=[  
-        id:209209721,
-        nickname:"TESTPC1CXM61"
+        id:111222,
+        nickname:"seller02"
       ]
     }
 
-    "/checkout/payments"(platform:"/web/desktop") {
-      order_id=1080989310
+    "/checkout/congrats"(platform:"/web/desktop") {
+      order_id=1234
       status="payment_required"
       total_amount=2000
-      total_amount_with_shipping=2087.99
-      total_paid_amount=3373.98
+      total_amount_with_shipping=2000
+      total_paid_amount=2000
       buy_equal_pay=true
       recovery_flow=false
       register_int=false
       mobile=false
-      payments=[  
-        [
-          id:1883908868,
-          payment_method:"visa",
-          payment_type:"credit_card",
-          installments:12,
-          paid_amount:3373.98,
-          installment_amount:281.17,
-          withOutFee:false
-        ]
-      ]
-      shipping=[  
-        cost:87.99,
-        shipping_option:[  
-          id:"391232427",
-          name:"Prioritario a domicilio",
-          shipping_method_id:"73330"
-        ],
-        id:21531848862,
-        shipping_mode:"me2"
-      ]
       order_items=[  
         [  
           item:[  
-            id:"MLA612959175",
+            id:"MLA9876",
             variation_id:null,
             buying_mode:"buy_it_now",
             shipping_mode:"me2",
@@ -698,8 +792,16 @@ trackTests {
           currency_id:"ARS"
         ]
       ]
+      buyer=[  
+        id:111111,
+        nickname:"buyer01"
+      ]
+      seller=[  
+        id:111222,
+        nickname:"seller02"
+      ]
     }
-        
+
   }
 
 

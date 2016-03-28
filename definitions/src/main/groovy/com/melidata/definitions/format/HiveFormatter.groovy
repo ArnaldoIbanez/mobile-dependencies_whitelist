@@ -33,7 +33,7 @@ class HiveFormatter extends CatalogFormatter {
                     params.each { name, attrs ->
                         def vals = [business,platform,path,name] + attrs
                         def line = vals.join('\t')
-                        b.append(line + System.lineSeparator())
+                        b.append(line + System.getProperty('line.separator'))
                     }
                 }
             }
