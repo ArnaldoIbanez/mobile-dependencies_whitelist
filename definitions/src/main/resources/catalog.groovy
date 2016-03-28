@@ -411,94 +411,128 @@ catalog {
             mobile(type: PropertyType.Boolean)
 
             buyer()
+            	//id
+            	//nickname
             seller()
-            errors()
+            	//id
+            	//nickname
+			errors()
 
-            congrats_seq(serverSide: true)
-            first_for_order(serverSide: true)
-            total_amount_local(serverSide: true)
-            total_amount_usd(serverSide: true)
-            order_api(serverSide: true)
-        }
+			congrats_seq(serverSide: true)
+			first_for_order(serverSide: true)
+			total_amount_local(serverSide: true)
+			total_amount_usd(serverSide: true)
+			order_api(serverSide: true)
+		}
 
-        "/checkout/congrats"(platform: "/web") {
-            order_id(required: true, description: "OrderId")
-            status(required: true, description: "status")
-            total_amount(required: false, description: "totalAmount")
-            order_items(description: "Array of items in the order")
-            //item
-            //id
-            //variation_id
-            //buying_mode
-            //category_id
-            //deal_ids
-            //quantity
-            //unit_price
-            //currency_id
-            mobile(type: PropertyType.Boolean)
+		"/checkout/payments"(platform:"/web") {
+			order_id(required: true, description: "OrderId")
+			status(required: true, description: "status")
+			total_amount(required: true, description: "totalAmount")
+			total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
+			total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+
+			buy_equal_pay(required: true, description: "BP flag")
+			recovery_flow(required: true, description: "Is recovery CHO flow")
+			register_int(required: false, description: "Integrated registration") 			
+			mobile(type: PropertyType.Boolean)
+
+            payments(required: false, description: "Array of payments information")
+                // id
+                // payment_method,
+                // payment_type,
+                // installments,
+                // paid_amount,
+                // installment_amount
+                // withOutFee
 
             shipping(required: false)
-            //shipping_type
-            //shipping_option
+                // cost
+                // shipping_option,
+                	// id,
+                	// name,
+                	// shipping_method_id
 
-            payments(required: false, description: "Array of payments information") //
-            // id
-            // payment_method,
-            // payment_type,
-            // installments,
-            // selected_card
-            // paid_amount
+            order_items( description: "Array of items in the order" )
+                //item
+                    //id
+                    //variation_id
+                    //buying_mode
+                    //shipping_mode
+                    //category_id
+                    //deal_ids
+                //quantity
+                //unit_price
+                //currency_id    	
+
+			tracking_referer_page(required: false, description: "tracking referer page from where the request came")               
+
+			total_amount_local(serverSide: true)
+			total_amount_usd(serverSide: true)
+			order_api(serverSide: true)						
+		}
+
+        "/checkout/congrats"(platform:"/web") {
+            order_id(required: true, description: "OrderId")
+            status(required: true, description: "status")
+            total_amount(required: true, description: "totalAmount")
+            total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
+            total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+
+            buy_equal_pay(required: true, description: "BP flag")
+            recovery_flow(required: true, description: "Is recovery CHO flow")
+            register_int(required: false, description: "Integrated registration")           
+            mobile(type: PropertyType.Boolean)
+
+            payments(required: false, description: "Array of payments information")
+                // id
+                // payment_method,
+                // payment_type,
+                // installments,
+                // paid_amount,
+                // installment_amount
+                // withOutFee
+                // status
+                // status_detail    
+
+            shipping(required: false)
+                // cost
+                // shipping_option,
+                    // id,
+                    // name,
+                    // shipping_method_id
+                // id
+                // shipping_mode
+
+            order_items( description: "Array of items in the order" )
+                //item
+                    //id
+                    //variation_id
+                    //buying_mode
+                    //shipping_mode
+                    //category_id
+                    //deal_ids
+                //quantity
+                //unit_price
+                //currency_id    
 
             buyer(required: true)
+                //id
+                //nickname
+
             seller(required: true)
+                //id
+                //nickname
 
+            proactive_two_payment(required: false, description: "tracking proactive two payment selection")                                 
             total_amount_local(serverSide: true)
             total_amount_usd(serverSide: true)
-            order_api(serverSide: true)
-
-            proactive_two_payment(required: false, description: "tracking proactive two payment selection")
-            buy_equal_pay(required: false, description: "BP flag")
-            recovery_flow(required: false, description: "Is recovery CHO flow")
-            register_int(required: false, description: "Integer registration")
-
-
+            order_api(serverSide: true)         
         }
 
-        "/checkout/payments"(platform: "/web") {
-            order_id(required: true, description: "OrderId")
-            status(required: true, description: "status")
-            total_amount(required: false, description: "totalAmount")
-            tracking_referer_page(required: false, description: "tracking referer page from where the request came")
-            mobile(type: PropertyType.Boolean)
-            payments(required: false) //
-            // id
-            // payment_method,
-            // payment_type,
-            // installments,
-            // selected_card
-
-            total_amount_local(serverSide: true)
-            total_amount_usd(serverSide: true)
-            order_api(serverSide: true)
-            buy_equal_pay(required: false, description: "BP flag")
-
-        }
-
-        "/checkout/payments/installment_selector"(platform: "/web") {
-            order_id(required: true, description: "OrderId")
-            status(required: true, description: "status")
-            total_amount(required: false, description: "totalAmount")
-            tracking_referer_page(required: false, description: "tracking referer page from where the request came")
-            mobile(type: PropertyType.Boolean)
-
-            total_amount_local(serverSide: true)
-            total_amount_usd(serverSide: true)
-            order_api(serverSide: true)
-        }
-
-        "/checkout"(platform: "/mobile") {
-            order_id(required: false)
-            status(required: false)
+		"/checkout"(platform:"/mobile") {
+			order_id(required: false)
+            status(required:false)
             total_amount(required: false, type: PropertyType.Numeric)
             order_items(required: false, description: "Array of items in the order. New: optional for old versions of mobile")
             //item
