@@ -408,7 +408,7 @@ catalog {
             //quantity
             //unit_price
             //currency_id
-            mobile(type: PropertyType.Boolean)
+            platform()
 
             buyer()
             	//id
@@ -435,7 +435,7 @@ catalog {
 			buy_equal_pay(required: true, description: "BP flag")
 			recovery_flow(required: true, description: "Is recovery CHO flow")
 			register_int(required: false, description: "Integrated registration") 			
-			mobile(type: PropertyType.Boolean)
+			platform()
 
             payments(required: false, description: "Array of payments information")
                 // id
@@ -444,7 +444,7 @@ catalog {
                 // installments,
                 // paid_amount,
                 // installment_amount
-                // withOutFee
+                // without_fee
 
             shipping(required: false)
                 // cost
@@ -472,6 +472,51 @@ catalog {
 			order_api(serverSide: true)						
 		}
 
+        "/checkout/review"(platform:"/web") {
+            order_id(required: true, description: "OrderId")
+            status(required: true, description: "status")
+            total_amount(required: true, description: "totalAmount")
+            total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
+            total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+
+            buy_equal_pay(required: true, description: "BP flag")
+            recovery_flow(required: true, description: "Is recovery CHO flow")
+            register_int(required: false, description: "Integrated registration")           
+            platform()
+
+            payments(required: false, description: "Array of payments information")
+                // id
+                // payment_method,
+                // payment_type,
+                // installments,
+                // paid_amount,
+                // installment_amount
+                // without_fee
+
+            shipping(required: false)
+                // cost
+                // shipping_option,
+                    // id,
+                    // name,
+                    // shipping_method_id
+
+            order_items( description: "Array of items in the order" )
+                //item
+                    //id
+                    //variation_id
+                    //buying_mode
+                    //shipping_mode
+                    //category_id
+                    //deal_ids
+                //quantity
+                //unit_price
+                //currency_id       
+
+            total_amount_local(serverSide: true)
+            total_amount_usd(serverSide: true)
+            order_api(serverSide: true)                     
+        }
+
         "/checkout/congrats"(platform:"/web") {
             order_id(required: true, description: "OrderId")
             status(required: true, description: "status")
@@ -482,7 +527,7 @@ catalog {
             buy_equal_pay(required: true, description: "BP flag")
             recovery_flow(required: true, description: "Is recovery CHO flow")
             register_int(required: false, description: "Integrated registration")           
-            mobile(type: PropertyType.Boolean)
+            platform()
 
             payments(required: false, description: "Array of payments information")
                 // id
@@ -491,7 +536,7 @@ catalog {
                 // installments,
                 // paid_amount,
                 // installment_amount
-                // withOutFee
+                // without_fee
                 // status
                 // status_detail    
 
