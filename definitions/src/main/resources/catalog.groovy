@@ -164,10 +164,26 @@ catalog {
             reviewerId()
         }
 
-        "/reviews/congrats"(platform: "/") {
+        "/reviews/edit"(platform: "/") {
+            itemId()
+            reviewerId()
+        }
+
+        "/reviews/congrats/delete"(platform: "/") {
+            itemId()
+            reviewerId()
+        }
+
+        "/reviews/congrats/edit"(platform: "/") {
             itemId()
             reviewerId()
             reviewLength()
+        }
+
+        "/reviews/congrats"(platform: "/") {
+            itemId()
+            reviewerId()
+            reviewLength(inheritable: false)
         }
 
         "/reviews/error"(platform: "/") {
