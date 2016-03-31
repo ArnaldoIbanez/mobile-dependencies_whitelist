@@ -615,7 +615,8 @@ trackTests {
           without_fee:false
         ]
       ]
-      shipping=[  
+      shipping=[
+        shipping_type: "mercadoenvios",
         cost:87.99,
         shipping_option:[  
           id:"391232427",
@@ -730,7 +731,8 @@ trackTests {
           without_fee:false
         ]
       ]
-      shipping=[  
+      shipping=[
+        shipping_type: "mercadoenvios",  
         cost:87.99,
         shipping_option:[  
           id:"391232427",
@@ -845,7 +847,8 @@ trackTests {
           status_detail:"accredited"
         ]
       ]
-      shipping=[  
+      shipping=[
+        shipping_type: "mercadoenvios",  
         cost:87.99,
         shipping_option:[  
           id:"391232427",

@@ -447,6 +447,7 @@ catalog {
                 // without_fee
 
             shipping(required: false)
+                // shipping_type
                 // cost
                 // shipping_option,
                 	// id,
@@ -494,6 +495,7 @@ catalog {
                 // without_fee
 
             shipping(required: false)
+                // shipping_type
                 // cost
                 // shipping_option,
                     // id,
@@ -541,6 +543,7 @@ catalog {
                 // status_detail    
 
             shipping(required: false)
+                // shipping_type
                 // cost
                 // shipping_option,
                     // id,
