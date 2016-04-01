@@ -554,44 +554,9 @@ trackTests {
                 unit_price: 70
               ]
             ]
-        order_api = [
-          total_amount: 70,
-          tags: [ "not_delivered", "not_paid" ],
-          currency_id: "BRL",
-          mediations: [],
-          status: "payment_required",
-          date_created: "2015-08-28T06:44:34.000-04:00",
-          status_detail: [ description: "Order only in MercadoLibre Site.", code: "item_price_restriction" ],
-          seller: [ "id": 135201044, "nickname": "JPS PAULO" ],
-          feedback: [ purchase: null, sale: null ],
-          id: 991687837,
-          shipping: [ status: "to_be_agreed", receiver_address: null, sender_address: null ],
-          expiration_date: null,
-          payments: [],
-          buyer: [ id: 75961818, nickname: "CIA51" ],
-          date_closed: null,
-          order_items: [
-                  [
-                    currency_id: "BRL",
-                    item:[
-                      id: "MLB683236263",
-                      title: "Conector 12 Vias Baquelite - 1,5/6,0mm² - Caixa Com 10",
-                      variation_attributes: [],
-                      category_id: "MLB30216",
-                      variation_id: null ],
-                    quantity: 1,
-                    unit_price: 70
-                  ]
-          ],
-          total_amount_with_shipping: 70,
-          last_updated: "2015-08-28T06:44:34.000-04:00",
-          paid_amount: 0,
-          coupon: [ "id": null, "amount": 0 ],
-          comments :null
-        ]
         total_amount_local = 70
         total_amount_usd = 19.72
-        mobile = false
+        platform = "/web/desktop"
       }
 
     "/checkout/payments"(platform:"/web/desktop") {
@@ -603,7 +568,7 @@ trackTests {
       buy_equal_pay=true
       recovery_flow=false
       register_int=false
-      mobile=false
+      platform = "/web/desktop"
       payments=[  
         [
           id:333,
@@ -612,7 +577,7 @@ trackTests {
           installments:12,
           paid_amount:3373.98,
           installment_amount:281.17,
-          withOutFee:false
+          without_fee:false
         ]
       ]
       shipping=[  
@@ -651,7 +616,7 @@ trackTests {
       buy_equal_pay=true
       recovery_flow=false
       register_int=false
-      mobile=false
+      platform = "/web/desktop"
       order_items=[  
         [  
           item:[  
@@ -679,7 +644,7 @@ trackTests {
       buy_equal_pay=true
       recovery_flow=false
       register_int=false
-      mobile=false
+      platform = "/web/desktop"
       payments=[  
         [
           id:333,
@@ -688,7 +653,7 @@ trackTests {
           installments:1,
           paid_amount:200,
           installment_amount:200,
-          withOutFee:true
+          without_fee:true
         ]
       ]
       order_items=[  
@@ -709,6 +674,119 @@ trackTests {
       tracking_referer_page="congratsAccordSecureSiteLogo"
     }
 
+    "/checkout/review"(platform:"/web/desktop") {
+      order_id=1234
+      status="payment_required"
+      total_amount=2000
+      total_amount_with_shipping=2087.99
+      total_paid_amount=3373.98
+      buy_equal_pay=true
+      recovery_flow=false
+      register_int=false
+      platform = "/web/desktop"
+      payments=[  
+        [
+          id:333,
+          payment_method:"visa",
+          payment_type:"credit_card",
+          installments:12,
+          paid_amount:3373.98,
+          installment_amount:281.17,
+          without_fee:false
+        ]
+      ]
+      shipping=[  
+        cost:87.99,
+        shipping_option:[  
+          id:"391232427",
+          name:"Prioritario a domicilio",
+          shipping_method_id:"73330"
+        ],
+        id:21531848862,
+        shipping_mode:"me2"
+      ]
+      order_items=[  
+        [  
+          item:[  
+            id:"MLA9876",
+            variation_id:null,
+            buying_mode:"buy_it_now",
+            shipping_mode:"me2",
+            category_id:"MLA1915",
+            deal_ids:null
+          ],
+          quantity:1,
+          unit_price:2000,
+          currency_id:"ARS"
+        ]
+      ]
+    }
+
+    "/checkout/review"(platform:"/web/desktop") {
+      order_id=1234
+      status="payment_required"
+      total_amount=200
+      total_amount_with_shipping=200
+      total_paid_amount=200
+      buy_equal_pay=true
+      recovery_flow=false
+      register_int=false
+      platform = "/web/desktop"
+      order_items=[  
+        [  
+          item:[  
+            id:"MLA9876",
+            variation_id:null,
+            buying_mode:"buy_it_now",
+            shipping_mode:"me2",
+            category_id:"MLA1915",
+            deal_ids:null
+          ],
+          quantity:1,
+          unit_price:200,
+          currency_id:"BRL"
+        ]
+      ]
+    }
+
+    "/checkout/review"(platform:"/web/desktop") {
+      order_id=1234
+      status="payment_required"
+      total_amount=200
+      total_amount_with_shipping=200
+      total_paid_amount=200
+      buy_equal_pay=true
+      recovery_flow=false
+      register_int=false
+      platform = "/web/desktop"
+      payments=[  
+        [
+          id:333,
+          payment_method:"bolbradesco",
+          payment_type:"ticket",
+          installments:1,
+          paid_amount:200,
+          installment_amount:200,
+          without_fee:true
+        ]
+      ]
+      order_items=[  
+        [  
+          item:[  
+            id:"MLA9876",
+            variation_id:null,
+            buying_mode:"buy_it_now",
+            shipping_mode:"me2",
+            category_id:"MLA1915",
+            deal_ids:null
+          ],
+          quantity:1,
+          unit_price:200,
+          currency_id:"BRL"
+        ]
+      ]
+    }
+
     "/checkout/congrats"(platform:"/web/desktop") {
       order_id=1234
       status="payment_required"
@@ -718,7 +796,7 @@ trackTests {
       buy_equal_pay=true
       recovery_flow=false
       register_int=false
-      mobile=false
+      platform = "/web/desktop"
       payments=[  
         [
           id:333,
@@ -727,7 +805,7 @@ trackTests {
           installments:12,
           paid_amount:3373.98,
           installment_amount:281.17,
-          withOutFee:false,
+          without_fee:false,
           status:"approved",
           status_detail:"accredited"
         ]
@@ -776,7 +854,7 @@ trackTests {
       buy_equal_pay=true
       recovery_flow=false
       register_int=false
-      mobile=false
+      platform = "/web/desktop"
       order_items=[  
         [  
           item:[  
