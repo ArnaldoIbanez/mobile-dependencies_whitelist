@@ -146,6 +146,12 @@ trackTests {
 
   	"/reviews/form"(platform:"/", dataSet)
 
+    "/reviews/edit"(platform:"/", dataSet)
+
+    "/reviews/congrats/delete"(platform:"/", dataSet)
+
+    "/reviews/congrats/edit"(platform:"/", dataSetCongrats)
+
   	"/reviews/error"(platform:"/", dataSet)
 
   	"/reviews/congrats"(platform:"/", dataSetCongrats)
