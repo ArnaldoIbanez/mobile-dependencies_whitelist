@@ -692,7 +692,7 @@ trackTests {
       tracking_referer_page="congratsAccordSecureSiteLogo"
     }
 
-    "/checkout/payments/selectPaymentMethod"(platform:"/web/desktop") {
+    "/checkout/payments/select_payment_method"(platform:"/web/desktop") {
       order_id=1234
       status="payment_required"
       total_amount=2000

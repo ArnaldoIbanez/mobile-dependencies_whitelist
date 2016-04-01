@@ -494,7 +494,7 @@ catalog {
 			tracking_referer_page(required: false, description: "tracking referer page from where the request came")               
 		}
 
-        "/checkout/payments/selectPaymentMethod"(platform: "/web") {}
+        "/checkout/payments/select_payment_method"(platform: "/web") {}
 
         "/checkout/review"(platform:"/web") {
             order_id(required: true, description: "OrderId")
