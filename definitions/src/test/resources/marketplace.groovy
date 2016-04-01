@@ -1,5 +1,6 @@
+import com.ml.melidata.TrackType
+
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
-import com.ml.melidata.TrackType;
 
 trackTests {
 
@@ -145,6 +146,12 @@ trackTests {
 
   	"/reviews/form"(platform:"/", dataSet)
 
+    "/reviews/edit"(platform:"/", dataSet)
+
+    "/reviews/congrats/delete"(platform:"/", dataSet)
+
+    "/reviews/congrats/edit"(platform:"/", dataSetCongrats)
+
   	"/reviews/error"(platform:"/", dataSet)
 
   	"/reviews/congrats"(platform:"/", dataSetCongrats)
@@ -203,6 +210,16 @@ trackTests {
     "/vip/seller_reputation"(platform:"/mobile", dataSet)
 
     "/vip/seller_reputation/ratings"(platform:"/mobile", dataSet)
+
+    "/vip/buy_intention"(platform: "/mobile", dataSet)
+
+    "/vip/payment_method"(platform: "/mobile", dataSet)
+
+    "/vip/payment_method/back"(platform: "/mobile", dataSet)
+
+    "/vip/variations"(platform: "/mobile", dataSet)
+
+    "/vip/variations/back"(platform: "/mobile", dataSet)
   }
 
   test("Vip web mobile tracking without reviews") {
@@ -554,41 +571,6 @@ trackTests {
                 unit_price: 70
               ]
             ]
-        order_api = [
-          total_amount: 70,
-          tags: [ "not_delivered", "not_paid" ],
-          currency_id: "BRL",
-          mediations: [],
-          status: "payment_required",
-          date_created: "2015-08-28T06:44:34.000-04:00",
-          status_detail: [ description: "Order only in MercadoLibre Site.", code: "item_price_restriction" ],
-          seller: [ "id": 135201044, "nickname": "JPS PAULO" ],
-          feedback: [ purchase: null, sale: null ],
-          id: 991687837,
-          shipping: [ status: "to_be_agreed", receiver_address: null, sender_address: null ],
-          expiration_date: null,
-          payments: [],
-          buyer: [ id: 75961818, nickname: "CIA51" ],
-          date_closed: null,
-          order_items: [
-                  [
-                    currency_id: "BRL",
-                    item:[
-                      id: "MLB683236263",
-                      title: "Conector 12 Vias Baquelite - 1,5/6,0mm² - Caixa Com 10",
-                      variation_attributes: [],
-                      category_id: "MLB30216",
-                      variation_id: null ],
-                    quantity: 1,
-                    unit_price: 70
-                  ]
-          ],
-          total_amount_with_shipping: 70,
-          last_updated: "2015-08-28T06:44:34.000-04:00",
-          paid_amount: 0,
-          coupon: [ "id": null, "amount": 0 ],
-          comments :null
-        ]
         total_amount_local = 70
         total_amount_usd = 19.72
         platform = "/web/desktop"
