@@ -1,5 +1,6 @@
+import com.ml.melidata.TrackType
+
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
-import com.ml.melidata.TrackType;
 
 trackTests {
 
@@ -203,6 +204,16 @@ trackTests {
     "/vip/seller_reputation"(platform:"/mobile", dataSet)
 
     "/vip/seller_reputation/ratings"(platform:"/mobile", dataSet)
+
+    "/vip/buy_intention"(platform: "/mobile", dataSet)
+
+    "/vip/payment_method"(platform: "/mobile", dataSet)
+
+    "/vip/payment_method/back"(platform: "/mobile", dataSet)
+
+    "/vip/variations"(platform: "/mobile", dataSet)
+
+    "/vip/variations/back"(platform: "/mobile", dataSet)
   }
 
   test("Vip web mobile tracking without reviews") {
