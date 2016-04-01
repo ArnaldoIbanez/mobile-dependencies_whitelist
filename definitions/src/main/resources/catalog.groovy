@@ -422,7 +422,6 @@ catalog {
 			first_for_order(serverSide: true)
 			total_amount_local(serverSide: true)
 			total_amount_usd(serverSide: true)
-			order_api(serverSide: true)
 		}
 
 		"/checkout/payments"(platform:"/web") {
@@ -467,10 +466,6 @@ catalog {
                 //currency_id    	
 
 			tracking_referer_page(required: false, description: "tracking referer page from where the request came")               
-
-			total_amount_local(serverSide: true)
-			total_amount_usd(serverSide: true)
-			order_api(serverSide: true)						
 		}
 
         "/checkout/review"(platform:"/web") {
@@ -513,10 +508,6 @@ catalog {
                 //quantity
                 //unit_price
                 //currency_id       
-
-            total_amount_local(serverSide: true)
-            total_amount_usd(serverSide: true)
-            order_api(serverSide: true)                     
         }
 
         "/checkout/congrats"(platform:"/web") {
@@ -574,8 +565,7 @@ catalog {
 
             proactive_two_payment(required: false, description: "tracking proactive two payment selection")                                 
             total_amount_local(serverSide: true)
-            total_amount_usd(serverSide: true)
-            order_api(serverSide: true)         
+            total_amount_usd(serverSide: true)        
         }
 
 		"/checkout"(platform:"/mobile") {
