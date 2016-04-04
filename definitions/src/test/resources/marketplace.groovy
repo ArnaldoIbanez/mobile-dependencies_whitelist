@@ -576,6 +576,61 @@ trackTests {
         platform = "/web/desktop"
       }
 
+    "/checkout/login"(platform:"/web/desktop") {
+      vip_parameters=[  
+          pm:"visa",
+          zip_code:1416
+      ]                 
+    }
+
+    "/checkout/login/confirm_authenticated"(platform:"/web/desktop") {
+      vip_parameters=[  
+           cht:1459801088940,
+           pm:"master",
+           inst:"6",
+           bp:"Y",
+           zip_code:"1416",
+           shipping_method_id:"509341521",
+           ship_method_id:"501045",
+           ship_option_id:"509341521",
+           cc_issuer:"297",
+           isLogged:"true",
+           prefs_on:"COOKIE"
+      ]                 
+    }
+
+    "/checkout/login/first_purchase_not_authenticated"(platform:"/web/desktop") {
+      vip_parameters=[  
+           cht:1459800702645,
+           pm:"master",
+           inst:"6",
+           bp:"Y",
+           zip_code:"1418",
+           shipping_method_id:"391232427",
+           ship_method_id:"73330",
+           ship_option_id:"391232427",
+           cc_issuer:"297",
+           isLogged:"false",
+           prefs_on:"NONE"
+      ]                 
+    }
+
+    "/checkout/login/confirm_not_authenticated"(platform:"/web/desktop") {
+      vip_parameters=[  
+           cht:1459800702645,
+           pm:"master",
+           inst:"6",
+           bp:"Y",
+           zip_code:"1418",
+           shipping_method_id:"391232427",
+           ship_method_id:"73330",
+           ship_option_id:"391232427",
+           cc_issuer:"297",
+           isLogged:"false",
+           prefs_on:"NONE"
+      ]                 
+    }
+
     "/checkout/payments"(platform:"/web/desktop") {
       order_id=1234
       status="payment_required"

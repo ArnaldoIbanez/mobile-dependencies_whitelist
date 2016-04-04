@@ -450,6 +450,13 @@ catalog {
 			total_amount_usd(serverSide: true)
 		}
 
+        "/checkout/login"(platform:"/web") {
+            vip_parameters(required: true, description: "Parameters that came from the VIP")
+        }    
+        "/checkout/login/confirm_authenticated"(platform: "/web") {}
+        "/checkout/login/first_purchase_not_authenticated"(platform: "/web") {}
+        "/checkout/login/confirm_not_authenticated"(platform: "/web") {}
+
 		"/checkout/payments"(platform:"/web") {
 			order_id(required: true, description: "OrderId")
 			status(required: true, description: "status")
@@ -493,7 +500,6 @@ catalog {
 
 			tracking_referer_page(required: false, description: "tracking referer page from where the request came")               
 		}
-
         "/checkout/payments/select_payment_method"(platform: "/web") {}
 
         "/checkout/review"(platform:"/web") {
