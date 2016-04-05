@@ -134,14 +134,12 @@ trackTests {
   //Reviews
   test("Reviews tracks") {
   	def dataSet = {
-  		itemId="MLA533657947"
-  		reviewerId=18912312
+  		item_id="MLA533657947"
   	}
 
     def dataSetCongrats = {
-      itemId="MLA533657947"
-      reviewerId=18912312
-      reviewLength=321
+      item_id="MLA533657947"
+      review_length=321
     }
 
   	"/reviews/form"(platform:"/", dataSet)
