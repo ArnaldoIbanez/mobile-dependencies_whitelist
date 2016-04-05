@@ -160,45 +160,37 @@ catalog {
 
         //REVIEWS FRONTEND
         "/reviews/form"(platform: "/") {
-            itemId()
-            reviewerId()
+            item_id()
         }
 
         "/reviews/edit"(platform: "/") {
-            itemId()
-            reviewerId()
+            item_id()
         }
 
         "/reviews/congrats/delete"(platform: "/") {
-            itemId()
-            reviewerId()
+            item_id()
         }
 
         "/reviews/congrats/edit"(platform: "/") {
-            itemId()
-            reviewerId()
-            reviewLength()
+            item_id()
+            review_length()
         }
 
         "/reviews/congrats"(platform: "/") {
-            itemId()
-            reviewerId()
-            reviewLength(inheritable: false)
+            item_id()
+            review_length(inheritable: false)
         }
 
         "/reviews/error"(platform: "/") {
-            itemId()
-            reviewerId()
+            item_id()
         }
 
         "/reviews/email"(platform: "/email") {
-            itemId()
-            reviewerId()
+            item_id()
         }
 
         "/reviews"(platform: "/") {
-            itemId()
-            reviewerId()
+            item_id()
         }
 
         //SEARCH FLOW
