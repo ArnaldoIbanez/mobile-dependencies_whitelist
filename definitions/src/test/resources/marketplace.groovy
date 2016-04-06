@@ -574,13 +574,6 @@ trackTests {
         platform = "/web/desktop"
       }
 
-    "/checkout/login"(platform:"/web/desktop") {
-      vip_parameters=[  
-          pm:"visa",
-          zip_code:1416
-      ]                 
-    }
-
     "/checkout/login/confirm_authenticated"(platform:"/web/desktop") {
       vip_parameters=[  
            cht:1459801088940,
@@ -629,7 +622,7 @@ trackTests {
       ]                 
     }
 
-    "/checkout/payments"(platform:"/web/desktop") {
+    "/checkout/payments/select_payment_method"(platform:"/web/desktop") {
       order_id=1234
       status="payment_required"
       total_amount=2000
@@ -678,7 +671,7 @@ trackTests {
       ]
     }
 
-    "/checkout/payments"(platform:"/web/desktop") {
+    "/checkout/payments/select_payment_method"(platform:"/web/desktop") {
       order_id=1234
       status="payment_required"
       total_amount=200
@@ -706,7 +699,7 @@ trackTests {
       tracking_referer_page=null
     }
 
-    "/checkout/payments"(platform:"/web/desktop") {
+    "/checkout/payments/select_payment_method"(platform:"/web/desktop") {
       order_id=1234
       status="payment_required"
       total_amount=200

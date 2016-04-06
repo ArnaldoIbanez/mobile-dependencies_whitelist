@@ -442,7 +442,7 @@ catalog {
 			total_amount_usd(serverSide: true)
 		}
 
-        "/checkout/login"(platform:"/web") {
+        "/checkout/login"(platform:"/web", isAbstract: true) {
             vip_parameters(required: true, description: "Parameters that came from the VIP")
                //cht
                //pm
@@ -460,7 +460,7 @@ catalog {
         "/checkout/login/first_purchase_not_authenticated"(platform: "/web") {}
         "/checkout/login/confirm_not_authenticated"(platform: "/web") {}
 
-		"/checkout/payments"(platform:"/web") {
+		"/checkout/payments"(platform:"/web", isAbstract: true) {
 			order_id(required: true, description: "OrderId")
 			status(required: true, description: "status")
 			total_amount(required: true, description: "totalAmount")
