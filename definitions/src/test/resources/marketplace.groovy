@@ -592,7 +592,7 @@ trackTests {
            ship_method_id:"501045",
            ship_option_id:"509341521",
            cc_issuer:"297",
-           isLogged:"true",
+           is_logged:"true",
            prefs_on:"COOKIE"
       ]                 
     }
@@ -608,7 +608,7 @@ trackTests {
            ship_method_id:"73330",
            ship_option_id:"391232427",
            cc_issuer:"297",
-           isLogged:"false",
+           is_logged:"false",
            prefs_on:"NONE"
       ]                 
     }
@@ -624,7 +624,7 @@ trackTests {
            ship_method_id:"73330",
            ship_option_id:"391232427",
            cc_issuer:"297",
-           isLogged:"false",
+           is_logged:"false",
            prefs_on:"NONE"
       ]                 
     }

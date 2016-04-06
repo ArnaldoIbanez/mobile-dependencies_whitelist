@@ -444,6 +444,17 @@ catalog {
 
         "/checkout/login"(platform:"/web") {
             vip_parameters(required: true, description: "Parameters that came from the VIP")
+               //cht
+               //pm
+               //inst
+               //bp
+               //zip_code
+               //shipping_method_id
+               //ship_method_id
+               //ship_option_id
+               //cc_issuer
+               //is_logged
+               //prefs_on
         }    
         "/checkout/login/confirm_authenticated"(platform: "/web") {}
         "/checkout/login/first_purchase_not_authenticated"(platform: "/web") {}
