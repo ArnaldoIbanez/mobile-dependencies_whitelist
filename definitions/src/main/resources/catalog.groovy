@@ -442,7 +442,25 @@ catalog {
 			total_amount_usd(serverSide: true)
 		}
 
-		"/checkout/payments"(platform:"/web") {
+        "/checkout/login"(platform:"/web", isAbstract: true) {
+            vip_parameters(required: true, description: "Parameters that came from the VIP")
+               //cht
+               //pm
+               //inst
+               //bp
+               //zip_code
+               //shipping_method_id
+               //ship_method_id
+               //ship_option_id
+               //cc_issuer
+               //is_logged
+               //prefs_on
+        }    
+        "/checkout/login/confirm_authenticated"(platform: "/web") {}
+        "/checkout/login/first_purchase_not_authenticated"(platform: "/web") {}
+        "/checkout/login/confirm_not_authenticated"(platform: "/web") {}
+
+		"/checkout/payments"(platform:"/web", isAbstract: true) {
 			order_id(required: true, description: "OrderId")
 			status(required: true, description: "status")
 			total_amount(required: true, description: "totalAmount")
@@ -464,6 +482,7 @@ catalog {
                 // without_fee
 
             shipping(required: false)
+                // shipping_type
                 // cost
                 // shipping_option,
                 	// id,
@@ -484,6 +503,7 @@ catalog {
 
 			tracking_referer_page(required: false, description: "tracking referer page from where the request came")               
 		}
+        "/checkout/payments/select_payment_method"(platform: "/web") {}
 
         "/checkout/review"(platform:"/web") {
             order_id(required: true, description: "OrderId")
@@ -507,6 +527,7 @@ catalog {
                 // without_fee
 
             shipping(required: false)
+                // shipping_type
                 // cost
                 // shipping_option,
                     // id,
@@ -550,6 +571,7 @@ catalog {
                 // status_detail    
 
             shipping(required: false)
+                // shipping_type
                 // cost
                 // shipping_option,
                     // id,

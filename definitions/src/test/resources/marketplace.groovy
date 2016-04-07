@@ -574,7 +574,55 @@ trackTests {
         platform = "/web/desktop"
       }
 
-    "/checkout/payments"(platform:"/web/desktop") {
+    "/checkout/login/confirm_authenticated"(platform:"/web/desktop") {
+      vip_parameters=[  
+           cht:1459801088940,
+           pm:"master",
+           inst:"6",
+           bp:"Y",
+           zip_code:"1416",
+           shipping_method_id:"509341521",
+           ship_method_id:"501045",
+           ship_option_id:"509341521",
+           cc_issuer:"297",
+           is_logged:"true",
+           prefs_on:"COOKIE"
+      ]                 
+    }
+
+    "/checkout/login/first_purchase_not_authenticated"(platform:"/web/desktop") {
+      vip_parameters=[  
+           cht:1459800702645,
+           pm:"master",
+           inst:"6",
+           bp:"Y",
+           zip_code:"1418",
+           shipping_method_id:"391232427",
+           ship_method_id:"73330",
+           ship_option_id:"391232427",
+           cc_issuer:"297",
+           is_logged:"false",
+           prefs_on:"NONE"
+      ]                 
+    }
+
+    "/checkout/login/confirm_not_authenticated"(platform:"/web/desktop") {
+      vip_parameters=[  
+           cht:1459800702645,
+           pm:"master",
+           inst:"6",
+           bp:"Y",
+           zip_code:"1418",
+           shipping_method_id:"391232427",
+           ship_method_id:"73330",
+           ship_option_id:"391232427",
+           cc_issuer:"297",
+           is_logged:"false",
+           prefs_on:"NONE"
+      ]                 
+    }
+
+    "/checkout/payments/select_payment_method"(platform:"/web/desktop") {
       order_id=1234
       status="payment_required"
       total_amount=2000
@@ -595,7 +643,8 @@ trackTests {
           without_fee:false
         ]
       ]
-      shipping=[  
+      shipping=[
+        shipping_type: "mercadoenvios",
         cost:87.99,
         shipping_option:[  
           id:"391232427",
@@ -622,7 +671,7 @@ trackTests {
       ]
     }
 
-    "/checkout/payments"(platform:"/web/desktop") {
+    "/checkout/payments/select_payment_method"(platform:"/web/desktop") {
       order_id=1234
       status="payment_required"
       total_amount=200
@@ -650,7 +699,7 @@ trackTests {
       tracking_referer_page=null
     }
 
-    "/checkout/payments"(platform:"/web/desktop") {
+    "/checkout/payments/select_payment_method"(platform:"/web/desktop") {
       order_id=1234
       status="payment_required"
       total_amount=200
@@ -689,6 +738,55 @@ trackTests {
       tracking_referer_page="congratsAccordSecureSiteLogo"
     }
 
+    "/checkout/payments/select_payment_method"(platform:"/web/desktop") {
+      order_id=1234
+      status="payment_required"
+      total_amount=2000
+      total_amount_with_shipping=2087.99
+      total_paid_amount=3373.98
+      buy_equal_pay=true
+      recovery_flow=false
+      register_int=false
+      platform = "/web/desktop"
+      payments=[  
+        [
+          id:333,
+          payment_method:"visa",
+          payment_type:"credit_card",
+          installments:12,
+          paid_amount:3373.98,
+          installment_amount:281.17,
+          without_fee:false
+        ]
+      ]
+      shipping=[
+        shipping_type: "mercadoenvios",
+        cost:87.99,
+        shipping_option:[  
+          id:"391232427",
+          name:"Prioritario a domicilio",
+          shipping_method_id:"73330"
+        ],
+        id:21531848862,
+        shipping_mode:"me2"
+      ]
+      order_items=[  
+        [  
+          item:[  
+            id:"MLA9876",
+            variation_id:null,
+            buying_mode:"buy_it_now",
+            shipping_mode:"me2",
+            category_id:"MLA1915",
+            deal_ids:null
+          ],
+          quantity:1,
+          unit_price:2000,
+          currency_id:"ARS"
+        ]
+      ]
+    }
+
     "/checkout/review"(platform:"/web/desktop") {
       order_id=1234
       status="payment_required"
@@ -710,7 +808,8 @@ trackTests {
           without_fee:false
         ]
       ]
-      shipping=[  
+      shipping=[
+        shipping_type: "mercadoenvios",  
         cost:87.99,
         shipping_option:[  
           id:"391232427",
@@ -825,7 +924,8 @@ trackTests {
           status_detail:"accredited"
         ]
       ]
-      shipping=[  
+      shipping=[
+        shipping_type: "mercadoenvios",  
         cost:87.99,
         shipping_option:[  
           id:"391232427",
