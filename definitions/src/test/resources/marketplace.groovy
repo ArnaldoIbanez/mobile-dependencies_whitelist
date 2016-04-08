@@ -91,6 +91,14 @@ trackTests {
 
     "/search/filters"(platform: "/mobile", defaultSearchInformation)
     "/search/back"(platform: "/mobile", defaultSearchInformation)
+    "/search/long_press"(platform: "/mobile"){
+      defaultEmptySearchInformation()
+      item_id = "MLA170232"
+    }
+    "/search/share"(platform: "/mobile"){
+      defaultEmptySearchInformation()
+      item_id = "MLA170232"
+    }
     "/search/abort"(platform: "/mobile", defaultEmptySearchInformation)
     "/search/refine"(platform: "/mobile", defaultSearchInformation)
     "/search/refine/apply"(platform: "/mobile", defaultSearchInformation)
