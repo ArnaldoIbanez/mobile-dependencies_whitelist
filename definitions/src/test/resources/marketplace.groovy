@@ -1277,7 +1277,30 @@ trackTests {
       order_id = "11222"
       shipment_id = 1234
     }
+      
+    "/notification/pending"(platform: "/mobile"){
+      news_id = "12332323"
+      event_type = "arrived"
+      deeplink = "meli://sales/11222#shipping"
+      order_id = "11222"
+      shipment_id = 1234
+    }
     
+    "/notification/returning_to_sender"(platform: "/mobile"){
+      news_id = "12332323"
+      event_type = "arrived"
+      deeplink = "meli://purchases/11222/shipments/:shipment_id"
+      order_id = "11222"
+      shipment_id = 1234
+    }
+     
+    "/notification/delayed_sender"(platform: "/mobile"){
+      news_id = "12332323"
+      event_type = "arrived"
+      deeplink = "meli://sales/11222#shipping"
+      order_id = "11222"
+      shipment_id = 1234
+    }     
     "/notification/collections_approved"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "dismiss"
