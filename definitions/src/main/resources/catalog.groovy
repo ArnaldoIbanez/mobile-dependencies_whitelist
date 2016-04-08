@@ -898,6 +898,22 @@ catalog {
             order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
             shipment_id(required: true, type: PropertyType.Numeric)
         }
+        //Tienes que despachar (para el vendedor)
+        "/notification/pending"(platform: "/mobile") {
+            order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+            shipment_id(required: true, type: PropertyType.Numeric)
+        }
+        //Devolución por no entrega, a su dirección de despacho (para el vendedor)
+        "/notification/returning_to_sender"(platform: "/mobile") {
+            order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+            shipment_id(required: true, type: PropertyType.Numeric)
+        }      
+        //Te demoraste en el handling time (para el vendedor)
+        "/notification/delayed_sender"(platform: "/mobile") {
+            order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+            shipment_id(required: true, type: PropertyType.Numeric)
+        }   
+         
         //Seller questions
         "/notification/questions_new"(platform: "/mobile") {
             question_id(required: true)
