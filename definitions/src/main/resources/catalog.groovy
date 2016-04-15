@@ -158,6 +158,12 @@ catalog {
             tag_id()
         }
 
+        "/home/carousel/firstTO"(platform: "/mobile") {
+        }
+
+        "/home/carousel/lastcard"(platform: "/mobile") {
+        }
+
         //REVIEWS FRONTEND
         "/reviews/form"(platform: "/") {
             item_id()
