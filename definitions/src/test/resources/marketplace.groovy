@@ -37,9 +37,9 @@ trackTests {
       tag_id = "MLB681933310"
     })
 
-    "/home/carousel/firstTO"(platform: "/mobile", {})
+    "/home/carousel/firstTO"(platform: "/mobile") {}
 
-    "/home/carousel/lastcard"(platform: "/mobile", {})
+    "/home/carousel/lastcard"(platform: "/mobile") {}
   }
 
   test("Search core tracking"){

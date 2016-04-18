@@ -158,6 +158,9 @@ catalog {
             tag_id()
         }
 
+        "/home/carousel"(platform: "/mobile", isAbstract: true) {
+        }
+
         "/home/carousel/firstTO"(platform: "/mobile") {
         }
 
