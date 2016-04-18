@@ -230,7 +230,15 @@ catalog {
             offset(required: false, description: "override required property")
         }
 
-        "/search/back"(platform: "/mobile", type: TrackType.Event) {}
+        "/search/long_press" (platform: "/mobile", type: TrackType.Event){
+			item_id()
+		}
+
+        "/search/share" (platform: "/mobile", type: TrackType.Event){
+			item_id()
+		}
+
+        "/search/back" (platform: "/mobile", type: TrackType.Event) {}
 
         "/search/abort"(platform: "/mobile", type: TrackType.Event) {
             limit(required: false, description: "override required property")
