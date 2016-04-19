@@ -540,7 +540,10 @@ trackTests {
   //Checkout Apps
   test("checkout wizard flow"){
     "/checkout/init"(platform:"/mobile", type:TrackType.View) {
-      success = true
+      page_data = [
+        success:true,
+        location: "34.677755,56.444433"
+      ]
     }
     "/checkout/shipping/select_method"(platform:"/mobile", type:TrackType.View) {
       page_data = [

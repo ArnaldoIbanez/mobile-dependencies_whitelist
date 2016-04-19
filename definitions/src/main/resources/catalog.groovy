@@ -628,9 +628,8 @@ catalog {
         //Mobile Checkout Apps
         "/checkout/init"(platform:"/mobile") {
             //Initial request status
-            success(required: true)
             //Geolocated location
-            location(required: false, description: "User geolocation")
+            page_data(required: true)
         }
         "/checkout/shipping"(platform: "/mobile", isAbstract: true) {}
         //Fallback/Custom shipping
