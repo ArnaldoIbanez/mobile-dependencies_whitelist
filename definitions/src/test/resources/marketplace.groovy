@@ -411,6 +411,7 @@ trackTests {
       current_method="visa"
     }
 
+    //Checkout Apps Legacy
     "/checkout"(platform:"/mobile") {
       defaultCheckoutInformation()
       quantity_pre_selected=1
@@ -536,6 +537,102 @@ trackTests {
     "/checkout/" (platform: "/mobile"){}
   }
 
+  //Checkout Apps
+  test("checkout wizard flow"){
+    "/checkout/init"(platform:"/mobile", type:TrackType.View) {
+      success = true
+    }
+    "/checkout/shipping/select_method"(platform:"/mobile", type:TrackType.View) {
+      page_data = [
+        //List of available shippingMethods
+        selections:["shipping_other", "local_pick_up"]
+      ]
+    }
+    "/checkout/shipping/select_method/geolocated"(platform:"/mobile", type:TrackType.View) {
+      page_data = [
+        //List of available shippingMethods
+        selections:["shipping_geo", "shipping_other", "local_pick_up"]
+      ]
+    }
+    "/checkout/shipping/custom_address/zip_code"(platform:"/mobile", type:TrackType.View) {}
+    "/checkout/shipping/select_option/mercado_envios"(platform:"/mobile", type:TrackType.View) {
+      page_data = [
+        //List of available shippingMethods
+        shipping_options:[
+          [
+            method_name:"Normal",
+            price: 0.0,
+            currency_id: "ARS",
+            free_shipping: true
+          ],
+          [
+            method_name:"Expreso",
+            price: 50.46,
+            currency_id: "ARS",
+            free_shipping: false
+          ],
+        ]
+      ]
+    }
+    "/checkout/shipping/select_option/free_shipping"(platform:"/mobile", type:TrackType.View) {
+      page_data = [
+        //List of available shippingMethods
+        shipping_options:[
+          [
+            method_name:"Gratis a todo el país",
+            price: 0.0,
+            currency_id: "ARS",
+            free_shipping: true
+          ]
+        ]
+      ]
+    }
+    "/checkout/shipping/select_option/custom"(platform:"/mobile", type:TrackType.View) {
+      page_data = [
+        //List of available shippingMethods
+        shipping_options:[
+          [
+            method_name:"Zona 1",
+            price: 0.0,
+            currency_id: "ARS",
+            free_shipping: false
+          ]
+        ]
+      ]
+    }
+    "/checkout/shipping/location/address"(platform:"/mobile", type:TrackType.View) {
+      page_data = [
+        edit_flow: true
+      ]
+    }
+    "/checkout/shipping/location/select_contact"(platform:"/mobile", type:TrackType.View) {
+      page_data = [
+        available_options: 2
+      ]
+    }
+    "/checkout/shipping/location/find_contact"(platform:"/mobile", type:TrackType.View) {}
+    "/checkout/shipping/location/new_contact"(platform:"/mobile", type:TrackType.View) {
+      page_data = [
+        name: "Juan",
+        phone: "555-5555"
+      ]
+    }
+    "/checkout/shipping/select_address"(platform:"/mobile", type:TrackType.View) {
+      page_data = [
+        //List of available shippingMethods
+        shipping_options:[
+          [
+            method_name:"Zona 1",
+            price: 0.0,
+            currency_id: "ARS",
+            free_shipping: false
+          ]
+        ]
+      ]
+    }
+    "/checkout/shipping/select_address_list"(platform:"/mobile", type:TrackType.View) {}
+  }
+
   test("checkout congrats"){
 
     "/checkout/congrats"(platform:"/mobile", type:TrackType.View) {
@@ -556,8 +653,9 @@ trackTests {
         ]
 
         order_id=912391
-     }     
+     }
 
+     //Checkout Desktop
     "/checkout/ordercreated"(platform:"/web/desktop", type:TrackType.Event) {
         congrats_seq = 1
         total_amount = 70

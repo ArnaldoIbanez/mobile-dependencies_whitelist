@@ -426,7 +426,7 @@ catalog {
 
         //CHECKOUT FLOW
 
-        "/checkout"(platform: "/web", isAbstract: true) {
+        "/checkout"(platform: "/", isAbstract: true) {
         }
 
         "/checkout/ordercreated"(platform: "/web", type: TrackType.Event) {
@@ -625,6 +625,64 @@ catalog {
             total_amount_usd(serverSide: true)        
         }
 
+        //Mobile Checkout Apps
+        "/checkout/init"(platform:"/mobile") {
+            //Initial request status
+            success(required: true)
+            //Geolocated location
+            location(required: false, description: "User geolocation")
+        }
+        "/checkout/shipping"(platform: "/mobile", isAbstract: true) {}
+        //Fallback/Custom shipping
+        "/checkout/shipping/select_method"(platform: "/mobile") {
+            //List of available shippingMethods
+            page_data(required: true)
+        }
+        //Geolocation
+        "/checkout/shipping/select_method/geolocated"(platform:"/mobile") {
+            //List of available shippingMethods
+            page_data(required: true)
+        }
+        "/checkout/shipping/custom_address"(platform: "/mobile", isAbstract: true) {}
+        //Input zip_code
+        "/checkout/shipping/custom_address/zip_code"(platform:"/mobile") {}
+        "/checkout/shipping/select_option"(platform: "/mobile", isAbstract: true) {}
+        //Select shippingOptions
+        "/checkout/shipping/select_option/mercado_envios"(platform:"/mobile") {
+            //List of available shipping_options
+            page_data(required: true)
+        }
+        "/checkout/shipping/select_option/free_shipping"(platform:"/mobile") {
+            //List of available shipping_options
+            page_data(required: true)
+        }
+        "/checkout/shipping/select_option/custom"(platform:"/mobile") {
+            //List of available shipping_options
+            page_data(required: true)
+        }
+        //Input address flow
+        "/checkout/shipping/location"(platform: "/mobile", isAbstract: true) {}
+        "/checkout/shipping/location/address"(platform:"/mobile") {
+            //List of available shipping_options
+            page_data(required: true)
+        }
+        "/checkout/shipping/location/select_contact"(platform:"/mobile") {
+            //List of available contacts
+            page_data(required: true)
+        }
+        "/checkout/shipping/location/find_contact"(platform:"/mobile") {}
+        "/checkout/shipping/location/new_contact"(platform:"/mobile") {
+            //Contact name/phone
+            page_data(required: true)
+        }
+        //Select address
+        "/checkout/shipping/select_address"(platform: "/mobile") {
+            //List of available shipping_options
+            page_data(required: true)
+        }
+        "/checkout/shipping/select_address_list"(platform:"/mobile") {}
+
+        //Mobile Checkout Legacy Apps
 		"/checkout"(platform:"/mobile") {
 			order_id(required: false)
             status(required:false)
