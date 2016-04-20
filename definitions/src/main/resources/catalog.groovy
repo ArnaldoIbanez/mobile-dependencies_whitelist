@@ -565,7 +565,14 @@ catalog {
                     //deal_ids
                 //quantity
                 //unit_price
-                //currency_id       
+                //currency_id
+            buyer(required: false)
+                //id
+                //nickname
+
+            seller(required: false)
+                //id
+                //nickname      
         }
 
         "/checkout/congrats"(platform:"/web") {
@@ -629,11 +636,112 @@ catalog {
         /*******************************************************************/
         //Mobile Checkout Apps
         "/checkout/init"(platform:"/mobile") {
+            order_id(required: false, description: "OrderId")
+            status(required: false, description: "status")
+            total_amount(required: true, description: "totalAmount")
+            total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
+            total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+
+            buy_equal_pay(required: true, description: "BP flag")
+            recovery_flow(required: true, description: "Is recovery CHO flow")
+            platform(required: true)
+
+            payments(required: true, description: "Array of payments information")
+                // id
+                // payment_method,
+                // payment_type,
+                // installments,
+                // paid_amount,
+                // installment_amount
+                // without_fee
+                // status
+                // status_detail    
+
+            shipping(required: true)
+                // shipping_type
+                // cost
+                // shipping_option,
+                    // id,
+                    // name,
+                    // shipping_method_id
+                // id
+                // shipping_mode
+
+            order_items(required: true, description: "Array of items in the order" )
+                //item
+                    //id
+                    //variation_id
+                    //buying_mode
+                    //shipping_mode
+                    //category_id
+                    //deal_ids
+                //quantity
+                //unit_price
+                //currency_id    
+
+            buyer(required: true)
+                //id
+                //nickname
+
+            seller(required: true)
+                //id
+                //nickname
             page_data(required: true)
                 //success: true,
                 //location: "34.677755,56.444433" (optional)
         }
-        "/checkout/shipping"(platform: "/mobile", isAbstract: true) {}
+        "/checkout/shipping"(platform: "/mobile", isAbstract: true) {
+            order_id(required: false, description: "OrderId")
+            status(required: false, description: "status")
+            total_amount(required: true, description: "totalAmount")
+            total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
+            total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+
+            buy_equal_pay(required: true, description: "BP flag")
+            recovery_flow(required: true, description: "Is recovery CHO flow")
+            platform(required: true)
+
+            payments(required: true, description: "Array of payments information")
+                // id
+                // payment_method,
+                // payment_type,
+                // installments,
+                // paid_amount,
+                // installment_amount
+                // without_fee
+                // status
+                // status_detail    
+
+            shipping(required: true)
+                // shipping_type
+                // cost
+                // shipping_option,
+                    // id,
+                    // name,
+                    // shipping_method_id
+                // id
+                // shipping_mode
+
+            order_items(required: true, description: "Array of items in the order" )
+                //item
+                    //id
+                    //variation_id
+                    //buying_mode
+                    //shipping_mode
+                    //category_id
+                    //deal_ids
+                //quantity
+                //unit_price
+                //currency_id    
+
+            buyer(required: true)
+                //id
+                //nickname
+
+            seller(required: true)
+                //id
+                //nickname
+        }
         //Fallback/Custom shipping
         "/checkout/shipping/select_method"(platform: "/mobile") {
             //List of available shippingMethods
@@ -709,7 +817,7 @@ catalog {
         //Select address
         "/checkout/shipping/select_address"(platform: "/mobile") {
             //List of available shipping_options
-            page_data(required: true)
+            page_data(required: false)
                 //shipping_options: [
                 //  [
                 //    method_name: "Normal",
@@ -719,9 +827,60 @@ catalog {
                 //  ]
                 //]
         }
-        "/checkout/shipping/select_address/list"(platform:"/mobile", parentPropertiesInherited: false) {}
+        "/checkout/shipping/select_address/list"(platform:"/mobile") {}
         //Select paymentMethod
-        "/checkout/payments"(platform: "/mobile", isAbstract: true) {}
+        "/checkout/payments"(platform: "/mobile", isAbstract: true) {
+            order_id(required: false, description: "OrderId")
+            status(required: false, description: "status")
+            total_amount(required: true, description: "totalAmount")
+            total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
+            total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+
+            buy_equal_pay(required: true, description: "BP flag")
+            recovery_flow(required: true, description: "Is recovery CHO flow")
+            platform(required: true)
+
+            payments(required: true, description: "Array of payments information")
+                // id
+                // payment_method,
+                // payment_type,
+                // installments,
+                // paid_amount,
+                // installment_amount
+                // without_fee
+                // status
+                // status_detail    
+
+            shipping(required: true)
+                // shipping_type
+                // cost
+                // shipping_option,
+                    // id,
+                    // name,
+                    // shipping_method_id
+                // id
+                // shipping_mode
+
+            order_items(required: true, description: "Array of items in the order" )
+                //item
+                    //id
+                    //variation_id
+                    //buying_mode
+                    //shipping_mode
+                    //category_id
+                    //deal_ids
+                //quantity
+                //unit_price
+                //currency_id    
+
+            buyer(required: true)
+                //id
+                //nickname
+
+            seller(required: true)
+                //id
+                //nickname
+        }
         "/checkout/payments/select_method"(platform:"/mobile") {
             //List of available payment_methods and coupon info
             page_data(required: true)
@@ -748,14 +907,14 @@ catalog {
         "/checkout/payments/account_money/password"(platform:"/mobile") {}
         "/checkout/payments/billing_info"(platform:"/mobile") {}
         //"/checkout/review" //shared between web and app, already defined in web section.
-        "/checkout/review/quantity"(platform:"/mobile", parentPropertiesInherited: false) {}
-        "/checkout/review/quantity/input"(platform:"/mobile", parentPropertiesInherited: false) {}
+        "/checkout/review/quantity"(platform:"/mobile") {}
+        "/checkout/review/quantity/input"(platform:"/mobile") {}
         "/checkout/review/inconsistency"(platform: "/mobile", isAbstract: true) {}
-        "/checkout/review/inconsistency/quantity"(platform: "/mobile", parentPropertiesInherited: false) {
+        "/checkout/review/inconsistency/quantity"(platform: "/mobile") {
             page_data(required: true)
                 //error_code: String
         }
-        "/checkout/review/edit_shipping"(platform:"/mobile", parentPropertiesInherited: false) {
+        "/checkout/review/edit_shipping"(platform:"/mobile") {
             //List of available shipping_options
             page_data(required: true)
                 //shipping_options: [
@@ -767,11 +926,11 @@ catalog {
                 //  ]
                 //]
         }
-        "/checkout/review/inconsistency/edit_shipping"(platform: "/mobile", parentPropertiesInherited: false) {
+        "/checkout/review/inconsistency/edit_shipping"(platform: "/mobile") {
             page_data(required: true)
                 //error_code: String
         }
-        "/checkout/review/edit_installments"(platform: "/mobile", parentPropertiesInherited: false) {
+        "/checkout/review/edit_installments"(platform: "/mobile") {
             page_data(required: true)
             //installments: [
                 //    [
@@ -843,8 +1002,6 @@ catalog {
         
             /****************************************/
             //Legacy App Congrats Tracks 
-            buyer(required: false)
-            seller(required: false)
             duplicated_error(required: false)
             congrats_seq(required: false, serverSide: false)
             total_amount_local(required: false, serverSide: false)
@@ -857,18 +1014,68 @@ catalog {
                 //available_actions: ["retry", "change_payment_method"]
         }
         "/checkout/congrats/call_for_auth"(platform: "/mobile") {
-            page_data(required: true)
+            page_data(required: false)
                 //available_actions: ["retry", "change_payment_method"]
         }
-        "/checkout/congrats/call_for_auth/instructions"(platform: "/mobile", parentPropertiesInherited: false) {}
-        "/checkout/congrats/call_for_auth/later"(platform: "/mobile", parentPropertiesInherited: false) {}
+        "/checkout/congrats/call_for_auth/instructions"(platform: "/mobile") {}
+        "/checkout/congrats/call_for_auth/later"(platform: "/mobile") {}
         "/checkout/congrats/invalid_sec_code"(platform: "/mobile") {
             page_data(required: true)
                 //available_actions: ["retry", "change_payment_method"]
         }
         "/checkout/congrats/pending"(platform: "/mobile") {}
         "/checkout/error"(platform: "/mobile") {
-            page_data(required: true)
+            order_id(required: false, description: "OrderId")
+            status(required: false, description: "status")
+            total_amount(required: false, description: "totalAmount")
+            total_amount_with_shipping(required: false, description: "totalAmount with shipping cost")
+            total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+
+            buy_equal_pay(required: false, description: "BP flag")
+            recovery_flow(required: false, description: "Is recovery CHO flow")
+            platform(required: false)
+
+            payments(required: false, description: "Array of payments information")
+                // id
+                // payment_method,
+                // payment_type,
+                // installments,
+                // paid_amount,
+                // installment_amount
+                // without_fee
+                // status
+                // status_detail    
+
+            shipping(required: false)
+                // shipping_type
+                // cost
+                // shipping_option,
+                    // id,
+                    // name,
+                    // shipping_method_id
+                // id
+                // shipping_mode
+
+            order_items(required: false, description: "Array of items in the order" )
+                //item
+                    //id
+                    //variation_id
+                    //buying_mode
+                    //shipping_mode
+                    //category_id
+                    //deal_ids
+                //quantity
+                //unit_price
+                //currency_id    
+
+            buyer(required: false)
+                //id
+                //nickname
+
+            seller(required: false)
+                //id
+                //nickname
+            page_data(required: false)
                 //error_code: String
         }
 
