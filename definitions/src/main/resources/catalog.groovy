@@ -525,14 +525,15 @@ catalog {
         "/checkout/payments/select_split_payment"(platform: "/web") {}
         "/checkout/payments/input_proactive_payment_amount"(platform: "/web") {}
 
-        "/checkout/review"(platform:"/web") {
-            order_id(required: true, description: "OrderId")
-            status(required: true, description: "status")
+        //Web and Apps track is the same
+        "/checkout/review"(platform:"/") {
+            order_id(required: false, description: "OrderId") //Apps might not have an order
+            status(required: false, description: "status") //Apps might not have an order
             total_amount(required: true, description: "totalAmount")
             total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
             total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
 
-            buy_equal_pay(required: true, description: "BP flag")
+            buy_equal_pay(required: true, description: "BP flag") //Apps might not have an order
             recovery_flow(required: true, description: "Is recovery CHO flow")
             register_int(required: false, description: "Integrated registration")           
             platform()
@@ -551,7 +552,7 @@ catalog {
                 // cost
                 // shipping_option,
                     // id,
-                    // name,
+                    // name,º
                     // shipping_method_id
 
             order_items( description: "Array of items in the order" )
@@ -625,22 +626,25 @@ catalog {
             total_amount_usd(serverSide: true)        
         }
 
+        /*******************************************************************/
         //Mobile Checkout Apps
         "/checkout/init"(platform:"/mobile") {
-            //Initial request status
-            //Geolocated location
             page_data(required: true)
+                //success: true,
+                //location: "34.677755,56.444433" (optional)
         }
         "/checkout/shipping"(platform: "/mobile", isAbstract: true) {}
         //Fallback/Custom shipping
         "/checkout/shipping/select_method"(platform: "/mobile") {
             //List of available shippingMethods
             page_data(required: true)
+                //selections: ["shipping_other", "local_pick_up"]
         }
         //Geolocation
         "/checkout/shipping/select_method/geolocated"(platform:"/mobile") {
             //List of available shippingMethods
             page_data(required: true)
+                //selections: ["shipping_geo", "shipping_other", "local_pick_up"]
         }
         "/checkout/shipping/custom_address"(platform: "/mobile", isAbstract: true) {}
         //Input zip_code
@@ -650,37 +654,225 @@ catalog {
         "/checkout/shipping/select_option/mercado_envios"(platform:"/mobile") {
             //List of available shipping_options
             page_data(required: true)
+                //shipping_options: [
+                //  [
+                //    method_name: "Normal",
+                //    price: 0.0,
+                //    currency_id: "ARS",
+                //    free_shipping: true
+                //  ]
+                //]
         }
         "/checkout/shipping/select_option/free_shipping"(platform:"/mobile") {
             //List of available shipping_options
             page_data(required: true)
+                //shipping_options: [
+                //  [
+                //    method_name: "Gratois a todo el país",
+                //    price: 0.0,
+                //    currency_id: "ARS",
+                //    free_shipping: true
+                //  ]
+                //]
         }
         "/checkout/shipping/select_option/custom"(platform:"/mobile") {
             //List of available shipping_options
             page_data(required: true)
+                //shipping_options: [
+                //  [
+                //    method_name: "Zona 1",
+                //    price: 0.0,
+                //    currency_id: "ARS",
+                //    free_shipping: true
+                //  ]
+                //]
         }
         //Input address flow
         "/checkout/shipping/location"(platform: "/mobile", isAbstract: true) {}
         "/checkout/shipping/location/address"(platform:"/mobile") {
             //List of available shipping_options
             page_data(required: true)
+                //edit_flow: true
         }
         "/checkout/shipping/location/select_contact"(platform:"/mobile") {
             //List of available contacts
             page_data(required: true)
+                //available_options: 2
         }
         "/checkout/shipping/location/find_contact"(platform:"/mobile") {}
         "/checkout/shipping/location/new_contact"(platform:"/mobile") {
             //Contact name/phone
             page_data(required: true)
+                //name: "Juan", (optional)
+                //phone: "555-5555" (optional)
         }
         //Select address
         "/checkout/shipping/select_address"(platform: "/mobile") {
             //List of available shipping_options
             page_data(required: true)
+                //shipping_options: [
+                //  [
+                //    method_name: "Normal",
+                //    price: 0.0,
+                //    currency_id: "ARS",
+                //    free_shipping: true
+                //  ]
+                //]
         }
-        "/checkout/shipping/select_address_list"(platform:"/mobile") {}
+        "/checkout/shipping/select_address/list"(platform:"/mobile", parentPropertiesInherited: false) {}
+        //Select paymentMethod
+        "/checkout/payments"(platform: "/mobile", isAbstract: true) {}
+        "/checkout/payments/select_method"(platform:"/mobile") {
+            //List of available payment_methods and coupon info
+            page_data(required: true)
+                //available_methods: ["visa", "master", "amex", "cash"],
+                //coupon: true,
+                //coupon_discoun: 20
+        }
+        "/checkout/payments/coupon_detail"(platform:"/mobile") {}
+        "/checkout/payments/add_card"(platform:"/mobile") {}
+        "/checkout/payments/add_card/installments"(platform:"/mobile") {
+            //List of available installments
+            page_data(required: true)
+                //installments: [
+                //    [
+                //      installment: 1,
+                //      amount: 20.6,
+                //      without_fee: true
+                //    ]
+        }
+        "/checkout/payments/stored_card"(platform: "/mobile", isAbstract: true) {}
+        "/checkout/payments/stored_card/security_code"(platform:"/mobile") {}
+        "/checkout/payments/account_money"(platform: "/mobile", isAbstract: true) {}
+        "/checkout/payments/account_money/create"(platform:"/mobile") {}
+        "/checkout/payments/account_money/password"(platform:"/mobile") {}
+        "/checkout/payments/billing_info"(platform:"/mobile") {}
+        //"/checkout/review" //shared between web and app, already defined in web section.
+        "/checkout/review/quantity"(platform:"/mobile", parentPropertiesInherited: false) {}
+        "/checkout/review/quantity/input"(platform:"/mobile", parentPropertiesInherited: false) {}
+        "/checkout/review/inconsistency"(platform: "/mobile", isAbstract: true) {}
+        "/checkout/review/inconsistency/quantity"(platform: "/mobile", parentPropertiesInherited: false) {
+            page_data(required: true)
+                //error_code: String
+        }
+        "/checkout/review/edit_shipping"(platform:"/mobile", parentPropertiesInherited: false) {
+            //List of available shipping_options
+            page_data(required: true)
+                //shipping_options: [
+                //  [
+                //    method_name: "Normal",
+                //    price: 0.0,
+                //    currency_id: "ARS",
+                //    free_shipping: true
+                //  ]
+                //]
+        }
+        "/checkout/review/inconsistency/edit_shipping"(platform: "/mobile", parentPropertiesInherited: false) {
+            page_data(required: true)
+                //error_code: String
+        }
+        "/checkout/review/edit_installments"(platform: "/mobile", parentPropertiesInherited: false) {
+            page_data(required: true)
+            //installments: [
+                //    [
+                //      installment: 1,
+                //      amount: 20.6,
+                //      without_fee: true
+                //    ]
+        }
+        //Congrats tracks - shared between Legacy App and new App (Required False to prevent catalog validation failures)
+        "/checkout/congrats"(platform: "/mobile") {
+            /****************************************/
+            //Desktop and New CHO congrats tracs
+            //TODO chage to required: true once legacy
+            order_id(required: false, description: "OrderId")
+            status(required: false, description: "status")
+            total_amount(required: false, description: "totalAmount")
+            total_amount_with_shipping(required: false, description: "totalAmount with shipping cost")
+            total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
 
+            buy_equal_pay(required: false, description: "BP flag")
+            recovery_flow(required: false, description: "Is recovery CHO flow")
+            register_int(required: false, description: "Integrated registration")           
+            platform(required: false)
+
+            payments(required: false, description: "Array of payments information")
+                // id
+                // payment_method,
+                // payment_type,
+                // installments,
+                // paid_amount,
+                // installment_amount
+                // without_fee
+                // status
+                // status_detail    
+
+            shipping(required: false)
+                // shipping_type
+                // cost
+                // shipping_option,
+                    // id,
+                    // name,
+                    // shipping_method_id
+                // id
+                // shipping_mode
+
+            order_items(required: false, description: "Array of items in the order" )
+                //item
+                    //id
+                    //variation_id
+                    //buying_mode
+                    //shipping_mode
+                    //category_id
+                    //deal_ids
+                //quantity
+                //unit_price
+                //currency_id    
+
+            buyer(required: false)
+                //id
+                //nickname
+
+            seller(required: false)
+                //id
+                //nickname
+
+            proactive_two_payment(required: false, description: "tracking proactive two payment selection")                                 
+            total_amount_local(serverSide: false)
+            total_amount_usd(serverSide: false)
+        
+            /****************************************/
+            //Legacy App Congrats Tracks 
+            buyer(required: false)
+            seller(required: false)
+            duplicated_error(required: false)
+            congrats_seq(required: false, serverSide: false)
+            total_amount_local(required: false, serverSide: false)
+            total_amount_usd(required: false, serverSide: false)
+            first_for_order(required: false, serverSide: false)
+            order_api(required: false,  serverSide: false)
+        }
+        "/checkout/congrats/error"(platform: "/mobile") {
+            page_data(required: true)
+                //available_actions: ["retry", "change_payment_method"]
+        }
+        "/checkout/congrats/call_for_auth"(platform: "/mobile") {
+            page_data(required: true)
+                //available_actions: ["retry", "change_payment_method"]
+        }
+        "/checkout/congrats/call_for_auth/instructions"(platform: "/mobile", parentPropertiesInherited: false) {}
+        "/checkout/congrats/call_for_auth/later"(platform: "/mobile", parentPropertiesInherited: false) {}
+        "/checkout/congrats/invalid_sec_code"(platform: "/mobile") {
+            page_data(required: true)
+                //available_actions: ["retry", "change_payment_method"]
+        }
+        "/checkout/congrats/pending"(platform: "/mobile") {}
+        "/checkout/error"(platform: "/mobile") {
+            page_data(required: true)
+                //error_code: String
+        }
+
+        /*******************************************************************/
         //Mobile Checkout Legacy Apps
 		"/checkout"(platform:"/mobile") {
 			order_id(required: false)
@@ -724,18 +916,6 @@ catalog {
         "/checkout/abort"(platform: "/mobile", type: TrackType.Event) {}
 
         "/checkout/back"(platform: "/mobile", type: TrackType.Event) {}
-
-        "/checkout/congrats"(platform: "/mobile") {
-            buyer(required: false)
-            seller(required: false)
-
-            duplicated_error(required: false)
-            congrats_seq(serverSide: true)
-            total_amount_local(serverSide: true)
-            total_amount_usd(serverSide: true)
-            first_for_order(serverSide: true)
-            order_api(serverSide: true)
-        }
 
         "/checkout/congrats/back"(platform: "/mobile", type: TrackType.Event) {}
 
