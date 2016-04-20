@@ -686,9 +686,9 @@ catalog {
             seller(required: true)
                 //id
                 //nickname
-            page_data(required: true)
-                //success: true,
-                //location: "34.677755,56.444433" (optional)
+            //View specific data
+            success(required: true, type: PropertyType.Boolean)
+            location(required: false, type: PropertyType.String)
         }
         "/checkout/shipping"(platform: "/mobile", isAbstract: true) {
             order_id(required: false, description: "OrderId")
@@ -744,24 +744,17 @@ catalog {
         }
         //Fallback/Custom shipping
         "/checkout/shipping/select_method"(platform: "/mobile") {
-            //List of available shippingMethods
-            page_data(required: true)
-                //selections: ["shipping_other", "local_pick_up"]
+            //View specific data
+            selections(required: true, type: PropertyType.ArrayList)
         }
         //Geolocation
-        "/checkout/shipping/select_method/geolocated"(platform:"/mobile") {
-            //List of available shippingMethods
-            page_data(required: true)
-                //selections: ["shipping_geo", "shipping_other", "local_pick_up"]
-        }
+        "/checkout/shipping/select_method/geolocated"(platform:"/mobile") {}
         "/checkout/shipping/custom_address"(platform: "/mobile", isAbstract: true) {}
         //Input zip_code
         "/checkout/shipping/custom_address/zip_code"(platform:"/mobile") {}
-        "/checkout/shipping/select_option"(platform: "/mobile", isAbstract: true) {}
-        //Select shippingOptions
-        "/checkout/shipping/select_option/mercado_envios"(platform:"/mobile") {
-            //List of available shipping_options
-            page_data(required: true)
+        "/checkout/shipping/select_option"(platform: "/mobile", isAbstract: true) {
+            //View specific data
+            shipping_options(required: true, type: PropertyType.ArrayList)
                 //shipping_options: [
                 //  [
                 //    method_name: "Normal",
@@ -771,53 +764,32 @@ catalog {
                 //  ]
                 //]
         }
-        "/checkout/shipping/select_option/free_shipping"(platform:"/mobile") {
-            //List of available shipping_options
-            page_data(required: true)
-                //shipping_options: [
-                //  [
-                //    method_name: "Gratois a todo el país",
-                //    price: 0.0,
-                //    currency_id: "ARS",
-                //    free_shipping: true
-                //  ]
-                //]
-        }
-        "/checkout/shipping/select_option/custom"(platform:"/mobile") {
-            //List of available shipping_options
-            page_data(required: true)
-                //shipping_options: [
-                //  [
-                //    method_name: "Zona 1",
-                //    price: 0.0,
-                //    currency_id: "ARS",
-                //    free_shipping: true
-                //  ]
-                //]
-        }
+        //Select shippingOptions
+        "/checkout/shipping/select_option/mercado_envios"(platform:"/mobile") {}
+        "/checkout/shipping/select_option/free_shipping"(platform:"/mobile") {}
+        "/checkout/shipping/select_option/custom"(platform:"/mobile") {}
         //Input address flow
         "/checkout/shipping/location"(platform: "/mobile", isAbstract: true) {}
         "/checkout/shipping/location/address"(platform:"/mobile") {
-            //List of available shipping_options
-            page_data(required: true)
-                //edit_flow: true
+            //View specific data
+            edit_flow(required: true, type: PropertyType.Boolean)
         }
         "/checkout/shipping/location/select_contact"(platform:"/mobile") {
-            //List of available contacts
-            page_data(required: true)
-                //available_options: 2
+            //View specific data
+            available_options(required: true, type: PropertyType.Numeric)
         }
         "/checkout/shipping/location/find_contact"(platform:"/mobile") {}
         "/checkout/shipping/location/new_contact"(platform:"/mobile") {
+            //View specific data
             //Contact name/phone
-            page_data(required: true)
-                //name: "Juan", (optional)
-                //phone: "555-5555" (optional)
+            contact_name(required: false, type: PropertyType.String)
+            contact_phone(required: false, type: PropertyType.String)
         }
         //Select address
         "/checkout/shipping/select_address"(platform: "/mobile") {
+            //View specific data
             //List of available shipping_options
-            page_data(required: false)
+            shipping_options(required: true, type: PropertyType.ArrayList)
                 //shipping_options: [
                 //  [
                 //    method_name: "Normal",
@@ -827,7 +799,9 @@ catalog {
                 //  ]
                 //]
         }
-        "/checkout/shipping/select_address/list"(platform:"/mobile") {}
+        "/checkout/shipping/select_address/list"(platform:"/mobile") {
+            shipping_options(required: false, type: PropertyType.ArrayList)
+        }
         //Select paymentMethod
         "/checkout/payments"(platform: "/mobile", isAbstract: true) {
             order_id(required: false, description: "OrderId")
@@ -883,16 +857,15 @@ catalog {
         }
         "/checkout/payments/select_method"(platform:"/mobile") {
             //List of available payment_methods and coupon info
-            page_data(required: true)
-                //available_methods: ["visa", "master", "amex", "cash"],
-                //coupon: true,
-                //coupon_discoun: 20
+            available_methods(required: true, type: PropertyType.ArrayList)
+            coupon(required: false, type:  PropertyType.Boolean)
+            coupon_discoun(required: false, type:  PropertyType.Numeric)
         }
         "/checkout/payments/coupon_detail"(platform:"/mobile") {}
         "/checkout/payments/add_card"(platform:"/mobile") {}
         "/checkout/payments/add_card/installments"(platform:"/mobile") {
             //List of available installments
-            page_data(required: true)
+            installments(required: true, type: PropertyType.ArrayList)
                 //installments: [
                 //    [
                 //      installment: 1,
@@ -911,12 +884,11 @@ catalog {
         "/checkout/review/quantity/input"(platform:"/mobile") {}
         "/checkout/review/inconsistency"(platform: "/mobile", isAbstract: true) {}
         "/checkout/review/inconsistency/quantity"(platform: "/mobile") {
-            page_data(required: true)
-                //error_code: String
+            error_code(required: false, type:  PropertyType.String)
         }
         "/checkout/review/edit_shipping"(platform:"/mobile") {
             //List of available shipping_options
-            page_data(required: true)
+            shipping_options(required: true, type: PropertyType.ArrayList)
                 //shipping_options: [
                 //  [
                 //    method_name: "Normal",
@@ -927,12 +899,12 @@ catalog {
                 //]
         }
         "/checkout/review/inconsistency/edit_shipping"(platform: "/mobile") {
-            page_data(required: true)
-                //error_code: String
+            error_code(required: true, type:  PropertyType.String)
         }
         "/checkout/review/edit_installments"(platform: "/mobile") {
-            page_data(required: true)
-            //installments: [
+            //List of available installments
+            installments(required: true, type: PropertyType.ArrayList)
+                //installments: [
                 //    [
                 //      installment: 1,
                 //      amount: 20.6,
@@ -1003,25 +975,25 @@ catalog {
             /****************************************/
             //Legacy App Congrats Tracks 
             duplicated_error(required: false)
-            congrats_seq(required: false, serverSide: false)
-            total_amount_local(required: false, serverSide: false)
-            total_amount_usd(required: false, serverSide: false)
-            first_for_order(required: false, serverSide: false)
-            order_api(required: false,  serverSide: false)
+            congrats_seq(serverSide: true)
+            total_amount_local(serverSide: true)
+            total_amount_usd(serverSide: true)
+            first_for_order(serverSide: true)
         }
         "/checkout/congrats/error"(platform: "/mobile") {
-            page_data(required: true)
-                //available_actions: ["retry", "change_payment_method"]
+            available_actions(required: true, type: PropertyType.ArrayList)
         }
         "/checkout/congrats/call_for_auth"(platform: "/mobile") {
-            page_data(required: false)
-                //available_actions: ["retry", "change_payment_method"]
+            available_actions(required: true, type: PropertyType.ArrayList)
         }
-        "/checkout/congrats/call_for_auth/instructions"(platform: "/mobile") {}
-        "/checkout/congrats/call_for_auth/later"(platform: "/mobile") {}
+        "/checkout/congrats/call_for_auth/instructions"(platform: "/mobile") {
+            available_actions(required: false, type: PropertyType.ArrayList)
+        }
+        "/checkout/congrats/call_for_auth/later"(platform: "/mobile") {
+            available_actions(required: false, type: PropertyType.ArrayList)
+        }
         "/checkout/congrats/invalid_sec_code"(platform: "/mobile") {
-            page_data(required: true)
-                //available_actions: ["retry", "change_payment_method"]
+            available_actions(required: true, type: PropertyType.ArrayList)
         }
         "/checkout/congrats/pending"(platform: "/mobile") {}
         "/checkout/error"(platform: "/mobile") {
@@ -1075,8 +1047,7 @@ catalog {
             seller(required: false)
                 //id
                 //nickname
-            page_data(required: false)
-                //error_code: String
+            error_code(required: true, type: PropertyType.String)
         }
 
         /*******************************************************************/

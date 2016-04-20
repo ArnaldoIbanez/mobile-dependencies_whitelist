@@ -585,122 +585,100 @@ trackTests {
 
     "/checkout/init"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      page_data = [
-        success: true,
-        location: "34.677755,56.444433"
-      ]
+      success = true
+      location = "34.677755,56.444433"
     }
     "/checkout/shipping/select_method"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      page_data = [
-        //List of available shippingMethods
-        selections: ["shipping_other", "local_pick_up"]
-      ]
+      //List of available shippingMethods
+      selections = ["shipping_other", "local_pick_up"]
     }
     "/checkout/shipping/select_method/geolocated"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      page_data = [
-        //List of available shippingMethods
-        selections: ["shipping_geo", "shipping_other", "local_pick_up"]
-      ]
+      //List of available shippingMethods
+      selections = ["shipping_geo", "shipping_other", "local_pick_up"]
     }
     "/checkout/shipping/custom_address/zip_code"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
     "/checkout/shipping/select_option/mercado_envios"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      page_data = [
-        //List of available shippingMethods
-        shipping_options: [
-          [
-            method_name: "Normal",
-            price: 0.0,
-            currency_id: "ARS",
-            free_shipping: true
-          ],
-          [
-            method_name: "Expreso",
-            price: 50.46,
-            currency_id: "ARS",
-            free_shipping: false
-          ],
+      //List of available shippingMethods
+      shipping_options = [
+        [
+          method_name: "Normal",
+          price: 0.0,
+          currency_id: "ARS",
+          free_shipping: true
+        ],
+        [
+          method_name: "Expreso",
+          price: 50.46,
+          currency_id: "ARS",
+          free_shipping: false
         ]
       ]
     }
     "/checkout/shipping/select_option/free_shipping"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      page_data = [
-        //List of available shippingMethods
-        shipping_options: [
-          [
-            method_name: "Gratis a todo el país",
-            price: 0.0,
-            currency_id: "ARS",
-            free_shipping: true
-          ]
+      //List of available shippingMethods
+      shipping_options = [
+        [
+          method_name: "Gratis a todo el país",
+          price: 0.0,
+          currency_id: "ARS",
+          free_shipping: true
         ]
       ]
     }
     "/checkout/shipping/select_option/custom"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      page_data = [
-        //List of available shippingMethods
-        shipping_options: [
-          [
-            method_name: "Zona 1",
-            price: 0.0,
-            currency_id: "ARS",
-            free_shipping: false
-          ]
+      //List of available shippingMethods
+      shipping_options = [
+        [
+          method_name: "Zona 1",
+          price: 0.0,
+          currency_id: "ARS",
+          free_shipping: false
         ]
       ]
     }
     "/checkout/shipping/location/address"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      page_data = [
-        edit_flow: true
-      ]
+      edit_flow = true
     }
     "/checkout/shipping/location/select_contact"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      page_data = [
-        available_options: 2
-      ]
+      available_options = 2
     }
     "/checkout/shipping/location/find_contact"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
     "/checkout/shipping/location/new_contact"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      //Statu
-      page_data = [
-        name: "Juan",
-        phone: "555-5555"
-      ]
+      contact_name = "Juan"
+      contact_phone = "555-5555"
     }
     "/checkout/shipping/select_address"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      page_data = [
-        //List of available shippingMethods
-        shipping_options: [
-          [
-            method_name: "Zona 1",
-            price: 0.0,
-            currency_id: "ARS",
-            free_shipping: false
-          ]
+      //List of available shippingMethods
+      shipping_options = [
+        [
+          method_name: "Zona 1",
+          price: 0.0,
+          currency_id: "ARS",
+          free_shipping: false
         ]
       ]
     }
     "/checkout/shipping/select_address/list"(platform:"/mobile", type:TrackType.View) {
-      checkoutStatus()}
+      checkoutStatus()
+    }
     "/checkout/payments/select_method"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      page_data = [
-        available_methods: ["visa", "master", "amex", "cash"],
-        coupon: true,
-        coupon_discoun: 20
-      ]
+      available_methods = ["visa", "master", "amex", "cash"]
+      coupon = true
+      coupon_discoun = 20
     }
     "/checkout/payments/coupon_detail"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()}
@@ -708,23 +686,21 @@ trackTests {
       checkoutStatus()}
     "/checkout/payments/add_card/installments"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      page_data = [
-        installments:[
-          [
-            installment: 1,
-            amount: 20.6,
-            without_fee: true
-          ],
-          [
-            installment: 3,
-            amount: 7.2,
-            without_fee: true
-          ],
-          [
-            installment: 6,
-            amount: 3.2,
-            without_fee: true
-          ]
+      installments = [
+        [
+          installment: 1,
+          amount: 20.6,
+          without_fee: true
+        ],
+        [
+          installment: 3,
+          amount: 7.2,
+          without_fee: true
+        ],
+        [
+          installment: 6,
+          amount: 3.2,
+          without_fee: true
         ]
       ]
     }
@@ -748,53 +724,41 @@ trackTests {
     }
     "/checkout/review/inconsistency/quantity"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      page_data = [
-        error_code: "invalid_volume_for_quantity"
-      ]
+      error_code ="invalid_volume_for_quantity"
     }
     "/checkout/review/edit_shipping"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      page_data = [
-        //List of available shippingMethods
-        shipping_options: [
-          [
-            method_name: "Zona 1",
-            price: 0.0,
-            currency_id: "ARS",
-            free_shipping: false
-          ]
+      //List of available shippingMethods
+      shipping_options = [
+        [
+          method_name: "Zona 1",
+          price: 0.0,
+          currency_id: "ARS",
+          free_shipping: false
         ]
       ]
     }
     "/checkout/review/inconsistency/edit_shipping"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      page_data = [
-        error_code: "invalid_volume_for_quantity"
-      ]
+      error_code = "invalid_volume_for_quantity"
     }
     "/checkout/review/edit_installments"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      page_data = [
-        installments:[
-          [
-            installment: 1,
-            amount: 20.6,
-            without_fee: true
-          ]
+      installments = [
+        [
+          installment: 1,
+          amount: 20.6,
+          without_fee: true
         ]
       ]
     }
     "/checkout/congrats/error"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      page_data = [
-        available_actions: ["retry", "change_payment_method"]
-      ]
+      available_actions = ["retry", "change_payment_method"]
     }
     "/checkout/congrats/call_for_auth"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      page_data = [
-        available_actions: ["retry", "change_payment_method"]
-      ]
+      available_actions = ["retry", "change_payment_method"]
     }
     "/checkout/congrats/call_for_auth/instructions"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
@@ -804,17 +768,13 @@ trackTests {
     }
     "/checkout/congrats/invalid_sec_code"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      page_data = [
-        available_actions: ["retry", "change_payment_method"]
-      ]
+      available_actions = ["retry", "change_payment_method"]
     }
     "/checkout/congrats/pending"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
     "/checkout/error"(platform:"/mobile", type:TrackType.View) {
-      page_data = [
-        error_code: "internal_server_error"
-      ]
+      error_code = "internal_server_error"
     }
   }
 
