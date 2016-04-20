@@ -533,7 +533,7 @@ catalog {
             total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
             total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
 
-            buy_equal_pay(required: true, description: "BP flag") //Apps might not have an order
+            buy_equal_pay(required: true, description: "BP flag")
             recovery_flow(required: true, description: "Is recovery CHO flow")
             register_int(required: false, description: "Integrated registration")           
             platform()
@@ -552,7 +552,7 @@ catalog {
                 // cost
                 // shipping_option,
                     // id,
-                    // name,º
+                    // name,
                     // shipping_method_id
 
             order_items( description: "Array of items in the order" )
