@@ -636,17 +636,18 @@ catalog {
         /*******************************************************************/
         //Mobile Checkout Apps
         "/checkout/init"(platform:"/mobile") {
+            //Might not have most of status values in case of requestFailure
             order_id(required: false, description: "OrderId")
             status(required: false, description: "status")
-            total_amount(required: true, description: "totalAmount")
-            total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
-            total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+            total_amount(required: false, description: "totalAmount")
+            total_amount_with_shipping(required: false, description: "totalAmount with shipping cost")
+            total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
 
-            buy_equal_pay(required: true, description: "BP flag")
-            recovery_flow(required: true, description: "Is recovery CHO flow")
+            buy_equal_pay(required: false, description: "BP flag")
+            recovery_flow(required: false, description: "Is recovery CHO flow")
             platform(required: true)
 
-            payments(required: true, description: "Array of payments information")
+            payments(required: false, description: "Array of payments information")
                 // id
                 // payment_method,
                 // payment_type,
@@ -657,7 +658,7 @@ catalog {
                 // status
                 // status_detail    
 
-            shipping(required: true)
+            shipping(required: false)
                 // shipping_type
                 // cost
                 // shipping_option,
@@ -667,7 +668,7 @@ catalog {
                 // id
                 // shipping_mode
 
-            order_items(required: true, description: "Array of items in the order" )
+            order_items(required: false, description: "Array of items in the order" )
                 //item
                     //id
                     //variation_id
@@ -679,11 +680,11 @@ catalog {
                 //unit_price
                 //currency_id    
 
-            buyer(required: true)
+            buyer(required: false)
                 //id
                 //nickname
 
-            seller(required: true)
+            seller(required: false)
                 //id
                 //nickname
             //View specific data
