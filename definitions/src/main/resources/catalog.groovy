@@ -696,7 +696,7 @@ catalog {
             status(required: false, description: "status")
             total_amount(required: true, description: "totalAmount")
             total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
-            total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+            total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
 
             buy_equal_pay(required: true, description: "BP flag")
             recovery_flow(required: true, description: "Is recovery CHO flow")
@@ -809,7 +809,7 @@ catalog {
             status(required: false, description: "status")
             total_amount(required: true, description: "totalAmount")
             total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
-            total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+            total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
 
             buy_equal_pay(required: true, description: "BP flag")
             recovery_flow(required: true, description: "Is recovery CHO flow")
