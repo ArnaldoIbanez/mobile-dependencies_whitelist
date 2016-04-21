@@ -967,10 +967,6 @@ catalog {
             seller(required: false)
                 //id
                 //nickname
-
-            proactive_two_payment(required: false, description: "tracking proactive two payment selection")                                 
-            total_amount_local(serverSide: false)
-            total_amount_usd(serverSide: false)
         
             /****************************************/
             //Legacy App Congrats Tracks 
