@@ -1,13 +1,15 @@
 package com.ml.melidata.catalog.parsers.dsl
 
 import com.ml.melidata.catalog.Catalog
+import com.ml.melidata.catalog.DslUtils
 
 /**
  * Created by geisbruch on 11/17/14.
  */
 class CatalogDsl {
 
-    def String baseDir = "catalog/"
+    //it is not thread safe
+    def static String baseDir = "catalog/"
 
     def Catalog catalog;
 
@@ -17,6 +19,10 @@ class CatalogDsl {
 
     def CatalogDsl() {
         catalog = new Catalog()
+    }
+
+    def static setBaseDir(String dir) {
+        baseDir = dir
     }
 
     def static catalog(Closure closure) {
@@ -45,9 +51,10 @@ class CatalogDsl {
     }
 
     def include(String business, String fileName) {
-        GroovyShell shell = new GroovyShell()
-        def trackDsl = shell.parse(new File(baseDir + fileName)).run()
+        def file = new File(baseDir + fileName)
+        def trackDsl = DslUtils.parse(file)
         add(trackDsl, business)
+        catalog.addFile(file)
     }
 
     def add(list, overridedBusiness) {

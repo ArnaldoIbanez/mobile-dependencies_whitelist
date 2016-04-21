@@ -6,13 +6,6 @@ import com.ml.melidata.TrackType
  * Main catalog definitions
  */
 catalog {
-	/**
-	 * All available business units
-	 */
-
-	business = [
-			"mercadolibre"
-	]
 
 	/*
 	   * Business to be used as default

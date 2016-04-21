@@ -23,7 +23,7 @@ RUN apt-get -y install make git-core unzip
 ENV CAT_AWS_ACCESS_KEY_ID AKIAJ7EIGFFJQC475PBQ
 ENV CAT_AWS_SECRET_KEY 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
 ENV S3_BUCKET melidata-catalog-versions
-ENV CATALOG_DSL_FILE ./src/main/resources/catalog.groovy
+ENV CATALOG_DSL_DIR ./src/main/resources/
 ENV CATALOG_FILE /var/cache/drone/src/github.com/mercadolibre/melidata-catalog/definitions/catalog.csv
 ENV PRESTO_S3_BUCKET /melidata-jobs/catalog/
 ENV PRESTO_AWS_ACCESS_KEY_ID AKIAIRJ4DFA72UDCX7QA

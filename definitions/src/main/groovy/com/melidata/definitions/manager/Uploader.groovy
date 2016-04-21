@@ -1,4 +1,4 @@
-package com.melidata.definitions.uploader
+package com.melidata.definitions.manager
 
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.exceptions.CatalogException
@@ -10,59 +10,57 @@ import org.apache.commons.io.IOUtils
  */
 class Uploader {
 
-    def static JSON_CONTENT="application/json"
-    def static DSL_CONTENT="application/dsl"
-    def static LAST_VERSION_FILE_NAME="last"
+    def static CATALOG_DIR = "src/main/resources"
 
-    def catalogFile
     def S3Controller s3Controller
 
-    def Uploader(catalogFile, s3Bucket, accessKey, secretKey) {
-        this.catalogFile = catalogFile
-        s3Controller = new S3Controller(s3Bucket, accessKey, secretKey)
+    def Uploader(accessKey, secretKey) {
+        s3Controller = new S3Controller(accessKey, secretKey)
     }
 
     def static void main(String[] args) {
-        def catalogFile = System.getenv().get("CATALOG_DSL_FILE")
-        def s3Bucket = System.getenv().get("S3_BUCKET")
-        def accessKey = System.getenv().get("CAT_AWS_ACCESS_KEY_ID")
-        def secretKey = System.getenv().get("CAT_AWS_SECRET_KEY")
-        if(catalogFile == null || s3Bucket == null || accessKey == null || secretKey == null) {
+        def accessKey = System.getProperty("AWS_ACCESS_KEY_ID")
+        def secretKey = System.getProperty("AWS_SECRET_KEY")
+        if(accessKey == null || secretKey == null) {
             println """
-                    This program espect 4 env variables
-                    - CATALOG_DSL_FILE
-                    - S3_BUCKET
+                    This program expect 4 env variables
                     - AWS_ACCESS_KEY_ID
                     - Secret key
             """
             System.exit(1)
         }
-        new Uploader(catalogFile,s3Bucket,accessKey,secretKey).upload();
+        new Uploader(accessKey,secretKey).upload();
     }
 
     def upload() {
         println("Starting uploader")
+        def catalogFile = new File(CATALOG_DIR, CatalogHandler.S3_CATALOG_FILE)
         println("Reading [${catalogFile}]")
         def dsl = IOUtils.toString(new FileInputStream(catalogFile))
         println("DSL loaded")
         println("Loading catalog")
         def Catalog catalog = parseCatalogFromDsl(dsl);
+        catalog.addFile(catalogFile)
         println("Catalog loaded")
+
         println("Making json")
         def json = new CatalogJsonOutput().toJson(catalog)
         println("JSON ready")
+
         println("Getting last catalog version")
         Integer lastVersion = s3Controller.getLastVersion();
         lastVersion++;
         println("New version: ${lastVersion}")
+
         println("Uploading ${lastVersion}.dsl")
-        s3Controller.saveCatalogVersion(dsl,DSL_CONTENT,lastVersion.toString(),lastVersion)
+        s3Controller.saveCatalogVersion(catalog,lastVersion.toString(),lastVersion)
         println("Uploading ${lastVersion}.json")
-        s3Controller.saveCatalogVersion(json,JSON_CONTENT,lastVersion.toString(),lastVersion)
+        s3Controller.saveCatalogVersion(json,lastVersion.toString(),lastVersion)
+
         println("Uploading last.dsl")
-        s3Controller.saveCatalogVersion(dsl,DSL_CONTENT,LAST_VERSION_FILE_NAME,lastVersion)
+        s3Controller.saveCatalogVersion(catalog,CatalogHandler.LAST_VERSION_FILE_NAME,lastVersion)
         println("Uploading last.dsl")
-        s3Controller.saveCatalogVersion(json,JSON_CONTENT,LAST_VERSION_FILE_NAME,lastVersion)
+        s3Controller.saveCatalogVersion(json,CatalogHandler.LAST_VERSION_FILE_NAME,lastVersion)
         println("Setting last version")
         s3Controller.setLastServersion(lastVersion)
     }
