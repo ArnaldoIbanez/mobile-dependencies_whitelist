@@ -411,6 +411,7 @@ trackTests {
       current_method="visa"
     }
 
+    //Checkout Apps Legacy
     "/checkout"(platform:"/mobile") {
       defaultCheckoutInformation()
       quantity_pre_selected=1
@@ -536,6 +537,247 @@ trackTests {
     "/checkout/" (platform: "/mobile"){}
   }
 
+  //Checkout Apps
+  test("checkout wizard flow") {
+    //Default track data
+    def checkoutStatus = {
+      buyer = [
+        nickname: "JUANCHOMLB",
+        id: "208346754"
+      ]
+      order_id = "null"
+      order_items = [
+        unit_price: 100,
+        quantity: 1,
+        item: [
+          category_id: "MLB63385",
+          buying_mode: "buy_it_now",
+          id: "MLB754486062",
+          shipping_mode: "me2"
+        ],
+        currency_id: "BRL"
+      ]
+      payments = [[
+        payment_type: "credit_card",
+        payment_method: "amex",
+        id: "23cfddb085c577f0584ab78e17861c63be386608",
+        paid_amount: 0.0
+      ]]
+      platform = "/mobile/android"
+      seller = [
+        id: "208642594"
+      ]
+      shipping = [
+        cost: 25.98,
+        shipping_option: [
+          name: "Expresso ao endereço",
+          id: "27552872"
+        ],
+        shipping_mode: "me2",
+        shipping_type: "mercadoenvios"
+      ]
+      buy_equal_pay = true
+      recovery_flow = true
+      total_amount = 100.0
+      total_amount_with_shipping = 125.979996
+      total_paid_amount = 0.0
+    }
+
+    "/checkout/init"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      success = true
+      location = "34.677755,56.444433"
+    }
+    "/checkout/shipping/select_method"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      //List of available shippingMethods
+      selections = ["shipping_other", "local_pick_up"]
+    }
+    "/checkout/shipping/select_method/geolocated"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      //List of available shippingMethods
+      selections = ["shipping_geo", "shipping_other", "local_pick_up"]
+    }
+    "/checkout/shipping/custom_address/zip_code"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
+    "/checkout/shipping/select_option/mercado_envios"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      //List of available shippingMethods
+      shipping_options = [
+        [
+          method_name: "Normal",
+          price: 0.0,
+          currency_id: "ARS",
+          free_shipping: true
+        ],
+        [
+          method_name: "Expreso",
+          price: 50.46,
+          currency_id: "ARS",
+          free_shipping: false
+        ]
+      ]
+    }
+    "/checkout/shipping/select_option/free_shipping"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      //List of available shippingMethods
+      shipping_options = [
+        [
+          method_name: "Gratis a todo el país",
+          price: 0.0,
+          currency_id: "ARS",
+          free_shipping: true
+        ]
+      ]
+    }
+    "/checkout/shipping/select_option/custom"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      //List of available shippingMethods
+      shipping_options = [
+        [
+          method_name: "Zona 1",
+          price: 0.0,
+          currency_id: "ARS",
+          free_shipping: false
+        ]
+      ]
+    }
+    "/checkout/shipping/location/address"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      edit_flow = true
+    }
+    "/checkout/shipping/location/select_contact"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      available_options = 2
+    }
+    "/checkout/shipping/location/find_contact"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
+    "/checkout/shipping/location/new_contact"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      contact_name = "Juan"
+      contact_phone = "555-5555"
+    }
+    "/checkout/shipping/select_address"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      //List of available shippingMethods
+      shipping_options = [
+        [
+          method_name: "Zona 1",
+          price: 0.0,
+          currency_id: "ARS",
+          free_shipping: false
+        ]
+      ]
+    }
+    "/checkout/shipping/select_address/list"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
+    "/checkout/payments/select_method"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      available_methods = ["visa", "master", "amex", "cash"]
+      coupon = true
+      coupon_discoun = 20
+    }
+    "/checkout/payments/coupon_detail"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()}
+    "/checkout/payments/add_card"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()}
+    "/checkout/payments/add_card/installments"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      installments = [
+        [
+          installment: 1,
+          amount: 20.6,
+          without_fee: true
+        ],
+        [
+          installment: 3,
+          amount: 7.2,
+          without_fee: true
+        ],
+        [
+          installment: 6,
+          amount: 3.2,
+          without_fee: true
+        ]
+      ]
+    }
+    "/checkout/payments/stored_card/security_code"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
+    "/checkout/payments/account_money/create"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
+    "/checkout/payments/account_money/password"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
+    "/checkout/payments/billing_info"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
+    "/checkout/review/quantity"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
+    "/checkout/review/quantity/input"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
+    "/checkout/review/inconsistency/quantity"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      error_code ="invalid_volume_for_quantity"
+    }
+    "/checkout/review/edit_shipping"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      //List of available shippingMethods
+      shipping_options = [
+        [
+          method_name: "Zona 1",
+          price: 0.0,
+          currency_id: "ARS",
+          free_shipping: false
+        ]
+      ]
+    }
+    "/checkout/review/inconsistency/edit_shipping"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      error_code = "invalid_volume_for_quantity"
+    }
+    "/checkout/review/edit_installments"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      installments = [
+        [
+          installment: 1,
+          amount: 20.6,
+          without_fee: true
+        ]
+      ]
+    }
+    "/checkout/congrats/error"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      available_actions = ["retry", "change_payment_method"]
+    }
+    "/checkout/congrats/call_for_auth"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      available_actions = ["retry", "change_payment_method"]
+    }
+    "/checkout/congrats/call_for_auth/instructions"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
+    "/checkout/congrats/call_for_auth/later"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
+    "/checkout/congrats/invalid_sec_code"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      available_actions = ["retry", "change_payment_method"]
+    }
+    "/checkout/congrats/pending"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
+    "/checkout/error"(platform:"/mobile", type:TrackType.View) {
+      error_code = "internal_server_error"
+    }
+  }
+
   test("checkout congrats"){
 
     "/checkout/congrats"(platform:"/mobile", type:TrackType.View) {
@@ -556,8 +798,9 @@ trackTests {
         ]
 
         order_id=912391
-     }     
+     }
 
+     //Checkout Desktop
     "/checkout/ordercreated"(platform:"/web/desktop", type:TrackType.Event) {
         congrats_seq = 1
         total_amount = 70
