@@ -753,6 +753,7 @@ catalog {
         "/checkout/shipping/custom_address"(platform: "/mobile", isAbstract: true) {}
         //Input zip_code
         "/checkout/shipping/custom_address/zip_code"(platform:"/mobile") {}
+        "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
         "/checkout/shipping/select_option"(platform: "/mobile", isAbstract: true) {
             //View specific data
             shipping_options(required: true, type: PropertyType.ArrayList)
@@ -771,9 +772,22 @@ catalog {
         "/checkout/shipping/select_option/custom"(platform:"/mobile") {}
         //Input address flow
         "/checkout/shipping/location"(platform: "/mobile", isAbstract: true) {}
+        "/checkout/shipping/location/address#street_name"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            street_name(required: false, type: PropertyType.String)
+        }
+        "/checkout/shipping/location/address#street_number"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            street_number(required: false, type: PropertyType.String)
+        }
+        "/checkout/shipping/location/address#additional_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            additional_info(required: false, type: PropertyType.String)
+        }
         "/checkout/shipping/location/address"(platform:"/mobile") {
             //View specific data
             edit_flow(required: true, type: PropertyType.Boolean)
+        }
+        "/checkout/shipping/location/select_contact#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            success(required: true, type: PropertyType.Boolean)
+            error_codes(required: false, type: PropertyType.ArrayList)
         }
         "/checkout/shipping/location/select_contact"(platform:"/mobile") {
             //View specific data
@@ -864,9 +878,13 @@ catalog {
         }
         "/checkout/payments/coupon_detail"(platform:"/mobile") {}
         "/checkout/payments/add_card"(platform:"/mobile") {}
+        "/checkout/payments/add_card#card_config"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            bin(required: true, type:  PropertyType.String)
+            success(required: true, type:  PropertyType.Boolean)
+        }
         "/checkout/payments/add_card/installments"(platform:"/mobile") {
             //List of available installments
-            installments(required: true, type: PropertyType.ArrayList)
+            available_installments(required: true, type: PropertyType.ArrayList)
                 //installments: [
                 //    [
                 //      installment: 1,
@@ -876,16 +894,37 @@ catalog {
         }
         "/checkout/payments/stored_card"(platform: "/mobile", isAbstract: true) {}
         "/checkout/payments/stored_card/security_code"(platform:"/mobile") {}
+        "/checkout/payments/stored_card/installments"(platform:"/mobile") {
+            //List of available installments
+            available_installments(required: true, type: PropertyType.ArrayList)
+                //installments: [
+                //    [
+                //      installment: 1,
+                //      amount: 20.6,
+                //      without_fee: true
+                //    ]
+        }
         "/checkout/payments/account_money"(platform: "/mobile", isAbstract: true) {}
         "/checkout/payments/account_money/create"(platform:"/mobile") {}
         "/checkout/payments/account_money/password"(platform:"/mobile") {}
+        "/checkout/payments/account_money/password#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
         "/checkout/payments/billing_info"(platform:"/mobile") {}
         //"/checkout/review" //shared between web and app, already defined in web section.
+        "/checkout/review#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+        "/checkout/review/quantity#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            old_quantity(required: true, type: PropertyType.Numeric)
+            selected_quantity(required: true, type: PropertyType.Numeric)
+        }
         "/checkout/review/quantity"(platform:"/mobile") {}
         "/checkout/review/quantity/input"(platform:"/mobile") {}
         "/checkout/review/inconsistency"(platform: "/mobile", isAbstract: true) {}
         "/checkout/review/inconsistency/quantity"(platform: "/mobile") {
             error_code(required: false, type:  PropertyType.String)
+        }
+        "/checkout/review/edit_shipping#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            //old_value, new_value
+            old_value(required: true, type:  PropertyType.String)
+            new_value(required: true, type:  PropertyType.String)
         }
         "/checkout/review/edit_shipping"(platform:"/mobile") {
             //List of available shipping_options
@@ -902,9 +941,14 @@ catalog {
         "/checkout/review/inconsistency/edit_shipping"(platform: "/mobile") {
             error_code(required: true, type:  PropertyType.String)
         }
+        "/checkout/review/edit_installments#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            //old_value, new_value
+            old_value(required: true, type:  PropertyType.Numeric)
+            new_value(required: true, type:  PropertyType.Numeric)
+        }
         "/checkout/review/edit_installments"(platform: "/mobile") {
             //List of available installments
-            installments(required: true, type: PropertyType.ArrayList)
+            available_installments(required: true, type: PropertyType.ArrayList)
                 //installments: [
                 //    [
                 //      installment: 1,
