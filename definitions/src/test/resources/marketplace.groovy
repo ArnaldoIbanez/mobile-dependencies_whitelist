@@ -601,6 +601,7 @@ trackTests {
     "/checkout/shipping/custom_address/zip_code"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
+    "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event) {}
     "/checkout/shipping/select_option/mercado_envios"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       //List of available shippingMethods
@@ -647,6 +648,19 @@ trackTests {
       checkoutStatus()
       edit_flow = true
     }
+    "/checkout/shipping/location/address#street_name"(platform: "/mobile", type: TrackType.Event) {
+        street_name = "streetName"
+    }
+    "/checkout/shipping/location/address#street_number"(platform: "/mobile", type: TrackType.Event) {
+        street_number = "streetNumber"
+    }
+    "/checkout/shipping/location/address#additional_info"(platform: "/mobile", type: TrackType.Event) {
+        additional_info = "additionalInfo"
+    }
+    "/checkout/shipping/location/select_contact#submit"(platform:"/mobile", type: TrackType.Event) {
+        success = true
+        error_codes = ["street_name_error"]
+    }
     "/checkout/shipping/location/select_contact"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       available_options = 2
@@ -681,12 +695,18 @@ trackTests {
       coupon_discoun = 20
     }
     "/checkout/payments/coupon_detail"(platform:"/mobile", type:TrackType.View) {
-      checkoutStatus()}
+      checkoutStatus()
+    }
     "/checkout/payments/add_card"(platform:"/mobile", type:TrackType.View) {
-      checkoutStatus()}
+      checkoutStatus()
+    }
+    "/checkout/payments/add_card#card_config"(platform:"/mobile", type: TrackType.Event) {
+          bin = "123456"
+          success = true
+      }
     "/checkout/payments/add_card/installments"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      installments = [
+      available_installments = [
         [
           installment: 1,
           amount: 20.6,
@@ -707,14 +727,40 @@ trackTests {
     "/checkout/payments/stored_card/security_code"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
+    "/checkout/payments/stored_card/installments"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      available_installments = [
+        [
+          installment: 1,
+          amount: 20.6,
+          without_fee: true
+        ],
+        [
+          installment: 3,
+          amount: 7.2,
+          without_fee: true
+        ],
+        [
+          installment: 6,
+          amount: 3.2,
+          without_fee: true
+        ]
+      ]
+    }
     "/checkout/payments/account_money/create"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
     "/checkout/payments/account_money/password"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
+    "/checkout/payments/account_money/password#submit"(platform:"/mobile", type:TrackType.Event) {}
     "/checkout/payments/billing_info"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
+    }
+    "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {}
+    "/checkout/review/quantity#submit"(platform:"/mobile", type: TrackType.Event) {
+      old_quantity = 4
+      selected_quantity = 1
     }
     "/checkout/review/quantity"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
@@ -725,6 +771,11 @@ trackTests {
     "/checkout/review/inconsistency/quantity"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       error_code ="invalid_volume_for_quantity"
+    }
+    "/checkout/review/edit_shipping#submit"(platform:"/mobile", type: TrackType.Event) {
+        //old_value, new_value
+        old_value = "Zona 1"
+        new_value = "Acuerdo"
     }
     "/checkout/review/edit_shipping"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
@@ -744,7 +795,7 @@ trackTests {
     }
     "/checkout/review/edit_installments"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      installments = [
+      available_installments = [
         [
           installment: 1,
           amount: 20.6,
@@ -752,6 +803,11 @@ trackTests {
         ]
       ]
     }
+    "/checkout/review/edit_installments#submit"(platform: "/mobile", type: TrackType.Event) {
+            //old_value, new_value
+            old_value = 3
+            new_value = 9
+        }
     "/checkout/congrats/error"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       available_actions = ["retry", "change_payment_method"]
