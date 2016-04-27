@@ -910,7 +910,9 @@ catalog {
         "/checkout/payments/account_money/password#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
         "/checkout/payments/billing_info"(platform:"/mobile") {}
         //"/checkout/review" //shared between web and app, already defined in web section.
-        "/checkout/review#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+        "/checkout/review#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            status(required: true, type: PropertyType.String)
+        }
         "/checkout/review/quantity#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             old_quantity(required: true, type: PropertyType.Numeric)
             selected_quantity(required: true, type: PropertyType.Numeric)
