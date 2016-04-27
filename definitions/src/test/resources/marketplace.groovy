@@ -209,6 +209,8 @@ trackTests {
 
     "/vip/contact_seller"(platform:"/mobile", dataSet)
 
+    "/vip/call_seller"(platform:"/mobile", dataSet)
+
     "/vip/description/failure"(platform:"/mobile", dataSet)
 
     "/vip/item_gallery"(platform:"/mobile") {}

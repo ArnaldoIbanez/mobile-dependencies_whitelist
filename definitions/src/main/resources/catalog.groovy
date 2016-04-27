@@ -355,6 +355,8 @@ catalog {
 
         "/vip/contact_seller"(platform: "/mobile") {}
 
+        "/vip/call_seller"(platform: "/mobile") {}
+
         "/vip/map/"(platform: "/mobile") {}
 
         "/vip/buy_intention"(platform: "/mobile") {}
