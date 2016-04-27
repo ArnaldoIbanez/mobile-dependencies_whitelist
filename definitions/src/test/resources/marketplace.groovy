@@ -807,7 +807,10 @@ trackTests {
             //old_value, new_value
             old_value = 3
             new_value = 9
-        }
+    }
+    "/checkout/additional_info"(platform: "/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
     "/checkout/congrats/error"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       available_actions = ["retry", "change_payment_method"]

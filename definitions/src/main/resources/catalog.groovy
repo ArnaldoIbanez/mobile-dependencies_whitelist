@@ -956,6 +956,58 @@ catalog {
                 //      without_fee: true
                 //    ]
         }
+        "/checkout/additional_info"(platform: "/mobile") {
+            order_id(required: false, description: "OrderId")
+            status(required: false, description: "status")
+            total_amount(required: true, description: "totalAmount")
+            total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
+            total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+
+            buy_equal_pay(required: true, description: "BP flag")
+            recovery_flow(required: true, description: "Is recovery CHO flow")
+            platform(required: true)
+
+            payments(required: true, description: "Array of payments information")
+                // id
+                // payment_method,
+                // payment_type,
+                // installments,
+                // paid_amount,
+                // installment_amount
+                // without_fee
+                // status
+                // status_detail
+
+            shipping(required: true)
+                // shipping_type
+                // cost
+                // shipping_option,
+                    // id,
+                    // name,
+                    // shipping_method_id
+                // id
+                // shipping_mode
+
+            order_items(required: true, description: "Array of items in the order" )
+                //item
+                    //id
+                    //variation_id
+                    //buying_mode
+                    //shipping_mode
+                    //category_id
+                    //deal_ids
+                //quantity
+                //unit_price
+                //currency_id
+
+            buyer(required: true)
+                //id
+                //nickname
+
+            seller(required: true)
+                //id
+                //nickname
+        }
         //Congrats tracks - shared between Legacy App and new App (Required False to prevent catalog validation failures)
         "/checkout/congrats"(platform: "/mobile") {
             /****************************************/
