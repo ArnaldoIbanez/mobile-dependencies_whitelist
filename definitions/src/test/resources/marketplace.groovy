@@ -583,6 +583,7 @@ trackTests {
       total_paid_amount = 0.0
     }
 
+    "/checkout/wrapper"(platform:"/mobile", type:TrackType.View) {}
     "/checkout/init"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       success = true

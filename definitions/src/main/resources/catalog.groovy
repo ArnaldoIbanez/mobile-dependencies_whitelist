@@ -635,6 +635,7 @@ catalog {
 
         /*******************************************************************/
         //Mobile Checkout Apps
+        "/checkout/wrapper"(platform:"/mobile") {} //Melidata experiment
         "/checkout/init"(platform:"/mobile") {
             //Might not have most of status values in case of requestFailure
             order_id(required: false, description: "OrderId")
