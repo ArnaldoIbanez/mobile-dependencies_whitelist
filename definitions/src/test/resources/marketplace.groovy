@@ -585,6 +585,7 @@ trackTests {
       total_paid_amount = 0.0
     }
 
+    "/checkout/wrapper"(platform:"/mobile", type:TrackType.View) {}
     "/checkout/init"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       success = true
@@ -759,7 +760,9 @@ trackTests {
     "/checkout/payments/billing_info"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
-    "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {}
+    "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
+      status = "success"
+    }
     "/checkout/review/quantity#submit"(platform:"/mobile", type: TrackType.Event) {
       old_quantity = 4
       selected_quantity = 1
