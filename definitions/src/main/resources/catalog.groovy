@@ -1576,5 +1576,17 @@ catalog {
             buyer(required: true, description: "buyer information") // id, nickname
             seller(required: true, description: "seller information") // id, nickname
         }
+
+        "/email"(platform: "/email", isAbstract: true) {}
+
+        "/email/orders"(platform: "/email") {
+            order_id(required: true)
+            order_date_created(required: true)
+            order_status(required: true)
+            seller_id(required: true)
+            is_risk_user(required: false)
+            email_template(required: true)
+            event_type(required: true)
+        }
     }
 }
