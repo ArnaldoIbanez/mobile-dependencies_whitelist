@@ -226,6 +226,8 @@ catalog {
             config_version(required: false)
             filters(required: false)
             only_in_type(required: false)
+            click_banner(required: false, description:'click banner')
+            banner(required: false, description:'view banner deal')
         }
 
         "/search"(platform: "/mobile") {
