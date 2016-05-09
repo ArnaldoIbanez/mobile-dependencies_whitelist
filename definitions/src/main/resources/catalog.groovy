@@ -227,7 +227,11 @@ catalog {
             filters(required: false)
             only_in_type(required: false)
             click_banner(required: false, description:'click banner')
+                //deal_id
+                // exhibitors_id
             banner(required: false, description:'view banner deal')
+                //deal_id
+                // exhibitors_id
         }
 
         "/search"(platform: "/mobile") {
