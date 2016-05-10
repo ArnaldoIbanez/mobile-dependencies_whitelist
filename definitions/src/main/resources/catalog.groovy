@@ -226,10 +226,10 @@ catalog {
             config_version(required: false)
             filters(required: false)
             only_in_type(required: false)
-            click_banner(required: false, description:'click banner')
+            click_banner(required: false, description:'Indicates that this listing has apppeared after clicking on a banner')
                 //deal_id
                 // exhibitors_id
-            banner(required: false, description:'view banner deal')
+            banner(required: false, description:'Banner showed in this listing info, if showed')
                 //deal_id
                 // exhibitors_id
         }
