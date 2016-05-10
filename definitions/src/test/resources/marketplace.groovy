@@ -69,6 +69,14 @@ trackTests {
         only_in_type="Seller"
         limit=20
         offset=0
+        click_banner={
+          deal_id='12'
+          exhibitors_id='12'
+        }
+        banner={
+            deal_id='12'
+            exhibitors_id='12'
+        }
     })
 
     "/search"(platform: "/mobile", defaultSearchInformation)
