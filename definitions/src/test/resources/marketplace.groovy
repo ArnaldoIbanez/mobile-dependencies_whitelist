@@ -318,6 +318,18 @@ trackTests {
     "/vip/description/back"(platform:"/mobile", dataSet)
   }
 
+  test("Vip protected purchase") {
+    "/vip/protected_purchase/show" (platform:"/web/mobile", type: TrackType.Event) {
+      category_id = "MLA1234"
+      item_id="MLA1891239"
+    }
+
+    "/vip/protected_purchase/close" (platform:"/web/mobile", type: TrackType.Event) {
+      category_id = "MLA1234"
+      item_id="MLA1891239"
+    }
+  }
+
   test("Bookmark tracking in android") {
     "/bookmarks/post" (platform:"/mobile", type: TrackType.Event) {
       item_id = "MLA533657947"

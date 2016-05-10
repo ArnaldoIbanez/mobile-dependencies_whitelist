@@ -369,6 +369,12 @@ catalog {
 
         "/vip/variations/back"(platform: "/mobile") {}
 
+        "/vip/protected_purchase"(platform: "/web/mobile", type: TrackType.Event, isAbstract: true) {}
+
+        "/vip/protected_purchase/show"(platform: "/web/mobile", type: TrackType.Event) {}
+
+        "/vip/protected_purchase/close"(platform: "/web/mobile", type: TrackType.Event) {}
+
         //BOOKMARKS
 
         "/bookmarks/action"(platform: "/mobile", isAbstract: true) {}
