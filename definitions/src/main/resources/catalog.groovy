@@ -213,6 +213,7 @@ catalog {
             category_path(description: "path from root category", regex: categoryPathRegex, type: PropertyType.ArrayList, required: false)
             sort_id(required: false)
             filters(required: false)
+            autoselected_filters(required: false, PropertyType.ArrayList)
             view_mode(required: false, description: "MOSAIC, LIST or GALLERY")
             filter_user_applied(deprecated: true, required: false)
             tienda_oficial(deprecated: true, required: false)
