@@ -14,6 +14,7 @@ trackTests {
             is_risk_user=true
             email_template="CHO_PAGO_AGREE"
             event_type="send"
+            total_amount="100"
         }
 
         "/email/orders"(platform:"/email") {
