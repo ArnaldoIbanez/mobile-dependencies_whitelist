@@ -2143,12 +2143,12 @@ trackTests {
     }
 
     test("Mall Tracking") {
-        "/mall"(platform: "/web") {
+        "/official-stores/home"(platform: "/web") {
             from="breadcrumb"
         }
     }
     test("Mall Tracking without hash") {
-        "/mall"(platform: "/web") {}
+        "/official-stores/home"(platform: "/web") {}
     }
     
 }

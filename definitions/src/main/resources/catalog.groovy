@@ -1600,8 +1600,10 @@ catalog {
             email_template(required: true)
             event_type(required: true)
         }
-
-        "/mall"(platform: "/web", type: TrackType.View) {
+        
+        "/official-stores"(platform: "/email", isAbstract: true) {}
+        
+        "/official-stores/home"(platform: "/web", type: TrackType.View) {
             from(required: false,  description: "Who is redirecting")
         }
     }
