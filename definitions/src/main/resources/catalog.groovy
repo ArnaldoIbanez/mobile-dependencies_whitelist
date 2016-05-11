@@ -1600,5 +1600,9 @@ catalog {
             email_template(required: true)
             event_type(required: true)
         }
+
+        "/mall"(platform: "/web", type: TrackType.View) {
+            hto(required: false)
+        }
     }
 }

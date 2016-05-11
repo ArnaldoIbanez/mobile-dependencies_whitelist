@@ -2142,7 +2142,13 @@ trackTests {
 
     }
 
-
+    test("Mall Tracking") {
+        "/mall"(platform: "/web") {
+            hto="homeTO"
+        }
+    }
+    test("Mall Tracking without hash") {
+        "/mall"(platform: "/web") {}
+    }
+    
 }
-
-
