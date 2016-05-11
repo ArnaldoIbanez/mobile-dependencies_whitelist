@@ -381,6 +381,8 @@ catalog {
 
         "/vip/protected_purchase/close"(platform: "/web/mobile", type: TrackType.Event) {}
 
+        "/vip/quantity"(platform: "/mobile") {}
+
         //BOOKMARKS
 
         "/bookmarks/action"(platform: "/mobile", isAbstract: true) {}

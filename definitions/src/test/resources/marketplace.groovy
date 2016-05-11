@@ -240,6 +240,8 @@ trackTests {
     "/vip/variations"(platform: "/mobile", dataSet)
 
     "/vip/variations/back"(platform: "/mobile", dataSet)
+
+    "/vip/quantity"(platform: "/mobile", dataSet)
   }
 
   test("Vip web mobile tracking without reviews") {
