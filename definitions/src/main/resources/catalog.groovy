@@ -1601,9 +1601,9 @@ catalog {
             event_type(required: true)
         }
         
-        "/official-stores"(platform: "/email", isAbstract: true) {}
+        "/official_stores"(platform: "/web", isAbstract: true) {}
         
-        "/official-stores/home"(platform: "/web", type: TrackType.View) {
+        "/official_stores/home"(platform: "/web", type: TrackType.View) {
             from(required: false,  description: "Who is redirecting")
         }
     }
