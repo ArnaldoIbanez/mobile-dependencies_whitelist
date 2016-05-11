@@ -369,6 +369,8 @@ catalog {
 
         "/vip/variations/back"(platform: "/mobile") {}
 
+        "/vip/quantity"(platform: "/mobile") {}
+
         //BOOKMARKS
 
         "/bookmarks/action"(platform: "/mobile", isAbstract: true) {}
