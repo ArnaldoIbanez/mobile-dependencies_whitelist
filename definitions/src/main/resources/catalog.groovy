@@ -1599,6 +1599,7 @@ catalog {
             is_risk_user(required: false)
             email_template(required: true)
             event_type(required: true)
+            total_amount(required: true)
         }
     }
 }
