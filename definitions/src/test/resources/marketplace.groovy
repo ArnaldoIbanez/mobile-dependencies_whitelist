@@ -2144,7 +2144,7 @@ trackTests {
 
     test("Mall Tracking") {
         "/mall"(platform: "/web") {
-            hto="homeTO"
+            from="breadcrumb"
         }
     }
     test("Mall Tracking without hash") {

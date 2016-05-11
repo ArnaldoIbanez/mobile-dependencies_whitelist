@@ -1602,7 +1602,7 @@ catalog {
         }
 
         "/mall"(platform: "/web", type: TrackType.View) {
-            hto(required: false)
+            from(required: false,  description: "Who is redirecting")
         }
     }
 }
