@@ -2142,7 +2142,13 @@ trackTests {
 
     }
 
-
+    test("Mall Tracking") {
+        "/official_stores/home"(platform: "/web") {
+            from="breadcrumb"
+        }
+    }
+    test("Mall Tracking without hash") {
+        "/official_stores/home"(platform: "/web") {}
+    }
+    
 }
-
-

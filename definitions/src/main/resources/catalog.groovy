@@ -1601,5 +1601,11 @@ catalog {
             event_type(required: true)
             total_amount(required: true)
         }
+        
+        "/official_stores"(platform: "/web", isAbstract: true) {}
+        
+        "/official_stores/home"(platform: "/web", type: TrackType.View) {
+            from(required: false,  description: "Who is redirecting")
+        }
     }
 }
