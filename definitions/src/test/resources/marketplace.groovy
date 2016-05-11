@@ -69,6 +69,14 @@ trackTests {
         only_in_type="Seller"
         limit=20
         offset=0
+        click_banner={
+          deal_id='12'
+          exhibitors_id='12'
+        }
+        banner={
+            deal_id='12'
+            exhibitors_id='12'
+        }
     })
 
     "/search"(platform: "/mobile", defaultSearchInformation)
@@ -318,6 +326,18 @@ trackTests {
     "/vip/description/abort"(platform:"/mobile", dataSet)
 
     "/vip/description/back"(platform:"/mobile", dataSet)
+  }
+
+  test("Vip protected purchase") {
+    "/vip/protected_purchase/show" (platform:"/web/mobile", type: TrackType.Event) {
+      category_id = "MLA1234"
+      item_id="MLA1891239"
+    }
+
+    "/vip/protected_purchase/close" (platform:"/web/mobile", type: TrackType.Event) {
+      category_id = "MLA1234"
+      item_id="MLA1891239"
+    }
   }
 
   test("Bookmark tracking in android") {

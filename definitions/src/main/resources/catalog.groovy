@@ -226,6 +226,12 @@ catalog {
             config_version(required: false)
             filters(required: false)
             only_in_type(required: false)
+            click_banner(required: false, description:'Indicates that this listing has apppeared after clicking on a banner')
+                //deal_id
+                // exhibitors_id
+            banner(required: false, description:'Banner showed in this listing info, if showed')
+                //deal_id
+                // exhibitors_id
         }
 
         "/search"(platform: "/mobile") {
@@ -368,6 +374,12 @@ catalog {
         "/vip/variations"(platform: "/mobile") {}
 
         "/vip/variations/back"(platform: "/mobile") {}
+
+        "/vip/protected_purchase"(platform: "/web/mobile", type: TrackType.Event, isAbstract: true) {}
+
+        "/vip/protected_purchase/show"(platform: "/web/mobile", type: TrackType.Event) {}
+
+        "/vip/protected_purchase/close"(platform: "/web/mobile", type: TrackType.Event) {}
 
         "/vip/quantity"(platform: "/mobile") {}
 
@@ -1411,7 +1423,7 @@ catalog {
          **/
         "/notification"(platform: "/mobile") {
             news_id(required: false, description: "Identifier of the notification generated")
-            event_type(required: true, values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown"], description: "Type of notification event")
+            event_type(required: true, values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "swipe"], description: "Type of notification event")
             action_type(required: false, values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone"])
             deeplink(required: false, description: "The link were the notification should navigate to, if applies")
             status(required: false, values: ["read", "unread"], description: "The current notification status, used only when tracking from notification center.")
