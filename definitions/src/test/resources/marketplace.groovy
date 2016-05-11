@@ -89,7 +89,7 @@ trackTests {
         offset = 50.0
         sort_id = "relevance"
         filters = {official_store="140"}
-        autoselected_filters = {official_store}
+        autoselected_filters = ["official_store"]
     })
 
 
