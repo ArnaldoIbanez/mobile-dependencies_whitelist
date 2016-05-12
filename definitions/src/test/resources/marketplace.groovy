@@ -70,12 +70,28 @@ trackTests {
         limit=20
         offset=0
         click_banner={
-          deal_id='12'
           exhibitors_id='12'
         }
-        banner={
+        banners={
             deal_id='12'
             exhibitors_id='12'
+        }
+        click_banner={
+            exhibitors_id='12'
+        }
+        related_searches={
+            query= 'ipod'
+            position=1
+            quantity=2
+        }
+        autosuggest={
+            suggest_position=3
+        }
+        autosuggest={
+            last_search_position=1
+        }
+        autosuggest={
+            block_store_position=19
         }
     })
 
