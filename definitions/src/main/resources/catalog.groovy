@@ -227,16 +227,16 @@ catalog {
             config_version(required: false)
             filters(required: false)
             only_in_type(required: false)
-            click_banner(required: false, description:'click banner')
+            click_banner(required: false, description:'Indicates that this listing has apppeared after clicking on a banner')
                 // exhibitors_id
-            banners(required: false, description:'view banner deal')
+            banners(required: false, description:'Banner showed in this listing info, if showed')
                 //deal_id
                 // exhibitors_id
-            related_searches(required: false, description:'related searches')
+            related_searches(required: false, description:'indicates whether clicked search related')
                 //query
                 // position
                 //quantity
-            autosuggest(required: false, description:'autosuggest')
+            autosuggest(required: false, description:'indicates whether clicked autosuggest')
                 //suggest_position
                 //last_search_position
                 //block_store_position
