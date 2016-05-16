@@ -2153,5 +2153,18 @@ trackTests {
     test("Mall Tracking without hash") {
         "/official_stores/home"(platform: "/web") {}
     }
+
+    test("Home Tracking") {
+      "/home"(platform: "/web") {
+        from="breadcrumb"
+      }
+    }
+
+    test("Home Category Tracking") {
+      "/home/category"(platform: "/web") {
+        from="breadcrumb"
+        category_id="MLA1051"
+      }
+    }
     
 }

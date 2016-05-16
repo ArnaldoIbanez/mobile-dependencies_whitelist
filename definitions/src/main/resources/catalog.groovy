@@ -1610,5 +1610,15 @@ catalog {
         "/official_stores/home"(platform: "/web", type: TrackType.View) {
             from(required: false,  description: "Who is redirecting")
         }
+
+        //Breadcrumb
+        "/home/category"(platform: "/web", type: TrackType.View) {
+            from(required: false,  description: "Who is redirecting")
+            category_id(required: true,  description: "Home's category")
+        }
+
+        "/home"(platform: "/web", type: TrackType.View) {
+            from(required: false,  description: "Who is redirecting")
+        }
     }
 }
