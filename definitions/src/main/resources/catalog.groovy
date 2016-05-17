@@ -806,6 +806,7 @@ catalog {
         "/checkout/shipping/location/select_contact#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             success(required: true, type: PropertyType.Boolean)
             error_codes(required: false, type: PropertyType.ArrayList)
+            contact_info(required: false, type: PropertyType.String, values: ["new_address_with_new_contact_info", "preload_address_same_contact_info", "preload_address_updated_contact_info"])
         }
         "/checkout/shipping/location/select_contact"(platform:"/mobile") {
             //View specific data

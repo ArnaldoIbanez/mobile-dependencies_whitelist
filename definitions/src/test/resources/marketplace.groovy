@@ -687,6 +687,10 @@ trackTests {
         success = true
         error_codes = ["street_name_error"]
     }
+    "/checkout/shipping/location/select_contact#submit"(platform:"/mobile", type: TrackType.Event) {
+        success = true
+        contact_info = "new_address_with_new_contact_info"
+    }
     "/checkout/shipping/location/select_contact"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       available_options = 2
