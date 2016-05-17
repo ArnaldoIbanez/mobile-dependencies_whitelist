@@ -789,7 +789,7 @@ catalog {
         "/checkout/shipping/select_option/free_shipping"(platform:"/mobile") {}
         "/checkout/shipping/select_option/custom"(platform:"/mobile") {}
         //Input address flow
-        "/checkout/shipping/select_contact"(platform:"/mobile", type: TrackType.Event) {
+        "/checkout/shipping/select_contact"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             is_from_preload_address(required: true, type: PropertyType.Boolean)
         }
 
