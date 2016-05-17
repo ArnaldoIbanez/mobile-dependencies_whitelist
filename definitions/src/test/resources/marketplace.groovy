@@ -670,6 +670,9 @@ trackTests {
         ]
       ]
     }
+    "/checkout/shipping/select_contact"(platform:"/mobile", type:TrackType.Event) {
+      is_from_preload_address = true
+    }
     "/checkout/shipping/location/address"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       edit_flow = true
@@ -686,10 +689,6 @@ trackTests {
     "/checkout/shipping/location/select_contact#submit"(platform:"/mobile", type: TrackType.Event) {
         success = true
         error_codes = ["street_name_error"]
-    }
-    "/checkout/shipping/location/select_contact#submit"(platform:"/mobile", type: TrackType.Event) {
-        success = true
-        contact_info = "new_address_with_new_contact_info"
     }
     "/checkout/shipping/location/select_contact"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()

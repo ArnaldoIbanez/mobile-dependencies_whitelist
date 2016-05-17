@@ -789,6 +789,10 @@ catalog {
         "/checkout/shipping/select_option/free_shipping"(platform:"/mobile") {}
         "/checkout/shipping/select_option/custom"(platform:"/mobile") {}
         //Input address flow
+        "/checkout/shipping/select_contact"(platform:"/mobile", type: TrackType.Event) {¡
+            is_from_preload_address(required: true, type: PropertyType.Boolean)
+        }
+
         "/checkout/shipping/location"(platform: "/mobile", isAbstract: true) {}
         "/checkout/shipping/location/address#street_name"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             street_name(required: false, type: PropertyType.String)
@@ -806,7 +810,6 @@ catalog {
         "/checkout/shipping/location/select_contact#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             success(required: true, type: PropertyType.Boolean)
             error_codes(required: false, type: PropertyType.ArrayList)
-            contact_info(required: false, type: PropertyType.String, values: ["new_address_with_new_contact_info", "preload_address_same_contact_info", "preload_address_updated_contact_info"])
         }
         "/checkout/shipping/location/select_contact"(platform:"/mobile") {
             //View specific data
