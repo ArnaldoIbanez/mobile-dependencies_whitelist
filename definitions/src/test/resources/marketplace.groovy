@@ -784,6 +784,9 @@ trackTests {
     "/checkout/payments/billing_info"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
+    "/checkout/payments/select_issuer"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
     "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
       status = "success"
     }

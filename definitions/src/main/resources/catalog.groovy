@@ -929,6 +929,7 @@ catalog {
         "/checkout/payments/account_money/password"(platform:"/mobile") {}
         "/checkout/payments/account_money/password#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
         "/checkout/payments/billing_info"(platform:"/mobile") {}  
+        "/checkout/payments/select_issuer"(platform:"/mobile") {}
         //"/checkout/review" //shared between web and app, already defined in web section.
         "/checkout/review#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             status(required: true, type: PropertyType.String)
