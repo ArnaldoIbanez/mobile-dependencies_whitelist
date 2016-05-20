@@ -2166,5 +2166,35 @@ trackTests {
         category_id="MLA1051"
       }
     }
+
+    test("Permission location dialog") {
+      "/permissions/location"(platform: "/mobile") {
+        context="HOME"
+      }
+    }
     
+    test("Custom Permission location dialog accepted") {
+      "/permissions/location/custom/accept"(platform: "/mobile") {
+        context="HOME"
+      }
+    }
+
+    test("Custom Permission location dialog denied") {
+      "/permissions/location/custom/deny"(platform: "/mobile") {
+        context="HOME"
+      }
+    }
+
+    test("Native Permission location dialog accepted") {
+      "/permissions/location/native/accept"(platform: "/mobile") {
+        context="HOME"
+      }
+    }
+
+
+    test("Native Permission location dialog denied") {
+      "/permissions/location/native/deny"(platform: "/mobile") {
+        context="HOME"
+      }
+    }
 }

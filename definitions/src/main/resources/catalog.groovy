@@ -1620,5 +1620,16 @@ catalog {
         "/home"(platform: "/web", type: TrackType.View) {
             from(required: false,  description: "Who is redirecting")
         }
+
+        "/permissions"(platform: "/mobile", isAbstract: true){}
+        "/permissions/location"(platform: "/mobile", type: TrackType.View){
+            context(required: "true", description: "Where are we requesting the permissions")
+        }
+        "/permissions/location/custom"(platform: "/mobile", isAbstract: true){}
+        "/permissions/location/custom/accept"(platform: "/mobile", type: TrackType.Event){}
+        "/permissions/location/custom/deny"(platform: "/mobile", type: TrackType.Event){}
+        "/permissions/location/native"(platform: "/mobile", isAbstract: true){}
+        "/permissions/location/native/accept"(platform: "/mobile", type: TrackType.Event){}
+        "/permissions/location/native/deny"(platform: "/mobile", type: TrackType.Event){}
     }
 }
