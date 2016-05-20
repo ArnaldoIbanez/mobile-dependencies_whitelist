@@ -2170,5 +2170,17 @@ trackTests {
         category_id="MLA1051"
       }
     }
+
+
+    /// DELETE THIS!!!
+    // test name
+    test("Vip melidata training") {
+      // path that will be tracked
+      "/melidata-training/vip"(platform: "/mobile") {
+         item_id="MLB123122"
+         price=4999.1
+         installments=6 
+      }
+    }
     
 }
