@@ -228,11 +228,18 @@ catalog {
             filters(required: false)
             only_in_type(required: false)
             click_banner(required: false, description:'Indicates that this listing has apppeared after clicking on a banner')
+                // exhibitors_id
+            banners(required: false, description:'Banner showed in this listing info, if showed')
                 //deal_id
                 // exhibitors_id
-            banner(required: false, description:'Banner showed in this listing info, if showed')
-                //deal_id
-                // exhibitors_id
+            related_searches(required: false, description:'indicates whether clicked search related')
+                //query
+                // position
+                //quantity
+            autosuggest(required: false, description:'indicates whether clicked autosuggest')
+                //suggest_position
+                //last_search_position
+                //block_store_position
         }
 
         "/search"(platform: "/mobile") {
@@ -791,6 +798,10 @@ catalog {
         "/checkout/shipping/select_option/free_shipping"(platform:"/mobile") {}
         "/checkout/shipping/select_option/custom"(platform:"/mobile") {}
         //Input address flow
+        "/checkout/shipping/select_contact"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            is_from_preload_address(required: true, type: PropertyType.Boolean)
+        }
+
         "/checkout/shipping/location"(platform: "/mobile", isAbstract: true) {}
         "/checkout/shipping/location/address#street_name"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             street_name(required: false, type: PropertyType.String)
@@ -1443,6 +1454,7 @@ catalog {
         "/notification/shipping_agency_withdrawal"(platform: "/mobile") {
             order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
             shipment_id(required: true, type: PropertyType.Numeric)
+            agency_to_agency(required:false, type:PropertyType.Boolean, description: "Indicates if package was sent to an agency in the first place or was shipped there because the user wasnt found in his address")
         }
         //Devolución de costo de envío por demora
         "/notification/shipping_delayed_bonus"(platform: "/mobile") {
@@ -1450,21 +1462,38 @@ catalog {
             shipment_id(required: true, type: PropertyType.Numeric)
         }
         //Tienes que despachar (para el vendedor)
-        "/notification/pending"(platform: "/mobile") {
+        "/notification/shipping_pending"(platform: "/mobile") {
             order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
             shipment_id(required: true, type: PropertyType.Numeric)
         }
         //Devolución por no entrega, a su dirección de despacho (para el vendedor)
-        "/notification/returning_to_sender"(platform: "/mobile") {
+        "/notification/shipping_returning_to_sender"(platform: "/mobile") {
             order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
             shipment_id(required: true, type: PropertyType.Numeric)
         }      
         //Te demoraste en el handling time (para el vendedor)
-        "/notification/delayed_sender"(platform: "/mobile") {
+        "/notification/shipping_delayed_sender"(platform: "/mobile") {
             order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
             shipment_id(required: true, type: PropertyType.Numeric)
         }   
-         
+        //Tu paquete está demorado (para el comprador)
+        "/notification/shipping_delayed_receiver"(platform: "/mobile") {
+            order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+            shipment_id(required: true, type: PropertyType.Numeric)
+            delay_reason(required: true, type: PropertyType.String, description: "shipping_time or handling_time")
+        }   
+        //Hubo un problema con tu paquete y te vamos a pagar (para el vendedor)
+        "/notification/shipping_not_delivered_sender"(platform: "/mobile") {
+            order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+            shipment_id(required: true, type: PropertyType.Numeric)
+        }   
+        //Hubo un problema con el envío (para el comprador)
+        "/notification/shipping_not_delivered_receiver"(platform: "/mobile") {
+            order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+            shipment_id(required: true, type: PropertyType.Numeric)
+        }           
+        
+        
         //Seller questions
         "/notification/questions_new"(platform: "/mobile") {
             question_id(required: true)

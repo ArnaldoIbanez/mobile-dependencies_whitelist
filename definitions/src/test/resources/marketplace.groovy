@@ -70,12 +70,28 @@ trackTests {
         limit=20
         offset=0
         click_banner={
-          deal_id='12'
           exhibitors_id='12'
         }
-        banner={
+        banners={
             deal_id='12'
             exhibitors_id='12'
+        }
+        click_banner={
+            exhibitors_id='12'
+        }
+        related_searches={
+            query= 'ipod'
+            position=1
+            quantity=2
+        }
+        autosuggest={
+            suggest_position=3
+        }
+        autosuggest={
+            last_search_position=1
+        }
+        autosuggest={
+            block_store_position=19
         }
     })
 
@@ -670,6 +686,9 @@ trackTests {
           free_shipping: false
         ]
       ]
+    }
+    "/checkout/shipping/select_contact"(platform:"/mobile", type:TrackType.Event) {
+      is_from_preload_address = true
     }
     "/checkout/shipping/location/address"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
@@ -1760,6 +1779,7 @@ trackTests {
       deeplink = "meli://purchases/sales"
       shipment_id = 1234
       order_id = "11222"
+        agency_to_agency = true
       context = "notification"
     }
     
@@ -1771,7 +1791,7 @@ trackTests {
       shipment_id = 1234
     }
       
-    "/notification/pending"(platform: "/mobile"){
+    "/notification/shipping_pending"(platform: "/mobile"){
       news_id = "12332323"
       event_type = "arrived"
       deeplink = "meli://sales/11222#shipping"
@@ -1779,7 +1799,7 @@ trackTests {
       shipment_id = 1234
     }
     
-    "/notification/returning_to_sender"(platform: "/mobile"){
+    "/notification/shipping_returning_to_sender"(platform: "/mobile"){
       news_id = "12332323"
       event_type = "arrived"
       deeplink = "meli://purchases/11222/shipments/:shipment_id"
@@ -1787,13 +1807,38 @@ trackTests {
       shipment_id = 1234
     }
      
-    "/notification/delayed_sender"(platform: "/mobile"){
+    "/notification/shipping_delayed_sender"(platform: "/mobile"){
       news_id = "12332323"
       event_type = "arrived"
       deeplink = "meli://sales/11222#shipping"
       order_id = "11222"
       shipment_id = 1234
-    }     
+    } 
+
+    "/notification/shipping_delayed_receiver"(platform: "/mobile"){
+      news_id = "12332323"
+      event_type = "arrived"
+      deeplink = "meli://sales/11222#shipping"
+      order_id = "11222"
+      shipment_id = 1234
+      delay_reason = "shipping_time"
+    } 
+
+    "/notification/shipping_not_delivered_sender"(platform: "/mobile"){
+      news_id = "12332323"
+      event_type = "arrived"
+      deeplink = "meli://sales/11222#shipping"
+      order_id = "11222"
+      shipment_id = 1234
+    }             
+    "/notification/shipping_not_delivered_receiver"(platform: "/mobile"){
+      news_id = "12332323"
+      event_type = "arrived"
+      deeplink = "meli://sales/11222#shipping"
+      order_id = "11222"
+      shipment_id = 1234
+    }             
+      
     "/notification/collections_approved"(platform: "/mobile") {
       news_id = "12332323"
       event_type = "dismiss"
