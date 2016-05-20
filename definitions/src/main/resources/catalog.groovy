@@ -1653,12 +1653,5 @@ catalog {
             from(required: false,  description: "Who is redirecting")
         }
 
-        "/melidata-training"(platform: "/mobile", isAbstract: true) {}
-
-        "/melidata-training/vip"(platform: "/mobile") {
-           item_id( required: true, description:"Item unique identifier")
-           price( required: true, description:"Item price per unity")
-           installments( required: true, description:"Number of installments show in vip")
-        }
     }
 }
