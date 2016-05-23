@@ -9,6 +9,14 @@ class TrackDsl {
 
     def List<TrackDefinition> trackDefinitions = [];
 
+    def static tracks(Closure closure) {
+        TrackDsl dsl = new TrackDsl()
+        closure.delegate = dsl
+        closure.resolveStrategy = Closure.DELEGATE_FIRST
+        closure()
+        return dsl.trackDefinitions
+    }
+
 
     def methodMissing(String method, args) {
         def path = method;

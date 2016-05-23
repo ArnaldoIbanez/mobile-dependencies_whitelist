@@ -24,14 +24,21 @@ class TestRunner {
         return runOk
     }
 
-    def static boolean run(String pathCatalog, String pathTests, DefinitionsOut out){
+
+    def static boolean run(String pathCatalog, String pathTests, DefinitionsOut out) {
+        return run(pathCatalog, Arrays.asList(pathTests), out)
+    }
+
+    def static boolean run(String pathCatalog, List<String> pathTests, DefinitionsOut out){
 
         try{
             def catalogScript = getScriptFromFile(pathCatalog)
-            def testsScript = getScriptFromFile(pathTests)
+            def testsScript = new ArrayList<Script>()
+            pathTests.each { testsScript.add(getScriptFromFile(it)) }
 
             def catalog = runScript(catalogScript)
-            def tests = runScript(testsScript)
+            def tests = new ArrayList<TestDsl>()
+            testsScript.each { tests.addAll(runScript(it)) }
 
             return TestRunner.run(catalog, tests, out)
         }

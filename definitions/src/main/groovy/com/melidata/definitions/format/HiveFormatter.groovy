@@ -2,8 +2,8 @@ package com.melidata.definitions.format
 
 class HiveFormatter extends CatalogFormatter {
 
-    def generate() {
-        def platforms = getPlatforms(catalog.platformTrees.mercadolibre)
+    def generate(String business) {
+        def platforms = getPlatforms(catalog.platformTrees.get(business))
 
         platforms.collectEntries{k,v -> [k,getPathInfo(v.tracksTree.children)]}
     }
@@ -26,12 +26,14 @@ class HiveFormatter extends CatalogFormatter {
 
     def formatOutput(def data) {
         def b = new StringBuilder()
-        data.each { platform, trackInfo ->
-            trackInfo.each { path, params ->
-                params.each { name, attrs ->
-                    def vals = [name,platform,path] + attrs
-                    def line = vals.join('\t')
-                    b.append(line + System.lineSeparator())
+        data.each { business, d ->
+            d.each { platform, trackInfo ->
+                trackInfo.each { path, params ->
+                    params.each { name, attrs ->
+                        def vals = [business,platform,path,name] + attrs
+                        def line = vals.join('\t')
+                        b.append(line + System.getProperty('line.separator'))
+                    }
                 }
             }
         }

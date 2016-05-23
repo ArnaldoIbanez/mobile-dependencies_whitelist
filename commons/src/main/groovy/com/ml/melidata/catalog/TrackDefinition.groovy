@@ -13,7 +13,7 @@ import com.ml.melidata.catalog.tree.TrackValidationResponse
 class TrackDefinition {
 
     String path = ""
-    String platform
+    String platform = "/"
     String business
     Map<String,TrackDefinitionProperty> properties = [:]
     TrackType type
@@ -22,7 +22,7 @@ class TrackDefinition {
     Boolean isAbstract
 
     TrackDefinition(String path, TrackType type = TrackType.View,
-                        String platform = "/", String business = null, Boolean parentPropertiesInherited = true, Boolean isAbstract) {
+                        String platform = "/", String business = null, Boolean parentPropertiesInherited = true, Boolean isAbstract = false) {
         this.path = path
         this.platform = platform
         this.type = type
