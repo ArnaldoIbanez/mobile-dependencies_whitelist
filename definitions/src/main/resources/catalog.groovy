@@ -940,7 +940,7 @@ catalog {
         "/checkout/payments/billing_info"(platform:"/mobile") {}
 
          "/checkout/payments/billing_info#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-            same_billing_info(required: true, type: PropertyType.String)
+            billing_info_state(required: true, type: PropertyType.String)
          }
         //"/checkout/review" //shared between web and app, already defined in web section.
         "/checkout/review#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {

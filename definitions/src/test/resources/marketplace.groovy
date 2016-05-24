@@ -803,7 +803,7 @@ trackTests {
       checkoutStatus()
     }
     "/checkout/payments/billing_info#submit"(platform:"/mobile", type:TrackType.Event) {
-      same_billing_info = "same_billing_info"
+      billing_info_state = "same_billing_info"
     }
     "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
       status = "success"
