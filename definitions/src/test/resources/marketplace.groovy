@@ -93,6 +93,7 @@ trackTests {
         autosuggest={
             block_store_position=19
         }
+        results=["232232000", "232232001", "232232002"]
     })
 
     "/search"(platform: "/mobile", defaultSearchInformation)
