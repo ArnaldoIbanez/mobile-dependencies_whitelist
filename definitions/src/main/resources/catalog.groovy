@@ -240,6 +240,7 @@ catalog {
                 //suggest_position
                 //last_search_position
                 //block_store_position
+            results(required: false, PropertyType.ArrayList,description:"item ids from search result")  
         }
 
         "/search"(platform: "/mobile") {
