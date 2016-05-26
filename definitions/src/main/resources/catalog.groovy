@@ -89,6 +89,15 @@ catalog {
             count()
         }
 
+        "/melidata/shrink_database"(platform: "/mobile", isAbstract: true) {
+            delete_records( type: PropertyType.Numeric, description: "Number of records/tracks deleted when shrinking")
+            previous_size (type: PropertyType.Numeric, description: "Size of database before shrinking in bytes")
+            current_size (type: PropertyType.Numeric , description: "Size of database after shrinking in bytes")
+        }
+
+        "/melidata/shrink_database"(platform: "/mobile/android", type: TrackType.Control ) {}
+        "/melidata/shrink_database"(platform: "/mobile/ios", type: TrackType.Event ) {}
+        
         //EXTERNAL
         //TODO revisar /external/XXX
 
