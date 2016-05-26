@@ -415,6 +415,19 @@ trackTests {
       context = "/notifications"
     }
 
+    "/questions/answer"(platform: "/mobile") {
+      context = "/questions"
+      item_id = "MLA12345"
+      from_deeplink = true
+    }
+
+    "/questions/attach"(platform: "/mobile") {
+        context = "/questions"
+        item_id = "MLA12345"
+        question_id = "12346"
+        attach_id = "MLA12347"
+    }
+
     "/questions/answer/post"(platform: "/mobile") {
       item_id = "MLA12345"
       context = "/notifications"

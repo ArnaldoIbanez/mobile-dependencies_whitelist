@@ -437,7 +437,9 @@ catalog {
         "/questions/ask/back"(platform: "/mobile", type: TrackType.Event) {
         }
 
-        "/questions/answer"(platform: "/mobile") {}
+        "/questions/answer"(platform: "/mobile") {
+            from_deeplink(required: false, description: "True, when it access from deeplink, otherwise not")
+        }
 
         "/questions/answer/post"(platform: "/mobile", type: TrackType.Event) {
             failed()
@@ -448,6 +450,11 @@ catalog {
         }
 
         "/questions/back"(platform: "/mobile") {}
+
+        "/questions/attach"(platform: "/mobile", type: TrackType.Event) {
+            question_id(required: true, description: "Attached question id")
+            attach_id(required: true, description: "Attached Item id")
+        }
 
         //CHECKOUT FLOW
 
