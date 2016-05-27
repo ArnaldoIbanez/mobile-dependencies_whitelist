@@ -444,17 +444,13 @@ catalog {
         "/questions/answer/post"(platform: "/mobile", type: TrackType.Event) {
             failed()
             question_id(required: false, description: "it has no value if failed is true")
+            attach_id(required: false, description: "Attached Item id")
         }
 
         "/questions/answer/back"(platform: "/mobile", type: TrackType.Event) {
         }
 
         "/questions/back"(platform: "/mobile") {}
-
-        "/questions/attach"(platform: "/mobile", type: TrackType.Event) {
-            question_id(required: true, description: "Attached question id")
-            attach_id(required: true, description: "Attached Item id")
-        }
 
         //CHECKOUT FLOW
 
