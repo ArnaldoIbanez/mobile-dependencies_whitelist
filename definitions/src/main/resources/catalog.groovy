@@ -446,11 +446,14 @@ catalog {
         "/questions/ask/back"(platform: "/mobile", type: TrackType.Event) {
         }
 
-        "/questions/answer"(platform: "/mobile") {}
+        "/questions/answer"(platform: "/mobile") {
+            from_deeplink(required: false, description: "True, when it access from deeplink, otherwise not")
+        }
 
         "/questions/answer/post"(platform: "/mobile", type: TrackType.Event) {
             failed()
             question_id(required: false, description: "it has no value if failed is true")
+            attach_id(required: false, description: "Attached Item id")
         }
 
         "/questions/answer/back"(platform: "/mobile", type: TrackType.Event) {

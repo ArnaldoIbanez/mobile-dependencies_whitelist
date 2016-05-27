@@ -405,6 +405,14 @@ trackTests {
       failed = false
     }
 
+    "/questions/answer/post"(platform: "/mobile") {
+        context = "/questions"
+        item_id = "MLA12345"
+        question_id = "12346"
+        attach_id = "MLA12347"
+        failed = false
+    }
+
     "/questions/ask/back"(platform: "/mobile") {
       item_id = "MLA12345"
       context = "/vip"
@@ -413,6 +421,12 @@ trackTests {
     "/questions/answer"(platform: "/mobile") {
       item_id = "MLA12345"
       context = "/notifications"
+    }
+
+    "/questions/answer"(platform: "/mobile") {
+      context = "/questions"
+      item_id = "MLA12345"
+      from_deeplink = true
     }
 
     "/questions/answer/post"(platform: "/mobile") {
