@@ -313,17 +313,17 @@ catalog {
         //VIP FLOW
 
         "/vip"(platform: "/") {
-            item_id()
-            category_id()
-            buying_mode(deprecated: true, required: false)
+            item_id(required: true, description: "Item ID")
+            category_id(required: true, description: "Item's category id")
+            deal_ids(required: false, description: "IDs of applied discounts")
+            buying_mode(required: false, description: "Indicates if it's an aution, buy_it_now or classified")
+            official_store_id(required: false, description: "Id of item's official store")
             vertical(deprecated: true, required: false)
-            category_id(deprecated: true, required: false)
             quantity(deprecated: true, required: false)
             item_condition(deprecated: true, required: false)
             currency_id(deprecated: true, required: false)
             price(deprecated: true, required: false)
             item_status(deprecated: true, required: false)
-            official_store_id(deprecated: true, required: false)
             seller_id(deprecated: true, required: false)
             power_seller_status(deprecated: true, required: false)
             listing_type_id(deprecated: true, required: false)
@@ -340,6 +340,7 @@ catalog {
         }
 
         "/vip"(platform: "/mobile") {
+            category_id(required: false, description: "Item's category id")
             context(required: false)
         }
 
