@@ -93,6 +93,7 @@ trackTests {
         autosuggest={
             block_store_position=19
         }
+        results=["232232000", "232232001", "232232002"]
     })
 
     "/search"(platform: "/mobile", defaultSearchInformation)
@@ -805,6 +806,9 @@ trackTests {
     }
     "/checkout/payments/select_issuer"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
+    }
+    "/checkout/payments/billing_info#submit"(platform:"/mobile", type:TrackType.Event) {
+      billing_info_state = "same_billing_info"
     }
     "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
       status = "success"
@@ -1700,6 +1704,18 @@ trackTests {
       average_ok_time=10
       average_error_time=11
     }
+
+    "/melidata/shrink_database"(platform:"/mobile/android", type:TrackType.Control){
+      delete_records=40
+      current_size=69632
+      previous_size=110592
+    }
+
+    "/melidata/shrink_database"(platform:"/mobile/ios", type:TrackType.Event){
+      delete_records=50
+      current_size=82322
+      previous_size=122592 
+    }
   }
 
   test("Mobile Notifications"){
@@ -2215,5 +2231,35 @@ trackTests {
         category_id="MLA1051"
       }
     }
+
+    test("Permission location dialog") {
+      "/permissions/location"(platform: "/mobile") {
+        context="HOME"
+      }
+    }
     
+    test("Custom Permission location dialog accepted") {
+      "/permissions/location/custom/accept"(platform: "/mobile") {
+        context="HOME"
+      }
+    }
+
+    test("Custom Permission location dialog denied") {
+      "/permissions/location/custom/deny"(platform: "/mobile") {
+        context="HOME"
+      }
+    }
+
+    test("Native Permission location dialog accepted") {
+      "/permissions/location/native/accept"(platform: "/mobile") {
+        context="HOME"
+      }
+    }
+
+
+    test("Native Permission location dialog denied") {
+      "/permissions/location/native/deny"(platform: "/mobile") {
+        context="HOME"
+      }
+    }
 }

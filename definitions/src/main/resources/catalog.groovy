@@ -89,6 +89,15 @@ catalog {
             count()
         }
 
+        "/melidata/shrink_database"(platform: "/mobile", isAbstract: true) {
+            delete_records( type: PropertyType.Numeric, description: "Number of records/tracks deleted when shrinking")
+            previous_size (type: PropertyType.Numeric, description: "Size of database before shrinking in bytes")
+            current_size (type: PropertyType.Numeric , description: "Size of database after shrinking in bytes")
+        }
+
+        "/melidata/shrink_database"(platform: "/mobile/android", type: TrackType.Control ) {}
+        "/melidata/shrink_database"(platform: "/mobile/ios", type: TrackType.Event ) {}
+        
         //EXTERNAL
         //TODO revisar /external/XXX
 
@@ -240,6 +249,7 @@ catalog {
                 //suggest_position
                 //last_search_position
                 //block_store_position
+            results(required: false, PropertyType.ArrayList,description:"item ids from search result")  
         }
 
         "/search"(platform: "/mobile") {
@@ -941,6 +951,9 @@ catalog {
         "/checkout/payments/account_money/password#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
         "/checkout/payments/billing_info"(platform:"/mobile") {}  
         "/checkout/payments/select_issuer"(platform:"/mobile") {}
+         "/checkout/payments/billing_info#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            billing_info_state(required: true, type: PropertyType.String)
+         }
         //"/checkout/review" //shared between web and app, already defined in web section.
         "/checkout/review#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             status(required: true, type: PropertyType.String)
@@ -1653,5 +1666,15 @@ catalog {
             from(required: false,  description: "Who is redirecting")
         }
 
+        "/permissions"(platform: "/mobile", isAbstract: true){}
+        "/permissions/location"(platform: "/mobile", type: TrackType.View){
+            context(required: "true", description: "Where are we requesting the permissions")
+        }
+        "/permissions/location/custom"(platform: "/mobile", isAbstract: true){}
+        "/permissions/location/custom/accept"(platform: "/mobile", type: TrackType.Event){}
+        "/permissions/location/custom/deny"(platform: "/mobile", type: TrackType.Event){}
+        "/permissions/location/native"(platform: "/mobile", isAbstract: true){}
+        "/permissions/location/native/accept"(platform: "/mobile", type: TrackType.Event){}
+        "/permissions/location/native/deny"(platform: "/mobile", type: TrackType.Event){}
     }
 }

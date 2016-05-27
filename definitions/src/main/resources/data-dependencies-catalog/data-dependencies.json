@@ -1,0 +1,14 @@
+[
+{
+	"owner": "julian.klas@mercadolibre.com",
+	"query": "select path as siteid, count(1) as clicks from tracks where ds>YESTERDAY and ds<TODAY group by path",
+	"schedule": "0 * * * *",
+	"extract_name": "sample_extract_001"
+},
+{
+	"owner": "agustin.acal@mercadolibre.com",
+	"query": "select to_date(ds) as dsdate, device.platform as platform, count(distinct usr.user_id) as logged_users, count(distinct usr.uid) as total_users from tracks where ds >= 'TWO_HOURS_AGO' and ds < 'ONE_HOUR_AGO' group by ds, device.platform",
+	"schedule": "0 * * * *", 
+	"extract_name": "sample_extract_002"
+}
+]
