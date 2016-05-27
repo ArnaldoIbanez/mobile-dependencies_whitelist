@@ -645,6 +645,7 @@ trackTests {
       checkoutStatus()
     }
     "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event) {}
+    "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event) {}
     "/checkout/shipping/select_option/mercado_envios"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       //List of available shippingMethods
@@ -801,6 +802,9 @@ trackTests {
     }
     "/checkout/payments/account_money/password#submit"(platform:"/mobile", type:TrackType.Event) {}
     "/checkout/payments/billing_info"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
+    "/checkout/payments/select_issuer"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
     "/checkout/payments/billing_info#submit"(platform:"/mobile", type:TrackType.Event) {

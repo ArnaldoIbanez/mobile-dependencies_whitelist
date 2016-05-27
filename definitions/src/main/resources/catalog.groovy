@@ -789,6 +789,8 @@ catalog {
         //Input zip_code
         "/checkout/shipping/custom_address/zip_code"(platform:"/mobile") {}
         "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+        //Query zip code
+        "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
         "/checkout/shipping/select_option"(platform: "/mobile", isAbstract: true) {
             //View specific data
             shipping_options(required: true, type: PropertyType.ArrayList)
@@ -947,8 +949,8 @@ catalog {
         "/checkout/payments/account_money/create"(platform:"/mobile") {}
         "/checkout/payments/account_money/password"(platform:"/mobile") {}
         "/checkout/payments/account_money/password#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
-        "/checkout/payments/billing_info"(platform:"/mobile") {}
-
+        "/checkout/payments/billing_info"(platform:"/mobile") {}  
+        "/checkout/payments/select_issuer"(platform:"/mobile") {}
          "/checkout/payments/billing_info#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             billing_info_state(required: true, type: PropertyType.String)
          }
