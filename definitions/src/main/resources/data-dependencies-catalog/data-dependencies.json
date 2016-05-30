@@ -1,14 +1,32 @@
 [
 {
-	"owner": "julian.klas@mercadolibre.com",
-	"query": "select path as siteid, count(1) as clicks from tracks where ds>YESTERDAY and ds<TODAY group by path",
+	"owners": ["julian.klas@mercadolibre.com"],
+	"query": "sql/melidata/clicks-per-site-per-day.sql",
 	"schedule": "0 * * * *",
-	"extract_name": "sample_extract_001"
+	"extract_name": "clicks-per-site-per-day"
 },
 {
-	"owner": "agustin.acal@mercadolibre.com",
-	"query": "select to_date(ds) as dsdate, device.platform as platform, count(distinct usr.user_id) as logged_users, count(distinct usr.uid) as total_users from tracks where ds >= 'TWO_HOURS_AGO' and ds < 'ONE_HOUR_AGO' group by ds, device.platform",
+	"owners": ["agustin.acal@mercadolibre.com"],
+	"query": "sql/bi/users-per-platform.sql",
 	"schedule": "0 * * * *", 
-	"extract_name": "sample_extract_002"
+	"extract_name": "users-per-platform"
+}, 
+{
+	"owners": ["nicolas.alaimo@mercadolibre.com"],
+	"query": "sql/bi/cross-device.sql",
+	"schedule": "0 1 * * *", 
+	"extract_name": "cross-device"
+},
+{
+	"owners": ["nicolas.alaimo@mercadolibre.com"],
+	"query": "sql/bi/landing-deals.sql",
+	"schedule": "0 2 * * *", 
+	"extract_name": "landing-deals"
+},
+{
+	"owners": ["nicolas.alaimo@mercadolibre.com"],
+	"query": "sql/bi/little-results.sql",
+	"schedule": "0 3 * * *", 
+	"extract_name": "little-results"
 }
 ]
