@@ -346,6 +346,19 @@ trackTests {
     "/vip/description/back"(platform:"/mobile", dataSet)
   }
 
+  test("Vip tracking in web") {
+      def dataSet = {
+          item_id = "MLA533657947"
+          category_id = "MLA43718"
+          buying_mode = "buy_it_now"
+          official_store_id = "1"
+          deal_ids = ["MLA24"]
+          review_rate=5
+      }
+
+      "/vip"(platform:"/web", dataSet)
+  }
+
   test("Vip protected purchase") {
     "/vip/protected_purchase/show" (platform:"/web/mobile", type: TrackType.Event) {
       category_id = "MLA1234"
