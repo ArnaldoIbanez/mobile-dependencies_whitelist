@@ -93,6 +93,7 @@ trackTests {
         autosuggest={
             block_store_position=19
         }
+        results=["232232000", "232232001", "232232002"]
     })
 
     "/search"(platform: "/mobile", defaultSearchInformation)
@@ -345,6 +346,19 @@ trackTests {
     "/vip/description/back"(platform:"/mobile", dataSet)
   }
 
+  test("Vip tracking in web") {
+      def dataSet = {
+          item_id = "MLA533657947"
+          category_id = "MLA43718"
+          buying_mode = "buy_it_now"
+          official_store_id = "1"
+          deal_ids = ["MLA24"]
+          review_rate=5
+      }
+
+      "/vip"(platform:"/web", dataSet)
+  }
+
   test("Vip protected purchase") {
     "/vip/protected_purchase/show" (platform:"/web/mobile", type: TrackType.Event) {
       category_id = "MLA1234"
@@ -404,6 +418,14 @@ trackTests {
       failed = false
     }
 
+    "/questions/answer/post"(platform: "/mobile") {
+        context = "/questions"
+        item_id = "MLA12345"
+        question_id = "12346"
+        attach_id = "MLA12347"
+        failed = false
+    }
+
     "/questions/ask/back"(platform: "/mobile") {
       item_id = "MLA12345"
       context = "/vip"
@@ -412,6 +434,12 @@ trackTests {
     "/questions/answer"(platform: "/mobile") {
       item_id = "MLA12345"
       context = "/notifications"
+    }
+
+    "/questions/answer"(platform: "/mobile") {
+      context = "/questions"
+      item_id = "MLA12345"
+      from_deeplink = true
     }
 
     "/questions/answer/post"(platform: "/mobile") {
@@ -644,6 +672,7 @@ trackTests {
       checkoutStatus()
     }
     "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event) {}
+    "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event) {}
     "/checkout/shipping/select_option/mercado_envios"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       //List of available shippingMethods
@@ -801,6 +830,12 @@ trackTests {
     "/checkout/payments/account_money/password#submit"(platform:"/mobile", type:TrackType.Event) {}
     "/checkout/payments/billing_info"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
+    }
+    "/checkout/payments/select_issuer"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
+    "/checkout/payments/billing_info#submit"(platform:"/mobile", type:TrackType.Event) {
+      billing_info_state = "same_billing_info"
     }
     "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
       status = "success"
@@ -1695,6 +1730,18 @@ trackTests {
       tracks_counter=12
       average_ok_time=10
       average_error_time=11
+    }
+
+    "/melidata/shrink_database"(platform:"/mobile/android", type:TrackType.Control){
+      delete_records=40
+      current_size=69632
+      previous_size=110592
+    }
+
+    "/melidata/shrink_database"(platform:"/mobile/ios", type:TrackType.Event){
+      delete_records=50
+      current_size=82322
+      previous_size=122592 
     }
   }
 

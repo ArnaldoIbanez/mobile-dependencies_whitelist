@@ -89,6 +89,15 @@ catalog {
             count()
         }
 
+        "/melidata/shrink_database"(platform: "/mobile", isAbstract: true) {
+            delete_records( type: PropertyType.Numeric, description: "Number of records/tracks deleted when shrinking")
+            previous_size (type: PropertyType.Numeric, description: "Size of database before shrinking in bytes")
+            current_size (type: PropertyType.Numeric , description: "Size of database after shrinking in bytes")
+        }
+
+        "/melidata/shrink_database"(platform: "/mobile/android", type: TrackType.Control ) {}
+        "/melidata/shrink_database"(platform: "/mobile/ios", type: TrackType.Event ) {}
+        
         //EXTERNAL
         //TODO revisar /external/XXX
 
@@ -240,6 +249,7 @@ catalog {
                 //suggest_position
                 //last_search_position
                 //block_store_position
+            results(required: false, PropertyType.ArrayList,description:"item ids from search result")  
         }
 
         "/search"(platform: "/mobile") {
@@ -303,17 +313,17 @@ catalog {
         //VIP FLOW
 
         "/vip"(platform: "/") {
-            item_id()
-            category_id()
-            buying_mode(deprecated: true, required: false)
+            item_id(required: true, description: "Item ID")
+            category_id(required: true, description: "Item's category id")
+            deal_ids(required: false, description: "IDs of applied discounts")
+            buying_mode(required: false, description: "Indicates if it's an aution, buy_it_now or classified")
+            official_store_id(required: false, description: "Id of item's official store")
             vertical(deprecated: true, required: false)
-            category_id(deprecated: true, required: false)
             quantity(deprecated: true, required: false)
             item_condition(deprecated: true, required: false)
             currency_id(deprecated: true, required: false)
             price(deprecated: true, required: false)
             item_status(deprecated: true, required: false)
-            official_store_id(deprecated: true, required: false)
             seller_id(deprecated: true, required: false)
             power_seller_status(deprecated: true, required: false)
             listing_type_id(deprecated: true, required: false)
@@ -330,6 +340,7 @@ catalog {
         }
 
         "/vip"(platform: "/mobile") {
+            category_id(required: false, description: "Item's category id")
             context(required: false)
         }
 
@@ -436,11 +447,14 @@ catalog {
         "/questions/ask/back"(platform: "/mobile", type: TrackType.Event) {
         }
 
-        "/questions/answer"(platform: "/mobile") {}
+        "/questions/answer"(platform: "/mobile") {
+            from_deeplink(required: false, description: "True, when it access from deeplink, otherwise not")
+        }
 
         "/questions/answer/post"(platform: "/mobile", type: TrackType.Event) {
             failed()
             question_id(required: false, description: "it has no value if failed is true")
+            attach_id(required: false, description: "Attached Item id")
         }
 
         "/questions/answer/back"(platform: "/mobile", type: TrackType.Event) {
@@ -779,6 +793,8 @@ catalog {
         //Input zip_code
         "/checkout/shipping/custom_address/zip_code"(platform:"/mobile") {}
         "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+        //Query zip code
+        "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
         "/checkout/shipping/select_option"(platform: "/mobile", isAbstract: true) {
             //View specific data
             shipping_options(required: true, type: PropertyType.ArrayList)
@@ -937,7 +953,11 @@ catalog {
         "/checkout/payments/account_money/create"(platform:"/mobile") {}
         "/checkout/payments/account_money/password"(platform:"/mobile") {}
         "/checkout/payments/account_money/password#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
-        "/checkout/payments/billing_info"(platform:"/mobile") {}
+        "/checkout/payments/billing_info"(platform:"/mobile") {}  
+        "/checkout/payments/select_issuer"(platform:"/mobile") {}
+         "/checkout/payments/billing_info#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            billing_info_state(required: true, type: PropertyType.String)
+         }
         //"/checkout/review" //shared between web and app, already defined in web section.
         "/checkout/review#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             status(required: true, type: PropertyType.String)
