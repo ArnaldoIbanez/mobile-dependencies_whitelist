@@ -1447,6 +1447,7 @@ catalog {
         "/traffic/inbound/matt"(platform: "/") {
             tool(type: PropertyType.Numeric, description: "Referrer's ID, this could identify Google, Facebook or any other channel")
             word(type: PropertyType.String, description: "This is the name of the marketing campaign.")
+            go(required: false, type: PropertyType.String, description: "Destination URL of the marketing campaign.")
         }
 
         "/notification_center"(platform: "/mobile", type: TrackType.Event) {}
