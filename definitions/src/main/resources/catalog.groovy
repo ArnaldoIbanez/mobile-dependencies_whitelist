@@ -563,6 +563,14 @@ catalog {
         "/checkout/payments/select_split_payment"(platform: "/web") {}
         "/checkout/payments/input_proactive_payment_amount"(platform: "/web") {}
 
+        "/checkout/payments/installments#submit"(platform:"/web", type: TrackType.Event) {
+            pay_pref_id(required: true, description: "payment preference Id")
+            total_price(required: true, description: "Total price")
+            preferred_installment(required: true, description: "preferred Installment")
+            max_installments_without_fee(required: true, description: "max Installments Without Fee")
+            selected_installment(required: true, description: "selected Installment")
+        }
+
         //Web and Apps track is the same
         "/checkout/review"(platform:"/") {
             order_id(required: false, description: "OrderId") //Apps might not have an order
