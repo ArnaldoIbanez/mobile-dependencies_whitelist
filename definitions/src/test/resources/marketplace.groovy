@@ -821,6 +821,16 @@ trackTests {
         ]
       ]
     }
+    "/checkout/payments/stored_card/installments/ab_test"(platform:"/mobile", type:TrackType.View) {
+        from_new_flow = true
+    }
+    "/checkout/payments/stored_card/installments/ab_test#change_payment_method"(platform:"/mobile", type:TrackType.Event) {
+        event_source = "installments_row"
+    }
+    "/checkout/payments/stored_card/installments/ab_test#new_payment_method_selected"(platform:"/mobile", type:TrackType.Event) {
+        payment_method_id = "payment_method_id"
+        payment_type_id = "payment_type_id"
+    }
     "/checkout/payments/account_money/create"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }

@@ -949,6 +949,16 @@ catalog {
                 //      without_fee: true
                 //    ]
         }
+        "/checkout/payments/stored_card/installments/ab_test"(platform:"/mobile",  type: TrackType.View, parentPropertiesInherited: false) {
+            from_new_flow(required: true, type: PropertyType.Boolean)
+        }
+        "/checkout/payments/stored_card/installments/ab_test#change_payment_method"(platform:"/mobile",  type: TrackType.Event, parentPropertiesInherited: false) {
+            event_source(required: true, type: PropertyType.String)
+        }
+        "/checkout/payments/stored_card/installments/ab_test#new_payment_method_selected"(platform:"/mobile",  type: TrackType.Event, parentPropertiesInherited: false) {
+            payment_method_id(required: false, type: PropertyType.String)
+            payment_type_id(required: false, type: PropertyType.String)
+        }
         "/checkout/payments/account_money"(platform: "/mobile", isAbstract: true) {}
         "/checkout/payments/account_money/create"(platform:"/mobile") {}
         "/checkout/payments/account_money/password"(platform:"/mobile") {}
@@ -961,6 +971,7 @@ catalog {
         //"/checkout/review" //shared between web and app, already defined in web section.
         "/checkout/review#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             status(required: true, type: PropertyType.String)
+            is_from_preload_cc_flow(required: false, type: PropertyType.Boolean)
         }
         "/checkout/review/quantity#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             old_quantity(required: true, type: PropertyType.Numeric)
