@@ -516,6 +516,14 @@ catalog {
         "/checkout/payments/select_split_payment"(platform: "/web") {}
         "/checkout/payments/input_proactive_payment_amount"(platform: "/web") {}
 
+        "/checkout/payments/installments"(platform:"/web", parentPropertiesInherited: false) {
+            payPrefId(required: true, description: "payment preference Id")
+            totalPrice(required: true, description: "Total price")
+            preferredInstallment(required: true, description: "preferred Installment")
+            maxInstallmentsWithoutFee(required: true, description: "max Installments Without Fee")
+            selectedInstallment(required: true, description: "selected Installment")
+        }
+
         "/checkout/review"(platform:"/web") {
             order_id(required: true, description: "OrderId")
             status(required: true, description: "status")

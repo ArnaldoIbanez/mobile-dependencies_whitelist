@@ -942,6 +942,14 @@ trackTests {
       ]
     }
 
+    "/checkout/payments/installments"(platform:"/web/desktop") {
+      payPrefId="ABCD1234"
+      totalPrice=1000
+      preferredInstallment=6
+      maxInstallmentsWithoutFee=12
+      selectedInstallment = 3
+    }
+
     "/checkout/review"(platform:"/web/desktop") {
       order_id=1234
       status="payment_required"
