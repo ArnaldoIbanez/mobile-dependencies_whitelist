@@ -1673,12 +1673,20 @@ trackTests {
     }
   }
 
-  test("Traffic") {
-    "/traffic/inbound/matt"(platform: "/") {
-      tool = 123456
-      word = "campaignName"
+    test("Traffic") {
+        "/traffic/inbound/matt"(platform: "/") {
+            tool = 123456
+            word = "campaignName"
+        }
     }
-  }
+
+    test("Traffic") {
+        "/traffic/inbound/matt"(platform: "/") {
+            tool = 123456
+            word = "campaignName"
+            go = "http://ofertas.mercadolibre.com.mx/hot-sale"
+        }
+    }
 
   test("external tracking"){
 
