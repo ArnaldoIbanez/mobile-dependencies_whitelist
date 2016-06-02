@@ -95,6 +95,7 @@ trackTests {
             block_store_position=19
         }
         results=["232232000", "232232001", "232232002"]
+        billboard_shown = true
     })
 
     "/search"(platform: "/mobile", defaultSearchInformation)
@@ -154,7 +155,15 @@ trackTests {
       defaultSearchInformation()
       item_type = "projects"
     }
-
+    "/search/billboard"(platform: "/") {
+      defaultSearchInformation()
+      position_shown = 1
+      move = "forward"
+    }
+    "/search/billboard/resize"(platform: "/web") {
+      defaultSearchInformation()
+      action = "expand"
+    }
   }
 
   test("Search gallery with 10 items, first page" ) {
