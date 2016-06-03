@@ -310,6 +310,12 @@ catalog {
 
         "/search/input/back"(platform: "/mobile") {}
 
+        "/search/promoted_items/"(platform: "/web", isAbstract: true) {}
+
+        "/search/promoted_items/show"(platform: "/web", type: TrackType.View) {
+            item_type(required: true, values: ["properties", "projects"])
+        }
+
         //VIP FLOW
 
         "/vip"(platform: "/") {
@@ -333,6 +339,7 @@ catalog {
             free_shipping(deprecated: true, required: false)
             local_pick_up(deprecated: true, required: false)
             category_path(deprecated: true, required: false)
+            promoted_items_clicked(required: false, descripcion: 'indicates whether clicked promoted items')
         }
 
         "/vip"(platform: "/web") {

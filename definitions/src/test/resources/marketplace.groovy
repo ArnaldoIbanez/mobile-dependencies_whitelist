@@ -148,6 +148,11 @@ trackTests {
       defaultSearchInformation()
       list_mode = "mosaic"
     }
+    "/search/promoted_items"(platform: "/web", defaultSearchInformation)
+    "/search/promoted_items/show"(platform: "/web") {
+      defaultSearchInformation()
+      item_type = "projects"
+    }
 
   }
 
