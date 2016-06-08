@@ -771,6 +771,20 @@ trackTests {
     "/checkout/payments/coupon_detail"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
+    "/checkout/payments/add_debit_card"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
+    "/checkout/payments/add_debit_card#card_config"(platform:"/mobile", type: TrackType.Event) {
+          bin = "123456"
+          success = true
+      }
+    "/checkout/payments/add_prepaid_card"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
+    "/checkout/payments/add_prepaid_card#card_config"(platform:"/mobile", type: TrackType.Event) {
+          bin = "123456"
+          success = true
+      }
     "/checkout/payments/add_card"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }

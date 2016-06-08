@@ -930,6 +930,17 @@ catalog {
             coupon_discoun(required: false, type:  PropertyType.Numeric)
         }
         "/checkout/payments/coupon_detail"(platform:"/mobile") {}
+        // Add card form
+        "/checkout/payments/add_debit_card"(platform:"/mobile") {}
+        "/checkout/payments/add_debit_card#card_config"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            bin(required: true, type:  PropertyType.String)
+            success(required: true, type:  PropertyType.Boolean)
+        }
+        "/checkout/payments/add_prepaid_card"(platform:"/mobile") {}
+        "/checkout/payments/add_prepaid_card#card_config"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            bin(required: true, type:  PropertyType.String)
+            success(required: true, type:  PropertyType.Boolean)
+        }
         "/checkout/payments/add_card"(platform:"/mobile") {}
         "/checkout/payments/add_card#card_config"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             bin(required: true, type:  PropertyType.String)
@@ -963,7 +974,7 @@ catalog {
         "/checkout/payments/account_money/password#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
         "/checkout/payments/billing_info"(platform:"/mobile") {}  
         "/checkout/payments/select_issuer"(platform:"/mobile") {}
-         "/checkout/payments/billing_info#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        "/checkout/payments/billing_info#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             billing_info_state(required: true, type: PropertyType.String)
          }
         //"/checkout/review" //shared between web and app, already defined in web section.
