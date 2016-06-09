@@ -663,6 +663,12 @@ trackTests {
       //List of available shippingMethods
       selections = ["shipping_other", "local_pick_up"]
     }
+    "/checkout/shipping/select_method/inconsistency"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      error_code = "cant_buy_quantity"
+      inconsistency = "cant_sent_x_units"
+      selections = ["shipping_geo", "shipping_other", "local_pick_up"]
+    }
     "/checkout/shipping/select_method/geolocated"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       //List of available shippingMethods
