@@ -2352,24 +2352,4 @@ trackTests {
         context="HOME"
       }
     }
-
-
-    test("Real estate web desktop home tracking") {
-      def dataSetView = {
-        user_id = 216599995
-        device = 'web'
-        referer = ''
-        city_id = ''
-        city_name = ''
-        state_id = ''
-        state_core_id = ''
-        neighborhood_id = ''
-        neighborhood_name = ''
-        as_word = ''
-        search_word = ''
-      }
-
-      "/home/real-estate"(platform: "/web", dataSetView)
-    }
-
 }
