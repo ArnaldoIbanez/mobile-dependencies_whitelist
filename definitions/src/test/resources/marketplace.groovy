@@ -803,6 +803,7 @@ trackTests {
     }
     "/checkout/payments/stored_card/installments"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
+      is_preload_stored_card_flow = true
       available_installments = [
         [
           installment: 1,
@@ -821,13 +822,10 @@ trackTests {
         ]
       ]
     }
-    "/checkout/payments/stored_card/installments/ab_test"(platform:"/mobile", type:TrackType.View) {
-        from_new_flow = true
-    }
-    "/checkout/payments/stored_card/installments/ab_test#change_payment_method"(platform:"/mobile", type:TrackType.Event) {
+    "/checkout/payments/stored_card/installments#change_payment_method"(platform:"/mobile", type:TrackType.Event) {
         event_source = "installments_row"
     }
-    "/checkout/payments/stored_card/installments/ab_test#new_payment_method_selected"(platform:"/mobile", type:TrackType.Event) {
+    "/checkout/payments/stored_card/installments#new_payment_method_selected"(platform:"/mobile", type:TrackType.Event) {
         payment_method_id = "payment_method_id"
         payment_type_id = "payment_type_id"
     }

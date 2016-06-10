@@ -940,6 +940,7 @@ catalog {
         "/checkout/payments/stored_card"(platform: "/mobile", isAbstract: true) {}
         "/checkout/payments/stored_card/security_code"(platform:"/mobile") {}
         "/checkout/payments/stored_card/installments"(platform:"/mobile") {
+            is_preload_stored_card_flow(required: false, type: PropertyType.Boolean)
             //List of available installments
             available_installments(required: true, type: PropertyType.ArrayList)
                 //installments: [
@@ -949,13 +950,10 @@ catalog {
                 //      without_fee: true
                 //    ]
         }
-        "/checkout/payments/stored_card/installments/ab_test"(platform:"/mobile",  type: TrackType.View, parentPropertiesInherited: false) {
-            from_new_flow(required: true, type: PropertyType.Boolean)
-        }
-        "/checkout/payments/stored_card/installments/ab_test#change_payment_method"(platform:"/mobile",  type: TrackType.Event, parentPropertiesInherited: false) {
+        "/checkout/payments/stored_card/installments#change_payment_method"(platform:"/mobile",  type: TrackType.Event, parentPropertiesInherited: false) {
             event_source(required: true, type: PropertyType.String)
         }
-        "/checkout/payments/stored_card/installments/ab_test#new_payment_method_selected"(platform:"/mobile",  type: TrackType.Event, parentPropertiesInherited: false) {
+        "/checkout/payments/stored_card/installments#new_payment_method_selected"(platform:"/mobile",  type: TrackType.Event, parentPropertiesInherited: false) {
             payment_method_id(required: false, type: PropertyType.String)
             payment_type_id(required: false, type: PropertyType.String)
         }
