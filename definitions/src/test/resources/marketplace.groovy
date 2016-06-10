@@ -724,6 +724,11 @@ trackTests {
     "/checkout/shipping/select_contact"(platform:"/mobile", type:TrackType.Event) {
       is_from_preload_address = true
     }
+    "/checkout/shipping/custom_address/zip_code/find"(platform:"/mobile", type:TrackType.View) {}
+    "/checkout/shipping/custom_address/zip_code/find/back"(platform:"/mobile", type:TrackType.Event) {}
+    "/checkout/shipping/custom_address/zip_code/find#query"(platform:"/mobile", type:TrackType.Event) {
+      query_parameters = "Mexico D.F."
+    }
     "/checkout/shipping/location/address"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       edit_flow = true

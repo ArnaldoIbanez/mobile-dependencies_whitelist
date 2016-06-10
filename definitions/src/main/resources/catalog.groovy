@@ -821,6 +821,13 @@ catalog {
                 //  ]
                 //]
         }
+        "/checkout/shipping/custom_address/zip_code/find"(platform:"/mobile", type: TrackType.View, parentPropertiesInherited: false) {}
+        "/checkout/shipping/custom_address/zip_code/find/back"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+        "/checkout/shipping/custom_address/zip_code/find#query"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            query_parameters (required: false, type: PropertyType.String)
+            failing_url (required: false, type: PropertyType.String)
+        }
+        
         //Select shippingOptions
         "/checkout/shipping/select_option/mercado_envios"(platform:"/mobile") {}
         "/checkout/shipping/select_option/free_shipping"(platform:"/mobile") {}
