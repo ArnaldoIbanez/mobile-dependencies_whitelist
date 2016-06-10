@@ -795,6 +795,12 @@ catalog {
             //View specific data
             selections(required: true, type: PropertyType.ArrayList)
         }
+        //Fallback/inconsistency
+        "/checkout/shipping/select_method/inconsistency"(platform: "/mobile") {
+            //View specific data
+            error_code(required: false, type: PropertyType.String)
+            inconsistency(required: false, type: PropertyType.String)
+        }
         //Geolocation
         "/checkout/shipping/select_method/geolocated"(platform:"/mobile") {}
         "/checkout/shipping/custom_address"(platform: "/mobile", isAbstract: true) {}
