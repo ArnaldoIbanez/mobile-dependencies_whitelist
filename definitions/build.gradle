@@ -8,8 +8,6 @@ apply plugin:'java'
 project.version = '0.1.17'
 project.group = 'com.mercadolibre.melidata.catalog'
 
-mainClassName = 'com.melidata.definitions.uploader.Uploader'
-
 task wrapper(type: Wrapper) {
     gradleVersion = '2.1'
 }
@@ -55,13 +53,23 @@ task tests (dependsOn: 'classes', type: JavaExec) {
 }
 
 task uploadCatalog(type:JavaExec) {
-   main = 'com.melidata.definitions.uploader.Uploader' 
+   main = 'com.melidata.definitions.uploader.CatalogUploader'
    classpath = sourceSets.main.runtimeClasspath
     systemProperty "CATALOG_DSL_FILE", System.getProperty("CATALOG_DSL_FILE")
-    systemProperty "S3_BUCKET", System.getProperty("S3_BUCKET")
+    systemProperty "CATALOG_S3_BUCKET", System.getProperty("CATALOG_S3_BUCKET")
     systemProperty "AWS_ACCESS_KEY_ID", System.getProperty("AWS_ACCESS_KEY_ID")
     systemProperty "AWS_SECRET_KEY", System.getProperty("AWS_SECRET_KEY")
 }
+
+task uploadMetrics(type:JavaExec) {
+    main = 'com.melidata.definitions.uploader.MetricsUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    systemProperty "METRICS_DSL_DIR", System.getProperty("METRICS_DLS_DIR")
+    systemProperty "METRICS_S3_BUCKET", System.getProperty("METRICS_S3_BUCKET")
+    systemProperty "AWS_ACCESS_KEY_ID", System.getProperty("AWS_ACCESS_KEY_ID")
+    systemProperty "AWS_SECRET_KEY", System.getProperty("AWS_SECRET_KEY")
+}
+
 
 task validate(dependsOn: 'classes', type: JavaExec) {
     main = 'validate'
@@ -80,6 +88,11 @@ task export(type:JavaExec) {
         throw new IllegalArgumentException("Invalid format. Must be 'hive' or 'json'")
 
     main = mainClass
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task exportMetrics(type:JavaExec) {
+    main = "com.melidata.metrics.format.MetricsFormatter"
     classpath = sourceSets.main.runtimeClasspath
 }
 

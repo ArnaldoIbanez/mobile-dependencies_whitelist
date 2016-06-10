@@ -8,7 +8,7 @@ import org.apache.commons.io.IOUtils
 /**
  * Created by geisbruch on 12/16/14.
  */
-class Uploader {
+class CatalogUploader {
 
     def static JSON_CONTENT="application/json"
     def static DSL_CONTENT="application/dsl"
@@ -17,27 +17,27 @@ class Uploader {
     def catalogFile
     def S3Controller s3Controller
 
-    def Uploader(catalogFile, s3Bucket, accessKey, secretKey) {
+    def CatalogUploader(catalogFile, s3Bucket, accessKey, secretKey) {
         this.catalogFile = catalogFile
         s3Controller = new S3Controller(s3Bucket, accessKey, secretKey)
     }
 
     def static void main(String[] args) {
         def catalogFile = System.getenv().get("CATALOG_DSL_FILE")
-        def s3Bucket = System.getenv().get("S3_BUCKET")
+        def s3Bucket = System.getenv().get("CATALOG_S3_BUCKET")
         def accessKey = System.getenv().get("CAT_AWS_ACCESS_KEY_ID")
         def secretKey = System.getenv().get("CAT_AWS_SECRET_KEY")
         if(catalogFile == null || s3Bucket == null || accessKey == null || secretKey == null) {
             println """
                     This program espect 4 env variables
                     - CATALOG_DSL_FILE
-                    - S3_BUCKET
-                    - AWS_ACCESS_KEY_ID
-                    - Secret key
+                    - CATALOG_S3_BUCKET
+                    - CAT_AWS_ACCESS_KEY_ID
+                    - CAT_AWS_SECRET_KEY
             """
             System.exit(1)
         }
-        new Uploader(catalogFile,s3Bucket,accessKey,secretKey).upload();
+        new CatalogUploader(catalogFile,s3Bucket,accessKey,secretKey).upload();
     }
 
     def upload() {
