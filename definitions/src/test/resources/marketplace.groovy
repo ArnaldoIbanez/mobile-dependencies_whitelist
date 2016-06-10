@@ -2354,22 +2354,61 @@ trackTests {
     }
 
 
-    test("Real estate web desktop home tracking") {
-      def dataSetView = {
-        user_id = 216599995
-        device = 'web'
-        referer = ''
-        city_id = ''
-        city_name = ''
-        state_id = ''
-        state_core_id = ''
-        neighborhood_id = ''
-        neighborhood_name = ''
-        as_word = ''
-        search_word = ''
+    test("Real estate home tracking") {
+      def dataSetViewEmpty = {
+        filters = ''
+        carousels = ''
       }
 
-      "/home/real-estate"(platform: "/web", dataSetView)
+      def dataSetView = {
+        filters = {
+          cityId: 1
+          cityName: 'Santiago'
+          stateId: 1
+          stateName: 'Santiago'
+          neighborhoodId: 1
+          neighborhoodName: 'La rioja'
+          categories: 11
+          operations: 11
+        }
+        carousels = {
+          premium: [1,2,3]
+          gold: [11,12,13]
+          used: [111,122,133]
+        }
+      }
+
+      "/home/real-estate"(platform: "/", dataSetViewEmpty)
+
+      "/home/real-estate"(platform: "/", dataSetView)
     }
 
+    test("Real estate search tracking event") {
+      def dataSetViewSearch = {
+        filters = {
+          cityId: 1
+          cityName: 'Santiago'
+          stateId: 1
+          stateName: 'Santiago'
+          neighborhoodId: 1
+          neighborhoodName: 'La rioja'
+          categories: 11
+          operations: 11
+        }
+        as_word: true
+        search_word: "Palermo"
+      }
+
+      "/home/real-estate/search"(platform: "/", type: TrackType.Event, dataSetViewSearch)
+    }
+
+    test("Real estate carousel tracking event") {
+      def carouselEvent = {
+        position: 1
+        bucket: "gold"
+        item_id: '222ML'
+      }
+
+      "/home/real-estate/carousel"(platform: "/", type: TrackType.Event, carouselEvent)
+    }
 }
