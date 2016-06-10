@@ -31,10 +31,10 @@ class MetricsUploader {
         if(metricsDir == null || s3Bucket == null || accessKey == null || secretKey == null) {
             println """
                     This program espect 4 env variables
-                    - METRICS_DSL_DIR ${metricsDir}
-                    - METRICS_S3_BUCKET ${s3Bucket}
-                    - CAT_AWS_ACCESS_KEY_ID ${accessKey}
-                    - CAT_AWS_SECRET_KEY ${secretKey}
+                    - METRICS_DSL_DIR 
+                    - METRICS_S3_BUCKET
+                    - CAT_AWS_ACCESS_KEY_ID
+                    - CAT_AWS_SECRET_KEY
             """
             System.exit(1)
         }

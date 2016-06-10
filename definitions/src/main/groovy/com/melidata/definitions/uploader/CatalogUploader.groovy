@@ -24,16 +24,16 @@ class CatalogUploader {
 
     def static void main(String[] args) {
         def catalogFile = System.getenv().get("CATALOG_DSL_FILE")
-        def s3Bucket = System.getenv().get("CATALOG_S3_BUCKET")
+        def s3Bucket = System.getenv().get("S3_BUCKET")
         def accessKey = System.getenv().get("CAT_AWS_ACCESS_KEY_ID")
         def secretKey = System.getenv().get("CAT_AWS_SECRET_KEY")
         if(catalogFile == null || s3Bucket == null || accessKey == null || secretKey == null) {
             println """
                     This program espect 4 env variables
-                    - CATALOG_DSL_FILE ${catalogFile}
-                    - CATALOG_S3_BUCKET ${s3Bucket}
-                    - CAT_AWS_ACCESS_KEY_ID ${accessKey}
-                    - CAT_AWS_SECRET_KEY ${secretKey}
+                    - CATALOG_DSL_FILE 
+                    - CATALOG_S3_BUCKET
+                    - CAT_AWS_ACCESS_KEY_ID
+                    - CAT_AWS_SECRET_KEY 
             """
             System.exit(1)
         }
