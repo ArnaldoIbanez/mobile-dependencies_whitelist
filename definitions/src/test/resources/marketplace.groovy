@@ -653,7 +653,6 @@ trackTests {
     }
 
     "/checkout/wrapper"(platform:"/mobile", type:TrackType.View) {}
-    "/checkout/preload_credit_card"(platform:"/mobile", type:TrackType.View) {}
     "/checkout/init"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       success = true
@@ -808,7 +807,6 @@ trackTests {
     }
     "/checkout/payments/stored_card/installments"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
-      is_preload_stored_card_flow = true
       credit_card_id = "1234"
       available_installments = [
         [
