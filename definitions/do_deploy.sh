@@ -9,8 +9,8 @@ if [[ $DRONE_BRANCH == "master" && $DRONE_BUILD_DIR != "" ]]; then
   echo "Starting upload catalog"
   ./gradlew uploadCatalog 
 
-  #echo "Starting upload metrics"
-  #./gradlew uploadMetrics
+  echo "Starting upload metrics"
+  ./gradlew uploadMetrics
 
 else
   echo "This branch / fork doesn't deploy"

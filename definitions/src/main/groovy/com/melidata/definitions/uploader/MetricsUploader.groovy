@@ -1,10 +1,4 @@
 package com.melidata.definitions.uploader
-
-import com.ml.melidata.catalog.Catalog
-import com.ml.melidata.catalog.exceptions.CatalogException
-import com.ml.melidata.catalog.parsers.json.CatalogJsonOutput
-import org.apache.commons.io.IOUtils
-
 /**
  * Created by geisbruch on 12/16/14.
  */
@@ -12,7 +6,7 @@ class MetricsUploader {
 
     def static JSON_CONTENT="application/json"
 
-    def static LAST_VERSION_FILE_NAME = "metrics"
+    def static LAST_VERSION_FILE_NAME = "metrics.json"
 
     def metricsDir
     def S3Controller s3Controller
@@ -23,21 +17,11 @@ class MetricsUploader {
     }
 
     def static void main(String[] args) {
-        def metricsDir = System.getenv().get("METRICS_DSL_DIR")
-        def s3Bucket = System.getenv().get("METRICS_S3_BUCKET")
-        def accessKey = System.getenv().get("CAT_AWS_ACCESS_KEY_ID")
-        def secretKey = System.getenv().get("CAT_AWS_SECRET_KEY")
+        def metricsDir = "./src/main/resources/metrics/"
+        def s3Bucket = "melidata-jobs"
+        def accessKey = "AKIAIRJ4DFA72UDCX7QA"
+        def secretKey = "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"
 
-        if(metricsDir == null || s3Bucket == null || accessKey == null || secretKey == null) {
-            println """
-                    This program espect 4 env variables
-                    - METRICS_DSL_DIR 
-                    - METRICS_S3_BUCKET
-                    - CAT_AWS_ACCESS_KEY_ID
-                    - CAT_AWS_SECRET_KEY
-            """
-            System.exit(1)
-        }
         new MetricsUploader(metricsDir,s3Bucket,accessKey,secretKey).upload();
     }
 
@@ -49,8 +33,9 @@ class MetricsUploader {
 
         println("JSON loaded")
 
-        println("Uploading ${LAST_VERSION_FILE_NAME}.json")
-        s3Controller.saveCatalogVersion(json,JSON_CONTENT, LAST_VERSION_FILE_NAME, 0)
+        println("Uploading ${LAST_VERSION_FILE_NAME}")
+
+        s3Controller.saveFile(LAST_VERSION_FILE_NAME, json, JSON_CONTENT)
 
         println("Finish")
     }
