@@ -674,6 +674,7 @@ catalog {
         /*******************************************************************/
         //Mobile Checkout Apps
         "/checkout/wrapper"(platform:"/mobile") {} //Melidata experiment
+        "/checkout/preload_credit_card"(platform:"/mobile") {} //Melidata experiment
         "/checkout/init"(platform:"/mobile") {
             //Might not have most of status values in case of requestFailure
             order_id(required: false, description: "OrderId")
@@ -921,6 +922,10 @@ catalog {
             coupon(required: false, type:  PropertyType.Boolean)
             coupon_discoun(required: false, type:  PropertyType.Numeric)
         }
+        "/checkout/payments/select_method#new_payment_method_selected"(platform:"/mobile",  type: TrackType.Event, parentPropertiesInherited: false) {
+            payment_method_id(required: false, type: PropertyType.String)
+            payment_type_id(required: false, type: PropertyType.String)
+        }
         "/checkout/payments/coupon_detail"(platform:"/mobile") {}
         "/checkout/payments/add_card"(platform:"/mobile") {}
         "/checkout/payments/add_card#card_config"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -952,10 +957,6 @@ catalog {
         }
         "/checkout/payments/stored_card/installments#change_payment_method"(platform:"/mobile",  type: TrackType.Event, parentPropertiesInherited: false) {
             event_source(required: true, type: PropertyType.String)
-        }
-        "/checkout/payments/stored_card/installments#new_payment_method_selected"(platform:"/mobile",  type: TrackType.Event, parentPropertiesInherited: false) {
-            payment_method_id(required: false, type: PropertyType.String)
-            payment_type_id(required: false, type: PropertyType.String)
         }
         "/checkout/payments/account_money"(platform: "/mobile", isAbstract: true) {}
         "/checkout/payments/account_money/create"(platform:"/mobile") {}

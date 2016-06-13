@@ -653,6 +653,7 @@ trackTests {
     }
 
     "/checkout/wrapper"(platform:"/mobile", type:TrackType.View) {}
+    "/checkout/preload_credit_card"(platform:"/mobile", type:TrackType.View) {}
     "/checkout/init"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       success = true
@@ -768,6 +769,10 @@ trackTests {
       coupon = true
       coupon_discoun = 20
     }
+    "/checkout/payments/select_method#new_payment_method_selected"(platform:"/mobile",  type: TrackType.Event) {
+            payment_method_id = "payment_method_id"
+            payment_type_id = "payment_type_id"
+        }
     "/checkout/payments/coupon_detail"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
@@ -824,10 +829,6 @@ trackTests {
     }
     "/checkout/payments/stored_card/installments#change_payment_method"(platform:"/mobile", type:TrackType.Event) {
         event_source = "installments_row"
-    }
-    "/checkout/payments/stored_card/installments#new_payment_method_selected"(platform:"/mobile", type:TrackType.Event) {
-        payment_method_id = "payment_method_id"
-        payment_type_id = "payment_type_id"
     }
     "/checkout/payments/account_money/create"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
