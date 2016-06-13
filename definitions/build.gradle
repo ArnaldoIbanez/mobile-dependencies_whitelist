@@ -60,10 +60,6 @@ task uploadCatalog(type:JavaExec) {
 task uploadMetrics(type:JavaExec) {
     main = 'com.melidata.definitions.uploader.MetricsUploader'
     classpath = sourceSets.main.runtimeClasspath
-    systemProperty "METRICS_DSL_DIR", "./src/main/resources/metrics/"
-    systemProperty "METRICS_S3_BUCKET", "melidata-jobs"
-    systemProperty "AWS_ACCESS_KEY_ID", "AKIAJ7EIGFFJQC475PBQ"
-    systemProperty "AWS_SECRET_KEY", "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"
 }
 
 

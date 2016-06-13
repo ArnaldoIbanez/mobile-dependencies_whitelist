@@ -6,7 +6,7 @@ class MetricsUploader {
 
     def static JSON_CONTENT="application/json"
 
-    def static LAST_VERSION_FILE_NAME = "metrics"
+    def static LAST_VERSION_FILE_NAME = "metrics.json"
 
     def metricsDir
     def S3Controller s3Controller
@@ -19,8 +19,8 @@ class MetricsUploader {
     def static void main(String[] args) {
         def metricsDir = "./src/main/resources/metrics/"
         def s3Bucket = "melidata-jobs"
-        def accessKey = "AKIAJ7EIGFFJQC475PBQ"
-        def secretKey = "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"
+        def accessKey = "AKIAIRJ4DFA72UDCX7QA"
+        def secretKey = "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"
 
         new MetricsUploader(metricsDir,s3Bucket,accessKey,secretKey).upload();
     }
@@ -33,8 +33,9 @@ class MetricsUploader {
 
         println("JSON loaded")
 
-        println("Uploading ${LAST_VERSION_FILE_NAME}.json")
-        s3Controller.saveCatalogVersion(json,JSON_CONTENT, LAST_VERSION_FILE_NAME, 0)
+        println("Uploading ${LAST_VERSION_FILE_NAME}")
+
+        s3Controller.saveFile(LAST_VERSION_FILE_NAME, json, JSON_CONTENT)
 
         println("Finish")
     }
