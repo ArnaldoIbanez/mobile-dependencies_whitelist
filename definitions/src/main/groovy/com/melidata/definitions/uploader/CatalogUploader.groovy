@@ -23,20 +23,11 @@ class CatalogUploader {
     }
 
     def static void main(String[] args) {
-        def catalogFile = System.getenv().get("CATALOG_DSL_FILE")
-        def s3Bucket = System.getenv().get("S3_BUCKET")
-        def accessKey = System.getenv().get("CAT_AWS_ACCESS_KEY_ID")
-        def secretKey = System.getenv().get("CAT_AWS_SECRET_KEY")
-        if(catalogFile == null || s3Bucket == null || accessKey == null || secretKey == null) {
-            println """
-                    This program espect 4 env variables
-                    - CATALOG_DSL_FILE 
-                    - CATALOG_S3_BUCKET
-                    - CAT_AWS_ACCESS_KEY_ID
-                    - CAT_AWS_SECRET_KEY 
-            """
-            System.exit(1)
-        }
+        def catalogFile = "./src/main/resources/catalog.groovy"
+        def s3Bucket = "melidata-catalog-versions"
+        def accessKey = "AKIAJ7EIGFFJQC475PBQ"
+        def secretKey = "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"
+
         new CatalogUploader(catalogFile,s3Bucket,accessKey,secretKey).upload();
     }
 

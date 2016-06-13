@@ -55,19 +55,15 @@ task tests (dependsOn: 'classes', type: JavaExec) {
 task uploadCatalog(type:JavaExec) {
    main = 'com.melidata.definitions.uploader.CatalogUploader'
    classpath = sourceSets.main.runtimeClasspath
-    systemProperty "CATALOG_DSL_FILE", System.getProperty("CATALOG_DSL_FILE")
-    systemProperty "CATALOG_S3_BUCKET", System.getProperty("CATALOG_S3_BUCKET")
-    systemProperty "AWS_ACCESS_KEY_ID", System.getProperty("AWS_ACCESS_KEY_ID")
-    systemProperty "AWS_SECRET_KEY", System.getProperty("AWS_SECRET_KEY")
 }
 
 task uploadMetrics(type:JavaExec) {
     main = 'com.melidata.definitions.uploader.MetricsUploader'
     classpath = sourceSets.main.runtimeClasspath
-    systemProperty "METRICS_DSL_DIR", System.getProperty("METRICS_DLS_DIR")
-    systemProperty "METRICS_S3_BUCKET", System.getProperty("METRICS_S3_BUCKET")
-    systemProperty "AWS_ACCESS_KEY_ID", System.getProperty("AWS_ACCESS_KEY_ID")
-    systemProperty "AWS_SECRET_KEY", System.getProperty("AWS_SECRET_KEY")
+    systemProperty "METRICS_DSL_DIR", "./src/main/resources/metrics/"
+    systemProperty "METRICS_S3_BUCKET", "melidata-jobs"
+    systemProperty "AWS_ACCESS_KEY_ID", "AKIAJ7EIGFFJQC475PBQ"
+    systemProperty "AWS_SECRET_KEY", "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"
 }
 
 

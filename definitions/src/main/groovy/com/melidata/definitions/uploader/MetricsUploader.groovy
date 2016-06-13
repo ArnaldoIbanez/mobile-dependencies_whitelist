@@ -1,10 +1,4 @@
 package com.melidata.definitions.uploader
-
-import com.ml.melidata.catalog.Catalog
-import com.ml.melidata.catalog.exceptions.CatalogException
-import com.ml.melidata.catalog.parsers.json.CatalogJsonOutput
-import org.apache.commons.io.IOUtils
-
 /**
  * Created by geisbruch on 12/16/14.
  */
@@ -23,21 +17,11 @@ class MetricsUploader {
     }
 
     def static void main(String[] args) {
-        def metricsDir = System.getenv().get("METRICS_DSL_DIR")
-        def s3Bucket = System.getenv().get("METRICS_S3_BUCKET")
-        def accessKey = System.getenv().get("CAT_AWS_ACCESS_KEY_ID")
-        def secretKey = System.getenv().get("CAT_AWS_SECRET_KEY")
+        def metricsDir = "./src/main/resources/metrics/"
+        def s3Bucket = "melidata-jobs"
+        def accessKey = "AKIAJ7EIGFFJQC475PBQ"
+        def secretKey = "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"
 
-        if(metricsDir == null || s3Bucket == null || accessKey == null || secretKey == null) {
-            println """
-                    This program espect 4 env variables
-                    - METRICS_DSL_DIR 
-                    - METRICS_S3_BUCKET
-                    - CAT_AWS_ACCESS_KEY_ID
-                    - CAT_AWS_SECRET_KEY
-            """
-            System.exit(1)
-        }
         new MetricsUploader(metricsDir,s3Bucket,accessKey,secretKey).upload();
     }
 
