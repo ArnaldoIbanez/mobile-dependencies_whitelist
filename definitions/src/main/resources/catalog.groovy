@@ -1691,20 +1691,20 @@ catalog {
         "/permissions/location/native/deny"(platform: "/mobile", type: TrackType.Event){}
 
         // Real estate page view
-        "/home/real-estate"(platform: "/", isAbstract: true, type: TrackType.View) {
+        "/home/real-estate"(platform: "/", type: TrackType.View) {
             filters(required: false, description: "Filter applied in the last search")
             carousels(required: false, description: "Carousels in the home page to the properties")
         }
 
         // Real estate event on search
-        "/home/real-estate/search"(platform: "/", isAbstract: true, type: TrackType.Event) {
+        "/home/real-estate/search"(platform: "/", type: TrackType.Event) {
             filters(required: false, description: "Filter applied in the last search")
             as_word(required: false, description: "True if the search is do through free text, false if the search is do through ")
             search_word(required:false, description: "Free text adding for the user to do the search")
         }
 
         // Real estate event on click over carousel
-        "/home/real-estate/carousel"(platform: "/", isAbstract: true, type: TrackType.Event) {
+        "/home/real-estate/carousel"(platform: "/", type: TrackType.Event) {
             position(required: false, description: "Selected position on selected item on the carousel")
             bucket(required: false, description: "Type of carousel (premium, gold, used)")
             item_id(required: false, description: "Item id to selected item on the carousel")
