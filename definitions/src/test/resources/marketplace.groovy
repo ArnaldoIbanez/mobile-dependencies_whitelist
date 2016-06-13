@@ -2381,33 +2381,4 @@ trackTests {
 
       "/home/real-estate"(platform: "/", dataSetView)
     }
-
-    test("Real estate search tracking event") {
-      def dataSetViewSearch = {
-        filters = {
-          cityId: 1
-          cityName: 'Santiago'
-          stateId: 1
-          stateName: 'Santiago'
-          neighborhoodId: 1
-          neighborhoodName: 'La rioja'
-          categories: 11
-          operations: 11
-        }
-        as_word: true
-        search_word: "Palermo"
-      }
-
-      "/home/real-estate/search"(platform: "/", type: TrackType.Event, dataSetViewSearch)
-    }
-
-    test("Real estate carousel tracking event") {
-      def carouselEvent = {
-        position: 1
-        bucket: "gold"
-        item_id: '222ML'
-      }
-
-      "/home/real-estate/carousel"(platform: "/", type: TrackType.Event, carouselEvent)
-    }
 }
