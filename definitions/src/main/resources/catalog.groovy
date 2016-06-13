@@ -229,6 +229,7 @@ catalog {
             official_store_id(deprecated: true, required: false)
             deal(deprecated: true, required: false)
             filter_tags(required: false, PropertyType.ArrayList)
+            results(required: false, PropertyType.ArrayList,description:"item ids from search result")
         }
 
         "/search"(platform: "/web") {
@@ -249,7 +250,6 @@ catalog {
                 //suggest_position
                 //last_search_position
                 //block_store_position
-            results(required: false, PropertyType.ArrayList,description:"item ids from search result")  
         }
 
         "/search"(platform: "/mobile") {
