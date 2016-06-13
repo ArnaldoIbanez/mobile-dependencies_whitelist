@@ -809,6 +809,7 @@ trackTests {
     "/checkout/payments/stored_card/installments"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       is_preload_stored_card_flow = true
+      credit_card_id = "1234"
       available_installments = [
         [
           installment: 1,

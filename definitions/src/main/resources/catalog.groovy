@@ -946,6 +946,7 @@ catalog {
         "/checkout/payments/stored_card/security_code"(platform:"/mobile") {}
         "/checkout/payments/stored_card/installments"(platform:"/mobile") {
             is_preload_stored_card_flow(required: false, type: PropertyType.Boolean)
+            credit_card_id(required: false, type: PropertyType.String)
             //List of available installments
             available_installments(required: true, type: PropertyType.ArrayList)
                 //installments: [
@@ -971,6 +972,7 @@ catalog {
         "/checkout/review#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             status(required: true, type: PropertyType.String)
             is_from_preload_cc_flow(required: false, type: PropertyType.Boolean)
+            credit_card_id(required: false, type: PropertyType.String)
         }
         "/checkout/review/quantity#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             old_quantity(required: true, type: PropertyType.Numeric)
