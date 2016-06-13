@@ -55,6 +55,7 @@ trackTests {
         sort_id="relevance"
         view_mode="MOSAIC"
         filter_tags=["locationFromHistory"]
+        results=["232232000", "232232001", "232232002"]
     }
 
     def defaultEmptySearchInformation = {
