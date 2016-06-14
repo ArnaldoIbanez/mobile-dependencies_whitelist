@@ -2353,6 +2353,10 @@ trackTests {
       }
     }
 
+    test("Real estate home classifieds") {
+      "/home/classifieds"(platform: "/") {}
+    }
+
     test("Real estate home tracking") {
       def dataSetViewEmpty = {
         filters = ''
@@ -2377,9 +2381,9 @@ trackTests {
         }
       }
 
-      "/home/real-estate"(platform: "/", dataSetViewEmpty)
+      "/home/classifieds/real-estate"(platform: "/", dataSetViewEmpty)
 
-      "/home/real-estate"(platform: "/", dataSetView)
+      "/home/classifieds/real-estate"(platform: "/", dataSetView)
     }
 
   test("Real estate home click on search tracking") {
@@ -2398,6 +2402,16 @@ trackTests {
       search_word: "Palermo"
     }
 
-    "/home/real-estate/click-on-search"(platform: "/", type: TrackType.Event, dataSetViewSearch)
+    "/home/classifieds/real-estate#search"(platform: "/", type: TrackType.Event, dataSetViewSearch)
+  }
+
+  test("Real estate carousel tracking event") {
+    def carouselEvent = {
+      position: 1
+      bucket: "gold"
+      item_id: '222ML'
+    }
+
+    "/home/classifieds/real-estate#featured-items"(platform: "/", type: TrackType.Event, carouselEvent)
   }
 }
