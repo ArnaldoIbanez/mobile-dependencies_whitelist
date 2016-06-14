@@ -1457,6 +1457,12 @@ catalog {
             source()
         }
 
+        "/register/facebook_permissions"(platform: "/mobile"){
+            email(type: PropertyType.Boolean, description : " Needed  to access date (day and month) of the user birthday.")
+            user_birthday(type: PropertyType.Boolean, description : " Needed  to access the user main email address.")
+            user_likes(type: PropertyType.Boolean, description : " Needed  to access user liked pages.")
+        }
+
         "/traffic"(platform: "/", isAbstract: true) {}
 
         "/traffic/inbound"(platform: "/", isAbstract: true) {}

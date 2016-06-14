@@ -1746,6 +1746,12 @@ trackTests {
     "/register/failure"(platform: "/mobile") {
       source = "facebook"
     }
+
+    "/register/facebook_permissions"(platform: "/mobile"){
+      email = true
+      user_birthday = true 
+      user_likes = true 
+    }
   }
 
     test("Traffic") {
@@ -2371,5 +2377,9 @@ trackTests {
       "/permissions/location/native/deny"(platform: "/mobile") {
         context="HOME"
       }
+    }
+
+    test("Mobile android Faceboo registration permissions"){
+
     }
 }
