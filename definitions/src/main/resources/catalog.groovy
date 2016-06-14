@@ -1695,5 +1695,12 @@ catalog {
             filters(required: false, description: "Filter applied in the last search")
             carousels(required: false, description: "Carousels in the home page to the properties")
         }
+
+        // Search click event
+        "/home/real-estate/click-on-search"(platform: "/", type: TrackType.Event) {
+            filters(required: false, description: "Filter applied in the last search")
+            as_word(required: false, description: "True if the search is do through free text, false if the search is do through ")
+            search_word(required:false, description: "Free text adding for the user to do the search")
+        }
     }
 }

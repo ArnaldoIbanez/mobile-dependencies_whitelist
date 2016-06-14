@@ -2381,4 +2381,23 @@ trackTests {
 
       "/home/real-estate"(platform: "/", dataSetView)
     }
+
+  test("Real estate home click on search tracking") {
+    def dataSetViewSearch = {
+      filters = {
+        cityId: 1
+        cityName: 'Santiago'
+        stateId: 1
+        stateName: 'Santiago'
+        neighborhoodId: 1
+        neighborhoodName: 'La rioja'
+        categories: 11
+        operations: 11
+      }
+      as_word: true
+      search_word: "Palermo"
+    }
+
+    "/home/real-estate/click-on-search"(platform: "/", type: TrackType.Event, dataSetViewSearch)
+  }
 }
