@@ -339,7 +339,7 @@ catalog {
             free_shipping(deprecated: true, required: false)
             local_pick_up(deprecated: true, required: false)
             category_path(deprecated: true, required: false)
-            promoted_items_clicked(required: false, descripcion: 'indicates whether clicked promoted items')
+            promoted_items_clicked(required: false, descripcion: 'indicates whether clicked promoted items before reaching this vip')
         }
 
         "/vip"(platform: "/web") {
