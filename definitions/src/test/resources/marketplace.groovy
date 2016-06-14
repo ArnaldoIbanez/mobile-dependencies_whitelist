@@ -2378,8 +2378,4 @@ trackTests {
         context="HOME"
       }
     }
-
-    test("Mobile android Faceboo registration permissions"){
-
-    }
 }
