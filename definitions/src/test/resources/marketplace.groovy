@@ -1747,6 +1747,12 @@ trackTests {
     "/register/failure"(platform: "/mobile") {
       source = "facebook"
     }
+
+    "/register/facebook_permissions"(platform: "/mobile"){
+      email = true
+      user_birthday = true 
+      user_likes = true 
+    }
   }
 
     test("Traffic") {
