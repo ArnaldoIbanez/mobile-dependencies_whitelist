@@ -159,6 +159,8 @@ class MetricsFormatter {
 		file.delete()
 
 		file << new MetricsFormatter(com.ml.melidata.metrics.MetricsFactory.metrics).output
+
+		println("\nFile $file generated")
 	}
 
 }
