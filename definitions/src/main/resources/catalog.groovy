@@ -1697,14 +1697,14 @@ catalog {
         }
 
         // Search click event
-        "/home/category/real-estate#search"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        "/home/category/real-estate#search"(platform: "/", type: TrackType.Event) {
             filters(required: false, description: "Filter applied in the last search")
             as_word(required: false, description: "True if the search is do through free text, false if the search is do through ")
             search_word(required:false, description: "Free text adding for the user to do the search")
         }
 
         // Carousel click event
-        "/home/category/real-estate#featured-items"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        "/home/category/real-estate#featured-items"(platform: "/", type: TrackType.Event) {
             bucket(required: false, description: "Type of carousel (premium, gold, used)")
             position(required: false, description: "Selected position on selected item on the carousel")
             item_id(required: false, description: "Item id to selected item on the carousel")
