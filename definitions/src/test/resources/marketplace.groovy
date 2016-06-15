@@ -762,7 +762,9 @@ trackTests {
     "/checkout/shipping/select_address/list"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
-    "/checkout/payments/preload_credit_card"(platform:"/mobile", type:TrackType.View) {}
+    "/checkout/payments/preload_credit_card"(platform:"/mobile", type:TrackType.View) {
+         checkoutStatus()
+    }
     "/checkout/payments/select_method"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       available_methods = ["visa", "master", "amex", "cash"]

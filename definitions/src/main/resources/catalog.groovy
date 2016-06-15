@@ -863,7 +863,7 @@ catalog {
             shipping_options(required: false, type: PropertyType.ArrayList)
         }
         //Select paymentMethod
-        "/checkout/payments/preload_credit_card"(platform:"/mobile", type:TrackType.View,  parentPropertiesInherited: false) {}//Melidata experiment
+        "/checkout/payments/preload_credit_card"(platform:"/mobile", type:TrackType.View) {}//Melidata experiment
         "/checkout/payments"(platform: "/mobile", isAbstract: true) {
             order_id(required: false, description: "OrderId")
             status(required: false, description: "status")
