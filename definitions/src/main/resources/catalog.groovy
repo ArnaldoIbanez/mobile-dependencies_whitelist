@@ -1670,7 +1670,7 @@ catalog {
         }
 
         //Breadcrumb
-        "/home/category"(platform: "/web", type: TrackType.View) {
+        "/home/category"(platform: "/", type: TrackType.View) {
             from(required: false,  description: "Who is redirecting")
             category_id(required: true,  description: "Home's category")
         }
@@ -1690,23 +1690,21 @@ catalog {
         "/permissions/location/native/accept"(platform: "/mobile", type: TrackType.Event){}
         "/permissions/location/native/deny"(platform: "/mobile", type: TrackType.Event){}
 
-        "/home/classifieds"(platform: "/", isAbstract: true) {}
-
         // Real estate page view
-        "/home/classifieds/real-estate"(platform: "/", type: TrackType.View) {
+        "/home/category/real-estate"(platform: "/", type: TrackType.View) {
             filters(required: false, description: "Filter applied in the last search")
             carousels(required: false, description: "Carousels in the home page to the properties")
         }
 
         // Search click event
-        "/home/classifieds/real-estate#search"(platform: "/", type: TrackType.Event) {
+        "/home/category/real-estate#search"(platform: "/", type: TrackType.Event) {
             filters(required: false, description: "Filter applied in the last search")
             as_word(required: false, description: "True if the search is do through free text, false if the search is do through ")
             search_word(required:false, description: "Free text adding for the user to do the search")
         }
 
         // Carousel click event
-        "/home/classifieds/real-estate#featured-items"(platform: "/", type: TrackType.Event) {
+        "/home/category/real-estate#featured-items"(platform: "/", type: TrackType.Event) {
             bucket(required: false, description: "Type of carousel (premium, gold, used)")
             position(required: false, description: "Selected position on selected item on the carousel")
             item_id(required: false, description: "Item id to selected item on the carousel")
