@@ -55,6 +55,7 @@ trackTests {
         sort_id="relevance"
         view_mode="MOSAIC"
         filter_tags=["locationFromHistory"]
+        results=["232232000", "232232001", "232232002"]
     }
 
     def defaultEmptySearchInformation = {
@@ -94,6 +95,7 @@ trackTests {
             block_store_position=19
         }
         results=["232232000", "232232001", "232232002"]
+        billboard_shown = true
     })
 
     "/search"(platform: "/mobile", defaultSearchInformation)
@@ -148,7 +150,20 @@ trackTests {
       defaultSearchInformation()
       list_mode = "mosaic"
     }
-
+    "/search/promoted_items"(platform: "/web", defaultSearchInformation)
+    "/search/promoted_items/show"(platform: "/web") {
+      defaultSearchInformation()
+      item_type = "projects"
+    }
+    "/search/billboard"(platform: "/") {
+      defaultSearchInformation()
+      position_shown = 1
+      move = "forward"
+    }
+    "/search/billboard/resize"(platform: "/web") {
+      defaultSearchInformation()
+      action = "expand"
+    }
   }
 
   test("Search gallery with 10 items, first page" ) {
@@ -663,6 +678,12 @@ trackTests {
       //List of available shippingMethods
       selections = ["shipping_other", "local_pick_up"]
     }
+    "/checkout/shipping/select_method/inconsistency"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      error_code = "cant_buy_quantity"
+      inconsistency = "cant_sent_x_units"
+      selections = ["shipping_geo", "shipping_other", "local_pick_up"]
+    }
     "/checkout/shipping/select_method/geolocated"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       //List of available shippingMethods
@@ -672,7 +693,11 @@ trackTests {
       checkoutStatus()
     }
     "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event) {}
-    "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event) {}
+    "/checkout/shipping/custom_address/zip_code/query"(platform:"/mobile", type:TrackType.View) {}
+    "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event) {
+         query_parameters = "Mexico D.F."
+    }
+    "/checkout/shipping/custom_address/zip_code/query/back"(platform:"/mobile", type:TrackType.Event) {}
     "/checkout/shipping/select_option/mercado_envios"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       //List of available shippingMethods
@@ -762,15 +787,36 @@ trackTests {
     "/checkout/shipping/select_address/list"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
+    "/checkout/payments/preload_credit_card"(platform:"/mobile", type:TrackType.View) {
+         checkoutStatus()
+    }
     "/checkout/payments/select_method"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       available_methods = ["visa", "master", "amex", "cash"]
       coupon = true
       coupon_discoun = 20
     }
+    "/checkout/payments/select_method#new_payment_method_selected"(platform:"/mobile",  type: TrackType.Event) {
+            payment_method_id = "payment_method_id"
+            payment_type_id = "payment_type_id"
+        }
     "/checkout/payments/coupon_detail"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
+    "/checkout/payments/add_debit_card"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
+    "/checkout/payments/add_debit_card#card_config"(platform:"/mobile", type: TrackType.Event) {
+          bin = "123456"
+          success = true
+      }
+    "/checkout/payments/add_prepaid_card"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+    }
+    "/checkout/payments/add_prepaid_card#card_config"(platform:"/mobile", type: TrackType.Event) {
+          bin = "123456"
+          success = true
+      }
     "/checkout/payments/add_card"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
@@ -803,6 +849,7 @@ trackTests {
     }
     "/checkout/payments/stored_card/installments"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
+      credit_card_id = "1234"
       available_installments = [
         [
           installment: 1,
@@ -820,6 +867,9 @@ trackTests {
           without_fee: true
         ]
       ]
+    }
+    "/checkout/payments/stored_card/installments#change_payment_method"(platform:"/mobile", type:TrackType.Event) {
+        event_source = "installments_row"
     }
     "/checkout/payments/account_money/create"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
@@ -1726,6 +1776,12 @@ trackTests {
     "/register/failure"(platform: "/mobile") {
       source = "facebook"
     }
+
+    "/register/facebook_permissions"(platform: "/mobile"){
+      email = true
+      user_birthday = true
+      user_likes = true
+    }
   }
 
     test("Traffic") {
@@ -2352,4 +2408,73 @@ trackTests {
         context="HOME"
       }
     }
+
+    test("Real estate home tracking") {
+      def dataSetViewEmpty = {
+        filters = ''
+        carousels = ''
+        category_id = 'MLA1459'
+      }
+
+      def dataSetView = {
+        category_id = "MLA1459"
+        filters = {
+          cityId: 1
+          cityName: 'Santiago'
+          stateId: 1
+          stateName: 'Santiago'
+          neighborhoodId: 1
+          neighborhoodName: 'La rioja'
+          categories: 11
+          operations: 11
+        }
+        carousels = {
+          premium: [1,2,3]
+          gold: [11,12,13]
+          used: [111,122,133]
+        }
+      }
+
+      "/home/category/real-estate"(platform: "/", dataSetViewEmpty)
+      "/home/category/real-estate"(platform: "/web", dataSetViewEmpty)
+
+      "/home/category/real-estate"(platform: "/", dataSetView)
+      "/home/category/real-estate"(platform: "/web", dataSetView)
+      "/home/category/real-estate"(platform: "/mobile", dataSetView)
+    }
+
+  test("Real estate home click on search tracking") {
+    def dataSetViewSearch = {
+      category_id = "MLA1459"
+      filters = {
+        cityId: 1
+        cityName: 'Santiago'
+        stateId: 1
+        stateName: 'Santiago'
+        neighborhoodId: 1
+        neighborhoodName: 'La rioja'
+        categories: 11
+        operations: 11
+      }
+      as_word: true
+      search_word: "Palermo"
+    }
+
+    "/home/category/real-estate#search"(platform: "/", type: TrackType.Event, dataSetViewSearch)
+    "/home/category/real-estate#search"(platform: "/web", type: TrackType.Event, dataSetViewSearch)
+    "/home/category/real-estate#search"(platform: "/mobile", type: TrackType.Event, dataSetViewSearch)
+  }
+
+  test("Real estate carousel tracking event") {
+    def carouselEvent = {
+      category_id = "MLA1459"
+      position: 1
+      bucket: "gold"
+      item_id: '222ML'
+    }
+
+    "/home/category/real-estate#featured-items"(platform: "/", type: TrackType.Event, carouselEvent)
+    "/home/category/real-estate#featured-items"(platform: "/web", type: TrackType.Event, carouselEvent)
+    "/home/category/real-estate#featured-items"(platform: "/mobile", type: TrackType.Event, carouselEvent)
+  }
 }

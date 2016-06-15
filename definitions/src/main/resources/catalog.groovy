@@ -229,6 +229,8 @@ catalog {
             official_store_id(deprecated: true, required: false)
             deal(deprecated: true, required: false)
             filter_tags(required: false, PropertyType.ArrayList)
+            results(required: false, PropertyType.ArrayList,description:"item ids from search result")
+            billboard_shown(required: false, PropertyType.Boolean)
         }
 
         "/search"(platform: "/web") {
@@ -249,7 +251,6 @@ catalog {
                 //suggest_position
                 //last_search_position
                 //block_store_position
-            results(required: false, PropertyType.ArrayList,description:"item ids from search result")  
         }
 
         "/search"(platform: "/mobile") {
@@ -310,6 +311,21 @@ catalog {
 
         "/search/input/back"(platform: "/mobile") {}
 
+        "/search/promoted_items/"(platform: "/web", isAbstract: true) {}
+
+        "/search/promoted_items/show"(platform: "/web", type: TrackType.View) {
+            item_type(required: true, values: ["properties", "projects"])
+        }
+
+        "/search/billboard"(platform: "/", type: TrackType.Event) {
+            position_shown(required: false, type: PropertyType.Numeric)
+            move(required: false, values: ["forward","backward"])
+        }
+
+        "/search/billboard/resize"(platform: "/web", type: TrackType.Event) {
+            action(required: true, values: ["expand","collapse"])
+        }
+
         //VIP FLOW
 
         "/vip"(platform: "/") {
@@ -333,6 +349,8 @@ catalog {
             free_shipping(deprecated: true, required: false)
             local_pick_up(deprecated: true, required: false)
             category_path(deprecated: true, required: false)
+            promoted_items_clicked(required: false, descripcion: 'indicates whether clicked promoted items before reaching this vip')
+            billboard_clicked_position(required:false, type: PropertyType.Numeric)
         }
 
         "/vip"(platform: "/web") {
@@ -795,6 +813,12 @@ catalog {
             //View specific data
             selections(required: true, type: PropertyType.ArrayList)
         }
+        //Fallback/inconsistency
+        "/checkout/shipping/select_method/inconsistency"(platform: "/mobile") {
+            //View specific data
+            error_code(required: false, type: PropertyType.String)
+            inconsistency(required: false, type: PropertyType.String)
+        }
         //Geolocation
         "/checkout/shipping/select_method/geolocated"(platform:"/mobile") {}
         "/checkout/shipping/custom_address"(platform: "/mobile", isAbstract: true) {}
@@ -802,7 +826,12 @@ catalog {
         "/checkout/shipping/custom_address/zip_code"(platform:"/mobile") {}
         "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
         //Query zip code
-        "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+        "/checkout/shipping/custom_address/zip_code/query"(platform:"/mobile", type: TrackType.View, parentPropertiesInherited: false) {}
+        "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            query_parameters (required: false, type: PropertyType.String)
+            failing_url (required: false, type: PropertyType.String)
+        }
+        "/checkout/shipping/custom_address/zip_code/query/back"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
         "/checkout/shipping/select_option"(platform: "/mobile", isAbstract: true) {
             //View specific data
             shipping_options(required: true, type: PropertyType.ArrayList)
@@ -871,6 +900,7 @@ catalog {
             shipping_options(required: false, type: PropertyType.ArrayList)
         }
         //Select paymentMethod
+        "/checkout/payments/preload_credit_card"(platform:"/mobile", type:TrackType.View) {}//Melidata experiment
         "/checkout/payments"(platform: "/mobile", isAbstract: true) {
             order_id(required: false, description: "OrderId")
             status(required: false, description: "status")
@@ -929,7 +959,22 @@ catalog {
             coupon(required: false, type:  PropertyType.Boolean)
             coupon_discoun(required: false, type:  PropertyType.Numeric)
         }
+        "/checkout/payments/select_method#new_payment_method_selected"(platform:"/mobile",  type: TrackType.Event, parentPropertiesInherited: false) {
+            payment_method_id(required: false, type: PropertyType.String)
+            payment_type_id(required: false, type: PropertyType.String)
+        }
         "/checkout/payments/coupon_detail"(platform:"/mobile") {}
+        // Add card form
+        "/checkout/payments/add_debit_card"(platform:"/mobile") {}
+        "/checkout/payments/add_debit_card#card_config"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            bin(required: true, type:  PropertyType.String)
+            success(required: true, type:  PropertyType.Boolean)
+        }
+        "/checkout/payments/add_prepaid_card"(platform:"/mobile") {}
+        "/checkout/payments/add_prepaid_card#card_config"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            bin(required: true, type:  PropertyType.String)
+            success(required: true, type:  PropertyType.Boolean)
+        }
         "/checkout/payments/add_card"(platform:"/mobile") {}
         "/checkout/payments/add_card#card_config"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             bin(required: true, type:  PropertyType.String)
@@ -948,6 +993,7 @@ catalog {
         "/checkout/payments/stored_card"(platform: "/mobile", isAbstract: true) {}
         "/checkout/payments/stored_card/security_code"(platform:"/mobile") {}
         "/checkout/payments/stored_card/installments"(platform:"/mobile") {
+            credit_card_id(required: false, type: PropertyType.String)
             //List of available installments
             available_installments(required: true, type: PropertyType.ArrayList)
                 //installments: [
@@ -957,18 +1003,22 @@ catalog {
                 //      without_fee: true
                 //    ]
         }
+        "/checkout/payments/stored_card/installments#change_payment_method"(platform:"/mobile",  type: TrackType.Event, parentPropertiesInherited: false) {
+            event_source(required: true, type: PropertyType.String)
+        }
         "/checkout/payments/account_money"(platform: "/mobile", isAbstract: true) {}
         "/checkout/payments/account_money/create"(platform:"/mobile") {}
         "/checkout/payments/account_money/password"(platform:"/mobile") {}
         "/checkout/payments/account_money/password#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
         "/checkout/payments/billing_info"(platform:"/mobile") {}  
         "/checkout/payments/select_issuer"(platform:"/mobile") {}
-         "/checkout/payments/billing_info#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        "/checkout/payments/billing_info#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             billing_info_state(required: true, type: PropertyType.String)
          }
         //"/checkout/review" //shared between web and app, already defined in web section.
         "/checkout/review#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             status(required: true, type: PropertyType.String)
+            credit_card_id(required: false, type: PropertyType.String)
         }
         "/checkout/review/quantity#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             old_quantity(required: true, type: PropertyType.Numeric)
@@ -1440,6 +1490,12 @@ catalog {
             source()
         }
 
+        "/register/facebook_permissions"(platform: "/mobile"){
+            email(type: PropertyType.Boolean, description : " Needed  to access date (day and month) of the user birthday.")
+            user_birthday(type: PropertyType.Boolean, description : " Needed  to access the user main email address.")
+            user_likes(type: PropertyType.Boolean, description : " Needed  to access user liked pages.")
+        }
+
         "/traffic"(platform: "/", isAbstract: true) {}
 
         "/traffic/inbound"(platform: "/", isAbstract: true) {}
@@ -1670,7 +1726,7 @@ catalog {
         }
 
         //Breadcrumb
-        "/home/category"(platform: "/web", type: TrackType.View) {
+        "/home/category"(platform: "/", type: TrackType.View) {
             from(required: false,  description: "Who is redirecting")
             category_id(required: true,  description: "Home's category")
         }
@@ -1689,5 +1745,25 @@ catalog {
         "/permissions/location/native"(platform: "/mobile", isAbstract: true){}
         "/permissions/location/native/accept"(platform: "/mobile", type: TrackType.Event){}
         "/permissions/location/native/deny"(platform: "/mobile", type: TrackType.Event){}
+
+        // Real estate page view
+        "/home/category/real-estate"(platform: "/", type: TrackType.View) {
+            filters(required: false, description: "Filter applied in the last search")
+            carousels(required: false, description: "Carousels in the home page to the properties")
+        }
+
+        // Search click event
+        "/home/category/real-estate#search"(platform: "/", type: TrackType.Event) {
+            filters(required: false, description: "Filter applied in the last search")
+            as_word(required: false, description: "True if the search is do through free text, false if the search is do through ")
+            search_word(required:false, description: "Free text adding for the user to do the search")
+        }
+
+        // Carousel click event
+        "/home/category/real-estate#featured-items"(platform: "/", type: TrackType.Event) {
+            bucket(required: false, description: "Type of carousel (premium, gold, used)")
+            position(required: false, description: "Selected position on selected item on the carousel")
+            item_id(required: false, description: "Item id to selected item on the carousel")
+        }
     }
 }
