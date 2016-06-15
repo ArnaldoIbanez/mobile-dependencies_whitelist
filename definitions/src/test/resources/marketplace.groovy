@@ -684,7 +684,11 @@ trackTests {
       checkoutStatus()
     }
     "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event) {}
-    "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event) {}
+    "/checkout/shipping/custom_address/zip_code/query"(platform:"/mobile", type:TrackType.View) {}
+    "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event) {
+         query_parameters = "Mexico D.F."
+    }
+    "/checkout/shipping/custom_address/zip_code/query/back"(platform:"/mobile", type:TrackType.Event) {}
     "/checkout/shipping/select_option/mercado_envios"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       //List of available shippingMethods

@@ -815,7 +815,12 @@ catalog {
         "/checkout/shipping/custom_address/zip_code"(platform:"/mobile") {}
         "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
         //Query zip code
-        "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+        "/checkout/shipping/custom_address/zip_code/query"(platform:"/mobile", type: TrackType.View, parentPropertiesInherited: false) {}
+        "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            query_parameters (required: false, type: PropertyType.String)
+            failing_url (required: false, type: PropertyType.String)
+        }
+        "/checkout/shipping/custom_address/zip_code/query/back"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
         "/checkout/shipping/select_option"(platform: "/mobile", isAbstract: true) {
             //View specific data
             shipping_options(required: true, type: PropertyType.ArrayList)
