@@ -16,7 +16,7 @@ class CatalogHandler {
 	private static final String AWS_SECRET = 'BZUVcUw7CfLgoJVr06w15sJ308Tnxv+c42Hhul6G'
 
 	public static String LAST_VERSION_OBJECT = "last2Version"
-	public static String LAST_VERSION_FILE_NAME = "last"
+	public static String LAST_VERSION_FILE_NAME = "last2"
 
 	public static String LOCAL_FOLDER = "/data/catalog/";
 	public static String S3_CONTAINER = LAST_VERSION_FILE_NAME + ".dsl/";
@@ -29,7 +29,7 @@ class CatalogHandler {
 	private int version
 
 	def CatalogHandler() {
-		cli = new S3Controller(AWS_KEY, AWS_SECRET)
+		cli = new S3Controller(BUCKET, AWS_KEY, AWS_SECRET)
 	}
 
 	def boolean reload() {

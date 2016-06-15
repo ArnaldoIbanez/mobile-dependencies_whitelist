@@ -20,10 +20,12 @@ import org.apache.commons.io.IOUtils
 class S3Controller {
 
     AmazonS3 s3;
+    def String bucket
     def BasicAWSCredentials credentials
 
-    def S3Controller(String accessKey, String secretKey) {
-        credentials = new BasicAWSCredentials(accessKey, secretKey)
+    def S3Controller(String bucket, String accessKey, String secretKey) {
+        this.bucket = bucket
+        this.credentials = new BasicAWSCredentials(accessKey, secretKey)
         ClientConfiguration config = new ClientConfiguration();
         if(System.getenv().containsKey("proxyHost")){
             config.setProxyHost(System.getenv().get("proxyHost"))
@@ -36,8 +38,8 @@ class S3Controller {
     }
 
     Integer getLastVersion() {
-        println "getLastVersion ${CatalogHandler.BUCKET} - ${CatalogHandler.LAST_VERSION_OBJECT}"
-        S3Object obj = s3.getObject(CatalogHandler.BUCKET, CatalogHandler.LAST_VERSION_OBJECT);
+        println "getLastVersion ${bucket} - ${CatalogHandler.LAST_VERSION_OBJECT}"
+        S3Object obj = s3.getObject(bucket, CatalogHandler.LAST_VERSION_OBJECT);
         def content = IOUtils.toString(obj.objectContent);
         return Integer.parseInt(content.trim());
     }
@@ -66,12 +68,12 @@ class S3Controller {
         metadata.setUserMetadata(headers)
         //metadata.setContentLength(stream.bytes.size());
         metadata.setContentType(contentType)
-        s3.putObject(new PutObjectRequest(CatalogHandler.BUCKET, fileName,stream,metadata)
+        s3.putObject(new PutObjectRequest(bucket, fileName,stream,metadata)
                         .withCannedAcl(CannedAccessControlList.AuthenticatedRead))
 
     }
 
-    S3Object getObject(String name) { s3.getObject(CatalogHandler.BUCKET,name) }
+    S3Object getObject(String name) { s3.getObject(bucket,name) }
 
     ObjectListing listObjects(ListObjectsRequest listObjectsRequest) {
         return s3.listObjects(listObjectsRequest)

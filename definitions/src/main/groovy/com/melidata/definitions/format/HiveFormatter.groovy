@@ -26,7 +26,6 @@ class HiveFormatter extends CatalogFormatter {
 
     def formatOutput(def data) {
         def b = new StringBuilder()
-
         data.each { business, d ->
             d.each { platform, trackInfo ->
                 trackInfo.each { path, params ->
