@@ -884,6 +884,7 @@ catalog {
             shipping_options(required: false, type: PropertyType.ArrayList)
         }
         //Select paymentMethod
+        "/checkout/payments/preload_credit_card"(platform:"/mobile", type:TrackType.View) {}//Melidata experiment
         "/checkout/payments"(platform: "/mobile", isAbstract: true) {
             order_id(required: false, description: "OrderId")
             status(required: false, description: "status")
@@ -942,6 +943,10 @@ catalog {
             coupon(required: false, type:  PropertyType.Boolean)
             coupon_discoun(required: false, type:  PropertyType.Numeric)
         }
+        "/checkout/payments/select_method#new_payment_method_selected"(platform:"/mobile",  type: TrackType.Event, parentPropertiesInherited: false) {
+            payment_method_id(required: false, type: PropertyType.String)
+            payment_type_id(required: false, type: PropertyType.String)
+        }
         "/checkout/payments/coupon_detail"(platform:"/mobile") {}
         // Add card form
         "/checkout/payments/add_debit_card"(platform:"/mobile") {}
@@ -972,6 +977,7 @@ catalog {
         "/checkout/payments/stored_card"(platform: "/mobile", isAbstract: true) {}
         "/checkout/payments/stored_card/security_code"(platform:"/mobile") {}
         "/checkout/payments/stored_card/installments"(platform:"/mobile") {
+            credit_card_id(required: false, type: PropertyType.String)
             //List of available installments
             available_installments(required: true, type: PropertyType.ArrayList)
                 //installments: [
@@ -980,6 +986,9 @@ catalog {
                 //      amount: 20.6,
                 //      without_fee: true
                 //    ]
+        }
+        "/checkout/payments/stored_card/installments#change_payment_method"(platform:"/mobile",  type: TrackType.Event, parentPropertiesInherited: false) {
+            event_source(required: true, type: PropertyType.String)
         }
         "/checkout/payments/account_money"(platform: "/mobile", isAbstract: true) {}
         "/checkout/payments/account_money/create"(platform:"/mobile") {}
@@ -993,6 +1002,7 @@ catalog {
         //"/checkout/review" //shared between web and app, already defined in web section.
         "/checkout/review#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             status(required: true, type: PropertyType.String)
+            credit_card_id(required: false, type: PropertyType.String)
         }
         "/checkout/review/quantity#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             old_quantity(required: true, type: PropertyType.Numeric)
