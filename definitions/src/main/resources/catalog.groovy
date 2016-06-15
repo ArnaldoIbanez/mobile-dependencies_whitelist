@@ -230,6 +230,7 @@ catalog {
             deal(deprecated: true, required: false)
             filter_tags(required: false, PropertyType.ArrayList)
             results(required: false, PropertyType.ArrayList,description:"item ids from search result")
+            billboard_shown(required: false, PropertyType.Boolean)
         }
 
         "/search"(platform: "/web") {
@@ -316,6 +317,15 @@ catalog {
             item_type(required: true, values: ["properties", "projects"])
         }
 
+        "/search/billboard"(platform: "/", type: TrackType.Event) {
+            position_shown(required: false, type: PropertyType.Numeric)
+            move(required: false, values: ["forward","backward"])
+        }
+
+        "/search/billboard/resize"(platform: "/web", type: TrackType.Event) {
+            action(required: true, values: ["expand","collapse"])
+        }
+
         //VIP FLOW
 
         "/vip"(platform: "/") {
@@ -340,6 +350,7 @@ catalog {
             local_pick_up(deprecated: true, required: false)
             category_path(deprecated: true, required: false)
             promoted_items_clicked(required: false, descripcion: 'indicates whether clicked promoted items before reaching this vip')
+            billboard_clicked_position(required:false, type: PropertyType.Numeric)
         }
 
         "/vip"(platform: "/web") {
