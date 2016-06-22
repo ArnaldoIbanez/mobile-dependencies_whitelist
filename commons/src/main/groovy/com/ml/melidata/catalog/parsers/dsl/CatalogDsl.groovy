@@ -9,7 +9,7 @@ import com.ml.melidata.catalog.DslUtils
 class CatalogDsl {
 
     //it is not thread safe
-    def static String baseDir = "catalog/"
+    def static String baseDir = "src/main/resources/catalog/"
 
     def Catalog catalog;
 

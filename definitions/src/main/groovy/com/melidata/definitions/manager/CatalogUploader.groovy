@@ -11,7 +11,7 @@ import org.apache.commons.io.IOUtils
  */
 class CatalogUploader {
 
-    def static CATALOG_DIR = "src/main/resources"
+    def static CATALOG_DIR = "src/main/resources/catalog"
 
     def S3Controller s3Controller
 
