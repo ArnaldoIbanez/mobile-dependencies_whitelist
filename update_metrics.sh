@@ -6,4 +6,9 @@ if [ -z "$KEY" ]; then
 	exit 1
 fi
 
+<<<<<<< HEAD
+=======
+echo "Updating metrics for temporal use in track storage with filter: $KEY"
+
+>>>>>>> update metrics scripts
 cd definitions && ./gradlew exportMetrics && curl -s "https://api.mercadolibre.com/melidata/track_storage/$KEY/definitions" -XPOST -d @metrics.json && cd ..
