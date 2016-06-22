@@ -135,7 +135,6 @@ class CatalogHanderTest {
         assertEquals(true, reload)
         assertEquals(5, handler.getVersion())
         assertNotNull(handler.getCatalog())
-        assertEquals("XXX", handler.getLastEtag())
 
         assertEquals("prueba_business", handler.getCatalog().getDefaultBusiness())
         assertEquals(1, handler.getCatalog().platforms.size())

@@ -5,7 +5,7 @@ apply plugin:'application'
 apply plugin:'maven'
 apply plugin:'java'
 
-project.version = '0.1.19.mb.1'
+project.version = '0.1.20.test5'
 project.group = 'com.mercadolibre.melidata.catalog'
 
 task wrapper(type: Wrapper) {
@@ -58,7 +58,7 @@ task uploadCatalog(type:JavaExec) {
 }
 
 task uploadMetrics(type:JavaExec) {
-    main = 'com.melidata.definitions.uploader.MetricsUploader'
+    main = 'com.melidata.definitions.manager.MetricsUploader'
     classpath = sourceSets.main.runtimeClasspath
 }
 

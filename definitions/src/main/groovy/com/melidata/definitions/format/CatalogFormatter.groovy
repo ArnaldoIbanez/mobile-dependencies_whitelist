@@ -1,7 +1,7 @@
 package com.melidata.definitions.format
 
 import com.melidata.definitions.manager.CatalogHandler
-import com.melidata.definitions.manager.Uploader
+import com.melidata.definitions.manager.CatalogUploader
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.DslUtils
 import com.ml.melidata.catalog.tree.PlatformTree
@@ -24,7 +24,7 @@ abstract class CatalogFormatter {
     }
 
     protected Catalog getCatalog() {
-        DslUtils.parseCatalog(new File(Uploader.CATALOG_DIR, CatalogHandler.S3_CATALOG_FILE))
+        DslUtils.parseCatalog(new File(CatalogUploader.CATALOG_DIR, CatalogHandler.S3_CATALOG_FILE))
     }
 
     def getPlatforms(def t) {

@@ -25,7 +25,7 @@ class CatalogManager implements Runnable {
 	public void run() {
 		try {
 			if ( catalogHandler.reload() ) {
-				log.info(String.format("New catalog [version: %s] [etag: %s] has been loaded", catalogHandler.getVersion(), catalogHandler.getLastEtag()))
+				log.info(String.format("New catalog [version: %s] has been loaded", catalogHandler.getVersion()))
 				//log.info(String.format("New catalog [version: %s] [etag: %s] has been loaded", catalogHandler.getVersion(), catalogHandler.getLastEtag()));
 			}
 			//updateVersionInDynamo();

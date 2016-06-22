@@ -1,6 +1,4 @@
-package com.melidata.definitions.uploader
-
-import com.melidata.definitions.manager.S3Controller
+package com.melidata.definitions.manager
 
 /**
  * Created by geisbruch on 12/16/14.

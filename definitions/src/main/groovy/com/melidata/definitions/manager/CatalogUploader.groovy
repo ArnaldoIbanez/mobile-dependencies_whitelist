@@ -1,7 +1,6 @@
-package com.melidata.definitions.uploader
+package com.melidata.definitions.manager
 
 import com.melidata.definitions.format.HiveFormatter
-import com.melidata.definitions.manager.S3Controller
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.exceptions.CatalogException
 import com.ml.melidata.catalog.parsers.json.CatalogJsonOutput
@@ -21,12 +20,11 @@ class CatalogUploader {
     }
 
     def static void main(String[] args) {
-        def catalogFile = "./src/main/resources/catalog.groovy"
         def s3Bucket = "melidata-catalog-versions"
         def accessKey = "AKIAIRJ4DFA72UDCX7QA"
         def secretKey = "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"
 
-        new CatalogUploader(catalogFile,s3Bucket,accessKey,secretKey).upload();
+        new CatalogUploader(s3Bucket,accessKey,secretKey).upload();
     }
 
     def upload() {

@@ -215,6 +215,23 @@ metrics {
 		}
 	}
 
+	"/search/filtersNewOrder.deal"(description: "extend experiment /search/filtersNewOrder with deal filter", parametricName: false) {
+		startWith {
+			condition {
+				and(
+					empty("experiments.search/filtersNewOrder", false),
+					empty("event_data.filters.deal", false)
+				)
+			}
+
+			openBy {
+				"experiments.search/filtersNewOrder"(default: "default")
+			}
+
+			set_property("deal_id", "event_data.filters.deal")
+		}
+	}
+
 
 
 

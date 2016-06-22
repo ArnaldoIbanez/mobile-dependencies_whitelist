@@ -12,7 +12,10 @@ import com.amazonaws.services.s3.model.ObjectMetadata
 import com.amazonaws.services.s3.model.PutObjectRequest
 import com.amazonaws.services.s3.model.S3Object
 import com.amazonaws.util.StringInputStream
+import com.amazonaws.services.s3.model.GetObjectRequest
 import org.apache.commons.io.IOUtils
+
+import java.security.MessageDigest
 
 /**
  * Created by geisbruch on 12/16/14.
@@ -74,6 +77,10 @@ class S3Controller {
     }
 
     S3Object getObject(String name) { s3.getObject(bucket,name) }
+
+    S3Object getObject(GetObjectRequest request) {
+        s3.getObject(request)
+    }
 
     ObjectListing listObjects(ListObjectsRequest listObjectsRequest) {
         return s3.listObjects(listObjectsRequest)
