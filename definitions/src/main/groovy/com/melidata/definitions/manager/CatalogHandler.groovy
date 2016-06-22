@@ -15,14 +15,14 @@ class CatalogHandler {
 	private static final String AWS_KEY = 'AKIAIRJ4DFA72UDCX7QA'//'AKIAI2AFLMRLNMSP3IJA'
 	private static final String AWS_SECRET = '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'//'BZUVcUw7CfLgoJVr06w15sJ308Tnxv+c42Hhul6G'
 
-	public static String LAST_VERSION_OBJECT = "last2Version"
-	public static String LAST_VERSION_FILE_NAME = "last2"
+	public static String LAST_VERSION_OBJECT = "lastVersion"
+	public static String LAST_VERSION_FILE_NAME = "last"
 
 	public static String LOCAL_FOLDER = "/data/catalog/";
 	public static String S3_CONTAINER = LAST_VERSION_FILE_NAME + ".dsl/";
 	public static String S3_CATALOG_FILE = "catalog.groovy";
 	public static String BUCKET = "melidata-catalog-versions"
-	public static String CSV_FILE_NAME = "last2.csv/catalog.csv"
+	public static String CSV_FILE_NAME = "last.csv/catalog.csv"
 
 	private S3Controller cli
 	private Map<String, String> lastEtag = [:]

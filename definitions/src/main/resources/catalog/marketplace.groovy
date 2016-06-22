@@ -197,6 +197,7 @@ tracks {
         deal(deprecated: true, required: false)
         filter_tags(required: false, PropertyType.ArrayList)
         results(required: false, PropertyType.ArrayList,description:"item ids from search result")
+        billboard_shown(required: false, PropertyType.Boolean)
     }
 
     "/search"(platform: "/web") {
@@ -205,18 +206,18 @@ tracks {
         filters(required: false)
         only_in_type(required: false)
         click_banner(required: false, description:'Indicates that this listing has apppeared after clicking on a banner')
-            // exhibitors_id
+        // exhibitors_id
         banners(required: false, description:'Banner showed in this listing info, if showed')
-            //deal_id
-            // exhibitors_id
+        //deal_id
+        // exhibitors_id
         related_searches(required: false, description:'indicates whether clicked search related')
-            //query
-            // position
-            //quantity
+        //query
+        // position
+        //quantity
         autosuggest(required: false, description:'indicates whether clicked autosuggest')
-            //suggest_position
-            //last_search_position
-            //block_store_position
+        //suggest_position
+        //last_search_position
+        //block_store_position
     }
 
     "/search"(platform: "/mobile") {
@@ -283,6 +284,15 @@ tracks {
         item_type(required: true, values: ["properties", "projects"])
     }
 
+    "/search/billboard"(platform: "/", type: TrackType.Event) {
+        position_shown(required: false, type: PropertyType.Numeric)
+        move(required: false, values: ["forward","backward"])
+    }
+
+    "/search/billboard/resize"(platform: "/web", type: TrackType.Event) {
+        action(required: true, values: ["expand","collapse"])
+    }
+
     //VIP FLOW
 
     "/vip"(platform: "/") {
@@ -307,6 +317,7 @@ tracks {
         local_pick_up(deprecated: true, required: false)
         category_path(deprecated: true, required: false)
         promoted_items_clicked(required: false, descripcion: 'indicates whether clicked promoted items before reaching this vip')
+        billboard_clicked_position(required:false, type: PropertyType.Numeric)
     }
 
     "/vip"(platform: "/web") {
@@ -458,11 +469,11 @@ tracks {
         platform()
 
         buyer()
-            //id
-            //nickname
+        //id
+        //nickname
         seller()
-            //id
-            //nickname
+        //id
+        //nickname
         errors()
 
         congrats_seq(serverSide: true)
@@ -473,17 +484,17 @@ tracks {
 
     "/checkout/login"(platform:"/web", isAbstract: true) {
         vip_parameters(required: true, description: "Parameters that came from the VIP")
-           //cht
-           //pm
-           //inst
-           //bp
-           //zip_code
-           //shipping_method_id
-           //ship_method_id
-           //ship_option_id
-           //cc_issuer
-           //is_logged
-           //prefs_on
+        //cht
+        //pm
+        //inst
+        //bp
+        //zip_code
+        //shipping_method_id
+        //ship_method_id
+        //ship_option_id
+        //cc_issuer
+        //is_logged
+        //prefs_on
     }
     "/checkout/login/confirm_authenticated"(platform: "/web") {}
     "/checkout/login/first_purchase_not_authenticated"(platform: "/web") {}
@@ -502,33 +513,33 @@ tracks {
         platform()
 
         payments(required: false, description: "Array of payments information")
-            // id
-            // payment_method,
-            // payment_type,
-            // installments,
-            // paid_amount,
-            // installment_amount
-            // without_fee
+        // id
+        // payment_method,
+        // payment_type,
+        // installments,
+        // paid_amount,
+        // installment_amount
+        // without_fee
 
         shipping(required: false)
-            // shipping_type
-            // cost
-            // shipping_option,
-                // id,
-                // name,
-                // shipping_method_id
+        // shipping_type
+        // cost
+        // shipping_option,
+        // id,
+        // name,
+        // shipping_method_id
 
         order_items( description: "Array of items in the order" )
-            //item
-                //id
-                //variation_id
-                //buying_mode
-                //shipping_mode
-                //category_id
-                //deal_ids
-            //quantity
-            //unit_price
-            //currency_id
+        //item
+        //id
+        //variation_id
+        //buying_mode
+        //shipping_mode
+        //category_id
+        //deal_ids
+        //quantity
+        //unit_price
+        //currency_id
 
         tracking_referer_page(required: false, description: "tracking referer page from where the request came")
     }
@@ -559,40 +570,40 @@ tracks {
         platform()
 
         payments(required: false, description: "Array of payments information")
-            // id
-            // payment_method,
-            // payment_type,
-            // installments,
-            // paid_amount,
-            // installment_amount
-            // without_fee
+        // id
+        // payment_method,
+        // payment_type,
+        // installments,
+        // paid_amount,
+        // installment_amount
+        // without_fee
 
         shipping(required: false)
-            // shipping_type
-            // cost
-            // shipping_option,
-                // id,
-                // name,
-                // shipping_method_id
+        // shipping_type
+        // cost
+        // shipping_option,
+        // id,
+        // name,
+        // shipping_method_id
 
         order_items( description: "Array of items in the order" )
-            //item
-                //id
-                //variation_id
-                //buying_mode
-                //shipping_mode
-                //category_id
-                //deal_ids
-            //quantity
-            //unit_price
-            //currency_id
+        //item
+        //id
+        //variation_id
+        //buying_mode
+        //shipping_mode
+        //category_id
+        //deal_ids
+        //quantity
+        //unit_price
+        //currency_id
         buyer(required: false)
-            //id
-            //nickname
+        //id
+        //nickname
 
         seller(required: false)
-            //id
-            //nickname
+        //id
+        //nickname
     }
 
     "/checkout/congrats"(platform:"/web") {
@@ -608,45 +619,45 @@ tracks {
         platform()
 
         payments(required: false, description: "Array of payments information")
-            // id
-            // payment_method,
-            // payment_type,
-            // installments,
-            // paid_amount,
-            // installment_amount
-            // without_fee
-            // status
-            // status_detail
+        // id
+        // payment_method,
+        // payment_type,
+        // installments,
+        // paid_amount,
+        // installment_amount
+        // without_fee
+        // status
+        // status_detail
 
         shipping(required: false)
-            // shipping_type
-            // cost
-            // shipping_option,
-                // id,
-                // name,
-                // shipping_method_id
-            // id
-            // shipping_mode
+        // shipping_type
+        // cost
+        // shipping_option,
+        // id,
+        // name,
+        // shipping_method_id
+        // id
+        // shipping_mode
 
         order_items( description: "Array of items in the order" )
-            //item
-                //id
-                //variation_id
-                //buying_mode
-                //shipping_mode
-                //category_id
-                //deal_ids
-            //quantity
-            //unit_price
-            //currency_id
+        //item
+        //id
+        //variation_id
+        //buying_mode
+        //shipping_mode
+        //category_id
+        //deal_ids
+        //quantity
+        //unit_price
+        //currency_id
 
         buyer(required: true)
-            //id
-            //nickname
+        //id
+        //nickname
 
         seller(required: true)
-            //id
-            //nickname
+        //id
+        //nickname
 
         proactive_two_payment(required: false, description: "tracking proactive two payment selection")
         total_amount_local(serverSide: true)
@@ -669,45 +680,45 @@ tracks {
         platform(required: true)
 
         payments(required: false, description: "Array of payments information")
-            // id
-            // payment_method,
-            // payment_type,
-            // installments,
-            // paid_amount,
-            // installment_amount
-            // without_fee
-            // status
-            // status_detail
+        // id
+        // payment_method,
+        // payment_type,
+        // installments,
+        // paid_amount,
+        // installment_amount
+        // without_fee
+        // status
+        // status_detail
 
         shipping(required: false)
-            // shipping_type
-            // cost
-            // shipping_option,
-                // id,
-                // name,
-                // shipping_method_id
-            // id
-            // shipping_mode
+        // shipping_type
+        // cost
+        // shipping_option,
+        // id,
+        // name,
+        // shipping_method_id
+        // id
+        // shipping_mode
 
         order_items(required: false, description: "Array of items in the order" )
-            //item
-                //id
-                //variation_id
-                //buying_mode
-                //shipping_mode
-                //category_id
-                //deal_ids
-            //quantity
-            //unit_price
-            //currency_id
+        //item
+        //id
+        //variation_id
+        //buying_mode
+        //shipping_mode
+        //category_id
+        //deal_ids
+        //quantity
+        //unit_price
+        //currency_id
 
         buyer(required: false)
-            //id
-            //nickname
+        //id
+        //nickname
 
         seller(required: false)
-            //id
-            //nickname
+        //id
+        //nickname
         //View specific data
         success(required: true, type: PropertyType.Boolean)
         location(required: false, type: PropertyType.String)
@@ -724,45 +735,45 @@ tracks {
         platform(required: true)
 
         payments(required: true, description: "Array of payments information")
-            // id
-            // payment_method,
-            // payment_type,
-            // installments,
-            // paid_amount,
-            // installment_amount
-            // without_fee
-            // status
-            // status_detail
+        // id
+        // payment_method,
+        // payment_type,
+        // installments,
+        // paid_amount,
+        // installment_amount
+        // without_fee
+        // status
+        // status_detail
 
         shipping(required: true)
-            // shipping_type
-            // cost
-            // shipping_option,
-                // id,
-                // name,
-                // shipping_method_id
-            // id
-            // shipping_mode
+        // shipping_type
+        // cost
+        // shipping_option,
+        // id,
+        // name,
+        // shipping_method_id
+        // id
+        // shipping_mode
 
         order_items(required: true, description: "Array of items in the order" )
-            //item
-                //id
-                //variation_id
-                //buying_mode
-                //shipping_mode
-                //category_id
-                //deal_ids
-            //quantity
-            //unit_price
-            //currency_id
+        //item
+        //id
+        //variation_id
+        //buying_mode
+        //shipping_mode
+        //category_id
+        //deal_ids
+        //quantity
+        //unit_price
+        //currency_id
 
         buyer(required: true)
-            //id
-            //nickname
+        //id
+        //nickname
 
         seller(required: true)
-            //id
-            //nickname
+        //id
+        //nickname
     }
     //Fallback/Custom shipping
     "/checkout/shipping/select_method"(platform: "/mobile") {
@@ -791,14 +802,14 @@ tracks {
     "/checkout/shipping/select_option"(platform: "/mobile", isAbstract: true) {
         //View specific data
         shipping_options(required: true, type: PropertyType.ArrayList)
-            //shipping_options: [
-            //  [
-            //    method_name: "Normal",
-            //    price: 0.0,
-            //    currency_id: "ARS",
-            //    free_shipping: true
-            //  ]
-            //]
+        //shipping_options: [
+        //  [
+        //    method_name: "Normal",
+        //    price: 0.0,
+        //    currency_id: "ARS",
+        //    free_shipping: true
+        //  ]
+        //]
     }
     //Select shippingOptions
     "/checkout/shipping/select_option/mercado_envios"(platform:"/mobile") {}
@@ -843,14 +854,14 @@ tracks {
         //View specific data
         //List of available shipping_options
         shipping_options(required: true, type: PropertyType.ArrayList)
-            //shipping_options: [
-            //  [
-            //    method_name: "Normal",
-            //    price: 0.0,
-            //    currency_id: "ARS",
-            //    free_shipping: true
-            //  ]
-            //]
+        //shipping_options: [
+        //  [
+        //    method_name: "Normal",
+        //    price: 0.0,
+        //    currency_id: "ARS",
+        //    free_shipping: true
+        //  ]
+        //]
     }
     "/checkout/shipping/select_address/list"(platform:"/mobile") {
         shipping_options(required: false, type: PropertyType.ArrayList)
@@ -869,45 +880,45 @@ tracks {
         platform(required: true)
 
         payments(required: true, description: "Array of payments information")
-            // id
-            // payment_method,
-            // payment_type,
-            // installments,
-            // paid_amount,
-            // installment_amount
-            // without_fee
-            // status
-            // status_detail
+        // id
+        // payment_method,
+        // payment_type,
+        // installments,
+        // paid_amount,
+        // installment_amount
+        // without_fee
+        // status
+        // status_detail
 
         shipping(required: true)
-            // shipping_type
-            // cost
-            // shipping_option,
-                // id,
-                // name,
-                // shipping_method_id
-            // id
-            // shipping_mode
+        // shipping_type
+        // cost
+        // shipping_option,
+        // id,
+        // name,
+        // shipping_method_id
+        // id
+        // shipping_mode
 
         order_items(required: true, description: "Array of items in the order" )
-            //item
-                //id
-                //variation_id
-                //buying_mode
-                //shipping_mode
-                //category_id
-                //deal_ids
-            //quantity
-            //unit_price
-            //currency_id
+        //item
+        //id
+        //variation_id
+        //buying_mode
+        //shipping_mode
+        //category_id
+        //deal_ids
+        //quantity
+        //unit_price
+        //currency_id
 
         buyer(required: true)
-            //id
-            //nickname
+        //id
+        //nickname
 
         seller(required: true)
-            //id
-            //nickname
+        //id
+        //nickname
     }
     "/checkout/payments/select_method"(platform:"/mobile") {
         //List of available payment_methods and coupon info
@@ -939,12 +950,12 @@ tracks {
     "/checkout/payments/add_card/installments"(platform:"/mobile") {
         //List of available installments
         available_installments(required: true, type: PropertyType.ArrayList)
-            //installments: [
-            //    [
-            //      installment: 1,
-            //      amount: 20.6,
-            //      without_fee: true
-            //    ]
+        //installments: [
+        //    [
+        //      installment: 1,
+        //      amount: 20.6,
+        //      without_fee: true
+        //    ]
     }
     "/checkout/payments/stored_card"(platform: "/mobile", isAbstract: true) {}
     "/checkout/payments/stored_card/security_code"(platform:"/mobile") {}
@@ -952,12 +963,12 @@ tracks {
         credit_card_id(required: false, type: PropertyType.String)
         //List of available installments
         available_installments(required: true, type: PropertyType.ArrayList)
-            //installments: [
-            //    [
-            //      installment: 1,
-            //      amount: 20.6,
-            //      without_fee: true
-            //    ]
+        //installments: [
+        //    [
+        //      installment: 1,
+        //      amount: 20.6,
+        //      without_fee: true
+        //    ]
     }
     "/checkout/payments/stored_card/installments#change_payment_method"(platform:"/mobile",  type: TrackType.Event, parentPropertiesInherited: false) {
         event_source(required: true, type: PropertyType.String)
@@ -970,7 +981,7 @@ tracks {
     "/checkout/payments/select_issuer"(platform:"/mobile") {}
     "/checkout/payments/billing_info#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         billing_info_state(required: true, type: PropertyType.String)
-     }
+    }
     //"/checkout/review" //shared between web and app, already defined in web section.
     "/checkout/review#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         status(required: true, type: PropertyType.String)
@@ -994,14 +1005,14 @@ tracks {
     "/checkout/review/edit_shipping"(platform:"/mobile") {
         //List of available shipping_options
         shipping_options(required: true, type: PropertyType.ArrayList)
-            //shipping_options: [
-            //  [
-            //    method_name: "Normal",
-            //    price: 0.0,
-            //    currency_id: "ARS",
-            //    free_shipping: true
-            //  ]
-            //]
+        //shipping_options: [
+        //  [
+        //    method_name: "Normal",
+        //    price: 0.0,
+        //    currency_id: "ARS",
+        //    free_shipping: true
+        //  ]
+        //]
     }
     "/checkout/review/inconsistency/edit_shipping"(platform: "/mobile") {
         error_code(required: true, type:  PropertyType.String)
@@ -1014,12 +1025,12 @@ tracks {
     "/checkout/review/edit_installments"(platform: "/mobile") {
         //List of available installments
         available_installments(required: true, type: PropertyType.ArrayList)
-            //installments: [
-            //    [
-            //      installment: 1,
-            //      amount: 20.6,
-            //      without_fee: true
-            //    ]
+        //installments: [
+        //    [
+        //      installment: 1,
+        //      amount: 20.6,
+        //      without_fee: true
+        //    ]
     }
     "/checkout/additional_info"(platform: "/mobile") {
         order_id(required: false, description: "OrderId")
@@ -1033,45 +1044,45 @@ tracks {
         platform(required: true)
 
         payments(required: true, description: "Array of payments information")
-            // id
-            // payment_method,
-            // payment_type,
-            // installments,
-            // paid_amount,
-            // installment_amount
-            // without_fee
-            // status
-            // status_detail
+        // id
+        // payment_method,
+        // payment_type,
+        // installments,
+        // paid_amount,
+        // installment_amount
+        // without_fee
+        // status
+        // status_detail
 
         shipping(required: true)
-            // shipping_type
-            // cost
-            // shipping_option,
-                // id,
-                // name,
-                // shipping_method_id
-            // id
-            // shipping_mode
+        // shipping_type
+        // cost
+        // shipping_option,
+        // id,
+        // name,
+        // shipping_method_id
+        // id
+        // shipping_mode
 
         order_items(required: true, description: "Array of items in the order" )
-            //item
-                //id
-                //variation_id
-                //buying_mode
-                //shipping_mode
-                //category_id
-                //deal_ids
-            //quantity
-            //unit_price
-            //currency_id
+        //item
+        //id
+        //variation_id
+        //buying_mode
+        //shipping_mode
+        //category_id
+        //deal_ids
+        //quantity
+        //unit_price
+        //currency_id
 
         buyer(required: true)
-            //id
-            //nickname
+        //id
+        //nickname
 
         seller(required: true)
-            //id
-            //nickname
+        //id
+        //nickname
     }
     //Congrats tracks - shared between Legacy App and new App (Required False to prevent catalog validation failures)
     "/checkout/congrats"(platform: "/mobile") {
@@ -1090,45 +1101,45 @@ tracks {
         platform(required: false)
 
         payments(required: false, description: "Array of payments information")
-            // id
-            // payment_method,
-            // payment_type,
-            // installments,
-            // paid_amount,
-            // installment_amount
-            // without_fee
-            // status
-            // status_detail
+        // id
+        // payment_method,
+        // payment_type,
+        // installments,
+        // paid_amount,
+        // installment_amount
+        // without_fee
+        // status
+        // status_detail
 
         shipping(required: false)
-            // shipping_type
-            // cost
-            // shipping_option,
-                // id,
-                // name,
-                // shipping_method_id
-            // id
-            // shipping_mode
+        // shipping_type
+        // cost
+        // shipping_option,
+        // id,
+        // name,
+        // shipping_method_id
+        // id
+        // shipping_mode
 
         order_items(required: false, description: "Array of items in the order" )
-            //item
-                //id
-                //variation_id
-                //buying_mode
-                //shipping_mode
-                //category_id
-                //deal_ids
-            //quantity
-            //unit_price
-            //currency_id
+        //item
+        //id
+        //variation_id
+        //buying_mode
+        //shipping_mode
+        //category_id
+        //deal_ids
+        //quantity
+        //unit_price
+        //currency_id
 
         buyer(required: false)
-            //id
-            //nickname
+        //id
+        //nickname
 
         seller(required: false)
-            //id
-            //nickname
+        //id
+        //nickname
 
         /****************************************/
         //Legacy App Congrats Tracks
@@ -1166,45 +1177,45 @@ tracks {
         platform(required: false)
 
         payments(required: false, description: "Array of payments information")
-            // id
-            // payment_method,
-            // payment_type,
-            // installments,
-            // paid_amount,
-            // installment_amount
-            // without_fee
-            // status
-            // status_detail
+        // id
+        // payment_method,
+        // payment_type,
+        // installments,
+        // paid_amount,
+        // installment_amount
+        // without_fee
+        // status
+        // status_detail
 
         shipping(required: false)
-            // shipping_type
-            // cost
-            // shipping_option,
-                // id,
-                // name,
-                // shipping_method_id
-            // id
-            // shipping_mode
+        // shipping_type
+        // cost
+        // shipping_option,
+        // id,
+        // name,
+        // shipping_method_id
+        // id
+        // shipping_mode
 
         order_items(required: false, description: "Array of items in the order" )
-            //item
-                //id
-                //variation_id
-                //buying_mode
-                //shipping_mode
-                //category_id
-                //deal_ids
-            //quantity
-            //unit_price
-            //currency_id
+        //item
+        //id
+        //variation_id
+        //buying_mode
+        //shipping_mode
+        //category_id
+        //deal_ids
+        //quantity
+        //unit_price
+        //currency_id
 
         buyer(required: false)
-            //id
-            //nickname
+        //id
+        //nickname
 
         seller(required: false)
-            //id
-            //nickname
+        //id
+        //nickname
         error_code(required: true, type: PropertyType.String)
     }
 
@@ -1628,35 +1639,35 @@ tracks {
         total_amount_with_shipping(required: false, description: "order amount including shipping cost")
         order_items(description: "Array of items in the order")
         //item
-            //id
-            //title
-            //selle_custom_fields
-            //variation_attributes
-            //category_id
-            //variation_id
+        //id
+        //title
+        //selle_custom_fields
+        //variation_attributes
+        //category_id
+        //variation_id
         //quantity
         //unit_price
         //currency_id
         //sale_fee
 
         shipping(required: false)
-            //id
-            //cost
-            //shipping_mode
-            //shipping_option
-                //id
-                //name
-                //shipping_method_id
+        //id
+        //cost
+        //shipping_mode
+        //shipping_option
+        //id
+        //name
+        //shipping_method_id
 
         payments(required: false, description: "Array of payments information")
-            // id
-            // payment_method
-            // payment_type
-            // paid_amount
-            // installments
-            // without_fee
-            // status
-            // status_detail
+        // id
+        // payment_method
+        // payment_type
+        // paid_amount
+        // installments
+        // without_fee
+        // status
+        // status_detail
 
         buyer(required: true, description: "buyer information") // id, nickname
         seller(required: true, description: "seller information") // id, nickname
@@ -1682,7 +1693,7 @@ tracks {
     }
 
     //Breadcrumb
-    "/home/category"(platform: "/web", type: TrackType.View) {
+    "/home/category"(platform: "/", type: TrackType.View) {
         from(required: false,  description: "Who is redirecting")
         category_id(required: true,  description: "Home's category")
     }
@@ -1701,4 +1712,24 @@ tracks {
     "/permissions/location/native"(platform: "/mobile", isAbstract: true){}
     "/permissions/location/native/accept"(platform: "/mobile", type: TrackType.Event){}
     "/permissions/location/native/deny"(platform: "/mobile", type: TrackType.Event){}
+
+    // Real estate page view
+    "/home/category/real-estate"(platform: "/", type: TrackType.View) {
+        filters(required: false, description: "Filter applied in the last search")
+        carousels(required: false, description: "Carousels in the home page to the properties")
+    }
+
+    // Search click event
+    "/home/category/real-estate#search"(platform: "/", type: TrackType.Event) {
+        filters(required: false, description: "Filter applied in the last search")
+        as_word(required: false, description: "True if the search is do through free text, false if the search is do through ")
+        search_word(required:false, description: "Free text adding for the user to do the search")
+    }
+
+    // Carousel click event
+    "/home/category/real-estate#featured-items"(platform: "/", type: TrackType.Event) {
+        bucket(required: false, description: "Type of carousel (premium, gold, used)")
+        position(required: false, description: "Selected position on selected item on the carousel")
+        item_id(required: false, description: "Item id to selected item on the carousel")
+    }
 }
