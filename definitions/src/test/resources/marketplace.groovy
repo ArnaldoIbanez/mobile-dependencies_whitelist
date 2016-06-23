@@ -2370,6 +2370,44 @@ trackTests {
         from="breadcrumb"
       }
     }
+    test("Tracking landing without tooltip") {
+        "/official_stores/landing"(platform: "/web") {
+          isToolTipPresent = false
+        }
+    }
+    test("Tracking landing with tooltip") {
+        "/official_stores/landing"(platform: "/web") {
+          isToolTipPresent = true
+        }
+    }
+    test("Tracking landing without tooltip info") {
+        "/official_stores/landing"(platform: "/web") {}
+    }
+    test("Tracking checkon with tooltip") {
+        "/official_stores/checkon"(platform: "/web") {
+          isToolTipPresent = true
+        }
+    }
+    test("Tracking checkon without tooltip") {
+        "/official_stores/checkon"(platform: "/web") {
+          isToolTipPresent = false
+        }
+    }
+    test("Tracking checkon without tooltip info") {
+        "/official_stores/checkon"(platform: "/web") {}
+    }
+    test("Tracking Few Items Page") {
+        "/official_stores/fewItemsPage"(platform: "/web") {
+          query="mochila"
+          store="Topper"
+        }
+    }
+    test("Tracking official stores zrp") {
+        "/official_stores/zrp"(platform: "/web") {
+          inStore=true
+          useLink=false
+        }
+    }
 
     test("Home Category Tracking") {
       "/home/category"(platform: "/web") {
