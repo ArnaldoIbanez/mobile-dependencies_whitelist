@@ -1691,6 +1691,20 @@ tracks {
     "/official_stores/home"(platform: "/web", type: TrackType.View) {
         from(required: false,  description: "Who is redirecting")
     }
+    "/official_stores/landing"(platform: "/web", type: TrackType.View) {
+        isToolTipPresent(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
+    }
+    "/official_stores/checkon"(platform: "/web", type: TrackType.View) {
+        isToolTipPresent(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
+    }
+    "/official_stores/fewItemsPage"(platform: "/web", type: TrackType.View) {
+        store(required: false,  description: "Store in the search")
+        query(required: false,  description: "Query item looking for")
+    }
+    "/official_stores/zrp"(platform: "/web", type: TrackType.View) {
+        inStore(type: PropertyType.Boolean, required: false,  description: "If the zrp is rendered, and experiment redirects inside the sotre or outside")
+        useLink(type: PropertyType.Boolean, required: false,  description: "Is true if the zrp message link is used.")
+    }
 
     //Breadcrumb
     "/home/category"(platform: "/", type: TrackType.View) {
