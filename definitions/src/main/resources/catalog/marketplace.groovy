@@ -977,8 +977,17 @@ tracks {
     "/checkout/payments/account_money/create"(platform:"/mobile") {}
     "/checkout/payments/account_money/password"(platform:"/mobile") {}
     "/checkout/payments/account_money/password#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
-    "/checkout/payments/billing_info"(platform:"/mobile") {}
     "/checkout/payments/select_issuer"(platform:"/mobile") {}
+    // mlm grouping
+    "/checkout/payments/pay_point"(platform:"/mobile", isAbstract: true) {}
+    "/checkout/payments/pay_point/select_store"(platform:"/mobile") {
+         available_methods(required: true, type: PropertyType.ArrayList)
+    }
+    "/checkout/payments/transfer"(platform:"/mobile", isAbstract: true) {}
+    "/checkout/payments/transfer/select_bank"(platform:"/mobile") {
+        available_methods(required: true, type: PropertyType.ArrayList)
+    }
+    "/checkout/payments/billing_info"(platform:"/mobile") {}
     "/checkout/payments/billing_info#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         billing_info_state(required: true, type: PropertyType.String)
     }
