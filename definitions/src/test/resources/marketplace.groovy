@@ -878,10 +878,18 @@ trackTests {
       checkoutStatus()
     }
     "/checkout/payments/account_money/password#submit"(platform:"/mobile", type:TrackType.Event) {}
-    "/checkout/payments/billing_info"(platform:"/mobile", type:TrackType.View) {
+    "/checkout/payments/select_issuer"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
-    "/checkout/payments/select_issuer"(platform:"/mobile", type:TrackType.View) {
+    "/checkout/payments/pay_point/select_store"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      available_methods = ["telecomm", "oxxo", "bancomer", "banamex"]
+    }
+    "/checkout/payments/transfer/select_bank"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      available_methods = ["telecomm", "bancomer", "banamex"]
+    }
+    "/checkout/payments/billing_info"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
     "/checkout/payments/billing_info#submit"(platform:"/mobile", type:TrackType.Event) {
