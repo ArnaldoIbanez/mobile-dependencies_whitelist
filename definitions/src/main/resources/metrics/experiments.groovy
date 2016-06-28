@@ -232,8 +232,20 @@ metrics {
 		}
 	}
 
+    "seller_contacted"(description: "track vip contacts as success for classifieds in the new order experiment") {
+        startWith {
+            experiment("search/filtersNewOrder")
+        }
 
-
-
+        countsOn {
+            condition {
+                or(
+                        path("/vip/call_seller"),
+                        path("/vip/contact_seller"),
+                )
+            }
+        }
+    }
+    
 
 }
