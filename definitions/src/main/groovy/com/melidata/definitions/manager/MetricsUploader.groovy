@@ -1,12 +1,12 @@
-package com.melidata.definitions.uploader
+package com.melidata.definitions.manager
+
 /**
  * Created by geisbruch on 12/16/14.
  */
 class MetricsUploader {
 
     def static JSON_CONTENT="application/json"
-
-    def static LAST_VERSION_FILE_NAME = "metrics.json"
+    def static LAST_VERSION_FILE_NAME = "metrics2.json"
 
     def metricsDir
     def S3Controller s3Controller

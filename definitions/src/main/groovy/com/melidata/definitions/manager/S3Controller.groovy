@@ -1,33 +1,34 @@
-package com.melidata.definitions.uploader
+package com.melidata.definitions.manager
 
 import com.amazonaws.ClientConfiguration
 import com.amazonaws.services.s3.model.CannedAccessControlList
-import com.amazonaws.services.s3.model.CanonicalGrantee
-import org.apache.commons.io.IOUtils
+import com.amazonaws.services.s3.model.ListObjectsRequest
+import com.amazonaws.services.s3.model.ObjectListing
+import com.ml.melidata.catalog.Catalog
 import com.amazonaws.auth.BasicAWSCredentials
 import com.amazonaws.services.s3.AmazonS3
 import com.amazonaws.services.s3.AmazonS3Client
-import com.amazonaws.services.s3.model.AccessControlList
-import com.amazonaws.services.s3.model.GroupGrantee
 import com.amazonaws.services.s3.model.ObjectMetadata
 import com.amazonaws.services.s3.model.PutObjectRequest
 import com.amazonaws.services.s3.model.S3Object
 import com.amazonaws.util.StringInputStream
-import com.amazonaws.services.s3.model.Permission
+import com.amazonaws.services.s3.model.GetObjectRequest
 import org.apache.commons.io.IOUtils
+
+import java.security.MessageDigest
 
 /**
  * Created by geisbruch on 12/16/14.
  */
 class S3Controller {
-    def static LAST_VERSION_OBJECT="lastVersion"
 
     AmazonS3 s3;
-    def bucket
+    def String bucket
     def BasicAWSCredentials credentials
 
     def S3Controller(String bucket, String accessKey, String secretKey) {
-        credentials = new BasicAWSCredentials(accessKey, secretKey)
+        this.bucket = bucket
+        this.credentials = new BasicAWSCredentials(accessKey, secretKey)
         ClientConfiguration config = new ClientConfiguration();
         if(System.getenv().containsKey("proxyHost")){
             config.setProxyHost(System.getenv().get("proxyHost"))
@@ -37,30 +38,36 @@ class S3Controller {
         }
 
         s3 = new AmazonS3Client(credentials, config)
-
-        this.bucket = bucket;
     }
 
     Integer getLastVersion() {
-        S3Object obj = s3.getObject(bucket, LAST_VERSION_OBJECT);
+        println "getLastVersion ${bucket} - ${CatalogHandler.LAST_VERSION_OBJECT}"
+        S3Object obj = s3.getObject(bucket, CatalogHandler.LAST_VERSION_OBJECT);
         def content = IOUtils.toString(obj.objectContent);
         return Integer.parseInt(content.trim());
     }
 
 
     void setLastServersion(Integer version) {
-        saveFile(LAST_VERSION_OBJECT,version.toString())
+        saveFile(CatalogHandler.LAST_VERSION_OBJECT,version.toString())
     }
 
-
-    void saveCatalogVersion(String catalogFile, String contentType, String name, Integer version) {
-        def ext = contentType.split("/")[-1]
-        saveFile(name+"."+ext,catalogFile,contentType, ["Catalog-Version":version.toString()])
+    void saveCatalogVersion(Catalog catalog, String name, Integer version) {
+        def ext = "dsl"
+        catalog.getFiles().each { file ->
+            def content = IOUtils.toString(new FileInputStream(file))
+            saveFile(name + "." + ext +  "/" + file.name, content, "application/" + ext, ["Catalog-Version":version.toString()])
+        }
     }
 
-    void saveFile(String fileName, String file, String contentType = "text/plain",  headers=[:]) {
+    void saveCatalogVersion(String json, String name, Integer version) {
+        def ext = "json"
+        saveFile(name+"."+ext,json,"application/" + ext, ["Catalog-Version":version.toString()])
+    }
+
+    void saveFile(String fileName, String content, String contentType = "text/plain",  headers=[:]) {
         def metadata = new ObjectMetadata();
-        def stream = new StringInputStream(file)
+        def stream = new StringInputStream(content)
         metadata.setUserMetadata(headers)
         //metadata.setContentLength(stream.bytes.size());
         metadata.setContentType(contentType)
@@ -71,4 +78,12 @@ class S3Controller {
 
     S3Object getObject(String name) { s3.getObject(bucket,name) }
 
+    S3Object getObject(GetObjectRequest request) {
+        s3.getObject(request)
+    }
+
+    ObjectListing listObjects(ListObjectsRequest listObjectsRequest) {
+        return s3.listObjects(listObjectsRequest)
+
+    }
 }

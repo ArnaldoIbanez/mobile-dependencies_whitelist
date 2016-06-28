@@ -1,4 +1,4 @@
-package com.melidata.definitions.uploader
+package com.melidata.definitions.manager
 
 import com.melidata.definitions.format.HiveFormatter
 import com.ml.melidata.catalog.Catalog
@@ -11,35 +11,31 @@ import org.apache.commons.io.IOUtils
  */
 class CatalogUploader {
 
-    def static JSON_CONTENT="application/json"
-    def static DSL_CONTENT="application/dsl"
-    def static LAST_VERSION_FILE_NAME="last"
-    def static CSV_FILE_NAME="last.csv/catalog.csv" //must have a directory to be use in a hive table
+    def static CATALOG_DIR = "src/main/resources/catalog"
 
-    def catalogFile
     def S3Controller s3Controller
 
-    def CatalogUploader(catalogFile, s3Bucket, accessKey, secretKey) {
-        this.catalogFile = catalogFile
+    def CatalogUploader(s3Bucket, accessKey, secretKey) {
         s3Controller = new S3Controller(s3Bucket, accessKey, secretKey)
     }
 
     def static void main(String[] args) {
-        def catalogFile = "./src/main/resources/catalog.groovy"
         def s3Bucket = "melidata-catalog-versions"
         def accessKey = "AKIAIRJ4DFA72UDCX7QA"
         def secretKey = "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"
 
-        new CatalogUploader(catalogFile,s3Bucket,accessKey,secretKey).upload();
+        new CatalogUploader(s3Bucket,accessKey,secretKey).upload();
     }
 
     def upload() {
         println("Starting uploader")
+        def catalogFile = new File(CATALOG_DIR, CatalogHandler.S3_CATALOG_FILE)
         println("Reading [${catalogFile}]")
         def dsl = IOUtils.toString(new FileInputStream(catalogFile))
         println("DSL loaded")
         println("Loading catalog")
         def Catalog catalog = parseCatalogFromDsl(dsl);
+        catalog.addFile(catalogFile)
         println("Catalog loaded")
         println("Making json")
         def json = new CatalogJsonOutput().toJson(catalog)
@@ -49,18 +45,19 @@ class CatalogUploader {
         lastVersion++;
         println("New version: ${lastVersion}")
         println("Uploading ${lastVersion}.dsl")
-        s3Controller.saveCatalogVersion(dsl,DSL_CONTENT,lastVersion.toString(),lastVersion)
+        s3Controller.saveCatalogVersion(catalog,lastVersion.toString(),lastVersion)
         println("Uploading ${lastVersion}.json")
-        s3Controller.saveCatalogVersion(json,JSON_CONTENT,lastVersion.toString(),lastVersion)
+        s3Controller.saveCatalogVersion(json,lastVersion.toString(),lastVersion)
+
         println("Uploading last.dsl")
-        s3Controller.saveCatalogVersion(dsl,DSL_CONTENT,LAST_VERSION_FILE_NAME,lastVersion)
+        s3Controller.saveCatalogVersion(catalog,CatalogHandler.LAST_VERSION_FILE_NAME,lastVersion)
         println("Uploading last.dsl")
-        s3Controller.saveCatalogVersion(json,JSON_CONTENT,LAST_VERSION_FILE_NAME,lastVersion)
+        s3Controller.saveCatalogVersion(json,CatalogHandler.LAST_VERSION_FILE_NAME,lastVersion)
         println("Setting last version")
         s3Controller.setLastServersion(lastVersion)
         println("Upload catalog.csv hive format")
         def csv = new HiveFormatter().output
-        s3Controller.saveFile(CSV_FILE_NAME, csv)
+        s3Controller.saveFile(CatalogHandler.CSV_FILE_NAME, csv)
     }
 
 

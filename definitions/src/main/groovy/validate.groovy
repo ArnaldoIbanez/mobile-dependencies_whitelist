@@ -7,7 +7,7 @@ import groovy.json.JsonSlurper
 
 def onlyPrintFails = Boolean.getBoolean("onlyPrintFails")
 
-def pathCatalog = "src/main/resources/catalog.groovy"
+def pathCatalog = "src/main/resources/catalog/catalog.groovy"
 def catalogScript = TestRunner.getScriptFromFile(pathCatalog)
 def catalog = TestRunner.runScript(catalogScript)
 def status = true
