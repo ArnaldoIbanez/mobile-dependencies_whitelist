@@ -239,13 +239,10 @@ metrics {
 
         countsOn {
             condition {
-                or(
-                        path("/vip/call_seller"),
-                        path("/vip/contact_seller"),
-                )
+                path("/vip/call_seller", "/vip/contact_seller")
             }
         }
     }
-    
+
 
 }
