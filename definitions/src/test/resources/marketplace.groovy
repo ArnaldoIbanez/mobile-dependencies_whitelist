@@ -67,12 +67,12 @@ trackTests {
         ab_bucket="AB1"
         layout="stack"
         backend_filters=["ADULT_CONTENT=yes"]
-        qas["232232000", "232232001", "232232002"]
+        qas=["232232000", "232232001", "232232002"]
         cli_rel_qty_configured="12"
-        canonical="/1/2"
+        canonical="12"
         cli_rel_qty_link_to_category="MLA123"
         resolution="1024x769"
-        geolocation"AR:CABA"
+        geolocation="AR:CABA"
         landing="base"
     }
 
