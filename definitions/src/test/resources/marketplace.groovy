@@ -56,6 +56,24 @@ trackTests {
         view_mode="MOSAIC"
         filter_tags=["locationFromHistory"]
         results=["232232000", "232232001", "232232002"]
+        sm="sm"
+        ab="1"
+        aa=["a1","a2"]
+        mini_config="10"
+        page_number="12"
+        ac=["ac1","ac2"]
+        fsm="fsm"
+        brand_id="100"
+        ab_bucket="AB1"
+        layout="stack"
+        backend_filters=["ADULT_CONTENT=yes"]
+        qas["232232000", "232232001", "232232002"]
+        cli_rel_qty_configured="12"
+        canonical="/1/2"
+        cli_rel_qty_link_to_category="MLA123"
+        resolution="1024x769"
+        geolocation"AR:CABA"
+        landing="base"
     }
 
     def defaultEmptySearchInformation = {
