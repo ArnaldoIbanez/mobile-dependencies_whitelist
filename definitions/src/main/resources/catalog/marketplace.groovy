@@ -198,24 +198,7 @@ tracks {
         filter_tags(required: false, PropertyType.ArrayList)
         results(required: false, PropertyType.ArrayList,description:"item ids from search result")
         billboard_shown(required: false, PropertyType.Boolean)
-        sm(required: false)
-        ab(required: false)
-        aa(required: false, PropertyType.ArrayList)
-        mini_config(required: false)
-        page_number(required: false)
-        ac(required: false, PropertyType.ArrayList)
-        fsm(required: false)
-        brand_id(required: false)
-        ab_bucket(required: false)
-        layout(required: false)
-        backend_filters(required: false, PropertyType.ArrayList)
-        qas(required: false, PropertyType.ArrayList)
-        cli_rel_qty_configured(required: false)
-        canonical(required: false)
-        cli_rel_qty_link_to_category(required: false)
-        resolution(required: false)
-        geolocation(required: false)
-        landing(required:false)
+
     }
 
     "/search"(platform: "/web") {
@@ -236,6 +219,21 @@ tracks {
         //suggest_position
         //last_search_position
         //block_store_position
+        sm(required: false)
+        ab(required: false)
+        aa(required: false, PropertyType.ArrayList)
+        mini_config(required: false)
+        ac(required: false, PropertyType.ArrayList)
+        fsm(required: false)
+        brand_id(required: false)
+        ab_bucket(required: false)
+        layout(required: false)
+        qas(required: false, PropertyType.ArrayList)
+        cli_rel_qty_configured(required: false)
+        canonical(required: false)
+        cli_rel_qty_link_to_category(required: false)
+        geolocation(required: false)
+        landing(required:false)
     }
 
     "/search"(platform: "/mobile") {
