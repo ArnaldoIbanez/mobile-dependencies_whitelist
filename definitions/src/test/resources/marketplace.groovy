@@ -250,7 +250,24 @@ trackTests {
 
     "/vip/contact_seller"(platform:"/mobile", dataSet)
 
+    "/vip/contact_seller"(platform: "/", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+    })
+
     "/vip/call_seller"(platform:"/mobile", dataSet)
+
+    "/vip/call_seller"(platform:"/", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+    })
+
+    "/vip/show_phone"(platform: "/mobile", dataSet)
+
+    "/vip/show_phone"(platform: "/", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+    })
 
     "/vip/description/failure"(platform:"/mobile", dataSet)
 

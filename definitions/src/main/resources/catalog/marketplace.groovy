@@ -363,9 +363,11 @@ tracks {
 
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
-    "/vip/contact_seller"(platform: "/mobile") {}
+    "/vip/contact_seller"(platform: "/") {}
 
-    "/vip/call_seller"(platform: "/mobile") {}
+    "/vip/call_seller"(platform: "/") {}
+
+    "/vip/show_phone"(platform: "/") {}
 
     "/vip/map/"(platform: "/mobile") {}
 
