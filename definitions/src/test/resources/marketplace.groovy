@@ -672,6 +672,7 @@ trackTests {
       checkoutStatus()
       success = true
       location = "34.677755,56.444433"
+      geolocation_method = "platform"
     }
     "/checkout/shipping/select_method"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
@@ -684,6 +685,20 @@ trackTests {
       inconsistency = "cant_sent_x_units"
       selections = ["shipping_geo", "shipping_other", "local_pick_up"]
     }
+    "/checkout/shipping/select_method/ask_enable_geolocation"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      //List of available shippingMethods
+      selections = ["shipping_other", "local_pick_up"]
+    }
+    "/checkout/shipping/select_method/ask_enable_geolocation#geolocation_permission_ask"(platform:"/mobile", type: TrackType.Event) {
+        //granted
+        granted = "yes"
+    }
+    "/checkout/shipping/select_method/ask_enable_geolocation#geolocation_enabled"(platform:"/mobile", type: TrackType.Event) {
+        //status
+        status = "on"
+    }
+    "/checkout/shipping/select_method/ask_enable_geolocation#unable_to_use_location_services"(platform:"/mobile", type: TrackType.Event) {}
     "/checkout/shipping/select_method/geolocated"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       //List of available shippingMethods

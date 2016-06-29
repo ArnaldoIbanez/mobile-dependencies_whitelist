@@ -722,6 +722,7 @@ tracks {
         //View specific data
         success(required: true, type: PropertyType.Boolean)
         location(required: false, type: PropertyType.String)
+        geolocation_method(required: false, type: PropertyType.String)
     }
     "/checkout/shipping"(platform: "/mobile", isAbstract: true) {
         order_id(required: false, description: "OrderId")
@@ -786,6 +787,15 @@ tracks {
         error_code(required: false, type: PropertyType.String)
         inconsistency(required: false, type: PropertyType.String)
     }
+    //Geolocation on fallback
+    "/checkout/shipping/select_method/ask_enable_geolocation"(platform: "/mobile") {}
+    "/checkout/shipping/select_method/ask_enable_geolocation#geolocation_permission_ask"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        granted(required: true, type: PropertyType.String)
+    }
+    "/checkout/shipping/select_method/ask_enable_geolocation#geolocation_enabled"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        status(required: true, type: PropertyType.String)
+    }
+    "/checkout/shipping/select_method/ask_enable_geolocation#unable_to_use_location_services"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
     //Geolocation
     "/checkout/shipping/select_method/geolocated"(platform:"/mobile") {}
     "/checkout/shipping/custom_address"(platform: "/mobile", isAbstract: true) {}
