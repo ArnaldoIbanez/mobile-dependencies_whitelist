@@ -363,11 +363,11 @@ tracks {
 
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
-    "/vip/contact_seller"(platform: "/") {}
+    "/vip/contact_seller"(platform: "/", type: TrackType.Event) {}
 
-    "/vip/call_seller"(platform: "/") {}
+    "/vip/call_seller"(platform: "/", type: TrackType.Event) {}
 
-    "/vip/show_phone"(platform: "/") {}
+    "/vip/show_phone"(platform: "/", type: TrackType.Event) {}
 
     "/vip/map/"(platform: "/mobile") {}
 
