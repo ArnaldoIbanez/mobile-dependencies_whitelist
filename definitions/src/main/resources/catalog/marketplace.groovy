@@ -367,7 +367,11 @@ tracks {
 
     "/vip/call_seller"(platform: "/", type: TrackType.Event) {}
 
-    "/vip/show_phone"(platform: "/", type: TrackType.Event) {}
+    "/vip/show_phone"(platform: "/", type: TrackType.Event) {
+        vertical(required: false)
+        listing_type_id(required: false)
+        item_seller_type(required: false)
+    }
 
     "/vip/map/"(platform: "/mobile") {}
 
