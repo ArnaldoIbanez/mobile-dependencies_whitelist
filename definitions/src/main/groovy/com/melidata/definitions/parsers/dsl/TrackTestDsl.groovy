@@ -8,8 +8,13 @@ import com.ml.melidata.Track
 
 class TrackTestDsl {
 
+    def String defaultBusiness
     def ArrayList<Track> tracksToValidate = [];
     def ArrayList<TestDsl> tests = [];
+
+    def setDefaultBusiness(business) {
+        defaultBusiness = business
+    }
 
     def static trackTests(closure) {
         TrackTestDsl dsl = new TrackTestDsl()
@@ -25,10 +30,10 @@ class TrackTestDsl {
 
         TestDsl dsl = new TestDsl()
         dsl.name = params
+        dsl.defaultBusiness = defaultBusiness
         closure.delegate = dsl
         closure.resolveStrategy = Closure.DELEGATE_FIRST
         closure()
-        //println "fin test:"
         this.tests.push(dsl)
         this.tracksToValidate = this.tracksToValidate + dsl.tracks
         return

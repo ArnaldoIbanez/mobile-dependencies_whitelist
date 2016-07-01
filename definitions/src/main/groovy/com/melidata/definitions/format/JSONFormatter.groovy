@@ -5,8 +5,8 @@ import groovy.json.JsonOutput
 
 class JSONFormatter extends CatalogFormatter {
 
-    def generate() {
-        def platforms = getPlatforms(catalog.platformTrees.mercadolibre)
+    def generate(String business) {
+        def platforms = getPlatforms(catalog.platformTrees.get(business))
 
         platforms.collectEntries{k,v -> [k,getTrackInfo(v.tracksTree.children)]}
     }

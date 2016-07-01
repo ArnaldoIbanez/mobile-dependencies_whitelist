@@ -1,23 +1,28 @@
 package com.ml.melidata.catalog.parsers.dsl
 
 import com.ml.melidata.catalog.Catalog
+import com.ml.melidata.catalog.DslUtils
 
 /**
  * Created by geisbruch on 11/17/14.
  */
 class CatalogDsl {
 
+    //it is not thread safe
+    def static String baseDir = "src/main/resources/catalog/"
 
     def Catalog catalog;
 
     def platforms = []
 
-    def List<String> business;
-
     def String defaultBusiness;
 
     def CatalogDsl() {
         catalog = new Catalog()
+    }
+
+    def static setBaseDir(String dir) {
+        baseDir = dir
     }
 
     def static catalog(Closure closure) {
@@ -26,13 +31,6 @@ class CatalogDsl {
         closure.resolveStrategy = Closure.DELEGATE_FIRST
         closure()
         return dsl.catalog
-    }
-
-    def setBusiness(arr) {
-        business = arr;
-        business.each { b ->
-            catalog.addBusiness(b);
-        }
     }
 
     def setDefaultBusiness(business) {
@@ -45,15 +43,28 @@ class CatalogDsl {
        closure.delegate = trackDsl
        closure.resolveStrategy = Closure.DELEGATE_FIRST
        closure();
-       trackDsl.trackDefinitions.each { tr ->
-           if(!tr.business) {
-               tr.business = defaultBusiness;
-           }
-           if(business.indexOf(tr.business)) {
-               throw new RuntimeException(tr.business+" is not a valid business");
-           }
-           catalog.addTrackDefinition(tr)
-       }
+       add(trackDsl.trackDefinitions, defaultBusiness)
+    }
+
+    def include(String fileName) {
+        include(defaultBusiness, fileName)
+    }
+
+    def include(String business, String fileName) {
+        def file = new File(baseDir + fileName)
+        def trackDsl = DslUtils.parse(file)
+        add(trackDsl, business)
+        catalog.addFile(file)
+    }
+
+    def add(list, overridedBusiness) {
+        list.each { tr ->
+            if(!tr.business) {
+                tr.business = overridedBusiness;
+            }
+            catalog.addBusiness(tr.business)
+            catalog.addTrackDefinition(tr)
+        }
     }
 
     def setPlatforms(arr) {

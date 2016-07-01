@@ -1,22 +1,30 @@
 package com.melidata.definitions.format
 
+import com.melidata.definitions.manager.CatalogHandler
+import com.melidata.definitions.manager.CatalogUploader
 import com.ml.melidata.catalog.Catalog
-import com.ml.melidata.catalog.CatalogFactory
+import com.ml.melidata.catalog.DslUtils
 import com.ml.melidata.catalog.tree.PlatformTree
 
 
 abstract class CatalogFormatter {
 
     abstract def getLine(def k, def v)
-    abstract def generate()
+    abstract def generate(String business)
     abstract def formatOutput(def data)
+
+    def generate() {
+        catalog.platformTrees.keySet().collect { business ->
+            [business, generate(business)]
+        }
+    }
 
     def extractProps(def t) {
         t.definition ? t.definition.properties.collectEntries{k,v -> [k,[v.type?.toString(),v.required,v.serverSide,v.description]]} : [:]
     }
 
     protected Catalog getCatalog() {
-        CatalogFactory.catalog
+        DslUtils.parseCatalog(new File(CatalogUploader.CATALOG_DIR, CatalogHandler.S3_CATALOG_FILE))
     }
 
     def getPlatforms(def t) {

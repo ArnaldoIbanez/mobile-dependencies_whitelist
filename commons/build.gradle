@@ -4,7 +4,7 @@ apply plugin: 'idea'
 apply plugin: 'maven'
 apply plugin: 'java'
 
-project.version = '0.1.14'
+project.version = '0.1.21'
 project.group = 'com.mercadolibre.melidata.catalog'
 
 
