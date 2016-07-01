@@ -1484,6 +1484,18 @@ tracks {
         user_likes(type: PropertyType.Boolean, description : " Needed  to access user liked pages.")
     }
 
+    //REGISTER WEB
+
+    "/register/form"(platform:"/web", type: TrackType.View) {
+        app(type: PropertyType.String, description: "Registration app", required:true)
+        item_id(type: PropertyType.String, description: "Item", required:false)
+    }
+
+    "/register/success"(platform:"/web", type: TrackType.Event) {
+        app(type: PropertyType.String, description: "Registration app", required:true)
+        item_id(type: PropertyType.String, description: "Item", required:false)
+    }
+
     "/traffic"(platform: "/", isAbstract: true) {}
 
     "/traffic/inbound"(platform: "/", isAbstract: true) {}

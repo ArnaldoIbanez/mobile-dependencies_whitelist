@@ -1839,6 +1839,27 @@ trackTests {
     }
   }
 
+  test("Register Web") {
+    "/register/form"(platform: "/web/desktop") {
+      app = "registration"
+    }
+
+    "/register/form"(platform: "/web/mobile") {
+      app = "registration-question"
+      item_id = "MCO123321"
+    }
+
+    "/register/success"(platform: "/web/desktop") {
+      app = "registration-favorite"
+      item_id = "MCO123321"
+    }
+
+    "/register/success"(platform: "/web/mobile") {
+      app = "registration"
+    }
+
+  }
+
     test("Traffic") {
         "/traffic/inbound/matt"(platform: "/") {
             tool = 123456
