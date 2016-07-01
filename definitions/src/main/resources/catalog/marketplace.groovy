@@ -1470,7 +1470,7 @@ tracks {
 
     "/register"(platform: "/mobile", isAbstract: true) {}
 
-    "/register/success"(platform: "/mobile") {
+    "/register/success"(platform: "/") {
         source()
     }
 
@@ -1482,6 +1482,19 @@ tracks {
         email(type: PropertyType.Boolean, description : " Needed  to access date (day and month) of the user birthday.")
         user_birthday(type: PropertyType.Boolean, description : " Needed  to access the user main email address.")
         user_likes(type: PropertyType.Boolean, description : " Needed  to access user liked pages.")
+    }
+
+    //REGISTER WEB
+
+    "/register/form"(platform:"/web", type: TrackType.View) {
+        app(type: PropertyType.String, description: "Registration app", required:true)
+        source(type: PropertyType.String, description: "Source (on mobile is facebook/email, on web at the moment is only email)", required:true)
+        item_id(type: PropertyType.String, description: "Item", required:false)
+    }
+
+    "/register/success"(platform:"/web", type: TrackType.Event) {
+        app(type: PropertyType.String, description: "Registration app", required:true)
+        item_id(type: PropertyType.String, description: "Item", required:false)
     }
 
     "/traffic"(platform: "/", isAbstract: true) {}
