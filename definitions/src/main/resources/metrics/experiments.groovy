@@ -210,7 +210,7 @@ metrics {
 			}
 
 			openBy {
-				"event_data.order_items.item.review_rate"(default: "null", function: "round")
+				"event_data.order_items.item.review_rate"(default: "", function: "round")
 			}
 		}
 	}
