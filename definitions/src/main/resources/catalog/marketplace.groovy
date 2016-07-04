@@ -1704,6 +1704,8 @@ tracks {
     "/official_stores/zrp"(platform: "/web", type: TrackType.View) {
         inStore(type: PropertyType.Boolean, required: false,  description: "If the zrp is rendered, and experiment redirects inside the sotre or outside")
         useLink(type: PropertyType.Boolean, required: false,  description: "Is true if the zrp message link is used.")
+        checkOnExp(type: PropertyType.Boolean, required: false,  description: "Is true if the checkon experiment mantains the checkon")
+        checked(type: PropertyType.Boolean, required: false,  description: "Is true only if the checkon is checked")
     }
 
     //Breadcrumb
