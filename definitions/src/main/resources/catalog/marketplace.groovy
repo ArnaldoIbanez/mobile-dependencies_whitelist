@@ -949,6 +949,9 @@ tracks {
         bin(required: true, type:  PropertyType.String)
         success(required: true, type:  PropertyType.Boolean)
     }
+    "/checkout/payments/add_debit_card/select_bank"(platform:"/mobile") {
+        available_issuers(required: true, type: PropertyType.ArrayList)
+    }
     "/checkout/payments/add_prepaid_card"(platform:"/mobile") {}
     "/checkout/payments/add_prepaid_card#card_config"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         bin(required: true, type:  PropertyType.String)
@@ -958,6 +961,9 @@ tracks {
     "/checkout/payments/add_card#card_config"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         bin(required: true, type:  PropertyType.String)
         success(required: true, type:  PropertyType.Boolean)
+    }
+    "/checkout/payments/add_card/select_bank"(platform:"/mobile") {
+        available_issuers(required: true, type: PropertyType.ArrayList)
     }
     "/checkout/payments/add_card/installments"(platform:"/mobile") {
         //List of available installments

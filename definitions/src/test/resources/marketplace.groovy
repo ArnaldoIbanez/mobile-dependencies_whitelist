@@ -856,7 +856,11 @@ trackTests {
     "/checkout/payments/add_debit_card#card_config"(platform:"/mobile", type: TrackType.Event) {
           bin = "123456"
           success = true
-      }
+    }
+    "/checkout/payments/add_debit_card/select_bank"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      available_issuers = ["Visa", "Banamex", "Santander"]
+    }
     "/checkout/payments/add_prepaid_card"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
@@ -870,7 +874,11 @@ trackTests {
     "/checkout/payments/add_card#card_config"(platform:"/mobile", type: TrackType.Event) {
           bin = "123456"
           success = true
-      }
+    }
+    "/checkout/payments/add_card/select_bank"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      available_issuers = ["Visa", "Banamex", "Santander"]
+    }
     "/checkout/payments/add_card/installments"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       available_installments = [
