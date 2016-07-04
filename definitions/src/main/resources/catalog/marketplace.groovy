@@ -219,21 +219,7 @@ tracks {
         //suggest_position
         //last_search_position
         //block_store_position
-        sm(required: false)
-        ab(required: false)
-        aa(required: false, PropertyType.ArrayList)
-        mini_config(required: false)
-        ac(required: false, PropertyType.ArrayList)
-        fsm(required: false)
-        brand_id(required: false)
-        ab_bucket(required: false)
-        layout(required: false)
-        qas(required: false, PropertyType.ArrayList)
-        cli_rel_qty_configured(required: false)
-        canonical(required: false)
-        cli_rel_qty_link_to_category(required: false)
-        geolocation(required: false)
-        landing(required:false)
+        landing(required:false, description:'indicates landing base, premium, etc')
     }
 
     "/search"(platform: "/mobile") {

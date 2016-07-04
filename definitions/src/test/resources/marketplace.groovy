@@ -96,20 +96,6 @@ trackTests {
         }
         results=["232232000", "232232001", "232232002"]
         billboard_shown = true
-        sm="sm"
-        ab="1"
-        aa=["a1","a2"]
-        mini_config="10"
-        ac=["ac1","ac2"]
-        fsm="fsm"
-        brand_id="100"
-        ab_bucket="AB1"
-        layout="stack"
-        qas=["232232000", "232232001", "232232002"]
-        cli_rel_qty_configured="12"
-        canonical="12"
-        cli_rel_qty_link_to_category="MLA123"
-        geolocation="AR:CABA"
         landing="base"
     })
 
