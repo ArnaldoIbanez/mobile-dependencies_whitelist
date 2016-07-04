@@ -1692,19 +1692,19 @@ tracks {
         from(required: false,  description: "Who is redirecting")
     }
     "/official_stores/landing"(platform: "/web", type: TrackType.View) {
-        isToolTipPresent(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
+        is_tool_tip_present(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
     }
     "/official_stores/checkon"(platform: "/web", type: TrackType.View) {
-        isToolTipPresent(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
+        is_tool_tip_present(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
     }
     "/official_stores/fewItemsPage"(platform: "/web", type: TrackType.View) {
         store(required: false,  description: "Store in the search")
         query(required: false,  description: "Query item looking for")
     }
     "/official_stores/zrp"(platform: "/web", type: TrackType.View) {
-        inStore(type: PropertyType.Boolean, required: false,  description: "If the zrp is rendered, and experiment redirects inside the sotre or outside")
-        useLink(type: PropertyType.Boolean, required: false,  description: "Is true if the zrp message link is used.")
-        checkOnExp(type: PropertyType.Boolean, required: false,  description: "Is true if the checkon experiment mantains the checkon")
+        in_store(type: PropertyType.Boolean, required: false,  description: "If the zrp is rendered, and experiment redirects inside the sotre or outside")
+        use_link(type: PropertyType.Boolean, required: false,  description: "Is true if the zrp message link is used.")
+        check_on_exp(type: PropertyType.Boolean, required: false,  description: "Is true if the checkon experiment mantains the checkon")
         checked(type: PropertyType.Boolean, required: false,  description: "Is true only if the checkon is checked")
     }
 
