@@ -2452,12 +2452,12 @@ trackTests {
     }
     test("Tracking landing without tooltip") {
         "/official_stores/landing"(platform: "/web") {
-          isToolTipPresent = false
+          is_tool_tip_present = false
         }
     }
     test("Tracking landing with tooltip") {
         "/official_stores/landing"(platform: "/web") {
-          isToolTipPresent = true
+          is_tool_tip_present = true
         }
     }
     test("Tracking landing without tooltip info") {
@@ -2465,12 +2465,12 @@ trackTests {
     }
     test("Tracking checkon with tooltip") {
         "/official_stores/checkon"(platform: "/web") {
-          isToolTipPresent = true
+          is_tool_tip_present = true
         }
     }
     test("Tracking checkon without tooltip") {
         "/official_stores/checkon"(platform: "/web") {
-          isToolTipPresent = false
+          is_tool_tip_present = false
         }
     }
     test("Tracking checkon without tooltip info") {
@@ -2484,8 +2484,8 @@ trackTests {
     }
     test("Tracking official stores zrp") {
         "/official_stores/zrp"(platform: "/web") {
-          inStore=true
-          useLink=false
+          in_store=true
+          use_link=false
         }
     }
 
