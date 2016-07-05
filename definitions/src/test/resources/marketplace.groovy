@@ -1851,6 +1851,17 @@ trackTests {
       item_id = "MCO123321"
     }
 
+    "/register/form/error"(platform: "/web/desktop") {
+      app = "registration"
+      source = "email"
+    }
+
+    "/register/form/error"(platform: "/web/mobile") {
+      app = "registration-question"
+      source = "email"
+      item_id = "MCO123321"
+    }
+
     "/register/success"(platform: "/web/desktop") {
       app = "registration-favorite"
       source = "email"
