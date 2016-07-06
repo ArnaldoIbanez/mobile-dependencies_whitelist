@@ -363,9 +363,17 @@ tracks {
 
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
-    "/vip/contact_seller"(platform: "/", type: TrackType.Event) {}
+    "/vip/contact_seller"(platform: "/", type: TrackType.Event) {
+        vertical(required: false, description: "Vertical name over show phone event is displayed")
+        listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+    }
 
-    "/vip/call_seller"(platform: "/", type: TrackType.Event) {}
+    "/vip/call_seller"(platform: "/", type: TrackType.Event) {
+        vertical(required: false, description: "Vertical name over show phone event is displayed")
+        listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+    }
 
     "/vip/show_phone"(platform: "/", type: TrackType.Event) {
         vertical(required: false, description: "Vertical name over show phone event is displayed")

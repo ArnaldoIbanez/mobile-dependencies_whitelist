@@ -248,40 +248,76 @@ trackTests {
 
     "/vip/description/failure"(platform:"/mobile", dataSet)
 
-    "/vip/contact_seller"(platform:"/mobile", dataSet)
+    "/vip/contact_seller"(platform:"/mobile", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
+    })
 
     "/vip/contact_seller"(platform: "/web/desktop", type: TrackType.Event, {
       item_id = "MLA533657947"
       category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
     })
 
     "/vip/contact_seller"(platform: "/web/mobile", type: TrackType.Event, {
       item_id = "MLA533657947"
       category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
     })
 
-    "/vip/call_seller"(platform:"/mobile", dataSet)
+    "/vip/call_seller"(platform:"/mobile", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
+    })
 
     "/vip/call_seller"(platform:"/web/desktop", type: TrackType.Event, {
       item_id = "MLA533657947"
       category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
     })
 
     "/vip/call_seller"(platform:"/web/mobile", type: TrackType.Event, {
       item_id = "MLA533657947"
       category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
     })
 
-    "/vip/show_phone"(platform: "/mobile", dataSet)
+    "/vip/show_phone"(platform: "/mobile", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
+    })
 
     "/vip/show_phone"(platform: "/web/desktop", type: TrackType.Event, {
       item_id = "MLA533657947"
       category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
     })
 
     "/vip/show_phone"(platform: "/web/mobile", type: TrackType.Event, {
       item_id = "MLA533657947"
       category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
     })
 
     "/vip/show_phone"(platform: "/web/desktop", type: TrackType.Event, {
