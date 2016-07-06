@@ -363,11 +363,23 @@ tracks {
 
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
-    "/vip/contact_seller"(platform: "/", type: TrackType.Event) {}
+    "/vip/contact_seller"(platform: "/", type: TrackType.Event) {
+        vertical(required: false, description: "Vertical name over show phone event is displayed")
+        listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+    }
 
-    "/vip/call_seller"(platform: "/", type: TrackType.Event) {}
+    "/vip/call_seller"(platform: "/", type: TrackType.Event) {
+        vertical(required: false, description: "Vertical name over show phone event is displayed")
+        listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+    }
 
-    "/vip/show_phone"(platform: "/", type: TrackType.Event) {}
+    "/vip/show_phone"(platform: "/", type: TrackType.Event) {
+        vertical(required: false, description: "Vertical name over show phone event is displayed")
+        listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+    }
 
     "/vip/map/"(platform: "/mobile") {}
 
@@ -949,6 +961,9 @@ tracks {
         bin(required: true, type:  PropertyType.String)
         success(required: true, type:  PropertyType.Boolean)
     }
+    "/checkout/payments/add_debit_card/select_bank"(platform:"/mobile") {
+        available_issuers(required: true, type: PropertyType.ArrayList)
+    }
     "/checkout/payments/add_prepaid_card"(platform:"/mobile") {}
     "/checkout/payments/add_prepaid_card#card_config"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         bin(required: true, type:  PropertyType.String)
@@ -958,6 +973,9 @@ tracks {
     "/checkout/payments/add_card#card_config"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         bin(required: true, type:  PropertyType.String)
         success(required: true, type:  PropertyType.Boolean)
+    }
+    "/checkout/payments/add_card/select_bank"(platform:"/mobile") {
+        available_issuers(required: true, type: PropertyType.ArrayList)
     }
     "/checkout/payments/add_card/installments"(platform:"/mobile") {
         //List of available installments
@@ -1732,18 +1750,20 @@ tracks {
         from(required: false,  description: "Who is redirecting")
     }
     "/official_stores/landing"(platform: "/web", type: TrackType.View) {
-        isToolTipPresent(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
+        is_tool_tip_present(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
     }
     "/official_stores/checkon"(platform: "/web", type: TrackType.View) {
-        isToolTipPresent(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
+        is_tool_tip_present(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
     }
     "/official_stores/fewItemsPage"(platform: "/web", type: TrackType.View) {
         store(required: false,  description: "Store in the search")
         query(required: false,  description: "Query item looking for")
     }
     "/official_stores/zrp"(platform: "/web", type: TrackType.View) {
-        inStore(type: PropertyType.Boolean, required: false,  description: "If the zrp is rendered, and experiment redirects inside the sotre or outside")
-        useLink(type: PropertyType.Boolean, required: false,  description: "Is true if the zrp message link is used.")
+        in_store(type: PropertyType.Boolean, required: false,  description: "If the zrp is rendered, and experiment redirects inside the sotre or outside")
+        use_link(type: PropertyType.Boolean, required: false,  description: "Is true if the zrp message link is used.")
+        check_on_exp(type: PropertyType.Boolean, required: false,  description: "Is true if the checkon experiment mantains the checkon")
+        checked(type: PropertyType.Boolean, required: false,  description: "Is true only if the checkon is checked")
     }
 
     //Breadcrumb

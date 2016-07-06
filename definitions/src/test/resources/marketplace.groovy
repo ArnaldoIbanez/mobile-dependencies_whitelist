@@ -248,40 +248,92 @@ trackTests {
 
     "/vip/description/failure"(platform:"/mobile", dataSet)
 
-    "/vip/contact_seller"(platform:"/mobile", dataSet)
+    "/vip/contact_seller"(platform:"/mobile", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
+    })
 
     "/vip/contact_seller"(platform: "/web/desktop", type: TrackType.Event, {
       item_id = "MLA533657947"
       category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
     })
 
     "/vip/contact_seller"(platform: "/web/mobile", type: TrackType.Event, {
       item_id = "MLA533657947"
       category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
     })
 
-    "/vip/call_seller"(platform:"/mobile", dataSet)
+    "/vip/call_seller"(platform:"/mobile", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
+    })
 
     "/vip/call_seller"(platform:"/web/desktop", type: TrackType.Event, {
       item_id = "MLA533657947"
       category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
     })
 
     "/vip/call_seller"(platform:"/web/mobile", type: TrackType.Event, {
       item_id = "MLA533657947"
       category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
     })
 
-    "/vip/show_phone"(platform: "/mobile", dataSet)
+    "/vip/show_phone"(platform: "/mobile", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
+    })
 
     "/vip/show_phone"(platform: "/web/desktop", type: TrackType.Event, {
       item_id = "MLA533657947"
       category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
     })
 
     "/vip/show_phone"(platform: "/web/mobile", type: TrackType.Event, {
       item_id = "MLA533657947"
       category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
+    })
+
+    "/vip/show_phone"(platform: "/web/desktop", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
+    })
+
+    "/vip/show_phone"(platform: "/web/mobile", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
     })
 
     "/vip/description/failure"(platform:"/mobile", dataSet)
@@ -856,7 +908,11 @@ trackTests {
     "/checkout/payments/add_debit_card#card_config"(platform:"/mobile", type: TrackType.Event) {
           bin = "123456"
           success = true
-      }
+    }
+    "/checkout/payments/add_debit_card/select_bank"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      available_issuers = ["Visa", "Banamex", "Santander"]
+    }
     "/checkout/payments/add_prepaid_card"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
@@ -870,7 +926,11 @@ trackTests {
     "/checkout/payments/add_card#card_config"(platform:"/mobile", type: TrackType.Event) {
           bin = "123456"
           success = true
-      }
+    }
+    "/checkout/payments/add_card/select_bank"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      available_issuers = ["Visa", "Banamex", "Santander"]
+    }
     "/checkout/payments/add_card/installments"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       available_installments = [
@@ -2463,12 +2523,12 @@ trackTests {
     }
     test("Tracking landing without tooltip") {
         "/official_stores/landing"(platform: "/web") {
-          isToolTipPresent = false
+          is_tool_tip_present = false
         }
     }
     test("Tracking landing with tooltip") {
         "/official_stores/landing"(platform: "/web") {
-          isToolTipPresent = true
+          is_tool_tip_present = true
         }
     }
     test("Tracking landing without tooltip info") {
@@ -2476,12 +2536,12 @@ trackTests {
     }
     test("Tracking checkon with tooltip") {
         "/official_stores/checkon"(platform: "/web") {
-          isToolTipPresent = true
+          is_tool_tip_present = true
         }
     }
     test("Tracking checkon without tooltip") {
         "/official_stores/checkon"(platform: "/web") {
-          isToolTipPresent = false
+          is_tool_tip_present = false
         }
     }
     test("Tracking checkon without tooltip info") {
@@ -2495,8 +2555,8 @@ trackTests {
     }
     test("Tracking official stores zrp") {
         "/official_stores/zrp"(platform: "/web") {
-          inStore=true
-          useLink=false
+          in_store=true
+          use_link=false
         }
     }
 
