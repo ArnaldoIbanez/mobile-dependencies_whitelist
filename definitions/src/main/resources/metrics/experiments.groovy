@@ -244,5 +244,23 @@ metrics {
         }
     }
 
+	"seller_called"(description: "track vip calls as success for classifieds in the new order experiment") {
+		startWith {
+			condition {
+				and(
+					empty("experiments.search/filtersNewOrder", false),
+					or(
+					    like('event_data.category_path', '.*M..1743[,\\]].*'),
+					    like('event_data.category_path', '.*M..1459[,\\]].*')
+					)
+				)
+			}
+		}
 
+		countsOn {
+			condition {
+				path("/vip/call_seller")
+			}
+		}
+	}
 }
