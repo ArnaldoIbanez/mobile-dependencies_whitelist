@@ -108,7 +108,7 @@ class MetricsJsonTest {
 		assertEquals([["field":"event_data.congrats_seq","operator":"equals","value":"1"]], json.measures.condition)
 	}
 
-	@Test void testConditonAnd() {
+	@Test void testConditionAnd() {
 
 		def metrics = metrics {
 			"orders.congrats"(description: "checkout first congrats", compute_order: true) {
@@ -140,8 +140,7 @@ class MetricsJsonTest {
 		assertEquals(["field":"event_data.payments","operator":"notEquals","value":"cash"], json.measures.condition[0].values[1])
 	}
 
-
-	@Test void testTwoMeasures() {
+	@Test void testTwoMetrics() {
 
 		def metrics = metrics {
 			"orders.congrats"(description: "checkout first congrats", compute_order: true) {
@@ -188,7 +187,77 @@ class MetricsJsonTest {
 		assertEquals(["exp3"], json.measures[1].experiments)
 		assertEquals(["/search"], json.measures[1].paths)
 		assertEquals(null, json.measures[1].condition)
-
 	}
+
+	@Test void testStartWithCondition() {
+
+		def metrics = metrics {
+			"custom1"(description: "custom experiment") {
+				startWith {
+					condition {
+						empty("experiments.exp1", false)
+					}
+				}
+
+				countsOn {
+					condition {
+						path("/search")
+					}
+				}
+			}
+		}
+
+		def formatter = new com.melidata.metrics.format.MetricsFormatter(metrics)
+		def json = formatter.generate()
+
+		println json
+		assertEquals("custom1", json.insights[0].name)
+		assertEquals("custom experiment", json.insights[0].description)
+		assertEquals("experiments.exp1", json.insights[0].condition.field)
+		assertEquals("empty", json.insights[0].condition.operator)
+		assertEquals("false", json.insights[0].condition.value)
+		assertEquals("custom1", json.measures[0].name)
+		assertEquals(["/search"], json.measures[0].paths)
+		assertEquals("custom1", json.measures[0].experiments)
+	}
+
+	@Test void testStartWithConditionAndCountsOn() {
+
+		def metrics = metrics {
+			"custom1"(description: "custom experiment") {
+				startWith {
+					condition {
+						and(
+								empty("experiments.exp1", false),
+								or(
+										like('event_data.category_path', 'reg1'),
+										like('event_data.category_path', 'reg2')
+								)
+						)
+
+					}
+				}
+			}
+
+		}
+
+		def formatter = new com.melidata.metrics.format.MetricsFormatter(metrics)
+		def json = formatter.generate()
+
+		assertEquals("custom1", json.insights[0].name)
+		assertEquals("custom experiment", json.insights[0].description)
+		assertEquals("and", json.insights[0].condition.operator)
+		assertEquals("experiments.exp1", json.insights[0].condition.values[0].field)
+		assertEquals("empty", json.insights[0].condition.values[0].operator)
+		assertEquals("false", json.insights[0].condition.values[0].value)
+		assertEquals("or", json.insights[0].condition.values[1].operator)
+		assertEquals("event_data.category_path", json.insights[0].condition.values[1].values[0].field)
+		assertEquals("like", json.insights[0].condition.values[1].values[0].operator)
+		assertEquals("reg1", json.insights[0].condition.values[1].values[0].value)
+		assertEquals("event_data.category_path", json.insights[0].condition.values[1].values[1].field)
+		assertEquals("like", json.insights[0].condition.values[1].values[1].operator)
+		assertEquals("reg2", json.insights[0].condition.values[1].values[1].value)
+	}
+
 
 }

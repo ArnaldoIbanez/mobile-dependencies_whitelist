@@ -215,7 +215,7 @@ metrics {
 		}
 	}
 
-	"/search/filtersNewOrder.deal"(description: "extend experiment /search/filtersNewOrder with deal filter", parametricName: false) {
+	"search/filtersNewOrder.deal"(description: "extend experiment /search/filtersNewOrder with deal filter", parametricName: false) {
 		startWith {
 			condition {
 				and(
@@ -234,7 +234,7 @@ metrics {
 
     "seller_contacted"(description: "track vip contacts as success for classifieds in the new order experiment") {
         startWith {
-            experiment("search/filtersNewOrder")
+            experiment(regex("search/filtersNewOrder.*"))
         }
 
         countsOn {
@@ -244,7 +244,19 @@ metrics {
         }
     }
 
-	"seller_called"(description: "track vip calls as success for classifieds in the new order experiment") {
+    "seller_called"(description: "track vip call seller as success for classifieds in the new order experiment") {
+	    startWith {
+            experiment(regex("search/filtersNewOrder.*"))
+        }
+
+  		countsOn {
+			condition {
+				path("/vip/call_seller")
+			}
+		}
+	}
+
+	"search/filtersNewOrder.classifieds"(description: "extend experiment /search/filtersNewOrder for classifieds", parametricName: false) {
 		startWith {
 			condition {
 				and(
@@ -257,10 +269,11 @@ metrics {
 			}
 		}
 
-		countsOn {
+  		countsOn {
 			condition {
-				path("/vip/call_seller")
+				path("/vip/XXX")
 			}
 		}
+
 	}
 }
