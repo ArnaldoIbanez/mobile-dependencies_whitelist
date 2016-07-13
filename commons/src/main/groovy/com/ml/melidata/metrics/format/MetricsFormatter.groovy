@@ -36,7 +36,7 @@ class MetricsFormatter {
 					result += ["experiments": definition.experiments.collect { it.name }]
 				} else if ( definition.condition ) {
 					//insight defined in the same definition
-					result += ["experiments": definition.name ]
+					result += ["experiments": [ definition.name ] ]
 				}
 			}
 

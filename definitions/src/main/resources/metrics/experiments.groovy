@@ -234,24 +234,24 @@ metrics {
 
     "seller_contacted"(description: "track vip contacts as success for classifieds in the new order experiment") {
         startWith {
-            experiment(regex("search/filtersNewOrder.*"))
+            experiment("search/filtersNewOrder", "search/filtersNewOrder.deal", "search/filtersNewOrder.classifieds")
         }
 
         countsOn {
             condition {
-                path("/vip/call_seller", "/vip/contact_seller")
+                path("/vip/call_seller", "/vip/contact_seller", "/vip/show_phone")
             }
         }
     }
 
     "seller_called"(description: "track vip call seller as success for classifieds in the new order experiment") {
 	    startWith {
-            experiment(regex("search/filtersNewOrder.*"))
+            experiment("search/filtersNewOrder", "search/filtersNewOrder.deal", "search/filtersNewOrder.classifieds")
         }
 
   		countsOn {
 			condition {
-				path("/vip/call_seller")
+				path("/vip/call_seller", "/vip/show_phone")
 			}
 		}
 	}
