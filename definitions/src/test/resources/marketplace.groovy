@@ -1893,6 +1893,7 @@ trackTests {
     }
 
     "/register/facebook_permissions"(platform: "/mobile"){
+      login_status = "success"
       email = true
       user_birthday = true
       user_likes = true
