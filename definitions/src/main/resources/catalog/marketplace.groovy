@@ -1803,4 +1803,11 @@ tracks {
         position(required: false, description: "Selected position on selected item on the carousel")
         item_id(required: false, description: "Item id to selected item on the carousel")
     }
+
+    // Account recovery event
+    "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
+        connectionError(required: true, description: "Connection error")
+        invalidOneTimePassword(required: true, description: "The one-time-password is invalid")
+        operatorNotSupported(required: true, description: "The operator is not supported")
+    }
 }

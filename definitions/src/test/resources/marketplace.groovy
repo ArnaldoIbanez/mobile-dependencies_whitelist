@@ -2667,4 +2667,17 @@ trackTests {
     "/home/category/real-estate#featured-items"(platform: "/web", type: TrackType.Event, carouselEvent)
     "/home/category/real-estate#featured-items"(platform: "/mobile", type: TrackType.Event, carouselEvent)
   }
+
+  test("Account Recovery tracking event") {
+
+    def error = {
+      connectionError = "connectionError"
+      invalidOneTimePassword = "invalidOneTimePassword"
+      operatorNotSupported = "operatorNotSupported"
+    }
+
+    "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event, error)
+    "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event, error)
+    "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event, error)
+  }
 }
