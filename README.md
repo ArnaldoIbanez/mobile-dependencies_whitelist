@@ -15,4 +15,3 @@ If you want to run the tests, you should execute **```make test```**
 ## Metrics Definitions
 
 [Documentation](https://github.com/mercadolibre/melidata-catalog/wiki#metrics-definitions)
-
