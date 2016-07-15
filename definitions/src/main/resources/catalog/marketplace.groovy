@@ -236,10 +236,10 @@ tracks {
         //corrections(required: false, description:'corrections over query')
         //processed_query(required: false, description:'processed query by backend')
         //stems(required: false, description:'stems list which returns backend to stand out in frontend'
-        }
+        
         geolocation(required: false, description:'geolocation')
         landing(required: false, description:'landings: base, premium, etc')
-
+}
 
     "/search"(platform: "/mobile") {
         filter_user_applied(deprecated: true, required: false)
