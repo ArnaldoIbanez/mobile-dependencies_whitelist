@@ -2632,39 +2632,4 @@ trackTests {
       "/home/category/real-estate"(platform: "/web", dataSetView)
       "/home/category/real-estate"(platform: "/mobile", dataSetView)
     }
-
-  test("Real estate home click on search tracking") {
-    def dataSetViewSearch = {
-      category_id = "MLA1459"
-      filters = {
-        cityId: 1
-        cityName: 'Santiago'
-        stateId: 1
-        stateName: 'Santiago'
-        neighborhoodId: 1
-        neighborhoodName: 'La rioja'
-        categories: 11
-        operations: 11
-      }
-      as_word: true
-      search_word: "Palermo"
-    }
-
-    "/home/category/real-estate#search"(platform: "/", type: TrackType.Event, dataSetViewSearch)
-    "/home/category/real-estate#search"(platform: "/web", type: TrackType.Event, dataSetViewSearch)
-    "/home/category/real-estate#search"(platform: "/mobile", type: TrackType.Event, dataSetViewSearch)
-  }
-
-  test("Real estate carousel tracking event") {
-    def carouselEvent = {
-      category_id = "MLA1459"
-      position: 1
-      bucket: "gold"
-      item_id: '222ML'
-    }
-
-    "/home/category/real-estate#featured-items"(platform: "/", type: TrackType.Event, carouselEvent)
-    "/home/category/real-estate#featured-items"(platform: "/web", type: TrackType.Event, carouselEvent)
-    "/home/category/real-estate#featured-items"(platform: "/mobile", type: TrackType.Event, carouselEvent)
-  }
 }
