@@ -221,19 +221,24 @@ tracks {
         //block_store_position
         landing(required:false, description:'indicates landing base, premium, etc')
         //Tracks from Search Backend:
-        ab(required: false, description:'ab testing related. to be doprecated')
-        ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
-        aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
-        ac(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Not Comblinable')
-        ap(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Combinable with other pages')
-        fsm(required: false, description:'indicates on each result of paged if its full or soft match')
-        layout(required: false, description:'layout of search')
-        qas(required: false, PropertyType.ArrayList, description:'auto selected filters')
-        canonical(required: false, description:'url canonical')
-        cli_rel_qty_configured(required: false, description:'client relationship')
-        cli_rel_qty_link_to_category(required: false, description:'client relationship link to category')
-        geolocation(required: false, description:'geolocation')
-    }
+        backend_data(required: false)
+        //ab(required: false, description:'ab testing related. to be deprecated')
+        //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
+        //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
+        //ac(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Not Comblinable')
+        //ap(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Combinable with other pages')
+        //fsm(required: false, description:'indicates on each result of paged if its full or soft match')
+        //layout(required: false, description:'layout of search')
+        //qas(required: false, PropertyType.ArrayList, description:'auto selected filters')
+        //canonical(required: false, description:'url canonical')
+        //cli_rel_qty_configured(required: false, description:'client relationship')
+        //cli_rel_qty_link_to_category(required: false, description:'client relationship link to category')
+        //geolocation(required: false, description:'geolocation')
+        //corrections(required: false, description:'corrections over query')
+        //processed_query(required: false, description:'processed query by backend')
+        //stems(required: false, description:'stems list which returns backend to stand out in frontend'
+        }
+
 
     "/search"(platform: "/mobile") {
         filter_user_applied(deprecated: true, required: false)
