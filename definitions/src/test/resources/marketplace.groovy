@@ -111,7 +111,6 @@ trackTests {
             cli_rel_qty_link_to_category="MLA123"
         }
         geolocation="AR:CABA"
-
         landing="base"
 
     })

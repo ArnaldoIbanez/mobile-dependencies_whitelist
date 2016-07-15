@@ -233,11 +233,12 @@ tracks {
         //canonical(required: false, description:'url canonical')
         //cli_rel_qty_configured(required: false, description:'client relationship')
         //cli_rel_qty_link_to_category(required: false, description:'client relationship link to category')
-        //geolocation(required: false, description:'geolocation')
         //corrections(required: false, description:'corrections over query')
         //processed_query(required: false, description:'processed query by backend')
         //stems(required: false, description:'stems list which returns backend to stand out in frontend'
         }
+        geolocation(required: false, description:'geolocation')
+        landing(required: false, description:'landings: base, premium, etc')
 
 
     "/search"(platform: "/mobile") {
