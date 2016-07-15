@@ -383,9 +383,23 @@ tracks {
 
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
-    "/vip/contact_seller"(platform: "/mobile") {}
+    "/vip/contact_seller"(platform: "/", type: TrackType.Event) {
+        vertical(required: false, description: "Vertical name over show phone event is displayed")
+        listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+    }
 
-    "/vip/call_seller"(platform: "/mobile") {}
+    "/vip/call_seller"(platform: "/", type: TrackType.Event) {
+        vertical(required: false, description: "Vertical name over show phone event is displayed")
+        listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+    }
+
+    "/vip/show_phone"(platform: "/", type: TrackType.Event) {
+        vertical(required: false, description: "Vertical name over show phone event is displayed")
+        listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+    }
 
     "/vip/map/"(platform: "/mobile") {}
 
@@ -742,6 +756,7 @@ tracks {
         //View specific data
         success(required: true, type: PropertyType.Boolean)
         location(required: false, type: PropertyType.String)
+        geolocation_method(required: false, type: PropertyType.String)
     }
     "/checkout/shipping"(platform: "/mobile", isAbstract: true) {
         order_id(required: false, description: "OrderId")
@@ -806,6 +821,15 @@ tracks {
         error_code(required: false, type: PropertyType.String)
         inconsistency(required: false, type: PropertyType.String)
     }
+    //Geolocation on fallback
+    "/checkout/shipping/select_method/ask_enable_geolocation"(platform: "/mobile") {}
+    "/checkout/shipping/select_method/ask_enable_geolocation#geolocation_permission_ask"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        granted(required: true, type: PropertyType.String)
+    }
+    "/checkout/shipping/select_method/ask_enable_geolocation#geolocation_enabled"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        status(required: true, type: PropertyType.String)
+    }
+    "/checkout/shipping/select_method/ask_enable_geolocation#unable_to_use_location_services"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
     //Geolocation
     "/checkout/shipping/select_method/geolocated"(platform:"/mobile") {}
     "/checkout/shipping/custom_address"(platform: "/mobile", isAbstract: true) {}
@@ -957,6 +981,9 @@ tracks {
         bin(required: true, type:  PropertyType.String)
         success(required: true, type:  PropertyType.Boolean)
     }
+    "/checkout/payments/add_debit_card/select_bank"(platform:"/mobile") {
+        available_issuers(required: true, type: PropertyType.ArrayList)
+    }
     "/checkout/payments/add_prepaid_card"(platform:"/mobile") {}
     "/checkout/payments/add_prepaid_card#card_config"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         bin(required: true, type:  PropertyType.String)
@@ -966,6 +993,9 @@ tracks {
     "/checkout/payments/add_card#card_config"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         bin(required: true, type:  PropertyType.String)
         success(required: true, type:  PropertyType.Boolean)
+    }
+    "/checkout/payments/add_card/select_bank"(platform:"/mobile") {
+        available_issuers(required: true, type: PropertyType.ArrayList)
     }
     "/checkout/payments/add_card/installments"(platform:"/mobile") {
         //List of available installments
@@ -1478,7 +1508,7 @@ tracks {
 
     "/register"(platform: "/mobile", isAbstract: true) {}
 
-    "/register/success"(platform: "/mobile") {
+    "/register/success"(platform: "/") {
         source()
     }
 
@@ -1487,9 +1517,25 @@ tracks {
     }
 
     "/register/facebook_permissions"(platform: "/mobile"){
+        login_status(type: PropertyType.String, description: "Success, Cancel, Error" )
         email(type: PropertyType.Boolean, description : " Needed  to access date (day and month) of the user birthday.")
         user_birthday(type: PropertyType.Boolean, description : " Needed  to access the user main email address.")
         user_likes(type: PropertyType.Boolean, description : " Needed  to access user liked pages.")
+    }
+
+    //REGISTER WEB
+
+    "/register/form"(platform:"/web", type: TrackType.View) {
+        app(type: PropertyType.String, description: "Registration app", required:true)
+        source(type: PropertyType.String, description: "Source (on mobile is facebook/email, on web at the moment is only email)", required:true)
+        item_id(type: PropertyType.String, description: "Item", required:false)
+    }
+
+    "/register/form/error"(platform:"/web", type: TrackType.View) {}
+
+    "/register/success"(platform:"/web", type: TrackType.Event) {
+        app(type: PropertyType.String, description: "Registration app", required:true)
+        item_id(type: PropertyType.String, description: "Item", required:false)
     }
 
     "/traffic"(platform: "/", isAbstract: true) {}
@@ -1721,18 +1767,20 @@ tracks {
         from(required: false,  description: "Who is redirecting")
     }
     "/official_stores/landing"(platform: "/web", type: TrackType.View) {
-        isToolTipPresent(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
+        is_tool_tip_present(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
     }
     "/official_stores/checkon"(platform: "/web", type: TrackType.View) {
-        isToolTipPresent(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
+        is_tool_tip_present(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
     }
     "/official_stores/fewItemsPage"(platform: "/web", type: TrackType.View) {
         store(required: false,  description: "Store in the search")
         query(required: false,  description: "Query item looking for")
     }
     "/official_stores/zrp"(platform: "/web", type: TrackType.View) {
-        inStore(type: PropertyType.Boolean, required: false,  description: "If the zrp is rendered, and experiment redirects inside the sotre or outside")
-        useLink(type: PropertyType.Boolean, required: false,  description: "Is true if the zrp message link is used.")
+        in_store(type: PropertyType.Boolean, required: false,  description: "If the zrp is rendered, and experiment redirects inside the sotre or outside")
+        use_link(type: PropertyType.Boolean, required: false,  description: "Is true if the zrp message link is used.")
+        check_on_exp(type: PropertyType.Boolean, required: false,  description: "Is true if the checkon experiment mantains the checkon")
+        checked(type: PropertyType.Boolean, required: false,  description: "Is true only if the checkon is checked")
     }
 
     //Breadcrumb
@@ -1760,19 +1808,5 @@ tracks {
     "/home/category/real-estate"(platform: "/", type: TrackType.View) {
         filters(required: false, description: "Filter applied in the last search")
         carousels(required: false, description: "Carousels in the home page to the properties")
-    }
-
-    // Search click event
-    "/home/category/real-estate#search"(platform: "/", type: TrackType.Event) {
-        filters(required: false, description: "Filter applied in the last search")
-        as_word(required: false, description: "True if the search is do through free text, false if the search is do through ")
-        search_word(required:false, description: "Free text adding for the user to do the search")
-    }
-
-    // Carousel click event
-    "/home/category/real-estate#featured-items"(platform: "/", type: TrackType.Event) {
-        bucket(required: false, description: "Type of carousel (premium, gold, used)")
-        position(required: false, description: "Selected position on selected item on the carousel")
-        item_id(required: false, description: "Item id to selected item on the carousel")
     }
 }

@@ -210,12 +210,12 @@ metrics {
 			}
 
 			openBy {
-				"event_data.order_items.item.review_rate"(default: "null", function: "round")
+				"event_data.order_items.item.review_rate"(default: "", function: "round")
 			}
 		}
 	}
 
-	"/search/filtersNewOrder.deal"(description: "extend experiment /search/filtersNewOrder with deal filter", parametricName: false) {
+	"search/filtersNewOrder.deal"(description: "extend experiment /search/filtersNewOrder with deal filter", parametricName: false) {
 		startWith {
 			condition {
 				and(
@@ -232,8 +232,41 @@ metrics {
 		}
 	}
 
+    "seller_contacted"(description: "track vip contacts as success for classifieds in the new order experiment") {
+        startWith {
+            experiment("search/filtersNewOrder", "search/filtersNewOrder.deal", "search/filtersNewOrder.classifieds")
+        }
 
+        countsOn {
+            condition {
+                path("/vip/call_seller", "/vip/contact_seller", "/vip/show_phone")
+            }
+        }
+    }
 
+    "seller_called"(description: "track vip call seller as success for classifieds in the new order experiment") {
+	    startWith {
+            experiment("search/filtersNewOrder", "search/filtersNewOrder.deal", "search/filtersNewOrder.classifieds")
+        }
 
+  		countsOn {
+			condition {
+				path("/vip/call_seller", "/vip/show_phone")
+			}
+		}
+	}
 
+	"search/filtersNewOrder.classifieds"(description: "extend experiment /search/filtersNewOrder for classifieds", parametricName: false) {
+		startWith {
+			condition {
+				and(
+					empty("experiments.search/filtersNewOrder", false),
+					or(
+					    like('event_data.category_path', '.*M..1743(-|$).*'),
+					    like('event_data.category_path', '.*M..1459(-|$).*')
+					)
+				)
+			}
+		}
+	}
 }

@@ -266,9 +266,93 @@ trackTests {
 
     "/vip/description/failure"(platform:"/mobile", dataSet)
 
-    "/vip/contact_seller"(platform:"/mobile", dataSet)
+    "/vip/contact_seller"(platform:"/mobile", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
+    })
 
-    "/vip/call_seller"(platform:"/mobile", dataSet)
+    "/vip/contact_seller"(platform: "/web/desktop", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
+    })
+
+    "/vip/contact_seller"(platform: "/web/mobile", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
+    })
+
+    "/vip/call_seller"(platform:"/mobile", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
+    })
+
+    "/vip/call_seller"(platform:"/web/desktop", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
+    })
+
+    "/vip/call_seller"(platform:"/web/mobile", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
+    })
+
+    "/vip/show_phone"(platform: "/mobile", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
+    })
+
+    "/vip/show_phone"(platform: "/web/desktop", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
+    })
+
+    "/vip/show_phone"(platform: "/web/mobile", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
+    })
+
+    "/vip/show_phone"(platform: "/web/desktop", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
+    })
+
+    "/vip/show_phone"(platform: "/web/mobile", type: TrackType.Event, {
+      item_id = "MLA533657947"
+      category_id = "3323"
+      vertical = "REAL-ESTATE"
+      listing_type_id = "GOLD"
+      item_seller_type = "AB001"
+    })
 
     "/vip/description/failure"(platform:"/mobile", dataSet)
 
@@ -690,6 +774,7 @@ trackTests {
       checkoutStatus()
       success = true
       location = "34.677755,56.444433"
+      geolocation_method = "platform"
     }
     "/checkout/shipping/select_method"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
@@ -702,6 +787,20 @@ trackTests {
       inconsistency = "cant_sent_x_units"
       selections = ["shipping_geo", "shipping_other", "local_pick_up"]
     }
+    "/checkout/shipping/select_method/ask_enable_geolocation"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      //List of available shippingMethods
+      selections = ["shipping_other", "local_pick_up"]
+    }
+    "/checkout/shipping/select_method/ask_enable_geolocation#geolocation_permission_ask"(platform:"/mobile", type: TrackType.Event) {
+        //granted
+        granted = "yes"
+    }
+    "/checkout/shipping/select_method/ask_enable_geolocation#geolocation_enabled"(platform:"/mobile", type: TrackType.Event) {
+        //status
+        status = "on"
+    }
+    "/checkout/shipping/select_method/ask_enable_geolocation#unable_to_use_location_services"(platform:"/mobile", type: TrackType.Event) {}
     "/checkout/shipping/select_method/geolocated"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       //List of available shippingMethods
@@ -827,7 +926,11 @@ trackTests {
     "/checkout/payments/add_debit_card#card_config"(platform:"/mobile", type: TrackType.Event) {
           bin = "123456"
           success = true
-      }
+    }
+    "/checkout/payments/add_debit_card/select_bank"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      available_issuers = ["Visa", "Banamex", "Santander"]
+    }
     "/checkout/payments/add_prepaid_card"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }
@@ -841,7 +944,11 @@ trackTests {
     "/checkout/payments/add_card#card_config"(platform:"/mobile", type: TrackType.Event) {
           bin = "123456"
           success = true
-      }
+    }
+    "/checkout/payments/add_card/select_bank"(platform:"/mobile", type:TrackType.View) {
+      checkoutStatus()
+      available_issuers = ["Visa", "Banamex", "Santander"]
+    }
     "/checkout/payments/add_card/installments"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
       available_installments = [
@@ -1804,10 +1911,47 @@ trackTests {
     }
 
     "/register/facebook_permissions"(platform: "/mobile"){
+      login_status = "success"
       email = true
-      user_birthday = true 
-      user_likes = true 
+      user_birthday = true
+      user_likes = true
     }
+  }
+
+  test("Register Web") {
+    "/register/form"(platform: "/web/desktop") {
+      app = "registration"
+      source = "email"
+    }
+
+    "/register/form"(platform: "/web/mobile") {
+      app = "registration-question"
+      source = "email"
+      item_id = "MCO123321"
+    }
+
+    "/register/form/error"(platform: "/web/desktop") {
+      app = "registration"
+      source = "email"
+    }
+
+    "/register/form/error"(platform: "/web/mobile") {
+      app = "registration-question"
+      source = "email"
+      item_id = "MCO123321"
+    }
+
+    "/register/success"(platform: "/web/desktop") {
+      app = "registration-favorite"
+      source = "email"
+      item_id = "MCO123321"
+    }
+
+    "/register/success"(platform: "/web/mobile") {
+      app = "registration"
+      source = "email"
+    }
+
   }
 
     test("Traffic") {
@@ -2398,12 +2542,12 @@ trackTests {
     }
     test("Tracking landing without tooltip") {
         "/official_stores/landing"(platform: "/web") {
-          isToolTipPresent = false
+          is_tool_tip_present = false
         }
     }
     test("Tracking landing with tooltip") {
         "/official_stores/landing"(platform: "/web") {
-          isToolTipPresent = true
+          is_tool_tip_present = true
         }
     }
     test("Tracking landing without tooltip info") {
@@ -2411,12 +2555,12 @@ trackTests {
     }
     test("Tracking checkon with tooltip") {
         "/official_stores/checkon"(platform: "/web") {
-          isToolTipPresent = true
+          is_tool_tip_present = true
         }
     }
     test("Tracking checkon without tooltip") {
         "/official_stores/checkon"(platform: "/web") {
-          isToolTipPresent = false
+          is_tool_tip_present = false
         }
     }
     test("Tracking checkon without tooltip info") {
@@ -2430,8 +2574,8 @@ trackTests {
     }
     test("Tracking official stores zrp") {
         "/official_stores/zrp"(platform: "/web") {
-          inStore=true
-          useLink=false
+          in_store=true
+          use_link=false
         }
     }
 
@@ -2506,39 +2650,4 @@ trackTests {
       "/home/category/real-estate"(platform: "/web", dataSetView)
       "/home/category/real-estate"(platform: "/mobile", dataSetView)
     }
-
-  test("Real estate home click on search tracking") {
-    def dataSetViewSearch = {
-      category_id = "MLA1459"
-      filters = {
-        cityId: 1
-        cityName: 'Santiago'
-        stateId: 1
-        stateName: 'Santiago'
-        neighborhoodId: 1
-        neighborhoodName: 'La rioja'
-        categories: 11
-        operations: 11
-      }
-      as_word: true
-      search_word: "Palermo"
-    }
-
-    "/home/category/real-estate#search"(platform: "/", type: TrackType.Event, dataSetViewSearch)
-    "/home/category/real-estate#search"(platform: "/web", type: TrackType.Event, dataSetViewSearch)
-    "/home/category/real-estate#search"(platform: "/mobile", type: TrackType.Event, dataSetViewSearch)
-  }
-
-  test("Real estate carousel tracking event") {
-    def carouselEvent = {
-      category_id = "MLA1459"
-      position: 1
-      bucket: "gold"
-      item_id: '222ML'
-    }
-
-    "/home/category/real-estate#featured-items"(platform: "/", type: TrackType.Event, carouselEvent)
-    "/home/category/real-estate#featured-items"(platform: "/web", type: TrackType.Event, carouselEvent)
-    "/home/category/real-estate#featured-items"(platform: "/mobile", type: TrackType.Event, carouselEvent)
-  }
 }

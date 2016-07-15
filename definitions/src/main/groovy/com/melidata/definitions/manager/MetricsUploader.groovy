@@ -6,7 +6,7 @@ package com.melidata.definitions.manager
 class MetricsUploader {
 
     def static JSON_CONTENT="application/json"
-    def static LAST_VERSION_FILE_NAME = "metrics2.json"
+    def static LAST_VERSION_FILE_NAME = "metrics.json"
 
     def metricsDir
     def S3Controller s3Controller
