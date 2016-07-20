@@ -1789,4 +1789,16 @@ tracks {
         filters(required: false, description: "Filter applied in the last search")
         carousels(required: false, description: "Carousels in the home page to the properties")
     }
+
+    "/sell"(platform: "/web", isAbstract: true) {}
+    "/sell/upgrade"(platform: "/web", isAbstract: true) {}
+
+    "/sell/upgrade/single_upgrade"(platform: "/", type: TrackType.View){
+        item_id(required: true, description: "Item")
+        listing_type_id(required: true, description: "Item listing type id")
+        vertical(required: false, description: "Vertical")
+        seller_experience(required: false, description: "Seller experience: Newbie, Intermediate or Advanced")
+        buying_mode(required: false, description: "Item buying mode")
+        condition(required: false, description: "Item condition")
+    }
 }

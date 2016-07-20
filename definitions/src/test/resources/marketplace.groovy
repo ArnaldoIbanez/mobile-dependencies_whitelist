@@ -2632,4 +2632,15 @@ trackTests {
       "/home/category/real-estate"(platform: "/web", dataSetView)
       "/home/category/real-estate"(platform: "/mobile", dataSetView)
     }
+
+    test("Single upgrade track view"){
+      "/sell/upgrade/single_upgrade"(platform: "/web"){
+        item_id = "MLB123456"
+        seller_experience = "ADVANCED"
+        vertical = "CORE"
+        listing_type_id = "gold_special"
+        buying_mode = "buy_it_now"
+        condition = "used"
+      }
+    }
 }
