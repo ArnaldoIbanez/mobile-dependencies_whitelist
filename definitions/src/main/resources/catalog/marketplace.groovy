@@ -1810,4 +1810,16 @@ tracks {
         filters(required: false, description: "Filter applied in the last search")
         carousels(required: false, description: "Carousels in the home page to the properties")
     }
+
+    "/download-app"(platform: "/web") {}
+    "/download-app/send"(platform: "/web", type: TrackType.Event) {
+        phone_number()
+    }
+    "/download-app/send/success"(platform: "/web", type: TrackType.Event) {
+        phone_number()
+    }
+    "/download-app/send/error"(platform: "/web", type: TrackType.Event) {
+        phone_number()
+    }
 }
+
