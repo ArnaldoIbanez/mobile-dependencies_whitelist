@@ -218,7 +218,7 @@ metrics {
 
     "seller_called"(description: "track vip call seller as success for classifieds in the new order experiment") {
 	    startWith {
-            experiment("search/filtersNewOrder", "search/filtersNewOrder.deal", "search/filtersNewOrder.classifieds")
+            experiment("search/filtersNewOrder", "search/filtersNewOrderDeals", "search/filtersNewOrder.classifieds")
         }
 
   		countsOn {
