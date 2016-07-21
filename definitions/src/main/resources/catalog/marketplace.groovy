@@ -1818,43 +1818,40 @@ tracks {
         seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
     }
 
-    "/sell/change_listing_type/single"(platform: "/", isAbstract: true){
+    "/sell/change_listing_type/single"(platform: "/", type: TrackType.View){
         item_id(required: true, description: "Item id")
         listing_type_id(required: true, description: "Item listing type id")
-        vertical(required: true, description: "Item Vertical")
-        buying_mode(required: true, description: "Item buying mode")
-        condition(required: true, description: "Item condition")
+        vertical(required: true, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        buying_mode(required: true, description: "Item buying mode: buy_it_now/auction/classified")
+        condition(required: true, description: "Item condition: used/new/not_specified")
         price(required: true, description: "Item price")
+        type(required:true, description: "Type of the view. Upgrade / Upgrade full screen / single option, ect...")
     }
 
-    "/sell/change_listing_type/massive"(platform: "/", isAbstract: true){
+    "/sell/change_listing_type/massive"(platform: "/", type: TrackType.View){
         items_amount(required: true, description: "Amount of items affected")
+        type(required:true, description: "Type of the view. Upgrade / Upgrade full screen / single option, ect...")
     }
-
-    "/sell/change_listing_type/single/upgrade"(platform: "/", type: TrackType.View){}             // Pantalla del upgrade
-    "/sell/change_listing_type/single/upgrade_full_screen"(platform: "/", type: TrackType.View){} // Upgrade en full screen
-    "/sell/change_listing_type/single/single_option"(platform: "/", type: TrackType.View){}       // Cambiar entre Clásico y Premium
-    "/sell/change_listing_type/massive/single_option"(platform: "/", type: TrackType.View){}       // Cambiar entre Clásico y Premium de forma masiva
 
     // Eventos relacionados al item
     "/item"(platform: "/web", isAbstract: true) {
         item_id(required: true, description: "Item id")
     }
 
-    "/item/list"(platform: "/web", type: TrackType.Event) {
+    "/item/create"(platform: "/web", type: TrackType.Event) {
         listing_type_id(required: true, description: "Item listing type id")
-        vertical(required: true, description: "Item Vertical")
-        buying_mode(required: true, description: "Item buying mode")
-        condition(required: true, description: "Item condition")
+        vertical(required: true, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        buying_mode(required: true, description: "Item buying mode: buy_it_now/auction/classified")
+        condition(required: true, description: "Item condition: used/new/not_specified")
         price(required: true, description: "Item price")
     }
 
     "/item/change_listing_type"(platform: "/web", type: TrackType.Event) {
         from(required: true, description: "Previous Listing type")
         to(required: true, description: "New Listing type")
-        vertical(required: false, description: "Item Vertical")
-        buying_mode(required: false, description: "Item buying mode")
-        condition(required: false, description: "Item condition")
+        vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
+        condition(required: false, description: "Item condition: used/new/not_specified")
         price(required: false, description: "Item price")
     }
 
@@ -1862,26 +1859,7 @@ tracks {
     // Myml
     "/myml"(platform: "/web", isAbstract: true) {}
     "/myml/listings"(platform: "/web", isAbstract: true) {}
-    "/myml/listings/active"(platform: "/web", isAbstract: true) {}
-    
-    // Experimento wordin del botón de aumentar exposición variante 1
-    "/myml/listings/active/increase_exposure"(platform: "/web", type: TrackType.View) {
-        item_id(required: true, description: "Item id")
-        seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
-        vertical(required: true, description: "Item Vertical")
-        buying_mode(required: true, description: "Item buying mode")
-        condition(required: true, description: "Item condition")
-        price(required: true, description: "Item price")
-    }
-    // Experimento wordin del botón de aumentar exposición variante 2
-    "/myml/listings/active/sell_faster"(platform: "/web", type: TrackType.View) {
-        item_id(required: true, description: "Item id")
-        seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
-        vertical(required: true, description: "Item Vertical")
-        buying_mode(required: true, description: "Item buying mode")
-        condition(required: true, description: "Item condition")
-        price(required: true, description: "Item price")
-    }
+    "/myml/listings/active"(platform: "/web", type: TrackType.View) {}
 
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {

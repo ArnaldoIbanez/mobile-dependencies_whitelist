@@ -2660,18 +2660,18 @@ trackTests {
         buying_mode = "buy_it_now"
         condition = "used"
         price = 123.456
+        type = "upgrade_full_screen"
       }
 
       def dataSetViewMassive = {
         source = "my_account_listings"
         items_amount =  5
         seller_experience = "NEWBIE"
+        type = "single_option"
       }
 
-      "/sell/change_listing_type/single/upgrade"(platform: "/web", dataSetViewSingle)
-      "/sell/change_listing_type/single/upgrade_full_screen"(platform: "/web", dataSetViewSingle)
-      "/sell/change_listing_type/single/single_option"(platform: "/web", dataSetViewSingle)
-      "/sell/change_listing_type/massive/single_option"(platform: "/web", dataSetViewMassive)
+      "/sell/change_listing_type/single"(platform: "/web", dataSetViewSingle)
+      "/sell/change_listing_type/massive"(platform: "/web", dataSetViewMassive)
     }
 
     test("Item events"){
@@ -2701,23 +2701,13 @@ trackTests {
       }
 
 
-      "/item/list"(platform: "/web", dataListItem)
+      "/item/create"(platform: "/web", dataListItem)
       "/item/change_listing_type"(platform: "/web", dataChangeListingTypeItemFullInfo)
       "/item/change_listing_type"(platform: "/web", dataChangeListingTypeItemMinimumInfo)
     }
 
-    test("Myml listing upgrade experiment"){
-      def dataSetView = {
-        item_id = "MLB123456"
-        seller_experience = "ADVANCED"
-        vertical = "CORE"
-        buying_mode = "buy_it_now"
-        condition = "used"
-        price = 123.456
-      }
-
-      "/myml/listings/active/increase_exposure"(platform: "/web", dataSetView)
-      "/myml/listings/active/sell_faster"(platform: "/web", dataSetView)
+    test("Myml listing active view"){
+      "/myml/listings/active"(platform: "/web"){}
     }
 
     test("Download app landing tracking") {
