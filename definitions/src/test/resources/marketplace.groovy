@@ -2633,14 +2633,73 @@ trackTests {
       "/home/category/real-estate"(platform: "/mobile", dataSetView)
     }
 
-    test("Single upgrade track view"){
-      "/sell/upgrade/single_upgrade"(platform: "/web"){
+    test("Sell change listing type track view"){
+      def dataSetViewSingle = {
+        source = "email_upgrade_7_days"
         item_id = "MLB123456"
         seller_experience = "ADVANCED"
         vertical = "CORE"
         listing_type_id = "gold_special"
         buying_mode = "buy_it_now"
         condition = "used"
+        price = 123.456
       }
+
+      def dataSetViewMassive = {
+        source = "my_account_listings"
+        items_amount =  5
+        seller_experience = "NEWBIE"
+      }
+
+      "/sell/change_listing_type/single/upgrade"(platform: "/web", dataSetViewSingle)
+      "/sell/change_listing_type/single/upgrade_full_screen"(platform: "/web", dataSetViewSingle)
+      "/sell/change_listing_type/single/single_option"(platform: "/web", dataSetViewSingle)
+      "/sell/change_listing_type/massive/single_option"(platform: "/web", dataSetViewMassive)
+    }
+
+    test("Item events"){
+      def dataListItem = {
+        item_id = "MLA123456"
+        listing_type_id = "gold_special"
+        vertical = "CORE"
+        buying_mode = "buy_it_now"
+        condition = "used"
+        price = 123.456
+      }
+
+      def dataChangeListingTypeItemFullInfo = {
+        item_id = "MLA123456"
+        from = "gold_special"
+        to = "gold_pro"
+        vertical = "CORE"
+        buying_mode = "buy_it_now"
+        condition = "used"
+        price = 123.456
+      }
+
+      def dataChangeListingTypeItemMinimumInfo = {
+        item_id = "MLA123456"
+        from = "gold_special"
+        to = "gold_pro"
+      }
+
+
+      "/item/list"(platform: "/web", dataListItem)
+      "/item/change_listing_type"(platform: "/web", dataChangeListingTypeItemFullInfo)
+      "/item/change_listing_type"(platform: "/web", dataChangeListingTypeItemMinimumInfo)
+    }
+
+    test("Myml listing upgrade experiment"){
+      def dataSetView = {
+        item_id = "MLB123456"
+        seller_experience = "ADVANCED"
+        vertical = "CORE"
+        buying_mode = "buy_it_now"
+        condition = "used"
+        price = 123.456
+      }
+
+      "/myml/listings/active/increase_exposure"(platform: "/web", dataSetView)
+      "/myml/listings/active/sell_faster"(platform: "/web", dataSetView)
     }
 }

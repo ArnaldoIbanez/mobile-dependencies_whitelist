@@ -1790,15 +1790,76 @@ tracks {
         carousels(required: false, description: "Carousels in the home page to the properties")
     }
 
+    // Sell
     "/sell"(platform: "/web", isAbstract: true) {}
-    "/sell/upgrade"(platform: "/web", isAbstract: true) {}
+    "/sell/change_listing_type"(platform: "/web", isAbstract: true) {
+        source(required: true, description: "Source could be differents types of email, my account, etc.", type: PropertyType.String)
+        seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
+    }
 
-    "/sell/upgrade/single_upgrade"(platform: "/", type: TrackType.View){
-        item_id(required: true, description: "Item")
+    "/sell/change_listing_type/single"(platform: "/", isAbstract: true){
+        item_id(required: true, description: "Item id")
         listing_type_id(required: true, description: "Item listing type id")
-        vertical(required: false, description: "Vertical")
-        seller_experience(required: false, description: "Seller experience: Newbie, Intermediate or Advanced")
+        vertical(required: true, description: "Item Vertical")
+        buying_mode(required: true, description: "Item buying mode")
+        condition(required: true, description: "Item condition")
+        price(required: true, description: "Item price")
+    }
+
+    "/sell/change_listing_type/massive"(platform: "/", isAbstract: true){
+        items_amount(required: true, description: "Amount of items affected")
+    }
+
+    "/sell/change_listing_type/single/upgrade"(platform: "/", type: TrackType.View){}             // Pantalla del upgrade
+    "/sell/change_listing_type/single/upgrade_full_screen"(platform: "/", type: TrackType.View){} // Upgrade en full screen
+    "/sell/change_listing_type/single/single_option"(platform: "/", type: TrackType.View){}       // Cambiar entre Clásico y Premium
+    "/sell/change_listing_type/massive/single_option"(platform: "/", type: TrackType.View){}       // Cambiar entre Clásico y Premium de forma masiva
+
+    // Eventos relacionados al item
+    "/item"(platform: "/web", isAbstract: true) {
+        item_id(required: true, description: "Item id")
+    }
+
+    "/item/list"(platform: "/web", type: TrackType.Event) {
+        listing_type_id(required: true, description: "Item listing type id")
+        vertical(required: true, description: "Item Vertical")
+        buying_mode(required: true, description: "Item buying mode")
+        condition(required: true, description: "Item condition")
+        price(required: true, description: "Item price")
+    }
+
+    "/item/change_listing_type"(platform: "/web", type: TrackType.Event) {
+        from(required: true, description: "Previous Listing type")
+        to(required: true, description: "New Listing type")
+        vertical(required: false, description: "Item Vertical")
         buying_mode(required: false, description: "Item buying mode")
         condition(required: false, description: "Item condition")
+        price(required: false, description: "Item price")
     }
+
+
+    // Myml
+    "/myml"(platform: "/web", isAbstract: true) {}
+    "/myml/listings"(platform: "/web", isAbstract: true) {}
+    "/myml/listings/active"(platform: "/web", isAbstract: true) {}
+    
+    // Experimento wordin del botón de aumentar exposición variante 1
+    "/myml/listings/active/increase_exposure"(platform: "/web", type: TrackType.View) {
+        item_id(required: true, description: "Item id")
+        seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
+        vertical(required: true, description: "Item Vertical")
+        buying_mode(required: true, description: "Item buying mode")
+        condition(required: true, description: "Item condition")
+        price(required: true, description: "Item price")
+    }
+    // Experimento wordin del botón de aumentar exposición variante 2
+    "/myml/listings/active/sell_faster"(platform: "/web", type: TrackType.View) {
+        item_id(required: true, description: "Item id")
+        seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
+        vertical(required: true, description: "Item Vertical")
+        buying_mode(required: true, description: "Item buying mode")
+        condition(required: true, description: "Item condition")
+        price(required: true, description: "Item price")
+    }
+
 }
