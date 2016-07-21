@@ -1811,6 +1811,56 @@ tracks {
         carousels(required: false, description: "Carousels in the home page to the properties")
     }
 
+    // Sell
+    "/sell"(platform: "/web", isAbstract: true) {}
+    "/sell/change_listing_type"(platform: "/web", isAbstract: true) {
+        source(required: true, description: "Source could be differents types of email, my account, etc.", type: PropertyType.String)
+        seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
+    }
+
+    "/sell/change_listing_type/single"(platform: "/", type: TrackType.View){
+        item_id(required: true, description: "Item id")
+        listing_type_id(required: true, description: "Item listing type id")
+        vertical(required: true, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        buying_mode(required: true, description: "Item buying mode: buy_it_now/auction/classified")
+        condition(required: true, description: "Item condition: used/new/not_specified")
+        price(required: true, description: "Item price")
+        type(required:true, description: "Type of the view. Upgrade / Upgrade full screen / single option, ect...")
+    }
+
+    "/sell/change_listing_type/massive"(platform: "/", type: TrackType.View){
+        items_amount(required: true, description: "Amount of items affected")
+        type(required:true, description: "Type of the view. Upgrade / Upgrade full screen / single option, ect...")
+    }
+
+    // Eventos relacionados al item
+    "/item"(platform: "/web", isAbstract: true) {
+        item_id(required: true, description: "Item id")
+    }
+
+    "/item/create"(platform: "/web", type: TrackType.Event) {
+        listing_type_id(required: true, description: "Item listing type id")
+        vertical(required: true, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        buying_mode(required: true, description: "Item buying mode: buy_it_now/auction/classified")
+        condition(required: true, description: "Item condition: used/new/not_specified")
+        price(required: true, description: "Item price")
+    }
+
+    "/item/change_listing_type"(platform: "/web", type: TrackType.Event) {
+        from(required: true, description: "Previous Listing type")
+        to(required: true, description: "New Listing type")
+        vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
+        condition(required: false, description: "Item condition: used/new/not_specified")
+        price(required: false, description: "Item price")
+    }
+
+
+    // Myml
+    "/myml"(platform: "/web", isAbstract: true) {}
+    "/myml/listings"(platform: "/web", isAbstract: true) {}
+    "/myml/listings/active"(platform: "/web", type: TrackType.View) {}
+
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
         phone_number()

@@ -2650,6 +2650,66 @@ trackTests {
       "/home/category/real-estate"(platform: "/mobile", dataSetView)
     }
 
+    test("Sell change listing type track view"){
+      def dataSetViewSingle = {
+        source = "email_upgrade_7_days"
+        item_id = "MLB123456"
+        seller_experience = "ADVANCED"
+        vertical = "CORE"
+        listing_type_id = "gold_special"
+        buying_mode = "buy_it_now"
+        condition = "used"
+        price = 123.456
+        type = "upgrade_full_screen"
+      }
+
+      def dataSetViewMassive = {
+        source = "my_account_listings"
+        items_amount =  5
+        seller_experience = "NEWBIE"
+        type = "single_option"
+      }
+
+      "/sell/change_listing_type/single"(platform: "/web", dataSetViewSingle)
+      "/sell/change_listing_type/massive"(platform: "/web", dataSetViewMassive)
+    }
+
+    test("Item events"){
+      def dataListItem = {
+        item_id = "MLA123456"
+        listing_type_id = "gold_special"
+        vertical = "CORE"
+        buying_mode = "buy_it_now"
+        condition = "used"
+        price = 123.456
+      }
+
+      def dataChangeListingTypeItemFullInfo = {
+        item_id = "MLA123456"
+        from = "gold_special"
+        to = "gold_pro"
+        vertical = "CORE"
+        buying_mode = "buy_it_now"
+        condition = "used"
+        price = 123.456
+      }
+
+      def dataChangeListingTypeItemMinimumInfo = {
+        item_id = "MLA123456"
+        from = "gold_special"
+        to = "gold_pro"
+      }
+
+
+      "/item/create"(platform: "/web", dataListItem)
+      "/item/change_listing_type"(platform: "/web", dataChangeListingTypeItemFullInfo)
+      "/item/change_listing_type"(platform: "/web", dataChangeListingTypeItemMinimumInfo)
+    }
+
+    test("Myml listing active view"){
+      "/myml/listings/active"(platform: "/web"){}
+    }
+
     test("Download app landing tracking") {
 
         "/download-app"(platform: "/web"){}
