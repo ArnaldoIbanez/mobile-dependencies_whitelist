@@ -96,6 +96,23 @@ trackTests {
         }
         results=["232232000", "232232001", "232232002"]
         billboard_shown = true
+        backend_data={
+            sm="sm"
+            ab="1"
+            aa=["a1","a2"]
+            ac=["ac1","ac2"]
+            ap=["ap1","ap2"]
+            fsm="fsm"
+            ab_bucket="AB1"
+            layout="stack"
+            qas=["232232000", "232232001", "232232002"]
+            cli_rel_qty_configured="12"
+            canonical="http://home.mercadolibre.com.ar/telefonia/"
+            cli_rel_qty_link_to_category="MLA123"
+        }
+        geolocation="AR:CABA"
+        landing="base"
+
     })
 
     "/search"(platform: "/mobile", defaultSearchInformation)
@@ -2701,5 +2718,19 @@ trackTests {
 
       "/myml/listings/active/increase_exposure"(platform: "/web", dataSetView)
       "/myml/listings/active/sell_faster"(platform: "/web", dataSetView)
+    }
+
+    test("Download app landing tracking") {
+
+        "/download-app"(platform: "/web"){}
+        "/download-app/send"(platform: "/web", type: TrackType.Event){
+            phone_number = "123456789"
+        }
+        "/download-app/send/success"(platform: "/web", type: TrackType.Event){
+            phone_number = "123456789"
+        }
+        "/download-app/send/error"(platform: "/web", type: TrackType.Event){
+            phone_number = "123456789"
+        }
     }
 }
