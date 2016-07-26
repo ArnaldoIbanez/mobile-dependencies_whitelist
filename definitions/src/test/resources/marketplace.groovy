@@ -2660,14 +2660,14 @@ trackTests {
         buying_mode = "buy_it_now"
         condition = "used"
         price = 123.456
-        type = "upgrade_full_screen"
+        view_type = "upgrade_full_screen"
       }
 
       def dataSetViewMassive = {
         source = "my_account_listings"
         items_amount =  5
         seller_experience = "NEWBIE"
-        type = "single_option"
+        view_type = "single_option"
       }
 
       "/sell/change_listing_type/single"(platform: "/web", dataSetViewSingle)
