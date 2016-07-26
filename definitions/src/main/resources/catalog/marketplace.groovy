@@ -1825,12 +1825,12 @@ tracks {
         buying_mode(required: true, description: "Item buying mode: buy_it_now/auction/classified")
         condition(required: true, description: "Item condition: used/new/not_specified")
         price(required: true, description: "Item price")
-        type(required:true, description: "Type of the view. Upgrade / Upgrade full screen / single option, ect...")
+        view_type(required:true, description: "Type of the view. Upgrade / Upgrade full screen / single option, ect...")
     }
 
     "/sell/change_listing_type/massive"(platform: "/", type: TrackType.View){
         items_amount(required: true, description: "Amount of items affected")
-        type(required:true, description: "Type of the view. Upgrade / Upgrade full screen / single option, ect...")
+        view_type(required:true, description: "Type of the view. Upgrade / Upgrade full screen / single option, ect...")
     }
 
     // Eventos relacionados al item
