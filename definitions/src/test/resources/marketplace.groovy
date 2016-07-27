@@ -73,7 +73,7 @@ trackTests {
         click_banner={
           exhibitors_id='12'
         }
-        banners={
+        banner={
             deal_id='12'
             exhibitors_id='12'
         }
