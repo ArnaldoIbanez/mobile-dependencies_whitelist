@@ -81,7 +81,7 @@ metrics {
 		}
 	}
 
-	"orders.congrats.sameorder"(description: "orders for items in the same item of exposition", compute_order: true) {
+	"orders.congrats.sameorder"(description: "congrats for order in the same order_id of exposition", compute_order: true) {
 		countsOn {
 			condition {
 				path(regex("/checkout/congrats(/.*|\$)"))
