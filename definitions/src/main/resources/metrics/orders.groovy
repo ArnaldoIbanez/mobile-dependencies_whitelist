@@ -31,7 +31,7 @@ metrics {
 
 	"orders.official.stores"(description: "orders for items in any official store", compute_order: true) {
 		startWith {
-			experiment("ShowOfficialStoresOnTopQcatDeals")
+			experiment("ShowOfficialStoresOnTopQcatDeals", "search/checkOnBehavior", "search/zrpOfficialStores")
 		}
 
 		countsOn {
