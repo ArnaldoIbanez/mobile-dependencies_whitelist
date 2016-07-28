@@ -1870,6 +1870,7 @@ tracks {
     }
     "/download-app/send/error"(platform: "/web", type: TrackType.Event) {
         phone_number()
+        error_type()
     }
 }
 
