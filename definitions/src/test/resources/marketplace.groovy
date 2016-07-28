@@ -2714,13 +2714,16 @@ trackTests {
 
         "/download-app"(platform: "/web"){}
         "/download-app/send"(platform: "/web", type: TrackType.Event){
-            phone_number = "123456789"
+            user_phone_number = "000123456789"
+            final_phone_number = "123456789"
         }
         "/download-app/send/success"(platform: "/web", type: TrackType.Event){
-            phone_number = "123456789"
+            user_phone_number = "000123456789"
+            final_phone_number = "123456789"
         }
         "/download-app/send/error"(platform: "/web", type: TrackType.Event){
-            phone_number = "123456789"
+            user_phone_number = "000123456789"
+            final_phone_number = "123456789"
             error_type = "error type"
         }
     }
