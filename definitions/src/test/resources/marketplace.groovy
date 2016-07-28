@@ -2721,7 +2721,7 @@ trackTests {
         }
         "/download-app/send/error"(platform: "/web", type: TrackType.Event){
             phone_number = "123456789"
-            type = "error type"
+            error_type = "error type"
         }
     }
 }
