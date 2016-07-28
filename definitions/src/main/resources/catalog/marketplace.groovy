@@ -1863,13 +1863,16 @@ tracks {
 
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
-        phone_number()
+        user_phone_number()
+        final_phone_number()
     }
     "/download-app/send/success"(platform: "/web", type: TrackType.Event) {
-        phone_number()
+        user_phone_number()
+        final_phone_number()
     }
     "/download-app/send/error"(platform: "/web", type: TrackType.Event) {
-        phone_number()
+        user_phone_number()
+        final_phone_number()
         error_type()
     }
 }
