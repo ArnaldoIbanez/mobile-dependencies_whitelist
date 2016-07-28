@@ -2707,7 +2707,9 @@ trackTests {
     }
 
     test("Myml listing active view"){
-      "/myml/listings/active"(platform: "/web"){}
+      "/myml/listings"(platform: "/web"){
+        label = "active"
+      }
     }
 
     test("Download app landing tracking") {
