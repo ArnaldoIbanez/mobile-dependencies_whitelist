@@ -1769,9 +1769,11 @@ tracks {
     }
     "/official_stores/landing"(platform: "/web", type: TrackType.View) {
         is_tool_tip_present(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
+        exit_to_store(type: PropertyType.Boolean, required: false,  description: "Is true only if you continue searching in a OS")
     }
     "/official_stores/checkon"(platform: "/web", type: TrackType.View) {
         is_tool_tip_present(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
+        uncheck(type: PropertyType.Boolean, required: false,  description: "Is true only if the check is Unchecked")
     }
     "/official_stores/fewItemsPage"(platform: "/web", type: TrackType.View) {
         store(required: false,  description: "Store in the search")
@@ -1782,6 +1784,7 @@ tracks {
         use_link(type: PropertyType.Boolean, required: false,  description: "Is true if the zrp message link is used.")
         check_on_exp(type: PropertyType.Boolean, required: false,  description: "Is true if the checkon experiment mantains the checkon")
         checked(type: PropertyType.Boolean, required: false,  description: "Is true only if the checkon is checked")
+        exit_to_store(type: PropertyType.Boolean, required: false,  description: "Is true only if you continue searching in a OS")
     }
 
     //Breadcrumb
