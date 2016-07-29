@@ -1858,8 +1858,9 @@ tracks {
 
     // Myml
     "/myml"(platform: "/web", isAbstract: true) {}
-    "/myml/listings"(platform: "/web", isAbstract: true) {}
-    "/myml/listings/active"(platform: "/web", type: TrackType.View) {}
+    "/myml/listings"(platform: "/web", type: TrackType.View) {
+        label(required: true, description: "Selected label: active/closed/paused/...")
+    }
 
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {

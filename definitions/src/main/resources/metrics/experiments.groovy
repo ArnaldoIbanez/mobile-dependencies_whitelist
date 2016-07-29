@@ -269,4 +269,18 @@ metrics {
 			}
 		}
 	}
+
+	"free_item_upgraded"(description: "A free Item was upgraded") {
+		startWith {
+			experiment("sell/increase_exposure_wording")
+		}
+
+		countsOn {
+			condition {
+				path("/item/change_listing_type")
+
+				equals("event_data.from", "free")
+			}
+		}
+	}
 }
