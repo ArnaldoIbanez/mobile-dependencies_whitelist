@@ -66,7 +66,7 @@ metrics {
 
 	"congrats_with_payment.sameOrder"(description: "congrats view with payments containing 'payment' string", compute_order: true) {
 		startWith {
-			experiment("congrats_accord", "buyingflow/accordAccordPay")
+            experiment(regex("(.*email/order.*|congrats_accord|buyingflow/accordAccordPay)"))
 		}
 
 		countsOn {
@@ -214,19 +214,6 @@ metrics {
 			}
 		}
 	}
-
-    "orders.more_congrats.sameorder"(description: "congrats arrived for same for order_id of exposition", compute_order: true) {
-        startWith {
-            experiment(regex(".*email/order.*"))
-        }
-
-        countsOn {
-            condition {
-                path(regex("/checkout/congrats(/.*|\$)"))
-                equals("event_data.order_id", property("order_id"))
-            }
-        }
-    }
 
 	"search/filtersNewOrder.deal"(description: "extend experiment /search/filtersNewOrder with deal filter", parametricName: false) {
 		startWith {
