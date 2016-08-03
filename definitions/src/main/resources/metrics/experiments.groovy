@@ -66,7 +66,7 @@ metrics {
 
 	"congrats_with_payment.sameOrder"(description: "congrats view with payments containing 'payment' string", compute_order: true) {
 		startWith {
-			experiment("congrats_accord", "buyingflow/accordAccordPay")
+            experiment(regex("(.*email/order.*|congrats_accord|buyingflow/accordAccordPay)"))
 		}
 
 		countsOn {
