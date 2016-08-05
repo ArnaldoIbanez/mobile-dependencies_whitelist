@@ -1093,6 +1093,8 @@ trackTests {
       checkoutStatus()
       available_actions = ["retry", "change_payment_method"]
     }
+     "/checkout/congrats/invalid_sec_code/input"(platform:"/mobile", type:TrackType.View) {
+    }
     "/checkout/congrats/pending"(platform:"/mobile", type:TrackType.View) {
       checkoutStatus()
     }

@@ -1224,6 +1224,9 @@ tracks {
     "/checkout/congrats/invalid_sec_code"(platform: "/mobile") {
         available_actions(required: true, type: PropertyType.ArrayList)
     }
+    "/checkout/congrats/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {
+        
+    }
     "/checkout/congrats/pending"(platform: "/mobile") {}
     "/checkout/error"(platform: "/mobile") {
         order_id(required: false, description: "OrderId")
