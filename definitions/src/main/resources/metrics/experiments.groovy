@@ -66,7 +66,7 @@ metrics {
 
 	"congrats_with_payment.sameOrder"(description: "congrats view with payments containing 'payment' string", compute_order: true) {
 		startWith {
-			experiment("congrats_accord", "buyingflow/accordAccordPay")
+            experiment(regex("(.*email/order.*|congrats_accord|buyingflow/accordAccordPay)"))
 		}
 
 		countsOn {
@@ -262,18 +262,25 @@ metrics {
 				and(
 					empty("experiments.search/filtersNewOrder", false),
 					or(
-					    like('event_data.category_path', '.*M..1743[,\\]].*'),
-					    like('event_data.category_path', '.*M..1459[,\\]].*')
+					    like('event_data.category_path', '.*M..1743(-|$).*'),
+					    like('event_data.category_path', '.*M..1459(-|$).*')
 					)
 				)
 			}
 		}
+	}
 
-  		countsOn {
-			condition {
-				path("/vip/XXX")
-			}
+	"free_item_upgraded"(description: "A free Item was upgraded") {
+		startWith {
+			experiment("sell/increase_exposure_wording")
 		}
 
+		countsOn {
+			condition {
+				path("/item/change_listing_type")
+
+				equals("event_data.from", "free")
+			}
+		}
 	}
 }
