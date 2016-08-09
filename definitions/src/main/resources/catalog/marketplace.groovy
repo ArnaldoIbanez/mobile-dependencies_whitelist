@@ -1,20 +1,20 @@
-import com.ml.melidata.TrackType
-import com.ml.melidata.catalog.PropertyType
 
+import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
+import com.ml.melidata.TrackType
 
 /**
- *
- * The events means actions that happens without launch a View,
- * as example of that we can consider Bookmark an item in a VIP page
- * Every event is an action, so the verbs available are:
- *
- * - back:  the event of back from a page, specially in mobile
- * - abort: the user abort the action (e.g: back pressed before api response)
- * - delete: when something is deleted
- * - apply: when a criteria is applied
- * - post: create a new entity
- */
+*
+* The events means actions that happens without launch a View,
+* as example of that we can consider Bookmark an item in a VIP page
+* Every event is an action, so the verbs available are:
+*
+* - back:  the event of back from a page, specially in mobile
+* - abort: the user abort the action (e.g: back pressed before api response)
+* - delete: when something is deleted
+* - apply: when a criteria is applied
+* - post: create a new entity
+*/
 
 tracks {
     def categoryRegex = /(ROOT|[a-zA-Z]{1,3}[0-9]+)/
@@ -57,13 +57,13 @@ tracks {
     }
 
     "/melidata/shrink_database"(platform: "/mobile", isAbstract: true) {
-        delete_records(type: PropertyType.Numeric, description: "Number of records/tracks deleted when shrinking")
-        previous_size(type: PropertyType.Numeric, description: "Size of database before shrinking in bytes")
-        current_size(type: PropertyType.Numeric, description: "Size of database after shrinking in bytes")
+        delete_records( type: PropertyType.Numeric, description: "Number of records/tracks deleted when shrinking")
+        previous_size (type: PropertyType.Numeric, description: "Size of database before shrinking in bytes")
+        current_size (type: PropertyType.Numeric , description: "Size of database after shrinking in bytes")
     }
 
-    "/melidata/shrink_database"(platform: "/mobile/android", type: TrackType.Control) {}
-    "/melidata/shrink_database"(platform: "/mobile/ios", type: TrackType.Event) {}
+    "/melidata/shrink_database"(platform: "/mobile/android", type: TrackType.Control ) {}
+    "/melidata/shrink_database"(platform: "/mobile/ios", type: TrackType.Event ) {}
 
     //EXTERNAL
     //TODO revisar /external/XXX
@@ -196,7 +196,7 @@ tracks {
         official_store_id(deprecated: true, required: false)
         deal(deprecated: true, required: false)
         filter_tags(required: false, PropertyType.ArrayList)
-        results(required: false, PropertyType.ArrayList, description: "item ids from search result")
+        results(required: false, PropertyType.ArrayList,description:"item ids from search result")
         billboard_shown(required: false, PropertyType.Boolean)
 
     }
@@ -206,20 +206,20 @@ tracks {
         config_version(required: false)
         filters(required: false)
         only_in_type(required: false)
-        click_banner(required: false, description: 'Indicates that this listing has apppeared after clicking on a banner')
+        click_banner(required: false, description:'Indicates that this listing has apppeared after clicking on a banner')
         // exhibitors_id
-        banner(required: false, description: 'Banner showed in this listing info, if showed')
+        banner(required: false, description:'Banner showed in this listing info, if showed')
         //deal_id
         // exhibitors_id
-        related_searches(required: false, description: 'indicates whether clicked search related')
+        related_searches(required: false, description:'indicates whether clicked search related')
         //query
         // position
         //quantity
-        autosuggest(required: false, description: 'indicates whether clicked autosuggest')
+        autosuggest(required: false, description:'indicates whether clicked autosuggest')
         //suggest_position
         //last_search_position
         //block_store_position
-        landing(required: false, description: 'indicates landing base, premium, etc')
+        landing(required:false, description:'indicates landing base, premium, etc')
         //Tracks from Search Backend:
         backend_data(required: false)
         //ab(required: false, description:'ab testing related. to be deprecated')
@@ -236,10 +236,10 @@ tracks {
         //corrections(required: false, description:'corrections over query')
         //processed_query(required: false, description:'processed query by backend')
         //stems(required: false, description:'stems list which returns backend to stand out in frontend'
-
-        geolocation(required: false, description: 'geolocation')
-        landing(required: false, description: 'landings: base, premium, etc')
-    }
+        
+        geolocation(required: false, description:'geolocation')
+        landing(required: false, description:'landings: base, premium, etc')
+}
 
     "/search"(platform: "/mobile") {
         filter_user_applied(deprecated: true, required: false)
@@ -252,15 +252,15 @@ tracks {
         offset(required: false, description: "override required property")
     }
 
-    "/search/long_press"(platform: "/mobile", type: TrackType.Event) {
+    "/search/long_press" (platform: "/mobile", type: TrackType.Event){
         item_id()
     }
 
-    "/search/share"(platform: "/mobile", type: TrackType.Event) {
+    "/search/share" (platform: "/mobile", type: TrackType.Event){
         item_id()
     }
 
-    "/search/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/search/back" (platform: "/mobile", type: TrackType.Event) {}
 
     "/search/abort"(platform: "/mobile", type: TrackType.Event) {
         limit(required: false, description: "override required property")
@@ -307,11 +307,11 @@ tracks {
 
     "/search/billboard"(platform: "/", type: TrackType.Event) {
         position_shown(required: false, type: PropertyType.Numeric)
-        move(required: false, values: ["forward", "backward"])
+        move(required: false, values: ["forward","backward"])
     }
 
     "/search/billboard/resize"(platform: "/web", type: TrackType.Event) {
-        action(required: true, values: ["expand", "collapse"])
+        action(required: true, values: ["expand","collapse"])
     }
 
     //VIP FLOW
@@ -338,7 +338,7 @@ tracks {
         local_pick_up(deprecated: true, required: false)
         category_path(deprecated: true, required: false)
         promoted_items_clicked(required: false, descripcion: 'indicates whether clicked promoted items before reaching this vip')
-        billboard_clicked_position(required: false, type: PropertyType.Numeric)
+        billboard_clicked_position(required:false, type: PropertyType.Numeric)
     }
 
     "/vip"(platform: "/web") {
@@ -517,7 +517,7 @@ tracks {
         total_amount_usd(serverSide: true)
     }
 
-    "/checkout/login"(platform: "/web", isAbstract: true) {
+    "/checkout/login"(platform:"/web", isAbstract: true) {
         vip_parameters(required: true, description: "Parameters that came from the VIP")
         //cht
         //pm
@@ -535,7 +535,7 @@ tracks {
     "/checkout/login/first_purchase_not_authenticated"(platform: "/web") {}
     "/checkout/login/confirm_not_authenticated"(platform: "/web") {}
 
-    "/checkout/payments"(platform: "/web", isAbstract: true) {
+    "/checkout/payments"(platform:"/web", isAbstract: true) {
         order_id(required: true, description: "OrderId")
         status(required: true, description: "status")
         total_amount(required: true, description: "totalAmount")
@@ -564,7 +564,7 @@ tracks {
         // name,
         // shipping_method_id
 
-        order_items(description: "Array of items in the order")
+        order_items( description: "Array of items in the order" )
         //item
         //id
         //variation_id
@@ -583,7 +583,7 @@ tracks {
     "/checkout/payments/select_split_payment"(platform: "/web") {}
     "/checkout/payments/input_proactive_payment_amount"(platform: "/web") {}
 
-    "/checkout/payments/installments#submit"(platform: "/web", type: TrackType.Event) {
+    "/checkout/payments/installments#submit"(platform:"/web", type: TrackType.Event) {
         pay_pref_id(required: true, description: "payment preference Id")
         total_price(required: true, description: "Total price")
         preferred_installment(required: true, description: "preferred Installment")
@@ -592,7 +592,7 @@ tracks {
     }
 
     //Web and Apps track is the same
-    "/checkout/review"(platform: "/") {
+    "/checkout/review"(platform:"/") {
         order_id(required: false, description: "OrderId") //Apps might not have an order
         status(required: false, description: "status") //Apps might not have an order
         total_amount(required: true, description: "totalAmount")
@@ -621,7 +621,7 @@ tracks {
         // name,
         // shipping_method_id
 
-        order_items(description: "Array of items in the order")
+        order_items( description: "Array of items in the order" )
         //item
         //id
         //variation_id
@@ -641,7 +641,7 @@ tracks {
         //nickname
     }
 
-    "/checkout/congrats"(platform: "/web") {
+    "/checkout/congrats"(platform:"/web") {
         order_id(required: true, description: "OrderId")
         status(required: true, description: "status")
         total_amount(required: true, description: "totalAmount")
@@ -674,7 +674,7 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(description: "Array of items in the order")
+        order_items( description: "Array of items in the order" )
         //item
         //id
         //variation_id
@@ -699,10 +699,10 @@ tracks {
         total_amount_usd(serverSide: true)
     }
 
-    /** *****************************************************************/
+    /*******************************************************************/
     //Mobile Checkout Apps
-    "/checkout/wrapper"(platform: "/mobile") {} //Melidata experiment
-    "/checkout/init"(platform: "/mobile") {
+    "/checkout/wrapper"(platform:"/mobile") {} //Melidata experiment
+    "/checkout/init"(platform:"/mobile") {
         //Might not have most of status values in case of requestFailure
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
@@ -735,7 +735,7 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: false, description: "Array of items in the order")
+        order_items(required: false, description: "Array of items in the order" )
         //item
         //id
         //variation_id
@@ -791,7 +791,7 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: true, description: "Array of items in the order")
+        order_items(required: true, description: "Array of items in the order" )
         //item
         //id
         //variation_id
@@ -824,24 +824,24 @@ tracks {
     }
     //Geolocation on fallback
     "/checkout/shipping/select_method/ask_enable_geolocation"(platform: "/mobile") {}
-    "/checkout/shipping/select_method/ask_enable_geolocation#geolocation_permission_ask"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/shipping/select_method/ask_enable_geolocation#geolocation_permission_ask"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         granted(required: true, type: PropertyType.String)
     }
-    "/checkout/shipping/select_method/ask_enable_geolocation#geolocation_enabled"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/shipping/select_method/ask_enable_geolocation#geolocation_enabled"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         status(required: true, type: PropertyType.String)
     }
     "/checkout/shipping/select_method/ask_enable_geolocation#unable_to_use_location_services"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
     //Geolocation
-    "/checkout/shipping/select_method/geolocated"(platform: "/mobile") {}
+    "/checkout/shipping/select_method/geolocated"(platform:"/mobile") {}
     "/checkout/shipping/custom_address"(platform: "/mobile", isAbstract: true) {}
     //Input zip_code
-    "/checkout/shipping/custom_address/zip_code"(platform: "/mobile") {}
+    "/checkout/shipping/custom_address/zip_code"(platform:"/mobile") {}
     "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
     //Query zip code
     "/checkout/shipping/custom_address/zip_code/query"(platform:"/mobile", type: TrackType.View, parentPropertiesInherited: false) {}
-    "/checkout/shipping/custom_address/zip_code/query#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-        query_parameters(required: false, type: PropertyType.String)
-        failing_url(required: false, type: PropertyType.String)
+    "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        query_parameters (required: false, type: PropertyType.String)
+        failing_url (required: false, type: PropertyType.String)
     }
     "/checkout/shipping/custom_address/zip_code/query/back"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
     "/checkout/shipping/select_option"(platform: "/mobile", isAbstract: true) {
@@ -857,11 +857,11 @@ tracks {
         //]
     }
     //Select shippingOptions
-    "/checkout/shipping/select_option/mercado_envios"(platform: "/mobile") {}
-    "/checkout/shipping/select_option/free_shipping"(platform: "/mobile") {}
-    "/checkout/shipping/select_option/custom"(platform: "/mobile") {}
+    "/checkout/shipping/select_option/mercado_envios"(platform:"/mobile") {}
+    "/checkout/shipping/select_option/free_shipping"(platform:"/mobile") {}
+    "/checkout/shipping/select_option/custom"(platform:"/mobile") {}
     //Input address flow
-    "/checkout/shipping/select_contact"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/shipping/select_contact"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         is_from_preload_address(required: true, type: PropertyType.Boolean)
     }
 
@@ -875,20 +875,20 @@ tracks {
     "/checkout/shipping/location/address#additional_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         additional_info(required: false, type: PropertyType.String)
     }
-    "/checkout/shipping/location/address"(platform: "/mobile") {
+    "/checkout/shipping/location/address"(platform:"/mobile") {
         //View specific data
         edit_flow(required: true, type: PropertyType.Boolean)
     }
-    "/checkout/shipping/location/select_contact#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/shipping/location/select_contact#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         success(required: true, type: PropertyType.Boolean)
         error_codes(required: false, type: PropertyType.ArrayList)
     }
-    "/checkout/shipping/location/select_contact"(platform: "/mobile") {
+    "/checkout/shipping/location/select_contact"(platform:"/mobile") {
         //View specific data
         available_options(required: true, type: PropertyType.Numeric)
     }
-    "/checkout/shipping/location/find_contact"(platform: "/mobile") {}
-    "/checkout/shipping/location/new_contact"(platform: "/mobile") {
+    "/checkout/shipping/location/find_contact"(platform:"/mobile") {}
+    "/checkout/shipping/location/new_contact"(platform:"/mobile") {
         //View specific data
         //Contact name/phone
         contact_name(required: false, type: PropertyType.String)
@@ -908,11 +908,11 @@ tracks {
         //  ]
         //]
     }
-    "/checkout/shipping/select_address/list"(platform: "/mobile") {
+    "/checkout/shipping/select_address/list"(platform:"/mobile") {
         shipping_options(required: false, type: PropertyType.ArrayList)
     }
     //Select paymentMethod
-    "/checkout/payments/preload_credit_card"(platform: "/mobile", type: TrackType.View) {}//Melidata experiment
+    "/checkout/payments/preload_credit_card"(platform:"/mobile", type:TrackType.View) {}//Melidata experiment
     "/checkout/payments"(platform: "/mobile", isAbstract: true) {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
@@ -945,7 +945,7 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: true, description: "Array of items in the order")
+        order_items(required: true, description: "Array of items in the order" )
         //item
         //id
         //variation_id
@@ -965,40 +965,40 @@ tracks {
         //id
         //nickname
     }
-    "/checkout/payments/select_method"(platform: "/mobile") {
+    "/checkout/payments/select_method"(platform:"/mobile") {
         //List of available payment_methods and coupon info
         available_methods(required: true, type: PropertyType.ArrayList)
-        coupon(required: false, type: PropertyType.Boolean)
-        coupon_discoun(required: false, type: PropertyType.Numeric)
+        coupon(required: false, type:  PropertyType.Boolean)
+        coupon_discoun(required: false, type:  PropertyType.Numeric)
     }
-    "/checkout/payments/select_method#new_payment_method_selected"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/payments/select_method#new_payment_method_selected"(platform:"/mobile",  type: TrackType.Event, parentPropertiesInherited: false) {
         payment_method_id(required: false, type: PropertyType.String)
         payment_type_id(required: false, type: PropertyType.String)
     }
-    "/checkout/payments/coupon_detail"(platform: "/mobile") {}
+    "/checkout/payments/coupon_detail"(platform:"/mobile") {}
     // Add card form
-    "/checkout/payments/add_debit_card"(platform: "/mobile") {}
-    "/checkout/payments/add_debit_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-        bin(required: true, type: PropertyType.String)
-        success(required: true, type: PropertyType.Boolean)
+    "/checkout/payments/add_debit_card"(platform:"/mobile") {}
+    "/checkout/payments/add_debit_card#card_config"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        bin(required: true, type:  PropertyType.String)
+        success(required: true, type:  PropertyType.Boolean)
     }
-    "/checkout/payments/add_debit_card/select_bank"(platform: "/mobile") {
+    "/checkout/payments/add_debit_card/select_bank"(platform:"/mobile") {
         available_issuers(required: true, type: PropertyType.ArrayList)
     }
-    "/checkout/payments/add_prepaid_card"(platform: "/mobile") {}
-    "/checkout/payments/add_prepaid_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-        bin(required: true, type: PropertyType.String)
-        success(required: true, type: PropertyType.Boolean)
+    "/checkout/payments/add_prepaid_card"(platform:"/mobile") {}
+    "/checkout/payments/add_prepaid_card#card_config"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        bin(required: true, type:  PropertyType.String)
+        success(required: true, type:  PropertyType.Boolean)
     }
-    "/checkout/payments/add_card"(platform: "/mobile") {}
-    "/checkout/payments/add_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-        bin(required: true, type: PropertyType.String)
-        success(required: true, type: PropertyType.Boolean)
+    "/checkout/payments/add_card"(platform:"/mobile") {}
+    "/checkout/payments/add_card#card_config"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        bin(required: true, type:  PropertyType.String)
+        success(required: true, type:  PropertyType.Boolean)
     }
-    "/checkout/payments/add_card/select_bank"(platform: "/mobile") {
+    "/checkout/payments/add_card/select_bank"(platform:"/mobile") {
         available_issuers(required: true, type: PropertyType.ArrayList)
     }
-    "/checkout/payments/add_card/installments"(platform: "/mobile") {
+    "/checkout/payments/add_card/installments"(platform:"/mobile") {
         //List of available installments
         available_installments(required: true, type: PropertyType.ArrayList)
         //installments: [
@@ -1009,8 +1009,8 @@ tracks {
         //    ]
     }
     "/checkout/payments/stored_card"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/payments/stored_card/security_code"(platform: "/mobile") {}
-    "/checkout/payments/stored_card/installments"(platform: "/mobile") {
+    "/checkout/payments/stored_card/security_code"(platform:"/mobile") {}
+    "/checkout/payments/stored_card/installments"(platform:"/mobile") {
         credit_card_id(required: false, type: PropertyType.String)
         //List of available installments
         available_installments(required: true, type: PropertyType.ArrayList)
@@ -1021,48 +1021,48 @@ tracks {
         //      without_fee: true
         //    ]
     }
-    "/checkout/payments/stored_card/installments#change_payment_method"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/payments/stored_card/installments#change_payment_method"(platform:"/mobile",  type: TrackType.Event, parentPropertiesInherited: false) {
         event_source(required: true, type: PropertyType.String)
     }
     "/checkout/payments/account_money"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/payments/account_money/create"(platform: "/mobile") {}
-    "/checkout/payments/account_money/password"(platform: "/mobile") {}
+    "/checkout/payments/account_money/create"(platform:"/mobile") {}
+    "/checkout/payments/account_money/password"(platform:"/mobile") {}
     "/checkout/payments/account_money/password#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
-    "/checkout/payments/select_issuer"(platform: "/mobile") {}
+    "/checkout/payments/select_issuer"(platform:"/mobile") {}
     // mlm grouping
-    "/checkout/payments/pay_point"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/payments/pay_point/select_store"(platform: "/mobile") {
+    "/checkout/payments/pay_point"(platform:"/mobile", isAbstract: true) {}
+    "/checkout/payments/pay_point/select_store"(platform:"/mobile") {
+         available_methods(required: true, type: PropertyType.ArrayList)
+    }
+    "/checkout/payments/transfer"(platform:"/mobile", isAbstract: true) {}
+    "/checkout/payments/transfer/select_bank"(platform:"/mobile") {
         available_methods(required: true, type: PropertyType.ArrayList)
     }
-    "/checkout/payments/transfer"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/payments/transfer/select_bank"(platform: "/mobile") {
-        available_methods(required: true, type: PropertyType.ArrayList)
-    }
-    "/checkout/payments/billing_info"(platform: "/mobile") {}
-    "/checkout/payments/billing_info#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/payments/billing_info"(platform:"/mobile") {}
+    "/checkout/payments/billing_info#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         billing_info_state(required: true, type: PropertyType.String)
     }
     //"/checkout/review" //shared between web and app, already defined in web section.
-    "/checkout/review#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/review#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         status(required: true, type: PropertyType.String)
         credit_card_id(required: false, type: PropertyType.String)
     }
-    "/checkout/review/quantity#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/review/quantity#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         old_quantity(required: true, type: PropertyType.Numeric)
         selected_quantity(required: true, type: PropertyType.Numeric)
     }
-    "/checkout/review/quantity"(platform: "/mobile") {}
-    "/checkout/review/quantity/input"(platform: "/mobile") {}
+    "/checkout/review/quantity"(platform:"/mobile") {}
+    "/checkout/review/quantity/input"(platform:"/mobile") {}
     "/checkout/review/inconsistency"(platform: "/mobile", isAbstract: true) {}
     "/checkout/review/inconsistency/quantity"(platform: "/mobile") {
-        error_code(required: false, type: PropertyType.String)
+        error_code(required: false, type:  PropertyType.String)
     }
     "/checkout/review/edit_shipping#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         //old_value, new_value
-        old_value(required: true, type: PropertyType.String)
-        new_value(required: true, type: PropertyType.String)
+        old_value(required: true, type:  PropertyType.String)
+        new_value(required: true, type:  PropertyType.String)
     }
-    "/checkout/review/edit_shipping"(platform: "/mobile") {
+    "/checkout/review/edit_shipping"(platform:"/mobile") {
         //List of available shipping_options
         shipping_options(required: true, type: PropertyType.ArrayList)
         //shipping_options: [
@@ -1075,12 +1075,12 @@ tracks {
         //]
     }
     "/checkout/review/inconsistency/edit_shipping"(platform: "/mobile") {
-        error_code(required: true, type: PropertyType.String)
+        error_code(required: true, type:  PropertyType.String)
     }
     "/checkout/review/edit_installments#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         //old_value, new_value
-        old_value(required: true, type: PropertyType.Numeric)
-        new_value(required: true, type: PropertyType.Numeric)
+        old_value(required: true, type:  PropertyType.Numeric)
+        new_value(required: true, type:  PropertyType.Numeric)
     }
     "/checkout/review/edit_installments"(platform: "/mobile") {
         //List of available installments
@@ -1124,7 +1124,7 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: true, description: "Array of items in the order")
+        order_items(required: true, description: "Array of items in the order" )
         //item
         //id
         //variation_id
@@ -1146,7 +1146,7 @@ tracks {
     }
     //Congrats tracks - shared between Legacy App and new App (Required False to prevent catalog validation failures)
     "/checkout/congrats"(platform: "/mobile") {
-        /** **************************************/
+        /****************************************/
         //Desktop and New CHO congrats tracs
         //TODO chage to required: true once legacy
         order_id(required: false, description: "OrderId")
@@ -1181,7 +1181,7 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: false, description: "Array of items in the order")
+        order_items(required: false, description: "Array of items in the order" )
         //item
         //id
         //variation_id
@@ -1201,7 +1201,7 @@ tracks {
         //id
         //nickname
 
-        /** **************************************/
+        /****************************************/
         //Legacy App Congrats Tracks
         duplicated_error(required: false)
         congrats_seq(serverSide: true)
@@ -1260,7 +1260,7 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: false, description: "Array of items in the order")
+        order_items(required: false, description: "Array of items in the order" )
         //item
         //id
         //variation_id
@@ -1282,11 +1282,11 @@ tracks {
         error_code(required: true, type: PropertyType.String)
     }
 
-    /** *****************************************************************/
+    /*******************************************************************/
     //Mobile Checkout Legacy Apps
-    "/checkout"(platform: "/mobile") {
+    "/checkout"(platform:"/mobile") {
         order_id(required: false)
-        status(required: false)
+        status(required:false)
         total_amount(required: false, type: PropertyType.Numeric)
         order_items(required: false, description: "Array of items in the order. New: optional for old versions of mobile")
         //item
@@ -1520,26 +1520,26 @@ tracks {
         source()
     }
 
-    "/register/facebook_permissions"(platform: "/mobile") {
-        login_status(type: PropertyType.String, description: "Success, Cancel, Error")
-        email(type: PropertyType.Boolean, description: " Needed  to access date (day and month) of the user birthday.")
-        user_birthday(type: PropertyType.Boolean, description: " Needed  to access the user main email address.")
-        user_likes(type: PropertyType.Boolean, description: " Needed  to access user liked pages.")
+    "/register/facebook_permissions"(platform: "/mobile"){
+        login_status(type: PropertyType.String, description: "Success, Cancel, Error" )
+        email(type: PropertyType.Boolean, description : " Needed  to access date (day and month) of the user birthday.")
+        user_birthday(type: PropertyType.Boolean, description : " Needed  to access the user main email address.")
+        user_likes(type: PropertyType.Boolean, description : " Needed  to access user liked pages.")
     }
 
     //REGISTER WEB
 
-    "/register/form"(platform: "/web", type: TrackType.View) {
-        app(type: PropertyType.String, description: "Registration app", required: true)
-        source(type: PropertyType.String, description: "Source (on mobile is facebook/email, on web at the moment is only email)", required: true)
-        item_id(type: PropertyType.String, description: "Item", required: false)
+    "/register/form"(platform:"/web", type: TrackType.View) {
+        app(type: PropertyType.String, description: "Registration app", required:true)
+        source(type: PropertyType.String, description: "Source (on mobile is facebook/email, on web at the moment is only email)", required:true)
+        item_id(type: PropertyType.String, description: "Item", required:false)
     }
 
-    "/register/form/error"(platform: "/web", type: TrackType.View) {}
+    "/register/form/error"(platform:"/web", type: TrackType.View) {}
 
-    "/register/success"(platform: "/web", type: TrackType.Event) {
-        app(type: PropertyType.String, description: "Registration app", required: true)
-        item_id(type: PropertyType.String, description: "Item", required: false)
+    "/register/success"(platform:"/web", type: TrackType.Event) {
+        app(type: PropertyType.String, description: "Registration app", required:true)
+        item_id(type: PropertyType.String, description: "Item", required:false)
     }
 
     "/traffic"(platform: "/", isAbstract: true) {}
@@ -1576,7 +1576,7 @@ tracks {
     "/notification/shipping_agency_withdrawal"(platform: "/mobile") {
         order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
         shipment_id(required: true, type: PropertyType.Numeric)
-        agency_to_agency(required: false, type: PropertyType.Boolean, description: "Indicates if package was sent to an agency in the first place or was shipped there because the user wasnt found in his address")
+        agency_to_agency(required:false, type:PropertyType.Boolean, description: "Indicates if package was sent to an agency in the first place or was shipped there because the user wasnt found in his address")
     }
     //Devolución de costo de envío por demora
     "/notification/shipping_delayed_bonus"(platform: "/mobile") {
@@ -1614,6 +1614,7 @@ tracks {
         order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
         shipment_id(required: true, type: PropertyType.Numeric)
     }
+
 
     //Seller questions
     "/notification/questions_new"(platform: "/mobile") {
@@ -1910,48 +1911,48 @@ tracks {
     "/official_stores"(platform: "/web", isAbstract: true) {}
 
     "/official_stores/home"(platform: "/web", type: TrackType.View) {
-        from(required: false, description: "Who is redirecting")
+        from(required: false,  description: "Who is redirecting")
     }
     "/official_stores/landing"(platform: "/web", type: TrackType.View) {
-        is_tool_tip_present(type: PropertyType.Boolean, required: false, description: "Is true only if the tooltip si displayed")
-        exit_to_store(type: PropertyType.Boolean, required: false, description: "Is true only if you continue searching in a OS")
+        is_tool_tip_present(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
+        exit_to_store(type: PropertyType.Boolean, required: false,  description: "Is true only if you continue searching in a OS")
     }
     "/official_stores/checkon"(platform: "/web", type: TrackType.View) {
-        is_tool_tip_present(type: PropertyType.Boolean, required: false, description: "Is true only if the tooltip si displayed")
-        uncheck(type: PropertyType.Boolean, required: false, description: "Is true only if the check is Unchecked")
+        is_tool_tip_present(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
+        uncheck(type: PropertyType.Boolean, required: false,  description: "Is true only if the check is Unchecked")
     }
     "/official_stores/fewItemsPage"(platform: "/web", type: TrackType.View) {
-        store(required: false, description: "Store in the search")
-        query(required: false, description: "Query item looking for")
+        store(required: false,  description: "Store in the search")
+        query(required: false,  description: "Query item looking for")
     }
     "/official_stores/zrp"(platform: "/web", type: TrackType.View) {
-        in_store(type: PropertyType.Boolean, required: false, description: "If the zrp is rendered, and experiment redirects inside the sotre or outside")
-        use_link(type: PropertyType.Boolean, required: false, description: "Is true if the zrp message link is used.")
-        check_on_exp(type: PropertyType.Boolean, required: false, description: "Is true if the checkon experiment mantains the checkon")
-        checked(type: PropertyType.Boolean, required: false, description: "Is true only if the checkon is checked")
-        exit_to_store(type: PropertyType.Boolean, required: false, description: "Is true only if you continue searching in a OS")
+        in_store(type: PropertyType.Boolean, required: false,  description: "If the zrp is rendered, and experiment redirects inside the sotre or outside")
+        use_link(type: PropertyType.Boolean, required: false,  description: "Is true if the zrp message link is used.")
+        check_on_exp(type: PropertyType.Boolean, required: false,  description: "Is true if the checkon experiment mantains the checkon")
+        checked(type: PropertyType.Boolean, required: false,  description: "Is true only if the checkon is checked")
+        exit_to_store(type: PropertyType.Boolean, required: false,  description: "Is true only if you continue searching in a OS")
     }
 
     //Breadcrumb
     "/home/category"(platform: "/", type: TrackType.View) {
-        from(required: false, description: "Who is redirecting")
-        category_id(required: true, description: "Home's category")
+        from(required: false,  description: "Who is redirecting")
+        category_id(required: true,  description: "Home's category")
     }
 
     "/home"(platform: "/web", type: TrackType.View) {
-        from(required: false, description: "Who is redirecting")
+        from(required: false,  description: "Who is redirecting")
     }
 
-    "/permissions"(platform: "/mobile", isAbstract: true) {}
-    "/permissions/location"(platform: "/mobile", type: TrackType.View) {
+    "/permissions"(platform: "/mobile", isAbstract: true){}
+    "/permissions/location"(platform: "/mobile", type: TrackType.View){
         context(required: "true", description: "Where are we requesting the permissions")
     }
-    "/permissions/location/custom"(platform: "/mobile", isAbstract: true) {}
-    "/permissions/location/custom/accept"(platform: "/mobile", type: TrackType.Event) {}
-    "/permissions/location/custom/deny"(platform: "/mobile", type: TrackType.Event) {}
-    "/permissions/location/native"(platform: "/mobile", isAbstract: true) {}
-    "/permissions/location/native/accept"(platform: "/mobile", type: TrackType.Event) {}
-    "/permissions/location/native/deny"(platform: "/mobile", type: TrackType.Event) {}
+    "/permissions/location/custom"(platform: "/mobile", isAbstract: true){}
+    "/permissions/location/custom/accept"(platform: "/mobile", type: TrackType.Event){}
+    "/permissions/location/custom/deny"(platform: "/mobile", type: TrackType.Event){}
+    "/permissions/location/native"(platform: "/mobile", isAbstract: true){}
+    "/permissions/location/native/accept"(platform: "/mobile", type: TrackType.Event){}
+    "/permissions/location/native/deny"(platform: "/mobile", type: TrackType.Event){}
 
     // Real estate page view
     "/home/category/real-estate"(platform: "/", type: TrackType.View) {
@@ -1966,19 +1967,19 @@ tracks {
         seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
     }
 
-    "/sell/change_listing_type/single"(platform: "/", type: TrackType.View) {
+    "/sell/change_listing_type/single"(platform: "/", type: TrackType.View){
         item_id(required: true, description: "Item id")
         listing_type_id(required: true, description: "Item listing type id")
         vertical(required: true, description: "Item Vertical: core/service/motor/real_estate/etc...")
         buying_mode(required: true, description: "Item buying mode: buy_it_now/auction/classified")
         condition(required: true, description: "Item condition: used/new/not_specified")
         price(required: true, description: "Item price")
-        view_type(required: true, description: "Type of the view. Upgrade / Upgrade full screen / single option, ect...")
+        view_type(required:true, description: "Type of the view. Upgrade / Upgrade full screen / single option, ect...")
     }
 
-    "/sell/change_listing_type/massive"(platform: "/", type: TrackType.View) {
+    "/sell/change_listing_type/massive"(platform: "/", type: TrackType.View){
         items_amount(required: true, description: "Amount of items affected")
-        view_type(required: true, description: "Type of the view. Upgrade / Upgrade full screen / single option, ect...")
+        view_type(required:true, description: "Type of the view. Upgrade / Upgrade full screen / single option, ect...")
     }
 
     // Eventos relacionados al item
@@ -2002,6 +2003,7 @@ tracks {
         condition(required: false, description: "Item condition: used/new/not_specified")
         price(required: false, description: "Item price")
     }
+
 
     // Myml
     "/myml"(platform: "/web", isAbstract: true) {}
