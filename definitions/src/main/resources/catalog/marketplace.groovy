@@ -1882,5 +1882,10 @@ tracks {
         final_phone_number()
         error_type()
     }
+
+    // Account recovery event
+    "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
+        error_type(required:true, description: "connectionError/invalidOneTimePassword/operatorNotSupported")
+    }
 }
 
