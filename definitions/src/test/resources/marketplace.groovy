@@ -2039,17 +2039,11 @@ trackTests {
 
         "/notification_center"(platform: "/mobile"){}
 
-        "/notification_center/abort"(platform: "/mobile"){}
-
-        "/notification_center/back"(platform: "/mobile"){}
-
-        "/notification_center/failure"(platform: "/mobile"){}
-
-        "/notification"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "sent"
-            context = "notification"
-        }
+    "/notification"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "sent"
+      context = "notification"
+    }
 
         "/notification/campaigns_deals"(platform: "/mobile") {
             news_id = "12332323"
