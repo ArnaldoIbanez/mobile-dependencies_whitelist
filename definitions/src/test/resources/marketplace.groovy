@@ -2734,14 +2734,11 @@ trackTests {
 
     test("Account Recovery tracking event") {
 
-        def error = {
-            connectionError = "connectionError"
-            invalidOneTimePassword = "invalidOneTimePassword"
-            operatorNotSupported = "operatorNotSupported"
+        "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
+            error_type(required: true, description: "ConnectionError" | "InvalidPassword" | "operatorNotSupported")
         }
-
-        "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event, error)
-        "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event, error)
-        "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event, error)
+        "/register/accountRecovery"(platform: "/mobile") {
+            error_type(required: true, description: "ConnectionError" | "InvalidPassword" | "operatorNotSupported")
+        }
     }
 }
