@@ -1885,9 +1885,7 @@ tracks {
 
     // Account recovery event
     "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
-        connectionError(required: true, description: "Connection error")
-        invalidOneTimePassword(required: true, description: "The one-time-password is invalid")
-        operatorNotSupported(required: true, description: "The operator is not supported")
+        error_type(required:true, description: "connectionError/invalidOneTimePassword/operatorNotSupported")
     }
 }
 
