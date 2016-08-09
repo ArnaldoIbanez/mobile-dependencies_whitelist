@@ -2045,429 +2045,423 @@ trackTests {
 
         "/notification_center"(platform: "/mobile"){}
 
-        "/notification_center/abort"(platform: "/mobile"){}
-
-        "/notification_center/back"(platform: "/mobile"){}
-
-        "/notification_center/failure"(platform: "/mobile"){}
-
-        "/notification"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "sent"
-            context = "notification"
-        }
-
-        "/notification/campaigns_deals"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "received"
-            deeplink ="meli://search?q=sony"
-            campaign_id = "mkt_campaign_co"
-            context = "notification"
-        }
-
-        "/notification/campaigns_syi_freemium"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "received"
-            deeplink ="meli://search?q=sony"
-            campaign_id = "registered_between_1_and_2_weeks_ago_and_have_not_listed_in_core"
-            context = "notification"
-        }
-
-        "/notification/deals_campaigns"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "received"
-            deeplink ="meli://search?q=sony"
-            deal_id = "mkt_campaign_co"
-            context = "notification"
-        }
-
-        "/notification/questions_new"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "dismiss"
-            deeplink ="meli://seller_question/12221"
-            context = "notification"
-            question_id = 1234
-        }
-
-        "/notification/questions_answered"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            deeplink ="meli://buyer_questions"
-            context = "notification"
-            question_id = 1234
-        }
-
-        "/notification/orders_new"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            order_id = "12132"
-            context = "notification"
-        }
-
-        "/notification/shipping_shipped"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            order_id = "11222"
-            shipment_id = 1234
-            context = "notification"
-        }
-
-        "/notification/shipping_agency_withdrawal"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "arrived"
-            deeplink = "meli://purchases/sales"
-            shipment_id = 1234
-            order_id = "11222"
-            agency_to_agency = true
-            context = "notification"
-        }
-
-        "/notification/shipping_delayed_bonus"(platform: "/mobile"){
-            news_id = "12332323"
-            event_type = "arrived"
-            deeplink = "meli://purchases/sales"
-            order_id = "11222"
-            shipment_id = 1234
-        }
-
-        "/notification/shipping_pending"(platform: "/mobile"){
-            news_id = "12332323"
-            event_type = "arrived"
-            deeplink = "meli://sales/11222#shipping"
-            order_id = "11222"
-            shipment_id = 1234
-        }
-
-        "/notification/shipping_returning_to_sender"(platform: "/mobile"){
-            news_id = "12332323"
-            event_type = "arrived"
-            deeplink = "meli://purchases/11222/shipments/:shipment_id"
-            order_id = "11222"
-            shipment_id = 1234
-        }
-
-        "/notification/shipping_delayed_sender"(platform: "/mobile"){
-            news_id = "12332323"
-            event_type = "arrived"
-            deeplink = "meli://sales/11222#shipping"
-            order_id = "11222"
-            shipment_id = 1234
-        }
-
-        "/notification/shipping_delayed_receiver"(platform: "/mobile"){
-            news_id = "12332323"
-            event_type = "arrived"
-            deeplink = "meli://sales/11222#shipping"
-            order_id = "11222"
-            shipment_id = 1234
-            delay_reason = "shipping_time"
-        }
-
-        "/notification/shipping_not_delivered_sender"(platform: "/mobile"){
-            news_id = "12332323"
-            event_type = "arrived"
-            deeplink = "meli://sales/11222#shipping"
-            order_id = "11222"
-            shipment_id = 1234
-        }
-        "/notification/shipping_not_delivered_receiver"(platform: "/mobile"){
-            news_id = "12332323"
-            event_type = "arrived"
-            deeplink = "meli://sales/11222#shipping"
-            order_id = "11222"
-            shipment_id = 1234
-        }
-
-        "/notification/collections_approved"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "dismiss"
-            order_id = "1234"
-            context = "notification"
-        }
-
-        "/notification/purchase_pending"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            item_id = "MLA122211"
-            context = "notification"
-        }
-
-        "/notification/reputation_buyer_in"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "dismiss"
-            context = "notification"
-        }
-
-        "/notification/reputation_buyer_in"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "auto_dismiss"
-            context = "notification"
-        }
-
-        //Buy action
-        "/notification/purchase_pending"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            item_id = "MLA122211"
-            action_type = "deeplinking"
-            notification_style = "BigTextStyle"
-            context = "notification"
-        }
-
-        "/notification/purchase_pending"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            item_id = "MLA122211"
-            action_type = "deeplinking"
-            context = "notification"
-        }
-
-        //Favorite action
-        "/notification/purchase_pending"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            item_id = "MLA122211"
-            action_type = "favorite"
-            notification_style = "BigTextStyle"
-            context = "notification"
-        }
-
-        //Notif center tracking
-        "/notification/purchase_pending"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            item_id = "MLA122211"
-            action_type = "favorite"
-            notification_style = "BigPictureStyle"
-            status = "unread"
-            context = "notification_center"
-        }
-
-        "/notification/mediations_complainant"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            notification_style = "BigTextStyle"
-            order_id = "1234"
-            claim_id = "3123"
-            action_type = "favorite"
-        }
-
-        "/notification/mediations_complainant"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "auto_dismiss"
-            notification_style = "BigTextStyle"
-            order_id = "1234"
-            claim_id = "3123"
-            action_type = "favorite"
-        }
-
-        "/notification/questions_new"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            notification_style = "BigTextStyle"
-            question_id = 1234
-        }
-
-        "/notification/questions_new"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-            notification_style = "BigTextStyle"
-            question_id = 1234
-        }
-
-        "/notification/moderation_item_to_patch"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            notification_style = "BigTextStyle"
-            item_id = "MLA1234"
-        }
-
-        "/notification/moderation_item_to_patch"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-            item_id = "MLA1234"
-            context = "notification"
-        }
-
-        "/notification/moderation_item_to_patch"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-            item_id = "MLA1234"
-            context = "notification"
-        }
-
-        "/notification/moderation_item_forbidden"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-            item_id = "MLA1234"
-            context = "notification"
-        }
-
-        "/notification/moderation_item_forbidden"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-            item_id = "MLA1234"
-            context = "notification"
-        }
-
-        "/notification/moderation_item_forbidden"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            item_id = "MLA1234"
-            context = "notification"
-        }
-
-        "/notification/payments_pending_remainder"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-            item_id = "MLA1234"
-            order_id = 1234321
-            context = "notification"
-        }
-
-        "/notification/payments_pending_remainder"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-            item_id = "MLA1234"
-            order_id = 1234321
-            context = "notification"
-        }
-
-        "/notification/payments_pending_remainder"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            item_id = "MLA1234"
-            order_id = 1234321
-            context = "notification"
-        }
-
-        "/notification/payments_approved"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-            item_id = "MLA1234"
-            order_id = 1234321
-            context = "notification"
-        }
-
-        "/notification/payments_approved"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            item_id = "MLA1234"
-            order_id = 1234321
-            context = "notification"
-        }
-
-        "/notification/payments_approved"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-            item_id = "MLA1234"
-            order_id = 1234321
-            context = "notification"
-        }
-
-        "/notification/payments_rejected"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            item_id = "MLA1234"
-            order_id = 1234321
-            context = "notification"
-        }
-
-        "/notification/payments_rejected"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-            item_id = "MLA1234"
-            order_id = 1234321
-            context = "notification"
-        }
-
-        "/notification/payments_rejected"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-            item_id = "MLA1234"
-            order_id = 1234321
-            context = "notification"
-        }
-
-        "/notification/orders_cancelled"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            item_id = "MLA1234"
-            context = "notification"
-        }
-
-        "/notification/orders_cancelled"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-            item_id = "MLA1234"
-            context = "notification"
-        }
-
-
-        "/notification/orders_cancelled"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-            item_id = "MLA1234"
-            context = "notification"
-        }
-
-        "/notification/messages_new"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-            context = "notification"
-        }
-
-        "/notification/messages_new"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-            context = "notification"
-        }
-
-        "/notification/messages_new"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            context = "notification"
-        }
-
-        "/notification/moderation_item_warning"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-            item_id = "MLA1234"
-            context = "notification"
-        }
-
-        "/notification/moderation_item_warning"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-            item_id = "MLA1234"
-            context = "notification"
-        }
-
-        "/notification/moderation_item_warning"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            item_id = "MLA1234"
-            context = "notification"
-        }
-
-        "/notification/moderation_message_banned"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-            context = "notification"
-        }
-
-        "/notification/moderation_message_banned"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-            context = "notification"
-        }
-
-        "/notification/moderation_message_banned"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            context = "notification"
-        }
+    "/notification"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "sent"
+      context = "notification"
     }
+
+    "/notification/campaigns_deals"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "received"
+      deeplink ="meli://search?q=sony"
+      campaign_id = "mkt_campaign_co"
+      context = "notification"
+    }
+
+    "/notification/campaigns_syi_freemium"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "received"
+      deeplink ="meli://search?q=sony"
+      campaign_id = "registered_between_1_and_2_weeks_ago_and_have_not_listed_in_core"
+      context = "notification"
+    }
+
+    "/notification/deals_campaigns"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "received"
+      deeplink ="meli://search?q=sony"
+      deal_id = "mkt_campaign_co"
+      context = "notification"
+    }
+
+    "/notification/questions_new"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "dismiss"
+      deeplink ="meli://seller_question/12221"
+      context = "notification"
+      question_id = 1234
+    }
+
+    "/notification/questions_answered"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "open"
+      deeplink ="meli://buyer_questions"
+      context = "notification"
+      question_id = 1234		
+    }
+
+    "/notification/orders_new"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "open"
+      order_id = "12132"
+      context = "notification"
+    }
+
+    "/notification/shipping_shipped"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "open"
+      order_id = "11222"
+      shipment_id = 1234
+      context = "notification"
+    }
+
+    "/notification/shipping_agency_withdrawal"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "arrived"
+      deeplink = "meli://purchases/sales"
+      shipment_id = 1234
+      order_id = "11222"
+        agency_to_agency = true
+      context = "notification"
+    }
+    
+    "/notification/shipping_delayed_bonus"(platform: "/mobile"){
+      news_id = "12332323"
+      event_type = "arrived"
+      deeplink = "meli://purchases/sales"
+      order_id = "11222"
+      shipment_id = 1234
+    }
+      
+    "/notification/shipping_pending"(platform: "/mobile"){
+      news_id = "12332323"
+      event_type = "arrived"
+      deeplink = "meli://sales/11222#shipping"
+      order_id = "11222"
+      shipment_id = 1234
+    }
+    
+    "/notification/shipping_returning_to_sender"(platform: "/mobile"){
+      news_id = "12332323"
+      event_type = "arrived"
+      deeplink = "meli://purchases/11222/shipments/:shipment_id"
+      order_id = "11222"
+      shipment_id = 1234
+    }
+     
+    "/notification/shipping_delayed_sender"(platform: "/mobile"){
+      news_id = "12332323"
+      event_type = "arrived"
+      deeplink = "meli://sales/11222#shipping"
+      order_id = "11222"
+      shipment_id = 1234
+    } 
+
+    "/notification/shipping_delayed_receiver"(platform: "/mobile"){
+      news_id = "12332323"
+      event_type = "arrived"
+      deeplink = "meli://sales/11222#shipping"
+      order_id = "11222"
+      shipment_id = 1234
+      delay_reason = "shipping_time"
+    } 
+
+    "/notification/shipping_not_delivered_sender"(platform: "/mobile"){
+      news_id = "12332323"
+      event_type = "arrived"
+      deeplink = "meli://sales/11222#shipping"
+      order_id = "11222"
+      shipment_id = 1234
+    }             
+    "/notification/shipping_not_delivered_receiver"(platform: "/mobile"){
+      news_id = "12332323"
+      event_type = "arrived"
+      deeplink = "meli://sales/11222#shipping"
+      order_id = "11222"
+      shipment_id = 1234
+    }             
+      
+    "/notification/collections_approved"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "dismiss"
+      order_id = "1234"
+      context = "notification"
+    }
+
+    "/notification/purchase_pending"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "open"
+      item_id = "MLA122211"
+      context = "notification"
+    }
+
+    "/notification/reputation_buyer_in"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "dismiss"
+      context = "notification"
+    }
+
+    "/notification/reputation_buyer_in"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "auto_dismiss"
+      context = "notification"
+    }
+
+    //Buy action
+    "/notification/purchase_pending"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "open"
+      item_id = "MLA122211"
+      action_type = "deeplinking"
+      notification_style = "BigTextStyle"
+      context = "notification"
+    }
+
+    "/notification/purchase_pending"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "open"
+      item_id = "MLA122211"
+      action_type = "deeplinking"
+      context = "notification"
+    }
+
+    //Favorite action
+    "/notification/purchase_pending"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "open"
+      item_id = "MLA122211"
+      action_type = "favorite"
+      notification_style = "BigTextStyle"
+      context = "notification"
+    }
+
+    //Notif center tracking
+    "/notification/purchase_pending"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "open"
+      item_id = "MLA122211"
+      action_type = "favorite"
+      notification_style = "BigPictureStyle"
+      status = "unread"
+      context = "notification_center"
+    }
+    
+    "/notification/mediations_complainant"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "open"
+      notification_style = "BigTextStyle"
+      order_id = "1234"
+      claim_id = "3123"
+      action_type = "favorite"
+    }
+
+    "/notification/mediations_complainant"(platform: "/mobile") {
+      news_id = "12332323"
+      event_type = "auto_dismiss"
+      notification_style = "BigTextStyle"
+      order_id = "1234"
+      claim_id = "3123"
+      action_type = "favorite"
+    }
+
+    "/notification/questions_new"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      notification_style = "BigTextStyle"
+      question_id = 1234
+    }
+
+    "/notification/questions_new"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      notification_style = "BigTextStyle"
+      question_id = 1234
+    }
+
+    "/notification/moderation_item_to_patch"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      notification_style = "BigTextStyle"
+      item_id = "MLA1234"
+    }
+
+    "/notification/moderation_item_to_patch"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+ 
+    "/notification/moderation_item_to_patch"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "dismiss"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+ 
+    "/notification/moderation_item_forbidden"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+ 
+    "/notification/moderation_item_forbidden"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "dismiss"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+ 
+    "/notification/moderation_item_forbidden"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+
+    "/notification/payments_pending_remainder"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      item_id = "MLA1234"
+      order_id = 1234321
+      context = "notification"
+    }
+
+    "/notification/payments_pending_remainder"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "dismiss"
+      item_id = "MLA1234"
+      order_id = 1234321
+      context = "notification"
+    }
+
+    "/notification/payments_pending_remainder"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      item_id = "MLA1234"
+      order_id = 1234321
+      context = "notification"
+    }
+
+    "/notification/payments_approved"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "dismiss"
+      item_id = "MLA1234"
+      order_id = 1234321
+      context = "notification"
+    }
+
+    "/notification/payments_approved"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      item_id = "MLA1234"
+      order_id = 1234321
+      context = "notification"
+    }
+
+    "/notification/payments_approved"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      item_id = "MLA1234"
+      order_id = 1234321
+      context = "notification"
+    }
+
+    "/notification/payments_rejected"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      item_id = "MLA1234"
+      order_id = 1234321
+      context = "notification"
+    }
+
+    "/notification/payments_rejected"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      item_id = "MLA1234"
+      order_id = 1234321
+      context = "notification"
+    }
+
+    "/notification/payments_rejected"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "dismiss"
+      item_id = "MLA1234"
+      order_id = 1234321
+      context = "notification"
+    }
+
+    "/notification/orders_cancelled"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+
+    "/notification/orders_cancelled"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+
+
+    "/notification/orders_cancelled"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "dismiss"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+
+    "/notification/messages_new"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      context = "notification"
+    }
+
+    "/notification/messages_new"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "dismiss"
+      context = "notification"
+    }
+
+    "/notification/messages_new"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      context = "notification"
+    }
+
+    "/notification/moderation_item_warning"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+
+    "/notification/moderation_item_warning"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "dismiss"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+
+    "/notification/moderation_item_warning"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      item_id = "MLA1234"
+      context = "notification"
+    }
+
+    "/notification/moderation_message_banned"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "open"
+      context = "notification"
+    }
+
+    "/notification/moderation_message_banned"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "dismiss"
+      context = "notification"
+    }
+
+    "/notification/moderation_message_banned"(platform: "/mobile") {
+      news_id = "123"
+      event_type = "auto_dismiss"
+      context = "notification"
+    }
+  }
 
     test("orders feed from commons tracker cards"){
         def defaultOrderinformation = {
