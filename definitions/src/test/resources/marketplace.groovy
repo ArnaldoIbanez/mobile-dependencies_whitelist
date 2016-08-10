@@ -3107,4 +3107,11 @@ trackTests {
             error_type = "error type"
         }
     }
+
+    test("Account Recovery tracking event") {
+
+        "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
+            error_type = "connectionError/invalidOneTimePassword/operatorNotSupported"
+}
+    }
 }
