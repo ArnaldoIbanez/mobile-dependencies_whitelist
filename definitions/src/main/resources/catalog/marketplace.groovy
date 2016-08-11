@@ -1887,5 +1887,19 @@ tracks {
     "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
         error_type(required:true, description: "connectionError/invalidOneTimePassword/operatorNotSupported")
     }
+
+    //Recommendations
+    "/recommendations/print"(platform: "/web", type: TrackType.Event) {
+        success_print (required: true,  description: "Could print the component?")
+        algorithm (required: true,  description: "Algorithm used")
+        client (required: true, description: "where recommendations are printed")
+    }
+
+    "/recommendations/click"(platform: "/web", type: TrackType.Event) {
+        item_position (required: true,  description: "Click item position")
+        items_count (required: true,  description: "carousel items count")
+        algorithm (required: true,  description: "Algorithm used")
+        client (required: true, description: "where recommendations are printed")
+    }
 }
 

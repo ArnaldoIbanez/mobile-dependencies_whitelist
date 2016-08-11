@@ -2738,4 +2738,26 @@ trackTests {
             error_type = "connectionError/invalidOneTimePassword/operatorNotSupported"
         }
     }
+
+    test("Recommendations tracking") {
+
+        "/recommendations/print"(plataform:"/web", TrackType.Event) {
+            success_print: true
+            algorithm: SearchNotLoggedInBackend
+            client: Checkout
+        }
+
+        "/recommendations/print"(plataform:"/web", type: TrackType.Event) {
+            success_print: false
+            algorithm: "CongratsBackend"
+            client: "Checkout"
+        }
+
+        "/recommendations/click"(plataforma: "/web", type: TrackType.Event) {
+            item_position: 2
+            items_count: 10
+            algorithm: "DefaultNotLoggedInBackend",
+            client: "Checkout"
+        }
+    }
 }
