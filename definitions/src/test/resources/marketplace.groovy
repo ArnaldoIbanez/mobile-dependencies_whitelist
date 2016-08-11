@@ -2743,8 +2743,8 @@ trackTests {
 
         "/recommendations/print"(plataform:"/web", TrackType.Event) {
             success_print: true
-            algorithm: SearchNotLoggedInBackend
-            client: Checkout
+            algorithm: "SearchNotLoggedInBackend"
+            client: "Checkout"
         }
 
         "/recommendations/print"(plataform:"/web", type: TrackType.Event) {
@@ -2756,7 +2756,7 @@ trackTests {
         "/recommendations/click"(plataforma: "/web", type: TrackType.Event) {
             item_position: 2
             items_count: 10
-            algorithm: "DefaultNotLoggedInBackend",
+            algorithm: "DefaultNotLoggedInBackend"
             client: "Checkout"
         }
     }
