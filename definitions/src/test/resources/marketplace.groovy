@@ -2741,23 +2741,17 @@ trackTests {
 
     test("Recommendations tracking") {
 
-        "/recommendations/print"(plataform:"/web", TrackType.Event) {
+        "/recommendations/print"(plataform:"/web", TrackType.View) {
             success_print: true
             algorithm: "SearchNotLoggedInBackend"
-            client: "Checkout"
+            context: "Checkout"
         }
 
-        "/recommendations/print"(plataform:"/web", type: TrackType.Event) {
+        "/recommendations/print"(plataform:"/web", type: TrackType.View) {
             success_print: false
             algorithm: "CongratsBackend"
-            client: "Checkout"
+            context: "Checkout"
         }
 
-        "/recommendations/click"(plataforma: "/web", type: TrackType.Event) {
-            item_position: 2
-            items_count: 10
-            algorithm: "DefaultNotLoggedInBackend"
-            client: "Checkout"
-        }
     }
 }
