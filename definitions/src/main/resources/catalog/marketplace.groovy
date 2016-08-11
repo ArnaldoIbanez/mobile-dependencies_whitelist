@@ -1890,8 +1890,8 @@ tracks {
 
     //Recommendations
     "/recommendations"(platform: "/web", isAbstract: true) {}
-    
-    "/recommendations/print"(platform: "/web", type: TrackType.View) {
+
+    "/recommendations"(platform: "/web", type: TrackType.View) {
         success_print (required: true,  description: "Could print the component?")
         algorithm (required: true,  description: "Algorithm used")
         context (required: true, description: "where recommendations are printed")
