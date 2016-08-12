@@ -29,9 +29,14 @@ class MetricsFormatter {
 
 			if ( definition.experiments ) {
 				if (definition.experiments.size == 1 && definition.experiments.get(0) instanceof RegExWrapper) {
+					//regexp
 					result += ["experiment": definition.experiments.get(0).regex]
 				} else if (definition.experiments.size > 0 && definition.experiments.get(0) instanceof NameWrapper) {
+					//list of names
 					result += ["experiments": definition.experiments.collect { it.name }]
+				} else if ( definition.condition ) {
+					//insight defined in the same definition
+					result += ["experiments": [ definition.name ] ]
 				}
 			}
 

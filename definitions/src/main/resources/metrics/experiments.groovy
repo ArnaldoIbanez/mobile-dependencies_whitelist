@@ -66,7 +66,7 @@ metrics {
 
 	"congrats_with_payment.sameOrder"(description: "congrats view with payments containing 'payment' string", compute_order: true) {
 		startWith {
-			experiment("congrats_accord", "buyingflow/accordAccordPay")
+            experiment(regex("(.*email/order.*|congrats_accord|buyingflow/accordAccordPay)"))
 		}
 
 		countsOn {
@@ -215,34 +215,44 @@ metrics {
 		}
 	}
 
-	"/search/filtersNewOrder.deal"(description: "extend experiment /search/filtersNewOrder with deal filter", parametricName: false) {
+
+    "seller_called"(description: "track vip call seller as success for classifieds in the new order experiment") {
+	    startWith {
+            experiment("search/filtersNewOrder", "search/filtersNewOrderDeals", "search/filtersNewOrder.classifieds")
+        }
+
+  		countsOn {
+			condition {
+				path("/vip/call_seller", "/vip/show_phone")
+			}
+		}
+	}
+
+	"search/filtersNewOrder.classifieds"(description: "extend experiment /search/filtersNewOrder for classifieds", parametricName: false) {
 		startWith {
 			condition {
 				and(
 					empty("experiments.search/filtersNewOrder", false),
-					empty("event_data.filters.deal", false)
+					or(
+					    like('event_data.category_path', '.*M..1743(-|$).*'),
+					    like('event_data.category_path', '.*M..1459(-|$).*')
+					)
 				)
 			}
-
-			openBy {
-				"experiments.search/filtersNewOrder"(default: "default")
-			}
-
-			set_property("deal_id", "event_data.filters.deal")
 		}
 	}
 
-    "seller_contacted"(description: "track vip contacts as success for classifieds in the new order experiment") {
-        startWith {
-            experiment("search/filtersNewOrder")
-        }
+	"free_item_upgraded"(description: "A free Item was upgraded") {
+		startWith {
+			experiment("sell/increase_exposure_wording")
+		}
 
-        countsOn {
-            condition {
-                path("/vip/call_seller", "/vip/contact_seller")
-            }
-        }
-    }
+		countsOn {
+			condition {
+				path("/item/change_listing_type")
 
-
+				equals("event_data.from", "free")
+			}
+		}
+	}
 }

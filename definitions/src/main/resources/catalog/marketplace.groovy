@@ -198,6 +198,7 @@ tracks {
         filter_tags(required: false, PropertyType.ArrayList)
         results(required: false, PropertyType.ArrayList,description:"item ids from search result")
         billboard_shown(required: false, PropertyType.Boolean)
+
     }
 
     "/search"(platform: "/web") {
@@ -207,7 +208,7 @@ tracks {
         only_in_type(required: false)
         click_banner(required: false, description:'Indicates that this listing has apppeared after clicking on a banner')
         // exhibitors_id
-        banners(required: false, description:'Banner showed in this listing info, if showed')
+        banner(required: false, description:'Banner showed in this listing info, if showed')
         //deal_id
         // exhibitors_id
         related_searches(required: false, description:'indicates whether clicked search related')
@@ -218,7 +219,26 @@ tracks {
         //suggest_position
         //last_search_position
         //block_store_position
-    }
+        landing(required:false, description:'indicates landing base, premium, etc')
+        //Tracks from Search Backend:
+        backend_data(required: false)
+        //ab(required: false, description:'ab testing related. to be deprecated')
+        //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
+        //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
+        //ac(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Not Comblinable')
+        //ap(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Combinable with other pages')
+        //fsm(required: false, description:'indicates on each result of paged if its full or soft match')
+        //qas(required: false, PropertyType.ArrayList, description:'auto selected filters')
+        //canonical(required: false, description:'url canonical')
+        //cli_rel_qty_configured(required: false, description:'client relationship')
+        //cli_rel_qty_link_to_category(required: false, description:'client relationship link to category')
+        //corrections(required: false, description:'corrections over query')
+        //processed_query(required: false, description:'processed query by backend')
+        //stems(required: false, description:'stems list which returns backend to stand out in frontend'
+        layout(required: false, description:'layout of search')
+        geolocation(required: false, description:'geolocation')
+        landing(required: false, description:'landings: base, premium, etc')
+}
 
     "/search"(platform: "/mobile") {
         filter_user_applied(deprecated: true, required: false)
@@ -301,6 +321,7 @@ tracks {
         deal_ids(required: false, description: "IDs of applied discounts")
         buying_mode(required: false, description: "Indicates if it's an aution, buy_it_now or classified")
         official_store_id(required: false, description: "Id of item's official store")
+        category_path(required: false, "Category path of the the item")
         vertical(deprecated: true, required: false)
         quantity(deprecated: true, required: false)
         item_condition(deprecated: true, required: false)
@@ -315,7 +336,6 @@ tracks {
         shipping_mode(deprecated: true, required: false)
         free_shipping(deprecated: true, required: false)
         local_pick_up(deprecated: true, required: false)
-        category_path(deprecated: true, required: false)
         promoted_items_clicked(required: false, descripcion: 'indicates whether clicked promoted items before reaching this vip')
         billboard_clicked_position(required:false, type: PropertyType.Numeric)
     }
@@ -1203,6 +1223,9 @@ tracks {
     "/checkout/congrats/invalid_sec_code"(platform: "/mobile") {
         available_actions(required: true, type: PropertyType.ArrayList)
     }
+    "/checkout/congrats/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {
+        
+    }
     "/checkout/congrats/pending"(platform: "/mobile") {}
     "/checkout/error"(platform: "/mobile") {
         order_id(required: false, description: "OrderId")
@@ -1497,6 +1520,7 @@ tracks {
     }
 
     "/register/facebook_permissions"(platform: "/mobile"){
+        login_status(type: PropertyType.String, description: "Success, Cancel, Error" )
         email(type: PropertyType.Boolean, description : " Needed  to access date (day and month) of the user birthday.")
         user_birthday(type: PropertyType.Boolean, description : " Needed  to access the user main email address.")
         user_likes(type: PropertyType.Boolean, description : " Needed  to access user liked pages.")
@@ -1749,9 +1773,11 @@ tracks {
     }
     "/official_stores/landing"(platform: "/web", type: TrackType.View) {
         is_tool_tip_present(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
+        exit_to_store(type: PropertyType.Boolean, required: false,  description: "Is true only if you continue searching in a OS")
     }
     "/official_stores/checkon"(platform: "/web", type: TrackType.View) {
         is_tool_tip_present(type: PropertyType.Boolean, required: false,  description: "Is true only if the tooltip si displayed")
+        uncheck(type: PropertyType.Boolean, required: false,  description: "Is true only if the check is Unchecked")
     }
     "/official_stores/fewItemsPage"(platform: "/web", type: TrackType.View) {
         store(required: false,  description: "Store in the search")
@@ -1762,6 +1788,28 @@ tracks {
         use_link(type: PropertyType.Boolean, required: false,  description: "Is true if the zrp message link is used.")
         check_on_exp(type: PropertyType.Boolean, required: false,  description: "Is true if the checkon experiment mantains the checkon")
         checked(type: PropertyType.Boolean, required: false,  description: "Is true only if the checkon is checked")
+        exit_to_store(type: PropertyType.Boolean, required: false,  description: "Is true only if you continue searching in a OS")
+    }
+
+    /**
+     * OFFICIAL STORES LISTING
+     **/
+    "/official_stores/"(platform: "/mobile", isAbstract: true) {}
+
+    "/official_stores/search/"(platform: "/mobile", type: TrackType.View) {}
+
+    "/official_stores/search/open"(platform: "/mobile", type: TrackType.Event) {
+        query(required: true, description: "Official store name written in search box")
+        official_store_id(required: true, description: "Official store id")
+        official_store_name(required: true, description: "Official store id")
+    }
+
+    "/official_stores/search/abort"(platform: "/mobile", type: TrackType.Event) {
+        query(required: false, description: "Official store name written in search box")
+    }
+
+    "/official_stores/search/back"(platform: "/mobile", type: TrackType.Event) {
+        query(required: false, description: "Official store name written in search box")
     }
 
     //Breadcrumb
@@ -1791,17 +1839,75 @@ tracks {
         carousels(required: false, description: "Carousels in the home page to the properties")
     }
 
-    // Search click event
-    "/home/category/real-estate#search"(platform: "/", type: TrackType.Event) {
-        filters(required: false, description: "Filter applied in the last search")
-        as_word(required: false, description: "True if the search is do through free text, false if the search is do through ")
-        search_word(required:false, description: "Free text adding for the user to do the search")
+    // Sell
+    "/sell"(platform: "/web", isAbstract: true) {}
+    "/sell/change_listing_type"(platform: "/web", isAbstract: true) {
+        source(required: true, description: "Source could be differents types of email, my account, etc.", type: PropertyType.String)
+        seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
     }
 
-    // Carousel click event
-    "/home/category/real-estate#featured-items"(platform: "/", type: TrackType.Event) {
-        bucket(required: false, description: "Type of carousel (premium, gold, used)")
-        position(required: false, description: "Selected position on selected item on the carousel")
-        item_id(required: false, description: "Item id to selected item on the carousel")
+    "/sell/change_listing_type/single"(platform: "/", type: TrackType.View){
+        item_id(required: true, description: "Item id")
+        listing_type_id(required: true, description: "Item listing type id")
+        vertical(required: true, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        buying_mode(required: true, description: "Item buying mode: buy_it_now/auction/classified")
+        condition(required: true, description: "Item condition: used/new/not_specified")
+        price(required: true, description: "Item price")
+        view_type(required:true, description: "Type of the view. Upgrade / Upgrade full screen / single option, ect...")
+    }
+
+    "/sell/change_listing_type/massive"(platform: "/", type: TrackType.View){
+        items_amount(required: true, description: "Amount of items affected")
+        view_type(required:true, description: "Type of the view. Upgrade / Upgrade full screen / single option, ect...")
+    }
+
+    // Eventos relacionados al item
+    "/item"(platform: "/web", isAbstract: true) {
+        item_id(required: true, description: "Item id")
+    }
+
+    "/item/create"(platform: "/web", type: TrackType.Event) {
+        listing_type_id(required: true, description: "Item listing type id")
+        vertical(required: true, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        buying_mode(required: true, description: "Item buying mode: buy_it_now/auction/classified")
+        condition(required: true, description: "Item condition: used/new/not_specified")
+        price(required: true, description: "Item price")
+    }
+
+    "/item/change_listing_type"(platform: "/web", type: TrackType.Event) {
+        from(required: true, description: "Previous Listing type")
+        to(required: true, description: "New Listing type")
+        vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
+        condition(required: false, description: "Item condition: used/new/not_specified")
+        price(required: false, description: "Item price")
+    }
+
+
+    // Myml
+    "/myml"(platform: "/web", isAbstract: true) {}
+    "/myml/listings"(platform: "/web", type: TrackType.View) {
+        label(required: true, description: "Selected label: active/closed/paused/...")
+    }
+
+    "/download-app"(platform: "/web") {}
+    "/download-app/send"(platform: "/web", type: TrackType.Event) {
+        user_phone_number()
+        final_phone_number()
+    }
+    "/download-app/send/success"(platform: "/web", type: TrackType.Event) {
+        user_phone_number()
+        final_phone_number()
+    }
+    "/download-app/send/error"(platform: "/web", type: TrackType.Event) {
+        user_phone_number()
+        final_phone_number()
+        error_type()
+    }
+
+    // Account recovery event
+    "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
+        error_type(required:true, description: "connectionError/invalidOneTimePassword/operatorNotSupported")
     }
 }
+
