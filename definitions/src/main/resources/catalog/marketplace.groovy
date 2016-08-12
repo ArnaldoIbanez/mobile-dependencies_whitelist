@@ -1567,10 +1567,10 @@ tracks {
     "/notification"(platform: "/mobile") {
         event_type(required: true, 
                 values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", 
-                         "swipe", "action_open", "twitter_refresh", "pull_to_refresh"], 
+                         "swipe", "action_open", "pull_to_refresh"], 
                 description: "Type of notification event")
         action_type(required: false, 
-                values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone"])
+                values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar"])
         deeplink(required: false, description: "The link were the notification should navigate to, if applies")
         context(required: false, values: ["notification", "notification_center"], description: "Current context of the notification")
 
