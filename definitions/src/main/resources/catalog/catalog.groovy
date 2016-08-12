@@ -47,7 +47,7 @@ catalog {
         include business, "marketplace.groovy"
     }
 
-    //mercadopago.each { business ->
-    //    include business, "mercadopago.groovy"
-    //}
+    mercadopago.each { business ->
+        include business, "mercadopago.groovy"
+    }
 }
