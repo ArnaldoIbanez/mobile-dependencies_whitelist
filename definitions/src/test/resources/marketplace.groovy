@@ -2738,4 +2738,33 @@ trackTests {
             error_type = "connectionError/invalidOneTimePassword/operatorNotSupported"
         }
     }
+
+    test("Entering to official stores listing") {
+
+        "/official_stores/search"(platform:"/mobile", type: TrackType.View, {})
+    }
+
+
+    test("Tap an official store row") {
+        def officialStoreEvent = {
+            query = "abe"
+            official_store_id="174"
+            official_store_name="Aberturas L'Hermetique"
+        }
+        "/official_stores/search/open"(platform:"/mobile", type: TrackType.Event, officialStoreEvent)
+    }
+
+    test("Abort official store search") {
+        def officialStoreEvent = {
+            query = "abe"
+        }
+        "/official_stores/search/abort"(platform:"/mobile", type: TrackType.Event, officialStoreEvent)
+    }
+
+    test("Back pressed in official store listing") {
+        def officialStoreEvent = {
+            query = "abe"
+        }
+        "/official_stores/search/back"(platform:"/mobile", type: TrackType.Event, officialStoreEvent)
+    }
 }

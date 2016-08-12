@@ -1790,6 +1790,27 @@ tracks {
         exit_to_store(type: PropertyType.Boolean, required: false,  description: "Is true only if you continue searching in a OS")
     }
 
+    /**
+     * OFFICIAL STORES LISTING
+     **/
+    "/official_stores/"(platform: "/mobile", isAbstract: true) {}
+
+    "/official_stores/search/"(platform: "/mobile", type: TrackType.View) {}
+
+    "/official_stores/search/open"(platform: "/mobile", type: TrackType.Event) {
+        query(required: true, description: "Official store name written in search box")
+        official_store_id(required: true, description: "Official store id")
+        official_store_name(required: true, description: "Official store id")
+    }
+
+    "/official_stores/search/abort"(platform: "/mobile", type: TrackType.Event) {
+        query(required: false, description: "Official store name written in search box")
+    }
+
+    "/official_stores/search/back"(platform: "/mobile", type: TrackType.Event) {
+        query(required: false, description: "Official store name written in search box")
+    }
+
     //Breadcrumb
     "/home/category"(platform: "/", type: TrackType.View) {
         from(required: false,  description: "Who is redirecting")
