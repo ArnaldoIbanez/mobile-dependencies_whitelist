@@ -322,6 +322,7 @@ tracks {
         deal_ids(required: false, description: "IDs of applied discounts")
         buying_mode(required: false, description: "Indicates if it's an aution, buy_it_now or classified")
         official_store_id(required: false, description: "Id of item's official store")
+        category_path(required: false, "Category path of the the item")
         vertical(deprecated: true, required: false)
         quantity(deprecated: true, required: false)
         item_condition(deprecated: true, required: false)
@@ -336,7 +337,6 @@ tracks {
         shipping_mode(deprecated: true, required: false)
         free_shipping(deprecated: true, required: false)
         local_pick_up(deprecated: true, required: false)
-        category_path(deprecated: true, required: false)
         promoted_items_clicked(required: false, descripcion: 'indicates whether clicked promoted items before reaching this vip')
         billboard_clicked_position(required:false, type: PropertyType.Numeric)
     }
