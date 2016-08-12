@@ -228,7 +228,6 @@ tracks {
         //ac(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Not Comblinable')
         //ap(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Combinable with other pages')
         //fsm(required: false, description:'indicates on each result of paged if its full or soft match')
-        //layout(required: false, description:'layout of search')
         //qas(required: false, PropertyType.ArrayList, description:'auto selected filters')
         //canonical(required: false, description:'url canonical')
         //cli_rel_qty_configured(required: false, description:'client relationship')
@@ -236,7 +235,7 @@ tracks {
         //corrections(required: false, description:'corrections over query')
         //processed_query(required: false, description:'processed query by backend')
         //stems(required: false, description:'stems list which returns backend to stand out in frontend'
-        
+        layout(required: false, description:'layout of search')
         geolocation(required: false, description:'geolocation')
         landing(required: false, description:'landings: base, premium, etc')
 }
