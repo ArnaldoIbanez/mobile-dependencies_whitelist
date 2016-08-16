@@ -1532,6 +1532,7 @@ tracks {
         app(type: PropertyType.String, description: "Registration app", required:true)
         source(type: PropertyType.String, description: "Source (on mobile is facebook/email, on web at the moment is only email)", required:true)
         item_id(type: PropertyType.String, description: "Item", required:false)
+        captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:true)
     }
 
     "/register/form/error"(platform:"/web", type: TrackType.View) {}
@@ -1539,6 +1540,7 @@ tracks {
     "/register/success"(platform:"/web", type: TrackType.Event) {
         app(type: PropertyType.String, description: "Registration app", required:true)
         item_id(type: PropertyType.String, description: "Item", required:false)
+        captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:true)
     }
 
     "/traffic"(platform: "/", isAbstract: true) {}

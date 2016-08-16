@@ -1923,34 +1923,40 @@ trackTests {
         "/register/form"(platform: "/web/desktop") {
             app = "registration"
             source = "email"
+            captcha_showed = true
         }
 
         "/register/form"(platform: "/web/mobile") {
             app = "registration-question"
             source = "email"
             item_id = "MCO123321"
+            captcha_showed = true
         }
 
         "/register/form/error"(platform: "/web/desktop") {
             app = "registration"
             source = "email"
+            captcha_showed = true
         }
 
         "/register/form/error"(platform: "/web/mobile") {
             app = "registration-question"
             source = "email"
             item_id = "MCO123321"
+            captcha_showed = true
         }
 
         "/register/success"(platform: "/web/desktop") {
             app = "registration-favorite"
             source = "email"
             item_id = "MCO123321"
+            captcha_showed = false
         }
 
         "/register/success"(platform: "/web/mobile") {
             app = "registration"
             source = "email"
+            captcha_showed = false
         }
 
     }
