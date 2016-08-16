@@ -2741,17 +2741,15 @@ trackTests {
 
     test("Recommendations tracking") {
 
-        "/recommendations"(plataform:"/web", TrackType.View) {
-            success_print: true
-            algorithm: "SearchNotLoggedInBackend"
-            context: "Checkout"
+        "/recommendations"(platform: "/web", type: TrackType.View) {
+            success_print = true
+            algorithm = "SearchNotLoggedInBackend"
+            context = "CHO"
         }
-
-        "/recommendations"(plataform:"/web", type: TrackType.View) {
-            success_print: false
-            algorithm: "CongratsBackend"
-            context: "Checkout"
+        "/recommendations"(platform: "/web", type: TrackType.View) {
+            success_print = false
+            algorithm = "CongratsBackend"
+            context = "CHO"
         }
-
     }
 }
