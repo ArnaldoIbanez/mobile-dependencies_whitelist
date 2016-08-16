@@ -2745,6 +2745,20 @@ trackTests {
         }
     }
 
+    test("Recommendations tracking") {
+
+        "/recommendations"(platform: "/web", type: TrackType.View) {
+            success_print = true
+            algorithm = "SearchNotLoggedInBackend"
+            context = "CHO"
+        }
+        "/recommendations"(platform: "/web", type: TrackType.View) {
+            success_print = false
+            algorithm = "CongratsBackend"
+            context = "CHO"
+        }
+    }
+   
     test("Entering to official stores listing") {
 
         "/official_stores/search"(platform:"/mobile", type: TrackType.View, {})
