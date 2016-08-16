@@ -228,7 +228,6 @@ tracks {
         //ac(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Not Comblinable')
         //ap(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Combinable with other pages')
         //fsm(required: false, description:'indicates on each result of paged if its full or soft match')
-        //layout(required: false, description:'layout of search')
         //qas(required: false, PropertyType.ArrayList, description:'auto selected filters')
         //canonical(required: false, description:'url canonical')
         //cli_rel_qty_configured(required: false, description:'client relationship')
@@ -236,7 +235,7 @@ tracks {
         //corrections(required: false, description:'corrections over query')
         //processed_query(required: false, description:'processed query by backend')
         //stems(required: false, description:'stems list which returns backend to stand out in frontend'
-        
+        layout(required: false, description:'layout of search')
         geolocation(required: false, description:'geolocation')
         landing(required: false, description:'landings: base, premium, etc')
 }
@@ -322,6 +321,7 @@ tracks {
         deal_ids(required: false, description: "IDs of applied discounts")
         buying_mode(required: false, description: "Indicates if it's an aution, buy_it_now or classified")
         official_store_id(required: false, description: "Id of item's official store")
+        category_path(required: false, "Category path of the the item")
         vertical(deprecated: true, required: false)
         quantity(deprecated: true, required: false)
         item_condition(deprecated: true, required: false)
@@ -336,7 +336,6 @@ tracks {
         shipping_mode(deprecated: true, required: false)
         free_shipping(deprecated: true, required: false)
         local_pick_up(deprecated: true, required: false)
-        category_path(deprecated: true, required: false)
         promoted_items_clicked(required: false, descripcion: 'indicates whether clicked promoted items before reaching this vip')
         billboard_clicked_position(required:false, type: PropertyType.Numeric)
     }
@@ -1533,6 +1532,7 @@ tracks {
         app(type: PropertyType.String, description: "Registration app", required:true)
         source(type: PropertyType.String, description: "Source (on mobile is facebook/email, on web at the moment is only email)", required:true)
         item_id(type: PropertyType.String, description: "Item", required:false)
+        captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:true)
     }
 
     "/register/form/error"(platform:"/web", type: TrackType.View) {}
@@ -1540,6 +1540,7 @@ tracks {
     "/register/success"(platform:"/web", type: TrackType.Event) {
         app(type: PropertyType.String, description: "Registration app", required:true)
         item_id(type: PropertyType.String, description: "Item", required:false)
+        captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:true)
     }
 
     "/traffic"(platform: "/", isAbstract: true) {}
@@ -1788,6 +1789,27 @@ tracks {
         check_on_exp(type: PropertyType.Boolean, required: false,  description: "Is true if the checkon experiment mantains the checkon")
         checked(type: PropertyType.Boolean, required: false,  description: "Is true only if the checkon is checked")
         exit_to_store(type: PropertyType.Boolean, required: false,  description: "Is true only if you continue searching in a OS")
+    }
+
+    /**
+     * OFFICIAL STORES LISTING
+     **/
+    "/official_stores/"(platform: "/mobile", isAbstract: true) {}
+
+    "/official_stores/search/"(platform: "/mobile", type: TrackType.View) {}
+
+    "/official_stores/search/open"(platform: "/mobile", type: TrackType.Event) {
+        query(required: true, description: "Official store name written in search box")
+        official_store_id(required: true, description: "Official store id")
+        official_store_name(required: true, description: "Official store id")
+    }
+
+    "/official_stores/search/abort"(platform: "/mobile", type: TrackType.Event) {
+        query(required: false, description: "Official store name written in search box")
+    }
+
+    "/official_stores/search/back"(platform: "/mobile", type: TrackType.Event) {
+        query(required: false, description: "Official store name written in search box")
     }
 
     //Breadcrumb

@@ -1923,34 +1923,40 @@ trackTests {
         "/register/form"(platform: "/web/desktop") {
             app = "registration"
             source = "email"
+            captcha_showed = true
         }
 
         "/register/form"(platform: "/web/mobile") {
             app = "registration-question"
             source = "email"
             item_id = "MCO123321"
+            captcha_showed = true
         }
 
         "/register/form/error"(platform: "/web/desktop") {
             app = "registration"
             source = "email"
+            captcha_showed = true
         }
 
         "/register/form/error"(platform: "/web/mobile") {
             app = "registration-question"
             source = "email"
             item_id = "MCO123321"
+            captcha_showed = true
         }
 
         "/register/success"(platform: "/web/desktop") {
             app = "registration-favorite"
             source = "email"
             item_id = "MCO123321"
+            captcha_showed = false
         }
 
         "/register/success"(platform: "/web/mobile") {
             app = "registration"
             source = "email"
+            captcha_showed = false
         }
 
     }
@@ -2751,5 +2757,34 @@ trackTests {
             algorithm = "CongratsBackend"
             context = "CHO"
         }
+    }
+   
+    test("Entering to official stores listing") {
+
+        "/official_stores/search"(platform:"/mobile", type: TrackType.View, {})
+    }
+
+
+    test("Tap an official store row") {
+        def officialStoreEvent = {
+            query = "abe"
+            official_store_id="174"
+            official_store_name="Aberturas L'Hermetique"
+        }
+        "/official_stores/search/open"(platform:"/mobile", type: TrackType.Event, officialStoreEvent)
+    }
+
+    test("Abort official store search") {
+        def officialStoreEvent = {
+            query = "abe"
+        }
+        "/official_stores/search/abort"(platform:"/mobile", type: TrackType.Event, officialStoreEvent)
+    }
+
+    test("Back pressed in official store listing") {
+        def officialStoreEvent = {
+            query = "abe"
+        }
+        "/official_stores/search/back"(platform:"/mobile", type: TrackType.Event, officialStoreEvent)
     }
 }

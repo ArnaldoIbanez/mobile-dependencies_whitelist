@@ -5,7 +5,11 @@ trackTests {
 
   defaultBusiness = "mercadopago"
 
+  test("Root tracking") {
+    "/"(platform: "/mobile") {}
 
+    "/"(platform: "/web/desktop") {}
+  }
 }
 
 
