@@ -1555,12 +1555,6 @@ tracks {
 
     "/notification_center"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/notification_center/abort"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/notification_center/back"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/notification_center/failure"(platform: "/mobile", type: TrackType.Event) {}
-
     /**
      * NOTIFICATIONS
      * disclaimer: when the action_type is set, the event_type should be always 'open'
@@ -1592,7 +1586,7 @@ tracks {
     "/notification/shipping_agency_withdrawal"(platform: "/mobile") {
         order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
         shipment_id(required: true, type: PropertyType.Numeric)
-        agency_to_agency(required: false, type: PropertyType.Boolean, description: "Indicates if package was sent to an agency in the first place or was shipped there because the user wasnt found in his address")
+        agency_to_agency(required:false, type:PropertyType.Boolean, description: "Indicates if package was sent to an agency in the first place or was shipped there because the user wasnt found in his address")
     }
     //Devolución de costo de envío por demora
     "/notification/shipping_delayed_bonus"(platform: "/mobile") {
@@ -1630,6 +1624,7 @@ tracks {
         order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
         shipment_id(required: true, type: PropertyType.Numeric)
     }
+
 
     //Seller questions
     "/notification/questions_new"(platform: "/mobile") {
