@@ -8,16 +8,16 @@ metrics {
                                 path("/search")
 
                                 and(
-                                        notEquals("event_data.banners.deal_id", ""),
-                                        notEquals("event_data.banners.exhibitors_id", "")
+                                        notEquals("event_data.banner.deal_id", ""),
+                                        notEquals("event_data.banner.exhibitors_id", "")
                                 )
                         }
 
-                        set_property("deal_id", "event_data.banners.deal_id")
-                        set_property("exhibitors_id", "event_data.banners.exhibitors_id")
+                        set_property("deal_id", "event_data.banner.deal_id")
+                        set_property("exhibitors_id", "event_data.banner.exhibitors_id")
 
                         openBy {
-                                "event_data.banners.deal_id"(default: "-")
+                                "event_data.banner.deal_id"(default: "-")
                         }
                 }
 
