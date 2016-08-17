@@ -1555,6 +1555,12 @@ tracks {
 
     "/notification_center"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/notification_center/abort"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/notification_center/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/notification_center/failure"(platform: "/mobile", type: TrackType.Event) {}
+
     /**
      * NOTIFICATIONS
      * disclaimer: when the action_type is set, the event_type should be always 'open'
