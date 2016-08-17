@@ -4,59 +4,59 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
-  defaultBusiness = "mercadolibre"
+    defaultBusiness = "mercadolibre"
 
-  test("Root tracking") {
-    "/"(platform: "/mobile") {}
+    test("Root tracking") {
+        "/"(platform: "/mobile") {}
 
-    "/"(platform: "/web/desktop") {}
-  }
-
-  test("Home core tracking") {
-    "/home"(platform: "/mobile") {}
-
-    "/home/abort"(platform: "/mobile") {}
-
-    "/home/back"(platform: "/mobile") {}
-
-    "/home/failure"(platform: "/mobile", {
-      error_message = "error loading home"
-    })
-
-    "/home/pulltorefresh"(platform:"/mobile") {}
-
-    "/home/pulltorefresh/abort"(platform:"/mobile") {}
-
-    "/home/scroll"(platform: "/mobile/android") {}
-
-    "/home/scroll/abort"(platform: "/mobile/android") {}
-
-    "/home/tap"(platform: "/mobile", {
-      position = 1
-      section = "history"
-      tag_id = "MLB681933310"
-    })
-
-    "/home/carousel/firstTO"(platform: "/mobile") {}
-
-    "/home/carousel/lastcard"(platform: "/mobile") {}
-  }
-
-  test("Search core tracking"){
-
-    def defaultSearchInformation = {
-        total=5876 
-        limit=20
-        query="iphone"
-        category_path=["MLA1051", "MLA1055", "MLA32089"]
-        category_id="MLA32089"
-        filter_user_applied=[]
-        offset=0
-        sort_id="relevance"
-        view_mode="MOSAIC"
-        filter_tags=["locationFromHistory"]
-        results=["232232000", "232232001", "232232002"]
+        "/"(platform: "/web/desktop") {}
     }
+
+    test("Home core tracking") {
+        "/home"(platform: "/mobile") {}
+
+        "/home/abort"(platform: "/mobile") {}
+
+        "/home/back"(platform: "/mobile") {}
+
+        "/home/failure"(platform: "/mobile", {
+            error_message = "error loading home"
+        })
+
+        "/home/pulltorefresh"(platform:"/mobile") {}
+
+        "/home/pulltorefresh/abort"(platform:"/mobile") {}
+
+        "/home/scroll"(platform: "/mobile/android") {}
+
+        "/home/scroll/abort"(platform: "/mobile/android") {}
+
+        "/home/tap"(platform: "/mobile", {
+            position = 1
+            section = "history"
+            tag_id = "MLB681933310"
+        })
+
+        "/home/carousel/firstTO"(platform: "/mobile") {}
+
+        "/home/carousel/lastcard"(platform: "/mobile") {}
+    }
+
+    test("Search core tracking"){
+
+        def defaultSearchInformation = {
+            total=5876
+            limit=20
+            query="iphone"
+            category_path=["MLA1051", "MLA1055", "MLA32089"]
+            category_id="MLA32089"
+            filter_user_applied=[]
+            offset=0
+            sort_id="relevance"
+            view_mode="MOSAIC"
+            filter_tags=["locationFromHistory"]
+            results=["232232000", "232232001", "232232002"]
+        }
 
     def defaultEmptySearchInformation = {
         limit=20
