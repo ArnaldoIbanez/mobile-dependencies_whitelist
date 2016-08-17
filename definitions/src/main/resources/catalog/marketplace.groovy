@@ -1566,13 +1566,22 @@ tracks {
      * disclaimer: when the action_type is set, the event_type should be always 'open'
      **/
     "/notification"(platform: "/mobile") {
-        news_id(required: false, description: "Identifier of the notification generated")
-        event_type(required: true, values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "swipe"], description: "Type of notification event")
-        action_type(required: false, values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone"])
+        event_type(required: true, 
+                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", 
+                         "swipe", "action_open", "pull_to_refresh"], 
+                description: "Type of notification event")
+        action_type(required: false, 
+                values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar"])
         deeplink(required: false, description: "The link were the notification should navigate to, if applies")
-        status(required: false, values: ["read", "unread"], description: "The current notification status, used only when tracking from notification center.")
-        notification_style(required: false, description: "The notification style used when displaying the notification to the user.")
         context(required: false, values: ["notification", "notification_center"], description: "Current context of the notification")
+
+        //FOR NOTIFICATIONS - TRAY
+        news_id(required: false, description: "Identifier of the notification generated")
+        notification_style(required: false, description: "The notification style used when displaying the notification to the user.")
+
+        // FOR NOTIFICATION CENTER
+        newsgroup_id(required: false, description: "Identifier of the notification generated")
+        status(required: false, values: ["read", "unread"], description: "*Deprecated*: Just for old NotifCenter.")
     }
     //Tu producto está en camino
     "/notification/shipping_shipped"(platform: "/mobile") {

@@ -2057,6 +2057,19 @@ trackTests {
             context = "notification"
         }
 
+    "/notification"(platform: "/mobile") {
+      newsgroup_id = "12332323"
+      event_type = "action_open" 
+      action_type = "deeplinking"
+      context = "notification_center"
+    }
+
+      "/notification"(platform: "/mobile") {
+          newsgroup_id = "12332323"
+          event_type = "swipe"
+          context = "notification_center"
+      }
+
         "/notification/campaigns_deals"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
@@ -2758,7 +2771,7 @@ trackTests {
             context = "CHO"
         }
     }
-   
+
     test("Entering to official stores listing") {
 
         "/official_stores/search"(platform:"/mobile", type: TrackType.View, {})
