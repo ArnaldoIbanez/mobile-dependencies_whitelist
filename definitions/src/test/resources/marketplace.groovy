@@ -2057,6 +2057,19 @@ trackTests {
             context = "notification"
         }
 
+    "/notification"(platform: "/mobile") {
+      newsgroup_id = "12332323"
+      event_type = "action_open" 
+      action_type = "deeplinking"
+      context = "notification_center"
+    }
+
+      "/notification"(platform: "/mobile") {
+          newsgroup_id = "12332323"
+          event_type = "swipe"
+          context = "notification_center"
+      }
+
         "/notification/campaigns_deals"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
@@ -2742,6 +2755,20 @@ trackTests {
 
         "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
             error_type = "connectionError/invalidOneTimePassword/operatorNotSupported"
+        }
+    }
+
+    test("Recommendations tracking") {
+
+        "/recommendations"(platform: "/web", type: TrackType.View) {
+            success_print = true
+            algorithm = "SearchNotLoggedInBackend"
+            context = "CHO"
+        }
+        "/recommendations"(platform: "/web", type: TrackType.View) {
+            success_print = false
+            algorithm = "CongratsBackend"
+            context = "CHO"
         }
     }
 
