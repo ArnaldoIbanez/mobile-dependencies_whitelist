@@ -40,7 +40,7 @@ class TestDsl{
         def result = null
 
         this.tracks.each { singleTrack ->
-            catalog.catalogCoverage.addTestRun(singleTrack.path)
+            catalog.catalogCoverage.addTestRun(singleTrack.path,singleTrack.business)
             result = catalog.validate(singleTrack)
             _status = _status && result.status
             if ( !result.status ) {

@@ -25,6 +25,8 @@ tracks {
     "/"(platform: "/web", isAbstract: true) {
     }
 
+    "/melidata"(platform: "/mobile", isAbstract: true) {}
+
     "/melidata/statistics"(platform: "/mobile", type: TrackType.Event) {
         errors_counter(type: PropertyType.Map)
         last_send_timestamp()
@@ -46,7 +48,6 @@ tracks {
         previous_size (type: PropertyType.Numeric, description: "Size of database before shrinking in bytes")
         current_size (type: PropertyType.Numeric , description: "Size of database after shrinking in bytes")
     }
-
 
 }
 
