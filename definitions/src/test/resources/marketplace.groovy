@@ -1946,6 +1946,19 @@ trackTests {
             captcha_showed = true
         }
 
+        "/register/form/anotherEmail"(platform: "/web/desktop") {
+            app = "registration"
+            source = "email"
+            item_id = "MCO123321"
+            captcha_showed = true
+        }
+
+        "/register/form/anotherEmail"(platform: "/web/mobile") {
+            app = "registration-question"
+            source = "email"
+            captcha_showed = true
+        }
+
         "/register/success"(platform: "/web/desktop") {
             app = "registration-favorite"
             source = "email"
