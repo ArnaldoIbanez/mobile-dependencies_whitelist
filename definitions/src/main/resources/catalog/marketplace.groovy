@@ -1537,6 +1537,8 @@ tracks {
 
     "/register/form/error"(platform:"/web", type: TrackType.View) {}
 
+    "/register/form/another-email"(platform:"/web", type: TrackType.View) {}
+
     "/register/success"(platform:"/web", type: TrackType.Event) {
         app(type: PropertyType.String, description: "Registration app", required:true)
         item_id(type: PropertyType.String, description: "Item", required:false)
