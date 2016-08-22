@@ -1571,7 +1571,7 @@ tracks {
                          "swipe", "action_open", "pull_to_refresh"], 
                 description: "Type of notification event")
         action_type(required: false, 
-                values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar"])
+                values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture"])
         deeplink(required: false, description: "The link were the notification should navigate to, if applies")
         context(required: false, values: ["notification", "notification_center"], description: "Current context of the notification")
 
