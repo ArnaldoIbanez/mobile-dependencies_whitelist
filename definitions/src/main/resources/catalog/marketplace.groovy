@@ -1873,11 +1873,11 @@ tracks {
     }
 
     // Eventos relacionados al item
-    "/item"(platform: "/web", isAbstract: true) {
+    "/item"(platform: "/", isAbstract: true) {
         item_id(required: true, description: "Item id")
     }
 
-    "/item/create"(platform: "/web", type: TrackType.Event) {
+    "/item/create"(platform: "/", type: TrackType.Event) {
         listing_type_id(required: true, description: "Item listing type id")
         vertical(required: true, description: "Item Vertical: core/service/motor/real_estate/etc...")
         buying_mode(required: true, description: "Item buying mode: buy_it_now/auction/classified")
@@ -1885,7 +1885,7 @@ tracks {
         price(required: true, description: "Item price")
     }
 
-    "/item/change_listing_type"(platform: "/web", type: TrackType.Event) {
+    "/item/change_listing_type"(platform: "/", type: TrackType.Event) {
         from(required: true, description: "Previous Listing type")
         to(required: true, description: "New Listing type")
         vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
@@ -1894,6 +1894,16 @@ tracks {
         price(required: false, description: "Item price")
     }
 
+
+    "/item/relist"(platform: "/", type: TrackType.Event) {
+        listing_type_id(required: true, description: "Item listing type id")
+        vertical(required: true, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        buying_mode(required: true, description: "Item buying mode: buy_it_now/auction/classified")
+        condition(required: true, description: "Item condition: used/new/not_specified")
+        price(required: true, description: "Item price")
+        parent_id(required: false, description: "Parent item listing type id")
+        parent_listing_type_id(required: false, description: "Parent item listing type id")
+    }
 
     // Myml
     "/myml"(platform: "/web", isAbstract: true) {}
