@@ -1852,6 +1852,7 @@ tracks {
 
     // Sell
     "/sell"(platform: "/web", isAbstract: true) {}
+    "/sell/list"(platform: "/", , isAbstract: true){ }
     "/sell/change_listing_type"(platform: "/web", isAbstract: true) {
         source(required: true, description: "Source could be differents types of email, my account, etc.", type: PropertyType.String)
         seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
@@ -1870,6 +1871,53 @@ tracks {
     "/sell/change_listing_type/massive"(platform: "/", type: TrackType.View){
         items_amount(required: true, description: "Amount of items affected")
         view_type(required:true, description: "Type of the view. Upgrade / Upgrade full screen / single option, ect...")
+    }
+
+    "/sell/quick_relist"(platform: "/web/desktop", isAbstract: true){}
+    "/sell/quick_relist/single"(platform: "/web/desktop", type: TrackType.View){
+        item_id(required: true, description: "Item id")
+        listing_type_id(required: false, description: "Item listing type id")
+        vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
+        condition(required: false, description: "Item condition: used/new/not_specified")
+        price(required: false, description: "Item price")
+    }
+
+    "/sell/quick_relist/massive"(platform: "/web/desktop", type: TrackType.View){
+        items_amount(required: true, description: "Amount of items affected")
+    }
+
+    "/sell/modify_and_relist"(platform: "/web", isAbstract: true){}
+    "/sell/modify_and_relist/single"(platform: "/web", type: TrackType.View){
+        item_id(required: true, description: "Item id")
+        listing_type_id(required: false, description: "Item listing type id")
+        vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
+        condition(required: false, description: "Item condition: used/new/not_specified")
+        price(required: false, description: "Item price")
+    }
+
+    "/sell/modify_and_relist/massive"(platform: "/web", type: TrackType.View){
+        items_amount(required: true, description: "Amount of items affected")
+    }
+
+    "/sell/list/congrats"(platform: "/web", type: TrackType.View){
+        item_id(required: true, description: "Item id")
+        listing_type_id(required: false, description: "Item listing type id")
+        vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
+        condition(required: false, description: "Item condition: used/new/not_specified")
+        price(required: false, description: "Item price")
+    }
+
+    // Upgrade On = El upgrade que se ofrece en la congrats del flujo de publicar
+    "/sell/upgrade_on"(platform: "/web/desktop", type: TrackType.View){
+        item_id(required: true, description: "Item id")
+        listing_type_id(required: true, description: "Item listing type id")
+        vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
+        condition(required: false, description: "Item condition: used/new/not_specified")
+        price(required: false, description: "Item price")
     }
 
     // Eventos relacionados al item
@@ -1903,6 +1951,7 @@ tracks {
         price(required: true, description: "Item price")
         parent_id(required: false, description: "Parent item listing type id")
         parent_listing_type_id(required: false, description: "Parent item listing type id")
+        change_listing_type(required: false, description: "If the listing type changed compare to its parent. Values: upgrade/no_change/downgrade")
     }
 
     // Myml
@@ -1910,6 +1959,8 @@ tracks {
     "/myml/listings"(platform: "/web", type: TrackType.View) {
         label(required: true, description: "Selected label: active/closed/paused/...")
     }
+
+    "/myml/bookmarks"(platform: "/web", type: TrackType.View) {}
 
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {

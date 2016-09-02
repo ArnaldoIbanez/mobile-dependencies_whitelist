@@ -2708,6 +2708,40 @@ trackTests {
         "/sell/change_listing_type/massive"(platform: "/web", dataSetViewMassive)
     }
 
+    test("Relist items"){
+        def itemData = {
+            item_id = "MLA123456"
+            listing_type_id = "gold_special"
+            vertical = "CORE"
+            buying_mode = "buy_it_now"
+            condition = "used"
+            price = 123.456
+        }
+
+        def massiveItemData = {
+            items_amount = 2
+        }
+        
+        "/sell/quick_relist/single"(platform: "/web/desktop", itemData)
+        "/sell/quick_relist/massive"(platform: "/web/desktop", massiveItemData)
+        "/sell/modify_and_relist/single"(platform: "/web/desktop", itemData)
+        "/sell/modify_and_relist/massive"(platform: "/web/desktop", massiveItemData)
+    }
+
+    test("Sell Flow view Pages"){
+        def itemData = {
+            item_id = "MLA123456"
+            listing_type_id = "gold_special"
+            vertical = "CORE"
+            buying_mode = "buy_it_now"
+            condition = "used"
+            price = 123.456
+        }
+        
+        "/sell/list/congrats"(platform: "/web/desktop", itemData)
+        "/sell/upgrade_on"(platform: "/web/desktop", itemData)
+    }
+
     test("Item events"){
         def dataListItem = {
             item_id = "MLA123456"
@@ -2765,6 +2799,7 @@ trackTests {
         "/myml/listings"(platform: "/web"){
             label = "active"
         }
+        "/myml/bookmarks"(platform: "/web"){}
     }
 
     test("Download app landing tracking") {
