@@ -2734,10 +2734,31 @@ trackTests {
             to = "gold_pro"
         }
 
+        def dataRelistItem = {
+            item_id = "MLA123456"
+            listing_type_id = "gold_special"
+            vertical = "CORE"
+            buying_mode = "buy_it_now"
+            condition = "used"
+            price = 123.456
+        }
+
+        def dataRelistItemWithParentInformation = {
+            item_id = "MLA123456"
+            listing_type_id = "gold_special"
+            vertical = "CORE"
+            buying_mode = "buy_it_now"
+            condition = "used"
+            price = 123.456
+            parent_id = "MLA345"
+            parent_listing_type_id = "free"
+        }
 
         "/item/create"(platform: "/web", dataListItem)
         "/item/change_listing_type"(platform: "/web", dataChangeListingTypeItemFullInfo)
         "/item/change_listing_type"(platform: "/web", dataChangeListingTypeItemMinimumInfo)
+        "/item/relist"(platform: "/web", dataRelistItem)
+        "/item/relist"(platform: "/web", dataRelistItemWithParentInformation)
     }
 
     test("Myml listing active view"){
