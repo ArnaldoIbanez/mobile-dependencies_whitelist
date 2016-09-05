@@ -216,7 +216,7 @@ metrics {
 	}
 
 
-    "search/newFiltersAndSortWebMobile.seller_called"(description: "track vip call seller as success for classifieds in the new order experiment") {
+    "search/newFiltersAndSortWebMobile.seller_called"(description: "track vip call seller as success for classifieds in the new filters mobile experiment") {
 	    startWith {
             experiment("search/newFiltersAndSortWebMobile", "search/newFiltersAndSortWebMobile.classifieds")
         }
