@@ -255,4 +255,32 @@ metrics {
 			}
 		}
 	}
+
+	"relist_upgrade"(description: "A Item was relisted in a higher listing type than its parent") {
+		startWith {
+			experiment("sell/quick_resell_experiment")
+		}
+
+		countsOn {
+			condition {
+				path("/item/relist")
+
+				equals("event_data.change_listing_type", "upgrade")
+			}
+		}
+	}
+
+	"relist_downgrade"(description: "A Item was relisted in a lower listing type than its parent") {
+		startWith {
+			experiment("sell/quick_resell_experiment")
+		}
+
+		countsOn {
+			condition {
+				path("/item/relist")
+
+				equals("event_data.change_listing_type", "downgrade")
+			}
+		}
+	}
 }
