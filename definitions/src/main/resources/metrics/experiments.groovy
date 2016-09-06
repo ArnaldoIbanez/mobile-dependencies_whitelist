@@ -242,6 +242,20 @@ metrics {
 		}
 	}
 
+	"search/newFiltersWebMobileTwoVariants.classifieds"(description: "extend experiment /search/newFiltersWebMobileTwoVariants for classifieds", parametricName: false) {
+		startWith {
+			condition {
+				and(
+						empty("experiments.search/newFiltersWebMobileTwoVariants", false),
+						or(
+								like('event_data.category_path', '.*M..1743(-|$).*'),
+								like('event_data.category_path', '.*M..1459(-|$).*')
+						)
+				)
+			}
+		}
+	}
+
 	"free_item_upgraded"(description: "A free Item was upgraded") {
 		startWith {
 			experiment("sell/increase_exposure_wording")
