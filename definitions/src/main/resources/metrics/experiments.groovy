@@ -216,9 +216,9 @@ metrics {
 	}
 
 
-    "seller_called"(description: "track vip call seller as success for classifieds in the new order experiment") {
+    "search/newFiltersAndSortWebMobile.seller_called"(description: "track vip call seller as success for classifieds in the new filters mobile experiment") {
 	    startWith {
-            experiment("search/filtersNewOrder", "search/filtersNewOrderDeals", "search/filtersNewOrder.classifieds")
+            experiment("search/newFiltersAndSortWebMobile", "search/newFiltersAndSortWebMobile.classifieds")
         }
 
   		countsOn {
@@ -228,11 +228,11 @@ metrics {
 		}
 	}
 
-	"search/filtersNewOrder.classifieds"(description: "extend experiment /search/filtersNewOrder for classifieds", parametricName: false) {
+	"search/newFiltersAndSortWebMobile.classifieds"(description: "extend experiment /search/newFiltersAndSortWebMobile for classifieds", parametricName: false) {
 		startWith {
 			condition {
 				and(
-					empty("experiments.search/filtersNewOrder", false),
+					empty("experiments.search/newFiltersAndSortWebMobile", false),
 					or(
 					    like('event_data.category_path', '.*M..1743(-|$).*'),
 					    like('event_data.category_path', '.*M..1459(-|$).*')
