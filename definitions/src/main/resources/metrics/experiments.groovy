@@ -228,6 +228,18 @@ metrics {
 		}
 	}
 
+	"newFiltersWebMobileTwoVariants.seller_called"(description: "track vip call seller as success for classifieds in the new filters mobile experiment") {
+	    startWith {
+            experiment("search/newFiltersWebMobileTwoVariants", "search/newFiltersWebMobileTwoVariants.classifieds")
+        }
+
+  		countsOn {
+			condition {
+				path("/vip/call_seller", "/vip/show_phone")
+			}
+		}
+	}
+
 	"search/newFiltersAndSortWebMobile.classifieds"(description: "extend experiment /search/newFiltersAndSortWebMobile for classifieds", parametricName: false) {
 		startWith {
 			condition {
