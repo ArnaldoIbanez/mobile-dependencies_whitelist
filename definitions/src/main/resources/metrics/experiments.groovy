@@ -264,8 +264,10 @@ metrics {
 		countsOn {
 			condition {
 				path("/item/relist")
-
-				equals("event_data.change_listing_type", "upgrade")
+				and(
+					equals("event_data.change_listing_type", "upgrade"),
+					equals("event_data.vertical", "CORE")
+				)
 			}
 		}
 	}
@@ -278,8 +280,10 @@ metrics {
 		countsOn {
 			condition {
 				path("/item/relist")
-
-				equals("event_data.change_listing_type", "downgrade")
+				and(
+					equals("event_data.change_listing_type", "downgrade"),
+					equals("event_data.vertical", "CORE")
+				)
 			}
 		}
 	}
