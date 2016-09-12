@@ -1932,6 +1932,11 @@ tracks {
         buying_mode(required: true, description: "Item buying mode: buy_it_now/auction/classified")
         condition(required: true, description: "Item condition: used/new/not_specified")
         price(required: true, description: "Item price")
+        category_id(required: true, description: "Item category_id")
+        
+        // Category sugestion
+        suggested_category_id(required: false, description: "Category id suggested")
+        suggested_category_is_leaf(required: false, type: PropertyType.Boolean, description: "The category suggested is leaf")
     }
 
     "/item/change_listing_type"(platform: "/", type: TrackType.Event) {

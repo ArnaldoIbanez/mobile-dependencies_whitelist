@@ -2750,6 +2750,19 @@ trackTests {
             buying_mode = "buy_it_now"
             condition = "used"
             price = 123.456
+            category_id = "MLA3530"
+        }
+
+        def dataListItemWithCategorySuggestion = {
+            item_id = "MLA123456"
+            listing_type_id = "gold_special"
+            vertical = "CORE"
+            buying_mode = "buy_it_now"
+            condition = "used"
+            price = 123.456
+            category_id = "MLA3530"
+            suggested_category_id = "MLA1915"
+            suggested_category_is_leaf = false
         }
 
         def dataChangeListingTypeItemFullInfo = {
@@ -2789,6 +2802,7 @@ trackTests {
         }
 
         "/item/create"(platform: "/web", dataListItem)
+        "/item/create"(platform: "/web", dataListItemWithCategorySuggestion)
         "/item/change_listing_type"(platform: "/web", dataChangeListingTypeItemFullInfo)
         "/item/change_listing_type"(platform: "/web", dataChangeListingTypeItemMinimumInfo)
         "/item/relist"(platform: "/web", dataRelistItem)
