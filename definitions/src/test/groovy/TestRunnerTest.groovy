@@ -63,7 +63,7 @@ class TestRunnerTest {
         }
 
         def result = TestRunner.run(this.catalog, tests, new OutTest())
-        assertTrue(result)
+        assertFalse(result)
     }
 
     @Test void shouldRunTestRunnerWithPaths(){
@@ -124,7 +124,6 @@ class TestRunnerTest {
             test("Search gallery with 50 items, first page"){
             }
         }
-
         def result = TestRunner.run(this.catalog, tests, std)
 
         assertFalse(result)
