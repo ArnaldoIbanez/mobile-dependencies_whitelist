@@ -1765,7 +1765,15 @@ tracks {
         seller(required: true, description: "seller information") // id, nickname
     }
 
-    "/email"(platform: "/email", isAbstract: true) {}
+    "/email"(platform: "/email", isAbstract: true) {
+        email_template(required: true)
+        event_type(required: true)
+        email_id(required: false)
+        recipient(required: false)
+        sender(required: false)
+        subject(required: false)
+        sent_date(required: false)
+    }
 
     "/email/orders"(platform: "/email") {
         order_id(required: true)
@@ -1773,10 +1781,27 @@ tracks {
         order_status(required: true)
         seller_id(required: true)
         is_risk_user(required: false)
-        email_template(required: true)
-        event_type(required: true)
         total_amount(required: true)
     }
+
+    "/email/generic"(platform: "/email"){}
+
+    "/email/question"(platform: "/email"){}
+
+    "/email/checkout"(platform: "/email"){}
+
+    "/email/access"(platform: "/email"){}
+
+    "/email/sale"(platform: "/email"){}
+
+    "/email/mediation"(platform: "/email"){}
+
+    "/email/auction_end"(platform: "/email"){}
+
+    "/email/withdrawal"(platform: "/email"){}
+
+    "/email/fup_feedback"(platform: "/email"){}
+
 
     "/official_stores"(platform: "/web", isAbstract: true) {}
 
