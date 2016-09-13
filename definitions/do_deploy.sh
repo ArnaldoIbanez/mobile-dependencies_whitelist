@@ -13,7 +13,7 @@ if [[ $DRONE_BRANCH == "master" && $DRONE_BUILD_DIR != "" ]]; then
   ./gradlew uploadMetrics
 
   echo "Starting upload json for batch queries"
-  ./gradlew uploadBatchQueries
+//  ./gradlew uploadBatchQueries
 
 else
   echo "This branch / fork doesn't deploy"
