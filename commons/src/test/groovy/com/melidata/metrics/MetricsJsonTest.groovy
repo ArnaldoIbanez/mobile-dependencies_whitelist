@@ -218,7 +218,7 @@ class MetricsJsonTest {
 		assertEquals("false", json.insights[0].condition.value)
 		assertEquals("custom1", json.measures[0].name)
 		assertEquals(["/search"], json.measures[0].paths)
-		assertEquals("custom1", json.measures[0].experiments)
+		assertEquals(["custom1"], json.measures[0].experiments)
 	}
 
 	@Test void testStartWithConditionAndCountsOn() {

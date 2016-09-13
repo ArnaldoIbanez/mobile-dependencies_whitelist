@@ -62,6 +62,11 @@ task uploadMetrics(type:JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 }
 
+task uploadBatchQueries(type:JavaExec) {
+    main = 'com.melidata.definitions.manager.QueriesUploader'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
 
 task validate(dependsOn: 'classes', type: JavaExec) {
     main = 'validate'
