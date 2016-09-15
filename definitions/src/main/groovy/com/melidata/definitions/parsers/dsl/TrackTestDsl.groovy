@@ -8,7 +8,7 @@ import com.ml.melidata.Track
 
 class TrackTestDsl {
 
-    def String defaultBusiness = "ml"
+    def String defaultBusiness
     def ArrayList<Track> tracksToValidate = [];
     def ArrayList<TestDsl> tests = [];
 

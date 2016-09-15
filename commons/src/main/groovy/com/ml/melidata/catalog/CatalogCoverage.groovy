@@ -39,9 +39,7 @@ class CatalogCoverage {
 	}
 
 	def addTestRun(String path, String business) {
-		assert path!=null
-		assert business !=null
-		this.testedPaths.add(new TestablePath(path,business))
+		this.testedPaths.add( new TestablePath(path,business))
 
 		coverage = null
 		coveragePercent = null
