@@ -1577,9 +1577,9 @@ tracks {
      **/
     "/notification"(platform: "/mobile") {
         event_type(required: true, 
-                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", 
-                         "swipe", "action_open", "pull_to_refresh"], 
-                description: "Type of notification event")
+                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown",
+                                                                   "swipe", "action_open", "pull_to_refresh"],
+        description: "Type of notification event")
         action_type(required: false, 
                 values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture"])
         deeplink(required: false, description: "The link were the notification should navigate to, if applies")
@@ -1772,7 +1772,14 @@ tracks {
         seller(required: true, description: "seller information") // id, nickname
     }
 
-    "/email"(platform: "/email", isAbstract: true) {}
+    "/email"(platform: "/email", isAbstract: true) {
+        email_template(required: true)
+        event_type(required: true,
+                values: ["send", "open", "cancel"],
+                description: "Type of email event")
+        email_id(required: false)
+        subject(required: false)
+    }
 
     "/email/orders"(platform: "/email") {
         order_id(required: true)
@@ -1780,10 +1787,27 @@ tracks {
         order_status(required: true)
         seller_id(required: true)
         is_risk_user(required: false)
-        email_template(required: true)
-        event_type(required: true)
         total_amount(required: true)
     }
+
+    "/email/generic"(platform: "/email"){}
+
+    "/email/question"(platform: "/email"){}
+
+    "/email/checkout"(platform: "/email"){}
+
+    "/email/access"(platform: "/email"){}
+
+    "/email/sale"(platform: "/email"){}
+
+    "/email/mediation"(platform: "/email"){}
+
+    "/email/auction_end"(platform: "/email"){}
+
+    "/email/withdrawal"(platform: "/email"){}
+
+    "/email/fup_feedback"(platform: "/email"){}
+
 
     "/official_stores"(platform: "/web", isAbstract: true) {}
 
