@@ -1570,9 +1570,9 @@ tracks {
      **/
     "/notification"(platform: "/mobile") {
         event_type(required: true, 
-                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", 
-                         "swipe", "action_open", "pull_to_refresh"], 
-                description: "Type of notification event")
+                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown",
+                                                                   "swipe", "action_open", "pull_to_refresh"],
+        description: "Type of notification event")
         action_type(required: false, 
                 values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture"])
         deeplink(required: false, description: "The link were the notification should navigate to, if applies")
@@ -1767,12 +1767,11 @@ tracks {
 
     "/email"(platform: "/email", isAbstract: true) {
         email_template(required: true)
-        event_type(required: true)
+        event_type(required: true,
+                values: ["send", "open", "cancel"],
+                description: "Type of email event")
         email_id(required: false)
-        recipient(required: false)
-        sender(required: false)
         subject(required: false)
-        sent_date(required: false)
     }
 
     "/email/orders"(platform: "/email") {

@@ -9,10 +9,7 @@ trackTests {
 
         def defaultTrackInformation = {
             email_id = 123456
-            recipient = "test@test.com"
-            sender = "testSender@test.com"
             subject = "Test"
-            sent_date = "2011-05-31T11:27:30.292-04:00"
             email_template = "CHO_PAGO_AGREE"
             event_type = "send"
         }
