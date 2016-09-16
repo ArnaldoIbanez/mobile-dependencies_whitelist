@@ -313,4 +313,67 @@ metrics {
 			}
 		}
 	}
+
+
+
+	"newFiltersWebMobileTwoVariants.low"(description: "Experiment open by device.resolution_height") {
+		startWith {
+			condition {
+				and(
+						empty("experiments.search/newFiltersWebMobileTwoVariants", false),
+						or(
+								and(
+										equals("device.vendor", "apple"),
+										lte("device.resolution_height", 500)
+								),
+								and(
+										notEquals("device.vendor", "apple"),
+										lte("device.resolution_height", 639))
+						)
+
+				)
+			}
+		}
+	}
+
+	"newFiltersWebMobileTwoVariants.medium"(description: "Experiment open by device.resolution_height") {
+		startWith {
+			condition {
+				and(
+						empty("experiments.search/newFiltersWebMobileTwoVariants", false),
+						or(
+								and(
+										equals("device.vendor", "apple"),
+										gt("device.resolution_height", 500),
+										lte("device.resolution_height", 600)
+								),
+								and(
+										notEquals("device.vendor", "apple"),
+										equals("device.resolution_height", 640)
+								)
+						)
+				)
+			}
+		}
+	}
+
+	"newFiltersWebMobileTwoVariants.high"(description: "Experiment open by device.resolution_height") {
+		startWith {
+			condition {
+				and(
+						empty("experiments.search/newFiltersWebMobileTwoVariants", false),
+						or(
+								and(
+										equals("device.vendor", "apple"),
+										gt("device.resolution_height", 600)
+								),
+								and(
+										notEquals("device.vendor", "apple"),
+										gt("device.resolution_height", 640)
+								)
+						)
+				)
+			}
+		}
+	}
 }
