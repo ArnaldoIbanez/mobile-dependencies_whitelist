@@ -251,6 +251,10 @@ metrics {
 					)
 				)
 			}
+
+			openBy {
+				"experiments.search/newFiltersAndSortWebMobile"(default: "DEFAULT")
+			}
 		}
 	}
 
@@ -265,6 +269,11 @@ metrics {
 						)
 				)
 			}
+
+			openBy {
+				"experiments.search/newFiltersWebMobileTwoVariants"(default: "DEFAULT")
+			}
+
 		}
 	}
 
@@ -316,7 +325,7 @@ metrics {
 
 
 
-	"newFiltersWebMobileTwoVariants.low"(description: "Experiment open by device.resolution_height") {
+	"search/newFiltersWebMobileTwoVariants.low"(description: "Experiment open by device.resolution_height") {
 		startWith {
 			condition {
 				and(
@@ -333,10 +342,14 @@ metrics {
 
 				)
 			}
+
+			openBy {
+				"experiments.search/newFiltersWebMobileTwoVariants"(default: "DEFAULT")
+			}
 		}
 	}
 
-	"newFiltersWebMobileTwoVariants.medium"(description: "Experiment open by device.resolution_height") {
+	"search/newFiltersWebMobileTwoVariants.medium"(description: "Experiment open by device.resolution_height") {
 		startWith {
 			condition {
 				and(
@@ -354,10 +367,14 @@ metrics {
 						)
 				)
 			}
+
+			openBy {
+				"experiments.search/newFiltersWebMobileTwoVariants"(default: "DEFAULT")
+			}
 		}
 	}
 
-	"newFiltersWebMobileTwoVariants.high"(description: "Experiment open by device.resolution_height") {
+	"search/newFiltersWebMobileTwoVariants.high"(description: "Experiment open by device.resolution_height") {
 		startWith {
 			condition {
 				and(
@@ -375,5 +392,10 @@ metrics {
 				)
 			}
 		}
+
+		openBy {
+			"experiments.search/newFiltersWebMobileTwoVariants"(default: "DEFAULT")
+		}
+
 	}
 }
