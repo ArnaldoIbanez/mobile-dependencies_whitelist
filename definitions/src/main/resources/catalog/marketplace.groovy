@@ -1989,6 +1989,7 @@ tracks {
         parent_id(required: false, description: "Parent item listing type id")
         parent_listing_type_id(required: false, description: "Parent item listing type id")
         change_listing_type(required: false, description: "If the listing type changed compare to its parent. Values: upgrade/no_change/downgrade")
+        source(required: false, description: "Relist flow that was used to relist the item")
     }
 
     // Myml

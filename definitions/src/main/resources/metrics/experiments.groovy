@@ -301,7 +301,11 @@ metrics {
 				path("/item/relist")
 				and(
 					equals("event_data.change_listing_type", "upgrade"),
-					equals("event_data.vertical", "CORE")
+					and(
+						equals("event_data.vertical", "CORE"),
+						like("event_data.source", "*.single") // Es una republicacion individual
+					)
+
 				)
 			}
 		}
@@ -317,7 +321,11 @@ metrics {
 				path("/item/relist")
 				and(
 					equals("event_data.change_listing_type", "downgrade"),
-					equals("event_data.vertical", "CORE")
+					and(
+						equals("event_data.vertical", "CORE"),
+						like("event_data.source", "*.single") // Es una republicacion individual
+					)
+
 				)
 			}
 		}
