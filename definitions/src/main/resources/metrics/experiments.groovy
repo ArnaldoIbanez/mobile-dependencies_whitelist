@@ -391,11 +391,12 @@ metrics {
 						)
 				)
 			}
+
+			openBy {
+				"experiments.search/newFiltersWebMobileTwoVariants"(default: "DEFAULT")
+			}
 		}
 
-		openBy {
-			"experiments.search/newFiltersWebMobileTwoVariants"(default: "DEFAULT")
-		}
 
 	}
 }
