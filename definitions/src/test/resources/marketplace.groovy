@@ -2799,6 +2799,7 @@ trackTests {
             price = 123.456
             parent_id = "MLA345"
             parent_listing_type_id = "free"
+            source = "/sell/quick_relist/single"
         }
 
         "/item/create"(platform: "/web", dataListItem)
