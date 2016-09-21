@@ -10,7 +10,7 @@ class CatalogCoverage {
 
 	def Catalog catalog
 	def Set<String> testedPaths
-    def Set<String> assertCoverageBusiness = ["mercadolibre" , "mercadopago"]
+        def Set<String> assertCoverageBusiness = ["mercadolibre" , "mercadopago"]
 
 	def Map<TestablePath, Boolean> coverage
 	def Double coveragePercent
@@ -39,7 +39,9 @@ class CatalogCoverage {
 	}
 
 	def addTestRun(String path, String business) {
-		this.testedPaths.add( new TestablePath(path,business))
+		assert path!=null
+                assert business !=null
+                this.testedPaths.add(new TestablePath(path,business))
 
 		coverage = null
 		coveragePercent = null
