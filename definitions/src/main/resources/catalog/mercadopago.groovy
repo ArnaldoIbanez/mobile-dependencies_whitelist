@@ -49,5 +49,14 @@ tracks {
         current_size (type: PropertyType.Numeric , description: "Size of database after shrinking in bytes")
     }
 
-}
+    "/point"(platform: "/", isAbstract: true) {}
 
+    "/point/home"(platform: "/") {
+        product (type: PropertyType.String, description: "Name of device, example: 'point-h'")
+        currency (type: PropertyType.String, required: false, description: "Currency")
+        price (type: PropertyType.Numeric, required: false, description: "Price of device")
+        in_installments (type: PropertyType.Boolean, required: false, description: "If product is selling in installments")
+        discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
+        price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
+    }
+}
