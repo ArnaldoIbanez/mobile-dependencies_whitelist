@@ -303,7 +303,7 @@ metrics {
 					equals("event_data.change_listing_type", "upgrade"),
 					and(
 						equals("event_data.vertical", "CORE"),
-						like("event_data.source", "*.single") // Es una republicacion individual
+						like("event_data.source", ".*single") // Es una republicacion individual
 					)
 
 				)
@@ -323,7 +323,7 @@ metrics {
 					equals("event_data.change_listing_type", "downgrade"),
 					and(
 						equals("event_data.vertical", "CORE"),
-						like("event_data.source", "*.single") // Es una republicacion individual
+						like("event_data.source", ".*single") // Es una republicacion individual
 					)
 
 				)
