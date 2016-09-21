@@ -38,6 +38,15 @@ trackTests {
             previous_size = 122592
         }
     }
+
+    test("Landing mercadopago point") {
+        "/point/home" (platform: "/") {
+            product = "point-h"
+            currency = "R\$"
+            price = 401
+            in_installments = true
+            discount = 0.16
+            price_with_discount = 334.8
+        }
+    }
 }
-
-
