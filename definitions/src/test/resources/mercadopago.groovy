@@ -40,19 +40,8 @@ trackTests {
     }
 
     test("Landing mercadopago point") {
-        "/point/home" (platform: "/mobile") {
+        "/point/home" (platform: "/") {
             product = "point-h"
-            country = "BR"
-            currency = "R\$"
-            price = 401
-            in_installments = true
-            discount = 0.16
-            price_with_discount = 334.8
-        }
-
-        "/point/home" (platform: "/web") {
-            product = "point-h"
-            country = "BR"
             currency = "R\$"
             price = 401
             in_installments = true
