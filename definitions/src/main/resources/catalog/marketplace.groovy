@@ -246,6 +246,7 @@ tracks {
         layout(required: false, description:'layout of search')
         geolocation(required: false, description:'geolocation')
         landing(required: false, description:'landings: base, premium, etc')
+        layout_forced(required: false, description:'true if layout is changed by the user')
 }
 
     "/search"(platform: "/mobile") {
