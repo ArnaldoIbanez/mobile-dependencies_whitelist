@@ -11,6 +11,11 @@ trackTests {
     }
 
     test("melidata automatic tracks send by sdk") {
+
+        "/melidata/null_track" (platform:"/mobile", type:TrackType.Event) {
+            context = "context"
+        }
+
         "/melidata/delete_old_tracks"(platform: "/mobile", type: TrackType.Event) {
             count = 10
         }
@@ -36,6 +41,84 @@ trackTests {
             delete_records = 50
             current_size = 82322
             previous_size = 122592
+        }
+    }
+
+    test("Register") {
+        "/register/success"(platform: "/mobile") {
+            source = "facebook"
+        }
+
+        "/register/failure"(platform: "/mobile") {
+            source = "facebook"
+        }
+
+        "/register/facebook_permissions"(platform: "/mobile"){
+            login_status = "success"
+            email = true
+            user_birthday = true
+            user_likes = true
+        }
+    }
+
+    test("Register Web") {
+        "/register/form"(platform: "/web/desktop") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+        }
+
+        "/register/form"(platform: "/web/mobile") {
+            app = "registration-question"
+            source = "email"
+            item_id = "MCO123321"
+            captcha_showed = true
+        }
+
+        "/register/form/error"(platform: "/web/desktop") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+        }
+
+        "/register/form/error"(platform: "/web/mobile") {
+            app = "registration-question"
+            source = "email"
+            item_id = "MCO123321"
+            captcha_showed = true
+        }
+
+        "/register/form/another-email"(platform: "/web/desktop") {
+            app = "registration"
+            source = "email"
+            item_id = "MCO123321"
+            captcha_showed = true
+        }
+
+        "/register/form/another-email"(platform: "/web/mobile") {
+            app = "registration-question"
+            source = "email"
+            captcha_showed = true
+        }
+
+        "/register/success"(platform: "/web/desktop") {
+            app = "registration-favorite"
+            source = "email"
+            item_id = "MCO123321"
+            captcha_showed = false
+        }
+
+        "/register/success"(platform: "/web/mobile") {
+            app = "registration"
+            source = "email"
+            captcha_showed = false
+        }
+    }
+
+    test("Account Recovery tracking event") {
+
+        "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
+            error_type = "connectionError/invalidOneTimePassword/operatorNotSupported"
         }
     }
 
