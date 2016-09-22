@@ -41,37 +41,6 @@ tracks {
         // recommended_categories
     }
 
-    "/melidata"(platform: "/mobile", isAbstract: true) {}
-
-    "/melidata/statistics"(platform: "/mobile", type: TrackType.Event) {
-        errors_counter(type: PropertyType.Map)
-        last_send_timestamp()
-        total_pending_tracks()
-        send_counter()
-        database_size()
-        tracks_counter()
-        average_ok_time()
-        average_error_time()
-        last_statistics_timestamp(required: false)
-    }
-
-    "/melidata/null_track"(platform: "/mobile") {
-        context()
-    }
-
-    "/melidata/delete_old_tracks"(platform: "/mobile") {
-        count()
-    }
-
-    "/melidata/shrink_database"(platform: "/mobile", isAbstract: true) {
-        delete_records( type: PropertyType.Numeric, description: "Number of records/tracks deleted when shrinking")
-        previous_size (type: PropertyType.Numeric, description: "Size of database before shrinking in bytes")
-        current_size (type: PropertyType.Numeric , description: "Size of database after shrinking in bytes")
-    }
-
-    "/melidata/shrink_database"(platform: "/mobile/android", type: TrackType.Control ) {}
-    "/melidata/shrink_database"(platform: "/mobile/ios", type: TrackType.Event ) {}
-
     //EXTERNAL
     //TODO revisar /external/XXX
 
@@ -1515,44 +1484,6 @@ tracks {
 
     "/seller_reputation/ratings/back"(platform: "/mobile") {}
 
-    // REGISTER
-
-    "/register"(platform: "/mobile", isAbstract: true) {}
-
-    "/register/success"(platform: "/") {
-        source()
-    }
-
-    "/register/failure"(platform: "/mobile") {
-        source()
-    }
-
-    "/register/facebook_permissions"(platform: "/mobile"){
-        login_status(type: PropertyType.String, description: "Success, Cancel, Error" )
-        email(type: PropertyType.Boolean, description : " Needed  to access date (day and month) of the user birthday.")
-        user_birthday(type: PropertyType.Boolean, description : " Needed  to access the user main email address.")
-        user_likes(type: PropertyType.Boolean, description : " Needed  to access user liked pages.")
-    }
-
-    //REGISTER WEB
-
-    "/register/form"(platform:"/web", type: TrackType.View) {
-        app(type: PropertyType.String, description: "Registration app", required:true)
-        source(type: PropertyType.String, description: "Source (on mobile is facebook/email, on web at the moment is only email)", required:true)
-        item_id(type: PropertyType.String, description: "Item", required:false)
-        captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:true)
-    }
-
-    "/register/form/error"(platform:"/web", type: TrackType.View) {}
-
-    "/register/form/another-email"(platform:"/web", type: TrackType.View) {}
-
-    "/register/success"(platform:"/web", type: TrackType.Event) {
-        app(type: PropertyType.String, description: "Registration app", required:true)
-        item_id(type: PropertyType.String, description: "Item", required:false)
-        captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:true)
-    }
-
     "/traffic"(platform: "/", isAbstract: true) {}
 
     "/traffic/inbound"(platform: "/", isAbstract: true) {}
@@ -2015,9 +1946,5 @@ tracks {
         error_type()
     }
 
-    // Account recovery event
-    "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
-        error_type(required:true, description: "connectionError/invalidOneTimePassword/operatorNotSupported")
-    }
 }
 

@@ -7,7 +7,7 @@ import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.include
 catalog {
 
     /**
-     * All available platfrom
+     * All available platform
      */
     platforms = [
             "/",
@@ -38,9 +38,13 @@ catalog {
 
     def all = marketplace + mercadopago
 
-    //all.each { business ->
-    //      include business, "registration.groovy"
-    // }
+    all.each { business ->
+        include business, "melidata_sdk.groovy"
+    }
+
+    all.each { business ->
+        include business, "registrations.groovy"
+    }
 
 
     marketplace.each { business ->
