@@ -44,7 +44,7 @@ class QueryFormatter {
 
 		def queries = merge(jsonSnippets, sqlSnippets)
 
-		def jsonString = String.format("{\"data\": [%s]}", queries)
+		def jsonString = String.format("{\"data\": %s}", queries)
 
 		//def jsontxt = new File('./src/main/resources/data-dependencies-catalog/jsonmelidata.json').getText('UTF-8')
 		new groovy.json.JsonSlurper().parseText(jsonString)
