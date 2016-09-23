@@ -112,6 +112,7 @@ trackTests {
             }
             geolocation="AR:CABA"
             landing="base"
+            layout_forced=true
 
         })
 
