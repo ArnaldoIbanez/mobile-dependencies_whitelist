@@ -26,6 +26,10 @@ trackTests {
             defaultTrackInformation()
         }
 
+        "/email/reputation"(platform: "/email") {
+            defaultTrackInformation()
+        }
+
         "/email/access"(platform: "/email") {
             defaultTrackInformation()
         }

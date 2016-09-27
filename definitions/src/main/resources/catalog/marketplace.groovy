@@ -1728,6 +1728,8 @@ tracks {
 
     "/email/checkout"(platform: "/email"){}
 
+    "/email/reputation"(platform: "/email"){}
+
     "/email/access"(platform: "/email"){}
 
     "/email/sale"(platform: "/email"){}
