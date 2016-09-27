@@ -286,7 +286,7 @@ metrics {
 			condition {
 				path("/item/change_listing_type")
 				and(
-					equals("event_data.source", ""),
+					equals("event_data.source", "upgrade_on"),
 					equals("event_data.vertical", "CORE")
 				)
 			}
