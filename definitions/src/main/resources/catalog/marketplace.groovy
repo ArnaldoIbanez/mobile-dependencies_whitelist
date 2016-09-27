@@ -1911,6 +1911,7 @@ tracks {
         buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
         condition(required: false, description: "Item condition: used/new/not_specified")
         price(required: false, description: "Item price")
+        source(required: false, description: "upgrade flow that was used to change the listing type")
     }
 
 
