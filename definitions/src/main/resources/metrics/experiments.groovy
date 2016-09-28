@@ -407,4 +407,29 @@ metrics {
 
 
 	}
+
+	"seller_called"(description: "track vip call seller as success for classifieds") {
+		countsOn {
+			condition {
+				path("/vip/call_seller", "/vip/show_phone")
+			}
+		}
+	}
+
+	"search/filtersNewOrderDealsAndroid.deal"(description: "extend experiment /search/filtersNewOrderDealsAndroid with deal filter", parametricName: false) {
+		startWith {
+			condition {
+				and(
+						empty("experiments.search/filtersNewOrderDealsAndroid", false),
+						empty("event_data.filters.deal", false)
+				)
+			}
+
+			openBy {
+				"experiments.search/filtersNewOrderDealsAndroid"(default: "default")
+			}
+
+			set_property("deal_id", "event_data.filters.deal")
+		}
+	}
 }
