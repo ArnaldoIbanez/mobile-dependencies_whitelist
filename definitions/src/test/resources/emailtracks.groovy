@@ -12,6 +12,7 @@ trackTests {
             subject = "Test"
             email_template = "CHO_PAGO_AGREE"
             event_type = "send"
+            sent_date = new Date().toString()
         }
 
         "/email/generic"(platform: "/email") {
@@ -47,6 +48,10 @@ trackTests {
         }
 
         "/email/fup_feedback"(platform: "/email") {
+            defaultTrackInformation()
+        }
+
+        "/email/message"(platform: "/email") {
             defaultTrackInformation()
         }
 

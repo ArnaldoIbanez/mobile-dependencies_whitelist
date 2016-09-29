@@ -1772,6 +1772,7 @@ tracks {
                 description: "Type of email event")
         email_id(required: false)
         subject(required: false)
+        sent_date(required: false)
     }
 
     "/email/orders"(platform: "/email") {
@@ -1800,6 +1801,8 @@ tracks {
     "/email/withdrawal"(platform: "/email"){}
 
     "/email/fup_feedback"(platform: "/email"){}
+
+    "/email/message"(platform: "/email"){}
 
 
     "/official_stores"(platform: "/web", isAbstract: true) {}
