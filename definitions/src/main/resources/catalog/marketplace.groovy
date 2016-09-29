@@ -1201,7 +1201,7 @@ tracks {
         available_actions(required: true, type: PropertyType.ArrayList)
     }
     "/checkout/congrats/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {
-        
+
     }
     "/checkout/congrats/pending"(platform: "/mobile") {}
     "/checkout/error"(platform: "/mobile") {
@@ -1507,11 +1507,11 @@ tracks {
      * disclaimer: when the action_type is set, the event_type should be always 'open'
      **/
     "/notification"(platform: "/mobile") {
-        event_type(required: true, 
+        event_type(required: true,
                 values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown",
                                                                    "swipe", "action_open", "pull_to_refresh"],
         description: "Type of notification event")
-        action_type(required: false, 
+        action_type(required: false,
                 values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture"])
         deeplink(required: false, description: "The link were the notification should navigate to, if applies")
         context(required: false, values: ["notification", "notification_center"], description: "Current context of the notification")
@@ -1895,7 +1895,7 @@ tracks {
         condition(required: true, description: "Item condition: used/new/not_specified")
         price(required: true, description: "Item price")
         category_id(required: true, description: "Item category_id")
-        
+
         // Category sugestion
         suggested_category_id(required: false, description: "Category id suggested")
         suggested_category_is_leaf(required: false, type: PropertyType.Boolean, description: "The category suggested is leaf")
@@ -1924,12 +1924,43 @@ tracks {
     }
 
     // Myml
-    "/myml"(platform: "/web", isAbstract: true) {}
+    "/myml"(platform: "/", isAbstract: true) {}
     "/myml/listings"(platform: "/web", type: TrackType.View) {
         label(required: true, description: "Selected label: active/closed/paused/...")
     }
 
     "/myml/bookmarks"(platform: "/web", type: TrackType.View) {}
+
+    // Myml - Suggested Discounts
+    "/myml/suggested_discounts"(platform: "/mobile", isAbstract: true){
+        item_id(required: true, description: "Item id")
+        item_original_price(required: false, description: "Item price")
+        item_title(required: false, description: "Item title")
+    }
+    "/myml/suggested_discounts/landing"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/suggested_discounts/landing/about"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/suggested_discounts/landing/start"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/suggested_discounts/about"(platform: "/mobile", type: TrackType.View) {
+        onboarding_step(required: false, description: "Onboarding step number")
+    }
+    "/myml/suggested_discounts/about/skip"(platform: "/mobile", type: TrackType.Event) {
+        onboarding_step(required: false, description: "Onboarding step number")
+    }
+    "/myml/suggested_discounts/about/start"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/suggested_discounts/about/abandon"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/suggested_discounts/select_discount"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/suggested_discounts/select_discount/apply"(platform: "/mobile", type: TrackType.Event) {
+        selected_discount(required: true, description: "Selected discount option")
+    }
+    "/myml/suggested_discounts/select_discount/confirm"(platform: "/mobile", type: TrackType.Event) {
+        selected_discount(required: true, description: "Selected discount option")
+    }
+    "/myml/suggested_discounts/info"(platform: "/mobile", type: TrackType.View) {
+        deal_status(required: true, description: "Current deal status")
+      }
+    "/myml/suggested_discounts/info/exit"(platform: "/mobile", type: TrackType.Event) {
+        action(required: true, description: "Selected exit action")
+    }
 
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
@@ -1947,4 +1978,3 @@ tracks {
     }
 
 }
-
