@@ -112,6 +112,7 @@ trackTests {
             }
             geolocation="AR:CABA"
             landing="base"
+            layout_forced=true
 
         })
 
@@ -2773,6 +2774,7 @@ trackTests {
             buying_mode = "buy_it_now"
             condition = "used"
             price = 123.456
+            source = "upgrade_on"
         }
 
         def dataChangeListingTypeItemMinimumInfo = {

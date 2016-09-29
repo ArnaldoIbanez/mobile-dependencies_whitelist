@@ -215,6 +215,7 @@ tracks {
         layout(required: false, description:'layout of search')
         geolocation(required: false, description:'geolocation')
         landing(required: false, description:'landings: base, premium, etc')
+        layout_forced(required: false, description:'true if layout is changed by the user')
 }
 
     "/search"(platform: "/mobile") {
@@ -1727,6 +1728,8 @@ tracks {
 
     "/email/checkout"(platform: "/email"){}
 
+    "/email/reputation"(platform: "/email"){}
+
     "/email/access"(platform: "/email"){}
 
     "/email/sale"(platform: "/email"){}
@@ -1908,6 +1911,7 @@ tracks {
         buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
         condition(required: false, description: "Item condition: used/new/not_specified")
         price(required: false, description: "Item price")
+        source(required: false, description: "upgrade flow that was used to change the listing type")
     }
 
 

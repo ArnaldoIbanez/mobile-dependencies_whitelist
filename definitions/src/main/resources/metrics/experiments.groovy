@@ -277,16 +277,18 @@ metrics {
 		}
 	}
 
-	"free_item_upgraded"(description: "A free Item was upgraded") {
+	"upgrade_on"(description: "A Item was upgrade in a higher listing type after see congrats page") {
 		startWith {
-			experiment("sell/increase_exposure_wording")
+			experiment("sell/radio_vs_submit_button_upgrade_on")
 		}
 
 		countsOn {
 			condition {
 				path("/item/change_listing_type")
-
-				equals("event_data.from", "free")
+				and(
+					equals("event_data.source", "upgrade_on"),
+					equals("event_data.vertical", "CORE")
+				)
 			}
 		}
 	}
@@ -330,8 +332,6 @@ metrics {
 			}
 		}
 	}
-
-
 
 	"search/newFiltersWebMobileTwoVariants.low"(description: "Experiment open by device.resolution_height") {
 		startWith {
@@ -406,5 +406,30 @@ metrics {
 		}
 
 
+	}
+
+	"seller_called"(description: "track vip call seller as success for classifieds") {
+		countsOn {
+			condition {
+				path("/vip/call_seller", "/vip/show_phone")
+			}
+		}
+	}
+
+	"search/filtersNewOrderDealsAndroid.deal"(description: "extend experiment /search/filtersNewOrderDealsAndroid with deal filter", parametricName: false) {
+		startWith {
+			condition {
+				and(
+						empty("experiments.search/filtersNewOrderDealsAndroid", false),
+						empty("event_data.filters.deal", false)
+				)
+			}
+
+			openBy {
+				"experiments.search/filtersNewOrderDealsAndroid"(default: "default")
+			}
+
+			set_property("deal_id", "event_data.filters.deal")
+		}
 	}
 }
