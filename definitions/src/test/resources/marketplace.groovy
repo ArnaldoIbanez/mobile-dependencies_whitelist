@@ -2073,7 +2073,7 @@ trackTests {
 
     "/notification"(platform: "/mobile") {
       newsgroup_id = "12332323"
-      event_type = "action_open" 
+      event_type = "action_open"
       action_type = "deeplinking"
       context = "notification_center"
     }
@@ -2722,7 +2722,7 @@ trackTests {
         def massiveItemData = {
             items_amount = 2
         }
-        
+
         "/sell/quick_relist/single"(platform: "/web/desktop", itemData)
         "/sell/quick_relist/massive"(platform: "/web/desktop", massiveItemData)
         "/sell/modify_and_relist/single"(platform: "/web/desktop", itemData)
@@ -2738,7 +2738,7 @@ trackTests {
             condition = "used"
             price = 123.456
         }
-        
+
         "/sell/list/congrats"(platform: "/web/desktop", itemData)
         "/sell/upgrade_on"(platform: "/web/desktop", itemData)
     }
@@ -2817,6 +2817,34 @@ trackTests {
             label = "active"
         }
         "/myml/bookmarks"(platform: "/web"){}
+    }
+
+    test("Myml Suggested Discounts"){
+        "/myml/suggested_discounts/landing"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/landing/about"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/landing/start"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/about"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/about/skip"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/about/start"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/about/abandon"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/select_discount"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/select_discount/apply"(platform: "/mobile"){
+          item_id = "MLA123456"
+          selected_discount = "1"
+        }
+        "/myml/suggested_discounts/select_discount/confirm"(platform: "/mobile"){
+          item_id = "MLA123456"
+          selected_discount = "1"
+        }
+        "/myml/suggested_discounts/info"(platform: "/mobile"){
+          item_id = "MLA123456"
+          deal_status = "on_deal"
+        }
+        "/myml/suggested_discounts/info/exit"(platform: "/mobile"){
+          item_id = "MLA123456"          
+          deal_status = "on_deal"
+          action = "vip"
+        }
     }
 
     test("Download app landing tracking") {
