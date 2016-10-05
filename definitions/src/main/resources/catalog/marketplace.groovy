@@ -1850,6 +1850,7 @@ tracks {
         buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
         condition(required: false, description: "Item condition: used/new/not_specified")
         price(required: false, description: "Item price")
+        quantity(required: false, description: "Item quantity")
     }
 
     "/sell/quick_relist/massive"(platform: "/web/desktop", type: TrackType.View){
@@ -1857,18 +1858,23 @@ tracks {
     }
 
     "/sell/modify_and_relist"(platform: "/web", isAbstract: true){}
-    "/sell/modify_and_relist/single"(platform: "/web", type: TrackType.View){
+    "/sell/modify_and_relist/single"(platform: "/web", isAbstract: true){
         item_id(required: true, description: "Item id")
         listing_type_id(required: false, description: "Item listing type id")
         vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
         buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
         condition(required: false, description: "Item condition: used/new/not_specified")
         price(required: false, description: "Item price")
+        quantity(required: false, description: "Item quantity")
     }
 
-    "/sell/modify_and_relist/massive"(platform: "/web", type: TrackType.View){
+    "/sell/modify_and_relist/single/row"(platform: "/web", type: TrackType.View){}
+    "/sell/modify_and_relist/single/cards"(platform: "/web", type: TrackType.View){}
+
+    "/sell/modify_and_relist/massive"(platform: "/web", isAbstract: true){
         items_amount(required: true, description: "Amount of items affected")
     }
+    "/sell/modify_and_relist/massive/row"(platform: "/web", type: TrackType.View){}
 
     "/sell/list/congrats"(platform: "/web", type: TrackType.View){
         item_id(required: true, description: "Item id")

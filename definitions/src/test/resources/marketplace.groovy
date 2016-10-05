@@ -2717,16 +2717,19 @@ trackTests {
             buying_mode = "buy_it_now"
             condition = "used"
             price = 123.456
+            quantity = 8
         }
 
         def massiveItemData = {
             items_amount = 2
         }
 
-        "/sell/quick_relist/single"(platform: "/web/desktop", itemData)
-        "/sell/quick_relist/massive"(platform: "/web/desktop", massiveItemData)
-        "/sell/modify_and_relist/single"(platform: "/web/desktop", itemData)
-        "/sell/modify_and_relist/massive"(platform: "/web/desktop", massiveItemData)
+        "/sell/quick_relist/single"  (platform: "/web/desktop", itemData)
+        "/sell/quick_relist/massive" (platform: "/web/desktop", massiveItemData)
+
+        "/sell/modify_and_relist/single/row"   (platform: "/web/desktop", itemData)
+        "/sell/modify_and_relist/single/cards" (platform: "/web/desktop", itemData)
+        "/sell/modify_and_relist/massive/row"  (platform: "/web/desktop", massiveItemData)
     }
 
     test("Sell Flow view Pages"){
