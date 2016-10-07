@@ -1,6 +1,6 @@
 {
   "users": [
-    "matias.tencer@mercadolibre.com"
+    "martin.ciruzzi@mercadolibre.com"
   ],
   "process_name": "tracks_count",
   "cron": "* 07 * * *",
