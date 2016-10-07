@@ -296,12 +296,17 @@ metrics {
 	"relist_upgrade"(description: "An Item was relisted in a higher listing type than its parent") {
 		startWith {
 			experiment("sell/full_relist_single_item")
+
+			set_property("item_id", "event_data.item_id")
 		}
 
 		countsOn {
 			condition {
 				path("/item/relist")
-				equals("event_data.change_listing_type", "upgrade")
+				and(
+					equals("event_data.change_listing_type", "upgrade"),
+					equals("event_data.item_id", property("item_id"))
+				)
 			}
 		}
 	}
@@ -309,12 +314,17 @@ metrics {
 	"relist_downgrade"(description: "An Item was relisted in a lower listing type than its parent") {
 		startWith {
 			experiment("sell/full_relist_single_item")
+
+			set_property("item_id", "event_data.item_id")
 		}
 
 		countsOn {
 			condition {
 				path("/item/relist")
-				equals("event_data.change_listing_type", "downgrade"),
+				and(
+					equals("event_data.change_listing_type", "downgrade"),
+					equals("event_data.item_id", property("item_id"))
+				)
 			}
 		}
 	}
