@@ -1272,13 +1272,13 @@ tracks {
     }
 
     "/checkout/show_ticket"(platform: "/mobile") {}
-    "/checkout/show_ticket#save"(platform: "/mobile") {}
+    "/checkout/show_ticket#save"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/show_geolocation_map"(platform: "/mobile") {}
     "/checkout/show_geolocation_map/search"(platform: "/mobile") {}
-    "/checkout/show_geolocation_map/search#location"(platform: "/mobile") {}
-    "/checkout/show_geolocation_map/search#preloaded"(platform: "/mobile") {}
-    "/checkout/show_geolocation_map/search#select"(platform: "/mobile") {}
-    "/checkout/show_geolocation_map#agencies_request"(platform: "/mobile") {}
+    "/checkout/show_geolocation_map/search#location"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/show_geolocation_map/search#preloaded"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/show_geolocation_map/search#select"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/show_geolocation_map#agencies_request"(platform: "/mobile", type: TrackType.Event) {}
     
     /*******************************************************************/
     //Mobile Checkout Legacy Apps
