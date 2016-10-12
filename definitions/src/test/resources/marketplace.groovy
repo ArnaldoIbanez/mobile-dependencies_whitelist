@@ -2864,10 +2864,11 @@ trackTests {
           deal_status = "on_deal"
         }
         "/myml/suggested_discounts/info/exit"(platform: "/mobile"){
-          item_id = "MLA123456"          
+          item_id = "MLA123456"
           deal_status = "on_deal"
           action = "vip"
         }
+        "/myml/suggested_discounts/error"(platform: "/mobile"){item_id = "MLA123456"}
     }
 
     test("Download app landing tracking") {
