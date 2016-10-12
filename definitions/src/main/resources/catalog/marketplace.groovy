@@ -852,6 +852,18 @@ tracks {
     "/checkout/shipping/location/address#additional_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         additional_info(required: false, type: PropertyType.String)
     }
+    "/checkout/shipping/location/address#internal_number"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        internal_number(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/location/address#between_streets"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        between_streets(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/location/address#references"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        references(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/location/address#neighborhood"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        neighborhood(required: false, type: PropertyType.String)
+    }
     "/checkout/shipping/location/address"(platform:"/mobile") {
         //View specific data
         edit_flow(required: true, type: PropertyType.Boolean)
@@ -946,7 +958,7 @@ tracks {
         //List of available payment_methods and coupon info
         available_methods(required: true, type: PropertyType.ArrayList)
         coupon(required: false, type:  PropertyType.Boolean)
-        coupon_discoun(required: false, type:  PropertyType.Numeric)
+        coupon_discount(required: false, type:  PropertyType.Numeric)
     }
     "/checkout/payments/select_method#new_payment_method_selected"(platform:"/mobile",  type: TrackType.Event, parentPropertiesInherited: false) {
         payment_method_id(required: false, type: PropertyType.String)
@@ -1007,8 +1019,8 @@ tracks {
     "/checkout/payments/account_money/password#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
     "/checkout/payments/select_issuer"(platform:"/mobile") {}
     // mlm grouping
-    "/checkout/payments/pay_point"(platform:"/mobile", isAbstract: true) {}
-    "/checkout/payments/pay_point/select_store"(platform:"/mobile") {
+    "/checkout/payments/cash"(platform:"/mobile", isAbstract: true) {}
+    "/checkout/payments/cash/select_store"(platform:"/mobile") {
          available_methods(required: true, type: PropertyType.ArrayList)
     }
     "/checkout/payments/transfer"(platform:"/mobile", isAbstract: true) {}
@@ -1259,6 +1271,15 @@ tracks {
         error_code(required: true, type: PropertyType.String)
     }
 
+    "/checkout/show_ticket"(platform: "/mobile") {}
+    "/checkout/show_ticket#save"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/show_geolocation_map"(platform: "/mobile") {}
+    "/checkout/show_geolocation_map/search"(platform: "/mobile") {}
+    "/checkout/show_geolocation_map/search#location"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/show_geolocation_map/search#preloaded"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/show_geolocation_map/search#select"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/show_geolocation_map#agencies_request"(platform: "/mobile", type: TrackType.Event) {}
+    
     /*******************************************************************/
     //Mobile Checkout Legacy Apps
     "/checkout"(platform:"/mobile") {
@@ -1711,6 +1732,7 @@ tracks {
                 description: "Type of email event")
         email_id(required: false)
         subject(required: false)
+        sent_date(required: false)
     }
 
     "/email/orders"(platform: "/email") {
@@ -1741,6 +1763,8 @@ tracks {
     "/email/withdrawal"(platform: "/email"){}
 
     "/email/fup_feedback"(platform: "/email"){}
+
+    "/email/message"(platform: "/email"){}
 
 
     "/official_stores"(platform: "/web", isAbstract: true) {}
@@ -1847,6 +1871,7 @@ tracks {
         buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
         condition(required: false, description: "Item condition: used/new/not_specified")
         price(required: false, description: "Item price")
+        quantity(required: false, description: "Item quantity")
     }
 
     "/sell/quick_relist/massive"(platform: "/web/desktop", type: TrackType.View){
@@ -1854,18 +1879,23 @@ tracks {
     }
 
     "/sell/modify_and_relist"(platform: "/web", isAbstract: true){}
-    "/sell/modify_and_relist/single"(platform: "/web", type: TrackType.View){
+    "/sell/modify_and_relist/single"(platform: "/web", isAbstract: true){
         item_id(required: true, description: "Item id")
         listing_type_id(required: false, description: "Item listing type id")
         vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
         buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
         condition(required: false, description: "Item condition: used/new/not_specified")
         price(required: false, description: "Item price")
+        quantity(required: false, description: "Item quantity")
     }
 
-    "/sell/modify_and_relist/massive"(platform: "/web", type: TrackType.View){
+    "/sell/modify_and_relist/single/row"(platform: "/web", type: TrackType.View){}
+    "/sell/modify_and_relist/single/cards"(platform: "/web", type: TrackType.View){}
+
+    "/sell/modify_and_relist/massive"(platform: "/web", isAbstract: true){
         items_amount(required: true, description: "Amount of items affected")
     }
+    "/sell/modify_and_relist/massive/row"(platform: "/web", type: TrackType.View){}
 
     "/sell/list/congrats"(platform: "/web", type: TrackType.View){
         item_id(required: true, description: "Item id")

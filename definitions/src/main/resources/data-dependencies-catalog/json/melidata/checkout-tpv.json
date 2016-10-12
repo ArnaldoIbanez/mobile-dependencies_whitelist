@@ -1,6 +1,6 @@
 {
   "users": [
-    "matias.tencer@mercadolibre.com"
+    "martin.ciruzzi@mercadolibre.com"
   ],
   "process_name": "checkout_tpv",
   "cron": "00 11 * * *",

@@ -873,6 +873,18 @@ trackTests {
         "/checkout/shipping/location/address#additional_info"(platform: "/mobile", type: TrackType.Event) {
             additional_info = "additionalInfo"
         }
+        "/checkout/shipping/location/address#internal_number"(platform: "/mobile", type: TrackType.Event) {
+            internal_number = "internalNumber"
+        }
+        "/checkout/shipping/location/address#between_streets"(platform: "/mobile", type: TrackType.Event) {
+            between_streets = "betweenStreets"
+        }
+        "/checkout/shipping/location/address#references"(platform: "/mobile", type: TrackType.Event) {
+            references = "references"
+        }
+        "/checkout/shipping/location/address#neighborhood"(platform: "/mobile", type: TrackType.Event) {
+            neighborhood = "neighborhood"
+        }
         "/checkout/shipping/location/select_contact#submit"(platform:"/mobile", type: TrackType.Event) {
             success = true
             error_codes = ["street_name_error"]
@@ -911,7 +923,7 @@ trackTests {
             checkoutStatus()
             available_methods = ["visa", "master", "amex", "cash"]
             coupon = true
-            coupon_discoun = 20
+            coupon_discount = 20
         }
         "/checkout/payments/select_method#new_payment_method_selected"(platform:"/mobile",  type: TrackType.Event) {
             payment_method_id = "payment_method_id"
@@ -1006,7 +1018,7 @@ trackTests {
         "/checkout/payments/select_issuer"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/pay_point/select_store"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payments/cash/select_store"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_methods = ["telecomm", "oxxo", "bancomer", "banamex"]
         }
@@ -1102,6 +1114,14 @@ trackTests {
         "/checkout/error"(platform:"/mobile", type:TrackType.View) {
             error_code = "internal_server_error"
         }
+        "/checkout/show_ticket"(platform:"/mobile", type:TrackType.View) {}
+        "/checkout/show_ticket#save"(platform:"/mobile", type:TrackType.Event) {}
+        "/checkout/show_geolocation_map"(platform:"/mobile", type:TrackType.View) {}
+        "/checkout/show_geolocation_map/search"(platform:"/mobile", type:TrackType.View) {}
+        "/checkout/show_geolocation_map/search#location"(platform:"/mobile", type:TrackType.Event) {}
+        "/checkout/show_geolocation_map/search#preloaded"(platform:"/mobile", type:TrackType.Event) {}
+        "/checkout/show_geolocation_map/search#select"(platform:"/mobile", type:TrackType.Event) {}
+        "/checkout/show_geolocation_map#agencies_request"(platform:"/mobile", type:TrackType.Event) {}
     }
 
     test("checkout congrats"){
@@ -2717,16 +2737,19 @@ trackTests {
             buying_mode = "buy_it_now"
             condition = "used"
             price = 123.456
+            quantity = 8
         }
 
         def massiveItemData = {
             items_amount = 2
         }
 
-        "/sell/quick_relist/single"(platform: "/web/desktop", itemData)
-        "/sell/quick_relist/massive"(platform: "/web/desktop", massiveItemData)
-        "/sell/modify_and_relist/single"(platform: "/web/desktop", itemData)
-        "/sell/modify_and_relist/massive"(platform: "/web/desktop", massiveItemData)
+        "/sell/quick_relist/single"  (platform: "/web/desktop", itemData)
+        "/sell/quick_relist/massive" (platform: "/web/desktop", massiveItemData)
+
+        "/sell/modify_and_relist/single/row"   (platform: "/web/desktop", itemData)
+        "/sell/modify_and_relist/single/cards" (platform: "/web/desktop", itemData)
+        "/sell/modify_and_relist/massive/row"  (platform: "/web/desktop", massiveItemData)
     }
 
     test("Sell Flow view Pages"){

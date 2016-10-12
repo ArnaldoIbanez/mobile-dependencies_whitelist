@@ -293,9 +293,11 @@ metrics {
 		}
 	}
 
-	"relist_upgrade"(description: "A Item was relisted in a higher listing type than its parent") {
+	"relist_upgrade"(description: "An Item was relisted in a higher listing type than its parent") {
 		startWith {
-			experiment("sell/quick_resell_experiment")
+			experiment("sell/full_relist_single_item")
+
+			set_property("item_id", "event_data.item_id")
 		}
 
 		countsOn {
@@ -303,19 +305,17 @@ metrics {
 				path("/item/relist")
 				and(
 					equals("event_data.change_listing_type", "upgrade"),
-					and(
-						equals("event_data.vertical", "CORE"),
-						like("event_data.source", ".*single") // Es una republicacion individual
-					)
-
+					equals("event_data.item_id", property("item_id"))
 				)
 			}
 		}
 	}
 
-	"relist_downgrade"(description: "A Item was relisted in a lower listing type than its parent") {
+	"relist_downgrade"(description: "An Item was relisted in a lower listing type than its parent") {
 		startWith {
-			experiment("sell/quick_resell_experiment")
+			experiment("sell/full_relist_single_item")
+
+			set_property("item_id", "event_data.item_id")
 		}
 
 		countsOn {
@@ -323,11 +323,7 @@ metrics {
 				path("/item/relist")
 				and(
 					equals("event_data.change_listing_type", "downgrade"),
-					and(
-						equals("event_data.vertical", "CORE"),
-						like("event_data.source", ".*single") // Es una republicacion individual
-					)
-
+					equals("event_data.item_id", property("item_id"))
 				)
 			}
 		}
