@@ -1279,7 +1279,7 @@ tracks {
     "/checkout/show_geolocation_map/search#preloaded"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/show_geolocation_map/search#select"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/show_geolocation_map#agencies_request"(platform: "/mobile", type: TrackType.Event) {}
-    
+
     /*******************************************************************/
     //Mobile Checkout Legacy Apps
     "/checkout"(platform:"/mobile") {
@@ -1967,7 +1967,7 @@ tracks {
 
     // Myml - Suggested Discounts
     "/myml/suggested_discounts"(platform: "/mobile", isAbstract: true){
-        item_id(required: true, description: "Item id")
+        item_id(required: false, description: "Item id")
         item_original_price(required: false, description: "Item price")
         item_title(required: false, description: "Item title")
     }
@@ -1995,6 +1995,7 @@ tracks {
     "/myml/suggested_discounts/info/exit"(platform: "/mobile", type: TrackType.Event) {
         action(required: true, description: "Selected exit action")
     }
+    "/myml/suggested_discounts/error"(platform: "/mobile", type: TrackType.View) {}
 
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
