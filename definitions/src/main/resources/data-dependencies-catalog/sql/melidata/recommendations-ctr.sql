@@ -18,7 +18,7 @@ FROM
    WHERE
         recommendations IS NOT NULL
         AND CAST(get_json_object(
-             event_data,'$.recommendations.success_print') AS varchar(50))= "true"        
+             event_data,'$.recommendations.success_print') AS varchar(50))= 'true'
         AND get_json_object(recommendations,'$.algorithm') IS NOT NULL
         AND get_json_object(recommendations,'$.context') IS NOT NULL
         AND ds >= '@param01 06' AND ds < '@param02 06'
