@@ -45,16 +45,21 @@ class QueryFormatter {
     }
 
 	def buildJson() {
-		//TODO: in a future we merge sql scripts to this json. Right now we edit just a single file, read it and print
-		def jsonSnippets = filesMap("src/main/resources/data-dependencies-catalog/json/")
-		def sqlSnippets = filesMap("src/main/resources/data-dependencies-catalog/sql/")
-
-		def queries = merge(jsonSnippets, sqlSnippets)
-
-		def jsonString = String.format("{\"data\": %s}", queries)
+		String jsonString = concatQueries()
 
 		//def jsontxt = new File('./src/main/resources/data-dependencies-catalog/jsonmelidata.json').getText('UTF-8')
         def json = new JsonSlurper().parseText(jsonString)
         return new groovy.json.JsonBuilder(json).toPrettyString()
 	}
+
+    def concatQueries() {
+        //TODO: in a future we merge sql scripts to this json. Right now we edit just a single file, read it and print
+        def jsonSnippets = filesMap("src/main/resources/data-dependencies-catalog/json/")
+        def sqlSnippets = filesMap("src/main/resources/data-dependencies-catalog/sql/")
+
+        def queries = merge(jsonSnippets, sqlSnippets)
+
+        def jsonString = String.format("{\"data\": %s}", queries)
+        jsonString
+    }
 }
