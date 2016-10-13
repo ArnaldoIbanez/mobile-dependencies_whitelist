@@ -4,7 +4,7 @@
     "martin.ciruzzi@mercadolibre.com",
   ],
   "process_name": "mobile_active_users",
-  "cron": "42 10 * * *",
+  "cron": "00 08 * * *",
   "extract": {
     "operation": "overwrite",
     "columns": [
@@ -32,12 +32,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "DAY-2",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         }
       ]
