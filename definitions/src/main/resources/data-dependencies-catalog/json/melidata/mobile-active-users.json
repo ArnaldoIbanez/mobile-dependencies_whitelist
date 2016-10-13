@@ -1,10 +1,10 @@
 {
   "users": [
     "cristian.nieto@mercadolibre.com",
-    "martin.ciruzzi@mercadolibre.com"
+    "martin.ciruzzi@mercadolibre.com",
   ],
   "process_name": "mobile_active_users",
-  "cron": "40 10 * * *",
+  "cron": "42 10 * * *",
   "extract": {
     "operation": "overwrite",
     "columns": [

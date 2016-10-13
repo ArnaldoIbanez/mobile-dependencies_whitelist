@@ -55,8 +55,6 @@ class QueryFormatter {
 
 		//def jsontxt = new File('./src/main/resources/data-dependencies-catalog/jsonmelidata.json').getText('UTF-8')
         def json = new JsonSlurper().parseText(jsonString)
-        new groovy.json.JsonBuilder(json).toPrettyString()
-
-        return jsonString
+        return new groovy.json.JsonBuilder(json).toPrettyString()
 	}
 }
