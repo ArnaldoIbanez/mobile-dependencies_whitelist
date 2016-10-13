@@ -3,10 +3,11 @@
     [
         "mauricio.jackson@mercadolibre.com",
         "diego.romero@mercadolibre.com",
-        "carolina.alvarez@mercadolibre.com"
+        "carolina.alvarez@mercadolibre.com",
+        "martin.ciruzzi@mercadolibre.com"
     ],
     "process_name": "recommendations_print",
-    "cron": "20 18 * * *",
+    "cron": "30 18 * * *",
     "extract":
     {
         "operation": "append",
