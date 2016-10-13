@@ -1,6 +1,7 @@
 {
   "users": [
     "cristian.nieto@mercadolibre.com",
+    "martin.ciruzzi@mercadolibre.com",
   ],
   "process_name": "mobile_active_users",
   "cron": "00 08 * * *",
