@@ -3,6 +3,7 @@ package com.melidata.metrics.format
 import com.ml.melidata.metrics.NameWrapper
 import com.ml.melidata.metrics.RegExWrapper
 import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
 
 class QueryFormatter {
 
@@ -30,12 +31,18 @@ class QueryFormatter {
 		jsonSnippets.values().each{ json ->
 			sqlscripts.each{ scriptname ->
 				if(json.contains(scriptname)){
-					list.add(json.replace(scriptname, sqlSnippets[scriptname]))
+                    def query = sqlSnippets[scriptname]
+                    list.add(json.replace(scriptname, sanitize(query) ))
 				}
 			}
 		}
 		return list
 	}
+
+    def sanitize = { query ->
+        //def sanitizedQuery = new String(query)
+        return query.replace("\n", " ").replace("\t","").replace("     ","")
+    }
 
 	def buildJson() {
 		//TODO: in a future we merge sql scripts to this json. Right now we edit just a single file, read it and print
@@ -47,7 +54,9 @@ class QueryFormatter {
 		def jsonString = String.format("{\"data\": %s}", queries)
 
 		//def jsontxt = new File('./src/main/resources/data-dependencies-catalog/jsonmelidata.json').getText('UTF-8')
-		new groovy.json.JsonSlurper().parseText(jsonString)
-		return jsonString
+        def json = new JsonSlurper().parseText(jsonString)
+        new groovy.json.JsonBuilder(json).toPrettyString()
+
+        return jsonString
 	}
 }
