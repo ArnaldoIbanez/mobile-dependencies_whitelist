@@ -21,7 +21,7 @@ FROM
              event_data,'$.recommendations.success_print') AS varchar(50))= "true"        
         AND get_json_object(recommendations,'$.algorithm') IS NOT NULL
         AND get_json_object(recommendations,'$.context') IS NOT NULL
-        AND ds >= '@param01' AND ds < '@param02'
+        AND ds >= '@param01 06' AND ds < '@param02 06'
     GROUP BY
       device.platform,
         application.site_id,
@@ -43,7 +43,7 @@ LEFT JOIN
     WHERE
         path = '/vip'
         AND reco_client IS NOT NULL
-        AND ds >= '@param01' AND ds < '@param02'
+        AND ds >= '@param01 06' AND ds < '@param02 06'
     GROUP BY
         device.platform,
         application.site_id,

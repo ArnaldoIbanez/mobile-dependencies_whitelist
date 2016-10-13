@@ -1,12 +1,12 @@
 {
-users":
+"users":
     [
         "mauricio.jackson@mercadolibre.com",
         "diego.romero@mercadolibre.com",
         "carolina.alvarez@mercadolibre.com"
     ],
     "process_name": "recommendations_print",
-    "cron": "* 07 * * *",
+    "cron": "30 17 * * *",
     "extract":
     {
         "operation": "append",
