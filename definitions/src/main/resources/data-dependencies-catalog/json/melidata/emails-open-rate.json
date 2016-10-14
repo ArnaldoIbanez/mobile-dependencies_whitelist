@@ -1,0 +1,53 @@
+{
+  "users": [
+    "ext_jproma@mercadolibre.com"
+  ],
+  "process_name": "emails_open_rate",
+  "cron": "10 0 * * *",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "Template",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Event_Type",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Path",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Count",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "melidata/emails-open-rate.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-4",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-3",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param03",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
