@@ -47,7 +47,7 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-30",
+          "value": "DAY-15",
           "format": "yyyy-MM-dd"
         },
         {
