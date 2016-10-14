@@ -95,7 +95,7 @@ trackTests {
                 block_store_position=19
             }
             results=["232232000", "232232001", "232232002"]
-            billboard_shown = true
+            billboards = ["232232000"]
             backend_data={
                 sm="sm"
                 ab="1"

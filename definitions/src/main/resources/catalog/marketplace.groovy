@@ -173,7 +173,7 @@ tracks {
         deal(deprecated: true, required: false)
         filter_tags(required: false, PropertyType.ArrayList)
         results(required: false, PropertyType.ArrayList,description:"item ids from search result")
-        billboard_shown(required: false, PropertyType.Boolean)
+        billboards(required: false, PropertyType.ArrayList, descriptoion: "items ids from billboard results")
 
     }
 
