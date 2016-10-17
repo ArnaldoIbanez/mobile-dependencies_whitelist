@@ -3062,4 +3062,15 @@ trackTests {
         }
         "/official_stores/search/back"(platform:"/mobile", type: TrackType.Event, officialStoreEvent)
     }
+
+    test("Loyalty tracks") {
+        def loyaltyInfo = {
+            level = 1
+            points = 100
+            percentage = 0.5f
+        }
+        "/loyalty/score"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/score/change_tab"(platform: "/", type: TrackType.Event, { page = 'milestones' })
+        "/loyalty/notification"(platform: "/", type: TrackType.Event, { event_type = 'shown' })
+    }
 }

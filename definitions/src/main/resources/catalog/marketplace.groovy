@@ -2012,4 +2012,23 @@ tracks {
         error_type()
     }
 
+    //Loyalty
+
+    "/loyalty"(platform: "/", isAbstract: true) {
+        level(type: PropertyType.Numeric, required: false)
+        points(type: PropertyType.Numeric, required: false)
+        percentage(type: PropertyType.Numeric, required: false)
+    }
+
+    "/loyalty/score"(type: TrackType.View) {}
+
+    "/loyalty/score/change_tab"(type: TrackType.Event) {
+        page()
+    }
+
+    "/loyalty/notification"() {
+        event_type(required: true,
+                values: ["received", "dismiss", "open", "shown", "delayed"],
+                description: "Type of loyalty notification event")
+    }
 }
