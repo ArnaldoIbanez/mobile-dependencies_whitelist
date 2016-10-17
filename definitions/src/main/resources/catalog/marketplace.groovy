@@ -2026,7 +2026,7 @@ tracks {
         page(required: true) //possible values are "milestones" and "logros" ("benefits" when it's added)
     }
 
-    "/loyalty/notification"() {
+    "/loyalty/notification"(type: TrackType.Event) {
         event_type(required: true,
                 values: ["received", "dismiss", "open", "shown", "delayed"],
                 description: "Type of loyalty notification event")
