@@ -7,7 +7,7 @@
         "martin.ciruzzi@mercadolibre.com"
     ],
     "process_name": "recommendations_print",
-    "cron": "30 18 * * *",
+    "cron": "10 18 * * *",
     "extract":
     {
         "operation": "append",
@@ -18,30 +18,30 @@
             "type": "UNICODE_STRING"
           },
           {
-              "name": "site_id",
-              "type": "UNICODE_STRING"
-            },
-            {
-                "name": "backend",
-                "type": "UNICODE_STRING"
-            },
-            {
-                "name": "client",
-                "type": "UNICODE_STRING"
-            },
-            {
-                "name": "prints",
-                "type": "INTEGER"
-            },
-            {
-                "name": "clicks",
-                "type": "INTEGER"
-            },
-            {
-                "name": "ds",
-                "type": "DATE",
-                "format": "yyyy-MM-dd"
-            }
+            "name": "site_id",
+            "type": "UNICODE_STRING"
+          },
+          {
+            "name": "backend",
+            "type": "UNICODE_STRING"
+          },
+          {
+            "name": "client",
+            "type": "UNICODE_STRING"
+          },
+          {
+            "name": "prints",
+            "type": "INTEGER"
+          },
+          {
+            "name": "clicks",
+            "type": "INTEGER"
+          },
+          {
+            "name": "ds",
+            "type": "DATE",
+            "format": "yyyy-MM-dd"
+          }
         ],
       "sql": {
         "script": "melidata/recommendations-ctr.sql",
