@@ -9,8 +9,8 @@ SELECT
 FROM
 (
     SELECT
-       substr(ds, 1, 10) ds,
-          device.platform AS platform,
+       '@param01',
+        device.platform AS platform,
         application.site_id,
         get_json_object(recommendations,'$.algorithm') AS backend,
         get_json_object(recommendations,'$.context') AS client,
@@ -24,8 +24,7 @@ FROM
         AND get_json_object(recommendations,'$.context') IS NOT NULL
         AND ds >= '@param01 06' AND ds < '@param02 06'
     GROUP BY
-      substr(ds, 1, 10),
-      device.platform,
+        device.platform,
         application.site_id,
         get_json_object(recommendations,'$.algorithm'),
         get_json_object(recommendations,'$.context')
@@ -33,8 +32,8 @@ FROM
 LEFT JOIN
 (
     SELECT
-      substr(ds, 1, 10) ds,
-      device.platform AS platform,
+        '@param01',
+        device.platform AS platform,
         application.site_id AS site_id,
         reco_backend AS backend,
         reco_client AS client,
@@ -48,7 +47,6 @@ LEFT JOIN
         AND reco_client IS NOT NULL
         AND ds >= '@param01 06' AND ds < '@param02 06'
     GROUP BY
-      substr(ds, 1, 10),
         device.platform,
         application.site_id,
         reco_backend,
