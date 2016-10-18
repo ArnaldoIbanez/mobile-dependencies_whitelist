@@ -1273,12 +1273,68 @@ tracks {
 
     "/checkout/show_ticket"(platform: "/mobile") {}
     "/checkout/show_ticket#save"(platform: "/mobile", type: TrackType.Event) {}
-    "/checkout/show_geolocation_map"(platform: "/mobile") {}
+    "/checkout/show_geolocation_map"(platform: "/mobile") {
+        order_id(required: false, description: "OrderId")
+        status(required: false, description: "status")
+        total_amount(required: true, description: "totalAmount")
+        total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
+        total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+
+        buy_equal_pay(required: true, description: "BP flag")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
+        platform(required: true)
+        payment_method(required: true)
+
+        payments(required: true, description: "Array of payments information")
+        // id
+        // payment_method,
+        // payment_type,
+        // installments,
+        // paid_amount,
+        // installment_amount
+        // without_fee
+        // status
+        // status_detail
+
+        shipping(required: true)
+        // shipping_type
+        // cost
+        // shipping_option,
+        // id,
+        // name,
+        // shipping_method_id
+        // id
+        // shipping_mode
+
+        order_items(required: true, description: "Array of items in the order" )
+        //item
+        //id
+        //variation_id
+        //buying_mode
+        //shipping_mode
+        //category_id
+        //deal_ids
+        //quantity
+        //unit_price
+        //currency_id
+
+        buyer(required: true)
+        //id
+        //nickname
+
+        seller(required: true)
+        //id
+        //nickname
+    }
     "/checkout/show_geolocation_map/search"(platform: "/mobile") {}
-    "/checkout/show_geolocation_map/search#location"(platform: "/mobile", type: TrackType.Event) {}
-    "/checkout/show_geolocation_map/search#preloaded"(platform: "/mobile", type: TrackType.Event) {}
-    "/checkout/show_geolocation_map/search#select"(platform: "/mobile", type: TrackType.Event) {}
-    "/checkout/show_geolocation_map#agencies_request"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/show_geolocation_map/search#location"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/checkout/show_geolocation_map/search#preloaded"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/checkout/show_geolocation_map/search#select"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/checkout/show_geolocation_map#agencies_request"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        agencies(required: true)
+        payment_method(required: true)
+
+    }
     
     /*******************************************************************/
     //Mobile Checkout Legacy Apps
