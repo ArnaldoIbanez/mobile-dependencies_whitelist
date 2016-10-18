@@ -2840,6 +2840,7 @@ trackTests {
             label = "active"
         }
         "/myml/bookmarks"(platform: "/web"){}
+        "/myml/summary"(platform: "/web"){}
     }
 
     test("Myml Suggested Discounts"){
