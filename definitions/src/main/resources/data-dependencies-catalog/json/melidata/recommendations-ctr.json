@@ -7,12 +7,17 @@
         "martin.ciruzzi@mercadolibre.com"
     ],
     "process_name": "recommendations_print",
-    "cron": "30 17 * * *",
+    "cron": "05 18 * * *",
     "extract":
     {
         "operation": "append",
         "columns":
         [
+          {
+            "name": "ds",
+            "type": "DATE",
+            "format": "yyyy-MM-dd"
+          },
           {
             "name": "platform",
             "type": "UNICODE_STRING"
@@ -36,11 +41,6 @@
           {
             "name": "clicks",
             "type": "INTEGER"
-          },
-          {
-            "name": "ds",
-            "type": "DATE",
-            "format": "yyyy-MM-dd"
           }
         ],
       "sql": {

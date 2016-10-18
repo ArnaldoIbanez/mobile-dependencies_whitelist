@@ -1,6 +1,6 @@
 SELECT
-  t1.ds as ds,
-  t1.platform AS platform,
+    t1.ds as ds,
+    t1.platform AS platform,
     t1.site_id AS site_id,
     t1.backend AS backend,
     t1.client AS client,
