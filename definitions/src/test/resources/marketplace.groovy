@@ -1114,7 +1114,10 @@ trackTests {
         "/checkout/error"(platform:"/mobile", type:TrackType.View) {
             error_code = "internal_server_error"
         }
-        "/checkout/show_ticket"(platform:"/mobile", type:TrackType.View) {}
+        "/checkout/show_ticket"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            payment_method = "oxxo"
+        }
         "/checkout/show_ticket#save"(platform:"/mobile", type:TrackType.Event) {}
         "/checkout/show_geolocation_map"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
