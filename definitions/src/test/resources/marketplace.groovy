@@ -95,7 +95,7 @@ trackTests {
                 block_store_position=19
             }
             results=["232232000", "232232001", "232232002"]
-            billboard_shown = true
+            billboards = ["232232000"]
             backend_data={
                 sm="sm"
                 ab="1"
@@ -2873,10 +2873,11 @@ trackTests {
           deal_status = "on_deal"
         }
         "/myml/suggested_discounts/info/exit"(platform: "/mobile"){
-          item_id = "MLA123456"          
+          item_id = "MLA123456"
           deal_status = "on_deal"
           action = "vip"
         }
+        "/myml/suggested_discounts/error"(platform: "/mobile"){item_id = "MLA123456"}
     }
 
     test("Download app landing tracking") {

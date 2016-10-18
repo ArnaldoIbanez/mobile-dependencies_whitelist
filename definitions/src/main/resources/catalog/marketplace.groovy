@@ -173,7 +173,7 @@ tracks {
         deal(deprecated: true, required: false)
         filter_tags(required: false, PropertyType.ArrayList)
         results(required: false, PropertyType.ArrayList,description:"item ids from search result")
-        billboard_shown(required: false, PropertyType.Boolean)
+        billboards(required: false, PropertyType.ArrayList, descriptoion: "items ids from billboard results")
 
     }
 
@@ -2023,7 +2023,7 @@ tracks {
 
     // Myml - Suggested Discounts
     "/myml/suggested_discounts"(platform: "/mobile", isAbstract: true){
-        item_id(required: true, description: "Item id")
+        item_id(required: false, description: "Item id")
         item_original_price(required: false, description: "Item price")
         item_title(required: false, description: "Item title")
     }
@@ -2051,6 +2051,7 @@ tracks {
     "/myml/suggested_discounts/info/exit"(platform: "/mobile", type: TrackType.Event) {
         action(required: true, description: "Selected exit action")
     }
+    "/myml/suggested_discounts/error"(platform: "/mobile", type: TrackType.View) {}
 
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {

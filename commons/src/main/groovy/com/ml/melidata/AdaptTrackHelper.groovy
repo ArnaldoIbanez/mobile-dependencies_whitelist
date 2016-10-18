@@ -14,7 +14,7 @@ public class TrackAdapterHelper {
 	}
 
 	static com.ml.melidata.Track adaptTrack(Map t) {
-		com.ml.melidata.Track output = new com.ml.melidata.Track(t.path, adaptType(t.type), t.device.platform)
+		com.ml.melidata.Track output = new com.ml.melidata.Track(t.path, adaptType(t.type), t.device.platform, t.application.business)
 
 		output.setEvent_data(t.event_data)
 		output.setTimestamp(t.user_timestamp)

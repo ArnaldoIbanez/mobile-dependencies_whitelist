@@ -68,13 +68,6 @@ task uploadBatchQueries(type:JavaExec) {
 }
 
 
-task validate(dependsOn: 'classes', type: JavaExec) {
-    main = 'validate'
-    classpath = sourceSets.main.runtimeClasspath
-    systemProperty "onlyPrintFails", System.getProperty("onlyPrintFails")
-    systemProperty "track", System.getProperty("track")
-}
-
 task export(type:JavaExec) {
     def mainClass
     if (format == 'hive')
