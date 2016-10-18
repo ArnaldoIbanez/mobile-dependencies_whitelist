@@ -2746,6 +2746,62 @@ trackTests {
         "/sell/upgrade_on"(platform: "/web/desktop", itemData)
     }
 
+    test("Native Sell flow steps"){
+        "/sell/list/drafts"(platform: "/mobile") {}
+        "/sell/list/hub"(platform: "/mobile") {}
+        "/sell/list/walkthrough"(platform: "/mobile") {}
+        "/sell/list/hub_old"(platform: "/mobile") {}
+        "/sell/list/sip"(platform: "/mobile") {}
+        "/sell/list/category_sugestion"(platform: "/mobile") {}
+        "/sell/list/category_navigation"(platform: "/mobile") {}
+        "/sell/list/color_selection"(platform: "/mobile") {}
+        "/sell/list/color_selection_review"(platform: "/mobile") {}
+        "/sell/list/condition"(platform: "/mobile") {}
+        "/sell/list/condition_review"(platform: "/mobile") {}
+        "/sell/list/congrats"(platform: "/mobile") {}
+        "/sell/list/description"(platform: "/mobile") {}
+        "/sell/list/description_review"(platform: "/mobile") {}
+        "/sell/list/payment_methods"(platform: "/mobile") {}
+        "/sell/list/payment_methods_review"(platform: "/mobile") {}
+        "/sell/list/listing_types"(platform: "/mobile") {}
+        "/sell/list/listing_types_review"(platform: "/mobile") {}
+        "/sell/list/pictures"(platform: "/mobile") {}
+        "/sell/list/pictures/gallery"(platform: "/mobile") {}
+        "/sell/list/pictures/editor"(platform: "/mobile") {}
+        "/sell/list/pictures/crop"(platform: "/mobile") {}
+        "/sell/list/pictures_review"(platform: "/mobile") {}
+        "/sell/list/pictures_review/gallery"(platform: "/mobile") {}
+        "/sell/list/pictures_review/editor"(platform: "/mobile") {}
+        "/sell/list/pictures_review/crop"(platform: "/mobile") {}
+        "/sell/list/price_core"(platform: "/mobile") {}
+        "/sell/list/price_core/similar_products"(platform: "/mobile") {}
+        "/sell/list/price_core_review"(platform: "/mobile") {}
+        "/sell/list/price_core_review/similar_products"(platform: "/mobile") {}
+        "/sell/list/seller_registration"(platform: "/mobile") {}
+        "/sell/list/seller_registration_review"(platform: "/mobile") {}
+        "/sell/list/seller_registration_zip_code"(platform: "/mobile") {}
+        "/sell/list/size_selection"(platform: "/mobile") {}
+        "/sell/list/size_selection_review"(platform: "/mobile") {}
+        "/sell/list/title_core"(platform: "/mobile") {}
+        "/sell/list/title_core_review"(platform: "/mobile") {}
+        "/sell/list/shipping_options_me"(platform: "/mobile") {}
+        "/sell/list/shipping_options_me_review"(platform: "/mobile") {}
+        "/sell/list/pictures_landing"(platform: "/mobile") {}
+        "/sell/list/registration_landing"(platform: "/mobile") {}
+        "/sell/list/registration_zip_code_landing"(platform: "/mobile") {}
+        "/sell/list/shipping_landing"(platform: "/mobile") {}
+        "/sell/list/sip_landing"(platform: "/mobile") {}
+        "/sell/list/sip_price_landing"(platform: "/mobile") {}
+        "/sell/list/sip_shipping_landing"(platform: "/mobile") {}
+        "/sell/list/sip_condition_landing"(platform: "/mobile") {}
+        "/sell/list/sip_condition_lt_landing"(platform: "/mobile") {}
+        "/sell/list/sip_condition_listing_type_landing"(platform: "/mobile") {}
+        "/sell/list/title_landing"(platform: "/mobile") {}
+        "/sell/update/listing_types"(platform: "/mobile") {}
+        "/sell/update/listing_types_upgrade"(platform: "/mobile") {}
+        "/sell/update/congrats_upgrade"(platform: "/mobile") {}
+    }
+
     test("Item events"){
         def dataListItem = {
             item_id = "MLA123456"
