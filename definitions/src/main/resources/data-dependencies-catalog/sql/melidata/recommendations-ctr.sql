@@ -9,7 +9,7 @@ SELECT
 FROM
 (
     SELECT
-       '@param01',
+       '@param01' as ds ,
         device.platform AS platform,
         application.site_id,
         get_json_object(recommendations,'$.algorithm') AS backend,
@@ -32,7 +32,7 @@ FROM
 LEFT JOIN
 (
     SELECT
-        '@param01',
+        '@param01' as ds,
         device.platform AS platform,
         application.site_id AS site_id,
         reco_backend AS backend,
