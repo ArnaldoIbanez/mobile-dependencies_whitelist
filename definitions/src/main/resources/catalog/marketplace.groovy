@@ -1964,6 +1964,7 @@ tracks {
     }
 
     "/myml/bookmarks"(platform: "/web", type: TrackType.View) {}
+    "/myml/summary"(platform: "/web", type: TrackType.View) {}
 
     // Myml - Suggested Discounts
     "/myml/suggested_discounts"(platform: "/mobile", isAbstract: true){
