@@ -1,9 +1,9 @@
 {
   "users": [
-    "martin.ciruzzi@mercadolibre.com"
+    "ext_jproma@mercadolibre.com"
   ],
-  "process_name": "tracks_count",
-  "cron": "* 07 * * *",
+  "process_name": "emails_open_rate",
+  "cron": "10 0 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -13,33 +13,37 @@
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "business",
+        "name": "Template",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "site",
+        "name": "Event_Type",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "platform",
+        "name": "Path",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "total",
+        "name": "Count",
         "type": "INTEGER"
       }
     ],
     "sql": {
-
-      "script": "tracks-count.sql",
+      "script": "melidata/emails-open-rate.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "DAY-3",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
+          "value": "DAY-2",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param03",
           "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }

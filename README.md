@@ -17,3 +17,6 @@ Please check [tracks definitions guidelines](https://github.com/mercadolibre/mel
 
 [Documentation](https://github.com/mercadolibre/melidata-catalog/wiki#metrics-definitions)
 
+## Cronned Queries Definitions
+
+[Documentation](https://github.com/mercadolibre/melidata-all/wiki/Hive-BI-Integration)

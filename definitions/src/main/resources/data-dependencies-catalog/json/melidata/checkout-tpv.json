@@ -1,6 +1,6 @@
 {
   "users": [
-    "matias.tencer@mercadolibre.com"
+    "martin.ciruzzi@mercadolibre.com"
   ],
   "process_name": "checkout_tpv",
   "cron": "00 11 * * *",
@@ -47,7 +47,7 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-30",
+          "value": "DAY-15",
           "format": "yyyy-MM-dd"
         },
         {
