@@ -1114,14 +1114,26 @@ trackTests {
         "/checkout/error"(platform:"/mobile", type:TrackType.View) {
             error_code = "internal_server_error"
         }
-        "/checkout/show_ticket"(platform:"/mobile", type:TrackType.View) {}
+        "/checkout/show_ticket"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            payment_method = "oxxo"
+        }
         "/checkout/show_ticket#save"(platform:"/mobile", type:TrackType.Event) {}
-        "/checkout/show_geolocation_map"(platform:"/mobile", type:TrackType.View) {}
-        "/checkout/show_geolocation_map/search"(platform:"/mobile", type:TrackType.View) {}
+        "/checkout/show_geolocation_map"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            payment_method = "telecomm"
+        }
+        "/checkout/show_geolocation_map/search"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            payment_method = "telecomm"
+        }
         "/checkout/show_geolocation_map/search#location"(platform:"/mobile", type:TrackType.Event) {}
         "/checkout/show_geolocation_map/search#preloaded"(platform:"/mobile", type:TrackType.Event) {}
         "/checkout/show_geolocation_map/search#select"(platform:"/mobile", type:TrackType.Event) {}
-        "/checkout/show_geolocation_map#agencies_request"(platform:"/mobile", type:TrackType.Event) {}
+        "/checkout/show_geolocation_map#agencies_request"(platform:"/mobile", type:TrackType.Event) {
+            payment_method = "telecomm"
+            agencies = 10
+        }
     }
 
     test("checkout congrats"){
