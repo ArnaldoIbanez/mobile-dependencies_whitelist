@@ -1841,7 +1841,7 @@ tracks {
     }
 
     // Sell
-    "/sell"(platform: "/web", isAbstract: true) {}
+    "/sell"(platform: "/", isAbstract: true) {}
     "/sell/list"(platform: "/", , isAbstract: true){ }
     "/sell/change_listing_type"(platform: "/web", isAbstract: true) {
         source(required: true, description: "Source could be differents types of email, my account, etc.", type: PropertyType.String)
@@ -1897,8 +1897,9 @@ tracks {
     }
     "/sell/modify_and_relist/massive/row"(platform: "/web", type: TrackType.View){}
 
-    "/sell/list/congrats"(platform: "/web", type: TrackType.View){
-        item_id(required: true, description: "Item id")
+    // Tambien se utiliza para Apps
+    "/sell/list/congrats"(platform: "/", type: TrackType.View){
+        item_id(required: false, description: "Item id")
         listing_type_id(required: false, description: "Item listing type id")
         vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
         buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
@@ -1915,6 +1916,61 @@ tracks {
         condition(required: false, description: "Item condition: used/new/not_specified")
         price(required: false, description: "Item price")
     }
+
+    // Apps
+    "/sell/list/drafts"(platform: "/", type: TrackType.View) {}
+    "/sell/list/hub"(platform: "/", type: TrackType.View) {}
+    "/sell/list/walkthrough"(platform: "/", type: TrackType.View) {}
+    "/sell/list/hub_old"(platform: "/", type: TrackType.View) {}
+    "/sell/list/sip"(platform: "/", type: TrackType.View) {}
+    "/sell/list/category_sugestion"(platform: "/", type: TrackType.View) {}
+    "/sell/list/category_navigation"(platform: "/", type: TrackType.View) {}
+    "/sell/list/color_selection"(platform: "/", type: TrackType.View) {}
+    "/sell/list/color_selection_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/condition"(platform: "/", type: TrackType.View) {}
+    "/sell/list/condition_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/description"(platform: "/", type: TrackType.View) {}
+    "/sell/list/description_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/payment_methods"(platform: "/", type: TrackType.View) {}
+    "/sell/list/payment_methods_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/listing_types"(platform: "/", type: TrackType.View) {}
+    "/sell/list/listing_types_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures/gallery"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures/editor"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures/crop"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_review/gallery"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_review/editor"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_review/crop"(platform: "/", type: TrackType.View) {}
+    "/sell/list/price_core"(platform: "/", type: TrackType.View) {}
+    "/sell/list/price_core/similar_products"(platform: "/", type: TrackType.View) {}
+    "/sell/list/price_core_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/price_core_review/similar_products"(platform: "/", type: TrackType.View) {}
+    "/sell/list/seller_registration"(platform: "/", type: TrackType.View) {}
+    "/sell/list/seller_registration_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/seller_registration_zip_code"(platform: "/", type: TrackType.View) {}
+    "/sell/list/size_selection"(platform: "/", type: TrackType.View) {}
+    "/sell/list/size_selection_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/title_core"(platform: "/", type: TrackType.View) {}
+    "/sell/list/title_core_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/shipping_options_me"(platform: "/", type: TrackType.View) {}
+    "/sell/list/shipping_options_me_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/registration_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/registration_zip_code_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/shipping_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/sip_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/sip_price_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/sip_shipping_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/sip_condition_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/sip_condition_lt_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/sip_condition_listing_type_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/title_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/update"(platform: "/", isAbstract: true) {}
+    "/sell/update/listing_types"(platform: "/", type: TrackType.View) {}
+    "/sell/update/listing_types_upgrade"(platform: "/", type: TrackType.View) {}
+    "/sell/update/congrats_upgrade"(platform: "/", type: TrackType.View) {}
 
     // Eventos relacionados al item
     "/item"(platform: "/", isAbstract: true) {
