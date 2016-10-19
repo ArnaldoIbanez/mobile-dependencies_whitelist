@@ -8,7 +8,7 @@
     "operation": "append",
     "columns": [
       {
-        "name": "ds",
+        "name": "sent_date",
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },

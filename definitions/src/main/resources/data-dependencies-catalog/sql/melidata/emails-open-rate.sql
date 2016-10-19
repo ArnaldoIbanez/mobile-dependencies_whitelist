@@ -1,4 +1,4 @@
-SELECT substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10),
+SELECT substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) as sent_date,
   get_json_object(tracks.event_data,'$.email_template') AS Template,
   get_json_object(tracks.event_data,'$.event_type') AS Event_Type,
   tracks.path AS PATH,
