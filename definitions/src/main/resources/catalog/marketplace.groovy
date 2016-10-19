@@ -2022,9 +2022,10 @@ tracks {
 
     "/loyalty/score"(type: TrackType.View) {}
 
-    "/loyalty/score/change_tab"(type: TrackType.Event) {
-        page(required: true) //possible values are "milestones" and "logros" ("benefits" when it's added)
-    }
+    "/loyalty/score/milestones"(type: TrackType.View) {} //Milestones tab
+    "/loyalty/score/benefits"(type: TrackType.View) {} //Benefits tab
+    "/loyalty/score/achievements"(type: TrackType.View) {} //Achievements tab
+
 
     "/loyalty/notification"(type: TrackType.Event) {
         event_type(required: true,

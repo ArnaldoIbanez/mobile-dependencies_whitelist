@@ -3070,7 +3070,9 @@ trackTests {
             percentage = 0.5f
         }
         "/loyalty/score"(platform: "/", type: TrackType.View, loyaltyInfo)
-        "/loyalty/score/change_tab"(platform: "/", type: TrackType.Event, { page = 'milestones' })
+        "/loyalty/score/milestones"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/score/achievements"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/score/benefits"(platform: "/", type: TrackType.View, loyaltyInfo)
         "/loyalty/notification"(platform: "/", type: TrackType.Event, { event_type = 'shown' })
     }
 }
