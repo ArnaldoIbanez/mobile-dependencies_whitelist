@@ -18,4 +18,4 @@ GROUP BY substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10),
   get_json_object(tracks.event_data,'$.email_template'),
   get_json_object(tracks.event_data,'$.event_type'),
   path
-ORDER BY ds, Template, Event_Type
+ORDER BY sent_date, Template, Event_Type
