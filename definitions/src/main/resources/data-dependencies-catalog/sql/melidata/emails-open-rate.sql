@@ -20,7 +20,6 @@ FULL OUTER JOIN
 (SELECT substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) AS sent_date,
        get_json_object(tracks.event_data,'$.email_template') AS Template,
        get_json_object(tracks.event_data,'$.event_type') AS Event_Type,
---       tracks.path AS PATH,
        COUNT(1) AS Count_Open
 FROM tracks
 WHERE    (ds >= '@param01'
@@ -31,6 +30,5 @@ WHERE    (ds >= '@param01'
 GROUP BY substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10),
          get_json_object(tracks.event_data,'$.email_template'),
          get_json_object(tracks.event_data,'$.event_type'))  AS Open
---         path
 ON Open.Template = Sent.template AND Sent.sent_date = Open.sent_date
 ORDER BY Template
