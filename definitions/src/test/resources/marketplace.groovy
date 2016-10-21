@@ -3131,4 +3131,17 @@ trackTests {
         }
         "/official_stores/search/back"(platform:"/mobile", type: TrackType.Event, officialStoreEvent)
     }
+
+    test("Loyalty tracks") {
+        def loyaltyInfo = {
+            level = 1
+            points = 100
+            percentage = 0.5f
+        }
+        "/loyalty/score"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/score/milestones"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/score/achievements"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/score/benefits"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/notification"(platform: "/", type: TrackType.Event, { event_type = 'shown' })
+    }
 }
