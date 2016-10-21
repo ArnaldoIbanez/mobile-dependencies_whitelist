@@ -2908,6 +2908,7 @@ trackTests {
             label = "active"
         }
         "/myml/bookmarks"(platform: "/web"){}
+        "/myml/questions"(platform: "/web"){}
         "/myml/summary"(platform: "/web"){}
     }
 
