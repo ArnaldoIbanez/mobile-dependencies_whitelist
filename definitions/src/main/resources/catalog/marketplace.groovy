@@ -1387,7 +1387,7 @@ tracks {
         payment_method(required: true)
 
     }
-    
+
     /*******************************************************************/
     //Mobile Checkout Legacy Apps
     "/checkout"(platform:"/mobile") {
@@ -2128,6 +2128,8 @@ tracks {
     }
 
     "/myml/bookmarks"(platform: "/web", type: TrackType.View) {}
+    "/myml/questions"(platform: "/web", type: TrackType.View) {}
+
     "/myml/summary"(platform: "/web", type: TrackType.View) {}
 
     // Myml - Suggested Discounts
