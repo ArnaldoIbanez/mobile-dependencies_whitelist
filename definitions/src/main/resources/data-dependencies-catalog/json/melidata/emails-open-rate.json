@@ -17,15 +17,15 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Event_Type",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "Path",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Count",
+        "name": "Count_Send",
+        "type": "INTEGER"
+      },
+      {
+        "name": "Count_Open",
         "type": "INTEGER"
       }
     ],
