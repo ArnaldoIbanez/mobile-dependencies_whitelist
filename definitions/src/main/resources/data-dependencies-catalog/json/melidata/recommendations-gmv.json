@@ -40,7 +40,7 @@
       },
       {
         "name": "GMV",
-        "type": "FLOAT"
+        "type": "DOUBLE"
       }
     ],
     "sql": {
