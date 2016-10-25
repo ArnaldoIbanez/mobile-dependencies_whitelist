@@ -2206,7 +2206,9 @@ tracks {
         country_name(type: PropertyType.String, required: true)
     }
 
-    "/login/form"(type: TrackType.View) {}
+    "/login/form"(type: TrackType.View) {
+        "hasError"(PropertyType.Boolean, required: false)
+    }
 
     "/login/recovery"(platform: "/web", type: TrackType.Event) {}
 

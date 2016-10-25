@@ -3155,6 +3155,11 @@ trackTests {
             source="lfe"
             country_name="brazil"
         }
+        "/login/form"(platform: "/", type: TrackType.View) {
+            source="lfe"
+            country_name="brazil"
+            hasError=true
+        }
         "/login/recovery"(platform: "/web", type: TrackType.Event) {
             source="favorites"
             country_name="brazil"
