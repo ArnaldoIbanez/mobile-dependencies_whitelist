@@ -3147,6 +3147,29 @@ trackTests {
     }
 
     test("Login conversion tracks") {
-        "/login"(platform: "/web")
+        "/login"(platform: "/") {
+            source="lfe"
+        }
+        "/login/recovery"(platform: "/web", type: TrackType.Event) {
+            source="lfe"
+        }
+        "/login/recovery"(platform: "/mobile", type: TrackType.View) {
+
+        }
+        "/login/auth"(platform: "/mobile", type=TrackType.View) {
+
+        }
+        "/login/auth"(platform: "/web", type: TrackType.Event) {
+            source="lfe"
+        }
+        "/login/registration"(platform: "/", type: TrackType.Event) {
+            source="lfe"
+        }
+        "/login/auth/success"(platform: "/", type: TrackType.Event) {
+            source="lfe"
+        }
+        "/login/auth/failure"(platform: "/", type: TrackType.Event) {
+            source="lfe"
+        }
     }
 }
