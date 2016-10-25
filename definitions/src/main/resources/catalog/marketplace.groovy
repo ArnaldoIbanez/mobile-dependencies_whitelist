@@ -2199,4 +2199,29 @@ tracks {
                 values: ["received", "dismiss", "open", "shown", "delayed"],
                 description: "Type of loyalty notification event")
     }
+
+    //Login conversion
+    "/login"(platform: "/", isAbstract: true) {
+        source(type: PropertyType.String, required: true)
+        country_name(type: PropertyType.String, required: true)
+    }
+
+    "/login/form"(type: TrackType.View) {}
+
+    "/login/recovery"(platform: "/web", type: TrackType.Event) {}
+
+    "/login/recovery"(platform: "/mobile", type: TrackType.View) {}
+
+    "/login/registration"(platform: "/", type: TrackType.Event) {}
+
+    "/login/auth"(platform: "/", isAbstract: true) {
+        dps_id(type: PropertyType.String, required: true)
+    }
+
+    "/login/auth/success"(platform: "/", type: TrackType.Event) {}
+
+    "/login/auth/failure"(platform: "/", type: TrackType.Event) {
+        username(type: PropertyType.String, required: false)
+        reason(type: PropertyType.String, required: true)
+    }
 }

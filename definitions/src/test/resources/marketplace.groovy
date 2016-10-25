@@ -3149,28 +3149,45 @@ trackTests {
     test("Login conversion tracks") {
         "/login"(platform: "/") {
             source="lfe"
+            country_name="brazil"
+        }
+        "/login/form"(platform: "/", type: TrackType.View) {
+            source="lfe"
+            country_name="brazil"
         }
         "/login/recovery"(platform: "/web", type: TrackType.Event) {
-            source="lfe"
+            source="favorites"
+            country_name="brazil"
         }
         "/login/recovery"(platform: "/mobile", type: TrackType.View) {
-
+            source="checkouton"
+            country_name="brazil"
         }
-        "/login/auth"(platform: "/mobile", type=TrackType.View) {
-
+        "/login/auth"(platform: "/mobile", type: TrackType.View) {
+            source="lfe"
+            country_name="brazil"
+            dps_id="123456"
         }
         "/login/auth"(platform: "/web", type: TrackType.Event) {
             source="lfe"
+            country_name="brazil"
+            dps_id="123456"
         }
         "/login/registration"(platform: "/", type: TrackType.Event) {
             source="lfe"
+            country_name="brazil"
         }
         "/login/auth/success"(platform: "/", type: TrackType.Event) {
             source="lfe"
+            country_name="brazil"
+            dps_id="123456"
         }
         "/login/auth/failure"(platform: "/", type: TrackType.Event) {
             source="lfe"
+            username="lalolanda"
             reason="invalid_password"
+            country_name="argentina"
+            dps_id="123456"
         }
     }
 }
