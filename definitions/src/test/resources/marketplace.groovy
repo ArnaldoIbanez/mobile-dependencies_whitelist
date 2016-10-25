@@ -3170,6 +3170,7 @@ trackTests {
         }
         "/login/auth/failure"(platform: "/", type: TrackType.Event) {
             source="lfe"
+            reason="invalid_password"
         }
     }
 }
