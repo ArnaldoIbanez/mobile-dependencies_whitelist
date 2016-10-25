@@ -27,11 +27,11 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "client",
+        "name": "backend",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "backend",
+        "name": "client",
         "type": "UNICODE_STRING"
       },
       {

@@ -5,8 +5,9 @@ SELECT
 	t1.backend AS backend,
 	t1.client AS client,
 	t1.prints AS prints,
-	t2.GMV AS GMV,
-	t2.orders AS orders
+	t2.orders AS orders,
+	t2.GMV AS GMV
+
 FROM
 (
 	SELECT
