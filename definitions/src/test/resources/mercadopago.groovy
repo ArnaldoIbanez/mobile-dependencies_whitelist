@@ -132,4 +132,10 @@ trackTests {
             price_with_discount = 334.8
         }
     }
+
+    test("account summary flow") {
+        "/account_summary"(platform: "/mobile") {}
+        "/account_summary/filters"(platform: "/mobile") {}
+        "/account_summary/filtered_list"(platform: "/mobile") {}
+    }
 }
