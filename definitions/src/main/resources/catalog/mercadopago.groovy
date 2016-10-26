@@ -37,7 +37,7 @@ tracks {
     }
 
     "/account_summary"(platform: "/mobile") {}
-    "/filters"(platform: "/mobile") {}
-    "/filtered_list"(platform: "/mobile") {}
+    "/account_summary/filters"(platform: "/mobile") {}
+    "/account_summary/filtered_list"(platform: "/mobile") {}
 
 }
