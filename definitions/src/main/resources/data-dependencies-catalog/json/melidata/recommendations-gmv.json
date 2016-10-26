@@ -7,7 +7,7 @@
     "martin.ciruzzi@mercadolibre.com"
   ],
   "process_name": "recommendations_GMV",
-  "cron": "20 17 * * *",
+  "cron": "45 08 * * *",
   "extract":
   {
     "operation": "append",
