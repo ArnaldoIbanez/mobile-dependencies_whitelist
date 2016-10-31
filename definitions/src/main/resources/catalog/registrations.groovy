@@ -32,9 +32,13 @@ tracks {
         captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:true)
     }
 
-    "/register/form/error"(platform:"/web", type: TrackType.View) {}
+    "/register/form/error"(platform:"/web", type: TrackType.View) {
+        errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
+    }
 
-    "/register/form/another-email"(platform:"/web", type: TrackType.View) {}
+    "/register/form/another-email"(platform:"/web", type: TrackType.View) {
+        errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
+    }
 
     "/register/success"(platform:"/web", type: TrackType.Event) {
         app(type: PropertyType.String, description: "Registration app", required:true)
