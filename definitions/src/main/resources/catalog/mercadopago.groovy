@@ -35,4 +35,9 @@ tracks {
         discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
     }
+
+    "/account_summary"(platform: "/mobile") {}
+    "/account_summary/filters"(platform: "/mobile") {}
+    "/account_summary/filtered_list"(platform: "/mobile") {}
+
 }
