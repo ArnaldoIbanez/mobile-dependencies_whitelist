@@ -28,8 +28,20 @@ class ConditionDsl {
             return [ function: "first", field: args[0]]
         } else {
             return (args[0] instanceof Map ? args[0] : [ field: args[0] ])  +
-                    [ operator: method ] +
+                    [ operator: convert(method) ] +
                     (args.length > 1 ? (args[1] instanceof Map ? args[1] : [ value: args[1].toString() ]) : [:])
         }
+    }
+
+    def convert(method) {
+        switch (method) {
+            case "gt": return ">"
+            case "gte": return ">"
+            case "lt": return ">"
+            case "lte": return ">"
+        }
+
+        return method
+
     }
 }

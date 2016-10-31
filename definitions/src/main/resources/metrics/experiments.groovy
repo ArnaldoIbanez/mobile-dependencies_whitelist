@@ -8,6 +8,12 @@ metrics {
 		}
 	}
 
+    "sell/full_relist_single_item"(description: "define properties for item_id at full_relist experiment") {
+        startWith {
+            set_property("item_id", "event_data.item_id")
+        }
+    }
+
 	"proactive_2PM"(description: "define properties for order_id") {
 		startWith {
 			set_property("order_id", "event_data.order_id")
@@ -216,9 +222,9 @@ metrics {
 	}
 
 
-    "seller_called"(description: "track vip call seller as success for classifieds in the new order experiment") {
+    "search/newFiltersAndSortWebMobile.seller_called"(description: "track vip call seller as success for classifieds in the new filters mobile experiment") {
 	    startWith {
-            experiment("search/filtersNewOrder", "search/filtersNewOrderDeals", "search/filtersNewOrder.classifieds")
+            experiment("search/newFiltersAndSortWebMobile", "search/newFiltersAndSortWebMobile.classifieds")
         }
 
   		countsOn {
@@ -228,31 +234,200 @@ metrics {
 		}
 	}
 
-	"search/filtersNewOrder.classifieds"(description: "extend experiment /search/filtersNewOrder for classifieds", parametricName: false) {
+	"newFiltersWebMobileTwoVariants.seller_called"(description: "track vip call seller as success for classifieds in the new filters mobile experiment") {
+	    startWith {
+            experiment("search/newFiltersWebMobileTwoVariants", "search/newFiltersWebMobileTwoVariants.classifieds")
+        }
+
+  		countsOn {
+			condition {
+				path("/vip/call_seller", "/vip/show_phone")
+			}
+		}
+	}
+
+	"search/newFiltersAndSortWebMobile.classifieds"(description: "extend experiment /search/newFiltersAndSortWebMobile for classifieds", parametricName: false) {
 		startWith {
 			condition {
 				and(
-					empty("experiments.search/filtersNewOrder", false),
+					empty("experiments.search/newFiltersAndSortWebMobile", false),
 					or(
 					    like('event_data.category_path', '.*M..1743(-|$).*'),
 					    like('event_data.category_path', '.*M..1459(-|$).*')
 					)
 				)
 			}
+
+			openBy {
+				"experiments.search/newFiltersAndSortWebMobile"(default: "DEFAULT")
+			}
 		}
 	}
 
-	"free_item_upgraded"(description: "A free Item was upgraded") {
+	"search/newFiltersWebMobileTwoVariants.classifieds"(description: "extend experiment /search/newFiltersWebMobileTwoVariants for classifieds", parametricName: false) {
 		startWith {
-			experiment("sell/increase_exposure_wording")
+			condition {
+				and(
+						empty("experiments.search/newFiltersWebMobileTwoVariants", false),
+						or(
+								like('event_data.category_path', '.*M..1743(-|$).*'),
+								like('event_data.category_path', '.*M..1459(-|$).*')
+						)
+				)
+			}
+
+			openBy {
+				"experiments.search/newFiltersWebMobileTwoVariants"(default: "DEFAULT")
+			}
+
+		}
+	}
+
+	"upgrade_on"(description: "A Item was upgrade in a higher listing type after see congrats page") {
+		startWith {
+			experiment("sell/radio_vs_submit_button_upgrade_on")
 		}
 
 		countsOn {
 			condition {
 				path("/item/change_listing_type")
-
-				equals("event_data.from", "free")
+				and(
+					equals("event_data.source", "upgrade_on"),
+					equals("event_data.vertical", "CORE")
+				)
 			}
+		}
+	}
+
+	"relist_upgrade"(description: "An Item was relisted in a higher listing type than its parent") {
+		startWith {
+			experiment("sell/full_relist_single_item")
+		}
+
+		countsOn {
+			condition {
+				path("/item/relist")
+				and(
+					equals("event_data.change_listing_type", "upgrade"),
+					equals("event_data.item_id", property("item_id"))
+				)
+			}
+		}
+	}
+
+	"relist_downgrade"(description: "An Item was relisted in a lower listing type than its parent") {
+        startWith {
+            experiment("sell/full_relist_single_item")
+        }
+
+		countsOn {
+			condition {
+				path("/item/relist")
+				and(
+					equals("event_data.change_listing_type", "downgrade"),
+					equals("event_data.item_id", property("item_id"))
+				)
+			}
+		}
+	}
+
+	"search/newFiltersWebMobileTwoVariants.low"(description: "Experiment open by device.resolution_height") {
+		startWith {
+			condition {
+				and(
+						empty("experiments.search/newFiltersWebMobileTwoVariants", false),
+						or(
+								and(
+										equals("device.vendor", "apple"),
+										lte("device.resolution_height", 500)
+								),
+								and(
+										notEquals("device.vendor", "apple"),
+										lte("device.resolution_height", 639))
+						)
+
+				)
+			}
+
+			openBy {
+				"experiments.search/newFiltersWebMobileTwoVariants"(default: "DEFAULT")
+			}
+		}
+	}
+
+	"search/newFiltersWebMobileTwoVariants.medium"(description: "Experiment open by device.resolution_height") {
+		startWith {
+			condition {
+				and(
+						empty("experiments.search/newFiltersWebMobileTwoVariants", false),
+						or(
+								and(
+										equals("device.vendor", "apple"),
+										gt("device.resolution_height", 500),
+										lte("device.resolution_height", 600)
+								),
+								and(
+										notEquals("device.vendor", "apple"),
+										equals("device.resolution_height", 640)
+								)
+						)
+				)
+			}
+
+			openBy {
+				"experiments.search/newFiltersWebMobileTwoVariants"(default: "DEFAULT")
+			}
+		}
+	}
+
+	"search/newFiltersWebMobileTwoVariants.high"(description: "Experiment open by device.resolution_height") {
+		startWith {
+			condition {
+				and(
+						empty("experiments.search/newFiltersWebMobileTwoVariants", false),
+						or(
+								and(
+										equals("device.vendor", "apple"),
+										gt("device.resolution_height", 600)
+								),
+								and(
+										notEquals("device.vendor", "apple"),
+										gt("device.resolution_height", 640)
+								)
+						)
+				)
+			}
+
+			openBy {
+				"experiments.search/newFiltersWebMobileTwoVariants"(default: "DEFAULT")
+			}
+		}
+
+
+	}
+
+	"seller_called"(description: "track vip call seller as success for classifieds") {
+		countsOn {
+			condition {
+				path("/vip/call_seller", "/vip/show_phone")
+			}
+		}
+	}
+
+	"search/filtersNewOrderDealsAndroid.deal"(description: "extend experiment /search/filtersNewOrderDealsAndroid with deal filter", parametricName: false) {
+		startWith {
+			condition {
+				and(
+						empty("experiments.search/filtersNewOrderDealsAndroid", false),
+						empty("event_data.filters.deal", false)
+				)
+			}
+
+			openBy {
+				"experiments.search/filtersNewOrderDealsAndroid"(default: "default")
+			}
+
+			set_property("deal_id", "event_data.filters.deal")
 		}
 	}
 }

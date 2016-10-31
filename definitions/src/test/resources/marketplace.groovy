@@ -95,7 +95,7 @@ trackTests {
                 block_store_position=19
             }
             results=["232232000", "232232001", "232232002"]
-            billboard_shown = true
+            billboards = ["232232000"]
             backend_data={
                 sm="sm"
                 ab="1"
@@ -112,6 +112,7 @@ trackTests {
             }
             geolocation="AR:CABA"
             landing="base"
+            layout_forced=true
 
         })
 
@@ -872,6 +873,18 @@ trackTests {
         "/checkout/shipping/location/address#additional_info"(platform: "/mobile", type: TrackType.Event) {
             additional_info = "additionalInfo"
         }
+        "/checkout/shipping/location/address#internal_number"(platform: "/mobile", type: TrackType.Event) {
+            internal_number = "internalNumber"
+        }
+        "/checkout/shipping/location/address#between_streets"(platform: "/mobile", type: TrackType.Event) {
+            between_streets = "betweenStreets"
+        }
+        "/checkout/shipping/location/address#references"(platform: "/mobile", type: TrackType.Event) {
+            references = "references"
+        }
+        "/checkout/shipping/location/address#neighborhood"(platform: "/mobile", type: TrackType.Event) {
+            neighborhood = "neighborhood"
+        }
         "/checkout/shipping/location/select_contact#submit"(platform:"/mobile", type: TrackType.Event) {
             success = true
             error_codes = ["street_name_error"]
@@ -910,7 +923,7 @@ trackTests {
             checkoutStatus()
             available_methods = ["visa", "master", "amex", "cash"]
             coupon = true
-            coupon_discoun = 20
+            coupon_discount = 20
         }
         "/checkout/payments/select_method#new_payment_method_selected"(platform:"/mobile",  type: TrackType.Event) {
             payment_method_id = "payment_method_id"
@@ -1005,7 +1018,7 @@ trackTests {
         "/checkout/payments/select_issuer"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/pay_point/select_store"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payments/cash/select_store"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_methods = ["telecomm", "oxxo", "bancomer", "banamex"]
         }
@@ -1100,6 +1113,26 @@ trackTests {
         }
         "/checkout/error"(platform:"/mobile", type:TrackType.View) {
             error_code = "internal_server_error"
+        }
+        "/checkout/show_ticket"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            payment_method = "oxxo"
+        }
+        "/checkout/show_ticket#save"(platform:"/mobile", type:TrackType.Event) {}
+        "/checkout/show_geolocation_map"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            payment_method = "telecomm"
+        }
+        "/checkout/show_geolocation_map/search"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            payment_method = "telecomm"
+        }
+        "/checkout/show_geolocation_map/search#location"(platform:"/mobile", type:TrackType.Event) {}
+        "/checkout/show_geolocation_map/search#preloaded"(platform:"/mobile", type:TrackType.Event) {}
+        "/checkout/show_geolocation_map/search#select"(platform:"/mobile", type:TrackType.Event) {}
+        "/checkout/show_geolocation_map#agencies_request"(platform:"/mobile", type:TrackType.Event) {
+            payment_method = "telecomm"
+            agencies = 10
         }
     }
 
@@ -2072,7 +2105,7 @@ trackTests {
 
     "/notification"(platform: "/mobile") {
       newsgroup_id = "12332323"
-      event_type = "action_open" 
+      event_type = "action_open"
       action_type = "deeplinking"
       context = "notification_center"
     }
@@ -2708,6 +2741,99 @@ trackTests {
         "/sell/change_listing_type/massive"(platform: "/web", dataSetViewMassive)
     }
 
+    test("Relist items"){
+        def itemData = {
+            item_id = "MLA123456"
+            listing_type_id = "gold_special"
+            vertical = "CORE"
+            buying_mode = "buy_it_now"
+            condition = "used"
+            price = 123.456
+            quantity = 8
+        }
+
+        def massiveItemData = {
+            items_amount = 2
+        }
+
+        "/sell/quick_relist/single"  (platform: "/web/desktop", itemData)
+        "/sell/quick_relist/massive" (platform: "/web/desktop", massiveItemData)
+
+        "/sell/modify_and_relist/single/row"   (platform: "/web/desktop", itemData)
+        "/sell/modify_and_relist/single/cards" (platform: "/web/desktop", itemData)
+        "/sell/modify_and_relist/massive/row"  (platform: "/web/desktop", massiveItemData)
+    }
+
+    test("Sell Flow view Pages"){
+        def itemData = {
+            item_id = "MLA123456"
+            listing_type_id = "gold_special"
+            vertical = "CORE"
+            buying_mode = "buy_it_now"
+            condition = "used"
+            price = 123.456
+        }
+
+        "/sell/list/congrats"(platform: "/web/desktop", itemData)
+        "/sell/upgrade_on"(platform: "/web/desktop", itemData)
+    }
+
+    test("Native Sell flow steps"){
+        "/sell/list/drafts"(platform: "/mobile") {}
+        "/sell/list/hub"(platform: "/mobile") {}
+        "/sell/list/walkthrough"(platform: "/mobile") {}
+        "/sell/list/hub_old"(platform: "/mobile") {}
+        "/sell/list/sip"(platform: "/mobile") {}
+        "/sell/list/category_sugestion"(platform: "/mobile") {}
+        "/sell/list/category_navigation"(platform: "/mobile") {}
+        "/sell/list/color_selection"(platform: "/mobile") {}
+        "/sell/list/color_selection_review"(platform: "/mobile") {}
+        "/sell/list/condition"(platform: "/mobile") {}
+        "/sell/list/condition_review"(platform: "/mobile") {}
+        "/sell/list/congrats"(platform: "/mobile") {}
+        "/sell/list/description"(platform: "/mobile") {}
+        "/sell/list/description_review"(platform: "/mobile") {}
+        "/sell/list/payment_methods"(platform: "/mobile") {}
+        "/sell/list/payment_methods_review"(platform: "/mobile") {}
+        "/sell/list/listing_types"(platform: "/mobile") {}
+        "/sell/list/listing_types_review"(platform: "/mobile") {}
+        "/sell/list/pictures"(platform: "/mobile") {}
+        "/sell/list/pictures/gallery"(platform: "/mobile") {}
+        "/sell/list/pictures/editor"(platform: "/mobile") {}
+        "/sell/list/pictures/crop"(platform: "/mobile") {}
+        "/sell/list/pictures_review"(platform: "/mobile") {}
+        "/sell/list/pictures_review/gallery"(platform: "/mobile") {}
+        "/sell/list/pictures_review/editor"(platform: "/mobile") {}
+        "/sell/list/pictures_review/crop"(platform: "/mobile") {}
+        "/sell/list/price_core"(platform: "/mobile") {}
+        "/sell/list/price_core/similar_products"(platform: "/mobile") {}
+        "/sell/list/price_core_review"(platform: "/mobile") {}
+        "/sell/list/price_core_review/similar_products"(platform: "/mobile") {}
+        "/sell/list/seller_registration"(platform: "/mobile") {}
+        "/sell/list/seller_registration_review"(platform: "/mobile") {}
+        "/sell/list/seller_registration_zip_code"(platform: "/mobile") {}
+        "/sell/list/size_selection"(platform: "/mobile") {}
+        "/sell/list/size_selection_review"(platform: "/mobile") {}
+        "/sell/list/title_core"(platform: "/mobile") {}
+        "/sell/list/title_core_review"(platform: "/mobile") {}
+        "/sell/list/shipping_options_me"(platform: "/mobile") {}
+        "/sell/list/shipping_options_me_review"(platform: "/mobile") {}
+        "/sell/list/pictures_landing"(platform: "/mobile") {}
+        "/sell/list/registration_landing"(platform: "/mobile") {}
+        "/sell/list/registration_zip_code_landing"(platform: "/mobile") {}
+        "/sell/list/shipping_landing"(platform: "/mobile") {}
+        "/sell/list/sip_landing"(platform: "/mobile") {}
+        "/sell/list/sip_price_landing"(platform: "/mobile") {}
+        "/sell/list/sip_shipping_landing"(platform: "/mobile") {}
+        "/sell/list/sip_condition_landing"(platform: "/mobile") {}
+        "/sell/list/sip_condition_lt_landing"(platform: "/mobile") {}
+        "/sell/list/sip_condition_listing_type_landing"(platform: "/mobile") {}
+        "/sell/list/title_landing"(platform: "/mobile") {}
+        "/sell/update/listing_types"(platform: "/mobile") {}
+        "/sell/update/listing_types_upgrade"(platform: "/mobile") {}
+        "/sell/update/congrats_upgrade"(platform: "/mobile") {}
+    }
+
     test("Item events"){
         def dataListItem = {
             item_id = "MLA123456"
@@ -2716,6 +2842,19 @@ trackTests {
             buying_mode = "buy_it_now"
             condition = "used"
             price = 123.456
+            category_id = "MLA3530"
+        }
+
+        def dataListItemWithCategorySuggestion = {
+            item_id = "MLA123456"
+            listing_type_id = "gold_special"
+            vertical = "CORE"
+            buying_mode = "buy_it_now"
+            condition = "used"
+            price = 123.456
+            category_id = "MLA3530"
+            suggested_category_id = "MLA1915"
+            suggested_category_is_leaf = false
         }
 
         def dataChangeListingTypeItemFullInfo = {
@@ -2726,6 +2865,7 @@ trackTests {
             buying_mode = "buy_it_now"
             condition = "used"
             price = 123.456
+            source = "upgrade_on"
         }
 
         def dataChangeListingTypeItemMinimumInfo = {
@@ -2734,16 +2874,71 @@ trackTests {
             to = "gold_pro"
         }
 
+        def dataRelistItem = {
+            item_id = "MLA123456"
+            listing_type_id = "gold_special"
+            vertical = "CORE"
+            buying_mode = "buy_it_now"
+            condition = "used"
+            price = 123.456
+        }
+
+        def dataRelistItemWithParentInformation = {
+            item_id = "MLA123456"
+            listing_type_id = "gold_special"
+            vertical = "CORE"
+            buying_mode = "buy_it_now"
+            condition = "used"
+            price = 123.456
+            parent_id = "MLA345"
+            parent_listing_type_id = "free"
+            source = "/sell/quick_relist/single"
+        }
 
         "/item/create"(platform: "/web", dataListItem)
+        "/item/create"(platform: "/web", dataListItemWithCategorySuggestion)
         "/item/change_listing_type"(platform: "/web", dataChangeListingTypeItemFullInfo)
         "/item/change_listing_type"(platform: "/web", dataChangeListingTypeItemMinimumInfo)
+        "/item/relist"(platform: "/web", dataRelistItem)
+        "/item/relist"(platform: "/web", dataRelistItemWithParentInformation)
     }
 
     test("Myml listing active view"){
         "/myml/listings"(platform: "/web"){
             label = "active"
         }
+        "/myml/bookmarks"(platform: "/web"){}
+        "/myml/questions"(platform: "/web"){}
+        "/myml/summary"(platform: "/web"){}
+    }
+
+    test("Myml Suggested Discounts"){
+        "/myml/suggested_discounts/landing"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/landing/about"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/landing/start"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/about"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/about/skip"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/about/start"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/about/abandon"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/select_discount"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/select_discount/apply"(platform: "/mobile"){
+          item_id = "MLA123456"
+          selected_discount = "1"
+        }
+        "/myml/suggested_discounts/select_discount/confirm"(platform: "/mobile"){
+          item_id = "MLA123456"
+          selected_discount = "1"
+        }
+        "/myml/suggested_discounts/info"(platform: "/mobile"){
+          item_id = "MLA123456"
+          deal_status = "on_deal"
+        }
+        "/myml/suggested_discounts/info/exit"(platform: "/mobile"){
+          item_id = "MLA123456"
+          deal_status = "on_deal"
+          action = "vip"
+        }
+        "/myml/suggested_discounts/error"(platform: "/mobile"){item_id = "MLA123456"}
     }
 
     test("Download app landing tracking") {
@@ -2771,17 +2966,141 @@ trackTests {
         }
     }
 
-    test("Recommendations tracking") {
+    test("Recommendations tracking on checkout") {
 
-        "/recommendations"(platform: "/web", type: TrackType.View) {
-            success_print = true
-            algorithm = "SearchNotLoggedInBackend"
-            context = "CHO"
+        "/checkout/congrats"(platform: "/web", type: TrackType.View) {
+            //recommendations data
+            recommendations = [
+                success_print : true,
+                algorithm : "MarketingIntelligence",
+                context : "CHO",
+                item_category_l3 : "MLA1537",
+                recommended_l3_categories : ["MLA1051", "MLA1055", "MLA32089"]
+            ]
+            //checkout data
+            order_id=1234
+            status="payment_required"
+            total_amount=2000
+            total_amount_with_shipping=2087.99
+            total_paid_amount=3373.98
+            buy_equal_pay=true
+            recovery_flow=false
+            register_int=false
+            platform = "/web/desktop"
+            payments=[
+                    [
+                            id:333,
+                            payment_method:"visa",
+                            payment_type:"credit_card",
+                            installments:12,
+                            paid_amount:3373.98,
+                            installment_amount:281.17,
+                            without_fee:false,
+                            status:"approved",
+                            status_detail:"accredited"
+                    ]
+            ]
+            shipping=[
+                    shipping_type: "mercadoenvios",
+                    cost:87.99,
+                    shipping_option:[
+                            id:"391232427",
+                            name:"Prioritario a domicilio",
+                            shipping_method_id:"73330"
+                    ],
+                    id:21531848862,
+                    shipping_mode:"me2"
+            ]
+            order_items=[
+                    [
+                            item:[
+                                    id:"MLA9876",
+                                    variation_id:null,
+                                    buying_mode:"buy_it_now",
+                                    shipping_mode:"me2",
+                                    category_id:"MLA1915",
+                                    deal_ids:null
+                            ],
+                            quantity:1,
+                            unit_price:2000,
+                            currency_id:"ARS"
+                    ]
+            ]
+            buyer=[
+                    id:111111,
+                    nickname:"buyer01"
+            ]
+            seller=[
+                    id:111222,
+                    nickname:"seller02"
+            ]
         }
-        "/recommendations"(platform: "/web", type: TrackType.View) {
-            success_print = false
-            algorithm = "CongratsBackend"
-            context = "CHO"
+        "/checkout/congrats"(platform: "/web", type: TrackType.View) {
+            //recommendations data
+            recommendations = [
+                success_print : true,
+                algorithm : "MarketingIntelligence",
+                context : "CHO",
+                item_category_l3 : "MLA1537",
+                recommended_l3_categories : ["MLA1051", "MLA1055", "MLA32089"]
+            ]
+            //checkout data
+            order_id=1234
+            status="payment_required"
+            total_amount=2000
+            total_amount_with_shipping=2087.99
+            total_paid_amount=3373.98
+            buy_equal_pay=true
+            recovery_flow=false
+            register_int=false
+            platform = "/web/desktop"
+            payments=[
+                    [
+                            id:333,
+                            payment_method:"visa",
+                            payment_type:"credit_card",
+                            installments:12,
+                            paid_amount:3373.98,
+                            installment_amount:281.17,
+                            without_fee:false,
+                            status:"approved",
+                            status_detail:"accredited"
+                    ]
+            ]
+            shipping=[
+                    shipping_type: "mercadoenvios",
+                    cost:87.99,
+                    shipping_option:[
+                            id:"391232427",
+                            name:"Prioritario a domicilio",
+                            shipping_method_id:"73330"
+                    ],
+                    id:21531848862,
+                    shipping_mode:"me2"
+            ]
+            order_items=[
+                    [
+                            item:[
+                                    id:"MLA9876",
+                                    variation_id:null,
+                                    buying_mode:"buy_it_now",
+                                    shipping_mode:"me2",
+                                    category_id:"MLA1915",
+                                    deal_ids:null
+                            ],
+                            quantity:1,
+                            unit_price:2000,
+                            currency_id:"ARS"
+                    ]
+            ]
+            buyer=[
+                    id:111111,
+                    nickname:"buyer01"
+            ]
+            seller=[
+                    id:111222,
+                    nickname:"seller02"
+            ]
         }
     }
 
@@ -2812,5 +3131,18 @@ trackTests {
             query = "abe"
         }
         "/official_stores/search/back"(platform:"/mobile", type: TrackType.Event, officialStoreEvent)
+    }
+
+    test("Loyalty tracks") {
+        def loyaltyInfo = {
+            level = 1
+            points = 100
+            percentage = 0.5f
+        }
+        "/loyalty/score"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/score/milestones"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/score/achievements"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/score/benefits"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/notification"(platform: "/", type: TrackType.Event, { event_type = 'shown' })
     }
 }

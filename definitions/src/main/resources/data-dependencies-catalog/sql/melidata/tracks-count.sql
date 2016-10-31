@@ -1,0 +1,1 @@
+select substr(ds, 1, 10) as ds, application.business, application.site_id as site, device.platform, count(1) as total from tracks where ds >= '@param01' and ds < '@param02' group by substr(ds, 1, 10), application.business, application.site_id, device.platform
