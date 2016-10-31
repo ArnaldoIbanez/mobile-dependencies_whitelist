@@ -1977,6 +1977,17 @@ trackTests {
             source = "email"
             item_id = "MCO123321"
             captcha_showed = true
+            errors = [
+                        [
+                                code:0,
+                                field: 'firstName',
+                                message: 'Tu nombre es incorrecto'
+                        ],
+                        [
+                                code:2,
+                                field: 'lastName'
+                        ]
+                    ]
         }
 
         "/register/form/another-email"(platform: "/web/desktop") {
@@ -1984,6 +1995,12 @@ trackTests {
             source = "email"
             item_id = "MCO123321"
             captcha_showed = true
+            errors = [
+                        [
+                                code:8,
+                                field: 'phoneNumber'
+                        ]
+                    ]
         }
 
         "/register/form/another-email"(platform: "/web/mobile") {
