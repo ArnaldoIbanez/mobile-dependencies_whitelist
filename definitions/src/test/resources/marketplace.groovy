@@ -860,6 +860,12 @@ trackTests {
         "/checkout/shipping/select_contact"(platform:"/mobile", type:TrackType.Event) {
             is_from_preload_address = true
         }
+        "/checkout/shipping/location/select_state"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
+        "/checkout/shipping/location/select_city"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
         "/checkout/shipping/location/address"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             edit_flow = true
