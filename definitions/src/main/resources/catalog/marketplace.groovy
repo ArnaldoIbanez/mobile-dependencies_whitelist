@@ -1049,6 +1049,7 @@ tracks {
     "/checkout/review/inconsistency/quantity"(platform: "/mobile") {
         error_code(required: false, type:  PropertyType.String)
     }
+    "/checkout/review/inconsistency/price_changed"(platform: "/mobile") {}
     "/checkout/review/edit_shipping#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         //old_value, new_value
         old_value(required: true, type:  PropertyType.String)
