@@ -1055,6 +1055,9 @@ trackTests {
             checkoutStatus()
             error_code ="invalid_volume_for_quantity"
         }
+        "/checkout/review/inconsistency/price_changed"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
         "/checkout/review/edit_shipping#submit"(platform:"/mobile", type: TrackType.Event) {
             //old_value, new_value
             old_value = "Zona 1"
