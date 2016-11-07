@@ -1121,21 +1121,13 @@ trackTests {
             checkoutStatus()
         }
 
-        "/checkout/congrats/actions/call_seller"(platform:"/mobile", type: TrackType.View) {}
+        "/checkout/congrats/contact_button"(platform: "/mobile", type: TrackType.View) {
+            action = 'call_seller'
+        }
 
-        "/checkout/congrats/actions/call_seller#click"(platform:"/mobile", type: TrackType.Event) {}
-
-        "/checkout/congrats/actions/email_seller"(platform:"/mobile", type: TrackType.View) {}
-
-        "/checkout/congrats/actions/email_seller#click"(platform:"/mobile", type: TrackType.Event) {}
-
-        "/checkout/congrats/actions/add_seller"(platform:"/mobile", type: TrackType.View) {}
-
-        "/checkout/congrats/actions/add_seller#click"(platform:"/mobile", type: TrackType.Event) {}
-
-        "/checkout/congrats/actions/message_seller"(platform:"/mobile", type: TrackType.View) {}
-
-        "/checkout/congrats/actions/message_seller#click"(platform:"/mobile", type: TrackType.Event) {}
+        "/checkout/congrats/contact_button#click"(platform: "/mobile", type: TrackType.Event) {
+            action = 'call_seller'
+        }
 
         "/checkout/error"(platform:"/mobile", type:TrackType.View) {
             error_code = "internal_server_error"
