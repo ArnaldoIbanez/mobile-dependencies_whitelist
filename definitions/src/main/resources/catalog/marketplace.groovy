@@ -1221,6 +1221,23 @@ tracks {
 
     }
     "/checkout/congrats/pending"(platform: "/mobile") {}
+
+    "/checkout/congrats/actions/call_seller"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {}
+    
+    "/checkout/congrats/actions/call_seller#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+
+    "/checkout/congrats/actions/email_seller"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {}
+    
+    "/checkout/congrats/actions/email_seller#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+
+    "/checkout/congrats/actions/add_seller"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {}
+    
+    "/checkout/congrats/actions/add_seller#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+
+    "/checkout/congrats/actions/message_seller"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {}
+    
+    "/checkout/congrats/actions/message_seller#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+
     "/checkout/error"(platform: "/mobile") {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
