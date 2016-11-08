@@ -1222,11 +1222,11 @@ tracks {
     }
     "/checkout/congrats/pending"(platform: "/mobile") {}
 
-    "/checkout/congrats/contact_button"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+    "/checkout/congrats/available_actions"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
          action(required: true, description: "Action, for ex: call_seller, email_seller, etc")
     }
 
-    "/checkout/congrats/contact_button#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/congrats/available_actions#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
          action(required: true, description: "Action executed, for ex: call_seller, email_seller, etc")
     }
 
