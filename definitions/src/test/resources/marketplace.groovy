@@ -3171,4 +3171,10 @@ trackTests {
         "/loyalty/score/benefits"(platform: "/", type: TrackType.View, loyaltyInfo)
         "/loyalty/notification"(platform: "/", type: TrackType.Event, { event_type = 'shown' })
     }
+
+    test("Mobile Navigation Menu"){
+        "/navigation"(platform: "/mobile/android"){
+            origin = "/HOME"
+        }
+    }
 }
