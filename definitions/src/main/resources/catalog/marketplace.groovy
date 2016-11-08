@@ -2203,4 +2203,9 @@ tracks {
                 values: ["received", "dismiss", "open", "shown", "delayed"],
                 description: "Type of loyalty notification event")
     }
+
+    //Navigation
+    "/navigation"(platform: "/mobile/android") {
+        origin(required: true, type: PropertyType.String, description: "Analytic's name of the screen where the menu was opened")
+    }
 }
