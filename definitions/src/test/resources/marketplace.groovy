@@ -1121,7 +1121,7 @@ trackTests {
             checkoutStatus()
         }
 
-        "/checkout/congrats/available_actions#click"(platform: "/mobile", type: TrackType.Event) {
+        "/checkout/finish#click"(platform: "/mobile", type: TrackType.Event) {
             action = 'call_seller'
         }
 

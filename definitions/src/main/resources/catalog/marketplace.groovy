@@ -1193,7 +1193,7 @@ tracks {
         seller(required: false)
         //id
         //nickname
-        available_actions(required: false, description: "Action presented on the screen, for ex: call_seller, email_seller, etc")
+        available_actions(required: false, type: PropertyType.ArrayList, description: "Action presented on the screen, for ex: call_seller, email_seller, etc.")
 
         /****************************************/
         //Legacy App Congrats Tracks
@@ -1203,24 +1203,19 @@ tracks {
         total_amount_usd(serverSide: true)
         first_for_order(serverSide: true)
     }
-    "/checkout/congrats/available_actions#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/finish#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
          action(required: true, description: "Action executed, for ex: call_seller, email_seller, etc")
     }
-    "/checkout/congrats/error"(platform: "/mobile") {
-        available_actions(required: true, type: PropertyType.ArrayList)
-    }
-    "/checkout/congrats/call_for_auth"(platform: "/mobile") {
-        available_actions(required: true, type: PropertyType.ArrayList)
-    }
-    "/checkout/congrats/call_for_auth/instructions"(platform: "/mobile") {
-        available_actions(required: false, type: PropertyType.ArrayList)
-    }
-    "/checkout/congrats/call_for_auth/later"(platform: "/mobile") {
-        available_actions(required: false, type: PropertyType.ArrayList)
-    }
-    "/checkout/congrats/invalid_sec_code"(platform: "/mobile") {
-        available_actions(required: true, type: PropertyType.ArrayList)
-    }
+    "/checkout/congrats/error"(platform: "/mobile") {}
+
+    "/checkout/congrats/call_for_auth"(platform: "/mobile") {}
+
+    "/checkout/congrats/call_for_auth/instructions"(platform: "/mobile") {}
+
+    "/checkout/congrats/call_for_auth/later"(platform: "/mobile") {}
+
+    "/checkout/congrats/invalid_sec_code"(platform: "/mobile") {}
+    
     "/checkout/congrats/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {
 
     }
