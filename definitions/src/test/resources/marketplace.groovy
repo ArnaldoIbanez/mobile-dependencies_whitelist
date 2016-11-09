@@ -3177,4 +3177,16 @@ trackTests {
             origin = "/HOME"
         }
     }
+
+    test("Logout action") {
+        "/logout/modal"(platform: "/mobile/android") {
+            action = "confirmed"
+        }
+    }
+
+    test("Logout action") {
+        "/logout/modal"(platform: "/mobile/android") {
+            action = "canceled"
+        }
+    }
 }
