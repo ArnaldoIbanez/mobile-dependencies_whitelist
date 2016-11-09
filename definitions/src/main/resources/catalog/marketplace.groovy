@@ -1193,6 +1193,7 @@ tracks {
         seller(required: false)
         //id
         //nickname
+        available_actions(required: false, description: "Action presented on the screen, for ex: call_seller, email_seller, etc")
 
         /****************************************/
         //Legacy App Congrats Tracks
@@ -1201,6 +1202,9 @@ tracks {
         total_amount_local(serverSide: true)
         total_amount_usd(serverSide: true)
         first_for_order(serverSide: true)
+    }
+    "/checkout/congrats/available_actions#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+         action(required: true, description: "Action executed, for ex: call_seller, email_seller, etc")
     }
     "/checkout/congrats/error"(platform: "/mobile") {
         available_actions(required: true, type: PropertyType.ArrayList)
@@ -1221,14 +1225,6 @@ tracks {
 
     }
     "/checkout/congrats/pending"(platform: "/mobile") {}
-
-    "/checkout/congrats/available_actions"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
-         action(required: true, description: "Action, for ex: call_seller, email_seller, etc")
-    }
-
-    "/checkout/congrats/available_actions#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-         action(required: true, description: "Action executed, for ex: call_seller, email_seller, etc")
-    }
 
     "/checkout/error"(platform: "/mobile") {
         order_id(required: false, description: "OrderId")
