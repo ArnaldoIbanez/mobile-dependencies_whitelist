@@ -1120,6 +1120,11 @@ trackTests {
         "/checkout/congrats/pending"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+
+        "/checkout/finish#click"(platform: "/mobile", type: TrackType.Event) {
+            action = 'call_seller'
+        }
+
         "/checkout/error"(platform:"/mobile", type:TrackType.View) {
             error_code = "internal_server_error"
         }
