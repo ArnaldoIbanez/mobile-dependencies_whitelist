@@ -3178,13 +3178,13 @@ trackTests {
         }
     }
 
-    test("Logout action") {
+    test("Logout action confirmed") {
         "/logout/modal"(platform: "/mobile") {
             action = "confirmed"
         }
     }
 
-    test("Logout action") {
+    test("Logout action canceled") {
         "/logout/modal"(platform: "/mobile") {
             action = "canceled"
         }
