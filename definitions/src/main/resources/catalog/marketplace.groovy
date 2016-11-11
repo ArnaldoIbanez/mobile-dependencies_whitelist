@@ -2208,4 +2208,10 @@ tracks {
     "/navigation"(platform: "/mobile/android") {
         origin(required: true, type: PropertyType.String, description: "Analytic's name of the screen where the menu was opened")
     }
+
+    //Logout
+    "/logout"(platform: "/", isAbstract: true) {}
+    "/logout/modal"(platform: "/mobile") {
+        action(required: true, type:PropertyType.String, description: "Indicates whether the logout action was either confirmed or canceled")
+    }
 }

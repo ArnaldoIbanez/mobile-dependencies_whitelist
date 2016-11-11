@@ -3182,4 +3182,16 @@ trackTests {
             origin = "/HOME"
         }
     }
+
+    test("Logout action confirmed") {
+        "/logout/modal"(platform: "/mobile") {
+            action = "confirmed"
+        }
+    }
+
+    test("Logout action canceled") {
+        "/logout/modal"(platform: "/mobile") {
+            action = "canceled"
+        }
+    }
 }
