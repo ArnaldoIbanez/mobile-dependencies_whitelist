@@ -869,6 +869,8 @@ tracks {
         //View specific data
         edit_flow(required: true, type: PropertyType.Boolean)
     }
+    "/checkout/shipping/location/select_state"(platform:"/mobile") {}
+    "/checkout/shipping/location/select_city"(platform:"/mobile") {}
     "/checkout/shipping/location/select_contact#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         success(required: true, type: PropertyType.Boolean)
         error_codes(required: false, type: PropertyType.ArrayList)
@@ -1047,6 +1049,7 @@ tracks {
     "/checkout/review/inconsistency/quantity"(platform: "/mobile") {
         error_code(required: false, type:  PropertyType.String)
     }
+    "/checkout/review/inconsistency/price_changed"(platform: "/mobile") {}
     "/checkout/review/edit_shipping#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         //old_value, new_value
         old_value(required: true, type:  PropertyType.String)
@@ -1190,6 +1193,7 @@ tracks {
         seller(required: false)
         //id
         //nickname
+        available_actions(required: false, type: PropertyType.ArrayList, description: "Action presented on the screen, for ex: call_seller, email_seller, etc.")
 
         /****************************************/
         //Legacy App Congrats Tracks
@@ -1199,25 +1203,24 @@ tracks {
         total_amount_usd(serverSide: true)
         first_for_order(serverSide: true)
     }
-    "/checkout/congrats/error"(platform: "/mobile") {
-        available_actions(required: true, type: PropertyType.ArrayList)
+    "/checkout/finish#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+         action(required: true, description: "Action executed, for ex: call_seller, email_seller, etc")
     }
-    "/checkout/congrats/call_for_auth"(platform: "/mobile") {
-        available_actions(required: true, type: PropertyType.ArrayList)
-    }
-    "/checkout/congrats/call_for_auth/instructions"(platform: "/mobile") {
-        available_actions(required: false, type: PropertyType.ArrayList)
-    }
-    "/checkout/congrats/call_for_auth/later"(platform: "/mobile") {
-        available_actions(required: false, type: PropertyType.ArrayList)
-    }
-    "/checkout/congrats/invalid_sec_code"(platform: "/mobile") {
-        available_actions(required: true, type: PropertyType.ArrayList)
-    }
+    "/checkout/congrats/error"(platform: "/mobile") {}
+
+    "/checkout/congrats/call_for_auth"(platform: "/mobile") {}
+
+    "/checkout/congrats/call_for_auth/instructions"(platform: "/mobile") {}
+
+    "/checkout/congrats/call_for_auth/later"(platform: "/mobile") {}
+
+    "/checkout/congrats/invalid_sec_code"(platform: "/mobile") {}
+    
     "/checkout/congrats/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {
 
     }
     "/checkout/congrats/pending"(platform: "/mobile") {}
+
     "/checkout/error"(platform: "/mobile") {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
@@ -2199,5 +2202,16 @@ tracks {
         event_type(required: true,
                 values: ["received", "dismiss", "open", "shown", "delayed"],
                 description: "Type of loyalty notification event")
+    }
+
+    //Navigation
+    "/navigation"(platform: "/mobile/android") {
+        origin(required: true, type: PropertyType.String, description: "Analytic's name of the screen where the menu was opened")
+    }
+
+    //Logout
+    "/logout"(platform: "/", isAbstract: true) {}
+    "/logout/modal"(platform: "/mobile") {
+        action(required: true, type:PropertyType.String, description: "Indicates whether the logout action was either confirmed or canceled")
     }
 }
