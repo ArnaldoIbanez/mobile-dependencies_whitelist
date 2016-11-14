@@ -46,6 +46,9 @@ catalog {
         include business, "registrations.groovy"
     }
 
+    all.each { business ->
+        include business, "authentication.groovy"
+    }
 
     marketplace.each { business ->
         include business, "marketplace.groovy"
