@@ -1055,6 +1055,9 @@ trackTests {
             checkoutStatus()
             error_code ="invalid_volume_for_quantity"
         }
+        "/checkout/review/inconsistency/price_changed"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
         "/checkout/review/edit_shipping#submit"(platform:"/mobile", type: TrackType.Event) {
             //old_value, new_value
             old_value = "Zona 1"
@@ -1117,6 +1120,11 @@ trackTests {
         "/checkout/congrats/pending"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+
+        "/checkout/finish#click"(platform: "/mobile", type: TrackType.Event) {
+            action = 'call_seller'
+        }
+
         "/checkout/error"(platform:"/mobile", type:TrackType.View) {
             error_code = "internal_server_error"
         }
@@ -3171,51 +3179,69 @@ trackTests {
 
     test("Login conversion tracks") {
         "/login"(platform: "/") {
-            source="lfe"
-            country_name="brazil"
+            source = "lfe"
+            country_name = "brazil"
         }
         "/login/form"(platform: "/", type: TrackType.View) {
-            source="lfe"
-            country_name="brazil"
+            source = "lfe"
+            country_name = "brazil"
         }
         "/login/form"(platform: "/", type: TrackType.View) {
-            source="lfe"
-            country_name="brazil"
-            hasError=true
+            source = "lfe"
+            country_name = "brazil"
+            hasError = true
         }
         "/login/recovery"(platform: "/web", type: TrackType.Event) {
-            source="favorites"
-            country_name="brazil"
+            source = "favorites"
+            country_name = "brazil"
         }
         "/login/recovery"(platform: "/mobile", type: TrackType.View) {
-            source="checkouton"
-            country_name="brazil"
+            source = "checkouton"
+            country_name = "brazil"
         }
         "/login/auth"(platform: "/mobile", type: TrackType.View) {
-            source="lfe"
-            country_name="brazil"
-            dps_id="123456"
+            source = "lfe"
+            country_name = "brazil"
+            dps_id = "123456"
         }
         "/login/auth"(platform: "/web", type: TrackType.Event) {
-            source="lfe"
-            country_name="brazil"
-            dps_id="123456"
+            source = "lfe"
+            country_name = "brazil"
+            dps_id = "123456"
         }
         "/login/registration"(platform: "/", type: TrackType.Event) {
-            source="lfe"
-            country_name="brazil"
+            source = "lfe"
+            country_name = "brazil"
         }
         "/login/auth/success"(platform: "/", type: TrackType.Event) {
-            source="lfe"
-            country_name="brazil"
-            dps_id="123456"
+            source = "lfe"
+            country_name = "brazil"
+            dps_id = "123456"
         }
         "/login/auth/failure"(platform: "/", type: TrackType.Event) {
-            source="lfe"
-            username="lalolanda"
-            reason="invalid_password"
-            country_name="argentina"
-            dps_id="123456"
+            source = "lfe"
+            username = "lalolanda"
+            reason = "invalid_password"
+            country_name = "argentina"
+            dps_id = "123456"
+        }
+    }
+
+    test("Mobile Navigation Menu"){
+        "/navigation"(platform: "/mobile/android"){
+            origin = "/HOME"
+        }
+    }
+
+    test("Logout action confirmed") {
+        "/logout/modal"(platform: "/mobile") {
+            action = "confirmed"
+        }
+    }
+
+    test("Logout action canceled") {
+        "/logout/modal"(platform: "/mobile") {
+            action = "canceled"
         }
     }
 }
