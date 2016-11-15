@@ -2526,6 +2526,42 @@ trackTests {
             event_type = "auto_dismiss"
             context = "notification"
         }
+
+        "/notification/campaigns-suggested_discounts_seller"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+            context = "notification"
+        }
+
+        "/notification/campaigns-suggested_discounts_seller"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "dismiss"
+            context = "notification"
+        }
+
+        "/notification/campaigns-suggested_discounts_seller"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            context = "notification"
+        }
+
+        "/notification/campaigns-suggested_discounts_buyer"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+            context = "notification"
+        }
+
+        "/notification/campaigns-suggested_discounts_buyer"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "dismiss"
+            context = "notification"
+        }
+
+        "/notification/campaigns-suggested_discounts_buyer"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            context = "notification"
+        }
     }
 
     test("orders feed from commons tracker cards"){
@@ -2915,10 +2951,12 @@ trackTests {
         "/myml/suggested_discounts/landing"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/landing/about"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/landing/start"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/landing/back"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/about"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/about/skip"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/about/start"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/about/abandon"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/about/back"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/select_discount"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/select_discount/apply"(platform: "/mobile"){
           item_id = "MLA123456"
@@ -2928,6 +2966,7 @@ trackTests {
           item_id = "MLA123456"
           selected_discount = "1"
         }
+        "/myml/suggested_discounts/select_discount/back"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/info"(platform: "/mobile"){
           item_id = "MLA123456"
           deal_status = "on_deal"
@@ -2936,8 +2975,10 @@ trackTests {
           item_id = "MLA123456"
           deal_status = "on_deal"
           action = "vip"
-        }
+        }        
+        "/myml/suggested_discounts/info/back"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/error"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/error/back"(platform: "/mobile"){item_id = "MLA123456"}
     }
 
     test("Download app landing tracking") {
