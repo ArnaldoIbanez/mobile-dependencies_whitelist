@@ -1,57 +1,49 @@
 {
   "users": [
-    "martin.ciruzzi@mercadolibre.com"
+    "ext_jproma@mercadolibre.com"
   ],
-  "process_name": "checkout_tpv",
-  "cron": "00 11 * * *",
+  "process_name": "emails_open_rate",
+  "cron": "10 00 * * *",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
-        "name": "ds",
+        "name": "sent_date",
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "business",
+        "name": "Template",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "site",
+        "name": "Event_Type",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "platform",
+        "name": "Path",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "experiment",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "variant",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "status",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "count",
+        "name": "Count",
         "type": "INTEGER"
       }
     ],
     "sql": {
-
-      "script": "melidata/checkout-tpv.sql",
+      "script": "melidata/emails-open-rate.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-15",
+          "value": "DAY-3",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
+          "value": "DAY-2",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param03",
           "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }

@@ -173,7 +173,7 @@ tracks {
         deal(deprecated: true, required: false)
         filter_tags(required: false, PropertyType.ArrayList)
         results(required: false, PropertyType.ArrayList,description:"item ids from search result")
-        billboard_shown(required: false, PropertyType.Boolean)
+        billboards(required: false, PropertyType.ArrayList, descriptoion: "items ids from billboard results")
 
     }
 
@@ -1271,15 +1271,123 @@ tracks {
         error_code(required: true, type: PropertyType.String)
     }
 
-    "/checkout/show_ticket"(platform: "/mobile") {}
-    "/checkout/show_ticket#save"(platform: "/mobile", type: TrackType.Event) {}
-    "/checkout/show_geolocation_map"(platform: "/mobile") {}
-    "/checkout/show_geolocation_map/search"(platform: "/mobile") {}
-    "/checkout/show_geolocation_map/search#location"(platform: "/mobile", type: TrackType.Event) {}
-    "/checkout/show_geolocation_map/search#preloaded"(platform: "/mobile", type: TrackType.Event) {}
-    "/checkout/show_geolocation_map/search#select"(platform: "/mobile", type: TrackType.Event) {}
-    "/checkout/show_geolocation_map#agencies_request"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/show_ticket"(platform: "/mobile") {
+        order_id(required: false, description: "OrderId")
+        status(required: false, description: "status")
+        total_amount(required: true, description: "totalAmount")
+        total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
+        total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
 
+        buy_equal_pay(required: true, description: "BP flag")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
+        platform(required: true)
+        payment_method(required: true)
+
+        payments(required: true, description: "Array of payments information")
+        // id
+        // payment_method,
+        // payment_type,
+        // installments,
+        // paid_amount,
+        // installment_amount
+        // without_fee
+        // status
+        // status_detail
+
+        shipping(required: true)
+        // shipping_type
+        // cost
+        // shipping_option,
+        // id,
+        // name,
+        // shipping_method_id
+        // id
+        // shipping_mode
+
+        order_items(required: true, description: "Array of items in the order" )
+        //item
+        //id
+        //variation_id
+        //buying_mode
+        //shipping_mode
+        //category_id
+        //deal_ids
+        //quantity
+        //unit_price
+        //currency_id
+
+        buyer(required: true)
+        //id
+        //nickname
+
+        seller(required: true)
+        //id
+        //nickname
+    }
+    "/checkout/show_ticket#save"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/checkout/show_geolocation_map"(platform: "/mobile") {
+        order_id(required: false, description: "OrderId")
+        status(required: false, description: "status")
+        total_amount(required: true, description: "totalAmount")
+        total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
+        total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+
+        buy_equal_pay(required: true, description: "BP flag")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
+        platform(required: true)
+        payment_method(required: true)
+
+        payments(required: true, description: "Array of payments information")
+        // id
+        // payment_method,
+        // payment_type,
+        // installments,
+        // paid_amount,
+        // installment_amount
+        // without_fee
+        // status
+        // status_detail
+
+        shipping(required: true)
+        // shipping_type
+        // cost
+        // shipping_option,
+        // id,
+        // name,
+        // shipping_method_id
+        // id
+        // shipping_mode
+
+        order_items(required: true, description: "Array of items in the order" )
+        //item
+        //id
+        //variation_id
+        //buying_mode
+        //shipping_mode
+        //category_id
+        //deal_ids
+        //quantity
+        //unit_price
+        //currency_id
+
+        buyer(required: true)
+        //id
+        //nickname
+
+        seller(required: true)
+        //id
+        //nickname
+    }
+    "/checkout/show_geolocation_map/search"(platform: "/mobile") {}
+    "/checkout/show_geolocation_map/search#location"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/checkout/show_geolocation_map/search#preloaded"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/checkout/show_geolocation_map/search#select"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/checkout/show_geolocation_map#agencies_request"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        agencies(required: true)
+        payment_method(required: true)
+
+    }
+    
     /*******************************************************************/
     //Mobile Checkout Legacy Apps
     "/checkout"(platform:"/mobile") {
@@ -1841,7 +1949,7 @@ tracks {
     }
 
     // Sell
-    "/sell"(platform: "/web", isAbstract: true) {}
+    "/sell"(platform: "/", isAbstract: true) {}
     "/sell/list"(platform: "/", , isAbstract: true){ }
     "/sell/change_listing_type"(platform: "/web", isAbstract: true) {
         source(required: true, description: "Source could be differents types of email, my account, etc.", type: PropertyType.String)
@@ -1897,8 +2005,9 @@ tracks {
     }
     "/sell/modify_and_relist/massive/row"(platform: "/web", type: TrackType.View){}
 
-    "/sell/list/congrats"(platform: "/web", type: TrackType.View){
-        item_id(required: true, description: "Item id")
+    // Tambien se utiliza para Apps
+    "/sell/list/congrats"(platform: "/", type: TrackType.View){
+        item_id(required: false, description: "Item id")
         listing_type_id(required: false, description: "Item listing type id")
         vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
         buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
@@ -1915,6 +2024,61 @@ tracks {
         condition(required: false, description: "Item condition: used/new/not_specified")
         price(required: false, description: "Item price")
     }
+
+    // Apps
+    "/sell/list/drafts"(platform: "/", type: TrackType.View) {}
+    "/sell/list/hub"(platform: "/", type: TrackType.View) {}
+    "/sell/list/walkthrough"(platform: "/", type: TrackType.View) {}
+    "/sell/list/hub_old"(platform: "/", type: TrackType.View) {}
+    "/sell/list/sip"(platform: "/", type: TrackType.View) {}
+    "/sell/list/category_sugestion"(platform: "/", type: TrackType.View) {}
+    "/sell/list/category_navigation"(platform: "/", type: TrackType.View) {}
+    "/sell/list/color_selection"(platform: "/", type: TrackType.View) {}
+    "/sell/list/color_selection_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/condition"(platform: "/", type: TrackType.View) {}
+    "/sell/list/condition_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/description"(platform: "/", type: TrackType.View) {}
+    "/sell/list/description_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/payment_methods"(platform: "/", type: TrackType.View) {}
+    "/sell/list/payment_methods_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/listing_types"(platform: "/", type: TrackType.View) {}
+    "/sell/list/listing_types_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures/gallery"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures/editor"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures/crop"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_review/gallery"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_review/editor"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_review/crop"(platform: "/", type: TrackType.View) {}
+    "/sell/list/price_core"(platform: "/", type: TrackType.View) {}
+    "/sell/list/price_core/similar_products"(platform: "/", type: TrackType.View) {}
+    "/sell/list/price_core_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/price_core_review/similar_products"(platform: "/", type: TrackType.View) {}
+    "/sell/list/seller_registration"(platform: "/", type: TrackType.View) {}
+    "/sell/list/seller_registration_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/seller_registration_zip_code"(platform: "/", type: TrackType.View) {}
+    "/sell/list/size_selection"(platform: "/", type: TrackType.View) {}
+    "/sell/list/size_selection_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/title_core"(platform: "/", type: TrackType.View) {}
+    "/sell/list/title_core_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/shipping_options_me"(platform: "/", type: TrackType.View) {}
+    "/sell/list/shipping_options_me_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/registration_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/registration_zip_code_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/shipping_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/sip_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/sip_price_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/sip_shipping_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/sip_condition_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/sip_condition_lt_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/sip_condition_listing_type_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/title_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/update"(platform: "/", isAbstract: true) {}
+    "/sell/update/listing_types"(platform: "/", type: TrackType.View) {}
+    "/sell/update/listing_types_upgrade"(platform: "/", type: TrackType.View) {}
+    "/sell/update/congrats_upgrade"(platform: "/", type: TrackType.View) {}
 
     // Eventos relacionados al item
     "/item"(platform: "/", isAbstract: true) {
@@ -1964,6 +2128,7 @@ tracks {
     }
 
     "/myml/bookmarks"(platform: "/web", type: TrackType.View) {}
+    "/myml/summary"(platform: "/web", type: TrackType.View) {}
 
     // Myml - Suggested Discounts
     "/myml/suggested_discounts"(platform: "/mobile", isAbstract: true){
