@@ -1793,6 +1793,12 @@ tracks {
     "/notification/messages_new"(platform: "/mobile") {
     }
 
+    //Notification suggested discounts
+    "/notification/campaigns-suggested_discounts_seller"(platform: "/mobile") {
+    }
+    "/notification/campaigns-suggested_discounts_buyer"(platform: "/mobile") {
+    }
+
     "/orders"(platform: "/", isAbstract: true) {}
 
     "/orders/ordercreated"(platform: "/") {
@@ -2145,6 +2151,7 @@ tracks {
     "/myml/suggested_discounts/landing"(platform: "/mobile", type: TrackType.View) {}
     "/myml/suggested_discounts/landing/about"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/landing/start"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/suggested_discounts/landing/back"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/about"(platform: "/mobile", type: TrackType.View) {
         onboarding_step(required: false, description: "Onboarding step number")
     }
@@ -2153,6 +2160,7 @@ tracks {
     }
     "/myml/suggested_discounts/about/start"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/about/abandon"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/suggested_discounts/about/back"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/select_discount"(platform: "/mobile", type: TrackType.View) {}
     "/myml/suggested_discounts/select_discount/apply"(platform: "/mobile", type: TrackType.Event) {
         selected_discount(required: true, description: "Selected discount option")
@@ -2160,13 +2168,16 @@ tracks {
     "/myml/suggested_discounts/select_discount/confirm"(platform: "/mobile", type: TrackType.Event) {
         selected_discount(required: true, description: "Selected discount option")
     }
+    "/myml/suggested_discounts/select_discount/back"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/info"(platform: "/mobile", type: TrackType.View) {
-        deal_status(required: true, description: "Current deal status")
+        deal_status(required: false, description: "Current deal status")
       }
     "/myml/suggested_discounts/info/exit"(platform: "/mobile", type: TrackType.Event) {
         action(required: true, description: "Selected exit action")
     }
+    "/myml/suggested_discounts/info/back"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/error"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/suggested_discounts/error/back"(platform: "/mobile", type: TrackType.Event) {}
 
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
