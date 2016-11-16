@@ -3218,56 +3218,6 @@ trackTests {
         "/loyalty/notification"(platform: "/", type: TrackType.Event, { event_type = 'shown' })
     }
 
-    test("Login conversion tracks") {
-        "/login"(platform: "/") {
-            source = "lfe"
-            country_name = "brazil"
-        }
-        "/login/form"(platform: "/", type: TrackType.View) {
-            source = "lfe"
-            country_name = "brazil"
-        }
-        "/login/form"(platform: "/", type: TrackType.View) {
-            source = "lfe"
-            country_name = "brazil"
-            hasError = true
-        }
-        "/login/recovery"(platform: "/web", type: TrackType.Event) {
-            source = "favorites"
-            country_name = "brazil"
-        }
-        "/login/recovery"(platform: "/mobile", type: TrackType.View) {
-            source = "checkouton"
-            country_name = "brazil"
-        }
-        "/login/auth"(platform: "/mobile", type: TrackType.View) {
-            source = "lfe"
-            country_name = "brazil"
-            dps_id = "123456"
-        }
-        "/login/auth"(platform: "/web", type: TrackType.Event) {
-            source = "lfe"
-            country_name = "brazil"
-            dps_id = "123456"
-        }
-        "/login/registration"(platform: "/", type: TrackType.Event) {
-            source = "lfe"
-            country_name = "brazil"
-        }
-        "/login/auth/success"(platform: "/", type: TrackType.Event) {
-            source = "lfe"
-            country_name = "brazil"
-            dps_id = "123456"
-        }
-        "/login/auth/failure"(platform: "/", type: TrackType.Event) {
-            source = "lfe"
-            username = "lalolanda"
-            reason = "invalid_password"
-            country_name = "argentina"
-            dps_id = "123456"
-        }
-    }
-
     test("Mobile Navigation Menu"){
         "/navigation"(platform: "/mobile/android"){
             origin = "/HOME"
@@ -3283,6 +3233,54 @@ trackTests {
     test("Logout action canceled") {
         "/logout/modal"(platform: "/mobile") {
             action = "canceled"
+        }
+    }
+
+    test("Login conversion tracks") {
+        "/login"(platform: "/") {
+            source = "LFE"
+        }
+        "/login/form"(platform: "/", type: TrackType.View) {
+            source = "QUESTION"
+            has_error = true
+        }
+        "/login/form"(platform: "/", type: TrackType.View) {
+            source = "FAVORITE"
+            has_error = false
+        }
+        "/login/recovery"(platform: "/web", type: TrackType.Event) {
+            source = "LFE"
+        }
+        "/login/recovery"(platform: "/mobile", type: TrackType.View) {
+            source = "LFE"
+        }
+        "/login/auth"(platform: "/mobile", type: TrackType.View) {
+            source = "LFE"
+            dps_id = "123456"
+            is_otp = false
+            is_admin_otp = false
+        }
+        "/login/auth"(platform: "/web", type: TrackType.Event) {
+            source = "LFE"
+            dps_id = "123456"
+            is_otp = false
+            is_admin_otp = false
+        }
+        "/login/registration"(platform: "/", type: TrackType.Event) {
+            source = "LFE"
+        }
+        "/login/auth/success"(platform: "/", type: TrackType.Event) {
+            source = "LFE"
+            dps_id = "123456"
+            is_otp = false
+            is_admin_otp = false
+        }
+        "/login/auth/failure"(platform: "/", type: TrackType.Event) {
+            source = "LFE"
+            reason = [errorId: 'invalid_password']
+            dps_id = "123456"
+            is_otp = false
+            is_admin_otp = false
         }
     }
 }
