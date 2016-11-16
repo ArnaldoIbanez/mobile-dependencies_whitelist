@@ -3274,6 +3274,8 @@ trackTests {
             dps_id = "123456"
             is_otp = false
             is_admin_otp = false
+            user_reg_date = "2002-09-26T00:00:00.000-04:00"
+            user_points = 100
         }
         "/login/auth/failure"(platform: "/", type: TrackType.Event) {
             source = "LFE"
