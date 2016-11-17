@@ -2170,7 +2170,7 @@ tracks {
     }
     "/myml/suggested_discounts/select_discount/back"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/info"(platform: "/mobile", type: TrackType.View) {
-        deal_status(required: false, description: "Current deal status")
+        discount_status(required: false, description: "Current deal status")
       }
     "/myml/suggested_discounts/info/exit"(platform: "/mobile", type: TrackType.Event) {
         action(required: true, description: "Selected exit action")
