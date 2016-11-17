@@ -8,6 +8,12 @@ metrics {
 		}
 	}
 
+    "sell/full_relist_single_item"(description: "define properties for item_id at full_relist experiment") {
+        startWith {
+            set_property("item_id", "event_data.item_id")
+        }
+    }
+
 	"proactive_2PM"(description: "define properties for order_id") {
 		startWith {
 			set_property("order_id", "event_data.order_id")
@@ -296,8 +302,6 @@ metrics {
 	"relist_upgrade"(description: "An Item was relisted in a higher listing type than its parent") {
 		startWith {
 			experiment("sell/full_relist_single_item")
-
-			set_property("item_id", "event_data.item_id")
 		}
 
 		countsOn {
@@ -312,11 +316,9 @@ metrics {
 	}
 
 	"relist_downgrade"(description: "An Item was relisted in a lower listing type than its parent") {
-		startWith {
-			experiment("sell/full_relist_single_item")
-
-			set_property("item_id", "event_data.item_id")
-		}
+        startWith {
+            experiment("sell/full_relist_single_item")
+        }
 
 		countsOn {
 			condition {

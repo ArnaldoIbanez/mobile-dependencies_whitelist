@@ -860,6 +860,12 @@ trackTests {
         "/checkout/shipping/select_contact"(platform:"/mobile", type:TrackType.Event) {
             is_from_preload_address = true
         }
+        "/checkout/shipping/location/select_state"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
+        "/checkout/shipping/location/select_city"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
         "/checkout/shipping/location/address"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             edit_flow = true
@@ -1049,6 +1055,9 @@ trackTests {
             checkoutStatus()
             error_code ="invalid_volume_for_quantity"
         }
+        "/checkout/review/inconsistency/price_changed"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
         "/checkout/review/edit_shipping#submit"(platform:"/mobile", type: TrackType.Event) {
             //old_value, new_value
             old_value = "Zona 1"
@@ -1111,6 +1120,11 @@ trackTests {
         "/checkout/congrats/pending"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+
+        "/checkout/finish#click"(platform: "/mobile", type: TrackType.Event) {
+            action = 'call_seller'
+        }
+
         "/checkout/error"(platform:"/mobile", type:TrackType.View) {
             error_code = "internal_server_error"
         }
@@ -1977,6 +1991,17 @@ trackTests {
             source = "email"
             item_id = "MCO123321"
             captcha_showed = true
+            errors = [
+                        [
+                                code:0,
+                                field: 'firstName',
+                                message: 'Tu nombre es incorrecto'
+                        ],
+                        [
+                                code:2,
+                                field: 'lastName'
+                        ]
+                    ]
         }
 
         "/register/form/another-email"(platform: "/web/desktop") {
@@ -1984,6 +2009,12 @@ trackTests {
             source = "email"
             item_id = "MCO123321"
             captcha_showed = true
+            errors = [
+                        [
+                                code:8,
+                                field: 'email'
+                        ]
+                    ]
         }
 
         "/register/form/another-email"(platform: "/web/mobile") {
@@ -2944,6 +2975,7 @@ trackTests {
             label = "active"
         }
         "/myml/bookmarks"(platform: "/web"){}
+        "/myml/questions"(platform: "/web"){}
         "/myml/summary"(platform: "/web"){}
     }
 
@@ -3171,5 +3203,36 @@ trackTests {
             query = "abe"
         }
         "/official_stores/search/back"(platform:"/mobile", type: TrackType.Event, officialStoreEvent)
+    }
+
+    test("Loyalty tracks") {
+        def loyaltyInfo = {
+            level = 1
+            points = 100
+            percentage = 0.5f
+        }
+        "/loyalty/score"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/score/milestones"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/score/achievements"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/score/benefits"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/notification"(platform: "/", type: TrackType.Event, { event_type = 'shown' })
+    }
+
+    test("Mobile Navigation Menu"){
+        "/navigation"(platform: "/mobile/android"){
+            origin = "/HOME"
+        }
+    }
+
+    test("Logout action confirmed") {
+        "/logout/modal"(platform: "/mobile") {
+            action = "confirmed"
+        }
+    }
+
+    test("Logout action canceled") {
+        "/logout/modal"(platform: "/mobile") {
+            action = "canceled"
+        }
     }
 }
