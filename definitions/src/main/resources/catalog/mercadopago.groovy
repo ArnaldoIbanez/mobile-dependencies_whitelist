@@ -134,6 +134,7 @@ tracks {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
 
+    "/result"(platform: "/mobile", isAbstract: true) {}
 
     "/result/approved"(platform: "/mobile") {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
@@ -246,6 +247,8 @@ tracks {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
 
+
+    "/add_info"(platform: "/mobile", isAbstract: true) {}
 
     "/add_info/literal"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
