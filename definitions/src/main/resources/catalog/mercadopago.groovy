@@ -36,6 +36,7 @@ tracks {
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
     }
 
+    // MPMOBILE TEST
     "/account_summary"(platform: "/mobile") {}
     "/account_summary/filters"(platform: "/mobile") {}
     "/account_summary/filtered_list"(platform: "/mobile") {}
@@ -44,15 +45,11 @@ tracks {
 
     "/login_splitter"(platform: "/mobile") { }
 
-
     "/sign_in"(platform: "/mobile") { }
-
 
     "/sign_up"(platform: "/mobile") { }
 
-
     "/identification"(platform: "/mobile") { }
-
 
     "/fill_data"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -379,5 +376,7 @@ tracks {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
+    
+    // END -- MPMOBILE TEST
 
 }

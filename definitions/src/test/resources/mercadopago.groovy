@@ -133,6 +133,7 @@ trackTests {
         }
     }
 
+    // MPMOBILE TEST
     test("account summary flow") {
         "/account_summary"(platform: "/mobile") {}
         "/account_summary/filters"(platform: "/mobile") {}
@@ -156,7 +157,6 @@ trackTests {
             from = "/deep_link"
         }
     }
-
 
     test("Checkout") {
         "/pay"(platform: "/mobile") {
@@ -204,7 +204,6 @@ trackTests {
             from = "/deep_link"
         }
     }
-
 
     test("Money request") {
         "/fill_data"(platform: "/mobile") {
@@ -301,70 +300,56 @@ trackTests {
         }
     }
 
-
     test("Bill payments") {
         "/help"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
 
-
         "/associated_entities"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
-
 
         "/no_money"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
 
-
         "/permissions_rationale"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
-
 
         "/scan"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
 
-
         "/manual_code"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
-
 
         "/confirmation"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
 
-        /*"/add_info"(platform: "/mobile") {}
-        "/result"(platform: "/mobile") {} */
-
-
         "/add_info/literal"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
-
 
         "/add_info/amount"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
 
-
         "/add_info/option"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
-
 
         "/second_password"(platform: "/mobile") {
             flow = "/bill_payments"
@@ -467,22 +452,7 @@ trackTests {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// END -- MPMOBILE TEST
 
     test("Login conversion tracks") {
         "/login"(platform: "/") {
