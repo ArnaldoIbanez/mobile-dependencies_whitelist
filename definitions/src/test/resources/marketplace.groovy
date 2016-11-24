@@ -2994,11 +2994,13 @@ trackTests {
           item_id = "MLA123456"
           selected_discount = "1"
         }
-        "/myml/suggested_discounts/select_discount/confirm"(platform: "/mobile"){
+        "/myml/suggested_discounts/review_discount"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/review_discount/confirm"(platform: "/mobile"){
           item_id = "MLA123456"
           selected_discount = "1"
         }
         "/myml/suggested_discounts/select_discount/back"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/review_discount/back"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/info"(platform: "/mobile"){
           item_id = "MLA123456"
           discount_status = "on_deal"

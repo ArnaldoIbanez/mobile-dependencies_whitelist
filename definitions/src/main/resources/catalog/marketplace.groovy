@@ -2165,10 +2165,12 @@ tracks {
     "/myml/suggested_discounts/select_discount/apply"(platform: "/mobile", type: TrackType.Event) {
         selected_discount(required: true, description: "Selected discount option")
     }
-    "/myml/suggested_discounts/select_discount/confirm"(platform: "/mobile", type: TrackType.Event) {
+    "/myml/suggested_discounts/review_discount"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/suggested_discounts/review_discount/confirm"(platform: "/mobile", type: TrackType.Event) {
         selected_discount(required: true, description: "Selected discount option")
     }
     "/myml/suggested_discounts/select_discount/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/suggested_discounts/review_discount/back"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/info"(platform: "/mobile", type: TrackType.View) {
         discount_status(required: false, description: "Current deal status")
       }
