@@ -117,12 +117,6 @@ tracks {
     }
 
 
-    "/fill_data"(platform: "/mobile") {
-        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
     "/social_share"(platform: "/mobile") {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
