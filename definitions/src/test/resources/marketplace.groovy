@@ -3235,4 +3235,52 @@ trackTests {
             action = "canceled"
         }
     }
+
+    test("Login conversion tracks") {
+        "/login"(platform: "/") {
+            source = "LFE"
+        }
+        "/login/form"(platform: "/", type: TrackType.View) {
+            source = "QUESTION"
+            has_error = true
+        }
+        "/login/form"(platform: "/", type: TrackType.View) {
+            source = "FAVORITE"
+            has_error = false
+        }
+        "/login/recovery"(platform: "/web", type: TrackType.Event) {
+            source = "LFE"
+        }
+        "/login/recovery"(platform: "/mobile", type: TrackType.View) {
+            source = "LFE"
+        }
+        "/login/auth"(platform: "/mobile", type: TrackType.View) {
+            source = "LFE"
+            dps_id = "123456"
+            is_otp = false
+            is_admin_otp = false
+        }
+        "/login/auth"(platform: "/web", type: TrackType.Event) {
+            source = "LFE"
+            dps_id = "123456"
+            is_otp = false
+            is_admin_otp = false
+        }
+        "/login/registration"(platform: "/", type: TrackType.Event) {
+            source = "LFE"
+        }
+        "/login/auth/success"(platform: "/", type: TrackType.Event) {
+            source = "LFE"
+            dps_id = "123456"
+            is_otp = false
+            is_admin_otp = false
+        }
+        "/login/auth/failure"(platform: "/", type: TrackType.Event) {
+            source = "LFE"
+            reason = [errorId: 'invalid_password']
+            dps_id = "123456"
+            is_otp = false
+            is_admin_otp = false
+        }
+    }
 }
