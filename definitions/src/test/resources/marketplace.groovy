@@ -2844,6 +2844,9 @@ trackTests {
         "/sell/list/congrats"(platform: "/web/desktop", itemData)
         "/sell/upgrade_on"(platform: "/web/desktop", itemData)
     }
+    test("Sell landing free_listing"){
+        "/sell/landing/free_listing"(platform: "/"){}
+    }
 
     test("Native Sell flow steps"){
         "/sell/list/drafts"(platform: "/mobile") {}
