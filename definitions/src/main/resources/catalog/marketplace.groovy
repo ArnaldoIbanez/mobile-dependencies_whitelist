@@ -1965,6 +1965,8 @@ tracks {
         source(required: true, description: "Source could be differents types of email, my account, etc.", type: PropertyType.String)
         seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
     }
+    "/sell/landing"(platform: "/", isAbstract: true){ }
+    "/sell/landing/free_listing"(platform: "/", type: TrackType.View){ }
 
     "/sell/change_listing_type/single"(platform: "/", type: TrackType.View){
         item_id(required: true, description: "Item id")
