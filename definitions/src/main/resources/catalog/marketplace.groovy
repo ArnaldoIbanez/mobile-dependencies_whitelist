@@ -2179,6 +2179,23 @@ tracks {
     "/myml/suggested_discounts/error"(platform: "/mobile", type: TrackType.View) {}
     "/myml/suggested_discounts/error/back"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/myml/account_balance"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/account_balance/withdraw"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+    "/myml/account_balance/send_money"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+    "/myml/account_balance/cellphone_recharge"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+    "/myml/account_balance/bill_payments"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+
+    "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/account_balance/install/go_to_store"(platform: "/mobile", type: TrackType.Event) {}
+
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
         user_phone_number()

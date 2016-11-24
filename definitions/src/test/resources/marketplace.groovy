@@ -3013,6 +3013,27 @@ trackTests {
         "/myml/suggested_discounts/error/back"(platform: "/mobile"){item_id = "MLA123456"}
     }
 
+    test("Myml account balance") {
+        "/myml/account_balance"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/account_balance/withdraw"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+        "/myml/account_balance/send_money"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+        "/myml/account_balance/cellphone_recharge"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+        "/myml/account_balance/bill_payments"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+    }
+
+    test("Myml installation") {
+        "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/account_balance/install/go_to_store"(platform: "/mobile", type: TrackType.Event) {}
+    }
+
     test("Download app landing tracking") {
 
         "/download-app"(platform: "/web"){}
