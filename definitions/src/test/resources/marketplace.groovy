@@ -2994,18 +2994,20 @@ trackTests {
           item_id = "MLA123456"
           selected_discount = "1"
         }
-        "/myml/suggested_discounts/select_discount/confirm"(platform: "/mobile"){
+        "/myml/suggested_discounts/review_discount"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/review_discount/confirm"(platform: "/mobile"){
           item_id = "MLA123456"
           selected_discount = "1"
         }
         "/myml/suggested_discounts/select_discount/back"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/review_discount/back"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/info"(platform: "/mobile"){
           item_id = "MLA123456"
-          deal_status = "on_deal"
+          discount_status = "on_deal"
         }
         "/myml/suggested_discounts/info/exit"(platform: "/mobile"){
           item_id = "MLA123456"
-          deal_status = "on_deal"
+          discount_status = "on_deal"
           action = "vip"
         }        
         "/myml/suggested_discounts/info/back"(platform: "/mobile"){item_id = "MLA123456"}
