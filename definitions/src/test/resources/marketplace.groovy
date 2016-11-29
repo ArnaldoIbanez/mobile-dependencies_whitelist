@@ -2845,6 +2845,11 @@ trackTests {
         "/sell/upgrade_on"(platform: "/web/desktop", itemData)
     }
     test("Sell landing free_listing"){
+        def data={
+            referer = "1234L"
+        }
+
+        "/sell/landing/free_listing"(platform: "/", data)
         "/sell/landing/free_listing"(platform: "/"){}
     }
 

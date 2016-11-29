@@ -1966,7 +1966,9 @@ tracks {
         seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
     }
     "/sell/landing"(platform: "/", isAbstract: true){ }
-    "/sell/landing/free_listing"(platform: "/", type: TrackType.View){ }
+    "/sell/landing/free_listing"(platform: "/", type: TrackType.View){
+        referer(required:false , description: "Notification ID")
+    }
 
     "/sell/change_listing_type/single"(platform: "/", type: TrackType.View){
         item_id(required: true, description: "Item id")
