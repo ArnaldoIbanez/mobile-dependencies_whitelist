@@ -2844,6 +2844,9 @@ trackTests {
         "/sell/list/congrats"(platform: "/web/desktop", itemData)
         "/sell/upgrade_on"(platform: "/web/desktop", itemData)
     }
+    test("Sell landing free_listing"){
+        "/sell/landing/free_listing"(platform: "/"){}
+    }
 
     test("Native Sell flow steps"){
         "/sell/list/drafts"(platform: "/mobile") {}
@@ -2994,23 +2997,46 @@ trackTests {
           item_id = "MLA123456"
           selected_discount = "1"
         }
-        "/myml/suggested_discounts/select_discount/confirm"(platform: "/mobile"){
+        "/myml/suggested_discounts/review_discount"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/review_discount/confirm"(platform: "/mobile"){
           item_id = "MLA123456"
           selected_discount = "1"
         }
         "/myml/suggested_discounts/select_discount/back"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/review_discount/back"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/info"(platform: "/mobile"){
           item_id = "MLA123456"
-          deal_status = "on_deal"
+          discount_status = "on_deal"
         }
         "/myml/suggested_discounts/info/exit"(platform: "/mobile"){
           item_id = "MLA123456"
-          deal_status = "on_deal"
+          discount_status = "on_deal"
           action = "vip"
         }        
         "/myml/suggested_discounts/info/back"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/error"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/error/back"(platform: "/mobile"){item_id = "MLA123456"}
+    }
+
+    test("Myml account balance") {
+        "/myml/account_balance"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/account_balance/withdraw"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+        "/myml/account_balance/send_money"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+        "/myml/account_balance/cellphone_recharge"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+        "/myml/account_balance/bill_payments"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+    }
+
+    test("Myml installation") {
+        "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/account_balance/install/go_to_store"(platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("Download app landing tracking") {

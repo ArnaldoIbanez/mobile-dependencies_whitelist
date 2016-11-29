@@ -1965,6 +1965,8 @@ tracks {
         source(required: true, description: "Source could be differents types of email, my account, etc.", type: PropertyType.String)
         seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
     }
+    "/sell/landing"(platform: "/", isAbstract: true){ }
+    "/sell/landing/free_listing"(platform: "/", type: TrackType.View){ }
 
     "/sell/change_listing_type/single"(platform: "/", type: TrackType.View){
         item_id(required: true, description: "Item id")
@@ -2165,12 +2167,14 @@ tracks {
     "/myml/suggested_discounts/select_discount/apply"(platform: "/mobile", type: TrackType.Event) {
         selected_discount(required: true, description: "Selected discount option")
     }
-    "/myml/suggested_discounts/select_discount/confirm"(platform: "/mobile", type: TrackType.Event) {
+    "/myml/suggested_discounts/review_discount"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/suggested_discounts/review_discount/confirm"(platform: "/mobile", type: TrackType.Event) {
         selected_discount(required: true, description: "Selected discount option")
     }
     "/myml/suggested_discounts/select_discount/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/suggested_discounts/review_discount/back"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/info"(platform: "/mobile", type: TrackType.View) {
-        deal_status(required: false, description: "Current deal status")
+        discount_status(required: false, description: "Current deal status")
       }
     "/myml/suggested_discounts/info/exit"(platform: "/mobile", type: TrackType.Event) {
         action(required: true, description: "Selected exit action")
@@ -2178,6 +2182,23 @@ tracks {
     "/myml/suggested_discounts/info/back"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/error"(platform: "/mobile", type: TrackType.View) {}
     "/myml/suggested_discounts/error/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/myml/account_balance"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/account_balance/withdraw"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+    "/myml/account_balance/send_money"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+    "/myml/account_balance/cellphone_recharge"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+    "/myml/account_balance/bill_payments"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+
+    "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/account_balance/install/go_to_store"(platform: "/mobile", type: TrackType.Event) {}
 
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
