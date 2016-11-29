@@ -3314,4 +3314,10 @@ trackTests {
             is_admin_otp = false
         }
     }
+    
+    test("Loyalty user tracking") {
+        "/loyalty/user"(platform: "/") {
+            in_loyalty_program = "true"
+        }
+    }
 }
