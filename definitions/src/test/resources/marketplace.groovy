@@ -2845,6 +2845,11 @@ trackTests {
         "/sell/upgrade_on"(platform: "/web/desktop", itemData)
     }
     test("Sell landing free_listing"){
+        def data={
+            referer = "1234L"
+        }
+
+        "/sell/landing/free_listing"(platform: "/", data)
         "/sell/landing/free_listing"(platform: "/"){}
     }
 
@@ -3309,6 +3314,12 @@ trackTests {
             dps_id = "123456"
             is_otp = false
             is_admin_otp = false
+        }
+    }
+    
+    test("Loyalty user tracking") {
+        "/loyalty/user"(platform: "/") {
+            in_loyalty_program = "true"
         }
     }
 }

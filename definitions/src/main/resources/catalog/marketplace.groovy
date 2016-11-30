@@ -1966,7 +1966,9 @@ tracks {
         seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
     }
     "/sell/landing"(platform: "/", isAbstract: true){ }
-    "/sell/landing/free_listing"(platform: "/", type: TrackType.View){ }
+    "/sell/landing/free_listing"(platform: "/", type: TrackType.View){
+        referer(required:false , description: "Notification ID")
+    }
 
     "/sell/change_listing_type/single"(platform: "/", type: TrackType.View){
         item_id(required: true, description: "Item id")
@@ -2246,4 +2248,14 @@ tracks {
     "/logout/modal"(platform: "/mobile") {
         action(required: true, type:PropertyType.String, description: "Indicates whether the logout action was either confirmed or canceled")
     }
+    
+    //Loyalty Program User Tracking
+    "/loyalty/user"(platform: "/", type: TrackType.Event) {
+        in_loyalty_program(
+            required: true, 
+            type:PropertyType.String, 
+            description: "Indicates if the user is in or out of the loyalty program"
+        )
+    }
+    
 }
