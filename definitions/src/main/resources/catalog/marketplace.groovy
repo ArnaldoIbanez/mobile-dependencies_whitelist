@@ -2156,6 +2156,7 @@ tracks {
     "/myml/suggested_discounts/landing/about"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/landing/start"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/landing/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/suggested_discounts/landing/abandon"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/about"(platform: "/mobile", type: TrackType.View) {
         onboarding_step(required: false, description: "Onboarding step number")
     }
