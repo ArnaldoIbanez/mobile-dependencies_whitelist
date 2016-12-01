@@ -2844,6 +2844,14 @@ trackTests {
         "/sell/list/congrats"(platform: "/web/desktop", itemData)
         "/sell/upgrade_on"(platform: "/web/desktop", itemData)
     }
+    test("Sell landing free_listing"){
+        def data={
+            referer = "1234L"
+        }
+
+        "/sell/landing/free_listing"(platform: "/", data)
+        "/sell/landing/free_listing"(platform: "/"){}
+    }
 
     test("Native Sell flow steps"){
         "/sell/list/drafts"(platform: "/mobile") {}
@@ -3013,6 +3021,27 @@ trackTests {
         "/myml/suggested_discounts/info/back"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/error"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/error/back"(platform: "/mobile"){item_id = "MLA123456"}
+    }
+
+    test("Myml account balance") {
+        "/myml/account_balance"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/account_balance/withdraw"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+        "/myml/account_balance/send_money"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+        "/myml/account_balance/cellphone_recharge"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+        "/myml/account_balance/bill_payments"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+    }
+
+    test("Myml installation") {
+        "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/account_balance/install/go_to_store"(platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("Download app landing tracking") {
@@ -3283,6 +3312,12 @@ trackTests {
             dps_id = "123456"
             is_otp = false
             is_admin_otp = false
+        }
+    }
+    
+    test("Loyalty user tracking") {
+        "/loyalty/user"(platform: "/") {
+            in_loyalty_program = "true"
         }
     }
 }

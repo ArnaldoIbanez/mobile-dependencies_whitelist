@@ -1965,6 +1965,10 @@ tracks {
         source(required: true, description: "Source could be differents types of email, my account, etc.", type: PropertyType.String)
         seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
     }
+    "/sell/landing"(platform: "/", isAbstract: true){ }
+    "/sell/landing/free_listing"(platform: "/", type: TrackType.View){
+        referer(required:false , description: "Notification ID")
+    }
 
     "/sell/change_listing_type/single"(platform: "/", type: TrackType.View){
         item_id(required: true, description: "Item id")
@@ -2181,6 +2185,23 @@ tracks {
     "/myml/suggested_discounts/error"(platform: "/mobile", type: TrackType.View) {}
     "/myml/suggested_discounts/error/back"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/myml/account_balance"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/account_balance/withdraw"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+    "/myml/account_balance/send_money"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+    "/myml/account_balance/cellphone_recharge"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+    "/myml/account_balance/bill_payments"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+
+    "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/account_balance/install/go_to_store"(platform: "/mobile", type: TrackType.Event) {}
+
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
         user_phone_number()
@@ -2227,4 +2248,14 @@ tracks {
     "/logout/modal"(platform: "/mobile") {
         action(required: true, type:PropertyType.String, description: "Indicates whether the logout action was either confirmed or canceled")
     }
+    
+    //Loyalty Program User Tracking
+    "/loyalty/user"(platform: "/", type: TrackType.Event) {
+        in_loyalty_program(
+            required: true, 
+            type:PropertyType.String, 
+            description: "Indicates if the user is in or out of the loyalty program"
+        )
+    }
+    
 }
