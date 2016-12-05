@@ -2992,6 +2992,7 @@ trackTests {
         "/myml/suggested_discounts/landing/about"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/landing/start"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/landing/back"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/landing/abandon"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/about"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/about/skip"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/about/start"(platform: "/mobile"){item_id = "MLA123456"}
