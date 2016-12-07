@@ -138,6 +138,10 @@ trackTests {
         "/account_summary"(platform: "/mobile") {}
         "/account_summary/filters"(platform: "/mobile") {}
         "/account_summary/filtered_list"(platform: "/mobile") {}
+        "/activity_detail"(platform: "/mobile") {}
+        "/transaction_detail"(platform: "/mobile") {}
+        "/social_detail"(platform: "/mobile") { }
+        "/event_detail"(platform: "/mobile") { }
     }
 
     test("shopping") {
@@ -147,19 +151,19 @@ trackTests {
     test("Login") {
         "/login/splitter"(platform: "/mobile") {
             flow = "/login"
-            from = "/deep_link"
+            source = "/"
         }
         "/login/sign_in"(platform: "/mobile") {
             flow = "/login"
-            from = "/deep_link"
+            source = "/"
         }
         "/login/sign_up"(platform: "/mobile") {
             flow = "/login"
-            from = "/deep_link"
+            source = "/"
         }
         "/login/identification"(platform: "/mobile") {
             flow = "/login"
-            from = "/deep_link"
+            source = "/"
         }
     }
 
@@ -213,10 +217,6 @@ trackTests {
             from = "/deep_link"
         }
         "/send_money/result"(platform: "/mobile") {
-            flow = "/send_money"
-            from = "/deep_link"
-        }
-        "/checkout/result"(platform: "/mobile") {
             flow = "/checkout"
             from = "/deep_link"
             resultStatus = "rejected"
@@ -229,37 +229,30 @@ trackTests {
             flow = "/checkout"
             from = "/deep_link"
         }
-
         "/checkout/deals"(platform: "/mobile") {
             flow = "/checkout"
             from = "/deep_link"
         }
-
         "/checkout/deals/terms"(platform: "/mobile") {
             flow = "/checkout"
             from = "/deep_link"
         }
-
         "/checkout/payment_methods"(platform: "/mobile") {
             flow = "/checkout"
             from = "/deep_link"
         }
-
         "/checkout/other_payment_methods"(platform: "/mobile") {
             flow = "/checkout"
             from = "/deep_link"
         }
-
         "/checkout/cards"(platform: "/mobile") {
             flow = "/checkout"
             from = "/deep_link"
         }
-
         "/checkout/add_card"(platform: "/mobile") {
             flow = "/checkout"
             from = "/deep_link"
         }
-
         "/checkout/issuers"(platform: "/mobile") {
             flow = "/checkout"
             from = "/deep_link"
@@ -269,34 +262,6 @@ trackTests {
             from = "/deep_link"
             resultStatus = "rejected"
             statusDetail = "call_for_auth"
-        }
-    }
-
-    test("Money request") {
-        "/money_request/fill_transaction_data"(platform: "/mobile") {
-            flow = "/money_request"
-            from = "/deep_link"
-        }
-
-        "/money_request/picker"(platform: "/mobile") {
-            flow = "/money_request"
-            from = "/deep_link"
-        }
-
-        "/money_request/social_share"(platform: "/mobile") {
-            flow = "/money_request"
-            from = "/deep_link"
-        }
-
-        "/money_request/crop_image"(platform: "/mobile") {
-            flow = "/money_request"
-            from = "/deep_link"
-        }
-
-        "/money_request/result"(platform: "/mobile") {
-            flow = "/money_request"
-            from = "/deep_link"
-            resultStatus = "approved"
         }
     }
 
@@ -313,42 +278,34 @@ trackTests {
             flow = "/qr_code"
             from = "/deep_link"
         }
-
         "/qr_code/deals"(platform: "/mobile") {
             flow = "/qr_code"
             from = "/deep_link"
         }
-
         "/qr_code/deals/terms"(platform: "/mobile") {
             flow = "/qr_code"
             from = "/deep_link"
         }
-
         "/qr_code/payment_methods"(platform: "/mobile") {
             flow = "/qr_code"
             from = "/deep_link"
         }
-
         "/qr_code/other_payment_methods"(platform: "/mobile") {
-            flow = "/send_money"
+            flow = "/qr_code"
             from = "/deep_link"
         }
-
         "/qr_code/cards"(platform: "/mobile") {
             flow = "/qr_code"
             from = "/deep_link"
         }
-
         "/qr_code/add_card"(platform: "/mobile") {
             flow = "/qr_code"
             from = "/deep_link"
         }
-
         "/qr_code/issuers"(platform: "/mobile") {
             flow = "/qr_code"
             from = "/deep_link"
         }
-
         "/qr_code/my_cards"(platform: "/mobile") {
             flow = "/qr_code"
             from = "/deep_link"
@@ -396,6 +353,38 @@ trackTests {
             flow = "/cellphone_recharge"
             from = "/deep_link"
         }
+        "/cellphone_recharge/pay"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/deals"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/deals/terms"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/payment_methods"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/other_payment_methods"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/cards"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/add_card"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/issuers"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
         "/cellphone_recharge/result"(platform: "/mobile") {
             flow = "/fund_account"
             from = "/deep_link"
@@ -404,62 +393,73 @@ trackTests {
         }
     }
 
+    test("Money request") {
+        "/money_request/fill_transaction_data"(platform: "/mobile") {
+            flow = "/money_request"
+            from = "/deep_link"
+        }
+        "/money_request/picker"(platform: "/mobile") {
+            flow = "/money_request"
+            from = "/deep_link"
+        }
+        "/money_request/social_share"(platform: "/mobile") {
+            flow = "/money_request"
+            from = "/deep_link"
+        }
+        "/crop_image"(platform: "/mobile") {}
+        "/money_request/result"(platform: "/mobile") {
+            flow = "/money_request"
+            from = "/deep_link"
+            resultStatus = "approved"
+        }
+    }
+
     test("Bill payments") {
         "/bill_payments/help"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
-
         "/bill_payments/associated_entities"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
-
         "/bill_payments/no_money"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
-
         "/bill_payments/permissions_rationale"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
-
         "/bill_payments/scan"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
-
         "/bill_payments/manual_code"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
-
         "/bill_payments/confirmation"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
-
         "/bill_payments/add_info/literal"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
-
         "/bill_payments/add_info/amount"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
-
         "/bill_payments/add_info/option"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
-
         "/bill_payments/second_password"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
         }
-        "/fund_account/result"(platform: "/mobile") {
+        "/bill_payments/result"(platform: "/mobile") {
             flow = "/fund_account"
             from = "/deep_link"
             resultStatus = "rejected"
@@ -489,13 +489,11 @@ trackTests {
             flow = "/withdraw"
             from = "/deep_link"
         }
-
         "/withdraw/select_bank"(platform: "/mobile") {
             flow = "/withdraw"
             from = "/deep_link"
         }
-
-        "/fund_account/result"(platform: "/mobile") {
+        "/withdraw/result"(platform: "/mobile") {
             flow = "/fund_account"
             from = "/deep_link"
             resultStatus = "rejected"
@@ -508,37 +506,30 @@ trackTests {
             flow = "/settings"
             from = "/deep_link"
         }
-
         "/settings/balance"(platform: "/mobile") {
             flow = "/settings"
             from = "/deep_link"
         }
-
         "/settings/my_cards"(platform: "/mobile") {
             flow = "/settings"
             from = "/deep_link"
         }
-
         "/settings/my_cards_detail"(platform: "/mobile") {
             flow = "/settings"
             from = "/deep_link"
         }
-
         "/settings/pin_status"(platform: "/mobile") {
             flow = "/settings"
             from = "/deep_link"
         }
-
         "/settings/set_pin_code"(platform: "/mobile") {
             flow = "/settings"
             from = "/deep_link"
         }
-
         "/settings/verify_pin"(platform: "/mobile") {
             flow = "/settings"
             from = "/deep_link"
         }
-
         "/settings/about"(platform: "/mobile") {
             flow = "/settings"
             from = "/deep_link"
@@ -546,16 +537,16 @@ trackTests {
     }
 
     test("Associate phone") {
-        "/associated_phone/sync_phone"(platform: "/mobile") {
-            flow = "/settings"
+        "/associate_phone/sync_phone"(platform: "/mobile") {
+            flow = "/associate_phone"
             from = "/deep_link"
         }
-        "/associated_phone/verify_pin"(platform: "/mobile") {
-            flow = "/settings"
+        "/associate_phone/verify_pin"(platform: "/mobile") {
+            flow = "/associate_phone"
             from = "/deep_link"
         }
-        "/associated_phone/synced_phone"(platform: "/mobile") {
-            flow = "/settings"
+        "/associate_phone/synced_phone"(platform: "/mobile") {
+            flow = "/associate_phone"
             from = "/deep_link"
         }
     }
@@ -565,17 +556,14 @@ trackTests {
             flow = "/prepaid_card"
             from = "/deep_link"
         }
-
         "/prepaid_card/web_view"(platform: "/mobile") {
             flow = "/prepaid_card"
             from = "/deep_link"
         }
-
         "/prepaid_recharge/fill_recharge_data"(platform: "/mobile") {
             flow = "/prepaid_recharge"
             from = "/deep_link"
         }
-
         "/prepaid_recharge/recipients"(platform: "/mobile") {
             flow = "/prepaid_recharge"
             from = "/deep_link"
