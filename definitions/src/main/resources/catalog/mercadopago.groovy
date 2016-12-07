@@ -47,10 +47,22 @@ tracks {
     "/social_detail"(platform: "/mobile") { }
     "/event_detail"(platform: "/mobile") { }
 
-    "/login/splitter"(platform: "/mobile") { }
-    "/login/sign_in"(platform: "/mobile") { }
-    "/login/sign_up"(platform: "/mobile") { }
-    "/login/identification"(platform: "/mobile") { }
+    "/login/splitter"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/login/sign_in"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/login/sign_up"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/login/identification"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
 
 
     "/send_money/fill_transaction_data"(platform: "/mobile") {
