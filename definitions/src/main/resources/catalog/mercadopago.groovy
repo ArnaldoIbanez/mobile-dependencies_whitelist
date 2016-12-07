@@ -42,6 +42,10 @@ tracks {
     "/account_summary/filtered_list"(platform: "/mobile") {}
 
     "/shopping"(platform: "/mobile") { }
+    "/activity_detail"(platform: "/mobile") { }
+    "/transaction_detail"(platform: "/mobile") { }
+    "/social_detail"(platform: "/mobile") { }
+    "/event_detail"(platform: "/mobile") { }
 
     "/login/splitter"(platform: "/mobile") { }
     "/login/sign_in"(platform: "/mobile") { }
@@ -49,7 +53,7 @@ tracks {
     "/login/identification"(platform: "/mobile") { }
 
 
-    "/send_money/fill_data"(platform: "/mobile") {
+    "/send_money/fill_transaction_data"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
@@ -306,6 +310,10 @@ tracks {
     }
 
     "/money_request/picker"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/money_request/fill_transaction_data"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
