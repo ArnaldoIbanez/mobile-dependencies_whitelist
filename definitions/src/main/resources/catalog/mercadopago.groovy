@@ -221,7 +221,7 @@ tracks {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-    "/cellphone_recharge/package"(platform: "/mobile") {
+    "/cellphone_recharge/packages"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
@@ -427,15 +427,15 @@ tracks {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-    "/prepaid_card/fill_recharge_data"(platform: "/mobile") {
+    "/prepaid_recharge/fill_recharge_data"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-    "/prepaid_card/recipients"(platform: "/mobile") {
+    "/prepaid_recharge/recipients"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-    "/prepaid_card/result"(platform: "/mobile") {
+    "/prepaid_recharge/result"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
         resultStatus (required:true, type: PropertyType.String, description: "Operation result status")

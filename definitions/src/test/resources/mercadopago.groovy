@@ -367,36 +367,36 @@ trackTests {
             from = "/deep_link"
         }
 
-        "//set_telephone_number"(platform: "/mobile") {
+        "/cellphone_recharge/set_telephone_number"(platform: "/mobile") {
             flow = "/cellphone_recharge"
             from = "/deep_link"
         }
 
-        "/contacts"(platform: "/mobile") {
+        "/cellphone_recharge/contacts"(platform: "/mobile") {
             flow = "/cellphone_recharge"
             from = "/deep_link"
         }
 
-        "/carriers"(platform: "/mobile") {
+        "/cellphone_recharge/carriers"(platform: "/mobile") {
             flow = "/cellphone_recharge"
             from = "/deep_link"
         }
 
-        "/recommended"(platform: "/mobile") {
+        "/cellphone_recharge/recommended"(platform: "/mobile") {
             flow = "/cellphone_recharge"
             from = "/deep_link"
         }
 
-        "/package"(platform: "/mobile") {
+        "/cellphone_recharge/packages"(platform: "/mobile") {
             flow = "/cellphone_recharge"
             from = "/deep_link"
         }
 
-        "/manual_amount"(platform: "/mobile") {
+        "/cellphone_recharge/manual_amount"(platform: "/mobile") {
             flow = "/cellphone_recharge"
             from = "/deep_link"
         }
-        "/fund_account/result"(platform: "/mobile") {
+        "/cellphone_recharge/result"(platform: "/mobile") {
             flow = "/fund_account"
             from = "/deep_link"
             resultStatus = "rejected"
@@ -571,16 +571,16 @@ trackTests {
             from = "/deep_link"
         }
 
-        "/prepaid_card/fill_recharge_data"(platform: "/mobile") {
+        "/prepaid_recharge/fill_recharge_data"(platform: "/mobile") {
             flow = "/prepaid_recharge"
             from = "/deep_link"
         }
 
-        "/prepaid_card/recipients"(platform: "/mobile") {
+        "/prepaid_recharge/recipients"(platform: "/mobile") {
             flow = "/prepaid_recharge"
             from = "/deep_link"
         }
-        "/fund_account/result"(platform: "/mobile") {
+        "/prepaid_recharge/result"(platform: "/mobile") {
             flow = "/fund_account"
             from = "/deep_link"
             resultStatus = "rejected"
