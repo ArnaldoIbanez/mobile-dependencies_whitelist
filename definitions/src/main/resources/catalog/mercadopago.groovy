@@ -43,337 +43,385 @@ tracks {
 
     "/shopping"(platform: "/mobile") { }
 
-    "/login_splitter"(platform: "/mobile") { }
+    "/login/splitter"(platform: "/mobile") { }
+    "/login/sign_in"(platform: "/mobile") { }
+    "/login/sign_up"(platform: "/mobile") { }
+    "/login/identification"(platform: "/mobile") { }
 
-    "/sign_in"(platform: "/mobile") { }
 
-    "/sign_up"(platform: "/mobile") { }
-
-    "/identification"(platform: "/mobile") { }
-
-    "/fill_data"(platform: "/mobile") {
+    "/send_money/fill_data"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-
-
-    "/pay"(platform: "/mobile") {
+    "/send_money/pay"(platform: "/mobile") {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-
-
-    "/deals"(platform: "/mobile") {
+    "/send_money/deals"(platform: "/mobile") {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-
-
-    "/deals/terms"(platform: "/mobile") {
+    "/send_money/deals/terms"(platform: "/mobile") {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-
-
-    "/payment_methods"(platform: "/mobile") {
+    "/send_money/payment_methods"(platform: "/mobile") {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-
-
-    "/other_payment_methods"(platform: "/mobile") {
+    "/send_money/other_payment_methods"(platform: "/mobile") {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-
-
-    "/cards"(platform: "/mobile") {
+    "/send_money/cards"(platform: "/mobile") {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-
-
-    "/add_card"(platform: "/mobile") {
+    "/send_money/add_card"(platform: "/mobile") {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-
-
-    "/issuers"(platform: "/mobile") {
+    "/send_money/issuers"(platform: "/mobile") {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-
-
-    "/my_cards"(platform: "/mobile") {
+    "/send_money/my_cards"(platform: "/mobile") {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-
-
-    "/picker_request_type"(platform: "/mobile") {
+    "/send_money/result"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
+        resultStatus (required:true, type: PropertyType.String, description: "Operation result status")
+        statusDetail (required:true, type: PropertyType.String, description: "Operation result status detail")
     }
 
 
-    "/social_share"(platform: "/mobile") {
+    "/checkout/pay"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/checkout/deals"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/checkout/deals/terms"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/checkout/payment_methods"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/checkout/other_payment_methods"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/checkout/cards"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/checkout/add_card"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/checkout/issuers"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/checkout/result"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+        resultStatus (required:true, type: PropertyType.String, description: "Operation result status")
+        statusDetail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
+
+    "/qr_code/qr_reader"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/qr_code/pay"(platform: "/mobile") {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-
-
-    "/crop_image"(platform: "/mobile") {
+    "/qr_code/deals"(platform: "/mobile") {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-
-    "/result"(platform: "/mobile", isAbstract: true) {}
-
-    "/result/approved"(platform: "/mobile") {
+    "/qr_code/deals/terms"(platform: "/mobile") {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-
-
-    "/result/rejected"(platform: "/mobile") {
+    "/qr_code/payment_methods"(platform: "/mobile") {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-
-
-    "/result/in_process"(platform: "/mobile") {
+    "/qr_code/other_payment_methods"(platform: "/mobile") {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-
-
-    "/result/expired"(platform: "/mobile") {
+    "/qr_code/cards"(platform: "/mobile") {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
+    "/qr_code/add_card"(platform: "/mobile") {
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/qr_code/issuers"(platform: "/mobile") {
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/qr_code/my_cards"(platform: "/mobile") {
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/qr_code/result"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+        resultStatus (required:true, type: PropertyType.String, description: "Operation result status")
+        statusDetail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
 
-    "/qr_reader"(platform: "/mobile") {
+
+    "/cellphone_recharge/recents"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/cellphone_recharge/set_telephone_number"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/cellphone_recharge/contacts"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/cellphone_recharge/carriers"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/cellphone_recharge/recommended"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/cellphone_recharge/package"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/cellphone_recharge/manual_amount"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/cellphone_recharge/pay"(platform: "/mobile") {
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/cellphone_recharge/deals"(platform: "/mobile") {
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/cellphone_recharge/deals/terms"(platform: "/mobile") {
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/cellphone_recharge/payment_methods"(platform: "/mobile") {
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/cellphone_recharge/other_payment_methods"(platform: "/mobile") {
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/cellphone_recharge/cards"(platform: "/mobile") {
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/cellphone_recharge/add_card"(platform: "/mobile") {
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/cellphone_recharge/issuers"(platform: "/mobile") {
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/cellphone_recharge/result"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+        resultStatus (required:true, type: PropertyType.String, description: "Operation result status")
+        statusDetail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
+
+    "/bill_payments/help"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/bill_payments/associated_entities"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/bill_payments/no_money"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/bill_payments/permissions_rationale"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/bill_payments/scan"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/bill_payments/manual_code"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/bill_payments/confirmation"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/bill_payments/add_info"(platform: "/mobile", isAbstract: true) {}
+    "/bill_payments/add_info/literal"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/bill_payments/add_info/amount"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/bill_payments/add_info/option"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/bill_payments/second_password"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/bill_payments/result"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+        resultStatus (required:true, type: PropertyType.String, description: "Operation result status")
+        statusDetail (required:true, type: PropertyType.String, description: "Operation result status detail")
+    }
+
+    "/money_request/picker"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/money_request/social_share"(platform: "/mobile") {
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/money_request/crop_image"(platform: "/mobile") {
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/money_request/result"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+        resultStatus (required:true, type: PropertyType.String, description: "Operation result status")
+        statusDetail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
+    "/withdraw/take_money_out"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/withdraw/select_bank"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/withdraw/result"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+        resultStatus (required:true, type: PropertyType.String, description: "Operation result status")
+        statusDetail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
+
+    "/fund_account/fund_amount"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/fund_account/other_payment_methods"(platform: "/mobile") {
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/fund_account/result"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+        resultStatus (required:true, type: PropertyType.String, description: "Operation result status")
+        statusDetail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
+
+    "/settings/my_profile"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/settings/balance"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/settings/my_cards"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/settings/my_cards_detail"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/settings/pin_status"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/settings/set_pin_code"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/settings/about"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
 
 
-    "/recents"(platform: "/mobile") {
+    "/associate_phone/sync_phone"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/associate_phone/verify_pin"(platform: "/mobile") {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/associate_phone/synced_phone"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
 
-
-    "/set_telephone_number"(platform: "/mobile") {
+    "/prepaid_card/action_picker"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-
-
-    "/contacts"(platform: "/mobile") {
+    "/prepaid_card/web_view"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-
-
-    "/carriers"(platform: "/mobile") {
+    "/prepaid_card/fill_recharge_data"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-
-
-    "/recommended"(platform: "/mobile") {
+    "/prepaid_card/recipients"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-
-
-    "/package"(platform: "/mobile") {
+    "/prepaid_card/result"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
+        resultStatus (required:true, type: PropertyType.String, description: "Operation result status")
+        statusDetail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
-
-    "/manual_amount"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-    "/help"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/associated_entities"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/no_money"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/permissions_rationale"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/scan"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/manual_code"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/confirmation"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/add_info"(platform: "/mobile", isAbstract: true) {}
-
-    "/add_info/literal"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/add_info/amount"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/add_info/option"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/second_password"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-    "/my_profile"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/balance"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/take_money_out"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/select_bank"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/fund_amount"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/my_cards"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/my_cards_detail"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/pin_status"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/set_pin_code"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/sync_phone"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/verify_pin"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/synced_phone"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/about"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/action_picker"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/web_view"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/fill_recharge_data"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/recipients"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-
-    "/fund_amount"(platform: "/mobile") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-
-    // END -- MPMOBILE TEST
+    // END -- MPMOBILE
 
 }
