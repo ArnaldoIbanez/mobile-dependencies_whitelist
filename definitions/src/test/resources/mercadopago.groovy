@@ -219,8 +219,8 @@ trackTests {
         "/send_money/result"(platform: "/mobile") {
             flow = "/checkout"
             from = "/deep_link"
-            resultStatus = "rejected"
-            statusDetail = "call_for_auth"
+            result_status = "rejected"
+            status_detail = "call_for_auth"
         }
     }
 
@@ -260,8 +260,8 @@ trackTests {
         "/checkout/result"(platform: "/mobile") {
             flow = "/checkout"
             from = "/deep_link"
-            resultStatus = "rejected"
-            statusDetail = "call_for_auth"
+            result_status = "rejected"
+            status_detail = "call_for_auth"
         }
     }
 
@@ -313,8 +313,8 @@ trackTests {
         "/qr_code/result"(platform: "/mobile") {
             flow = "/qr_code"
             from = "/deep_link"
-            resultStatus = "rejected"
-            statusDetail = "call_for_auth"
+            result_status = "rejected"
+            status_detail = "call_for_auth"
         }
     }
 
@@ -388,8 +388,8 @@ trackTests {
         "/cellphone_recharge/result"(platform: "/mobile") {
             flow = "/fund_account"
             from = "/deep_link"
-            resultStatus = "rejected"
-            statusDetail = "call_for_auth"
+            result_status = "rejected"
+            status_detail = "call_for_auth"
         }
     }
 
@@ -410,7 +410,7 @@ trackTests {
         "/money_request/result"(platform: "/mobile") {
             flow = "/money_request"
             from = "/deep_link"
-            resultStatus = "approved"
+            result_status = "approved"
         }
     }
 
@@ -462,8 +462,8 @@ trackTests {
         "/bill_payments/result"(platform: "/mobile") {
             flow = "/fund_account"
             from = "/deep_link"
-            resultStatus = "rejected"
-            statusDetail = "call_for_auth"
+            result_status = "rejected"
+            status_detail = "call_for_auth"
         }
     }
 
@@ -479,8 +479,8 @@ trackTests {
         "/fund_account/result"(platform: "/mobile") {
             flow = "/fund_account"
             from = "/deep_link"
-            resultStatus = "rejected"
-            statusDetail = "unavailable"
+            result_status = "rejected"
+            status_detail = "unavailable"
         }
     }
 
@@ -496,8 +496,8 @@ trackTests {
         "/withdraw/result"(platform: "/mobile") {
             flow = "/fund_account"
             from = "/deep_link"
-            resultStatus = "rejected"
-            statusDetail = "internal_server_error"
+            result_status = "rejected"
+            status_detail = "internal_server_error"
         }
     }
 
@@ -571,8 +571,8 @@ trackTests {
         "/prepaid_recharge/result"(platform: "/mobile") {
             flow = "/fund_account"
             from = "/deep_link"
-            resultStatus = "rejected"
-            statusDetail = "internal_server_error"
+            result_status = "rejected"
+            status_detail = "internal_server_error"
         }
     }
 

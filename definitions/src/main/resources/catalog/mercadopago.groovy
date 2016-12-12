@@ -112,8 +112,8 @@ tracks {
     "/send_money/result"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
-        resultStatus (required:true, type: PropertyType.String, description: "Operation result status")
-        statusDetail (required:false, type: PropertyType.String, description: "Operation result status detail")
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
 
@@ -153,8 +153,8 @@ tracks {
     "/checkout/result"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
-        resultStatus (required:true, type: PropertyType.String, description: "Operation result status")
-        statusDetail (required:false, type: PropertyType.String, description: "Operation result status detail")
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
     "/qr_code"(platform: "/mobile", isAbstract: true) {}
@@ -205,8 +205,8 @@ tracks {
     "/qr_code/result"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
-        resultStatus (required:true, type: PropertyType.String, description: "Operation result status")
-        statusDetail (required:false, type: PropertyType.String, description: "Operation result status detail")
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
     "/cellphone_recharge"(platform: "/mobile", isAbstract: true) {}
@@ -273,8 +273,8 @@ tracks {
     "/cellphone_recharge/result"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
-        resultStatus (required:true, type: PropertyType.String, description: "Operation result status")
-        statusDetail (required:false, type: PropertyType.String, description: "Operation result status detail")
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
     "/bill_payments"(platform: "/mobile", isAbstract: true) {}
@@ -326,8 +326,8 @@ tracks {
     "/bill_payments/result"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
-        resultStatus (required:true, type: PropertyType.String, description: "Operation result status")
-        statusDetail (required:false, type: PropertyType.String, description: "Operation result status detail")
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
     "/money_request"(platform: "/mobile", isAbstract: true) {}
@@ -346,8 +346,8 @@ tracks {
     "/money_request/result"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
-        resultStatus (required:true, type: PropertyType.String, description: "Operation result status")
-        statusDetail (required:false, type: PropertyType.String, description: "Operation result status detail")
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
     "/withdraw"(platform: "/mobile", isAbstract: true) {}
@@ -362,8 +362,8 @@ tracks {
     "/withdraw/result"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
-        resultStatus (required:true, type: PropertyType.String, description: "Operation result status")
-        statusDetail (required:false, type: PropertyType.String, description: "Operation result status detail")
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
     "/fund_account"(platform: "/mobile", isAbstract: true) {}
@@ -378,8 +378,8 @@ tracks {
     "/fund_account/result"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
-        resultStatus (required:true, type: PropertyType.String, description: "Operation result status")
-        statusDetail (required:false, type: PropertyType.String, description: "Operation result status detail")
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
     "/settings"(platform: "/mobile", isAbstract: true) {}
@@ -452,8 +452,8 @@ tracks {
     "/prepaid_recharge/result"(platform: "/mobile") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
-        resultStatus (required:true, type: PropertyType.String, description: "Operation result status")
-        statusDetail (required:false, type: PropertyType.String, description: "Operation result status detail")
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
     // END -- MPMOBILE
