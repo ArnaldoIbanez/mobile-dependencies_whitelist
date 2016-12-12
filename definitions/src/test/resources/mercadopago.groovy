@@ -151,19 +151,15 @@ trackTests {
     test("Login") {
         "/login/splitter"(platform: "/mobile") {
             flow = "/login"
-            source = "/"
         }
         "/login/sign_in"(platform: "/mobile") {
             flow = "/login"
-            source = "/"
         }
         "/login/sign_up"(platform: "/mobile") {
             flow = "/login"
-            source = "/"
         }
         "/login/identification"(platform: "/mobile") {
             flow = "/login"
-            source = "/"
         }
     }
 
