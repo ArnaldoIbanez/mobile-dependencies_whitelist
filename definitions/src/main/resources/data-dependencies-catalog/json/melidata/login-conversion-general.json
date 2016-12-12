@@ -3,7 +3,7 @@
     "pablo.carle@mercadolibre.com",
     "bruno.famiglietti@mercadolibre.com"
   ],
-  "process_name"": "login_conversion",
+  "process_name": "login_conversion",
   "cron": "* 07 * * *",
   "extract": {
     "operation": "append",
@@ -59,6 +59,22 @@
       },
       {
         "name": "c_login_auth_succ_after_fail",
+        "type": "INTEGER"
+      },
+      {
+        "name": "c_login_recovery_succ",
+        "type": "INTEGER"
+      },
+      {
+        "name": "c_login_reg_succ",
+        "type": "INTEGER"
+      },
+      {
+        "name": "c_auth_otp_notrack_rec",
+        "type": "INTEGER"
+      },
+      {
+        "name": "c_auth_otp_notrack_other",
         "type": "INTEGER"
       }
     ],
