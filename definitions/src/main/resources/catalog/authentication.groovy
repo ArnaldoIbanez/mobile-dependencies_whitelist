@@ -19,7 +19,7 @@ tracks {
 
     //Login conversion
     "/login"(platform: "/", isAbstract: true) {
-        source(type: PropertyType.String, required: true)
+        source(type: PropertyType.String, required: false)
     }
 
     "/login/form"(type: TrackType.View) {
