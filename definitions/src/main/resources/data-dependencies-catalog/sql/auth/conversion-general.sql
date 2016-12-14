@@ -25,10 +25,10 @@ from (
 	count(distinct (case when path = '/login/auth/success' and (get_json_object(event_data, '$.is_otp') = 'false' or get_json_object(event_data, '$.is_otp') is null) then action_track_id else null end)) as c_auth_success,
 	count(distinct (case when path = '/login/auth/success' and (get_json_object(event_data, '$.is_otp') = 'true' or get_json_object(event_data, '$.is_otp') is null ) and (get_json_object(event_data, '$.otp_section') <> 'ARF' or get_json_object(event_data, '$.otp_section') is null) then action_track_id else null end)) as c_auth_success_otp_other,
 	count(distinct (case when path = '/login/auth/success' and (get_json_object(event_data, '$.is_otp') = 'true' or get_json_object(event_data, '$.is_otp') is null) and (get_json_object(event_data, '$.otp_section') = 'ARF') then action_track_id else null end)) as c_auth_success_otp_rec,
-	count(distinct (case when (path = '/login/auth/failure' and get_json_object(get_json_object(event_data, '$.reason'), '$.errorId\[0]') != 'captcha_word_required'
-	                                                        and get_json_object(get_json_object(event_data, '$.reason'), '$.errorId\[0]') != 'captcha_response_invalid') then action_track_id else null end)) as c_auth_failure,
-	count(distinct (case when (path = '/login/auth/failure' and get_json_object(get_json_object(event_data, '$.reason'), '$.errorId\[0]') = 'captcha_word_required') then action_track_id else null end)) as c_auth_failure_captcha_first,
-	count(distinct (case when (path = '/login/auth/failure' and get_json_object(get_json_object(event_data, '$.reason'), '$.errorId\[0]') = 'captcha_response_invalid') then action_track_id else null end)) as c_auth_failure_captcha,
+	count(distinct (case when (path = '/login/auth/failure' and get_json_object(get_json_object(event_data, '$.reason'), '$.errorId[0]') != 'captcha_word_required'
+	                                                        and get_json_object(get_json_object(event_data, '$.reason'), '$.errorId[0]') != 'captcha_response_invalid') then action_track_id else null end)) as c_auth_failure,
+	count(distinct (case when (path = '/login/auth/failure' and get_json_object(get_json_object(event_data, '$.reason'), '$.errorId[0]') = 'captcha_word_required') then action_track_id else null end)) as c_auth_failure_captcha_first,
+	count(distinct (case when (path = '/login/auth/failure' and get_json_object(get_json_object(event_data, '$.reason'), '$.errorId[0]') = 'captcha_response_invalid') then action_track_id else null end)) as c_auth_failure_captcha,
 	count(distinct (case when path = '/login/recovery' then action_track_id else null end)) as c_recovery,
 	count(distinct (case when path = '/login/registration' then action_track_id else null end)) as c_registration,
 	count(distinct (case when path = '/login/banner' then action_track_id else null end)) as c_banner,
