@@ -4,7 +4,7 @@
     "bruno.famiglietti@mercadolibre.com"
   ],
   "process_name": "login_conversion",
-  "cron": "00 07 * * *",
+  "cron": "30 16 * * *",
   "extract": {
     "operation": "overwrite",
     "columns": [
