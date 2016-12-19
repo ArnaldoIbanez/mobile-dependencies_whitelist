@@ -4,9 +4,9 @@
     "bruno.famiglietti@mercadolibre.com"
   ],
   "process_name": "login_conversion",
-  "cron": "50 11 * * *",
+  "cron": "30 16 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "dia_login_hit",
@@ -38,15 +38,7 @@
         "type": "INTEGER"
       },
       {
-        "name": "c_reg_drop",
-        "type": "INTEGER"
-      },
-      {
         "name": "c_rec_drop",
-        "type": "INTEGER"
-      },
-      {
-        "name": "c_ban_drop",
         "type": "INTEGER"
       },
       {
@@ -66,15 +58,27 @@
         "type": "INTEGER"
       },
       {
-        "name": "c_login_reg_succ",
-        "type": "INTEGER"
-      },
-      {
         "name": "c_auth_otp_notrack_rec",
         "type": "INTEGER"
       },
       {
-        "name": "c_auth_otp_notrack_other",
+        "name": "c_divert",
+        "type": "INTEGER"
+      },
+      {
+        "name": "c_failure_100_pass",
+        "type": "INTEGER"
+      },
+      {
+        "name": "c_failure_100_captcha",
+        "type": "INTEGER"
+      },
+      {
+        "name": "c_failure_100_pass_captcha",
+        "type": "INTEGER"
+      },
+      {
+        "name": "c_failure_100_pass_captcha_drop",
         "type": "INTEGER"
       }
     ],
