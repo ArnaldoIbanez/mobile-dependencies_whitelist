@@ -430,4 +430,17 @@ metrics {
 			set_property("deal_id", "event_data.filters.deal")
 		}
 	}
+
+
+	"identity-validation/phone.landing"(description: "Post phone challenge count") {
+		startWith {
+			experiment("auth/identity-validation_phone-landing")
+		}
+
+		countsOn {
+			condition {
+				path("/identity-validation/finish_phone")
+			}
+		}
+	}
 }

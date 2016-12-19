@@ -3326,4 +3326,34 @@ trackTests {
             in_loyalty_program = "true"
         }
     }
+
+    test("Identity Validation with flows") {
+
+        "/identity-validation/landing_phone"(platform: "/web/desktop") {
+            flow = "mediations_bpp"
+        }
+
+        "/identity-validation/finish_phone"(platform: "/web/desktop") {
+            flow = "mediations_bpp"
+        }
+
+        "/identity-validation/finish_validation"(platform: "/web/desktop") {
+            result = "invalid_duplicate_doc_image"
+            flow = "mediations_bpp"
+        }
+
+        "/identity-validation/landing_phone"(platform: "/web/mobile") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/finish_phone"(platform: "/web/mobile") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/finish_validation"(platform: "/web/mobile") {
+            result = "success"
+            flow = "ms_hard_validation"
+        }
+
+    }
 }
