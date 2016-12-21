@@ -33,7 +33,7 @@ from (
 	count(distinct (case when path = '/login/recovery' then action_track_id else null end)) as c_recovery,
 	count(distinct (case when path = '/login/registration' then action_track_id else null end)) as c_registration,
 	count(distinct (case when path = '/login/banner' then action_track_id else null end)) as c_banner,
-	count(distinct coalesce(user_id, '1')) as c_accounts
+	count(distinct user_id) as c_accounts
 	from
 	(
 	  select 
@@ -70,9 +70,8 @@ from (
 	      platform.http.http_referer as http_referer
 	      from tracks
 	      where
-	      ds >= '@param01'
-	      and ds < '@param02'
-	      and to_date(user_timestamp) = '@param01'
+	      ds >= '2016-12-14'
+	      and ds < '2016-12-21'
 	  		and size(experiments) = 0
 	      and path <> '/login/form' 
 	      and path <> '/login/social/status'
@@ -90,9 +89,8 @@ from (
 	  where
 	  logins.path = '/login/form'
 	  and size(logins.experiments) = 0
-	  and ds >= '@param01'
-	  and ds < '@param02'
-	  and to_date(logins.user_timestamp) = '@param01'
+	  and ds >= '2016-12-14'
+	  and ds < '2016-12-21'
 	  and (get_json_object(logins.event_data, '$.is_admin_otp') = 'false' or get_json_object(logins.event_data, '$.is_admin_otp') is null)
 	  and (logins.user_timestamp <= actions.user_timestamp or actions.user_timestamp is null)
 	  and (get_json_object(logins.event_data, '$.flow') is null or get_json_object(logins.event_data, '$.flow') = 'internal')
@@ -103,7 +101,7 @@ from (
 	case when (path in ('/login/auth/success', '/login/auth/failure') and (instr(lower(parse_url(http_referer, 'HOST')), 'buyingflow') > 0 or instr(lower(parse_url(http_referer, 'PATH')), 'buyingflow') > 0)) then 'CHECKOUT' else source end
 ) t2
 where
-c_accounts = 1
+c_accounts in (0,1)
 and lower(source) <> 'checkout'
 and platform <> 'unknown'
 group by
