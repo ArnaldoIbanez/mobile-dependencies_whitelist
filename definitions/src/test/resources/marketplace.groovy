@@ -860,6 +860,12 @@ trackTests {
         "/checkout/shipping/select_contact"(platform:"/mobile", type:TrackType.Event) {
             is_from_preload_address = true
         }
+        "/checkout/shipping/location/select_state"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
+        "/checkout/shipping/location/select_city"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
         "/checkout/shipping/location/address"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             edit_flow = true
@@ -1049,6 +1055,9 @@ trackTests {
             checkoutStatus()
             error_code ="invalid_volume_for_quantity"
         }
+        "/checkout/review/inconsistency/price_changed"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
         "/checkout/review/edit_shipping#submit"(platform:"/mobile", type: TrackType.Event) {
             //old_value, new_value
             old_value = "Zona 1"
@@ -1111,6 +1120,11 @@ trackTests {
         "/checkout/congrats/pending"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+
+        "/checkout/finish#click"(platform: "/mobile", type: TrackType.Event) {
+            action = 'call_seller'
+        }
+
         "/checkout/error"(platform:"/mobile", type:TrackType.View) {
             error_code = "internal_server_error"
         }
@@ -1977,6 +1991,17 @@ trackTests {
             source = "email"
             item_id = "MCO123321"
             captcha_showed = true
+            errors = [
+                        [
+                                code:0,
+                                field: 'firstName',
+                                message: 'Tu nombre es incorrecto'
+                        ],
+                        [
+                                code:2,
+                                field: 'lastName'
+                        ]
+                    ]
         }
 
         "/register/form/another-email"(platform: "/web/desktop") {
@@ -1984,6 +2009,12 @@ trackTests {
             source = "email"
             item_id = "MCO123321"
             captcha_showed = true
+            errors = [
+                        [
+                                code:8,
+                                field: 'email'
+                        ]
+                    ]
         }
 
         "/register/form/another-email"(platform: "/web/mobile") {
@@ -2526,6 +2557,42 @@ trackTests {
             event_type = "auto_dismiss"
             context = "notification"
         }
+
+        "/notification/campaigns-suggested_discounts_seller"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+            context = "notification"
+        }
+
+        "/notification/campaigns-suggested_discounts_seller"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "dismiss"
+            context = "notification"
+        }
+
+        "/notification/campaigns-suggested_discounts_seller"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            context = "notification"
+        }
+
+        "/notification/campaigns-suggested_discounts_buyer"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+            context = "notification"
+        }
+
+        "/notification/campaigns-suggested_discounts_buyer"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "dismiss"
+            context = "notification"
+        }
+
+        "/notification/campaigns-suggested_discounts_buyer"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            context = "notification"
+        }
     }
 
     test("orders feed from commons tracker cards"){
@@ -2777,6 +2844,14 @@ trackTests {
         "/sell/list/congrats"(platform: "/web/desktop", itemData)
         "/sell/upgrade_on"(platform: "/web/desktop", itemData)
     }
+    test("Sell landing free_listing"){
+        def data={
+            referer = "1234L"
+        }
+
+        "/sell/landing/free_listing"(platform: "/", data)
+        "/sell/landing/free_listing"(platform: "/"){}
+    }
 
     test("Native Sell flow steps"){
         "/sell/list/drafts"(platform: "/mobile") {}
@@ -2916,29 +2991,58 @@ trackTests {
         "/myml/suggested_discounts/landing"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/landing/about"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/landing/start"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/landing/back"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/landing/abandon"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/about"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/about/skip"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/about/start"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/about/abandon"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/about/back"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/select_discount"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/select_discount/apply"(platform: "/mobile"){
           item_id = "MLA123456"
           selected_discount = "1"
         }
-        "/myml/suggested_discounts/select_discount/confirm"(platform: "/mobile"){
+        "/myml/suggested_discounts/review_discount"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/review_discount/confirm"(platform: "/mobile"){
           item_id = "MLA123456"
           selected_discount = "1"
         }
+        "/myml/suggested_discounts/select_discount/back"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/review_discount/back"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/info"(platform: "/mobile"){
           item_id = "MLA123456"
-          deal_status = "on_deal"
+          discount_status = "on_deal"
         }
         "/myml/suggested_discounts/info/exit"(platform: "/mobile"){
           item_id = "MLA123456"
-          deal_status = "on_deal"
+          discount_status = "on_deal"
           action = "vip"
-        }
+        }        
+        "/myml/suggested_discounts/info/back"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/error"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/error/back"(platform: "/mobile"){item_id = "MLA123456"}
+    }
+
+    test("Myml account balance") {
+        "/myml/account_balance"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/account_balance/withdraw"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+        "/myml/account_balance/send_money"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+        "/myml/account_balance/cellphone_recharge"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+        "/myml/account_balance/bill_payments"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+    }
+
+    test("Myml installation") {
+        "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/account_balance/install/go_to_store"(platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("Download app landing tracking") {
@@ -3144,5 +3248,112 @@ trackTests {
         "/loyalty/score/achievements"(platform: "/", type: TrackType.View, loyaltyInfo)
         "/loyalty/score/benefits"(platform: "/", type: TrackType.View, loyaltyInfo)
         "/loyalty/notification"(platform: "/", type: TrackType.Event, { event_type = 'shown' })
+    }
+
+    test("Mobile Navigation Menu"){
+        "/navigation"(platform: "/mobile/android"){
+            origin = "/HOME"
+        }
+    }
+
+    test("Logout action confirmed") {
+        "/logout/modal"(platform: "/mobile") {
+            action = "confirmed"
+        }
+    }
+
+    test("Logout action canceled") {
+        "/logout/modal"(platform: "/mobile") {
+            action = "canceled"
+        }
+    }
+
+    test("Login conversion tracks") {
+        "/login"(platform: "/") {
+            source = "LFE"
+        }
+        "/login/form"(platform: "/", type: TrackType.View) {
+            source = "QUESTION"
+            has_error = true
+            flow = "internal"
+        }
+        "/login/form"(platform: "/", type: TrackType.View) {
+            source = "FAVORITE"
+            has_error = false
+            flow = "internal"
+        }
+        "/login/recovery"(platform: "/web", type: TrackType.Event) {
+            source = "LFE"
+        }
+        "/login/recovery"(platform: "/mobile", type: TrackType.View) {
+            source = "LFE"
+        }
+        "/login/auth"(platform: "/mobile", type: TrackType.View) {
+            source = "LFE"
+            is_otp = false
+            is_admin_otp = false
+        }
+        "/login/auth"(platform: "/web", type: TrackType.Event) {
+            source = "LFE"
+            is_otp = false
+            is_admin_otp = false
+        }
+        "/login/registration"(platform: "/", type: TrackType.Event) {
+            source = "LFE"
+        }
+        "/login/auth/success"(platform: "/", type: TrackType.Event) {
+            source = "LFE"
+            flow = "internal"
+            is_otp = false
+            is_admin_otp = false
+            user_reg_date = "2002-09-26T00:00:00.000-04:00"
+            user_points = 100
+        }
+        "/login/auth/failure"(platform: "/", type: TrackType.Event) {
+            source = "LFE"
+            reason = [errorId: 'invalid_password']
+            flow = "internal"
+            is_otp = false
+            is_admin_otp = false
+        }
+        "/logout"(platform: "/", type: TrackType.Event) {
+            flow = "internal"
+        }
+    }
+    
+    test("Loyalty user tracking") {
+        "/loyalty/user"(platform: "/") {
+            in_loyalty_program = "true"
+        }
+    }
+
+    test("Identity Validation with flows") {
+
+        "/identity-validation/landing_phone"(platform: "/web/desktop") {
+            flow = "mediations_bpp"
+        }
+
+        "/identity-validation/finish_phone"(platform: "/web/desktop") {
+            flow = "mediations_bpp"
+        }
+
+        "/identity-validation/finish_validation"(platform: "/web/desktop") {
+            result = "invalid_duplicate_doc_image"
+            flow = "mediations_bpp"
+        }
+
+        "/identity-validation/landing_phone"(platform: "/web/mobile") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/finish_phone"(platform: "/web/mobile") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/finish_validation"(platform: "/web/mobile") {
+            result = "success"
+            flow = "ms_hard_validation"
+        }
+
     }
 }

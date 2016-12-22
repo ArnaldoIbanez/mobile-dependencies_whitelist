@@ -869,6 +869,8 @@ tracks {
         //View specific data
         edit_flow(required: true, type: PropertyType.Boolean)
     }
+    "/checkout/shipping/location/select_state"(platform:"/mobile") {}
+    "/checkout/shipping/location/select_city"(platform:"/mobile") {}
     "/checkout/shipping/location/select_contact#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         success(required: true, type: PropertyType.Boolean)
         error_codes(required: false, type: PropertyType.ArrayList)
@@ -1047,6 +1049,7 @@ tracks {
     "/checkout/review/inconsistency/quantity"(platform: "/mobile") {
         error_code(required: false, type:  PropertyType.String)
     }
+    "/checkout/review/inconsistency/price_changed"(platform: "/mobile") {}
     "/checkout/review/edit_shipping#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         //old_value, new_value
         old_value(required: true, type:  PropertyType.String)
@@ -1190,6 +1193,7 @@ tracks {
         seller(required: false)
         //id
         //nickname
+        available_actions(required: false, type: PropertyType.ArrayList, description: "Action presented on the screen, for ex: call_seller, email_seller, etc.")
 
         /****************************************/
         //Legacy App Congrats Tracks
@@ -1199,25 +1203,24 @@ tracks {
         total_amount_usd(serverSide: true)
         first_for_order(serverSide: true)
     }
-    "/checkout/congrats/error"(platform: "/mobile") {
-        available_actions(required: true, type: PropertyType.ArrayList)
+    "/checkout/finish#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+         action(required: true, description: "Action executed, for ex: call_seller, email_seller, etc")
     }
-    "/checkout/congrats/call_for_auth"(platform: "/mobile") {
-        available_actions(required: true, type: PropertyType.ArrayList)
-    }
-    "/checkout/congrats/call_for_auth/instructions"(platform: "/mobile") {
-        available_actions(required: false, type: PropertyType.ArrayList)
-    }
-    "/checkout/congrats/call_for_auth/later"(platform: "/mobile") {
-        available_actions(required: false, type: PropertyType.ArrayList)
-    }
-    "/checkout/congrats/invalid_sec_code"(platform: "/mobile") {
-        available_actions(required: true, type: PropertyType.ArrayList)
-    }
+    "/checkout/congrats/error"(platform: "/mobile") {}
+
+    "/checkout/congrats/call_for_auth"(platform: "/mobile") {}
+
+    "/checkout/congrats/call_for_auth/instructions"(platform: "/mobile") {}
+
+    "/checkout/congrats/call_for_auth/later"(platform: "/mobile") {}
+
+    "/checkout/congrats/invalid_sec_code"(platform: "/mobile") {}
+    
     "/checkout/congrats/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {
 
     }
     "/checkout/congrats/pending"(platform: "/mobile") {}
+
     "/checkout/error"(platform: "/mobile") {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
@@ -1790,6 +1793,12 @@ tracks {
     "/notification/messages_new"(platform: "/mobile") {
     }
 
+    //Notification suggested discounts
+    "/notification/campaigns-suggested_discounts_seller"(platform: "/mobile") {
+    }
+    "/notification/campaigns-suggested_discounts_buyer"(platform: "/mobile") {
+    }
+
     "/orders"(platform: "/", isAbstract: true) {}
 
     "/orders/ordercreated"(platform: "/") {
@@ -1955,6 +1964,10 @@ tracks {
     "/sell/change_listing_type"(platform: "/web", isAbstract: true) {
         source(required: true, description: "Source could be differents types of email, my account, etc.", type: PropertyType.String)
         seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
+    }
+    "/sell/landing"(platform: "/", isAbstract: true){ }
+    "/sell/landing/free_listing"(platform: "/", type: TrackType.View){
+        referer(required:false , description: "Notification ID")
     }
 
     "/sell/change_listing_type/single"(platform: "/", type: TrackType.View){
@@ -2142,6 +2155,8 @@ tracks {
     "/myml/suggested_discounts/landing"(platform: "/mobile", type: TrackType.View) {}
     "/myml/suggested_discounts/landing/about"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/landing/start"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/suggested_discounts/landing/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/suggested_discounts/landing/abandon"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/about"(platform: "/mobile", type: TrackType.View) {
         onboarding_step(required: false, description: "Onboarding step number")
     }
@@ -2150,20 +2165,43 @@ tracks {
     }
     "/myml/suggested_discounts/about/start"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/about/abandon"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/suggested_discounts/about/back"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/select_discount"(platform: "/mobile", type: TrackType.View) {}
     "/myml/suggested_discounts/select_discount/apply"(platform: "/mobile", type: TrackType.Event) {
         selected_discount(required: true, description: "Selected discount option")
     }
-    "/myml/suggested_discounts/select_discount/confirm"(platform: "/mobile", type: TrackType.Event) {
+    "/myml/suggested_discounts/review_discount"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/suggested_discounts/review_discount/confirm"(platform: "/mobile", type: TrackType.Event) {
         selected_discount(required: true, description: "Selected discount option")
     }
+    "/myml/suggested_discounts/select_discount/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/suggested_discounts/review_discount/back"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/info"(platform: "/mobile", type: TrackType.View) {
-        deal_status(required: true, description: "Current deal status")
+        discount_status(required: false, description: "Current deal status")
       }
     "/myml/suggested_discounts/info/exit"(platform: "/mobile", type: TrackType.Event) {
         action(required: true, description: "Selected exit action")
     }
+    "/myml/suggested_discounts/info/back"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/error"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/suggested_discounts/error/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/myml/account_balance"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/account_balance/withdraw"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+    "/myml/account_balance/send_money"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+    "/myml/account_balance/cellphone_recharge"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+    "/myml/account_balance/bill_payments"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+
+    "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/account_balance/install/go_to_store"(platform: "/mobile", type: TrackType.Event) {}
 
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
@@ -2200,4 +2238,25 @@ tracks {
                 values: ["received", "dismiss", "open", "shown", "delayed"],
                 description: "Type of loyalty notification event")
     }
+
+    //Navigation
+    "/navigation"(platform: "/mobile/android") {
+        origin(required: true, type: PropertyType.String, description: "Analytic's name of the screen where the menu was opened")
+    }
+
+    //Logout
+    "/logout"(platform: "/", isAbstract: true) {}
+    "/logout/modal"(platform: "/mobile") {
+        action(required: true, type:PropertyType.String, description: "Indicates whether the logout action was either confirmed or canceled")
+    }
+    
+    //Loyalty Program User Tracking
+    "/loyalty/user"(platform: "/", type: TrackType.Event) {
+        in_loyalty_program(
+            required: true, 
+            type:PropertyType.String, 
+            description: "Indicates if the user is in or out of the loyalty program"
+        )
+    }
+    
 }
