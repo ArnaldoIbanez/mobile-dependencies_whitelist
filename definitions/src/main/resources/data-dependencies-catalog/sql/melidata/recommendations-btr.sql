@@ -33,7 +33,7 @@ FROM(
    )t1
  LEFT JOIN(
  SELECT
- recommendations.ds AS ds,
+ orders.ds AS ds,
  recommendations.platform AS platform,
  recommendations.site_id AS site_id,
  recommendations.client AS client,
@@ -75,12 +75,11 @@ INNER JOIN(
        	) orders
  ON  orders.item_id = recommendations.item_id
  AND orders.user_id = recommendations.user_id
- AND orders.ds = recommendations.ds
  GROUP BY recommendations.platform,
          recommendations.site_id,
          recommendations.client,
          recommendations.backend,
-         recommendations.ds) t2
+         orders.ds) t2
 ON
   t1.ds = t2.ds
   AND t1.platform = t2.platform

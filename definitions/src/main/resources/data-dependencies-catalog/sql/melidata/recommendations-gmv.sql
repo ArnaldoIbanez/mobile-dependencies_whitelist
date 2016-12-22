@@ -1,5 +1,5 @@
 SELECT
- recommendations.ds AS ds,
+ orders.ds AS ds,
  recommendations.platform AS platform,
  recommendations.site_id AS site_id,
  recommendations.client AS client,
@@ -47,4 +47,4 @@ GROUP BY
     	recommendations.site_id,
     	recommendations.client,
     	recommendations.backend,
-    	recommendations.ds
+    	orders.ds
