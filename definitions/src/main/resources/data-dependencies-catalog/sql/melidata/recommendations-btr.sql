@@ -55,7 +55,7 @@ FROM(
    WHERE
    	path = '/vip'
    	AND v1.client IS NOT NULL
-   	 AND ds >= '@param01 06' AND ds < '@param02 06'
+   	 AND ds >= '@param03 06' AND ds < '@param01 06'
    )recommendations
 INNER JOIN(
        	SELECT
