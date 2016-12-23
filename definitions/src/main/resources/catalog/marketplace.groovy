@@ -174,7 +174,7 @@ tracks {
         filter_tags(required: false, PropertyType.ArrayList)
         results(required: false, PropertyType.ArrayList,description:"item ids from search result")
         billboards(required: false, PropertyType.ArrayList, descriptoion: "items ids from billboard results")
-
+        isRetina(required: false, description: 'Whether the screen is retina display')
     }
 
     "/search"(platform: "/web") {

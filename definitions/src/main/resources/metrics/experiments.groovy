@@ -443,4 +443,14 @@ metrics {
 			}
 		}
 	}
+
+	"search/showBetterImages.retina"(description: "Segment better images experiment between retina and non retina screens"){
+		startWith{
+			experiment("search/showBetterImages")
+		}
+
+		openBy {
+			"event_data.isRetina"(default: "default")
+		}
+	}
 }
