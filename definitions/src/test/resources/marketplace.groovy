@@ -182,6 +182,9 @@ trackTests {
             defaultSearchInformation()
             action = "expand"
         }
+        "/search/save"(platform: "/") {
+            defaultSearchInformation()
+        }
     }
 
     test("Search gallery with 10 items, first page" ) {
