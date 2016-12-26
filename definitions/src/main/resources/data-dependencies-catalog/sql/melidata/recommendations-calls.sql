@@ -17,3 +17,4 @@ GROUP BY  substr(ds,1,10),
           v2.client,
           v2.backend,
           platform_level(device.platform,2)
+

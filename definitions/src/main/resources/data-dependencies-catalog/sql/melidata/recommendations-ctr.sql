@@ -6,8 +6,7 @@ SELECT
   t1.client AS client,
   t1.prints AS prints,
   IF(t2.clicks IS NULL, 0, t2.clicks) AS clicks
-FROM
-(
+FROM(
     SELECT
         substr(ds,1,10) AS ds,
         platform_level(device.platform,2) AS platform,
