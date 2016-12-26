@@ -8,7 +8,7 @@ SELECT
  IF(SUM(orders.total_amount_usd) IS NULL, 0, SUM(orders.total_amount_usd))  AS GMV
 FROM(
  	SELECT DISTINCT
-  '@param01' AS ds,
+  substr(ds,1,10) AS ds,
  	platform_level(device.platform,2) AS platform,
  	application.site_id AS site_id,
  	client,
@@ -25,7 +25,7 @@ FROM(
    )recommendations
 INNER JOIN(
        	SELECT
-         	'@param01' AS ds,
+         	substr(ds,1,10) AS ds,
          	usr.user_id AS user_id,
          	order_id,
          	CAST(get_json_object(get_json_object(get_json_object(event_data,'$.order_items[0]'),'$.item'),'$.id')AS varchar(50)) AS item_id,
@@ -42,9 +42,10 @@ INNER JOIN(
 ON  orders.item_id = recommendations.item_id
 AND orders.user_id = recommendations.user_id
 WHERE orders.user_timestamp > recommendations.user_timestamp
+AND datediff(orders.ds, recommendations.ds) <= 7
 GROUP BY
+      orders.ds,
       recommendations.platform,
     	recommendations.site_id,
     	recommendations.client,
-    	recommendations.backend,
-    	orders.ds
+    	recommendations.backend

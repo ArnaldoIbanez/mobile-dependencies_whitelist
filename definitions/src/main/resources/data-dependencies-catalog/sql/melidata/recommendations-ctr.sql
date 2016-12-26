@@ -6,10 +6,9 @@ SELECT
   t1.client AS client,
   t1.prints AS prints,
   IF(t2.clicks IS NULL, 0, t2.clicks) AS clicks
-FROM
-(
+FROM(
     SELECT
-       '@param01 06' AS ds,
+        substr(ds,1,10) AS ds,
         platform_level(device.platform,2) AS platform,
         application.site_id,
         v2.algorithm AS backend,
@@ -26,7 +25,7 @@ FROM
         AND v2.client IS NOT NULL
         AND ds >= '@param01 06' AND ds < '@param02 06'
     GROUP BY
-      '@param01 06',
+      substr(ds,1,10),
       platform_level(device.platform,2),
       application.site_id,
       v2.algorithm,
@@ -35,7 +34,7 @@ FROM
 LEFT JOIN
 (
     SELECT
-       '@param01 06' AS ds,
+        substr(ds,1,10) AS ds,
         platform_level(device.platform,2) AS platform,
         application.site_id AS site_id,
         reco_backend AS backend,
@@ -49,7 +48,7 @@ LEFT JOIN
         AND v1.reco_client IS NOT NULL
         AND ds >= '@param01 06' AND ds < '@param02 06'
     GROUP BY
-       '@param01 06' AS ds,
+        substr(ds,1,10),
         platform_level(device.platform,2),
         application.site_id,
         v1.reco_backend,
