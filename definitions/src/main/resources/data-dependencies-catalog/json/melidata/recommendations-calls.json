@@ -6,7 +6,7 @@
     "carolina.alvarez@mercadolibre.com",
     "martin.ciruzzi@mercadolibre.com"
   ],
-  "process_name": "recommendations_ctr",
+  "process_name": "recommendations_calls",
   "cron": "00 20 * * *",
   "extract":
   {
