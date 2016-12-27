@@ -6,7 +6,8 @@ SELECT 	substr(ds,1,10) AS ds,
         count(id) AS calls
 FROM tracks
 LATERAL VIEW json_tuple(event_data, 'recommendations', 'congrats_seq') v1 AS recommendations, congrats_seq
-LATERAL VIEW json_tuple(v1.recommendations, 'algorithm','context', 'hidden_by_client') v2 AS backend, client, hidden_by_clientWHERE CAST(v1.congrats_seq AS VARCHAR(50)) = '1'
+LATERAL VIEW json_tuple(v1.recommendations, 'algorithm','context', 'hidden_by_client') v2 AS backend, client, hidden_by_client
+WHERE CAST(v1.congrats_seq AS VARCHAR(50)) = '1'
 AND v1.recommendations IS NOT NULL
 AND v2.client IS NOT NULL
 AND CAST(v2.hidden_by_client as varchar(50)) = 'false'
