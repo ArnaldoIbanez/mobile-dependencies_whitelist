@@ -13,7 +13,7 @@ tracks {
         flow(type: PropertyType.String, required: true, description: "The flow to call identity validation. Ej. ms_hard_validation")
     }
 
-    "/identity-validation/finish_phone"(platform: "/web", type: TrackType.View) {
+    "/identity-validation/phone_code"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "The flow to call identity validation. Ej. ms_hard_validation")
     }
 
