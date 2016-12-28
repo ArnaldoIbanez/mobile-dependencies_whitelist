@@ -3333,7 +3333,7 @@ trackTests {
             flow = "mediations_bpp"
         }
 
-        "/identity-validation/finish_phone"(platform: "/web/desktop") {
+        "/identity-validation/phone_code"(platform: "/web/desktop") {
             flow = "mediations_bpp"
         }
 
@@ -3346,7 +3346,7 @@ trackTests {
             flow = "ms_hard_validation"
         }
 
-        "/identity-validation/finish_phone"(platform: "/web/mobile") {
+        "/identity-validation/phone_code"(platform: "/web/mobile") {
             flow = "ms_hard_validation"
         }
 
