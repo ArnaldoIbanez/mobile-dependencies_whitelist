@@ -21,7 +21,7 @@ FROM(
    WHERE
    	path = '/vip'
    	AND v1.client IS NOT NULL
-   	AND ds >= '@param03 06' AND ds < '@param02 06'
+   	AND ds >= '@param01 06' AND ds < '@param02 06'
    )recommendations
 INNER JOIN(
        	SELECT
@@ -35,7 +35,7 @@ INNER JOIN(
        	LATERAL VIEW json_tuple(event_data, 'order_id', 'total_amount_usd', 'recommendations', 'congrats_seq') v1 AS order_id, total_amount_usd, recommendations, congrats_seq
        	WHERE
            	path like '/checkout/congrats%'
-            AND ds >= '@param01 06' AND ds < '@param02 06'
+            AND ds >= '@param02 06' AND ds < '@param03 06'
            	AND CAST(v1.congrats_seq AS VARCHAR(50)) = '1'
            	AND total_amount_usd < 10000
        	) orders
