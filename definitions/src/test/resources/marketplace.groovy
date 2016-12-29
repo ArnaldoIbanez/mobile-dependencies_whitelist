@@ -3356,4 +3356,28 @@ trackTests {
         }
 
     }
+
+    test("recommendations tracking in feedbacks congrats") {
+        "/feedback/congrats"(platform: "/web") {
+            recommendations = [
+                    has_errors: false,
+                    hidden_by_client: false,
+                    client: "feedback_congrats",
+                    backend_id: "marketing_intelligence",
+                    track_info: [
+                        has_recommendations: true,
+                        item_category: "MLA3519",
+                        recommended_items: [
+                                               "MLA627123724",
+                                               "MLA617149341"
+
+                        ],
+                        recommended_categories: [
+                                                    "MLA5337"
+                        ]
+                    ]
+            ]
+        }
+
+    }
 }
