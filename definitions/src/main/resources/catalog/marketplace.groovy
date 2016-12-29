@@ -20,6 +20,21 @@ tracks {
     def categoryRegex = /(ROOT|[a-zA-Z]{1,3}[0-9]+)/
     def categoryPathRegex = /\[([a-zA-Z]{1,3}[0-9]+(, )?)*\]/
 
+    "/"(platform: "/", isAbstract: true) {
+        //Recommendations data
+        recommendations (required: false, description: "Recommendations data map")
+            // has_errors,
+            // hidden_by_client,
+            // client,
+            // backend_id,
+            // track_info:[
+            //              has_recommendations,
+            //              item_category,
+            //              recommended_items:[]
+            //    ]
+            //recommended_categories:[]
+    }
+    
     "/"(platform: "/mobile", isAbstract: true) {
         mode(required: false)
         deferred_time(required: false)
@@ -32,19 +47,6 @@ tracks {
         cookies(required: false)
         http_url(required: false)
         http_referer(required: false)
-        //Recommendations data
-        recommendations (required: false, description: "Recommendations data map")
-        // has_errors,
-        // hidden_by_client,
-        // client,
-        // backend_id,
-        // track_info:[
-        //              has_recommendations,
-        //              item_category,
-        //              recommended_items:[]
-        //    ]
-        //recommended_categories:[]
-
     }
 
     //EXTERNAL
