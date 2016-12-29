@@ -34,11 +34,17 @@ tracks {
         http_referer(required: false)
         //Recommendations data
         recommendations (required: false, description: "Recommendations data map")
-        // success_print,
-        // algorithm,
-        // context,
-        // item_category,
-        // recommended_categories
+        // has_errors,
+        // hidden_by_client,
+        // client,
+        // backend_id,
+        // track_info:[
+        //              has_recommendations,
+        //              item_category,
+        //              recommended_items:[]
+        //    ]
+        //recommended_categories:[]
+
     }
 
     //EXTERNAL
@@ -2258,5 +2264,9 @@ tracks {
             description: "Indicates if the user is in or out of the loyalty program"
         )
     }
-    
+    //Feedback
+    "/feedback"(platform: "/", isAbstract: true) {}
+
+    "/feedback/congrats"(platform: "/") {}
+
 }
