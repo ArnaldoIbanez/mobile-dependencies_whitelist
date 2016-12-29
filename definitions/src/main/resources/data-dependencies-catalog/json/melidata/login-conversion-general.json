@@ -6,7 +6,7 @@
   "process_name": "login_conversion",
   "cron": "00 11 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "dia_login_hit",

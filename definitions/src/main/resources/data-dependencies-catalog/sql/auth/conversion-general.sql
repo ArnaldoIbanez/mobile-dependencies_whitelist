@@ -5,11 +5,11 @@ site_id,
 business,
 source,
 count(distinct d2id) as c_total,
-count(distinct (case when c_drop_neto > 0 then d2id else null end)) as c_drops,
-count(distinct (case when (c_hits_login > 0 and c_auth_success = 0 and c_auth_success_otp_rec = 0 and c_auth_success_otp_other = 0 and c_auth_failure = 0 and c_auth_failure_captcha = 0 and c_auth_failure_captcha_first = 0 and c_recovery > 0 and c_registration = 0 and c_banner = 0) then d2id else null end)) as c_rec_drop,
-count(distinct (case when (c_hits_login > 0 and c_auth_success = 0 and c_auth_success_otp_rec = 0 and c_auth_success_otp_other = 0 and (c_auth_failure > 0 or c_auth_failure_captcha > 0 or c_auth_failure_captcha_first > 0) and c_recovery = 0 and c_registration = 0 and c_banner = 0) then d2id else null end)) as c_failure_100,
-count(distinct (case when (c_hits_login > 0 and c_auth_success > 0 and c_auth_success_otp_rec = 0 and c_auth_success_otp_other = 0 and c_auth_failure = 0 and c_auth_failure_captcha = 0 and c_auth_failure_captcha_first = 0 and c_recovery = 0 and c_registration = 0 and c_banner = 0) then d2id else null end)) as c_login_auth_succ_100,
-count(distinct (case when (c_hits_login > 0 and c_auth_success > 0 and c_auth_success_otp_rec = 0 and c_auth_success_otp_other = 0 and (c_auth_failure_captcha > 0 or c_auth_failure_captcha_first > 0 or c_auth_failure > 0)) then d2id else null end)) as c_login_auth_succ_after_fail,
+count(distinct (case when (c_drop_neto > 0 or (c_auth_success_otp_other > 0 and c_auth_success = 0 and c_auth_success_otp_rec = 0 and c_recovery = 0 and c_registration = 0 and c_banner = 0 and c_auth_failure = 0 and c_auth_failure_captcha = 0 and c_auth_failure_captcha_first = 0 )) then d2id else null end)) as c_drops,
+count(distinct (case when (c_hits_login > 0 and c_auth_success = 0 and c_auth_success_otp_rec = 0 and c_auth_failure = 0 and c_auth_failure_captcha = 0 and c_auth_failure_captcha_first = 0 and c_recovery > 0 and c_registration = 0 and c_banner = 0) then d2id else null end)) as c_rec_drop,
+count(distinct (case when (c_hits_login > 0 and c_auth_success = 0 and c_auth_success_otp_rec = 0 and (c_auth_failure > 0 or c_auth_failure_captcha > 0 or c_auth_failure_captcha_first > 0)) then d2id else null end)) as c_failure_100,
+count(distinct (case when (c_hits_login > 0 and c_auth_success > 0 and c_auth_failure = 0 and c_auth_failure_captcha = 0 and c_auth_failure_captcha_first = 0) then d2id else null end)) as c_login_auth_succ_100,
+count(distinct (case when (c_hits_login > 0 and c_auth_success > 0 and c_auth_success_otp_rec = 0 and (c_auth_failure_captcha > 0 or c_auth_failure_captcha_first > 0 or c_auth_failure > 0)) then d2id else null end)) as c_login_auth_succ_after_fail,
 count(distinct (case when (c_hits_login > 0 and c_auth_success_otp_rec > 0 and c_recovery > 0) then d2id else null end)) as c_login_recovery_succ,
 count(distinct (case when (c_hits_login > 0 and c_auth_success_otp_rec > 0 and c_registration = 0 and c_recovery = 0) then d2id else null end)) as c_auth_otp_notrack_rec,
 count(distinct (case when (c_hits_login > 0 and (c_banner > 0 or c_registration > 0) and c_auth_success = 0) then d2id else null end)) as c_divert,
@@ -70,9 +70,8 @@ from (
 	      platform.http.http_referer as http_referer
 	      from tracks
 	      where
-	      ds >= '@param01'
-	      and ds < '@param02'
-	      and to_date(user_timestamp) = '@param01'
+	      ds >= '2016-12-14'
+	      and ds < '2016-12-29'
 	  		and size(experiments) = 0
 	      and path <> '/login/form' 
 	      and path <> '/login/social/status'
@@ -90,9 +89,8 @@ from (
 	  where
 	  logins.path = '/login/form'
 	  and size(logins.experiments) = 0
-	  and ds >= '@param01'
-	  and ds < '@param02'
-    and to_date(logins.user_timestamp) = '@param01'
+	  and ds >= '2016-12-14'
+	  and ds < '2016-12-29'
 	  and (get_json_object(logins.event_data, '$.is_admin_otp') = 'false' or get_json_object(logins.event_data, '$.is_admin_otp') is null)
 	  and (logins.user_timestamp <= actions.user_timestamp or actions.user_timestamp is null)
 	  and (get_json_object(logins.event_data, '$.flow') is null or get_json_object(logins.event_data, '$.flow') = 'internal')
