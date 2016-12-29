@@ -7,7 +7,7 @@
     "martin.ciruzzi@mercadolibre.com"
   ],
   "process_name": "recommendations_btr",
-  "cron": "20 15 * * *",
+  "cron": "40 15 * * *",
   "extract":
   {
     "operation": "append",
