@@ -439,7 +439,7 @@ metrics {
 
 		countsOn {
 			condition {
-				path("/identity-validation/finish_phone")
+				path("/identity-validation/phone_code")
 			}
 		}
 	}
