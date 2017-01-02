@@ -7,7 +7,7 @@
     "martin.ciruzzi@mercadolibre.com"
   ],
   "process_name": "recommendations_btr",
-  "cron": "15 19 * * *",
+  "cron": "50 15 * * *",
   "extract":
   {
     "operation": "append",
@@ -52,17 +52,17 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2016-12-19",
+          "value": "DAY-9",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "2016-12-26",
+          "value": "DAY-2",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param03",
-          "value": "2016-12-28",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         }
       ]
