@@ -6,30 +6,35 @@ SELECT
   t1.client AS client,
   t1.prints AS prints,
   IF(t2.clicks IS NULL, 0, t2.clicks) AS clicks
-FROM(
-    SELECT
+FROM(SELECT
+         ds,
+         platform,
+         site_id,
+         backend,
+         client,
+         COUNT(distinct(id)) AS prints
+FROM(SELECT
+        id,
         substr(ds,1,10) AS ds,
         platform_level(device.platform,2) AS platform,
-        application.site_id,
-        v2.algorithm AS backend,
-        v2.client AS client,
-        COUNT(distinct(id)) AS prints
+        application.site_id AS site_id,
+        IF(v2.algorithm IS NULL, v2.backend_id, v2.algorithm) AS backend,
+        IF(v2.client IS NULL, v2.context, v2.client) AS client
     FROM tracks
     LATERAL VIEW json_tuple(event_data,'recommendations') v1 AS recommendations
-    LATERAL VIEW json_tuple(v1.recommendations,'track_info', 'hidden_by_client', 'algorithm', 'context' ) v2 AS track_info, hidden_by_client, algorithm, client
+    LATERAL VIEW json_tuple(v1.recommendations,'track_info', 'hidden_by_client', 'backend_id', 'client', 'algorithm', 'context' ) v2 AS track_info, hidden_by_client, backend_id, client, algorithm, context
     WHERE
         v2.track_info IS NOT NULL
         AND cast(get_json_object(v2.track_info,'$.has_recommendations') as varchar(50)) = 'true'
         AND CAST(v2.hidden_by_client as varchar(50)) = 'false'
-        AND v2.algorithm IS NOT NULL
-        AND v2.client IS NOT NULL
-        AND ds >= '@param01 06' AND ds < '@param02 06'
-    GROUP BY
-      substr(ds,1,10),
-      platform_level(device.platform,2),
-      application.site_id,
-      v2.algorithm,
-      v2.client
+        AND (v2.algorithm is not null or v2.backend_id is not null)
+        AND (v2.context is not null or v2.client is not null)
+        AND ds >= '@param01 06' AND ds < '@param02 06') a
+GROUP BY a.ds,
+         a.platform,
+         a.site_id,
+         a.backend,
+         a.client
 ) t1
 LEFT JOIN
 (
