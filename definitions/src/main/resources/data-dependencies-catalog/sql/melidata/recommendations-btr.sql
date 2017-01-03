@@ -9,27 +9,34 @@ SELECT
  t2.GMV AS GMV
 FROM(
    SELECT
-      substr(ds,1,10) AS ds,
-      platform_level(device.platform,2) AS platform,
-      application.site_id AS site_id,
-      backend,
-      client,
-      COUNT(distinct(id)) AS prints
+         ds,
+         platform,
+         site_id,
+         backend,
+         client,
+         COUNT(distinct(id)) AS prints
+FROM(SELECT
+        id,
+        substr(ds,1,10) AS ds,
+        platform_level(device.platform,2) AS platform,
+        application.site_id AS site_id,
+        IF(v2.algorithm IS NULL, v2.backend_id, v2.algorithm) AS backend,
+        IF(v2.client IS NULL, v2.context, v2.client) AS client
     FROM tracks
-    LATERAL VIEW json_tuple(event_data, 'recommendations') v1 AS recommendations
-    LATERAL VIEW json_tuple(v1.recommendations, 'algorithm','context', 'track_info', 'hidden_by_client' ) v2 AS backend, client, track_info, hidden_by_client
-    WHERE v2.track_info IS NOT NULL
-    AND v2.backend IS NOT NULL
-    AND v2.client IS NOT NULL
-    AND V2.backend <> 'empty'
-    AND CAST(V2.hidden_by_client AS VARCHAR(50)) = 'false'
-    AND ds >= '@param02 06' AND ds < '@param03 06'
-    GROUP BY
-    substr(ds,1,10),
-    application.site_id,
-    v2.backend,
-    v2.client,
-    platform_level(device.platform,2)
+    LATERAL VIEW json_tuple(event_data,'recommendations') v1 AS recommendations
+    LATERAL VIEW json_tuple(v1.recommendations,'track_info', 'hidden_by_client', 'backend_id', 'client', 'algorithm', 'context' ) v2 AS track_info, hidden_by_client, backend_id, client, algorithm, context
+    WHERE
+        v2.track_info IS NOT NULL
+        AND cast(get_json_object(v2.track_info,'$.has_recommendations') as varchar(50)) = 'true'
+        AND CAST(v2.hidden_by_client as varchar(50)) = 'false'
+        AND (v2.algorithm is not null or v2.backend_id is not null)
+        AND (v2.context is not null or v2.client is not null)
+        AND ds >= '@param02 06' AND ds < '@param03 06') a
+GROUP BY a.ds,
+         a.platform,
+         a.site_id,
+         a.backend,
+         a.client
    )t1
  LEFT JOIN(
  SELECT

@@ -7,10 +7,10 @@
     "martin.ciruzzi@mercadolibre.com"
   ],
   "process_name": "recommendations_GMV",
-  "cron": "50 15 * * *",
+  "cron": "30 17 * * *",
   "extract":
   {
-    "operation": "append",
+    "operation": "overwrite",
     "columns":
     [
       {
@@ -48,17 +48,17 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-9",
+          "value": "2016-12-06",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-2",
+          "value": "2016-12-13",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param03",
-          "value": "DAY-1",
+          "value": "2017-01-01",
           "format": "yyyy-MM-dd"
         }
       ]
