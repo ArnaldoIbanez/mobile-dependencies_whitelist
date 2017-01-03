@@ -42,7 +42,7 @@ from (
 	       when (application.site_id = 'MLM') then to_date(from_utc_timestamp(to_utc_timestamp(date_format(logins.user_timestamp, 'yyyy-MM-dd hh:mm:ss'), 'Etc/GMT-4'),'Etc/GMT-6'))
 	       when (application.site_id in ('MLC','MLV','MBO')) then to_date(from_utc_timestamp(to_utc_timestamp(date_format(logins.user_timestamp, 'yyyy-MM-dd hh:mm:ss'), 'Etc/GMT-4'),'Etc/GMT-4'))
 	       when (application.site_id in ('MPE','MEC','MCO')) then to_date(from_utc_timestamp(to_utc_timestamp(date_format(logins.user_timestamp, 'yyyy-MM-dd hh:mm:ss'), 'Etc/GMT-4'),'Etc/GMT-5'))
-	       else to_date(logins.user_timestamp) end as dia_login_hit
+	       else to_date(logins.user_timestamp) end as dia_login_hit,
 	  logins.user_timestamp as login_hit_ts,
 	  logins.device.platform as platform,
 	  get_json_object(logins.event_data, '$.source') as source,
