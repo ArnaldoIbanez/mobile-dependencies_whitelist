@@ -38,7 +38,11 @@ from (
 	(
 	  select 
 	  id as track_id,
-	  to_date(logins.user_timestamp) as dia_login_hit,
+	  case when (application.site_id in ('MLA','MLU','MLB')) then to_date(from_utc_timestamp(to_utc_timestamp(date_format(logins.user_timestamp, 'yyyy-MM-dd hh:mm:ss'), 'Etc/GMT-4'),'Etc/GMT-3'))
+	       when (application.site_id = 'MLM') then to_date(from_utc_timestamp(to_utc_timestamp(date_format(logins.user_timestamp, 'yyyy-MM-dd hh:mm:ss'), 'Etc/GMT-4'),'Etc/GMT-6'))
+	       when (application.site_id in ('MLC','MLV','MBO')) then to_date(from_utc_timestamp(to_utc_timestamp(date_format(logins.user_timestamp, 'yyyy-MM-dd hh:mm:ss'), 'Etc/GMT-4'),'Etc/GMT-4'))
+	       when (application.site_id in ('MPE','MEC','MCO')) then to_date(from_utc_timestamp(to_utc_timestamp(date_format(logins.user_timestamp, 'yyyy-MM-dd hh:mm:ss'), 'Etc/GMT-4'),'Etc/GMT-5'))
+	       else to_date(logins.user_timestamp) end as dia_login_hit
 	  logins.user_timestamp as login_hit_ts,
 	  logins.device.platform as platform,
 	  get_json_object(logins.event_data, '$.source') as source,
@@ -70,10 +74,14 @@ from (
 	      platform.http.http_referer as http_referer
 	      from tracks
 	      where
-	      ds >= '@param01'
-	      and ds < '@param02'
-	      and to_date(user_timestamp) = '@param01'
-	  		and size(experiments) = 0
+	      ds >= '@param01 20'
+	      and ds < '@param02 02'
+	      and case when (application.site_id in ('MLA','MLU','MLB')) then to_date(from_utc_timestamp(to_utc_timestamp(date_format(user_timestamp, 'yyyy-MM-dd hh:mm:ss'), 'Etc/GMT-4'),'Etc/GMT-3'))
+	               when (application.site_id = 'MLM') then to_date(from_utc_timestamp(to_utc_timestamp(date_format(user_timestamp, 'yyyy-MM-dd hh:mm:ss'), 'Etc/GMT-4'),'Etc/GMT-6'))
+	               when (application.site_id in ('MLC','MLV','MBO')) then to_date(from_utc_timestamp(to_utc_timestamp(date_format(user_timestamp, 'yyyy-MM-dd hh:mm:ss'), 'Etc/GMT-4'),'Etc/GMT-4'))
+	               when (application.site_id in ('MPE','MEC','MCO')) then to_date(from_utc_timestamp(to_utc_timestamp(date_format(user_timestamp, 'yyyy-MM-dd hh:mm:ss'), 'Etc/GMT-4'),'Etc/GMT-5'))
+                       else to_date(user_timestamp) end = '@param03'
+	      and size(experiments) = 0
 	      and path <> '/login/form' 
 	      and path <> '/login/social/status'
 	      and path like '/login%'
@@ -90,9 +98,13 @@ from (
 	  where
 	  logins.path = '/login/form'
 	  and size(logins.experiments) = 0
-	  and ds >= '@param01'
-	  and ds < '@param02'
-    and to_date(logins.user_timestamp) = '@param01'
+	  and ds >= '@param01 20'
+	  and ds < '@param02 02'
+          and case when (application.site_id in ('MLA','MLU','MLB')) then to_date(from_utc_timestamp(to_utc_timestamp(date_format(logins.user_timestamp, 'yyyy-MM-dd hh:mm:ss'), 'Etc/GMT-4'),'Etc/GMT-3'))
+                   when (application.site_id = 'MLM') then to_date(from_utc_timestamp(to_utc_timestamp(date_format(logins.user_timestamp, 'yyyy-MM-dd hh:mm:ss'), 'Etc/GMT-4'),'Etc/GMT-6'))
+		   when (application.site_id in ('MLC','MLV','MBO')) then to_date(from_utc_timestamp(to_utc_timestamp(date_format(logins.user_timestamp, 'yyyy-MM-dd hh:mm:ss'), 'Etc/GMT-4'),'Etc/GMT-4'))
+		   when (application.site_id in ('MPE','MEC','MCO')) then to_date(from_utc_timestamp(to_utc_timestamp(date_format(logins.user_timestamp, 'yyyy-MM-dd hh:mm:ss'), 'Etc/GMT-4'),'Etc/GMT-5'))
+		   else to_date(logins.user_timestamp) end = '@param03'
 	  and (get_json_object(logins.event_data, '$.is_admin_otp') = 'false' or get_json_object(logins.event_data, '$.is_admin_otp') is null)
 	  and (logins.user_timestamp <= actions.user_timestamp or actions.user_timestamp is null)
 	  and (get_json_object(logins.event_data, '$.flow') is null or get_json_object(logins.event_data, '$.flow') = 'internal')
