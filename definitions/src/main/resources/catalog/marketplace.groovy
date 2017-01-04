@@ -182,7 +182,7 @@ tracks {
         filter_tags(required: false, PropertyType.ArrayList)
         results(required: false, PropertyType.ArrayList,description:"item ids from search result")
         billboards(required: false, PropertyType.ArrayList, descriptoion: "items ids from billboard results")
-
+        isRetina(required: false, description: 'Whether the screen is retina display')
     }
 
     "/search"(platform: "/web") {
@@ -1651,7 +1651,7 @@ tracks {
     "/notification"(platform: "/mobile") {
         event_type(required: true,
                 values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown",
-                                                                   "swipe", "action_open", "pull_to_refresh"],
+                                                                   "swipe", "action_open", "pull_to_refresh", "control"],
         description: "Type of notification event")
         action_type(required: false,
                 values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture"])
