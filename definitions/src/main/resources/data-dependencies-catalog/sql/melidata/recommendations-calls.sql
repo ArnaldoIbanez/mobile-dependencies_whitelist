@@ -26,4 +26,3 @@ GROUP BY  a.ds,
           a.client,
           a.backend,
           a.platform
-
