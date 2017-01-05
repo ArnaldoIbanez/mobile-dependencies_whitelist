@@ -38,7 +38,7 @@ from (
 	(
 	  select 
 	  id as track_id,
-	  to_date(logins.user_timestamp) as dia_login_hit,
+	  @param01 as dia_login_hit,
 	  logins.user_timestamp as login_hit_ts,
 	  logins.device.platform as platform,
 	  get_json_object(logins.event_data, '$.source') as source,
@@ -70,10 +70,9 @@ from (
 	      platform.http.http_referer as http_referer
 	      from tracks
 	      where
-	      ds >= '@param01'
-	      and ds < '@param02'
-	      and to_date(user_timestamp) = '@param01'
-	  		and size(experiments) = 0
+	      ds >= '@param01 02'
+	      and ds < '@param02 02'
+	      and size(experiments) = 0
 	      and path <> '/login/form' 
 	      and path <> '/login/social/status'
 	      and path like '/login%'
@@ -90,9 +89,8 @@ from (
 	  where
 	  logins.path = '/login/form'
 	  and size(logins.experiments) = 0
-	  and ds >= '@param01'
-	  and ds < '@param02'
-    and to_date(logins.user_timestamp) = '@param01'
+	  and ds >= '@param01 02'
+	  and ds < '@param02 02'
 	  and (get_json_object(logins.event_data, '$.is_admin_otp') = 'false' or get_json_object(logins.event_data, '$.is_admin_otp') is null)
 	  and (logins.user_timestamp <= actions.user_timestamp or actions.user_timestamp is null)
 	  and (get_json_object(logins.event_data, '$.flow') is null or get_json_object(logins.event_data, '$.flow') = 'internal')
