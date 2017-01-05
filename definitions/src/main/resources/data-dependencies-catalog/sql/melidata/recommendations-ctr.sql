@@ -29,7 +29,7 @@ FROM(SELECT
         AND CAST(v2.hidden_by_client as varchar(50)) = 'false'
         AND (v2.algorithm is not null or v2.backend_id is not null)
         AND (v2.context is not null or v2.client is not null)
-        AND ds >= '@param01 06' AND ds < '@param02 06') a
+        AND ds >= '@param01 02' AND ds < '@param02 02') a
 GROUP BY a.ds,
          a.platform,
          a.site_id,
@@ -51,7 +51,7 @@ LEFT JOIN
     WHERE
         path = '/vip'
         AND v1.reco_client IS NOT NULL
-        AND ds >= '@param01 06' AND ds < '@param02 06'
+        AND ds >= '@param01 02' AND ds < '@param02 02'
     GROUP BY
         substr(ds,1,10),
         platform_level(device.platform,2),
