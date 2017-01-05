@@ -25,7 +25,7 @@ FROM(
    )recommendations
 INNER JOIN(
        	SELECT
-         	substr(ds,1,10) AS ds,
+         	'@param02' AS ds,
          	usr.user_id AS user_id,
          	order_id,
          	CAST(get_json_object(get_json_object(get_json_object(event_data,'$.order_items[0]'),'$.item'),'$.id')AS varchar(50)) AS item_id,
