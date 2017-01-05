@@ -15,7 +15,7 @@ FROM(SELECT
          COUNT(distinct(id)) AS prints
 FROM(SELECT
         id,
-        substr(ds,1,10) AS ds,
+        '@param01' AS ds,
         platform_level(device.platform,2) AS platform,
         application.site_id AS site_id,
         IF(v2.algorithm IS NULL, v2.backend_id, v2.algorithm) AS backend,
@@ -39,7 +39,7 @@ GROUP BY a.ds,
 LEFT JOIN
 (
     SELECT
-        substr(ds,1,10) AS ds,
+        '@param01' AS ds,
         platform_level(device.platform,2) AS platform,
         application.site_id AS site_id,
         reco_backend AS backend,
