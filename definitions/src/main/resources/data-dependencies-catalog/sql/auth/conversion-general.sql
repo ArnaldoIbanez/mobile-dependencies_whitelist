@@ -38,7 +38,7 @@ from (
 	(
 	  select 
 	  id as track_id,
-	  substr(logins.ds, 1, 10) as dia_login_hit,
+	  @param01 as dia_login_hit,
 	  logins.user_timestamp as login_hit_ts,
 	  logins.device.platform as platform,
 	  get_json_object(logins.event_data, '$.source') as source,
