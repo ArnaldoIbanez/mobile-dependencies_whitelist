@@ -6,6 +6,7 @@ SELECT
     client,
     count(id) AS calls
 FROM(SELECT
+FROM(SELECT
         id,
         '@param01' AS ds,
         platform_level(device.platform,2) AS platform,
@@ -19,7 +20,7 @@ WHERE v1.recommendations IS NOT NULL
 AND (v2.algorithm is not null or v2.backend_id is not null)
 AND (v2.context is not null or v2.client is not null)
 AND CAST(v2.hidden_by_client as varchar(50)) = 'false'
-AND ds >= '@param01 06' AND ds < '@param02 06'
+AND ds >= '@param01 02' AND ds < '@param02 02'
 )a
 GROUP BY  a.ds,
           a.site_id,

@@ -31,7 +31,7 @@ FROM(SELECT
         AND CAST(v2.hidden_by_client as varchar(50)) = 'false'
         AND (v2.algorithm is not null or v2.backend_id is not null)
         AND (v2.context is not null or v2.client is not null)
-        AND ds >= '@param02 06' AND ds < '@param03 06') a
+        AND ds >= '@param02 02' AND ds < '@param03 02') a
 GROUP BY a.ds,
          a.platform,
          a.site_id,
@@ -62,7 +62,7 @@ FROM(
    WHERE
    	path = '/vip'
    	AND v1.client IS NOT NULL
-   	AND ds >= '@param01 06' AND ds < '@param03 06'
+   	AND ds >= '@param01 02' AND ds < '@param03 02'
    )recommendations
 INNER JOIN(
        	SELECT
@@ -76,7 +76,7 @@ INNER JOIN(
        	LATERAL VIEW json_tuple(event_data, 'order_id', 'total_amount_usd', 'recommendations', 'congrats_seq') v1 AS order_id, total_amount_usd, recommendations, congrats_seq
        	WHERE
            	path like '/checkout/congrats%'
-            AND ds >= '@param02 06' AND ds < '@param03 06'
+            AND ds >= '@param02 02' AND ds < '@param03 02'
            	AND CAST(v1.congrats_seq AS VARCHAR(50)) = '1'
            	AND total_amount_usd < 10000
        	) orders
