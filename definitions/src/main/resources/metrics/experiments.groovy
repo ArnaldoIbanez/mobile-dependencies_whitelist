@@ -444,9 +444,9 @@ metrics {
 		}
 	}
 
-	"search/showBetterImages.retina"(description: "Segment better images experiment between retina and non retina screens"){
+	"search/showBetterImagesFixed.retina"(description: "Segment better images experiment between retina and non retina screens"){
 		startWith{
-			experiment("search/showBetterImages")
+			experiment("search/showBetterImagesFixed")
 		}
 
 		openBy {
