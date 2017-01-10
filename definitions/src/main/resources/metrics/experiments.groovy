@@ -444,13 +444,33 @@ metrics {
 		}
 	}
 
-	"search/showBetterImagesFixed.retina"(description: "Segment better images experiment between retina and non retina screens"){
+	"search/showBetterImagesFixed.retinaScreen"(description: "Better images experiment for retina screens"){
 		startWith{
-			experiment("search/showBetterImagesFixed")
+			condition {
+				and(
+						empty("experiments.search/showBetterImagesFixed", false),
+						equals('event_data.isRetina', true)
+				)
+			}
 		}
 
 		openBy {
-			"event_data.isRetina"(default: "default")
+			"experiments.search/showBetterImagesFixed"(default: "DEFAULT")
+		}
+	}
+
+	"search/showBetterImagesFixed.notRetinaScreen"(description: "Better images experiment for non retina screens"){
+		startWith{
+			condition {
+				and(
+						empty("experiments.search/showBetterImagesFixed", false),
+						equals('event_data.isRetina', false)
+				)
+			}
+		}
+
+		openBy {
+			"experiments.search/showBetterImagesFixed"(default: "DEFAULT")
 		}
 	}
 }
