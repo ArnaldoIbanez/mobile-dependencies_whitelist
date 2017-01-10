@@ -446,8 +446,6 @@ metrics {
 
 	"search/showBetterImagesFixed.retinaScreen"(description: "Better images experiment for retina screens"){
 		startWith{
-			experiment("search/showBetterImagesFixed")
-
 			condition {
 				and(
 						empty("experiments.search/showBetterImagesFixed", false),
@@ -463,8 +461,6 @@ metrics {
 
 	"search/showBetterImagesFixed.notRetinaScreen"(description: "Better images experiment for non retina screens"){
 		startWith{
-			experiment("search/showBetterImagesFixed")
-
 			condition {
 				and(
 						empty("experiments.search/showBetterImagesFixed", false),
