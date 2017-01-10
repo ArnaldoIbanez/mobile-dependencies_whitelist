@@ -6,7 +6,6 @@ SELECT
     client,
     count(id) AS calls
 FROM(SELECT
-FROM(SELECT
         id,
         '@param01' AS ds,
         platform_level(device.platform,2) AS platform,
