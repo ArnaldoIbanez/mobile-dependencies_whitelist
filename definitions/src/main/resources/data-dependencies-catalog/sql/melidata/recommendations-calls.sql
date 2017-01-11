@@ -19,7 +19,7 @@ WHERE v1.recommendations IS NOT NULL
 AND (v2.algorithm is not null or v2.backend_id is not null)
 AND (v2.context is not null or v2.client is not null)
 AND CAST(v2.hidden_by_client as varchar(50)) = 'false'
-AND ds >= '2017-01-05 02' AND ds < '2017-01-08 02') a
+AND ds >= '2017-01-05 02' AND ds < '2017-01-08 02'
 )a
 GROUP BY  a.ds,
           a.site_id,
