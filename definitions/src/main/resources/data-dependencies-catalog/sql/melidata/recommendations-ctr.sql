@@ -15,7 +15,7 @@ FROM(SELECT
          COUNT(distinct(id)) AS prints
 FROM(SELECT
         id,
-        '@param01' AS ds,
+        substr(ds,1,10) AS ds,
         platform_level(device.platform,2) AS platform,
         application.site_id AS site_id,
         IF(v2.algorithm IS NULL, v2.backend_id, v2.algorithm) AS backend,
@@ -29,7 +29,7 @@ FROM(SELECT
         AND CAST(v2.hidden_by_client as varchar(50)) = 'false'
         AND (v2.algorithm is not null or v2.backend_id is not null)
         AND (v2.context is not null or v2.client is not null)
-        AND ds >= '@param01 02' AND ds < '@param02 02') a
+        AND ds >= '2017-01-05 02' AND ds < '2017-01-08 02') a
 GROUP BY a.ds,
          a.platform,
          a.site_id,
@@ -39,7 +39,7 @@ GROUP BY a.ds,
 LEFT JOIN
 (
     SELECT
-        '@param01' AS ds,
+        substr(ds,1,10) AS ds,
         platform_level(device.platform,2) AS platform,
         application.site_id AS site_id,
         reco_backend AS backend,
@@ -51,7 +51,7 @@ LEFT JOIN
     WHERE
         path = '/vip'
         AND v1.reco_client IS NOT NULL
-        AND ds >= '@param01 02' AND ds < '@param02 02'
+        AND ds >= '2017-01-05 02' AND ds < '2017-01-08 02'
     GROUP BY
         substr(ds,1,10),
         platform_level(device.platform,2),
