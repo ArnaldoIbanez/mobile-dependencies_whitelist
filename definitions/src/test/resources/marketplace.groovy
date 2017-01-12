@@ -1028,6 +1028,10 @@ trackTests {
             checkoutStatus()
             available_methods = ["telecomm", "oxxo", "bancomer", "banamex"]
         }
+        "/checkout/payments/cash/select_store#request_permissions"(platform:"/mobile", type: TrackType.Event) {
+            permissions = "android.permission.ACCESS_FINE_LOCATION"
+            extended = true
+        }
         "/checkout/payments/transfer/select_bank"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_methods = ["telecomm", "bancomer", "banamex"]
@@ -3018,7 +3022,7 @@ trackTests {
           item_id = "MLA123456"
           discount_status = "on_deal"
           action = "vip"
-        }        
+        }
         "/myml/suggested_discounts/info/back"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/error"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/error/back"(platform: "/mobile"){item_id = "MLA123456"}
@@ -3320,7 +3324,7 @@ trackTests {
             flow = "internal"
         }
     }
-    
+
     test("Loyalty user tracking") {
         "/loyalty/user"(platform: "/") {
             in_loyalty_program = "true"
