@@ -1034,6 +1034,7 @@ tracks {
     "/checkout/payments/cash/select_store"(platform:"/mobile") {
          available_methods(required: true, type: PropertyType.ArrayList)
     }
+    "/checkout/payments/cash/select_store/select_address"(platform:"/mobile", parentPropertiesInherited: false) {}
     "/checkout/payments/cash/select_store#request_permissions"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
       permissions(required: true, type: PropertyType.String)
       extended(required: true, type: PropertyType.Boolean)

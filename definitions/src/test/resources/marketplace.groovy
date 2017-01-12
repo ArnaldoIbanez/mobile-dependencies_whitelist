@@ -1028,6 +1028,7 @@ trackTests {
             checkoutStatus()
             available_methods = ["telecomm", "oxxo", "bancomer", "banamex"]
         }
+        "/checkout/payments/cash/select_store/select_address"(platform:"/mobile") {}
         "/checkout/payments/cash/select_store#request_permissions"(platform:"/mobile", type: TrackType.Event) {
             permissions = "android.permission.ACCESS_FINE_LOCATION"
             extended = true
