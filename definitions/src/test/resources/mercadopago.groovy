@@ -107,6 +107,14 @@ trackTests {
             prog_reg_version = 0
         }
 
+        "/register/form/geolocation"(platform:"/web/mobile") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+            geo_location_code = 1
+        }
+
         "/register/success"(platform: "/web/desktop") {
             app = "registration-favorite"
             source = "email"

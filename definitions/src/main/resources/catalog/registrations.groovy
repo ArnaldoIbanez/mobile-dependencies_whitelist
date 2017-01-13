@@ -41,6 +41,10 @@ tracks {
         errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
     }
 
+    "/register/form/geolocation"(platform:"/web/mobile", type: TrackType.Event) {
+        geo_location_code(type: PropertyType.Numeric, description: "Code of geolocation result", required:true)
+    }
+
     "/register/success"(platform:"/web", type: TrackType.Event) {
         app(type: PropertyType.String, description: "Registration app", required:true)
         item_id(type: PropertyType.String, description: "Item", required:false)
