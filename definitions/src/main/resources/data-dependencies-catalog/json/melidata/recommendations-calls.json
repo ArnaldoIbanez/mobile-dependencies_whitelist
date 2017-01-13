@@ -6,8 +6,8 @@
     "carolina.alvarez@mercadolibre.com",
     "martin.ciruzzi@mercadolibre.com"
   ],
-  "process_name": "recommendations_btr",
-  "cron": "30 18 * * *",
+  "process_name": "recommendations_calls",
+  "cron": "40 19 * * *",
   "extract":
   {
     "operation": "append",
@@ -35,33 +35,20 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "prints",
+        "name": "calls",
         "type": "INTEGER"
-      },
-      {
-        "name": "orders",
-        "type": "INTEGER"
-      },
-      {
-        "name": "GMV",
-        "type": "DOUBLE"
       }
     ],
     "sql": {
-      "script": "melidata/recommendations-btr.sql",
+      "script": "melidata/recommendations-calls.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "day-9",
-          "format": "yyyy-MM-dd"
-        },
-        {
-          "name": "param02",
           "value": "day-2",
           "format": "yyyy-MM-dd"
         },
         {
-          "name": "param03",
+          "name": "param02",
           "value": "day-1",
           "format": "yyyy-MM-dd"
         }

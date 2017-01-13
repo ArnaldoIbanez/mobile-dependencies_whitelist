@@ -20,6 +20,21 @@ tracks {
     def categoryRegex = /(ROOT|[a-zA-Z]{1,3}[0-9]+)/
     def categoryPathRegex = /\[([a-zA-Z]{1,3}[0-9]+(, )?)*\]/
 
+    "/"(platform: "/", isAbstract: true) {
+        //Recommendations data
+        recommendations (required: false, description: "Recommendations data map")
+            // has_errors,
+            // hidden_by_client,
+            // client,
+            // backend_id,
+            // track_info:[
+            //              has_recommendations,
+            //              item_category,
+            //              recommended_items:[]
+            //    ]
+            //recommended_categories:[]
+    }
+    
     "/"(platform: "/mobile", isAbstract: true) {
         mode(required: false)
         deferred_time(required: false)
@@ -32,13 +47,6 @@ tracks {
         cookies(required: false)
         http_url(required: false)
         http_referer(required: false)
-        //Recommendations data
-        recommendations (required: false, description: "Recommendations data map")
-        // success_print,
-        // algorithm,
-        // context,
-        // item_category,
-        // recommended_categories
     }
 
     //EXTERNAL
@@ -174,7 +182,22 @@ tracks {
         filter_tags(required: false, PropertyType.ArrayList)
         results(required: false, PropertyType.ArrayList,description:"item ids from search result")
         billboards(required: false, PropertyType.ArrayList, descriptoion: "items ids from billboard results")
-
+        isRetina(required: false, description: 'Whether the screen is retina display')
+        //Tracks from Search Backend:
+        backend_data(required: false)
+            //ab(required: false, description:'ab testing related. to be deprecated')
+            //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
+            //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
+            //ac(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Not Comblinable')
+            //ap(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Combinable with other pages')
+            //fsm(required: false, description:'indicates on each result of paged if its full or soft match')
+            //qas(required: false, PropertyType.ArrayList, description:'auto selected filters')
+            //canonical(required: false, description:'url canonical')
+            //cli_rel_qty_configured(required: false, description:'client relationship')
+            //cli_rel_qty_link_to_category(required: false, description:'client relationship link to category')
+            //corrections(required: false, description:'corrections over query')
+            //processed_query(required: false, description:'processed query by backend')
+            //stems(required: false, description:'stems list which returns backend to stand out in frontend'
     }
 
     "/search"(platform: "/web") {
@@ -196,21 +219,6 @@ tracks {
         //last_search_position
         //block_store_position
         landing(required:false, description:'indicates landing base, premium, etc')
-        //Tracks from Search Backend:
-        backend_data(required: false)
-        //ab(required: false, description:'ab testing related. to be deprecated')
-        //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
-        //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
-        //ac(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Not Comblinable')
-        //ap(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Combinable with other pages')
-        //fsm(required: false, description:'indicates on each result of paged if its full or soft match')
-        //qas(required: false, PropertyType.ArrayList, description:'auto selected filters')
-        //canonical(required: false, description:'url canonical')
-        //cli_rel_qty_configured(required: false, description:'client relationship')
-        //cli_rel_qty_link_to_category(required: false, description:'client relationship link to category')
-        //corrections(required: false, description:'corrections over query')
-        //processed_query(required: false, description:'processed query by backend')
-        //stems(required: false, description:'stems list which returns backend to stand out in frontend'
         pads(required: false, description:'item_id from the pads returned for listings')
         layout(required: false, description:'layout of search')
         geolocation(required: false, description:'geolocation')
@@ -1643,7 +1651,7 @@ tracks {
     "/notification"(platform: "/mobile") {
         event_type(required: true,
                 values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown",
-                                                                   "swipe", "action_open", "pull_to_refresh"],
+                                                                   "swipe", "action_open", "pull_to_refresh", "control"],
         description: "Type of notification event")
         action_type(required: false,
                 values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture"])
@@ -1791,6 +1799,12 @@ tracks {
 
     //Messages
     "/notification/messages_new"(platform: "/mobile") {
+    }
+
+    //Notification suggested discounts
+    "/notification/campaigns-suggested_discounts_seller"(platform: "/mobile") {
+    }
+    "/notification/campaigns-suggested_discounts_buyer"(platform: "/mobile") {
     }
 
     "/orders"(platform: "/", isAbstract: true) {}
@@ -1958,6 +1972,10 @@ tracks {
     "/sell/change_listing_type"(platform: "/web", isAbstract: true) {
         source(required: true, description: "Source could be differents types of email, my account, etc.", type: PropertyType.String)
         seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
+    }
+    "/sell/landing"(platform: "/", isAbstract: true){ }
+    "/sell/landing/free_listing"(platform: "/", type: TrackType.View){
+        referer(required:false , description: "Notification ID")
     }
 
     "/sell/change_listing_type/single"(platform: "/", type: TrackType.View){
@@ -2145,6 +2163,8 @@ tracks {
     "/myml/suggested_discounts/landing"(platform: "/mobile", type: TrackType.View) {}
     "/myml/suggested_discounts/landing/about"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/landing/start"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/suggested_discounts/landing/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/suggested_discounts/landing/abandon"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/about"(platform: "/mobile", type: TrackType.View) {
         onboarding_step(required: false, description: "Onboarding step number")
     }
@@ -2153,20 +2173,43 @@ tracks {
     }
     "/myml/suggested_discounts/about/start"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/about/abandon"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/suggested_discounts/about/back"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/select_discount"(platform: "/mobile", type: TrackType.View) {}
     "/myml/suggested_discounts/select_discount/apply"(platform: "/mobile", type: TrackType.Event) {
         selected_discount(required: true, description: "Selected discount option")
     }
-    "/myml/suggested_discounts/select_discount/confirm"(platform: "/mobile", type: TrackType.Event) {
+    "/myml/suggested_discounts/review_discount"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/suggested_discounts/review_discount/confirm"(platform: "/mobile", type: TrackType.Event) {
         selected_discount(required: true, description: "Selected discount option")
     }
+    "/myml/suggested_discounts/select_discount/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/suggested_discounts/review_discount/back"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/info"(platform: "/mobile", type: TrackType.View) {
-        deal_status(required: true, description: "Current deal status")
+        discount_status(required: false, description: "Current deal status")
       }
     "/myml/suggested_discounts/info/exit"(platform: "/mobile", type: TrackType.Event) {
         action(required: true, description: "Selected exit action")
     }
+    "/myml/suggested_discounts/info/back"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/suggested_discounts/error"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/suggested_discounts/error/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/myml/account_balance"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/account_balance/withdraw"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+    "/myml/account_balance/send_money"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+    "/myml/account_balance/cellphone_recharge"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+    "/myml/account_balance/bill_payments"(platform: "/mobile", type: TrackType.Event) {
+        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+    }
+
+    "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/account_balance/install/go_to_store"(platform: "/mobile", type: TrackType.Event) {}
 
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
@@ -2214,4 +2257,18 @@ tracks {
     "/logout/modal"(platform: "/mobile") {
         action(required: true, type:PropertyType.String, description: "Indicates whether the logout action was either confirmed or canceled")
     }
+    
+    //Loyalty Program User Tracking
+    "/loyalty/user"(platform: "/", type: TrackType.Event) {
+        in_loyalty_program(
+            required: true, 
+            type:PropertyType.String, 
+            description: "Indicates if the user is in or out of the loyalty program"
+        )
+    }
+    //Feedback
+    "/feedback"(platform: "/", isAbstract: true) {}
+
+    "/feedback/congrats"(platform: "/") {}
+
 }

@@ -430,4 +430,45 @@ metrics {
 			set_property("deal_id", "event_data.filters.deal")
 		}
 	}
+
+
+	"identity-validation/phone.landing"(description: "Post phone challenge count") {
+		startWith {
+			experiment("auth/identity-validation_phone-landing")
+		}
+
+		countsOn {
+			condition {
+				path("/identity-validation/phone_code")
+			}
+		}
+	}
+
+	"search/showBetterImagesFixed.retinaScreen"(description: "Better images experiment for retina screens"){
+		startWith{
+			condition {
+				and(
+						empty("experiments.search/showBetterImagesFixed", false),
+						equals('event_data.isRetina', true)
+				)
+			}
+			openBy {
+				"experiments.search/showBetterImagesFixed"(default: "DEFAULT")
+			}
+		}
+	}
+
+	"search/showBetterImagesFixed.notRetinaScreen"(description: "Better images experiment for non retina screens"){
+		startWith{
+			condition {
+				and(
+						empty("experiments.search/showBetterImagesFixed", false),
+						equals('event_data.isRetina', false)
+				)
+			}
+			openBy {
+				"experiments.search/showBetterImagesFixed"(default: "DEFAULT")
+			}
+		}
+	}
 }
