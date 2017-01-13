@@ -66,6 +66,7 @@ trackTests {
             app = "registration"
             source = "email"
             captcha_showed = true
+            prog_reg_version = 0
         }
 
         "/register/form"(platform: "/web/mobile") {
@@ -73,12 +74,14 @@ trackTests {
             source = "email"
             item_id = "MCO123321"
             captcha_showed = true
+            prog_reg_version = 0
         }
 
         "/register/form/error"(platform: "/web/desktop") {
             app = "registration"
             source = "email"
             captcha_showed = true
+            prog_reg_version = 0
         }
 
         "/register/form/error"(platform: "/web/mobile") {
@@ -86,6 +89,7 @@ trackTests {
             source = "email"
             item_id = "MCO123321"
             captcha_showed = true
+            prog_reg_version = 1
         }
 
         "/register/form/another-email"(platform: "/web/desktop") {
@@ -93,12 +97,22 @@ trackTests {
             source = "email"
             item_id = "MCO123321"
             captcha_showed = true
+            prog_reg_version = 1
         }
 
         "/register/form/another-email"(platform: "/web/mobile") {
             app = "registration-question"
             source = "email"
             captcha_showed = true
+            prog_reg_version = 0
+        }
+
+        "/register/form/geolocation"(platform:"/web/mobile") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+            geo_location_code = 1
         }
 
         "/register/success"(platform: "/web/desktop") {
@@ -106,12 +120,14 @@ trackTests {
             source = "email"
             item_id = "MCO123321"
             captcha_showed = false
+            prog_reg_version = 1
         }
 
         "/register/success"(platform: "/web/mobile") {
             app = "registration"
             source = "email"
             captcha_showed = false
+            prog_reg_version = 0
         }
     }
 
