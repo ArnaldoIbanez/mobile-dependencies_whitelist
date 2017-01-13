@@ -452,10 +452,9 @@ metrics {
 						equals('event_data.isRetina', true)
 				)
 			}
-		}
-
-		openBy {
-			"experiments.search/showBetterImagesFixed"(default: "DEFAULT")
+			openBy {
+				"experiments.search/showBetterImagesFixed"(default: "DEFAULT")
+			}
 		}
 	}
 
@@ -467,10 +466,9 @@ metrics {
 						equals('event_data.isRetina', false)
 				)
 			}
-		}
-
-		openBy {
-			"experiments.search/showBetterImagesFixed"(default: "DEFAULT")
+			openBy {
+				"experiments.search/showBetterImagesFixed"(default: "DEFAULT")
+			}
 		}
 	}
 }
