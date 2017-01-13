@@ -183,6 +183,8 @@ tracks {
         results(required: false, PropertyType.ArrayList,description:"item ids from search result")
         billboards(required: false, PropertyType.ArrayList, descriptoion: "items ids from billboard results")
         isRetina(required: false, description: 'Whether the screen is retina display')
+        //Tracks from Search Backend:
+        backend_data(required: false)
     }
 
     "/search"(platform: "/web") {
@@ -204,8 +206,6 @@ tracks {
         //last_search_position
         //block_store_position
         landing(required:false, description:'indicates landing base, premium, etc')
-        //Tracks from Search Backend:
-        backend_data(required: false)
         //ab(required: false, description:'ab testing related. to be deprecated')
         //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
         //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
