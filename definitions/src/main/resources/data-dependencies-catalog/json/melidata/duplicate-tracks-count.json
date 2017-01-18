@@ -3,7 +3,7 @@
     "juan.lambre@mercadolibre.com"
   ],
   "process_name": "duplicate_tracks_count",
-  "cron": "00 12 * * *",
+  "cron": "50 12 * * *",
   "extract": {
     "operation": "overwrite",
     "columns": [
