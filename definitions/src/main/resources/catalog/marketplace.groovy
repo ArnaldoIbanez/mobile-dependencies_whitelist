@@ -299,6 +299,10 @@ tracks {
         action(required: true, values: ["expand","collapse"])
     }
 
+    "/search/carousel"(platform: "/web", type: TrackType.Event) {
+        carousel_used(required: true, values: ["next","prev","select"])
+    }
+
     //VIP FLOW
 
     "/vip"(platform: "/") {
