@@ -24,7 +24,11 @@ SELECT 'raw' AS source,
        substr(ds,1,10) AS ds,
        COUNT(id) AS total,
        COUNT(DISTINCT id) AS distinct_total
-FROM raw
-WHERE ds >= '@param01'
-AND   ds < '@param02'
+FROM (
+       SELECT ds,
+              jest(data,'id') AS id
+       FROM raw
+       WHERE ds >= '@param01'
+       AND   ds < '@param02'
+) AS raw
 GROUP BY substr(ds,1,10)
