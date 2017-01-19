@@ -2265,7 +2265,7 @@ tracks {
     "/loyalty/user"(platform: "/", type: TrackType.Event) {
         in_loyalty_program(
             required: true, 
-            type:PropertyType.String, 
+            type:PropertyType.Boolean, 
             description: "Indicates if the user is in or out of the loyalty program"
         )
     }
