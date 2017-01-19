@@ -34,7 +34,7 @@ tracks {
             //    ]
             //recommended_categories:[]
     }
-    
+
     "/"(platform: "/mobile", isAbstract: true) {
         mode(required: false)
         deferred_time(required: false)
@@ -1037,6 +1037,11 @@ tracks {
     "/checkout/payments/cash/select_store"(platform:"/mobile") {
          available_methods(required: true, type: PropertyType.ArrayList)
     }
+    "/checkout/payments/cash/select_store/select_address"(platform:"/mobile", parentPropertiesInherited: false) {}
+    "/checkout/payments/cash/select_store#request_permissions"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+      permissions(required: true, type: PropertyType.String)
+      extended(required: true, type: PropertyType.Boolean)
+    }
     "/checkout/payments/transfer"(platform:"/mobile", isAbstract: true) {}
     "/checkout/payments/transfer/select_bank"(platform:"/mobile") {
         available_methods(required: true, type: PropertyType.ArrayList)
@@ -1226,7 +1231,7 @@ tracks {
     "/checkout/congrats/call_for_auth/later"(platform: "/mobile") {}
 
     "/checkout/congrats/invalid_sec_code"(platform: "/mobile") {}
-    
+
     "/checkout/congrats/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {
 
     }
@@ -2260,7 +2265,7 @@ tracks {
     "/logout/modal"(platform: "/mobile") {
         action(required: true, type:PropertyType.String, description: "Indicates whether the logout action was either confirmed or canceled")
     }
-    
+
     //Loyalty Program User Tracking
     "/loyalty/user"(platform: "/", type: TrackType.Event) {
         in_loyalty_program(
