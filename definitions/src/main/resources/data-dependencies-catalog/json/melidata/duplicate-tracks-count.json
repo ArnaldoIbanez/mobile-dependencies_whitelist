@@ -3,7 +3,7 @@
     "juan.lambre@mercadolibre.com"
   ],
   "process_name": "duplicate_tracks_count",
-  "cron": "40 12 * * *",
+  "cron": "00 07 * * *",
   "extract": {
     "operation": "overwrite",
     "columns": [
@@ -30,7 +30,7 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "DAY-3",
           "format": "yyyy-MM-dd"
         },
         {
