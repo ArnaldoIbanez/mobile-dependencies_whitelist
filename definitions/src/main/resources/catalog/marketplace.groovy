@@ -299,6 +299,9 @@ tracks {
         action(required: true, values: ["expand","collapse"])
     }
 
+    "/search/save"(platform: "/", type: TrackType.Event) {
+    }
+
     //VIP FLOW
 
     "/vip"(platform: "/") {
