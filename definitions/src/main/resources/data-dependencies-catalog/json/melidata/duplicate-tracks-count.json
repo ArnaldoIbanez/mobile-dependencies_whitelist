@@ -13,16 +13,12 @@
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "total",
+        "name": "processed_total",
         "type": "INTEGER"
       },
       {
-        "name": "distinct_total",
+        "name": "raw_total",
         "type": "INTEGER"
-      },
-      {
-        "name": "source",
-        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
