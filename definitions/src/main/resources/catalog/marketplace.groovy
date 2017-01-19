@@ -183,6 +183,21 @@ tracks {
         results(required: false, PropertyType.ArrayList,description:"item ids from search result")
         billboards(required: false, PropertyType.ArrayList, descriptoion: "items ids from billboard results")
         isRetina(required: false, description: 'Whether the screen is retina display')
+        //Tracks from Search Backend:
+        backend_data(required: false)
+            //ab(required: false, description:'ab testing related. to be deprecated')
+            //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
+            //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
+            //ac(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Not Comblinable')
+            //ap(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Combinable with other pages')
+            //fsm(required: false, description:'indicates on each result of paged if its full or soft match')
+            //qas(required: false, PropertyType.ArrayList, description:'auto selected filters')
+            //canonical(required: false, description:'url canonical')
+            //cli_rel_qty_configured(required: false, description:'client relationship')
+            //cli_rel_qty_link_to_category(required: false, description:'client relationship link to category')
+            //corrections(required: false, description:'corrections over query')
+            //processed_query(required: false, description:'processed query by backend')
+            //stems(required: false, description:'stems list which returns backend to stand out in frontend'
     }
 
     "/search"(platform: "/web") {
@@ -204,21 +219,6 @@ tracks {
         //last_search_position
         //block_store_position
         landing(required:false, description:'indicates landing base, premium, etc')
-        //Tracks from Search Backend:
-        backend_data(required: false)
-        //ab(required: false, description:'ab testing related. to be deprecated')
-        //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
-        //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
-        //ac(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Not Comblinable')
-        //ap(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Combinable with other pages')
-        //fsm(required: false, description:'indicates on each result of paged if its full or soft match')
-        //qas(required: false, PropertyType.ArrayList, description:'auto selected filters')
-        //canonical(required: false, description:'url canonical')
-        //cli_rel_qty_configured(required: false, description:'client relationship')
-        //cli_rel_qty_link_to_category(required: false, description:'client relationship link to category')
-        //corrections(required: false, description:'corrections over query')
-        //processed_query(required: false, description:'processed query by backend')
-        //stems(required: false, description:'stems list which returns backend to stand out in frontend'
         pads(required: false, description:'item_id from the pads returned for listings')
         layout(required: false, description:'layout of search')
         geolocation(required: false, description:'geolocation')
@@ -297,6 +297,9 @@ tracks {
 
     "/search/billboard/resize"(platform: "/web", type: TrackType.Event) {
         action(required: true, values: ["expand","collapse"])
+    }
+
+    "/search/save"(platform: "/", type: TrackType.Event) {
     }
 
     //VIP FLOW
@@ -2266,8 +2269,8 @@ tracks {
     //Loyalty Program User Tracking
     "/loyalty/user"(platform: "/", type: TrackType.Event) {
         in_loyalty_program(
-            required: true,
-            type:PropertyType.String,
+            required: true, 
+            type:PropertyType.Boolean, 
             description: "Indicates if the user is in or out of the loyalty program"
         )
     }

@@ -56,6 +56,20 @@ trackTests {
             view_mode="MOSAIC"
             filter_tags=["locationFromHistory"]
             results=["232232000", "232232001", "232232002"]
+            backend_data={
+                sm="sm"
+                ab="1"
+                aa=["a1","a2"]
+                ac=["ac1","ac2"]
+                ap=["ap1","ap2"]
+                fsm="fsm"
+                ab_bucket="AB1"
+                layout="stack"
+                qas=["232232000", "232232001", "232232002"]
+                cli_rel_qty_configured="12"
+                canonical="http://home.mercadolibre.com.ar/telefonia/"
+                cli_rel_qty_link_to_category="MLA123"
+            }
         }
 
         def defaultEmptySearchInformation = {
@@ -96,20 +110,6 @@ trackTests {
             }
             results=["232232000", "232232001", "232232002"]
             billboards = ["232232000"]
-            backend_data={
-                sm="sm"
-                ab="1"
-                aa=["a1","a2"]
-                ac=["ac1","ac2"]
-                ap=["ap1","ap2"]
-                fsm="fsm"
-                ab_bucket="AB1"
-                layout="stack"
-                qas=["232232000", "232232001", "232232002"]
-                cli_rel_qty_configured="12"
-                canonical="http://home.mercadolibre.com.ar/telefonia/"
-                cli_rel_qty_link_to_category="MLA123"
-            }
             geolocation="AR:CABA"
             landing="base"
             layout_forced=true
@@ -181,6 +181,9 @@ trackTests {
         "/search/billboard/resize"(platform: "/web") {
             defaultSearchInformation()
             action = "expand"
+        }
+        "/search/save"(platform: "/") {
+            defaultSearchInformation()
         }
     }
 
@@ -1976,6 +1979,7 @@ trackTests {
             app = "registration"
             source = "email"
             captcha_showed = true
+            prog_reg_version = 0
         }
 
         "/register/form"(platform: "/web/mobile") {
@@ -1983,12 +1987,14 @@ trackTests {
             source = "email"
             item_id = "MCO123321"
             captcha_showed = true
+            prog_reg_version = 1
         }
 
         "/register/form/error"(platform: "/web/desktop") {
             app = "registration"
             source = "email"
             captcha_showed = true
+            prog_reg_version = 0
         }
 
         "/register/form/error"(platform: "/web/mobile") {
@@ -2007,6 +2013,7 @@ trackTests {
                                 field: 'lastName'
                         ]
                     ]
+            prog_reg_version = 1
         }
 
         "/register/form/another-email"(platform: "/web/desktop") {
@@ -2020,12 +2027,22 @@ trackTests {
                                 field: 'email'
                         ]
                     ]
+            prog_reg_version = 0
         }
 
         "/register/form/another-email"(platform: "/web/mobile") {
             app = "registration-question"
             source = "email"
             captcha_showed = true
+            prog_reg_version = 0
+        }
+
+        "/register/form/geolocation"(platform:"/web/mobile") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+            geo_location_code = 1
         }
 
         "/register/success"(platform: "/web/desktop") {
@@ -2033,12 +2050,14 @@ trackTests {
             source = "email"
             item_id = "MCO123321"
             captcha_showed = false
+            prog_reg_version = 0
         }
 
         "/register/success"(platform: "/web/mobile") {
             app = "registration"
             source = "email"
             captcha_showed = false
+            prog_reg_version = 1
         }
 
     }
@@ -3328,7 +3347,7 @@ trackTests {
 
     test("Loyalty user tracking") {
         "/loyalty/user"(platform: "/") {
-            in_loyalty_program = "true"
+            in_loyalty_program = true
         }
     }
 
