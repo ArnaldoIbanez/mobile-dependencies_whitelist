@@ -3342,7 +3342,7 @@ trackTests {
     
     test("Loyalty user tracking") {
         "/loyalty/user"(platform: "/") {
-            in_loyalty_program = "true"
+            in_loyalty_program = true
         }
     }
 
