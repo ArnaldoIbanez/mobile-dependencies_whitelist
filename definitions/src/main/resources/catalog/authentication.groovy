@@ -49,6 +49,5 @@ tracks {
     }
 
     "/logout"(platform: "/", type: TrackType.Event) {
-        flow(type: PropertyType.String, required: false)
     }
 }
