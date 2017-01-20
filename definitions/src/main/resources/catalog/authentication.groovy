@@ -19,7 +19,6 @@ tracks {
 
     //Login conversion
     "/login"(platform: "/", isAbstract: true) {
-        flow(type: PropertyType.String, required: false)
         source(type: PropertyType.String, required: false)
     }
 
