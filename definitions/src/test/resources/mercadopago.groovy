@@ -497,6 +497,10 @@ trackTests {
     }
 
     test("Withdraw") {
+        "/withdraw/withdrawable_money"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
         "/withdraw/take_money_out"(platform: "/mobile") {
             flow = "/withdraw"
             from = "/deep_link"
@@ -506,6 +510,23 @@ trackTests {
             from = "/deep_link"
         }
         "/withdraw/result"(platform: "/mobile") {
+            flow = "/fund_account"
+            from = "/deep_link"
+            result_status = "rejected"
+            status_detail = "internal_server_error"
+        }
+    }
+
+    test("Withdraw_advance") {
+        "/withdraw_advance/take_money_out"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
+        "/withdraw_advance/select_bank"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
+        "/withdraw_advance/result"(platform: "/mobile") {
             flow = "/fund_account"
             from = "/deep_link"
             result_status = "rejected"

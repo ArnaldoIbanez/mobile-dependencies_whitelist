@@ -19,7 +19,7 @@ tracks {
 
     //Login conversion
     "/login"(platform: "/", isAbstract: true) {
-        flow(type: PropertyType.String, required: false)
+	flow(type: PropertyType.String, required: false)
         source(type: PropertyType.String, required: false)
     }
 
@@ -50,6 +50,6 @@ tracks {
     }
 
     "/logout"(platform: "/", type: TrackType.Event) {
-        flow(type: PropertyType.String, required: false)
+	flow(type: PropertyType.String, required: false)
     }
 }

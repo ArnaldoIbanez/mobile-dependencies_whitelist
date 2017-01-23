@@ -177,9 +177,21 @@ tracks {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
+    "/withdraw/withdrawable_money"(platform: "/mobile") {}
     "/withdraw/take_money_out"(platform: "/mobile") {}
     "/withdraw/select_bank"(platform: "/mobile") {}
     "/withdraw/result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
+    "/withdraw_advance"(platform: "/mobile", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/withdraw_advance/take_money_out"(platform: "/mobile") {}
+    "/withdraw_advance/select_bank"(platform: "/mobile") {}
+    "/withdraw_advance/result"(platform: "/mobile") {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
