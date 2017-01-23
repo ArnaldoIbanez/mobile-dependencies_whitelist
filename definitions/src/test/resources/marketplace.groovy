@@ -205,6 +205,12 @@ trackTests {
         }
     }
 
+    test("Search carousel next"){
+        "/search/carousel"(platform: "/web") {
+            carousel_used="next"
+        }
+    }
+
     //Reviews
     test("Reviews tracks") {
         def dataSet = {
