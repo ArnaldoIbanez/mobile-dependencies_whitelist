@@ -299,7 +299,7 @@ tracks {
         action(required: true, values: ["expand","collapse"])
     }
 
-    "/search/carousel"(platform: "/web", type: TrackType.Event) {
+    "/search/carousel"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         carousel_used(required: true, values: ["next","prev","select"])
     }
     
