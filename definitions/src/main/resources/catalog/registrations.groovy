@@ -41,6 +41,13 @@ tracks {
         errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
     }
 
+    "/register/form/site-identification"(platform:"/web", type: TrackType.View) {
+        ip_site_id(type: PropertyType.String, description: "site_id of IP site identification", required:true)
+    }
+
+    "/register/form/site-identification/url-site-selected"(platform:"/web", type: TrackType.Event) {}
+    "/register/form/site-identification/ip-site-selected"(platform:"/web", type: TrackType.Event) {}
+
     "/register/form/geolocation"(platform:"/web/mobile", type: TrackType.Event) {
         geo_location_code(type: PropertyType.Numeric, description: "Code of geolocation result", required:true)
     }

@@ -2037,6 +2037,30 @@ trackTests {
             geo_location_code = 1
         }
 
+        "/register/form/site-identification"(platform:"/web/mobile") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+            ip_site_id = "MCO"
+        }
+
+        "/register/form/site-identification/url-site-selected"(platform:"/web/desktop") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+            ip_site_id = "MCO"
+        }
+
+        "/register/form/site-identification/ip-site-selected"(platform:"/web/desktop") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+            ip_site_id = "MCO"
+        }
+
         "/register/success"(platform: "/web/desktop") {
             app = "registration-favorite"
             source = "email"
