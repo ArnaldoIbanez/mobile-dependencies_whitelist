@@ -608,6 +608,30 @@ trackTests {
             status_detail = "internal_server_error"
         }
     }
+    
+    test("Notifications") {
+                
+        "/notification"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "sent"
+        }
+        
+        "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
+                news_id = "123"
+                campaign_id = "prueba_123"
+                event_type = "open"
+        }  
+        
+        "/notification/money_transfer_received"(platform: "/mobile") {
+                news_id = "123"
+                event_type = "open"
+        }  
+        
+        "/notification/money_transfer_request"(platform: "/mobile") {
+                news_id = "123"
+                event_type = "open"
+        }
+    }
 
 // END -- MPMOBILE TEST
 
