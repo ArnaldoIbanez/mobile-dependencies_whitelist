@@ -2206,22 +2206,23 @@ trackTests {
             event_type = "received"
             deeplink ="meli://search?q=sony"
             campaign_id = "mkt_campaign_co"
+            deal_id = "mla_1234"
             context = "notification"
         }
 
+        "/notification/campaigns_campaigns"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "received"
+            deeplink ="meli://search?q=sony"
+            campaign_id = "mkt_campaign_co"
+            context = "notification"
+        }
+        
         "/notification/campaigns_syi_freemium"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
             deeplink ="meli://search?q=sony"
             campaign_id = "registered_between_1_and_2_weeks_ago_and_have_not_listed_in_core"
-            context = "notification"
-        }
-
-        "/notification/deals_campaigns"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "received"
-            deeplink ="meli://search?q=sony"
-            deal_id = "mkt_campaign_co"
             context = "notification"
         }
 
@@ -2333,18 +2334,6 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
             item_id = "MLA122211"
-            context = "notification"
-        }
-
-        "/notification/reputation_buyer_in"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "dismiss"
-            context = "notification"
-        }
-
-        "/notification/reputation_buyer_in"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "auto_dismiss"
             context = "notification"
         }
 
@@ -2461,7 +2450,7 @@ trackTests {
             context = "notification"
         }
 
-        "/notification/payments_pending_remainder"(platform: "/mobile") {
+        "/notification/payments_pending_reminder"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
             item_id = "MLA1234"
@@ -2469,7 +2458,7 @@ trackTests {
             context = "notification"
         }
 
-        "/notification/payments_pending_remainder"(platform: "/mobile") {
+        "/notification/payments_pending_reminder"(platform: "/mobile") {
             news_id = "123"
             event_type = "dismiss"
             item_id = "MLA1234"
@@ -2477,6 +2466,13 @@ trackTests {
             context = "notification"
         }
 
+        "/notification/payments_pending_reminder"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            item_id = "MLA1234"
+            order_id = 1234321
+            context = "notification"
+        }
         "/notification/payments_pending_remainder"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
@@ -2530,28 +2526,6 @@ trackTests {
             event_type = "dismiss"
             item_id = "MLA1234"
             order_id = 1234321
-            context = "notification"
-        }
-
-        "/notification/orders_cancelled"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            item_id = "MLA1234"
-            context = "notification"
-        }
-
-        "/notification/orders_cancelled"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-            item_id = "MLA1234"
-            context = "notification"
-        }
-
-
-        "/notification/orders_cancelled"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-            item_id = "MLA1234"
             context = "notification"
         }
 
@@ -2612,41 +2586,77 @@ trackTests {
             context = "notification"
         }
 
-        "/notification/campaigns-suggested_discounts_seller"(platform: "/mobile") {
+        "/notification/campaigns_suggested_discounts_seller"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
             context = "notification"
         }
 
-        "/notification/campaigns-suggested_discounts_seller"(platform: "/mobile") {
+        "/notification/campaigns_suggested_discounts_seller"(platform: "/mobile") {
             news_id = "123"
             event_type = "dismiss"
             context = "notification"
         }
 
-        "/notification/campaigns-suggested_discounts_seller"(platform: "/mobile") {
+        "/notification/campaigns_suggested_discounts_seller"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
             context = "notification"
         }
 
-        "/notification/campaigns-suggested_discounts_buyer"(platform: "/mobile") {
+        "/notification/campaigns_suggested_discounts_buyer"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
             context = "notification"
         }
 
-        "/notification/campaigns-suggested_discounts_buyer"(platform: "/mobile") {
+        "/notification/campaigns_suggested_discounts_buyer"(platform: "/mobile") {
             news_id = "123"
             event_type = "dismiss"
             context = "notification"
         }
 
-        "/notification/campaigns-suggested_discounts_buyer"(platform: "/mobile") {
+        "/notification/campaigns_suggested_discounts_buyer"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
             context = "notification"
         }
+        
+        "/notification/loyalty_welcome"(platform: "/mobile") {
+                news_id = "123"
+                event_type = "auto_dismiss"
+                context = "notification"
+        }
+        
+        "/notification/loyalty_milestone"(platform: "/mobile") {
+                news_id = "123"
+                event_type = "auto_dismiss"
+                context = "notification"
+        }
+        
+        "/notification/loyalty_change_level"(platform: "/mobile") {
+                news_id = "123"
+                event_type = "auto_dismiss"
+                context = "notification"
+        }
+        
+        "/notification/security_enrollment"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+            context = "notification"
+        }   
+        
+        "/notification/reviews_reminder"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+            context = "notification"
+        }   
+        
+        "/notification/fraud_identity_validation"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+            context = "notification"
+        }          
     }
 
     test("orders feed from commons tracker cards"){

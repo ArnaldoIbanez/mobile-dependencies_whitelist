@@ -1662,8 +1662,7 @@ tracks {
      **/
     "/notification"(platform: "/mobile") {
         event_type(required: true,
-                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown",
-                                                                   "swipe", "action_open", "pull_to_refresh", "control"],
+                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown","swipe", "action_open", "pull_to_refresh", "control"],
         description: "Type of notification event")
         action_type(required: false,
                 values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture"])
@@ -1726,7 +1725,6 @@ tracks {
         shipment_id(required: true, type: PropertyType.Numeric)
     }
 
-
     //Seller questions
     "/notification/questions_new"(platform: "/mobile") {
         question_id(required: true)
@@ -1739,14 +1737,16 @@ tracks {
     "/notification/orders_new"(platform: "/mobile") {
         order_id(required: true, type: PropertyType.String)
     }
-    //MKT Deals DEPRECADO
-    "/notification/deals_campaigns"(platform: "/mobile") {
-        deal_id(required: true, description: "Id of the deal related to the mkt notification sent.")
+    
+    //Generic Campaigns
+    "/notification/campaigns_campaigns"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
     }
 
     //MKT Deals
     "/notification/campaigns_deals"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the mkt notification sent.")
+        deal_id(required: true, description: "Id of the deal related to the mkt notification sent.")
     }
 
     //Freemium SYI
@@ -1762,8 +1762,6 @@ tracks {
     "/notification/purchase_pending"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
     }
-    //Loyalty
-    "/notification/reputation_buyer_in"(platform: "/mobile") {}
 
     //Mediations
     "/notification/mediations_complainant"(platform: "/mobile") {
@@ -1780,21 +1778,18 @@ tracks {
         item_id(required: true, type: PropertyType.String)
     }
 
-
     "/notification/moderation_item_warning"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
     }
-
 
     "/notification/moderation_message_banned"(platform: "/mobile") {
     }
 
     //Payments
-    "/notification/payments_pending_remainder"(platform: "/mobile") {
+    "/notification/payments_pending_reminder"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
         order_id(required: true, type: PropertyType.Numeric)
-    }
-
+    }    
     "/notification/payments_approved"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
         order_id(required: true, type: PropertyType.Numeric)
@@ -1804,21 +1799,39 @@ tracks {
         item_id(required: true, type: PropertyType.String)
         order_id(required: true, type: PropertyType.Numeric)
     }
-
-    "/notification/orders_cancelled"(platform: "/mobile") {
+    
+    //Deprecated - typo
+    "/notification/payments_pending_remainder"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
-    }
+        order_id(required: true, type: PropertyType.Numeric)
+    }    
 
     //Messages
-    "/notification/messages_new"(platform: "/mobile") {
-    }
+    "/notification/messages_new"(platform: "/mobile") {}
 
     //Notification suggested discounts
-    "/notification/campaigns-suggested_discounts_seller"(platform: "/mobile") {
-    }
-    "/notification/campaigns-suggested_discounts_buyer"(platform: "/mobile") {
-    }
+    "/notification/campaigns_suggested_discounts_seller"(platform: "/mobile") {}
+    "/notification/campaigns_suggested_discounts_buyer"(platform: "/mobile") {}
+    
+    //Fraud
+    "/notification/fraud_identity_validation"(platform: "/mobile") {}
+    
+    //Loyalty
+    "/notification/loyalty_welcome"(platform: "/mobile") {}
+    "/notification/loyalty_milestone"(platform: "/mobile") {}
+    "/notification/loyalty_change_level"(platform: "/mobile") {}
+    
+    //Reviews
+    "/notification/reviews_reminder"(platform: "/mobile") {}
+    
+    //Security
+    "/notification/security_enrollment"(platform: "/mobile") {}
 
+    /**
+     * END NOTIFICATIONS
+     **/ 
+    
+    
     "/orders"(platform: "/", isAbstract: true) {}
 
     "/orders/ordercreated"(platform: "/") {

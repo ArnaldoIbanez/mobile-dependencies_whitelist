@@ -245,6 +245,30 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    
+    /**
+     * NOTIFICATIONS
+     * disclaimer: when the action_type is set, the event_type should be always 'open'
+     **/
+    "/notification"(platform: "/mobile") {
+        event_type(required: true,
+                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown"],
+        description: "Type of notification event")
+        news_id(required: false, description: "Identifier of the notification generated")
+    }
+    
+    //Campañas
+    "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+    } 
+    
+    //Money
+    "/notification/money_transfer_received"(platform: "/mobile") {}
+    "/notification/money_transfer_request"(platform: "/mobile") {}
+    
+    /**
+     * END NOTIFICATIONS
+     **/    
 
     // END -- MPMOBILE
 
