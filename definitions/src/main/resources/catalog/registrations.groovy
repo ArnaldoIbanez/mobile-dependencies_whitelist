@@ -34,10 +34,12 @@ tracks {
     }
 
     "/register/form/error"(platform:"/web", type: TrackType.View) {
+        errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
         errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
     }
 
     "/register/form/another-email"(platform:"/web", type: TrackType.View) {
+        errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
         errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
     }
 
