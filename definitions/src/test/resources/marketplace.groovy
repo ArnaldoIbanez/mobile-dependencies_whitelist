@@ -2019,7 +2019,23 @@ trackTests {
                                 field: 'lastName'
                         ]
                     ]
+            errors_validation = 'back'
             prog_reg_version = 1
+        }
+
+        "/register/form/error"(platform: "/web/mobile") {
+            app = "registration-question"
+            source = "email"
+            item_id = "MCO123321"
+            captcha_showed = true
+            errors = [
+                        [
+                                code:2,
+                                field: 'lastName'
+                        ]
+                    ]
+            errors_validation = 'front'
+            prog_reg_version = 0
         }
 
         "/register/form/another-email"(platform: "/web/desktop") {
@@ -2033,6 +2049,7 @@ trackTests {
                                 field: 'email'
                         ]
                     ]
+            errors_validation = 'back'
             prog_reg_version = 0
         }
 
