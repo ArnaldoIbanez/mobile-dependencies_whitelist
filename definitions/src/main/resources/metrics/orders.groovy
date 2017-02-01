@@ -5,7 +5,7 @@ metrics {
 	"orders"(description: "all orders, does not include carrito", compute_order: true) {
 		countsOn {
 			condition {
-				path(regex("/checkout(/.*|\$)"))
+				path(regex("^/checkout(/.*|\$)"))
 				equals("event_data.first_for_order", true)
 			}
 		}
@@ -39,7 +39,7 @@ metrics {
 	"orders.congrats"(description: "/checkout/congrats* unique for each order_id (congrats_seq = 1)", compute_order: true) {
 		countsOn {
 			condition {
-				path(regex("/checkout/congrats(/.*|\$)"))
+				path(regex("^/checkout/congrats(/.*|\$)"))
 				equals("event_data.congrats_seq", 1)
 			}
 		}
@@ -61,6 +61,7 @@ metrics {
 
 		countsOn {
 			condition {
+				path(regex("^/checkout(/.*|\$)"))
 				and(
 						equals("event_data.first_for_order", true),
 						empty("event_data.order_items.item.official_store_id", false)
@@ -76,6 +77,7 @@ metrics {
 
 		countsOn {
 			condition {
+				path(regex("^/checkout(/.*|\$)"))
 				and(
 						equals("event_data.first_for_order", true),
 						empty("event_data.order_items.item.deal_ids", false)
@@ -87,6 +89,7 @@ metrics {
 	"orders.samedeal"(description: "orders for items in the same deal of exposition", compute_order: true) {
 		countsOn {
 			condition {
+				path(regex("^/checkout(/.*|\$)"))
 				and(
 					equals("event_data.first_for_order", true),
 					sameDeal("event_data.order_items.item.deal_ids", true)
@@ -98,6 +101,7 @@ metrics {
 	"orders.sameitem"(description: "orders for items in the same item of exposition", compute_order: true) {
 		countsOn {
 			condition {
+				path(regex("^/checkout(/.*|\$)"))
 				and(
 					equals("event_data.first_for_order", true),
 					equals("event_data.order_items.item.id", property("item_id"))
@@ -109,7 +113,7 @@ metrics {
 	"orders.congrats.sameorder"(description: "congrats for order in the same order_id of exposition", compute_order: true) {
 		countsOn {
 			condition {
-				path(regex("/checkout/congrats(/.*|\$)"))
+				path(regex("^/checkout/congrats(/.*|\$)"))
 				and(
 						equals("event_data.congrats_seq", 1),
 						equals("event_data.order_id", property("order_id"))
