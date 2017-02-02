@@ -45,7 +45,7 @@ metrics {
 		}
 	}
 
-	"purchases.congrats"(description: "/cart/checkout/congrats unique for each purchase_id (congrats_seq = 1)", compute_order: true) {
+	"purchases"(description: "/cart/checkout/congrats unique for each purchase_id (congrats_seq = 1)", compute_order: true) {
 		countsOn {
 			condition {
 				path("/cart/checkout/congrats")
