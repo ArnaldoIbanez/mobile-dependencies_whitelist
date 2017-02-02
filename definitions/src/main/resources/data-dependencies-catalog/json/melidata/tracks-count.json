@@ -31,7 +31,7 @@
     ],
     "sql": {
 
-      "script": "tracks-count.sql",
+      "script": "melidata/tracks-count.sql",
       "parameters": [
         {
           "name": "param01",
