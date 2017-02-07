@@ -785,6 +785,9 @@ trackTests {
             location = "34.677755,56.444433"
             geolocation_method = "platform"
         }
+        "/checkout/geolocation"(platform:"/mobile", type:TrackType.Event){
+            "geolocation_error" = "TIMEOUT"
+        }
         "/checkout/shipping/select_method"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             //List of available shippingMethods
