@@ -443,6 +443,7 @@ trackTests {
             free_shipping = true
             local_pick_up = false
             category_path = ["MLA1234","MLA6789"]
+            reputation_level = "green_5"
         }
 
         "/vip"(platform:"/mobile", dataSet)
