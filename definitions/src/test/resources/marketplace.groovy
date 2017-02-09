@@ -2193,8 +2193,10 @@ trackTests {
     test("Mobile Notifications"){
 
         "/notification_center"(platform: "/mobile"){}
-
-
+        "/notification_center/abort"(platform: "/mobile"){}		
+        "/notification_center/back"(platform: "/mobile"){}
+        "/notification_center/failure"(platform: "/mobile"){}
+    
         "/notification_center"(platform: "/mobile") {
           newsgroup_id = "12332323"
           event_type = "open"
@@ -2297,10 +2299,16 @@ trackTests {
             type_layout: "standard"
         }
         "/notification_center/campaigns-suggested_discounts_seller"(platform: "/mobile"){
-        
+            newsgroup_id: "campaigns-suggested_discounts_seller-142593788-MLA645507294"
+            event_type: "open"
+            deeplink: "meli://item?id=MLA645507294"
+            type_layout: "standard"
         }
         "/notification_center/fraud-identity_validation"(platform: "/mobile"){
-        
+            newsgroup_id: "fraud-identity_validation-142593788"
+            event_type: "open"
+            deeplink: "meli://item?id=MLA645507294"
+            type_layout: "standard"
         }
 
         "/notification"(platform: "/mobile") {

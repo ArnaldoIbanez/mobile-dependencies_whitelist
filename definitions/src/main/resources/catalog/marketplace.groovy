@@ -1664,6 +1664,10 @@ tracks {
         action_type(required: false, type: PropertyType.String,  values: ["messages", "message", "vop", "picture", "shipping_print_label", "claims", "tracking", "feedback", "changepayment", "reply", "ask", "questions-buy"])
         type_layout(required: false, type: PropertyType.String, values: ["bullet_list", "order", "picture", "standard"])
     }
+    
+    "/notification_center/abort"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/back"(platform: "/mobile", type: TrackType.Event) {}		
+    "/notification_center/failure"(platform: "/mobile", type: TrackType.Event) {}    
 
     "/notification_center/questions-buyer"(platform: "/mobile", type: TrackType.Event) {}
     "/notification_center/questions-seller"(platform: "/mobile", type: TrackType.Event) {}
