@@ -443,6 +443,7 @@ trackTests {
             free_shipping = true
             local_pick_up = false
             category_path = ["MLA1234","MLA6789"]
+            reputation_level = "green_5"
         }
 
         "/vip"(platform:"/mobile", dataSet)
@@ -2019,7 +2020,23 @@ trackTests {
                                 field: 'lastName'
                         ]
                     ]
+            errors_validation = 'back'
             prog_reg_version = 1
+        }
+
+        "/register/form/error"(platform: "/web/mobile") {
+            app = "registration-question"
+            source = "email"
+            item_id = "MCO123321"
+            captcha_showed = true
+            errors = [
+                        [
+                                code:2,
+                                field: 'lastName'
+                        ]
+                    ]
+            errors_validation = 'front'
+            prog_reg_version = 0
         }
 
         "/register/form/another-email"(platform: "/web/desktop") {
@@ -2033,6 +2050,7 @@ trackTests {
                                 field: 'email'
                         ]
                     ]
+            errors_validation = 'back'
             prog_reg_version = 0
         }
 
@@ -2049,6 +2067,30 @@ trackTests {
             captcha_showed = true
             prog_reg_version = 0
             geo_location_code = 1
+        }
+
+        "/register/form/site-identification"(platform:"/web/mobile") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+            ip_site_id = "MCO"
+        }
+
+        "/register/form/site-identification/url-site-selected"(platform:"/web/desktop") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+            ip_site_id = "MCO"
+        }
+
+        "/register/form/site-identification/ip-site-selected"(platform:"/web/desktop") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+            ip_site_id = "MCO"
         }
 
         "/register/success"(platform: "/web/desktop") {

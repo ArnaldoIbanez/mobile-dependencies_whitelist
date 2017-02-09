@@ -332,6 +332,7 @@ tracks {
         promoted_items_clicked(required: false, descripcion: 'indicates whether clicked promoted items before reaching this vip')
         billboard_clicked_position(required:false, type: PropertyType.Numeric)
         store_type(required: false, description: "Indicates store type")
+        reputation_level(required: false, description: "Seller's reputation level")
     }
 
     "/vip"(platform: "/web") {
