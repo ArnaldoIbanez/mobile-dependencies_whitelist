@@ -752,10 +752,10 @@ tracks {
         location(required: false, type: PropertyType.String)
         geolocation_method(required: false, type: PropertyType.String)
     }
-    "/checkout/geolocation" (platform: "/mobile") {
+    "/checkout/geolocation" (platform: "/mobile", type: TrackType.Event) {
         geolocation_error(required: true, description: "Why the geo failed")
     }
-    "/cart/cho/geolocation" (platform: "/mobile") {
+    "/cart/cho/geolocation" (platform: "/mobile", type: TrackType.Event) {
         geolocation_error(required: true, description: "Why the geo failed")
     }
     "/checkout/shipping"(platform: "/mobile", isAbstract: true) {
