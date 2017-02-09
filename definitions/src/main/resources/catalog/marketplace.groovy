@@ -1648,34 +1648,62 @@ tracks {
         go(required: false, type: PropertyType.String, description: "Destination URL of the marketing campaign.")
     }
 
-    "/notification_center"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/notification_center/abort"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/notification_center/back"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/notification_center/failure"(platform: "/mobile", type: TrackType.Event) {}
+    /**
+    * NOTIFICATIONS
+    */
 
     /**
-     * NOTIFICATIONS
-     * disclaimer: when the action_type is set, the event_type should be always 'open'
+    * NOTIFICATIONS CENTER
+    */
+    "/notification_center"(platform: "/mobile", type: TrackType.Event) {
+        newsgroup_id(required: false, type: PropertyType.String)
+        status(required: false, type: PropertyType.String, values:["unread", "read"])
+        event_type(required: false, values: ["open", "pull_to_refresh", "swipe"])
+        deeplink(required: false, type: PropertyType.String)
+        action_type(required: false, type: PropertyType.String,  values: ["messages", "message", "vop", "picture", "shipping_print_label", "claims", "tracking", "feedback", "changepayment", "reply", "ask", "questions-buy"])
+        type_layout(required: false, type: PropertyType.String, values: ["bullet_list", "order", "picture", "standard"])
+    }
+
+    "/notification_center/questions-buyer"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/questions-seller"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/orders-buyer"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/orders-seller"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/security-enrollment-legacy"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/mediations-complainant-legacy"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/purchase-pending-legacy"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/loyalty"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/listings"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/campaigns-deals"(platform: "/mobile", type: TrackType.Event) {
+        campaign_id(required: false, type: PropertyType.String, description: "Id of the campaign related to the mkt notification sent.")
+        deal_id(required: false, description: "Id of the deal related to the mkt notification sent.")    
+    }
+    "/notification_center/campaigns-campaigns"(platform: "/mobile", type: TrackType.Event) {
+        campaign_id(required: false, description: "Id of the campaign related to the campaigns notification sent.")
+    }
+    
+    "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/campaigns-suggested_discounts_seller"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/fraud-identity_validation"(platform: "/mobile", type: TrackType.Event) {}
+    
+    /**
+     * NOTIFICATIONS TRAY
      **/
     "/notification"(platform: "/mobile") {
         event_type(required: true,
-                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown","swipe", "action_open", "pull_to_refresh", "control"],
+                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control"],
         description: "Type of notification event")
         action_type(required: false,
-                values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture"])
+                values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer"])
         deeplink(required: false, description: "The link were the notification should navigate to, if applies")
-        context(required: false, values: ["notification", "notification_center"], description: "Current context of the notification")
-
-        //FOR NOTIFICATIONS - TRAY
+        
+        //For event_type:autodismiss, indicates why the notification was dismissed
+        source(required: false,
+               values: ["notification_center","logout","overwrite"])
+        
         news_id(required: false, description: "Identifier of the notification generated")
         notification_style(required: false, description: "The notification style used when displaying the notification to the user.")
 
-        // FOR NOTIFICATION CENTER
-        newsgroup_id(required: false, description: "Identifier of the notification generated")
-        status(required: false, values: ["read", "unread"], description: "*Deprecated*: Just for old NotifCenter.")
+        status(required: false, values: ["read", "unread"], deprecated: true, description: "*Deprecated*: Just for old NotifCenter.")
     }
     //Tu producto está en camino
     "/notification/shipping_shipped"(platform: "/mobile") {
@@ -1724,6 +1752,12 @@ tracks {
         order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
         shipment_id(required: true, type: PropertyType.Numeric)
     }
+    
+    //Paquete entregado
+    "/notification/shipping_delivered"(platform: "/mobile") {
+        order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+        shipment_id(required: true, type: PropertyType.Numeric)
+    }    
 
     //Seller questions
     "/notification/questions_new"(platform: "/mobile") {
@@ -1770,19 +1804,19 @@ tracks {
     }
 
     //Moderation
-    "/notification/moderation_item_to_patch"(platform: "/mobile") {
+    "/notification/moderations_item_to_patch"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
     }
 
-    "/notification/moderation_item_forbidden"(platform: "/mobile") {
+    "/notification/moderations_item_forbidden"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
     }
 
-    "/notification/moderation_item_warning"(platform: "/mobile") {
+    "/notification/moderations_item_warning"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
     }
 
-    "/notification/moderation_message_banned"(platform: "/mobile") {
+    "/notification/moderations_message_banned"(platform: "/mobile") {
     }
 
     //Payments
