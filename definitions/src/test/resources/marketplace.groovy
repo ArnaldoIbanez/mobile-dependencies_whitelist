@@ -3358,6 +3358,8 @@ trackTests {
             source = "QUESTION"
             has_error = true
             flow = "internal"
+            old_user_id = "123456"
+            old_user_nick = "nick"
         }
         "/login/form"(platform: "/", type: TrackType.View) {
             source = "FAVORITE"
@@ -3397,7 +3399,15 @@ trackTests {
             flow = "internal"
             is_otp = false
             is_admin_otp = false
+            old_user_id = "123456"
+            old_user_nick = "nick"
         }
+	"/login/auth/challenge_success"(platform: "/", type: TrackType.Event) {
+            challenge = "pass"
+            source = "MSL_DEFAULT"
+            is_otp = false
+            is_admin_otp = false
+	}
         "/logout"(platform: "/", type: TrackType.Event) {
             flow = "internal"
         }
