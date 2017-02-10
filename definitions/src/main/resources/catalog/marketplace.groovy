@@ -755,9 +755,6 @@ tracks {
     "/checkout/geolocation" (platform: "/mobile", type: TrackType.Event) {
         geolocation_error(required: true, description: "Why the geo failed")
     }
-    "/cart/cho/geolocation" (platform: "/mobile", type: TrackType.Event) {
-        geolocation_error(required: true, description: "Why the geo failed")
-    }
     "/checkout/shipping"(platform: "/mobile", isAbstract: true) {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
