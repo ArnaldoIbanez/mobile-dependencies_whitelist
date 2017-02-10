@@ -1,0 +1,40 @@
+{
+  "users": [
+    "juan.lambre@mercadolibre.com"
+  ],
+  "process_name": "missing_tracks",
+  "cron": "30 06 * * *",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "missing",
+        "type": "INTEGER"
+      },
+      {
+        "name": "total",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "melidata/missing-tracks.sql",
+      "parameters": [
+        {
+          "name": "min_date",
+          "value": "DAY-2",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "max_date",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
