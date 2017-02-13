@@ -30,7 +30,7 @@
       }
     ],
     "sql": {
-      "script": "emailmkt/push-notifications-metrics",
+      "script": "emailmkt/push-notifications-metrics.sql",
       "parameters": [
         {
           "name": "param01",
