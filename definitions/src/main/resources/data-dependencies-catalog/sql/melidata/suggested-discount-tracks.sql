@@ -1,4 +1,4 @@
-select substr(ds,1,10) as day,
+select substr(ds,1,10) as ds,
 tracks.path as path,
 device.platform as platform,
 type as type,
