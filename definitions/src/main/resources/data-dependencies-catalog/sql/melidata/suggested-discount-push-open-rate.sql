@@ -1,4 +1,4 @@
-select substr(ds,1,10) as day,
+select substr(ds,1,10) as ds,
 tracks.path as path,
 device.platform as platform,
 get_json_object(tracks.event_data,'$.event_type') AS event_type,
