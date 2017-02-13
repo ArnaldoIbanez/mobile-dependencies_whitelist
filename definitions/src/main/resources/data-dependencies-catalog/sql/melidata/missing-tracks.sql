@@ -1,7 +1,7 @@
 WITH distinct_raw AS (
   SELECT DISTINCT jest(data, 'id') AS id, ds
   FROM raw
-  WHERE ds >= '@min_date' AND ds < '@max_date'  
+  WHERE ds >= '@param01' AND ds < '@param02'  
 )
 
 SELECT raw_complete.ds AS ds,
@@ -13,7 +13,7 @@ FROM (
   INNER JOIN (
     SELECT DISTINCT id, ds
     FROM tracks
-    WHERE ds >= '@min_date' AND ds < '@max_date'
+    WHERE ds >= '@param01' AND ds < '@param02'
   ) complete
   ON distinct_raw.id = complete.id
   GROUP BY distinct_raw.ds

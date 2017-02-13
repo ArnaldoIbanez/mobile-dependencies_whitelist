@@ -10,7 +10,7 @@
       {
         "name": "ds",
         "type": "DATE",
-        "format": "yyyy-MM-dd"
+        "format": "yyyy-MM-dd HH"
       },
       {
         "name": "missing",
@@ -25,12 +25,12 @@
       "script": "melidata/missing-tracks.sql",
       "parameters": [
         {
-          "name": "min_date",
+          "name": "param01",
           "value": "DAY-2",
           "format": "yyyy-MM-dd"
         },
         {
-          "name": "max_date",
+          "name": "param02",
           "value": "DAY-1",
           "format": "yyyy-MM-dd"
         }
