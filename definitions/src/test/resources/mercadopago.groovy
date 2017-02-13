@@ -667,6 +667,8 @@ trackTests {
             source = "QUESTION"
             flow = "internal"
             has_error = true
+            old_user_id = "123456"
+            old_user_nick = "nick"
         }
         "/login/form"(platform: "/", type: TrackType.View) {
             source = "FAVORITE"
@@ -704,6 +706,14 @@ trackTests {
             source = "LFE"
             reason = [errorId: 'invalid_password']
             flow = "internal"
+            is_otp = false
+            is_admin_otp = false
+            old_user_id = "123456"
+            old_user_nick = "nick"
+        }
+        "/login/auth/challenge_success"(platform: "/", type: TrackType.Event) {
+            source = "MSL_DEFAULT"
+            challenge = "pass"
             is_otp = false
             is_admin_otp = false
         }
