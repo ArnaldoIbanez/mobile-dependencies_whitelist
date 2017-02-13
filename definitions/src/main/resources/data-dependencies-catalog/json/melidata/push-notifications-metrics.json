@@ -30,7 +30,7 @@
       }
     ],
     "sql": {
-      "script": "melidata/push-notifications-metrics",
+      "script": "emailmkt/push-notifications-metrics",
       "parameters": [
         {
           "name": "param01",
