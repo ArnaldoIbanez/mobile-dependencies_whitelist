@@ -32,7 +32,7 @@ class QueryFormatter {
             sqlscripts.each { scriptname ->
                 String scriptValue = jsonObject.extract?.sql?.script
                 if (scriptname.equals(scriptValue)) {
-                    jsonObject.extract?.sql?.script = sqlSnippets[scriptname]
+                    jsonObject.extract?.sql?.put("script", sanitize(sqlSnippets[scriptname]))
                     list.add(sanitize(JsonOutput.toJson(jsonObject)))
                 }
             }
