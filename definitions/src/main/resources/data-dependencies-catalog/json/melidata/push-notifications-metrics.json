@@ -5,7 +5,7 @@
   "process_name": "push-notifications-metrics",
   "cron": "10 00 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "ds",
