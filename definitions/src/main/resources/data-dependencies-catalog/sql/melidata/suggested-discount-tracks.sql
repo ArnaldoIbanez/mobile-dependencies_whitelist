@@ -12,5 +12,5 @@ from tracks
 where ds >= '@param01'
 and ds <= '@param02'
 and tracks.path like '/myml/suggested_discounts%'
-group by substr(ds,1,10), device.platform, type, tracks.path, get_json_object(tracks.event_data,'$.event_data')
-order by substr(ds,1,10), device.platform, type, tracks.path, get_json_object(tracks.event_data,'$.event_data');
+group by substr(ds,1,10), device.platform, type, tracks.path, get_json_object(tracks.event_data,'$.item_id'), get_json_object(tracks.event_data,'$.selected_discount'), get_json_object(tracks.event_data,'$.discount_status'), get_json_object(tracks.event_data,'$.action'), get_json_object(tracks.event_data,'$.onboarding_step')
+order by substr(ds,1,10), device.platform, type, tracks.path, item_id, selected_discount, discount_status, action, onboarding_step;
