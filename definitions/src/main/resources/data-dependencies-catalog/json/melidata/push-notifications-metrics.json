@@ -5,12 +5,12 @@
   "process_name": "push-notifications-metrics",
   "cron": "10 00 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "ds",
         "type": "DATE",
-        "format": "yyyy-MM-dd hh"
+        "format": "yyyy-MM-dd HH"
       },
       {
         "name": "campaign_id",
