@@ -1878,6 +1878,7 @@ tracks {
 
         buyer(required: true, description: "buyer information") // id, nickname
         seller(required: true, description: "seller information") // id, nickname
+        is_carrito(required: true, description: "Whetever this order was created by a carrito or not ")
     }
 
     "/email"(platform: "/email", isAbstract: true) {
