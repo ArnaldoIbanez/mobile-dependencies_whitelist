@@ -10,7 +10,7 @@
       {
         "name": "ds",
         "type": "DATE",
-        "format": "yyyy-MM-dd"
+        "format": "yyyy-MM-dd hh"
       },
       {
         "name": "campaign_id",
