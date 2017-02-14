@@ -24,16 +24,16 @@ class QueryFormatter {
         return map
     }
 
-    def merge = { jsonSnippets, sqlSnippets ->
+    def merge(jsonSnippets, sqlSnippets) {
         def sqlscripts = sqlSnippets.keySet()
         def list = []
         jsonSnippets.values().each{ json ->
             Map jsonObject = new JsonSlurper().parseText(json)
             sqlscripts.each { scriptname ->
-                String scriptValue = jsonObject.extract?.sql?.script
+                String scriptValue = jsonObject.extract.sql.script
                 if (scriptname.equals(scriptValue)) {
-                    jsonObject.extract?.sql?.put("script", sanitize(sqlSnippets[scriptname]))
-                    list.add(sanitize(JsonOutput.toJson(jsonObject)))
+                    jsonObject.extract.sql.put("script", sanitize(sqlSnippets[scriptname]))
+                    list.add(JsonOutput.toJson(jsonObject))
                 }
             }
         }
@@ -42,7 +42,7 @@ class QueryFormatter {
 
     def sanitize = { query ->
         //def sanitizedQuery = new String(query)
-        return query.replace("\n", " ").replace("\t"," ").replace("     "," ")
+        return query.replace("\n", " ").replace("\t"," ").replace("     "," ").replace("\"", "\\\"")
     }
 
     def buildJson() {
