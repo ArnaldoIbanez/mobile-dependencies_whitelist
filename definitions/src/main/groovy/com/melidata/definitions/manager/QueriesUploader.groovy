@@ -23,6 +23,7 @@ class QueriesUploader {
     }
 
     def upload() {
+        println("---------- TRANKAAAAAAAA ---------------")
         println("Starting uploader")
         println("Reading [${queriesDir}]")
 
@@ -32,7 +33,8 @@ class QueriesUploader {
 
         println("Uploading ${LAST_VERSION_FILE_NAME}")
 
-        s3Controller.saveFile(LAST_VERSION_FILE_NAME, json, JSON_CONTENT)
+        new File("/tmp/delme.json").write(json)
+        //s3Controller.saveFile(LAST_VERSION_FILE_NAME, json, JSON_CONTENT)
 
         println("Finish")
     }
