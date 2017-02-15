@@ -2241,6 +2241,27 @@ tracks {
     "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
     "/myml/account_balance/install/go_to_store"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/myml/sales"(platform: "/mobile", isAbstract: true) {}
+    "/myml/sales/detail"(platform: "/mobile", isAbstract: true) {}
+    "/myml/sales/detail/flow_selector"(platform: "/mobile", type: TrackType.View) {
+        flow_selected(required: true, type: PropertyType.String)
+    }
+    "/myml/sales/detail/deliver_product"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/sales/detail/deliver_product#submit"(platform: "/mobile", type: TrackType.Event) {
+        action_label(required: true, type: PropertyType.String)
+    }
+    "/myml/sales/detail/date_will_receive_product"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/sales/detail/deliver_product/action"(platform: "/mobile", type: TrackType.Event) {
+        action_label(required:true, type: PropertyType.String)
+        order_id(required: true, type: PropertyType.String)
+        shipping_id(required: false, type: PropertyType.String)
+        success(required: true, type: PropertyType.Boolean)
+    }
+    "/myml/sales/detail/send_feedback"(platform: "/mobile", type: TrackType.Event) {
+        order_id(required: true, type: PropertyType.String)
+        success(required: true, type: PropertyType.Boolean)
+    }
+
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
         user_phone_number()
