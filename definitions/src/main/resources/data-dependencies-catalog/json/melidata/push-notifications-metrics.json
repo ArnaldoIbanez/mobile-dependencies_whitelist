@@ -9,7 +9,7 @@
     "columns": [
       {
         "name": "ds",
-        "type": "DATE",
+        "type": "DATETIME",
         "format": "yyyy-MM-dd HH"
       },
       {
@@ -39,7 +39,7 @@
         },
         {
           "name": "param02",
-          "value": "DAY",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
       ]
