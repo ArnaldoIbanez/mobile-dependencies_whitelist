@@ -23,7 +23,6 @@ class QueriesUploader {
     }
 
     def upload() {
-        println("------------- TRANKAAAAAAAA ------------")
         println("Starting uploader")
         println("Reading [${queriesDir}]")
 

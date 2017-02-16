@@ -11,4 +11,6 @@ and tracks.path in ('/notification/campaigns_suggested_discounts_seller','/notif
 and get_json_object(tracks.event_data,'$.context') = 'notification'
 and device.platform in ('/mobile/android', '/mobile/ios')
 group by substr(ds,1,10), tracks.path, device.platform, get_json_object(tracks.event_data,'$.event_type')
-order by substr(ds,1,10), tracks.path, device.platform, get_json_object(tracks.event_data,'$.event_type');
+order by substr(ds,1,10), tracks.path, device.platform, event_type;
+
+
