@@ -126,6 +126,7 @@ metrics {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
+				equals("event_data.is_carrito", true)
 			}
 		}
 	}
