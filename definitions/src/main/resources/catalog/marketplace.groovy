@@ -2244,18 +2244,18 @@ tracks {
     "/myml/sales"(platform: "/mobile", isAbstract: true) {}
     "/myml/sales/detail"(platform: "/mobile", isAbstract: true) {}
     "/myml/sales/detail/flow_selector"(platform: "/mobile", type: TrackType.View) {
-        flow_selected(required: true, type: PropertyType.String)
+        flow_selected(required: true, type: PropertyType.String, description: "use case selected based on incoming parameters")
     }
     "/myml/sales/detail/deliver_product"(platform: "/mobile", type: TrackType.View) {}
     "/myml/sales/detail/deliver_product#submit"(platform: "/mobile", type: TrackType.Event) {
-        action_label(required: true, type: PropertyType.String)
+        action_label(required: true, type: PropertyType.String, description: "action selected when submitting: send_feedback or update shipping")
     }
     "/myml/sales/detail/date_will_receive_product"(platform: "/mobile", type: TrackType.View) {}
     "/myml/sales/detail/deliver_product/action"(platform: "/mobile", type: TrackType.Event) {
-        action_label(required:true, type: PropertyType.String)
+        action_label(required:true, type: PropertyType.String, description: "action performed, post feedback or update shipping")
         order_id(required: true, type: PropertyType.String)
         shipping_id(required: false, type: PropertyType.String)
-        success(required: true, type: PropertyType.Boolean)
+        success(required: true, type: PropertyType.Boolean, description: "true if the action was successful")
     }
     "/myml/sales/detail/send_feedback"(platform: "/mobile", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.String)
