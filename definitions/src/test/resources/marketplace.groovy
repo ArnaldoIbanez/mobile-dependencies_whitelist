@@ -2238,7 +2238,7 @@ trackTests {
             campaign_id = "mkt_campaign_co"
             context = "notification"
         }
-        
+
         "/notification/campaigns_syi_freemium"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
@@ -2642,42 +2642,42 @@ trackTests {
             event_type = "auto_dismiss"
             context = "notification"
         }
-        
+
         "/notification/loyalty_welcome"(platform: "/mobile") {
                 news_id = "123"
                 event_type = "auto_dismiss"
                 context = "notification"
         }
-        
+
         "/notification/loyalty_milestone"(platform: "/mobile") {
                 news_id = "123"
                 event_type = "auto_dismiss"
                 context = "notification"
         }
-        
+
         "/notification/loyalty_change_level"(platform: "/mobile") {
                 news_id = "123"
                 event_type = "auto_dismiss"
                 context = "notification"
         }
-        
+
         "/notification/security_enrollment"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
             context = "notification"
-        }   
-        
+        }
+
         "/notification/reviews_reminder"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
             context = "notification"
-        }   
-        
+        }
+
         "/notification/fraud_identity_validation"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
             context = "notification"
-        }          
+        }
     }
 
     test("orders feed from commons tracker cards"){
@@ -3123,6 +3123,27 @@ trackTests {
         }
         "/myml/account_balance/bill_payments"(platform: "/mobile", type: TrackType.Event) {
             mp_installed = true
+        }
+    }
+
+    test("MyMl new reputation flow seller") {
+        "/myml/sales/detail/flow_selector"(platform: "/mobile", type: TrackType.View) {
+            flow_selected = "MPA and not ME"
+        }
+        "/myml/sales/detail/deliver_product"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/sales/detail/deliver_product#submit"(platform: "/mobile", type: TrackType.Event) {
+            action_label = "send_feedback"
+        }
+        "/myml/sales/detail/date_will_receive_product"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/sales/detail/deliver_product/action"(platform: "/mobile", type: TrackType.Event) {
+            action_label = "send_feedback"
+            order_id = "12344"
+            shipping_id = "1234"
+            success = false
+        }
+        "/myml/sales/detail/send_feedback"(platform: "/mobile", type: TrackType.Event) {
+            order_id = "1234"
+            success = true
         }
     }
 
