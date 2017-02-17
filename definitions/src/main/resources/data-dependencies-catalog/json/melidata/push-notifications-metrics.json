@@ -1,23 +1,22 @@
 {
   "users": [
-    "martin.ciruzzi@mercadolibre.com"
+    "ext_jproma@mercadolibre.com"
   ],
-  "process_name": "tracks_count",
-  "cron": "30 06 * * *",
+  "process_name": "push-notifications-metrics",
+  "cron": "10 00 * * *",
   "extract": {
     "operation": "append",
     "columns": [
       {
         "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
-      {
-        "name": "business",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "site",
+        "name": "campaign_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "event_type",
         "type": "UNICODE_STRING"
       },
       {
@@ -25,13 +24,12 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "total",
+        "name": "users",
         "type": "INTEGER"
       }
     ],
     "sql": {
-
-      "script": "melidata/tracks-count.sql",
+      "script": "emailmkt/push-notifications-metrics.sql",
       "parameters": [
         {
           "name": "param01",

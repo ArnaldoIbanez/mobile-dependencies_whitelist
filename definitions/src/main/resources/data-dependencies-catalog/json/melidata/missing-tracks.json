@@ -1,8 +1,8 @@
 {
   "users": [
-    "martin.ciruzzi@mercadolibre.com"
+    "juan.lambre@mercadolibre.com"
   ],
-  "process_name": "tracks_count",
+  "process_name": "missing_tracks",
   "cron": "30 06 * * *",
   "extract": {
     "operation": "append",
@@ -10,19 +10,11 @@
       {
         "name": "ds",
         "type": "DATE",
-        "format": "yyyy-MM-dd"
+        "format": "yyyy-MM-dd HH"
       },
       {
-        "name": "business",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "site",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "platform",
-        "type": "UNICODE_STRING"
+        "name": "missing",
+        "type": "INTEGER"
       },
       {
         "name": "total",
@@ -30,17 +22,16 @@
       }
     ],
     "sql": {
-
-      "script": "melidata/tracks-count.sql",
+      "script": "melidata/missing-tracks.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "DAY-2",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         }
       ]

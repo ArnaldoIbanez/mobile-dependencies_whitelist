@@ -1,20 +1,19 @@
 {
   "users": [
-    "martin.ciruzzi@mercadolibre.com",
-    "melidata_dev@mercadolibre.com"
+    "ext_grodrig@mercadolibre.com","ext_mberriel@mercadolibre.com"
   ],
-  "process_name": "orders_insight",
-  "cron": "00 09 * * *",
+  "process_name": "suggested_discount_push_open_rate",
+  "cron": "30 01 * * *",
   "extract": {
     "operation": "append",
     "columns": [
       {
-        "name": "date_created",
+        "name": "ds",
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "site",
+        "name": "path",
         "type": "UNICODE_STRING"
       },
       {
@@ -22,31 +21,25 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "path",
+        "name": "event_type",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "counter",
+        "name": "distinct_user_count",
         "type": "INTEGER"
       }
     ],
     "sql": {
-
-      "script": "melidata/orders-insight.sql",
+      "script": "melidata/suggested-discount-push-open-rate.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-3",
-          "format": "yyyy-MM-dd"
-        },
-        {
-          "name": "param03",
-          "value": "DAY-2",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-1",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
       ]

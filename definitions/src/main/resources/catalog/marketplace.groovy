@@ -753,6 +753,9 @@ tracks {
         location(required: false, type: PropertyType.String)
         geolocation_method(required: false, type: PropertyType.String)
     }
+    "/checkout/geolocation" (platform: "/mobile", type: TrackType.Event) {
+        geolocation_error(required: true, description: "Why the geo failed")
+    }
     "/checkout/shipping"(platform: "/mobile", isAbstract: true) {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
@@ -1913,6 +1916,7 @@ tracks {
 
         buyer(required: true, description: "buyer information") // id, nickname
         seller(required: true, description: "seller information") // id, nickname
+        is_carrito(required: true, description: "Whetever this order was created by a carrito or not ")
     }
 
     "/email"(platform: "/email", isAbstract: true) {
@@ -2274,6 +2278,27 @@ tracks {
 
     "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
     "/myml/account_balance/install/go_to_store"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/myml/sales"(platform: "/mobile", isAbstract: true) {}
+    "/myml/sales/detail"(platform: "/mobile", isAbstract: true) {}
+    "/myml/sales/detail/flow_selector"(platform: "/mobile", type: TrackType.View) {
+        flow_selected(required: true, type: PropertyType.String, description: "use case selected based on incoming parameters")
+    }
+    "/myml/sales/detail/deliver_product"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/sales/detail/deliver_product#submit"(platform: "/mobile", type: TrackType.Event) {
+        action_label(required: true, type: PropertyType.String, description: "action selected when submitting: send_feedback or update shipping")
+    }
+    "/myml/sales/detail/date_will_receive_product"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/sales/detail/deliver_product/action"(platform: "/mobile", type: TrackType.Event) {
+        action_label(required:true, type: PropertyType.String, description: "action performed, post feedback or update shipping")
+        order_id(required: true, type: PropertyType.String)
+        shipping_id(required: false, type: PropertyType.String)
+        success(required: true, type: PropertyType.Boolean, description: "true if the action was successful")
+    }
+    "/myml/sales/detail/send_feedback"(platform: "/mobile", type: TrackType.Event) {
+        order_id(required: true, type: PropertyType.String)
+        success(required: true, type: PropertyType.Boolean)
+    }
 
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
