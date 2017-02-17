@@ -62,7 +62,7 @@
       },
         {
         "name": "sum_dol_amount",
-        "type": "DECIMAL"
+        "type": "DOUBLE"
       },
         {
         "name": "purchases_total",
@@ -70,7 +70,7 @@
       }
     ],
     "sql": {
-      "script": "businessassurance/cantidaddeclicks.sql",
+      "script": "business-assurance/cantidaddeclicks.sql",
       "parameters": [
         {
           "name": "param01",

@@ -38,7 +38,7 @@
       }
     ],
     "sql": {
-      "script": "businessassurance/cantidaddeclicks.sql",
+      "script": "business-assurance/cantidadcomprasporclick.sql",
       "parameters": [
         {
           "name": "param01",
