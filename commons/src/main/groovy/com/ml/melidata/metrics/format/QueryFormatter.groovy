@@ -1,7 +1,12 @@
 package com.melidata.metrics.format
 
+import groovy.json.JsonBuilder
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
+import org.json.simple.JSONObject
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+
 
 
 class QueryFormatter {
@@ -28,12 +33,12 @@ class QueryFormatter {
         def sqlscripts = sqlSnippets.keySet()
         def list = []
         jsonSnippets.values().each{ json ->
-            Map jsonObject = new JsonSlurper().parseText(json)
+            Map jsonMap = new JsonSlurper().parseText(json)
             sqlscripts.each { scriptname ->
-                String scriptValue = jsonObject.extract.sql.script
+                String scriptValue = jsonMap.extract.sql.script
                 if (scriptname.equals(scriptValue)) {
-                    jsonObject.extract.sql.put("script", sanitize(sqlSnippets[scriptname]))
-                    list.add(JsonOutput.toJson(jsonObject))
+                    jsonMap.extract.sql.script = sanitize(sqlSnippets[scriptname])
+                    list.add(jsonMap)
                 }
             }
         }
@@ -42,15 +47,15 @@ class QueryFormatter {
 
     def sanitize = { query ->
         //def sanitizedQuery = new String(query)
-        return query.replace("\n", " ").replace("\t"," ").replace("     "," ").replace("\"", "\\\"")
+        return query.replace("\n", " ").replace("\t"," ").replace("     "," ")
     }
 
     def buildJson() {
         String jsonString = concatQueries()
 
-        //def jsontxt = new File('./src/main/resources/data-dependencies-catalog/jsonmelidata.json').getText('UTF-8')
-        def json = new JsonSlurper().parseText(jsonString)
-        return new groovy.json.JsonBuilder(json).toPrettyString()
+        // jsonString may not be pretty printed, so we make sure it is
+        Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create()
+        return gson.toJson(gson.fromJson(jsonString, Map))
     }
 
     def concatQueries() {
@@ -60,7 +65,6 @@ class QueryFormatter {
 
         def queries = merge(jsonSnippets, sqlSnippets)
 
-        def jsonString = String.format("{\"data\": %s}", queries)
-        jsonString
+        return new Gson().toJson([data: queries])
     }
 }
