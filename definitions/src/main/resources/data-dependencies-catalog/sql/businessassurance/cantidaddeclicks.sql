@@ -7,7 +7,7 @@ get_json_object(others['fragment'], '$.sellerid') AS SellerID,
 count(1) as total
 from tracks
 where 	   ds >='2017-01-20'
-and 	   ds <'2017-02-09'
+and 	   ds <'2017-02-15'
 and others['fragment'] like '%banner_name%'
 group by substr(ds,1,10), 
 application.site_id, 
