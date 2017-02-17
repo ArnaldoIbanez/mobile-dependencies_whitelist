@@ -59,11 +59,11 @@
       {
         "name": "banner_name",
         "type": "UNICODE_STRING"
-      }
+      },
         {
         "name": "sum_dol_amount",
         "type": "DECIMAL"
-      }
+      },
         {
         "name": "purchases_total",
         "type": "INTEGER"

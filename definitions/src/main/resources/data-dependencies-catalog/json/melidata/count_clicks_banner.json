@@ -27,11 +27,11 @@
       {
         "name": "banner_name",
         "type": "UNICODE_STRING"
-      }
+      },
         {
         "name": "SellerID",
         "type": "UNICODE_STRING"
-      }
+      },
         {
         "name": "total",
         "type": "INTEGER"
