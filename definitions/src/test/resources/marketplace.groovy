@@ -2728,20 +2728,16 @@ trackTests {
         "/notification/security_enrollment"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
-            context = "notification"
-
         }   
        
         "/notification/reviews_reminder"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
-            context = "notification"
         }
 
         "/notification/fraud_identity_validation"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
-            context = "notification"
         }
 
     }
