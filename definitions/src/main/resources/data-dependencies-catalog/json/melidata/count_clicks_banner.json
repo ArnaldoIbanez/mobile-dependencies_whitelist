@@ -1,0 +1,56 @@
+{
+  "users": [
+    "daniela.medina@mercadolibre.com","nicolas.alaimo@mercadolibre.com"
+  ],
+  "process_name": "count_clicks_banner",
+  "cron": "30 11 * * *",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "Site",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Plataforma",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "size",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "banner_name",
+        "type": "UNICODE_STRING"
+      },
+        {
+        "name": "SellerID",
+        "type": "UNICODE_STRING"
+      },
+        {
+        "name": "total",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "businessassurance/cantidaddeclicks.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
