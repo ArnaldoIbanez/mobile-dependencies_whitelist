@@ -3497,4 +3497,30 @@ trackTests {
         }
 
     }
+
+    test("quotation details tracking") {
+        "/quotation/details"(platform: "/") {
+            item_id = "MLM2222222"
+            category_id = "MLM170531"
+            seller_id = 123456789
+            listing_type_id = "silver"
+            item_status = "closed"
+            vertical = "REAL_ESTATE"
+            error_type = ""
+        }
+    }
+
+    test("Quotation congrats tracking") {
+        "/quotation/congrats"(platform: "/") {
+            item_id = "MLM2222222"
+            category_id = "MLM170531"
+            seller_id = 123456789
+            listing_type_id = "silver"
+            item_status = "closed"
+            vertical = "REAL_ESTATE"
+            model_id = 12345
+            unit_id = 54321
+            error_type = ""
+        }
+    }
 }
