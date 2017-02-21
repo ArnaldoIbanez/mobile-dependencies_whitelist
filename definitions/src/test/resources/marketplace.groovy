@@ -2054,6 +2054,27 @@ trackTests {
             geo_location_code = 1
         }
 
+        "/register/form/facebook-connect"(platform:"/web/mobile") {
+            app = "registration"
+            source = "email"
+            captcha_showed = false
+            prog_reg_version = 0
+        }
+
+        "/register/form/facebook-connect/facebook-register-selected"(platform:"/web/desktop") {
+            app = "registration"
+            source = "facebook"
+            captcha_showed = false
+            prog_reg_version = 0
+        }
+
+        "/register/form/facebook-connect/email-register-selected"(platform:"/web/mobile") {
+            app = "registration"
+            source = "email"
+            captcha_showed = false
+            prog_reg_version = 0
+        }
+
         "/register/form/site-identification"(platform:"/web/mobile") {
             app = "registration"
             source = "email"
