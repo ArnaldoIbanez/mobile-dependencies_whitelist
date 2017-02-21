@@ -3,7 +3,7 @@
     "daniela.medina@mercadolibre.com","nicolas.alaimo@mercadolibre.com"
   ],
   "process_name": "count_clicks_banner",
-  "cron": "30 16 * * *",
+  "cron": " ",
   "extract": {
     "operation": "append",
     "columns": [
