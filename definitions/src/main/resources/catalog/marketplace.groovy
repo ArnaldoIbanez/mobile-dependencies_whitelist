@@ -2360,4 +2360,27 @@ tracks {
 
     "/feedback/congrats"(platform: "/") {}
 
+    //Quotation
+    "/quotation"(platform: "/", isAbstract: true) {}
+    "/quotation/details"(platform: "/") {
+        item_id(required: true, type:PropertyType.String,description: "Item id")
+        category_id(required: true, type:PropertyType.String, description: "Item category id")
+        seller_id(required: true, type:PropertyType.Numeric)
+        listing_type_id(required: true, type:PropertyType.String, description: "Item listing type id")
+        item_status(required: true, type:PropertyType.String, description: "Item status")
+        vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
+        error_type(required: false, type:PropertyType.String)
+    }
+    "/quotation/congrats"(platform: "/") {
+        item_id(required: true, type:PropertyType.String,description: "Item id")
+        category_id(required: true, type:PropertyType.String, description: "Item category id")
+        seller_id(required: true, type:PropertyType.Numeric)
+        listing_type_id(required: true, type:PropertyType.String, description: "Item listing type id")
+        item_status(required: true, type:PropertyType.String, description: "Item status")
+        vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
+        error_type(required: false, type:PropertyType.String)
+        model_id(required: true, type:PropertyType.Numeric )
+        unit_id(required: true, type:PropertyType.Numeric) 
+    }   
+
 }
