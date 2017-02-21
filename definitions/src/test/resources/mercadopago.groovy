@@ -136,6 +136,13 @@ trackTests {
             prog_reg_version = 0
         }
 
+        "/register/form/facebook-connect/login-selected"(platform:"/web/mobile") {
+            app = "registration"
+            source = "email"
+            captcha_showed = false
+            prog_reg_version = 0
+        }
+
         "/register/form/site-identification"(platform:"/web/mobile") {
             app = "registration"
             source = "email"

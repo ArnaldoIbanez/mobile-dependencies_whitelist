@@ -55,6 +55,7 @@ tracks {
 
     "/register/form/facebook-connect/facebook-register-selected"(platform:"/web", type: TrackType.Event) {}
     "/register/form/facebook-connect/email-register-selected"(platform:"/web", type: TrackType.Event) {}
+    "/register/form/facebook-connect/login-selected"(platform:"/web", type: TrackType.Event) {}
 
     "/register/form/geolocation"(platform:"/web/mobile", type: TrackType.Event) {
         geo_location_code(type: PropertyType.Numeric, description: "Code of geolocation result", required:true)
