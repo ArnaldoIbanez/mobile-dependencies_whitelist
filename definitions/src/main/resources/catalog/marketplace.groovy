@@ -1804,6 +1804,9 @@ tracks {
     "/notification/purchase_pending"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
     }
+    "/notification/orders_pending"(platform: "/mobile") {
+        item_id(required: true, type: PropertyType.String)
+    }
 
     //Mediations
     "/notification/mediations_complainant"(platform: "/mobile") {

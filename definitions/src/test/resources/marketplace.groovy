@@ -2481,6 +2481,48 @@ trackTests {
             order_id = "1234"
         }
 
+        "/notification/orders_pending"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            item_id = "MLA122211"
+        }
+
+        //Buy action
+        "/notification/orders_pending"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            item_id = "MLA122211"
+            action_type = "deeplinking"
+            notification_style = "BigTextStyle"
+        }
+
+        "/notification/orders_pending"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            item_id = "MLA122211"
+            action_type = "deeplinking"
+        }
+
+        //Favorite action
+        "/notification/orders_pending"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            item_id = "MLA122211"
+            action_type = "favorite"
+            notification_style = "BigTextStyle"
+        }
+
+        //Notif center tracking
+        "/notification/orders_pending"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            item_id = "MLA122211"
+            action_type = "favorite"
+            notification_style = "BigPictureStyle"
+            status = "unread"
+        }
+
+
         "/notification/purchase_pending"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
