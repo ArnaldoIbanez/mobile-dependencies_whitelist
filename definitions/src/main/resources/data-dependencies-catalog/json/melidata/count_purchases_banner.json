@@ -5,7 +5,7 @@
   "process_name": "count_purchases_banner",
   "cron": " ",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
         "name": "ds",
