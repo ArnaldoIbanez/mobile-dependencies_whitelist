@@ -1,6 +1,6 @@
 {
   "users": [
-    "juan.lambre@mercadolibre.com"
+    "melidata_dev@mercadolibre.com"
   ],
   "process_name": "missing_tracks",
   "cron": "30 06 * * *",
