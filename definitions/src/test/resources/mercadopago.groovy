@@ -115,6 +115,58 @@ trackTests {
             geo_location_code = 1
         }
 
+        "/register/form/facebook-connect"(platform:"/web/desktop") {
+            app = "registration"
+            source = "email"
+            captcha_showed = false
+            prog_reg_version = 0
+        }
+
+        "/register/form/facebook-connect/facebook-register-selected"(platform:"/web/mobile") {
+            app = "registration"
+            source = "facebook"
+            captcha_showed = false
+            prog_reg_version = 0
+        }
+
+        "/register/form/facebook-connect/email-register-selected"(platform:"/web/desktop") {
+            app = "registration"
+            source = "email"
+            captcha_showed = false
+            prog_reg_version = 0
+        }
+
+        "/register/form/facebook-connect/login-selected"(platform:"/web/mobile") {
+            app = "registration"
+            source = "email"
+            captcha_showed = false
+            prog_reg_version = 0
+        }
+
+        "/register/form/site-identification"(platform:"/web/mobile") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+            ip_site_id = "MCO"
+        }
+
+        "/register/form/site-identification/url-site-selected"(platform:"/web/desktop") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+            ip_site_id = "MCO"
+        }
+
+        "/register/form/site-identification/ip-site-selected"(platform:"/web/desktop") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+            ip_site_id = "MCO"
+        }
+
         "/register/success"(platform: "/web/desktop") {
             app = "registration-favorite"
             source = "email"
@@ -497,6 +549,10 @@ trackTests {
     }
 
     test("Withdraw") {
+        "/withdraw/withdrawable_money"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
         "/withdraw/take_money_out"(platform: "/mobile") {
             flow = "/withdraw"
             from = "/deep_link"
@@ -506,6 +562,23 @@ trackTests {
             from = "/deep_link"
         }
         "/withdraw/result"(platform: "/mobile") {
+            flow = "/fund_account"
+            from = "/deep_link"
+            result_status = "rejected"
+            status_detail = "internal_server_error"
+        }
+    }
+
+    test("Withdraw_advance") {
+        "/withdraw_advance/take_money_out"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
+        "/withdraw_advance/select_bank"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
+        "/withdraw_advance/result"(platform: "/mobile") {
             flow = "/fund_account"
             from = "/deep_link"
             result_status = "rejected"
@@ -587,6 +660,30 @@ trackTests {
             status_detail = "internal_server_error"
         }
     }
+    
+    test("Notifications") {
+                
+        "/notification"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "sent"
+        }
+        
+        "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
+                news_id = "123"
+                campaign_id = "prueba_123"
+                event_type = "open"
+        }  
+        
+        "/notification/money_transfer_received"(platform: "/mobile") {
+                news_id = "123"
+                event_type = "open"
+        }  
+        
+        "/notification/money_transfer_request"(platform: "/mobile") {
+                news_id = "123"
+                event_type = "open"
+        }
+    }
 
 // END -- MPMOBILE TEST
 
@@ -598,6 +695,8 @@ trackTests {
             source = "QUESTION"
             flow = "internal"
             has_error = true
+            old_user_id = "123456"
+            old_user_nick = "nick"
         }
         "/login/form"(platform: "/", type: TrackType.View) {
             source = "FAVORITE"
@@ -635,6 +734,14 @@ trackTests {
             source = "LFE"
             reason = [errorId: 'invalid_password']
             flow = "internal"
+            is_otp = false
+            is_admin_otp = false
+            old_user_id = "123456"
+            old_user_nick = "nick"
+        }
+        "/login/auth/challenge_success"(platform: "/", type: TrackType.Event) {
+            source = "MSL_DEFAULT"
+            challenge = "pass"
             is_otp = false
             is_admin_otp = false
         }

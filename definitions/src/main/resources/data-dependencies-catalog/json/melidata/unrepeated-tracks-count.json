@@ -1,11 +1,11 @@
 {
   "users": [
-    "juan.lambre@mercadolibre.com"
+    "melidata_dev@mercadolibre.com"
   ],
-  "process_name": "duplicate_tracks_count",
-  "cron": "* 07 * * *",
+  "process_name": "unrepeated_tracks_count",
+  "cron": "30 06 * * *",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
         "name": "ds",
@@ -13,24 +13,20 @@
         "format": "yyyy-MM-dd"
       },
       {
+        "name": "unrepeated",
+        "type": "INTEGER"
+      },
+      {
         "name": "total",
         "type": "INTEGER"
-      },
-      {
-        "name": "distinct_total",
-        "type": "INTEGER"
-      },
-      {
-        "name": "source",
-        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "melidata/duplicate-tracks-count.sql",
+      "script": "melidata/unrepeated-tracks-count.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-15",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {

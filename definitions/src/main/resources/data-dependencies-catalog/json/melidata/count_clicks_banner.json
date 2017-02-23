@@ -1,52 +1,53 @@
 {
   "users": [
-    "martin.ciruzzi@mercadolibre.com",
-    "melidata_dev@mercadolibre.com"
+    "daniela.medina@mercadolibre.com"
   ],
-  "process_name": "orders_insight",
-  "cron": "00 09 * * *",
+  "process_name": "count_clicks_banner",
+  "cron": "00 08 * * * ",
   "extract": {
     "operation": "append",
     "columns": [
       {
-        "name": "date_created",
+        "name": "ds",
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "site",
+        "name": "Site",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "platform",
+        "name": "Plataforma",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "path",
+        "name": "size",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "counter",
+        "name": "banner_name",
+        "type": "UNICODE_STRING"
+      },
+        {
+        "name": "SellerID",
+        "type": "UNICODE_STRING"
+      },
+        {
+        "name": "total",
         "type": "INTEGER"
       }
     ],
     "sql": {
-
-      "script": "melidata/orders-insight.sql",
+      "script": "business-assurance/cantidaddeclicks.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-3",
-          "format": "yyyy-MM-dd"
-        },
-        {
-          "name": "param03",
-          "value": "DAY-2",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-1",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
       ]

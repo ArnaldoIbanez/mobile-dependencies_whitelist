@@ -19,8 +19,10 @@ tracks {
 
     //Login conversion
     "/login"(platform: "/", isAbstract: true) {
-        flow(type: PropertyType.String, required: false)
+	flow(type: PropertyType.String, required: false)
         source(type: PropertyType.String, required: false)
+        old_user_id(type: PropertyType.String, required: false)
+        old_user_nick(type: PropertyType.String, required: false)
     }
 
     "/login/form"(type: TrackType.View) {
@@ -47,9 +49,14 @@ tracks {
 
     "/login/auth/failure"(platform: "/", type: TrackType.Event) {
         reason(type: PropertyType.Map, required: true)
+        challenge(type: PropertyType.String, required: false)
     }
 
+    "/login/auth/challenge_success"(platform: "/", type: TrackType.View) {
+        challenge(type: PropertyType.String, required: true) 
+    }    
+
     "/logout"(platform: "/", type: TrackType.Event) {
-        flow(type: PropertyType.String, required: false)
+	flow(type: PropertyType.String, required: false)
     }
 }

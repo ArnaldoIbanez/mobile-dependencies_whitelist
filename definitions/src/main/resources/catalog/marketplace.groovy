@@ -34,7 +34,7 @@ tracks {
             //    ]
             //recommended_categories:[]
     }
-    
+
     "/"(platform: "/mobile", isAbstract: true) {
         mode(required: false)
         deferred_time(required: false)
@@ -299,6 +299,13 @@ tracks {
         action(required: true, values: ["expand","collapse"])
     }
 
+    "/search/carousel"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        carousel_used(required: true, values: ["next","prev","select"])
+    }
+    
+    "/search/save"(platform: "/", type: TrackType.Event) {
+    }
+
     //VIP FLOW
 
     "/vip"(platform: "/") {
@@ -325,6 +332,7 @@ tracks {
         promoted_items_clicked(required: false, descripcion: 'indicates whether clicked promoted items before reaching this vip')
         billboard_clicked_position(required:false, type: PropertyType.Numeric)
         store_type(required: false, description: "Indicates store type")
+        reputation_level(required: false, description: "Seller's reputation level")
     }
 
     "/vip"(platform: "/web") {
@@ -745,6 +753,9 @@ tracks {
         location(required: false, type: PropertyType.String)
         geolocation_method(required: false, type: PropertyType.String)
     }
+    "/checkout/geolocation" (platform: "/mobile", type: TrackType.Event) {
+        geolocation_error(required: true, description: "Why the geo failed")
+    }
     "/checkout/shipping"(platform: "/mobile", isAbstract: true) {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
@@ -1034,6 +1045,11 @@ tracks {
     "/checkout/payments/cash/select_store"(platform:"/mobile") {
          available_methods(required: true, type: PropertyType.ArrayList)
     }
+    "/checkout/payments/cash/select_store/select_address"(platform:"/mobile", parentPropertiesInherited: false) {}
+    "/checkout/payments/cash/select_store#request_permissions"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+      permissions(required: true, type: PropertyType.String)
+      extended(required: true, type: PropertyType.Boolean)
+    }
     "/checkout/payments/transfer"(platform:"/mobile", isAbstract: true) {}
     "/checkout/payments/transfer/select_bank"(platform:"/mobile") {
         available_methods(required: true, type: PropertyType.ArrayList)
@@ -1223,7 +1239,7 @@ tracks {
     "/checkout/congrats/call_for_auth/later"(platform: "/mobile") {}
 
     "/checkout/congrats/invalid_sec_code"(platform: "/mobile") {}
-    
+
     "/checkout/congrats/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {
 
     }
@@ -1636,35 +1652,66 @@ tracks {
         go(required: false, type: PropertyType.String, description: "Destination URL of the marketing campaign.")
     }
 
-    "/notification_center"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/notification_center/abort"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/notification_center/back"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/notification_center/failure"(platform: "/mobile", type: TrackType.Event) {}
+    /**
+    * NOTIFICATIONS
+    */
 
     /**
-     * NOTIFICATIONS
-     * disclaimer: when the action_type is set, the event_type should be always 'open'
+    * NOTIFICATIONS CENTER
+    */
+    "/notification_center"(platform: "/mobile", type: TrackType.Event) {
+        newsgroup_id(required: false, type: PropertyType.String)
+        status(required: false, type: PropertyType.String, values:["unread", "read"])
+        event_type(required: false, values: ["open", "pull_to_refresh", "swipe"])
+        deeplink(required: false, type: PropertyType.String)
+        action_type(required: false, type: PropertyType.String,  values: ["messages", "message", "vop", "picture", "shipping_print_label", "claims", "tracking", "feedback", "changepayment", "reply", "ask", "questions-buy"])
+        type_layout(required: false, type: PropertyType.String, values: ["bullet_list", "order", "picture", "standard"])
+    }
+    
+    "/notification_center/abort"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/back"(platform: "/mobile", type: TrackType.Event) {}		
+    "/notification_center/failure"(platform: "/mobile", type: TrackType.Event) {}    
+
+    "/notification_center/questions-buyer"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/questions-seller"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/orders-buyer"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/orders-seller"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/security-enrollment-legacy"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/mediations-complainant-legacy"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/purchase-pending-legacy"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/loyalty"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/listings"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/campaigns-deals"(platform: "/mobile", type: TrackType.Event) {
+        campaign_id(required: false, type: PropertyType.String, description: "Id of the campaign related to the mkt notification sent.")
+        deal_id(required: false, description: "Id of the deal related to the mkt notification sent.")    
+    }
+    "/notification_center/campaigns-campaigns"(platform: "/mobile", type: TrackType.Event) {
+        campaign_id(required: false, description: "Id of the campaign related to the campaigns notification sent.")
+    }
+    
+    "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/campaigns-suggested_discounts_seller"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/fraud-identity_validation"(platform: "/mobile", type: TrackType.Event) {}
+    
+    /**
+     * NOTIFICATIONS TRAY
      **/
     "/notification"(platform: "/mobile") {
         event_type(required: true,
-                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown",
-                                                                   "swipe", "action_open", "pull_to_refresh", "control"],
+                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control"],
         description: "Type of notification event")
         action_type(required: false,
-                values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture"])
+                values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer"])
         deeplink(required: false, description: "The link were the notification should navigate to, if applies")
-        context(required: false, values: ["notification", "notification_center"], description: "Current context of the notification")
-
-        //FOR NOTIFICATIONS - TRAY
+        
+        //For event_type:autodismiss, indicates why the notification was dismissed
+        source(required: false,
+               values: ["notification_center","logout","overwrite"])
+        
         news_id(required: false, description: "Identifier of the notification generated")
         notification_style(required: false, description: "The notification style used when displaying the notification to the user.")
 
-        // FOR NOTIFICATION CENTER
-        newsgroup_id(required: false, description: "Identifier of the notification generated")
-        status(required: false, values: ["read", "unread"], description: "*Deprecated*: Just for old NotifCenter.")
+        status(required: false, values: ["read", "unread"], deprecated: true, description: "*Deprecated*: Just for old NotifCenter.")
     }
     //Tu producto está en camino
     "/notification/shipping_shipped"(platform: "/mobile") {
@@ -1713,7 +1760,12 @@ tracks {
         order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
         shipment_id(required: true, type: PropertyType.Numeric)
     }
-
+    
+    //Paquete entregado
+    "/notification/shipping_delivered"(platform: "/mobile") {
+        order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+        shipment_id(required: true, type: PropertyType.Numeric)
+    }    
 
     //Seller questions
     "/notification/questions_new"(platform: "/mobile") {
@@ -1727,14 +1779,16 @@ tracks {
     "/notification/orders_new"(platform: "/mobile") {
         order_id(required: true, type: PropertyType.String)
     }
-    //MKT Deals DEPRECADO
-    "/notification/deals_campaigns"(platform: "/mobile") {
-        deal_id(required: true, description: "Id of the deal related to the mkt notification sent.")
+    
+    //Generic Campaigns
+    "/notification/campaigns_campaigns"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
     }
 
     //MKT Deals
     "/notification/campaigns_deals"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the mkt notification sent.")
+        deal_id(required: true, description: "Id of the deal related to the mkt notification sent.")
     }
 
     //Freemium SYI
@@ -1750,8 +1804,9 @@ tracks {
     "/notification/purchase_pending"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
     }
-    //Loyalty
-    "/notification/reputation_buyer_in"(platform: "/mobile") {}
+    "/notification/orders_pending"(platform: "/mobile") {
+        item_id(required: true, type: PropertyType.String)
+    }
 
     //Mediations
     "/notification/mediations_complainant"(platform: "/mobile") {
@@ -1760,29 +1815,26 @@ tracks {
     }
 
     //Moderation
-    "/notification/moderation_item_to_patch"(platform: "/mobile") {
+    "/notification/moderations_item_to_patch"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
     }
 
-    "/notification/moderation_item_forbidden"(platform: "/mobile") {
+    "/notification/moderations_item_forbidden"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
     }
 
-
-    "/notification/moderation_item_warning"(platform: "/mobile") {
+    "/notification/moderations_item_warning"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
     }
 
-
-    "/notification/moderation_message_banned"(platform: "/mobile") {
+    "/notification/moderations_message_banned"(platform: "/mobile") {
     }
 
     //Payments
-    "/notification/payments_pending_remainder"(platform: "/mobile") {
+    "/notification/payments_pending_reminder"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
         order_id(required: true, type: PropertyType.Numeric)
-    }
-
+    }    
     "/notification/payments_approved"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
         order_id(required: true, type: PropertyType.Numeric)
@@ -1792,21 +1844,39 @@ tracks {
         item_id(required: true, type: PropertyType.String)
         order_id(required: true, type: PropertyType.Numeric)
     }
-
-    "/notification/orders_cancelled"(platform: "/mobile") {
+    
+    //Deprecated - typo
+    "/notification/payments_pending_remainder"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
-    }
+        order_id(required: true, type: PropertyType.Numeric)
+    }    
 
     //Messages
-    "/notification/messages_new"(platform: "/mobile") {
-    }
+    "/notification/messages_new"(platform: "/mobile") {}
 
     //Notification suggested discounts
-    "/notification/campaigns-suggested_discounts_seller"(platform: "/mobile") {
-    }
-    "/notification/campaigns-suggested_discounts_buyer"(platform: "/mobile") {
-    }
+    "/notification/campaigns_suggested_discounts_seller"(platform: "/mobile") {}
+    "/notification/campaigns_suggested_discounts_buyer"(platform: "/mobile") {}
+    
+    //Fraud
+    "/notification/fraud_identity_validation"(platform: "/mobile") {}
+    
+    //Loyalty
+    "/notification/loyalty_welcome"(platform: "/mobile") {}
+    "/notification/loyalty_milestone"(platform: "/mobile") {}
+    "/notification/loyalty_change_level"(platform: "/mobile") {}
+    
+    //Reviews
+    "/notification/reviews_reminder"(platform: "/mobile") {}
+    
+    //Security
+    "/notification/security_enrollment"(platform: "/mobile") {}
 
+    /**
+     * END NOTIFICATIONS
+     **/ 
+    
+    
     "/orders"(platform: "/", isAbstract: true) {}
 
     "/orders/ordercreated"(platform: "/") {
@@ -1849,6 +1919,7 @@ tracks {
 
         buyer(required: true, description: "buyer information") // id, nickname
         seller(required: true, description: "seller information") // id, nickname
+        is_carrito(required: true, description: "Whetever this order was created by a carrito or not ")
     }
 
     "/email"(platform: "/email", isAbstract: true) {
@@ -2211,6 +2282,27 @@ tracks {
     "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
     "/myml/account_balance/install/go_to_store"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/myml/sales"(platform: "/mobile", isAbstract: true) {}
+    "/myml/sales/detail"(platform: "/mobile", isAbstract: true) {}
+    "/myml/sales/detail/flow_selector"(platform: "/mobile", type: TrackType.View) {
+        flow_selected(required: true, type: PropertyType.String, description: "use case selected based on incoming parameters")
+    }
+    "/myml/sales/detail/deliver_product"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/sales/detail/deliver_product#submit"(platform: "/mobile", type: TrackType.Event) {
+        action_label(required: true, type: PropertyType.String, description: "action selected when submitting: send_feedback or update shipping")
+    }
+    "/myml/sales/detail/date_will_receive_product"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/sales/detail/deliver_product/action"(platform: "/mobile", type: TrackType.Event) {
+        action_label(required:true, type: PropertyType.String, description: "action performed, post feedback or update shipping")
+        order_id(required: true, type: PropertyType.String)
+        shipping_id(required: false, type: PropertyType.String)
+        success(required: true, type: PropertyType.Boolean, description: "true if the action was successful")
+    }
+    "/myml/sales/detail/send_feedback"(platform: "/mobile", type: TrackType.Event) {
+        order_id(required: true, type: PropertyType.String)
+        success(required: true, type: PropertyType.Boolean)
+    }
+
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
         user_phone_number()
@@ -2257,12 +2349,12 @@ tracks {
     "/logout/modal"(platform: "/mobile") {
         action(required: true, type:PropertyType.String, description: "Indicates whether the logout action was either confirmed or canceled")
     }
-    
+
     //Loyalty Program User Tracking
     "/loyalty/user"(platform: "/", type: TrackType.Event) {
         in_loyalty_program(
             required: true, 
-            type:PropertyType.String, 
+            type:PropertyType.Boolean, 
             description: "Indicates if the user is in or out of the loyalty program"
         )
     }
@@ -2270,5 +2362,28 @@ tracks {
     "/feedback"(platform: "/", isAbstract: true) {}
 
     "/feedback/congrats"(platform: "/") {}
+
+    //Quotation
+    "/quotation"(platform: "/", isAbstract: true) {}
+    "/quotation/details"(platform: "/") {
+        item_id(required: true, type:PropertyType.String,description: "Item id")
+        category_id(required: true, type:PropertyType.String, description: "Item category id")
+        seller_id(required: true, type:PropertyType.Numeric)
+        listing_type_id(required: true, type:PropertyType.String, description: "Item listing type id")
+        item_status(required: true, type:PropertyType.String, description: "Item status")
+        vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
+        error_type(required: false, type:PropertyType.String)
+    }
+    "/quotation/congrats"(platform: "/") {
+        item_id(required: true, type:PropertyType.String,description: "Item id")
+        category_id(required: true, type:PropertyType.String, description: "Item category id")
+        seller_id(required: true, type:PropertyType.Numeric)
+        listing_type_id(required: true, type:PropertyType.String, description: "Item listing type id")
+        item_status(required: true, type:PropertyType.String, description: "Item status")
+        vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
+        error_type(required: false, type:PropertyType.String)
+        model_id(required: true, type:PropertyType.Numeric )
+        unit_id(required: true, type:PropertyType.Numeric) 
+    }   
 
 }

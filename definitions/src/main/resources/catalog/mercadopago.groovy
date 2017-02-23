@@ -177,9 +177,21 @@ tracks {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
+    "/withdraw/withdrawable_money"(platform: "/mobile") {}
     "/withdraw/take_money_out"(platform: "/mobile") {}
     "/withdraw/select_bank"(platform: "/mobile") {}
     "/withdraw/result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
+    "/withdraw_advance"(platform: "/mobile", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/withdraw_advance/take_money_out"(platform: "/mobile") {}
+    "/withdraw_advance/select_bank"(platform: "/mobile") {}
+    "/withdraw_advance/result"(platform: "/mobile") {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
@@ -233,6 +245,30 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    
+    /**
+     * NOTIFICATIONS
+     * disclaimer: when the action_type is set, the event_type should be always 'open'
+     **/
+    "/notification"(platform: "/mobile") {
+        event_type(required: true,
+                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown"],
+        description: "Type of notification event")
+        news_id(required: false, description: "Identifier of the notification generated")
+    }
+    
+    //Campañas
+    "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+    } 
+    
+    //Money
+    "/notification/money_transfer_received"(platform: "/mobile") {}
+    "/notification/money_transfer_request"(platform: "/mobile") {}
+    
+    /**
+     * END NOTIFICATIONS
+     **/    
 
     // END -- MPMOBILE
 

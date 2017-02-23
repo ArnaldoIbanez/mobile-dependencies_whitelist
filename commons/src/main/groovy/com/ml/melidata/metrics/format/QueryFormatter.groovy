@@ -1,56 +1,62 @@
 package com.melidata.metrics.format
 
-import com.ml.melidata.metrics.NameWrapper
-import com.ml.melidata.metrics.RegExWrapper
-import groovy.json.JsonOutput
+import groovy.json.JsonBuilder
 import groovy.json.JsonSlurper
+import groovy.json.JsonOutput
+import org.json.simple.JSONObject
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+
+
 
 class QueryFormatter {
 
-	def filesMap = { basedirname ->
-		def files = [] as Queue
-		files.add(new File(basedirname))
-		def map = [:]
-		while(!files.isEmpty()){
-			def file = files.poll()
-			if(file.isDirectory()){
-				file.listFiles().each {
-					f -> files.add(f)
-				}
-			}else{
-				def abs = file.getAbsolutePath()
-				map[abs.split(basedirname)[1]]=file.text
-			}
-		}
-		return map
-	}
+    def filesMap = { basedirname ->
+        def files = [] as Queue
+        files.add(new File(basedirname))
+        def map = [:]
+        while(!files.isEmpty()){
+            def file = files.poll()
+            if(file.isDirectory()){
+                file.listFiles().each {
+                    f -> files.add(f)
+                }
+            }else{
+                def abs = file.getAbsolutePath()
+                map[abs.split(basedirname)[1]]=file.text
+            }
+        }
+        return map
+    }
 
-	def merge = { jsonSnippets, sqlSnippets ->
-		def sqlscripts = sqlSnippets.keySet()
-		def list = []
-		jsonSnippets.values().each{ json ->
-			sqlscripts.each{ scriptname ->
-				if(json.contains(scriptname)){
-                    def query = sqlSnippets[scriptname]
-                    list.add(json.replace(scriptname, sanitize(query) ))
-				}
-			}
-		}
-		return list
-	}
+    def merge(jsonSnippets, sqlSnippets) {
+        def sqlscripts = sqlSnippets.keySet()
+        def list = []
+        jsonSnippets.values().each{ json ->
+            Map jsonMap = new JsonSlurper().parseText(json)
+            sqlscripts.each { scriptname ->
+                String scriptValue = jsonMap.extract.sql.script
+                if (scriptname.equals(scriptValue)) {
+                    jsonMap.extract.sql.script = sanitize(sqlSnippets[scriptname])
+                    list.add(jsonMap)
+                }
+            }
+        }
+        return list
+    }
 
     def sanitize = { query ->
         //def sanitizedQuery = new String(query)
         return query.replace("\n", " ").replace("\t"," ").replace("     "," ")
     }
 
-	def buildJson() {
-		String jsonString = concatQueries()
+    def buildJson() {
+        String jsonString = concatQueries()
 
-		//def jsontxt = new File('./src/main/resources/data-dependencies-catalog/jsonmelidata.json').getText('UTF-8')
-        def json = new JsonSlurper().parseText(jsonString)
-        return new groovy.json.JsonBuilder(json).toPrettyString()
-	}
+        // jsonString may not be pretty printed, so we make sure it is
+        Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create()
+        return gson.toJson(gson.fromJson(jsonString, Map))
+    }
 
     def concatQueries() {
         //TODO: in a future we merge sql scripts to this json. Right now we edit just a single file, read it and print
@@ -59,7 +65,6 @@ class QueryFormatter {
 
         def queries = merge(jsonSnippets, sqlSnippets)
 
-        def jsonString = String.format("{\"data\": %s}", queries)
-        jsonString
+        return new Gson().toJson([data: queries])
     }
 }
