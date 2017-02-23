@@ -7,7 +7,7 @@ select todo.fecha, todo.site, todo.platform, todo.query, todo.total_buy, todo.to
  			select substr(ds,1,10) as fecha, 
  			application.site_id as site, 
  			device.platform as platform, 
- 			regexp_extract(jet(event_data, 'order_items[0].item.category_path'),'\\["(.*?)"',1) as categ_L1,
+ 			regexp_extract(jet(event_data, 'items[0].item.category_path'),'\\["(.*?)"',1) as categ_L1,
  			regexp_replace(jet(platform.http.cookies, 'LAST_SEARCH'),'-',' ') as query,
  			count(1) as total_buy
  			from tracks 
@@ -16,7 +16,7 @@ select todo.fecha, todo.site, todo.platform, todo.query, todo.total_buy, todo.to
  			and path = '/checkout/ordercreated'
  			and jet(event_data, 'first_for_order') = 'true'
  			and (regexp_replace(jet(platform.http.cookies, 'LAST_SEARCH'),'-',' ') is not null and regexp_replace(jet(platform.http.cookies, 'LAST_SEARCH'),'-',' ') != '{}')
- 			group by substr(ds,1,10), application.site_id, device.platform, regexp_replace(jet(platform.http.cookies, 'LAST_SEARCH'),'-',' '), regexp_extract(jet(event_data, 'order_items[0].item.category_path'),'\\["(.*?)"',1)
+ 			group by substr(ds,1,10), application.site_id, device.platform, regexp_replace(jet(platform.http.cookies, 'LAST_SEARCH'),'-',' '), regexp_extract(jet(event_data, 'items[0].item.category_path'),'\\["(.*?)"',1)
  			order by total_buy desc
  		) queries_with_buy
  

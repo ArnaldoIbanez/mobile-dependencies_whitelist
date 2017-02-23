@@ -594,7 +594,7 @@ trackTests {
 
     }
 
-    test("Checkout Basic Flow test") {
+    test("Checkout Basic Flow test. Legacy test for previous mobile versions") {
 
         def defaultCheckoutInformation = {
             item_id = "MCO412584037"
@@ -605,6 +605,20 @@ trackTests {
             available_other_methods=true
             available_types=[]
             current_method="visa"
+        }
+
+        def defaultCheckoutIItemsInformation = {
+            items = [[
+                             unit_price: 100,
+                             quantity: 1,
+                             item: [
+                                     category_id: "MLB63385",
+                                     buying_mode: "buy_it_now",
+                                     id: "MLB754486062",
+                                     shipping_mode: "me2"
+                             ],
+                             currency_id: "BRL"
+                     ]]
         }
 
         //Checkout Apps Legacy
@@ -618,7 +632,9 @@ trackTests {
 
         "/checkout/back"(platform:"/mobile") {}
 
-        "/checkout/congrats/back"(platform:"/mobile") {}
+        "/checkout/congrats/back"(platform:"/mobile") {
+            defaultCheckoutIItemsInformation()
+        }
 
         "/checkout/abort"(platform:"/mobile") {}
 
@@ -742,7 +758,7 @@ trackTests {
                     id: "208346754"
             ]
             order_id = "null"
-            order_items = [
+            items = [[
                     unit_price: 100,
                     quantity: 1,
                     item: [
@@ -752,7 +768,7 @@ trackTests {
                             shipping_mode: "me2"
                     ],
                     currency_id: "BRL"
-            ]
+            ]]
             payments = [[
                                 payment_type: "credit_card",
                                 payment_method: "amex",
@@ -760,9 +776,9 @@ trackTests {
                                 paid_amount: 0.0
                         ]]
             platform = "/mobile/android"
-            seller = [
+            seller = [[
                     id: "208642594"
-            ]
+            ]]
             shipping = [
                     cost: 25.98,
                     shipping_option: [
@@ -1187,6 +1203,21 @@ trackTests {
                     shipping_option:1
             ]
 
+            items = [
+                    [
+                            currency_id: "BRL",
+                            item: [
+                                    id: "MLB683236263",
+                                    category_path: [ "MLB1499", "MLB2467", "MLB30216" ],
+                                    buying_mode: "buy_it_now",
+                                    category_id: "MLB30216",
+                                    variation_id: null
+                            ],
+                            quantity: 1,
+                            unit_price: 70
+                    ]
+            ]
+
             order_id=912391
         }
 
@@ -1196,11 +1227,11 @@ trackTests {
             total_amount = 70
             order_id = 991687837
             status = "payment_required"
-            seller = [ id: 135201044, nickname: "JPS PAULO" ]
+            seller = [[ id: 135201044, nickname: "JPS PAULO" ]]
             first_for_order = true
             errors = false
             buyer = [ id: 75961818, nickname: "CIA51" ]
-            order_items = [
+            items = [
                     [
                             currency_id: "BRL",
                             item: [
@@ -1299,7 +1330,7 @@ trackTests {
                     id:21531848862,
                     shipping_mode:"me2"
             ]
-            order_items=[
+            items=[
                     [
                             item:[
                                     id:"MLA9876",
@@ -1348,7 +1379,7 @@ trackTests {
                     id:21531848862,
                     shipping_mode:"me2"
             ]
-            order_items=[
+            items=[
                     [
                             item:[
                                     id:"MLA9876",
@@ -1397,7 +1428,7 @@ trackTests {
                     id:21531848862,
                     shipping_mode:"me2"
             ]
-            order_items=[
+            items=[
                     [
                             item:[
                                     id:"MLA9876",
@@ -1446,7 +1477,7 @@ trackTests {
                     id:21531848862,
                     shipping_mode:"me2"
             ]
-            order_items=[
+            items=[
                     [
                             item:[
                                     id:"MLA9876",
@@ -1473,7 +1504,7 @@ trackTests {
             recovery_flow=false
             register_int=false
             platform = "/web/desktop"
-            order_items=[
+            items=[
                     [
                             item:[
                                     id:"MLA9876",
@@ -1512,7 +1543,7 @@ trackTests {
                             without_fee:true
                     ]
             ]
-            order_items=[
+            items=[
                     [
                             item:[
                                     id:"MLA9876",
@@ -1562,7 +1593,7 @@ trackTests {
                     id:21531848862,
                     shipping_mode:"me2"
             ]
-            order_items=[
+            items=[
                     [
                             item:[
                                     id:"MLA9876",
@@ -1617,7 +1648,7 @@ trackTests {
                     id:21531848862,
                     shipping_mode:"me2"
             ]
-            order_items=[
+            items=[
                     [
                             item:[
                                     id:"MLA9876",
@@ -1666,7 +1697,7 @@ trackTests {
                     id:21531848862,
                     shipping_mode:"me2"
             ]
-            order_items=[
+            items=[
                     [
                             item:[
                                     id:"MLA9876",
@@ -1693,7 +1724,7 @@ trackTests {
             recovery_flow=false
             register_int=false
             platform = "/web/desktop"
-            order_items=[
+            items=[
                     [
                             item:[
                                     id:"MLA9876",
@@ -1731,7 +1762,7 @@ trackTests {
                             without_fee:true
                     ]
             ]
-            order_items=[
+            items=[
                     [
                             item:[
                                     id:"MLA9876",
@@ -1782,7 +1813,7 @@ trackTests {
                     id:21531848862,
                     shipping_mode:"me2"
             ]
-            order_items=[
+            items=[
                     [
                             item:[
                                     id:"MLA9876",
@@ -1801,10 +1832,10 @@ trackTests {
                     id:111111,
                     nickname:"buyer01"
             ]
-            seller=[
+            seller =[[
                     id:111222,
                     nickname:"seller02"
-            ]
+            ]]
         }
 
         "/checkout/congrats"(platform:"/web/desktop") {
@@ -1817,7 +1848,7 @@ trackTests {
             recovery_flow=false
             register_int=false
             platform = "/web/desktop"
-            order_items=[
+            items=[
                     [
                             item:[
                                     id:"MLA9876",
@@ -1836,10 +1867,10 @@ trackTests {
                     id:111111,
                     nickname:"buyer01"
             ]
-            seller=[
+            seller =[[
                     id:111222,
                     nickname:"seller02"
-            ]
+            ]]
         }
 
     }
@@ -2821,7 +2852,7 @@ trackTests {
             total_amount_with_shipping = 120
 	          is_carrito = true
 
-            seller = [ id: 135201044, nickname: "XXXXXX" ]
+            seller = [[ id: 135201044, nickname: "XXXXXX" ]]
             buyer = [ id: 75961818, nickname: "YYYYYY" ]
 
             shipping = [
@@ -2855,7 +2886,7 @@ trackTests {
                     ],
             ]
 
-            order_items = [
+            items = [
                     [
                             currency_id: "BRL",
                             item:[
@@ -3354,7 +3385,7 @@ trackTests {
                     id:21531848862,
                     shipping_mode:"me2"
             ]
-            order_items=[
+            items=[
                     [
                             item:[
                                     id:"MLA9876",
@@ -3373,10 +3404,10 @@ trackTests {
                     id:111111,
                     nickname:"buyer01"
             ]
-            seller=[
+            seller =[[
                     id:111222,
                     nickname:"seller02"
-            ]
+            ]]
         }
         "/checkout/congrats"(platform: "/web", type: TrackType.View) {
             //recommendations data
@@ -3421,7 +3452,7 @@ trackTests {
                     id:21531848862,
                     shipping_mode:"me2"
             ]
-            order_items=[
+            items=[
                     [
                             item:[
                                     id:"MLA9876",
@@ -3440,10 +3471,10 @@ trackTests {
                     id:111111,
                     nickname:"buyer01"
             ]
-            seller=[
+            seller =[[
                     id:111222,
                     nickname:"seller02"
-            ]
+            ]]
         }
     }
 

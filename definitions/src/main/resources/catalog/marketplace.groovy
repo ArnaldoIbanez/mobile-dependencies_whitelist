@@ -485,13 +485,14 @@ tracks {
         order_id()
         status()
         total_amount()
-        order_items()
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -500,7 +501,7 @@ tracks {
         buyer()
         //id
         //nickname
-        seller()
+        seller(type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
         errors()
@@ -558,17 +559,17 @@ tracks {
         // name,
         // shipping_method_id
 
-        order_items( description: "Array of items in the order" )
-        //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
-        //quantity
-        //unit_price
-        //currency_id
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
+            //item
+                //id
+                //variation_id
+                //buying_mode
+                //shipping_mode
+                //category_id
+                //deal_ids
+            //quantity
+            //unit_price
+            //currency_id
 
         tracking_referer_page(required: false, description: "tracking referer page from where the request came")
     }
@@ -615,22 +616,22 @@ tracks {
         // name,
         // shipping_method_id
 
-        order_items( description: "Array of items in the order" )
-        //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
-        //quantity
-        //unit_price
-        //currency_id
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
+            //item
+                //id
+                //variation_id
+                //buying_mode
+                //shipping_mode
+                //category_id
+                //deal_ids
+            //quantity
+            //unit_price
+            //currency_id
         buyer(required: false)
         //id
         //nickname
 
-        seller(required: false)
+        seller(required: false,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
     }
@@ -668,14 +669,14 @@ tracks {
         // id
         // shipping_mode
 
-        order_items( description: "Array of items in the order" )
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -684,7 +685,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: true)
+        seller(required: true,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
 
@@ -729,14 +730,14 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: false, description: "Array of items in the order" )
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -745,7 +746,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: false)
+        seller(required: false,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
         //View specific data
@@ -788,14 +789,14 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: true, description: "Array of items in the order" )
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -804,7 +805,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: true)
+        seller(required: true,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
     }
@@ -956,14 +957,14 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: true, description: "Array of items in the order" )
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -972,7 +973,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: true)
+        seller(required: true,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
     }
@@ -1141,14 +1142,14 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: true, description: "Array of items in the order" )
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -1157,7 +1158,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: true)
+        seller(required: true,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
     }
@@ -1198,14 +1199,14 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: false, description: "Array of items in the order" )
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -1214,7 +1215,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: false)
+        seller(required: false,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
         available_actions(required: false, type: PropertyType.ArrayList, description: "Action presented on the screen, for ex: call_seller, email_seller, etc.")
@@ -1277,14 +1278,14 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: false, description: "Array of items in the order" )
+        items( required: false, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -1293,7 +1294,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: false)
+        seller(required: false,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
         error_code(required: true, type: PropertyType.String)
@@ -1332,14 +1333,14 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: true, description: "Array of items in the order" )
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -1348,7 +1349,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: true)
+        seller(required: true,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
     }
@@ -1386,14 +1387,14 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: true, description: "Array of items in the order" )
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -1402,7 +1403,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: true)
+        seller(required: true,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
     }
@@ -1885,14 +1886,14 @@ tracks {
         status_detail(required: false, description: "status description")
         total_amount(required: true, description: "order amount, does not include shipping or interests")
         total_amount_with_shipping(required: false, description: "order amount including shipping cost")
-        order_items(description: "Array of items in the order")
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //title
-        //selle_custom_fields
-        //variation_attributes
-        //category_id
-        //variation_id
+            //id
+            //title
+            //selle_custom_fields
+            //variation_attributes
+            //category_id
+            //variation_id
         //quantity
         //unit_price
         //currency_id
@@ -1918,7 +1919,7 @@ tracks {
         // status_detail
 
         buyer(required: true, description: "buyer information") // id, nickname
-        seller(required: true, description: "seller information") // id, nickname
+        seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data") // id, nickname
         is_carrito(required: true, description: "Whetever this order was created by a carrito or not ")
     }
 
