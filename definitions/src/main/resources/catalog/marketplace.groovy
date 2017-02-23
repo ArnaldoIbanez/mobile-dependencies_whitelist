@@ -501,7 +501,7 @@ tracks {
         buyer()
         //id
         //nickname
-        seller()
+        seller(type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
         errors()
@@ -631,7 +631,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: false)
+        seller(required: false,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
     }
@@ -685,7 +685,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: true)
+        seller(required: true,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
 
@@ -746,7 +746,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: false)
+        seller(required: false,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
         //View specific data
@@ -805,7 +805,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: true)
+        seller(required: true,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
     }
@@ -973,7 +973,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: true)
+        seller(required: true,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
     }
@@ -1158,7 +1158,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: true)
+        seller(required: true,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
     }
@@ -1215,7 +1215,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: false)
+        seller(required: false,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
         available_actions(required: false, type: PropertyType.ArrayList, description: "Action presented on the screen, for ex: call_seller, email_seller, etc.")
@@ -1294,7 +1294,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: false)
+        seller(required: false,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
         error_code(required: true, type: PropertyType.String)
@@ -1349,7 +1349,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: true)
+        seller(required: true,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
     }
@@ -1403,7 +1403,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: true)
+        seller(required: true,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
     }
@@ -1919,7 +1919,7 @@ tracks {
         // status_detail
 
         buyer(required: true, description: "buyer information") // id, nickname
-        seller(required: true, description: "seller information") // id, nickname
+        seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data") // id, nickname
         is_carrito(required: true, description: "Whetever this order was created by a carrito or not ")
     }
 

@@ -776,9 +776,9 @@ trackTests {
                                 paid_amount: 0.0
                         ]]
             platform = "/mobile/android"
-            seller = [
+            seller = [[
                     id: "208642594"
-            ]
+            ]]
             shipping = [
                     cost: 25.98,
                     shipping_option: [
@@ -1227,7 +1227,7 @@ trackTests {
             total_amount = 70
             order_id = 991687837
             status = "payment_required"
-            seller = [ id: 135201044, nickname: "JPS PAULO" ]
+            seller = [[ id: 135201044, nickname: "JPS PAULO" ]]
             first_for_order = true
             errors = false
             buyer = [ id: 75961818, nickname: "CIA51" ]
@@ -1832,10 +1832,10 @@ trackTests {
                     id:111111,
                     nickname:"buyer01"
             ]
-            seller=[
+            seller =[[
                     id:111222,
                     nickname:"seller02"
-            ]
+            ]]
         }
 
         "/checkout/congrats"(platform:"/web/desktop") {
@@ -1867,10 +1867,10 @@ trackTests {
                     id:111111,
                     nickname:"buyer01"
             ]
-            seller=[
+            seller =[[
                     id:111222,
                     nickname:"seller02"
-            ]
+            ]]
         }
 
     }
@@ -2852,7 +2852,7 @@ trackTests {
             total_amount_with_shipping = 120
 	          is_carrito = true
 
-            seller = [ id: 135201044, nickname: "XXXXXX" ]
+            seller = [[ id: 135201044, nickname: "XXXXXX" ]]
             buyer = [ id: 75961818, nickname: "YYYYYY" ]
 
             shipping = [
@@ -3404,10 +3404,10 @@ trackTests {
                     id:111111,
                     nickname:"buyer01"
             ]
-            seller=[
+            seller =[[
                     id:111222,
                     nickname:"seller02"
-            ]
+            ]]
         }
         "/checkout/congrats"(platform: "/web", type: TrackType.View) {
             //recommendations data
@@ -3471,10 +3471,10 @@ trackTests {
                     id:111111,
                     nickname:"buyer01"
             ]
-            seller=[
+            seller =[[
                     id:111222,
                     nickname:"seller02"
-            ]
+            ]]
         }
     }
 
