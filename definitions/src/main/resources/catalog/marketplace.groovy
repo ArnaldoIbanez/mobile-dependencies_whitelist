@@ -333,6 +333,7 @@ tracks {
         billboard_clicked_position(required:false, type: PropertyType.Numeric)
         store_type(required: false, description: "Indicates store type")
         reputation_level(required: false, description: "Seller's reputation level")
+        quotation_available(required: false, type: PropertyType.Boolean, description: "Indicates if the item can be quoted (cotizado)")
     }
 
     "/vip"(platform: "/web") {
