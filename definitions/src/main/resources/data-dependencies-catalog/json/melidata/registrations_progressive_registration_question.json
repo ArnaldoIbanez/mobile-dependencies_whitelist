@@ -3,7 +3,7 @@
     "marcos.juarez@mercadolibre.com","mariajose.luque@mercadolibre.com","emanuel.tagina@mercadolibre.com"
   ],
   "process_name": "progressive_registration_question",
-  "cron": "30 01 * * *",
+  "cron": " ",
   "extract": {
     "operation": "append",
     "columns": [
