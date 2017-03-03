@@ -3,7 +3,7 @@
     "martin.ciruzzi@mercadolibre.com"
   ],
   "process_name": "tracks_count",
-  "cron": "30 06 * * *",
+  "cron": "45 10 * * *",
   "extract": {
     "operation": "append",
     "columns": [
