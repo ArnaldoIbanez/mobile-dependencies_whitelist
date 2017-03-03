@@ -3,13 +3,13 @@ substr(ds,1,10) as ds,
 application.site_id as Site,
 device.platform AS Plataforma,
 usr.uid as uid,
-jest(event_data, 'seller.id') AS SellerID, 
+jest(event_data, 'seller[0].id') AS SellerID, 
 jest(event_data, 'seller.nickname') AS SellerNickname,
 jest(event_data, 'buyer.id') AS BuyerID,
 jest(event_data, 'buyer.nickname') AS BuyerNickname,
-jest(event_data, 'order_items[0].item.id') AS ItemID,
-jet(event_data, 'order_items[0].item.category_path') AS CategoryPath,
-jest(event_data,'order_items[0].item.category_id')   AS CategoryID, 
+jest(event_data, 'items[0].item.id') AS ItemID,
+jet(event_data, 'items[0].item.category_path') AS CategoryPath,
+jest(event_data,'items[0].item.category_id')   AS CategoryID,
 banner.size as banner_size,
 banner.banner_name as banner_name,
 sum(CAST(jest(event_data,'total_amount_usd') AS DOUBLE)) as sum_dol_amount,
@@ -28,7 +28,7 @@ INNER JOIN (
 			and ds < '@param02'
 			and others['fragment'] like '%banner_name%'
 			group by substr(ds,1,10), application.site_id, device.platform, jest(others['fragment'], 'banner_name'), jest(others['fragment'], 'size'), jest(others['fragment'], 'sellerid'), usr.uid
-			) banner ON (jest(event_data, 'seller.id') = banner.sellerid and usr.uid = banner.uid)
+			) banner ON (jest(event_data, 'seller[0].id') = banner.sellerid and usr.uid = banner.uid)
 where ds >= '@param01'
 and   ds <  '@param02'
 and path = '/orders/ordercreated'
@@ -36,12 +36,12 @@ group by substr(ds,1,10),
 application.site_id,
 device.platform, 
 usr.uid,
-jest(event_data, 'seller.id'), 
+jest(event_data, 'seller[0].id'), 
 jest(event_data, 'seller.nickname'), 
 jest(event_data, 'buyer.id'), 
 jest(event_data, 'buyer.nickname'), 
-jest(event_data, 'order_items[0].item.id'),
-jet(event_data, 'order_items[0].item.category_path'), 
-jest(event_data,'order_items[0].item.category_id'), 
+jest(event_data, 'items[0].item.id'),
+jet(event_data, 'items[0].item.category_path'),
+jest(event_data,'items[0].item.category_id'),
 banner.size,
 banner.banner_name

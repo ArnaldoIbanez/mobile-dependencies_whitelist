@@ -64,7 +64,7 @@ metrics {
 				path(regex("^/checkout(/.*|\$)"))
 				and(
 						equals("event_data.first_for_order", true),
-						empty("event_data.order_items.item.official_store_id", false)
+						empty("event_data.items.item.official_store_id", false)
 				)
 			}
 		}
@@ -80,7 +80,7 @@ metrics {
 				path(regex("^/checkout(/.*|\$)"))
 				and(
 						equals("event_data.first_for_order", true),
-						empty("event_data.order_items.item.deal_ids", false)
+						empty("event_data.items.item.deal_ids", false)
 				)
 			}
 		}
@@ -92,7 +92,7 @@ metrics {
 				path(regex("^/checkout(/.*|\$)"))
 				and(
 					equals("event_data.first_for_order", true),
-					sameDeal("event_data.order_items.item.deal_ids", true)
+					sameDeal("event_data.items.item.deal_ids", true)
 				)
 			}
 		}
@@ -104,7 +104,7 @@ metrics {
 				path(regex("^/checkout(/.*|\$)"))
 				and(
 					equals("event_data.first_for_order", true),
-					equals("event_data.order_items.item.id", property("item_id"))
+					equals("event_data.items.item.id", property("item_id"))
 				)
 			}
 		}
