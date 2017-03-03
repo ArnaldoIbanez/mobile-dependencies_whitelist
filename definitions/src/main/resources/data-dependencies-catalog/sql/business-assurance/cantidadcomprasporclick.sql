@@ -3,7 +3,7 @@ substr(ds,1,10) as ds,
 application.site_id as Site,
 device.platform AS Plataforma,
 usr.uid as uid,
-jest(event_data, 'seller.id') AS SellerID, 
+jest(event_data, 'seller[0].id') AS SellerID, 
 jest(event_data, 'seller.nickname') AS SellerNickname,
 jest(event_data, 'buyer.id') AS BuyerID,
 jest(event_data, 'buyer.nickname') AS BuyerNickname,
@@ -24,19 +24,19 @@ INNER JOIN (
 			jest(others['fragment'], 'sellerid') AS SellerID,
 			usr.uid as uid
 			from tracks
-			where ds >= '2017-01-27'
-			and ds < '2017-02-19'
+			where ds >= '2017-02-20'
+			and ds < '2017-03-02'
 			and others['fragment'] like '%banner_name%'
 			group by substr(ds,1,10), application.site_id, device.platform, jest(others['fragment'], 'banner_name'), jest(others['fragment'], 'size'), jest(others['fragment'], 'sellerid'), usr.uid
-			) banner ON (jest(event_data, 'seller.id') = banner.sellerid and usr.uid = banner.uid)
-where ds >= '2017-01-27'
-and   ds <  '2017-02-19'
+			) banner ON (jest(event_data, 'seller[0].id') = banner.sellerid and usr.uid = banner.uid)
+where ds >= '2017-02-20'
+and   ds <  '2017-03-02'
 and path = '/orders/ordercreated'
 group by substr(ds,1,10),
 application.site_id,
 device.platform, 
 usr.uid,
-jest(event_data, 'seller.id'), 
+jest(event_data, 'seller[0].id'), 
 jest(event_data, 'seller.nickname'), 
 jest(event_data, 'buyer.id'), 
 jest(event_data, 'buyer.nickname'), 
