@@ -8,4 +8,4 @@ fi
 
 echo "Updating metrics for temporal use in track storage with filter: $KEY"
 
-cd definitions && ./gradlew exportMetrics && curl -s "https://api.mercadolibre.com/melidata/track_storage/$KEY/definitions" -XPOST -d @metrics.json && cd ..
+cd ./gradlew exportMetrics && curl -s "https://api.mercadolibre.com/melidata/track_storage/$KEY/definitions" -XPOST -d @metrics.json
