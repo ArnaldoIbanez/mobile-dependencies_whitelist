@@ -560,10 +560,6 @@ trackTests {
             flow = "/recharge_sube"
             from = "/deep_link"
         }
-        "/recharge_sube/pay_status"(platform: "/mobile") {
-            flow = "/recharge_sube"
-            from = "/deep_link"
-        }
         "/recharge_sube/add_bus_card"(platform: "/mobile") {
             flow = "/recharge_sube"
             from = "/deep_link"
@@ -576,11 +572,21 @@ trackTests {
             flow = "/recharge_sube"
             from = "/deep_link"
         }
-        "/recharge_sube/result"(platform: "/mobile") {
+        "/recharge_sube/px_review_and_confirm"(platform: "/mobile") {
             flow = "/recharge_sube"
             from = "/deep_link"
-            result_status = "rejected"
-            status_detail = "call_for_auth"
+        }
+        "/recharge_sube/px_result_approved"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_result_rejected"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_result_pending"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
         }
     }
 

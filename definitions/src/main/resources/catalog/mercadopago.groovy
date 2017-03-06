@@ -172,14 +172,14 @@ tracks {
     "/recharge_sube/localization_permission"(platform: "/mobile") {}
     "/recharge_sube/select_recharge_card"(platform: "/mobile") {}
     "/recharge_sube/information"(platform: "/mobile") {}
-    "/recharge_sube/pay_status"(platform: "/mobile") {}
     "/recharge_sube/add_bus_card"(platform: "/mobile") {}
     "/recharge_sube/choose_amount"(platform: "/mobile") {}
     "/recharge_sube/second_password"(platform: "/mobile") {}
-    "/recharge_sube/result"(platform: "/mobile") {
-        result_status (required:true, type: PropertyType.String, description: "Operation result status")
-        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
-    }
+    "/recharge_sube/px_review_and_confirm"(platform: "/mobile") {}
+    "/recharge_sube/px_result_approved"(platform: "/mobile") {}
+    "/recharge_sube/px_result_rejected"(platform: "/mobile") {}
+    "/recharge_sube/px_result_pending"(platform: "/mobile") {}
+
 
     "/money_request"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
