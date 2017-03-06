@@ -534,39 +534,51 @@ trackTests {
     test("Recharge Sube") {
         "/recharge_sube/first_time_use"(platform: "/mobile") {
             flow = "/recharge_sube"
+            from = "/deep_link"
         }
         "/recharge_sube/no_money"(platform: "/mobile") {
             flow = "/recharge_sube"
+            from = "/deep_link"
         }
         "/recharge_sube/choose_amount_information"(platform: "/mobile") {
             flow = "/recharge_sube"
+            from = "/deep_link"
         }
         "/recharge_sube/localization"(platform: "/mobile") {
             flow = "/recharge_sube"
+            from = "/deep_link"
         }
         "/recharge_sube/localization_permission"(platform: "/mobile") {
             flow = "/recharge_sube"
+            from = "/deep_link"
         }
         "/recharge_sube/select_recharge_card"(platform: "/mobile") {
             flow = "/recharge_sube"
+            from = "/deep_link"
         }
         "/recharge_sube/information"(platform: "/mobile") {
             flow = "/recharge_sube"
+            from = "/deep_link"
         }
         "/recharge_sube/pay_status"(platform: "/mobile") {
             flow = "/recharge_sube"
+            from = "/deep_link"
         }
         "/recharge_sube/add_bus_card"(platform: "/mobile") {
             flow = "/recharge_sube"
+            from = "/deep_link"
         }
         "/recharge_sube/choose_amount"(platform: "/mobile") {
             flow = "/recharge_sube"
+            from = "/deep_link"
         }
         "/recharge_sube/second_password"(platform: "/mobile") {
             flow = "/recharge_sube"
+            from = "/deep_link"
         }
         "/recharge_sube/result"(platform: "/mobile") {
             flow = "/recharge_sube"
+            from = "/deep_link"
             result_status = "rejected"
             status_detail = "call_for_auth"
         }
