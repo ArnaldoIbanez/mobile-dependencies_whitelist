@@ -444,7 +444,7 @@ trackTests {
             local_pick_up = false
             category_path = ["MLA1234","MLA6789"]
             reputation_level = "green_5"
-	    fulfillment = true
+            fulfillment = true
         }
 
         "/vip"(platform:"/mobile", dataSet)
@@ -2256,15 +2256,15 @@ trackTests {
     test("Mobile Notifications"){
 
         "/notification_center"(platform: "/mobile"){}
-        "/notification_center/abort"(platform: "/mobile"){}		
+        "/notification_center/abort"(platform: "/mobile"){}
         "/notification_center/back"(platform: "/mobile"){}
         "/notification_center/failure"(platform: "/mobile"){}
-    
+
         "/notification_center"(platform: "/mobile") {
           newsgroup_id = "12332323"
           event_type = "open"
         }
-        
+
         "/notification_center/questions-buyer"(platform: "/mobile"){
             newsgroup_id: "question-123412"
             status: "read"
@@ -2278,17 +2278,17 @@ trackTests {
             event_type: "swipe"
             deeplink: "meli://seller_questions/1234"
             type_layout: "bullet_list"
-        }            
-        
+        }
+
         "/notification_center/orders-buyer"(platform: "/mobile"){
             newsgroup_id: "orders-buyer-1285223441"
             status: "read"
             event_type: "open"
             deeplink: "meli://purchases/1285223441#payment"
             type_layout: "standard"
-        
+
         }
-        
+
         "/notification_center/orders-seller"(platform: "/mobile"){
             newsgroup_id: "orders-seller-1288279054"
             action_type: "messages"
@@ -2297,7 +2297,7 @@ trackTests {
             deeplink: "meli://sales/1288279054/messages/send"
             type_layout: "bullet_list"
         }
-    
+
         "/notification_center/security-enrollment-legacy"(platform: "/mobile"){
             newsgroup_id: "security-enrollment-142242996"
             status: "unread"
@@ -2305,7 +2305,7 @@ trackTests {
             deeplink: "meli://generic_landing?url=https%3A%2F%2Faccountrecovery.mercadolivre.com.br%2Fenrollment%3Fsection%3DMDP_UPDATED_NOTIF%26nativeMobile%3DANDROID"
             type_layout: "standard"
         }
-    
+
         "/notification_center/mediations-complainant-legacy"(platform: "/mobile"){
             newsgroup_id: "MEDIATIONS-1287016973"
             status: "read"
@@ -2313,7 +2313,7 @@ trackTests {
             deeplink: "meli://purchases/1287016973/claims/900736064"
             type_layout: "standard"
         }
-    
+
         "/notification_center/purchase-pending-legacy"(platform: "/mobile"){
             newsgroup_id: "purchase-pending-210167262-MLA646946595"
             status: "read"
@@ -2321,7 +2321,7 @@ trackTests {
             deeplink: "meli://item?id=MLA646946595"
             type_layout: "standard"
         }
-    
+
         "/notification_center/loyalty"(platform: "/mobile"){
             newsgroup_id: "LOYALTY-48422892"
             status: "unread"
@@ -2329,7 +2329,7 @@ trackTests {
             deeplink: "meli://loyalty/?selectedTab=benefits"
             type_layout: "standard"
         }
-    
+
         "/notification_center/listings"(platform: "/mobile"){
             newsgroup_id: "listings-MLB829990994"
             status: "read"
@@ -2337,7 +2337,7 @@ trackTests {
             deeplink: "meli://listings/MLB829990994"
             type_layout: "standard"
         }
-    
+
         "/notification_center/campaigns-deals"(platform: "/mobile"){
             campaign_id: "campaign1"
             deal_id: "deal1_123"
@@ -2346,7 +2346,7 @@ trackTests {
             event_type: "swipe"
             type_layout: "picture"
         }
-    
+
         "/notification_center/campaigns-campaigns"(platform: "/mobile"){
             campaign_id: "campaign1"
             newsgroup_id: "deals-MLU102_07_02_2017-56626993"
@@ -2354,7 +2354,7 @@ trackTests {
             event_type: "swipe"
             type_layout: "picture"
         }
-    
+
         "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/mobile"){
             newsgroup_id: "campaigns-suggested_discounts_buyer-142593788-MLA645507294"
             event_type: "open"
@@ -2379,7 +2379,7 @@ trackTests {
             event_type = "sent"
         }
 
-        
+
         "/notification"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "auto_dismiss"
@@ -2441,7 +2441,7 @@ trackTests {
             order_id = "11222"
             shipment_id = 1234
         }
-        
+
         "/notification/shipping_agency_withdrawal"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "arrived"
@@ -2830,8 +2830,8 @@ trackTests {
         "/notification/security_enrollment"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
-        }   
-       
+        }
+
         "/notification/reviews_reminder"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
