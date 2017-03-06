@@ -72,22 +72,6 @@ metrics {
 		}
 	}
 
-	"orders.deals"(description: "TODO: REMOVE orders for items in any deal", compute_order: true) {
-		startWith {
-			experiment(regex("/notification/.*"))
-		}
-
-		countsOn {
-			condition {
-				path(regex("^/checkout(/.*|\$)"))
-				and(
-						equals("event_data.first_for_order", true),
-						empty("event_data.items.item.deal_ids", false)
-				)
-			}
-		}
-	}
-
 	"orders.samedeal"(description: "orders for items in the same deal of exposition", compute_order: true) {
 		countsOn {
 			condition {
