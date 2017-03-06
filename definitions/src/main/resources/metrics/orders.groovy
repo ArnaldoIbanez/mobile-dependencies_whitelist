@@ -2,18 +2,10 @@ import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
-	"orders"(description: "all orders, does not include carrito", compute_order: true) {
+	"orders"(description: "all orders, does not include carrito. TODO: Remove", compute_order: true) {
 		countsOn {
 			condition {
 				path(regex("^/checkout(/.*|\$)"))
-				equals("event_data.first_for_order", true)
-			}
-		}
-	}
-
-	"buys"(description: "all buys, this includes carrito and checkout buys", compute_order: true) {
-		countsOn {
-			condition {
 				equals("event_data.first_for_order", true)
 			}
 		}
@@ -28,7 +20,7 @@ metrics {
 
 	}
 
-	"buys.congrats"( description: "all congrats, including carrito and checkout congrats", compute_order:true){
+	"checkout_congrats"( description: "all congrats, including carrito and checkout congrats", compute_order:true){
 		countsOn {
 			condition{
 				equals("event_data.congrats_seq",1)
@@ -45,7 +37,17 @@ metrics {
 		}
 	}
 
-	"purchases"(description: "/cart/checkout/congrats unique for each purchase_id (congrats_seq = 1)", compute_order: true) {
+	"single_checkout_congrats"(description: "/checkout/congrats* unique for each order_id (congrats_seq = 1)", compute_order: true) {
+		countsOn {
+			condition {
+				path(regex("^/checkout/congrats(/.*|\$)"))
+				equals("event_data.congrats_seq", 1)
+			}
+		}
+	}
+
+
+	"cart_checkout_congrats"(description: "/cart/checkout/congrats unique for each purchase_id (congrats_seq = 1)", compute_order: true) {
 		countsOn {
 			condition {
 				path("/cart/checkout/congrats")
@@ -70,7 +72,7 @@ metrics {
 		}
 	}
 
-	"orders.deals"(description: "orders for items in any deal", compute_order: true) {
+	"orders.deals"(description: "TODO: REMOVE orders for items in any deal", compute_order: true) {
 		startWith {
 			experiment(regex("/notification/.*"))
 		}
@@ -122,11 +124,19 @@ metrics {
 		}
 	}
 
-	"orders.feed"(description: "/orders/ordercreated from feed", compute_order: true) {
+	"orders.feed"(description: "/orders/ordercreated from feed. TODO: Rename to 'orders'", compute_order: true) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
 				equals("event_data.is_carrito", true)
+			}
+		}
+	}
+
+	"purchases"(description: "/purchase/purchasecreated from feed", compute_order: true) {
+		countsOn {
+			condition {
+				path("/purchases/purchasecreated")
 			}
 		}
 	}
