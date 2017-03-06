@@ -28,7 +28,7 @@ metrics {
 		}
 	}
 
-	"orders.congrats"(description: "/checkout/congrats* unique for each order_id (congrats_seq = 1)", compute_order: true) {
+	"orders.congrats"(description: "/checkout/congrats* unique for each order_id (congrats_seq = 1). TODO: Remove is replaced by single_checkout_congrats", compute_order: true) {
 		countsOn {
 			condition {
 				path(regex("^/checkout/congrats(/.*|\$)"))
