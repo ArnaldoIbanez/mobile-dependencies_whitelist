@@ -247,6 +247,11 @@ trackTests {
 
         "/vip"(platform:"/mobile", dataSet)
 
+        "/vip"(platform:"/mobile", {
+            dataSet()
+            quotation_available = false
+        })
+
         "/vip/failure"(platform:"/mobile", {
             item_id = "MLA533657947"
             error_message = "any message"
