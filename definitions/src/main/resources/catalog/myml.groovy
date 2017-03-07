@@ -4,18 +4,30 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-"/myml"(platform: "/", isAbstract: true) {
-    cartContent(required:false, type: PropertyType.String)
-    purchase_status(required:false, type: PropertyType.String)
-    connection_type(required:false, type: PropertyType.String)
+    propertyDefinitions {
+	    cartContent(required:false, type: PropertyType.Boolean)
+	    status(required:false, type: PropertyType.String)
+	    
+	    seller(required: false, type:PropertyType.ArrayList, description: "Array of sellers with their data")
+	    //id
+	    //nickname
+	    //mercado_lider
+	    //reputation_level
 
-    mercado_lider(required:false, type: PropertyType.String)
-    reputation_level(required:false, type: PropertyType.String)
-    resolution(required:false, type: PropertyType.String)
-    loyalty_level(required:false, type: PropertyType.Numeric)
+	    buyer(required: false, type:PropertyType.ArrayList, description: "Array of buyers with their data")
+	    //id
+	    //nickname
+	    //loyalty_level
+    }
+
+    propertyGroups {
+        mymlGroup(cartContent, status, seller, buyer)
+    }
+
+
+"/myml/sales"(platform: "/", isAbstract: true) {
+    mymlGroup
 }
-
-"/myml/sales"(platform: "/", isAbstract: true) {}
 
 "/myml/sales/list"(platform: "/") {}
 
@@ -43,7 +55,9 @@ tracks {
 
 "/myml/sales/questions"(platform: "/") {}
 
-"/myml/purchases"(platform: "/", isAbstract: true) {}
+"/myml/purchases"(platform: "/", isAbstract: true) {
+	mymlGroup
+}
 
 "/myml/purchases/list"(platform: "/") {}
 

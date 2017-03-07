@@ -8,15 +8,34 @@ import com.ml.melidata.TrackType
 tracks {
 
 "/cart"(platform: "/", isAbstract: true) {
-    listing_type(required:false, type: PropertyType.String)
-    international_delivery_mode(required:false, type: PropertyType.String)
-    mercado_lider(required:false, type: PropertyType.String)
-    reputation_level(required:false, type: PropertyType.String)
-    free_shipping_benefit(required:false, type: PropertyType.Boolean)
-    resolution(required:false, type: PropertyType.String)
+
+	items(required: true, type:PropertyType.ArrayList, description: "Array of items in the cart with following data")
+    //currency_id
+    //item
+        //id
+        //review_rate -> Lo completa Melidata automaticamente
+        //shipping_mode
+        //international_delivery_mode
+        //category_path -> Lo completa Melidata automaticamente
+        //deal_id -> Lo completa Melidata automaticamente
+        //buying_mode -> Lo completa Melidata automaticamente
+        //category_id -> Lo completa Melidata automaticamente
+        //official_store
+        //condition (new / used)
+        //listing_type
+        //variation_id
+    //quantity
+    //unit_price
+
+    seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data")
+    //id
+    //nickname
+    //mercado_lider
+    //reputation_level
+
+	free_shipping_benefit(required:false, type: PropertyType.Boolean)
     loyalty_level(required:false, type: PropertyType.Numeric)
     is_empty(required:false, type: PropertyType.Boolean)
-    connection_type(required:false, type: PropertyType.String)
 }
 
 "/cart/my_cart"(platform: "/") {}
