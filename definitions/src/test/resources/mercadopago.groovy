@@ -576,17 +576,11 @@ trackTests {
             flow = "/recharge_sube"
             from = "/deep_link"
         }
-        "/recharge_sube/px_result_approved"(platform: "/mobile") {
+        "/recharge_sube/px_result"(platform: "/mobile") {
             flow = "/recharge_sube"
             from = "/deep_link"
-        }
-        "/recharge_sube/px_result_rejected"(platform: "/mobile") {
-            flow = "/recharge_sube"
-            from = "/deep_link"
-        }
-        "/recharge_sube/px_result_pending"(platform: "/mobile") {
-            flow = "/recharge_sube"
-            from = "/deep_link"
+            result_status = "rejected"
+            status_detail = "call_for_auth"
         }
     }
 

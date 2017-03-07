@@ -176,9 +176,10 @@ tracks {
     "/recharge_sube/choose_amount"(platform: "/mobile") {}
     "/recharge_sube/second_password"(platform: "/mobile") {}
     "/recharge_sube/px_review_and_confirm"(platform: "/mobile") {}
-    "/recharge_sube/px_result_approved"(platform: "/mobile") {}
-    "/recharge_sube/px_result_rejected"(platform: "/mobile") {}
-    "/recharge_sube/px_result_pending"(platform: "/mobile") {}
+    "/recharge_sube/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
 
 
     "/money_request"(platform: "/mobile", isAbstract: true) {
