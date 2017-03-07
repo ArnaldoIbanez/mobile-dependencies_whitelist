@@ -58,6 +58,18 @@ catalog {
         include business, "marketplace.groovy"
     }
 
+    marketplace.each { business ->
+        include business, "cartList.groovy"
+    }
+
+    marketplace.each { business ->
+        include business, "cartCheckout.groovy"
+    }
+
+    marketplace.each { business ->
+        include business, "myml.groovy"
+    }
+
     mercadopago.each { business ->
         include business, "mercadopago.groovy"
     }
