@@ -13,6 +13,10 @@
         "format": "yyyy-MM-dd"
       },
       {
+        "name": "siteId",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "path",
         "type": "UNICODE_STRING"
       },

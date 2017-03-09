@@ -2,7 +2,7 @@
   "users": [
     "ext_grodrig@mercadolibre.com","ext_mberriel@mercadolibre.com"
   ],
-  "process_name": "suggested_discount_current_sellers_activity",
+  "process_name": "suggested_discount_current_buyers_activity",
   "cron": " ",
   "extract": {
     "operation": "append",
@@ -34,7 +34,7 @@
       }
     ],
     "sql": {
-      "script": "melidata/suggested-discount-current-sellers-activity.sql",
+      "script": "melidata/suggested-discount-current-buyers-activity.sql",
       "parameters": [
         {
           "name": "param01",
