@@ -18,6 +18,7 @@ tracks {
 "/cart/checkout"(platform: "/", isAbstract: true) { 
 
     status(required: false, description: "status")
+    purchase_id(required: false, description: "Identifier of the purchase")   
     
     seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data")
     //id
@@ -140,8 +141,7 @@ tracks {
 
 "/cart/checkout/congrats"(platform:"/", type: TrackType.View) {
     congrats_seq(serverSide: true) // Lo completa Melidata automaticamente
-    first_for_order(serverSide: true) // Lo completa Melidata automaticamente    
-    purchase_id(required: true, description: "PurchaseID")        
+    first_for_order(serverSide: true) // Lo completa Melidata automaticamente         
 }
 
 "/cart/checkout/congrats/keep_buying"(platform:"/", type: TrackType.Event) {}
