@@ -7,7 +7,7 @@ get_json_object(tracks.event_data,'$.item_id') as itemId
 from tracks
 where ds >= '2017-03-02'
 and ds < '2017-03-03' 
-and path in ('/orders/ordercreated', '/questions/ask/post', '/bookmarks/action/post', '/vip/buy_intention', '/home', '/search', '/vip')
+and path in ('/home', '/search', '/vip', '/vip/buy_intention', '/notification_center', '/notification/questions_new', '/questions/answer/post', '/orders/ordercreated', '/bookmarks/action/post')
 and device.platform in ('/mobile/android', '/mobile/ios')
 and usr.user_id in (
   select distinct usr.user_id
