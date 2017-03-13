@@ -1876,8 +1876,13 @@ tracks {
 
     /**
      * END NOTIFICATIONS
-     **/ 
-    
+     **/
+
+    "/landing"(platform: "/mobile", isAbstract: true) {}
+
+    "/landing/generic"(platform: "/mobile") {
+        url(required:true, descripcion:"The url to be loaded by the generic landing")
+    }
     
     "/orders"(platform: "/", isAbstract: true) {}
 
