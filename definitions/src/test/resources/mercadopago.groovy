@@ -572,6 +572,10 @@ trackTests {
             flow = "/recharge_sube"
             from = "/deep_link"
         }
+        "/recharge_sube/px_payment_method_search"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
         "/recharge_sube/px_review_and_confirm"(platform: "/mobile") {
             flow = "/recharge_sube"
             from = "/deep_link"
