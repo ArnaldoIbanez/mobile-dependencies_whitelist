@@ -5,12 +5,16 @@
   "process_name": "suggested_discount_tracks",
   "cron": "30 01 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "ds",
         "type": "DATE",
         "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "siteId",
+        "type": "UNICODE_STRING"
       },
       {
         "name": "path",
@@ -19,6 +23,10 @@
       {
         "name": "platform",
         "type": "UNICODE_STRING"
+      },
+      {
+        "name": "userId",
+        "type": "INTEGER"
       },
       {
         "name": "type",
@@ -43,10 +51,6 @@
       {
         "name": "onboarding_step",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "distinct_user_count",
-        "type": "INTEGER"
       }
     ],
     "sql": {
