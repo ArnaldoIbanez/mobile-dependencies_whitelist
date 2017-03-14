@@ -6,7 +6,7 @@ usr.user_id as userId,
 get_json_object(tracks.event_data,'$.event_type') AS event_type
 from tracks
 where ds >= '2017-02-16'
-and ds < '2017-02-28' 
+and ds < '2017-03-13' 
 and type = 'event'
 and tracks.path in ('/notification/campaigns_suggested_discounts_seller','/notification/campaigns_suggested_discounts_buyer')
 and get_json_object(tracks.event_data,'$.context') = 'notification'
