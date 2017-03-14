@@ -5,8 +5,8 @@ device.platform as platform,
 usr.user_id as userId,  
 get_json_object(tracks.event_data,'$.item_id') as itemId
 from tracks
-where ds >= '2017-03-02'
-and ds < '2017-03-03' 
+where ds >= '2017-02-28'
+and ds < '2017-03-01' 
 and path in ('/home', '/search', '/vip', '/vip/buy_intention', '/notification_center', '/notification/questions_new', '/questions/answer/post', '/orders/ordercreated', '/bookmarks/action/post')
 and device.platform in ('/mobile/android', '/mobile/ios')
 and usr.user_id in (
@@ -14,6 +14,10 @@ and usr.user_id in (
   from tracks as t
   where t.ds >= '2017-03-01'
   and t.ds < '2017-03-02' 
-  and t.path = '/myml/suggested_discounts/landing'
+  and type = 'event' 
+  and device.platform in ('/mobile/android', '/mobile/ios')
+  and t.path = '/notification/campaigns_suggested_discounts_buyer'
+  and get_json_object(t.event_data,'$.context') = 'notification'
+  and get_json_object(t.event_data,'$.event_type') = 'open'
 )
-group by ds,application.site_id,tracks.path,device.platform,usr.user_id,get_json_object(tracks.event_data,'$.item_id');
+group by ds,application.site_id,tracks.path,device.platform,usr.user_id,get_json_object(tracks.event_data,'$.item_id')

@@ -2,6 +2,7 @@ import com.melidata.definitions.TestRunner
 import com.melidata.definitions.outs.DefinitionsOut
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.PropertyType
+import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
 import org.junit.Before
 import org.junit.Test
 import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.catalog
@@ -20,6 +21,7 @@ class TestRunnerTest {
     def catalog = null
 
     @Before void createCatalogAndTest(){
+        CatalogDsl.baseDir="src/main/resources/catalog/"
         this.catalog  = catalog {
             /**
              * All available platfrom
@@ -32,6 +34,8 @@ class TestRunnerTest {
                     "/mobile/ios",
                     "/mobile/web",
             ]
+
+            defaultBusiness = "ml"
 
             tracks {
                 "/search"(platform: "/") {

@@ -2,7 +2,7 @@
   "users": [
     "ext_grodrig@mercadolibre.com","ext_mberriel@mercadolibre.com"
   ],
-  "process_name": "suggested_discount_previous_sellers_activity",
+  "process_name": "suggested_discount_next_buyers_activity",
   "cron": " ",
   "extract": {
     "operation": "overwrite",
@@ -34,7 +34,7 @@
       }
     ],
     "sql": {
-      "script": "melidata/suggested-discount-previous-sellers-activity.sql",
+      "script": "melidata/suggested-discount-next-buyers-activity.sql",
       "parameters": [
         {
           "name": "param01",
@@ -48,12 +48,12 @@
         },
         {
           "name": "param03",
-          "value": "DAY-1",
+          "value": "DAY-3",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param04",
-          "value": "DAY-0",
+          "value": "DAY-2",
           "format": "yyyy-MM-dd"
         }
       ]

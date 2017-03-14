@@ -3,7 +3,7 @@
     "ext_grodrig@mercadolibre.com","ext_mberriel@mercadolibre.com"
   ],
   "process_name": "suggested_discount_push_open_rate",
-  "cron": "30 01 * * *",
+  "cron": " ",
   "extract": {
     "operation": "append",
     "columns": [
@@ -11,6 +11,10 @@
         "name": "ds",
         "type": "DATE",
         "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "siteId",
+        "type": "UNICODE_STRING"
       },
       {
         "name": "path",
@@ -21,12 +25,12 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "event_type",
-        "type": "UNICODE_STRING"
+        "name": "userId",
+        "type": "INTEGER"
       },
       {
-        "name": "distinct_user_count",
-        "type": "INTEGER"
+        "name": "event_type",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {

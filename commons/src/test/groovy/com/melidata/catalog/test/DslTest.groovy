@@ -210,5 +210,58 @@ public class DslTest {
     }
 
 
+    @Test void trackDefinitionsTest() {
+        def j = catalog {
+
+            defaultBusiness = "mercadolibre"
+
+            platforms = [
+                    "/mobile",
+                    "/mobile/ios"
+            ]
+
+            tracks {
+
+                propertyDefinitions {
+                    limit(description:"amount of search items returned")
+                    offset(type: PropertyType.Numeric, regex:".*")
+                    position(values: ["horizonal","landscape"])
+                }
+
+                propertyGroups {
+                    searchGroup(limit, offset)
+                    searchMobileGroup(position)
+                    somePathGroup(limit, offset, position)
+                }
+
+                "/search"(platform: "/") {
+                    searchGroup
+                }
+                "/search"(platform: "/mobile") {
+                    searchMobileGroup
+                }
+                "/search/refine"(platform: "/") {
+
+                }
+
+                "/tucarro"(platform: "/", business: "tucarro") {
+                    id()
+                }
+
+                "/some/path"(platform: "/", business: "tuvieja") {
+                    somePathGroup
+                }
+
+            }
+        }
+
+        Track t =  new Track(path:"/search", event_data: ["limit":50,"offset":1])
+        assertTrue(j.validate(t).status)
+
+
+        Track t2 =  new Track(path:"/tucarro", event_data: ["id":5], business: "tucarro")
+        assertTrue(j.validate(t2).status)
+    }
+
 
 }

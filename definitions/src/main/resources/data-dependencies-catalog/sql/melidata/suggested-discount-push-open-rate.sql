@@ -1,16 +1,15 @@
 select substr(ds,1,10) as ds,
+application.site_id as siteId,
 tracks.path as path,
 device.platform as platform,
-get_json_object(tracks.event_data,'$.event_type') AS event_type,
-count(distinct usr.user_id) as distinct_user_count
+usr.user_id as userId,
+get_json_object(tracks.event_data,'$.event_type') AS event_type
 from tracks
-where ds >= '@param01'
-and ds <= '@param02' 
+where ds >= '2017-03-13'
+and ds < '2017-03-14' 
 and type = 'event'
 and tracks.path in ('/notification/campaigns_suggested_discounts_seller','/notification/campaigns_suggested_discounts_buyer')
 and get_json_object(tracks.event_data,'$.context') = 'notification'
 and device.platform in ('/mobile/android', '/mobile/ios')
-group by substr(ds,1,10), tracks.path, device.platform, get_json_object(tracks.event_data,'$.event_type')
-order by substr(ds,1,10), tracks.path, device.platform, event_type;
-
-
+group by substr(ds,1,10), application.site_id, tracks.path, device.platform, usr.user_id, get_json_object(tracks.event_data,'$.event_type')
+order by substr(ds,1,10), application.site_id, tracks.path, device.platform, usr.user_id, event_type;

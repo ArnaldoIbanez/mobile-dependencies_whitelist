@@ -13,12 +13,20 @@
         "format": "yyyy-MM-dd"
       },
       {
+        "name": "siteId",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "path",
         "type": "UNICODE_STRING"
       },
       {
         "name": "platform",
         "type": "UNICODE_STRING"
+      },
+      {
+        "name": "userId",
+        "type": "INTEGER"
       },
       {
         "name": "type",
@@ -43,10 +51,6 @@
       {
         "name": "onboarding_step",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "distinct_user_count",
-        "type": "INTEGER"
       }
     ],
     "sql": {
