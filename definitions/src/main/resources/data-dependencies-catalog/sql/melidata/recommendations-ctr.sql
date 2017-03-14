@@ -1,56 +1,62 @@
 SELECT
-    t1.ds as ds,
-    t1.platform AS platform,
-    t1.site_id AS site_id,
-    t1.backend AS backend,
-    t1.client AS client,
-    t1.prints AS prints,
-    IF(t2.clicks IS NULL, 0, t2.clicks) AS clicks
-FROM
-(
-    SELECT
-       '@param01' as ds ,
-        device.platform AS platform,
-        application.site_id,
-        get_json_object(recommendations,'$.algorithm') AS backend,
-        get_json_object(recommendations,'$.context') AS client,
-        COUNT(distinct(id)) AS prints
+  t1.ds as ds,
+  t1.platform AS platform,
+  t1.site_id AS site_id,
+  t1.backend AS backend,
+  t1.client AS client,
+  t1.prints AS prints,
+  IF(t2.clicks IS NULL, 0, t2.clicks) AS clicks
+FROM(SELECT
+         ds,
+         platform,
+         site_id,
+         backend,
+         client,
+         COUNT(distinct(id)) AS prints
+FROM(SELECT
+        id,
+        '@param01' AS ds,
+        platform_level(device.platform,2) AS platform,
+        application.site_id AS site_id,
+        IF(v2.algorithm IS NULL, v2.backend_id, v2.algorithm) AS backend,
+        IF(v2.client IS NULL, v2.context, v2.client) AS client
     FROM tracks
     LATERAL VIEW json_tuple(event_data,'recommendations') v1 AS recommendations
+    LATERAL VIEW json_tuple(v1.recommendations,'track_info', 'hidden_by_client', 'backend_id', 'client', 'algorithm', 'context' ) v2 AS track_info, hidden_by_client, backend_id, client, algorithm, context
     WHERE
-        recommendations IS NOT NULL
-        AND cast(get_json_object(recommendations,'$.success_print') as varchar(50)) = 'true'
-        AND get_json_object(recommendations,'$.algorithm') IS NOT NULL
-        AND get_json_object(recommendations,'$.context') IS NOT NULL
-        AND ds >= '@param01 06' AND ds < '@param02 06'
-    GROUP BY
-        device.platform,
-        application.site_id,
-        get_json_object(recommendations,'$.algorithm'),
-        get_json_object(recommendations,'$.context')
+        v2.track_info IS NOT NULL
+        AND cast(get_json_object(v2.track_info,'$.has_recommendations') as varchar(50)) = 'true'
+        AND CAST(v2.hidden_by_client as varchar(50)) = 'false'
+        AND (v2.algorithm is not null or v2.backend_id is not null)
+        AND (v2.context is not null or v2.client is not null)
+        AND ds >= '@param01 02' AND ds < '@param02 02') a
+GROUP BY a.ds,
+         a.platform,
+         a.site_id,
+         a.backend,
+         a.client
 ) t1
 LEFT JOIN
 (
     SELECT
-        '@param01' as ds,
-        device.platform AS platform,
+        '@param01' AS ds,
+        platform_level(device.platform,2) AS platform,
         application.site_id AS site_id,
         reco_backend AS backend,
         reco_client AS client,
         COUNT(DISTINCT usr.uid, item_id) AS clicks
     FROM tracks
-    LATERAL VIEW json_tuple(others['fragment'],'reco_client') v1 AS reco_client
-    LATERAL VIEW json_tuple(others['fragment'],'reco_backend') v2 AS reco_backend
-    LATERAL VIEW json_tuple(event_data,'item_id')z AS item_id
+    LATERAL VIEW json_tuple(others['fragment'],'reco_client', 'reco_backend') v1 AS reco_client, reco_backend
+    LATERAL VIEW json_tuple(event_data,'item_id')v2 AS item_id
     WHERE
         path = '/vip'
-        AND reco_client IS NOT NULL
-        AND ds >= '@param01 06' AND ds < '@param02 06'
+        AND v1.reco_client IS NOT NULL
+        AND ds >= '@param01 02' AND ds < '@param02 02'
     GROUP BY
-        device.platform,
+        platform_level(device.platform,2),
         application.site_id,
-        reco_backend,
-        reco_client
+        v1.reco_backend,
+        v1.reco_client
 ) t2
 ON
   t1.ds = t2.ds

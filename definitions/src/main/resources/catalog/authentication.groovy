@@ -19,7 +19,10 @@ tracks {
 
     //Login conversion
     "/login"(platform: "/", isAbstract: true) {
-        source(type: PropertyType.String, required: true)
+	flow(type: PropertyType.String, required: false)
+        source(type: PropertyType.String, required: false)
+        old_user_id(type: PropertyType.String, required: false)
+        old_user_nick(type: PropertyType.String, required: false)
     }
 
     "/login/form"(type: TrackType.View) {
@@ -33,16 +36,27 @@ tracks {
     "/login/registration"(platform: "/", type: TrackType.Event) {}
 
     "/login/auth"(platform: "/", isAbstract: true) {
-        dps_id(type: PropertyType.String, required: true)
         is_otp(type: PropertyType.Boolean, required: true)
         is_admin_otp(type: PropertyType.Boolean, required: true)
         rememberme_enabled(type:PropertyType.Boolean, required: false)
         otp_section(type: PropertyType.String, required: false)
     }
 
-    "/login/auth/success"(platform: "/", type: TrackType.Event) {}
+    "/login/auth/success"(platform: "/", type: TrackType.Event) {
+        user_reg_date(type: PropertyType.String, required: true)
+        user_points(type: PropertyType.Numeric, required: true)
+    }
 
     "/login/auth/failure"(platform: "/", type: TrackType.Event) {
         reason(type: PropertyType.Map, required: true)
+        challenge(type: PropertyType.String, required: false)
+    }
+
+    "/login/auth/challenge_success"(platform: "/", type: TrackType.View) {
+        challenge(type: PropertyType.String, required: true) 
+    }    
+
+    "/logout"(platform: "/", type: TrackType.Event) {
+	flow(type: PropertyType.String, required: false)
     }
 }

@@ -1,9 +1,9 @@
 {
   "users": [
-    "martin.ciruzzi@mercadolibre.com"
+    "ext_grodrig@mercadolibre.com","ext_mberriel@mercadolibre.com"
   ],
-  "process_name": "tracks_count",
-  "cron": "45 10 * * *",
+  "process_name": "suggested_discount_push_open_rate",
+  "cron": "30 01 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -13,11 +13,7 @@
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "business",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "site",
+        "name": "path",
         "type": "UNICODE_STRING"
       },
       {
@@ -25,13 +21,16 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "total",
+        "name": "event_type",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "distinct_user_count",
         "type": "INTEGER"
       }
     ],
     "sql": {
-
-      "script": "melidata/tracks-count.sql",
+      "script": "melidata/suggested-discount-push-open-rate.sql",
       "parameters": [
         {
           "name": "param01",

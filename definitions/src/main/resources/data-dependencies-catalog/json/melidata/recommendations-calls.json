@@ -1,46 +1,55 @@
 {
-  "users": [
+  "users":
+  [
+    "mauricio.jackson@mercadolibre.com",
+    "diego.romero@mercadolibre.com",
+    "carolina.alvarez@mercadolibre.com",
     "martin.ciruzzi@mercadolibre.com"
   ],
-  "process_name": "tracks_count",
-  "cron": "45 10 * * *",
-  "extract": {
+  "process_name": "recommendations_calls",
+  "cron": "30 09 * * *",
+  "extract":
+  {
     "operation": "append",
-    "columns": [
+    "columns":
+    [
       {
         "name": "ds",
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "business",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "site",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "total",
+        "name": "site_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "backend",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "client",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "calls",
         "type": "INTEGER"
       }
     ],
     "sql": {
-
-      "script": "melidata/tracks-count.sql",
+      "script": "melidata/recommendations-calls.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "day-2",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "day-1",
           "format": "yyyy-MM-dd"
         }
       ]

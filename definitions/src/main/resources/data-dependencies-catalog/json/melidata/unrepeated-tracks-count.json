@@ -1,9 +1,9 @@
 {
   "users": [
-    "martin.ciruzzi@mercadolibre.com"
+    "melidata_dev@mercadolibre.com"
   ],
-  "process_name": "tracks_count",
-  "cron": "45 10 * * *",
+  "process_name": "unrepeated_tracks_count",
+  "cron": "30 06 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -13,16 +13,8 @@
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "business",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "site",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "platform",
-        "type": "UNICODE_STRING"
+        "name": "unrepeated",
+        "type": "INTEGER"
       },
       {
         "name": "total",
@@ -30,8 +22,7 @@
       }
     ],
     "sql": {
-
-      "script": "melidata/tracks-count.sql",
+      "script": "melidata/unrepeated-tracks-count.sql",
       "parameters": [
         {
           "name": "param01",
