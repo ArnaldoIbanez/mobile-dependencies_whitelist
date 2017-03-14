@@ -8,7 +8,7 @@ WHERE ds >= '@param01'
 AND   ds < '@param02'
 AND   TYPE = 'event'
 AND   path = '/notification/campaigns_deals'
-AND   get_json_object(tracks.event_data,'$.context') = 'notification'
+AND   (get_json_object(tracks.event_data,'$.context') IS NULL OR get_json_object(tracks.event_data,'$.context') = 'notification')
 GROUP BY ds,
          get_json_object(tracks.event_data,'$.campaign_id'),
          get_json_object(tracks.event_data,'$.event_type'),
