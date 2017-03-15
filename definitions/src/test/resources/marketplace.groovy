@@ -19,25 +19,25 @@ trackTests {
 
         "/home/back"(platform: "/mobile") {}
 
-        "/home/failure"(platform: "/mobile", type: TrackType.Event, {
+        "/home/failure"(platform: "/mobile", {
             error_message = "error loading home"
         })
 
-        "/home/long_press"(platform: "/mobile", type: TrackType.Event) {}
+        "/home/long_press"(platform: "/mobile") {}
 
-        "/home/share"(platform: "/mobile", type: TrackType.Event) {}
+        "/home/share"(platform: "/mobile") {}
 
         "/home/pulltorefresh"(platform:"/mobile") {}
 
-        "/home/pulltorefresh/failure"(platform:"/mobile", TrackType.Event) {}
+        "/home/pulltorefresh/failure"(platform:"/mobile") {}
 
         "/home/pulltorefresh/abort"(platform:"/mobile") {}
 
-        "/home/scroll"(platform: "/mobile", TrackType.Event) {}
+        "/home/scroll"(platform: "/mobile") {}
 
-        "/home/scroll/failure"(platform: "/mobile", TrackType.Event) {}
+        "/home/scroll/failure"(platform: "/mobile") {}
 
-        "/home/scroll/abort"(platform: "/mobile/android") {}
+        "/home/scroll/abort"(platform: "/mobile") {}
 
         "/home/tap"(platform: "/mobile", {
             position = 1
@@ -48,6 +48,7 @@ trackTests {
         "/home/carousel/firstTO"(platform: "/mobile") {}
 
         "/home/carousel/lastcard"(platform: "/mobile") {}
+
     }
 
     test("Search core tracking"){
