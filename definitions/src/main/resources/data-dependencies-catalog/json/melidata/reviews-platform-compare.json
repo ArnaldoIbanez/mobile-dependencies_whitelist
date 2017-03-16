@@ -1,0 +1,51 @@
+{
+"users":
+    [
+        "javier.pedro@mercadolibre.com"
+    ],
+    "process_name": "reviews-platform-compare",
+    "cron": "0 02 * * *",
+    "extract":
+    {
+        "operation": "append",
+        "columns":
+        [
+            {
+                "name": "fecha",
+                "type": "DATE",
+                "format": "yyyy-MM-dd"
+            },
+            {
+                "name": "site",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "path",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "web_desktop",
+                "type": "INTEGER"
+            },
+            {
+                "name": "web_mobile",
+                "type": "INTEGER"
+            }
+        ],
+        "sql": {
+            "script": "melidata/reviews-platform-compare.sql",
+            "parameters": [
+                {
+                    "name": "param01",
+                    "value": "day-2",
+                    "format": "yyyy-MM-dd"
+                },
+                {
+                    "name": "param02",
+                    "value": "day-1",
+                    "format": "yyyy-MM-dd"
+                }
+            ]
+        }
+    }
+}
