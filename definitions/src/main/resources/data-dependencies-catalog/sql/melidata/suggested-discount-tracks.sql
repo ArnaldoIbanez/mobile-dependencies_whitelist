@@ -10,8 +10,8 @@ get_json_object(tracks.event_data,'$.discount_status') as discount_status,
 get_json_object(tracks.event_data,'$.action') as action,
 get_json_object(tracks.event_data,'$.onboarding_step') as onboarding_step
 from tracks
-where ds >= '2017-02-01'
-and ds <= '2017-03-13'
+where ds >= '@param01'
+and ds < '@param02'
 and tracks.path like '/myml/suggested_discounts%'
 group by substr(ds,1,10), application.site_id, device.platform,  usr.user_id, type, tracks.path, get_json_object(tracks.event_data,'$.item_id'), get_json_object(tracks.event_data,'$.selected_discount'), get_json_object(tracks.event_data,'$.discount_status'), get_json_object(tracks.event_data,'$.action'), get_json_object(tracks.event_data,'$.onboarding_step')
 order by substr(ds,1,10), application.site_id, device.platform,  usr.user_id, type, tracks.path, item_id, selected_discount, discount_status, action, onboarding_step;

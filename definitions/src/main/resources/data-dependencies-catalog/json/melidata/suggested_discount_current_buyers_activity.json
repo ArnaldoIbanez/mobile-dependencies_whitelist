@@ -3,7 +3,7 @@
     "ext_grodrig@mercadolibre.com","ext_mberriel@mercadolibre.com"
   ],
   "process_name": "suggested_discount_current_buyers_activity",
-  "cron": " ",
+  "cron": "30 01 * * *",
   "extract": {
     "operation": "overwrite",
     "columns": [
