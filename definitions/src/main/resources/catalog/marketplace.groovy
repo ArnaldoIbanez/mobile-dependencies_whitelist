@@ -94,10 +94,18 @@ tracks {
           error_message(required: false)
     }
 
+    // long_press y contextual_menu son la misma acción, se preservan por temas de compatibilidad.
     "/home/long_press"(platform: "/mobile", type: TrackType.Event) {
     }
 
+    "/home/contextual_menu"(platform: "/mobile", type: TrackType.Event) {
+    }
+
+    // share y contextual_menu/share son la misma acción, se preservan por temas de compatibilidad.
     "/home/share"(platform: "/mobile", type: TrackType.Event) {
+    }
+
+    "/home/contextual_menu/share"(platform: "/mobile", type: TrackType.Event) {
     }
 
     "/home/back"(platform: "/mobile") {
@@ -137,6 +145,15 @@ tracks {
     }
 
     "/home/carousel/lastcard"(platform: "/mobile") {
+    }
+
+    /* /home/contextual_menu/bookmarks/add y /home/contextual_menu/bookmarks/delete trackean la misma
+     * acción que /bookmarks/action/post y /bookmarks/action/delete, se preservan ambos por compatibilidad.
+     */
+    "/home/contextual_menu/bookmarks/add"(platform: "/mobile", type: TrackType.Event) {
+    }
+
+    "/home/contextual_menu/bookmarks/delete"(platform: "/mobile", type: TrackType.Event) {
     }
 
     //REVIEWS FRONTEND
