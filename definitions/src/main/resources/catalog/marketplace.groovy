@@ -333,6 +333,8 @@ tracks {
         billboard_clicked_position(required:false, type: PropertyType.Numeric)
         store_type(required: false, description: "Indicates store type")
         reputation_level(required: false, description: "Seller's reputation level")
+        quotation_available(required: false, type: PropertyType.Boolean, description: "Indicates if the item can be quoted (cotizado)")
+        fulfillment(required: false, type: PropertyType.Boolean, description: "Indicates if the item has fulfillment")
     }
 
     "/vip"(platform: "/web") {
@@ -485,13 +487,14 @@ tracks {
         order_id()
         status()
         total_amount()
-        order_items()
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -500,7 +503,7 @@ tracks {
         buyer()
         //id
         //nickname
-        seller()
+        seller(type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
         errors()
@@ -558,17 +561,17 @@ tracks {
         // name,
         // shipping_method_id
 
-        order_items( description: "Array of items in the order" )
-        //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
-        //quantity
-        //unit_price
-        //currency_id
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
+            //item
+                //id
+                //variation_id
+                //buying_mode
+                //shipping_mode
+                //category_id
+                //deal_ids
+            //quantity
+            //unit_price
+            //currency_id
 
         tracking_referer_page(required: false, description: "tracking referer page from where the request came")
     }
@@ -615,22 +618,22 @@ tracks {
         // name,
         // shipping_method_id
 
-        order_items( description: "Array of items in the order" )
-        //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
-        //quantity
-        //unit_price
-        //currency_id
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
+            //item
+                //id
+                //variation_id
+                //buying_mode
+                //shipping_mode
+                //category_id
+                //deal_ids
+            //quantity
+            //unit_price
+            //currency_id
         buyer(required: false)
         //id
         //nickname
 
-        seller(required: false)
+        seller(required: false,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
     }
@@ -668,14 +671,14 @@ tracks {
         // id
         // shipping_mode
 
-        order_items( description: "Array of items in the order" )
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -684,7 +687,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: true)
+        seller(required: true,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
 
@@ -729,14 +732,14 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: false, description: "Array of items in the order" )
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -745,13 +748,16 @@ tracks {
         //id
         //nickname
 
-        seller(required: false)
+        seller(required: false,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
         //View specific data
         success(required: true, type: PropertyType.Boolean)
         location(required: false, type: PropertyType.String)
         geolocation_method(required: false, type: PropertyType.String)
+    }
+    "/checkout/geolocation" (platform: "/mobile", type: TrackType.Event) {
+        geolocation_error(required: true, description: "Why the geo failed")
     }
     "/checkout/shipping"(platform: "/mobile", isAbstract: true) {
         order_id(required: false, description: "OrderId")
@@ -785,14 +791,14 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: true, description: "Array of items in the order" )
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -801,7 +807,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: true)
+        seller(required: true,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
     }
@@ -953,14 +959,14 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: true, description: "Array of items in the order" )
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -969,7 +975,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: true)
+        seller(required: true,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
     }
@@ -1138,14 +1144,14 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: true, description: "Array of items in the order" )
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -1154,7 +1160,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: true)
+        seller(required: true,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
     }
@@ -1195,14 +1201,14 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: false, description: "Array of items in the order" )
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -1211,7 +1217,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: false)
+        seller(required: false,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
         available_actions(required: false, type: PropertyType.ArrayList, description: "Action presented on the screen, for ex: call_seller, email_seller, etc.")
@@ -1274,14 +1280,14 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: false, description: "Array of items in the order" )
+        items( required: false, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -1290,7 +1296,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: false)
+        seller(required: false,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
         error_code(required: true, type: PropertyType.String)
@@ -1329,14 +1335,14 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: true, description: "Array of items in the order" )
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -1345,7 +1351,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: true)
+        seller(required: true,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
     }
@@ -1383,14 +1389,14 @@ tracks {
         // id
         // shipping_mode
 
-        order_items(required: true, description: "Array of items in the order" )
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
         //quantity
         //unit_price
         //currency_id
@@ -1399,7 +1405,7 @@ tracks {
         //id
         //nickname
 
-        seller(required: true)
+        seller(required: true,type:PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
     }
@@ -1649,34 +1655,66 @@ tracks {
         go(required: false, type: PropertyType.String, description: "Destination URL of the marketing campaign.")
     }
 
-    "/notification_center"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/notification_center/abort"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/notification_center/back"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/notification_center/failure"(platform: "/mobile", type: TrackType.Event) {}
+    /**
+    * NOTIFICATIONS
+    */
 
     /**
-     * NOTIFICATIONS
-     * disclaimer: when the action_type is set, the event_type should be always 'open'
+    * NOTIFICATIONS CENTER
+    */
+    "/notification_center"(platform: "/mobile", type: TrackType.Event) {
+        newsgroup_id(required: false, type: PropertyType.String)
+        status(required: false, type: PropertyType.String, values:["unread", "read"])
+        event_type(required: false, values: ["open", "pull_to_refresh", "swipe"])
+        deeplink(required: false, type: PropertyType.String)
+        action_type(required: false, type: PropertyType.String,  values: ["messages", "message", "vop", "picture", "shipping_print_label", "claims", "tracking", "feedback", "changepayment", "reply", "ask", "questions-buy"])
+        type_layout(required: false, type: PropertyType.String, values: ["bullet_list", "order", "picture", "standard"])
+    }
+    
+    "/notification_center/abort"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/back"(platform: "/mobile", type: TrackType.Event) {}		
+    "/notification_center/failure"(platform: "/mobile", type: TrackType.Event) {}    
+
+    "/notification_center/questions-buyer"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/questions-seller"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/orders-buyer"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/orders-seller"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/security-enrollment-legacy"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/mediations-complainant-legacy"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/purchase-pending-legacy"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/loyalty"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/listings"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/campaigns-deals"(platform: "/mobile", type: TrackType.Event) {
+        campaign_id(required: false, type: PropertyType.String, description: "Id of the campaign related to the mkt notification sent.")
+        deal_id(required: false, description: "Id of the deal related to the mkt notification sent.")    
+    }
+    "/notification_center/campaigns-campaigns"(platform: "/mobile", type: TrackType.Event) {
+        campaign_id(required: false, description: "Id of the campaign related to the campaigns notification sent.")
+    }
+    
+    "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/campaigns-suggested_discounts_seller"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/fraud-identity_validation"(platform: "/mobile", type: TrackType.Event) {}
+    
+    /**
+     * NOTIFICATIONS TRAY
      **/
     "/notification"(platform: "/mobile") {
         event_type(required: true,
-                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown","swipe", "action_open", "pull_to_refresh", "control"],
+                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control"],
         description: "Type of notification event")
         action_type(required: false,
-                values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture"])
+                values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer"])
         deeplink(required: false, description: "The link were the notification should navigate to, if applies")
-        context(required: false, values: ["notification", "notification_center"], description: "Current context of the notification")
-
-        //FOR NOTIFICATIONS - TRAY
+        
+        //For event_type:autodismiss, indicates why the notification was dismissed
+        source(required: false,
+               values: ["notification_center","logout","overwrite"])
+        
         news_id(required: false, description: "Identifier of the notification generated")
         notification_style(required: false, description: "The notification style used when displaying the notification to the user.")
 
-        // FOR NOTIFICATION CENTER
-        newsgroup_id(required: false, description: "Identifier of the notification generated")
-        status(required: false, values: ["read", "unread"], description: "*Deprecated*: Just for old NotifCenter.")
+        status(required: false, values: ["read", "unread"], deprecated: true, description: "*Deprecated*: Just for old NotifCenter.")
     }
     //Tu producto está en camino
     "/notification/shipping_shipped"(platform: "/mobile") {
@@ -1725,6 +1763,12 @@ tracks {
         order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
         shipment_id(required: true, type: PropertyType.Numeric)
     }
+    
+    //Paquete entregado
+    "/notification/shipping_delivered"(platform: "/mobile") {
+        order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+        shipment_id(required: true, type: PropertyType.Numeric)
+    }    
 
     //Seller questions
     "/notification/questions_new"(platform: "/mobile") {
@@ -1763,6 +1807,9 @@ tracks {
     "/notification/purchase_pending"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
     }
+    "/notification/orders_pending"(platform: "/mobile") {
+        item_id(required: true, type: PropertyType.String)
+    }
 
     //Mediations
     "/notification/mediations_complainant"(platform: "/mobile") {
@@ -1771,19 +1818,19 @@ tracks {
     }
 
     //Moderation
-    "/notification/moderation_item_to_patch"(platform: "/mobile") {
+    "/notification/moderations_item_to_patch"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
     }
 
-    "/notification/moderation_item_forbidden"(platform: "/mobile") {
+    "/notification/moderations_item_forbidden"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
     }
 
-    "/notification/moderation_item_warning"(platform: "/mobile") {
+    "/notification/moderations_item_warning"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
     }
 
-    "/notification/moderation_message_banned"(platform: "/mobile") {
+    "/notification/moderations_message_banned"(platform: "/mobile") {
     }
 
     //Payments
@@ -1841,14 +1888,14 @@ tracks {
         status_detail(required: false, description: "status description")
         total_amount(required: true, description: "order amount, does not include shipping or interests")
         total_amount_with_shipping(required: false, description: "order amount including shipping cost")
-        order_items(description: "Array of items in the order")
+        items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-        //id
-        //title
-        //selle_custom_fields
-        //variation_attributes
-        //category_id
-        //variation_id
+            //id
+            //title
+            //selle_custom_fields
+            //variation_attributes
+            //category_id
+            //variation_id
         //quantity
         //unit_price
         //currency_id
@@ -1874,7 +1921,8 @@ tracks {
         // status_detail
 
         buyer(required: true, description: "buyer information") // id, nickname
-        seller(required: true, description: "seller information") // id, nickname
+        seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data") // id, nickname
+        is_carrito(required: true, description: "Whetever this order was created by a carrito or not ")
     }
 
     "/email"(platform: "/email", isAbstract: true) {
@@ -2237,6 +2285,27 @@ tracks {
     "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
     "/myml/account_balance/install/go_to_store"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/myml/sales"(platform: "/mobile", isAbstract: true) {}
+    "/myml/sales/detail"(platform: "/mobile", isAbstract: true) {}
+    "/myml/sales/detail/flow_selector"(platform: "/mobile", type: TrackType.View) {
+        flow_selected(required: true, type: PropertyType.String, description: "use case selected based on incoming parameters")
+    }
+    "/myml/sales/detail/deliver_product"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/sales/detail/deliver_product#submit"(platform: "/mobile", type: TrackType.Event) {
+        action_label(required: true, type: PropertyType.String, description: "action selected when submitting: send_feedback or update shipping")
+    }
+    "/myml/sales/detail/date_will_receive_product"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/sales/detail/deliver_product/action"(platform: "/mobile", type: TrackType.Event) {
+        action_label(required:true, type: PropertyType.String, description: "action performed, post feedback or update shipping")
+        order_id(required: true, type: PropertyType.String)
+        shipping_id(required: false, type: PropertyType.String)
+        success(required: true, type: PropertyType.Boolean, description: "true if the action was successful")
+    }
+    "/myml/sales/detail/send_feedback"(platform: "/mobile", type: TrackType.Event) {
+        order_id(required: true, type: PropertyType.String)
+        success(required: true, type: PropertyType.Boolean)
+    }
+
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
         user_phone_number()
@@ -2296,5 +2365,69 @@ tracks {
     "/feedback"(platform: "/", isAbstract: true) {}
 
     "/feedback/congrats"(platform: "/") {}
+
+    //Quotation
+    "/quotation"(platform: "/", isAbstract: true) {}
+
+    //Quotation :: Details
+    "/quotation/details"(platform: "/") {
+        item_id(required: true, type:PropertyType.String,description: "Item id")
+    }
+
+    "/quotation/details"(platform: "/web") {
+        category_id(required: true, type:PropertyType.String, description: "Item category id")
+        seller_id(required: true, type:PropertyType.Numeric)
+        listing_type_id(required: true, type:PropertyType.String, description: "Item listing type id")
+        item_status(required: true, type:PropertyType.String, description: "Item status")
+        vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
+        error_type(required: false, type:PropertyType.String)
+    }
+
+    "/quotation/details"(platform: "/mobile") {
+        model_id(required: false, type:PropertyType.String, description: "Model id")
+    }
+
+    //Quotation :: Gallery
+    "/quotation/gallery"(platform: "/mobile") { }
+
+    // Quotation :: Models
+    "/quotation/models"(platform: "/mobile") {
+        item_id(required: true, type:PropertyType.String, description: "Item id")
+        model_id(required: false, type:PropertyType.String, description: "Model id")
+    }
+
+    //Quotation :: Units
+    "/quotation/units"(platform: "/mobile") {
+        item_id(required: true, type:PropertyType.String, description: "Item id")
+        unit_id(required: false, type:PropertyType.String, description: "Unit id")
+    }
+
+    //Quotation :: Disclaimer
+    "/quotation/disclaimer"(platform: "/mobile") {
+        item_id(required: true, type:PropertyType.String, description: "Item id")
+    }
+
+    //Quotation :: Quote intention
+    "/quotation/quote_intention"(platform: "/mobile", type: TrackType.Event) {
+        item_id(required: true, type:PropertyType.String, description: "Item id")
+        model_id(required: true, type:PropertyType.String, description: "Model id")
+        unit_id(required: true, type:PropertyType.String, description: "Unit id")
+    }
+
+    //Quotation :: Congrats
+    "/quotation/congrats"(platform: "/") {
+        item_id(required: true, type:PropertyType.String, description: "Item id")
+        unit_id(required: true, type:PropertyType.String, description: "Unit id")
+    }   
+
+    "/quotation/congrats"(platform: "/web") {
+        category_id(required: true, type:PropertyType.String, description: "Item category id")
+        seller_id(required: true, type:PropertyType.Numeric)
+        listing_type_id(required: true, type:PropertyType.String, description: "Item listing type id")
+        item_status(required: true, type:PropertyType.String, description: "Item status")
+        vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
+        error_type(required: false, type:PropertyType.String)
+        model_id(required: true, type:PropertyType.Numeric )
+    }
 
 }

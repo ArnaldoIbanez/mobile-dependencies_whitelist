@@ -63,7 +63,7 @@ metrics {
 
 		countsOn {
 			condition {
-				path(regex("/checkout/congrats(/.*|\$)"))
+				path(regex("^/checkout/congrats(/.*|\$)"))
 
 				like("event_data.payments", ".*payment.*")
 			}
@@ -77,7 +77,7 @@ metrics {
 
 		countsOn {
 			condition {
-				path(regex("/checkout/congrats(/.*|\$)"))
+				path(regex("^/checkout/congrats(/.*|\$)"))
 
 				and(
 					like("event_data.payments", ".*payment.*"),
@@ -94,7 +94,7 @@ metrics {
 
 		countsOn {
 			condition {
-				path(regex("/checkout/congrats(/.*|\$)"))
+				path(regex("^/checkout/congrats(/.*|\$)"))
 
 				equals("event_data.congrats_seq", 1)
 			}
@@ -112,7 +112,7 @@ metrics {
 
 		countsOn {
 			condition {
-				path(regex("/checkout/congrats(/.*|\$)"))
+				path(regex("^/checkout/congrats(/.*|\$)"))
 
 				equals("event_data.congrats_seq", 1)
 			}
@@ -132,7 +132,7 @@ metrics {
 
 		countsOn {
 			condition {
-				path(regex("/checkout/congrats(/.*|\$)"))
+				path(regex("^/checkout/congrats(/.*|\$)"))
 
 				equals("event_data.congrats_seq", 1)
 			}
@@ -150,7 +150,7 @@ metrics {
 
 		countsOn {
 			condition {
-				path(regex("/checkout/congrats(/.*|\$)"))
+				path(regex("^/checkout/congrats(/.*|\$)"))
 
 				equals("event_data.congrats_seq", 1)
 			}
@@ -169,7 +169,7 @@ metrics {
 
 		countsOn {
 			condition {
-				path(regex("/checkout/congrats(/.*|\$)"))
+				path(regex("^/checkout/congrats(/.*|\$)"))
 
 				and(
 					equals("event_data.congrats_seq", 1),
@@ -190,7 +190,7 @@ metrics {
 
 		countsOn {
 			condition {
-				path(regex("/checkout/congrats(/.*|\$)"))
+				path(regex("^/checkout/congrats(/.*|\$)"))
 
 				and(
 						equals("event_data.congrats_seq", 1),
@@ -216,7 +216,7 @@ metrics {
 			}
 
 			openBy {
-				"event_data.order_items.item.review_rate"(default: "", function: "round")
+				"event_data.items.item.review_rate"(default: "", function: "round")
 			}
 		}
 	}

@@ -1,9 +1,9 @@
 {
   "users": [
-    "ext_grodrig@mercadolibre.com","ext_mberriel@mercadolibre.com"
+    "daniela.medina@mercadolibre.com"
   ],
-  "process_name": "suggested_discount_tracks",
-  "cron": " ",
+  "process_name": "count_purchases_banner",
+  "cron": "00 08 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -13,48 +13,64 @@
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "siteId",
+        "name": "Site",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "path",
+        "name": "Plataforma",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "platform",
+        "name": "uid",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "userId",
+        "name": "SellerID",
+        "type": "UNICODE_STRING"
+      },
+       {
+        "name": "SellerNickname",
+        "type": "UNICODE_STRING"
+      },
+        {
+        "name": "BuyerID",
+        "type": "UNICODE_STRING"
+      },
+       {
+        "name": "BuyerNickname",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "ItemID",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "CategoryPath",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "CategoryID",
+        "type": "UNICODE_STRING"
+      }, 
+      {
+        "name": "banner_size",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "banner_name",
+        "type": "UNICODE_STRING"
+      },
+        {
+        "name": "sum_dol_amount",
+        "type": "DOUBLE"
+      },
+        {
+        "name": "purchases_total",
         "type": "INTEGER"
-      },
-      {
-        "name": "type",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "item_id",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "selected_discount",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "discount_status",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "action",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "onboarding_step",
-        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "melidata/suggested-discount-tracks.sql",
+      "script": "business-assurance/cantidadcomprasporclick.sql",
       "parameters": [
         {
           "name": "param01",

@@ -8,6 +8,7 @@ import com.ml.melidata.catalog.Validator
  * Created by geisbruch on 11/17/14.
  */
 class PropertyDefinitionDsl {
+    def Map<String, Collection<TrackDefinitionProperty>> providedPropertyDefinitionGroups = [:]
     def Map<String,TrackDefinitionProperty> properties = [:];
 
     def methodMissing(String method, args) {
@@ -20,5 +21,11 @@ class PropertyDefinitionDsl {
 
         TrackDefinitionProperty prop = new TrackDefinitionProperty(propArgs)
         properties.put(propName,prop)
+    }
+
+    def propertyMissing (name, value) {
+        providedPropertyDefinitionGroups[name]?.each { trackDefinitionProperty ->
+            properties.put(trackDefinitionProperty.name,trackDefinitionProperty)
+        }
     }
 }
