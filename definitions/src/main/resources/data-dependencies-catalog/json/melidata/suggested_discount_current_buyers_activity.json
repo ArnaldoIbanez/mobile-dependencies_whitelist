@@ -5,7 +5,7 @@
   "process_name": "suggested_discount_current_buyers_activity",
   "cron": "30 01 * * *",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
         "name": "ds",
