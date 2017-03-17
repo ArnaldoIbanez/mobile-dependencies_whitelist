@@ -147,6 +147,10 @@ tracks {
     "/home/carousel/lastcard"(platform: "/mobile") {
     }
 
+    // Porque sino falla por: Path: /home/contextual_menu/bookmarks for business mercadolibre => MISSING
+    "/home/contextual_menu/bookmarks"(platform: "/mobile") {
+    }
+
     /* /home/contextual_menu/bookmarks/add y /home/contextual_menu/bookmarks/delete trackean la misma
      * acción que /bookmarks/action/post y /bookmarks/action/delete, se preservan ambos por compatibilidad.
      */
