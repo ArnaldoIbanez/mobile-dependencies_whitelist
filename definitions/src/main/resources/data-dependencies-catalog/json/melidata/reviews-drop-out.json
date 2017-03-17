@@ -3,7 +3,7 @@
     [
         "javier.pedro@mercadolibre.com"
     ],
-    "process_name": "reviewes-drop-out",
+    "process_name": "reviews-drop-out",
     "cron": "0 02 * * *",
     "extract":
     {
@@ -41,7 +41,7 @@
             }
         ],
         "sql": {
-            "script": "melidata/reviews-drop-out.sql",
+            "script": "reviews/reviews-drop-out.sql",
             "parameters": [
                 {
                     "name": "param01",

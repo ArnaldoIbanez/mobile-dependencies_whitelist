@@ -37,7 +37,7 @@
             }
         ],
         "sql": {
-            "script": "melidata/reviwes-funnel.sql",
+            "script": "reviews/reviews-funnel.sql",
             "parameters": [
                 {
                     "name": "param01",

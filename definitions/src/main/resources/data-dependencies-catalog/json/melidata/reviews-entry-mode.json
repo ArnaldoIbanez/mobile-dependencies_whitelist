@@ -29,7 +29,7 @@
             }
         ],
         "sql": {
-            "script": "melidata/reviews-entry-mode.sql",
+            "script": "reviews/reviews-entry-mode.sql",
             "parameters": [
                 {
                     "name": "param01",

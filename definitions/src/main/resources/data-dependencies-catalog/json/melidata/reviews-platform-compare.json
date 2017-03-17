@@ -33,7 +33,7 @@
             }
         ],
         "sql": {
-            "script": "melidata/reviews-platform-compare.sql",
+            "script": "reviews/reviews-platform-compare.sql",
             "parameters": [
                 {
                     "name": "param01",
