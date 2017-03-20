@@ -20,6 +20,10 @@
                 "type": "UNICODE_STRING"
             },
             {
+                "name": "platform",
+                 "type": "UNICODE_STRING"
+            },
+            {
                 "name": "path",
                 "type": "UNICODE_STRING"
             },
@@ -37,6 +41,10 @@
             },
             {
                 "name": "add_title",
+                "type": "INTEGER"
+            },
+            {
+                "name": "congrats",
                 "type": "INTEGER"
             }
         ],
