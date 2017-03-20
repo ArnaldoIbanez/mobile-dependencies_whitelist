@@ -1,0 +1,47 @@
+{
+"users":
+    [
+        "javier.pedro@mercadolibre.com"
+    ],
+    "process_name": "reviews-entry-mode",
+    "cron": "0 02 * * *",
+    "extract":
+    {
+        "operation": "append",
+        "columns":
+        [
+            {
+                "name": "fecha",
+                "type": "DATE",
+                "format": "yyyy-MM-dd"
+            },
+            {
+                "name": "site",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "entry",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "cant",
+                "type": "INTEGER"
+            }
+        ],
+        "sql": {
+            "script": "reviews/reviews-entry-mode.sql",
+            "parameters": [
+                {
+                    "name": "param01",
+                    "value": "day-2",
+                    "format": "yyyy-MM-dd"
+                },
+                {
+                    "name": "param02",
+                    "value": "day-1",
+                    "format": "yyyy-MM-dd"
+                }
+            ]
+        }
+    }
+}

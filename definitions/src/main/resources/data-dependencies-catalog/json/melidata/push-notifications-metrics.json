@@ -1,6 +1,6 @@
 {
   "users": [
-    "ext_jproma@mercadolibre.com"
+    "ext_jproma@mercadolibre.com","ext_manunez@mercadolibre.com","ext_jgabito@mercadolibre.com"
   ],
   "process_name": "push-notifications-metrics",
   "cron": "10 00 * * *",
