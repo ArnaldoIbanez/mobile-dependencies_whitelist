@@ -20,6 +20,8 @@ where	t1.ds >= '@param02'
 		and t2.user_local_timestamp >= '@param01'
 		and t2.user_local_timestamp < '@param03'
 		and t1.usr.user_id = t2.usr.user_id
+		and t1.ds >= t2.ds
 group by	t1.ds,
 			(get_json_object(t2.event_data,'$.campaign_id')),
-			t1.device.platform;
+			t1.device.platform,
+			get_json_object (t1.event_data,'$.order_id');
