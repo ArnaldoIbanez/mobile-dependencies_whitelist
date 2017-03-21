@@ -53,9 +53,6 @@ trackTests {
 
         "/home/carousel/lastcard"(platform: "/mobile") {}
 
-        // Porque sino falla por: Path: /home/contextual_menu/bookmarks for business mercadolibre => MISSING
-        "/home/contextual_menu/bookmarks"(platform: "/mobile") {}
-
         "/home/contextual_menu/bookmarks/add"(platform: "/mobile", type: TrackType.Event) {}
 
         "/home/contextual_menu/bookmarks/delete"(platform: "/mobile", type: TrackType.Event) {}
