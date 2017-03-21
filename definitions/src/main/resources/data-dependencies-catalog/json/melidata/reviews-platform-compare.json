@@ -30,6 +30,14 @@
             {
                 "name": "web_mobile",
                 "type": "INTEGER"
+            },
+            {
+                "name": "mobile_android",
+                "type": "INTEGER"
+            },
+            {
+                "name": "mobile_ios",
+                "type": "INTEGER"
             }
         ],
         "sql": {
