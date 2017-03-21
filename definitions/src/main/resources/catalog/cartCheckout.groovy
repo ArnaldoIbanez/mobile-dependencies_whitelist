@@ -86,6 +86,9 @@ tracks {
     resolution(required:false, type: PropertyType.String, description: "Indica si el flujo de compra lo renderiza como la version Low o High")
     precharged_cards(required:false, type: PropertyType.Boolean, description: "Indica si el comprador tiene tarjetas precargadas")
 
+    success(required: false, type: PropertyType.Boolean, description: "Indica que la localizacion del usuario fue exitosa")
+    location(required: false, type: PropertyType.String)
+    geolocation_method(required: false, type: PropertyType.String)
 }
 
 "/cart/checkout/items_not_available"(platform:"/", type: TrackType.View) {}
