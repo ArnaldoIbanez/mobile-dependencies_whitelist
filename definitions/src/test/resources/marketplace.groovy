@@ -1929,6 +1929,14 @@ trackTests {
         }
     }
 
+    test("Devices Notification Settings") {
+        "/devices/notification_settings"(platform:"/mobile") {
+            enable = true
+            registration_id = "1234567890ASDVH7766527892"
+            device_id = "12345678"
+        }
+    }
+
     test("Shipping Mercadoenvios calculate cost") {
         "/shipping/mercadoenvios/shipping_cost"(platform: "/mobile") {
             item_id = "MLA12345"
