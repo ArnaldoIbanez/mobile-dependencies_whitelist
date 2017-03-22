@@ -314,7 +314,7 @@ tracks {
         deal_ids(required: false, description: "IDs of applied discounts")
         buying_mode(required: false, description: "Indicates if it's an aution, buy_it_now or classified")
         official_store_id(required: false, description: "Id of item's official store")
-        item_status(required: true, description: "Whenever the items is active, closed or paused")
+        item_status(required: false, description: "Whenever the items is active, closed or paused")
         category_path(required: false, "Category path of the the item")
         vertical(deprecated: true, required: false)
         quantity(deprecated: true, required: false)
