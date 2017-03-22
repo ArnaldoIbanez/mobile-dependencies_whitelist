@@ -564,6 +564,10 @@ trackTests {
             flow = "/recharge_sube"
             from = "/deep_link"
         }
+        "/recharge_sube/add_card_name"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
         "/recharge_sube/choose_amount"(platform: "/mobile") {
             flow = "/recharge_sube"
             from = "/deep_link"
