@@ -1659,16 +1659,16 @@ tracks {
      * DEVICES
      */
 
-    "/devices"(platform:"/mobile", isAbstract:true) {}
+    "/devices_settings"(platform:"/mobile", isAbstract:true) {}
 
     //Bloqueo de notificaciones (Android > = API 19)
-    "/devices/notification_settings"(platform:"/mobile", type:TrackType.Event) {
+    "/devices_settings/notification"(platform:"/mobile", type:TrackType.Event) {
         enable(required:true, type:PropertyType.Boolean)
         registration_id(required:true, type:PropertyType.String)
         device_id(required:true, type:PropertyType.String)
     }
 
-    
+
     /**
     * NOTIFICATIONS
     */

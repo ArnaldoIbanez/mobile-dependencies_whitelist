@@ -1930,7 +1930,7 @@ trackTests {
     }
 
     test("Devices Notification Settings") {
-        "/devices/notification_settings"(platform:"/mobile") {
+        "/devices_settings/notification"(platform:"/mobile") {
             enable = true
             registration_id = "1234567890ASDVH7766527892"
             device_id = "12345678"
