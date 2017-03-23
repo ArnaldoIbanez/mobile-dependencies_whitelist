@@ -24,15 +24,11 @@
                  "type": "UNICODE_STRING"
             },
             {
-                "name": "open_mail",
-                "type": "INTEGER"
+                "name": "path",
+                "type": "UNICODE_STRING"
             },
             {
-                "name": "open_form",
-                "type": "INTEGER"
-            },
-            {
-                "name": "congrats",
+                "name": "cant",
                 "type": "INTEGER"
             }
         ],
