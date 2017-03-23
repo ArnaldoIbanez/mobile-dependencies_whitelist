@@ -173,6 +173,7 @@ tracks {
     "/recharge_sube/select_recharge_card"(platform: "/mobile") {}
     "/recharge_sube/information"(platform: "/mobile") {}
     "/recharge_sube/add_bus_card"(platform: "/mobile") {}
+    "/recharge_sube/add_card_name"(platform: "/mobile") {}
     "/recharge_sube/choose_amount"(platform: "/mobile") {}
     "/recharge_sube/second_password"(platform: "/mobile") {}
     "/recharge_sube/px_payment_method_search"(platform: "/mobile") {}
