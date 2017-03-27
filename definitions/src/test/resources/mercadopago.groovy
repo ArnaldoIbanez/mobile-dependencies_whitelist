@@ -380,6 +380,51 @@ trackTests {
             result_status = "rejected"
             status_detail = "call_for_auth"
         }
+        "/qr_code/px_payment_method_search"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_card_vault"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_card_number"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_card_holder_name"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_card_expiry_date"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_card_security_code"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_identification_number"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_card_issuers"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_card_installments"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_review_and_confirm"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_result"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+            result_status = "rejected"
+        }
     }
 
     test("Cellphone recharge") {
@@ -455,6 +500,51 @@ trackTests {
             result_status = "rejected"
             status_detail = "call_for_auth"
         }
+        "/cellphone_recharge/px_payment_method_search"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_card_vault"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_card_number"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_card_holder_name"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_card_expiry_date"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_card_security_code"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_identification_number"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_card_issuers"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_card_installments"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_review_and_confirm"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_result"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+            result_status = "rejected"
+        }
     }
 
     test("Money request") {
@@ -529,6 +619,51 @@ trackTests {
             result_status = "rejected"
             status_detail = "call_for_auth"
         }
+        "/bill_payments/px_payment_method_search"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_card_vault"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_card_number"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_card_holder_name"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_card_expiry_date"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_card_security_code"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_identification_number"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_card_issuers"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_card_installments"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_review_and_confirm"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_result"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+            result_status = "rejected"
+        }
     }
 
     test("Recharge Sube") {
@@ -577,6 +712,38 @@ trackTests {
             from = "/deep_link"
         }
         "/recharge_sube/px_payment_method_search"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_card_vault"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_card_number"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_card_holder_name"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_card_expiry_date"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_card_security_code"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_identification_number"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_card_issuers"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_card_installments"(platform: "/mobile") {
             flow = "/recharge_sube"
             from = "/deep_link"
         }
