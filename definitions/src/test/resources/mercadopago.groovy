@@ -384,6 +384,10 @@ trackTests {
             flow = "/qr_code"
             from = "/deep_link"
         }
+        "/qr_code/px_discount_summary"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
         "/qr_code/px_card_vault"(platform: "/mobile") {
             flow = "/qr_code"
             from = "/deep_link"
@@ -501,6 +505,10 @@ trackTests {
             status_detail = "call_for_auth"
         }
         "/cellphone_recharge/px_payment_method_search"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_discount_summary"(platform: "/mobile") {
             flow = "/cellphone_recharge"
             from = "/deep_link"
         }
@@ -623,6 +631,10 @@ trackTests {
             flow = "/bill_payments"
             from = "/deep_link"
         }
+        "/bill_payments/px_discount_summary"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
         "/bill_payments/px_card_vault"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
@@ -712,6 +724,10 @@ trackTests {
             from = "/deep_link"
         }
         "/recharge_sube/px_payment_method_search"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_discount_summary"(platform: "/mobile") {
             flow = "/recharge_sube"
             from = "/deep_link"
         }
