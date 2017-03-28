@@ -115,6 +115,21 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    "/qr_code/px_payment_method_search"(platform: "/mobile") {}
+    "/qr_code/px_discount_summary"(platform: "/mobile") {}
+    "/qr_code/px_card_vault"(platform: "/mobile") {}
+    "/qr_code/px_card_number"(platform: "/mobile") {}
+    "/qr_code/px_card_holder_name"(platform: "/mobile") {}
+    "/qr_code/px_card_expiry_date"(platform: "/mobile") {}
+    "/qr_code/px_card_security_code"(platform: "/mobile") {}
+    "/qr_code/px_identification_number"(platform: "/mobile") {}
+    "/qr_code/px_card_issuers"(platform: "/mobile") {}
+    "/qr_code/px_card_installments"(platform: "/mobile") {}
+    "/qr_code/px_review_and_confirm"(platform: "/mobile") {}
+    "/qr_code/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
 
     "/cellphone_recharge"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -139,6 +154,21 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    "/cellphone_recharge/px_payment_method_search"(platform: "/mobile") {}
+    "/cellphone_recharge/px_discount_summary"(platform: "/mobile") {}
+    "/cellphone_recharge/px_card_vault"(platform: "/mobile") {}
+    "/cellphone_recharge/px_card_number"(platform: "/mobile") {}
+    "/cellphone_recharge/px_card_holder_name"(platform: "/mobile") {}
+    "/cellphone_recharge/px_card_expiry_date"(platform: "/mobile") {}
+    "/cellphone_recharge/px_card_security_code"(platform: "/mobile") {}
+    "/cellphone_recharge/px_identification_number"(platform: "/mobile") {}
+    "/cellphone_recharge/px_card_issuers"(platform: "/mobile") {}
+    "/cellphone_recharge/px_card_installments"(platform: "/mobile") {}
+    "/cellphone_recharge/px_review_and_confirm"(platform: "/mobile") {}
+    "/cellphone_recharge/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
 
     "/bill_payments"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -160,6 +190,21 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    "/bill_payments/px_payment_method_search"(platform: "/mobile") {}
+    "/bill_payments/px_discount_summary"(platform: "/mobile") {}
+    "/bill_payments/px_card_vault"(platform: "/mobile") {}
+    "/bill_payments/px_card_number"(platform: "/mobile") {}
+    "/bill_payments/px_card_holder_name"(platform: "/mobile") {}
+    "/bill_payments/px_card_expiry_date"(platform: "/mobile") {}
+    "/bill_payments/px_card_security_code"(platform: "/mobile") {}
+    "/bill_payments/px_identification_number"(platform: "/mobile") {}
+    "/bill_payments/px_card_issuers"(platform: "/mobile") {}
+    "/bill_payments/px_card_installments"(platform: "/mobile") {}
+    "/bill_payments/px_review_and_confirm"(platform: "/mobile") {}
+    "/bill_payments/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
 
     "/recharge_sube"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -177,6 +222,15 @@ tracks {
     "/recharge_sube/choose_amount"(platform: "/mobile") {}
     "/recharge_sube/second_password"(platform: "/mobile") {}
     "/recharge_sube/px_payment_method_search"(platform: "/mobile") {}
+    "/recharge_sube/px_discount_summary"(platform: "/mobile") {}
+    "/recharge_sube/px_card_vault"(platform: "/mobile") {}
+    "/recharge_sube/px_card_number"(platform: "/mobile") {}
+    "/recharge_sube/px_card_holder_name"(platform: "/mobile") {}
+    "/recharge_sube/px_card_expiry_date"(platform: "/mobile") {}
+    "/recharge_sube/px_card_security_code"(platform: "/mobile") {}
+    "/recharge_sube/px_identification_number"(platform: "/mobile") {}
+    "/recharge_sube/px_card_issuers"(platform: "/mobile") {}
+    "/recharge_sube/px_card_installments"(platform: "/mobile") {}
     "/recharge_sube/px_review_and_confirm"(platform: "/mobile") {}
     "/recharge_sube/px_result"(platform: "/mobile") {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
