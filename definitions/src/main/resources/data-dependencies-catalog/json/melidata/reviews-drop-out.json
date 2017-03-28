@@ -4,7 +4,7 @@
         "javier.pedro@mercadolibre.com"
     ],
     "process_name": "reviews-drop-out",
-    "cron": " ",
+    "cron": "0 03 * * *",
     "extract":
     {
         "operation": "append",
