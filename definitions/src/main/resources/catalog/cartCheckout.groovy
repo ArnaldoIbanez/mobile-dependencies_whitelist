@@ -26,11 +26,6 @@ tracks {
     //mercado_lider
     //reputation_level
 
-    buyer(required: true, type:PropertyType.ArrayList, description: "Array of buyers with their data")
-    //id
-    //nickname
-    //loyalty_level
-
     shipping(required: false, type:PropertyType.ArrayList)
     // shipping_type,
     // cost,
@@ -89,6 +84,7 @@ tracks {
     success(required: false, type: PropertyType.Boolean, description: "Indica que la localizacion del usuario fue exitosa")
     location(required: false, type: PropertyType.String)
     geolocation_method(required: false, type: PropertyType.String)
+    connection_type(required:false, type: PropertyType.String)
 }
 
 "/cart/checkout/items_not_available"(platform:"/", type: TrackType.View) {}
@@ -103,6 +99,8 @@ tracks {
 "/cart/checkout/payment/select_method/show_distances"(platform:"/", type: TrackType.Event) {}
 
 "/cart/checkout/payment/select_store"(platform:"/", type: TrackType.View) {}
+
+"/cart/checkout/payment/select_bank"(platform:"/", type: TrackType.View) {}
 
 "/cart/checkout/payment/view_location"(platform:"/", type: TrackType.View) {}
 
