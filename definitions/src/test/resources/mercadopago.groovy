@@ -644,7 +644,7 @@ trackTests {
             flow = "/scheduled_recharge"
             from = "/deep_link"
         }
-        "/scheduled_recharge/px_resul"(platform: "/mobile") {
+        "/scheduled_recharge/px_result"(platform: "/mobile") {
             flow = "/scheduled_recharge"
             from = "/deep_link"
             result_status = "rejected"
