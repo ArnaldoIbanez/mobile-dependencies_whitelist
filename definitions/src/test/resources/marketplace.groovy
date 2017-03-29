@@ -3867,6 +3867,10 @@ trackTests {
         }
 
 
+	"/cart/checkout/geolocation"(platform:"/", type: TrackType.Event) {
+            dataSet()
+	    geolocation_error = "TIMEOUT"
+        }
         "/cart/checkout/items_not_available"(platform:"/", dataSet) 
         "/cart/checkout/error"(platform:"/", dataSet) 
         "/cart/checkout/payment/select_method"(platform:"/", dataSet) 
