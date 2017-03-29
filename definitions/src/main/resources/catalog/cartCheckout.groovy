@@ -108,6 +108,7 @@ tracks {
 
 "/cart/checkout/payment/input_card/edit_payment"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/payment/input_card/security_code_tooltip"(platform:"/", type: TrackType.Event) {}
+"/cart/checkout/payment/security_code"(platform:"/", type: TrackType.View) {} 
 
 "/cart/checkout/payment/select_installments"(platform:"/", type: TrackType.View) {}
 
