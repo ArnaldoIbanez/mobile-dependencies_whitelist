@@ -2446,7 +2446,7 @@ tracks {
     }
     
    //Recommendations => Should be embebed in host tracks, except for client-side clientes ( i.e. /vip ) 
-   "/recommendations"(platform: "") {
+   "/recommendations"(platform: "/") {
 
     }
 
