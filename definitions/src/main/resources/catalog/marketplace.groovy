@@ -31,8 +31,9 @@ tracks {
             //              has_recommendations,
             //              item_category,
             //              recommended_items:[]
+            //              recommended_categories:[]      
             //    ]
-            //recommended_categories:[]
+            //
     }
 
     "/"(platform: "/mobile", isAbstract: true) {
