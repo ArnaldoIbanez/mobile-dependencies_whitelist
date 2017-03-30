@@ -3,7 +3,7 @@
     "ext_jproma@mercadolibre.com","ext_manunez@mercadolibre.com","ext_jgabito@mercadolibre.com"
   ],
   "process_name": "push-notifications-sales",
-  "cron": "20 00 * * *",
+  "cron": "00 04 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -41,17 +41,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-2",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
           "value": "DAY-1",
-          "format": "yyyy-MM-dd"
-        },
-        {
-          "name": "param03",
-          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
       ]
