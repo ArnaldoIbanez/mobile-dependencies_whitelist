@@ -314,13 +314,13 @@ tracks {
         deal_ids(required: false, description: "IDs of applied discounts")
         buying_mode(required: false, description: "Indicates if it's an aution, buy_it_now or classified")
         official_store_id(required: false, description: "Id of item's official store")
+        item_status(required: false, description: "Whenever the items is active, closed or paused")
         category_path(required: false, "Category path of the the item")
         vertical(deprecated: true, required: false)
         quantity(deprecated: true, required: false)
         item_condition(deprecated: true, required: false)
         currency_id(deprecated: true, required: false)
         price(deprecated: true, required: false)
-        item_status(deprecated: true, required: false)
         seller_id(deprecated: true, required: false)
         power_seller_status(deprecated: true, required: false)
         listing_type_id(deprecated: true, required: false)
@@ -1654,6 +1654,20 @@ tracks {
         word(type: PropertyType.String, description: "This is the name of the marketing campaign.")
         go(required: false, type: PropertyType.String, description: "Destination URL of the marketing campaign.")
     }
+
+    /**
+     * DEVICES
+     */
+
+    "/devices_settings"(platform:"/mobile", isAbstract:true) {}
+
+    //Bloqueo de notificaciones (Android > = API 19)
+    "/devices_settings/notifications"(platform:"/mobile", type:TrackType.Event) {
+        enable(required:true, type:PropertyType.Boolean)
+        registration_id(required:true, type:PropertyType.String)
+        device_id(required:true, type:PropertyType.String)
+    }
+
 
     /**
     * NOTIFICATIONS

@@ -4,7 +4,7 @@
         "javier.pedro@mercadolibre.com"
     ],
     "process_name": "reviews-funnel",
-    "cron": "0 02 * * *",
+    "cron": "0 03 * * *",
     "extract":
     {
         "operation": "append",
@@ -24,15 +24,11 @@
                  "type": "UNICODE_STRING"
             },
             {
-                "name": "open_mail",
-                "type": "INTEGER"
+                "name": "path",
+                "type": "UNICODE_STRING"
             },
             {
-                "name": "open_form",
-                "type": "INTEGER"
-            },
-            {
-                "name": "congrats",
+                "name": "cant",
                 "type": "INTEGER"
             }
         ],
