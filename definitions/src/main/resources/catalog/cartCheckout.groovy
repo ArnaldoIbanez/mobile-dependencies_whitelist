@@ -84,7 +84,6 @@ tracks {
     success(required: false, type: PropertyType.Boolean, description: "Indica que la localizacion del usuario fue exitosa")
     location(required: false, type: PropertyType.String)
     geolocation_method(required: false, type: PropertyType.String)
-    connection_type(required:false, type: PropertyType.String)
 }
 
 "/cart/checkout/items_not_available"(platform:"/", type: TrackType.View) {}
@@ -262,8 +261,6 @@ tracks {
 "/cart/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", type: TrackType.Event) {}
 
 "/cart/checkout/shipping/input_new_address"(platform:"/web", type: TrackType.View) {}
-
-"/cart/checkout/payment/security_code"(platform:"/web", type: TrackType.View) {} // --> Ver si es correcto que solo aplique a platform web
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin Web platform
