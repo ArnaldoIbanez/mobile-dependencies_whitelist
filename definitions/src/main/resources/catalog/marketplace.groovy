@@ -31,8 +31,9 @@ tracks {
             //              has_recommendations,
             //              item_category,
             //              recommended_items:[]
+            //              recommended_categories:[]      
             //    ]
-            //recommended_categories:[]
+            //
     }
 
     "/"(platform: "/mobile", isAbstract: true) {
@@ -2442,6 +2443,11 @@ tracks {
         vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
         error_type(required: false, type:PropertyType.String)
         model_id(required: true, type:PropertyType.Numeric )
+    }
+    
+   //Recommendations => Should be embebed in host tracks, except for client-side clientes ( i.e. /vip ) 
+   "/recommendations"(platform: "/") {
+
     }
 
 }
