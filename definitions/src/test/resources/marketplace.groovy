@@ -3795,10 +3795,6 @@ trackTests {
                         [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]
                     ]
 
-            buyer = [
-                        [id: "208642594", nickname: "TESTEO_1", loyalty_level: "4"]
-                    ]
-
             shipping = [
                         [
                         cost: 25.98,
@@ -3881,6 +3877,7 @@ trackTests {
         "/cart/checkout/payment/select_method/edit_payment"(platform:"/", dataSet) 
         "/cart/checkout/payment/select_method/show_distances"(platform:"/", dataSet) 
         "/cart/checkout/payment/select_store"(platform:"/", dataSet) 
+        "/cart/checkout/payment/select_bank"(platform:"/", dataSet) 
         "/cart/checkout/payment/view_location"(platform:"/", dataSet) 
         "/cart/checkout/payment/input_card"(platform:"/", dataSet) 
         "/cart/checkout/payment/input_card/edit_payment"(platform:"/", dataSet) 
@@ -4152,6 +4149,23 @@ trackTests {
         "/myml/purchases/detail/history"(platform:"/") {}
 
     }
+	
+    test("Recommendations") {
+        "/recommendations" (platform:"/web/desktop", type: TrackType.View) {
+		recommendations = {
+			backend_id = "empty"
+		        client = "vip_middle"
+			has_errors = false
+			hidden_by_client = false
+			track_info = {
+				has_recommendations = false
+				item_category = "MLA383490"
+				recommended_categories = []
+				recommended_items = []
+			}
+		}
+        }
+    }	
 
 
 }
