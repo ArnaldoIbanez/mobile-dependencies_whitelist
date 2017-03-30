@@ -4152,6 +4152,23 @@ trackTests {
         "/myml/purchases/detail/history"(platform:"/") {}
 
     }
+	
+    test("Recommendations") {
+        "/recommendations" (platform:"/web/desktop", type: TrackType.View) {
+		recommendations = [
+	        	backend_id = "empty"
+		        client = "vip_middle"
+			has_errors = false
+			hidden_by_client = false
+			track_info = [
+				has_recommendations = false
+				item_category = "MLA383490"
+				recommended_categories = []
+				recommended_items = []
+			]
+		]
+        }
+    }	
 
 
 }
