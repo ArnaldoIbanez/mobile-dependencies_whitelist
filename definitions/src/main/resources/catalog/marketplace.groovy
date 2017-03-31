@@ -2125,7 +2125,16 @@ tracks {
         condition(required: false, description: "Item condition: used/new/not_specified")
         price(required: false, description: "Item price")
     }
-
+    // Upgrade Off = El upgrade de clasificados
+    "/sell/upgradeOff"(platform:"/", type: TrackType.View){
+        item_id(required: true, description: "Item id")
+        listing_type_id(required: true, description: "Item listing type id")
+        vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
+        condition(required: false, description: "Item condition: used/new/not_specified")
+        price(required: false, description: "Item price")
+        referer(required:false , description: "Referer link from where the request came")
+    }
     // Upgrade On = El upgrade que se ofrece en la congrats del flujo de publicar
     "/sell/upgrade_on"(platform: "/web/desktop", type: TrackType.View){
         item_id(required: true, description: "Item id")
