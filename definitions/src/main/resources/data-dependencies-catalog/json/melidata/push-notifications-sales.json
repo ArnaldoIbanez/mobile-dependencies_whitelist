@@ -3,7 +3,7 @@
     "ext_jproma@mercadolibre.com","ext_manunez@mercadolibre.com","ext_jgabito@mercadolibre.com"
   ],
   "process_name": "push-notifications-sales",
-  "cron": "",
+  "cron": "00 04 * * *",
   "extract": {
     "operation": "append",
     "columns": [
