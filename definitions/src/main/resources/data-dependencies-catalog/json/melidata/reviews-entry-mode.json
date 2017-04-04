@@ -4,10 +4,10 @@
         "javier.pedro@mercadolibre.com"
     ],
     "process_name": "reviews-entry-mode",
-    "cron": "20 15 * * *",
+    "cron": "0 04 * * *",
     "extract":
     {
-        "operation": "overwrite",
+        "operation": "append",
         "columns":
         [
             {
@@ -37,12 +37,12 @@
             "parameters": [
                 {
                     "name": "param01",
-                    "value": "day-15",
+                    "value": "day-1",
                     "format": "yyyy-MM-dd"
                 },
                 {
                     "name": "param02",
-                    "value": "day-1",
+                    "value": "day",
                     "format": "yyyy-MM-dd"
                 }
             ]
