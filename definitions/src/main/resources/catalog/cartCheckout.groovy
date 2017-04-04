@@ -26,11 +26,6 @@ tracks {
     //mercado_lider
     //reputation_level
 
-    buyer(required: true, type:PropertyType.ArrayList, description: "Array of buyers with their data")
-    //id
-    //nickname
-    //loyalty_level
-
     shipping(required: false, type:PropertyType.ArrayList)
     // shipping_type,
     // cost,
@@ -91,6 +86,10 @@ tracks {
     geolocation_method(required: false, type: PropertyType.String)
 }
 
+"/cart/checkout/geolocation" (platform: "/", type: TrackType.Event) {
+        geolocation_error(required: true, description: "Why the geo failed")
+}
+
 "/cart/checkout/items_not_available"(platform:"/", type: TrackType.View) {}
 
 "/cart/checkout/error"(platform:"/", type: TrackType.View) {}
@@ -104,12 +103,15 @@ tracks {
 
 "/cart/checkout/payment/select_store"(platform:"/", type: TrackType.View) {}
 
+"/cart/checkout/payment/select_bank"(platform:"/", type: TrackType.View) {}
+
 "/cart/checkout/payment/view_location"(platform:"/", type: TrackType.View) {}
 
 "/cart/checkout/payment/input_card"(platform:"/", type: TrackType.View) {}
 
 "/cart/checkout/payment/input_card/edit_payment"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/payment/input_card/security_code_tooltip"(platform:"/", type: TrackType.Event) {}
+"/cart/checkout/payment/security_code"(platform:"/", type: TrackType.View) {} 
 
 "/cart/checkout/payment/select_installments"(platform:"/", type: TrackType.View) {}
 
@@ -263,8 +265,6 @@ tracks {
 "/cart/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", type: TrackType.Event) {}
 
 "/cart/checkout/shipping/input_new_address"(platform:"/web", type: TrackType.View) {}
-
-"/cart/checkout/payment/security_code"(platform:"/web", type: TrackType.View) {} // --> Ver si es correcto que solo aplique a platform web
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin Web platform
