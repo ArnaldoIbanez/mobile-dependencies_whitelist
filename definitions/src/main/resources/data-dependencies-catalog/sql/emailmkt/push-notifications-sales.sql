@@ -6,8 +6,8 @@ select	ds as ds,
 		sum(items_quantity) as si,
 		sum(total_amount_usd) as gmv
 from	emailmarketing_push_orders
-where	ds >= 'param02'
-		and ds < 'param01'
+where	ds >= '2017-03-30'
+		and ds < '2017-04-04'
 group by	ds,
 			campaign_id,
 			platform;
