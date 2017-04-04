@@ -86,6 +86,10 @@ tracks {
     geolocation_method(required: false, type: PropertyType.String)
 }
 
+"/cart/checkout/geolocation" (platform: "/", type: TrackType.Event) {
+        geolocation_error(required: true, description: "Why the geo failed")
+}
+
 "/cart/checkout/items_not_available"(platform:"/", type: TrackType.View) {}
 
 "/cart/checkout/error"(platform:"/", type: TrackType.View) {}

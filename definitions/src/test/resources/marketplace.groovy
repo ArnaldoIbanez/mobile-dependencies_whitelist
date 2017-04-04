@@ -3107,6 +3107,18 @@ trackTests {
         "/sell/list/congrats"(platform: "/web/desktop", itemData)
         "/sell/upgrade_on"(platform: "/web/desktop", itemData)
     }
+    test("Sell Flow view Pages"){
+        def itemData = {
+            item_id = "MLA123456"
+            listing_type_id = "gold_special"
+            vertical = "MOT"
+            buying_mode = "buy_it_now"
+            condition = "used"
+            price = 123.456
+            referer = "mail_upgrade_classified"
+        }
+        "/sell/upgradeOff"(platform: "/", itemData)
+    }
     test("Sell landing free_listing"){
         def data={
             referer = "1234L"
@@ -3871,6 +3883,10 @@ trackTests {
         }
 
 
+	"/cart/checkout/geolocation"(platform:"/", type: TrackType.Event) {
+            dataSet()
+	    geolocation_error = "TIMEOUT"
+        }
         "/cart/checkout/items_not_available"(platform:"/", dataSet) 
         "/cart/checkout/error"(platform:"/", dataSet) 
         "/cart/checkout/payment/select_method"(platform:"/", dataSet) 
