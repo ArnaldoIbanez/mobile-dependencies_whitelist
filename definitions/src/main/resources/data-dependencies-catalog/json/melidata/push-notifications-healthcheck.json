@@ -1,23 +1,22 @@
 {
   "users": [
-    "ext_grodrig@mercadolibre.com","ext_mberriel@mercadolibre.com"
+    "ext_jproma@mercadolibre.com"
   ],
-  "process_name": "suggested_discount_push_open_rate",
-  "cron": " ",
+  "process_name": "push-notifications-healthcheck",
+  "cron": "00 08 * * *",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
         "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
-      {
-        "name": "siteId",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "path",
+        "name": "campaign_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "event_type",
         "type": "UNICODE_STRING"
       },
       {
@@ -25,25 +24,21 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "userId",
+        "name": "users",
         "type": "INTEGER"
-      },
-      {
-        "name": "event_type",
-        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "melidata/suggested-discount-push-open-rate.sql",
+      "script": "emailmkt/push-notifications-healthcheck.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "DAY+1",
           "format": "yyyy-MM-dd"
         }
       ]

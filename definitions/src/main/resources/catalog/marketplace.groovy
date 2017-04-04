@@ -31,8 +31,9 @@ tracks {
             //              has_recommendations,
             //              item_category,
             //              recommended_items:[]
+            //              recommended_categories:[]      
             //    ]
-            //recommended_categories:[]
+            //
     }
 
     "/"(platform: "/mobile", isAbstract: true) {
@@ -334,13 +335,13 @@ tracks {
         deal_ids(required: false, description: "IDs of applied discounts")
         buying_mode(required: false, description: "Indicates if it's an aution, buy_it_now or classified")
         official_store_id(required: false, description: "Id of item's official store")
+        item_status(required: false, description: "Whenever the items is active, closed or paused")
         category_path(required: false, "Category path of the the item")
         vertical(deprecated: true, required: false)
         quantity(deprecated: true, required: false)
         item_condition(deprecated: true, required: false)
         currency_id(deprecated: true, required: false)
         price(deprecated: true, required: false)
-        item_status(deprecated: true, required: false)
         seller_id(deprecated: true, required: false)
         power_seller_status(deprecated: true, required: false)
         listing_type_id(deprecated: true, required: false)
@@ -1676,6 +1677,20 @@ tracks {
     }
 
     /**
+     * DEVICES
+     */
+
+    "/devices_settings"(platform:"/mobile", isAbstract:true) {}
+
+    //Bloqueo de notificaciones (Android > = API 19)
+    "/devices_settings/notifications"(platform:"/mobile", type:TrackType.Event) {
+        enable(required:true, type:PropertyType.Boolean)
+        registration_id(required:true, type:PropertyType.String)
+        device_id(required:true, type:PropertyType.String)
+    }
+
+
+    /**
     * NOTIFICATIONS
     */
 
@@ -2130,7 +2145,16 @@ tracks {
         condition(required: false, description: "Item condition: used/new/not_specified")
         price(required: false, description: "Item price")
     }
-
+    // Upgrade Off = El upgrade de clasificados
+    "/sell/upgradeOff"(platform:"/", type: TrackType.View){
+        item_id(required: true, description: "Item id")
+        listing_type_id(required: true, description: "Item listing type id")
+        vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
+        condition(required: false, description: "Item condition: used/new/not_specified")
+        price(required: false, description: "Item price")
+        referer(required:false , description: "Referer link from where the request came")
+    }
     // Upgrade On = El upgrade que se ofrece en la congrats del flujo de publicar
     "/sell/upgrade_on"(platform: "/web/desktop", type: TrackType.View){
         item_id(required: true, description: "Item id")
@@ -2448,6 +2472,11 @@ tracks {
         vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
         error_type(required: false, type:PropertyType.String)
         model_id(required: true, type:PropertyType.Numeric )
+    }
+    
+   //Recommendations => Should be embebed in host tracks, except for client-side clientes ( i.e. /vip ) 
+   "/recommendations"(platform: "/") {
+
     }
 
 }

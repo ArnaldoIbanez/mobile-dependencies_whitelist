@@ -1,0 +1,55 @@
+{
+"users":
+    [
+        "javier.pedro@mercadolibre.com"
+    ],
+    "process_name": "reviews-drop-out",
+    "cron": "20 15 * * *",
+    "extract":
+    {
+        "operation": "overwrite",
+        "columns":
+        [
+            {
+                "name": "fecha",
+                "type": "DATE",
+                "format": "yyyy-MM-dd"
+            },
+            {
+                "name": "site",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "platform",
+                 "type": "UNICODE_STRING"
+            },
+            {
+                "name": "path",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "step",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "cant",
+                "type": "INTEGER"
+            }
+        ],
+        "sql": {
+            "script": "reviews/reviews-drop-out.sql",
+            "parameters": [
+                {
+                    "name": "param01",
+                    "value": "day-15",
+                    "format": "yyyy-MM-dd"
+                },
+                {
+                    "name": "param02",
+                    "value": "day-1",
+                    "format": "yyyy-MM-dd"
+                }
+            ]
+        }
+    }
+}
