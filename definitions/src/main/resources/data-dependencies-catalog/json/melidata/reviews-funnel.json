@@ -4,7 +4,7 @@
         "javier.pedro@mercadolibre.com"
     ],
     "process_name": "reviews-funnel",
-    "cron": "0 15 * * *",
+    "cron": "20 15 * * *",
     "extract":
     {
         "operation": "overwrite",
