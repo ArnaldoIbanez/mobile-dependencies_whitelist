@@ -52,10 +52,6 @@ trackTests {
         "/home/carousel/firstTO"(platform: "/mobile") {}
 
         "/home/carousel/lastcard"(platform: "/mobile") {}
-
-        "/home/contextual_menu/bookmarks/add"(platform: "/mobile", type: TrackType.Event) {}
-
-        "/home/contextual_menu/bookmarks/delete"(platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("Search core tracking"){
