@@ -2,7 +2,7 @@
   "users": [
     "ext_jproma@mercadolibre.com"
   ],
-  "process_name": "healthcheck-metrics",
+  "process_name": "push-notifications-healthcheck",
   "cron": "00 08 * * *",
   "extract": {
     "operation": "append",
@@ -29,7 +29,7 @@
       }
     ],
     "sql": {
-      "script": "emailmkt/healthcheck.sql",
+      "script": "emailmkt/push-notifications-healthcheck.sql",
       "parameters": [
         {
           "name": "param01",
