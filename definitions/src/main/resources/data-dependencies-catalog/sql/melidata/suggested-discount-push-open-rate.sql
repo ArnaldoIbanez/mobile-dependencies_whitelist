@@ -5,8 +5,8 @@ device.platform as platform,
 usr.user_id as userId,
 get_json_object(tracks.event_data,'$.event_type') AS event_type
 from tracks
-where ds >= '2017-02-01'
-and ds < '2017-02-15'
+where ds >= '2017-02-15'
+and ds < '2017-03-01'
 and type = 'event'
 and tracks.path in ('/notification/campaigns_suggested_discounts_seller','/notification/campaigns_suggested_discounts_buyer')
 and get_json_object(tracks.event_data,'$.context') = 'notification'
