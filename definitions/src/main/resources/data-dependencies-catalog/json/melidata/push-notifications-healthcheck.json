@@ -35,11 +35,6 @@
           "name": "param01",
           "value": "DAY-0",
           "format": "yyyy-MM-dd"
-        },
-        {
-          "name": "param02",
-          "value": "DAY+1",
-          "format": "yyyy-MM-dd"
         }
       ]
     }
