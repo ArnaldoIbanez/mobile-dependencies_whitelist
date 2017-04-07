@@ -3,7 +3,7 @@
     "ext_grodrig@mercadolibre.com","ext_mberriel@mercadolibre.com"
   ],
   "process_name": "suggested_discount_push_open_rate",
-  "cron": "30 13 * * *",
+  "cron": "",
   "extract": {
     "operation": "append",
     "columns": [
