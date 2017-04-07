@@ -2330,6 +2330,12 @@ tracks {
         success(required: true, type: PropertyType.Boolean)
     }
 
+    "/myml/purchase"(platform: "/mobile", isAbstract: true) {}
+
+    "/myml/purchase/detail"(platform: "/mobile", isAbstract: true) {}
+
+    "/myml/purchase/detail/feedback"(platform: "/mobile", isAbstract: true) {}
+
     "/myml/purchase/detail/feedback/rating"(platform: "/mobile", type: TrackType.View) {}
 
     "/myml/purchase/detail/feedback/message"(platform: "/mobile", type: TrackType.View) {}
