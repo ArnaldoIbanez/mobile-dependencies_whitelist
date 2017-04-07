@@ -3336,6 +3336,18 @@ trackTests {
         }
     }
 
+    test("MyMl new reputation flow buyer") {
+        "/myml/purchase/detail/feedback/rating"(platform: "/mobile", type: TrackType.View) {}
+
+        "/myml/purchase/detail/feedback/message"(platform: "/mobile", type: TrackType.View) {}
+
+        "/myml/purchase/detail/feedback/congrats"(platform: "/mobile", type: TrackType.View) {}
+
+        "/myml/purchase/detail/feedback/congrats#action"(platform: "/mobile", type: TrackType.Event) {
+            target = "meli://home"
+        }
+    }
+
     test("Myml installation") {
         "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
         "/myml/account_balance/install/go_to_store"(platform: "/mobile", type: TrackType.Event) {}

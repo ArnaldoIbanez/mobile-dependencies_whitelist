@@ -2330,6 +2330,16 @@ tracks {
         success(required: true, type: PropertyType.Boolean)
     }
 
+    "/myml/purchase/detail/feedback/rating"(platform: "/mobile", type: TrackType.View) {}
+
+    "/myml/purchase/detail/feedback/message"(platform: "/mobile", type: TrackType.View) {}
+
+    "/myml/purchase/detail/feedback/congrats"(platform: "/mobile", type: TrackType.View) {}
+
+    "/myml/purchase/detail/feedback/congrats#action"(platform: "/mobile", type: TrackType.View) {
+         target(required: true, type: PropertyType.String)
+    }
+
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
         user_phone_number()
