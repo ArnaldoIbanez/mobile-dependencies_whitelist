@@ -2435,6 +2435,11 @@ trackTests {
             question_id = 1234
         }
 
+        "/notification/carousel"(platform: "/mobile"){
+            event_type = "carousel"
+            action_type = "action_carousel"
+        }
+
         "/notification/orders_new"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
