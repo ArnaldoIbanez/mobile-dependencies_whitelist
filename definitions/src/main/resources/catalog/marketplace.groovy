@@ -2336,7 +2336,7 @@ tracks {
 
     "/myml/purchase/detail/feedback/congrats"(platform: "/mobile", type: TrackType.View) {}
 
-    "/myml/purchase/detail/feedback/congrats#action"(platform: "/mobile", type: TrackType.View) {
+    "/myml/purchase/detail/feedback/congrats#action"(platform: "/mobile", type: TrackType.Event) {
          target(required: true, type: PropertyType.String)
     }
 
