@@ -91,8 +91,22 @@ tracks {
         retry_after_error(required: false)
     }
 
-    "/home/failure"(platform: "/mobile") {
-        error_message(required: false)
+    "/home/failure"(platform: "/mobile", type: TrackType.Event) {
+          error_message(required: false)
+    }
+
+    // long_press y contextual_menu son la misma acción, se preservan por temas de compatibilidad.
+    "/home/long_press"(platform: "/mobile", type: TrackType.Event) {
+    }
+
+    "/home/contextual_menu"(platform: "/mobile", type: TrackType.Event) {
+    }
+
+    // share y contextual_menu/share son la misma acción, se preservan por temas de compatibilidad.
+    "/home/share"(platform: "/mobile", type: TrackType.Event) {
+    }
+
+    "/home/contextual_menu/share"(platform: "/mobile", type: TrackType.Event) {
     }
 
     "/home/back"(platform: "/mobile") {
@@ -101,10 +115,16 @@ tracks {
     "/home/pulltorefresh"(platform: "/mobile", type: TrackType.Event) {
     }
 
+    "/home/pulltorefresh/failure"(platform: "/mobile", type:TrackType.Event) {
+    }
+
     "/home/pulltorefresh/abort"(platform: "/mobile", type: TrackType.Event) {
     }
 
     "/home/scroll"(platform: "/mobile", type: TrackType.Event) {
+    }
+
+    "/home/scroll/failure"(platform: "/mobile", type: TrackType.Event) {
     }
 
     "/home/scroll/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -303,7 +323,7 @@ tracks {
     "/search/carousel"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         carousel_used(required: true, values: ["next","prev","select"])
     }
-    
+
     "/search/save"(platform: "/", type: TrackType.Event) {
     }
 
@@ -1685,10 +1705,10 @@ tracks {
         action_type(required: false, type: PropertyType.String,  values: ["messages", "message", "vop", "picture", "shipping_print_label", "claims", "tracking", "feedback", "changepayment", "reply", "ask", "questions-buy"])
         type_layout(required: false, type: PropertyType.String, values: ["bullet_list", "order", "picture", "standard"])
     }
-    
+
     "/notification_center/abort"(platform: "/mobile", type: TrackType.Event) {}
-    "/notification_center/back"(platform: "/mobile", type: TrackType.Event) {}		
-    "/notification_center/failure"(platform: "/mobile", type: TrackType.Event) {}    
+    "/notification_center/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/notification_center/failure"(platform: "/mobile", type: TrackType.Event) {}
 
     "/notification_center/questions-buyer"(platform: "/mobile", type: TrackType.Event) {}
     "/notification_center/questions-seller"(platform: "/mobile", type: TrackType.Event) {}
@@ -1701,16 +1721,16 @@ tracks {
     "/notification_center/listings"(platform: "/mobile", type: TrackType.Event) {}
     "/notification_center/campaigns-deals"(platform: "/mobile", type: TrackType.Event) {
         campaign_id(required: false, type: PropertyType.String, description: "Id of the campaign related to the mkt notification sent.")
-        deal_id(required: false, description: "Id of the deal related to the mkt notification sent.")    
+        deal_id(required: false, description: "Id of the deal related to the mkt notification sent.")
     }
     "/notification_center/campaigns-campaigns"(platform: "/mobile", type: TrackType.Event) {
         campaign_id(required: false, description: "Id of the campaign related to the campaigns notification sent.")
     }
-    
+
     "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/mobile", type: TrackType.Event) {}
     "/notification_center/campaigns-suggested_discounts_seller"(platform: "/mobile", type: TrackType.Event) {}
     "/notification_center/fraud-identity_validation"(platform: "/mobile", type: TrackType.Event) {}
-    
+
     /**
      * NOTIFICATIONS TRAY
      **/
@@ -1721,11 +1741,11 @@ tracks {
         action_type(required: false,
                 values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer"])
         deeplink(required: false, description: "The link were the notification should navigate to, if applies")
-        
+
         //For event_type:autodismiss, indicates why the notification was dismissed
         source(required: false,
                values: ["notification_center","logout","overwrite"])
-        
+
         news_id(required: false, description: "Identifier of the notification generated")
         notification_style(required: false, description: "The notification style used when displaying the notification to the user.")
 
@@ -1778,12 +1798,12 @@ tracks {
         order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
         shipment_id(required: true, type: PropertyType.Numeric)
     }
-    
+
     //Paquete entregado
     "/notification/shipping_delivered"(platform: "/mobile") {
         order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
         shipment_id(required: true, type: PropertyType.Numeric)
-    }    
+    }
 
     //Seller questions
     "/notification/questions_new"(platform: "/mobile") {
@@ -1797,7 +1817,7 @@ tracks {
     "/notification/orders_new"(platform: "/mobile") {
         order_id(required: true, type: PropertyType.String)
     }
-    
+
     //Generic Campaigns
     "/notification/campaigns_campaigns"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
@@ -1852,7 +1872,7 @@ tracks {
     "/notification/payments_pending_reminder"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
         order_id(required: true, type: PropertyType.Numeric)
-    }    
+    }
     "/notification/payments_approved"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
         order_id(required: true, type: PropertyType.Numeric)
@@ -1862,12 +1882,12 @@ tracks {
         item_id(required: true, type: PropertyType.String)
         order_id(required: true, type: PropertyType.Numeric)
     }
-    
+
     //Deprecated - typo
     "/notification/payments_pending_remainder"(platform: "/mobile") {
         item_id(required: true, type: PropertyType.String)
         order_id(required: true, type: PropertyType.Numeric)
-    }    
+    }
 
     //Messages
     "/notification/messages_new"(platform: "/mobile") {}
@@ -1875,26 +1895,26 @@ tracks {
     //Notification suggested discounts
     "/notification/campaigns_suggested_discounts_seller"(platform: "/mobile") {}
     "/notification/campaigns_suggested_discounts_buyer"(platform: "/mobile") {}
-    
+
     //Fraud
     "/notification/fraud_identity_validation"(platform: "/mobile") {}
-    
+
     //Loyalty
     "/notification/loyalty_welcome"(platform: "/mobile") {}
     "/notification/loyalty_milestone"(platform: "/mobile") {}
     "/notification/loyalty_change_level"(platform: "/mobile") {}
-    
+
     //Reviews
     "/notification/reviews_reminder"(platform: "/mobile") {}
-    
+
     //Security
     "/notification/security_enrollment"(platform: "/mobile") {}
 
     /**
      * END NOTIFICATIONS
-     **/ 
-    
-    
+     **/
+
+
     "/orders"(platform: "/", isAbstract: true) {}
 
     "/orders/ordercreated"(platform: "/") {
@@ -2380,8 +2400,8 @@ tracks {
     //Loyalty Program User Tracking
     "/loyalty/user"(platform: "/", type: TrackType.Event) {
         in_loyalty_program(
-            required: true, 
-            type:PropertyType.Boolean, 
+            required: true,
+            type:PropertyType.Boolean,
             description: "Indicates if the user is in or out of the loyalty program"
         )
     }
@@ -2442,7 +2462,7 @@ tracks {
     "/quotation/congrats"(platform: "/") {
         item_id(required: true, type:PropertyType.String, description: "Item id")
         unit_id(required: true, type:PropertyType.String, description: "Unit id")
-    }   
+    }
 
     "/quotation/congrats"(platform: "/web") {
         category_id(required: true, type:PropertyType.String, description: "Item category id")
