@@ -2438,6 +2438,7 @@ trackTests {
         "/notification/carousel"(platform: "/mobile"){
             event_type = "carousel"
             action_type = "action_carousel"
+            action_carousel = "next"
         }
 
         "/notification/orders_new"(platform: "/mobile") {

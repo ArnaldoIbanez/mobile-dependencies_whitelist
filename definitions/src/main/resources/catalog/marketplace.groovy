@@ -1850,6 +1850,7 @@ tracks {
 
     //Carousel
     "/notification/carousel"(platform: "/mobile") {
+        action_carousel(required: true, values: ["next", "prev"])
     }
 
     //Payments
