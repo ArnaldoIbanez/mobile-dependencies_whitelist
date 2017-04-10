@@ -1736,10 +1736,10 @@ tracks {
      **/
     "/notification"(platform: "/mobile") {
         event_type(required: true,
-                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control"],
+                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel"],
         description: "Type of notification event")
         action_type(required: false,
-                values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer"])
+                values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "action_carousel"])
         deeplink(required: false, description: "The link were the notification should navigate to, if applies")
 
         //For event_type:autodismiss, indicates why the notification was dismissed
@@ -1866,6 +1866,11 @@ tracks {
     }
 
     "/notification/moderations_message_banned"(platform: "/mobile") {
+    }
+
+    //Carousel
+    "/notification/carousel"(platform: "/mobile") {
+        action_carousel(required: true, values: ["next", "prev"])
     }
 
     //Payments
