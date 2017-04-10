@@ -3346,6 +3346,8 @@ trackTests {
         "/myml/purchase/detail/feedback/congrats#action"(platform: "/mobile", type: TrackType.Event) {
             target = "meli://home"
         }
+
+        "/myml/purchase/detail/feedback/error"(platform: "/mobile", type: TrackType.View) {}
     }
 
     test("Myml installation") {

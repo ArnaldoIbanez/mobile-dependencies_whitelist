@@ -2346,6 +2346,8 @@ tracks {
          target(required: true, type: PropertyType.String)
     }
 
+    "/myml/purchase/detail/feedback/error"(platform: "/mobile", type: TrackType.View) {}
+
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
         user_phone_number()
