@@ -25,11 +25,15 @@ trackTests {
 
         "/home/long_press"(platform: "/mobile") {}
 
-        "/home/contextual_menu"(platform: "/mobile", type: TrackType.Event) {}
+        "/home/contextual_menu"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLB681933310"
+        }
 
         "/home/share"(platform: "/mobile") {}
 
-        "/home/contextual_menu/share"(platform: "/mobile", type: TrackType.Event) {}
+        "/home/contextual_menu/share"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLB681933310"
+        }
 
         "/home/pulltorefresh"(platform:"/mobile") {}
 

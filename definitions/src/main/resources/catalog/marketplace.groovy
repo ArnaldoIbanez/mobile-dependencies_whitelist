@@ -100,6 +100,7 @@ tracks {
     }
 
     "/home/contextual_menu"(platform: "/mobile", type: TrackType.Event) {
+        item_id()
     }
 
     // share y contextual_menu/share son la misma acción, se preservan por temas de compatibilidad.
@@ -107,6 +108,7 @@ tracks {
     }
 
     "/home/contextual_menu/share"(platform: "/mobile", type: TrackType.Event) {
+        item_id()
     }
 
     "/home/back"(platform: "/mobile") {
