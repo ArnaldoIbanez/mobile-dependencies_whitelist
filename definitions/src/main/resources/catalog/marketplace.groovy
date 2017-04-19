@@ -1882,6 +1882,8 @@ tracks {
 
     "/landing/generic"(platform: "/mobile") {
         url(required:true, descripcion:"The url to be loaded by the generic landing")
+        is_main_url(required:false, type: PropertyType.Boolean, 
+            descripcion: "True if the url is the first url to be loaded. Next urls will have this flag in false (redirects, taps)")
     }
     
     "/orders"(platform: "/", isAbstract: true) {}

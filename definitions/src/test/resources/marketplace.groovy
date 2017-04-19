@@ -2255,6 +2255,7 @@ trackTests {
     test("Mobile Landings") {
         "/landing/generic"(platform: "/mobile"){
             url = "https://www.mercadolibre.com"
+            is_main_url = true
         }
     }
 
