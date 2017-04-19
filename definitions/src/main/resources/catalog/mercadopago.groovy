@@ -135,6 +135,7 @@ tracks {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
+    "/cellphone_recharge/push_handler"(platform: "/mobile") {}
     "/cellphone_recharge/recents"(platform: "/mobile") {}
     "/cellphone_recharge/set_telephone_number"(platform: "/mobile") {}
     "/cellphone_recharge/contacts"(platform: "/mobile") {}
