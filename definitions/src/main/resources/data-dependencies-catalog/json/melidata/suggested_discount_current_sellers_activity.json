@@ -1,11 +1,11 @@
 {
   "users": [
-    "martin.ciruzzi@mercadolibre.com"
+    "ext_grodrig@mercadolibre.com","ext_mberriel@mercadolibre.com"
   ],
-  "process_name": "tracks_count",
-  "cron": "45 10 * * *",
+  "process_name": "suggested_discount_current_sellers_activity",
+  "cron": " ",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "ds",
@@ -13,11 +13,11 @@
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "business",
+        "name": "siteId",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "site",
+        "name": "path",
         "type": "UNICODE_STRING"
       },
       {
@@ -25,13 +25,16 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "total",
+        "name": "userId",
         "type": "INTEGER"
+      },
+      {
+        "name": "itemId",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-
-      "script": "melidata/tracks-count.sql",
+      "script": "melidata/suggested-discount-current-sellers-activity.sql",
       "parameters": [
         {
           "name": "param01",
@@ -40,6 +43,16 @@
         },
         {
           "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param03",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param04",
           "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }

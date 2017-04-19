@@ -2,7 +2,7 @@
   "users": [
     "ext_grodrig@mercadolibre.com","ext_mberriel@mercadolibre.com"
   ],
-  "process_name": "suggested_discount_sellers_deal_activity",
+  "process_name": "suggested_discount_previous_sellers_activity",
   "cron": " ",
   "extract": {
     "operation": "append",
@@ -11,6 +11,10 @@
         "name": "ds",
         "type": "DATE",
         "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "siteId",
+        "type": "UNICODE_STRING"
       },
       {
         "name": "path",
@@ -30,26 +34,26 @@
       }
     ],
     "sql": {
-      "script": "melidata/suggested-discount-sellers-deal-activity.sql",
+      "script": "melidata/suggested-discount-previous-sellers-activity.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-3",
-          "format": "yyyy-MM-dd"
-        },
-        {
-          "name": "param02",
-          "value": "DAY-0",
-          "format": "yyyy-MM-dd"
-        },
-        {
-          "name": "param03",
           "value": "DAY-2",
           "format": "yyyy-MM-dd"
         },
         {
-          "name": "param04",
+          "name": "param02",
           "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param03",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param04",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
       ]

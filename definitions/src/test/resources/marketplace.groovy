@@ -247,6 +247,11 @@ trackTests {
 
         "/vip"(platform:"/mobile", dataSet)
 
+        "/vip"(platform:"/mobile", {
+            dataSet()
+            quotation_available = false
+        })
+
         "/vip/failure"(platform:"/mobile", {
             item_id = "MLA533657947"
             error_message = "any message"
@@ -444,6 +449,7 @@ trackTests {
             local_pick_up = false
             category_path = ["MLA1234","MLA6789"]
             reputation_level = "green_5"
+            fulfillment = true
         }
 
         "/vip"(platform:"/mobile", dataSet)
@@ -2262,15 +2268,15 @@ trackTests {
     test("Mobile Notifications"){
 
         "/notification_center"(platform: "/mobile"){}
-        "/notification_center/abort"(platform: "/mobile"){}		
+        "/notification_center/abort"(platform: "/mobile"){}
         "/notification_center/back"(platform: "/mobile"){}
         "/notification_center/failure"(platform: "/mobile"){}
-    
+
         "/notification_center"(platform: "/mobile") {
           newsgroup_id = "12332323"
           event_type = "open"
         }
-        
+
         "/notification_center/questions-buyer"(platform: "/mobile"){
             newsgroup_id: "question-123412"
             status: "read"
@@ -2284,17 +2290,17 @@ trackTests {
             event_type: "swipe"
             deeplink: "meli://seller_questions/1234"
             type_layout: "bullet_list"
-        }            
-        
+        }
+
         "/notification_center/orders-buyer"(platform: "/mobile"){
             newsgroup_id: "orders-buyer-1285223441"
             status: "read"
             event_type: "open"
             deeplink: "meli://purchases/1285223441#payment"
             type_layout: "standard"
-        
+
         }
-        
+
         "/notification_center/orders-seller"(platform: "/mobile"){
             newsgroup_id: "orders-seller-1288279054"
             action_type: "messages"
@@ -2303,7 +2309,7 @@ trackTests {
             deeplink: "meli://sales/1288279054/messages/send"
             type_layout: "bullet_list"
         }
-    
+
         "/notification_center/security-enrollment-legacy"(platform: "/mobile"){
             newsgroup_id: "security-enrollment-142242996"
             status: "unread"
@@ -2311,7 +2317,7 @@ trackTests {
             deeplink: "meli://generic_landing?url=https%3A%2F%2Faccountrecovery.mercadolivre.com.br%2Fenrollment%3Fsection%3DMDP_UPDATED_NOTIF%26nativeMobile%3DANDROID"
             type_layout: "standard"
         }
-    
+
         "/notification_center/mediations-complainant-legacy"(platform: "/mobile"){
             newsgroup_id: "MEDIATIONS-1287016973"
             status: "read"
@@ -2319,7 +2325,7 @@ trackTests {
             deeplink: "meli://purchases/1287016973/claims/900736064"
             type_layout: "standard"
         }
-    
+
         "/notification_center/purchase-pending-legacy"(platform: "/mobile"){
             newsgroup_id: "purchase-pending-210167262-MLA646946595"
             status: "read"
@@ -2327,7 +2333,7 @@ trackTests {
             deeplink: "meli://item?id=MLA646946595"
             type_layout: "standard"
         }
-    
+
         "/notification_center/loyalty"(platform: "/mobile"){
             newsgroup_id: "LOYALTY-48422892"
             status: "unread"
@@ -2335,7 +2341,7 @@ trackTests {
             deeplink: "meli://loyalty/?selectedTab=benefits"
             type_layout: "standard"
         }
-    
+
         "/notification_center/listings"(platform: "/mobile"){
             newsgroup_id: "listings-MLB829990994"
             status: "read"
@@ -2343,7 +2349,7 @@ trackTests {
             deeplink: "meli://listings/MLB829990994"
             type_layout: "standard"
         }
-    
+
         "/notification_center/campaigns-deals"(platform: "/mobile"){
             campaign_id: "campaign1"
             deal_id: "deal1_123"
@@ -2352,7 +2358,7 @@ trackTests {
             event_type: "swipe"
             type_layout: "picture"
         }
-    
+
         "/notification_center/campaigns-campaigns"(platform: "/mobile"){
             campaign_id: "campaign1"
             newsgroup_id: "deals-MLU102_07_02_2017-56626993"
@@ -2360,7 +2366,7 @@ trackTests {
             event_type: "swipe"
             type_layout: "picture"
         }
-    
+
         "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/mobile"){
             newsgroup_id: "campaigns-suggested_discounts_buyer-142593788-MLA645507294"
             event_type: "open"
@@ -2385,7 +2391,7 @@ trackTests {
             event_type = "sent"
         }
 
-        
+
         "/notification"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "auto_dismiss"
@@ -2447,7 +2453,7 @@ trackTests {
             order_id = "11222"
             shipment_id = 1234
         }
-        
+
         "/notification/shipping_agency_withdrawal"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "arrived"
@@ -2836,8 +2842,8 @@ trackTests {
         "/notification/security_enrollment"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
-        }   
-       
+        }
+
         "/notification/reviews_reminder"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -3668,8 +3674,13 @@ trackTests {
 
     }
 
-    test("quotation details tracking") {
+    test("Quotation :: Show details tracking") {
+
         "/quotation/details"(platform: "/") {
+            item_id = "MLM2222222"
+        }
+
+        "/quotation/details"(platform: "/web") {
             item_id = "MLM2222222"
             category_id = "MLM170531"
             seller_id = 123456789
@@ -3678,10 +3689,70 @@ trackTests {
             vertical = "REAL_ESTATE"
             error_type = ""
         }
+
+        "/quotation/details"(platform: "/mobile") {
+            item_id = "MLM2222222"
+        }
+
+        "/quotation/details"(platform: "/mobile") {
+            item_id = "MLM2222222"
+            model_id = "MLM170531"
+        }
     }
 
-    test("Quotation congrats tracking") {
+    test("Quotation :: Show select models tracking") {
+
+        "/quotation/models"(platform: "/mobile") {
+            item_id = "MLM2222222"
+        }
+
+        "/quotation/models"(platform: "/mobile") {
+            item_id = "MLM2222222"
+            model_id = "MLM170531"
+        }
+    }
+
+    test("Quotation :: Show select units tracking") {
+
+        "/quotation/units"(platform: "/mobile") {
+            item_id = "MLM2222222"
+        }
+
+        "/quotation/units"(platform: "/mobile") {
+            item_id = "MLM2222222"
+            unit_id = "MLM170531"
+        }
+    }
+
+    test("Quotation :: Show gallery tracking") {
+
+        "/quotation/gallery"(platform: "/mobile") { }
+
+    }
+
+    test("Quotation :: Show disclaimer tracking") {
+
+        "/quotation/disclaimer"(platform: "/mobile") {
+            item_id = "MLM2222222"
+        }
+    }
+
+    test("Quotation :: Quote intention tracking") {
+
+        "/quotation/quote_intention"(platform: "/mobile") {
+            item_id = "MLM2222222"
+            model_id = "MLM170531"
+            unit_id = "54321"
+       }
+    }
+
+    test("Quotation :: Show congrats tracking") {
         "/quotation/congrats"(platform: "/") {
+            item_id = "MLM2222222"
+            unit_id = "54321"
+        }
+
+        "/quotation/congrats"(platform: "/web") {
             item_id = "MLM2222222"
             category_id = "MLM170531"
             seller_id = 123456789
@@ -3689,8 +3760,397 @@ trackTests {
             item_status = "closed"
             vertical = "REAL_ESTATE"
             model_id = 12345
-            unit_id = 54321
+            unit_id = "54321"
             error_type = ""
         }
     }
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+// TRACKS CART CHECKOUT
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("Cart Checkout") {
+
+        def dataSetCongrats = {
+                    status = "payment_required"
+                    purchase_id = "MLA98792837983"
+        }
+
+        def dataSet = {
+
+            buy_equal_pay = true
+            recovery_flow = false
+            register_int = false
+            resolution = "high"
+            
+            precharged_cards = true
+
+            total_amount=2000
+            total_amount_with_shipping=2087.99
+            total_paid_amount=3373.98
+            
+            seller = [
+                        [id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                        [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]
+                    ]
+
+            buyer = [
+                        [id: "208642594", nickname: "TESTEO_1", loyalty_level: "4"]
+                    ]
+
+            shipping = [
+                        [
+                        cost: 25.98,
+                        shipping_mode: "me2",
+                        shipping_type: "mercadoenvios",
+                        shipping_options: [
+                                            [
+                                                    method_name: "Normal",
+                                                    price: 0.0,
+                                                    currency_id: "ARS",
+                                                    free_shipping: true,
+                                                    free_shipping_benefit: true
+                                            ],
+                                            [
+                                                    method_name: "Expreso",
+                                                    price: 50.46,
+                                                    currency_id: "ARS",
+                                                    free_shipping: false
+                                            ]
+                                        ]
+                        ]
+                    ]
+
+            payments = [
+                            [
+                            id: "23cfddb085c577f0584ab78e17861c63be386608",
+                            payment_type: "credit_card",
+                            payment_method: "amex",
+                            bank: "Santander Rio",
+                            installments:12,
+                            paid_amount:3373.98,
+                            installment_amount:281.17,
+                            without_fee:false,
+                            payment_splitted:false,
+                            status:"approved",
+                            status_detail:"accredited"
+                            ]
+                        ]
+
+            items = [
+                        [
+                        currency_id: "ARG",
+                        unit_price: 100,
+                        quantity: 1,
+                        item: [
+                                category_id: "MLA63385",
+                                buying_mode: "buy_it_now",
+                                category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
+                                id: "MLA754486062",
+                                official_store: "Adidas",
+                                condition: "new",
+                                listing_type: "gold_special",
+                                title: "Conector 12 Vias",
+                                shipping_mode: "me2"
+                            ]
+                        ],
+                        [
+                        currency_id: "ARG",
+                        unit_price: 1000,
+                        quantity: 3,
+                        item: [
+                                category_id: "MLA63385",
+                                buying_mode: "buy_it_now",
+                                category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
+                                id: "MLA754486062",
+                                official_store: "SportCenter",
+                                condition: "new",
+                                listing_type: "gold_pro",
+                                title: "Conector 12 Vias",
+                                shipping_mode: "me2"
+                            ]
+                        ]
+                    ]
+        }
+
+
+        "/cart/checkout/items_not_available"(platform:"/", dataSet) 
+        "/cart/checkout/error"(platform:"/", dataSet) 
+        "/cart/checkout/payment/select_method"(platform:"/", dataSet) 
+        "/cart/checkout/payment/select_method/edit_payment"(platform:"/", dataSet) 
+        "/cart/checkout/payment/select_method/show_distances"(platform:"/", dataSet) 
+        "/cart/checkout/payment/select_store"(platform:"/", dataSet) 
+        "/cart/checkout/payment/view_location"(platform:"/", dataSet) 
+        "/cart/checkout/payment/input_card"(platform:"/", dataSet) 
+        "/cart/checkout/payment/input_card/edit_payment"(platform:"/", dataSet) 
+        "/cart/checkout/payment/input_card/security_code_tooltip"(platform:"/", dataSet) 
+        "/cart/checkout/payment/select_installments"(platform:"/", dataSet) 
+        "/cart/checkout/payment/select_installments/close_splitter_message"(platform:"/", dataSet) 
+        "/cart/checkout/payment/select_installments/click_payment_detail"(platform:"/", dataSet) 
+        "/cart/checkout/payment/select_installments/click_box_installments"(platform:"/", dataSet) 
+        "/cart/checkout/payment/create_second_password"(platform:"/", dataSet) 
+        "/cart/checkout/payment/input_second_password"(platform:"/", dataSet) 
+        "/cart/checkout/payment/input_second_password/edit_payment"(platform:"/", dataSet) 
+        "/cart/checkout/review/edit_payment"(platform:"/", dataSet) 
+        "/cart/checkout/review/edit_first_payment"(platform:"/", dataSet) 
+        "/cart/checkout/review/edit_second_payment"(platform:"/", dataSet) 
+        "/cart/checkout/review/edit_shipping"(platform:"/", dataSet) 
+        "/cart/checkout/review/obtain_notification_installments"(platform:"/", dataSet) 
+        "/cart/checkout/review/change_installments"(platform:"/", dataSet) 
+        "/cart/checkout/review/change_shipping"(platform:"/", dataSet) 
+        "/cart/checkout/review/change_address"(platform:"/", dataSet) 
+        "/cart/checkout/review/edit_shipping"(platform:"/", dataSet) 
+        "/cart/checkout/review/edit_payment_method"(platform:"/", dataSet) 
+        "/cart/checkout/congrats"(platform:"/"){
+            dataSet()
+            dataSetCongrats()
+        } 
+        "/cart/checkout/congrats"(platform:"/mobile") {
+            dataSet()
+            dataSetCongrats()
+            geolocated = true
+        }
+        "/cart/checkout/congrats/keep_buying"(platform:"/"){
+            dataSet()
+            dataSetCongrats()
+        }  
+        "/cart/checkout/congrats/go_to_myml"(platform:"/"){
+            dataSet()
+            dataSetCongrats()
+        }  
+        "/cart/checkout/congrats/go_to_page_bank"(platform:"/") {
+            dataSet()
+            dataSetCongrats()
+        } 
+        "/cart/checkout/congrats/view_ticket"(platform:"/") {
+            dataSet()
+            dataSetCongrats()
+        } 
+        "/cart/checkout/congrats/download_ticket"(platform:"/") {
+            dataSet()
+            dataSetCongrats()
+        } 
+        "/cart/checkout/congrats/show_map"(platform:"/") {
+            dataSet()
+            dataSetCongrats()
+        } 
+        "/cart/checkout/congrats/save_data"(platform:"/") {
+            dataSet()
+            dataSetCongrats()
+        } 
+        "/cart/checkout/congrats/contact_us"(platform:"/") {
+            dataSet()
+            dataSetCongrats()
+        } 
+        "/cart/checkout/congrats/go_to_mercado_puntos"(platform:"/") {
+            dataSet()
+            dataSetCongrats()
+        } 
+        "/cart/checkout/congrats/added_points"(platform:"/") {
+            dataSet()
+            dataSetCongrats()
+        } 
+        "/cart/checkout/show_ticket"(platform:"/", dataSet) 
+        "/cart/checkout/invalid_sec_code"(platform:"/", dataSet) 
+        "/cart/checkout/invalid_sec_code/input_code"(platform:"/", dataSet) 
+        "/cart/checkout/call_for_auth"(platform:"/", dataSet) 
+        "/cart/checkout/call_for_auth/instructions"(platform:"/", dataSet) 
+        "/cart/checkout/call_for_auth/call_later"(platform:"/", dataSet) 
+        "/cart/checkout/call_for_auth/input_code"(platform:"/", dataSet) 
+        "/cart/checkout/shipping"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/edit_address"(platform:"/mobile", dataSet) 
+        "/cart/checkout/loading"(platform: "/mobile", dataSet) 
+        "/cart/checkout/shipping/geolocation_permissions"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/geolocation_permissions/allow_geolocation/Yes"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/geolocation_permissions/allow_geolocation/No"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/geolocation_error"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/select_method_geolocated"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/select_method_geolocated/send_to_cp_located"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/select_method_geolocated/send_to_another_location"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/select_option"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/select_method_ask_geolocation"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/input_zipcode"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/input_address"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/input_address_number"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/input_address_number/whithout_number"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/select_address"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/select_option_detail"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/input_address_apartment"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/select_contact_info"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/add_contact_info"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping/input_contact_info"(platform:"/mobile", dataSet) 
+        "/cart/checkout/payment/select_unique_installment"(platform:"/mobile", dataSet) 
+        "/cart/checkout/payment/select_first_installment"(platform:"/mobile", dataSet) 
+        "/cart/checkout/payment/select_second_installment"(platform:"/mobile", dataSet) 
+        "/cart/checkout/review/edit_unique_installment"(platform:"/mobile", dataSet) 
+        "/cart/checkout/review/edit_first_installment"(platform:"/mobile", dataSet) 
+        "/cart/checkout/review/edit_second_installment"(platform:"/mobile", dataSet) 
+        "/cart/checkout/show_geolocation_map"(platform:"/mobile", dataSet) 
+        "/cart/checkout/shipping"(platform:"/web", dataSet) 
+        "/cart/checkout/shipping/confirm_geolocation"(platform:"/web", dataSet) 
+        "/cart/checkout/shipping/confirm_geolocation/send_to_cp_located"(platform:"/web", dataSet) 
+        "/cart/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", dataSet) 
+        "/cart/checkout/shipping/input_new_address"(platform:"/web", dataSet) 
+        "/cart/checkout/payment/security_code"(platform:"/web", dataSet) 
+
+    }
+
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+// TRACKS CART LIST
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("Cart List") {
+
+        def dataSet = {
+
+            seller = [
+                        [id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                        [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]
+                    ]
+
+            items = [
+                        [
+                        currency_id: "ARG",
+                        unit_price: 100,
+                        quantity: 1,
+                        item: [
+                                category_id: "MLA63385",
+                                buying_mode: "buy_it_now",
+                                category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
+                                id: "MLA754486062",
+                                official_store: "Adidas",
+                                condition: "new",
+                                listing_type: "gold_special",
+                                title: "Conector 12 Vias",
+                                shipping_mode: "me2"
+                            ]
+                        ],
+                        [
+                        currency_id: "ARG",
+                        unit_price: 1000,
+                        quantity: 3,
+                        item: [
+                                category_id: "MLA63385",
+                                buying_mode: "buy_it_now",
+                                category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
+                                id: "MLA754486062",
+                                official_store: "SportCenter",
+                                condition: "new",
+                                listing_type: "gold_pro",
+                                title: "Conector 12 Vias",
+                                shipping_mode: "me2"
+                            ]
+                        ]
+                    ]                    
+
+        }
+
+        "/cart/my_cart"(platform: "/web", dataSet) 
+
+        "/cart/my_cart/save_for_later"(platform: "/web", dataSet) 
+
+        "/cart/my_cart/delete_item"(platform: "/web", dataSet) 
+
+        "/cart/my_cart/change_quantity"(platform: "/web", dataSet) 
+
+        "/cart/my_cart/select_address"(platform: "/web", dataSet) 
+
+        "/cart/my_cart/dont_know_cp"(platform: "/web", dataSet) 
+
+        "/cart/my_cart/view_similar"(platform: "/web", dataSet) 
+
+        "/cart/my_cart/open_change_notification"(platform: "/web", dataSet) 
+
+        "/cart/my_cart/close_change_notification"(platform: "/web", dataSet) 
+
+        "/cart/saved_for_later"(platform: "/web", dataSet) 
+
+        "/cart/saved_for_later/add_to_cart"(platform: "/web", dataSet) 
+
+        "/cart/saved_for_later/delete_item"(platform: "/web", dataSet) 
+
+        "/cart/change_address"(platform: "/web", dataSet) 
+
+        "/cart/add_cp"(platform: "/web", dataSet)         
+
+    }
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+// TRACKS MYML CART
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("MyML Cart") {
+
+        def dataSet = {
+
+            seller = [
+                        [id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                        [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]
+                    ]
+
+            buyer = [
+                        [id: "208642594", nickname: "TESTEO_1", loyalty_level: "4"]
+                   ]
+            
+            cartContent = true
+
+        }
+
+        "/myml/sales/list"(platform: "/web") {}
+
+        "/myml/sales/status"(platform: "/web") {}
+
+        "/myml/sales/status/call_to_carrier"(platform: "/web") {}
+
+        "/myml/sales/status/pack_tutorial"(platform: "/web") {}
+
+        "/myml/sales/detail/pack_tutorial"(platform: "/web") {}
+
+        "/myml/sales/detail"(platform: "/web") {}
+
+        "/myml/sales/detail/refund_money"(platform: "/web") {}
+
+        "/myml/sales/detail/print_label"(platform: "/web") {}
+
+        "/myml/sales/order"(platform: "/web") {}
+
+        "/myml/sales/shipping_detail"(platform: "/web") {}
+
+        "/myml/sales/messages"(platform: "/web") {}
+
+        "/myml/sales/questions"(platform: "/web") {}
+
+        "/myml/purchases/list"(platform: "/web") {}
+
+        "/myml/purchases/detail"(platform: "/web") {}
+
+        "/myml/purchases/detail/delete_purchase"(platform: "/web") {}
+
+        "/myml/purchases/detail/what_do_if_i_pay"(platform: "/web") {}
+
+        "/myml/purchases/detail/call_to_carrier"(platform: "/web") {}
+
+        "/myml/purchases/print_label"(platform: "/web") {}
+
+        "/myml/purchases/print_label/show_stores_map"(platform: "/web") {}
+
+        "/myml/purchases/shipping_detail"(platform: "/web") {}
+
+        "/myml/purchases/shipping_detail/refund_details"(platform: "/web") {}
+
+        "/myml/purchases/messages"(platform: "/web") {}
+
+        "/myml/purchases/questions"(platform: "/web") {}
+
+        "/myml/purchases/canceled"(platform:"/") {}
+
+        "/myml/purchases/order"(platform:"/") {}
+
+        "/myml/purchases/detail/history"(platform:"/") {}
+
+    }
+
+
 }
