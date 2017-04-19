@@ -432,6 +432,11 @@ trackTests {
     }
 
     test("Cellphone recharge") {
+        "/cellphone_recharge/push_handler"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+
         "/cellphone_recharge/recents"(platform: "/mobile") {
             flow = "/cellphone_recharge"
             from = "/deep_link"
