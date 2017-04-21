@@ -1,9 +1,9 @@
 {
   "users": [
-    "ext_jproma@mercadolibre.com","ext_manunez@mercadolibre.com","ext_jgabito@mercadolibre.com"
+    "ext_jproma@mercadolibre.com"
   ],
-  "process_name": "push-notifications-metrics",
-  "cron": "10 00 * * *",
+  "process_name": "push-notifications-healthcheck",
+  "cron": "00 08 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -29,15 +29,10 @@
       }
     ],
     "sql": {
-      "script": "emailmkt/push-notifications-metrics.sql",
+      "script": "emailmkt/push-notifications-healthcheck.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
-          "format": "yyyy-MM-dd"
-        },
-        {
-          "name": "param02",
           "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }

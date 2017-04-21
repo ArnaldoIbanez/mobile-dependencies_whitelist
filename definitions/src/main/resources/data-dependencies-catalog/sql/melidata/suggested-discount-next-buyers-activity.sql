@@ -5,15 +5,15 @@ device.platform as platform,
 usr.user_id as userId,  
 get_json_object(tracks.event_data,'$.item_id') as itemId
 from tracks
-where ds >= '2017-03-02'
-and ds < '2017-03-03' 
-and path in ('/home', '/search', '/vip', '/vip/buy_intention', '/notification_center', '/notification/questions_new', '/questions/answer/post', '/orders/ordercreated', '/bookmarks/action/post')
+where ds >= '@param01'
+and ds < '@param02' 
+and path in ('/home', '/search', '/vip', '/vip/buy_intention', '/notification_center', '/notification/questions_new', '/questions/answer/post', '/questions/ask/post', '/orders/ordercreated', '/bookmarks/action/post')
 and device.platform in ('/mobile/android', '/mobile/ios')
 and usr.user_id in (
   select distinct usr.user_id
   from tracks as t
-  where t.ds >= '2017-03-01'
-  and t.ds < '2017-03-02' 
+  where t.ds >= '@param03'
+  and t.ds < '@param04' 
   and type = 'event' 
   and device.platform in ('/mobile/android', '/mobile/ios')
   and t.path = '/notification/campaigns_suggested_discounts_buyer'
