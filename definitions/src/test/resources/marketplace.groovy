@@ -2281,6 +2281,13 @@ trackTests {
             previous_size=122592
         }
     }
+    
+    test("Mobile Landings") {
+        "/landing/generic"(platform: "/mobile"){
+            url = "https://www.mercadolibre.com"
+            is_main_url = true
+        }
+    }
 
     test("Mobile Notifications"){
 
