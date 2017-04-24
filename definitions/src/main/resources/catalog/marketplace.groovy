@@ -2472,7 +2472,7 @@ tracks {
         unit_id(required: true, type:PropertyType.String, description: "Unit id")
     }
 
-    //Quotation :: Quotation
+    //Quotation :: Quotation success
     "/quotation/quotation"(platform: "/", type: TrackType.Event) {
         item_id(required: true, type:PropertyType.String, description: "Item id")
         unit_id(required: true, type:PropertyType.String, description: "Unit id")
