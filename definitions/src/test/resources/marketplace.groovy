@@ -3337,17 +3337,17 @@ trackTests {
     }
 
     test("MyMl new reputation flow buyer") {
-        "/myml/purchase/detail/feedback/rating"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/purchases/detail/feedback/rating"(platform: "/mobile", type: TrackType.View) {}
 
-        "/myml/purchase/detail/feedback/message"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/purchases/detail/feedback/message"(platform: "/mobile", type: TrackType.View) {}
 
-        "/myml/purchase/detail/feedback/congrats"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/purchases/detail/feedback/congrats"(platform: "/mobile", type: TrackType.View) {}
 
-        "/myml/purchase/detail/feedback/congrats#action"(platform: "/mobile", type: TrackType.Event) {
+        "/myml/purchases/detail/feedback/congrats#action"(platform: "/mobile", type: TrackType.Event) {
             target = "meli://home"
         }
 
-        "/myml/purchase/detail/feedback/error"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/purchases/detail/feedback/error"(platform: "/mobile", type: TrackType.View) {}
     }
 
     test("Myml installation") {
