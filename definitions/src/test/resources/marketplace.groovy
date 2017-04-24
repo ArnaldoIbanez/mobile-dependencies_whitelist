@@ -3788,6 +3788,14 @@ trackTests {
        }
     }
 
+    test("Quotation :: Quotation success tracking") {
+
+        "/quotation/quotation"(platform: "/") {
+            item_id = "MLM2222222"
+            unit_id = "54321"
+       }
+    }
+
     test("Quotation :: Show congrats tracking") {
         "/quotation/congrats"(platform: "/") {
             item_id = "MLM2222222"
