@@ -533,11 +533,12 @@ trackTests {
 
         "/bookmarks/action/post" (platform:"/mobile", type: TrackType.Event) {
             item_id = "MLA533657947"
-            context = "/search"
+            location = "maininfo"
         }
 
         "/bookmarks/action/delete" (platform:"/mobile", type: TrackType.Event) {
             item_id = "MLA533657947"
+            location = "maininfo"
         }
     }
 
