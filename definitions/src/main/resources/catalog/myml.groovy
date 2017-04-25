@@ -89,18 +89,18 @@ tracks {
 
 "/myml/purchases/detail/history"(platform:"/", type: TrackType.View) {}
 
-"/myml/purchases/detail/feedback"(platform: "/mobile", isAbstract: true) {}
+"/myml/purchases/feedback"(platform: "/mobile", isAbstract: true) {}
 
-"/myml/purchases/detail/feedback/rating"(platform: "/mobile", type: TrackType.View) {}
+"/myml/purchases/feedback/rating"(platform: "/mobile", type: TrackType.View) {}
 
-"/myml/purchases/detail/feedback/message"(platform: "/mobile", type: TrackType.View) {}
+"/myml/purchases/feedback/message"(platform: "/mobile", type: TrackType.View) {}
 
-"/myml/purchases/detail/feedback/congrats"(platform: "/mobile", type: TrackType.View) {}
+"/myml/purchases/feedback/congrats"(platform: "/mobile", type: TrackType.View) {}
 
-"/myml/purchases/detail/feedback/congrats#action"(platform: "/mobile", type: TrackType.Event) {
+"/myml/purchases/feedback/congrats#action"(platform: "/mobile", type: TrackType.Event) {
 	target(required: true, type: PropertyType.String)
 }
 
-"/myml/purchases/detail/feedback/error"(platform: "/mobile", type: TrackType.View) {}
+"/myml/purchases/feedback/error"(platform: "/mobile", type: TrackType.View) {}
 
 }
