@@ -431,6 +431,106 @@ trackTests {
         }
     }
 
+    test("QRRead Stores event") {
+
+        "/qr_read/store"(platform: "/mobile") {
+            qr_info = "http://laconoariel.com/mpmobile/axion/?id=invalid"
+            _label = "error"
+            deep_link = "mercadopago://congrats_store"
+            additional_info = {message="Algo no salió bien"
+                icon="error"
+                status="rejected"
+                description="Por favor, intenta nuevamente."
+                actions=[{
+                             id="try_again"
+                             link="mercadopago://stores?qr_code=http%3A%2F%2Flaconoariel.com%2Fmpmobile%2Faxion%2F%3Fid%3Dinvalid"
+                             label="Intentar nuevamente"
+                             type="button"
+                         },{
+                    id="back_to_root"
+                    link":null"
+                    label="Volver al inicio"
+                    type="link" }]}
+        }
+    }
+
+    test("Pay Preference") {
+        "/px_result"(platform: "/mobile") {
+            result_status = "rejected"
+        }
+
+        "/pay_preference/fetch_preference_info"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_payment_method_search"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_payer_cost"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_number"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_vault"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_holder"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_holder_name"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_issuers"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_installments"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_expiry_date"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_security_code"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_identification_number"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_review_and_confirm"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_result"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+            result_status = "rejected"
+        }
+    }
+
     test("Cellphone recharge") {
         "/cellphone_recharge/push_handler"(platform: "/mobile") {
             flow = "/cellphone_recharge"

@@ -131,6 +131,41 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
+    "/qr_read"(platform: "/mobile", isAbstract: true) {}
+    "/qr_read/store"(platform: "/mobile") {
+        _label (required:true, type: PropertyType.String, description: "Operation status")
+        deep_link (required:false, type: PropertyType.String, description: "Navigation info")
+        qr_info (required:false, type: PropertyType.String, description: "Data read")
+        additional_info (required:false, description: "Extra info")
+    }
+
+    "/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
+    "/pay_preference"(platform: "/mobile", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/pay_preference/fetch_preference_info"(platform: "/mobile") {}
+    "/pay_preference/px_payment_method_search"(platform: "/mobile") {}
+    "/pay_preference/px_payer_cost"(platform: "/mobile") {}
+    "/pay_preference/px_card_number"(platform: "/mobile") {}
+    "/pay_preference/px_card_vault"(platform: "/mobile") {}
+    "/pay_preference/px_card_holder"(platform: "/mobile") {}
+    "/pay_preference/px_card_holder_name"(platform: "/mobile") {}
+    "/pay_preference/px_card_issuers"(platform: "/mobile") {}
+    "/pay_preference/px_card_installments"(platform: "/mobile") {}
+    "/pay_preference/px_card_expiry_date"(platform: "/mobile") {}
+    "/pay_preference/px_card_security_code"(platform: "/mobile") {}
+    "/pay_preference/px_identification_number"(platform: "/mobile") {}
+    "/pay_preference/px_review_and_confirm"(platform: "/mobile") {}
+    "/pay_preference/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
     "/cellphone_recharge"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
