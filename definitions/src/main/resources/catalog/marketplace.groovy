@@ -461,10 +461,12 @@ tracks {
 
     "/bookmarks/action/post"(platform: "/mobile", type: TrackType.Event) {
         item_id()
+        action_location(required:false, type: PropertyType.String)
     }
 
     "/bookmarks/action/delete"(platform: "/mobile", type: TrackType.Event) {
         item_id()
+        action_location(required:false, type: PropertyType.String)
     }
 
     // Questions
