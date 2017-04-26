@@ -456,7 +456,6 @@ trackTests {
 
     test("Pay Preference") {
         "/px_result"(platform: "/mobile") {
-            flow = "/px_result"
             result_status = "rejected"
         }
 
@@ -526,7 +525,7 @@ trackTests {
         }
 
         "/pay_preference/px_result"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
+            flow = "/pay_preference"
             from = "/deep_link"
             result_status = "rejected"
         }
