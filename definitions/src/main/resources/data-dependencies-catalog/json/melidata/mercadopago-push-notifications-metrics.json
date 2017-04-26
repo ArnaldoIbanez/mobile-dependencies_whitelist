@@ -9,7 +9,8 @@
     "columns": [
       {
         "name": "ds",
-        "type": "UNICODE_STRING"
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
       },
       {
         "name": "campaign_id",
