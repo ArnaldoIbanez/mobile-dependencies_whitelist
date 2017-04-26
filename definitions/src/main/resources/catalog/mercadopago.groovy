@@ -131,6 +131,7 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
+    "/qr_read"(platform: "/mobile", isAbstract: true) {}
     "/qr_read/store"(platform: "/mobile") {
         _label (required:true, type: PropertyType.String, description: "Operation status")
         deep_link (required:false, type: PropertyType.String, description: "Navigation info")
