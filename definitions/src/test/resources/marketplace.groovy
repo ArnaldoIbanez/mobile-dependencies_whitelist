@@ -3790,7 +3790,7 @@ trackTests {
 
     test("Quotation :: Quotation success tracking") {
 
-        "/quotation/quotation"(platform: "/") {
+        "/quotation/success"(platform: "/") {
             item_id = "MLM2222222"
             unit_id = "54321"
        }
