@@ -417,7 +417,8 @@ tracks {
     // END -- MPMOBILE
 
     //MERCADO CRÉDITO
-    
+    "/credits/consumer"(platform: "/", isAbstract: true) {}
+
     "/credits/consumer"(platform: "/") {
         creditLine_id(required: true, description: "consumer creditLine Id.")
     }
