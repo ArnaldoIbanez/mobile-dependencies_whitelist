@@ -1,6 +1,8 @@
 import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.catalog
 import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.include
 
+def CATALOG_DIR = "src/main/resources/catalog/"
+
 /**
  * Main catalog definitions
  */
@@ -38,39 +40,29 @@ catalog {
 
     def all = marketplace + mercadopago
 
-    all.each { business ->
-        include business, "melidata_sdk.groovy"
-    }
 
     all.each { business ->
-        include business, "registrations.groovy"
-    }
-
-    all.each { business ->
-        include business, "authentication.groovy"
-    }
-
-    all.each { business ->
-        include business, "identity_validation.groovy"
+        def allDirectory = new File(CATALOG_DIR + "/all")
+        allDirectory.eachFile { file ->
+            def filepath = file.getPath().split('/')[-2..-1].join('/')
+            include business, filepath
+        }
     }
 
     marketplace.each { business ->
-        include business, "marketplace.groovy"
-    }
-
-    marketplace.each { business ->
-        include business, "cartList.groovy"
-    }
-
-    marketplace.each { business ->
-        include business, "cartCheckout.groovy"
-    }
-
-    marketplace.each { business ->
-        include business, "myml.groovy"
+        def marketplaceDir = new File(CATALOG_DIR + "/marketplace")
+        marketplaceDir.eachFile { file ->
+            def filepath = file.getPath().split('/')[-2..-1].join('/')
+            include business, filepath
+        }
     }
 
     mercadopago.each { business ->
-        include business, "mercadopago.groovy"
+        def mercadopagoDir = new File(CATALOG_DIR + '/mercadopago')
+        mercadopagoDir.eachFile { file ->
+            def filepath = file.getPath().split('/')[-2..-1].join('/')
+            include business, filepath
+        }
     }
+
 }
