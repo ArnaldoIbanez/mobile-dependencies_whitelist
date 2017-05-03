@@ -43,28 +43,25 @@ catalog {
 
     all.each { business ->
         def allDirectory = new File(CATALOG_DIR + "/all")
-        allDirectory.eachFile { file -> 
-            def filepath = file.getPath().split('/')
-            include business, filepath[-2..-1].join('/')
+        allDirectory.eachFile { file ->
+            def filepath = file.getPath().split('/')[-2..-1].join('/')
+            include business, filepath
         }
     }
 
     marketplace.each { business ->
         def marketplaceDir = new File(CATALOG_DIR + "/marketplace")
         marketplaceDir.eachFile { file ->
-            if (!file.getPath().endsWith('cartList.groovy') && !file.getPath().endsWith('cartCheckout.groovy') && !file.getPath().endsWith('myml.groovy')) {
-                def filepath = file.getPath().split('/')
-                println(filepath)
-                include business, filepath[-2..-1].join('/')
-            }
+            def filepath = file.getPath().split('/')[-2..-1].join('/')
+            include business, filepath
         }
     }
 
-    mercadopago.each { business -> 
+    mercadopago.each { business ->
         def mercadopagoDir = new File(CATALOG_DIR + '/mercadopago')
-        mercadopagoDir.eachFile { file -> 
-            def filepath = file.getPath().split('/')
-            include business, filepath[-2..-1].join('/')
+        mercadopagoDir.eachFile { file ->
+            def filepath = file.getPath().split('/')[-2..-1].join('/')
+            include business, filepath
         }
     }
 
