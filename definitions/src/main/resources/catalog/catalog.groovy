@@ -40,7 +40,7 @@ catalog {
 
     def all = marketplace + mercadopago
 
-/*
+
     all.each { business ->
         def allDirectory = new File(CATALOG_DIR + "/all")
         allDirectory.eachFile { file -> 
@@ -48,7 +48,7 @@ catalog {
             include business, filepath[-2..-1].join('/')
         }
     }
-*/
+
     marketplace.each { business ->
         def marketplaceDir = new File(CATALOG_DIR + "/marketplace")
         marketplaceDir.eachFile { file ->
@@ -59,7 +59,7 @@ catalog {
             }
         }
     }
-/*
+
     mercadopago.each { business -> 
         def mercadopagoDir = new File(CATALOG_DIR + '/mercadopago')
         mercadopagoDir.eachFile { file -> 
@@ -67,5 +67,5 @@ catalog {
             include business, filepath[-2..-1].join('/')
         }
     }
-*/
+
 }
