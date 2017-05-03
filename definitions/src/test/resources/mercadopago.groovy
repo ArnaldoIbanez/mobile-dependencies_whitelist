@@ -1229,7 +1229,7 @@ trackTests {
 
     test("consumer credit line tracking"){
     "/credits/consumer"(platform:"/web/desktop"){
-        creditLine_id = 123
+        credit_line_id = 123
     }
 
     }

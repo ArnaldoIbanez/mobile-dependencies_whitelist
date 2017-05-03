@@ -420,7 +420,7 @@ tracks {
     "/credits"(platform: "/", isAbstract: true) {}
 
     "/credits/consumer"(platform: "/") {
-        creditLine_id(required: true, description: "consumer creditLine Id.")
+        credit_line_id(required: true, description: "consumer creditLine Id.")
     }
 
 
