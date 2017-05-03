@@ -1743,7 +1743,7 @@ tracks {
                 values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel"],
         description: "Type of notification event")
         action_type(required: false,
-                values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "action_carousel"])
+                values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer"])
         deeplink(required: false, description: "The link were the notification should navigate to, if applies")
 
         //For event_type:autodismiss, indicates why the notification was dismissed
