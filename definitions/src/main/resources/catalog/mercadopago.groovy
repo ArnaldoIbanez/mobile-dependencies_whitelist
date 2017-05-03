@@ -416,4 +416,11 @@ tracks {
 
     // END -- MPMOBILE
 
+    //MERCADO CRÉDITO
+    
+    "/credits/consumer"(platform: "/") {
+        creditLine_id(type: PropertyType.Numeric, regex:".*") // <-- Property, type numeric and validated by regex
+    }
+
+
 }

@@ -1224,4 +1224,13 @@ trackTests {
         }
 
     }
+
+    //MERCADO CRÉDITO - ENROLLMENT TRACKING
+
+    test("consumer credit line tracking"){
+    "/credits/consumer"(platform:"/web/desktop"){
+        creditLine_id = "123"
+    }
+
+    }
 }
