@@ -1225,12 +1225,18 @@ trackTests {
 
     }
 
-    //MERCADO CRÉDITO - ENROLLMENT TRACKING
 
-    test("consumer credit line tracking"){
-    "/credits/consumer"(platform:"/web/desktop"){
-        credit_line_id = 123
+    //MERCADO CRÉDITO
+
+    test("merchant credit line tracking") {
+        "/credits/merchant"(platform: "/web/desktop") {
+            credit_line_id = 123
+        }
     }
 
+        test("money advance amount") {
+            "/money-advance"(platform: "/web/desktop") {
+                amount = 123
+            }
+        }
     }
-}

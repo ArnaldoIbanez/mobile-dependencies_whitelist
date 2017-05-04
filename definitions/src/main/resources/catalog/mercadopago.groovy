@@ -416,12 +416,17 @@ tracks {
 
     // END -- MPMOBILE
 
-    //MERCADO CRÉDITO
+    //Mercado crédito - merchant enrollment
     "/credits"(platform: "/", isAbstract: true) {}
 
-    "/credits/consumer"(platform: "/") {
-        credit_line_id(required: true, description: "consumer creditLine Id.")
+    "/credits/merchant"(platform: "/") {
+        credit_line_id(required: true, description: "merchant creditLine Id.")
     }
 
+    //Mercado crédito - Money Advance
+    "/money-advance"(platform: "/", isAbstract: true){}
 
+    "/money-advance"(platform: "/", isAbstract: true){
+        amount(required: true, description: "money advance amount")
+    }
 }
