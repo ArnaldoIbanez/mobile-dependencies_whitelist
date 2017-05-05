@@ -1147,6 +1147,7 @@ trackTests {
             source = "FAVORITE"
             flow = "internal"
             has_error = false
+            recaptcha = false
         }
         "/login/recovery"(platform: "/web", type: TrackType.Event) {
             source = "LFE"
