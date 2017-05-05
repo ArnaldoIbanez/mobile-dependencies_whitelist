@@ -1,0 +1,42 @@
+{
+  "users": [
+    "ext_jproma@mercadolibre.com"
+  ],
+  "process_name": "push-notifications-healthcheck",
+  "cron": "00 08 * * *",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "ds",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "campaign_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "event_type",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "users",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "emailmkt/push-notifications-healthcheck.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

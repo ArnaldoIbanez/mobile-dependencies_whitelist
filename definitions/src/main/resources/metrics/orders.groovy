@@ -2,37 +2,10 @@ import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
-	"orders"(description: "all orders, does not include carrito. TODO: Remove", compute_order: true) {
-		countsOn {
-			condition {
-				path(regex("^/checkout(/.*|\$)"))
-				equals("event_data.first_for_order", true)
-			}
-		}
-	}
-
-	"orders.created"(description: "/checkout/ordercreated unique for each order_id (ordercreated_seq = 1)", compute_order: true) {
-		countsOn {
-			condition {
-				equals("event_data.ordercreated_seq", 1)
-			}
-		}
-
-	}
-
 	"checkout_congrats"( description: "all congrats, including carrito and checkout congrats", compute_order:true){
 		countsOn {
 			condition{
 				equals("event_data.congrats_seq",1)
-			}
-		}
-	}
-
-	"orders.congrats"(description: "/checkout/congrats* unique for each order_id (congrats_seq = 1). TODO: Remove is replaced by single_checkout_congrats", compute_order: true) {
-		countsOn {
-			condition {
-				path(regex("^/checkout/congrats(/.*|\$)"))
-				equals("event_data.congrats_seq", 1)
 			}
 		}
 	}
@@ -112,7 +85,7 @@ metrics {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				equals("event_data.is_carrito", true)
+				equals("event_data.is_carrito", false)
 			}
 		}
 	}

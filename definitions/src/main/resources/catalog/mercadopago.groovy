@@ -131,10 +131,46 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
+    "/qr_read"(platform: "/mobile", isAbstract: true) {}
+    "/qr_read/store"(platform: "/mobile") {
+        _label (required:true, type: PropertyType.String, description: "Operation status")
+        deep_link (required:false, type: PropertyType.String, description: "Navigation info")
+        qr_info (required:false, type: PropertyType.String, description: "Data read")
+        additional_info (required:false, description: "Extra info")
+    }
+
+    "/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
+    "/pay_preference"(platform: "/mobile", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/pay_preference/fetch_preference_info"(platform: "/mobile") {}
+    "/pay_preference/px_payment_method_search"(platform: "/mobile") {}
+    "/pay_preference/px_payer_cost"(platform: "/mobile") {}
+    "/pay_preference/px_card_number"(platform: "/mobile") {}
+    "/pay_preference/px_card_vault"(platform: "/mobile") {}
+    "/pay_preference/px_card_holder"(platform: "/mobile") {}
+    "/pay_preference/px_card_holder_name"(platform: "/mobile") {}
+    "/pay_preference/px_card_issuers"(platform: "/mobile") {}
+    "/pay_preference/px_card_installments"(platform: "/mobile") {}
+    "/pay_preference/px_card_expiry_date"(platform: "/mobile") {}
+    "/pay_preference/px_card_security_code"(platform: "/mobile") {}
+    "/pay_preference/px_identification_number"(platform: "/mobile") {}
+    "/pay_preference/px_review_and_confirm"(platform: "/mobile") {}
+    "/pay_preference/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
     "/cellphone_recharge"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
+    "/cellphone_recharge/push_handler"(platform: "/mobile") {}
     "/cellphone_recharge/recents"(platform: "/mobile") {}
     "/cellphone_recharge/set_telephone_number"(platform: "/mobile") {}
     "/cellphone_recharge/contacts"(platform: "/mobile") {}
@@ -166,6 +202,37 @@ tracks {
     "/cellphone_recharge/px_card_installments"(platform: "/mobile") {}
     "/cellphone_recharge/px_review_and_confirm"(platform: "/mobile") {}
     "/cellphone_recharge/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
+    "/scheduled_recharge"(platform: "/mobile", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/scheduled_recharge/detail"(platform: "/mobile") {}
+    "/scheduled_recharge/empty_recharges"(platform: "/mobile") {}
+    "/scheduled_recharge/all_scheduled"(platform: "/mobile") {}
+    "/scheduled_recharge/frequency"(platform: "/mobile") {}
+    "/scheduled_recharge/weekly_option"(platform: "/mobile") {}
+    "/scheduled_recharge/monthly_option"(platform: "/mobile") {}
+    "/scheduled_recharge/suggested_recent_recharges"(platform: "/mobile") {}
+    "/scheduled_recharge/carries"(platform: "/mobile") {}
+    "/scheduled_recharge/recommended"(platform: "/mobile") {}
+    "/scheduled_recharge/packages"(platform: "/mobile") {}
+    "/scheduled_recharge/manual_amount"(platform: "/mobile") {}
+    "/scheduled_recharge/px_payment_method_search"(platform: "/mobile") {}
+    "/scheduled_recharge/px_discount_summary"(platform: "/mobile") {}
+    "/scheduled_recharge/px_card_vault"(platform: "/mobile") {}
+    "/scheduled_recharge/px_card_number"(platform: "/mobile") {}
+    "/scheduled_recharge/px_card_holder_name"(platform: "/mobile") {}
+    "/scheduled_recharge/px_card_expiry_date"(platform: "/mobile") {}
+    "/scheduled_recharge/px_card_security_code"(platform: "/mobile") {}
+    "/scheduled_recharge/px_identification_number"(platform: "/mobile") {}
+    "/scheduled_recharge/px_card_issuers"(platform: "/mobile") {}
+    "/scheduled_recharge/px_card_installments"(platform: "/mobile") {}
+    "/scheduled_recharge/px_review_and_confirm"(platform: "/mobile") {}
+    "/scheduled_recharge/px_result"(platform: "/mobile") {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
@@ -348,5 +415,13 @@ tracks {
      **/    
 
     // END -- MPMOBILE
+
+    //MERCADO CRÉDITO
+    "/credits"(platform: "/", isAbstract: true) {}
+
+    "/credits/consumer"(platform: "/") {
+        credit_line_id(required: true, description: "consumer creditLine Id.")
+    }
+
 
 }

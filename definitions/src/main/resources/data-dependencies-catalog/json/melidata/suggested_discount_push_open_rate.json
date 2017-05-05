@@ -3,9 +3,9 @@
     "ext_grodrig@mercadolibre.com","ext_mberriel@mercadolibre.com"
   ],
   "process_name": "suggested_discount_push_open_rate",
-  "cron": " ",
+  "cron": "00 01 * * *",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
         "name": "ds",

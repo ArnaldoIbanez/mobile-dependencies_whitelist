@@ -27,12 +27,14 @@ class QueriesUploader {
         println("Reading [${queriesDir}]")
 
         def json =  new com.melidata.metrics.format.QueryFormatter().buildJson()
+        String versionedName = "versions/jsonmelidata_" + new Date().format("yyyMMddHHmmss") + ".json"
 
         println("JSON loaded")
 
         println("Uploading ${LAST_VERSION_FILE_NAME}")
 
         s3Controller.saveFile(LAST_VERSION_FILE_NAME, json, JSON_CONTENT)
+        s3Controller.saveFile(versionedName, json, JSON_CONTENT)
 
         println("Finish")
     }

@@ -1,9 +1,9 @@
 {
   "users": [
-    "ext_jproma@mercadolibre.com","ext_manunez@mercadolibre.com","ext_jgabito@mercadolibre.com"
+    "german.bringas@mercadolibre.com"
   ],
-  "process_name": "push-notifications-sales",
-  "cron": "00 04 * * *",
+  "process_name": "mercadopago-push-notifications-metrics",
+  "cron": "10 00 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -16,37 +16,29 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "event_type",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
         "name": "users",
         "type": "INTEGER"
-      },
-      {
-        "name": "orders",
-        "type": "INTEGER"
-      },
-      {
-        "name": "si",
-        "type": "INTEGER"
-      },
-      {
-        "name": "gmv",
-        "type": "DOUBLE"
       }
     ],
     "sql": {
-      "script": "emailmkt/push-notifications-sales.sql",
+      "script": "mercadopago/push-notifications-metrics.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-0",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-1",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
       ]
