@@ -42,27 +42,30 @@ catalog {
 
 
     all.each { business ->
-        def allDirectory = new File(CATALOG_DIR + "/all")
-        allDirectory.eachFile { file ->
-            def filepath = file.getPath().split('/')[-2..-1].join('/')
-            include business, filepath
-        }
+        include business, "authentication.groovy"
+        include business, "identity_validation.groovy"
+        include business, "melidata_sdk.groovy"
+        include business, "registrations.groovy"
     }
 
     marketplace.each { business ->
-        def marketplaceDir = new File(CATALOG_DIR + "/marketplace")
-        marketplaceDir.eachFile { file ->
-            def filepath = file.getPath().split('/')[-2..-1].join('/')
-            include business, filepath
-        }
+        include business, "cartCheckout.groovy"
+        include business, "cartList.groovy"
+        include business, "checkout.groovy"
+        include business, "email.groovy"
+        include business, "home.groovy"
+        include business, "loyalty.groovy"
+        include business, "marketplace.groovy"
+        include business, "myml.groovy"
+        include business, "notifications.groovy"
+        include business, "quotation.groovy"
+        include business, "search.groovy"
+        include business, "sell.groovy"
+        include business, "vip.groovy"
     }
 
     mercadopago.each { business ->
-        def mercadopagoDir = new File(CATALOG_DIR + '/mercadopago')
-        mercadopagoDir.eachFile { file ->
-            def filepath = file.getPath().split('/')[-2..-1].join('/')
-            include business, filepath
-        }
+        include business, "mercadopago.groovy"
     }
 
 }
