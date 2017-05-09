@@ -27,6 +27,8 @@ tracks {
 
     "/login/form"(type: TrackType.View) {
         has_error(type: PropertyType.Boolean, required: true)
+        challenge(type: PropertyType.String, required: false)
+        recaptcha(type: PropertyType.Boolean, required: false)
     }
 
     "/login/recovery"(platform: "/web", type: TrackType.Event) {}
@@ -45,6 +47,7 @@ tracks {
     "/login/auth/success"(platform: "/", type: TrackType.Event) {
         user_reg_date(type: PropertyType.String, required: true)
         user_points(type: PropertyType.Numeric, required: true)
+        challenge(type: PropertyType.String, required: false)
     }
 
     "/login/auth/failure"(platform: "/", type: TrackType.Event) {

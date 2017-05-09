@@ -1,7 +1,8 @@
 {
   "users": [
     "pablo.carle@mercadolibre.com",
-    "bruno.famiglietti@mercadolibre.com"
+    "bruno.famiglietti@mercadolibre.com",
+    "matias.leonangeli@mercadolibre.com"
   ],
   "process_name": "login_conversion",
   "cron": "00 08 * * *",
