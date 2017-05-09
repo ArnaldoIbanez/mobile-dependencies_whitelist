@@ -5,7 +5,7 @@
     "matias.leonangeli@mercadolibre.com"
   ],
   "process_name": "login_conversion_chon",
-  "cron": "00 09 * * *",
+  "cron": "15 14 * * *",
   "extract": {
     "operation": "append",
     "columns": [
