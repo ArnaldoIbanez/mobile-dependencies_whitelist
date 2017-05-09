@@ -41,8 +41,8 @@ from (
       and ds < '@param02 02'
       and platform.http.http_referer is not null
       and
-        (lower(url_extract_host(platform.http.http_referer)) like '%buyingflow%'
-        or lower(url_extract_path(platform.http.http_referer)) like '%buyingflow%'
+        (lower(parse_url(platform.http.http_referer, 'HOST')) like '%buyingflow%'
+        or lower(parse_url(platform.http.http_referer, 'PATH')) like '%buyingflow%'
         )
       and path = '/login/auth/success'
       and application.business = 'mercadolibre'
