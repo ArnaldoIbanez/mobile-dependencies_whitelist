@@ -28,6 +28,7 @@ tracks {
     "/login/form"(type: TrackType.View) {
         has_error(type: PropertyType.Boolean, required: true)
         challenge(type: PropertyType.String, required: false)
+        recaptcha(type: PropertyType.Boolean, required: false)
     }
 
     "/login/recovery"(platform: "/web", type: TrackType.Event) {}
