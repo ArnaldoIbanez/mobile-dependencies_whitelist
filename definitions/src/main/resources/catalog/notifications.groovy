@@ -11,7 +11,7 @@ tracks {
     "/notification_center"(platform: "/mobile", type: TrackType.Event) {
         newsgroup_id(required: false, type: PropertyType.String)
         status(required: false, type: PropertyType.String, values:["unread", "read"])
-        event_type(required: false, values: ["open", "pull_to_refresh", "swipe"])
+        event_type(required: false, values: ["open", "pull_to_refresh", "swipe", "action_open"])
         deeplink(required: false, type: PropertyType.String)
         action_type(required: false, type: PropertyType.String,  values: ["messages", "message", "vop", "picture", "shipping_print_label", "claims", "tracking", "feedback", "changepayment", "reply", "ask", "questions-buy"])
         type_layout(required: false, type: PropertyType.String, values: ["bullet_list", "order", "picture", "standard"])
@@ -21,6 +21,7 @@ tracks {
     "/notification_center/back"(platform: "/mobile", type: TrackType.Event) {}
     "/notification_center/failure"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/notification_center/reputation"(platform: "/mobile", type: TrackType.Event) {}
     "/notification_center/questions-buyer"(platform: "/mobile", type: TrackType.Event) {}
     "/notification_center/questions-seller"(platform: "/mobile", type: TrackType.Event) {}
     "/notification_center/orders-buyer"(platform: "/mobile", type: TrackType.Event) {}
@@ -207,6 +208,10 @@ tracks {
 
     //Messages
     "/notification/messages_new"(platform: "/mobile") {}
+
+    //Reputation
+    "/notification/reputation-free_shipping_activation"(platform: "/mobile") {}
+    "/notification/reputation-free_shipping_deactivation"(platform: "/mobile") {}
 
     //Notification suggested discounts
     "/notification/campaigns_suggested_discounts_seller"(platform: "/mobile") {}

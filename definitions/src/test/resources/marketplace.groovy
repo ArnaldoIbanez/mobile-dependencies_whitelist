@@ -2326,6 +2326,15 @@ trackTests {
 
         }
 
+        "/notification_center/reputation"(platform: "/mobile"){
+            newsgroup_id: "reputation-free_shipping-1285223441"
+            status: "read"
+            event_type: "open"
+            deeplink: "meli://purchases/1285223441#payment"
+            type_layout: "standard"
+
+        }
+
         "/notification_center/orders-seller"(platform: "/mobile"){
             newsgroup_id: "orders-seller-1288279054"
             action_type: "messages"
@@ -2411,6 +2420,7 @@ trackTests {
             type_layout: "standard"
         }
 
+
         "/notification"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "sent"
@@ -2468,6 +2478,16 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
             order_id = "12132"
+        }
+
+        "/notification/reputation-free_shipping_activation"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+        }
+
+        "/notification/reputation-free_shipping_deactivation"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
         }
 
         "/notification/shipping_shipped"(platform: "/mobile") {
