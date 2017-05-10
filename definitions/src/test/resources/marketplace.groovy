@@ -2477,7 +2477,7 @@ trackTests {
         "/notification/orders_new"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
-            order_id = "12132"
+            order_id = 12132
         }
 
         "/notification/reputation-free_shipping_activation"(platform: "/mobile") {
@@ -2493,14 +2493,14 @@ trackTests {
         "/notification/shipping_shipped"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
-            order_id = "11222"
+            order_id = 11222
             shipment_id = 1234
         }
 
         "/notification/shipping_delivered"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
-            order_id = "11222"
+            order_id = 11222
             shipment_id = 1234
         }
 
@@ -2509,7 +2509,7 @@ trackTests {
             event_type = "arrived"
             deeplink = "meli://purchases/sales"
             shipment_id = 1234
-            order_id = "11222"
+            order_id = 11222
             agency_to_agency = true
         }
 
@@ -2517,7 +2517,7 @@ trackTests {
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://purchases/sales"
-            order_id = "11222"
+            order_id = 11222
             shipment_id = 1234
         }
 
@@ -2525,7 +2525,7 @@ trackTests {
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
-            order_id = "11222"
+            order_id = 11222
             shipment_id = 1234
         }
 
@@ -2533,7 +2533,7 @@ trackTests {
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://purchases/11222/shipments/:shipment_id"
-            order_id = "11222"
+            order_id = 11222
             shipment_id = 1234
         }
 
@@ -2541,7 +2541,7 @@ trackTests {
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
-            order_id = "11222"
+            order_id = 11222
             shipment_id = 1234
         }
 
@@ -2549,7 +2549,7 @@ trackTests {
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
-            order_id = "11222"
+            order_id = 11222
             shipment_id = 1234
             delay_reason = "shipping_time"
         }
@@ -2558,21 +2558,21 @@ trackTests {
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
-            order_id = "11222"
+            order_id = 11222
             shipment_id = 1234
         }
         "/notification/shipping_not_delivered_receiver"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
-            order_id = "11222"
+            order_id = 11222
             shipment_id = 1234
         }
 
         "/notification/collections_approved"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "dismiss"
-            order_id = "1234"
+            order_id = 1234
         }
 
         "/notification/orders_pending"(platform: "/mobile") {
@@ -2662,7 +2662,7 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
             notification_style = "BigTextStyle"
-            order_id = "1234"
+            order_id = 1234
             claim_id = "3123"
             action_type = "favorite"
         }
@@ -2671,7 +2671,7 @@ trackTests {
             news_id = "12332323"
             event_type = "auto_dismiss"
             notification_style = "BigTextStyle"
-            order_id = "1234"
+            order_id = 1234
             claim_id = "3123"
             action_type = "favorite"
         }
