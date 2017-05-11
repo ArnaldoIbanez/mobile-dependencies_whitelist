@@ -248,7 +248,9 @@ tracks {
     "/bill_payments/scan"(platform: "/mobile") {}
     "/bill_payments/manual_code"(platform: "/mobile") {}
     "/bill_payments/confirmation"(platform: "/mobile") {}
-    "/bill_payments/add_info"(platform: "/mobile", isAbstract: true) {}
+    "/bill_payments/add_info"(platform: "/mobile") {
+        type (required: true, type: PropertyType.String, description: "Additional info type")
+    }
     "/bill_payments/add_info/literal"(platform: "/mobile") {}
     "/bill_payments/add_info/amount"(platform: "/mobile") {}
     "/bill_payments/add_info/option"(platform: "/mobile") {}
