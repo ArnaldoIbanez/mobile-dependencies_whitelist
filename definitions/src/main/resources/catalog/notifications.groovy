@@ -11,7 +11,7 @@ tracks {
     "/notification_center"(platform: "/mobile", type: TrackType.Event) {
         newsgroup_id(required: false, type: PropertyType.String)
         status(required: false, type: PropertyType.String, values:["unread", "read"])
-        event_type(required: false, values: ["open", "pull_to_refresh", "swipe"])
+        event_type(required: false, values: ["open", "pull_to_refresh", "swipe", "action_open"])
         deeplink(required: false, type: PropertyType.String)
         action_type(required: false, type: PropertyType.String,  values: ["messages", "message", "vop", "picture", "shipping_print_label", "claims", "tracking", "feedback", "changepayment", "reply", "ask", "questions-buy"])
         type_layout(required: false, type: PropertyType.String, values: ["bullet_list", "order", "picture", "standard"])
@@ -21,6 +21,7 @@ tracks {
     "/notification_center/back"(platform: "/mobile", type: TrackType.Event) {}
     "/notification_center/failure"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/notification_center/reputation"(platform: "/mobile", type: TrackType.Event) {}
     "/notification_center/questions-buyer"(platform: "/mobile", type: TrackType.Event) {}
     "/notification_center/questions-seller"(platform: "/mobile", type: TrackType.Event) {}
     "/notification_center/orders-buyer"(platform: "/mobile", type: TrackType.Event) {}
@@ -61,58 +62,60 @@ tracks {
         notification_style(required: false, description: "The notification style used when displaying the notification to the user.")
 
         status(required: false, values: ["read", "unread"], deprecated: true, description: "*Deprecated*: Just for old NotifCenter.")
+
+        device_id(required: false, description: "The real device_id, may differ from device field")
     }
     //Tu producto está en camino
     "/notification/shipping_shipped"(platform: "/mobile") {
-        order_id(required: true, type: PropertyType.String, description: "The order of the bought item which has been shipped")
+        order_id(required: true, type: PropertyType.Numeric, description: "The order of the bought item which has been shipped")
         shipment_id(required: true, type: PropertyType.Numeric)
     }
     //Retiro en sucursal
     "/notification/shipping_agency_withdrawal"(platform: "/mobile") {
-        order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+        order_id(required: true, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
         shipment_id(required: true, type: PropertyType.Numeric)
         agency_to_agency(required:false, type:PropertyType.Boolean, description: "Indicates if package was sent to an agency in the first place or was shipped there because the user wasnt found in his address")
     }
     //Devolución de costo de envío por demora
     "/notification/shipping_delayed_bonus"(platform: "/mobile") {
-        order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+        order_id(required: true, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
         shipment_id(required: true, type: PropertyType.Numeric)
     }
     //Tienes que despachar (para el vendedor)
     "/notification/shipping_pending"(platform: "/mobile") {
-        order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+        order_id(required: true, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
         shipment_id(required: true, type: PropertyType.Numeric)
     }
     //Devolución por no entrega, a su dirección de despacho (para el vendedor)
     "/notification/shipping_returning_to_sender"(platform: "/mobile") {
-        order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+        order_id(required: true, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
         shipment_id(required: true, type: PropertyType.Numeric)
     }
     //Te demoraste en el handling time (para el vendedor)
     "/notification/shipping_delayed_sender"(platform: "/mobile") {
-        order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+        order_id(required: true, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
         shipment_id(required: true, type: PropertyType.Numeric)
     }
     //Tu paquete está demorado (para el comprador)
     "/notification/shipping_delayed_receiver"(platform: "/mobile") {
-        order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+        order_id(required: true, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
         shipment_id(required: true, type: PropertyType.Numeric)
         delay_reason(required: true, type: PropertyType.String, description: "shipping_time or handling_time")
     }
     //Hubo un problema con tu paquete y te vamos a pagar (para el vendedor)
     "/notification/shipping_not_delivered_sender"(platform: "/mobile") {
-        order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+        order_id(required: true, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
         shipment_id(required: true, type: PropertyType.Numeric)
     }
     //Hubo un problema con el envío (para el comprador)
     "/notification/shipping_not_delivered_receiver"(platform: "/mobile") {
-        order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+        order_id(required: true, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
         shipment_id(required: true, type: PropertyType.Numeric)
     }
 
     //Paquete entregado
     "/notification/shipping_delivered"(platform: "/mobile") {
-        order_id(required: true, type: PropertyType.String, description: "The order related to the product that is available to withdrawal")
+        order_id(required: true, type: PropertyType.Numeric, description: "The order related to the product that is available to withdrawal")
         shipment_id(required: true, type: PropertyType.Numeric)
     }
 
@@ -126,7 +129,7 @@ tracks {
     }
     //New Sale
     "/notification/orders_new"(platform: "/mobile") {
-        order_id(required: true, type: PropertyType.String)
+        order_id(required: true, type: PropertyType.Numeric)
     }
 
     //Generic Campaigns
@@ -146,7 +149,7 @@ tracks {
     }
     //Tu cobro fué acreditado
     "/notification/collections_approved"(platform: "/mobile") {
-        order_id(required: true, type: PropertyType.String)
+        order_id(required: true, type: PropertyType.Numeric)
     }
 
     //Dropout de CHO
@@ -159,7 +162,7 @@ tracks {
 
     //Mediations
     "/notification/mediations_complainant"(platform: "/mobile") {
-        order_id(required: true, type: PropertyType.String, description: "The order related to the claim")
+        order_id(required: true, type: PropertyType.Numeric, description: "The order related to the claim")
         claim_id(required: true, type: PropertyType.String)
     }
 
@@ -207,6 +210,10 @@ tracks {
 
     //Messages
     "/notification/messages_new"(platform: "/mobile") {}
+
+    //Reputation
+    "/notification/reputation-free_shipping_activation"(platform: "/mobile") {}
+    "/notification/reputation-free_shipping_deactivation"(platform: "/mobile") {}
 
     //Notification suggested discounts
     "/notification/campaigns_suggested_discounts_seller"(platform: "/mobile") {}
