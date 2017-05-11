@@ -251,15 +251,6 @@ tracks {
     "/bill_payments/add_info"(platform: "/mobile") {
         type (required: true, type: PropertyType.String, description: "Additional info type")
     }
-    "/bill_payments/add_info/literal"(platform: "/mobile") {
-        type (required: false, type: PropertyType.String, description: "Additional info type")
-    }
-    "/bill_payments/add_info/amount"(platform: "/mobile") {
-        type (required: false, type: PropertyType.String, description: "Additional info type")
-    }
-    "/bill_payments/add_info/option"(platform: "/mobile") {
-        type (required: false, type: PropertyType.String, description: "Additional info type")
-    }
     "/bill_payments/second_password"(platform: "/mobile") {}
     "/bill_payments/result"(platform: "/mobile") {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
