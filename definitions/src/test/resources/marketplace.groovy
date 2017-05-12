@@ -542,6 +542,24 @@ trackTests {
         }
     }
 
+    test("Bookmark tracking in web") {
+        "/bookmarks/create" (platform:"/web", type: TrackType.Event) {
+            item_id = "MLA533657947"
+            context = "/search"
+        }
+
+        "/bookmarks/create" (platform:"/web", type: TrackType.Event) {
+            item_id = "MLA533657947"
+            context = "/vip"
+        }
+    }
+
+    test("Questions tracking in web") {
+        "/questions/create" (platform:"/web", type: TrackType.Event) {
+            item_id = "MLA533657947"
+        }
+    }
+
     test("Questions") {
 
         "/questions/list"(platform: "/mobile") {
