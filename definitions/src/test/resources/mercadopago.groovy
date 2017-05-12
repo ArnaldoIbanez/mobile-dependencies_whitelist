@@ -806,17 +806,10 @@ trackTests {
             flow = "/bill_payments"
             from = "/deep_link"
         }
-        "/bill_payments/add_info/literal"(platform: "/mobile") {
+        "/bill_payments/add_info"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
-        }
-        "/bill_payments/add_info/amount"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
-        }
-        "/bill_payments/add_info/option"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            type = "literal"
         }
         "/bill_payments/second_password"(platform: "/mobile") {
             flow = "/bill_payments"
