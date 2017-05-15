@@ -458,7 +458,7 @@ tracks {
 
     "/questions/ask"(platform: "/mobile") {}
 
-    "/questions/ask/post"(platform: "/mobile", type: TrackType.Event) {
+    "/questions/ask/post"(platform: "/", type: TrackType.Event) {
         //TODO revisar si no conviene pasar failed() a otro path "/questions/ask/post/failed"
         failed()
         question_id(required: false, description: "it has no value if failed is true")
