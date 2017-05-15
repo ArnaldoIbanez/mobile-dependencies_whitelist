@@ -16,6 +16,11 @@ import groovy.json.*
 import groovy.util.CliBuilder
 import groovy.sql.Sql;
 
+println "***************************************************"
+println "***            WARNING! DEPRECATED              ***"
+println "*** USE ./gradlew validate -Pargs='<arguments>' ***"
+println "***************************************************"
+ 
 
 def cli = new CliBuilder()
 cli.date(args:1, "date")
