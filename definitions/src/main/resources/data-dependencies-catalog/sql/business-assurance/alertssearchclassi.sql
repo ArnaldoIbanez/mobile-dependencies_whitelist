@@ -13,4 +13,4 @@ FROM tracks
 WHERE ds >= '2017-04-01' 
 AND ds < '@param01'
 AND path IN ('/vip','/vip/contact_seller', '/vip/show_phone', '/vip/call_seller')
-AND (regexp_like(others['fragment'], 'SA:true') OR platform.http.http_referer LIKE '%searchAlertsMail_true%') 
+AND (others['fragment'] LIKE '%SA:true%' OR platform.http.http_referer LIKE '%searchAlertsMail_true%') 
