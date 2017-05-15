@@ -5,7 +5,7 @@
 @Grab(group='joda-time', module='joda-time', version='2.9.4')
 @Grab(group='junit', module='junit', version='4.12')
 @Grab(group='com.facebook.presto', module='presto-jdbc', version='0.166')
-@Grab(group='com.mercadolibre.melidata.catalog', module='definitions',version='0.1.21')
+@Grab(group='com.mercadolibre.melidata.catalog', module='definitions',version='0.1.22')
 
 import com.melidata.definitions.TestRunner
 import com.melidata.definitions.outs.StdOut
