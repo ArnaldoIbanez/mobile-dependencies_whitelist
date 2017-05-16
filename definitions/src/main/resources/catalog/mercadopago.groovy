@@ -416,12 +416,36 @@ tracks {
 
     // END -- MPMOBILE
 
-    //Mercado crédito - merchant enrollment
+    //Mercado crédito
     "/credits"(platform: "/", isAbstract: true) {}
 
-    "/credits/merchant"(platform: "/") {
-        credit_line_id(required: true, description: "merchant creditLine Id.")
-    }
+    //Landing merchant
+    "/credits/enrollment_merchant/landing"(platform: "/") {}
+
+    "/credits/enrollment_merchant/simular/continuar"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/enrollment_merchant/simular/not_interested"(platform: "/", type: TrackType.Event) {}
+
+    //Modal merchant
+    "/credits/merchant_enrollment/modal/pre_confirm"(platform: "/") {}
+
+    "/credits/enrollment_merchant/pre_confirm/accept_loan"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/enrollment_merchant/pre_confirm/cancel"(platform: "/", type: TrackType.Event) {}
+
+    //Congrats merchant
+    "/credits/merchant_enrollment/congrats"(platform: "/") {}
+
+    "/credits/merchant_enrollment/retirar/retirar_prestamo"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/merchant_enrollment/detalle/ir_a_prestamos"(platform: "/", type: TrackType.Event) {}
+
+    //Dashboard merchant
+    "/credits/merchant_admin/offer"(platform: "/") {}
+
+    "/credits/merchant_admin/hero_cta"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/merchant_admin/mas_info"(platform: "/", type: TrackType.Event) {}
 
     //Mercado crédito - Money Advance
     "/money-advance"(platform: "/", isAbstract: true){}

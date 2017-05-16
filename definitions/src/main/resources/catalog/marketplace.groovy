@@ -2505,7 +2505,6 @@ tracks {
     "/credits"(platform: "/", isAbstract: true) {}
 
     "/credits/consumer"(platform: "/") {
-        credit_line_id(required: true, description: "consumer creditLine Id.")
     }
 
 }

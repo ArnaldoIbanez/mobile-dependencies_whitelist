@@ -1229,7 +1229,7 @@ trackTests {
     //MERCADO CRÉDITO
 
     test("merchant credit line tracking") {
-        "/credits/merchant"(platform: "/web/desktop") {
+        "/credits/merchant/landing"(platform: "/web/desktop") {
             credit_line_id = 123
         }
     }
