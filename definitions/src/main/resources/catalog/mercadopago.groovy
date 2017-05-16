@@ -416,7 +416,8 @@ tracks {
 
     // END -- MPMOBILE
 
-    //Mercado crédito
+    /** Mercado Crédito **/
+
     "/credits"(platform: "/", isAbstract: true) {}
 
     //Landing merchant
@@ -450,7 +451,4 @@ tracks {
     //Mercado crédito - Money Advance
     "/money-advance"(platform: "/", isAbstract: true){}
 
-    "/money-advance"(platform: "/", isAbstract: true){
-        amount(required: true, description: "money advance amount")
-    }
 }
