@@ -18,7 +18,7 @@ import groovy.sql.Sql;
 
 println "***************************************************"
 println "***            WARNING! DEPRECATED              ***"
-println "*** USE ./gradlew validate -Pargs='<arguments>' ***"
+println "***       USE ./validate.sh <arguments>         ***"
 println "***************************************************"
  
 
