@@ -421,28 +421,44 @@ tracks {
     "/credits"(platform: "/", isAbstract: true) {}
 
     //Landing merchant
-    "/credits/enrollment_merchant/landing"(platform: "/") {}
+    "/credits/merchant_enrollment"(platform: "/", isAbstract: true) {}
 
-    "/credits/enrollment_merchant/simular/continuar"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant_enrollment/simular"(platform: "/", isAbstract: true) {}
 
-    "/credits/enrollment_merchant/simular/not_interested"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant_enrollment/landing"(platform: "/", type: TrackType.View) {}
+
+    "/credits/merchant_enrollment/simular/continuar"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/merchant_enrollment/simular/not_interested"(platform: "/", type: TrackType.Event) {}
 
     //Modal merchant
-    "/credits/merchant_enrollment/modal/pre_confirm"(platform: "/") {}
+    "/credits/merchant_enrollment/modal"(platform: "/", isAbstract: true) {}
 
-    "/credits/enrollment_merchant/pre_confirm/accept_loan"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant_enrollment/pre_confirm"(platform: "/", isAbstract: true) {}
 
-    "/credits/enrollment_merchant/pre_confirm/cancel"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant_enrollment/modal/pre_confirm"(platform: "/", type: TrackType.View) {}
+
+    "/credits/merchant_enrollment/pre_confirm/accept_loan"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/merchant_enrollment/pre_confirm/cancel"(platform: "/", type: TrackType.Event) {}
 
     //Congrats merchant
-    "/credits/merchant_enrollment/congrats"(platform: "/") {}
+    "/credits/merchant_enrollment/pre_confirm"(platform: "/", isAbstract: true) {}
+
+    "/credits/merchant_enrollment/retirar"(platform: "/", isAbstract: true) {}
+
+    "/credits/merchant_enrollment/detalle"(platform: "/", isAbstract: true) {}
+
+    "/credits/merchant_enrollment/congrats"(platform: "/", type: TrackType.View) {}
 
     "/credits/merchant_enrollment/retirar/retirar_prestamo"(platform: "/", type: TrackType.Event) {}
 
     "/credits/merchant_enrollment/detalle/ir_a_prestamos"(platform: "/", type: TrackType.Event) {}
 
     //Dashboard merchant
-    "/credits/merchant_admin/offer"(platform: "/") {}
+    "/credits/merchant_admin"(platform: "/", isAbstract: true) {}
+
+    "/credits/merchant_admin/offer"(platform: "/", type: TrackType.View) {}
 
     "/credits/merchant_admin/hero_cta"(platform: "/", type: TrackType.Event) {}
 

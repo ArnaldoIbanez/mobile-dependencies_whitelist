@@ -4234,9 +4234,8 @@ trackTests {
     }
 
     //Mercado crédito - consumer enrollment
-    test("consumer credit line tracking") {
+    test("consumer credits") {
         "/credits/consumer"(platform: "/web/desktop") {
-            credit_line_id = 123
         }
     }
 

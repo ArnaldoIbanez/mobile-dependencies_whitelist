@@ -1225,18 +1225,39 @@ trackTests {
 
     }
 
-
     //MERCADO CRÉDITO
 
-    test("merchant credit line tracking") {
-        "/credits/merchant/landing"(platform: "/web/desktop") {
-            credit_line_id = 123
-        }
+    test("merchant credits") {
+
+        //Vistas
+        "/credits/merchant_enrollment/landing"(platform: "/web/desktop") {}
+
+        "/credits/merchant_enrollment/modal/pre_confirm"(platform: "/web/desktop") {}
+
+        "/credits/merchant_enrollment/congrats"(platform: "/web/desktop") {}
+
+        "/credits/merchant_admin/offer"(platform: "/web/desktop") {}
+
+        //Eventos
+        "/credits/merchant_enrollment/simular/continuar"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        "/credits/merchant_enrollment/simular/not_interested"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        "/credits/merchant_enrollment/pre_confirm/accept_loan"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        "/credits/merchant_enrollment/pre_confirm/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        "/credits/merchant_enrollment/retirar/retirar_prestamo"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        "/credits/merchant_enrollment/detalle/ir_a_prestamos"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        "/credits/merchant_admin/hero_cta"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        "/credits/merchant_admin/mas_info"(platform: "/web/desktop", type: TrackType.Event) {}
     }
 
         test("money advance amount") {
             "/money-advance"(platform: "/web/desktop") {
-                amount = 123
             }
         }
     }

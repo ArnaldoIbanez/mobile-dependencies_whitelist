@@ -2504,7 +2504,6 @@ tracks {
     //Mercado crédito - consumer enrollment
     "/credits"(platform: "/", isAbstract: true) {}
 
-    "/credits/consumer"(platform: "/") {
-    }
+    "/credits/consumer"(platform: "/") {}
 
 }
