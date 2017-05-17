@@ -1237,6 +1237,8 @@ trackTests {
         "/credits/merchant_enrollment/congrats"(platform: "/web/desktop") {}
 
         "/credits/merchant_admin/offer"(platform: "/web/desktop") {}
+        
+        "/credits/merchant_admin/no_offer"(platform: "/web/desktop") {}
 
         //Eventos
         "/credits/merchant_enrollment/simular/continuar"(platform: "/web/desktop", type: TrackType.Event) {}

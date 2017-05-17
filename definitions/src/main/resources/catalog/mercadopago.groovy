@@ -460,6 +460,8 @@ tracks {
 
     "/credits/merchant_admin/offer"(platform: "/", type: TrackType.View) {}
 
+    "/credits/merchant_admin/no_offer"(platform: "/", type: TrackType.View) {}
+
     "/credits/merchant_admin/hero_cta"(platform: "/", type: TrackType.Event) {}
 
     "/credits/merchant_admin/mas_info"(platform: "/", type: TrackType.Event) {}
