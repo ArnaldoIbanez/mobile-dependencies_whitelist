@@ -430,6 +430,8 @@ tracks {
     "/credits/merchant_enrollment/simular/continuar"(platform: "/", type: TrackType.Event) {}
 
     "/credits/merchant_enrollment/simular/not_interested"(platform: "/", type: TrackType.Event) {}
+    
+    "/credits/merchant_enrollment/simular/exit_page"(platform: "/", type: TrackType.Event) {}
 
     //Modal merchant
     "/credits/merchant_enrollment/modal"(platform: "/", isAbstract: true) {}
@@ -465,6 +467,8 @@ tracks {
     "/credits/merchant_admin/hero_cta"(platform: "/", type: TrackType.Event) {}
 
     "/credits/merchant_admin/mas_info"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/merchant_admin/exit_page"(platform: "/", type: TrackType.Event) {}
 
     //Mercado crédito - Money Advance
     "/money-advance"(platform: "/", isAbstract: true){}

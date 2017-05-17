@@ -1245,6 +1245,8 @@ trackTests {
 
         "/credits/merchant_enrollment/simular/not_interested"(platform: "/web/desktop", type: TrackType.Event) {}
 
+        "/credits/merchant_enrollment/simular/exit_page"(platform: "/web/desktop", type: TrackType.Event) {}
+
         "/credits/merchant_enrollment/pre_confirm/accept_loan"(platform: "/web/desktop", type: TrackType.Event) {}
 
         "/credits/merchant_enrollment/pre_confirm/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
@@ -1256,6 +1258,8 @@ trackTests {
         "/credits/merchant_admin/hero_cta"(platform: "/web/desktop", type: TrackType.Event) {}
 
         "/credits/merchant_admin/mas_info"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        "/credits/merchant_admin/exit_page"(platform: "/web/desktop", type: TrackType.Event) {}
     }
 
         test("money advance amount") {
