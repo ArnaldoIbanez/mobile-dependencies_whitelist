@@ -427,7 +427,10 @@ tracks {
 
     "/credits/merchant_enrollment/landing"(platform: "/", type: TrackType.View) {}
 
-    "/credits/merchant_enrollment/simular/continuar"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant_enrollment/simular/continuar"(platform: "/", type: TrackType.Event) {
+        preConfirmLabel(required: true, type: PropertyType.String, description: "choice type")
+        eventValue(required: true, type: PropertyType.Numeric, description: "loan amount")
+    }
 
     "/credits/merchant_enrollment/simular/not_interested"(platform: "/", type: TrackType.Event) {}
     

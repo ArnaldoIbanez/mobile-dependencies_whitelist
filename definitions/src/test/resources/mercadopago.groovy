@@ -1241,7 +1241,10 @@ trackTests {
         "/credits/merchant_admin/no_offer"(platform: "/web/desktop") {}
 
         //Eventos
-        "/credits/merchant_enrollment/simular/continuar"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant_enrollment/simular/continuar"(platform: "/web/desktop", type: TrackType.Event) {
+            preConfirmLabel = "Monto y plazo máximo"
+            eventValue = 26000
+        }
 
         "/credits/merchant_enrollment/simular/not_interested"(platform: "/web/desktop", type: TrackType.Event) {}
 
