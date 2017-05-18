@@ -4232,11 +4232,4 @@ trackTests {
 		}
         }
     }
-
-    //Mercado crédito - consumer enrollment
-    test("consumer credits") {
-        "/credits/consumer"(platform: "/web/desktop") {
-        }
-    }
-
 }

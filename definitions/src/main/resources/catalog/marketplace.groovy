@@ -2500,10 +2500,4 @@ tracks {
    "/recommendations"(platform: "/") {
 
     }
-
-    //Mercado crédito - consumer enrollment
-    "/credits"(platform: "/", isAbstract: true) {}
-
-    "/credits/consumer"(platform: "/") {}
-
 }

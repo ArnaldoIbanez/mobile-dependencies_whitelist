@@ -1225,48 +1225,37 @@ trackTests {
 
     }
 
-    //MERCADO CRÉDITO
+    /** Mercado Crédito **/
 
     test("merchant credits") {
 
-        //Vistas
+        //Views
         "/credits/merchant_enrollment/landing"(platform: "/web/desktop") {}
-
         "/credits/merchant_enrollment/modal/pre_confirm"(platform: "/web/desktop") {}
-
         "/credits/merchant_enrollment/congrats"(platform: "/web/desktop") {}
-
         "/credits/merchant_admin/offer"(platform: "/web/desktop") {}
-        
         "/credits/merchant_admin/no_offer"(platform: "/web/desktop") {}
 
-        //Eventos
+        //Events
+        //Landing merchant
+        "/credits/merchant_enrollment/simular/exit_page"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/merchant_enrollment/simular/continuar"(platform: "/web/desktop", type: TrackType.Event) {
             preConfirmLabel = "Monto y plazo máximo"
             eventValue = 26000
         }
-
         "/credits/merchant_enrollment/simular/not_interested"(platform: "/web/desktop", type: TrackType.Event) {}
 
-        "/credits/merchant_enrollment/simular/exit_page"(platform: "/web/desktop", type: TrackType.Event) {}
-
+        //Modal merchant
         "/credits/merchant_enrollment/pre_confirm/accept_loan"(platform: "/web/desktop", type: TrackType.Event) {}
-
         "/credits/merchant_enrollment/pre_confirm/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
 
+        //Congrats merchant
         "/credits/merchant_enrollment/retirar/retirar_prestamo"(platform: "/web/desktop", type: TrackType.Event) {}
-
         "/credits/merchant_enrollment/detalle/ir_a_prestamos"(platform: "/web/desktop", type: TrackType.Event) {}
 
-        "/credits/merchant_admin/hero_cta"(platform: "/web/desktop", type: TrackType.Event) {}
-
-        "/credits/merchant_admin/mas_info"(platform: "/web/desktop", type: TrackType.Event) {}
-
+        //Dashboard merchant
         "/credits/merchant_admin/exit_page"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant_admin/hero_cta"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant_admin/mas_info"(platform: "/web/desktop", type: TrackType.Event) {}
     }
-
-        test("money advance amount") {
-            "/money-advance"(platform: "/web/desktop") {
-            }
-        }
-    }
+}
