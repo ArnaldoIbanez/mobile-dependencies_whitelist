@@ -422,20 +422,20 @@ tracks {
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/merchant_admin"(platform: "/", isAbstract: true) {}
     "/credits/merchant_enrollment"(platform: "/", isAbstract: true) {}
-    "/credits/merchant_enrollment/simular"(platform: "/", isAbstract: true) {}
+    "/credits/merchant_enrollment/simulate"(platform: "/", isAbstract: true) {}
     "/credits/merchant_enrollment/modal"(platform: "/", isAbstract: true) {}
     "/credits/merchant_enrollment/pre_confirm"(platform: "/", isAbstract: true) {}
-    "/credits/merchant_enrollment/retirar"(platform: "/", isAbstract: true) {}
-    "/credits/merchant_enrollment/detalle"(platform: "/", isAbstract: true) {}
+    "/credits/merchant_enrollment/withdraw"(platform: "/", isAbstract: true) {}
+    "/credits/merchant_enrollment/detail"(platform: "/", isAbstract: true) {}
 
     //Landing merchant
     "/credits/merchant_enrollment/landing"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant_enrollment/simular/exit_page"(platform: "/", type: TrackType.Event) {}
-    "/credits/merchant_enrollment/simular/continuar"(platform: "/", type: TrackType.Event) {
+    "/credits/merchant_enrollment/simulate/exit_page"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant_enrollment/simulate/continue"(platform: "/", type: TrackType.Event) {
         preConfirmLabel(required: true, type: PropertyType.String, description: "choice type")
         eventValue(required: true, type: PropertyType.Numeric, description: "loan amount")
     }
-    "/credits/merchant_enrollment/simular/not_interested"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant_enrollment/simulate/not_interested"(platform: "/", type: TrackType.Event) {}
 
     //Modal merchant
     "/credits/merchant_enrollment/modal/pre_confirm"(platform: "/", type: TrackType.View) {}
@@ -444,13 +444,13 @@ tracks {
 
     //Congrats merchant
     "/credits/merchant_enrollment/congrats"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant_enrollment/detalle/ir_a_prestamos"(platform: "/", type: TrackType.Event) {}
-    "/credits/merchant_enrollment/retirar/retirar_prestamo"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant_enrollment/detail/go_to_loans"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant_enrollment/withdraw/withdraw_loan"(platform: "/", type: TrackType.Event) {}
 
     //Dashboard merchant
     "/credits/merchant_admin/offer"(platform: "/", type: TrackType.View) {}
     "/credits/merchant_admin/exit_page"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant_admin/hero_cta"(platform: "/", type: TrackType.Event) {}
-    "/credits/merchant_admin/mas_info"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant_admin/more_info"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant_admin/no_offer"(platform: "/", type: TrackType.View) {}
 }
