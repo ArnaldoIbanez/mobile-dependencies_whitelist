@@ -42,6 +42,8 @@ tracks {
     "/vip"(platform: "/mobile") {
         category_id(required: false, description: "Item's category id")
         context(required: false)
+        resolution(required: false)
+        cart_content(required: false)
     }
 
     "/vip/abort"(platform: "/mobile", type: TrackType.Event) {}
