@@ -21,6 +21,8 @@ class Catalog implements CatalogInterface{
 
     def CatalogCoverage catalogCoverage
 
+    Set<File> includedFiles = new HashSet<File>()
+
     def Catalog() {
         platformTrees = new HashMap<String,PlatformTree>()
         catalogCoverage = new CatalogCoverage(this)
@@ -48,6 +50,13 @@ class Catalog implements CatalogInterface{
         tree.addNode(platform, new CatalogTree(), true);
     }
 
+    def addFile(File file) {
+        includedFiles.add(file)
+    }
+
+    Collection<File> getFiles() {
+        return includedFiles
+    }
 
 
     /**
@@ -81,7 +90,7 @@ class Catalog implements CatalogInterface{
      * @return
      */
     @Override
-    def TrackValidationResponse validate(Track track) {
+    TrackValidationResponse validate(Track track) {
         return validate(track, false)
     }
 

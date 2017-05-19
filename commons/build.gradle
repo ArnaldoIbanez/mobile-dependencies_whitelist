@@ -4,7 +4,7 @@ apply plugin: 'idea'
 apply plugin: 'maven'
 apply plugin: 'java'
 
-project.version = '0.1.17'
+project.version = '0.1.22'
 project.group = 'com.mercadolibre.melidata.catalog'
 
 
@@ -17,7 +17,7 @@ dependencies {
     compile 'com.googlecode.json-simple:json-simple:1.1'
     testCompile 'junit:junit:4.+'
     testCompile 'org.assertj:assertj-core:1.7.0'
-
+    compile 'com.google.code.gson:gson:2.2.4'
 }
 
 test {

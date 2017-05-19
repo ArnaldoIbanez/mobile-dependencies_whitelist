@@ -10,18 +10,22 @@ class CatalogCoverage {
 
 	def Catalog catalog
 	def Set<String> testedPaths
+        def Set<String> assertCoverageBusiness = ["mercadolibre" , "mercadopago"]
 
-	def Map<String, Boolean> coverage
+	def Map<TestablePath, Boolean> coverage
 	def Double coveragePercent
 
 	//TODO. esto es temporal, calcular los path internos que no son tracks validos (no estan en el catalogo) para no validarlos
-	private Set<String> _exceptions
+	private Set<TestablePath> _exceptions
 
 	def getExceptions() {
 		if (!_exceptions) {
-			_exceptions = new HashSet<String>()
+			_exceptions = new HashSet<TestablePath>()
 			catalog.platformTrees.each { b,v ->
-				_exceptions.addAll(findAbstracts(getPlatforms(v)))
+                def abstracts = findAbstracts(getPlatforms(v))
+                abstracts.each { a ->
+                    _exceptions.addAll( new TestablePath( a, b))
+                }
 			}
 		}
 
@@ -31,11 +35,13 @@ class CatalogCoverage {
 
 	def CatalogCoverage(Catalog catalog) {
 		this.catalog = catalog
-		this.testedPaths = new HashSet<String>()
+		this.testedPaths = new HashSet<TestablePath>()
 	}
 
-	def addTestRun(String path) {
-		this.testedPaths.add(path)
+	def addTestRun(String path, String business) {
+		assert path!=null
+                assert business !=null
+                this.testedPaths.add(new TestablePath(path,business))
 
 		coverage = null
 		coveragePercent = null
@@ -93,15 +99,19 @@ class CatalogCoverage {
 
 			//compute coverage of all paths without platform
 			catalog.platformTrees.each { b, v ->
+                allPaths = new HashSet<String>()
 				def platforms = getPlatforms(v)
 				def pathsByPlatform = getPaths(platforms)
 				pathsByPlatform.each { platform, platformPaths ->
-					allPaths.addAll(platformPaths)
+                    if ( assertCoverageBusiness.contains(b)){
+                        allPaths.addAll(platformPaths)
+                    }
 				}
 
 				allPaths.toList().sort().each { path ->
-					def tested = testedPaths.contains(path) || exceptions.contains(path)
-					coverage.put(path, tested)
+                    def pathToTest = new TestablePath(path, b)
+                    def tested = testedPaths.contains(pathToTest) || exceptions.contains(pathToTest)
+					coverage.put(pathToTest, tested)
 					totalCount++
 					if (tested) testsCount++
 				}
@@ -114,9 +124,9 @@ class CatalogCoverage {
 	def printCoverage() {
 		computeCoverage()
 
-		coverage.each { path, tested ->
+		coverage.each { testablePath, tested ->
 			if ( ! tested ) {
-				println "${path}: MISSING"
+				println "Path: ${testablePath.path} for business ${testablePath.business} => MISSING"
 			}
 		}
 
@@ -130,4 +140,33 @@ class CatalogCoverage {
 			throw new RuntimeException("Low Coverage (100 % expected but was ${coveragePercent} %)")
 		}
 	}
+
+    class TestablePath {
+        String path
+        String business
+
+        TestablePath(String path, String business) {
+            this.path = path
+            this.business = business
+        }
+
+        boolean equals(o) {
+            if (this.is(o)) return true
+            if (getClass() != o.class) return false
+
+            TestablePath that = (TestablePath) o
+
+            if (business != that.business) return false
+            if (path != that.path) return false
+
+            return true
+        }
+
+        int hashCode() {
+            int result
+            result = path.hashCode()
+            result = 31 * result + business.hashCode()
+            return result
+        }
+    }
 }

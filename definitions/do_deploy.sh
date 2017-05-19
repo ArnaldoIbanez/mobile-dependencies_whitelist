@@ -6,8 +6,15 @@ IS_MAIN_REPO=$(echo $DRONE_BUILD_DIR | grep -e "github.com/mercadolibre/melidata
 if [[ $DRONE_BRANCH == "master" && $DRONE_BUILD_DIR != "" ]]; then
   cd $P
   echo "Uploading path script: $P"
-  echo "Starting upload"
+  echo "Starting upload catalog"
   ./gradlew uploadCatalog 
+
+  echo "Starting upload metrics"
+  ./gradlew uploadMetrics
+
+  echo "Starting upload json for batch queries"
+  ./gradlew uploadBatchQueries
+
 else
   echo "This branch / fork doesn't deploy"
 fi

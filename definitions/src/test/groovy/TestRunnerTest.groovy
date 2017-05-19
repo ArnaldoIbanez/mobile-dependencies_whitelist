@@ -2,6 +2,7 @@ import com.melidata.definitions.TestRunner
 import com.melidata.definitions.outs.DefinitionsOut
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.PropertyType
+import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
 import org.junit.Before
 import org.junit.Test
 import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.catalog
@@ -14,12 +15,13 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
  */
 class TestRunnerTest {
 
-    public static final String PATH_CATALOG = "src/main/resources/catalog.groovy"
-    public static final String PATH_TEST = "tests/tests.groovy"
+    public static final String PATH_CATALOG = "src/main/resources/catalog/catalog.groovy"
+    public static final String PATH_TEST = "tests/marketplace.groovy"
 
     def catalog = null
 
     @Before void createCatalogAndTest(){
+        CatalogDsl.baseDir="src/main/resources/catalog/"
         this.catalog  = catalog {
             /**
              * All available platfrom
@@ -32,6 +34,8 @@ class TestRunnerTest {
                     "/mobile/ios",
                     "/mobile/web",
             ]
+
+            defaultBusiness = "ml"
 
             tracks {
                 "/search"(platform: "/") {
@@ -68,14 +72,7 @@ class TestRunnerTest {
 
     @Test void shouldRunTestRunnerWithPaths(){
 
-        def result = null
-
-        try {
-            result = TestRunner.run(PATH_CATALOG, PATH_TEST, new OutTest())
-
-        }catch (FileNotFoundException){
-            result = TestRunner.run("definitions/" + PATH_CATALOG, "definitions/" + PATH_TEST, new OutTest())
-        }
+        def result = TestRunner.run(PATH_CATALOG, PATH_TEST, new OutTest())
 
         assertTrue(result)
     }
@@ -99,7 +96,7 @@ class TestRunnerTest {
         }catch (NotFileException){
 
             // El classpath es distinto al correr esta test con idea
-            script = TestRunner.getScriptFromFile("definitions/" + PATH_CATALOG)
+            script = TestRunner.getScriptFromFile(PATH_CATALOG)
             assertNotNull(script)
         }
     }
@@ -109,7 +106,7 @@ class TestRunnerTest {
         try{
             script = TestRunner.getScriptFromFile(PATH_CATALOG)
         }catch (FileNotFoundException){
-            script = TestRunner.getScriptFromFile("definitions/" + PATH_CATALOG)
+            script = TestRunner.getScriptFromFile(PATH_CATALOG)
         }
 
         def result = TestRunner.runScript(script)

@@ -1,13 +1,18 @@
 package com.ml.melidata.catalog.parsers.dsl
 
 import com.ml.melidata.catalog.TrackDefinition
+import com.ml.melidata.catalog.TrackDefinitionProperty
 
 /**
  * Created by geisbruch on 11/17/14.
  */
 class TrackDsl {
 
+    def Map<String, TrackDefinitionProperty> propertyDefinitions = [:]
+    def Map<String, Collection<TrackDefinitionProperty>> propertyDefinitionGroups = [:]
+
     def List<TrackDefinition> trackDefinitions = [];
+
 
     def static tracks(Closure closure) {
         TrackDsl dsl = new TrackDsl()
@@ -15,6 +20,19 @@ class TrackDsl {
         closure.resolveStrategy = Closure.DELEGATE_FIRST
         closure()
         return dsl.trackDefinitions
+    }
+
+
+    def propertyDefinitions (closure) {
+        propertyDefinitions.putAll(retrievePropertyDefinitions(closure));
+    }
+
+    def propertyGroups (closure) {
+        PropertyGroupDefinitionDsl propertyGroupDefinitionDsl = new PropertyGroupDefinitionDsl(propertyDefinitions: propertyDefinitions)
+        closure.resolveStrategy = Closure.DELEGATE_FIRST
+        closure.delegate = propertyGroupDefinitionDsl
+        closure()
+        propertyDefinitionGroups.putAll(propertyGroupDefinitionDsl.propertyDefinitionGroups)
     }
 
 
@@ -27,12 +45,21 @@ class TrackDsl {
         }
         TrackDefinition trackDefinition = new TrackDefinition(trackArgs)
         def closure = args[-1]
-        PropertyDefinitionDsl propertyDefinitionDsl = new PropertyDefinitionDsl();
+
+        def properties = retrievePropertyDefinitions(closure, propertyDefinitionGroups)
+        trackDefinition.properties.putAll(properties);
+        trackDefinitions.add(trackDefinition)
+    }
+
+
+
+
+    def retrievePropertyDefinitions (closure, providedPropertyDefinitionGroups = [:]) {
+        PropertyDefinitionDsl propertyDefinitionDsl = new PropertyDefinitionDsl(providedPropertyDefinitionGroups: providedPropertyDefinitionGroups);
         closure.resolveStrategy = Closure.DELEGATE_FIRST
         closure.delegate = propertyDefinitionDsl
         closure()
-        trackDefinition.properties.putAll(propertyDefinitionDsl.properties);
-        trackDefinitions.add(trackDefinition)
+        propertyDefinitionDsl.properties
     }
 
 }

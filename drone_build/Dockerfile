@@ -20,15 +20,21 @@ RUN apt-get install -y oracle-java7-installer
 RUN apt-get -y install make git-core unzip
 
 
-ENV CAT_AWS_ACCESS_KEY_ID AKIAJ7EIGFFJQC475PBQ
-ENV CAT_AWS_SECRET_KEY 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
-ENV S3_BUCKET melidata-catalog-versions
-ENV CATALOG_DSL_FILE ./src/main/resources/catalog.groovy
+#DEPRECATED (set in build.gradle)
+#ENV CAT_AWS_ACCESS_KEY_ID AKIAJ7EIGFFJQC475PBQ
+#ENV CAT_AWS_SECRET_KEY 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
+#ENV CATALOG_S3_BUCKET melidata-catalog-versions
+#ENV CATALOG_DSL_FILE ./src/main/resources/catalog/catalog.groovy
 ENV CATALOG_FILE /var/cache/drone/src/github.com/mercadolibre/melidata-catalog/definitions/catalog.csv
-ENV PRESTO_S3_BUCKET /melidata-jobs/catalog/
+
+ENV PRESTO_CATALOG_S3_BUCKET /melidata-jobs/catalog/
 ENV PRESTO_AWS_ACCESS_KEY_ID AKIAIRJ4DFA72UDCX7QA
 ENV PRESTO_AWS_SECRET_KEY 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
-ENV proxyHost 172.16.0.89 
+
+#ENV METRICS_DSL_DIR ./src/main/resources/metrics/
+#ENV METRICS_S3_BUCKET melidata-jobs
+
+ENV proxyHost 172.16.0.89
 ENV proxyPort 80
 #Install gradle
 WORKDIR /tmp/fake_app

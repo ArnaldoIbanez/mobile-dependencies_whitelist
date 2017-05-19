@@ -9,3 +9,6 @@ build/
 *.iml
 catalog.json
 catalog.csv
+metrics.json
+
+definitions/build
