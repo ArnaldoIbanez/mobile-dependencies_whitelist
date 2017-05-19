@@ -309,6 +309,8 @@ catalog {
 
         "/vip"(platform: "/mobile") {
             context(required: false)
+            resolution(required: false)
+            cart_content(required: false)
         }
 
         "/vip/abort"(platform: "/mobile", type: TrackType.Event) {}
