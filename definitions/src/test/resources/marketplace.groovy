@@ -466,6 +466,8 @@ trackTests {
             category_path = ["MLA1234","MLA6789"]
             reputation_level = "green_5"
             fulfillment = true
+            resolution = "high"
+            cart_content = false
         }
 
         "/vip"(platform:"/mobile", dataSet)
@@ -4253,6 +4255,4 @@ trackTests {
 		}
         }
     }
-
-
 }
