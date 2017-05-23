@@ -4203,7 +4203,9 @@ trackTests {
 
         }
 
-        "/myml/sales/list"(platform: "/web") {}
+        "/myml/sales/list"(platform: "/web", type: TrackType.Event) {}
+
+        "/myml/sales/vop"(platform: "/web", type: TrackType.Event) {}
 
         "/myml/sales/status"(platform: "/web") {}
 
