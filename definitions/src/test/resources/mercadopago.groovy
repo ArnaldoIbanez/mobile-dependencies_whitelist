@@ -327,6 +327,14 @@ trackTests {
             result_status = "rejected"
             status_detail = "call_for_auth"
         }
+        "/checkout/flow/init"(platform: "/web/mobile") {
+        }
+        "/checkout/flow/end"(platform: "/web/mobile") {
+        }
+        "/checkout/flow/beta-init"(platform: "/web/mobile") {
+        }
+        "/checkout/flow/beta-end"(platform: "/web/mobile") {
+        }
     }
 
     test("QR") {
