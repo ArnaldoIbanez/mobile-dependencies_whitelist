@@ -97,11 +97,11 @@ tracks {
     }
 
     // Chekout Flow
-    "/checkout/flow"(platform: "/", isAbstract: true){
+    "/checkout_off"(platform: "/", isAbstract: true){
 
     }
-    "/checkout/flow/init"(platform: "/", type: TrackType.Event) {}
-    "/checkout/flow/end"(platform: "/", type: TrackType.Event) {}
+    "/checkout_off/init"(platform: "/", type: TrackType.Event) {}
+    "/checkout_off/end"(platform: "/", type: TrackType.Event) {}
 
     "/qr_code"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
