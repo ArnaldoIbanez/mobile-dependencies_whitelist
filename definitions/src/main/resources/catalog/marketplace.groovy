@@ -153,13 +153,13 @@ tracks {
     }
 
     //Bookmark and question tracking from feeds for Emkt
-    "/bookmarks/create" (platform: "/web", type: TrackType.Event) {
+    "/bookmarks/action/post" (platform: "/web", type: TrackType.Event) {
         item_id()
         context()
         action_location(required:false, type: PropertyType.String)
     }
 
-    "/questions/create" (platform: "/web", type: TrackType.Event) {
+    "/questions/ask/post" (platform: "/web", type: TrackType.Event) {
         item_id()
         action_location(required:false, type: PropertyType.String)
     }

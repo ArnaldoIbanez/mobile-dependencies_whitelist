@@ -543,19 +543,19 @@ trackTests {
     }
 
     test("Bookmark tracking in web") {
-        "/bookmarks/create" (platform:"/web", type: TrackType.Event) {
+        "/bookmarks/action/post" (platform:"/web", type: TrackType.Event) {
             item_id = "MLA533657947"
             context = "/search"
         }
 
-        "/bookmarks/create" (platform:"/web", type: TrackType.Event) {
+        "/bookmarks/action/post" (platform:"/web", type: TrackType.Event) {
             item_id = "MLA533657947"
             context = "/vip"
         }
     }
 
     test("Questions tracking in web") {
-        "/questions/create" (platform:"/web", type: TrackType.Event) {
+        "/questions/ask/post" (platform:"/web", type: TrackType.Event) {
             item_id = "MLA533657947"
         }
     }
