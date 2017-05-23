@@ -559,6 +559,7 @@ trackTests {
     test("Questions tracking in web") {
         "/questions/ask/post" (platform:"/web", type: TrackType.Event) {
             item_id = "MLA533657947"
+            failed = false
         }
     }
 
