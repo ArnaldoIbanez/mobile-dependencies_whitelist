@@ -1900,13 +1900,6 @@ trackTests {
 
     }
 
-    test("Checkout Off"){
-        "/checkout_off/init"(platform: "/web/mobile") {
-        }
-        "/checkout_off/congrats"(platform: "/web/mobile") {
-        }
-    }
-
     test("credit cards"){
 
         "/credit_cards"(platform:"/mobile", type: TrackType.View) {

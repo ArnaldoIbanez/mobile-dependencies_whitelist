@@ -1252,4 +1252,11 @@ trackTests {
         "/credits/merchant_admin/hero_cta"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/merchant_admin/more_info"(platform: "/web/desktop", type: TrackType.Event) {}
     }
+
+    test("Checkout Off"){
+        "/checkout_off/init"(platform: "/web/mobile") {
+        }
+        "/checkout_off/congrats"(platform: "/web/mobile") {
+        }
+    }
 }
