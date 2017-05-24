@@ -1919,7 +1919,6 @@ trackTests {
 
     }
 
-
     test("credit cards"){
 
         "/credit_cards"(platform:"/mobile", type: TrackType.View) {
