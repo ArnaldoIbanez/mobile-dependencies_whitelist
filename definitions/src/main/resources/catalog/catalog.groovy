@@ -50,6 +50,7 @@ catalog {
         include business, "cartCheckout.groovy"
         include business, "cartList.groovy"
         include business, "checkout.groovy"
+        include business, "checkoutOff.groovy"
         include business, "email.groovy"
         include business, "home.groovy"
         include business, "loyalty.groovy"

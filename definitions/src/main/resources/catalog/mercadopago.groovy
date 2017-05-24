@@ -96,13 +96,6 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
-    // Chekout Flow
-    "/checkout_off"(platform: "/", isAbstract: true){
-
-    }
-    "/checkout_off/init"(platform: "/", type: TrackType.Event) {}
-    "/checkout_off/end"(platform: "/", type: TrackType.Event) {}
-
     "/qr_code"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
