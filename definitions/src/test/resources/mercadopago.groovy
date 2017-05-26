@@ -1255,8 +1255,23 @@ trackTests {
 
     test("Checkout Off"){
         "/checkout_off/init"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            scope = 'mla'
         }
         "/checkout_off/congrats"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            scope = 'mla'
+
+            payment_status = "pending"
+            payment_id = "123456789"
+            payment_status_detail = "pending_waiting_payment"
+            payment_method_id = "rapipago"
+            payment_type_id = "ticket"
+            is_express = true
         }
     }
 }
