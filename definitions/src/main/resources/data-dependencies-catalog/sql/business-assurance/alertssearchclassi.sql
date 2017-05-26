@@ -10,7 +10,9 @@ device.platform AS Platform,
 platform.http.http_referer AS Referer,
 platform.http.http_url as Url
 FROM tracks
-WHERE ds >= '@param01' 
-AND ds < '@param02'
-AND path IN ('/vip','/vip/contact_seller', '/vip/show_phone', '/vip/call_seller')
-AND (others['fragment'] LIKE '%SA:true%' OR platform.http.http_referer LIKE '%searchAlertsMail_true%') 
+WHERE ds >= '2017-04-21' 
+AND ds <= '@param01' 
+AND 
+(((path IN ('/vip','/vip/contact_seller', '/vip/show_phone', '/vip/call_seller'))
+AND (others['fragment'] LIKE '%SA:true%' OR platform.http.http_referer LIKE '%searchAlertsMail_true%'))
+OR path LIKE '/search/save')
