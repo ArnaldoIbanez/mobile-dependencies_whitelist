@@ -3,7 +3,7 @@
     "franco.vitali@mercadolibre.com"
   ],
   "process_name": "homes_component_ctr",
-  "cron": "0 */2 * * *",
+  "cron": "0 */1 * * *",
   "extract": {
     "operation": "overwrite",
     "columns": [
@@ -30,12 +30,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "day-2",
+          "value": "day-30",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "day-1",
+          "value": "day-0",
           "format": "yyyy-MM-dd"
         }
       ]
