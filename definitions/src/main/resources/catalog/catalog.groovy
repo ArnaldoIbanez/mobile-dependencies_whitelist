@@ -38,27 +38,33 @@ catalog {
 
     def all = marketplace + mercadopago
 
-    all.each { business ->
-        include business, "melidata_sdk.groovy"
-    }
-
-    all.each { business ->
-        include business, "registrations.groovy"
-    }
 
     all.each { business ->
         include business, "authentication.groovy"
-    }
-
-    all.each { business ->
         include business, "identity_validation.groovy"
+        include business, "melidata_sdk.groovy"
+        include business, "registrations.groovy"
     }
 
     marketplace.each { business ->
+        include business, "cartCheckout.groovy"
+        include business, "cartList.groovy"
+        include business, "checkout.groovy"
+        include business, "email.groovy"
+        include business, "home.groovy"
+        include business, "loyalty.groovy"
         include business, "marketplace.groovy"
+        include business, "myml.groovy"
+        include business, "notifications.groovy"
+        include business, "quotation.groovy"
+        include business, "search.groovy"
+        include business, "sell.groovy"
+        include business, "vip.groovy"
     }
 
     mercadopago.each { business ->
         include business, "mercadopago.groovy"
+        include business, "checkoutOff.groovy"
     }
+
 }

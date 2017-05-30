@@ -1,8 +1,8 @@
 {
   "users": [
-    "ext_jproma@mercadolibre.com"
+    "german.bringas@mercadolibre.com"
   ],
-  "process_name": "push-notifications-metrics",
+  "process_name": "mercadopago-push-notifications-metrics",
   "cron": "10 00 * * *",
   "extract": {
     "operation": "append",
@@ -29,7 +29,7 @@
       }
     ],
     "sql": {
-      "script": "emailmkt/push-notifications-metrics.sql",
+      "script": "mercadopago/push-notifications-metrics.sql",
       "parameters": [
         {
           "name": "param01",

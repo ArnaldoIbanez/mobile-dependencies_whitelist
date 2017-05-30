@@ -115,6 +115,34 @@ trackTests {
             geo_location_code = 1
         }
 
+        "/register/form/facebook-connect"(platform:"/web/desktop") {
+            app = "registration"
+            source = "email"
+            captcha_showed = false
+            prog_reg_version = 0
+        }
+
+        "/register/form/facebook-connect/facebook-register-selected"(platform:"/web/mobile") {
+            app = "registration"
+            source = "facebook"
+            captcha_showed = false
+            prog_reg_version = 0
+        }
+
+        "/register/form/facebook-connect/email-register-selected"(platform:"/web/desktop") {
+            app = "registration"
+            source = "email"
+            captcha_showed = false
+            prog_reg_version = 0
+        }
+
+        "/register/form/facebook-connect/login-selected"(platform:"/web/mobile") {
+            app = "registration"
+            source = "email"
+            captcha_showed = false
+            prog_reg_version = 0
+        }
+
         "/register/form/site-identification"(platform:"/web/mobile") {
             app = "registration"
             source = "email"
@@ -352,9 +380,163 @@ trackTests {
             result_status = "rejected"
             status_detail = "call_for_auth"
         }
+        "/qr_code/px_payment_method_search"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_discount_summary"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_card_vault"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_card_number"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_card_holder_name"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_card_expiry_date"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_card_security_code"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_identification_number"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_card_issuers"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_card_installments"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_review_and_confirm"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+        }
+        "/qr_code/px_result"(platform: "/mobile") {
+            flow = "/qr_code"
+            from = "/deep_link"
+            result_status = "rejected"
+        }
+    }
+
+    test("QRRead Stores event") {
+
+        "/qr_read/store"(platform: "/mobile") {
+            qr_info = "http://laconoariel.com/mpmobile/axion/?id=invalid"
+            _label = "error"
+            deep_link = "mercadopago://congrats_store"
+            additional_info = {message="Algo no salió bien"
+                icon="error"
+                status="rejected"
+                description="Por favor, intenta nuevamente."
+                actions=[{
+                             id="try_again"
+                             link="mercadopago://stores?qr_code=http%3A%2F%2Flaconoariel.com%2Fmpmobile%2Faxion%2F%3Fid%3Dinvalid"
+                             label="Intentar nuevamente"
+                             type="button"
+                         },{
+                    id="back_to_root"
+                    link":null"
+                    label="Volver al inicio"
+                    type="link" }]}
+        }
+    }
+
+    test("Pay Preference") {
+        "/px_result"(platform: "/mobile") {
+            result_status = "rejected"
+        }
+
+        "/pay_preference/fetch_preference_info"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_payment_method_search"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_payer_cost"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_number"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_vault"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_holder"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_holder_name"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_issuers"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_installments"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_expiry_date"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_security_code"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_identification_number"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_review_and_confirm"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_result"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+            result_status = "rejected"
+        }
     }
 
     test("Cellphone recharge") {
+        "/cellphone_recharge/push_handler"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+
         "/cellphone_recharge/recents"(platform: "/mobile") {
             flow = "/cellphone_recharge"
             from = "/deep_link"
@@ -427,6 +609,151 @@ trackTests {
             result_status = "rejected"
             status_detail = "call_for_auth"
         }
+        "/cellphone_recharge/px_payment_method_search"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_discount_summary"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_card_vault"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_card_number"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_card_holder_name"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_card_expiry_date"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_card_security_code"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_identification_number"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_card_issuers"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_card_installments"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_review_and_confirm"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+        }
+        "/cellphone_recharge/px_result"(platform: "/mobile") {
+            flow = "/cellphone_recharge"
+            from = "/deep_link"
+            result_status = "rejected"
+        }
+    }
+
+    test("Scheduled recharge") {
+        "/scheduled_recharge/detail"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/empty_recharges"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/all_scheduled"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/frequency"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/weekly_option"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/monthly_option"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/suggested_recent_recharges"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/carries"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/recommended"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/packages"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/manual_amount"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/px_payment_method_search"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/px_discount_summary"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/px_card_vault"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/px_card_number"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/px_card_holder_name"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/px_card_expiry_date"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/px_card_security_code"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/px_identification_number"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/px_card_issuers"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/px_card_installments"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/px_review_and_confirm"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+        }
+        "/scheduled_recharge/px_result"(platform: "/mobile") {
+            flow = "/scheduled_recharge"
+            from = "/deep_link"
+            result_status = "rejected"
+        }
     }
 
     test("Money request") {
@@ -479,17 +806,10 @@ trackTests {
             flow = "/bill_payments"
             from = "/deep_link"
         }
-        "/bill_payments/add_info/literal"(platform: "/mobile") {
+        "/bill_payments/add_info"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
-        }
-        "/bill_payments/add_info/amount"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
-        }
-        "/bill_payments/add_info/option"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            type = "literal"
         }
         "/bill_payments/second_password"(platform: "/mobile") {
             flow = "/bill_payments"
@@ -497,6 +817,152 @@ trackTests {
         }
         "/bill_payments/result"(platform: "/mobile") {
             flow = "/fund_account"
+            from = "/deep_link"
+            result_status = "rejected"
+            status_detail = "call_for_auth"
+        }
+        "/bill_payments/px_payment_method_search"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_discount_summary"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_card_vault"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_card_number"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_card_holder_name"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_card_expiry_date"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_card_security_code"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_identification_number"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_card_issuers"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_card_installments"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_review_and_confirm"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/px_result"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+            result_status = "rejected"
+        }
+    }
+
+    test("Recharge Sube") {
+        "/recharge_sube/first_time_use"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/no_money"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/choose_amount_information"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/localization"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/localization_permission"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/select_recharge_card"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/information"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/add_bus_card"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/add_card_name"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/choose_amount"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/second_password"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_payment_method_search"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_discount_summary"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_card_vault"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_card_number"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_card_holder_name"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_card_expiry_date"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_card_security_code"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_identification_number"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_card_issuers"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_card_installments"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_review_and_confirm"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/px_result"(platform: "/mobile") {
+            flow = "/recharge_sube"
             from = "/deep_link"
             result_status = "rejected"
             status_detail = "call_for_auth"
@@ -674,6 +1140,7 @@ trackTests {
             source = "FAVORITE"
             flow = "internal"
             has_error = false
+            recaptcha = false
         }
         "/login/recovery"(platform: "/web", type: TrackType.Event) {
             source = "LFE"
@@ -750,5 +1217,61 @@ trackTests {
             flow = "ms_hard_validation"
         }
 
+    }
+
+    /** Mercado Crédito **/
+
+    test("merchant credits") {
+
+        //Views
+        "/credits/merchant_enrollment/landing"(platform: "/web/desktop") {}
+        "/credits/merchant_enrollment/modal/pre_confirm"(platform: "/web/desktop") {}
+        "/credits/merchant_enrollment/congrats"(platform: "/web/desktop") {}
+        "/credits/merchant_admin/offer"(platform: "/web/desktop") {}
+        "/credits/merchant_admin/no_offer"(platform: "/web/desktop") {}
+
+        //Events
+        //Landing merchant
+        "/credits/merchant_enrollment/simulate/exit_page"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant_enrollment/simulate/continue"(platform: "/web/desktop", type: TrackType.Event) {
+            preConfirmLabel = "Monto y plazo máximo"
+            eventValue = 26000
+        }
+        "/credits/merchant_enrollment/simulate/not_interested"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        //Modal merchant
+        "/credits/merchant_enrollment/pre_confirm/accept_loan"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant_enrollment/pre_confirm/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        //Congrats merchant
+        "/credits/merchant_enrollment/withdraw/withdraw_loan"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant_enrollment/detail/go_to_loans"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        //Dashboard merchant
+        "/credits/merchant_admin/exit_page"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant_admin/hero_cta"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant_admin/more_info"(platform: "/web/desktop", type: TrackType.Event) {}
+    }
+
+    test("Checkout Off"){
+        "/checkout_off/init"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            scope = 'mla'
+        }
+        "/checkout_off/congrats"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            scope = 'mla'
+
+            payment_status = "pending"
+            payment_id = "123456789"
+            payment_status_detail = "pending_waiting_payment"
+            payment_method_id = "rapipago"
+            payment_type_id = "ticket"
+            is_express = true
+        }
     }
 }

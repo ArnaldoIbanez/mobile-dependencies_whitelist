@@ -1,0 +1,62 @@
+{
+  "users": [
+    "ext_grodrig@mercadolibre.com","ext_mberriel@mercadolibre.com"
+  ],
+  "process_name": "suggested_discount_current_buyers_activity",
+  "cron": "30 01 * * *",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "siteId",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "path",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "userId",
+        "type": "INTEGER"
+      },
+      {
+        "name": "itemId",
+        "type": "UNICODE_STRING"
+      }
+    ],
+    "sql": {
+      "script": "melidata/suggested-discount-current-buyers-activity.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param03",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param04",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

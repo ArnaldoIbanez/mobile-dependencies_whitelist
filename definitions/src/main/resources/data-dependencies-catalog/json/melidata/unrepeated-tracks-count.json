@@ -1,6 +1,6 @@
 {
   "users": [
-    "juan.lambre@mercadolibre.com"
+    "melidata_dev@mercadolibre.com"
   ],
   "process_name": "unrepeated_tracks_count",
   "cron": "30 06 * * *",

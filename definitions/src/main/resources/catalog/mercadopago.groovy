@@ -115,11 +115,62 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    "/qr_code/px_payment_method_search"(platform: "/mobile") {}
+    "/qr_code/px_discount_summary"(platform: "/mobile") {}
+    "/qr_code/px_card_vault"(platform: "/mobile") {}
+    "/qr_code/px_card_number"(platform: "/mobile") {}
+    "/qr_code/px_card_holder_name"(platform: "/mobile") {}
+    "/qr_code/px_card_expiry_date"(platform: "/mobile") {}
+    "/qr_code/px_card_security_code"(platform: "/mobile") {}
+    "/qr_code/px_identification_number"(platform: "/mobile") {}
+    "/qr_code/px_card_issuers"(platform: "/mobile") {}
+    "/qr_code/px_card_installments"(platform: "/mobile") {}
+    "/qr_code/px_review_and_confirm"(platform: "/mobile") {}
+    "/qr_code/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
+    "/qr_read"(platform: "/mobile", isAbstract: true) {}
+    "/qr_read/store"(platform: "/mobile") {
+        _label (required:true, type: PropertyType.String, description: "Operation status")
+        deep_link (required:false, type: PropertyType.String, description: "Navigation info")
+        qr_info (required:false, type: PropertyType.String, description: "Data read")
+        additional_info (required:false, description: "Extra info")
+    }
+
+    "/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
+    "/pay_preference"(platform: "/mobile", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/pay_preference/fetch_preference_info"(platform: "/mobile") {}
+    "/pay_preference/px_payment_method_search"(platform: "/mobile") {}
+    "/pay_preference/px_payer_cost"(platform: "/mobile") {}
+    "/pay_preference/px_card_number"(platform: "/mobile") {}
+    "/pay_preference/px_card_vault"(platform: "/mobile") {}
+    "/pay_preference/px_card_holder"(platform: "/mobile") {}
+    "/pay_preference/px_card_holder_name"(platform: "/mobile") {}
+    "/pay_preference/px_card_issuers"(platform: "/mobile") {}
+    "/pay_preference/px_card_installments"(platform: "/mobile") {}
+    "/pay_preference/px_card_expiry_date"(platform: "/mobile") {}
+    "/pay_preference/px_card_security_code"(platform: "/mobile") {}
+    "/pay_preference/px_identification_number"(platform: "/mobile") {}
+    "/pay_preference/px_review_and_confirm"(platform: "/mobile") {}
+    "/pay_preference/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
 
     "/cellphone_recharge"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
+    "/cellphone_recharge/push_handler"(platform: "/mobile") {}
     "/cellphone_recharge/recents"(platform: "/mobile") {}
     "/cellphone_recharge/set_telephone_number"(platform: "/mobile") {}
     "/cellphone_recharge/contacts"(platform: "/mobile") {}
@@ -139,6 +190,52 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    "/cellphone_recharge/px_payment_method_search"(platform: "/mobile") {}
+    "/cellphone_recharge/px_discount_summary"(platform: "/mobile") {}
+    "/cellphone_recharge/px_card_vault"(platform: "/mobile") {}
+    "/cellphone_recharge/px_card_number"(platform: "/mobile") {}
+    "/cellphone_recharge/px_card_holder_name"(platform: "/mobile") {}
+    "/cellphone_recharge/px_card_expiry_date"(platform: "/mobile") {}
+    "/cellphone_recharge/px_card_security_code"(platform: "/mobile") {}
+    "/cellphone_recharge/px_identification_number"(platform: "/mobile") {}
+    "/cellphone_recharge/px_card_issuers"(platform: "/mobile") {}
+    "/cellphone_recharge/px_card_installments"(platform: "/mobile") {}
+    "/cellphone_recharge/px_review_and_confirm"(platform: "/mobile") {}
+    "/cellphone_recharge/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
+    "/scheduled_recharge"(platform: "/mobile", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/scheduled_recharge/detail"(platform: "/mobile") {}
+    "/scheduled_recharge/empty_recharges"(platform: "/mobile") {}
+    "/scheduled_recharge/all_scheduled"(platform: "/mobile") {}
+    "/scheduled_recharge/frequency"(platform: "/mobile") {}
+    "/scheduled_recharge/weekly_option"(platform: "/mobile") {}
+    "/scheduled_recharge/monthly_option"(platform: "/mobile") {}
+    "/scheduled_recharge/suggested_recent_recharges"(platform: "/mobile") {}
+    "/scheduled_recharge/carries"(platform: "/mobile") {}
+    "/scheduled_recharge/recommended"(platform: "/mobile") {}
+    "/scheduled_recharge/packages"(platform: "/mobile") {}
+    "/scheduled_recharge/manual_amount"(platform: "/mobile") {}
+    "/scheduled_recharge/px_payment_method_search"(platform: "/mobile") {}
+    "/scheduled_recharge/px_discount_summary"(platform: "/mobile") {}
+    "/scheduled_recharge/px_card_vault"(platform: "/mobile") {}
+    "/scheduled_recharge/px_card_number"(platform: "/mobile") {}
+    "/scheduled_recharge/px_card_holder_name"(platform: "/mobile") {}
+    "/scheduled_recharge/px_card_expiry_date"(platform: "/mobile") {}
+    "/scheduled_recharge/px_card_security_code"(platform: "/mobile") {}
+    "/scheduled_recharge/px_identification_number"(platform: "/mobile") {}
+    "/scheduled_recharge/px_card_issuers"(platform: "/mobile") {}
+    "/scheduled_recharge/px_card_installments"(platform: "/mobile") {}
+    "/scheduled_recharge/px_review_and_confirm"(platform: "/mobile") {}
+    "/scheduled_recharge/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
 
     "/bill_payments"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -151,15 +248,61 @@ tracks {
     "/bill_payments/scan"(platform: "/mobile") {}
     "/bill_payments/manual_code"(platform: "/mobile") {}
     "/bill_payments/confirmation"(platform: "/mobile") {}
-    "/bill_payments/add_info"(platform: "/mobile", isAbstract: true) {}
-    "/bill_payments/add_info/literal"(platform: "/mobile") {}
-    "/bill_payments/add_info/amount"(platform: "/mobile") {}
-    "/bill_payments/add_info/option"(platform: "/mobile") {}
+    "/bill_payments/add_info"(platform: "/mobile") {
+        type (required: true, type: PropertyType.String, description: "Additional info type")
+    }
     "/bill_payments/second_password"(platform: "/mobile") {}
     "/bill_payments/result"(platform: "/mobile") {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    "/bill_payments/px_payment_method_search"(platform: "/mobile") {}
+    "/bill_payments/px_discount_summary"(platform: "/mobile") {}
+    "/bill_payments/px_card_vault"(platform: "/mobile") {}
+    "/bill_payments/px_card_number"(platform: "/mobile") {}
+    "/bill_payments/px_card_holder_name"(platform: "/mobile") {}
+    "/bill_payments/px_card_expiry_date"(platform: "/mobile") {}
+    "/bill_payments/px_card_security_code"(platform: "/mobile") {}
+    "/bill_payments/px_identification_number"(platform: "/mobile") {}
+    "/bill_payments/px_card_issuers"(platform: "/mobile") {}
+    "/bill_payments/px_card_installments"(platform: "/mobile") {}
+    "/bill_payments/px_review_and_confirm"(platform: "/mobile") {}
+    "/bill_payments/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
+    "/recharge_sube"(platform: "/mobile", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/recharge_sube/first_time_use"(platform: "/mobile") {}
+    "/recharge_sube/no_money"(platform: "/mobile") {}
+    "/recharge_sube/choose_amount_information"(platform: "/mobile") {}
+    "/recharge_sube/localization"(platform: "/mobile") {}
+    "/recharge_sube/localization_permission"(platform: "/mobile") {}
+    "/recharge_sube/select_recharge_card"(platform: "/mobile") {}
+    "/recharge_sube/information"(platform: "/mobile") {}
+    "/recharge_sube/add_bus_card"(platform: "/mobile") {}
+    "/recharge_sube/add_card_name"(platform: "/mobile") {}
+    "/recharge_sube/choose_amount"(platform: "/mobile") {}
+    "/recharge_sube/second_password"(platform: "/mobile") {}
+    "/recharge_sube/px_payment_method_search"(platform: "/mobile") {}
+    "/recharge_sube/px_discount_summary"(platform: "/mobile") {}
+    "/recharge_sube/px_card_vault"(platform: "/mobile") {}
+    "/recharge_sube/px_card_number"(platform: "/mobile") {}
+    "/recharge_sube/px_card_holder_name"(platform: "/mobile") {}
+    "/recharge_sube/px_card_expiry_date"(platform: "/mobile") {}
+    "/recharge_sube/px_card_security_code"(platform: "/mobile") {}
+    "/recharge_sube/px_identification_number"(platform: "/mobile") {}
+    "/recharge_sube/px_card_issuers"(platform: "/mobile") {}
+    "/recharge_sube/px_card_installments"(platform: "/mobile") {}
+    "/recharge_sube/px_review_and_confirm"(platform: "/mobile") {}
+    "/recharge_sube/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
 
     "/money_request"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -272,4 +415,41 @@ tracks {
 
     // END -- MPMOBILE
 
+    /** Mercado Crédito **/
+    
+    //Definitions
+    "/credits"(platform: "/", isAbstract: true) {}
+    "/credits/merchant_admin"(platform: "/", isAbstract: true) {}
+    "/credits/merchant_enrollment"(platform: "/", isAbstract: true) {}
+    "/credits/merchant_enrollment/simulate"(platform: "/", isAbstract: true) {}
+    "/credits/merchant_enrollment/modal"(platform: "/", isAbstract: true) {}
+    "/credits/merchant_enrollment/pre_confirm"(platform: "/", isAbstract: true) {}
+    "/credits/merchant_enrollment/withdraw"(platform: "/", isAbstract: true) {}
+    "/credits/merchant_enrollment/detail"(platform: "/", isAbstract: true) {}
+
+    //Landing merchant
+    "/credits/merchant_enrollment/landing"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant_enrollment/simulate/exit_page"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant_enrollment/simulate/continue"(platform: "/", type: TrackType.Event) {
+        preConfirmLabel(required: true, type: PropertyType.String, description: "choice type")
+        eventValue(required: true, type: PropertyType.Numeric, description: "loan amount")
+    }
+    "/credits/merchant_enrollment/simulate/not_interested"(platform: "/", type: TrackType.Event) {}
+
+    //Modal merchant
+    "/credits/merchant_enrollment/modal/pre_confirm"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant_enrollment/pre_confirm/accept_loan"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant_enrollment/pre_confirm/cancel"(platform: "/", type: TrackType.Event) {}
+
+    //Congrats merchant
+    "/credits/merchant_enrollment/congrats"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant_enrollment/detail/go_to_loans"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant_enrollment/withdraw/withdraw_loan"(platform: "/", type: TrackType.Event) {}
+
+    //Dashboard merchant
+    "/credits/merchant_admin/offer"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant_admin/exit_page"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant_admin/hero_cta"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant_admin/more_info"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant_admin/no_offer"(platform: "/", type: TrackType.View) {}
 }

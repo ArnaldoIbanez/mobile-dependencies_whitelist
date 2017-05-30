@@ -16,11 +16,11 @@ tracks {
         source()
     }
 
-    "/register/facebook_permissions"(platform: "/mobile"){
-        login_status(type: PropertyType.String, description: "Success, Cancel, Error" )
-        email(type: PropertyType.Boolean, description : " Needed  to access date (day and month) of the user birthday.")
-        user_birthday(type: PropertyType.Boolean, description : " Needed  to access the user main email address.")
-        user_likes(type: PropertyType.Boolean, description : " Needed  to access user liked pages.")
+    "/register/facebook_permissions"(platform: "/") {
+        login_status(type: PropertyType.String, description: "Success, Cancel, Error")
+        email(type: PropertyType.Boolean, description : "Needed  to access the user main email address.")
+        user_birthday(type: PropertyType.Boolean, description : "Needed  to access date (day and month) of the user birthday.")
+        user_likes(type: PropertyType.Boolean, description : "Needed  to access user liked pages.")
     }
 
     //REGISTER WEB
@@ -49,6 +49,13 @@ tracks {
 
     "/register/form/site-identification/url-site-selected"(platform:"/web", type: TrackType.Event) {}
     "/register/form/site-identification/ip-site-selected"(platform:"/web", type: TrackType.Event) {}
+
+    "/register/form/facebook-connect"(platform:"/web", type: TrackType.View) {
+    }
+
+    "/register/form/facebook-connect/facebook-register-selected"(platform:"/web", type: TrackType.Event) {}
+    "/register/form/facebook-connect/email-register-selected"(platform:"/web", type: TrackType.Event) {}
+    "/register/form/facebook-connect/login-selected"(platform:"/web", type: TrackType.Event) {}
 
     "/register/form/geolocation"(platform:"/web/mobile", type: TrackType.Event) {
         geo_location_code(type: PropertyType.Numeric, description: "Code of geolocation result", required:true)

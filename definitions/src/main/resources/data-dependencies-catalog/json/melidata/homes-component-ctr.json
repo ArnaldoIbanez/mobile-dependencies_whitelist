@@ -1,37 +1,41 @@
 {
   "users": [
-    "juan.lambre@mercadolibre.com"
+    "franco.vitali@mercadolibre.com"
   ],
-  "process_name": "missing_tracks",
-  "cron": "30 06 * * *",
+  "process_name": "homes_component_ctr",
+  "cron": "0 */1 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "ds",
         "type": "DATE",
-        "format": "yyyy-MM-dd HH"
+        "format": "yyyy-MM-dd"
       },
       {
-        "name": "missing",
+        "name": "component",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "prints",
         "type": "INTEGER"
       },
       {
-        "name": "total",
+        "name": "clicks",
         "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "melidata/missing-tracks.sql",
+      "script": "melidata/homes-component-ctr.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-2",
+          "value": "day-30",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-1",
+          "value": "day-0",
           "format": "yyyy-MM-dd"
         }
       ]

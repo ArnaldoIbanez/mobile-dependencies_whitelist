@@ -4,8 +4,8 @@
 @Grab(group='org.hamcrest', module='hamcrest-core', version='1.3')
 @Grab(group='joda-time', module='joda-time', version='2.9.4')
 @Grab(group='junit', module='junit', version='4.12')
-@Grab(group='com.facebook.presto', module='presto-jdbc', version='0.130')
-@Grab(group='com.mercadolibre.melidata.catalog', module='definitions',version='0.1.21')
+@Grab(group='com.facebook.presto', module='presto-jdbc', version='0.166')
+@Grab(group='com.mercadolibre.melidata.catalog', module='definitions',version='0.1.22')
 
 import com.melidata.definitions.TestRunner
 import com.melidata.definitions.outs.StdOut
@@ -16,6 +16,11 @@ import groovy.json.*
 import groovy.util.CliBuilder
 import groovy.sql.Sql;
 
+println "***************************************************"
+println "***            WARNING! DEPRECATED              ***"
+println "***       USE ./validate.sh <arguments>         ***"
+println "***************************************************"
+ 
 
 def cli = new CliBuilder()
 cli.date(args:1, "date")
@@ -98,7 +103,7 @@ if ( options.from_file ) {
 	query = "select id, type, path, event_data, device, application, platform from tracks where catalog_data.is_valid = false ${date} ${path} ${business} ${platform} ${site} limit ${limit}".toString()
 	System.err.println("Query: ${query}")
 
-	def db = [url:'jdbc:presto://melidata-jdbc.ml.com:80/hive/default', user:'catalog', password:'psw', driver:'com.facebook.presto.jdbc.PrestoDriver']
+	def db = [url:'jdbc:presto://melidata-presto.ml.com:80/hive/default', user:'catalog', password:'psw', driver:'com.facebook.presto.jdbc.PrestoDriver']
 	def sql = Sql.newInstance(db.url, db.user, db.password, db.driver)
 
 	sql.eachRow(query) { row ->
