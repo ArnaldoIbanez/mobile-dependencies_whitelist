@@ -773,6 +773,9 @@ tracks {
     "/checkout/congrats/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {
 
     }
+
+    "/checkout/congrats/choose_action"(platform: "/mobile") { /* choose from a list of actions what to do. Eg: choose user homebanking */}
+
     "/checkout/congrats/pending"(platform: "/mobile") {}
 
     "/checkout/error"(platform: "/mobile") {
