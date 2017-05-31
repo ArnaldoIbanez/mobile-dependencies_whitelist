@@ -773,6 +773,65 @@ tracks {
     "/checkout/congrats/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {
 
     }
+
+    "/checkout/finish"(platform: "/mobile", isAbstract: true) {
+        /****************************************/
+        // Same as congrats tracks
+        order_id(required: true, description: "OrderId")
+        status(required: false, description: "status")
+        total_amount(required: false, description: "totalAmount")
+        total_amount_with_shipping(required: false, description: "totalAmount with shipping cost")
+        total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+
+        buy_equal_pay(required: false, description: "BP flag")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        register_int(required: false, description: "Integrated registration")
+        platform(required: false)
+
+        payments(required: true, description: "Array of payments information")
+        // id
+        // payment_method,
+        // payment_type,
+        // installments,
+        // paid_amount,
+        // installment_amount
+        // without_fee
+        // status
+        // status_detail
+
+        shipping(required: false)
+        // shipping_type
+        // cost
+        // shipping_option,
+        // id,
+        // name,
+        // shipping_method_id
+        // id
+        // shipping_mode
+
+        items(required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
+        //item
+            //id
+            //variation_id
+            //buying_mode
+            //shipping_mode
+            //category_id
+            //deal_ids
+        //quantity
+        //unit_price
+        //currency_id
+
+        buyer(required: false)
+        //id
+        //nickname
+
+        seller(required: false,type:PropertyType.ArrayList, description: "Array of sellers with their data")
+        //id
+        //nickname
+    }
+
+    "/checkout/finish/choose_action"(platform: "/mobile") { /* choose from a list of actions what to do. Eg: choose user homebanking */ }
+
     "/checkout/congrats/pending"(platform: "/mobile") {}
 
     "/checkout/error"(platform: "/mobile") {
