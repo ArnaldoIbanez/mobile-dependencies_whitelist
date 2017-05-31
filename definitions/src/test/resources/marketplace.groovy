@@ -995,6 +995,16 @@ trackTests {
         "/checkout/shipping/select_address/list"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+        "/checkout/shipping/select_store_map"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
+        "/checkout/shipping/select_store_map#agencies_request"(platform:"/mobile", type:TrackType.Event) {
+            item = "MLA12341"
+            latitude = "-33,312313"
+            longitude = "-58,929484"
+            agencies = 10
+        }
+
         "/checkout/payments/preload_credit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }

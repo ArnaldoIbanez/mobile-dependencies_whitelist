@@ -452,6 +452,16 @@ tracks {
     "/checkout/shipping/select_address/list"(platform:"/mobile") {
         shipping_options(required: false, type: PropertyType.ArrayList)
     }
+
+    // Store map
+    "/checkout/shipping/select_store_map"(platform:"/mobile") {}
+    "/checkout/shipping/select_store_map#agencies_request"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        agencies(required: true)
+        item(required: true)
+        latitude(required: true)
+        longitude(required: true)
+    }
+
     //Select paymentMethod
     "/checkout/payments/preload_credit_card"(platform:"/mobile", type:TrackType.View) {}//Melidata experiment
     "/checkout/payments"(platform: "/mobile", isAbstract: true) {
