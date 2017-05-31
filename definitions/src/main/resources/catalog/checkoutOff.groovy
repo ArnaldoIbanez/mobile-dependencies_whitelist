@@ -15,7 +15,7 @@ tracks {
     "/checkout_off/init"(platform: "/", type: TrackType.View) {}
     "/checkout_off/congrats"(platform: "/", type: TrackType.View) {
         payment_status(required: true)
-        payment_id(required: true)
+        payment_id(required: false)
         payment_status_detail(required: true)
         payment_method_id(required: true)
         payment_type_id(required: true)
