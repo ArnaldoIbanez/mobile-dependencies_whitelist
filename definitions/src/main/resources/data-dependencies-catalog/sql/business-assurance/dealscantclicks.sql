@@ -10,7 +10,7 @@ from tracks
 where 	   ds >='2017-04-01'
 and 	   ds < '2017-05-31'
 and others['fragment'] like '%deal%'
-and json_format(jet(others['fragment'], 'dealID')) != '[]'
+and jest(others['fragment'], 'dealID') != '[]'
 group by substr(ds,1,10), 
 application.site_id, 
 device.platform, 
