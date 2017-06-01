@@ -458,8 +458,8 @@ tracks {
     "/checkout/shipping/select_store_map#agencies_request"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         agencies(required: true)
         item(required: true)
-        latitude(required: true)
-        longitude(required: true)
+        latitude(required: false)
+        longitude(required: false)
     }
 
     //Select paymentMethod
