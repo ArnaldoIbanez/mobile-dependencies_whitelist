@@ -1,0 +1,84 @@
+{
+  "users": [
+    "lucia.blanc@mercadolibre.com"
+  ],
+  "process_name": "alerts-search",
+  "cron": "",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "Site",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Platform",
+        "type": "UNICODE_STRING"
+      },
+        {
+        "name": "Business",
+        "type": "UNICODE_STRING"
+      },
+        {
+        "name": "Vertical",
+        "type": "UNICODE_STRING"
+      },
+        {
+        "name": "total_save_alert_email",
+        "type": "INTEGER"
+      },
+        {
+        "name": "total_clics_email_vip",
+        "type": "INTEGER"
+      },
+        {
+        "name": "total_clics_email_search_vip",
+        "type": "INTEGER"
+      },
+        {
+        "name": "total_contact_seller_email_vip",
+        "type": "INTEGER"
+      },
+        {
+        "name": "total_contact_seller_email_search_vip",
+        "type": "INTEGER"
+      },
+        {
+        "name": "total_show_phone_email_vip",
+        "type": "INTEGER"
+      },
+        {
+        "name": "total_show_phone_email_search_vip",
+        "type": "INTEGER"
+      },
+        {
+        "name": "total_call_seller_email_vip",
+        "type": "INTEGER"
+      },
+        {
+        "name": "total_call_seller_email_search_vip",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "business-assurance/alerts_search.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
