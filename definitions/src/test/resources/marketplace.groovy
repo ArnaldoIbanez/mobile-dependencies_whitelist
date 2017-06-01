@@ -1070,6 +1070,9 @@ trackTests {
                     ]
             ]
         }
+        "/checkout/payments/stored_card/select_bank"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
         "/checkout/payments/stored_card/security_code"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
