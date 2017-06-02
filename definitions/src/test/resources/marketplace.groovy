@@ -999,14 +999,14 @@ trackTests {
             checkoutStatus()
         }
         "/checkout/shipping/select_store_map#agencies_request"(platform:"/mobile", type:TrackType.Event) {
-            item = "MLA12341"
+            item_id = "MLA12341"
             latitude = "-33,312313"
             longitude = "-58,929484"
             agencies = 10
         }
 
         "/checkout/shipping/select_store_map#agencies_request"(platform:"/mobile", type:TrackType.Event) {
-            item = "MLA12341"
+            item_id = "MLA12341"
             agencies = 10
         }
 
