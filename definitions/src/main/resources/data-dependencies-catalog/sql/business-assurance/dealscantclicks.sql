@@ -10,11 +10,12 @@ from tracks
 where 	   ds >='2017-04-01'
 and 	   ds < '2017-05-31'
 and others['fragment'] like '%deal%'
-and jest(others['fragment'], '$.dealID') != '[]'
+and get_json_object(others['fragment'], '$.dealID') IS NOT NULL
 group by substr(ds,1,10), 
 application.site_id, 
 device.platform, 
 get_json_object(others['fragment'], '$.size') ,
 get_json_object(others['fragment'], '$.banner_name') ,
 get_json_object(others['fragment'], '$.sellerid') ,
+get_json_object(others['fragment'], '$.dealID')
 get_json_object(others['fragment'], '$.dealID')
