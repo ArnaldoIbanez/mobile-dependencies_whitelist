@@ -452,6 +452,16 @@ tracks {
     "/checkout/shipping/select_address/list"(platform:"/mobile") {
         shipping_options(required: false, type: PropertyType.ArrayList)
     }
+
+    // Store map
+    "/checkout/shipping/select_store_map"(platform:"/mobile") {}
+    "/checkout/shipping/select_store_map#agencies_request"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        agencies(required: true, description: "the number of agencies returned by the request")
+        item_id(required: true, description: "the item id for which we are requesting agencies")
+        latitude(required: false, description: "the latitude at which we are requesting agencies")
+        longitude(required: false, description: "the longitude at which we are requesting agencies")
+    }
+
     //Select paymentMethod
     "/checkout/payments/preload_credit_card"(platform:"/mobile", type:TrackType.View) {}//Melidata experiment
     "/checkout/payments"(platform: "/mobile", isAbstract: true) {
@@ -550,6 +560,7 @@ tracks {
         //    ]
     }
     "/checkout/payments/stored_card"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/payments/stored_card/select_bank"(platform:"/mobile") {}
     "/checkout/payments/stored_card/security_code"(platform:"/mobile") {}
     "/checkout/payments/stored_card/installments"(platform:"/mobile") {
         credit_card_id(required: false, type: PropertyType.String)

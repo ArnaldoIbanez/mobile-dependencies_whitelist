@@ -995,6 +995,21 @@ trackTests {
         "/checkout/shipping/select_address/list"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+        "/checkout/shipping/select_store_map"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
+        "/checkout/shipping/select_store_map#agencies_request"(platform:"/mobile", type:TrackType.Event) {
+            item_id = "MLA12341"
+            latitude = "-33,312313"
+            longitude = "-58,929484"
+            agencies = 10
+        }
+
+        "/checkout/shipping/select_store_map#agencies_request"(platform:"/mobile", type:TrackType.Event) {
+            item_id = "MLA12341"
+            agencies = 10
+        }
+
         "/checkout/payments/preload_credit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
@@ -1059,6 +1074,9 @@ trackTests {
                             without_fee: true
                     ]
             ]
+        }
+        "/checkout/payments/stored_card/select_bank"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
         }
         "/checkout/payments/stored_card/security_code"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
