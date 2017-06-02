@@ -459,7 +459,7 @@ tracks {
         agencies(required: true, description: "the number of agencies returned by the request")
         item_id(required: true, description: "the item id for which we are requesting agencies")
         latitude(required: false, description: "the latitude at which we are requesting agencies")
-        longitude(required: false, description: "the latitude at which we are requesting agencies")
+        longitude(required: false, description: "the longitude at which we are requesting agencies")
     }
 
     //Select paymentMethod
