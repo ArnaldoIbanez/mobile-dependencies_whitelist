@@ -1,8 +1,8 @@
 SELECT 
 substr(ds,1,10) as ds,
-application.site_id AS Site,
-device.platform AS Platform,
-application.business AS Business,
+REPLACE (application.site_id,'#','') AS Site,
+REPLACE (device.platform,'#','') AS Platform,
+REPLACE (application.business,'#','') AS Business,
 jest(event_data, 'vertical') AS Vertical,
 sum(if(path = '/search/save',1,0)) AS total_save_alert_email,
 sum(if((path = '/vip') and (others['fragment'] LIKE '%SA:true%'),1,0)) AS total_clics_email_vip,
