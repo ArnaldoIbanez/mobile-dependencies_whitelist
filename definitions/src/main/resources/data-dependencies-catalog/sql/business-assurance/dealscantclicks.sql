@@ -17,5 +17,5 @@ device.platform,
 get_json_object(others['fragment'], '$.size') ,
 get_json_object(others['fragment'], '$.banner_name') ,
 get_json_object(others['fragment'], '$.sellerid') ,
-get_json_object(others['fragment'], '$.dealID')
+get_json_object(others['fragment'], '$.dealID'),
 get_json_object(others['fragment'], '$.dealID')
