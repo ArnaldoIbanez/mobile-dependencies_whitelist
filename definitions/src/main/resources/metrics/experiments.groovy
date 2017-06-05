@@ -432,14 +432,14 @@ metrics {
 	}
 
 
-	"identity-validation/phone.landing"(description: "Post phone challenge count") {
+	"identity-validation/uniqueness.recommendation"(description: "Post phone challenge count") {
 		startWith {
-			experiment("auth/identity-validation_phone-landing")
+			experiment("auth/identity-validation_recommendation")
 		}
 
 		countsOn {
 			condition {
-				path("/identity-validation/phone_code")
+				path("/identity-validation/recomendation")
 			}
 		}
 	}
