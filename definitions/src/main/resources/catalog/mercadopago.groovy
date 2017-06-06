@@ -426,6 +426,8 @@ tracks {
     "/credits/merchant_enrollment/pre_confirm"(platform: "/", isAbstract: true) {}
     "/credits/merchant_enrollment/withdraw"(platform: "/", isAbstract: true) {}
     "/credits/merchant_enrollment/detail"(platform: "/", isAbstract: true) {}
+    "/email"(platform: "/", isAbstract: true) {}
+    "/email/message"(platform: "/", isAbstract: true) {}
 
     //Landing merchant
     "/credits/merchant_enrollment/landing"(platform: "/", type: TrackType.View) {}
@@ -452,4 +454,20 @@ tracks {
     "/credits/merchant_admin/hero_cta"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant_admin/more_info"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant_admin/no_offer"(platform: "/", type: TrackType.View) {}
+
+    //Mails
+    "/email/message/vencida"(platform: "/email") {
+        type(description:" for loan status", type: PropertyType.String, required: true)
+    }
+    "/email/message/prevencimiento"(platform: "/email") {
+        type(description:" for loan status", type: PropertyType.String, required: true)
+    }
+    "/email/message/congrats"(platform: "/email") {
+        type(description:" for loan status", type: PropertyType.String, required: true)
+    }
+
+    /** Summary **/
+    "/summary"(platform: "/", isAbstract: true) {}
+    "/summary/index"(platform: "/", type: TrackType.View) {}
+    "/summary/index/credit_loans"(platform: "/", type: TrackType.Event) {}
 }

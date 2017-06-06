@@ -1222,7 +1222,6 @@ trackTests {
     /** Mercado Crédito **/
 
     test("merchant credits") {
-
         //Views
         "/credits/merchant_enrollment/landing"(platform: "/web/desktop") {}
         "/credits/merchant_enrollment/modal/pre_confirm"(platform: "/web/desktop") {}
@@ -1251,6 +1250,17 @@ trackTests {
         "/credits/merchant_admin/exit_page"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/merchant_admin/hero_cta"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/merchant_admin/more_info"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        //Mails
+        "/email/message/vencida"(platform: "/email") {
+            type = "XVENCER"
+        }
+        "/email/message/prevencimiento"(platform: "/email") {
+            type = "XVENCER"
+        }
+        "/email/message/congrats"(platform: "/email") {
+            type = "XVENCER"
+        }
     }
 
     test("Checkout Off"){
@@ -1273,5 +1283,10 @@ trackTests {
             payment_type_id = "ticket"
             is_express = true
         }
+    }
+
+    test("summary mp"){
+        "/summary/index"(platform: "/web/desktop") {}
+        "/summary/index/credit_loans"(platform: "/web/desktop", type: TrackType.Event) {}
     }
 }
