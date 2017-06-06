@@ -1258,12 +1258,14 @@ trackTests {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
             collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
             collector_nickname = "collector nickname test"
+            preference_id = "96449980"
             scope = 'mla'
         }
         "/checkout_off/congrats"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
             collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
             collector_nickname = "collector nickname test"
+            preference_id = "24286689"
             scope = 'mla'
 
             payment_status = "pending"
