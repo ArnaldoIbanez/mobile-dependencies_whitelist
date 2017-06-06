@@ -3219,80 +3219,76 @@ trackTests {
     }
 
     test("Native Sell flow steps"){
-        def sessionData = {
+        "/sell/list/drafts"(platform: "/mobile") {session_id = "MLA123456"}
+        "/sell/list/hub"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/walkthrough"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/hub_old"(platform: "/mobile") {session_id = "MLA123456"}
+        "/sell/list/sip"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/category_sugestion"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/category_navigation"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/color_selection"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/color_selection_review"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/condition"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/condition_review"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/congrats"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/description"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/description_review"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/payment_methods"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/payment_methods_review"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/listing_types"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/listing_types_review"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/pictures"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/pictures/gallery"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/pictures/editor"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/pictures/crop"(platform: "/mobile") {session_id = "MLA123456"}
+        "/sell/list/pictures_review"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/pictures_review/gallery"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/pictures_review/editor"(platform: "/mobile") {session_id = "MLA123456"}
+        "/sell/list/pictures_review/crop"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/price_core"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/price_core/similar_products"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/price_core_review"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/price_core_review/similar_products"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/seller_registration"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/seller_registration_review"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/seller_registration_zip_code"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/size_selection"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/size_selection_review"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/title_core"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/title_core_review"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/shipping_options_me"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/shipping_options_me_review"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/pictures_landing"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/registration_landing"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/registration_zip_code_landing"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/shipping_landing"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/sip_landing"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/sip_price_landing"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/sip_shipping_landing"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/sip_condition_landing"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/sip_condition_lt_landing"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/sip_condition_listing_type_landing"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/title_landing"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/update/listing_types"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/update/listing_types_upgrade"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/update/congrats_upgrade"(platform: "/mobile" ) {session_id = "MLA123456"}
+        "/sell/list/drafts/draft_action/draft_deleted"(platform: "/mobile") {session_id = "MLA123456"}
+        "/sell/list/drafts/draft_action/draft_resumed"(platform: "/mobile") {session_id = "MLA123456"}
+        "/sell/list/sip/publish/pictures_fail"(platform: "/mobile") {
             session_id = "MLA123456"
-        }
-        def picturesData = {
-            session_id = "MLA123456"
-            total_pictures = 6
             fail_pictures = 2
+            total_pictures = 6
         }
-        "/sell/list/drafts"(platform: "/mobile" , sessionData) {}
-        "/sell/list/hub"(platform: "/mobile" , sessionData) {}
-        "/sell/list/walkthrough"(platform: "/mobile" , sessionData) {}
-        "/sell/list/hub_old"(platform: "/mobile" , sessionData) {}
-        "/sell/list/sip"(platform: "/mobile" , sessionData) {}
-        "/sell/list/category_sugestion"(platform: "/mobile" , sessionData) {}
-        "/sell/list/category_navigation"(platform: "/mobile" , sessionData) {}
-        "/sell/list/color_selection"(platform: "/mobile" , sessionData) {}
-        "/sell/list/color_selection_review"(platform: "/mobile" , sessionData) {}
-        "/sell/list/condition"(platform: "/mobile" , sessionData) {}
-        "/sell/list/condition_review"(platform: "/mobile" , sessionData) {}
-        "/sell/list/congrats"(platform: "/mobile" , sessionData) {}
-        "/sell/list/description"(platform: "/mobile" , sessionData) {}
-        "/sell/list/description_review"(platform: "/mobile" , sessionData) {}
-        "/sell/list/payment_methods"(platform: "/mobile" , sessionData) {}
-        "/sell/list/payment_methods_review"(platform: "/mobile" , sessionData) {}
-        "/sell/list/listing_types"(platform: "/mobile" , sessionData) {}
-        "/sell/list/listing_types_review"(platform: "/mobile" , sessionData) {}
-        "/sell/list/pictures"(platform: "/mobile" , sessionData) {}
-        "/sell/list/pictures/gallery"(platform: "/mobile" , sessionData) {}
-        "/sell/list/pictures/editor"(platform: "/mobile" , sessionData) {}
-        "/sell/list/pictures/crop"(platform: "/mobile" , sessionData) {}
-        "/sell/list/pictures_review"(platform: "/mobile" , sessionData) {}
-        "/sell/list/pictures_review/gallery"(platform: "/mobile" , sessionData) {}
-        "/sell/list/pictures_review/editor"(platform: "/mobile" , sessionData) {}
-        "/sell/list/pictures_review/crop"(platform: "/mobile" , sessionData) {}
-        "/sell/list/price_core"(platform: "/mobile" , sessionData) {}
-        "/sell/list/price_core/similar_products"(platform: "/mobile" , sessionData) {}
-        "/sell/list/price_core_review"(platform: "/mobile" , sessionData) {}
-        "/sell/list/price_core_review/similar_products"(platform: "/mobile" , sessionData) {}
-        "/sell/list/seller_registration"(platform: "/mobile" , sessionData) {}
-        "/sell/list/seller_registration_review"(platform: "/mobile" , sessionData) {}
-        "/sell/list/seller_registration_zip_code"(platform: "/mobile" , sessionData) {}
-        "/sell/list/size_selection"(platform: "/mobile" , sessionData) {}
-        "/sell/list/size_selection_review"(platform: "/mobile" , sessionData) {}
-        "/sell/list/title_core"(platform: "/mobile" , sessionData) {}
-        "/sell/list/title_core_review"(platform: "/mobile" , sessionData) {}
-        "/sell/list/shipping_options_me"(platform: "/mobile" , sessionData) {}
-        "/sell/list/shipping_options_me_review"(platform: "/mobile" , sessionData) {}
-        "/sell/list/pictures_landing"(platform: "/mobile" , sessionData) {}
-        "/sell/list/registration_landing"(platform: "/mobile" , sessionData) {}
-        "/sell/list/registration_zip_code_landing"(platform: "/mobile" , sessionData) {}
-        "/sell/list/shipping_landing"(platform: "/mobile" , sessionData) {}
-        "/sell/list/sip_landing"(platform: "/mobile" , sessionData) {}
-        "/sell/list/sip_price_landing"(platform: "/mobile" , sessionData) {}
-        "/sell/list/sip_shipping_landing"(platform: "/mobile" , sessionData) {}
-        "/sell/list/sip_condition_landing"(platform: "/mobile" , sessionData) {}
-        "/sell/list/sip_condition_lt_landing"(platform: "/mobile" , sessionData) {}
-        "/sell/list/sip_condition_listing_type_landing"(platform: "/mobile" , sessionData) {}
-        "/sell/list/title_landing"(platform: "/mobile" , sessionData) {}
-        "/sell/update/listing_types"(platform: "/mobile" , sessionData) {}
-        "/sell/update/listing_types_upgrade"(platform: "/mobile" , sessionData) {}
-        "/sell/update/congrats_upgrade"(platform: "/mobile" , sessionData) {}
-        "/sell/list/drafts/draft_action/draft_deleted"(platform: "/mobile", sessionData) {}
-        "/sell/list/drafts/draft_action/draft_resumed"(platform: "/mobile", sessionData) {}
-        "/sell/list/sip/publish/pictures_fail"(platform: "/mobile", picturesData) {}
-        "/sell/list/sip/publish/fail"(platform: "/mobile", sessionData) {}
-        "/sell/list/sip/publish/abandonment"(platform: "/mobile", sessionData) {}
-        "/sell/list/sip/notification/view_item"(platform: "/mobile", sessionData) {}
-        "/sell/list/sip/notification/upgrade"(platform: "/mobile", sessionData) {}
-        "/sell/list/sip/notification/congrats"(platform: "/mobile", sessionData) {}
-        "/sell/list/pictures_uploader/crop/crop_canceled"(platform: "/mobile", sessionData) {}
-        "/sell/list/pictures_uploader/crop/crop_acepted"(platform: "/mobile", sessionData) {}
-        "/sell/list/price/similar_products/similar_item_selected"(platform: "/mobile", sessionData) {}
-        "/sell/list/price/similar_products/similar_item_shown"(platform: "/mobile", sessionData) {}
-        "/sell/list/zip_code/zip_code/search_zip_code"(platform: "/mobile", sessionData) {}
+        "/sell/list/sip/publish/fail"(platform: "/mobile") {session_id = "MLA123456"}
+        "/sell/list/sip/publish/abandonment"(platform: "/mobile") {session_id = "MLA123456"}
+        "/sell/list/sip/notification/view_item"(platform: "/mobile") {session_id = "MLA123456"}
+        "/sell/list/sip/notification/upgrade"(platform: "/mobile") {session_id = "MLA123456"}
+        "/sell/list/sip/notification/congrats"(platform: "/mobile") {session_id = "MLA123456"}
+        "/sell/list/pictures_uploader/crop/crop_canceled"(platform: "/mobile") {session_id = "MLA123456"}
+        "/sell/list/pictures_uploader/crop/crop_acepted"(platform: "/mobile") {session_id = "MLA123456"}
+        "/sell/list/price/similar_products/similar_item_selected"(platform: "/mobile") {session_id = "MLA123456"}
+        "/sell/list/price/similar_products/similar_item_shown"(platform: "/mobile") {session_id = "MLA123456"}
+        "/sell/list/zip_code/zip_code/search_zip_code"(platform: "/mobile") {session_id = "MLA123456"}
     }
 
     test("Item events"){

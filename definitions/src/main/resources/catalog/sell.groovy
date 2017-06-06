@@ -97,206 +97,206 @@ tracks {
 
     // Apps
     "/sell/list/drafts"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/drafts/draft_action/draft_deleted"(platform: "/", type: TrackType.Event) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/drafts/draft_action/draft_resumed"(platform: "/", type: TrackType.Event) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
 
     "/sell/list/hub"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/walkthrough"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/hub_old"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/sip"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/sip/publish/pictures_fail"(platform: "/", type: TrackType.Event) {
-        total_pictures(required: true, description: "Total pictures")
-        fail_pictures(required: true, description: "Failed pictures")
-        session_id(required: false, description: "Session id")
+        total_pictures(required: true, description: "Total pictures", type: PropertyType.Numeric)
+        fail_pictures(required: true, description: "Failed pictures", type: PropertyType.Numeric)
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/sip/publish/fail"(platform: "/", type: TrackType.Event) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/sip/publish/abandonment"(platform: "/", type: TrackType.Event) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/sip/notification/view_item"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, description: "Item id")
+        item_id(required: true, description: "Item id", type: PropertyType.String)
     }
     "/sell/list/sip/notification/upgrade"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, description: "Item id")
+        item_id(required: true, description: "Item id", type: PropertyType.String)
     }
     "/sell/list/sip/notification/congrats"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, description: "Item id")
+        item_id(required: true, description: "Item id", type: PropertyType.String)
     }
 
     "/sell/list/category_sugestion"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/category_navigation"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/color_selection"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/color_selection_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/condition"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/condition_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/description"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/description_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/payment_methods"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/payment_methods_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/listing_types"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/listing_types_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/pictures"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/pictures/gallery"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/pictures/editor"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/pictures/crop"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/pictures_uploader/crop/crop_canceled"(platform: "/", type: TrackType.Event) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/pictures_uploader/crop/crop_acepted"(platform: "/", type: TrackType.Event) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/pictures_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/pictures_review/gallery"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/pictures_review/editor"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/pictures_review/crop"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/price_core"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/price_core/similar_products"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/price/similar_products/similar_item_selected"(platform: "/", type: TrackType.Event) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/price/similar_products/similar_item_shown"(platform: "/", type: TrackType.Event) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/price_core_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/price_core_review/similar_products"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/seller_registration"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/seller_registration_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/seller_registration_zip_code"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/zip_code/zip_code/search_zip_code"(platform: "/", type: TrackType.Event) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/size_selection"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/size_selection_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/title_core"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/title_core_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/shipping_options_me"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/shipping_options_me_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/pictures_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/registration_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/registration_zip_code_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/shipping_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/sip_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/sip_price_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/sip_shipping_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/sip_condition_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/sip_condition_lt_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/sip_condition_listing_type_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/title_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/update"(platform: "/", isAbstract: true) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/update/listing_types"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/update/listing_types_upgrade"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/update/congrats_upgrade"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id")
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
 
 
