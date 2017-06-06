@@ -9,6 +9,7 @@ tracks {
         checkout_flow_id(required: true, description: "checkout flow id")
         collector_id(required: true)
         collector_nickname(required: true)
+        preference_id(required: true)
         scope(required: false, description: "pool that generates the tracks: mla, mlb, mlm, rola, revamp")
     }
 
