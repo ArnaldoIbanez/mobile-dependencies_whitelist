@@ -1,8 +1,8 @@
 {
   "users": [
-    "daniela.medina@mercadolibre.com"
+    "lucia.blanc@mercadolibre.com"
   ],
-  "process_name": "deals_count_clicks_banner",
+  "process_name": "classifieds-alerts",
   "cron": "",
   "extract": {
     "operation": "append",
@@ -13,36 +13,48 @@
         "format": "yyyy-MM-dd"
       },
       {
+        "name": "Type",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Path",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "Site",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Plataforma",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "size",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "banner_name",
+        "name": "Business",
         "type": "UNICODE_STRING"
       },
         {
-        "name": "SellerID",
-        "type": "UNICODE_STRING"
-      },
-       {
-        "name": "DealID",
+        "name": "UserUid",
         "type": "UNICODE_STRING"
       },
         {
-        "name": "totalClicks",
-        "type": "INTEGER"
+        "name": "UserId",
+        "type": "UNICODE_STRING"
+      },
+        {
+        "name": "Platform",
+        "type": "UNICODE_STRING"
+      },
+        {
+        "name": "Referer",
+        "type": "UNICODE_STRING"
+      },
+        {
+        "name": "Url",
+        "type": "UNICODE_STRING"
+      },
+        {
+        "name": "Vertical",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "business-assurance/dealscantclicks.sql",
+      "script": "business-assurance/classifieds-alerts.sql",
       "parameters": [
         {
           "name": "param01",
