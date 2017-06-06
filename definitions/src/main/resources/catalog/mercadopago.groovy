@@ -457,13 +457,13 @@ tracks {
 
     //Mails
     "/email/message/vencida"(platform: "/email") {
-        type(description:" for loan status", type: PropertyType.String, required: true)
+        type(description:"email for loan status", type: PropertyType.String, required: true)
     }
     "/email/message/prevencimiento"(platform: "/email") {
-        type(description:" for loan status", type: PropertyType.String, required: true)
+        type(description:"email name for loan status", type: PropertyType.String, required: true)
     }
     "/email/message/congrats"(platform: "/email") {
-        type(description:" for loan status", type: PropertyType.String, required: true)
+        type(description:"email name for loan status", type: PropertyType.String, required: true)
     }
 
     /** Summary **/
