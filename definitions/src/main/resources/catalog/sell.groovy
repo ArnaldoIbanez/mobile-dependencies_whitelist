@@ -96,13 +96,13 @@ tracks {
     }
 
     // Apps
-    "/sell/list/drafts"(platform: "/", type: TrackType.View) {
+    "/sell/list/drafts"(platform: "/mobile", type: TrackType.View) {
         session_id(required: false, description: "Session id", type: PropertyType.String)
     }
-    "/sell/list/drafts/draft_action/draft_deleted"(platform: "/", type: TrackType.Event) {
+    "/sell/list/drafts/draft_action/draft_deleted"(platform: "/mobile", type: TrackType.Event) {
         session_id(required: false, description: "Session id", type: PropertyType.String)
     }
-    "/sell/list/drafts/draft_action/draft_resumed"(platform: "/", type: TrackType.Event) {
+    "/sell/list/drafts/draft_action/draft_resumed"(platform: "/mobile", type: TrackType.Event) {
         session_id(required: false, description: "Session id", type: PropertyType.String)
     }
 

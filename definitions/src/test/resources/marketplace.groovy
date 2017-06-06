@@ -3219,6 +3219,7 @@ trackTests {
     }
 
     test("Native Sell flow steps"){
+        "/sell/list/congrats"(platform: "/mobile") {}
         "/sell/list/drafts"(platform: "/mobile") {session_id = "MLA123456"}
         "/sell/list/hub"(platform: "/mobile" ) {session_id = "MLA123456"}
         "/sell/list/walkthrough"(platform: "/mobile" ) {session_id = "MLA123456"}
@@ -3230,7 +3231,6 @@ trackTests {
         "/sell/list/color_selection_review"(platform: "/mobile" ) {session_id = "MLA123456"}
         "/sell/list/condition"(platform: "/mobile" ) {session_id = "MLA123456"}
         "/sell/list/condition_review"(platform: "/mobile" ) {session_id = "MLA123456"}
-        "/sell/list/congrats"(platform: "/mobile" ) {session_id = "MLA123456"}
         "/sell/list/description"(platform: "/mobile" ) {session_id = "MLA123456"}
         "/sell/list/description_review"(platform: "/mobile" ) {session_id = "MLA123456"}
         "/sell/list/payment_methods"(platform: "/mobile" ) {session_id = "MLA123456"}
@@ -3272,6 +3272,7 @@ trackTests {
         "/sell/update/listing_types"(platform: "/mobile" ) {session_id = "MLA123456"}
         "/sell/update/listing_types_upgrade"(platform: "/mobile" ) {session_id = "MLA123456"}
         "/sell/update/congrats_upgrade"(platform: "/mobile" ) {session_id = "MLA123456"}
+       
         "/sell/list/drafts/draft_action/draft_deleted"(platform: "/mobile") {session_id = "MLA123456"}
         "/sell/list/drafts/draft_action/draft_resumed"(platform: "/mobile") {session_id = "MLA123456"}
         "/sell/list/sip/publish/pictures_fail"(platform: "/mobile") {
@@ -3281,9 +3282,9 @@ trackTests {
         }
         "/sell/list/sip/publish/fail"(platform: "/mobile") {session_id = "MLA123456"}
         "/sell/list/sip/publish/abandonment"(platform: "/mobile") {session_id = "MLA123456"}
-        "/sell/list/sip/notification/view_item"(platform: "/mobile") {session_id = "MLA123456"}
-        "/sell/list/sip/notification/upgrade"(platform: "/mobile") {session_id = "MLA123456"}
-        "/sell/list/sip/notification/congrats"(platform: "/mobile") {session_id = "MLA123456"}
+        "/sell/list/sip/notification/view_item"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/list/sip/notification/upgrade"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/list/sip/notification/congrats"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/list/pictures_uploader/crop/crop_canceled"(platform: "/mobile") {session_id = "MLA123456"}
         "/sell/list/pictures_uploader/crop/crop_acepted"(platform: "/mobile") {session_id = "MLA123456"}
         "/sell/list/price/similar_products/similar_item_selected"(platform: "/mobile") {session_id = "MLA123456"}
