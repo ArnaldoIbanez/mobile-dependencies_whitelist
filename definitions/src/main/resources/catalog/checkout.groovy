@@ -560,7 +560,9 @@ tracks {
         //    ]
     }
     "/checkout/payments/stored_card"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/payments/stored_card/select_bank"(platform:"/mobile") {}
+    "/checkout/payments/stored_card/select_bank"(platform:"/mobile") {
+        available_methods(required: true, type: PropertyType.ArrayList, description: "list of available banks")
+    }
     "/checkout/payments/stored_card/security_code"(platform:"/mobile") {}
     "/checkout/payments/stored_card/installments"(platform:"/mobile") {
         credit_card_id(required: false, type: PropertyType.String)
@@ -599,6 +601,8 @@ tracks {
     "/checkout/payments/billing_info#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         billing_info_state(required: true, type: PropertyType.String)
     }
+    // payment promotions screen. Eg: bank promos in MLA
+    "/checkout/payments/promotions"(platform:"/mobile") {}
     //"/checkout/review" //shared between web and app, already defined in web section.
     "/checkout/review#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         status(required: true, type: PropertyType.String)

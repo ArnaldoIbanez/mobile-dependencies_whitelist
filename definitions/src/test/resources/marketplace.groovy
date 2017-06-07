@@ -1077,6 +1077,7 @@ trackTests {
         }
         "/checkout/payments/stored_card/select_bank"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
+            available_methods = ["industrial", "bancor", "santander"]
         }
         "/checkout/payments/stored_card/security_code"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -1133,6 +1134,9 @@ trackTests {
         }
         "/checkout/payments/billing_info#submit"(platform:"/mobile", type:TrackType.Event) {
             billing_info_state = "same_billing_info"
+        }
+        "/checkout/payments/promotions"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
         }
         "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
             status = "success"
