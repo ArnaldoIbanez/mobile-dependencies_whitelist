@@ -131,6 +131,7 @@ tracks {
     }
     "/sell/list/sip/publish/fail"(platform: "/", type: TrackType.Event) {
         session_id(required: false, description: "Session id", type: PropertyType.String)
+        error_message(required: false, description: "Error message", type: PropertyType.String)
     }
     "/sell/list/sip/publish/abandonment"(platform: "/", type: TrackType.Event) {
         session_id(required: false, description: "Session id", type: PropertyType.String)
@@ -332,6 +333,7 @@ tracks {
     }
     "/sell/update/sip/publish/fail"(platform: "/", type: TrackType.Event) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
+        error_message(required: false, description: "Error message", type: PropertyType.String)
     }
     "/sell/update/sip/publish/abandonment"(platform: "/", type: TrackType.Event) {
         item_id(required: false, description: "Item id", type: PropertyType.String)

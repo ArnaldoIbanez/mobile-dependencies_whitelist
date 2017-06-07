@@ -3280,7 +3280,10 @@ trackTests {
             fail_pictures = 2
             total_pictures = 6
         }
-        "/sell/list/sip/publish/fail"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/sip/publish/fail"(platform: "/mobile") {
+            session_id = "214464778-list-d5e5a20b2935"
+            error_message="error"
+        }
         "/sell/list/sip/publish/abandonment"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/sip/notification/view_item"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/sip/notification/upgrade"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
@@ -3302,7 +3305,10 @@ trackTests {
             fail_pictures = 2
             total_pictures = 6
         }
-        "/sell/update/sip/publish/fail"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/sip/publish/fail"(platform: "/mobile") {
+            item_id = "MLA123456"
+            error_message="error"
+        }
         "/sell/update/sip/publish/abandonment"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/notification/view_item"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/notification/upgrade"(platform: "/mobile") {item_id = "MLA123456"}
