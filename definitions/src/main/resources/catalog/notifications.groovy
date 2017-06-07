@@ -48,7 +48,7 @@ tracks {
      **/
     "/notification"(platform: "/mobile") {
         event_type(required: true,
-                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel"],
+                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel","purged_token"],
         description: "Type of notification event")
         action_type(required: false,
                 values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer"])
@@ -64,6 +64,7 @@ tracks {
         status(required: false, values: ["read", "unread"], deprecated: true, description: "*Deprecated*: Just for old NotifCenter.")
 
         device_id(required: false, description: "The real device_id, may differ from device field")
+        context(required: false, type: PropertyType.String)
     }
     //Tu producto está en camino
     "/notification/shipping_shipped"(platform: "/mobile") {
@@ -163,7 +164,7 @@ tracks {
     //Mediations
     "/notification/mediations_complainant"(platform: "/mobile") {
         order_id(required: true, type: PropertyType.Numeric, description: "The order related to the claim")
-        claim_id(required: true, type: PropertyType.String)
+        claim_id(required: true, type: PropertyType.Numeric)
     }
 
     //Moderation

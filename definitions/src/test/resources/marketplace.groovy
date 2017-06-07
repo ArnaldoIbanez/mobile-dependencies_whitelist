@@ -2704,7 +2704,7 @@ trackTests {
             event_type = "open"
             notification_style = "BigTextStyle"
             order_id = 1234
-            claim_id = "3123"
+            claim_id = 3123
             action_type = "favorite"
         }
 
@@ -2713,7 +2713,7 @@ trackTests {
             event_type = "auto_dismiss"
             notification_style = "BigTextStyle"
             order_id = 1234
-            claim_id = "3123"
+            claim_id = 3123
             action_type = "favorite"
         }
 
