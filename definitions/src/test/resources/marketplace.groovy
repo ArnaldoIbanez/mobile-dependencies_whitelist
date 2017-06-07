@@ -1134,6 +1134,9 @@ trackTests {
         "/checkout/payments/billing_info#submit"(platform:"/mobile", type:TrackType.Event) {
             billing_info_state = "same_billing_info"
         }
+        "/checkout/payments/promotions"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
         "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
             status = "success"
         }

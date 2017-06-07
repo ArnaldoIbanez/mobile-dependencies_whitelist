@@ -599,6 +599,8 @@ tracks {
     "/checkout/payments/billing_info#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         billing_info_state(required: true, type: PropertyType.String)
     }
+    // payment promotions screen. Eg: bank promos in MLA
+    "/checkout/payments/promotions"(platform:"/mobile") {}
     //"/checkout/review" //shared between web and app, already defined in web section.
     "/checkout/review#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         status(required: true, type: PropertyType.String)
