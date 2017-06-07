@@ -560,7 +560,9 @@ tracks {
         //    ]
     }
     "/checkout/payments/stored_card"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/payments/stored_card/select_bank"(platform:"/mobile") {}
+    "/checkout/payments/stored_card/select_bank"(platform:"/mobile") {
+        available_methods(required: true, type: PropertyType.ArrayList, description: "list of available banks")
+    }
     "/checkout/payments/stored_card/security_code"(platform:"/mobile") {}
     "/checkout/payments/stored_card/installments"(platform:"/mobile") {
         credit_card_id(required: false, type: PropertyType.String)
