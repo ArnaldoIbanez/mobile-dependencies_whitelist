@@ -8,7 +8,7 @@ get_json_object(others['fragment'], '$.dealID') AS	dealID,
 count(1) as totalClicks
 from tracks
 where 	   ds >='2017-04-01'
-and 	   ds < '2017-05-31'
+and 	   ds < '2017-04-12'
 and others['fragment'] like '%deal%'
 and get_json_object(others['fragment'], '$.dealID') IS NOT NULL
 group by substr(ds,1,10), 
