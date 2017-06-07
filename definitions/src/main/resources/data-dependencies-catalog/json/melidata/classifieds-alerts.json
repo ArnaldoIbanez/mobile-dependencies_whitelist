@@ -3,7 +3,7 @@
     "lucia.blanc@mercadolibre.com"
   ],
   "process_name": "classifieds-alerts",
-  "cron": "",
+  "cron": "00 10 * * *",
   "extract": {
     "operation": "append",
     "columns": [
