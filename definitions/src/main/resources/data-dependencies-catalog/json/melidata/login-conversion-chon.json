@@ -5,7 +5,7 @@
     "matias.leonangeli@mercadolibre.com"
   ],
   "process_name": "login_conversion_chon",
-  "cron": "15 14 * * *",
+  "cron": "",
   "extract": {
     "operation": "append",
     "columns": [
@@ -48,12 +48,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2017-04-23",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "2017-05-08",
           "format": "yyyy-MM-dd"
         }
       ]
