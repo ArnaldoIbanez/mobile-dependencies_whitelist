@@ -9,32 +9,22 @@ tracks {
 
     "/identity-validation"(platform: "/", isAbstract: true) {}
 
-    "/identity-validation/init_validation"(platform: "/", type: TrackType.Event) {
+    "/identity-validation/validation_landing"(platform: "/", type: TrackType.Event) {
         flow(type: PropertyType.String, required: true, description: "The flow to call identity validation. Ej. ms_hard_validation")
     }
 
-    "/identity-validation/phone_challenge"(platform: "/", type: TrackType.Event) {
+    "/identity-validation/start_validation"(platform: "/", type: TrackType.Event) {
+        flow(type: PropertyType.String, required: true, description: "The flow to call identity validation. Ej. ms_hard_validation")
     }
 
-    "/identity-validation/documentation_challenge"(platform: "/", type: TrackType.Event) {
-        result(type: PropertyType.String, required: true, description: "The result of validation")
+    "/identity-validation/finish_challenge"(platform: "/", type: TrackType.Event) {
+        type(type: PropertyType.String, required: true, description: "Challenge type. Ej. documentation, phone, recommendation")
+        success(type: PropertyType.Boolean, required: true, description: "The success of completed challenge")
     }
-
-    "/identity-validation/recommendation_challenge"(platform: "/", type: TrackType.Event) {
-        result(type: PropertyType.String, required: true, description: "The result of validation")
-    }
-
-    "/identity-validation/facebook_challenge"(platform: "/", type: TrackType.Event) {}
-
-    "/identity-validation/gmail_challenge"(platform: "/", type: TrackType.Event) {}
-
-    "/identity-validation/yahoo_challenge"(platform: "/", type: TrackType.Event) {}
-
-    "/identity-validation/gplus_challenge"(platform: "/", type: TrackType.Event) {}
 
     "/identity-validation/finish_validation"(platform: "/", type: TrackType.Event) {
-        result(type: PropertyType.String, required: true, description: "The result of validation")
         flow(type: PropertyType.String, required: true, description: "The flow to call identity validation. Ej. ms_hard_validation")
+        result(type: PropertyType.String, required: true, description: "The result of validation. Ej. valid, invalid")
     }
 
 }

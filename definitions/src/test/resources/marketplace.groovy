@@ -3742,34 +3742,114 @@ trackTests {
         }
     }
 
-    test("Identity Validation with flows") {
+    test("Identity Validation ") {
 
-        "/identity-validation/landing_phone"(platform: "/web/desktop") {
-            flow = "mediations_bpp"
-        }
-
-        "/identity-validation/phone_code"(platform: "/web/desktop") {
-            flow = "mediations_bpp"
-        }
-
-        "/identity-validation/finish_validation"(platform: "/web/desktop") {
-            result = "invalid_duplicate_doc_image"
-            flow = "mediations_bpp"
-        }
-
-        "/identity-validation/landing_phone"(platform: "/web/mobile") {
+        "/identity-validation/validation_landing"(platform: "/web/mobile") {
             flow = "ms_hard_validation"
         }
 
-        "/identity-validation/phone_code"(platform: "/web/mobile") {
+        "/identity-validation/start_validation"(platform: "/web/mobile") {
             flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/web/mobile") {
+            type = "documentation"
+            success = true
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/web/mobile") {
+            type = "recommendation"
+            success = true
         }
 
         "/identity-validation/finish_validation"(platform: "/web/mobile") {
-            result = "success"
+            result = "valid"
             flow = "ms_hard_validation"
         }
 
+        "/identity-validation/validation_landing"(platform: "/web/desktop") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/start_validation"(platform: "/web/desktop") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/web/desktop") {
+            type = "documentation"
+            success = true
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/web/desktop") {
+            type = "phone"
+            success = false
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/web/desktop") {
+            type = "recommendation"
+            success = true
+        }
+
+        "/identity-validation/finish_validation"(platform: "/web/desktop") {
+            result = "valid"
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/validation_landing"(platform: "/mobile/android") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/start_validation"(platform: "/mobile/android") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/mobile/android") {
+            type = "documentation"
+            success = true
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/mobile/android") {
+            type = "phone"
+            success = false
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/mobile/android") {
+            type = "recommendation"
+            success = true
+        }
+
+        "/identity-validation/finish_validation"(platform: "/mobile/android") {
+            result = "valid"
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/validation_landing"(platform: "/mobile/ios") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/start_validation"(platform: "/mobile/ios") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/mobile/ios") {
+            type = "documentation"
+            success = true
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/mobile/ios") {
+            type = "phone"
+            success = false
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/mobile/ios") {
+            type = "recommendation"
+            success = true
+        }
+
+        "/identity-validation/finish_validation"(platform: "/mobile/ios") {
+            result = "valid"
+            flow = "ms_hard_validation"
+        }
     }
 
     test("recommendations tracking in feedbacks congrats") {

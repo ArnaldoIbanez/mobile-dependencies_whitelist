@@ -432,14 +432,20 @@ metrics {
 	}
 
 
-	"identity-validation/uniqueness.recommendation"(description: "Post phone challenge count") {
+	"identity-validation/uniqueness.recommendation"(description: "Trust vote to login user") {
 		startWith {
 			experiment("auth/identity-validation_recommendation")
 		}
 
 		countsOn {
 			condition {
-				path("/identity-validation/recomendation")
+				and(
+						path("/identity-validation/finish_validation"),
+						or(
+								equals('event_data.flow', "uniqueness"),
+								equals('event_data.flow', "recommendation")
+						)
+				)
 			}
 		}
 	}
