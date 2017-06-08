@@ -432,14 +432,20 @@ metrics {
 	}
 
 
-	"identity-validation/phone.landing"(description: "Post phone challenge count") {
+	"identity-validation/uniqueness.recommendation"(description: "Trust vote to login user") {
 		startWith {
-			experiment("auth/identity-validation_phone-landing")
+			experiment("auth/identity-validation_recommendation")
 		}
 
 		countsOn {
 			condition {
-				path("/identity-validation/phone_code")
+				and(
+						path("/identity-validation/finish_validation"),
+						or(
+								equals('event_data.flow', "uniqueness"),
+								equals('event_data.flow', "recommendation")
+						)
+				)
 			}
 		}
 	}
