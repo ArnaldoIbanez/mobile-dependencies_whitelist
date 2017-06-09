@@ -40,7 +40,6 @@ usr.uid
 where 	   ds >='2017-04-01'
 and 	   ds < '2017-04-10'
 and path = '/orders/ordercreated' 
-and application.site_id= 'MLA'
 group by substr(ds,1,10),
 application.site_id,
 device.platform, 
