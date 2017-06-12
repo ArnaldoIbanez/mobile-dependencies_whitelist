@@ -15,7 +15,7 @@ WHERE ds >= '@param03 20' AND ds < '@param04 20'
     AND `jt`.`event` = 'print'
 GROUP BY from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd hh') - 14400, 'yyyy-MM-dd hh'), `jt`.`id`) AS t1
 
-INNER JOIN
+LEFT JOIN
 
 (SELECT ds,
     regexp_extract(`jt`.`id`, '^(\/.*)\/.*$', 1) AS `component`,
