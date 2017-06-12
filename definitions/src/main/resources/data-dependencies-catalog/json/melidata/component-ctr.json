@@ -3,9 +3,9 @@
     "franco.vitali@mercadolibre.com"
   ],
   "process_name": "homes_component_ctr",
-  "cron": "0 4 * * *",
+  "cron": "0 1 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
       {
         "name": "ds",
@@ -26,7 +26,7 @@
       }
     ],
     "sql": {
-      "script": "melidata/homes-component-ctr.sql",
+      "script": "melidata/component-ctr.sql",
       "parameters": [
         {
           "name": "param01",
