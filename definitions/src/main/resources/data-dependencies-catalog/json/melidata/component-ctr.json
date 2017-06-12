@@ -2,10 +2,10 @@
   "users": [
     "franco.vitali@mercadolibre.com"
   ],
-  "process_name": "homes_component_ctr",
-  "cron": "0 1 * * *",
+  "process_name": "component_ctr",
+  "cron": "0 4 * * *",
   "extract": {
-    "operation": "destroy",
+    "operation": "append",
     "columns": [
       {
         "name": "ds",
