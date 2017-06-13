@@ -86,6 +86,7 @@ trackTests {
                 canonical="http://home.mercadolibre.com.ar/telefonia/"
                 cli_rel_qty_link_to_category="MLA123"
             }
+            catalog_product_id="MLA123"
         }
 
         def defaultEmptySearchInformation = {
