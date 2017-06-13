@@ -11,6 +11,6 @@ SELECT
 FROM tracks
 WHERE
     path LIKE '/notification/%'
-    AND ds < cast(current_date AS varchar)
-    AND ds > cast((current_date - interval '1' day) AS varchar)
+    AND ds >= '@param01'
+    and ds < '@param02'
 GROUP BY 3,4,5,6,7,8,9
