@@ -3,7 +3,7 @@
     "franco.vitali@mercadolibre.com"
   ],
   "process_name": "component_ctr",
-  "cron": "0 4 * * *",
+  "cron": "00 04 * * *",
   "extract": {
     "operation": "append",
     "columns": [
