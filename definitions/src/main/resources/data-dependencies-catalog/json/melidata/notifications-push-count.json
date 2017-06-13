@@ -3,7 +3,7 @@
     "notifications-it@mercadolibre.com"
   ],
   "process_name": "notifications_count",
-  "cron": "0 5 * * *",
+  "cron": "00 05 * * *",
   "extract": {
     "operation": "append",
     "columns": [{
@@ -43,7 +43,7 @@
         "format": "yyyy-MM-dd"
       }, {
         "name": "param02",
-        "value": "DAY",
+        "value": "DAY-0",
         "format": "yyyy-MM-dd"
       }]
     }
