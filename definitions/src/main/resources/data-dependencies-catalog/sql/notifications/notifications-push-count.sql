@@ -1,6 +1,6 @@
 SELECT
     count(*) AS total,
-    current_date AS fecha,
+    '@param01' AS fecha,
     split(path,'/')[3] AS notification_type,
     jet(event_data,'event_type') AS event_type,
     split(device.platform,'/')[3] AS platform,

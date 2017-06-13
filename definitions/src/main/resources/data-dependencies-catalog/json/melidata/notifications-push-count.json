@@ -39,11 +39,11 @@
       "script": "notifications/notifications-push-count.sql",
       "parameters": [{
         "name": "param01",
-        "value": "DAY-2",
+        "value": "DAY-1",
         "format": "yyyy-MM-dd"
       }, {
         "name": "param02",
-        "value": "DAY-1",
+        "value": "DAY",
         "format": "yyyy-MM-dd"
       }]
     }
