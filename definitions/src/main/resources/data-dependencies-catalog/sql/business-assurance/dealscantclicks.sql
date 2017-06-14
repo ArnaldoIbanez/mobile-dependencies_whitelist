@@ -7,8 +7,8 @@ get_json_object(others['fragment'], '$.sellerid') AS SellerID,
 get_json_object(others['fragment'], '$.dealID') AS	dealID,
 count(1) as totalClicks
 from tracks
-where 	   ds >='2017-04-01'
-and 	   ds < '2017-05-31'
+where 	   ds >='@param01'
+and 	   ds < '@param02'
 and others['fragment'] like '%deal%'
 and get_json_object(others['fragment'], '$.dealID') IS NOT NULL
 group by substr(ds,1,10), 
@@ -17,5 +17,4 @@ device.platform,
 get_json_object(others['fragment'], '$.size') ,
 get_json_object(others['fragment'], '$.banner_name') ,
 get_json_object(others['fragment'], '$.sellerid') ,
-get_json_object(others['fragment'], '$.dealID'),
 get_json_object(others['fragment'], '$.dealID')

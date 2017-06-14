@@ -5,13 +5,13 @@ SELECT tracks_flows_total.platform,
        tracks_flows_total.site_id, 
        tracks_flows_total.flows_total,
        tracks_flow_collections_total.flow_collections_total,
-       replace(CAST(COALESCE(ROUND(((tracks_flow_collections_total.flow_collections_total * 100) / CAST(tracks_flows_total.flows_total as DOUBLE)), 2), 0) as VARCHAR), '.', ',')  as conversion,
+       replace(CAST(COALESCE(ROUND(((tracks_flow_collections_total.flow_collections_total * 100) / CAST(tracks_flows_total.flows_total as DOUBLE)), 2), 0) as varchar(6)), '.', ',')  as conversion,
        tracks_1.flow_v0_count as flow_v0_count,
        tracks_2.flow_collection_v0_count as flow_collection_v0_count,
-       COALESCE(replace(CAST(ROUND(((tracks_2.flow_collection_v0_count * 100) / CAST(tracks_1.flow_v0_count as DOUBLE)), 2) as VARCHAR), '.', ','), '0')  as v0_conversion,
+       COALESCE(replace(CAST(ROUND(((tracks_2.flow_collection_v0_count * 100) / CAST(tracks_1.flow_v0_count as DOUBLE)), 2) as varchar(6)), '.', ','), '0')  as v0_conversion,
        tracks_3.flow_v1_count as flow_v1_count,
        tracks_4.flow_collection_v1_count as flow_collection_v1_count,
-       COALESCE(replace(CAST(ROUND(((tracks_4.flow_collection_v1_count * 100) / CAST(tracks_3.flow_v1_count as DOUBLE)), 2) as VARCHAR), '.', ','), '0')  as v1_conversion
+       COALESCE(replace(CAST(ROUND(((tracks_4.flow_collection_v1_count * 100) / CAST(tracks_3.flow_v1_count as DOUBLE)), 2) as varchar(6)), '.', ','), '0')  as v1_conversion
     FROM 
     (
         SELECT device.platform, substr(ds, 1, 10) as ds_date, jest(event_data, 'collector_nickname') as collector_nickname, 

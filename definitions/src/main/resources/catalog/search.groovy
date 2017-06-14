@@ -31,6 +31,7 @@ tracks {
         isRetina(required: false, description: 'Whether the screen is retina display')
         //Tracks from Search Backend:
         backend_data(required: false)
+        catalog_product_id(required: false, description: 'Id of the product, only if the product header is shown')
             //ab(required: false, description:'ab testing related. to be deprecated')
             //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
             //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')

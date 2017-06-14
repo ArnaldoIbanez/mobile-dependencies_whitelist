@@ -14,5 +14,5 @@ sum(if((path = '/vip/show_phone') and (platform.http.http_referer LIKE '%searchA
 sum(if((path = '/vip/call_seller') and (others['fragment'] LIKE '%SA:true%'),1,0)) AS total_call_seller_email_vip,
 sum(if((path = '/vip/call_seller') and (platform.http.http_referer LIKE '%searchAlertsMail_true%'),1,0)) AS total_call_seller_email_search_vip
 FROM tracks
-WHERE ds >= '2017-04-21' AND ds < '2017-05-10'
+WHERE ds >= '2017-05-10' AND ds <= '@param01'
 GROUP BY substr(ds,1,10), application.site_id, device.platform, jest(event_data, 'vertical'), application.business
