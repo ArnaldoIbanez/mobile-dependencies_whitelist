@@ -46,10 +46,16 @@ tracks {
 
     "/email/message"(platform: "/email"){}
 
-//    "/email/congrats"(platform: "/email"){}
-//
-//    "/email/next_to_overdue"(platform: "/email"){}
-//
-//    "/email/late_fee"(platform: "/email"){}
+//    "/email/congrats"(platform: "/email"){
+        //days(description:"day number", type: PropertyType.Numeric, required: true)
+//    }
+
+//    "/email/next_to_overdue"(platform: "/email"){
+//        days(description:"day number", type: PropertyType.Numeric, required: true)
+//    }
+
+//    "/email/late_fee"(platform: "/email"){
+//        days(description:"day number", type: PropertyType.Numeric, required: true)
+//    }
 
 }
