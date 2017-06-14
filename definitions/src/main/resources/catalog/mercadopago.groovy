@@ -422,17 +422,14 @@ tracks {
     "/credits/merchant"(platform: "/", isAbstract: true) {}
     "/credits/merchant/enrollment"(platform: "/", isAbstract: true) {}
 
-//    "/email"(platform: "/", isAbstract: true) {}
-//    "/email/message"(platform: "/", isAbstract: true) {}
-
     //Landing merchant
     "/credits/merchant/enrollment"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/enrollment/not_interested"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/enrollment/choose_amount"(platform: "/", type: TrackType.Event) {
-        amount(description:"loan amount", type: PropertyType.Numeric, required: true)
+        amount(type: PropertyType.Numeric, required: true)
     }
     "/credits/merchant/enrollment/choose_installment"(platform: "/", type: TrackType.Event) {
-        installment(description:"installment", type: PropertyType.Numeric, required: true)
+        installment(type: PropertyType.Numeric, required: true)
     }
 
     //Modal merchant
@@ -450,15 +447,4 @@ tracks {
     "/credits/merchant/no_offer"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/hero_cta"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant/help"(platform: "/", type: TrackType.Event) {}
-
-//    //Mails
-//    "/email/message/vencida"(platform: "/email") {
-//        days(description:"email for loan status", type: PropertyType.String, required: true)
-//    }
-//    "/email/message/prevencimiento"(platform: "/email") {
-//        days(description:"email name for loan status", type: PropertyType.String, required: true)
-//    }
-//    "/email/message/congrats"(platform: "/email") {
-//        days(description:"email name for loan status", type: PropertyType.String, required: true)
-//    }
 }
