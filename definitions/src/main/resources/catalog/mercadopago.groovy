@@ -419,55 +419,46 @@ tracks {
     
     //Definitions
     "/credits"(platform: "/", isAbstract: true) {}
-    "/credits/merchant_admin"(platform: "/", isAbstract: true) {}
-    "/credits/merchant_enrollment"(platform: "/", isAbstract: true) {}
-    "/credits/merchant_enrollment/simulate"(platform: "/", isAbstract: true) {}
-    "/credits/merchant_enrollment/modal"(platform: "/", isAbstract: true) {}
-    "/credits/merchant_enrollment/pre_confirm"(platform: "/", isAbstract: true) {}
-    "/credits/merchant_enrollment/withdraw"(platform: "/", isAbstract: true) {}
-    "/credits/merchant_enrollment/detail"(platform: "/", isAbstract: true) {}
-    "/email"(platform: "/", isAbstract: true) {}
-    "/email/message"(platform: "/", isAbstract: true) {}
+    "/credits/merchant"(platform: "/", isAbstract: true) {}
+    "/credits/merchant/enrollment"(platform: "/", isAbstract: true) {}
+
+//    "/email"(platform: "/", isAbstract: true) {}
+//    "/email/message"(platform: "/", isAbstract: true) {}
 
     //Landing merchant
-    "/credits/merchant_enrollment/landing"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant_enrollment/simulate/exit_page"(platform: "/", type: TrackType.Event) {}
-    "/credits/merchant_enrollment/simulate/continue"(platform: "/", type: TrackType.Event) {
-        preConfirmLabel(required: true, type: PropertyType.String, description: "choice type")
-        eventValue(required: true, type: PropertyType.Numeric, description: "loan amount")
+    "/credits/merchant/enrollment"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/enrollment/not_interested"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/enrollment/choose_amount"(platform: "/", type: TrackType.Event) {
+        amount(description:"loan amount", type: PropertyType.Numeric, required: true)
     }
-    "/credits/merchant_enrollment/simulate/not_interested"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/enrollment/choose_installment"(platform: "/", type: TrackType.Event) {
+        installment(description:"installment", type: PropertyType.Numeric, required: true)
+    }
 
     //Modal merchant
-    "/credits/merchant_enrollment/modal/pre_confirm"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant_enrollment/pre_confirm/accept_loan"(platform: "/", type: TrackType.Event) {}
-    "/credits/merchant_enrollment/pre_confirm/cancel"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/enrollment/continue"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/enrollment/preconfirm"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/enrollment/cancel"(platform: "/", type: TrackType.Event) {}
 
     //Congrats merchant
-    "/credits/merchant_enrollment/congrats"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant_enrollment/detail/go_to_loans"(platform: "/", type: TrackType.Event) {}
-    "/credits/merchant_enrollment/withdraw/withdraw_loan"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/enrollment/congrats"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/enrollment/withdrawal"(platform: "/", type: TrackType.Event) {}
 
     //Dashboard merchant
-    "/credits/merchant_admin/offer"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant_admin/exit_page"(platform: "/", type: TrackType.Event) {}
-    "/credits/merchant_admin/hero_cta"(platform: "/", type: TrackType.Event) {}
-    "/credits/merchant_admin/more_info"(platform: "/", type: TrackType.Event) {}
-    "/credits/merchant_admin/no_offer"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/administrator"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/offer"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/no_offer"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/hero_cta"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/help"(platform: "/", type: TrackType.Event) {}
 
-    //Mails
-    "/email/message/vencida"(platform: "/email") {
-        type(description:"email for loan status", type: PropertyType.String, required: true)
-    }
-    "/email/message/prevencimiento"(platform: "/email") {
-        type(description:"email name for loan status", type: PropertyType.String, required: true)
-    }
-    "/email/message/congrats"(platform: "/email") {
-        type(description:"email name for loan status", type: PropertyType.String, required: true)
-    }
-
-    /** Summary **/
-    "/summary"(platform: "/", isAbstract: true) {}
-    "/summary/index"(platform: "/", type: TrackType.View) {}
-    "/summary/index/credit_loans"(platform: "/", type: TrackType.Event) {}
+//    //Mails
+//    "/email/message/vencida"(platform: "/email") {
+//        days(description:"email for loan status", type: PropertyType.String, required: true)
+//    }
+//    "/email/message/prevencimiento"(platform: "/email") {
+//        days(description:"email name for loan status", type: PropertyType.String, required: true)
+//    }
+//    "/email/message/congrats"(platform: "/email") {
+//        days(description:"email name for loan status", type: PropertyType.String, required: true)
+//    }
 }

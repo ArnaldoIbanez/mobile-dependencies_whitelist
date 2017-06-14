@@ -1303,44 +1303,45 @@ trackTests {
 
     test("merchant credits") {
         //Views
-        "/credits/merchant_enrollment/landing"(platform: "/web/desktop") {}
-        "/credits/merchant_enrollment/modal/pre_confirm"(platform: "/web/desktop") {}
-        "/credits/merchant_enrollment/congrats"(platform: "/web/desktop") {}
-        "/credits/merchant_admin/offer"(platform: "/web/desktop") {}
-        "/credits/merchant_admin/no_offer"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment/not_interested"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment/continue"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator"(platform: "/web/desktop") {}
+        "/credits/merchant/offer"(platform: "/web/desktop") {}
+        "/credits/merchant/no_offer"(platform: "/web/desktop") {}
 
         //Events
         //Landing merchant
-        "/credits/merchant_enrollment/simulate/exit_page"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant_enrollment/simulate/continue"(platform: "/web/desktop", type: TrackType.Event) {
-            preConfirmLabel = "Monto y plazo máximo"
-            eventValue = 26000
+        "/credits/merchant/enrollment/choose_amount"(platform: "/web/desktop", type: TrackType.Event) {
+            amount = 200000
         }
-        "/credits/merchant_enrollment/simulate/not_interested"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant/enrollment/choose_installment"(platform: "/web/desktop", type: TrackType.Event) {
+            installment = 9
+        }
 
         //Modal merchant
-        "/credits/merchant_enrollment/pre_confirm/accept_loan"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant_enrollment/pre_confirm/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant/enrollment/continue"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant/enrollment/preconfirm"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant/enrollment/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
 
         //Congrats merchant
-        "/credits/merchant_enrollment/withdraw/withdraw_loan"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant_enrollment/detail/go_to_loans"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant/enrollment/withdrawal"(platform: "/web/desktop", type: TrackType.Event) {}
 
         //Dashboard merchant
-        "/credits/merchant_admin/exit_page"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant_admin/hero_cta"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant_admin/more_info"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant/hero_cta"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant/help"(platform: "/web/desktop", type: TrackType.Event) {}
 
-        //Mails
-        "/email/message/vencida"(platform: "/email") {
-            type = "XVENCER"
-        }
-        "/email/message/prevencimiento"(platform: "/email") {
-            type = "XVENCER"
-        }
-        "/email/message/congrats"(platform: "/email") {
-            type = "XVENCER"
-        }
+//        //Mails
+//        "/email/message/vencida"(platform: "/email") {
+//            days = "XVENCER"
+//        }
+//        "/email/message/prevencimiento"(platform: "/email") {
+//            days = "XVENCER"
+//        }
+//        "/email/message/congrats"(platform: "/email") {
+//            days = "XVENCER"
+//        }
     }
 
     test("Checkout Off"){
@@ -1365,10 +1366,5 @@ trackTests {
             payment_type_id = "ticket"
             is_express = true
         }
-    }
-
-    test("summary mp"){
-        "/summary/index"(platform: "/web/desktop") {}
-        "/summary/index/credit_loans"(platform: "/web/desktop", type: TrackType.Event) {}
     }
 }
