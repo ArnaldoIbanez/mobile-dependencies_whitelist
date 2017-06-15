@@ -39,20 +39,4 @@ tracks {
     "/credits/merchant/no_offer"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/hero_cta"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant/help"(platform: "/", type: TrackType.Event) {}
-
-    //emails para merchant credits
-    "/email"(platform: "/email", isAbstract: true) {
-    }
-
-    "/email/congrats"(platform: "/email"){
-        days(type: PropertyType.Numeric, required: true)
-    }
-
-    "/email/next_to_overdue"(platform: "/email"){
-        days(type: PropertyType.Numeric, required: true)
-    }
-
-    "/email/late_fee"(platform: "/email"){
-        days(type: PropertyType.Numeric, required: true)
-    }
 }
