@@ -3,6 +3,8 @@ import com.ml.melidata.TrackType;
 
 trackTests {
 
+    defaultBusiness = "mercadopago"
+
     test("merchant credits") {
         //Views
         "/credits/merchant/enrollment"(platform: "/web/desktop") {}
