@@ -4,7 +4,6 @@ import com.ml.melidata.TrackType
 
 
 tracks {
-    /** Mercado Crédito **/
     defaultBusiness = "mercadopago"
 
     "/"(platform: "/web", isAbstract: true) {

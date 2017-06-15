@@ -35,16 +35,5 @@ trackTests {
         //Dashboard merchant
         "/credits/merchant/hero_cta"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/merchant/help"(platform: "/web/desktop", type: TrackType.Event) {}
-
-//        //Mails
-//        "/email/message/vencida"(platform: "/email") {
-//            days = "XVENCER"
-//        }
-//        "/email/message/prevencimiento"(platform: "/email") {
-//            days = "XVENCER"
-//        }
-//        "/email/message/congrats"(platform: "/email") {
-//            days = "XVENCER"
-//        }
     }
 }
