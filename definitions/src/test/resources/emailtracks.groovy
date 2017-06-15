@@ -58,6 +58,7 @@ trackTests {
         "/email/message"(platform: "/email") {
             defaultTrackInformation()
         }
+
     }
 
 }
