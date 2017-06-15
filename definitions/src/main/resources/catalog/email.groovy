@@ -46,6 +46,7 @@ tracks {
 
     "/email/message"(platform: "/email"){}
 
+//    defaultBusiness = "mercadopago"
 //    "/email/congrats"(platform: "/email"){
 //        days(type: PropertyType.Numeric, required: true)
 //    }
