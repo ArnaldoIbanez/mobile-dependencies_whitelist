@@ -40,6 +40,7 @@ tracks {
     "/credits/merchant/hero_cta"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant/help"(platform: "/", type: TrackType.Event) {}
 
+    //emails para merchant credits
     "/email"(platform: "/email", isAbstract: true) {
     }
 
