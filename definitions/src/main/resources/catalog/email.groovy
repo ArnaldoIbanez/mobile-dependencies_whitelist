@@ -45,18 +45,4 @@ tracks {
     "/email/fup_feedback"(platform: "/email"){}
 
     "/email/message"(platform: "/email"){}
-
-//    defaultBusiness = "mercadopago"
-//    "/email/congrats"(platform: "/email"){
-//        days(type: PropertyType.Numeric, required: true)
-//    }
-//
-//    "/email/next_to_overdue"(platform: "/email"){
-//        days(type: PropertyType.Numeric, required: true)
-//    }
-//
-//    "/email/late_fee"(platform: "/email"){
-//        days(type: PropertyType.Numeric, required: true)
-//    }
-
 }
