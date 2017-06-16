@@ -29,7 +29,7 @@ tracks {
         mymlGroup
     }
 
-    "/myml/sales/list"(platform: "/", type: TrackType.Event) {}
+    "/myml/sales/list"(platform: "/", type: TrackType.View) {}
 
     "/myml/sales/vop"(platform: "/", type: TrackType.Event) {}
 
