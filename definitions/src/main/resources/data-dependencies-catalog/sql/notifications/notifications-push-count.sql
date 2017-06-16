@@ -1,9 +1,9 @@
 SELECT COUNT(1) AS total, *
 FROM (
  SELECT '@param01' AS fecha,
-        split(path,'/')[3] AS notification_type,
+        split(path,'/')[2] AS notification_type,
         jet(event_data,'event_type') AS event_type,
-        split(device.platform,'/')[3] AS platform,
+        split(device.platform,'/')[2] AS platform,
         device.os_version AS os_version,
         application.site_id AS site,
         application.business AS marketplace,
