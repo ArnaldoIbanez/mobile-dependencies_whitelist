@@ -65,6 +65,8 @@ catalog {
     mercadopago.each { business ->
         include business, "mercadopago.groovy"
         include business, "checkoutOff.groovy"
+        include business, "credits.groovy"
+        include business, "mercadopago_mails.groovy"
     }
 
 }
