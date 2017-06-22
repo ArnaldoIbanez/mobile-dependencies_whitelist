@@ -11,7 +11,7 @@ tracks {
     "/"(platform: "/web", isAbstract: true) {
     }
 
-    //Definitions
+    //Definitions - Consumer
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
     "/credits/consumer/enrollment"(platform: "/", isAbstract: true) {}
