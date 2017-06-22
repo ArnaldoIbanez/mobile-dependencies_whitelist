@@ -36,4 +36,10 @@ trackTests {
         "/credits/merchant/hero_cta"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/merchant/help"(platform: "/web/desktop", type: TrackType.Event) {}
     }
+
+    test("consumer credits"){
+        //Views
+        "/credits/consumer/administrator"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/detail"(platform: "/web/desktop", type: TrackType.Event) {}
+    }
 }

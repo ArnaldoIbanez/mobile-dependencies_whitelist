@@ -7,7 +7,7 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
-    test("consumer credits_mercadopago") {
+    test("consumer credits") {
         //Views
         "/credits/consumer/enrollment"(platform: "/web/desktop") {}
         "/credits/consumer/enrollment/sms_validation"(platform: "/web/desktop") {}
