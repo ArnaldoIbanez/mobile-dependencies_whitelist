@@ -9,7 +9,7 @@ tracks {
     "/"(platform: "/web", isAbstract: true) {
     }
 
-    //Definitions
+    //Definitions - Merchant
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/merchant"(platform: "/", isAbstract: true) {}
     "/credits/merchant/enrollment"(platform: "/", isAbstract: true) {}
@@ -39,4 +39,14 @@ tracks {
     "/credits/merchant/no_offer"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/hero_cta"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant/help"(platform: "/", type: TrackType.Event) {}
+
+
+    //Definitions - Consumer
+    "/credits/consumer"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/administrator"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/administrator/detail"(platform: "/", isAbstract: true) {}
+
+    //Administrator consumer
+    "/credits/consumer/administrator"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/administrator/detail"(platform: "/", type: TrackType.View) {}
 }
