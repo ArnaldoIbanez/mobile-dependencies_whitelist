@@ -11,7 +11,7 @@ platform.http.http_referer AS Referer,
 platform.http.http_url as Url,
 jest(event_data, 'vertical') AS Vertical
 FROM tracks
-WHERE ds >= '2017-05-21' AND ds < '@param02'
+WHERE ds >= '@param01' AND ds < '@param02'
 AND 
 path IN ('/vip','/vip/contact_seller', '/vip/show_phone', '/vip/call_seller')
 AND (others['fragment'] LIKE '%SA:true%' OR platform.http.http_referer LIKE '%searchAlertsMail_true%')
