@@ -3284,6 +3284,7 @@ trackTests {
             session_id = "214464778-list-d5e5a20b2935"
             fail_pictures = 2
             total_pictures = 6
+            pictures_errors = ["error 1" , "error 2"]
         }
         "/sell/list/sip/publish/fail"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -3309,6 +3310,7 @@ trackTests {
             item_id = "MLA123456"
             fail_pictures = 2
             total_pictures = 6
+            pictures_errors = ["error 1" , "error 2"]
         }
         "/sell/update/sip/publish/fail"(platform: "/mobile") {
             item_id = "MLA123456"
