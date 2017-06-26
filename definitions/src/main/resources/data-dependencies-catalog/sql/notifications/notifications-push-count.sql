@@ -7,10 +7,12 @@ FROM (
         device.os_version AS os_version,
         application.site_id AS site,
         application.business AS marketplace,
-        application.version AS app_version
+        application.version AS app_version,
+        jet(event_data,'action_type') AS action_type
  FROM tracks
  WHERE path LIKE '/notification/%'
  AND   ds >= '@param01'
  AND   ds < '@param02'
+ AND (jest(event_data,'context') is null OR jest(event_data,'context') != 'notification_center')
 ) t
-GROUP BY t.notification_type, t.event_type, t.platform, t.os_version, t.site, t.marketplace, t.app_version, t.fecha
+GROUP BY t.fecha, t.notification_type, t.event_type, t.platform, t.os_version, t.site, t.marketplace, t.app_version, t.action_type
