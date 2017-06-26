@@ -3,9 +3,9 @@
     "notifications-it@mercadolibre.com"
   ],
   "process_name": "notifications_count",
-  "cron": "00 05 * * *",
+  "cron": "",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [{
       "name": "total",
       "type": "INTEGER",
