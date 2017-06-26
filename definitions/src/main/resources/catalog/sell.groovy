@@ -127,6 +127,7 @@ tracks {
     "/sell/list/sip/publish/pictures_fail"(platform: "/", type: TrackType.Event) {
         total_pictures(required: true, description: "Total pictures", type: PropertyType.Numeric)
         fail_pictures(required: true, description: "Failed pictures", type: PropertyType.Numeric)
+        pictures_errors(required: false, description: "Failed pictures", type: PropertyType.ArrayList)
         session_id(required: false, description: "Session id", type: PropertyType.String)
     }
     "/sell/list/sip/publish/fail"(platform: "/", type: TrackType.Event) {
@@ -329,6 +330,7 @@ tracks {
     "/sell/update/sip/publish/pictures_fail"(platform: "/", type: TrackType.Event) {
         total_pictures(required: true, description: "Total pictures", type: PropertyType.Numeric)
         fail_pictures(required: true, description: "Failed pictures", type: PropertyType.Numeric)
+        pictures_errors(required: false, description: "Failed pictures", type: PropertyType.ArrayList)
         item_id(required: false, description: "Item id", type: PropertyType.String)
     }
     "/sell/update/sip/publish/fail"(platform: "/", type: TrackType.Event) {
