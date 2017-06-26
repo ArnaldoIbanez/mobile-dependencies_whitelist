@@ -2,10 +2,10 @@
   "users": [
     "notifications-it@mercadolibre.com"
   ],
-  "process_name": "notifications_count",
-  "cron": "",
+  "process_name": "notifications_push",
+  "cron": "00 05 * * *",
   "extract": {
-    "operation": "destroy",
+    "operation": "append",
     "columns": [{
       "name": "total",
       "type": "INTEGER",
@@ -33,6 +33,9 @@
       "type": "UNICODE_STRING"
     }, {
       "name": "app_version",
+      "type": "UNICODE_STRING"
+    }, {
+      "name": "action_type",
       "type": "UNICODE_STRING"
     }],
     "sql": {
