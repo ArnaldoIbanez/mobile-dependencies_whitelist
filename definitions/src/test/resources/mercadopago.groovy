@@ -1321,5 +1321,54 @@ trackTests {
             payment_type_id = "ticket"
             is_express = true
         }
+        "/checkout_off/payment_option"(platform: "/web/mobile") {
+            top_groups = [[name: "Tarjetas", hasChildren: true], [name: "Efectivo", hasChildren: true]]
+        }
+        "/checkout_off/review"(platform: "/web/mobile") {
+            payment_type = "credit_card"
+            payment_method = "visa"
+            issuer = "288"
+            has_shipping = false
+            has_payer_shipping_data = false
+        }
+        "/checkout_off/review"(platform: "/web/desktop") {
+            payment_type = "ticket"
+            payment_method = "rapipago"
+            has_shipping = true
+            has_payer_shipping_data = true
+            shipping_mode = "me2"
+        }
+        "/checkout_off/express"(platform: "/web/mobile"){
+            payment_type = "account_money"
+            payment_method = "account_money"
+            only_account_money = false
+            has_shipping = true
+            has_payer_shipping_data = false
+            shipping_mode = "custom"
+        }
+        "/checkout_off/congrats/approved"(platform: "/web/mobile"){
+            payment_type = "credit_card"
+            payment_method = "visa"
+        }
+        "/checkout_off/congrats/pending"(platform: "/web/mobile") {}
+        "/checkout_off/congrats/instructions"(platform: "/web/mobile") {}
+        "/checkout_off/congrats/rejected"(platform: "/web/mobile") {}
+        "/checkout_off/shipping"(platform: "/web/mobile") {
+            shipping_mode = "me2"
+            local_pickup = false
+            payer_addresses = 2
+        }
+        "/checkout_off/shipping/address"(platform: "/web/desktop") {
+            shipping_mode = "custom"
+            local_pickup = true
+            payer_addresses = 0
+        }
+        "/checkout_off/shipping/method"(platform: "/web/mobile") {
+            shipping_method_count = 1
+        }
+        "/checkout_off/login"(platform: "/web/desktop") {}
+        "/checkout_off/card/credit_card"(platform: "/web/mobile") {}
+        "/checkout_off/card/debit_card"(platform: "/web/mobile") {}
+        "/checkout_off/card/split"(platform: "/web/mobile") {}
     }
 }
