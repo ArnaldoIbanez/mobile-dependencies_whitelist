@@ -5,6 +5,7 @@ This repository contains all the definitions for the information tracked thru *m
 
 ## Testing the catalog
 
+
 If you want to run the tests, you should execute **```make test```**
 
 ## Catalog Definitions
