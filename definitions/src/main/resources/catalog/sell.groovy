@@ -120,6 +120,7 @@ tracks {
     }
     "/sell/list/sip"(platform: "/", type: TrackType.View) {
         session_id(required: false, description: "Session id", type: PropertyType.String)
+        has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
     }
     "/sell/list/sip/publish"(platform: "/", isAbstract: true) {
         session_id(required: false, description: "Session id", type: PropertyType.String)
