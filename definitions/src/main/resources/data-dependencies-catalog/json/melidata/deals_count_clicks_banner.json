@@ -1,50 +1,48 @@
 {
   "users": [
-    "pablo.carle@mercadolibre.com",
-    "bruno.famiglietti@mercadolibre.com",
-    "matias.leonangeli@mercadolibre.com"
+    "daniela.medina@mercadolibre.com"
   ],
-  "process_name": "login_conversion_chon",
-  "cron": "00 09 * * *",
+  "process_name": "deals_count_clicks_banner",
+  "cron": "15 14 * * *",
   "extract": {
     "operation": "append",
     "columns": [
       {
-        "name": "dia",
+        "name": "ds",
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "site_id",
+        "name": "Site",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "platform",
+        "name": "Plataforma",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "cant_login_form",
-        "type": "INTEGER"
+        "name": "size",
+        "type": "UNICODE_STRING"
       },
       {
-        "name": "cant_ya_logueados",
-        "type": "INTEGER"
+        "name": "banner_name",
+        "type": "UNICODE_STRING"
       },
-      {
-        "name": "total",
-        "type": "INTEGER"
+        {
+        "name": "SellerID",
+        "type": "UNICODE_STRING"
       },
-      {
-        "name": "cant_auth_success",
-        "type": "INTEGER"
+       {
+        "name": "DealID",
+        "type": "UNICODE_STRING"
       },
-      {
-        "name": "cant_drop",
+        {
+        "name": "totalClicks",
         "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "auth/conversion-chon.sql",
+      "script": "business-assurance/dealscantclicks.sql",
       "parameters": [
         {
           "name": "param01",

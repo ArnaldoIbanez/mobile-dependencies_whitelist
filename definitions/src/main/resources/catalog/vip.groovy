@@ -27,12 +27,15 @@ tracks {
         shipping_mode(deprecated: true, required: false)
         free_shipping(deprecated: true, required: false)
         local_pick_up(deprecated: true, required: false)
-        promoted_items_clicked(required: false, descripcion: 'indicates whether clicked promoted items before reaching this vip')
+        promoted_items_clicked(required: false, descripcion: 'Indicates whether clicked promoted items before reaching this vip')
         billboard_clicked_position(required:false, type: PropertyType.Numeric)
         store_type(required: false, description: "Indicates store type")
         reputation_level(required: false, description: "Seller's reputation level")
         quotation_available(required: false, type: PropertyType.Boolean, description: "Indicates if the item can be quoted (cotizado)")
         fulfillment(required: false, type: PropertyType.Boolean, description: "Indicates if the item has fulfillment")
+        cart_content(required: false, type: PropertyType.Boolean, description: "Indicates if the VIP has cart features")
+        loyalty_level(required: false, description: "User's loyalty level")
+        free_shipping_benefit(required: false, type: PropertyType.Boolean, description: "Indicates if the user has free shipping benefit")
     }
 
     "/vip"(platform: "/web") {
@@ -42,6 +45,7 @@ tracks {
     "/vip"(platform: "/mobile") {
         category_id(required: false, description: "Item's category id")
         context(required: false)
+        resolution(required: false, description: "Indicates if the device has high or low resolution")
     }
 
     "/vip/abort"(platform: "/mobile", type: TrackType.Event) {}

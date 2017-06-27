@@ -29,7 +29,9 @@ tracks {
         mymlGroup
     }
 
-    "/myml/sales/list"(platform: "/") {}
+    "/myml/sales/list"(platform: "/", type: TrackType.View) {}
+
+    "/myml/sales/vop"(platform: "/", type: TrackType.Event) {}
 
     "/myml/sales/status"(platform: "/") {}
 

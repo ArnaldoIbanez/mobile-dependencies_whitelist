@@ -1189,67 +1189,137 @@ trackTests {
         }
     }
 
-    test("Identity Validation with flows") {
+    test("Identity Validation ") {
 
-        "/identity-validation/landing_phone"(platform: "/web/desktop") {
-            flow = "mediations_bpp"
-        }
-
-        "/identity-validation/phone_code"(platform: "/web/desktop") {
-            flow = "mediations_bpp"
-        }
-
-        "/identity-validation/finish_validation"(platform: "/web/desktop") {
-            result = "invalid_duplicate_doc_image"
-            flow = "mediations_bpp"
-        }
-
-        "/identity-validation/landing_phone"(platform: "/web/mobile") {
+        "/identity-validation/validation_landing"(platform: "/web/mobile") {
             flow = "ms_hard_validation"
         }
 
-        "/identity-validation/phone_code"(platform: "/web/mobile") {
+        "/identity-validation/start_validation"(platform: "/web/mobile") {
             flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/web/mobile") {
+            type = "documentation"
+            success = true
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/web/mobile") {
+            type = "recommendation"
+            success = true
         }
 
         "/identity-validation/finish_validation"(platform: "/web/mobile") {
-            result = "success"
+            result = "valid"
             flow = "ms_hard_validation"
         }
 
+        "/identity-validation/validation_landing"(platform: "/web/desktop") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/start_validation"(platform: "/web/desktop") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/web/desktop") {
+            type = "documentation"
+            success = true
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/web/desktop") {
+            type = "phone"
+            success = false
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/web/desktop") {
+            type = "recommendation"
+            success = true
+        }
+
+        "/identity-validation/finish_validation"(platform: "/web/desktop") {
+            result = "valid"
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/validation_landing"(platform: "/mobile/android") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/start_validation"(platform: "/mobile/android") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/mobile/android") {
+            type = "documentation"
+            success = true
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/mobile/android") {
+            type = "phone"
+            success = false
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/mobile/android") {
+            type = "recommendation"
+            success = true
+        }
+
+        "/identity-validation/finish_validation"(platform: "/mobile/android") {
+            result = "valid"
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/validation_landing"(platform: "/mobile/ios") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/start_validation"(platform: "/mobile/ios") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/mobile/ios") {
+            type = "documentation"
+            success = true
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/mobile/ios") {
+            type = "phone"
+            success = false
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/mobile/ios") {
+            type = "recommendation"
+            success = true
+        }
+
+        "/identity-validation/finish_validation"(platform: "/mobile/ios") {
+            result = "valid"
+            flow = "ms_hard_validation"
+        }
     }
 
-    /** Mercado Crédito **/
-
-    test("merchant credits") {
-
-        //Views
-        "/credits/merchant_enrollment/landing"(platform: "/web/desktop") {}
-        "/credits/merchant_enrollment/modal/pre_confirm"(platform: "/web/desktop") {}
-        "/credits/merchant_enrollment/congrats"(platform: "/web/desktop") {}
-        "/credits/merchant_admin/offer"(platform: "/web/desktop") {}
-        "/credits/merchant_admin/no_offer"(platform: "/web/desktop") {}
-
-        //Events
-        //Landing merchant
-        "/credits/merchant_enrollment/simulate/exit_page"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant_enrollment/simulate/continue"(platform: "/web/desktop", type: TrackType.Event) {
-            preConfirmLabel = "Monto y plazo máximo"
-            eventValue = 26000
+    test("Checkout Off"){
+        "/checkout_off/init"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
         }
-        "/credits/merchant_enrollment/simulate/not_interested"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/checkout_off/congrats"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "24286689"
+            scope = 'mla'
 
-        //Modal merchant
-        "/credits/merchant_enrollment/pre_confirm/accept_loan"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant_enrollment/pre_confirm/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
-
-        //Congrats merchant
-        "/credits/merchant_enrollment/withdraw/withdraw_loan"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant_enrollment/detail/go_to_loans"(platform: "/web/desktop", type: TrackType.Event) {}
-
-        //Dashboard merchant
-        "/credits/merchant_admin/exit_page"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant_admin/hero_cta"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant_admin/more_info"(platform: "/web/desktop", type: TrackType.Event) {}
+            payment_status = "pending"
+            payment_id = "123456789"
+            payment_status_detail = "pending_waiting_payment"
+            payment_method_id = "rapipago"
+            payment_type_id = "ticket"
+            is_express = true
+        }
     }
 }

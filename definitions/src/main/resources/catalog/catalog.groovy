@@ -50,6 +50,7 @@ catalog {
         include business, "cartCheckout.groovy"
         include business, "cartList.groovy"
         include business, "checkout.groovy"
+        include business, "credits_marketplace.groovy"
         include business, "email.groovy"
         include business, "home.groovy"
         include business, "loyalty.groovy"
@@ -64,6 +65,9 @@ catalog {
 
     mercadopago.each { business ->
         include business, "mercadopago.groovy"
+        include business, "checkoutOff.groovy"
+        include business, "credits_mercadopago.groovy"
+        include business, "mercadopago_mails.groovy"
     }
 
 }

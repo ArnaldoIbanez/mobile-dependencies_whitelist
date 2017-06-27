@@ -1,0 +1,54 @@
+{
+  "users": [
+    "franco.vitali@mercadolibre.com"
+  ],
+  "process_name": "component_ctr",
+  "cron": "00 04 * * *",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "component",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "prints",
+        "type": "INTEGER"
+      },
+      {
+        "name": "clicks",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "melidata/component-ctr.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "day-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "day-0",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param03",
+          "value": "day-2",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param04",
+          "value": "day-1",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
