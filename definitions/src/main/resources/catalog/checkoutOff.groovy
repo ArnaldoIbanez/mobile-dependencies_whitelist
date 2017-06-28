@@ -22,4 +22,59 @@ tracks {
         payment_type_id(required: true)
         is_express(required: true, type: PropertyType.Boolean)
     }
+
+    "/checkout_off/payment_option"(platform: "/", type: TrackType.View){
+        top_groups(required: true, description: "Top level groups")
+    }
+
+    "/checkout_off/review"(platform: "/", type: TrackType.View){
+        payment_type(required: true, description:"Payment type ID")
+        payment_method(required: true, description:"Payment method ID")
+        issuer (required: false, description:"Card's bank issuer. Null if account money")
+        has_shipping(required: true, description:"Does the preference have shipping?")
+        has_payer_shipping_data(required: false, description:"Did the payer add/select an address? Applicable only when has_shipping = true")
+        shipping_mode(required: false)
+    }
+
+    "/checkout_off/express"(platform: "/", type: TrackType.View){
+        payment_type(required: true, description:"Payment type ID")
+        payment_method(required: true, description:"Payment method ID")
+        issuer (required: false, description:"Card's bank issuer. Null if account money")
+        only_account_money(required: true, description:"Is account money the only available option for express checkout?")
+        has_shipping(required: true, description:"Does the preference have shipping?")
+        has_payer_shipping_data(required: false, description:"Did the payer add/select an address? Applicable only when has_shipping = true")
+        shipping_mode(required: false)
+    }
+
+    "/checkout_off/congrats/approved"(platform: "/", type: TrackType.View){}
+
+    "/checkout_off/congrats/pending"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/congrats/instructions"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/congrats/rejected"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/shipping"(platform: "/", type: TrackType.View) {
+        shipping_mode (required: true, description:"Either me2/custom/not_specified")
+        local_pickup (required: true, description:"If the payer can pickup the item instead of shipping")
+        free_method (required: false, description:"Any free shipping method?")
+        payer_addresses (required: false, description:"Payer address count")
+    }
+
+    "/checkout_off/shipping/address"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/shipping/method"(platform: "/", type: TrackType.View) {
+        shipping_method_count (required: true, description:"How many shipping methods are offered to the payer?")
+    }
+
+    "/checkout_off/login"(platform: "/", type: TrackType.View) { }
+
+    "/checkout_off/card"(platform: "/", isAbstract: true) {}
+
+    "/checkout_off/card/credit_card"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/card/debit_card"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/card/split"(platform: "/", type: TrackType.View) {}
+
 }
