@@ -539,8 +539,17 @@ trackTests {
 
         "/get_member/invite"(platform: "/mobile") {
             flow = "/get_member"
-            from = "/deeplink"
+            from = "/deep_link"
             scope = "point"
+        }
+
+        "/get_member/redeem"(platform: "/mobile") {
+            flow = "/get_member"
+        }
+
+        "/get_member/redeem"(platform: "/mobile") {
+            flow = "/get_member"
+            from = "/deep_link"
         }
     }
 
