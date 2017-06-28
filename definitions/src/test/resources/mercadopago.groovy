@@ -531,6 +531,28 @@ trackTests {
         }
     }
 
+    test("Get member") {
+        "/get_member/invite"(platform: "/mobile") {
+            flow = "/get_member"
+            scope = "wallet"
+        }
+
+        "/get_member/invite"(platform: "/mobile") {
+            flow = "/get_member"
+            from = "/deep_link"
+            scope = "point"
+        }
+
+        "/get_member/redeem"(platform: "/mobile") {
+            flow = "/get_member"
+        }
+
+        "/get_member/redeem"(platform: "/mobile") {
+            flow = "/get_member"
+            from = "/deep_link"
+        }
+    }
+
     test("Cellphone recharge") {
         "/cellphone_recharge/push_handler"(platform: "/mobile") {
             flow = "/cellphone_recharge"
