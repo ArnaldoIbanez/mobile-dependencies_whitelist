@@ -46,10 +46,7 @@ tracks {
         shipping_mode(required: false)
     }
 
-    "/checkout_off/congrats/approved"(platform: "/", type: TrackType.View){
-        payment_type(required: true, description:"Payment type ID")
-        payment_method(required: true, description:"Payment method ID")
-    }
+    "/checkout_off/congrats/approved"(platform: "/", type: TrackType.View){}
 
     "/checkout_off/congrats/pending"(platform: "/", type: TrackType.View) {}
 
@@ -64,12 +61,7 @@ tracks {
         payer_addresses (required: false, description:"Payer address count")
     }
 
-    "/checkout_off/shipping/address"(platform: "/", type: TrackType.View) {
-        shipping_mode (required: true, description:"Either me2/custom/not_specified")
-        local_pickup (required: true, description:"If the payer can pickup the item instead of shipping")
-        free_method (required: false, description:"Any free shipping method?")
-        payer_addresses (required: false, description:"Payer address count")
-    }
+    "/checkout_off/shipping/address"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/shipping/method"(platform: "/", type: TrackType.View) {
         shipping_method_count (required: true, description:"How many shipping methods are offered to the payer?")

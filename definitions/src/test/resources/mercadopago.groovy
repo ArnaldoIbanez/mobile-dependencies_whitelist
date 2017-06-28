@@ -1319,12 +1319,24 @@ trackTests {
             payment_status_detail = "pending_waiting_payment"
             payment_method_id = "rapipago"
             payment_type_id = "ticket"
-            is_express = true
+            is_express = false
         }
         "/checkout_off/payment_option"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
             top_groups = [[name: "Tarjetas", hasChildren: true], [name: "Efectivo", hasChildren: true]]
         }
         "/checkout_off/review"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
             payment_type = "credit_card"
             payment_method = "visa"
             issuer = "288"
@@ -1332,6 +1344,12 @@ trackTests {
             has_payer_shipping_data = false
         }
         "/checkout_off/review"(platform: "/web/desktop") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
             payment_type = "ticket"
             payment_method = "rapipago"
             has_shipping = true
@@ -1339,6 +1357,12 @@ trackTests {
             shipping_mode = "me2"
         }
         "/checkout_off/express"(platform: "/web/mobile"){
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
             payment_type = "account_money"
             payment_method = "account_money"
             only_account_money = false
@@ -1347,28 +1371,123 @@ trackTests {
             shipping_mode = "custom"
         }
         "/checkout_off/congrats/approved"(platform: "/web/mobile"){
-            payment_type = "credit_card"
-            payment_method = "visa"
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
+            payment_status = "approved"
+            payment_id = "123456789"
+            payment_status_detail = "approved"
+            payment_method_id = "visa"
+            payment_type_id = "credit_card"
+            is_express = true
         }
-        "/checkout_off/congrats/pending"(platform: "/web/mobile") {}
-        "/checkout_off/congrats/instructions"(platform: "/web/mobile") {}
-        "/checkout_off/congrats/rejected"(platform: "/web/mobile") {}
+        "/checkout_off/congrats/pending"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
+            payment_status = "pending"
+            payment_id = "123456789"
+            payment_status_detail = "pending_waiting_for_remedy"
+            payment_method_id = "visa"
+            payment_type_id = "debit_card"
+            is_express = false
+        }
+        "/checkout_off/congrats/instructions"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
+            payment_status = "pending"
+            payment_id = "123456789"
+            payment_status_detail = "pending_waiting_payment"
+            payment_method_id = "rapipago"
+            payment_type_id = "ticket"
+            is_express = false
+        }
+        "/checkout_off/congrats/rejected"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
+            payment_status = "rejected"
+            payment_id = "123456789"
+            payment_status_detail = "cc_rejected_other_reason"
+            payment_method_id = "visa"
+            payment_type_id = "credit_card"
+            is_express = false
+        }
         "/checkout_off/shipping"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
             shipping_mode = "me2"
             local_pickup = false
             payer_addresses = 2
         }
         "/checkout_off/shipping/address"(platform: "/web/desktop") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
             shipping_mode = "custom"
             local_pickup = true
             payer_addresses = 0
         }
         "/checkout_off/shipping/method"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
+            shipping_mode = "me2"
+            local_pickup = false
+            payer_addresses = 0
+
             shipping_method_count = 1
         }
-        "/checkout_off/login"(platform: "/web/desktop") {}
-        "/checkout_off/card/credit_card"(platform: "/web/mobile") {}
-        "/checkout_off/card/debit_card"(platform: "/web/mobile") {}
-        "/checkout_off/card/split"(platform: "/web/mobile") {}
+        "/checkout_off/login"(platform: "/web/desktop") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+        }
+        "/checkout_off/card/credit_card"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+        }
+        "/checkout_off/card/debit_card"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+        }
+        "/checkout_off/card/split"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+        }
     }
 }
