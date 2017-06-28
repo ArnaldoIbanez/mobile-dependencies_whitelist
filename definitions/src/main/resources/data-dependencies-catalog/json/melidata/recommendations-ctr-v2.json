@@ -53,7 +53,7 @@
         },
         {
           "name": "param02",
-          "value": "day",
+          "value": "day-0",
           "format": "yyyy-MM-dd"
         }
       ]
