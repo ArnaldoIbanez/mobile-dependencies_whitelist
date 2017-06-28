@@ -102,8 +102,6 @@ tracks {
 
     "/vip/map/"(platform: "/mobile") {}
 
-    "/vip/buy_intention"(platform: "/mobile") {}
-
     "/vip/payment_method"(platform: "/mobile") {}
 
     "/vip/payment_method/back"(platform: "/mobile") {}
