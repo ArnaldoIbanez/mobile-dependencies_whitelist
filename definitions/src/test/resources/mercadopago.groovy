@@ -563,7 +563,16 @@ trackTests {
             from = "/deep_link"
         }
 
-        "/digital_goods/add_info"(platform: "/mobile") {
+        "/digital_goods/no_money"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+
+        "/digital_goods/no_money"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+
+        "/digital_goods/products"(platform: "/mobile") {
             flow = "/digital_goods"
             type = "option"
         }
@@ -611,6 +620,18 @@ trackTests {
             from = "/deep_link"
             result_status = "rejected"
         }
+        "/digital_goods/px_review_and_confirm"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_payment_method_search"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_discount_summary"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
         "/digital_goods/px_result"(platform: "/mobile") {
             flow = "/digital_goods"
             from = "/deep_link"
@@ -633,7 +654,16 @@ trackTests {
         "/digital_goods/px_card_security_code"(platform: "/mobile") {
             flow = "/digital_goods"
         }
+        "/digital_goods/px_review_and_confirm"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
         "/digital_goods/px_identification_number"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_discount_summary"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_payment_method_search"(platform: "/mobile") {
             flow = "/digital_goods"
         }
         "/digital_goods/px_card_issuers"(platform: "/mobile") {

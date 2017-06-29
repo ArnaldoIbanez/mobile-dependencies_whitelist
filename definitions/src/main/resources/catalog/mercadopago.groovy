@@ -424,7 +424,8 @@ tracks {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
     "/digital_goods/list"(platform: "/mobile") {}
-    "/digital_goods/add_info"(platform: "/mobile") {
+    "/digital_goods/no_money"(platform: "/mobile") {}
+    "/digital_goods/products"(platform: "/mobile") {
         type (required:true, type: PropertyType.String, description: "Option")
     }
     "/digital_goods/px_payment_method_search"(platform: "/mobile") {}
