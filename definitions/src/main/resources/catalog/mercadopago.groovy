@@ -423,7 +423,10 @@ tracks {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-    "/digtial_goods/digtial_goods"(platform: "/mobile") {}
+    "/digtial_goods/list"(platform: "/mobile") {}
+    "/digtial_goods/add_info"(platform: "/mobile") {
+        type (required:true, type: PropertyType.String, description: "Option")
+    }
     
     /**
      * END NOTIFICATIONS

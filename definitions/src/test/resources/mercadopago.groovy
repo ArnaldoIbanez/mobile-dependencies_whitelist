@@ -553,6 +553,28 @@ trackTests {
         }
     }
 
+    test("Digital Goods") {
+        "/digital_goods/list"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+
+        "/digital_goods/list"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+
+        "/digital_goods/add_info"(platform: "/mobile") {
+            flow = "/digital_goods"
+            type = "option"
+        }
+
+        "/digital_goods/add_info"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+            type = "option"
+        }
+    }
+
     test("Cellphone recharge") {
         "/cellphone_recharge/push_handler"(platform: "/mobile") {
             flow = "/cellphone_recharge"
