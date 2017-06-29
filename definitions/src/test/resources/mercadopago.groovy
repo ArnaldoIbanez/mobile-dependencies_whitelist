@@ -577,7 +577,7 @@ trackTests {
             type = "option"
         }
 
-        "/digital_goods/add_info"(platform: "/mobile") {
+        "/digital_goods/products"(platform: "/mobile") {
             flow = "/digital_goods"
             from = "/deep_link"
             type = "option"
