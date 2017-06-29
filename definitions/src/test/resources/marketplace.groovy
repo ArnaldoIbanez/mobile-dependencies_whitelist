@@ -4349,11 +4349,57 @@ trackTests {
 
         "/cart/my_cart"(platform: "/web", dataSet)
 
-        "/cart/my_cart/save_for_later"(platform: "/web", dataSet)
+        "/cart/my_cart/save_for_later"(platform: "/web"){
+            item = [
+                    id: "MLA754486062",
+                    listing_type: "gold_special",
+                    international_delivery_mode: "none",
+            ]
+            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                    [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
 
-        "/cart/my_cart/delete_item"(platform: "/web", dataSet)
 
-        "/cart/my_cart/change_quantity"(platform: "/web", dataSet)
+            loyalty_level = 2
+            currency_id = "MXN"
+            quantity = 2
+            free_shipping_benefit = false
+            unit_price = 173
+        }
+
+        "/cart/my_cart/delete_item"(platform: "/web"){
+            item = [
+                    id: "MLA754486062",
+                    listing_type: "gold_special",
+                    international_delivery_mode: "none",
+            ]
+            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                      [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
+
+
+            loyalty_level = 2
+            currency_id = "MXN"
+            quantity = 2
+            free_shipping_benefit = false
+            unit_price = 173
+        }
+
+        "/cart/my_cart/change_quantity"(platform: "/web"){
+            item = [
+                    id: "MLA754486062",
+                    listing_type: "gold_special",
+                    international_delivery_mode: "none",
+            ]
+            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                      [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
+
+
+            loyalty_level = 2
+            currency_id = "MXN"
+            quantity = 2
+            quantity_change = -1
+            free_shipping_benefit = false
+            unit_price = 173
+        }
 
         "/cart/my_cart/select_address"(platform: "/web", dataSet)
 
@@ -4367,9 +4413,39 @@ trackTests {
 
         "/cart/saved_for_later"(platform: "/web", dataSet)
 
-        "/cart/saved_for_later/add_to_cart"(platform: "/web", dataSet)
+        "/cart/saved_for_later/add_to_cart"(platform: "/web"){
+            item = [
+                    id: "MLA754486062",
+                    listing_type: "gold_special",
+                    international_delivery_mode: "none",
+            ]
+            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                      [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
 
-        "/cart/saved_for_later/delete_item"(platform: "/web", dataSet)
+
+            loyalty_level = 2
+            currency_id = "MXN"
+            quantity = 2
+            free_shipping_benefit = false
+            unit_price = 173
+        }
+
+        "/cart/saved_for_later/delete_item"(platform: "/web"){
+            item = [
+                    id: "MLA754486062",
+                    listing_type: "gold_special",
+                    international_delivery_mode: "none",
+            ]
+            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                      [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
+
+
+            loyalty_level = 2
+            currency_id = "MXN"
+            quantity = 2
+            free_shipping_benefit = false
+            unit_price = 173
+        }
 
         "/cart/change_address"(platform: "/web", dataSet)
 
