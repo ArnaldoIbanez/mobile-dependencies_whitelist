@@ -1342,6 +1342,7 @@ trackTests {
             payment_method_id = "rapipago"
             payment_type_id = "ticket"
             is_express = false
+            is_split = false
         }
         "/checkout_off/payment_option"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
@@ -1405,6 +1406,7 @@ trackTests {
             payment_method_id = "visa"
             payment_type_id = "credit_card"
             is_express = true
+            is_split = false
         }
         "/checkout_off/congrats/pending"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
@@ -1419,6 +1421,7 @@ trackTests {
             payment_method_id = "visa"
             payment_type_id = "debit_card"
             is_express = false
+            is_split = false
         }
         "/checkout_off/congrats/instructions"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
@@ -1433,6 +1436,7 @@ trackTests {
             payment_method_id = "rapipago"
             payment_type_id = "ticket"
             is_express = false
+            is_split = false
         }
         "/checkout_off/congrats/rejected"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
@@ -1447,6 +1451,7 @@ trackTests {
             payment_method_id = "visa"
             payment_type_id = "credit_card"
             is_express = false
+            is_split = false
         }
         "/checkout_off/shipping"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
