@@ -573,6 +573,84 @@ trackTests {
             from = "/deep_link"
             type = "option"
         }
+
+        "/digital_goods/px_card_vault"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_card_number"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_card_holder_name"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_card_expiry_date"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_card_security_code"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_identification_number"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_card_issuers"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_card_installments"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_result"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+            result_status = "rejected"
+        }
+        "/digital_goods/px_result"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+            result_status = "rejected"
+            status_detail = "call_for_auth"
+        }
+
+        "/digital_goods/px_card_vault"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_card_number"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_card_holder_name"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_card_expiry_date"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_card_security_code"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_identification_number"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_card_issuers"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_card_installments"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_result"(platform: "/mobile") {
+            flow = "/digital_goods"
+            result_status = "rejected"
+        }
+        "/digital_goods/px_result"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            result_status = "rejected"
+            status_detail = "call_for_auth"
+        }
     }
 
     test("Cellphone recharge") {
