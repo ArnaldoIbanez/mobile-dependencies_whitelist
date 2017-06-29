@@ -417,6 +417,13 @@ tracks {
     //Money
     "/notification/money_transfer_received"(platform: "/mobile") {}
     "/notification/money_transfer_request"(platform: "/mobile") {}
+
+    //Digital Goods
+     "/digtial_goods"(platform: "/mobile", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/digtial_goods/digtial_goods"(platform: "/mobile") {}
     
     /**
      * END NOTIFICATIONS
