@@ -612,7 +612,7 @@ trackTests {
             result_status = "rejected"
         }
         "/digital_goods/px_result"(platform: "/mobile") {
-            flow = "/recharge_sube"
+            flow = "/digital_goods"
             from = "/deep_link"
             result_status = "rejected"
             status_detail = "call_for_auth"
@@ -647,7 +647,7 @@ trackTests {
             result_status = "rejected"
         }
         "/digital_goods/px_result"(platform: "/mobile") {
-            flow = "/recharge_sube"
+            flow = "/digital_goods"
             result_status = "rejected"
             status_detail = "call_for_auth"
         }
