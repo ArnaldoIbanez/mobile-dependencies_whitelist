@@ -17,7 +17,7 @@ FROM(
          COUNT(distinct(id)) AS prints
 FROM(SELECT
         id,
-        '@param02' AS ds,
+        substr(ds,1,10) AS ds,
         platform_level(device.platform,2) AS platform,
         application.site_id AS site_id,
         IF(v2.algorithm IS NULL, v2.backend_id, v2.algorithm) AS backend,
@@ -66,7 +66,7 @@ FROM(
    )recommendations
 INNER JOIN(
        	SELECT
-         '@param02' AS ds,
+          substr(ds,1,10) AS ds,
          	usr.user_id AS user_id,
          	order_id,
          	CAST(get_json_object(get_json_object(get_json_object(event_data,'$.items[0]'),'$.item'),'$.id')AS varchar(50)) AS item_id,
