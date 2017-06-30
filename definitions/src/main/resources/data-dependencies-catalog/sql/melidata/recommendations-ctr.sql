@@ -53,6 +53,7 @@ LEFT JOIN
         AND v1.reco_client IS NOT NULL
         AND ds >= '@param01 02' AND ds < '@param02 02'
     GROUP BY
+        substr(ds,1,10),
         platform_level(device.platform,2),
         application.site_id,
         v1.reco_backend,
