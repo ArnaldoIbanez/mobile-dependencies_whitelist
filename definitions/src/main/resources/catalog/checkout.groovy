@@ -601,6 +601,16 @@ tracks {
     "/checkout/payments/billing_info#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         billing_info_state(required: true, type: PropertyType.String)
     }
+    "/checkout/payments/consumer_credits/installments"(platform:"/mobile") {
+        //List of available installments
+        available_installments(required: true, type: PropertyType.ArrayList)
+        //installments: [
+        //    [
+        //      installment: 1,
+        //      amount: 20.6,
+        //      without_fee: true
+        //    ]
+    }
     // payment promotions screen. Eg: bank promos in MLA
     "/checkout/payments/promotions"(platform:"/mobile") {}
     //"/checkout/review" //shared between web and app, already defined in web section.
@@ -654,6 +664,7 @@ tracks {
         //      without_fee: true
         //    ]
     }
+    "/checkout/review/webview"(platform:"/mobile") {}
     "/checkout/additional_info"(platform: "/mobile") {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
