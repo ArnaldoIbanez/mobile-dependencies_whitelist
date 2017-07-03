@@ -1137,6 +1137,26 @@ trackTests {
         "/checkout/payments/promotions"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+        "/checkout/payments/consumer_credits/installments"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            available_installments = [
+                    [
+                            installment: 1,
+                            amount: 20.6,
+                            without_fee: true
+                    ],
+                    [
+                            installment: 3,
+                            amount: 7.2,
+                            without_fee: true
+                    ],
+                    [
+                            installment: 6,
+                            amount: 3.2,
+                            without_fee: true
+                    ]
+            ]
+        }
         "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
             status = "success"
         }
@@ -1192,6 +1212,9 @@ trackTests {
             //old_value, new_value
             old_value = 3
             new_value = 9
+        }
+        "/checkout/review/webview"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
         }
         "/checkout/additional_info"(platform: "/mobile", type:TrackType.View) {
             checkoutStatus()
