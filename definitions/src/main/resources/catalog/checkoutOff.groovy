@@ -21,7 +21,7 @@ tracks {
         payment_method_id(required: true)
         payment_type_id(required: true)
         is_express(required: true, type: PropertyType.Boolean)
-        is_split(required: true, type: PropertyType.Boolean)
+        is_split(required: false, type: PropertyType.Boolean)
     }
 
     "/checkout_off/payment_option"(platform: "/", type: TrackType.View){
