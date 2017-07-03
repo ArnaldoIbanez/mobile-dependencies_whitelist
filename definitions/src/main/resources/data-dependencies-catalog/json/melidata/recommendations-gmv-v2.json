@@ -10,7 +10,7 @@
   "cron": "",
   "extract":
   {
-    "operation": "append",
+    "operation": "overwrite",
     "columns":
     [
       {
@@ -48,17 +48,17 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "day-17",
+          "value": "day-21",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "day-10",
+          "value": "day-14",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param03",
-          "value": "day-3",
+          "value": "day-0",
           "format": "yyyy-MM-dd"
         }
       ]
