@@ -40,7 +40,7 @@ tracks {
 
     "/vip"(platform: "/web") {
         review_rate(inheritable: false)
-        description_type(required: false, description: "Description type: plain text, html, both, none", values: ["plain_tet", "html", "both", "none"])
+        description_type(required: false, description: "Description type: plain text, html, both, none", values: ["plain_text", "html", "both", "none"])
     }
 
     "/vip"(platform: "/mobile") {
