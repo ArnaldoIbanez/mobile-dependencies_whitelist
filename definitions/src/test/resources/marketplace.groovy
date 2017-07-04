@@ -1213,7 +1213,7 @@ trackTests {
             old_value = 3
             new_value = 9
         }
-        "/checkout/review/webview"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/review/terms"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
         "/checkout/additional_info"(platform: "/mobile", type:TrackType.View) {

@@ -665,7 +665,7 @@ tracks {
         //      without_fee: true
         //    ]
     }
-    "/checkout/review/webview"(platform:"/mobile") {}
+    "/checkout/review/terms"(platform:"/mobile") {}
     "/checkout/additional_info"(platform: "/mobile") {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
