@@ -601,6 +601,7 @@ tracks {
     "/checkout/payments/billing_info#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         billing_info_state(required: true, type: PropertyType.String)
     }
+    "/checkout/payments/consumer_credits"(platform:"/mobile", isAbstract: true) {}
     "/checkout/payments/consumer_credits/installments"(platform:"/mobile") {
         //List of available installments
         available_installments(required: true, type: PropertyType.ArrayList)
