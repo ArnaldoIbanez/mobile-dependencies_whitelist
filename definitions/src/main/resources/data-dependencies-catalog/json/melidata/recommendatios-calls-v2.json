@@ -40,7 +40,7 @@
       }
     ],
     "sql": {
-      "script": "melidata/recommendations-calls.sql",
+      "script": "melidata/recommendations-calls-v2.sql",
       "parameters": [
         {
           "name": "param01",

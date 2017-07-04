@@ -48,7 +48,7 @@
       }
     ],
     "sql": {
-      "script": "melidata/recommendations-btr.sql",
+      "script": "melidata/recommendations-btr-v2.sql",
       "parameters": [
         {
           "name": "param01",

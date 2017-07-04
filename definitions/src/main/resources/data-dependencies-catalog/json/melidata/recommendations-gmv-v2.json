@@ -44,7 +44,7 @@
       }
     ],
     "sql": {
-      "script": "melidata/recommendations-gmv.sql",
+      "script": "melidata/recommendations-gmv-v2.sql",
       "parameters": [
         {
           "name": "param01",
