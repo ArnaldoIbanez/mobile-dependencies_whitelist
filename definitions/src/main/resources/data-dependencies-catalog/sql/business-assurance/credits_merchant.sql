@@ -14,5 +14,5 @@ platform.http.http_referer AS Referer,
 platform.http.http_url as Url
 FROM tracks
 WHERE ds>='2017-01-01' 
-and ds<='2017-07-05'
+and ds <='2017-04-01'
 AND  path  like '%/credits/merchant%'

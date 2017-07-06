@@ -3,7 +3,7 @@
     "marina.propato@mercadolibre.com"
   ],
   "process_name": "credits_merchant",
-  "cron": "",
+  "cron": " ",
   "extract": {
     "operation": "append",
     "columns": [
@@ -21,7 +21,7 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Event_data",
+        "name": "Event_Data",
         "type": "UNICODE_STRING"
       },
       {
