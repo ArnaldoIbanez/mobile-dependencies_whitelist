@@ -2097,6 +2097,10 @@ trackTests {
     }
 
     test("Register") {
+        "/register/success"(platform: "/mobile") {
+            source = "facebook"
+        }
+
         "/register/failure"(platform: "/mobile") {
             source = "facebook"
         }
@@ -2265,70 +2269,6 @@ trackTests {
         }
 
     }
-    test("Registration App"){
-        // app module
-        "/register/hub"(platform: "/mobile") {
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
-        }
-        "/register/hub/register-with-email"(platform: "/mobile"){
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
-
-        }
-        "/register/hub/register-with-facebook"(platform: "/mobile"){
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
-        }
-        "/register/form"(platform:"/mobile") {
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
-        }
-        "/register/form/error"(platform:"/mobile") {
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
-            errors_validation = "back"
-            errors = [
-                    [
-                            code:8,
-                            field: 'email'
-                    ]
-            ]
-        }
-        "/register/form-use-another-email"(platform:"/mobile") {
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
-        }
-        "/register/account-recovery-hub"(platform:"/mobile") {
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
-        }
-        "/register/account-recovery-hub/account-recovery"(platform: "/mobile"){
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
-
-        }
-        "/register/account-recovery-hub/use-another-email"(platform: "/mobile"){
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
-        }
-
-        "/register/success"(platform:"/mobile") {
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
-        }
-
-    }
 
     test("Traffic") {
         "/traffic/inbound/matt"(platform: "/") {
@@ -2409,7 +2349,7 @@ trackTests {
             previous_size=122592
         }
     }
-
+    
     test("Mobile Landings") {
         "/landing/generic"(platform: "/mobile"){
             url = "https://www.mercadolibre.com"
@@ -3361,7 +3301,7 @@ trackTests {
         "/sell/list/listing_types"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/listing_types_upgrade"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/congrats_upgrade"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-
+       
         "/sell/list/drafts/draft_action/draft_deleted"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/drafts/draft_action/draft_resumed"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/sip/publish/pictures_fail"(platform: "/mobile") {

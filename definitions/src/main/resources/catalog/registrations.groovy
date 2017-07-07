@@ -8,7 +8,7 @@ tracks {
 
     "/register"(platform: "/", isAbstract: true) {}
 
-    "/register/success"(platform: "/web") {
+    "/register/success"(platform: "/") {
         source()
     }
 
@@ -72,48 +72,5 @@ tracks {
     "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
         error_type(required:true, description: "connectionError/invalidOneTimePassword/operatorNotSupported")
     }
-
-    //new registration module app
-
-    "/register/hub"(platform: "/mobile", type: TrackType.View){
-        app(type: PropertyType.String, required:true, description: "Current Flow")
-        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
-        item_id(type: PropertyType.String, required:false, description: "Item" )
-    }
-    "/register/hub/register-with-email"(platform: "/mobile", type: TrackType.Event){}
-    "/register/hub/register-with-facebook"(platform: "/mobile", type: TrackType.Event){}
-
-    "/register/form"(platform: "/mobile", type: TrackType.View){
-        app(type: PropertyType.String, required:true, description: "Current Flow")
-        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
-        item_id(type: PropertyType.String, required:false, description: "Item" )
-    }
-
-    "/register/form/error"(platform: "/mobile", type: TrackType.View){
-        errors_validation(type: PropertyType.String, required:false, description: "Where the validation is performed. back|front")
-        errors(type: PropertyType.ArrayList, required:false, description: "Errors on form" )
-    }
-
-    "/register/form-use-another-email"(platform: "/mobile", type: TrackType.View){
-        app(type: PropertyType.String, required:true, description: "Current Flow")
-        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
-        item_id(type: PropertyType.String, required:false, description: "Item" )
-    }
-
-    "/register/account-recovery-hub"(platform: "/mobile", type: TrackType.View){
-        app(type: PropertyType.String, required:true, description: "Current Flow")
-        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
-        item_id(type: PropertyType.String, required:false, description: "Item" )
-    }
-
-    "/register/account-recovery-hub/account-recovery"(platform: "/mobile", type: TrackType.Event){}
-    "/register/account-recovery-hub/use-another-email"(platform: "/mobile", type: TrackType.Event){}
-
-    "/register/success"(platform: "/mobile", type: TrackType.View){
-        app(type: PropertyType.String, required:true, description: "Current Flow")
-        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
-        item_id(type: PropertyType.String, required:false, description: "Item" )
-    }
-
 }
 
