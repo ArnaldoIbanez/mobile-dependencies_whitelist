@@ -7,25 +7,25 @@ trackTests {
 
     test("Returns tracks") {
 
-      "/returns/typification"(platform:"/")  {
+      "/return/typification"(platform:"/")  {
       }
 
-      "/returns/money_refund"(platform:"/") {
+      "/return/money_refund"(platform:"/") {
       }
 
-      "/returns/pick_up_option"(platform:"/") {
+      "/return/pick_up_option"(platform:"/") {
       }
 
-      "/returns/collection_step"(platform:"/") {
+      "/return/collection_step"(platform:"/") {
       }
 
-      "/returns/carrier_step"(platform:"/") {
+      "/return/carrier_step"(platform:"/") {
       }
 
-      "/returns/congrats"(platform:"/") {
+      "/return/congrats"(platform:"/") {
       }
 
-      "/returns/congrats/print_label"(platform:"/") {
+      "/return/congrats/print_label"(platform:"/") {
           print_url = "https://www.mercadolibre.com"
       }
     }
