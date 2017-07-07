@@ -12,7 +12,7 @@ trackTests {
 
     test("melidata automatic tracks send by sdk") {
 
-        "/melidata/null_track" (platform:"/mobile", type:TrackType.Event) {
+        "/melidata/null_track"(platform: "/mobile", type: TrackType.Event) {
             context = "context"
         }
 
@@ -45,15 +45,11 @@ trackTests {
     }
 
     test("Register") {
-        "/register/success"(platform: "/mobile") {
-            source = "facebook"
-        }
-
         "/register/failure"(platform: "/mobile") {
             source = "facebook"
         }
 
-        "/register/facebook_permissions"(platform: "/mobile"){
+        "/register/facebook_permissions"(platform: "/mobile") {
             login_status = "success"
             email = true
             user_birthday = true
@@ -107,7 +103,7 @@ trackTests {
             prog_reg_version = 0
         }
 
-        "/register/form/geolocation"(platform:"/web/mobile") {
+        "/register/form/geolocation"(platform: "/web/mobile") {
             app = "registration"
             source = "email"
             captcha_showed = true
@@ -115,35 +111,35 @@ trackTests {
             geo_location_code = 1
         }
 
-        "/register/form/facebook-connect"(platform:"/web/desktop") {
+        "/register/form/facebook-connect"(platform: "/web/desktop") {
             app = "registration"
             source = "email"
             captcha_showed = false
             prog_reg_version = 0
         }
 
-        "/register/form/facebook-connect/facebook-register-selected"(platform:"/web/mobile") {
+        "/register/form/facebook-connect/facebook-register-selected"(platform: "/web/mobile") {
             app = "registration"
             source = "facebook"
             captcha_showed = false
             prog_reg_version = 0
         }
 
-        "/register/form/facebook-connect/email-register-selected"(platform:"/web/desktop") {
+        "/register/form/facebook-connect/email-register-selected"(platform: "/web/desktop") {
             app = "registration"
             source = "email"
             captcha_showed = false
             prog_reg_version = 0
         }
 
-        "/register/form/facebook-connect/login-selected"(platform:"/web/mobile") {
+        "/register/form/facebook-connect/login-selected"(platform: "/web/mobile") {
             app = "registration"
             source = "email"
             captcha_showed = false
             prog_reg_version = 0
         }
 
-        "/register/form/site-identification"(platform:"/web/mobile") {
+        "/register/form/site-identification"(platform: "/web/mobile") {
             app = "registration"
             source = "email"
             captcha_showed = true
@@ -151,7 +147,7 @@ trackTests {
             ip_site_id = "MCO"
         }
 
-        "/register/form/site-identification/url-site-selected"(platform:"/web/desktop") {
+        "/register/form/site-identification/url-site-selected"(platform: "/web/desktop") {
             app = "registration"
             source = "email"
             captcha_showed = true
@@ -159,7 +155,7 @@ trackTests {
             ip_site_id = "MCO"
         }
 
-        "/register/form/site-identification/ip-site-selected"(platform:"/web/desktop") {
+        "/register/form/site-identification/ip-site-selected"(platform: "/web/desktop") {
             app = "registration"
             source = "email"
             captcha_showed = true
@@ -183,6 +179,71 @@ trackTests {
         }
     }
 
+    test("Registration App") {
+        // app module
+        "/register/hub"(platform: "/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/hub/register-with-email"(platform: "/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+
+        }
+        "/register/hub/register-with-facebook"(platform: "/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/form"(platform: "/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/form/error"(platform: "/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code : 8,
+                            field: 'email'
+                    ]
+            ]
+        }
+        "/register/form-use-another-email"(platform: "/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/account-recovery-hub"(platform: "/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/account-recovery-hub/account-recovery"(platform: "/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+
+        }
+        "/register/account-recovery-hub/use-another-email"(platform: "/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+
+        "/register/success"(platform: "/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+
+    }
+
     test("Account Recovery tracking event") {
 
         "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
@@ -191,7 +252,7 @@ trackTests {
     }
 
     test("Landing mercadopago point") {
-        "/point/home" (platform: "/") {
+        "/point/home"(platform: "/") {
             product = "point-h"
             currency = "R\$"
             price = 401
@@ -208,8 +269,8 @@ trackTests {
         "/account_summary/filtered_list"(platform: "/mobile") {}
         "/activity_detail"(platform: "/mobile") {}
         "/transaction_detail"(platform: "/mobile") {}
-        "/social_detail"(platform: "/mobile") { }
-        "/event_detail"(platform: "/mobile") { }
+        "/social_detail"(platform: "/mobile") {}
+        "/event_detail"(platform: "/mobile") {}
     }
 
     test("shopping") {
@@ -437,20 +498,23 @@ trackTests {
             qr_info = "http://laconoariel.com/mpmobile/axion/?id=invalid"
             _label = "error"
             deep_link = "mercadopago://congrats_store"
-            additional_info = {message="Algo no salió bien"
-                icon="error"
-                status="rejected"
-                description="Por favor, intenta nuevamente."
-                actions=[{
-                             id="try_again"
-                             link="mercadopago://stores?qr_code=http%3A%2F%2Flaconoariel.com%2Fmpmobile%2Faxion%2F%3Fid%3Dinvalid"
-                             label="Intentar nuevamente"
-                             type="button"
-                         },{
-                    id="back_to_root"
-                    link":null"
-                    label="Volver al inicio"
-                    type="link" }]}
+            additional_info = {
+                message = "Algo no salió bien"
+                icon = "error"
+                status = "rejected"
+                description = "Por favor, intenta nuevamente."
+                actions = [{
+                               id = "try_again"
+                               link = "mercadopago://stores?qr_code=http%3A%2F%2Flaconoariel.com%2Fmpmobile%2Faxion%2F%3Fid%3Dinvalid"
+                               label = "Intentar nuevamente"
+                               type = "button"
+                           }, {
+                               id = "back_to_root"
+                               link ":null"
+                               label = "Volver al inicio"
+                               type = "link"
+                           }]
+            }
         }
     }
 
@@ -1250,28 +1314,28 @@ trackTests {
             status_detail = "internal_server_error"
         }
     }
-    
+
     test("Notifications") {
-                
+
         "/notification"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "sent"
         }
-        
+
         "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
-                news_id = "123"
-                campaign_id = "prueba_123"
-                event_type = "open"
-        }  
-        
+            news_id = "123"
+            campaign_id = "prueba_123"
+            event_type = "open"
+        }
+
         "/notification/money_transfer_received"(platform: "/mobile") {
-                news_id = "123"
-                event_type = "open"
-        }  
-        
+            news_id = "123"
+            event_type = "open"
+        }
+
         "/notification/money_transfer_request"(platform: "/mobile") {
-                news_id = "123"
-                event_type = "open"
+            news_id = "123"
+            event_type = "open"
         }
     }
 
@@ -1451,7 +1515,7 @@ trackTests {
         }
     }
 
-    test("Checkout Off"){
+    test("Checkout Off") {
         "/checkout_off/init"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
             collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
@@ -1509,7 +1573,7 @@ trackTests {
             has_payer_shipping_data = true
             shipping_mode = "me2"
         }
-        "/checkout_off/express"(platform: "/web/mobile"){
+        "/checkout_off/express"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
             collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
             collector_nickname = "collector nickname test"
@@ -1523,7 +1587,7 @@ trackTests {
             has_payer_shipping_data = false
             shipping_mode = "custom"
         }
-        "/checkout_off/congrats/approved"(platform: "/web/mobile"){
+        "/checkout_off/congrats/approved"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
             collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
             collector_nickname = "collector nickname test"
