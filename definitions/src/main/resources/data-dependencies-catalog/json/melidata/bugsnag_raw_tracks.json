@@ -29,8 +29,6 @@
         "name": "vertical",
         "type": "UNICODE_STRING"
       },
-
-      },
       {
         "name": "app_version",
         "type": "UNICODE_STRING"
