@@ -183,6 +183,71 @@ trackTests {
         }
     }
 
+    test("Registration App"){
+        // app module
+        "/register/hub"(platform: "/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/hub/register-with-email"(platform: "/mobile"){
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+
+        }
+        "/register/hub/register-with-facebook"(platform: "/mobile"){
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/form"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/form/error"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:8,
+                            field: 'email'
+                    ]
+            ]
+        }
+        "/register/form/another-email"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/account-recovery-hub"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/account-recovery-hub/account-recovery"(platform: "/mobile"){
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+
+        }
+        "/register/account-recovery-hub/use-another-email"(platform: "/mobile"){
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+
+        "/register/congrats"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+
+    }
+
     test("Account Recovery tracking event") {
 
         "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
