@@ -16,5 +16,4 @@ GROUP BY substr(ds,1,10),
          get_json_object(event_data, '$.error_context'), 
          get_json_object(event_data, '$.error_severity'),
          application.site_id, '<not_yet_tracked>', application.version,  application.business,
-         device.platform 
-ORDER by   error_department
+         device.platform
