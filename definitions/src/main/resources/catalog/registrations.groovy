@@ -92,7 +92,7 @@ tracks {
         errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
     }
 
-    "/register/form-use-another-email"(platform: "/mobile", type: TrackType.View){
+    "/register/form/another-email"(platform: "/mobile", type: TrackType.View){
         app(type: PropertyType.String, required:true, description: "Current Flow")
         origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
         item_id(type: PropertyType.String, required:false, description: "Item" )

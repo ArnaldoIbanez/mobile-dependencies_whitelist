@@ -2305,7 +2305,7 @@ trackTests {
                     ]
             ]
         }
-        "/register/form-use-another-email"(platform:"/mobile") {
+        "/register/form/another-email"(platform:"/mobile") {
             app = "favorite"
             origin = "email"
             item_id = "MLA21233"
