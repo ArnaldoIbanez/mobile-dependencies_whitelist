@@ -40,7 +40,7 @@ metrics {
 		}
 	}
 
-	"checkout_congrats.samedeal"(description: "Checkout congrats for items in any deal", compute_order: true) {
+	"checkout_congrats.samedeal"(description: "Checkout congrats for items in the same deal of exposition", compute_order: true) {
 		countsOn {
 			condition {
 				and(
