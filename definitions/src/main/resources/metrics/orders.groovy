@@ -95,7 +95,7 @@ metrics {
 			condition {
 				path(regex("^/checkout(/.*|\$)"))
 				and(
-					equals("event_data.first_for_order", true),
+					equals("event_data.congrats_seq",1),
 					equals("event_data.items.item.id", property("item_id"))
 				)
 			}
