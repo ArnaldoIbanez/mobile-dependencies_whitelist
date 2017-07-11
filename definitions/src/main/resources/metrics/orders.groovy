@@ -88,7 +88,7 @@ metrics {
 	
 	"checkout_congrats.sameItem"(description: "congrats for order in the same order_id of exposition", compute_order: true) {
 		startWith {
-			experiment("vip/<COMPLETE>")
+			experiment("vip/plainText")
 		}
 
 		countsOn {
