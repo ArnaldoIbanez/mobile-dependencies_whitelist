@@ -15,7 +15,7 @@ metrics {
     }
 	
 	
-    "vip/<COMPLETE>"(description: "define properties for item_id for vip description (html vs plain) experiment") {
+    "vip/plainText"(description: "define properties for item_id for vip description (html vs plain) experiment") {
         startWith {
             set_property("item_id", "event_data.item_id")
         }
