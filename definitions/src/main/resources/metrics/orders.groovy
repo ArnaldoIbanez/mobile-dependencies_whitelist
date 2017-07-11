@@ -57,18 +57,6 @@ metrics {
 		}
 	}
 
-	"orders.sameitem"(description: "orders for items in the same item of exposition", compute_order: true) {
-		countsOn {
-			condition {
-				path(regex("^/checkout(/.*|\$)"))
-				and(
-					equals("event_data.first_for_order", true),
-					equals("event_data.items.item.id", property("item_id"))
-				)
-			}
-		}
-	}
-
 	"orders.congrats.sameorder"(description: "congrats for order in the same order_id of exposition", compute_order: true) {
 		countsOn {
 			condition {
@@ -94,6 +82,22 @@ metrics {
 		countsOn {
 			condition {
 				path("/purchases/purchasecreated")
+			}
+		}
+	}
+	
+	"checkout_congrats.sameItem"(description: "congrats for order in the same order_id of exposition", compute_order: true) {
+		startWith {
+			experiment("vip/plainText")
+		}
+
+		countsOn {
+			condition {
+				path(regex("^/checkout(/.*|\$)"))
+				and(
+					equals("event_data.congrats_seq",1),
+					equals("event_data.items.item.id", property("item_id"))
+				)
 			}
 		}
 	}
