@@ -11,21 +11,31 @@ tracks {
     }
 
     "/return/money_refund"(platform:"/", type: TrackType.View) {
+      typification(required:false, type:PropertyType.String)
     }
 
     "/return/pick_up_option"(platform:"/", type: TrackType.View) {
+      money_refund(required:false, type:PropertyType.String)
     }
 
-    "/return/collection_step"(platform:"/", type: TrackType.View) {
+    "/return/collection"(platform:"/", type: TrackType.View) {
+      pickup_option(required:false, type:PropertyType.String)
     }
 
-    "/return/carrier_step"(platform:"/", type: TrackType.View) {
+    "/return/carrier"(platform:"/", type: TrackType.View) {
+      pickup_option(required:false, type:PropertyType.String)
     }
 
     "/return/congrats"(platform:"/", type: TrackType.View) {
+      pickup_option(required:false, type:PropertyType.String)
+      pickup_time(required:false, type:PropertyType.String)
+      carrier_id(required:false, type:PropertyType.String)
     }
 
     "/return/congrats/print_label"(platform:"/", type: TrackType.Event) {
         print_url(required:true, type:PropertyType.String)
+    }
+
+    "/return/congrats/remedy_label"(platform:"/", type: TrackType.Event) {
     }
 }
