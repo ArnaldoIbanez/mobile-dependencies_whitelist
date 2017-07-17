@@ -26,7 +26,7 @@ tracks {
     }
 
     //Modal merchant
-    "/credits/merchant/enrollment/preconfirm"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/enrollment/preconfirm"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/enrollment/cancel"(platform: "/", type: TrackType.Event) {}
 
     //Upload Files merchant
@@ -45,8 +45,8 @@ tracks {
 
     //Error merchant
     "/credits/merchant/enrollment/error"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/enrollment/try_it_again"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/enrollment/contact_us"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/enrollment/try_it_again"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/enrollment/contact_us"(platform: "/", type: TrackType.Event) {}
 
     //Dashboard merchant
     "/credits/merchant/administrator"(platform: "/", type: TrackType.View) {}
