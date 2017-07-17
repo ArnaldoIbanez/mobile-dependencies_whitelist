@@ -56,7 +56,7 @@ tracks {
     "/credits/merchant/help"(platform: "/", type: TrackType.Event) {}
 
     //Help merchant
-    "/credits/merchant/enrollment/ask_us"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/enrollment/ask_us"(platform: "/", type: TrackType.Event) {}
 
     //Definitions - Consumer
     "/credits/consumer"(platform: "/", isAbstract: true) {}
