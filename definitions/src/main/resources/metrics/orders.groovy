@@ -51,15 +51,6 @@ metrics {
 		}
 	}
 
-	"orders.congrats.sameorder"(description: "congrats for order in the same order_id of exposition", compute_order: true) {
-		countsOn {
-			condition {
-				path(regex("^/checkout/congrats(/.*|\$)"))
-				equals("event_data.order_id", property("order_id"))
-			}
-		}
-	}
-
 	"orders"(description: "/orders/ordercreated from feed", compute_order: true) {
 		countsOn {
 			condition {
