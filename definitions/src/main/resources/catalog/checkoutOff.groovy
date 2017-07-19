@@ -25,8 +25,14 @@ tracks {
     }
 
     "/checkout_off/payment_option"(platform: "/", type: TrackType.View){
-        top_groups(required: true, description: "Top level groups")
+        top_groups(required: false, description: "Top level groups") //fue borrado este campo.
     }
+
+    "/checkout_off/payment_option/ticket"(platform: "/", type: TrackType.View){}
+
+    "/checkout_off/payment_option/bank_transfer"(platform: "/", type: TrackType.View){}
+
+    "/checkout_off/payment_option/cards"(platform: "/", type: TrackType.View){}
 
     "/checkout_off/review"(platform: "/", type: TrackType.View){
         payment_type(required: true, description:"Payment type ID")
@@ -70,6 +76,10 @@ tracks {
 
     "/checkout_off/login"(platform: "/", type: TrackType.View) { }
 
+    "/checkout_off/login/guest"(platform: "/", type: TrackType.View) { }
+
+    "/checkout_off/login/discount"(platform: "/", type: TrackType.View) { }
+
     "/checkout_off/card"(platform: "/", isAbstract: true) {}
 
     "/checkout_off/card/credit_card"(platform: "/", type: TrackType.View) {}
@@ -77,5 +87,18 @@ tracks {
     "/checkout_off/card/debit_card"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/card/split"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/error/validation"(platform:"/", type: TrackType.View) {
+        failure_code (required: false)
+    }
+
+    "/checkout_off/error/expired"(platform:"/", type: TrackType.View) {
+        ms_since_expiration (required: true)
+    }
+
+    "/checkout_off/error/internal"(platform:"/", type: TrackType.View) {
+        response_status(required: true)
+        exception_message(required: false)
+    }
 
 }
