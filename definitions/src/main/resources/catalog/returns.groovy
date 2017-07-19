@@ -14,11 +14,11 @@ tracks {
       typification(required:false, type:PropertyType.String)
     }
 
-    "/return/pick_up_option"(platform:"/", type: TrackType.View) {
+    "/return/collection"(platform:"/", type: TrackType.View) {
       money_refund(required:false, type:PropertyType.String)
     }
 
-    "/return/collection"(platform:"/", type: TrackType.View) {
+    "/return/pick_up_option"(platform:"/", type: TrackType.View) {
       pickup_option(required:false, type:PropertyType.String)
     }
 
