@@ -14,18 +14,20 @@ trackTests {
         typification = "Producto defectuoso"
       }
 
-      "/return/pick_up_option"(platform:"/") {
-        money_refund = "Tarjeta Credito"
+      "/return/collection"(platform:"/") {
+        money_refund = "2863383085"
       }
 
-      "/return/collection"(platform:"/") {
+      "/return/pick_up_option"(platform:"/") {
+        pickup_option = "pickup"
       }
 
       "/return/carrier"(platform:"/") {
+        pickup_option = "carrier"
       }
 
       "/return/congrats"(platform:"/") {
-          pickup_option = "collection"
+          pickup_option = "carrier"
           carrier_id = "12331123"
       }
 
