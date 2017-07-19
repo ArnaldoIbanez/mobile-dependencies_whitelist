@@ -16,7 +16,6 @@
         "name": "site_id",
         "type": "UNICODE_STRING"
       },
-
       {
         "name": "path",
         "type": "UNICODE_STRING"
@@ -29,10 +28,7 @@
         "name": "business",
         "type": "UNICODE_STRING"
       },
-      {
-        "name": "app_version",
-        "type": "UNICODE_STRING"
-      },
+
       {
         "name": "platform",
         "type": "UNICODE_STRING"
