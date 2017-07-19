@@ -14,6 +14,7 @@ catalog {
             "/web",
             "/web/desktop",
             "/web/desktop/forced",
+            "/web/desktop/static",
             "/web/mobile",
             "/web/mobile/forced",
             "/web/mobile/static",
