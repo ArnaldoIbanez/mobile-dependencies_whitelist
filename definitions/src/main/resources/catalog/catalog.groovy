@@ -62,6 +62,7 @@ catalog {
         include business, "search.groovy"
         include business, "sell.groovy"
         include business, "vip.groovy"
+        include business, "returns.groovy"
     }
 
     mercadopago.each { business ->

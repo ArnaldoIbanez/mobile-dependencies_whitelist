@@ -13,6 +13,7 @@ tracks {
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/merchant"(platform: "/", isAbstract: true) {}
     "/credits/merchant/enrollment"(platform: "/", isAbstract: true) {}
+    "/credits/merchant/enrollment/load_documents"(platform: "/", isAbstract: true) {}
 
     //Landing merchant
     "/credits/merchant/enrollment"(platform: "/", type: TrackType.View) {}
@@ -25,13 +26,27 @@ tracks {
     }
 
     //Modal merchant
-    "/credits/merchant/enrollment/continue"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/enrollment/preconfirm"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/enrollment/preconfirm"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/enrollment/cancel"(platform: "/", type: TrackType.Event) {}
+
+    //Upload Files merchant
+    "/credits/merchant/enrollment/load_documents"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/enrollment/user_type"(platform: "/", type: TrackType.Event) {
+        type(type: PropertyType.String, required: true)
+    }
+    "/credits/merchant/enrollment/load_documents/cancel"(platform: "/", type: TrackType.Event) {}
+
+    //Review merchant
+    "/credits/merchant/enrollment/review"(platform: "/", type: TrackType.Event) {}
 
     //Congrats merchant
     "/credits/merchant/enrollment/congrats"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/enrollment/withdrawal"(platform: "/", type: TrackType.Event) {}
+
+    //Error merchant
+    "/credits/merchant/enrollment/error"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/enrollment/try_it_again"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/enrollment/contact_us"(platform: "/", type: TrackType.Event) {}
 
     //Dashboard merchant
     "/credits/merchant/administrator"(platform: "/", type: TrackType.View) {}
@@ -40,6 +55,8 @@ tracks {
     "/credits/merchant/hero_cta"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant/help"(platform: "/", type: TrackType.Event) {}
 
+    //Help merchant
+    "/credits/merchant/enrollment/ask_us"(platform: "/", type: TrackType.Event) {}
 
     //Definitions - Consumer
     "/credits/consumer"(platform: "/", isAbstract: true) {}
