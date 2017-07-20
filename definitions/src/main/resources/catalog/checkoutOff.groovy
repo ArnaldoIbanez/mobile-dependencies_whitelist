@@ -88,6 +88,8 @@ tracks {
 
     "/checkout_off/card/split"(platform: "/", type: TrackType.View) {}
 
+    "/checkout_off/error"(platform: "/", isAbstract: true) {}
+
     "/checkout_off/error/validation"(platform:"/", type: TrackType.View) {
         failure_code (required: false)
     }
