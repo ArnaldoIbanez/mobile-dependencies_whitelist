@@ -637,6 +637,15 @@ trackTests {
             from = "/deep_link"
         }
 
+        "/digital_goods/search_entities"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+
+        "/digital_goods/search_entities"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+
         "/digital_goods/products"(platform: "/mobile") {
             flow = "/digital_goods"
             type = "option"
