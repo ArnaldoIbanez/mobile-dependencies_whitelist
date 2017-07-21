@@ -425,6 +425,7 @@ tracks {
     }
     "/digital_goods/list"(platform: "/mobile") {}
     "/digital_goods/no_money"(platform: "/mobile") {}
+    "/digital_goods/search_entities"(platform: "/mobile") {}
     "/digital_goods/products"(platform: "/mobile") {
         type (required:true, type: PropertyType.String, description: "Option")
     }

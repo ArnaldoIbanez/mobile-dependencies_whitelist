@@ -67,6 +67,8 @@ class CatalogTree extends TreeNode<TrackDefinition> {
 
     def fireDataChange() {
         children.each { k, c ->
+            if (c.getNodeData() == null)
+                throw new Exception("Missing path ${definition.path}/${k}. Probably you forgot to declare it abstract")
             c.setNodeData(c.getNodeData(), [this], false)
         }
     }

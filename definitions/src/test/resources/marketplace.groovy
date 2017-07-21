@@ -1137,6 +1137,26 @@ trackTests {
         "/checkout/payments/promotions"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+        "/checkout/payments/consumer_credits/installments"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            available_installments = [
+                    [
+                            installment: 1,
+                            amount: 20.6,
+                            without_fee: true
+                    ],
+                    [
+                            installment: 3,
+                            amount: 7.2,
+                            without_fee: true
+                    ],
+                    [
+                            installment: 6,
+                            amount: 3.2,
+                            without_fee: true
+                    ]
+            ]
+        }
         "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
             status = "success"
         }
@@ -1192,6 +1212,9 @@ trackTests {
             //old_value, new_value
             old_value = 3
             new_value = 9
+        }
+        "/checkout/review/terms"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
         }
         "/checkout/additional_info"(platform: "/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -2243,6 +2266,71 @@ trackTests {
             source = "email"
             captcha_showed = false
             prog_reg_version = 1
+        }
+
+    }
+
+    test("Registration App"){
+        // app module
+        "/register/hub"(platform: "/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/hub/register-with-email"(platform: "/mobile"){
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+
+        }
+        "/register/hub/register-with-facebook"(platform: "/mobile"){
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/form"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/form/error"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:8,
+                            field: 'email'
+                    ]
+            ]
+        }
+        "/register/form/another-email"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/account-recovery-hub"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/account-recovery-hub/account-recovery"(platform: "/mobile"){
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+
+        }
+        "/register/account-recovery-hub/use-another-email"(platform: "/mobile"){
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+
+        "/register/congrats"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
         }
 
     }

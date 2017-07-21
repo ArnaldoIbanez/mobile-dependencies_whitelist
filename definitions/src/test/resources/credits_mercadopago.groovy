@@ -8,9 +8,12 @@ trackTests {
     test("merchant credits") {
         //Views
         "/credits/merchant/enrollment"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment/preconfirm"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment/load_documents"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/not_interested"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/continue"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment/review"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment/error"(platform: "/web/desktop") {}
         "/credits/merchant/administrator"(platform: "/web/desktop") {}
         "/credits/merchant/offer"(platform: "/web/desktop") {}
         "/credits/merchant/no_offer"(platform: "/web/desktop") {}
@@ -23,11 +26,20 @@ trackTests {
         "/credits/merchant/enrollment/choose_installment"(platform: "/web/desktop", type: TrackType.Event) {
             installment = 9
         }
+        "/credits/merchant/enrollment/ask_us"(platform: "/web/desktop", type: TrackType.Event) {}
 
         //Modal merchant
-        "/credits/merchant/enrollment/continue"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant/enrollment/preconfirm"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/merchant/enrollment/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        //Upload Files merchant
+        "/credits/merchant/enrollment/user_type"(platform: "/web/desktop", type: TrackType.Event) {
+            type = 'moral'
+        }
+        "/credits/merchant/enrollment/load_documents/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        //Error merchant
+        "/credits/merchant/enrollment/try_it_again"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant/enrollment/contact_us"(platform: "/web/desktop", type: TrackType.Event) {}
 
         //Congrats merchant
         "/credits/merchant/enrollment/withdrawal"(platform: "/web/desktop", type: TrackType.Event) {}

@@ -37,20 +37,6 @@ tracks {
             //
     }
 
-    "/"(platform: "/mobile", isAbstract: true) {
-        mode(required: false)
-        deferred_time(required: false)
-        sent_again(required: false)
-        from_background(required: false)
-    }
-
-    "/"(platform: "/web", isAbstract: true) {
-        headers(required: false)
-        cookies(required: false)
-        http_url(required: false)
-        http_referer(required: false)
-    }
-
     //EXTERNAL
     //TODO revisar /external/XXX
 

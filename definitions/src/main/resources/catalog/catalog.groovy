@@ -14,6 +14,7 @@ catalog {
             "/web",
             "/web/desktop",
             "/web/desktop/forced",
+            "/web/desktop/static",
             "/web/mobile",
             "/web/mobile/forced",
             "/web/mobile/static",
@@ -62,6 +63,7 @@ catalog {
         include business, "search.groovy"
         include business, "sell.groovy"
         include business, "vip.groovy"
+        include business, "returns.groovy"
     }
 
     mercadopago.each { business ->

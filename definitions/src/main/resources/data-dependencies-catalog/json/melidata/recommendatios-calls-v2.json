@@ -10,7 +10,7 @@
   "cron": "",
   "extract":
   {
-    "operation": "append",
+    "operation": "overwrite",
     "columns":
     [
       {
@@ -40,16 +40,16 @@
       }
     ],
     "sql": {
-      "script": "melidata/recommendations-calls.sql",
+      "script": "melidata/recommendations-calls-v2.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "day-10",
+          "value": "day-15",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "day-3",
+          "value": "day-1",
           "format": "yyyy-MM-dd"
         }
       ]
