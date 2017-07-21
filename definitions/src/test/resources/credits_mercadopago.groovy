@@ -8,6 +8,7 @@ trackTests {
     test("merchant credits") {
         //Views
         "/credits/merchant/enrollment"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment/credits_conditions"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/preconfirm"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/load_documents"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/not_interested"(platform: "/web/desktop") {}
@@ -15,6 +16,7 @@ trackTests {
         "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/error"(platform: "/web/desktop") {}
         "/credits/merchant/administrator"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {}
         "/credits/merchant/offer"(platform: "/web/desktop") {}
         "/credits/merchant/no_offer"(platform: "/web/desktop") {}
 
