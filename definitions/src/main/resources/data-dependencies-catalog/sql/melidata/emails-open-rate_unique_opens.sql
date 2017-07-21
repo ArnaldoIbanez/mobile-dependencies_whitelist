@@ -6,10 +6,10 @@ SELECT distinct substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) A
        get_json_object(tracks.event_data,'$.email_id') AS email_id,
        tracks.path AS Path
 FROM tracks
-WHERE (ds >= '@param1'
-        AND ds < '@param2'
-        AND substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) >= '@param1'
-        AND substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) < '@param2'
+WHERE (ds >= '@param01'
+        AND ds < '@param02'
+        AND substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) >= '@param01'
+        AND substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) < '@param02'
         AND get_json_object(tracks.event_data,'$.event_type') = 'send'
         AND path like '/email%'
         )
@@ -20,10 +20,10 @@ LEFT OUTER JOIN
        get_json_object(tracks.event_data,'$.event_type') AS Event_Type,
        get_json_object(tracks.event_data,'$.email_id') AS email_id
 FROM tracks
-WHERE    (ds >= '@param1'
-        AND ds < '@param3'
-        AND substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) >= '@param1'
-        AND substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) < '@param2'
+WHERE    (ds >= '@param01'
+        AND ds < '@param03'
+        AND substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) >= '@param01'
+        AND substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) < '@param02'
         AND get_json_object(tracks.event_data,'$.event_type') = 'open'
         AND path like '/email%'
          ))  AS Open
