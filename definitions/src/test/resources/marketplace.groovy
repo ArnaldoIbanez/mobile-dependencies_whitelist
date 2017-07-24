@@ -397,8 +397,6 @@ trackTests {
 
         "/vip/seller_reputation/ratings"(platform:"/mobile", dataSet)
 
-        "/vip/buy_intention"(platform: "/mobile", dataSet)
-
         "/vip/payment_method"(platform: "/mobile", dataSet)
 
         "/vip/payment_method/back"(platform: "/mobile", dataSet)
@@ -1139,6 +1137,26 @@ trackTests {
         "/checkout/payments/promotions"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+        "/checkout/payments/consumer_credits/installments"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            available_installments = [
+                    [
+                            installment: 1,
+                            amount: 20.6,
+                            without_fee: true
+                    ],
+                    [
+                            installment: 3,
+                            amount: 7.2,
+                            without_fee: true
+                    ],
+                    [
+                            installment: 6,
+                            amount: 3.2,
+                            without_fee: true
+                    ]
+            ]
+        }
         "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
             status = "success"
         }
@@ -1194,6 +1212,9 @@ trackTests {
             //old_value, new_value
             old_value = 3
             new_value = 9
+        }
+        "/checkout/review/terms"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
         }
         "/checkout/additional_info"(platform: "/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -2249,6 +2270,71 @@ trackTests {
 
     }
 
+    test("Registration App"){
+        // app module
+        "/register/hub"(platform: "/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/hub/register-with-email"(platform: "/mobile"){
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+
+        }
+        "/register/hub/register-with-facebook"(platform: "/mobile"){
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/form"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/form/error"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:8,
+                            field: 'email'
+                    ]
+            ]
+        }
+        "/register/form/another-email"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/account-recovery-hub"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/account-recovery-hub/account-recovery"(platform: "/mobile"){
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+
+        }
+        "/register/account-recovery-hub/use-another-email"(platform: "/mobile"){
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+
+        "/register/congrats"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+
+    }
+
     test("Traffic") {
         "/traffic/inbound/matt"(platform: "/") {
             tool = 123456
@@ -3229,7 +3315,10 @@ trackTests {
         "/sell/list/hub"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/walkthrough"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/hub_old"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/sip"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/sip"(platform: "/mobile" ) {
+            session_id = "214464778-list-d5e5a20b2935"
+            has_selected_pictures = true
+        }
         "/sell/list/category_sugestion"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/category_navigation"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/color_selection"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
@@ -4062,6 +4151,73 @@ trackTests {
         }
     }
 
+
+    test("Buy intention event tests"){
+
+        def buyIntentionDataSet = {
+            buy_equal_pay = true
+            total_amount=2000
+
+            seller = [
+                    [id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                    [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]
+            ]
+
+            items = [
+                    [
+                            currency_id: "ARS",
+                            unit_price: 100,
+                            quantity: 1,
+                            item: [
+                                    category_id: "MLA63385",
+                                    buying_mode: "buy_it_now",
+                                    id: "MLA754486062",
+                                    official_store: "Adidas",
+                                    condition: "new",
+                                    listing_type: "gold_special",
+                                    title: "Conector 12 Vias",
+                                    shipping_mode: "me2"
+                            ]
+                    ],
+                    [
+                            currency_id: "ARS",
+                            unit_price: 1000,
+                            quantity: 3,
+                            item: [
+                                    category_id: "MLA63385",
+                                    buying_mode: "buy_it_now",
+                                    id: "MLA754486062",
+                                    official_store: "SportCenter",
+                                    condition: "new",
+                                    listing_type: "gold_pro",
+                                    title: "Conector 12 Vias",
+                                    shipping_mode: "me2"
+                            ]
+                    ]
+            ]
+        }
+
+        "/buy_intention"(platform:"/mobile/android") {
+            buyIntentionDataSet()
+            from = "vip"
+        }
+
+        "/buy_intention"(platform:"/mobile/ios") {
+            buyIntentionDataSet()
+            from = "cart"
+        }
+
+        "/buy_intention"(platform:"/web/mobile") {
+            buyIntentionDataSet()
+            from = "cart_item"
+        }
+
+        "/buy_intention"(platform:"/web/desktop") {
+            buyIntentionDataSet()
+            from = "saved_for_later"
+        }
+
+    }
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 // TRACKS CART CHECKOUT
 //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -4132,7 +4288,7 @@ trackTests {
 
             items = [
                         [
-                        currency_id: "ARG",
+                        currency_id: "ARS",
                         unit_price: 100,
                         quantity: 1,
                         item: [
@@ -4148,7 +4304,7 @@ trackTests {
                             ]
                         ],
                         [
-                        currency_id: "ARG",
+                        currency_id: "ARS",
                         unit_price: 1000,
                         quantity: 3,
                         item: [
@@ -4309,7 +4465,7 @@ trackTests {
 
             items = [
                         [
-                        currency_id: "ARG",
+                        currency_id: "ARS",
                         unit_price: 100,
                         quantity: 1,
                         item: [
@@ -4325,7 +4481,7 @@ trackTests {
                             ]
                         ],
                         [
-                        currency_id: "ARG",
+                        currency_id: "ARS",
                         unit_price: 1000,
                         quantity: 3,
                         item: [
@@ -4346,11 +4502,57 @@ trackTests {
 
         "/cart/my_cart"(platform: "/web", dataSet)
 
-        "/cart/my_cart/save_for_later"(platform: "/web", dataSet)
+        "/cart/my_cart/save_for_later"(platform: "/web"){
+            item = [
+                    id: "MLA754486062",
+                    listing_type: "gold_special",
+                    international_delivery_mode: "none",
+            ]
+            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                    [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
 
-        "/cart/my_cart/delete_item"(platform: "/web", dataSet)
 
-        "/cart/my_cart/change_quantity"(platform: "/web", dataSet)
+            loyalty_level = 2
+            currency_id = "MXN"
+            quantity = 2
+            free_shipping_benefit = false
+            unit_price = 173
+        }
+
+        "/cart/my_cart/delete_item"(platform: "/web"){
+            item = [
+                    id: "MLA754486062",
+                    listing_type: "gold_special",
+                    international_delivery_mode: "none",
+            ]
+            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                      [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
+
+
+            loyalty_level = 2
+            currency_id = "MXN"
+            quantity = 2
+            free_shipping_benefit = false
+            unit_price = 173
+        }
+
+        "/cart/my_cart/change_quantity"(platform: "/web"){
+            item = [
+                    id: "MLA754486062",
+                    listing_type: "gold_special",
+                    international_delivery_mode: "none",
+            ]
+            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                      [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
+
+
+            loyalty_level = 2
+            currency_id = "MXN"
+            quantity = 2
+            quantity_change = -1
+            free_shipping_benefit = false
+            unit_price = 173
+        }
 
         "/cart/my_cart/select_address"(platform: "/web", dataSet)
 
@@ -4364,9 +4566,39 @@ trackTests {
 
         "/cart/saved_for_later"(platform: "/web", dataSet)
 
-        "/cart/saved_for_later/add_to_cart"(platform: "/web", dataSet)
+        "/cart/saved_for_later/add_to_cart"(platform: "/web"){
+            item = [
+                    id: "MLA754486062",
+                    listing_type: "gold_special",
+                    international_delivery_mode: "none",
+            ]
+            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                      [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
 
-        "/cart/saved_for_later/delete_item"(platform: "/web", dataSet)
+
+            loyalty_level = 2
+            currency_id = "MXN"
+            quantity = 2
+            free_shipping_benefit = false
+            unit_price = 173
+        }
+
+        "/cart/saved_for_later/delete_item"(platform: "/web"){
+            item = [
+                    id: "MLA754486062",
+                    listing_type: "gold_special",
+                    international_delivery_mode: "none",
+            ]
+            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                      [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
+
+
+            loyalty_level = 2
+            currency_id = "MXN"
+            quantity = 2
+            free_shipping_benefit = false
+            unit_price = 173
+        }
 
         "/cart/change_address"(platform: "/web", dataSet)
 

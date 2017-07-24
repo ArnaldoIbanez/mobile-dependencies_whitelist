@@ -14,6 +14,7 @@ catalog {
             "/web",
             "/web/desktop",
             "/web/desktop/forced",
+            "/web/desktop/static",
             "/web/mobile",
             "/web/mobile/forced",
             "/web/mobile/static",
@@ -47,6 +48,7 @@ catalog {
     }
 
     marketplace.each { business ->
+        include business, "buyIntention.groovy"
         include business, "cartCheckout.groovy"
         include business, "cartList.groovy"
         include business, "checkout.groovy"
@@ -61,6 +63,7 @@ catalog {
         include business, "search.groovy"
         include business, "sell.groovy"
         include business, "vip.groovy"
+        include business, "returns.groovy"
     }
 
     mercadopago.each { business ->

@@ -18,6 +18,7 @@ tracks {
 
     //Landing consumer
     "/credits/consumer/enrollment"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/enrollment/educational"(platform: "/", type: TrackType.View) {}
 
     //SMS validation
     "/credits/consumer/enrollment/sms_validation"(platform: "/", type: TrackType.View) {}

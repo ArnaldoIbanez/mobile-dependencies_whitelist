@@ -40,6 +40,8 @@ tracks {
 
     "/vip"(platform: "/web") {
         review_rate(inheritable: false)
+        description_type(required: false, description: "Description type: plain text, html, both, none", values: ["plain_text", "html", "both", "none"])
+        max_size_gallery(required: false, description: "Max_size of first picture gallery")
     }
 
     "/vip"(platform: "/mobile") {
@@ -101,8 +103,6 @@ tracks {
     }
 
     "/vip/map/"(platform: "/mobile") {}
-
-    "/vip/buy_intention"(platform: "/mobile") {}
 
     "/vip/payment_method"(platform: "/mobile") {}
 

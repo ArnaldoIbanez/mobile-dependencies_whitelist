@@ -6,11 +6,11 @@
     "carolina.alvarez@mercadolibre.com",
     "martin.ciruzzi@mercadolibre.com"
   ],
-  "process_name": "recommendations_calls",
-  "cron": "00 18 * * *",
+  "process_name": "recommendations_calls_v2",
+  "cron": "",
   "extract":
   {
-    "operation": "append",
+    "operation": "overwrite",
     "columns":
     [
       {
@@ -40,11 +40,11 @@
       }
     ],
     "sql": {
-      "script": "melidata/recommendations-calls.sql",
+      "script": "melidata/recommendations-calls-v2.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "day-2",
+          "value": "day-15",
           "format": "yyyy-MM-dd"
         },
         {
