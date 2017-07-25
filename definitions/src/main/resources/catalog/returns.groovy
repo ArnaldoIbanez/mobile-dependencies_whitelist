@@ -9,17 +9,23 @@ tracks {
 
     // STEP 01
     "/return/typification"(platform:"/", type: TrackType.View)  {
+      category_l1(required: false, type: PropertyType.String)
+      officialstore(required: false, type: PropertyType.String)
       item_id(required: false, type: PropertyType.String)
     }
 
     // STEP 02
     "/return/money_refund"(platform:"/", type: TrackType.View) {
+      category_l1(required: false, type: PropertyType.String)
+      officialstore(required: false, type: PropertyType.String)
       item_id(required: false, type: PropertyType.String)
       typification(required:false, type:PropertyType.String)
     }
 
     // STEP 03
     "/return/collection"(platform:"/", type: TrackType.View) {
+      category_l1(required: false, type: PropertyType.String)
+      officialstore(required: false, type: PropertyType.String)
       item_id(required: false, type: PropertyType.String)
       typification(required:false, type:PropertyType.String)
       money_refund(required:false, type:PropertyType.String)
@@ -27,6 +33,8 @@ tracks {
 
     // STEP 04.a
     "/return/pick_up_option"(platform:"/", type: TrackType.View) {
+      category_l1(required: false, type: PropertyType.String)
+      officialstore(required: false, type: PropertyType.String)
       item_id(required: false, type: PropertyType.String)
       typification(required:false, type:PropertyType.String)
       money_refund(required:false, type:PropertyType.String)
@@ -35,6 +43,8 @@ tracks {
 
     // STEP 04.b
     "/return/carrier"(platform:"/", type: TrackType.View) {
+      category_l1(required: false, type: PropertyType.String)
+      officialstore(required: false, type: PropertyType.String)
       item_id(required: false, type: PropertyType.String)
       typification(required:false, type:PropertyType.String)
       money_refund(required:false, type:PropertyType.String)
@@ -43,6 +53,8 @@ tracks {
 
     // STEP 05
     "/return/congrats"(platform:"/", type: TrackType.View) {
+      category_l1(required: false, type: PropertyType.String)
+      officialstore(required: false, type: PropertyType.String)
       item_id(required: false, type: PropertyType.String)
       typification(required:false, type:PropertyType.String)
       money_refund(required:false, type:PropertyType.String)
