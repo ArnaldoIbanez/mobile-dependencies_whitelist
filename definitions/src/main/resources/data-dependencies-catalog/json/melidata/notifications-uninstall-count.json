@@ -30,7 +30,7 @@
       "type": "UNICODE_STRING"
     }],
     "sql": {
-      "script": "notifications/notifications-push-count.sql",
+      "script": "notifications/notifications-uninstall-count.sql",
       "parameters": [{
         "name": "param01",
         "value": "DAY-1",
