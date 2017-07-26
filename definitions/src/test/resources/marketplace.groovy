@@ -4700,7 +4700,11 @@ trackTests {
         }
     }
 
-    test("Application"){
+    test("Application-iOS"){
         "/application/open" (platform:"/mobile/ios", type: TrackType.Event) {}
+    }
+
+    test("Application-Android"){
+        "/application/open" (platform:"/mobile/android", type: TrackType.Event) {}
     }
 }
