@@ -4699,4 +4699,8 @@ trackTests {
 		}
         }
     }
+
+    test("Application"){
+        "/application/open" (platform:"/mobile/ios", type: TrackType.Event) {}
+    }
 }

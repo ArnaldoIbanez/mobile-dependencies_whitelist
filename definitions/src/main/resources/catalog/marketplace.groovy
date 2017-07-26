@@ -398,4 +398,6 @@ tracks {
    "/recommendations"(platform: "/") {
 
     }
+
+     "/application/open"(platform:"/mobile", type: TrackType.Event) { }
 }
