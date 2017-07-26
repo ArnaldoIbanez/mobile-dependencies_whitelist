@@ -399,5 +399,7 @@ tracks {
 
     }
 
-     "/application/open"(platform:"/mobile", type: TrackType.Event) { }
+    "/application"(platform:"/mobile", isAbstract: true) {}
+
+    "/application/open"(platform:"/mobile", type: TrackType.Event) { }
 }
