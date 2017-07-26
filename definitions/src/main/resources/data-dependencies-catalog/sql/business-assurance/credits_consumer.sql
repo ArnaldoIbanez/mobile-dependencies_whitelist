@@ -13,6 +13,6 @@ device.device_type AS Platform_Device_Type,
 platform.http.http_referer AS Referer,
 platform.http.http_url as Url
 FROM tracks
-WHERE ds >= '2017-07-01' 
-AND ds < '2017-07-26' 
+WHERE ds > '2017-06-30' 
+AND ds < '2017-07-25' 
 AND  path  like '%/credits/consumer%'
