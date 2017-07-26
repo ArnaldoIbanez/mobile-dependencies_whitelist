@@ -74,13 +74,7 @@ tracks {
 
     "/vip/description/back"(platform: "/mobile") {}
 
-    "/vip/item_gallery"(platform: "/mobile", parentPropertiesInherited: false) {
-        //TODO. remove this when inhereted from / is solved
-        mode(required: false)
-        sent_again(required: false)
-        from_background(required: false)
-        context(required: false)
-    }
+    "/vip/item_gallery"(platform: "/mobile", parentPropertiesInherited: false) {}
 
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
