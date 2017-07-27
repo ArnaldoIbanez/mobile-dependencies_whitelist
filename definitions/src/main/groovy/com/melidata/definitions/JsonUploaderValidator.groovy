@@ -1,7 +1,7 @@
 package com.melidata.definitions
 
 import com.melidata.metrics.format.QueryFormatter
-import com.melidata.definitions.CronJsonValidator
+import com.melidata.definitions.MelidataJsonValidator
 import groovy.json.JsonException
 
 
@@ -36,7 +36,7 @@ class JsonUploaderValidator {
 
         // TODO ADD QUERY COMPILATION VALIDATION
 
-        CronJsonValidator.validate(queryFormatterOutput)
+        MelidataJsonValidator.validate(queryFormatterOutput)
         return true
     }
 
