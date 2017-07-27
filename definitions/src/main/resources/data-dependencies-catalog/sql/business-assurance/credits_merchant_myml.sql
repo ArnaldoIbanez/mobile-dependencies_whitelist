@@ -1,5 +1,5 @@
 SELECT 
-usr.user_id,
+usr.user_id
 FROM tracks
 WHERE ds >= '2017-07-01' 
 AND ds < '2017-07-27' 
