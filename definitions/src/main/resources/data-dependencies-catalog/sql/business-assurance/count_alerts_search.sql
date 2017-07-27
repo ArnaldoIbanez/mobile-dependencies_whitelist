@@ -11,6 +11,6 @@ platform.http.http_referer AS Referer,
 platform.http.http_url as Url,
 jest(event_data, 'category_id') AS Vertical
 FROM tracks
-WHERE ds >= '@param01' AND ds < '@param02'
+WHERE ds>='@param01' AND ds<'@param02'
 AND 
 path LIKE '/search/save'
