@@ -13,19 +13,19 @@
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "Template",
+        "name": "template",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Path",
+        "name": "path",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Count_Send",
+        "name": "count_send",
         "type": "INTEGER"
       },
       {
-        "name": "Count_Open",
+        "name": "count_open",
         "type": "INTEGER"
       }
     ],
