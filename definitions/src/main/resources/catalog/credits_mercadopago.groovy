@@ -17,6 +17,7 @@ tracks {
 
     //Landing merchant
     "/credits/merchant/enrollment"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/enrollment/credits_conditions"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/enrollment/not_interested"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/enrollment/choose_amount"(platform: "/", type: TrackType.Event) {
         amount(type: PropertyType.Numeric, required: true)
@@ -50,6 +51,7 @@ tracks {
 
     //Dashboard merchant
     "/credits/merchant/administrator"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/administrator/detail"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/offer"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/no_offer"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/hero_cta"(platform: "/", type: TrackType.Event) {}
