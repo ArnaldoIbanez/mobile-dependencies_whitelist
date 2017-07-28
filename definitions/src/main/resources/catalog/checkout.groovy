@@ -230,7 +230,6 @@ tracks {
         //Might not have most of status values in case of requestFailure
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
-        checkout_version(required: false, description: "Checkout Version")
         total_amount(required: false, description: "totalAmount")
         total_amount_with_shipping(required: false, description: "totalAmount with shipping cost")
         total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
@@ -290,7 +289,6 @@ tracks {
     "/checkout/shipping"(platform: "/mobile", isAbstract: true) {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
-        checkout_version(required: false, description: "Checkout Version")
         total_amount(required: true, description: "totalAmount")
         total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
         total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
@@ -469,7 +467,6 @@ tracks {
     "/checkout/payments"(platform: "/mobile", isAbstract: true) {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
-        checkout_version(required: false, description: "Checkout Version")
         total_amount(required: true, description: "totalAmount")
         total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
         total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
@@ -728,7 +725,6 @@ tracks {
         //TODO chage to required: true once legacy
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
-        checkout_version(required: false, description: "Checkout Version")
         total_amount(required: false, description: "totalAmount")
         total_amount_with_shipping(required: false, description: "totalAmount with shipping cost")
         total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
@@ -1096,7 +1092,6 @@ tracks {
     //--> SHIPPING flow
 
     "/checkout/shipping_selection"(platform: "/mobile") {  //TODO flow
-        checkout_version(required: false, description: "Checkout Version")
         available_types()
         current_type(required: false)
         current_option(required: false)
@@ -1121,9 +1116,7 @@ tracks {
         valid_address()
     }
 
-    "/checkout/shipping_cost"(platform: "/mobile") {
-        checkout_version(required: false, description: "Checkout Version")
-    }
+    "/checkout/shipping_cost"(platform: "/mobile") {}
 
     "/checkout/shipping_cost/back"(platform: "/mobile") {}
 
@@ -1132,7 +1125,6 @@ tracks {
     }
 
     "/checkout/payment_selection"(platform: "/mobile") {
-        checkout_version(required: false, description: "Checkout Version")
         available_types(type: PropertyType.ArrayList)
         available_other_methods(type: PropertyType.Boolean)
         current_type(required: false)
