@@ -398,4 +398,8 @@ tracks {
    "/recommendations"(platform: "/") {
 
     }
+
+    "/application"(platform:"/mobile", isAbstract: true) {}
+
+    "/application/open"(platform:"/mobile", type: TrackType.Event) { }
 }
