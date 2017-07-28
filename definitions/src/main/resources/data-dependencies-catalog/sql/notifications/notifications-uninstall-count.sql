@@ -1,7 +1,7 @@
 SELECT '@param02' AS fecha, COUNT(1) as total, temporal.notification_type_purge, temporal.notification_type, temporal.platform, temporal.site_id, temporal.marketplace
 FROM (SELECT *
       FROM (SELECT split(path,'/')[2] AS notification_type_purge,
-                   jest(s1.event_data,'$.device_id') AS device_id_purge
+                   jest(s1.event_data,'device_id') AS device_id_purge
             FROM tracks AS s1
             WHERE s1.ds >= '@param02'
             AND   s1.ds < '@param01'
