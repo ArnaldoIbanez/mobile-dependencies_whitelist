@@ -1194,4 +1194,34 @@ tracks {
         installment()
     }
 
+    //Checkout V1 Migrate from DejaVu
+
+    "/checkout/options"(platform: "/mobile/android", isAbstract: true){}
+
+    "/checkout/options/service_error"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/checkout/checkout_entry"(platform: "/mobile/android", type: TrackType.Event) {
+        order_payment_required(required: true, type: PropertyType.String)
+        payment_pre_selected(required: true, type: PropertyType.String)
+        shipping_pre_selected(required: true, type: PropertyType.String)
+        quantity_pre_selected(required: true, type: PropertyType.String)
+    }
+
+    "/checkout/exit"(platform: "/mobile/android", type: TrackType.Event){
+        PM(required: false, type: PropertyType.String)
+        BP(required: false, type: PropertyType.String)
+        SH(required: false, type: PropertyType.String)
+    }
+
+    "/checkout/shipping_buy_equals_pay_warning"(platform: "/mobile/android", type: TrackType.Event){
+        action(required: true, type: PropertyType.String)
+    }
+
+    "/checkout/id_validation_error"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/checkout/registration"(platform: "/mobile/android", isAbstract: true){}
+
+    "/checkout/registration/put_failure_key"(platform: "/mobile/android", type: TrackType.Event){}
+
+    "/checkout/registration/put_success_key"(platform: "/mobile/android", type: TrackType.Event){}
 }
