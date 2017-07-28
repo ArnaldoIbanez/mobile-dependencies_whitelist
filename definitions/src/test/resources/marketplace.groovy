@@ -792,6 +792,34 @@ trackTests {
         "/checkout/" (platform: "/mobile"){}
     }
 
+    //Checkout Legacy Android Migrations from dejavu
+    test("Checkout Legacy. Tracks from dejavu"){
+        "/checkout/options/service_error"(platform: "/mobile/android", type: TrackType.Event){}
+
+        "/checkout/checkout_entry"(platform: "/mobile/android", type: TrackType.Event) {
+            order_payment_required = "true"
+            payment_pre_selected = "none"
+            shipping_pre_selected = "none"
+            quantity_pre_selected = "3"
+        }
+
+        "/checkout/exit"(platform: "/mobile/android", type: TrackType.Event){
+            PM = "credit_card"
+            BP = "TRUE"
+            SH = "me2"
+        }
+
+        "/checkout/shipping_buy_equals_pay_warning"(platform: "/mobile/android", type: TrackType.Event){
+            action = "change_payment_method"
+        }
+
+        "/checkout/id_validation_error"(platform: "/mobile/android", type: TrackType.Event) {}
+
+        "/checkout/registration/put_failure_key"(platform: "/mobile/android", type: TrackType.Event){}
+
+        "/checkout/registration/put_success_key"(platform: "/mobile/android", type: TrackType.Event){}
+    }
+
     //Checkout Apps
     test("checkout wizard flow") {
         //Default track data
