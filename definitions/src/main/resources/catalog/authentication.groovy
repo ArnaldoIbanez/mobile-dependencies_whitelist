@@ -60,6 +60,11 @@ tracks {
     }    
 
     "/logout"(platform: "/", type: TrackType.Event) {
-	flow(type: PropertyType.String, required: false)
+        flow(type: PropertyType.String, required: false)
+    }
+
+    "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {
+        is_logged(type: PropertyType.Boolean, required: true)
+        status(type: PropertyType.String, required: true)
     }
 }

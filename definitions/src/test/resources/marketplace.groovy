@@ -3902,14 +3902,33 @@ trackTests {
             old_user_id = "123456"
             old_user_nick = "nick"
         }
-	"/login/auth/challenge_success"(platform: "/", type: TrackType.Event) {
+        "/login/auth/challenge_success"(platform: "/", type: TrackType.Event) {
             challenge = "pass"
             source = "MSL_DEFAULT"
             is_otp = false
             is_admin_otp = false
-	}
+        }
         "/logout"(platform: "/", type: TrackType.Event) {
             flow = "internal"
+        }
+    }
+
+    test("Login Smart Lock for Passwords") {
+        "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = true
+            status = "SUCCESS"
+        }
+        "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = false
+            status = "SUCCESS"
+        }
+        "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = true
+            status = "RESOLUTION_REQUIRED"
+        }
+        "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = false
+            status = "RESOLUTION_REQUIRED"
         }
     }
 
