@@ -641,6 +641,7 @@ trackTests {
 
         def defaultCheckoutInformation = {
             item_id = "MCO412584037"
+            checkout_version = "V2"
         }
 
         def defaultCheckoutPaymentInformation = {

@@ -1037,6 +1037,7 @@ tracks {
     "/checkout"(platform:"/mobile") {
         order_id(required: false)
         status(required:false)
+        checkout_version(required: false, description: "Checkout Version")
         total_amount(required: false, type: PropertyType.Numeric)
         order_items(required: false, description: "Array of items in the order. New: optional for old versions of mobile")
         //item
