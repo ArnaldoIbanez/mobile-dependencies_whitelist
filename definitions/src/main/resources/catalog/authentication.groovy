@@ -63,8 +63,9 @@ tracks {
         flow(type: PropertyType.String, required: false)
     }
 
-    "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {
+    "/login/status"(platform: "/mobile", type: TrackType.Event) {
         is_logged(type: PropertyType.Boolean, required: true)
-        status(type: PropertyType.String, required: true)
+        smartlock_status(type: PropertyType.String, required: true)
+        section(type: PropertyType.String, required: true)
     }
 }
