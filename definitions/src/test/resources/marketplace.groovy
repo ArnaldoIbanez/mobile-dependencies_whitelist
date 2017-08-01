@@ -4708,4 +4708,38 @@ trackTests {
     test("Application-Android"){
         "/application/open" (platform:"/mobile/android", type: TrackType.Event) {}
     }
+
+    test("install_event"){
+        "/application/install_event" (platform: "/mobile", type: TrackType.Event){
+        }
+    }
+    test("sso"){
+        "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
+        "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}
+        "/sso/attempt_successful" (platform: "/mobile", type: TrackType.Event){}
+        "/sso/attempt_error" (platform: "/mobile", type: TrackType.Event){}
+    }
+
+    test("cx"){
+        "/cx/click_on_article" (platform: "/mobile", type: TrackType.Event){
+            article_id = "MLA754486062"
+        }
+        "/cx/click_on_help" (platform: "/mobile", type: TrackType.Event){}
+        "/cx/click_on_error" (platform: "/mobile", type: TrackType.Event){}
+        "/cx/clic_on_suggestion" (platform: "/mobile", type: TrackType.Event){}
+        "/cx/contact_types/click_on_contact_form" (platform: "/mobile", type: TrackType.Event){}
+    }
+
+    test ("registration") {
+        "/registration/existing_email_use_another" (platform: "/mobile", type: TrackType.Event){
+            registration_type = "mail registration"
+        }
+        "/registration/existing_email_recover_password" (platform: "/mobile", type: TrackType.Event){
+            registration_type = "mail registration"
+        }
+        "/registration/existing_email_cancel" (platform: "/mobile", type: TrackType.Event){
+            registration_type = "mail registration"
+        }
+        "/registration/login_event" (platform: "/mobile", type: TrackType.Event){}
+    }
 }
