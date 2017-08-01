@@ -400,6 +400,39 @@ tracks {
     }
 
     "/application"(platform:"/mobile", isAbstract: true) {}
-
     "/application/open"(platform:"/mobile", type: TrackType.Event) { }
+    "/application/install_event" (platform: "/mobile", type: TrackType.Event){
+        DEEPLINK (required: false, type: PropertyType.String)
+        EXCEPTION (required: false, type: PropertyType.String)
+    }
+
+    "/sso" (platform: "/mobile", isAbstract: true){}
+    "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
+    "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}
+    "/sso/attempt_successful" (platform: "/mobile", type: TrackType.Event){}
+    "/sso/attempt_error" (platform: "/mobile", type: TrackType.Event){}
+
+    "/cx" (platform: "/mobile", isAbstract: true){}
+    "/cx/click_on_article" (platform: "/mobile", type: TrackType.Event){
+        article_id(required: true, type: PropertyType.String)
+    }
+    "/cx/click_on_help" (platform: "/mobile", type: TrackType.Event){}
+    "/cx/click_on_error" (platform: "/mobile", type: TrackType.Event){}
+    "/cx/clic_on_suggestion" (platform: "/mobile", type: TrackType.Event){}
+    "/cx/contact_types" (platform: "/mobile", isAbstract: true){}
+    "/cx/contact_types/click_on_contact_form" (platform: "/mobile", type: TrackType.Event){}
+
+    "/registration"(platform: "/mobile", isAbstract: true){}
+    "/registration/existing_email_use_another" (platform: "/mobile", type: TrackType.Event){
+        registration_type (type: PropertyType.String, required: true)
+    }
+    "/registration/existing_email_recover_password" (platform: "/mobile", type: TrackType.Event){
+        registration_type (type: PropertyType.String, required: true)
+    }
+    "/registration/existing_email_cancel" (platform: "/mobile", type: TrackType.Event){
+        registration_type (type: PropertyType.String, required: true)
+    }
+    "/registration/login_event" (platform: "/mobile", type: TrackType.Event){}
+
+
 }
