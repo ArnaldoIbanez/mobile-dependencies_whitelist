@@ -3927,22 +3927,26 @@ trackTests {
         }
     }
 
-    test("Login Smart Lock for Passwords") {
-        "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {
+    test("Login Status with Smart Lock for Passwords") {
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
             is_logged = true
-            status = "SUCCESS"
+            smartlock_status = "SUCCESS"
+            section = "application_startup"
         }
-        "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
             is_logged = false
-            status = "SUCCESS"
+            smartlock_status = "SUCCESS"
+            section = "application_startup"
         }
-        "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
             is_logged = true
-            status = "RESOLUTION_REQUIRED"
+            smartlock_status = "RESOLUTION_REQUIRED"
+            section = "application_startup"
         }
-        "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
             is_logged = false
-            status = "RESOLUTION_REQUIRED"
+            smartlock_status = "RESOLUTION_REQUIRED"
+            section = "application_startup"
         }
     }
 
@@ -4741,4 +4745,10 @@ trackTests {
     test("Application-Android"){
         "/application/open" (platform:"/mobile/android", type: TrackType.Event) {}
     }
+
+    test("deals landings") {
+	   "/deals/landing" (platform:"/web/desktop", type: TrackType.View) {
+		   deal_id = "mla_1234"
+	   }
+   }
 }
