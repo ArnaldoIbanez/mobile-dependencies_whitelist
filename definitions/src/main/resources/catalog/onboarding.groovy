@@ -8,9 +8,7 @@ tracks {
 
     "/onboarding/step"(platform: "/mobile", isAbstract: true) {}
 
-    "/onboarding/step/registration"(platform: "/mobile", type: TrackType.View) {}
-
-    "/onboarding/step/registration_facebook"(platform: "/mobile", type: TrackType.View) {}
+    "/onboarding/step/chooser"(platform: "/mobile", type: TrackType.View) {}
 
     "/onboarding/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
