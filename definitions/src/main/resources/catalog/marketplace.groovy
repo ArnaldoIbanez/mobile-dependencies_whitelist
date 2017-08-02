@@ -421,18 +421,4 @@ tracks {
     "/cx/click_on_suggestion" (platform: "/mobile", type: TrackType.Event){}
     "/cx/contact_types" (platform: "/mobile", isAbstract: true){}
     "/cx/contact_types/click_on_contact_form" (platform: "/mobile", type: TrackType.Event){}
-
-    "/registration"(platform: "/mobile", isAbstract: true){}
-    "/registration/existing_email_use_another" (platform: "/mobile", type: TrackType.Event){
-        registration_type (type: PropertyType.String, required: true)
-    }
-    "/registration/existing_email_recover_password" (platform: "/mobile", type: TrackType.Event){
-        registration_type (type: PropertyType.String, required: true)
-    }
-    "/registration/existing_email_cancel" (platform: "/mobile", type: TrackType.Event){
-        registration_type (type: PropertyType.String, required: true)
-    }
-    "/registration/login_event" (platform: "/mobile", type: TrackType.Event){}
-
-
 }

@@ -4729,17 +4729,4 @@ trackTests {
         "/cx/click_on_suggestion" (platform: "/mobile", type: TrackType.Event){}
         "/cx/contact_types/click_on_contact_form" (platform: "/mobile", type: TrackType.Event){}
     }
-
-    test ("registration") {
-        "/registration/existing_email_use_another" (platform: "/mobile", type: TrackType.Event){
-            registration_type = "mail registration"
-        }
-        "/registration/existing_email_recover_password" (platform: "/mobile", type: TrackType.Event){
-            registration_type = "mail registration"
-        }
-        "/registration/existing_email_cancel" (platform: "/mobile", type: TrackType.Event){
-            registration_type = "mail registration"
-        }
-        "/registration/login_event" (platform: "/mobile", type: TrackType.Event){}
-    }
 }
