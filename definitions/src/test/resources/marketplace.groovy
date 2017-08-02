@@ -59,9 +59,7 @@ trackTests {
     }
 
     test("Onboarding tracking") {
-        "/onboarding/step/registration"(platform: "/mobile", type: TrackType.View) {}
-
-        "/onboarding/step/registration_facebook"(platform: "/mobile", type: TrackType.View) {}
+        "/onboarding/step/chooser"(platform: "/mobile", type: TrackType.View) {}
 
         "/onboarding/login"(platform: "/mobile", type: TrackType.Event) {}
 
