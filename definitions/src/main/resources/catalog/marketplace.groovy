@@ -406,6 +406,14 @@ tracks {
         EXCEPTION (required: false, type: PropertyType.String)
     }
 
+    //Landings Deals
+
+    "/deals"(platform: "/", isAbstract: true) {}
+
+    "/deals/landing"(platform: "/") {
+        deal_id(required: false, type: PropertyType.String)
+    }
+    
     "/sso" (platform: "/mobile", isAbstract: true){}
     "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
     "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}

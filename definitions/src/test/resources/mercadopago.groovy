@@ -1415,6 +1415,29 @@ trackTests {
         }
     }
 
+    test("Login Status with Smart Lock for Passwords") {
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = true
+            smartlock_status = "SUCCESS"
+            section = "application_startup"
+        }
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = false
+            smartlock_status = "SUCCESS"
+            section = "application_startup"
+        }
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = true
+            smartlock_status = "RESOLUTION_REQUIRED"
+            section = "application_startup"
+        }
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = false
+            smartlock_status = "RESOLUTION_REQUIRED"
+            section = "application_startup"
+        }
+    }
+
     test("Identity Validation ") {
 
         "/identity-validation/validation_landing"(platform: "/web/mobile") {

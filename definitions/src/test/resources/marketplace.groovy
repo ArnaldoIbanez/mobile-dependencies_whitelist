@@ -58,6 +58,22 @@ trackTests {
         "/home/carousel/lastcard"(platform: "/mobile") {}
     }
 
+    test("Onboarding tracking") {
+        "/onboarding/step/registration"(platform: "/mobile", type: TrackType.View) {}
+
+        "/onboarding/step/registration_facebook"(platform: "/mobile", type: TrackType.View) {}
+
+        "/onboarding/login"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/onboarding/registration"(platform: "/mobile", type: TrackType.Event) {
+            type = "email"
+        }
+
+        "/onboarding/cancel"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/onboarding/skip"(platform: "/mobile", type: TrackType.Event) {}
+    }
+
     test("Search core tracking"){
 
         def defaultSearchInformation = {
@@ -3902,14 +3918,37 @@ trackTests {
             old_user_id = "123456"
             old_user_nick = "nick"
         }
-	"/login/auth/challenge_success"(platform: "/", type: TrackType.Event) {
+        "/login/auth/challenge_success"(platform: "/", type: TrackType.Event) {
             challenge = "pass"
             source = "MSL_DEFAULT"
             is_otp = false
             is_admin_otp = false
-	}
+        }
         "/logout"(platform: "/", type: TrackType.Event) {
             flow = "internal"
+        }
+    }
+
+    test("Login Status with Smart Lock for Passwords") {
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = true
+            smartlock_status = "SUCCESS"
+            section = "application_startup"
+        }
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = false
+            smartlock_status = "SUCCESS"
+            section = "application_startup"
+        }
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = true
+            smartlock_status = "RESOLUTION_REQUIRED"
+            section = "application_startup"
+        }
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = false
+            smartlock_status = "RESOLUTION_REQUIRED"
+            section = "application_startup"
         }
     }
 
@@ -4708,6 +4747,12 @@ trackTests {
     test("Application-Android"){
         "/application/open" (platform:"/mobile/android", type: TrackType.Event) {}
     }
+
+    test("deals landings") {
+	   "/deals/landing" (platform:"/web/desktop", type: TrackType.View) {
+		   deal_id = "mla_1234"
+	   }
+   }
 
     test("install_event"){
         "/application/install_event" (platform: "/mobile", type: TrackType.Event){
