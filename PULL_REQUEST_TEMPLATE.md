@@ -1,14 +1,15 @@
-# Testing  
+# Catalog PR template (skip if else!)  
 
-This is a testing template  
+## Context  
+Explain the context of your track so we can help you better  
+Images showing the view or the flow are much appreciated!  
 
-- With  
-- bullet  
-- points!  
+## Self-validation  
+Does your track check the following?  
 
----
+- [ ] I know (or at least believe) no one is tracking this  
+- [ ] Tracks defined make sense for each platorm specified   
+- [ ] By reading the path I can tell what the track is about  
 
-- [ ] And  
-- [ ] these  
-- [ ] awsome  
-- [ ] checklist!!!
+## For more info...  
+... you can read our [Tracking style Guide](https://github.com/mercadolibre/melidata-catalog/wiki/Tracking-Style-Guide)
