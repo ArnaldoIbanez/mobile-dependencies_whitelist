@@ -72,6 +72,8 @@ trackTests {
         }
 
         "/onboarding/cancel"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/onboarding/skip"(platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("Search core tracking"){
