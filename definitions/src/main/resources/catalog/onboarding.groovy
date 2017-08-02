@@ -17,6 +17,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    "/onboarding"(platform: "/mobile") {}
+
     "/onboarding/step"(platform: "/mobile", type: TrackType.View) {
        type(type: PropertyType.String, required: true) 
     }

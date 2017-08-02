@@ -58,7 +58,9 @@ trackTests {
         "/home/carousel/lastcard"(platform: "/mobile") {}
     }
 
-    test("Onboarfing tracking") {
+    test("Onboarding tracking") {
+        "/onboarding"(platform: "/mobile") {}
+
         "/onboarding/step"(platform: "/mobile", type: TrackType.View) {
            type = "registration" 
         }
