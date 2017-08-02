@@ -4727,4 +4727,10 @@ trackTests {
     test("Application-Android"){
         "/application/open" (platform:"/mobile/android", type: TrackType.Event) {}
     }
+
+    test("deals landings") {
+	   "/deals/landing" (platform:"/web/desktop", type: TrackType.View) {
+		   deal_id = "mla_1234"
+	   }
+   }
 }

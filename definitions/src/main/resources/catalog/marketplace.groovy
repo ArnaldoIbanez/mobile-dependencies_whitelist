@@ -402,4 +402,12 @@ tracks {
     "/application"(platform:"/mobile", isAbstract: true) {}
 
     "/application/open"(platform:"/mobile", type: TrackType.Event) { }
+
+    //Landings Deals
+
+    "/deals"(platform: "/", isAbstract: true) {}
+
+    "/deals/landing"(platform: "/") {
+        deal_id(required: false, type: PropertyType.String)
+    }
 }
