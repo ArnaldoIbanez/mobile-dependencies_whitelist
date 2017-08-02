@@ -17,11 +17,13 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    "/onboarding"(platform: "/mobile") {}
+    "/onboarding"(platform: "/mobile", isAbstract: true) {}
 
-    "/onboarding/step"(platform: "/mobile", type: TrackType.View) {
-       type(type: PropertyType.String, required: true) 
-    }
+    "/onboarding/step"(platform: "/mobile", isAbstract: true) {}
+
+    "/onboarding/step/registration"(platform: "/mobile", type: TrackType.View) {}
+
+    "/onboarding/step/registration_facebook"(platform: "/mobile", type: TrackType.View) {}
 
     "/onboarding/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
