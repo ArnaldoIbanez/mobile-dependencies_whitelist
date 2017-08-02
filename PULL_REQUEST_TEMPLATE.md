@@ -2,7 +2,9 @@
 
 ## Context  
 Explain the context of your track so we can help you better  
-Images showing the view or the flow are much appreciated!  
+
+## Screenshots  
+Screenshots showing the view or the flow to be tracked are much appreciated!  
 
 ## Self-validation  
 Does your track check the following?  
