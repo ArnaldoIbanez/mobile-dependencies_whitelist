@@ -58,6 +58,22 @@ trackTests {
         "/home/carousel/lastcard"(platform: "/mobile") {}
     }
 
+    test("Onboarding tracking") {
+        "/onboarding/step/registration"(platform: "/mobile", type: TrackType.View) {}
+
+        "/onboarding/step/registration_facebook"(platform: "/mobile", type: TrackType.View) {}
+
+        "/onboarding/login"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/onboarding/registration"(platform: "/mobile", type: TrackType.Event) {
+            type = "email"
+        }
+
+        "/onboarding/cancel"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/onboarding/skip"(platform: "/mobile", type: TrackType.Event) {}
+    }
+
     test("Search core tracking"){
 
         def defaultSearchInformation = {
