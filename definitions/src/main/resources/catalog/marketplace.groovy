@@ -400,8 +400,11 @@ tracks {
     }
 
     "/application"(platform:"/mobile", isAbstract: true) {}
-
     "/application/open"(platform:"/mobile", type: TrackType.Event) { }
+    "/application/install_event" (platform: "/mobile", type: TrackType.Event){
+        deeplink (required: false, type: PropertyType.String)
+        exception (required: false, type: PropertyType.String)
+    }
 
     //Landings Deals
 
@@ -410,4 +413,20 @@ tracks {
     "/deals/landing"(platform: "/") {
         deal_id(required: false, type: PropertyType.String)
     }
+    
+    "/sso" (platform: "/mobile", isAbstract: true){}
+    "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
+    "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}
+    "/sso/attempt_successful" (platform: "/mobile", type: TrackType.Event){}
+    "/sso/attempt_error" (platform: "/mobile", type: TrackType.Event){}
+
+    "/cx" (platform: "/mobile", isAbstract: true){}
+    "/cx/click_on_article" (platform: "/mobile", type: TrackType.Event){
+        article_id(required: true, type: PropertyType.String)
+    }
+    "/cx/click_on_help" (platform: "/mobile", type: TrackType.Event){}
+    "/cx/click_on_error" (platform: "/mobile", type: TrackType.Event){}
+    "/cx/click_on_suggestion" (platform: "/mobile", type: TrackType.Event){}
+    "/cx/contact_types" (platform: "/mobile", isAbstract: true){}
+    "/cx/contact_types/click_on_contact_form" (platform: "/mobile", type: TrackType.Event){}
 }
