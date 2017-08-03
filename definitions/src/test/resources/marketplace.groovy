@@ -4751,4 +4751,21 @@ trackTests {
 		   deal_id = "mla_1234"
 	   }
    }
+
+    test ("checkout Legacy"){
+        "/checkout/legacy/entry"(platform: "/mobile", type: TrackType.Event){
+            checkout_version = "V1"
+            order_payment_required = "false"
+            payment_pre_selected = "none"
+            shipping_pre_selected = "none"
+            quantity_pre_selected = "1"
+        }
+        "/checkout/legacy/exit"(platform: "/mobile", type: TrackType.Event){
+            checkout_version = "V1"
+            payment_method = "visa"
+            buy_equals_pay = "TRUE"
+            shipping_type = "mercadoenvios"
+        }
+
+    }
 }
