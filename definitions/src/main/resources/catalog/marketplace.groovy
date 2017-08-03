@@ -402,8 +402,8 @@ tracks {
     "/application"(platform:"/mobile", isAbstract: true) {}
     "/application/open"(platform:"/mobile", type: TrackType.Event) { }
     "/application/install_event" (platform: "/mobile", type: TrackType.Event){
-        DEEPLINK (required: false, type: PropertyType.String)
-        EXCEPTION (required: false, type: PropertyType.String)
+        deeplink (required: false, type: PropertyType.String)
+        exception (required: false, type: PropertyType.String)
     }
 
     //Landings Deals
