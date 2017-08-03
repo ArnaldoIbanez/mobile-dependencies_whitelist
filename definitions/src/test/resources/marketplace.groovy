@@ -59,9 +59,7 @@ trackTests {
     }
 
     test("Onboarding tracking") {
-        "/onboarding/step/registration"(platform: "/mobile", type: TrackType.View) {}
-
-        "/onboarding/step/registration_facebook"(platform: "/mobile", type: TrackType.View) {}
+        "/onboarding/step/chooser"(platform: "/mobile", type: TrackType.View) {}
 
         "/onboarding/login"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -4773,5 +4771,21 @@ trackTests {
         "/cx/click_on_error" (platform: "/mobile", type: TrackType.Event){}
         "/cx/click_on_suggestion" (platform: "/mobile", type: TrackType.Event){}
         "/cx/contact_types/click_on_contact_form" (platform: "/mobile", type: TrackType.Event){}
+
+    test ("checkout Legacy"){
+        "/checkout/legacy/entry"(platform: "/mobile", type: TrackType.Event){
+            checkout_version = "V1"
+            order_payment_required = "false"
+            payment_pre_selected = "none"
+            shipping_pre_selected = "none"
+            quantity_pre_selected = "1"
+        }
+        "/checkout/legacy/exit"(platform: "/mobile", type: TrackType.Event){
+            checkout_version = "V1"
+            payment_method = "visa"
+            buy_equals_pay = "TRUE"
+            shipping_type = "mercadoenvios"
+        }
+
     }
 }
