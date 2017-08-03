@@ -1,7 +1,15 @@
 # Catalog PR template (skip if else!)  
 
 ## Context  
-[//]: # (Explain the context of your track so we can help you better)  
+[//]: # (Explain the context of your tracks so we can help you better)  
+
+## Paths  
+[//]: # (Describe the paths or properties you are adding)  
+
+| Path/Property | Description |
+|---------------|-------------|
+|  |  |
+
 
 ## Screenshots  
 [//]: # (Screenshots showing the view or the flow to be tracked are much appreciated!)  
