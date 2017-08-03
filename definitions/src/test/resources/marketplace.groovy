@@ -4770,7 +4770,8 @@ trackTests {
         "/cx/click_on_help" (platform: "/mobile", type: TrackType.Event){}
         "/cx/click_on_error" (platform: "/mobile", type: TrackType.Event){}
         "/cx/click_on_suggestion" (platform: "/mobile", type: TrackType.Event){}
-        "/cx/contact_types/click_on_contact_form" (platform: "/mobile", type: TrackType.Event){}
+        "/cx/contact_types/click_on_contact_form" (platform: "/mobile", type: TrackType.Event) {}
+    }
 
     test ("checkout Legacy"){
         "/checkout/legacy/entry"(platform: "/mobile", type: TrackType.Event){
