@@ -20,6 +20,7 @@
 - [ ] I know (or at least believe) no one is tracking this  
 - [ ] Tracks defined make sense for each platorm specified   
 - [ ] By reading the path I can tell what the track is about  
+- [ ] Same actions have same paths
 
 ## For more info...  
 ... you can read our [Tracking style Guide](https://github.com/mercadolibre/melidata-catalog/wiki/Tracking-Style-Guide)
