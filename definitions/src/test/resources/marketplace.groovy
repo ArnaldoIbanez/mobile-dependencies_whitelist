@@ -953,6 +953,9 @@ trackTests {
         "/checkout/shipping/location/select_city"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+        "/checkout/shipping/location/select_city/invalid_destination"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
         "/checkout/shipping/location/address"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             edit_flow = true
@@ -2429,7 +2432,7 @@ trackTests {
             previous_size=122592
         }
     }
-    
+
     test("Mobile Landings") {
         "/landing/generic"(platform: "/mobile"){
             url = "https://www.mercadolibre.com"
@@ -3381,7 +3384,7 @@ trackTests {
         "/sell/list/listing_types"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/listing_types_upgrade"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/congrats_upgrade"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-       
+
         "/sell/list/drafts/draft_action/draft_deleted"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/drafts/draft_action/draft_resumed"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/sip/publish/pictures_fail"(platform: "/mobile") {
