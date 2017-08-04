@@ -4772,10 +4772,10 @@ trackTests {
         "/subscriptions/summary"(platform: "/web/mobile", type: TrackType.View) {}
         "/subscriptions/detail"(platform: "/web/mobile", type: TrackType.View) {}
 
-        "/subscriptions/detail/modify"(platform: "/web/mobile", isAbstract: true) {}
+        "/subscriptions/detail/modify"(platform: "/web/mobile") {}
         "/subscriptions/detail/modify/frequency"(platform: "/web/mobile", type: TrackType.Event) {}
 
-        "/subscriptions/detail/cancel"(platform: "/web/mobile", isAbstract: true) {}
+        "/subscriptions/detail/cancel"(platform: "/web/mobile") {}
         "/subscriptions/detail/cancel/now"(platform: "/web/mobile", type: TrackType.Event) {}
         "/subscriptions/detail/cancel/skip"(platform: "/web/mobile", type: TrackType.Event) {}
         "/subscriptions/detail/cancel/subscription"(platform: "/web/mobile", type: TrackType.Event) {}
