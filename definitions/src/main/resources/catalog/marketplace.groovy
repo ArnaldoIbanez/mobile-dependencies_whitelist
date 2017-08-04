@@ -418,17 +418,15 @@ tracks {
     "/subscriptions"(platform: "/", isAbstract: true) {}
 
     "/subscriptions/frequency"(platform: "/", type: TrackType.View) {}
-    "/subscriptions/changefrequency"(platform: "/", type: TrackType.Event) {
+    "/subscriptions/change_frequency"(platform: "/", type: TrackType.Event) {
         frequency(required: true, type: PropertyType.String)
         frequency_before(type: PropertyType.String)
+        context(required: true, type: PropertyType.String)
     }
 
     "/subscriptions/review"(platform: "/", type: TrackType.View) {}
-    "/subscriptions/review/confirm_top"(platform: "/", type: TrackType.Event) {}
-    "/subscriptions/review/confirm_bottom"(platform: "/", type: TrackType.Event) {}
-    "/subscriptions/review/changefrequency"(platform: "/", type: TrackType.Event) {
-        frequency(required: true, type: PropertyType.String)
-        frequency_before(type: PropertyType.String)
+    "/subscriptions/review/confirm"(platform: "/", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String)
     }
 
     "/subscriptions/congrats"(platform: "/", type: TrackType.View) {}
@@ -436,9 +434,6 @@ tracks {
 
     "/subscriptions/summary"(platform: "/", type: TrackType.View) {}
     "/subscriptions/detail"(platform: "/", type: TrackType.View) {}
-
-    "/subscriptions/detail/modify"(platform: "/", isAbstract: true) {}
-    "/subscriptions/detail/modify/frequency"(platform: "/", type: TrackType.Event) {}
 
     "/subscriptions/detail/cancel"(platform: "/", isAbstract: true) {}
     "/subscriptions/detail/cancel/now"(platform: "/", type: TrackType.Event) {}

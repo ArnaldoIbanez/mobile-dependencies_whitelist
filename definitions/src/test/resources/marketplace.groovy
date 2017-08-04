@@ -4754,16 +4754,14 @@ trackTests {
 
     test("subscriptions") {
 	   "/subscriptions/frequency" (platform:"/web/mobile", type: TrackType.View) {}
-	   "/subscriptions/changefrequency" (platform:"/web/mobile", type: TrackType.View) {
+	   "/subscriptions/change_frequency" (platform:"/web/mobile", type: TrackType.View) {
            frequency = "WEEKS_2"
            frequency_before = "WEEKS_1"
+           context = "frequency"
        }
         "/subscriptions/review"(platform: "/web/mobile", type: TrackType.View) {}
-        "/subscriptions/review/confirm_top"(platform: "/web/mobile", type: TrackType.Event) {}
-        "/subscriptions/review/confirm_bottom"(platform: "/web/mobile", type: TrackType.Event) {}
-        "/subscriptions/review/changefrequency"(platform: "/web/mobile", type: TrackType.Event) {
-            frequency = "WEEKS_2"
-            frequency_before = "WEEKS_1"
+        "/subscriptions/review/confirm"(platform: "/web/mobile", type: TrackType.Event) {
+            context = "bottom"
         }
 
         "/subscriptions/congrats"(platform: "/web/mobile", type: TrackType.View) {}
@@ -4771,9 +4769,6 @@ trackTests {
 
         "/subscriptions/summary"(platform: "/web/mobile", type: TrackType.View) {}
         "/subscriptions/detail"(platform: "/web/mobile", type: TrackType.View) {}
-
-        "/subscriptions/detail/modify"(platform: "/web/mobile") {}
-        "/subscriptions/detail/modify/frequency"(platform: "/web/mobile", type: TrackType.Event) {}
 
         "/subscriptions/detail/cancel"(platform: "/web/mobile") {}
         "/subscriptions/detail/cancel/now"(platform: "/web/mobile", type: TrackType.Event) {}
