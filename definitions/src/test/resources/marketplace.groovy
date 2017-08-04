@@ -4750,7 +4750,36 @@ trackTests {
 	   "/deals/landing" (platform:"/web/desktop", type: TrackType.View) {
 		   deal_id = "mla_1234"
 	   }
-   }
+    } 
+
+    test("subscriptions") {
+	   "/subscriptions/frequency" (platform:"/web/mobile", type: TrackType.View) {}
+	   "/subscriptions/changefrequency" (platform:"/web/mobile", type: TrackType.View) {
+           frequency = "WEEKS_2"
+           frequency_before = "WEEKS_1"
+       }
+        "/subscriptions/review"(platform: "/web/mobile", type: TrackType.View) {}
+        "/subscriptions/review/confirm_top"(platform: "/web/mobile", type: TrackType.Event) {}
+        "/subscriptions/review/confirm_bottom"(platform: "/web/mobile", type: TrackType.Event) {}
+        "/subscriptions/review/changefrequency"(platform: "/web/mobile", type: TrackType.Event) {
+            frequency = "WEEKS_2"
+            frequency_before = "WEEKS_1"
+        }
+
+        "/subscriptions/congrats"(platform: "/web/mobile", type: TrackType.View) {}
+        "/subscriptions/congrats/view_subscription"(platform: "/web/mobile", type: TrackType.Event) {}
+
+        "/subscriptions/summary"(platform: "/web/mobile", type: TrackType.View) {}
+        "/subscriptions/detail"(platform: "/web/mobile", type: TrackType.View) {}
+
+        "/subscriptions/detail/modify"(platform: "/web/mobile", isAbstract: true) {}
+        "/subscriptions/detail/modify/frequency"(platform: "/web/mobile", type: TrackType.Event) {}
+
+        "/subscriptions/detail/cancel"(platform: "/web/mobile", isAbstract: true) {}
+        "/subscriptions/detail/cancel/now"(platform: "/web/mobile", type: TrackType.Event) {}
+        "/subscriptions/detail/cancel/skip"(platform: "/web/mobile", type: TrackType.Event) {}
+        "/subscriptions/detail/cancel/subscription"(platform: "/web/mobile", type: TrackType.Event) {}
+    } 
 
     test("install_event"){
         "/application/install_event" (platform: "/mobile", type: TrackType.Event){

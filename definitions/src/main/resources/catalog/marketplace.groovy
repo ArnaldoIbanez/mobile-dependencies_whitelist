@@ -413,6 +413,37 @@ tracks {
     "/deals/landing"(platform: "/") {
         deal_id(required: false, type: PropertyType.String)
     }
+
+    // Subscriptions
+    "/subscriptions"(platform: "/", isAbstract: true) {}
+
+    "/subscriptions/frequency"(platform: "/", type: TrackType.View) {}
+    "/subscriptions/changefrequency"(platform: "/", type: TrackType.Event) {
+        frequency(required: true, type: PropertyType.String)
+        frequency_before(type: PropertyType.String)
+    }
+
+    "/subscriptions/review"(platform: "/", type: TrackType.View) {}
+    "/subscriptions/review/confirm_top"(platform: "/", type: TrackType.Event) {}
+    "/subscriptions/review/confirm_bottom"(platform: "/", type: TrackType.Event) {}
+    "/subscriptions/review/changefrequency"(platform: "/", type: TrackType.Event) {
+        frequency(required: true, type: PropertyType.String)
+        frequency_before(type: PropertyType.String)
+    }
+
+    "/subscriptions/congrats"(platform: "/", type: TrackType.View) {}
+    "/subscriptions/congrats/view_subscription"(platform: "/", type: TrackType.Event) {}
+
+    "/subscriptions/summary"(platform: "/", type: TrackType.View) {}
+    "/subscriptions/detail"(platform: "/", type: TrackType.View) {}
+
+    "/subscriptions/detail/modify"(platform: "/", isAbstract: true) {}
+    "/subscriptions/detail/modify/frequency"(platform: "/", type: TrackType.Event) {}
+
+    "/subscriptions/detail/cancel"(platform: "/", isAbstract: true) {}
+    "/subscriptions/detail/cancel/now"(platform: "/", type: TrackType.Event) {}
+    "/subscriptions/detail/cancel/skip"(platform: "/", type: TrackType.Event) {}
+    "/subscriptions/detail/cancel/subscription"(platform: "/", type: TrackType.Event) {}
     
     "/sso" (platform: "/mobile", isAbstract: true){}
     "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
