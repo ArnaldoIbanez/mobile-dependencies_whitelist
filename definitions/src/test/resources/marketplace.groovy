@@ -4746,6 +4746,10 @@ trackTests {
         "/application/open" (platform:"/mobile/android", type: TrackType.Event) {}
     }
 
+    test("Application-Android"){
+        "/application/workaround/nohistory" (platform:"/mobile/android", type: TrackType.Event) {}
+    }
+
     test("deals landings") {
 	   "/deals/landing" (platform:"/web/desktop", type: TrackType.View) {
 		   deal_id = "mla_1234"

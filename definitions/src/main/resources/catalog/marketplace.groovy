@@ -401,6 +401,10 @@ tracks {
 
     "/application"(platform:"/mobile", isAbstract: true) {}
     "/application/open"(platform:"/mobile", type: TrackType.Event) { }
+
+    "/application/workaround"(platform: "/mobile/android", isAbstract: true) {}
+    "/application/workaround/nohistory"(platform: "/mobile/android", type: TrackType.Event) {}
+
     "/application/install_event" (platform: "/mobile", type: TrackType.Event){
         deeplink (required: false, type: PropertyType.String)
         exception (required: false, type: PropertyType.String)
