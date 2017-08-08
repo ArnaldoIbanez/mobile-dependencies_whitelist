@@ -3,20 +3,10 @@
     "daniela.medina@mercadolibre.com"
   ],
   "process_name": "count_clicks_deals",
-  "cron": "00 08 * * *",
+  "cron": "00 18 * * *",
   "extract": {
     "operation": "append",
     "columns": [
-
-
-get_json_object(others['fragment'], '$.L'), 
-get_json_object(others['fragment'], '$.size') , 
-get_json_object(others['fragment'], '$.DEAL_ID'),
-get_json_object(others['fragment'], '$.L') ,
-get_json_object(others['fragment'], '$.S') ,
-get_json_object(others['fragment'], '$.V') ,
-get_json_object(others['fragment'], '$.T') ,
-usr.uid
       {
         "name": "ds",
         "type": "DATE",
