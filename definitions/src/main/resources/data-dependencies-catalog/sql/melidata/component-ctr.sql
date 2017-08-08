@@ -25,7 +25,6 @@ FROM tracks
 LATERAL VIEW json_tuple(others['fragment'], 'c_event', 'c_id') jt AS `event`, `id`
 WHERE ds>= '@param01' AND ds < '@param02' 
     AND `type` = 'view'
-    AND `jt`.`event` = 'click'
     AND `jt`.`id` IS NOT NULL
 GROUP BY ds, regexp_extract(`jt`.`id`, '^(\/.*)\/.*$', 1)) AS t2
 
