@@ -3,7 +3,7 @@
     "daniela.medina@mercadolibre.com"
   ],
   "process_name": "count_purchases_deals",
-  "cron": "00 18 * * *",
+  "cron": "00 19 * * *",
   "extract": {
     "operation": "append",
     "columns": [
