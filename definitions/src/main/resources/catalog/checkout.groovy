@@ -808,6 +808,12 @@ tracks {
 
     }
 
+    "/checkout/congrats/second_step"(platform: "/mobile") {}
+
+    "/checkout/congrats/second_step/error"(platform: "/mobile") {}
+    
+    "/checkout/congrats/second_step/error/information"(platform: "/mobile") {}    
+
     "/checkout/finish"(platform: "/mobile", isAbstract: true) {
         /** **************************************/
         // Same as congrats tracks
