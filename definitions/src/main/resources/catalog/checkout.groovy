@@ -806,7 +806,7 @@ tracks {
 
     "/checkout/congrats/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {
 
-    }
+    } 
 
     "/checkout/finish"(platform: "/mobile", isAbstract: true) {
         /** **************************************/
@@ -867,6 +867,10 @@ tracks {
     "/checkout/finish/choose_action"(platform: "/mobile") {
         /* choose from a list of actions what to do. Eg: choose user homebanking */
     }
+
+    "/checkout/finish/second_step"(platform: "/mobile", isAbstract: true) {}
+
+    "/checkout/finish/second_step/error_details"(platform: "/mobile") {}   
 
     "/checkout/congrats/pending"(platform: "/mobile") {}
 
