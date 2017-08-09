@@ -49,6 +49,18 @@ metrics {
 			}
 		}
 	}
+	
+	"publish_congrats"(description: "Selling flow new publishings") {	
+		startWith {
+	            experiment(regex("sell/.*"))
+		}
+		
+		countsOn {
+			condition {
+				path("/item/create")
+			}
+		}
+	}
 
 	"email.open"(description: "path: /email/orders and event_type: open") {
 		countsOn {
