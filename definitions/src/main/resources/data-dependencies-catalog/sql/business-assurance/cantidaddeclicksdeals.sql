@@ -10,9 +10,9 @@ usr.uid,
 count(1) as total_clicks
 from tracks
 where 	   ds >='2017-08-03'
-and 	   ds < '2017-08-09'
+and 	   ds < '2017-08-10'
 and others['fragment'] like '%DEAL%'
-and json_format(jet(others['fragment'], 'DEAL_ID')) != '[]'
+and jest(others['fragment'], 'DEAL_ID') != '[]'
 group by 
 substr(ds,1,10),
  application.site_id, 
