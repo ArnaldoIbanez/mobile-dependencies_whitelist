@@ -806,13 +806,7 @@ tracks {
 
     "/checkout/congrats/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {
 
-    }
-
-    "/checkout/congrats/second_step"(platform: "/mobile") {}
-
-    "/checkout/congrats/second_step/error"(platform: "/mobile") {}
-    
-    "/checkout/congrats/second_step/error/information"(platform: "/mobile") {}    
+    } 
 
     "/checkout/finish"(platform: "/mobile", isAbstract: true) {
         /** **************************************/
@@ -873,6 +867,10 @@ tracks {
     "/checkout/finish/choose_action"(platform: "/mobile") {
         /* choose from a list of actions what to do. Eg: choose user homebanking */
     }
+
+    "/checkout/finish/second_step"(platform: "/mobile", isAbstract: true) {}
+
+    "/checkout/finish/second_step/error_details"(platform: "/mobile") {}   
 
     "/checkout/congrats/pending"(platform: "/mobile") {}
 

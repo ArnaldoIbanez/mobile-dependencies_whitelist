@@ -1258,21 +1258,14 @@ trackTests {
         "/checkout/congrats/invalid_sec_code/input"(platform:"/mobile", type:TrackType.View) {
         }
 
-        "/checkout/congrats/second_step"(platform:"/mobile", type:TrackType.View) {
-            checkoutStatus()
-        }
-
-        "/checkout/congrats/second_step/error"(platform:"/mobile", type:TrackType.View) {
-            checkoutStatus()
-        }
-
-        "/checkout/congrats/second_step/error/information"(platform:"/mobile", type:TrackType.View) {
-            checkoutStatus()
-        }
-
         "/checkout/finish/choose_action"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+
+        "/checkout/finish/second_step/error_details"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
+
         "/checkout/congrats/pending"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
