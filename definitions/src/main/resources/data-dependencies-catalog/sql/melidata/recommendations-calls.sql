@@ -18,7 +18,8 @@ LATERAL VIEW json_tuple(v1.recommendations, 'hidden_by_client', 'backend_id', 'c
 WHERE v1.recommendations IS NOT NULL
 AND (v2.algorithm is not null or v2.backend_id is not null)
 AND (v2.context is not null or v2.client is not null)
-AND CAST(v2.hidden_by_client as varchar(50)) = 'false'
+AND (CAST(v2.hidden_by_client as varchar(50)) = 'false' OR v2.hidden_by_client is null)
+AND NOT is_bot(device.user_agent)
 AND ds >= '@param01 02' AND ds < '@param02 02'
 )a
 GROUP BY  a.ds,

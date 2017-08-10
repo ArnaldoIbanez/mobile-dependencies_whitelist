@@ -22,6 +22,7 @@ FROM(
    	path = '/vip'
    	AND v1.client IS NOT NULL
    	AND ds >= '@param01 02' AND ds < '@param03 02'
+   	AND NOT is_bot(device.user_agent)
    )recommendations
 INNER JOIN(
        	SELECT
@@ -38,6 +39,7 @@ INNER JOIN(
             AND ds >= '@param02 02' AND ds < '@param03 02'
            	AND CAST(v1.congrats_seq AS VARCHAR(50)) = '1'
            	AND total_amount_usd < 10000
+           	AND NOT is_bot(device.user_agent)
        	) orders
 ON  orders.item_id = recommendations.item_id
 AND orders.user_id = recommendations.user_id

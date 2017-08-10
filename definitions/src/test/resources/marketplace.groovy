@@ -58,6 +58,20 @@ trackTests {
         "/home/carousel/lastcard"(platform: "/mobile") {}
     }
 
+    test("Onboarding tracking") {
+        "/onboarding/step/chooser"(platform: "/mobile", type: TrackType.View) {}
+
+        "/onboarding/login"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/onboarding/registration"(platform: "/mobile", type: TrackType.Event) {
+            type = "email"
+        }
+
+        "/onboarding/cancel"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/onboarding/skip"(platform: "/mobile", type: TrackType.Event) {}
+    }
+
     test("Search core tracking"){
 
         def defaultSearchInformation = {
@@ -641,6 +655,7 @@ trackTests {
 
         def defaultCheckoutInformation = {
             item_id = "MCO412584037"
+            checkout_version = "V2"
         }
 
         def defaultCheckoutPaymentInformation = {
@@ -936,6 +951,9 @@ trackTests {
             checkoutStatus()
         }
         "/checkout/shipping/location/select_city"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
+        "/checkout/shipping/location/select_city/invalid_destination"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
         "/checkout/shipping/location/address"(platform:"/mobile", type:TrackType.View) {
@@ -1239,9 +1257,15 @@ trackTests {
         }
         "/checkout/congrats/invalid_sec_code/input"(platform:"/mobile", type:TrackType.View) {
         }
+
         "/checkout/finish/choose_action"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+
+        "/checkout/finish/second_step/error_details"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
+
         "/checkout/congrats/pending"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
@@ -2414,7 +2438,7 @@ trackTests {
             previous_size=122592
         }
     }
-    
+
     test("Mobile Landings") {
         "/landing/generic"(platform: "/mobile"){
             url = "https://www.mercadolibre.com"
@@ -3366,7 +3390,7 @@ trackTests {
         "/sell/list/listing_types"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/listing_types_upgrade"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/congrats_upgrade"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-       
+
         "/sell/list/drafts/draft_action/draft_deleted"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/drafts/draft_action/draft_resumed"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/sip/publish/pictures_fail"(platform: "/mobile") {
@@ -3901,14 +3925,37 @@ trackTests {
             old_user_id = "123456"
             old_user_nick = "nick"
         }
-	"/login/auth/challenge_success"(platform: "/", type: TrackType.Event) {
+        "/login/auth/challenge_success"(platform: "/", type: TrackType.Event) {
             challenge = "pass"
             source = "MSL_DEFAULT"
             is_otp = false
             is_admin_otp = false
-	}
+        }
         "/logout"(platform: "/", type: TrackType.Event) {
             flow = "internal"
+        }
+    }
+
+    test("Login Status with Smart Lock for Passwords") {
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = true
+            smartlock_status = "SUCCESS"
+            section = "application_startup"
+        }
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = false
+            smartlock_status = "SUCCESS"
+            section = "application_startup"
+        }
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = true
+            smartlock_status = "RESOLUTION_REQUIRED"
+            section = "application_startup"
+        }
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = false
+            smartlock_status = "RESOLUTION_REQUIRED"
+            section = "application_startup"
         }
     }
 
@@ -4706,5 +4753,77 @@ trackTests {
 
     test("Application-Android"){
         "/application/open" (platform:"/mobile/android", type: TrackType.Event) {}
+    }
+
+    test("Application-Android"){
+        "/application/workaround/nohistory" (platform:"/mobile/android", type: TrackType.Event) {}
+    }
+
+    test("deals landings") {
+	   "/deals/landing" (platform:"/web/desktop", type: TrackType.View) {
+		   deal_id = "mla_1234"
+	   }
+    } 
+
+    test("subscriptions") {
+	   "/subscriptions/frequency" (platform:"/web/mobile", type: TrackType.View) {}
+	   "/subscriptions/change_frequency" (platform:"/web/mobile", type: TrackType.View) {
+           frequency = "WEEKS_2"
+           frequency_before = "WEEKS_1"
+           context = "frequency"
+       }
+        "/subscriptions/review"(platform: "/web/mobile", type: TrackType.View) {}
+        "/subscriptions/review/confirm"(platform: "/web/mobile", type: TrackType.Event) {
+            context = "bottom"
+        }
+
+        "/subscriptions/congrats"(platform: "/web/mobile", type: TrackType.View) {}
+        "/subscriptions/congrats/view_subscription"(platform: "/web/mobile", type: TrackType.Event) {}
+
+        "/subscriptions/summary"(platform: "/web/mobile", type: TrackType.View) {}
+        "/subscriptions/detail"(platform: "/web/mobile", type: TrackType.View) {}
+
+        "/subscriptions/detail/cancel"(platform: "/web/mobile") {}
+        "/subscriptions/detail/cancel/now"(platform: "/web/mobile", type: TrackType.Event) {}
+        "/subscriptions/detail/cancel/skip"(platform: "/web/mobile", type: TrackType.Event) {}
+        "/subscriptions/detail/cancel/subscription"(platform: "/web/mobile", type: TrackType.Event) {}
+    } 
+
+    test("install_event"){
+        "/application/install_event" (platform: "/mobile", type: TrackType.Event){
+        }
+    }
+    test("sso"){
+        "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
+        "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}
+        "/sso/attempt_successful" (platform: "/mobile", type: TrackType.Event){}
+        "/sso/attempt_error" (platform: "/mobile", type: TrackType.Event){}
+    }
+
+    test("cx"){
+        "/cx/click_on_article" (platform: "/mobile", type: TrackType.Event){
+            article_id = "MLA754486062"
+        }
+        "/cx/click_on_help" (platform: "/mobile", type: TrackType.Event){}
+        "/cx/click_on_error" (platform: "/mobile", type: TrackType.Event){}
+        "/cx/click_on_suggestion" (platform: "/mobile", type: TrackType.Event){}
+        "/cx/contact_types/click_on_contact_form" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test ("checkout Legacy"){
+        "/checkout/legacy/entry"(platform: "/mobile", type: TrackType.Event){
+            checkout_version = "V1"
+            order_payment_required = "false"
+            payment_pre_selected = "none"
+            shipping_pre_selected = "none"
+            quantity_pre_selected = "1"
+        }
+        "/checkout/legacy/exit"(platform: "/mobile", type: TrackType.Event){
+            checkout_version = "V1"
+            payment_method = "visa"
+            buy_equals_pay = "TRUE"
+            shipping_type = "mercadoenvios"
+        }
+
     }
 }

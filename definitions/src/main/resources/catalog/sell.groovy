@@ -319,6 +319,14 @@ tracks {
     "/sell/list/congrats_upgrade"(platform: "/", type: TrackType.View) {
         session_id(required: false, description: "Session id", type: PropertyType.String)
     }
+    "/sell/list/item_description"(platform: "/", type: TrackType.View){
+        session_id(required: false, description: "Session id", type: PropertyType.String)
+        listing_type_id(required: false, description: "Item listing type id")
+        vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
+        condition(required: false, description: "Item condition: used/new/not_specified")
+        price(required: false, description: "Item price")
+    }
 
 //update flow
 

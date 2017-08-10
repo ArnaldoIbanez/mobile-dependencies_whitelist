@@ -2,7 +2,7 @@
   "users": [
     "marina.propato@mercadolibre.com"
   ],
-  "process_name": "credits_merchant",
+  "process_name": "credits_merchant_myml",
   "cron": " ",
   "extract": {
     "operation": "append",
