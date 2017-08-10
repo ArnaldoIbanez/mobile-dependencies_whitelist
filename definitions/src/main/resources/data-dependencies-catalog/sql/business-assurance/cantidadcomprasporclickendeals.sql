@@ -28,9 +28,9 @@ jest(others['fragment'],'T') AS deal_Type,
 usr.uid
 from tracks
 	where 	   ds >='2017-08-03'
-	and 	   ds < '2017-08-09'
+	and 	   ds < '2017-08-10'
 	and others['fragment'] like '%DEAL%'
-	and json_format(jet(others['fragment'], 'DEAL_ID')) != '[]'
+	and jest(others['fragment'], 'DEAL_ID') != '[]'
 group by  
 	application.site_id, 
 	device.platform, 
@@ -40,10 +40,10 @@ group by
 	jest(others['fragment'],'V') ,
 	jest(others['fragment'],'T') ,
 	usr.uid
-			) deal ON ((json_format(jet(event_data, 'items[0].item.deal_ids')) 
-			  LIKE concat('%',deal.others_dealID,'"','%'))  and usr.uid = deal.uid)
+			) deal ON (( (jest(event_data, 'items[0].item.deal_ids') 
+			  like '%DEAL_ID%'  ) )  and usr.uid = deal.uid))
 	where 	   ds >='2017-08-03'
-	and 	   ds < '2017-08-09'
+	and 	   ds < '2017-08-10'
 	and path = '/orders/ordercreated' 
 group by 
 substr(ds,1,10),
