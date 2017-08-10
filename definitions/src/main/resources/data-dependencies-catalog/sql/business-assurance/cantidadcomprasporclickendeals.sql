@@ -40,8 +40,8 @@ group by
 	jest(others['fragment'],'V') ,
 	jest(others['fragment'],'T') ,
 	usr.uid
-			) deal ON (((jest(event_data, 'items[0].item.deal_ids') 
-			  = concat(deal.others_dealID) )  and usr.uid = deal.uid))
+			) deal ON (( (jest(event_data, 'items[0].item.deal_ids') 
+			  like '%DEAL_ID%'  ) )  and usr.uid = deal.uid))
 	where 	   ds >='2017-08-03'
 	and 	   ds < '2017-08-10'
 	and path = '/orders/ordercreated' 
