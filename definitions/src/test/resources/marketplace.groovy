@@ -2641,6 +2641,21 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification"(platform: "/mobile") {
+            event_type = "discarded"
+            discard_reason = "invalid_payload"
+        }
+
+        "/notification"(platform: "/mobile") {
+            event_type = "discarded"
+            discard_reason = "invalid_user"
+        }
+
+        "/notification"(platform: "/mobile") {
+            event_type = "discarded"
+            notification_created_error = "Some exception message"
+        }
+
         "/notification/reputation-free_shipping_deactivation"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"

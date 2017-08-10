@@ -58,6 +58,10 @@ tracks {
         source(required: false,
                values: ["notification_center","logout","overwrite"])
 
+        discard_reason(required: false, description: "The discarded reason of the notification", values: ["invalid_payload","invalid_user"], type: PropertyType.String)
+
+        notification_created_error(required: false, description: "The notification created error", type: PropertyType.String)
+
         news_id(required: false, description: "Identifier of the notification generated")
         notification_style(required: false, description: "The notification style used when displaying the notification to the user.")
 
