@@ -1004,6 +1004,17 @@ trackTests {
     }
 
     test("Bill payments") {
+
+        "/bill_payments/fixed_amount"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+
+        "/bill_payments/ticket_data"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+
         "/bill_payments/help"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
