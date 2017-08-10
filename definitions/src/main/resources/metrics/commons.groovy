@@ -50,7 +50,7 @@ metrics {
 		}
 	}
 	
-	"publish_congrats"(description: "Selling flow new publishings") {	
+	"publish_congrats"(description: "Selling flow new item published - Does not track congrats view") {	
 		startWith {
 	            experiment(regex("sell/.*"))
 		}
