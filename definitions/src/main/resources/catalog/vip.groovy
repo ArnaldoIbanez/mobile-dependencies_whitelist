@@ -42,6 +42,7 @@ tracks {
         review_rate(inheritable: false)
         description_type(required: false, description: "Description type: plain text, html, both, none", values: ["plain_text", "html", "both", "none"])
         max_size_gallery(required: false, description: "Max_size of first picture gallery")
+        specifications_size(required: false, description: "Specifications attributes quantity")
     }
 
     "/vip"(platform: "/mobile") {
