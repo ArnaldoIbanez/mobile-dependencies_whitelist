@@ -64,8 +64,10 @@ class Validate {
         }
 
         println "Summary:"
-        map.each { message, count ->
-            println "$message : $count"
+        // Sort map by count (desc)
+        def fails = map.collect{msg, count -> [msg, count]}.sort{f1, f2 -> f2[1] <=> f1[1]}
+        fails.each { fail ->
+            println "${fail[0]} : ${fail[1]}"
         }
 
         println ""
