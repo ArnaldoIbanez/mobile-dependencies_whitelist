@@ -28,7 +28,7 @@ jest(others['fragment'],'T') AS deal_Type,
 usr.uid
 from tracks
 	where 	   ds >='2017-08-03'
-	and 	   ds < '2017-08-10'
+	and 	   ds < '2017-08-13'
 	and others['fragment'] like '%DEAL%'
 	and jest(others['fragment'], 'DEAL_ID') != '[]'
 group by  
