@@ -12,8 +12,8 @@ deal.deal_Label as  deal_Label,
 deal.deal_Source as deal_Source,
 deal.deal_Position as deal_Position,
 deal.deal_Type as deal_Type,
-deal.others_dealID as others_dealID,
 jet(event_data, 'items[0].item.deal_ids') as eventdata_dealID,
+deal.others_dealID as others_dealID,
 sum(CAST(jest(event_data,'total_amount_usd') AS DOUBLE)) as sum_dol_amount,
 count(1) as purchases_total
 from tracks orders
@@ -27,22 +27,22 @@ jest(others['fragment'],'V') AS deal_Position,
 jest(others['fragment'],'T') AS deal_Type,
 usr.uid
 from tracks
-	where 	   ds >='@param01'
-	and 	   ds < '@param02'
+	where 	   ds >='2017-08-03'
+	and 	   ds < '2017-08-15'
 	and others['fragment'] like '%DEAL%'
 	and jest(others['fragment'], 'DEAL_ID') != '[]'
 group by  
 	application.site_id, 
 	device.platform, 
-	jest(others['fragment'], 'DEAL_ID'),
+	jest(others['fragment'],'DEAL_ID'),
 	jest(others['fragment'], 'L') ,
 	jest(others['fragment'],'S') ,
 	jest(others['fragment'],'V') ,
 	jest(others['fragment'],'T') ,
 	usr.uid
 			) deal ON (((jest(event_data, 'items[0].item.deal_ids') like '%DEAL_ID%'  ) and usr.uid = deal.uid))
-	where 	   ds >='@param01'
-	and 	   ds < '@param02'
+	where 	   ds >='2017-08-03'
+	and 	   ds < '2017-08-15'
 	and path = '/orders/ordercreated' 
 group by 
 substr(ds,1,10),

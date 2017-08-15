@@ -3,15 +3,16 @@
     "daniela.medina@mercadolibre.com"
   ],
   "process_name": "count_purchases_deals",
-  "cron": "00 07 * * *",
+  "cron": " ",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "ds",
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },
+
       {
         "name": "Site",
         "type": "UNICODE_STRING"
@@ -61,14 +62,15 @@
         "name": "deal_Type",
         "type": "UNICODE_STRING"
       },
+       {
+        "name": "eventdata_dealID",
+        "type": "UNICODE_STRING"
+      },
          {
         "name": "others_dealID",
         "type": "UNICODE_STRING"
       },
-        {
-        "name": "eventdata_dealID",
-        "type": "UNICODE_STRING"
-      },
+       
         {
         "name": "sum_dol_amount",
         "type": "DOUBLE"
