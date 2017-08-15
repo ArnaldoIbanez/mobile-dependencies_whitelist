@@ -1064,7 +1064,11 @@ tracks {
     "/checkout/shipping/confirm_geolocation/send_to_cp_located"(platform:"/web", type: TrackType.Event) {}
     "/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", type: TrackType.Event) {}
 
-    "/checkout/shipping/input_new_address"(platform:"/web", type: TrackType.View) {}
+    "/checkout/shipping/input_new_address"(platform:"/web", type: View)TrackType. {}
+
+    "/checkout/shipping/select_option/send_to_my_address/"(platform:"/web", type: View)TrackType. {}
+
+    "/checkout/shipping/select_option/agency_pickup/"(platform:"/web", type: View)TrackType. {}
 
     "/checkout/geolocation" (platform: "/", type: TrackType.Event) {
             geolocation_error(required: true, description: "Why the geo failed")
@@ -1167,7 +1171,6 @@ tracks {
     "/checkout/call_for_auth/call_later"(platform:"/", type: TrackType.View) {}
 
     "/checkout/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
-
 
 
     /*
