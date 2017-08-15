@@ -1064,16 +1064,18 @@ tracks {
     "/checkout/shipping/confirm_geolocation/send_to_cp_located"(platform:"/web", type: TrackType.Event) {}
     "/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", type: TrackType.Event) {}
 
-    "/checkout/shipping/input_new_address"(platform:"/web", type: View)TrackType. {}
+    "/checkout/shipping/input_new_address"(platform:"/web", type: TrackType.View) {}
 
-    "/checkout/shipping/select_option/send_to_my_address/"(platform:"/web", type: View)TrackType. {}
+    "/checkout/shipping/select_option/send_to_my_address/"(platform:"/web", type: TrackType.View) {}
 
-    "/checkout/shipping/select_option/agency_pickup/"(platform:"/web", type: View)TrackType. {}
+    "/checkout/shipping/select_option/agency_pickup/"(platform:"/web", type: TrackType.View) {}
 
     "/checkout/geolocation" (platform: "/", type: TrackType.Event) {
             geolocation_error(required: true, description: "Why the geo failed")
     }
 
+    "/checkout/shipping/store_selection"(platform:"/web", type: TrackType.View) {}
+    
     "/checkout/items_not_available"(platform:"/", type: TrackType.View) {}
 
     "/checkout/error"(platform:"/", type: TrackType.View) {}
