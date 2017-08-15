@@ -4280,6 +4280,239 @@ trackTests {
         }
 
     }
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+// TRACKS CHECKOUT V5
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("Checkout V5") {
+
+        def dataSetCongrats = {
+                    status = "payment_required"
+                    purchase_id = "MLA98792837983"
+        }
+
+        def dataSet = {
+
+            buy_equal_pay = true
+            recovery_flow = false
+            register_int = false
+            resolution = "high"
+
+            precharged_cards = true
+
+            total_amount=2000
+            total_amount_with_shipping=2087.99
+            total_paid_amount=3373.98
+
+            seller = [
+                        [id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                        [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]
+                    ]
+
+            shipping = [
+                        [
+                        cost: 25.98,
+                        shipping_mode: "me2",
+                        shipping_type: "mercadoenvios",
+                        shipping_options: [
+                                            [
+                                                    method_name: "Normal",
+                                                    price: 0.0,
+                                                    currency_id: "ARS",
+                                                    free_shipping: true,
+                                                    free_shipping_benefit: true
+                                            ],
+                                            [
+                                                    method_name: "Expreso",
+                                                    price: 50.46,
+                                                    currency_id: "ARS",
+                                                    free_shipping: false
+                                            ]
+                                        ]
+                        ]
+                    ]
+
+            payments = [
+                            [
+                            id: "23cfddb085c577f0584ab78e17861c63be386608",
+                            payment_type: "credit_card",
+                            payment_method: "amex",
+                            bank: "Santander Rio",
+                            installments:12,
+                            paid_amount:3373.98,
+                            installment_amount:281.17,
+                            without_fee:false,
+                            payment_splitted:false,
+                            status:"approved",
+                            status_detail:"accredited"
+                            ]
+                        ]
+
+            items = [
+                        [
+                        currency_id: "ARS",
+                        unit_price: 100,
+                        quantity: 1,
+                        item: [
+                                category_id: "MLA63385",
+                                buying_mode: "buy_it_now",
+                                category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
+                                id: "MLA754486062",
+                                official_store: "Adidas",
+                                condition: "new",
+                                listing_type: "gold_special",
+                                title: "Conector 12 Vias",
+                                shipping_mode: "me2"
+                            ]
+                        ],
+                        [
+                        currency_id: "ARS",
+                        unit_price: 1000,
+                        quantity: 3,
+                        item: [
+                                category_id: "MLA63385",
+                                buying_mode: "buy_it_now",
+                                category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
+                                id: "MLA754486062",
+                                official_store: "SportCenter",
+                                condition: "new",
+                                listing_type: "gold_pro",
+                                title: "Conector 12 Vias",
+                                shipping_mode: "me2"
+                            ]
+                        ]
+                    ]
+        }
+
+    "/checkout/geolocation"(platform:"/", type: TrackType.Event) {
+            dataSet()
+        geolocation_error = "TIMEOUT"
+        }
+        "/checkout/items_not_available"(platform:"/", dataSet)
+        "/checkout/error"(platform:"/", dataSet)
+        "/checkout/payment/select_method"(platform:"/", dataSet)
+        "/checkout/payment/select_method/edit_payment"(platform:"/", dataSet)
+        "/checkout/payment/select_method/show_distances"(platform:"/", dataSet)
+        "/checkout/payment/select_store"(platform:"/", dataSet)
+        "/checkout/payment/select_bank"(platform:"/", dataSet)
+        "/checkout/payment/view_location"(platform:"/", dataSet)
+        "/checkout/payment/input_card"(platform:"/", dataSet)
+        "/checkout/payment/input_card/edit_payment"(platform:"/", dataSet)
+        "/checkout/payment/input_card/security_code_tooltip"(platform:"/", dataSet)
+        "/checkout/payment/select_installments"(platform:"/", dataSet)
+        "/checkout/payment/select_installments/close_splitter_message"(platform:"/", dataSet)
+        "/checkout/payment/select_installments/click_payment_detail"(platform:"/", dataSet)
+        "/checkout/payment/select_installments/click_box_installments"(platform:"/", dataSet)
+        "/checkout/payment/create_second_password"(platform:"/", dataSet)
+        "/checkout/payment/input_second_password"(platform:"/", dataSet)
+        "/checkout/payment/input_second_password/edit_payment"(platform:"/", dataSet)
+        "/checkout/review/edit_payment"(platform:"/", dataSet)
+        "/checkout/review/edit_first_payment"(platform:"/", dataSet)
+        "/checkout/review/edit_second_payment"(platform:"/", dataSet)
+        "/checkout/review/edit_shipping"(platform:"/", dataSet)
+        "/checkout/review/obtain_notification_installments"(platform:"/", dataSet)
+        "/checkout/review/change_installments"(platform:"/", dataSet)
+        "/checkout/review/change_shipping"(platform:"/", dataSet)
+        "/checkout/review/change_address"(platform:"/", dataSet)
+        "/checkout/review/edit_shipping"(platform:"/", dataSet)
+        "/checkout/review/edit_payment_method"(platform:"/", dataSet)
+        "/checkout/congrats"(platform:"/"){
+            dataSet()
+            dataSetCongrats()
+        }
+        "/checkout/congrats"(platform:"/mobile") {
+            dataSet()
+            dataSetCongrats()
+            geolocated = true
+        }
+        "/checkout/congrats/keep_buying"(platform:"/"){
+            dataSet()
+            dataSetCongrats()
+        }
+        "/checkout/congrats/go_to_myml"(platform:"/"){
+            dataSet()
+            dataSetCongrats()
+        }
+        "/checkout/congrats/go_to_page_bank"(platform:"/") {
+            dataSet()
+            dataSetCongrats()
+        }
+        "/checkout/congrats/view_ticket"(platform:"/") {
+            dataSet()
+            dataSetCongrats()
+        }
+        "/checkout/congrats/download_ticket"(platform:"/") {
+            dataSet()
+            dataSetCongrats()
+        }
+        "/checkout/congrats/show_map"(platform:"/") {
+            dataSet()
+            dataSetCongrats()
+        }
+        "/checkout/congrats/save_data"(platform:"/") {
+            dataSet()
+            dataSetCongrats()
+        }
+        "/checkout/congrats/contact_us"(platform:"/") {
+            dataSet()
+            dataSetCongrats()
+        }
+        "/checkout/congrats/go_to_mercado_puntos"(platform:"/") {
+            dataSet()
+            dataSetCongrats()
+        }
+        "/checkout/congrats/added_points"(platform:"/") {
+            dataSet()
+            dataSetCongrats()
+        }
+        "/checkout/show_ticket"(platform:"/", dataSet)
+        "/checkout/invalid_sec_code"(platform:"/", dataSet)
+        "/checkout/invalid_sec_code/input_code"(platform:"/", dataSet)
+        "/checkout/call_for_auth"(platform:"/", dataSet)
+        "/checkout/call_for_auth/instructions"(platform:"/", dataSet)
+        "/checkout/call_for_auth/call_later"(platform:"/", dataSet)
+        "/checkout/call_for_auth/input_code"(platform:"/", dataSet)
+        "/checkout/shipping"(platform:"/mobile", dataSet)
+        "/checkout/shipping/edit_address"(platform:"/mobile", dataSet)
+        "/checkout/loading"(platform: "/mobile", dataSet)
+        "/checkout/shipping/geolocation_permissions"(platform:"/mobile", dataSet)
+        "/checkout/shipping/geolocation_permissions/allow_geolocation/Yes"(platform:"/mobile", dataSet)
+        "/checkout/shipping/geolocation_permissions/allow_geolocation/No"(platform:"/mobile", dataSet)
+        "/checkout/shipping/geolocation_error"(platform:"/mobile", dataSet)
+        "/checkout/shipping/select_method_geolocated"(platform:"/mobile", dataSet)
+        "/checkout/shipping/select_method_geolocated/send_to_cp_located"(platform:"/mobile", dataSet)
+        "/checkout/shipping/select_method_geolocated/send_to_another_location"(platform:"/mobile", dataSet)
+        "/checkout/shipping/select_option"(platform:"/mobile", dataSet)
+        "/checkout/shipping/select_method_ask_geolocation"(platform:"/mobile", dataSet)
+        "/checkout/shipping/input_zipcode"(platform:"/mobile", dataSet)
+        "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/mobile", dataSet)
+        "/checkout/shipping/input_address"(platform:"/mobile", dataSet)
+        "/checkout/shipping/input_address_number"(platform:"/mobile", dataSet)
+        "/checkout/shipping/input_address_number/whithout_number"(platform:"/mobile", dataSet)
+        "/checkout/shipping/select_address"(platform:"/mobile", dataSet)
+        "/checkout/shipping/select_option_detail"(platform:"/mobile", dataSet)
+        "/checkout/shipping/input_address_apartment"(platform:"/mobile", dataSet)
+        "/checkout/shipping/select_contact_info"(platform:"/mobile", dataSet)
+        "/checkout/shipping/add_contact_info"(platform:"/mobile", dataSet)
+        "/checkout/shipping/input_contact_info"(platform:"/mobile", dataSet)
+        "/checkout/payment/select_unique_installment"(platform:"/mobile", dataSet)
+        "/checkout/payment/select_first_installment"(platform:"/mobile", dataSet)
+        "/checkout/payment/select_second_installment"(platform:"/mobile", dataSet)
+        "/checkout/review/edit_unique_installment"(platform:"/mobile", dataSet)
+        "/checkout/review/edit_first_installment"(platform:"/mobile", dataSet)
+        "/checkout/review/edit_second_installment"(platform:"/mobile", dataSet)
+        "/checkout/show_geolocation_map"(platform:"/mobile", dataSet)
+        "/checkout/shipping"(platform:"/web", dataSet)
+        "/checkout/shipping/confirm_geolocation"(platform:"/web", dataSet)
+        "/checkout/shipping/confirm_geolocation/send_to_cp_located"(platform:"/web", dataSet)
+        "/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", dataSet)
+        "/checkout/shipping/input_new_address"(platform:"/web", dataSet)
+        "/checkout/payment/security_code"(platform:"/web", dataSet)
+
+    }
+
+
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 // TRACKS CART CHECKOUT
 //------------------------------------------------------------------------------------------------------------------------------------------------------
