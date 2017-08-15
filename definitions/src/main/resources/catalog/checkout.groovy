@@ -10,6 +10,9 @@ tracks {
     "/checkout"(platform: "/", isAbstract: true) {
     }
 
+    /*
+    * CHECKOUT V4
+    */
     "/checkout/ordercreated"(platform: "/web", type: TrackType.Event) {
         order_id()
         status()
@@ -1047,6 +1050,129 @@ tracks {
         payment_method(required: true)
 
     }
+    /*
+    * CHECKOUT V4
+    */
+
+    /*
+    * CHECKOUT V5
+    */
+
+    "/checkout/shipping"(platform:"/web", type: TrackType.View) {}
+
+    "/checkout/shipping/confirm_geolocation"(platform:"/web", type: TrackType.View) {}
+    "/checkout/shipping/confirm_geolocation/send_to_cp_located"(platform:"/web", type: TrackType.Event) {}
+    "/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", type: TrackType.Event) {}
+
+    "/checkout/shipping/input_new_address"(platform:"/web", type: TrackType.View) {}
+
+    "/checkout/geolocation" (platform: "/", type: TrackType.Event) {
+            geolocation_error(required: true, description: "Why the geo failed")
+    }
+
+    "/checkout/items_not_available"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/error"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/payment"(platform: "/", isAbstract: true) {}
+
+    "/checkout/payment/select_method"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/payment/select_method/edit_payment"(platform:"/", type: TrackType.Event) {}
+    "/checkout/payment/select_method/show_distances"(platform:"/", type: TrackType.Event) {}
+
+    "/checkout/payment/select_store"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/payment/select_bank"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/payment/view_location"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/payment/input_card"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/payment/input_card/edit_payment"(platform:"/", type: TrackType.Event) {}
+    "/checkout/payment/input_card/security_code_tooltip"(platform:"/", type: TrackType.Event) {}
+    "/checkout/payment/security_code"(platform:"/", type: TrackType.View) {} 
+
+    "/checkout/payment/select_installments"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/payment/select_installments/close_splitter_message"(platform:"/", type: TrackType.Event) {}
+    "/checkout/payment/select_installments/click_payment_detail"(platform:"/", type: TrackType.Event) {}
+    "/checkout/payment/select_installments/click_box_installments"(platform:"/", type: TrackType.Event) {
+        payment_with_click(required:false, type: PropertyType.String, values: ["FirstPayment", "SecondPayment"])
+    }
+
+    "/checkout/payment/create_second_password"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/payment/input_second_password"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/payment/input_second_password/edit_payment"(platform:"/", type: TrackType.Event) {}
+
+    "/checkout/review"(platform:"/", type: TrackType.View) {
+    }
+
+    "/checkout/review/edit_payment"(platform:"/", type: TrackType.Event) {}
+    "/checkout/review/edit_first_payment"(platform:"/", type: TrackType.Event) {}
+    "/checkout/review/edit_second_payment"(platform:"/", type: TrackType.Event) {}
+    "/checkout/review/edit_shipping"(platform:"/", type: TrackType.Event) {}
+    "/checkout/review/obtain_notification_installments"(platform:"/", type: TrackType.Event) {}
+    "/checkout/review/change_installments"(platform:"/", type: TrackType.Event) {}
+    "/checkout/review/change_shipping"(platform:"/", type: TrackType.Event) {}
+
+    "/checkout/review/change_address"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/review/edit_shipping"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/review/edit_payment_method"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/review/insufficient_account_money"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/review/high_amount_error"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/review/low_amount_error"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/review/installments_error"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/shipping/store_selection"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/shipping/agencies_contact_info"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/congrats"(platform:"/", type: TrackType.View) {
+        congrats_seq(serverSide: true) // Lo completa Melidata automaticamente
+        first_for_order(serverSide: true) // Lo completa Melidata automaticamente         
+    }
+
+    "/checkout/congrats/keep_buying"(platform:"/", type: TrackType.Event) {}
+    "/checkout/congrats/go_to_myml"(platform:"/", type: TrackType.Event) {}
+    "/checkout/congrats/go_to_page_bank"(platform:"/", type: TrackType.Event) {}
+    "/checkout/congrats/view_ticket"(platform:"/", type: TrackType.Event) {}
+    "/checkout/congrats/download_ticket"(platform:"/", type: TrackType.Event) {}
+    "/checkout/congrats/show_map"(platform:"/", type: TrackType.Event) {}
+    "/checkout/congrats/save_data"(platform:"/", type: TrackType.Event) {}
+    "/checkout/congrats/contact_us"(platform:"/", type: TrackType.Event) {}
+    "/checkout/congrats/go_to_mercado_puntos"(platform:"/", type: TrackType.Event) {}
+    "/checkout/congrats/added_points"(platform:"/", type: TrackType.Event) {}
+    "/checkout/congrats/send_message"(platform:"/", type: TrackType.Event) {}
+    "/checkout/congrats/call_seller"(platform:"/", type: TrackType.Event) {}
+
+    "/checkout/show_ticket"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/invalid_sec_code"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/invalid_sec_code/input_code"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/call_for_auth"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/call_for_auth/instructions"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/call_for_auth/call_later"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
+
+
+
+    /*
+    * CHECKOUT V5
+    */
 
     /** *****************************************************************/
     //Mobile Checkout Legacy Apps
