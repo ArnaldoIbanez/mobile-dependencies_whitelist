@@ -271,40 +271,6 @@ trackTests {
     }
 
     //VIP FLOW
-
-    test("Vip core") {
-        def dataSet = {
-            item_id = "MLA533657947"
-            buying_mode = "buy_it_now"
-            vertical = "code"
-            category_id = "MLA43718"
-            quantity = 3
-            item_condition = "new"
-            currency_id = "ARS"
-            price = 15.3
-            item_status = "active"
-            official_store_id = "1"
-            seller_id = "131662738"
-            power_seller_status = "platinum"
-            listing_type_id = "gold_special"
-            start_time = "2014-11-17T14:00:50.000Z"
-            stop_time = "2015-01-16T14:00:50.000Z"
-            shipping_mode = "me2"
-            free_shipping = true
-            local_pick_up = false
-            category_path = ["MLA1234","MLA6789"]
-            reputation_level = "green_5"
-            fulfillment = true
-            cart_content = false
-            search_query = "monitor"
-            page_vertical = "motors"
-            gallery_pattern = "XXXXX"
-            specifications_size = 1
-        }
-
-        "/vip"(platform: "/", dataSet)
-    }
-
     test("Vip min core tracking in android") {
         def dataSet = {
             item_id = "MLA533657947"
@@ -515,6 +481,8 @@ trackTests {
             fulfillment = true
             resolution = "high"
             cart_content = false
+            search_query = "monitor"
+            page_vertical = "motors"
         }
 
         "/vip"(platform:"/mobile", dataSet)
@@ -552,6 +520,8 @@ trackTests {
             official_store_id = "1"
             deal_ids = ["MLA24"]
             review_rate=5
+            gallery_pattern = "XXXXX"
+            specifications_size = 1
         }
 
         "/vip"(platform:"/web", dataSet)

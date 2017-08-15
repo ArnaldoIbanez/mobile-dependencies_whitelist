@@ -49,12 +49,16 @@ tracks {
         description_type(required: false, description: "Description type: plain text, html, both, none", values: ["plain_text", "html", "both", "none"])
         max_size_gallery(required: false, description: "Max_size of first picture gallery")
         specifications_size(required: false, description: "Specifications attributes quantity")
+        gallery_pattern(required: false)
+
     }
 
     "/vip"(platform: "/mobile") {
         category_id(required: false, description: "Item's category id")
         context(required: false)
         resolution(required: false, description: "Indicates if the device has high or low resolution")
+        search_query(required: false, type: PropertyType.String)
+        page_vertical(required: false, type: PropertyType.String)
     }
 
     "/vip/abort"(platform: "/mobile", type: TrackType.Event) {}
