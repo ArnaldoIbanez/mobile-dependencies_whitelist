@@ -9,8 +9,8 @@ jest(others['fragment'],'T') AS deal_Type,
 usr.uid,
 count(1) as total_clicks
 from tracks
-where 	   ds >='@param01'
-and 	   ds < '@param02'
+where 	   ds >='2017-08-13'
+and 	   ds < '2017-08-14'
 and others['fragment'] like '%DEAL%'
 and jest(others['fragment'], 'DEAL_ID') != '[]'
 group by 
