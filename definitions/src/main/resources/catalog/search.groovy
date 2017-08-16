@@ -71,11 +71,15 @@ tracks {
         geolocation(required: false, description:'geolocation')
         landing(required: false, description:'landings: base, premium, etc')
         layout_forced(required: false, description:'true if layout is changed by the user')
+        shown_as_product(required: false)
     }
 
     "/search"(platform: "/mobile") {
         filter_user_applied(deprecated: true, required: false)
         context(required: false)
+        breadcrumb_refined(required: false, PropertyType.Boolean)
+        billboard_shown(required: false, PropertyType.Boolean)
+        error_message(required: false, PropertyType.String)
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
