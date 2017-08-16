@@ -7,7 +7,7 @@
     "martin.ciruzzi@mercadolibre.com"
   ],
   "process_name": "recommendations_ctr_v2",
-  "cron": "",
+  "cron": "0 0 12 * * ?",
   "extract":
   {
     "operation": "destroy",
