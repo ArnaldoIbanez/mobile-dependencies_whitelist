@@ -29,6 +29,9 @@ tracks {
         has_error(type: PropertyType.Boolean, required: true)
         challenge(type: PropertyType.String, required: false)
         recaptcha(type: PropertyType.Boolean, required: false)
+    }
+
+    "/login/form"(platform: "/web") {
         tx(type: PropertyType.String, required: false)
         variant(type: PropertyType.String, required: false)
         operator_id(required: false)
