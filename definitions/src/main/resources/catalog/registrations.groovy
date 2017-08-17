@@ -33,6 +33,11 @@ tracks {
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:true)
     }
 
+    "/register/optin"(platform:"/web", type: TrackType.View) {
+        app(type: PropertyType.String, description: "Registration app", required:true)
+        prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:true)
+    }
+
     "/register/form/error"(platform:"/web", type: TrackType.View) {
         errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
         errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
@@ -112,6 +117,10 @@ tracks {
         origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
         item_id(type: PropertyType.String, required:false, description: "Item" )
     }
+
+    "/register/form/skip-update"(platform: "/web", type: TrackType.View){}
+    "/register/optin/push"(platform: "/web", type: TrackType.View){}
+    "/register/optin/skip"(platform: "/web", type: TrackType.View){}
 
 }
 
