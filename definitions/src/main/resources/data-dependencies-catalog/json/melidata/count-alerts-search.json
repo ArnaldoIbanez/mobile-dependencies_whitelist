@@ -2,8 +2,8 @@
   "users": [
     "lucia.blanc@mercadolibre.com"
   ],
-  "process_name": "events-alerts-search",
-  "cron": " ",
+  "process_name": "count-alerts-search",
+  "cron": "",
   "extract": {
     "operation": "append",
     "columns": [
