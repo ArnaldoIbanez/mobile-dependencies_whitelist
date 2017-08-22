@@ -1004,6 +1004,17 @@ trackTests {
     }
 
     test("Bill payments") {
+
+        "/bill_payments/fixed_amount"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+
+        "/bill_payments/ticket_data"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+
         "/bill_payments/help"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
@@ -1412,6 +1423,29 @@ trackTests {
         }
         "/logout"(platform: "/", type: TrackType.Event) {
             flow = "internal"
+        }
+    }
+
+    test("Login Status with Smart Lock for Passwords") {
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = true
+            smartlock_status = "SUCCESS"
+            section = "application_startup"
+        }
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = false
+            smartlock_status = "SUCCESS"
+            section = "application_startup"
+        }
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = true
+            smartlock_status = "RESOLUTION_REQUIRED"
+            section = "application_startup"
+        }
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = false
+            smartlock_status = "RESOLUTION_REQUIRED"
+            section = "application_startup"
         }
     }
 

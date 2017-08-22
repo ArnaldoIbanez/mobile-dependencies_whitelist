@@ -44,6 +44,7 @@ tracks {
         review_rate(inheritable: false)
         description_type(required: false, description: "Description type: plain text, html, both, none", values: ["plain_text", "html", "both", "none"])
         max_size_gallery(required: false, description: "Max_size of first picture gallery")
+        specifications_size(required: false, description: "Specifications attributes quantity")
     }
 
     "/vip"(platform: "/mobile") {
@@ -76,13 +77,7 @@ tracks {
 
     "/vip/description/back"(platform: "/mobile") {}
 
-    "/vip/item_gallery"(platform: "/mobile", parentPropertiesInherited: false) {
-        //TODO. remove this when inhereted from / is solved
-        mode(required: false)
-        sent_again(required: false)
-        from_background(required: false)
-        context(required: false)
-    }
+    "/vip/item_gallery"(platform: "/mobile", parentPropertiesInherited: false) {}
 
     "/vip/item_gallery/back"(platform: "/mobile") {}
 

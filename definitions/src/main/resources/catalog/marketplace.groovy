@@ -398,4 +398,65 @@ tracks {
    "/recommendations"(platform: "/") {
 
     }
+
+    "/application"(platform:"/mobile", isAbstract: true) {}
+    "/application/open"(platform:"/mobile", type: TrackType.Event) { }
+
+    "/application/workaround"(platform: "/mobile/android", isAbstract: true) {}
+    "/application/workaround/nohistory"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/application/install_event" (platform: "/mobile", type: TrackType.Event){
+        deeplink (required: false, type: PropertyType.String)
+        exception (required: false, type: PropertyType.String)
+    }
+
+    //Landings Deals
+
+    "/deals"(platform: "/", isAbstract: true) {}
+
+    "/deals/landing"(platform: "/") {
+        deal_id(required: false, type: PropertyType.String)
+    }
+
+    // Subscriptions
+    "/subscriptions"(platform: "/", isAbstract: true) {}
+
+    "/subscriptions/frequency"(platform: "/", type: TrackType.View) {}
+    "/subscriptions/change_frequency"(platform: "/", type: TrackType.Event) {
+        frequency(required: true, type: PropertyType.String)
+        frequency_before(type: PropertyType.String)
+        context(required: true, type: PropertyType.String)
+    }
+
+    "/subscriptions/review"(platform: "/", type: TrackType.View) {}
+    "/subscriptions/review/confirm"(platform: "/", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String)
+    }
+
+    "/subscriptions/congrats"(platform: "/", type: TrackType.View) {}
+    "/subscriptions/congrats/view_subscription"(platform: "/", type: TrackType.Event) {}
+
+    "/subscriptions/summary"(platform: "/", type: TrackType.View) {}
+    "/subscriptions/detail"(platform: "/", type: TrackType.View) {}
+
+    "/subscriptions/detail/cancel"(platform: "/", isAbstract: true) {}
+    "/subscriptions/detail/cancel/now"(platform: "/", type: TrackType.Event) {}
+    "/subscriptions/detail/cancel/skip"(platform: "/", type: TrackType.Event) {}
+    "/subscriptions/detail/cancel/subscription"(platform: "/", type: TrackType.Event) {}
+    
+    "/sso" (platform: "/mobile", isAbstract: true){}
+    "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
+    "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}
+    "/sso/attempt_successful" (platform: "/mobile", type: TrackType.Event){}
+    "/sso/attempt_error" (platform: "/mobile", type: TrackType.Event){}
+
+    "/cx" (platform: "/mobile", isAbstract: true){}
+    "/cx/click_on_article" (platform: "/mobile", type: TrackType.Event){
+        article_id(required: true, type: PropertyType.String)
+    }
+    "/cx/click_on_help" (platform: "/mobile", type: TrackType.Event){}
+    "/cx/click_on_error" (platform: "/mobile", type: TrackType.Event){}
+    "/cx/click_on_suggestion" (platform: "/mobile", type: TrackType.Event){}
+    "/cx/contact_types" (platform: "/mobile", isAbstract: true){}
+    "/cx/contact_types/click_on_contact_form" (platform: "/mobile", type: TrackType.Event){}
 }

@@ -2,8 +2,8 @@
   "users": [
     "daniela.medina@mercadolibre.com"
   ],
-  "process_name": "deals_count_purchases_banner",
-  "cron": "15 16 * * *",
+  "process_name": "count_purchases_deals",
+  "cron": "00 07 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -12,6 +12,7 @@
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },
+
       {
         "name": "Site",
         "type": "UNICODE_STRING"
@@ -24,14 +25,7 @@
         "name": "uid",
         "type": "UNICODE_STRING"
       },
-      {
-        "name": "SellerID",
-        "type": "UNICODE_STRING"
-      },
-       {
-        "name": "SellerNickname",
-        "type": "UNICODE_STRING"
-      },
+    
         {
         "name": "BuyerID",
         "type": "UNICODE_STRING"
@@ -53,21 +47,30 @@
         "type": "UNICODE_STRING"
       }, 
       {
-        "name": "banner_size",
+        "name": "deal_Label",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "banner_name",
+        "name": "deal_Source",
         "type": "UNICODE_STRING"
       },
-      {
+       {
+        "name": "deal_Position",
+        "type": "UNICODE_STRING"
+      },
+        {
+        "name": "deal_Type",
+        "type": "UNICODE_STRING"
+      },
+       {
         "name": "eventdata_dealID",
         "type": "UNICODE_STRING"
       },
-      {
+         {
         "name": "others_dealID",
         "type": "UNICODE_STRING"
       },
+       
         {
         "name": "sum_dol_amount",
         "type": "DOUBLE"
@@ -78,7 +81,7 @@
       }
     ],
     "sql": {
-      "script": "business-assurance/dealcantidadcompraspordeal.sql",
+      "script": "business-assurance/cantidadcomprasporclickendeals.sql",
       "parameters": [
         {
           "name": "param01",
