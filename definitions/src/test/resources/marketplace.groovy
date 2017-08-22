@@ -4289,7 +4289,6 @@ trackTests {
 
         def dataSetCongrats = {
                     status = "payment_required"
-                    purchase_id = "MLA98792837983"
         }
 
         def dataSet = {
@@ -4385,130 +4384,130 @@ trackTests {
                     ]
         }
 
-    "/checkout/geolocation"(platform:"/", type: TrackType.Event) {
+    "/checkout/geolocation"(platform:"/web", type: TrackType.Event) {
             dataSet()
         geolocation_error = "TIMEOUT"
         }
-        "/checkout/items_not_available"(platform:"/", dataSet)
-        "/checkout/error"(platform:"/", dataSet)
-        "/checkout/payment/select_method"(platform:"/", dataSet)
-        "/checkout/payment/select_method/edit_payment"(platform:"/", dataSet)
-        "/checkout/payment/select_method/show_distances"(platform:"/", dataSet)
-        "/checkout/payment/select_store"(platform:"/", dataSet)
-        "/checkout/payment/select_bank"(platform:"/", dataSet)
-        "/checkout/payment/view_location"(platform:"/", dataSet)
-        "/checkout/payment/input_card"(platform:"/", dataSet)
-        "/checkout/payment/input_card/edit_payment"(platform:"/", dataSet)
-        "/checkout/payment/input_card/security_code_tooltip"(platform:"/", dataSet)
-        "/checkout/payment/select_installments"(platform:"/", dataSet)
-        "/checkout/payment/select_installments/close_splitter_message"(platform:"/", dataSet)
-        "/checkout/payment/select_installments/click_payment_detail"(platform:"/", dataSet)
-        "/checkout/payment/select_installments/click_box_installments"(platform:"/", dataSet)
-        "/checkout/payment/create_second_password"(platform:"/", dataSet)
-        "/checkout/payment/input_second_password"(platform:"/", dataSet)
-        "/checkout/payment/input_second_password/edit_payment"(platform:"/", dataSet)
-        "/checkout/review/edit_payment"(platform:"/", dataSet)
-        "/checkout/review/edit_first_payment"(platform:"/", dataSet)
-        "/checkout/review/edit_second_payment"(platform:"/", dataSet)
-        "/checkout/review/edit_shipping"(platform:"/", dataSet)
-        "/checkout/review/obtain_notification_installments"(platform:"/", dataSet)
-        "/checkout/review/change_installments"(platform:"/", dataSet)
-        "/checkout/review/change_shipping"(platform:"/", dataSet)
-        "/checkout/review/change_address"(platform:"/", dataSet)
-        "/checkout/review/edit_shipping"(platform:"/", dataSet)
-        "/checkout/review/edit_payment_method"(platform:"/", dataSet)
-        "/checkout/congrats"(platform:"/"){
+        "/checkout/items_not_available"(platform:"/web", dataSet)
+        "/checkout/error"(platform:"/web", dataSet)
+        "/checkout/payment/select_method"(platform:"/web", dataSet)
+        "/checkout/payment/select_method/edit_payment"(platform:"/web", dataSet)
+        "/checkout/payment/select_method/show_distances"(platform:"/web", dataSet)
+        "/checkout/payment/select_store"(platform:"/web", dataSet)
+        "/checkout/payment/select_bank"(platform:"/web", dataSet)
+        "/checkout/payment/view_location"(platform:"/web", dataSet)
+        "/checkout/payment/input_card"(platform:"/web", dataSet)
+        "/checkout/payment/input_card/edit_payment"(platform:"/web", dataSet)
+        "/checkout/payment/input_card/security_code_tooltip"(platform:"/web", dataSet)
+        "/checkout/payment/select_installments"(platform:"/web", dataSet)
+        "/checkout/payment/select_installments/close_splitter_message"(platform:"/web", dataSet)
+        "/checkout/payment/select_installments/click_payment_detail"(platform:"/web", dataSet)
+        "/checkout/payment/select_installments/click_box_installments"(platform:"/web", dataSet)
+        "/checkout/payment/create_second_password"(platform:"/web", dataSet)
+        "/checkout/payment/input_second_password"(platform:"/web", dataSet)
+        "/checkout/payment/input_second_password/edit_payment"(platform:"/web", dataSet)
+        "/checkout/review/edit_payment"(platform:"/web", dataSet)
+        "/checkout/review/edit_first_payment"(platform:"/web", dataSet)
+        "/checkout/review/edit_second_payment"(platform:"/web", dataSet)
+        "/checkout/review/edit_shipping"(platform:"/web", dataSet)
+        "/checkout/review/change_installments"(platform:"/web", dataSet)
+        "/checkout/review/change_shipping"(platform:"/web", dataSet)
+        "/checkout/review/change_address"(platform:"/web", dataSet)
+        "/checkout/review/edit_shipping"(platform:"/web", dataSet)
+        "/checkout/review/edit_payment_method"(platform:"/web", dataSet)
+        "/checkout/congrats"(platform:"/web"){
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/congrats"(platform:"/mobile") {
+        "/checkout/congrats"(platform:"/web") {
             dataSet()
             dataSetCongrats()
             geolocated = true
         }
-        "/checkout/congrats/keep_buying"(platform:"/"){
+        "/checkout/congrats/keep_buying"(platform:"/web"){
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/congrats/go_to_myml"(platform:"/"){
+        "/checkout/congrats/go_to_myml"(platform:"/web"){
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/congrats/go_to_page_bank"(platform:"/") {
+        "/checkout/congrats/go_to_page_bank"(platform:"/web") {
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/congrats/view_ticket"(platform:"/") {
+        "/checkout/congrats/view_ticket"(platform:"/web") {
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/congrats/download_ticket"(platform:"/") {
+        "/checkout/congrats/download_ticket"(platform:"/web") {
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/congrats/show_map"(platform:"/") {
+        "/checkout/congrats/show_map"(platform:"/web") {
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/congrats/save_data"(platform:"/") {
+        "/checkout/congrats/save_data"(platform:"/web") {
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/congrats/contact_us"(platform:"/") {
+        "/checkout/congrats/contact_us"(platform:"/web") {
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/congrats/go_to_mercado_puntos"(platform:"/") {
+        "/checkout/congrats/go_to_mercado_puntos"(platform:"/web") {
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/congrats/added_points"(platform:"/") {
+        "/checkout/congrats/added_points"(platform:"/web") {
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/show_ticket"(platform:"/", dataSet)
-        "/checkout/invalid_sec_code"(platform:"/", dataSet)
-        "/checkout/invalid_sec_code/input_code"(platform:"/", dataSet)
-        "/checkout/call_for_auth"(platform:"/", dataSet)
-        "/checkout/call_for_auth/instructions"(platform:"/", dataSet)
-        "/checkout/call_for_auth/call_later"(platform:"/", dataSet)
-        "/checkout/call_for_auth/input_code"(platform:"/", dataSet)
-        "/checkout/shipping"(platform:"/mobile", dataSet)
-        "/checkout/shipping/edit_address"(platform:"/mobile", dataSet)
-        "/checkout/loading"(platform: "/mobile", dataSet)
-        "/checkout/shipping/geolocation_permissions"(platform:"/mobile", dataSet)
-        "/checkout/shipping/geolocation_permissions/allow_geolocation/Yes"(platform:"/mobile", dataSet)
-        "/checkout/shipping/geolocation_permissions/allow_geolocation/No"(platform:"/mobile", dataSet)
-        "/checkout/shipping/geolocation_error"(platform:"/mobile", dataSet)
-        "/checkout/shipping/select_method_geolocated"(platform:"/mobile", dataSet)
-        "/checkout/shipping/select_method_geolocated/send_to_cp_located"(platform:"/mobile", dataSet)
-        "/checkout/shipping/select_method_geolocated/send_to_another_location"(platform:"/mobile", dataSet)
-        "/checkout/shipping/select_option"(platform:"/mobile", dataSet)
-        "/checkout/shipping/select_method_ask_geolocation"(platform:"/mobile", dataSet)
-        "/checkout/shipping/input_zipcode"(platform:"/mobile", dataSet)
-        "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/mobile", dataSet)
-        "/checkout/shipping/input_address"(platform:"/mobile", dataSet)
-        "/checkout/shipping/input_address_number"(platform:"/mobile", dataSet)
-        "/checkout/shipping/input_address_number/whithout_number"(platform:"/mobile", dataSet)
-        "/checkout/shipping/select_address"(platform:"/mobile", dataSet)
-        "/checkout/shipping/select_option_detail"(platform:"/mobile", dataSet)
-        "/checkout/shipping/input_address_apartment"(platform:"/mobile", dataSet)
-        "/checkout/shipping/select_contact_info"(platform:"/mobile", dataSet)
-        "/checkout/shipping/add_contact_info"(platform:"/mobile", dataSet)
-        "/checkout/shipping/input_contact_info"(platform:"/mobile", dataSet)
-        "/checkout/payment/select_unique_installment"(platform:"/mobile", dataSet)
-        "/checkout/payment/select_first_installment"(platform:"/mobile", dataSet)
-        "/checkout/payment/select_second_installment"(platform:"/mobile", dataSet)
-        "/checkout/review/edit_unique_installment"(platform:"/mobile", dataSet)
-        "/checkout/review/edit_first_installment"(platform:"/mobile", dataSet)
-        "/checkout/review/edit_second_installment"(platform:"/mobile", dataSet)
-        "/checkout/show_geolocation_map"(platform:"/mobile", dataSet)
+        "/checkout/show_ticket"(platform:"/web", dataSet)
+        "/checkout/invalid_sec_code"(platform:"/web", dataSet)
+        "/checkout/invalid_sec_code/input_code"(platform:"/web", dataSet)
+        "/checkout/call_for_auth"(platform:"/web", dataSet)
+        "/checkout/call_for_auth/instructions"(platform:"/web", dataSet)
+        "/checkout/call_for_auth/call_later"(platform:"/web", dataSet)
+        "/checkout/call_for_auth/input_code"(platform:"/web", dataSet)
+        "/checkout/shipping"(platform:"/web", dataSet)
+        "/checkout/shipping/edit_address"(platform:"/web", dataSet)
+        "/checkout/loading"(platform: "/web", dataSet)
+        "/checkout/shipping/select_option"(platform:"/web", dataSet)
+        "/checkout/shipping/input_zipcode"(platform:"/web", dataSet)
+        "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/web", dataSet)
+        "/checkout/shipping/input_address"(platform:"/web", dataSet)
+        "/checkout/shipping/input_address_number"(platform:"/web", dataSet)
+        "/checkout/shipping/input_address_number/whithout_number"(platform:"/web", dataSet)
+        "/checkout/shipping/select_address"(platform:"/web", dataSet)
+        "/checkout/shipping/select_option_detail"(platform:"/web", dataSet)
+        "/checkout/shipping/input_address_apartment"(platform:"/web", dataSet)
+        "/checkout/shipping/select_contact_info"(platform:"/web", dataSet)
+        "/checkout/shipping/add_contact_info"(platform:"/web", dataSet)
+        "/checkout/shipping/input_contact_info"(platform:"/web", dataSet)
+        "/checkout/payment/select_unique_installment"(platform:"/web", dataSet)
+        "/checkout/payment/select_first_installment"(platform:"/web", dataSet)
+        "/checkout/payment/select_second_installment"(platform:"/web", dataSet)
+        "/checkout/review/edit_unique_installment"(platform:"/web", dataSet)
+        "/checkout/review/edit_first_installment"(platform:"/web", dataSet)
+        "/checkout/review/edit_second_installment"(platform:"/web", dataSet)
         "/checkout/shipping"(platform:"/web", dataSet)
         "/checkout/shipping/confirm_geolocation"(platform:"/web", dataSet)
         "/checkout/shipping/confirm_geolocation/send_to_cp_located"(platform:"/web", dataSet)
         "/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", dataSet)
         "/checkout/shipping/input_new_address"(platform:"/web", dataSet)
         "/checkout/payment/security_code"(platform:"/web", dataSet)
+        "/checkout/congrats/call_seller"(platform:"/web", dataSet)
+        "/checkout/congrats/send_message"(platform:"/web", dataSet)
+        "/checkout/review/high_amount_error"(platform:"/web", dataSet)
+        "/checkout/review/installments_error"(platform:"/web", dataSet)
+        "/checkout/review/insufficient_account_money"(platform:"/web", dataSet)
+        "/checkout/review/low_amount_error"(platform:"/web", dataSet)
+        "/checkout/shipping/agencies_contact_info"(platform:"/web", dataSet)
+        "/checkout/shipping/select_option/agency_pickup"(platform:"/web", dataSet)
+        "/checkout/shipping/select_option/send_to_my_address"(platform:"/web", dataSet)
+        "/checkout/shipping/store_selection"(platform:"/web", dataSet)
 
     }
 
@@ -4643,7 +4642,6 @@ trackTests {
         "/cart/checkout/review/edit_first_payment"(platform:"/", dataSet)
         "/cart/checkout/review/edit_second_payment"(platform:"/", dataSet)
         "/cart/checkout/review/edit_shipping"(platform:"/", dataSet)
-        "/cart/checkout/review/obtain_notification_installments"(platform:"/", dataSet)
         "/cart/checkout/review/change_installments"(platform:"/", dataSet)
         "/cart/checkout/review/change_shipping"(platform:"/", dataSet)
         "/cart/checkout/review/change_address"(platform:"/", dataSet)
