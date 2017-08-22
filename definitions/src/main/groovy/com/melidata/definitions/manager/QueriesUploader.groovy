@@ -33,9 +33,8 @@ class QueriesUploader {
 
         println("Uploading ${LAST_VERSION_FILE_NAME}")
 
-        println(json)
-        //s3Controller.saveFile(LAST_VERSION_FILE_NAME, json, JSON_CONTENT)
-        //s3Controller.saveFile(versionedName, json, JSON_CONTENT)
+        s3Controller.saveFile(LAST_VERSION_FILE_NAME, json, JSON_CONTENT)
+        s3Controller.saveFile(versionedName, json, JSON_CONTENT)
 
         println("Finish")
     }
