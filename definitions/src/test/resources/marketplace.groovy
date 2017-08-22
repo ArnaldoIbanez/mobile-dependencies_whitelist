@@ -4797,10 +4797,16 @@ trackTests {
 
         "/subscriptions/summary"(platform: "/web/mobile", type: TrackType.View) {}
         "/subscriptions/detail"(platform: "/web/mobile", type: TrackType.View) {}
-
-        "/subscriptions/detail/cancel"(platform: "/web/mobile") {}
-        "/subscriptions/detail/cancel/now"(platform: "/web/mobile", type: TrackType.Event) {}
-        "/subscriptions/detail/cancel/skip"(platform: "/web/mobile", type: TrackType.Event) {}
+        "/subscriptions/detail/modify_frequency"(platform: "/web/mobile" ,type: TrackType.View) {}
+        "/subscriptions/detail/modify_frequency/frequency"(platform:"/web/mobile", type: TrackType.View) {
+           frequency = "WEEKS_2"
+           frequency_before = "WEEKS_1"
+           context = "frequency"
+       }
+        "/subscriptions/detail/canceldelivery"(platform: "/web/mobile", type: TrackType.View) {}
+        "/subscriptions/detail/canceldelivery/now"(platform: "/web/mobile", type: TrackType.Event) {}
+        "/subscriptions/detail/canceldelivery/skip"(platform: "/web/mobile", type: TrackType.Event) {}
+        "/subscriptions/detail/cancel"(platform: "/web/mobile", type: TrackType.View) {}
         "/subscriptions/detail/cancel/subscription"(platform: "/web/mobile", type: TrackType.Event) {}
     } 
 
