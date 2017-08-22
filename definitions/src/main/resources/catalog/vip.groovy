@@ -36,6 +36,8 @@ tracks {
         cart_content(required: false, type: PropertyType.Boolean, description: "Indicates if the VIP has cart features")
         loyalty_level(required: false, description: "User's loyalty level")
         free_shipping_benefit(required: false, type: PropertyType.Boolean, description: "Indicates if the user has free shipping benefit")
+        return_available(required: false, type: PropertyType.String, description: "Indicates if the user has free return for the item")
+        item_price(required: false, type: PropertyType.Map, description: "Indicates the item price in different currencies")
     }
 
     "/vip"(platform: "/web") {
