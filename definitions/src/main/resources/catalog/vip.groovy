@@ -45,12 +45,11 @@ tracks {
     }
 
     "/vip"(platform: "/web") {
-        review_rate(inheritable: false)
+        review_rate(required: false, inheritable: false)
         description_type(required: false, description: "Description type: plain text, html, both, none", values: ["plain_text", "html", "both", "none"])
         max_size_gallery(required: false, description: "Max_size of first picture gallery")
         specifications_size(required: false, description: "Specifications attributes quantity")
-        gallery_pattern(required: false)
-
+        gallery_pattern(required: false, type: PropertyType.String, description: "Defines images pattern in publications")
     }
 
     "/vip"(platform: "/mobile") {
