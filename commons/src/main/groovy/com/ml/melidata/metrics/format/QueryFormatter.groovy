@@ -54,7 +54,7 @@ class QueryFormatter {
 
     def sanitize = { query ->
         //def sanitizedQuery = new String(query)
-        return query.replace("\n", " ").replace("\t"," ").replace("     "," ")
+        return query.split().join(' ')
     }
 
     def buildJson() {
