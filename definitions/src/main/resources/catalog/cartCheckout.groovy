@@ -134,7 +134,6 @@ tracks {
 "/cart/checkout/review/edit_first_payment"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/review/edit_second_payment"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/review/edit_shipping"(platform:"/", type: TrackType.Event) {}
-"/cart/checkout/review/obtain_notification_installments"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/review/change_installments"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/review/change_shipping"(platform:"/", type: TrackType.Event) {}
 
