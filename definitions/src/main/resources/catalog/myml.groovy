@@ -61,7 +61,9 @@ tracks {
     	mymlGroup
     }
 
-    "/myml/purchases/list"(platform: "/") {}
+    "/myml/purchases/list"(platform: "/") {
+        return_available(required: false, type: PropertyType.String, values: ["Yes", "No"], description: "Indicates if there is at least one item that has free return")
+    }
 
     "/myml/purchases/detail"(platform: "/") {}
 
