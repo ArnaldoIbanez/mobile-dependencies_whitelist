@@ -23,14 +23,21 @@ tracks {
         //quantity
         //unit_price
         //currency_id
-        payment_method(required: false)
+        payment_method(deprecated: true, required: false)
         resolution(required: false)
         precharged_cards(required: false)
         geolocated(required: false)
 
-        shipping(required: false)
-        //shipping_type
-        //shipping_option
+        //shipping(required: false)
+        shipping(required: false, type:PropertyType.ArrayList)
+        // shipping_type,
+        // cost,
+        // shipping_option,
+        // id, -> Solo para CHO Normal (no para cart)
+        // name,
+        // shipping_method_id,
+        // shipping_mode
+        // free_shipping_benefit        
 
         payments(required: false, description: "Array of payment information") //
         // id
@@ -75,10 +82,6 @@ tracks {
 
         item_id(deprecated: true, required: false)
         quantity(deprecated: true, required: false)
-        order_cost(deprecated: true, required: false)
-        tracking_referer_page(required: false, description: "tracking referer page from where the request came")
-
-        proactive_two_payment(required: false, description: "tracking proactive two payment selection")
 
         available_actions(required: false, type: PropertyType.ArrayList, description: "Action presented on the screen, for ex: call_seller, email_seller, etc.")
 
@@ -827,18 +830,23 @@ tracks {
 
     "/checkout/shipping/agencies_contact_info"(platform:"/", type: TrackType.View) {}
 
-    "/checkout/congrats/keep_buying"(platform:"/", type: TrackType.Event) {}
-    "/checkout/congrats/go_to_myml"(platform:"/", type: TrackType.Event) {}
-    "/checkout/congrats/go_to_page_bank"(platform:"/", type: TrackType.Event) {}
-    "/checkout/congrats/view_ticket"(platform:"/", type: TrackType.Event) {}
-    "/checkout/congrats/download_ticket"(platform:"/", type: TrackType.Event) {}
-    "/checkout/congrats/show_map"(platform:"/", type: TrackType.Event) {}
-    "/checkout/congrats/save_data"(platform:"/", type: TrackType.Event) {}
-    "/checkout/congrats/contact_us"(platform:"/", type: TrackType.Event) {}
-    "/checkout/congrats/go_to_mercado_puntos"(platform:"/", type: TrackType.Event) {}
-    "/checkout/congrats/added_points"(platform:"/", type: TrackType.Event) {}
-    "/checkout/congrats/send_message"(platform:"/", type: TrackType.Event) {}
-    "/checkout/congrats/call_seller"(platform:"/", type: TrackType.Event) {}
+    //Eventos en la "/checkout/congrats"
+    //------------------------------------------------------------------------------------
+    "/checkout/finish"(platform:"/", isAbstract: true) {}
+
+    "/checkout/finish/keep_buying"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/go_to_myml"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/go_to_page_bank"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/view_ticket"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/download_ticket"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/show_map"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/save_data"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/contact_us"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/go_to_mercado_puntos"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/added_points"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/send_message"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/call_seller"(platform:"/", type: TrackType.Event) {}
+    //------------------------------------------------------------------------------------
 
     "/checkout/invalid_sec_code"(platform:"/", type: TrackType.View) {}
 

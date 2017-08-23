@@ -837,15 +837,30 @@ trackTests {
             seller = [[
                     id: "208642594"
             ]]
+
             shipping = [
-                    cost: 25.98,
-                    shipping_option: [
-                            name: "Expresso ao endereço",
-                            id: "27552872"
-                    ],
-                    shipping_mode: "me2",
-                    shipping_type: "mercadoenvios"
-            ]
+                        [
+                        cost: 25.98,
+                        shipping_mode: "me2",
+                        shipping_type: "mercadoenvios",
+                        shipping_options: [
+                                            [
+                                                    method_name: "Normal",
+                                                    price: 0.0,
+                                                    currency_id: "ARS",
+                                                    free_shipping: true,
+                                                    free_shipping_benefit: true
+                                            ],
+                                            [
+                                                    method_name: "Expreso",
+                                                    price: 50.46,
+                                                    currency_id: "ARS",
+                                                    free_shipping: false
+                                            ]
+                                        ]
+                        ]
+                    ]
+
             buy_equal_pay = true
             recovery_flow = true
             total_amount = 100.0
@@ -1313,10 +1328,29 @@ trackTests {
 
                     ]
             ]
-            shipping =[
-                    shipping_type:"mercadoenvios",
-                    shipping_option:1
-            ]
+
+            shipping = [
+                        [
+                        cost: 25.98,
+                        shipping_mode: "me2",
+                        shipping_type: "mercadoenvios",
+                        shipping_options: [
+                                            [
+                                                    method_name: "Normal",
+                                                    price: 0.0,
+                                                    currency_id: "ARS",
+                                                    free_shipping: true,
+                                                    free_shipping_benefit: true
+                                            ],
+                                            [
+                                                    method_name: "Expreso",
+                                                    price: 50.46,
+                                                    currency_id: "ARS",
+                                                    free_shipping: false
+                                            ]
+                                        ]
+                        ]
+                    ]
 
             items = [
                     [
@@ -1434,17 +1468,31 @@ trackTests {
                             without_fee:false
                     ]
             ]
-            shipping=[
-                    shipping_type: "mercadoenvios",
-                    cost:87.99,
-                    shipping_option:[
-                            id:"391232427",
-                            name:"Prioritario a domicilio",
-                            shipping_method_id:"73330"
-                    ],
-                    id:21531848862,
-                    shipping_mode:"me2"
-            ]
+
+
+            shipping = [
+                        [
+                        cost: 25.98,
+                        shipping_mode: "me2",
+                        shipping_type: "mercadoenvios",
+                        shipping_options: [
+                                            [
+                                                    method_name: "Normal",
+                                                    price: 0.0,
+                                                    currency_id: "ARS",
+                                                    free_shipping: true,
+                                                    free_shipping_benefit: true
+                                            ],
+                                            [
+                                                    method_name: "Expreso",
+                                                    price: 50.46,
+                                                    currency_id: "ARS",
+                                                    free_shipping: false
+                                            ]
+                                        ]
+                        ]
+                    ]
+
             items=[
                     [
                             item:[
@@ -1483,17 +1531,31 @@ trackTests {
                             without_fee:false
                     ]
             ]
-            shipping=[
-                    shipping_type: "mercadoenvios",
-                    cost:87.99,
-                    shipping_option:[
-                            id:"391232427",
-                            name:"Prioritario a domicilio",
-                            shipping_method_id:"73330"
-                    ],
-                    id:21531848862,
-                    shipping_mode:"me2"
-            ]
+
+            shipping = [
+                        [
+                        cost: 25.98,
+                        shipping_mode: "me2",
+                        shipping_type: "mercadoenvios",
+                        shipping_options: [
+                                            [
+                                                    method_name: "Normal",
+                                                    price: 0.0,
+                                                    currency_id: "ARS",
+                                                    free_shipping: true,
+                                                    free_shipping_benefit: true
+                                            ],
+                                            [
+                                                    method_name: "Expreso",
+                                                    price: 50.46,
+                                                    currency_id: "ARS",
+                                                    free_shipping: false
+                                            ]
+                                        ]
+                        ]
+                    ]
+
+
             items=[
                     [
                             item:[
@@ -1532,17 +1594,31 @@ trackTests {
                             without_fee:false
                     ]
             ]
-            shipping=[
-                    shipping_type: "mercadoenvios",
-                    cost:87.99,
-                    shipping_option:[
-                            id:"391232427",
-                            name:"Prioritario a domicilio",
-                            shipping_method_id:"73330"
-                    ],
-                    id:21531848862,
-                    shipping_mode:"me2"
-            ]
+
+            shipping = [
+                        [
+                        cost: 25.98,
+                        shipping_mode: "me2",
+                        shipping_type: "mercadoenvios",
+                        shipping_options: [
+                                            [
+                                                    method_name: "Normal",
+                                                    price: 0.0,
+                                                    currency_id: "ARS",
+                                                    free_shipping: true,
+                                                    free_shipping_benefit: true
+                                            ],
+                                            [
+                                                    method_name: "Expreso",
+                                                    price: 50.46,
+                                                    currency_id: "ARS",
+                                                    free_shipping: false
+                                            ]
+                                        ]
+                        ]
+                    ]
+
+
             items=[
                     [
                             item:[
@@ -1581,17 +1657,30 @@ trackTests {
                             without_fee:false
                     ]
             ]
-            shipping=[
-                    shipping_type: "mercadoenvios",
-                    cost:87.99,
-                    shipping_option:[
-                            id:"391232427",
-                            name:"Prioritario a domicilio",
-                            shipping_method_id:"73330"
-                    ],
-                    id:21531848862,
-                    shipping_mode:"me2"
-            ]
+
+            shipping = [
+                        [
+                        cost: 25.98,
+                        shipping_mode: "me2",
+                        shipping_type: "mercadoenvios",
+                        shipping_options: [
+                                            [
+                                                    method_name: "Normal",
+                                                    price: 0.0,
+                                                    currency_id: "ARS",
+                                                    free_shipping: true,
+                                                    free_shipping_benefit: true
+                                            ],
+                                            [
+                                                    method_name: "Expreso",
+                                                    price: 50.46,
+                                                    currency_id: "ARS",
+                                                    free_shipping: false
+                                            ]
+                                        ]
+                        ]
+                    ]
+
             items=[
                     [
                             item:[
@@ -1634,7 +1723,7 @@ trackTests {
                             currency_id:"BRL"
                     ]
             ]
-            tracking_referer_page=null
+            
         }
 
         "/checkout/payments/select_payment_method"(platform:"/web/desktop") {
@@ -1673,7 +1762,7 @@ trackTests {
                             currency_id:"BRL"
                     ]
             ]
-            tracking_referer_page="congratsAccordSecureSiteLogo"
+            
         }
 
         "/checkout/payments/select_payment_method"(platform:"/web/desktop") {
@@ -1697,17 +1786,31 @@ trackTests {
                             without_fee:false
                     ]
             ]
-            shipping=[
-                    shipping_type: "mercadoenvios",
-                    cost:87.99,
-                    shipping_option:[
-                            id:"391232427",
-                            name:"Prioritario a domicilio",
-                            shipping_method_id:"73330"
-                    ],
-                    id:21531848862,
-                    shipping_mode:"me2"
-            ]
+
+            shipping = [
+                        [
+                        cost: 25.98,
+                        shipping_mode: "me2",
+                        shipping_type: "mercadoenvios",
+                        shipping_options: [
+                                            [
+                                                    method_name: "Normal",
+                                                    price: 0.0,
+                                                    currency_id: "ARS",
+                                                    free_shipping: true,
+                                                    free_shipping_benefit: true
+                                            ],
+                                            [
+                                                    method_name: "Expreso",
+                                                    price: 50.46,
+                                                    currency_id: "ARS",
+                                                    free_shipping: false
+                                            ]
+                                        ]
+                        ]
+                    ]
+
+
             items=[
                     [
                             item:[
@@ -1752,17 +1855,30 @@ trackTests {
                             without_fee:false
                     ]
             ]
-            shipping=[
-                    shipping_type: "mercadoenvios",
-                    cost:87.99,
-                    shipping_option:[
-                            id:"391232427",
-                            name:"Prioritario a domicilio",
-                            shipping_method_id:"73330"
-                    ],
-                    id:21531848862,
-                    shipping_mode:"me2"
-            ]
+
+            shipping = [
+                        [
+                        cost: 25.98,
+                        shipping_mode: "me2",
+                        shipping_type: "mercadoenvios",
+                        shipping_options: [
+                                            [
+                                                    method_name: "Normal",
+                                                    price: 0.0,
+                                                    currency_id: "ARS",
+                                                    free_shipping: true,
+                                                    free_shipping_benefit: true
+                                            ],
+                                            [
+                                                    method_name: "Expreso",
+                                                    price: 50.46,
+                                                    currency_id: "ARS",
+                                                    free_shipping: false
+                                            ]
+                                        ]
+                        ]
+                    ]
+
             items=[
                     [
                             item:[
@@ -1801,17 +1917,30 @@ trackTests {
                             without_fee:false
                     ]
             ]
-            shipping=[
-                    shipping_type: "mercadoenvios",
-                    cost:87.99,
-                    shipping_option:[
-                            id:"391232427",
-                            name:"Prioritario a domicilio",
-                            shipping_method_id:"73330"
-                    ],
-                    id:21531848862,
-                    shipping_mode:"me2"
-            ]
+
+            shipping = [
+                        [
+                        cost: 25.98,
+                        shipping_mode: "me2",
+                        shipping_type: "mercadoenvios",
+                        shipping_options: [
+                                            [
+                                                    method_name: "Normal",
+                                                    price: 0.0,
+                                                    currency_id: "ARS",
+                                                    free_shipping: true,
+                                                    free_shipping_benefit: true
+                                            ],
+                                            [
+                                                    method_name: "Expreso",
+                                                    price: 50.46,
+                                                    currency_id: "ARS",
+                                                    free_shipping: false
+                                            ]
+                                        ]
+                        ]
+                    ]
+
             items=[
                     [
                             item:[
@@ -1917,17 +2046,30 @@ trackTests {
                             status_detail:"accredited"
                     ]
             ]
-            shipping=[
-                    shipping_type: "mercadoenvios",
-                    cost:87.99,
-                    shipping_option:[
-                            id:"391232427",
-                            name:"Prioritario a domicilio",
-                            shipping_method_id:"73330"
-                    ],
-                    id:21531848862,
-                    shipping_mode:"me2"
-            ]
+            
+            shipping = [
+                        [
+                        cost: 25.98,
+                        shipping_mode: "me2",
+                        shipping_type: "mercadoenvios",
+                        shipping_options: [
+                                            [
+                                                    method_name: "Normal",
+                                                    price: 0.0,
+                                                    currency_id: "ARS",
+                                                    free_shipping: true,
+                                                    free_shipping_benefit: true
+                                            ],
+                                            [
+                                                    method_name: "Expreso",
+                                                    price: 50.46,
+                                                    currency_id: "ARS",
+                                                    free_shipping: false
+                                            ]
+                                        ]
+                        ]
+                    ]
+
             items=[
                     [
                             item:[
@@ -3723,17 +3865,30 @@ trackTests {
                             status_detail:"accredited"
                     ]
             ]
-            shipping=[
-                    shipping_type: "mercadoenvios",
-                    cost:87.99,
-                    shipping_option:[
-                            id:"391232427",
-                            name:"Prioritario a domicilio",
-                            shipping_method_id:"73330"
-                    ],
-                    id:21531848862,
-                    shipping_mode:"me2"
-            ]
+
+            shipping = [
+                        [
+                        cost: 25.98,
+                        shipping_mode: "me2",
+                        shipping_type: "mercadoenvios",
+                        shipping_options: [
+                                            [
+                                                    method_name: "Normal",
+                                                    price: 0.0,
+                                                    currency_id: "ARS",
+                                                    free_shipping: true,
+                                                    free_shipping_benefit: true
+                                            ],
+                                            [
+                                                    method_name: "Expreso",
+                                                    price: 50.46,
+                                                    currency_id: "ARS",
+                                                    free_shipping: false
+                                            ]
+                                        ]
+                        ]
+                    ]
+
             items=[
                     [
                             item:[
@@ -3790,17 +3945,30 @@ trackTests {
                             status_detail:"accredited"
                     ]
             ]
-            shipping=[
-                    shipping_type: "mercadoenvios",
-                    cost:87.99,
-                    shipping_option:[
-                            id:"391232427",
-                            name:"Prioritario a domicilio",
-                            shipping_method_id:"73330"
-                    ],
-                    id:21531848862,
-                    shipping_mode:"me2"
-            ]
+            
+            shipping = [
+                        [
+                        cost: 25.98,
+                        shipping_mode: "me2",
+                        shipping_type: "mercadoenvios",
+                        shipping_options: [
+                                            [
+                                                    method_name: "Normal",
+                                                    price: 0.0,
+                                                    currency_id: "ARS",
+                                                    free_shipping: true,
+                                                    free_shipping_benefit: true
+                                            ],
+                                            [
+                                                    method_name: "Expreso",
+                                                    price: 50.46,
+                                                    currency_id: "ARS",
+                                                    free_shipping: false
+                                            ]
+                                        ]
+                        ]
+                    ]
+
             items=[
                     [
                             item:[
@@ -4424,43 +4592,43 @@ trackTests {
             dataSetCongrats()
             geolocated = true
         }
-        "/checkout/congrats/keep_buying"(platform:"/web"){
+        "/checkout/finish/keep_buying"(platform:"/web"){
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/congrats/go_to_myml"(platform:"/web"){
+        "/checkout/finish/go_to_myml"(platform:"/web"){
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/congrats/go_to_page_bank"(platform:"/web") {
+        "/checkout/finish/go_to_page_bank"(platform:"/web") {
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/congrats/view_ticket"(platform:"/web") {
+        "/checkout/finish/view_ticket"(platform:"/web") {
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/congrats/download_ticket"(platform:"/web") {
+        "/checkout/finish/download_ticket"(platform:"/web") {
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/congrats/show_map"(platform:"/web") {
+        "/checkout/finish/show_map"(platform:"/web") {
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/congrats/save_data"(platform:"/web") {
+        "/checkout/finish/save_data"(platform:"/web") {
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/congrats/contact_us"(platform:"/web") {
+        "/checkout/finish/contact_us"(platform:"/web") {
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/congrats/go_to_mercado_puntos"(platform:"/web") {
+        "/checkout/finish/go_to_mercado_puntos"(platform:"/web") {
             dataSet()
             dataSetCongrats()
         }
-        "/checkout/congrats/added_points"(platform:"/web") {
+        "/checkout/finish/added_points"(platform:"/web") {
             dataSet()
             dataSetCongrats()
         }
@@ -4498,8 +4666,8 @@ trackTests {
         "/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", dataSet)
         "/checkout/shipping/input_new_address"(platform:"/web", dataSet)
         "/checkout/payment/security_code"(platform:"/web", dataSet)
-        "/checkout/congrats/call_seller"(platform:"/web", dataSet)
-        "/checkout/congrats/send_message"(platform:"/web", dataSet)
+        "/checkout/finish/call_seller"(platform:"/web", dataSet)
+        "/checkout/finish/send_message"(platform:"/web", dataSet)
         "/checkout/review/high_amount_error"(platform:"/web", dataSet)
         "/checkout/review/installments_error"(platform:"/web", dataSet)
         "/checkout/review/insufficient_account_money"(platform:"/web", dataSet)
