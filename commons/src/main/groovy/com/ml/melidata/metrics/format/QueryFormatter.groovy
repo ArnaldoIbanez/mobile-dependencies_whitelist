@@ -11,6 +11,13 @@ import com.google.gson.GsonBuilder
 
 class QueryFormatter {
 
+    public static void main(String[] args) {
+        String output = args.length > 1 ? args[1] : "/tmp/jsonmelidata.json"
+        String json = new QueryFormatter().buildJson()
+        new File(output).write(json)
+        println("JSON written to " + output)
+    }
+
     def filesMap = { basedirname ->
         def files = [] as Queue
         files.add(new File(basedirname))
