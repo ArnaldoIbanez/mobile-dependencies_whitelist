@@ -7,6 +7,8 @@ import org.json.simple.JSONObject
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 
+import com.ml.melidata.catalog.exceptions.CatalogException
+
 
 
 class QueryFormatter {
@@ -41,12 +43,13 @@ class QueryFormatter {
         def list = []
         jsonSnippets.values().each{ json ->
             Map jsonMap = new JsonSlurper().parseText(json)
-            sqlscripts.each { scriptname ->
-                String scriptValue = jsonMap.extract.sql.script
-                if (scriptname.equals(scriptValue)) {
-                    jsonMap.extract.sql.script = sanitize(sqlSnippets[scriptname])
-                    list.add(jsonMap)
-                }
+            String scriptpath = jsonMap.extract.sql.script
+            String query = sqlSnippets[scriptpath]
+            if (query) {
+                jsonMap.extract.sql.script = sanitize(query)
+                list.add(jsonMap)
+            } else {
+                throw new CatalogException("Script " + scriptpath + " does not exist")
             }
         }
         return list
