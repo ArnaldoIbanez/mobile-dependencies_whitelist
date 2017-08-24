@@ -386,7 +386,11 @@ tracks {
     "/checkout/payments/stored_card/select_bank"(platform: "/mobile") {
         available_methods(required: true, type: PropertyType.ArrayList, description: "list of available banks")
     }
-    "/checkout/payments/stored_card/security_code"(platform: "/mobile") {}
+    "/checkout/payments/stored_card/security_code"(platform: "/mobile") {
+        //List of visible fields
+        user_identification_fields(required: false, type: PropertyType.ArrayList)
+        //user_identification_fields: ["doc_type", "doc_number"]
+    }
     "/checkout/payments/stored_card/installments"(platform: "/mobile") {
         credit_card_id(required: false, type: PropertyType.String)
         //List of available installments
@@ -421,7 +425,11 @@ tracks {
     "/checkout/payments/transfer/select_bank"(platform: "/mobile") {
         available_methods(required: true, type: PropertyType.ArrayList)
     }
-    "/checkout/payments/billing_info"(platform: "/mobile") {}
+    "/checkout/payments/billing_info"(platform: "/mobile") {
+        //List of visible fields
+        user_identification_fields(required: false, type: PropertyType.ArrayList)
+        //user_identification_fields: ["doc_type", "doc_number", "name", "las_name"]
+    }
     "/checkout/payments/billing_info#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         billing_info_state(required: true, type: PropertyType.String)
     }

@@ -232,11 +232,23 @@ tracks {
 
 "/cart/checkout/payment"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
 
+"/cart/checkout/payment/billing_information"(platform:"/mobile", type: TrackType.View) {
+    //List of visible fields
+    user_identification_fields(required: false, type: PropertyType.ArrayList)
+    //user_identification_fields: ["doc_type", "doc_number", "name", "las_name"]
+}
+
 "/cart/checkout/payment/select_unique_installment"(platform:"/mobile", type: TrackType.View) {}
 
 "/cart/checkout/payment/select_first_installment"(platform:"/mobile", type: TrackType.View) {}
 
 "/cart/checkout/payment/select_second_installment"(platform:"/mobile", type: TrackType.View) {}
+
+"/cart/checkout/payment/security_code"(platform:"/mobile", type: TrackType.View) {
+    //List of visible fields
+    user_identification_fields(required: false, type: PropertyType.ArrayList)
+    //user_identification_fields: ["doc_type", "doc_number"]
+}
 
 "/cart/checkout/review"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
 
