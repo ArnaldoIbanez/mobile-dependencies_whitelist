@@ -439,11 +439,6 @@ tracks {
     "/subscriptions/summary"(platform: "/", type: TrackType.View) {}
     "/subscriptions/detail"(platform: "/", type: TrackType.View) {}
     "/subscriptions/detail/modify_frequency"(platform: "/", type: TrackType.View) {}
-    "/subscriptions/detail/modify_frequency/frequency"(platform: "/", type: TrackType.Event) {
-        frequency(required: true, type: PropertyType.String)
-        frequency_before(type: PropertyType.String)
-        context(required: true, type: PropertyType.String)
-    }
     "/subscriptions/detail/canceldelivery"(platform: "/", type: TrackType.View) {}
     "/subscriptions/detail/canceldelivery/now"(platform: "/", type: TrackType.Event) {}
     "/subscriptions/detail/canceldelivery/skip"(platform: "/", type: TrackType.Event) {}

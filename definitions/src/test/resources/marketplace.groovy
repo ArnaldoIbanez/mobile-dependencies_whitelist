@@ -4781,33 +4781,33 @@ trackTests {
     } 
 
     test("subscriptions") {
-	   "/subscriptions/frequency" (platform:"/web/mobile", type: TrackType.View) {}
-	   "/subscriptions/change_frequency" (platform:"/web/mobile", type: TrackType.View) {
+	   "/subscriptions/frequency" (platform:"/", type: TrackType.View) {}
+	   "/subscriptions/change_frequency" (platform:"/", type: TrackType.View) {
            frequency = "WEEKS_2"
            frequency_before = "WEEKS_1"
-           context = "frequency"
+           context = "frequency/buyingflow"
        }
-        "/subscriptions/review"(platform: "/web/mobile", type: TrackType.View) {}
-        "/subscriptions/review/confirm"(platform: "/web/mobile", type: TrackType.Event) {
+        "/subscriptions/review"(platform: "/", type: TrackType.View) {}
+        "/subscriptions/review/confirm"(platform: "/", type: TrackType.Event) {
             context = "bottom"
         }
 
-        "/subscriptions/congrats"(platform: "/web/mobile", type: TrackType.View) {}
-        "/subscriptions/congrats/view_subscription"(platform: "/web/mobile", type: TrackType.Event) {}
+        "/subscriptions/congrats"(platform: "/", type: TrackType.View) {}
+        "/subscriptions/congrats/view_subscription"(platform: "/", type: TrackType.Event) {}
 
-        "/subscriptions/summary"(platform: "/web/mobile", type: TrackType.View) {}
-        "/subscriptions/detail"(platform: "/web/mobile", type: TrackType.View) {}
-        "/subscriptions/detail/modify_frequency"(platform: "/web/mobile" ,type: TrackType.View) {}
-        "/subscriptions/detail/modify_frequency/frequency"(platform:"/web/mobile", type: TrackType.View) {
+        "/subscriptions/summary"(platform: "/", type: TrackType.View) {}
+        "/subscriptions/detail"(platform: "/", type: TrackType.View) {}
+        "/subscriptions/detail/modify_frequency"(platform: "/" ,type: TrackType.View) {}
+        "/subscriptions/change_frequency" (platform:"/", type: TrackType.View) {
            frequency = "WEEKS_2"
            frequency_before = "WEEKS_1"
-           context = "frequency"
+           context = "details/myml"
        }
-        "/subscriptions/detail/canceldelivery"(platform: "/web/mobile", type: TrackType.View) {}
-        "/subscriptions/detail/canceldelivery/now"(platform: "/web/mobile", type: TrackType.Event) {}
-        "/subscriptions/detail/canceldelivery/skip"(platform: "/web/mobile", type: TrackType.Event) {}
-        "/subscriptions/detail/cancel"(platform: "/web/mobile", type: TrackType.View) {}
-        "/subscriptions/detail/cancel/subscription"(platform: "/web/mobile", type: TrackType.Event) {}
+        "/subscriptions/detail/canceldelivery"(platform: "/", type: TrackType.View) {}
+        "/subscriptions/detail/canceldelivery/now"(platform: "/", type: TrackType.Event) {}
+        "/subscriptions/detail/canceldelivery/skip"(platform: "/", type: TrackType.Event) {}
+        "/subscriptions/detail/cancel"(platform: "/", type: TrackType.View) {}
+        "/subscriptions/detail/cancel/subscription"(platform: "/", type: TrackType.Event) {}
     } 
 
     test("install_event"){
