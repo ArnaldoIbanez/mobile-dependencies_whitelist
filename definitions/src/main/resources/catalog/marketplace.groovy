@@ -432,9 +432,10 @@ tracks {
     "/subscriptions/review/confirm"(platform: "/", type: TrackType.Event) {
         context(required: true, type: PropertyType.String)
     }
-
+    
     "/subscriptions/congrats"(platform: "/", type: TrackType.View) {}
     "/subscriptions/congrats/view_subscription"(platform: "/", type: TrackType.Event) {}
+    "/subscriptions/congrats/subscribe"(platform: "/", type: TrackType.Event) {}
 
     "/subscriptions/summary"(platform: "/", type: TrackType.View) {}
     "/subscriptions/detail"(platform: "/", type: TrackType.View) {}

@@ -4794,7 +4794,7 @@ trackTests {
 
         "/subscriptions/congrats"(platform: "/", type: TrackType.View) {}
         "/subscriptions/congrats/view_subscription"(platform: "/", type: TrackType.Event) {}
-
+        "/subscriptions/congrats/subscribe"(platform: "/", type: TrackType.Event) {}
         "/subscriptions/summary"(platform: "/", type: TrackType.View) {}
         "/subscriptions/detail"(platform: "/", type: TrackType.View) {}
         "/subscriptions/detail/modify_frequency"(platform: "/" ,type: TrackType.View) {}
