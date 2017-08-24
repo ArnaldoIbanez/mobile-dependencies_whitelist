@@ -1113,6 +1113,7 @@ trackTests {
         }
         "/checkout/payments/stored_card/security_code"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
+            user_identification_fields = ["doc_type", "doc_number"]
         }
         "/checkout/payments/stored_card/installments"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -1163,6 +1164,7 @@ trackTests {
         }
         "/checkout/payments/billing_info"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
+            user_identification_fields: ["doc_type", "doc_number", "name", "las_name"]
         }
         "/checkout/payments/billing_info#submit"(platform:"/mobile", type:TrackType.Event) {
             billing_info_state = "same_billing_info"
@@ -4812,6 +4814,10 @@ trackTests {
         }
         "/cart/checkout/items_not_available"(platform:"/", dataSet)
         "/cart/checkout/error"(platform:"/", dataSet)
+        "/cart/checkout/payment/billing_information"(platform:"/mobile") {
+            dataSet()
+            user_identification_fields: ["doc_type", "doc_number", "name", "las_name"]
+        }
         "/cart/checkout/payment/select_method"(platform:"/", dataSet)
         "/cart/checkout/payment/select_method/edit_payment"(platform:"/", dataSet)
         "/cart/checkout/payment/select_method/show_distances"(platform:"/", dataSet)
@@ -4928,6 +4934,10 @@ trackTests {
         "/cart/checkout/shipping/confirm_geolocation/send_to_cp_located"(platform:"/web", dataSet)
         "/cart/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", dataSet)
         "/cart/checkout/shipping/input_new_address"(platform:"/web", dataSet)
+        "/cart/checkout/payment/security_code"(platform:"/mobile") {
+            dataSet()
+            user_identification_fields: ["doc_type", "doc_number"]
+        }
         "/cart/checkout/payment/security_code"(platform:"/web", dataSet)
 
     }
