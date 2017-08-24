@@ -111,7 +111,11 @@ tracks {
 
 "/cart/checkout/payment/input_card/edit_payment"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/payment/input_card/security_code_tooltip"(platform:"/", type: TrackType.Event) {}
-"/cart/checkout/payment/security_code"(platform:"/", type: TrackType.View) {} 
+"/cart/checkout/payment/security_code"(platform:"/", type: TrackType.View) {
+    //List of visible fields
+    user_identification_fields(required: false, type: PropertyType.ArrayList)
+    //user_identification_fields: ["doc_type", "doc_number"]
+}
 
 "/cart/checkout/payment/select_installments"(platform:"/", type: TrackType.View) {}
 
@@ -119,6 +123,12 @@ tracks {
 "/cart/checkout/payment/select_installments/click_payment_detail"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/payment/select_installments/click_box_installments"(platform:"/", type: TrackType.Event) {
     payment_with_click(required:false, type: PropertyType.String, values: ["FirstPayment", "SecondPayment"])
+}
+
+"/cart/checkout/payment/billing_information"(platform:"/", type: TrackType.View) {
+    //List of visible fields
+    user_identification_fields(required: false, type: PropertyType.ArrayList)
+    //user_identification_fields: ["doc_type", "doc_number", "name", "las_name"]
 }
 
 "/cart/checkout/payment/create_second_password"(platform:"/", type: TrackType.View) {}
@@ -232,23 +242,11 @@ tracks {
 
 "/cart/checkout/payment"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
 
-"/cart/checkout/payment/billing_information"(platform:"/mobile", type: TrackType.View) {
-    //List of visible fields
-    user_identification_fields(required: false, type: PropertyType.ArrayList)
-    //user_identification_fields: ["doc_type", "doc_number", "name", "las_name"]
-}
-
 "/cart/checkout/payment/select_unique_installment"(platform:"/mobile", type: TrackType.View) {}
 
 "/cart/checkout/payment/select_first_installment"(platform:"/mobile", type: TrackType.View) {}
 
 "/cart/checkout/payment/select_second_installment"(platform:"/mobile", type: TrackType.View) {}
-
-"/cart/checkout/payment/security_code"(platform:"/mobile", type: TrackType.View) {
-    //List of visible fields
-    user_identification_fields(required: false, type: PropertyType.ArrayList)
-    //user_identification_fields: ["doc_type", "doc_number"]
-}
 
 "/cart/checkout/review"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
 
