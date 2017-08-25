@@ -22,7 +22,7 @@ LEFT OUTER JOIN
        get_json_object(tracks.event_data,'$.email_id') AS email_id
 FROM tracks
 WHERE    (ds >= '@param01'
-        AND ds <'@param03'
+        AND ds < '@param03'
         AND substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) >= '@param01'
         AND substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) < '@param02'
         AND get_json_object(tracks.event_data,'$.event_type') = 'open'
