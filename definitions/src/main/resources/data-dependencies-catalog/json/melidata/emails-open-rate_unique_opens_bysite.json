@@ -34,7 +34,7 @@
       }
     ],
     "sql": {
-      "script": "business-assurance/emais-open-rate_unique_opens_bysite.sql",
+      "script": "business-assurance/emails-open-rate_unique_opens_bysite.sql",
       "parameters": [
         {
           "name": "param01",
