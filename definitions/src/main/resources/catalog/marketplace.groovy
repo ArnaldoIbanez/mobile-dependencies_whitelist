@@ -440,9 +440,15 @@ tracks {
     "/subscriptions/summary"(platform: "/", type: TrackType.View) {}
     "/subscriptions/detail"(platform: "/", type: TrackType.View) {}
     "/subscriptions/detail/modify_frequency"(platform: "/", type: TrackType.View) {}
-    "/subscriptions/detail/canceldelivery"(platform: "/", type: TrackType.View) {}
-    "/subscriptions/detail/canceldelivery/now"(platform: "/", type: TrackType.Event) {}
-    "/subscriptions/detail/canceldelivery/skip"(platform: "/", type: TrackType.Event) {}
+
+    "/subscriptions/delivery"(platform: "/", isAbstract: true) {}
+    "/subscriptions/delivery/cancel"(platform: "/", type: TrackType.View) {
+        context(required: true, type: PropertyType.String)
+    }
+    "/subscriptions/delivery/cancel"(platform: "/", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String)
+    }
+
     "/subscriptions/detail/cancel"(platform: "/", type: TrackType.View) {}
     "/subscriptions/detail/cancel/subscription"(platform: "/", type: TrackType.Event) {}
     

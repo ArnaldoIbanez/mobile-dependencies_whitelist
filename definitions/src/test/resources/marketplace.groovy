@@ -4803,9 +4803,12 @@ trackTests {
            frequency_before = "WEEKS_1"
            context = "details/myml"
        }
-        "/subscriptions/detail/canceldelivery"(platform: "/", type: TrackType.View) {}
-        "/subscriptions/detail/canceldelivery/now"(platform: "/", type: TrackType.Event) {}
-        "/subscriptions/detail/canceldelivery/skip"(platform: "/", type: TrackType.Event) {}
+       "/subscriptions/delivery/cancel"(platform: "/", type: TrackType.View) {
+           context = "now"
+        }
+        "/subscriptions/delivery/cancel"(platform: "/", type: TrackType.Event) {
+            context = "now"
+        }
         "/subscriptions/detail/cancel"(platform: "/", type: TrackType.View) {}
         "/subscriptions/detail/cancel/subscription"(platform: "/", type: TrackType.Event) {}
     } 
