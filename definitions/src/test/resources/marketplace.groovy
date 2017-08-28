@@ -5212,27 +5212,36 @@ trackTests {
     } 
 
     test("subscriptions") {
-	   "/subscriptions/frequency" (platform:"/web/mobile", type: TrackType.View) {}
-	   "/subscriptions/change_frequency" (platform:"/web/mobile", type: TrackType.View) {
+	   "/subscriptions/frequency" (platform:"/", type: TrackType.View) {}
+	   "/subscriptions/change_frequency" (platform:"/", type: TrackType.View) {
            frequency = "WEEKS_2"
            frequency_before = "WEEKS_1"
-           context = "frequency"
+           context = "frequency/buyingflow"
        }
-        "/subscriptions/review"(platform: "/web/mobile", type: TrackType.View) {}
-        "/subscriptions/review/confirm"(platform: "/web/mobile", type: TrackType.Event) {
+        "/subscriptions/review"(platform: "/", type: TrackType.View) {}
+        "/subscriptions/review/confirm"(platform: "/", type: TrackType.Event) {
             context = "bottom"
         }
 
-        "/subscriptions/congrats"(platform: "/web/mobile", type: TrackType.View) {}
-        "/subscriptions/congrats/view_subscription"(platform: "/web/mobile", type: TrackType.Event) {}
-
-        "/subscriptions/summary"(platform: "/web/mobile", type: TrackType.View) {}
-        "/subscriptions/detail"(platform: "/web/mobile", type: TrackType.View) {}
-
-        "/subscriptions/detail/cancel"(platform: "/web/mobile") {}
-        "/subscriptions/detail/cancel/now"(platform: "/web/mobile", type: TrackType.Event) {}
-        "/subscriptions/detail/cancel/skip"(platform: "/web/mobile", type: TrackType.Event) {}
-        "/subscriptions/detail/cancel/subscription"(platform: "/web/mobile", type: TrackType.Event) {}
+        "/subscriptions/congrats"(platform: "/", type: TrackType.View) {}
+        "/subscriptions/congrats/view_subscription"(platform: "/", type: TrackType.Event) {}
+        "/subscriptions/congrats/subscribe"(platform: "/", type: TrackType.Event) {}
+        "/subscriptions/summary"(platform: "/", type: TrackType.View) {}
+        "/subscriptions/detail"(platform: "/", type: TrackType.View) {}
+        "/subscriptions/detail/modify_frequency"(platform: "/" ,type: TrackType.View) {}
+        "/subscriptions/change_frequency" (platform:"/", type: TrackType.View) {
+           frequency = "WEEKS_2"
+           frequency_before = "WEEKS_1"
+           context = "details/myml"
+       }
+       "/subscriptions/delivery/cancel"(platform: "/", type: TrackType.View) {
+           context = "now"
+        }
+        "/subscriptions/delivery/cancel"(platform: "/", type: TrackType.Event) {
+            context = "now"
+        }
+        "/subscriptions/detail/cancel"(platform: "/", type: TrackType.View) {}
+        "/subscriptions/detail/cancel/subscription"(platform: "/", type: TrackType.Event) {}
     } 
 
     test("install_event"){
