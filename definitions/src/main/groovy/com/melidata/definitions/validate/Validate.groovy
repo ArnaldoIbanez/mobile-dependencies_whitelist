@@ -163,7 +163,7 @@ class Validate {
         def site = ""
         def limit = "100"
 
-        if (options.path) path = "AND path = '${options.path}' \n"
+        if (options.path) path = "AND path LIKE '/${options.path}%' \n"
         if (options.business) business = "AND application.business = '${options.business}' \n"
         if (options.platform) platform = "AND device.platform = '${options.platform}' \n"
         if (options.site) site = "AND application.site_id = '${options.site}' \n"
