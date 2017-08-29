@@ -432,16 +432,24 @@ tracks {
     "/subscriptions/review/confirm"(platform: "/", type: TrackType.Event) {
         context(required: true, type: PropertyType.String)
     }
-
+    
     "/subscriptions/congrats"(platform: "/", type: TrackType.View) {}
     "/subscriptions/congrats/view_subscription"(platform: "/", type: TrackType.Event) {}
+    "/subscriptions/congrats/subscribe"(platform: "/", type: TrackType.Event) {}
 
     "/subscriptions/summary"(platform: "/", type: TrackType.View) {}
     "/subscriptions/detail"(platform: "/", type: TrackType.View) {}
+    "/subscriptions/detail/modify_frequency"(platform: "/", type: TrackType.View) {}
 
-    "/subscriptions/detail/cancel"(platform: "/", isAbstract: true) {}
-    "/subscriptions/detail/cancel/now"(platform: "/", type: TrackType.Event) {}
-    "/subscriptions/detail/cancel/skip"(platform: "/", type: TrackType.Event) {}
+    "/subscriptions/delivery"(platform: "/", isAbstract: true) {}
+    "/subscriptions/delivery/cancel"(platform: "/", type: TrackType.View) {
+        context(required: true, type: PropertyType.String)
+    }
+    "/subscriptions/delivery/cancel"(platform: "/", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String)
+    }
+
+    "/subscriptions/detail/cancel"(platform: "/", type: TrackType.View) {}
     "/subscriptions/detail/cancel/subscription"(platform: "/", type: TrackType.Event) {}
     
     "/sso" (platform: "/mobile", isAbstract: true){}
