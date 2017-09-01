@@ -13,7 +13,6 @@ deal.deal_Source as deal_Source,
 deal.deal_Position as deal_Position,
 deal.deal_Type as deal_Type,
 jest(event_data, 'items[0].item.deal_ids') as eventdata_dealID,
-CAST(get_json_object(get_json_object(get_json_object(event_data,'$.items[0]'),'$.item'),'$.deal_ids')AS varchar(50)) AS d_ID,
 sum(CAST(jest(event_data,'total_amount_usd') AS DOUBLE)) as sum_dol_amount,
 count(1) as purchases_total
 from tracks orders
