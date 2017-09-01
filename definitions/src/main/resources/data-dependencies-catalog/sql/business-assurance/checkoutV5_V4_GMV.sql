@@ -47,7 +47,6 @@ sum(if(application.server_poolname= 'buyingflow-cart-web-mobile-mlm-direct', CAS
 sum (CAST(jest(event_data, 'total_amount') as DOUBLE)) as total_amount,
 sum (CAST(jest(event_data, 'total_amount_with_shipping') as DOUBLE)) as total_amount_with_shipping
 from tracks 
-where
 where 	   ds >='@param01'
 and 	   ds <'@param02'
 and application.site_id = 'MLM'
