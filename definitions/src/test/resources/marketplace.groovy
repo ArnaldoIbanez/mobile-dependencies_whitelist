@@ -4923,6 +4923,8 @@ trackTests {
         "/cart/checkout/shipping/add_contact_info"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_contact_info"(platform:"/mobile", dataSet)
         "/cart/checkout/payment/select_unique_installment"(platform:"/mobile", dataSet)
+        "/cart/checkout/payment/select_split_installments"(platform:"/mobile", dataSet)
+        "/cart/checkout/payment/select_split_installments/split_detail"(platform:"/mobile", dataSet)
         "/cart/checkout/payment/select_first_installment"(platform:"/mobile", dataSet)
         "/cart/checkout/payment/select_second_installment"(platform:"/mobile", dataSet)
         "/cart/checkout/review/edit_unique_installment"(platform:"/mobile", dataSet)
