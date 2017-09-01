@@ -244,9 +244,13 @@ tracks {
 
 "/cart/checkout/payment/select_unique_installment"(platform:"/mobile", type: TrackType.View) {}
 
+"/cart/checkout/payment/select_split_installments"(platform:"/mobile", type: TrackType.View) {}
+
 "/cart/checkout/payment/select_first_installment"(platform:"/mobile", type: TrackType.View) {}
 
 "/cart/checkout/payment/select_second_installment"(platform:"/mobile", type: TrackType.View) {}
+
+"/cart/checkout/payment/select_split_detail"(platform:"/mobile", type: TrackType.View) {}
 
 "/cart/checkout/review"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
 
