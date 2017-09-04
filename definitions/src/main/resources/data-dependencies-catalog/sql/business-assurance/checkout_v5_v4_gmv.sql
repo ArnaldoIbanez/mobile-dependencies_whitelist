@@ -117,7 +117,7 @@ from (
   from tracks 
   where
   ds >='@param01'
-  ds <'@param02'
+  and ds <'@param02'
   and application.site_id = 'MLM'
   and path = '/checkout/congrats' 
   and device.platform = '/web/mobile'
