@@ -1,6 +1,7 @@
 {
   "users": [
-    "daniela.medina@mercadolibre.com"
+    "daniela.medina@mercadolibre.com",
+     "ba-analytics@mercadolibre.com"
   ],
   "process_name": "count_purchases_banner",
   "cron": "00 08 * * *",
