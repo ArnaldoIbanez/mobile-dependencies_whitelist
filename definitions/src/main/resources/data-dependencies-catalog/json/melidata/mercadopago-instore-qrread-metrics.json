@@ -2,34 +2,39 @@
   "users": [
     "german.bringas@mercadolibre.com"
   ],
-  "process_name": "mercadopago-push-notifications-metrics",
-  "cron": "10 00 * * *",
+  "process_name": "mercadopago-instore-qrread-metrics",
+  "cron": "00 08 * * *",
   "extract": {
     "operation": "append",
     "columns": [
       {
         "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "qr_info",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "campaign_id",
+        "name": "status",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "event_type",
+        "name": "user_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "user_nick",
         "type": "UNICODE_STRING"
       },
       {
         "name": "platform",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "users",
-        "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "mercadopago/push-notifications-metrics.sql",
+      "script": "mercadopago/instore/mercadopago-instore-qrread-metrics.sql",
       "parameters": [
         {
           "name": "param01",
