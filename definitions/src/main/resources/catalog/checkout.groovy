@@ -200,6 +200,9 @@ tracks {
         location(required: false, type: PropertyType.String)
         geolocation_method(required: false, type: PropertyType.String)
     }
+
+    "/checkout/payments_cancelation"(platform: "/mobile") {}
+    
     "/checkout/geolocation"(platform: "/", type: TrackType.Event) {
         geolocation_error(required: true, description: "Why the geo failed")
     }
@@ -498,6 +501,10 @@ tracks {
         //    ]
     }
     "/checkout/review/terms"(platform: "/mobile") {}
+    "/checkout/review/discard_payment_combination"(platform: "/mobile") {}
+    "/checkout/review/inconsistency/discard_payment_combination_change_payment"(platform: "/mobile") {}
+    "/checkout/review/inconsistency/discard_payment_combination_change_installments"(platform: "/mobile") {}
+    "/checkout/review/inconsistency/payment_combination_shipping_inconsistency"(platform: "/mobile") {}
     "/checkout/additional_info"(platform: "/mobile") {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
