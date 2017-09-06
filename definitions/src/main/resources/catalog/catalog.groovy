@@ -14,6 +14,7 @@ catalog {
             "/web",
             "/web/desktop",
             "/web/desktop/forced",
+            "/web/desktop/static",
             "/web/mobile",
             "/web/mobile/forced",
             "/web/mobile/static",
@@ -38,39 +39,39 @@ catalog {
 
     def all = marketplace + mercadopago
 
-    all.each { business ->
-        include business, "melidata_sdk.groovy"
-    }
-
-    all.each { business ->
-        include business, "registrations.groovy"
-    }
 
     all.each { business ->
         include business, "authentication.groovy"
-    }
-
-    all.each { business ->
         include business, "identity_validation.groovy"
+        include business, "melidata_sdk.groovy"
+        include business, "registrations.groovy"
     }
 
     marketplace.each { business ->
-        include business, "marketplace.groovy"
-    }
-
-    marketplace.each { business ->
-        include business, "cartList.groovy"
-    }
-
-    marketplace.each { business ->
+        include business, "buyIntention.groovy"
         include business, "cartCheckout.groovy"
-    }
-
-    marketplace.each { business ->
+        include business, "cartList.groovy"
+        include business, "checkout.groovy"
+        include business, "credits_marketplace.groovy"
+        include business, "email.groovy"
+        include business, "home.groovy"
+        include business, "loyalty.groovy"
+        include business, "marketplace.groovy"
         include business, "myml.groovy"
+        include business, "notifications.groovy"
+        include business, "onboarding.groovy"
+        include business, "quotation.groovy"
+        include business, "search.groovy"
+        include business, "sell.groovy"
+        include business, "vip.groovy"
+        include business, "returns.groovy"
     }
 
     mercadopago.each { business ->
         include business, "mercadopago.groovy"
+        include business, "checkoutOff.groovy"
+        include business, "credits_mercadopago.groovy"
+        include business, "mercadopago_mails.groovy"
     }
+
 }

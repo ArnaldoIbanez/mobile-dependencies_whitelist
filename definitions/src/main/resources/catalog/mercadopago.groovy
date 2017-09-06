@@ -131,6 +131,41 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
+    "/qr_read"(platform: "/mobile", isAbstract: true) {}
+    "/qr_read/store"(platform: "/mobile") {
+        _label (required:true, type: PropertyType.String, description: "Operation status")
+        deep_link (required:false, type: PropertyType.String, description: "Navigation info")
+        qr_info (required:false, type: PropertyType.String, description: "Data read")
+        additional_info (required:false, description: "Extra info")
+    }
+
+    "/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
+    "/pay_preference"(platform: "/mobile", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/pay_preference/fetch_preference_info"(platform: "/mobile") {}
+    "/pay_preference/px_payment_method_search"(platform: "/mobile") {}
+    "/pay_preference/px_payer_cost"(platform: "/mobile") {}
+    "/pay_preference/px_card_number"(platform: "/mobile") {}
+    "/pay_preference/px_card_vault"(platform: "/mobile") {}
+    "/pay_preference/px_card_holder"(platform: "/mobile") {}
+    "/pay_preference/px_card_holder_name"(platform: "/mobile") {}
+    "/pay_preference/px_card_issuers"(platform: "/mobile") {}
+    "/pay_preference/px_card_installments"(platform: "/mobile") {}
+    "/pay_preference/px_card_expiry_date"(platform: "/mobile") {}
+    "/pay_preference/px_card_security_code"(platform: "/mobile") {}
+    "/pay_preference/px_identification_number"(platform: "/mobile") {}
+    "/pay_preference/px_review_and_confirm"(platform: "/mobile") {}
+    "/pay_preference/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
     "/cellphone_recharge"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
@@ -202,6 +237,15 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
+    "/get_member"(platform: "/mobile", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/get_member/invite"(platform: "/mobile") {
+        scope(required: true, type: PropertyType.String, description: "The scope from where it has been executed")
+    }
+    "/get_member/redeem"(platform: "/mobile") {}
+
     "/bill_payments"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
@@ -213,10 +257,9 @@ tracks {
     "/bill_payments/scan"(platform: "/mobile") {}
     "/bill_payments/manual_code"(platform: "/mobile") {}
     "/bill_payments/confirmation"(platform: "/mobile") {}
-    "/bill_payments/add_info"(platform: "/mobile", isAbstract: true) {}
-    "/bill_payments/add_info/literal"(platform: "/mobile") {}
-    "/bill_payments/add_info/amount"(platform: "/mobile") {}
-    "/bill_payments/add_info/option"(platform: "/mobile") {}
+    "/bill_payments/add_info"(platform: "/mobile") {
+        type (required: true, type: PropertyType.String, description: "Additional info type")
+    }
     "/bill_payments/second_password"(platform: "/mobile") {}
     "/bill_payments/result"(platform: "/mobile") {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
@@ -237,6 +280,9 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    "/bill_payments/fixed_amount"(platform: "/mobile") {}
+    "/bill_payments/ticket_data"(platform: "/mobile") {}
+
 
     "/recharge_sube"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -374,11 +420,37 @@ tracks {
     //Money
     "/notification/money_transfer_received"(platform: "/mobile") {}
     "/notification/money_transfer_request"(platform: "/mobile") {}
+
+    //Digital Goods
+     "/digital_goods"(platform: "/mobile", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/digital_goods/list"(platform: "/mobile") {}
+    "/digital_goods/no_money"(platform: "/mobile") {}
+    "/digital_goods/search_entities"(platform: "/mobile") {}
+    "/digital_goods/products"(platform: "/mobile") {
+        type (required:true, type: PropertyType.String, description: "Option")
+    }
+    "/digital_goods/px_payment_method_search"(platform: "/mobile") {}
+    "/digital_goods/px_discount_summary"(platform: "/mobile") {}
+    "/digital_goods/px_card_vault"(platform: "/mobile") {}
+    "/digital_goods/px_card_number"(platform: "/mobile") {}
+    "/digital_goods/px_card_holder_name"(platform: "/mobile") {}
+    "/digital_goods/px_card_expiry_date"(platform: "/mobile") {}
+    "/digital_goods/px_card_security_code"(platform: "/mobile") {}
+    "/digital_goods/px_identification_number"(platform: "/mobile") {}
+    "/digital_goods/px_card_issuers"(platform: "/mobile") {}
+    "/digital_goods/px_card_installments"(platform: "/mobile") {}
+    "/digital_goods/px_review_and_confirm"(platform: "/mobile") {}
+    "/digital_goods/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
     
     /**
      * END NOTIFICATIONS
      **/    
 
     // END -- MPMOBILE
-
 }

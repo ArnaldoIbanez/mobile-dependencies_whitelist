@@ -13,6 +13,13 @@ metrics {
             set_property("item_id", "event_data.item_id")
         }
     }
+	
+	
+    "vip/plainText"(description: "define properties for item_id for vip description (html vs plain) experiment") {
+        startWith {
+            set_property("item_id", "event_data.item_id")
+        }
+    }
 
 	"proactive_2PM"(description: "define properties for order_id") {
 		startWith {
@@ -432,14 +439,20 @@ metrics {
 	}
 
 
-	"identity-validation/phone.landing"(description: "Post phone challenge count") {
+	"identity-validation/uniqueness.recommendation"(description: "Trust vote to login user") {
 		startWith {
-			experiment("auth/identity-validation_phone-landing")
+			experiment("auth/identity-validation_recommendation")
 		}
 
 		countsOn {
 			condition {
-				path("/identity-validation/phone_code")
+				and(
+						path("/identity-validation/finish_validation"),
+						or(
+								equals('event_data.flow', "uniqueness"),
+								equals('event_data.flow', "recommendation")
+						)
+				)
 			}
 		}
 	}

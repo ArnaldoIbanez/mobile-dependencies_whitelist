@@ -181,6 +181,93 @@ trackTests {
             captcha_showed = false
             prog_reg_version = 0
         }
+
+        "/register/form/skip-update"(platform: "/web/desktop") {
+            app = "registration-update-opt"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+        }
+
+        "/register/optin"(platform: "/web/desktop") {
+            app = "registration"
+            prog_reg_version = 0
+        }
+
+        "/register/optin/push"(platform: "/web/mobile") {
+            app = "registration-optin"
+            prog_reg_version = 0
+        }
+
+        "/register/optin/skip"(platform: "/web/mobile") {
+            app = "registration-optin"
+            prog_reg_version = 0
+        }
+    }
+
+    test("Registration App"){
+        // app module
+        "/register/hub"(platform: "/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/hub/register-with-email"(platform: "/mobile"){
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+
+        }
+        "/register/hub/register-with-facebook"(platform: "/mobile"){
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/form"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/form/error"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:8,
+                            field: 'email'
+                    ]
+            ]
+        }
+        "/register/form/another-email"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/account-recovery-hub"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+        "/register/account-recovery-hub/account-recovery"(platform: "/mobile"){
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+
+        }
+        "/register/account-recovery-hub/use-another-email"(platform: "/mobile"){
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+
+        "/register/congrats"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            item_id = "MLA21233"
+        }
+
     }
 
     test("Account Recovery tracking event") {
@@ -431,6 +518,267 @@ trackTests {
         }
     }
 
+    test("QRRead Stores event") {
+
+        "/qr_read/store"(platform: "/mobile") {
+            qr_info = "http://laconoariel.com/mpmobile/axion/?id=invalid"
+            _label = "error"
+            deep_link = "mercadopago://congrats_store"
+            additional_info = {message="Algo no salió bien"
+                icon="error"
+                status="rejected"
+                description="Por favor, intenta nuevamente."
+                actions=[{
+                             id="try_again"
+                             link="mercadopago://stores?qr_code=http%3A%2F%2Flaconoariel.com%2Fmpmobile%2Faxion%2F%3Fid%3Dinvalid"
+                             label="Intentar nuevamente"
+                             type="button"
+                         },{
+                    id="back_to_root"
+                    link":null"
+                    label="Volver al inicio"
+                    type="link" }]}
+        }
+    }
+
+    test("Pay Preference") {
+        "/px_result"(platform: "/mobile") {
+            result_status = "rejected"
+        }
+
+        "/pay_preference/fetch_preference_info"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_payment_method_search"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_payer_cost"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_number"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_vault"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_holder"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_holder_name"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_issuers"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_installments"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_expiry_date"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_card_security_code"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_identification_number"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_review_and_confirm"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+        }
+
+        "/pay_preference/px_result"(platform: "/mobile") {
+            flow = "/pay_preference"
+            from = "/deep_link"
+            result_status = "rejected"
+        }
+    }
+
+    test("Get member") {
+        "/get_member/invite"(platform: "/mobile") {
+            flow = "/get_member"
+            scope = "wallet"
+        }
+
+        "/get_member/invite"(platform: "/mobile") {
+            flow = "/get_member"
+            from = "/deep_link"
+            scope = "point"
+        }
+
+        "/get_member/redeem"(platform: "/mobile") {
+            flow = "/get_member"
+        }
+
+        "/get_member/redeem"(platform: "/mobile") {
+            flow = "/get_member"
+            from = "/deep_link"
+        }
+    }
+
+    test("Digital Goods") {
+        "/digital_goods/list"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+
+        "/digital_goods/list"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+
+        "/digital_goods/no_money"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+
+        "/digital_goods/no_money"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+
+        "/digital_goods/search_entities"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+
+        "/digital_goods/search_entities"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+
+        "/digital_goods/products"(platform: "/mobile") {
+            flow = "/digital_goods"
+            type = "option"
+        }
+
+        "/digital_goods/products"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+            type = "option"
+        }
+
+        "/digital_goods/px_card_vault"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_card_number"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_card_holder_name"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_card_expiry_date"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_card_security_code"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_identification_number"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_card_issuers"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_card_installments"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_result"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+            result_status = "rejected"
+        }
+        "/digital_goods/px_review_and_confirm"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_payment_method_search"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_discount_summary"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+        }
+        "/digital_goods/px_result"(platform: "/mobile") {
+            flow = "/digital_goods"
+            from = "/deep_link"
+            result_status = "rejected"
+            status_detail = "call_for_auth"
+        }
+
+        "/digital_goods/px_card_vault"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_card_number"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_card_holder_name"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_card_expiry_date"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_card_security_code"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_review_and_confirm"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_identification_number"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_discount_summary"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_payment_method_search"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_card_issuers"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_card_installments"(platform: "/mobile") {
+            flow = "/digital_goods"
+        }
+        "/digital_goods/px_result"(platform: "/mobile") {
+            flow = "/digital_goods"
+            result_status = "rejected"
+        }
+        "/digital_goods/px_result"(platform: "/mobile") {
+            flow = "/digital_goods"
+            result_status = "rejected"
+            status_detail = "call_for_auth"
+        }
+    }
+
     test("Cellphone recharge") {
         "/cellphone_recharge/push_handler"(platform: "/mobile") {
             flow = "/cellphone_recharge"
@@ -678,6 +1026,17 @@ trackTests {
     }
 
     test("Bill payments") {
+
+        "/bill_payments/fixed_amount"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+
+        "/bill_payments/ticket_data"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+
         "/bill_payments/help"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
@@ -706,17 +1065,10 @@ trackTests {
             flow = "/bill_payments"
             from = "/deep_link"
         }
-        "/bill_payments/add_info/literal"(platform: "/mobile") {
+        "/bill_payments/add_info"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
-        }
-        "/bill_payments/add_info/amount"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
-        }
-        "/bill_payments/add_info/option"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            type = "literal"
         }
         "/bill_payments/second_password"(platform: "/mobile") {
             flow = "/bill_payments"
@@ -1047,6 +1399,7 @@ trackTests {
             source = "FAVORITE"
             flow = "internal"
             has_error = false
+            recaptcha = false
         }
         "/login/recovery"(platform: "/web", type: TrackType.Event) {
             source = "LFE"
@@ -1095,32 +1448,394 @@ trackTests {
         }
     }
 
-    test("Identity Validation with flows") {
-
-        "/identity-validation/landing_phone"(platform: "/web/desktop") {
-            flow = "mediations_bpp"
+    test("Login Status with Smart Lock for Passwords") {
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = true
+            smartlock_status = "SUCCESS"
+            section = "application_startup"
         }
-
-        "/identity-validation/phone_code"(platform: "/web/desktop") {
-            flow = "mediations_bpp"
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = false
+            smartlock_status = "SUCCESS"
+            section = "application_startup"
         }
-
-        "/identity-validation/finish_validation"(platform: "/web/desktop") {
-            result = "invalid_duplicate_doc_image"
-            flow = "mediations_bpp"
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = true
+            smartlock_status = "RESOLUTION_REQUIRED"
+            section = "application_startup"
         }
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = false
+            smartlock_status = "RESOLUTION_REQUIRED"
+            section = "application_startup"
+        }
+    }
 
-        "/identity-validation/landing_phone"(platform: "/web/mobile") {
+    test("Identity Validation ") {
+
+        "/identity-validation/validation_landing"(platform: "/web/mobile") {
             flow = "ms_hard_validation"
         }
 
-        "/identity-validation/phone_code"(platform: "/web/mobile") {
+        "/identity-validation/start_validation"(platform: "/web/mobile") {
             flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/web/mobile") {
+            type = "documentation"
+            success = true
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/web/mobile") {
+            type = "recommendation"
+            success = true
         }
 
         "/identity-validation/finish_validation"(platform: "/web/mobile") {
-            result = "success"
+            result = "valid"
             flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/validation_landing"(platform: "/web/desktop") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/start_validation"(platform: "/web/desktop") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/web/desktop") {
+            type = "documentation"
+            success = true
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/web/desktop") {
+            type = "phone"
+            success = false
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/web/desktop") {
+            type = "recommendation"
+            success = true
+        }
+
+        "/identity-validation/finish_validation"(platform: "/web/desktop") {
+            result = "valid"
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/validation_landing"(platform: "/mobile/android") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/start_validation"(platform: "/mobile/android") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/mobile/android") {
+            type = "documentation"
+            success = true
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/mobile/android") {
+            type = "phone"
+            success = false
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/mobile/android") {
+            type = "recommendation"
+            success = true
+        }
+
+        "/identity-validation/finish_validation"(platform: "/mobile/android") {
+            result = "valid"
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/validation_landing"(platform: "/mobile/ios") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/start_validation"(platform: "/mobile/ios") {
+            flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/mobile/ios") {
+            type = "documentation"
+            success = true
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/mobile/ios") {
+            type = "phone"
+            success = false
+        }
+
+        "/identity-validation/finish_challenge"(platform: "/mobile/ios") {
+            type = "recommendation"
+            success = true
+        }
+
+        "/identity-validation/finish_validation"(platform: "/mobile/ios") {
+            result = "valid"
+            flow = "ms_hard_validation"
+        }
+    }
+
+    test("Checkout Off"){
+        "/checkout_off/init"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+        }
+        "/checkout_off/congrats"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "24286689"
+            scope = 'mla'
+
+            payment_status = "pending"
+            payment_id = "123456789"
+            payment_status_detail = "pending_waiting_payment"
+            payment_method_id = "rapipago"
+            payment_type_id = "ticket"
+            is_express = false
+            is_split = false
+        }
+        "/checkout_off/payment_option"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+        }
+        "/checkout_off/payment_option/ticket"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+        }
+        "/checkout_off/payment_option/bank_transfer"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+        }
+        "/checkout_off/payment_option/cards"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+        }
+        "/checkout_off/review"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
+            payment_type = "credit_card"
+            payment_method = "visa"
+            issuer = "288"
+            has_shipping = false
+            has_payer_shipping_data = false
+        }
+        "/checkout_off/review"(platform: "/web/desktop") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
+            payment_type = "ticket"
+            payment_method = "rapipago"
+            has_shipping = true
+            has_payer_shipping_data = true
+            shipping_mode = "me2"
+        }
+        "/checkout_off/express"(platform: "/web/mobile"){
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
+            payment_type = "account_money"
+            payment_method = "account_money"
+            only_account_money = false
+            has_shipping = true
+            has_payer_shipping_data = false
+            shipping_mode = "custom"
+        }
+        "/checkout_off/congrats/approved"(platform: "/web/mobile"){
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
+            payment_status = "approved"
+            payment_id = "123456789"
+            payment_status_detail = "approved"
+            payment_method_id = "visa"
+            payment_type_id = "credit_card"
+            is_express = true
+            is_split = false
+        }
+        "/checkout_off/congrats/pending"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
+            payment_status = "pending"
+            payment_id = "123456789"
+            payment_status_detail = "pending_waiting_for_remedy"
+            payment_method_id = "visa"
+            payment_type_id = "debit_card"
+            is_express = false
+            is_split = false
+        }
+        "/checkout_off/congrats/instructions"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
+            payment_status = "pending"
+            payment_id = "123456789"
+            payment_status_detail = "pending_waiting_payment"
+            payment_method_id = "rapipago"
+            payment_type_id = "ticket"
+            is_express = false
+            is_split = false
+        }
+        "/checkout_off/congrats/rejected"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
+            payment_status = "rejected"
+            payment_id = "123456789"
+            payment_status_detail = "cc_rejected_other_reason"
+            payment_method_id = "visa"
+            payment_type_id = "credit_card"
+            is_express = false
+            is_split = false
+        }
+        "/checkout_off/shipping"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
+            shipping_mode = "me2"
+            local_pickup = false
+            payer_addresses = 2
+        }
+        "/checkout_off/shipping/address"(platform: "/web/desktop") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
+            shipping_mode = "custom"
+            local_pickup = true
+            payer_addresses = 0
+        }
+        "/checkout_off/shipping/method"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
+            shipping_mode = "me2"
+            local_pickup = false
+            payer_addresses = 0
+
+            shipping_method_count = 1
+        }
+        "/checkout_off/login"(platform: "/web/desktop") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+        }
+        "/checkout_off/login/guest"(platform: "/web/desktop") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+        }
+        "/checkout_off/login/discount"(platform: "/web/desktop") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+        }
+        "/checkout_off/card/credit_card"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+        }
+        "/checkout_off/card/debit_card"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+        }
+        "/checkout_off/card/split"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+        }
+        "/checkout_off/error/validation"(platform: "/web/desktop") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
+            failure_code = "invalid_CVV"
+        }
+        "/checkout_off/error/expired"(platform: "/web/desktop") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+
+            ms_since_expiration = 40000
+        }
+        "/checkout_off/error/internal"(platform: "/web/desktop") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            preference_id = "96449980"
+            scope = 'mla'
+            
+            response_status = 500
+            exception_message = "Some exception message"
         }
 
     }

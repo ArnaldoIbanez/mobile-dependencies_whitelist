@@ -1,35 +1,55 @@
 {
   "users": [
-    "ext_jproma@mercadolibre.com","ext_manunez@mercadolibre.com","ext_jgabito@mercadolibre.com"
+    "fernando.gardien@mercadolibre.com"
   ],
-  "process_name": "push-notifications-metrics",
-  "cron": "10 00 * * *",
+  "process_name": "bugsnag_raw_tracks",
+  "cron": "00 08 * * *",
   "extract": {
     "operation": "append",
     "columns": [
       {
-        "name": "ds",
+        "name": "date_utc_4",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "context",
+        "type": "UNICODE_STRING"
+      },
+
+      {
+        "name": "severity",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "campaign_id",
+        "name": "site_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "event_type",
+        "name": "vertical",
         "type": "UNICODE_STRING"
       },
+      {
+        "name": "app_version",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "business",
+        "type": "UNICODE_STRING"
+      },
+
       {
         "name": "platform",
         "type": "UNICODE_STRING"
       },
+
       {
-        "name": "users",
+        "name": "count_",
         "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "emailmkt/push-notifications-metrics.sql",
+      "script": "business-assurance/bugsnag_raw_tracks.sql",
       "parameters": [
         {
           "name": "param01",

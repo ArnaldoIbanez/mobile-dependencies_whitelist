@@ -1,7 +1,7 @@
 {
 "users":
     [
-        "javier.pedro@mercadolibre.com"
+        "reviews_dev@mercadolibre.com"
     ],
     "process_name": "reviews-funnel",
     "cron": "0 04 * * *",
