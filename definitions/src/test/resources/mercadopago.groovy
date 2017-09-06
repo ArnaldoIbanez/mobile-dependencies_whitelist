@@ -1443,6 +1443,14 @@ trackTests {
             is_otp = false
             is_admin_otp = false
         }
+        "/login/auth/push"(platform: "/", type: TrackType.Event) {
+            view = "waiting_view"
+            event_type = "click_go_to_password_button"
+            challenge = "push_authentication"
+            tx = "adHgjskcD01lM6EeLs7zUGgBaA1GiWqF6w_XQUgLJk0QAmdhE"
+            is_otp = false
+            is_admin_otp = false
+        }
         "/logout"(platform: "/", type: TrackType.Event) {
             flow = "internal"
         }

@@ -68,4 +68,11 @@ tracks {
         smartlock_status(type: PropertyType.String, required: true)
         section(type: PropertyType.String, required: true)
     }
+
+    "/login/auth/push"(platform: "/", type: TrackType.Event) {
+        view(type: PropertyType.String, required: true)
+        event_type(type: PropertyType.String, required: true)
+        challenge(type: PropertyType.String, required: true)
+        tx(type: PropertyType.String, required: true)
+    }
 }
