@@ -502,9 +502,10 @@ tracks {
     }
     "/checkout/review/terms"(platform: "/mobile") {}
     "/checkout/review/discard_payment_combination"(platform: "/mobile") {}
-    "/checkout/review/inconsistency/discard_payment_combination_change_payment"(platform: "/mobile") {}
-    "/checkout/review/inconsistency/discard_payment_combination_change_installments"(platform: "/mobile") {}
-    "/checkout/review/inconsistency/payment_combination_shipping_inconsistency"(platform: "/mobile") {}
+    "/checkout/review/inconsistency/payment_combination"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/review/inconsistency/payment_combination/payment"(platform: "/mobile") {}
+    "/checkout/review/inconsistency/payment_combination/installments"(platform: "/mobile") {}
+    "/checkout/review/inconsistency/payment_combination/shipping"(platform: "/mobile") {}
     "/checkout/additional_info"(platform: "/mobile") {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")

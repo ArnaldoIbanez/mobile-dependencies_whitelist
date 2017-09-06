@@ -2136,9 +2136,9 @@ trackTests {
 
     test("checkout payment combination inconsistencies") {
         "/checkout/review/discard_payment_combination"(platform: "/mobile", type:TrackType.View) {}
-        "/checkout/review/inconsistency/discard_payment_combination_change_payment"(platform: "/mobile", type:TrackType.View) {}
-        "/checkout/review/inconsistency/discard_payment_combination_change_installments"(platform: "/mobile", type:TrackType.View) {}
-        "/checkout/review/inconsistency/payment_combination_shipping_inconsistency"(platform: "/mobile", type:TrackType.View) {}
+        "/checkout/review/inconsistency/payment_combination/payment"(platform: "/mobile", type:TrackType.View) {}
+        "/checkout/review/inconsistency/payment_combination/installments"(platform: "/mobile", type:TrackType.View) {}
+        "/checkout/review/inconsistency/payment_combination/shipping"(platform: "/mobile", type:TrackType.View) {}
     }
 
     test("checkout payments cancelation") {
