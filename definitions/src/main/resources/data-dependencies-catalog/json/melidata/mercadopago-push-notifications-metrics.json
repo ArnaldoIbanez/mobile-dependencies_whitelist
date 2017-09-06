@@ -9,7 +9,7 @@
     "columns": [
       {
         "name": "ds",
-        "type": "DATE",
+        "type": "UNICODE_STRING",
         "format": "yyyy-MM-dd"
       },
       {
