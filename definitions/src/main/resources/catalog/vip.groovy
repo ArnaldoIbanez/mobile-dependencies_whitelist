@@ -38,6 +38,10 @@ tracks {
         free_shipping_benefit(required: false, type: PropertyType.Boolean, description: "Indicates if the user has free shipping benefit")
         return_available(required: false, type: PropertyType.String, values: ["Yes", "No"], description: "Indicates if the user has free return for the item")
         item_price(required: false, type: PropertyType.Map, description: "Indicates the item price in different currencies")
+        search_query(required: false, type: PropertyType.String)
+        page_vertical(required: false, type: PropertyType.String)
+        gallery_pattern(required: false, type: PropertyType.String)
+        specifications_size(required: false, type: PropertyType.Numeric)
     }
 
     "/vip"(platform: "/web") {
