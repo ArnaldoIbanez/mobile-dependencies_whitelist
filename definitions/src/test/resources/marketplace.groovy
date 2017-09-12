@@ -5302,4 +5302,21 @@ trackTests {
         }
 
     }
+
+    test("free data") {
+
+        "/free_navigation"(platform:"/mobile", type:TrackType.Event) {
+            status = "available"
+        }
+
+        "/free_navigation/dialog"(platform:"/mobile", type:TrackType.View) {
+        }
+
+        "/free_navigation/snackbar"(platform:"/mobile", type:TrackType.View) {
+        }
+
+        "/free_navigation/dialog_dismissed"(platform:"/mobile", type:TrackType.Event) {
+            is_checkbox_checked = true
+        }
+    }
 }
