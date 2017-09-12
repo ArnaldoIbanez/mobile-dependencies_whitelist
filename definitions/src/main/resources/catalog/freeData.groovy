@@ -7,7 +7,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
  */
 tracks {
 
-    "/free_navigation"(platform:"/mobile", type:TrackType.Event) {
+    "/free_navigation"(platform:"/mobile", isAbstract: true, type:TrackType.Event) {
     }
 
     "/free_navigation/sponsored_data"(platform:"/mobile", type:TrackType.Event) {
