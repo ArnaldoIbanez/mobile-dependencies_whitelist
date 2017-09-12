@@ -8,7 +8,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 tracks {
 
     "/free_navigation"(platform:"/mobile", type:TrackType.Event) {
-        status(type: PropertyType.String, required: True)
+        status(type: PropertyType.String, required: true)
     }
 
     "/free_navigation/dialog"(platform:"/mobile", type:TrackType.View) {
