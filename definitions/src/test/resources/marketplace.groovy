@@ -481,6 +481,8 @@ trackTests {
             fulfillment = true
             resolution = "high"
             cart_content = false
+            search_query = "monitor"
+            page_vertical = "motors"
         }
 
         "/vip"(platform:"/mobile", dataSet)
@@ -518,6 +520,8 @@ trackTests {
             official_store_id = "1"
             deal_ids = ["MLA24"]
             review_rate=5
+            gallery_pattern = "XXXXX"
+            specifications_size = 1
         }
 
         "/vip"(platform:"/web", dataSet)
@@ -5212,6 +5216,8 @@ trackTests {
 			}
 		}
         }
+
+        "/recommendations/print" {}
     }
 
     test("Application-iOS"){

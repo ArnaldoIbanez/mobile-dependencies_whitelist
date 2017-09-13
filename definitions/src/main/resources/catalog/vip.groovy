@@ -38,13 +38,16 @@ tracks {
         free_shipping_benefit(required: false, type: PropertyType.Boolean, description: "Indicates if the user has free shipping benefit")
         return_available(required: false, type: PropertyType.String, values: ["Yes", "No"], description: "Indicates if the user has free return for the item")
         item_price(required: false, type: PropertyType.Map, description: "Indicates the item price in different currencies")
+        search_query(required: false, type: PropertyType.String)
+        page_vertical(required: false, type: PropertyType.String)
+        gallery_pattern(required: false, type: PropertyType.String, description: "Defines images pattern in publications")
+        review_rate(required: false, inheritable: false)
     }
 
     "/vip"(platform: "/web") {
-        review_rate(inheritable: false)
+        specifications_size(required: false, description: "Specifications attributes quantity")
         description_type(required: false, description: "Description type: plain text, html, both, none", values: ["plain_text", "html", "both", "none"])
         max_size_gallery(required: false, description: "Max_size of first picture gallery")
-        specifications_size(required: false, description: "Specifications attributes quantity")
     }
 
     "/vip"(platform: "/mobile") {
