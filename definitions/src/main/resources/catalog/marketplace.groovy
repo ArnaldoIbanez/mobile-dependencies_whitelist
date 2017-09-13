@@ -467,4 +467,7 @@ tracks {
     "/cx/click_on_suggestion" (platform: "/mobile", type: TrackType.Event){}
     "/cx/contact_types" (platform: "/mobile", isAbstract: true){}
     "/cx/contact_types/click_on_contact_form" (platform: "/mobile", type: TrackType.Event){}
+
+    "/recommendations/print" (platform: "/"){}
+
 }

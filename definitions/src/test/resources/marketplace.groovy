@@ -5216,6 +5216,8 @@ trackTests {
 			}
 		}
         }
+
+        "/recommendations/print" {}
     }
 
     test("Application-iOS"){
