@@ -20,4 +20,8 @@ tracks {
     "/free_navigation/dialog_dismissed"(platform:"/mobile", type:TrackType.Event) {
         is_checkbox_checked(type: PropertyType.Boolean, required:true)
     }
+
+    "/free_navigation/purchase"(platform:"/mobile", type:TrackType.Event) {
+        status(type: PropertyType.String, required: true)
+    }
 }
