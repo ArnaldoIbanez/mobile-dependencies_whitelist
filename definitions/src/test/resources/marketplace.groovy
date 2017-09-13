@@ -5306,7 +5306,7 @@ trackTests {
     test("free data") {
 
         "/free_navigation"(platform:"/mobile", type:TrackType.Event) {
-            status = "available"
+            status = "sponsored"
         }
 
         "/free_navigation/dialog"(platform:"/mobile", type:TrackType.View) {
@@ -5317,6 +5317,10 @@ trackTests {
 
         "/free_navigation/dialog_dismissed"(platform:"/mobile", type:TrackType.Event) {
             is_checkbox_checked = true
+        }
+
+        "/free_navigation/purchase"(platform:"/mobile", type:TrackType.Event) {
+            status = "sponsored"
         }
     }
 }
