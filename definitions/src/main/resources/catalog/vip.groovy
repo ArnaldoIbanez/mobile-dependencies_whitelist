@@ -41,14 +41,13 @@ tracks {
         search_query(required: false, type: PropertyType.String)
         page_vertical(required: false, type: PropertyType.String)
         gallery_pattern(required: false, type: PropertyType.String, description: "Defines images pattern in publications")
-        specifications_size(required: false, type: PropertyType.Numeric)
         review_rate(required: false, inheritable: false)
     }
 
     "/vip"(platform: "/web") {
+        specifications_size(required: false, description: "Specifications attributes quantity")
         description_type(required: false, description: "Description type: plain text, html, both, none", values: ["plain_text", "html", "both", "none"])
         max_size_gallery(required: false, description: "Max_size of first picture gallery")
-        specifications_size(required: false, description: "Specifications attributes quantity")
     }
 
     "/vip"(platform: "/mobile") {
