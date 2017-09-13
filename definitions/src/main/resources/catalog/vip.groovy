@@ -109,9 +109,7 @@ tracks {
 
     "/vip/payment_method/back"(platform: "/mobile") {}
 
-    "/vip/variations"(platform: "/web") {}
-
-    "/vip/variations"(platform: "/mobile") {}
+    "/vip/variations"(platform: "/") {}
 
     "/vip/variations/back"(platform: "/mobile") {}
 
@@ -123,7 +121,7 @@ tracks {
 
     "/vip/quantity"(platform: "/mobile") {}
 
-    "/vip/reviews"(platform: "/", type: TrackType.Event) {
+    "/vip/reviews"(platform: "/", type: TrackType.View) {
         show(required: false, inheritable: false, type: PropertyType.String)
     }
 
