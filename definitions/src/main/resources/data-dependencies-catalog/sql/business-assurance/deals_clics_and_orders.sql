@@ -11,9 +11,7 @@ from (
 			and ds < '@param02'
 			and others['fragment'] like '%DEAL_ID%'
 		)deal 
-
 		LEFT OUTER JOIN
-
 		(
 			select substr(ds,1,10) as fecha_order, application.site_id as site_order, device.platform AS platform_order, usr.uid as uid_order, 
 			jest(event_data, 'buyer.id') AS BuyerID, jest(event_data, 'buyer.nickname') AS BuyerNickname, jest(event_data, 'items[0].item.id') AS ItemID, 
