@@ -55,7 +55,7 @@
       },    
         {
         "name": "gmv",
-        "type": "INTEGER"
+        "type": "DOUBLE"
       }                
     ],
     "sql": {
