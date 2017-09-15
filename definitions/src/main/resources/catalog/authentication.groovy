@@ -66,16 +66,24 @@ tracks {
         flow(type: PropertyType.String, required: false)
     }
 
+    "/login/auth/push"(platform: "/", type: TrackType.Event) {
+        view(type: PropertyType.String, required: true)
+        event_type(type: PropertyType.String, required: true)
+        challenge(type: PropertyType.String, required: true)
+        tx(type: PropertyType.String, required: true)
+    }
+
     "/login/status"(platform: "/mobile", type: TrackType.Event) {
         is_logged(type: PropertyType.Boolean, required: true)
         smartlock_status(type: PropertyType.String, required: true)
         section(type: PropertyType.String, required: true)
     }
 
-    "/login/auth/push"(platform: "/", type: TrackType.Event) {
-        view(type: PropertyType.String, required: true)
-        event_type(type: PropertyType.String, required: true)
-        challenge(type: PropertyType.String, required: true)
-        tx(type: PropertyType.String, required: true)
+    "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/login/smartlock/success"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
+        error(type: PropertyType.String, required: true)
     }
 }
