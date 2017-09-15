@@ -1,5 +1,6 @@
 select fecha_clic, site_deal, platform_deal, deal_Label, deal_Source, deal_Position, deal_Type, deal_id, 
-count(1) as clics_totales, count(distinct(uid_deal)) as clics_unicos, count(uid_order) as orders, sum(cast(sum_dol_amount as double)) as gmv
+count(1) as clics_totales, count(distinct(uid_deal)) as clics_unicos, count(uid_order) as orders, sum(cast(sum_dol_amount as double)) as gmv, 
+sum(sum_dol_amount) as gmv_2
 from (
 
 		(
