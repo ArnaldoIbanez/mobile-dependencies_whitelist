@@ -42,6 +42,7 @@ tracks {
         page_vertical(required: false, type: PropertyType.String)
         gallery_pattern(required: false, type: PropertyType.String, description: "Defines images pattern in publications")
         review_rate(required: false, inheritable: false)
+        review_attributes(required: false, inheritable: false)
     }
 
     "/vip"(platform: "/web") {
@@ -108,7 +109,7 @@ tracks {
 
     "/vip/payment_method/back"(platform: "/mobile") {}
 
-    "/vip/variations"(platform: "/mobile") {}
+    "/vip/variations"(platform: "/") {}
 
     "/vip/variations/back"(platform: "/mobile") {}
 
@@ -120,6 +121,9 @@ tracks {
 
     "/vip/quantity"(platform: "/mobile") {}
 
+    "/vip/reviews"(platform: "/", type: TrackType.View) {
+        show(required: false, inheritable: false, type: PropertyType.String)
+    }
 
     // ADDRESS
 
