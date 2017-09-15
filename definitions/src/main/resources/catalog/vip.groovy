@@ -81,7 +81,9 @@ tracks {
 
     "/vip/description/back"(platform: "/mobile") {}
 
-    "/vip/item_gallery"(platform: "/mobile", parentPropertiesInherited: false) {}
+    "/vip/item_gallery"(platform: "/mobile", parentPropertiesInherited: false) {
+        context(required: false)
+    }
 
     "/vip/item_gallery/back"(platform: "/mobile") {}
 

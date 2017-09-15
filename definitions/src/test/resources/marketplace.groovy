@@ -401,7 +401,9 @@ trackTests {
 
         "/vip/description/failure"(platform:"/mobile", dataSet)
 
-        "/vip/item_gallery"(platform:"/mobile") {}
+        "/vip/item_gallery"(platform:"/mobile") {
+            context = "/vip"
+        }
 
         "/vip/item_gallery/back"(platform:"/mobile") {}
 
