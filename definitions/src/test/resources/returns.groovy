@@ -14,11 +14,11 @@ trackTests {
         typification = "Producto defectuoso"
       }
 
-      "/return/collection"(platform:"/") {
+      "/return/pick_up_option"(platform:"/") {
         money_refund = "2863383085"
       }
 
-      "/return/pick_up_option"(platform:"/") {
+      "/return/collection"(platform:"/") {
         pickup_option = "pickup"
       }
 
