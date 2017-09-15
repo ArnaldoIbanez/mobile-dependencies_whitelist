@@ -19,13 +19,13 @@ tracks {
     }
 
     // STEP 03
-    "/return/collection"(platform:"/", type: TrackType.View) {
+    "/return/pick_up_option"(platform:"/", type: TrackType.View) {
       typification(required:false, type:PropertyType.String)
       money_refund(required:false, type:PropertyType.String)
     }
 
     // STEP 04.a
-    "/return/pick_up_option"(platform:"/", type: TrackType.View) {
+    "/return/collection"(platform:"/", type: TrackType.View) {
       typification(required:false, type:PropertyType.String)
       money_refund(required:false, type:PropertyType.String)
       pickup_option(required:false, type:PropertyType.String)
