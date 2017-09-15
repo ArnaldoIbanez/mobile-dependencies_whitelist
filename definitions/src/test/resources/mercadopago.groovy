@@ -1479,6 +1479,20 @@ trackTests {
         }
     }
 
+    test("Requesting credentials to Smart Lock for Passwords") {
+        "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {}
+        "/login/smartlock/success"(platform: "/mobile", type: TrackType.Event) {}
+        "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
+            error = "RESOLUTION_REQUIRED"
+        }
+        "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
+            error = "CANCELED"
+        }
+        "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
+            error = "VALIDATION_REQUIRED"
+        }
+    }
+
     test("Identity Validation ") {
 
         "/identity-validation/validation_landing"(platform: "/web/mobile") {
