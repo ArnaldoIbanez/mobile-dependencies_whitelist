@@ -68,6 +68,22 @@ metrics {
 		}
 	}
 	
+	"buys"(description: "orders or purchases creaated from feed", compute_order: true) {
+		countsOn {
+			condition {
+				or(
+					and (
+						equals("path", "/orders/ordercreated"),
+						equals("event_data.is_carrito", false)	
+					),
+					and (
+						path("/purchases/purchasecreated")
+					)
+				)
+			}
+		}
+	}
+	
 	"checkout_congrats.sameItem"(description: "congrats for order in the same order_id of exposition", compute_order: true) {
 		startWith {
 			experiment("vip/plainText")
