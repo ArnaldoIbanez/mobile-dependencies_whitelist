@@ -2151,6 +2151,11 @@ trackTests {
         "/checkout/payments_cancelation"(platform: "/mobile", type:TrackType.View) {}
     }
 
+    test("checkout summary payment detail expand/collapse") {
+        "/checkout/review/display_detail#displayed"(platform: "/mobile", type: TrackType.Event) {}
+        "/checkout/review/display_detail#closed"(platform: "/mobile", type: TrackType.Event) {}
+    }
+
     test("credit cards"){
 
         "/credit_cards"(platform:"/mobile", type: TrackType.View) {
