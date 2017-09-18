@@ -86,4 +86,16 @@ tracks {
     "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
         error(type: PropertyType.String, required: true)
     }
+
+    "/login/smartlock/save_credentials"(platform: "/mobile", isAbstract: true) {}
+
+    "/login/smartlock/save_credentials/already_saved"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/login/smartlock/save_credentials/resolution_required"(platform: "/mobile", type: TrackType.Event) {
+        success(type: PropertyType.Boolean, required: true)
+    }
+
+    "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
+        status(type: PropertyType.String, required: true)
+    }
 }

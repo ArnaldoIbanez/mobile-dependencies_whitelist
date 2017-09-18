@@ -4205,6 +4205,29 @@ trackTests {
         }
     }
 
+    test("Saving credentials to Smart Lock for Passwords") {
+        "/login/smartlock/save_credentials"(platform: "/mobile") {}
+        "/login/smartlock/save_credentials/already_saved"(platform: "/mobile", type: TrackType.Event) {}
+        "/login/smartlock/save_credentials/resolution_required"(platform: "/mobile", type: TrackType.Event) {
+            success = true
+        }
+        "/login/smartlock/save_credentials/resolution_required"(platform: "/mobile", type: TrackType.Event) {
+            success = false
+        }
+        "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
+            status = "CANCELED"
+        }
+        "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
+            status = "TIMEOUT"
+        }
+        "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
+            status = "NETWORK_ERROR"
+        }
+        "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
+            status = "API_NOT_CONNECTED"
+        }
+    }
+
     test("Loyalty user tracking") {
         "/loyalty/user"(platform: "/") {
             in_loyalty_program = true
