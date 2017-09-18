@@ -77,7 +77,7 @@ metrics {
 						equals("event_data.is_carrito", false)	
 					),
 					and (
-						path("/purchases/purchasecreated")
+						equals("path","/purchases/purchasecreated")
 					)
 				)
 			}
