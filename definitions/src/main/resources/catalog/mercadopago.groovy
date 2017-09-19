@@ -282,6 +282,7 @@ tracks {
     }
     "/bill_payments/fixed_amount"(platform: "/mobile") {}
     "/bill_payments/ticket_data"(platform: "/mobile") {}
+    "/bill_payments/fee"(platform: "/mobile"){}
 
 
     "/recharge_sube"(platform: "/mobile", isAbstract: true) {

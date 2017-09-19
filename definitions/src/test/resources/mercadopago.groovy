@@ -1129,6 +1129,10 @@ trackTests {
             from = "/deep_link"
             result_status = "rejected"
         }
+        "/bill_payments/fee"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
     }
 
     test("Recharge Sube") {
