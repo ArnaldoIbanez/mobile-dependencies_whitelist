@@ -2147,6 +2147,11 @@ trackTests {
         "/checkout/review/inconsistency/payment_combination/shipping"(platform: "/mobile", type:TrackType.View) {}
     }
 
+    test("checkout payment combination switch events") {
+        "/checkout/payments/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
+        "/checkout/payments/2mp#not_use"(platform: "/mobile", type: TrackType.Event) {}
+    }
+
     test("checkout payments cancelation") {
         "/checkout/payments_cancelation"(platform: "/mobile", type:TrackType.View) {}
     }

@@ -449,6 +449,11 @@ tracks {
     }
     // payment promotions screen. Eg: bank promos in MLA
     "/checkout/payments/promotions"(platform: "/mobile") {}
+
+    // 2MP switch tracks
+    "/checkout/payments/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/payments/2mp#not_use"(platform: "/mobile", type: TrackType.Event) {}
+
     //"/checkout/review" //shared between web and app, already defined in web section.
     "/checkout/review#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         status(required: true, type: PropertyType.String)
