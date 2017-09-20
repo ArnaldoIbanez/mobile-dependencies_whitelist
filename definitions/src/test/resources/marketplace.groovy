@@ -2152,6 +2152,73 @@ trackTests {
         "/checkout/payments/2mp#not_use"(platform: "/mobile", type: TrackType.Event) {}
     }
 
+    test("checkout payment combination review") {
+        "/checkout/review"(platform:"/mobile") {
+            order_id=1234
+            status="payment_required"
+            total_amount=2000
+            total_amount_with_shipping=2087.99
+            total_paid_amount=3373.98
+            buy_equal_pay=true
+            recovery_flow=false
+            register_int=false
+            platform = "/web/desktop"
+            payments=[
+                    [
+                            id:333,
+                            payment_method:"visa",
+                            payment_type:"credit_card",
+                            installments:12,
+                            paid_amount:3373.98,
+                            installment_amount:281.17,
+                            without_fee:false
+                    ]
+            ]
+
+            shipping = [
+                        [
+                        cost: 25.98,
+                        shipping_mode: "me2",
+                        shipping_type: "mercadoenvios",
+                        shipping_options: [
+                                            [
+                                                    method_name: "Normal",
+                                                    price: 0.0,
+                                                    currency_id: "ARS",
+                                                    free_shipping: true,
+                                                    free_shipping_benefit: true
+                                            ],
+                                            [
+                                                    method_name: "Expreso",
+                                                    price: 50.46,
+                                                    currency_id: "ARS",
+                                                    free_shipping: false
+                                            ]
+                                        ]
+                        ]
+                    ]
+
+            items=[
+                    [
+                            item:[
+                                    id:"MLA9876",
+                                    variation_id:null,
+                                    buying_mode:"buy_it_now",
+                                    shipping_mode:"me2",
+                                    category_id:"MLA1915",
+                                    deal_ids:null
+                            ],
+                            quantity:1,
+                            unit_price:2000,
+                            currency_id:"ARS"
+                    ]
+            ]
+
+            // 2MP switch state
+            combination_2mp="on"
+        }
+    }
+
     test("checkout payments cancelation") {
         "/checkout/payments_cancelation"(platform: "/mobile", type:TrackType.View) {}
     }

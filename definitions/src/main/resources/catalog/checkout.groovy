@@ -142,6 +142,10 @@ tracks {
 
     /** *****************************************************************/
     //Mobile Checkout Apps
+    "/checkout"(platform: "/mobile") {
+        combination_2mp(required:false, description: "2MP switch state")
+    }
+    
     "/checkout/wrapper"(platform: "/mobile") {} //Melidata experiment
     "/checkout/init"(platform: "/mobile") {
         //Might not have most of status values in case of requestFailure
