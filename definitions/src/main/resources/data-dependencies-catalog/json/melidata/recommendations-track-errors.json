@@ -4,7 +4,7 @@
     "javier.jorge@mercadolibre.com"
   ],
   "process_name": "recommendations_track_errors",
-  "cron": " ",
+  "cron": "30 01 * * * ",
   "extract":
   {
     "operation": "append",
@@ -45,7 +45,7 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-15",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
