@@ -11,38 +11,38 @@ tracks {
     }
 
     // STEP 01
-    "/return/typification"(platform:"/", type: TrackType.View) { }
+    "/return/typifications"(platform:"/", type: TrackType.View) { }
 
     // STEP 02
-    "/return/money_refund"(platform:"/", type: TrackType.View) {
+    "/return/payments"(platform:"/", type: TrackType.View) {
       typification(required:false, type:PropertyType.String)
     }
 
     // STEP 03
-    "/return/pick_up_option"(platform:"/", type: TrackType.View) {
+    "/return/shipping"(platform:"/", type: TrackType.View) {
       typification(required:false, type:PropertyType.String)
-      money_refund(required:false, type:PropertyType.String)
+      payment(required:false, type:PropertyType.String)
     }
 
     // STEP 04.a
-    "/return/collection"(platform:"/", type: TrackType.View) {
+    "/return/pickup"(platform:"/", type: TrackType.View) {
       typification(required:false, type:PropertyType.String)
-      money_refund(required:false, type:PropertyType.String)
-      pickup_option(required:false, type:PropertyType.String)
+      payment(required:false, type:PropertyType.String)
+      shipping(required:false, type:PropertyType.String)
     }
 
     // STEP 04.b
-    "/return/carrier"(platform:"/", type: TrackType.View) {
+    "/return/delivery"(platform:"/", type: TrackType.View) {
       typification(required:false, type:PropertyType.String)
-      money_refund(required:false, type:PropertyType.String)
-      pickup_option(required:false, type:PropertyType.String)
+      payment(required:false, type:PropertyType.String)
+      shipping(required:false, type:PropertyType.String)
     }
 
     // STEP 05
     "/return/congrats"(platform:"/", type: TrackType.View) {
       typification(required:false, type:PropertyType.String)
-      money_refund(required:false, type:PropertyType.String)
-      pickup_option(required:false, type:PropertyType.String)
+      payment(required:false, type:PropertyType.String)
+      shipping(required:false, type:PropertyType.String)
       pickup_time(required:false, type:PropertyType.String)
       carrier_id(required:false, type:PropertyType.String)
     }

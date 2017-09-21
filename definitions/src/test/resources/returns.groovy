@@ -7,27 +7,27 @@ trackTests {
 
     test("Returns tracks") {
 
-      "/return/typification"(platform:"/")  {
+      "/return/typifications"(platform:"/")  {
       }
 
-      "/return/money_refund"(platform:"/") {
+      "/return/payments"(platform:"/") {
         typification = "Producto defectuoso"
       }
 
-      "/return/pick_up_option"(platform:"/") {
-        money_refund = "2863383085"
+      "/return/shipping"(platform:"/") {
+        payment = "2863383085"
       }
 
-      "/return/collection"(platform:"/") {
-        pickup_option = "pickup"
+      "/return/pickup"(platform:"/") {
+        shipping = "pickup"
       }
 
-      "/return/carrier"(platform:"/") {
-        pickup_option = "carrier"
+      "/return/delivery"(platform:"/") {
+        shipping = "carrier"
       }
 
       "/return/congrats"(platform:"/") {
-          pickup_option = "carrier"
+          shipping = "carrier"
           carrier_id = "12331123"
       }
 
