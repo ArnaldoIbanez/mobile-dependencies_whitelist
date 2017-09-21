@@ -1361,6 +1361,17 @@ trackTests {
             status_detail = "internal_server_error"
         }
     }
+
+    test("Money Detail") {
+        "/money_detail/balance"(platform: "/mobile") {
+            flow = "/money_detail"
+            from = "/deep_link"
+        }
+        "/money_detail/help_modal"(platform: "/mobile") {
+            flow = "/money_detail"
+        }
+    }
+
     
     test("Notifications") {
                 
