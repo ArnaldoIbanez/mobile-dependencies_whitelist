@@ -1,4 +1,4 @@
-[//]: # (Tracks catalog PR template (delete if else!))  
+[//]: # (Tracks catalog PR template, delete if else!)  
 
 ## Context  
 [//]: # (Explain the context of your tracks so we can help you better)  
