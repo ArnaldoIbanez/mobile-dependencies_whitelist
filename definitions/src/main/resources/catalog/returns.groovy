@@ -21,28 +21,28 @@ tracks {
     // STEP 03
     "/return/shipping"(platform:"/", type: TrackType.View) {
       typification(required:false, type:PropertyType.String)
-      money_refund(required:false, type:PropertyType.String)
+      payment(required:false, type:PropertyType.String)
     }
 
     // STEP 04.a
     "/return/pickup"(platform:"/", type: TrackType.View) {
       typification(required:false, type:PropertyType.String)
-      money_refund(required:false, type:PropertyType.String)
-      pickup_option(required:false, type:PropertyType.String)
+      payment(required:false, type:PropertyType.String)
+      shipping(required:false, type:PropertyType.String)
     }
 
     // STEP 04.b
     "/return/delivery"(platform:"/", type: TrackType.View) {
       typification(required:false, type:PropertyType.String)
-      money_refund(required:false, type:PropertyType.String)
-      pickup_option(required:false, type:PropertyType.String)
+      payment(required:false, type:PropertyType.String)
+      shipping(required:false, type:PropertyType.String)
     }
 
     // STEP 05
     "/return/congrats"(platform:"/", type: TrackType.View) {
       typification(required:false, type:PropertyType.String)
-      money_refund(required:false, type:PropertyType.String)
-      pickup_option(required:false, type:PropertyType.String)
+      payment(required:false, type:PropertyType.String)
+      shipping(required:false, type:PropertyType.String)
       pickup_time(required:false, type:PropertyType.String)
       carrier_id(required:false, type:PropertyType.String)
     }

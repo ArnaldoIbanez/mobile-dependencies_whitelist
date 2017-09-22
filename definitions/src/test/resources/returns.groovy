@@ -18,22 +18,22 @@ trackTests {
 
       // STEP 03
       "/return/shipping"(platform:"/") {
-        money_refund = "2863383085"
+        payment = "2863383085"
       }
 
       // STEP 04.a
       "/return/pickup"(platform:"/") {
-        pickup_option = "pickup"
+        shipping = "pickup"
       }
 
       // STEP 04.b
       "/return/delivery"(platform:"/") {
-        pickup_option = "carrier"
+        shipping = "carrier"
       }
 
       // STEP 05
       "/return/congrats"(platform:"/") {
-          pickup_option = "carrier"
+          shipping = "carrier"
           carrier_id = "12331123"
       }
 
