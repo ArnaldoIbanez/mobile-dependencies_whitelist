@@ -281,6 +281,30 @@ trackTests {
         "/landing/home" (platform: "/web") {}
     }
 
+    test("Landing mercadopago sellers") {
+        "/landing/sellers" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago sellers websites") {
+        "/landing/sellers/websites" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago sellers social") {
+        "/landing/sellers/social" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago buyers") {
+        "/landing/buyers" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago promotions") {
+        "/landing/promotions" (platform: "/web") {}
+    }
+
+    test("Mercadopago Activities List") {
+        "/listing/activities" (platform: "/web") {}
+    }
+
     test("Landing mercadopago point") {
         "/point/home" (platform: "/") {
             product = "point-h"

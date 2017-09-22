@@ -31,6 +31,26 @@ tracks {
     // MP Home
     "/landing/home"(platform: "/web"){}
 
+    // MP Sellers 
+    "/landing/sellers"(platform: "/web"){}
+
+    // MP Sellers Websites
+    "/landing/sellers/websites"(platform: "/web"){}
+
+    // MP Sellers Social
+    "/landing/sellers/social"(platform: "/web"){}
+
+    // MP Buyers
+    "/landing/buyers"(platform: "/web"){}
+
+    // MP Promotions
+    "/landing/promotions"(platform: "/web"){}
+
+    // MP Activities
+    "/listing"(platform: "/web", isAbstract: true){}
+
+    "/listing/activities"(platform: "/web"){}
+
     "/point"(platform: "/", isAbstract: true) {}
 
     "/point/home"(platform: "/") {
