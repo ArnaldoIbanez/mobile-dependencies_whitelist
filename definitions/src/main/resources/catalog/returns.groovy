@@ -47,9 +47,11 @@ tracks {
       carrier_id(required:false, type:PropertyType.String)
     }
 
+    // STEP 05.cta.a
     "/return/congrats/print_label"(platform:"/", type: TrackType.Event) {
         print_url(required:true, type:PropertyType.String)
     }
 
+    // STEP 05.cta.b
     "/return/congrats/remedy_label"(platform:"/", type: TrackType.Event) { }
 }

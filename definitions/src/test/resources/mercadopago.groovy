@@ -277,6 +277,10 @@ trackTests {
         }
     }
 
+    test("Landing mercadopago home") {
+        "/landing/home" (platform: "/web") {}
+    }
+
     test("Landing mercadopago point") {
         "/point/home" (platform: "/") {
             product = "point-h"
