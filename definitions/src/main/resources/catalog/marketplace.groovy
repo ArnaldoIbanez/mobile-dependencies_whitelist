@@ -282,6 +282,8 @@ tracks {
         buyer(required: true, description: "buyer information") // id, nickname
         seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data") // id, nickname
         is_carrito(required: true, description: "Whetever this order was created by a carrito or not ")
+        reservation(required: true, type: PropertyType.Boolean, description: "If the order came from a motor reservation")
+        subscription(required: true, type: PropertyType.Boolean, description: "If the order was generated from a subscription")
     }
 
 
