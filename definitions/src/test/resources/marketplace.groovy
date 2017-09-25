@@ -872,6 +872,8 @@ trackTests {
             total_amount = 100.0
             total_amount_with_shipping = 125.979996
             total_paid_amount = 0.0
+            reservation_price = 50
+            vertical = "MOTORS"
         }
 
         "/checkout/wrapper"(platform:"/mobile", type:TrackType.View) {}
@@ -880,8 +882,6 @@ trackTests {
             success = true
             location = "34.677755,56.444433"
             geolocation_method = "platform"
-            vertical = "MOTORS"
-            reservation_price = 50
         }
         "/checkout/geolocation"(platform:"/mobile", type:TrackType.Event) {
             geolocation_error = "TIMEOUT"
@@ -1301,8 +1301,6 @@ trackTests {
 
         "/checkout/error"(platform:"/mobile", type:TrackType.View) {
             error_code = "internal_server_error"
-            vertical = "MOTORS"
-            reservation_price = 50
         }
         "/checkout/show_ticket"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()

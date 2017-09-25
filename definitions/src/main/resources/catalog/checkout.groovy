@@ -144,6 +144,8 @@ tracks {
     //Mobile Checkout Apps
     "/checkout"(platform: "/mobile") {
         combination_2mp(required:false, description: "2MP switch state")
+        vertical(required: false, description: "vertical of transaction")
+        reservation_price(required: false, description: "price of a reservation transaction")
     }
     
     "/checkout/wrapper"(platform: "/mobile") {} //Melidata experiment
@@ -203,9 +205,6 @@ tracks {
         success(required: true, type: PropertyType.Boolean)
         location(required: false, type: PropertyType.String)
         geolocation_method(required: false, type: PropertyType.String)
-
-        vertical(required: false, description: "vertical of transaction")
-        reservation_price(required: false, description: "price of a reservation transaction")
     }
 
     "/checkout/payments_cancelation"(platform: "/mobile") {}
@@ -644,9 +643,6 @@ tracks {
         seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
-
-        vertical(required: false, description: "vertical of transaction")
-        reservation_price(required: false, description: "price of a reservation transaction")
     }
 
     "/checkout/finish/choose_action"(platform: "/mobile") {
@@ -711,9 +707,6 @@ tracks {
         //id
         //nickname
         error_code(required: false, type: PropertyType.String)
-
-        vertical(required: false, description: "vertical of transaction")
-        reservation_price(required: false, description: "price of a reservation transaction")
     }
 
     "/checkout/show_ticket"(platform: "/") {}
