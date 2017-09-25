@@ -3339,7 +3339,9 @@ trackTests {
             status_detail = ""
             total_amount = 100
             total_amount_with_shipping = 120
-	          is_carrito = true
+            is_carrito = true
+            reservation = true
+            subscription = true
 
             seller = [[ id: 135201044, nickname: "XXXXXX" ]]
             buyer = [ id: 75961818, nickname: "YYYYYY" ]
