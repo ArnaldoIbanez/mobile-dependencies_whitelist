@@ -90,7 +90,7 @@ tracks {
         congrats_seq(serverSide: true)
         total_amount_local(serverSide: true)
         total_amount_usd(serverSide: true)
-        first_for_order(serverSide: true)        
+        first_for_order(serverSide: true)
     }
 
     /*
@@ -144,6 +144,8 @@ tracks {
     //Mobile Checkout Apps
     "/checkout"(platform: "/mobile") {
         combination_2mp(required:false, description: "2MP switch state")
+        vertical(required: false, description: "vertical of transaction")
+        reservation_price(required: false, description: "price of a reservation transaction")
     }
     
     "/checkout/wrapper"(platform: "/mobile") {} //Melidata experiment

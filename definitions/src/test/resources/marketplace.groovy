@@ -872,6 +872,8 @@ trackTests {
             total_amount = 100.0
             total_amount_with_shipping = 125.979996
             total_paid_amount = 0.0
+            reservation_price = 50
+            vertical = "MOTORS"
         }
 
         "/checkout/wrapper"(platform:"/mobile", type:TrackType.View) {}
