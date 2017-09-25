@@ -515,6 +515,11 @@ tracks {
     "/checkout/review/inconsistency/payment_combination/payment"(platform: "/mobile") {}
     "/checkout/review/inconsistency/payment_combination/installments"(platform: "/mobile") {}
     "/checkout/review/inconsistency/payment_combination/shipping"(platform: "/mobile") {}
+
+    //Review summary header payment detail list
+    "/checkout/review/display_detail#displayed"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/review/display_detail#closed"(platform: "/mobile", type: TrackType.Event) {}
+
     "/checkout/additional_info"(platform: "/mobile") {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
