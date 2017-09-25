@@ -1261,8 +1261,6 @@ trackTests {
         }
         "/checkout/additional_info"(platform: "/mobile", type:TrackType.View) {
             checkoutStatus()
-            vertical = "MOTORS"
-            reservation_price = 50
         }
         "/checkout/congrats/error"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()

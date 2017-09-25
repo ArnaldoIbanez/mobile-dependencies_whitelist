@@ -569,9 +569,6 @@ tracks {
         seller(required: true, type: PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
-
-        vertical(required: false, description: "vertical of transaction")
-        reservation_price(required: false, description: "price of a reservation transaction")
     }
     //Congrats tracks - shared between Legacy App and new App (Required False to prevent catalog validation failures)
     "/checkout/congrats"(platform: "/") {}
