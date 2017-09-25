@@ -90,7 +90,7 @@ tracks {
         congrats_seq(serverSide: true)
         total_amount_local(serverSide: true)
         total_amount_usd(serverSide: true)
-        first_for_order(serverSide: true)        
+        first_for_order(serverSide: true)
     }
 
     /*
@@ -203,6 +203,9 @@ tracks {
         success(required: true, type: PropertyType.Boolean)
         location(required: false, type: PropertyType.String)
         geolocation_method(required: false, type: PropertyType.String)
+
+        vertical(required: false, description: "vertical of transaction")
+        reservation_price(required: false, description: "price of a reservation transaction")
     }
 
     "/checkout/payments_cancelation"(platform: "/mobile") {}
@@ -566,6 +569,9 @@ tracks {
         seller(required: true, type: PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
+
+        vertical(required: false, description: "vertical of transaction")
+        reservation_price(required: false, description: "price of a reservation transaction")
     }
     //Congrats tracks - shared between Legacy App and new App (Required False to prevent catalog validation failures)
     "/checkout/congrats"(platform: "/") {}
@@ -641,6 +647,9 @@ tracks {
         seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
+
+        vertical(required: false, description: "vertical of transaction")
+        reservation_price(required: false, description: "price of a reservation transaction")
     }
 
     "/checkout/finish/choose_action"(platform: "/mobile") {
@@ -705,6 +714,9 @@ tracks {
         //id
         //nickname
         error_code(required: false, type: PropertyType.String)
+
+        vertical(required: false, description: "vertical of transaction")
+        reservation_price(required: false, description: "price of a reservation transaction")
     }
 
     "/checkout/show_ticket"(platform: "/") {}
