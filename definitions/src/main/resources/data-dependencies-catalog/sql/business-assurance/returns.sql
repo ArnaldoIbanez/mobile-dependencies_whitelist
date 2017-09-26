@@ -14,7 +14,7 @@ from tracks
 where 
 path like '/return/congrats' 
 and ds >= '2017-09-13' 
-and ds < '2017-09-26'
+and ds <'2017-09-26'
 and usr.user_nick not like 'TETE%'
 and usr.user_nick not like 'TT%'
 and usr.user_nick not like 'TEST%'

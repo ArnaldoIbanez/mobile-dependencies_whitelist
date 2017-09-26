@@ -22,35 +22,35 @@
       },
       {
         "name": "typification",
-        "type": "INTEGER"
+        "type": "UNICODE_STRING"
       },
       {
         "name": "payment",
-        "type": "INTEGER"
+        "type": "UNICODE_STRING"
       },
       {
         "name": "shipping",
-        "type": "INTEGER"
+        "type": "UNICODE_STRING"
       },
       {
         "name": "pickup_time",
-        "type": "INTEGER"
+        "type": "UNICODE_STRING"
       },
       {
         "name": "platform",
-        "type": "INTEGER"
+        "type": "UNICODE_STRING"
       },
       {
         "name": "site",
-        "type": "INTEGER"
+        "type": "UNICODE_STRING"
       },
       {
         "name": "user_id",
-        "type": "INTEGER"
+        "type": "UNICODE_STRING"
       },
       {
         "name": "user_nick",
-        "type": "INTEGER"
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
