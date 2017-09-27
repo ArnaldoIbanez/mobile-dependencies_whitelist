@@ -13,8 +13,8 @@ usr.user_nick as user_nick
 from tracks 
 where 
 path like '/return/congrats' 
-and ds >= 'param01' 
-and ds < 'param02'
+and ds >= '2017-09-13' 
+and ds < '2017-09-27'
 and usr.user_nick not like 'TETE%'
 and usr.user_nick not like 'TT%'
 and usr.user_nick not like 'TEST%'
