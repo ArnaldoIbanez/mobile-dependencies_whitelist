@@ -2554,6 +2554,13 @@ trackTests {
             prog_reg_version = 0
         }
 
+        "/register/form/email-suggest"(platform: "/web/mobile") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+        }
+
     }
 
     test("Registration App"){
@@ -2619,6 +2626,42 @@ trackTests {
             item_id = "MLA21233"
         }
 
+        "/register/form/update"(platform:"/mobile") {
+            app = "question"
+            origin = "drawer"
+            item_id = "MLM23143"
+        }
+
+        "/register/form/update/error"(platform:"/mobile") {
+            app = "question"
+            origin = "drawer"
+            item_id = "MLM23143"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:14,
+                            field: 'first_name'
+                    ]
+            ]
+        }
+
+        "/register/form/update/save"(platform:"/mobile") {
+            app = "question"
+            origin = "drawer"
+            item_id = "MLM23143"
+        }
+
+        "/register/form/update/not-now"(platform:"/mobile") {
+            app = "question"
+            origin = "drawer"
+            item_id = "MLM23143"
+        }
+
+        "/register/successful-update"(platform:"/mobile") {
+            app = "question"
+            origin = "drawer"
+            item_id = "MLM23143"
+        }
     }
 
     test("Traffic") {
