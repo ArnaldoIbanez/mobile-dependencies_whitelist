@@ -53,6 +53,7 @@ tracks {
 
     "/point"(platform: "/", isAbstract: true) {}
 
+    // MP Point Landings
     "/point/home"(platform: "/") {
         product (type: PropertyType.String, description: "Name of device, example: 'point-h'")
         currency (type: PropertyType.String, required: false, description: "Currency")
@@ -60,6 +61,91 @@ tracks {
         in_installments (type: PropertyType.Boolean, required: false, description: "If product is selling in installments")
         discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
+    }
+
+    // MP Mobile Point
+
+    "/payment"(platform: "/mobile") {}
+
+    "/payment/card"(platform: "/mobile") {
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+        method (required:true, type: PropertyType.String, description: "Card reading method swipe/dip/tap")
+        currency (type: PropertyType.String, required: false, description: "Transaction currency")
+        amount (type: PropertyType.Numeric, required: false, description: "Transaction amount")
+        reason (required:false, type: PropertyType.String, description: "Payment reason")
+        poi (required:true, type: PropertyType.String, description: "Device serial number")
+        poi_type (required:true, type: PropertyType.String, description: "Type of device")
+    }
+
+    "/payment/installments"(platform: "/mobile") {
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+        method (required:true, type: PropertyType.String, description: "Card reading method swipe/dip/tap")
+        currency (type: PropertyType.String, required: false, description: "Transaction currency")
+        amount (type: PropertyType.Numeric, required: false, description: "Transaction amount")
+        reason (required:false, type: PropertyType.String, description: "Payment reason")
+        poi (required:true, type: PropertyType.String, description: "Device serial number")
+        poi_type (required:true, type: PropertyType.String, description: "Type of device")
+    }
+
+    "/payment/card_type"(platform: "/mobile") {
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+        method (required:true, type: PropertyType.String, description: "Card reading method swipe/dip/tap")
+        currency (type: PropertyType.String, required: false, description: "Transaction currency")
+        amount (type: PropertyType.Numeric, required: false, description: "Transaction amount")
+        installments (type: PropertyType.Numeric, required: false, description: "Installments amount")
+        reason (required:false, type: PropertyType.String, description: "Payment reason")
+        poi (required:true, type: PropertyType.String, description: "Device serial number")
+        poi_type (required:true, type: PropertyType.String, description: "Type of device")
+    }
+
+    "/payment/signature"(platform: "/mobile") {
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+        method (required:true, type: PropertyType.String, description: "Card reading method swipe/dip/tap")
+        currency (type: PropertyType.String, required: false, description: "Transaction currency")
+        amount (type: PropertyType.Numeric, required: false, description: "Transaction amount")
+        installments (type: PropertyType.Numeric, required: false, description: "Installments amount")
+        reason (required:false, type: PropertyType.String, description: "Payment reason")
+        poi (required:true, type: PropertyType.String, description: "Device serial number")
+        poi_type (required:true, type: PropertyType.String, description: "Type of device")
+        payment_method_id (required:true, type: PropertyType.String, description: "Payment Method used")
+    }
+
+    "/payment/security_code"(platform: "/mobile") {
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+        method (required:true, type: PropertyType.String, description: "Card reading method swipe/dip/tap")
+        currency (type: PropertyType.String, required: false, description: "Transaction currency")
+        amount (type: PropertyType.Numeric, required: false, description: "Transaction amount")
+        installments (type: PropertyType.Numeric, required: false, description: "Installments amount")
+        reason (required:false, type: PropertyType.String, description: "Payment reason")
+    }
+
+    "/payment/identification_number"(platform: "/mobile") {
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+        method (required:true, type: PropertyType.String, description: "Card reading method swipe/dip/tap")
+        currency (type: PropertyType.String, required: false, description: "Transaction currency")
+        amount (type: PropertyType.Numeric, required: false, description: "Transaction amount")
+        installments (type: PropertyType.Numeric, required: false, description: "Installments amount")
+        reason (required:false, type: PropertyType.String, description: "Payment reason")
+    }
+
+    "/payment/error"(platform: "/mobile") {
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+        error_msg (required:true, type: PropertyType.String, description: "Error shown to user")
+    }
+
+    "/payment/result"(platform: "/mobile") {
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+        method (required:true, type: PropertyType.String, description: "Card reading method swipe/dip/tap")
+        currency (type: PropertyType.String, required: false, description: "Transaction currency")
+        amount (type: PropertyType.Numeric, required: false, description: "Transaction amount")
+        installments (type: PropertyType.Numeric, required: false, description: "Installments amount")
+        payment_status (required:true, type: PropertyType.String, description: "Payment result status")
+        payment_detail (required:true, type: PropertyType.String, description: "Payment result detail")
+        reason (required:false, type: PropertyType.String, description: "Payment reason")
+        poi (required:true, type: PropertyType.String, description: "Device serial number")
+        poi_type (required:true, type: PropertyType.String, description: "Type of device")
+        payment_method_id (required:true, type: PropertyType.String, description: "Payment Method used")
+        operator_id (required: false, type: PropertyType.Numeric, description: "Operator identification")
     }
 
     // MPMOBILE
