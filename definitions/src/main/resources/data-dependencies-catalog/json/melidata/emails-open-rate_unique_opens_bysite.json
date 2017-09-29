@@ -3,7 +3,7 @@
     "lucia.blanc@mercadolibre.com"
   ],
   "process_name": "emails_open_rate_unique_opens_bysite",
-  "cron": "00 12 * * *",
+  "cron": "",
   "extract": {
     "operation": "append",
     "columns": [
@@ -38,17 +38,17 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-7",
+          "value": "2017-09-08",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-6",
+          "value": "2017-09-09",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param03",
-          "value": "DAY-0",
+          "value": "2017-09-15",
           "format": "yyyy-MM-dd"
         }
       ]
