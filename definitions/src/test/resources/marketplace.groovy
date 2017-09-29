@@ -575,6 +575,59 @@ trackTests {
         }
     }
 
+    test("Bookmarks tracking add to cart") {
+        "/bookmarks/add_to_cart" (type: TrackType.Event) {
+            item_id = "MLA533657947"
+            context = "/search"
+        }
+    }
+
+    test("Bookmarks tracking in all platforms") {
+
+        "/bookmarks/show_bookmarks" (type: TrackType.Event) {
+            item_id = "MLA533657947"
+            context = "/search"
+        }
+
+        "/bookmarks/load_more" (type: TrackType.Event) {
+            item_id = "MLA533657947"
+            context = "/search"
+        }
+
+        "/bookmarks/refresh" (type: TrackType.Event) {
+            item_id = "MLA533657947"
+            context = "/search"
+        }
+
+        "/bookmarks/show_server_error" (type: TrackType.Event) {
+            item_id = "MLA533657947"
+            context = "/search"
+        }
+
+        "/bookmarks/retry_after_error" (type: TrackType.Event) {
+            item_id = "MLA533657947"
+            context = "/search"
+        }
+
+        "/bookmarks/show_not_logged_in_feedback" (type: TrackType.Event) {
+            item_id = "MLA533657947"
+            context = "/search"
+        }
+
+        "/bookmarks/go_to_login" (type: TrackType.Event) {
+            item_id = "MLA533657947"
+            context = "/search"
+        }
+
+        "/bookmarks/show_ZRP" (type: TrackType.Event) {
+            item_id = "MLA533657947"
+            context = "/search"
+        }
+
+    }
+
+
+
     test("Questions tracking in web") {
         "/questions/ask/post" (platform:"/web", type: TrackType.Event) {
             item_id = "MLA533657947"
@@ -823,16 +876,16 @@ trackTests {
             ]
             order_id = "null"
             items = [[
-                    unit_price: 100,
-                    quantity: 1,
-                    item: [
-                            category_id: "MLB63385",
-                            buying_mode: "buy_it_now",
-                            id: "MLB754486062",
-                            shipping_mode: "me2"
-                    ],
-                    currency_id: "BRL"
-            ]]
+                             unit_price: 100,
+                             quantity: 1,
+                             item: [
+                                     category_id: "MLB63385",
+                                     buying_mode: "buy_it_now",
+                                     id: "MLB754486062",
+                                     shipping_mode: "me2"
+                             ],
+                             currency_id: "BRL"
+                     ]]
             payments = [[
                                 payment_type: "credit_card",
                                 payment_method: "amex",
@@ -841,31 +894,31 @@ trackTests {
                         ]]
             platform = "/mobile/android"
             seller = [[
-                    id: "208642594"
-            ]]
+                              id: "208642594"
+                      ]]
 
             shipping = [
-                        [
-                        cost: 25.98,
-                        shipping_mode: "me2",
-                        shipping_type: "mercadoenvios",
-                        shipping_options: [
-                                            [
-                                                    method_name: "Normal",
-                                                    price: 0.0,
-                                                    currency_id: "ARS",
-                                                    free_shipping: true,
-                                                    free_shipping_benefit: true
-                                            ],
-                                            [
-                                                    method_name: "Expreso",
-                                                    price: 50.46,
-                                                    currency_id: "ARS",
-                                                    free_shipping: false
-                                            ]
-                                        ]
-                        ]
+                    [
+                            cost: 25.98,
+                            shipping_mode: "me2",
+                            shipping_type: "mercadoenvios",
+                            shipping_options: [
+                                    [
+                                            method_name: "Normal",
+                                            price: 0.0,
+                                            currency_id: "ARS",
+                                            free_shipping: true,
+                                            free_shipping_benefit: true
+                                    ],
+                                    [
+                                            method_name: "Expreso",
+                                            price: 50.46,
+                                            currency_id: "ARS",
+                                            free_shipping: false
+                                    ]
+                            ]
                     ]
+            ]
 
             buy_equal_pay = true
             recovery_flow = true
@@ -1340,27 +1393,27 @@ trackTests {
             ]
 
             shipping = [
-                        [
-                        cost: 25.98,
-                        shipping_mode: "me2",
-                        shipping_type: "mercadoenvios",
-                        shipping_options: [
-                                            [
-                                                    method_name: "Normal",
-                                                    price: 0.0,
-                                                    currency_id: "ARS",
-                                                    free_shipping: true,
-                                                    free_shipping_benefit: true
-                                            ],
-                                            [
-                                                    method_name: "Expreso",
-                                                    price: 50.46,
-                                                    currency_id: "ARS",
-                                                    free_shipping: false
-                                            ]
-                                        ]
-                        ]
+                    [
+                            cost: 25.98,
+                            shipping_mode: "me2",
+                            shipping_type: "mercadoenvios",
+                            shipping_options: [
+                                    [
+                                            method_name: "Normal",
+                                            price: 0.0,
+                                            currency_id: "ARS",
+                                            free_shipping: true,
+                                            free_shipping_benefit: true
+                                    ],
+                                    [
+                                            method_name: "Expreso",
+                                            price: 50.46,
+                                            currency_id: "ARS",
+                                            free_shipping: false
+                                    ]
+                            ]
                     ]
+            ]
 
             items = [
                     [
@@ -1481,27 +1534,27 @@ trackTests {
 
 
             shipping = [
-                        [
-                        cost: 25.98,
-                        shipping_mode: "me2",
-                        shipping_type: "mercadoenvios",
-                        shipping_options: [
-                                            [
-                                                    method_name: "Normal",
-                                                    price: 0.0,
-                                                    currency_id: "ARS",
-                                                    free_shipping: true,
-                                                    free_shipping_benefit: true
-                                            ],
-                                            [
-                                                    method_name: "Expreso",
-                                                    price: 50.46,
-                                                    currency_id: "ARS",
-                                                    free_shipping: false
-                                            ]
-                                        ]
-                        ]
+                    [
+                            cost: 25.98,
+                            shipping_mode: "me2",
+                            shipping_type: "mercadoenvios",
+                            shipping_options: [
+                                    [
+                                            method_name: "Normal",
+                                            price: 0.0,
+                                            currency_id: "ARS",
+                                            free_shipping: true,
+                                            free_shipping_benefit: true
+                                    ],
+                                    [
+                                            method_name: "Expreso",
+                                            price: 50.46,
+                                            currency_id: "ARS",
+                                            free_shipping: false
+                                    ]
+                            ]
                     ]
+            ]
 
             items=[
                     [
@@ -1543,27 +1596,27 @@ trackTests {
             ]
 
             shipping = [
-                        [
-                        cost: 25.98,
-                        shipping_mode: "me2",
-                        shipping_type: "mercadoenvios",
-                        shipping_options: [
-                                            [
-                                                    method_name: "Normal",
-                                                    price: 0.0,
-                                                    currency_id: "ARS",
-                                                    free_shipping: true,
-                                                    free_shipping_benefit: true
-                                            ],
-                                            [
-                                                    method_name: "Expreso",
-                                                    price: 50.46,
-                                                    currency_id: "ARS",
-                                                    free_shipping: false
-                                            ]
-                                        ]
-                        ]
+                    [
+                            cost: 25.98,
+                            shipping_mode: "me2",
+                            shipping_type: "mercadoenvios",
+                            shipping_options: [
+                                    [
+                                            method_name: "Normal",
+                                            price: 0.0,
+                                            currency_id: "ARS",
+                                            free_shipping: true,
+                                            free_shipping_benefit: true
+                                    ],
+                                    [
+                                            method_name: "Expreso",
+                                            price: 50.46,
+                                            currency_id: "ARS",
+                                            free_shipping: false
+                                    ]
+                            ]
                     ]
+            ]
 
 
             items=[
@@ -1606,27 +1659,27 @@ trackTests {
             ]
 
             shipping = [
-                        [
-                        cost: 25.98,
-                        shipping_mode: "me2",
-                        shipping_type: "mercadoenvios",
-                        shipping_options: [
-                                            [
-                                                    method_name: "Normal",
-                                                    price: 0.0,
-                                                    currency_id: "ARS",
-                                                    free_shipping: true,
-                                                    free_shipping_benefit: true
-                                            ],
-                                            [
-                                                    method_name: "Expreso",
-                                                    price: 50.46,
-                                                    currency_id: "ARS",
-                                                    free_shipping: false
-                                            ]
-                                        ]
-                        ]
+                    [
+                            cost: 25.98,
+                            shipping_mode: "me2",
+                            shipping_type: "mercadoenvios",
+                            shipping_options: [
+                                    [
+                                            method_name: "Normal",
+                                            price: 0.0,
+                                            currency_id: "ARS",
+                                            free_shipping: true,
+                                            free_shipping_benefit: true
+                                    ],
+                                    [
+                                            method_name: "Expreso",
+                                            price: 50.46,
+                                            currency_id: "ARS",
+                                            free_shipping: false
+                                    ]
+                            ]
                     ]
+            ]
 
 
             items=[
@@ -1669,27 +1722,27 @@ trackTests {
             ]
 
             shipping = [
-                        [
-                        cost: 25.98,
-                        shipping_mode: "me2",
-                        shipping_type: "mercadoenvios",
-                        shipping_options: [
-                                            [
-                                                    method_name: "Normal",
-                                                    price: 0.0,
-                                                    currency_id: "ARS",
-                                                    free_shipping: true,
-                                                    free_shipping_benefit: true
-                                            ],
-                                            [
-                                                    method_name: "Expreso",
-                                                    price: 50.46,
-                                                    currency_id: "ARS",
-                                                    free_shipping: false
-                                            ]
-                                        ]
-                        ]
+                    [
+                            cost: 25.98,
+                            shipping_mode: "me2",
+                            shipping_type: "mercadoenvios",
+                            shipping_options: [
+                                    [
+                                            method_name: "Normal",
+                                            price: 0.0,
+                                            currency_id: "ARS",
+                                            free_shipping: true,
+                                            free_shipping_benefit: true
+                                    ],
+                                    [
+                                            method_name: "Expreso",
+                                            price: 50.46,
+                                            currency_id: "ARS",
+                                            free_shipping: false
+                                    ]
+                            ]
                     ]
+            ]
 
             items=[
                     [
@@ -1733,7 +1786,7 @@ trackTests {
                             currency_id:"BRL"
                     ]
             ]
-            
+
         }
 
         "/checkout/payments/select_payment_method"(platform:"/web/desktop") {
@@ -1772,7 +1825,7 @@ trackTests {
                             currency_id:"BRL"
                     ]
             ]
-            
+
         }
 
         "/checkout/payments/select_payment_method"(platform:"/web/desktop") {
@@ -1798,27 +1851,27 @@ trackTests {
             ]
 
             shipping = [
-                        [
-                        cost: 25.98,
-                        shipping_mode: "me2",
-                        shipping_type: "mercadoenvios",
-                        shipping_options: [
-                                            [
-                                                    method_name: "Normal",
-                                                    price: 0.0,
-                                                    currency_id: "ARS",
-                                                    free_shipping: true,
-                                                    free_shipping_benefit: true
-                                            ],
-                                            [
-                                                    method_name: "Expreso",
-                                                    price: 50.46,
-                                                    currency_id: "ARS",
-                                                    free_shipping: false
-                                            ]
-                                        ]
-                        ]
+                    [
+                            cost: 25.98,
+                            shipping_mode: "me2",
+                            shipping_type: "mercadoenvios",
+                            shipping_options: [
+                                    [
+                                            method_name: "Normal",
+                                            price: 0.0,
+                                            currency_id: "ARS",
+                                            free_shipping: true,
+                                            free_shipping_benefit: true
+                                    ],
+                                    [
+                                            method_name: "Expreso",
+                                            price: 50.46,
+                                            currency_id: "ARS",
+                                            free_shipping: false
+                                    ]
+                            ]
                     ]
+            ]
 
 
             items=[
@@ -1867,27 +1920,27 @@ trackTests {
             ]
 
             shipping = [
-                        [
-                        cost: 25.98,
-                        shipping_mode: "me2",
-                        shipping_type: "mercadoenvios",
-                        shipping_options: [
-                                            [
-                                                    method_name: "Normal",
-                                                    price: 0.0,
-                                                    currency_id: "ARS",
-                                                    free_shipping: true,
-                                                    free_shipping_benefit: true
-                                            ],
-                                            [
-                                                    method_name: "Expreso",
-                                                    price: 50.46,
-                                                    currency_id: "ARS",
-                                                    free_shipping: false
-                                            ]
-                                        ]
-                        ]
+                    [
+                            cost: 25.98,
+                            shipping_mode: "me2",
+                            shipping_type: "mercadoenvios",
+                            shipping_options: [
+                                    [
+                                            method_name: "Normal",
+                                            price: 0.0,
+                                            currency_id: "ARS",
+                                            free_shipping: true,
+                                            free_shipping_benefit: true
+                                    ],
+                                    [
+                                            method_name: "Expreso",
+                                            price: 50.46,
+                                            currency_id: "ARS",
+                                            free_shipping: false
+                                    ]
+                            ]
                     ]
+            ]
 
             items=[
                     [
@@ -1929,27 +1982,27 @@ trackTests {
             ]
 
             shipping = [
-                        [
-                        cost: 25.98,
-                        shipping_mode: "me2",
-                        shipping_type: "mercadoenvios",
-                        shipping_options: [
-                                            [
-                                                    method_name: "Normal",
-                                                    price: 0.0,
-                                                    currency_id: "ARS",
-                                                    free_shipping: true,
-                                                    free_shipping_benefit: true
-                                            ],
-                                            [
-                                                    method_name: "Expreso",
-                                                    price: 50.46,
-                                                    currency_id: "ARS",
-                                                    free_shipping: false
-                                            ]
-                                        ]
-                        ]
+                    [
+                            cost: 25.98,
+                            shipping_mode: "me2",
+                            shipping_type: "mercadoenvios",
+                            shipping_options: [
+                                    [
+                                            method_name: "Normal",
+                                            price: 0.0,
+                                            currency_id: "ARS",
+                                            free_shipping: true,
+                                            free_shipping_benefit: true
+                                    ],
+                                    [
+                                            method_name: "Expreso",
+                                            price: 50.46,
+                                            currency_id: "ARS",
+                                            free_shipping: false
+                                    ]
+                            ]
                     ]
+            ]
 
             items=[
                     [
@@ -2056,29 +2109,29 @@ trackTests {
                             status_detail:"accredited"
                     ]
             ]
-            
+
             shipping = [
-                        [
-                        cost: 25.98,
-                        shipping_mode: "me2",
-                        shipping_type: "mercadoenvios",
-                        shipping_options: [
-                                            [
-                                                    method_name: "Normal",
-                                                    price: 0.0,
-                                                    currency_id: "ARS",
-                                                    free_shipping: true,
-                                                    free_shipping_benefit: true
-                                            ],
-                                            [
-                                                    method_name: "Expreso",
-                                                    price: 50.46,
-                                                    currency_id: "ARS",
-                                                    free_shipping: false
-                                            ]
-                                        ]
-                        ]
+                    [
+                            cost: 25.98,
+                            shipping_mode: "me2",
+                            shipping_type: "mercadoenvios",
+                            shipping_options: [
+                                    [
+                                            method_name: "Normal",
+                                            price: 0.0,
+                                            currency_id: "ARS",
+                                            free_shipping: true,
+                                            free_shipping_benefit: true
+                                    ],
+                                    [
+                                            method_name: "Expreso",
+                                            price: 50.46,
+                                            currency_id: "ARS",
+                                            free_shipping: false
+                                    ]
+                            ]
                     ]
+            ]
 
             items=[
                     [
@@ -2100,9 +2153,9 @@ trackTests {
                     nickname:"buyer01"
             ]
             seller =[[
-                    id:111222,
-                    nickname:"seller02"
-            ]]
+                             id:111222,
+                             nickname:"seller02"
+                     ]]
         }
 
         "/checkout/congrats"(platform:"/web/desktop") {
@@ -2135,9 +2188,9 @@ trackTests {
                     nickname:"buyer01"
             ]
             seller =[[
-                    id:111222,
-                    nickname:"seller02"
-            ]]
+                             id:111222,
+                             nickname:"seller02"
+                     ]]
         }
 
     }
@@ -2178,27 +2231,27 @@ trackTests {
             ]
 
             shipping = [
-                        [
-                        cost: 25.98,
-                        shipping_mode: "me2",
-                        shipping_type: "mercadoenvios",
-                        shipping_options: [
-                                            [
-                                                    method_name: "Normal",
-                                                    price: 0.0,
-                                                    currency_id: "ARS",
-                                                    free_shipping: true,
-                                                    free_shipping_benefit: true
-                                            ],
-                                            [
-                                                    method_name: "Expreso",
-                                                    price: 50.46,
-                                                    currency_id: "ARS",
-                                                    free_shipping: false
-                                            ]
-                                        ]
-                        ]
+                    [
+                            cost: 25.98,
+                            shipping_mode: "me2",
+                            shipping_type: "mercadoenvios",
+                            shipping_options: [
+                                    [
+                                            method_name: "Normal",
+                                            price: 0.0,
+                                            currency_id: "ARS",
+                                            free_shipping: true,
+                                            free_shipping_benefit: true
+                                    ],
+                                    [
+                                            method_name: "Expreso",
+                                            price: 50.46,
+                                            currency_id: "ARS",
+                                            free_shipping: false
+                                    ]
+                            ]
                     ]
+            ]
 
             items=[
                     [
@@ -2406,16 +2459,16 @@ trackTests {
             item_id = "MCO123321"
             captcha_showed = true
             errors = [
-                        [
-                                code:0,
-                                field: 'firstName',
-                                message: 'Tu nombre es incorrecto'
-                        ],
-                        [
-                                code:2,
-                                field: 'lastName'
-                        ]
+                    [
+                            code:0,
+                            field: 'firstName',
+                            message: 'Tu nombre es incorrecto'
+                    ],
+                    [
+                            code:2,
+                            field: 'lastName'
                     ]
+            ]
             errors_validation = 'back'
             prog_reg_version = 1
         }
@@ -2426,11 +2479,11 @@ trackTests {
             item_id = "MCO123321"
             captcha_showed = true
             errors = [
-                        [
-                                code:2,
-                                field: 'lastName'
-                        ]
+                    [
+                            code:2,
+                            field: 'lastName'
                     ]
+            ]
             errors_validation = 'front'
             prog_reg_version = 0
         }
@@ -2441,11 +2494,11 @@ trackTests {
             item_id = "MCO123321"
             captcha_showed = true
             errors = [
-                        [
-                                code:8,
-                                field: 'email'
-                        ]
+                    [
+                            code:8,
+                            field: 'email'
                     ]
+            ]
             errors_validation = 'back'
             prog_reg_version = 0
         }
@@ -2716,8 +2769,8 @@ trackTests {
         "/notification_center/failure"(platform: "/mobile"){}
 
         "/notification_center"(platform: "/mobile") {
-          newsgroup_id = "12332323"
-          event_type = "open"
+            newsgroup_id = "12332323"
+            event_type = "open"
         }
 
         "/notification_center/questions-buyer"(platform: "/mobile"){
@@ -3308,18 +3361,18 @@ trackTests {
         }
 
         "/notification/loyalty_welcome"(platform: "/mobile") {
-                news_id = "123"
-                event_type = "auto_dismiss"
+            news_id = "123"
+            event_type = "auto_dismiss"
         }
 
         "/notification/loyalty_milestone"(platform: "/mobile") {
-                news_id = "123"
-                event_type = "auto_dismiss"
+            news_id = "123"
+            event_type = "auto_dismiss"
         }
 
         "/notification/loyalty_change_level"(platform: "/mobile") {
-                news_id = "123"
-                event_type = "auto_dismiss"
+            news_id = "123"
+            event_type = "auto_dismiss"
         }
 
         "/notification/security_enrollment"(platform: "/mobile") {
@@ -3848,24 +3901,24 @@ trackTests {
         "/myml/suggested_discounts/about/back"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/select_discount"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/select_discount/apply"(platform: "/mobile"){
-          item_id = "MLA123456"
-          selected_discount = "1"
+            item_id = "MLA123456"
+            selected_discount = "1"
         }
         "/myml/suggested_discounts/review_discount"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/review_discount/confirm"(platform: "/mobile"){
-          item_id = "MLA123456"
-          selected_discount = "1"
+            item_id = "MLA123456"
+            selected_discount = "1"
         }
         "/myml/suggested_discounts/select_discount/back"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/review_discount/back"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/info"(platform: "/mobile"){
-          item_id = "MLA123456"
-          discount_status = "on_deal"
+            item_id = "MLA123456"
+            discount_status = "on_deal"
         }
         "/myml/suggested_discounts/info/exit"(platform: "/mobile"){
-          item_id = "MLA123456"
-          discount_status = "on_deal"
-          action = "vip"
+            item_id = "MLA123456"
+            discount_status = "on_deal"
+            action = "vip"
         }
         "/myml/suggested_discounts/info/back"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/error"(platform: "/mobile"){item_id = "MLA123456"}
@@ -3958,11 +4011,11 @@ trackTests {
         "/checkout/congrats"(platform: "/web", type: TrackType.View) {
             //recommendations data
             recommendations = [
-                success_print : true,
-                algorithm : "MarketingIntelligence",
-                context : "CHO",
-                item_category_l3 : "MLA1537",
-                recommended_l3_categories : ["MLA1051", "MLA1055", "MLA32089"]
+                    success_print : true,
+                    algorithm : "MarketingIntelligence",
+                    context : "CHO",
+                    item_category_l3 : "MLA1537",
+                    recommended_l3_categories : ["MLA1051", "MLA1055", "MLA32089"]
             ]
             //checkout data
             order_id=1234
@@ -3989,27 +4042,27 @@ trackTests {
             ]
 
             shipping = [
-                        [
-                        cost: 25.98,
-                        shipping_mode: "me2",
-                        shipping_type: "mercadoenvios",
-                        shipping_options: [
-                                            [
-                                                    method_name: "Normal",
-                                                    price: 0.0,
-                                                    currency_id: "ARS",
-                                                    free_shipping: true,
-                                                    free_shipping_benefit: true
-                                            ],
-                                            [
-                                                    method_name: "Expreso",
-                                                    price: 50.46,
-                                                    currency_id: "ARS",
-                                                    free_shipping: false
-                                            ]
-                                        ]
-                        ]
+                    [
+                            cost: 25.98,
+                            shipping_mode: "me2",
+                            shipping_type: "mercadoenvios",
+                            shipping_options: [
+                                    [
+                                            method_name: "Normal",
+                                            price: 0.0,
+                                            currency_id: "ARS",
+                                            free_shipping: true,
+                                            free_shipping_benefit: true
+                                    ],
+                                    [
+                                            method_name: "Expreso",
+                                            price: 50.46,
+                                            currency_id: "ARS",
+                                            free_shipping: false
+                                    ]
+                            ]
                     ]
+            ]
 
             items=[
                     [
@@ -4031,18 +4084,18 @@ trackTests {
                     nickname:"buyer01"
             ]
             seller =[[
-                    id:111222,
-                    nickname:"seller02"
-            ]]
+                             id:111222,
+                             nickname:"seller02"
+                     ]]
         }
         "/checkout/congrats"(platform: "/web", type: TrackType.View) {
             //recommendations data
             recommendations = [
-                success_print : true,
-                algorithm : "MarketingIntelligence",
-                context : "CHO",
-                item_category_l3 : "MLA1537",
-                recommended_l3_categories : ["MLA1051", "MLA1055", "MLA32089"]
+                    success_print : true,
+                    algorithm : "MarketingIntelligence",
+                    context : "CHO",
+                    item_category_l3 : "MLA1537",
+                    recommended_l3_categories : ["MLA1051", "MLA1055", "MLA32089"]
             ]
             //checkout data
             order_id=1234
@@ -4067,29 +4120,29 @@ trackTests {
                             status_detail:"accredited"
                     ]
             ]
-            
+
             shipping = [
-                        [
-                        cost: 25.98,
-                        shipping_mode: "me2",
-                        shipping_type: "mercadoenvios",
-                        shipping_options: [
-                                            [
-                                                    method_name: "Normal",
-                                                    price: 0.0,
-                                                    currency_id: "ARS",
-                                                    free_shipping: true,
-                                                    free_shipping_benefit: true
-                                            ],
-                                            [
-                                                    method_name: "Expreso",
-                                                    price: 50.46,
-                                                    currency_id: "ARS",
-                                                    free_shipping: false
-                                            ]
-                                        ]
-                        ]
+                    [
+                            cost: 25.98,
+                            shipping_mode: "me2",
+                            shipping_type: "mercadoenvios",
+                            shipping_options: [
+                                    [
+                                            method_name: "Normal",
+                                            price: 0.0,
+                                            currency_id: "ARS",
+                                            free_shipping: true,
+                                            free_shipping_benefit: true
+                                    ],
+                                    [
+                                            method_name: "Expreso",
+                                            price: 50.46,
+                                            currency_id: "ARS",
+                                            free_shipping: false
+                                    ]
+                            ]
                     ]
+            ]
 
             items=[
                     [
@@ -4111,9 +4164,9 @@ trackTests {
                     nickname:"buyer01"
             ]
             seller =[[
-                    id:111222,
-                    nickname:"seller02"
-            ]]
+                             id:111222,
+                             nickname:"seller02"
+                     ]]
         }
     }
 
@@ -4433,16 +4486,16 @@ trackTests {
                     client: "feedback_congrats",
                     backend_id: "marketing_intelligence",
                     track_info: [
-                        has_recommendations: true,
-                        item_category: "MLA3519",
-                        recommended_items: [
-                                               "MLA627123724",
-                                               "MLA617149341"
+                            has_recommendations: true,
+                            item_category: "MLA3519",
+                            recommended_items: [
+                                    "MLA627123724",
+                                    "MLA617149341"
 
-                        ],
-                        recommended_categories: [
-                                                    "MLA5337"
-                        ]
+                            ],
+                            recommended_categories: [
+                                    "MLA5337"
+                            ]
                     ]
             ]
         }
@@ -4518,7 +4571,7 @@ trackTests {
             item_id = "MLM2222222"
             model_id = "MLM170531"
             unit_id = "54321"
-       }
+        }
     }
 
     test("Quotation :: Quotation success tracking") {
@@ -4526,7 +4579,7 @@ trackTests {
         "/quotation/success"(platform: "/") {
             item_id = "MLM2222222"
             unit_id = "54321"
-       }
+        }
     }
 
     test("Quotation :: Show congrats tracking") {
@@ -4623,7 +4676,7 @@ trackTests {
     test("Checkout V5") {
 
         def dataSetCongrats = {
-                    status = "payment_required"
+            status = "payment_required"
         }
 
         def dataSet = {
@@ -4640,35 +4693,35 @@ trackTests {
             total_paid_amount=3373.98
 
             seller = [
-                        [id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
-                        [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]
-                    ]
+                    [id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                    [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]
+            ]
 
             shipping = [
-                        [
-                        cost: 25.98,
-                        shipping_mode: "me2",
-                        shipping_type: "mercadoenvios",
-                        shipping_options: [
-                                            [
-                                                    method_name: "Normal",
-                                                    price: 0.0,
-                                                    currency_id: "ARS",
-                                                    free_shipping: true,
-                                                    free_shipping_benefit: true
-                                            ],
-                                            [
-                                                    method_name: "Expreso",
-                                                    price: 50.46,
-                                                    currency_id: "ARS",
-                                                    free_shipping: false
-                                            ]
-                                        ]
-                        ]
+                    [
+                            cost: 25.98,
+                            shipping_mode: "me2",
+                            shipping_type: "mercadoenvios",
+                            shipping_options: [
+                                    [
+                                            method_name: "Normal",
+                                            price: 0.0,
+                                            currency_id: "ARS",
+                                            free_shipping: true,
+                                            free_shipping_benefit: true
+                                    ],
+                                    [
+                                            method_name: "Expreso",
+                                            price: 50.46,
+                                            currency_id: "ARS",
+                                            free_shipping: false
+                                    ]
+                            ]
                     ]
+            ]
 
             payments = [
-                            [
+                    [
                             id: "23cfddb085c577f0584ab78e17861c63be386608",
                             payment_type: "credit_card",
                             payment_method: "amex",
@@ -4680,48 +4733,48 @@ trackTests {
                             payment_splitted:false,
                             status:"approved",
                             status_detail:"accredited"
-                            ]
-                        ]
+                    ]
+            ]
 
             items = [
-                        [
-                        currency_id: "ARS",
-                        unit_price: 100,
-                        quantity: 1,
-                        item: [
-                                category_id: "MLA63385",
-                                buying_mode: "buy_it_now",
-                                category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
-                                id: "MLA754486062",
-                                official_store: "Adidas",
-                                condition: "new",
-                                listing_type: "gold_special",
-                                title: "Conector 12 Vias",
-                                shipping_mode: "me2"
+                    [
+                            currency_id: "ARS",
+                            unit_price: 100,
+                            quantity: 1,
+                            item: [
+                                    category_id: "MLA63385",
+                                    buying_mode: "buy_it_now",
+                                    category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
+                                    id: "MLA754486062",
+                                    official_store: "Adidas",
+                                    condition: "new",
+                                    listing_type: "gold_special",
+                                    title: "Conector 12 Vias",
+                                    shipping_mode: "me2"
                             ]
-                        ],
-                        [
-                        currency_id: "ARS",
-                        unit_price: 1000,
-                        quantity: 3,
-                        item: [
-                                category_id: "MLA63385",
-                                buying_mode: "buy_it_now",
-                                category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
-                                id: "MLA754486062",
-                                official_store: "SportCenter",
-                                condition: "new",
-                                listing_type: "gold_pro",
-                                title: "Conector 12 Vias",
-                                shipping_mode: "me2"
+                    ],
+                    [
+                            currency_id: "ARS",
+                            unit_price: 1000,
+                            quantity: 3,
+                            item: [
+                                    category_id: "MLA63385",
+                                    buying_mode: "buy_it_now",
+                                    category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
+                                    id: "MLA754486062",
+                                    official_store: "SportCenter",
+                                    condition: "new",
+                                    listing_type: "gold_pro",
+                                    title: "Conector 12 Vias",
+                                    shipping_mode: "me2"
                             ]
-                        ]
                     ]
+            ]
         }
 
-    "/checkout/geolocation"(platform:"/web", type: TrackType.Event) {
+        "/checkout/geolocation"(platform:"/web", type: TrackType.Event) {
             dataSet()
-        geolocation_error = "TIMEOUT"
+            geolocation_error = "TIMEOUT"
         }
         "/checkout/items_not_available"(platform:"/web", dataSet)
         "/checkout/error"(platform:"/web", dataSet)
@@ -4854,8 +4907,8 @@ trackTests {
     test("Cart Checkout") {
 
         def dataSetCongrats = {
-                    status = "payment_required"
-                    purchase_id = "MLA98792837983"
+            status = "payment_required"
+            purchase_id = "MLA98792837983"
         }
 
         def dataSet = {
@@ -4872,35 +4925,35 @@ trackTests {
             total_paid_amount=3373.98
 
             seller = [
-                        [id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
-                        [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]
-                    ]
+                    [id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                    [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]
+            ]
 
             shipping = [
-                        [
-                        cost: 25.98,
-                        shipping_mode: "me2",
-                        shipping_type: "mercadoenvios",
-                        shipping_options: [
-                                            [
-                                                    method_name: "Normal",
-                                                    price: 0.0,
-                                                    currency_id: "ARS",
-                                                    free_shipping: true,
-                                                    free_shipping_benefit: true
-                                            ],
-                                            [
-                                                    method_name: "Expreso",
-                                                    price: 50.46,
-                                                    currency_id: "ARS",
-                                                    free_shipping: false
-                                            ]
-                                        ]
-                        ]
+                    [
+                            cost: 25.98,
+                            shipping_mode: "me2",
+                            shipping_type: "mercadoenvios",
+                            shipping_options: [
+                                    [
+                                            method_name: "Normal",
+                                            price: 0.0,
+                                            currency_id: "ARS",
+                                            free_shipping: true,
+                                            free_shipping_benefit: true
+                                    ],
+                                    [
+                                            method_name: "Expreso",
+                                            price: 50.46,
+                                            currency_id: "ARS",
+                                            free_shipping: false
+                                    ]
+                            ]
                     ]
+            ]
 
             payments = [
-                            [
+                    [
                             id: "23cfddb085c577f0584ab78e17861c63be386608",
                             payment_type: "credit_card",
                             payment_method: "amex",
@@ -4912,48 +4965,48 @@ trackTests {
                             payment_splitted:false,
                             status:"approved",
                             status_detail:"accredited"
-                            ]
-                        ]
+                    ]
+            ]
 
             items = [
-                        [
-                        currency_id: "ARS",
-                        unit_price: 100,
-                        quantity: 1,
-                        item: [
-                                category_id: "MLA63385",
-                                buying_mode: "buy_it_now",
-                                category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
-                                id: "MLA754486062",
-                                official_store: "Adidas",
-                                condition: "new",
-                                listing_type: "gold_special",
-                                title: "Conector 12 Vias",
-                                shipping_mode: "me2"
+                    [
+                            currency_id: "ARS",
+                            unit_price: 100,
+                            quantity: 1,
+                            item: [
+                                    category_id: "MLA63385",
+                                    buying_mode: "buy_it_now",
+                                    category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
+                                    id: "MLA754486062",
+                                    official_store: "Adidas",
+                                    condition: "new",
+                                    listing_type: "gold_special",
+                                    title: "Conector 12 Vias",
+                                    shipping_mode: "me2"
                             ]
-                        ],
-                        [
-                        currency_id: "ARS",
-                        unit_price: 1000,
-                        quantity: 3,
-                        item: [
-                                category_id: "MLA63385",
-                                buying_mode: "buy_it_now",
-                                category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
-                                id: "MLA754486062",
-                                official_store: "SportCenter",
-                                condition: "new",
-                                listing_type: "gold_pro",
-                                title: "Conector 12 Vias",
-                                shipping_mode: "me2"
+                    ],
+                    [
+                            currency_id: "ARS",
+                            unit_price: 1000,
+                            quantity: 3,
+                            item: [
+                                    category_id: "MLA63385",
+                                    buying_mode: "buy_it_now",
+                                    category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
+                                    id: "MLA754486062",
+                                    official_store: "SportCenter",
+                                    condition: "new",
+                                    listing_type: "gold_pro",
+                                    title: "Conector 12 Vias",
+                                    shipping_mode: "me2"
                             ]
-                        ]
                     ]
+            ]
         }
 
-	"/cart/checkout/geolocation"(platform:"/", type: TrackType.Event) {
+        "/cart/checkout/geolocation"(platform:"/", type: TrackType.Event) {
             dataSet()
-	    geolocation_error = "TIMEOUT"
+            geolocation_error = "TIMEOUT"
         }
         "/cart/checkout/items_not_available"(platform:"/", dataSet)
         "/cart/checkout/error"(platform:"/", dataSet)
@@ -5097,44 +5150,44 @@ trackTests {
         def dataSet = {
 
             seller = [
-                        [id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
-                        [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]
-                    ]
+                    [id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                    [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]
+            ]
 
             items = [
-                        [
-                        currency_id: "ARS",
-                        unit_price: 100,
-                        quantity: 1,
-                        item: [
-                                category_id: "MLA63385",
-                                buying_mode: "buy_it_now",
-                                category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
-                                id: "MLA754486062",
-                                official_store: "Adidas",
-                                condition: "new",
-                                listing_type: "gold_special",
-                                title: "Conector 12 Vias",
-                                shipping_mode: "me2"
+                    [
+                            currency_id: "ARS",
+                            unit_price: 100,
+                            quantity: 1,
+                            item: [
+                                    category_id: "MLA63385",
+                                    buying_mode: "buy_it_now",
+                                    category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
+                                    id: "MLA754486062",
+                                    official_store: "Adidas",
+                                    condition: "new",
+                                    listing_type: "gold_special",
+                                    title: "Conector 12 Vias",
+                                    shipping_mode: "me2"
                             ]
-                        ],
-                        [
-                        currency_id: "ARS",
-                        unit_price: 1000,
-                        quantity: 3,
-                        item: [
-                                category_id: "MLA63385",
-                                buying_mode: "buy_it_now",
-                                category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
-                                id: "MLA754486062",
-                                official_store: "SportCenter",
-                                condition: "new",
-                                listing_type: "gold_pro",
-                                title: "Conector 12 Vias",
-                                shipping_mode: "me2"
+                    ],
+                    [
+                            currency_id: "ARS",
+                            unit_price: 1000,
+                            quantity: 3,
+                            item: [
+                                    category_id: "MLA63385",
+                                    buying_mode: "buy_it_now",
+                                    category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
+                                    id: "MLA754486062",
+                                    official_store: "SportCenter",
+                                    condition: "new",
+                                    listing_type: "gold_pro",
+                                    title: "Conector 12 Vias",
+                                    shipping_mode: "me2"
                             ]
-                        ]
                     ]
+            ]
 
         }
 
@@ -5147,7 +5200,7 @@ trackTests {
                     international_delivery_mode: "none",
             ]
             seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
-                    [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
+                      [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
 
 
             loyalty_level = 2
@@ -5253,13 +5306,13 @@ trackTests {
         def dataSet = {
 
             seller = [
-                        [id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
-                        [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]
-                    ]
+                    [id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                    [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]
+            ]
 
             buyer = [
-                        [id: "208642594", nickname: "TESTEO_1", loyalty_level: "4"]
-                   ]
+                    [id: "208642594", nickname: "TESTEO_1", loyalty_level: "4"]
+            ]
 
             cartContent = true
 
@@ -5323,18 +5376,18 @@ trackTests {
 
     test("Recommendations") {
         "/recommendations" (platform:"/web/desktop", type: TrackType.View) {
-		recommendations = {
-			backend_id = "empty"
-		        client = "vip_middle"
-			has_errors = false
-			hidden_by_client = false
-			track_info = {
-				has_recommendations = false
-				item_category = "MLA383490"
-				recommended_categories = []
-				recommended_items = []
-			}
-		}
+            recommendations = {
+                backend_id = "empty"
+                client = "vip_middle"
+                has_errors = false
+                hidden_by_client = false
+                track_info = {
+                    has_recommendations = false
+                    item_category = "MLA383490"
+                    recommended_categories = []
+                    recommended_items = []
+                }
+            }
         }
 
         "/recommendations/print" {}
@@ -5353,18 +5406,18 @@ trackTests {
     }
 
     test("deals landings") {
-	   "/deals/landing" (platform:"/web/desktop", type: TrackType.View) {
-		   deal_id = "mla_1234"
-	   }
-    } 
+        "/deals/landing" (platform:"/web/desktop", type: TrackType.View) {
+            deal_id = "mla_1234"
+        }
+    }
 
     test("subscriptions") {
-	   "/subscriptions/frequency" (platform:"/", type: TrackType.View) {}
-	   "/subscriptions/change_frequency" (platform:"/", type: TrackType.View) {
-           frequency = "WEEKS_2"
-           frequency_before = "WEEKS_1"
-           context = "frequency/buyingflow"
-       }
+        "/subscriptions/frequency" (platform:"/", type: TrackType.View) {}
+        "/subscriptions/change_frequency" (platform:"/", type: TrackType.View) {
+            frequency = "WEEKS_2"
+            frequency_before = "WEEKS_1"
+            context = "frequency/buyingflow"
+        }
         "/subscriptions/review"(platform: "/", type: TrackType.View) {}
         "/subscriptions/review/confirm"(platform: "/", type: TrackType.Event) {
             context = "bottom"
@@ -5377,19 +5430,19 @@ trackTests {
         "/subscriptions/detail"(platform: "/", type: TrackType.View) {}
         "/subscriptions/detail/modify_frequency"(platform: "/" ,type: TrackType.View) {}
         "/subscriptions/change_frequency" (platform:"/", type: TrackType.View) {
-           frequency = "WEEKS_2"
-           frequency_before = "WEEKS_1"
-           context = "details/myml"
-       }
-       "/subscriptions/delivery/cancel"(platform: "/", type: TrackType.View) {
-           context = "now"
+            frequency = "WEEKS_2"
+            frequency_before = "WEEKS_1"
+            context = "details/myml"
+        }
+        "/subscriptions/delivery/cancel"(platform: "/", type: TrackType.View) {
+            context = "now"
         }
         "/subscriptions/delivery/cancel"(platform: "/", type: TrackType.Event) {
             context = "now"
         }
         "/subscriptions/detail/cancel"(platform: "/", type: TrackType.View) {}
         "/subscriptions/detail/cancel/subscription"(platform: "/", type: TrackType.Event) {}
-    } 
+    }
 
     test("install_event"){
         "/application/install_event" (platform: "/mobile", type: TrackType.Event){
