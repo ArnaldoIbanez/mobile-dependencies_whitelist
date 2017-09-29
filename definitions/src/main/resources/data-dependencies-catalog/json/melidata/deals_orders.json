@@ -3,7 +3,7 @@
     "fernando.keuroglian@mercadolibre.com"
   ],
   "process_name": "clic_deals",
-  "cron": " ", 
+ "cron": "00 07 * * *",
   "extract": {
     "operation": "append",
     "columns": [
