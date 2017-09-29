@@ -1,3 +1,4 @@
+set hive.tez.java.opts=-Xmx4300m;
 SELECT Sent.sent_date, Sent.Template, Sent.Path,count (Sent.email_id) as count_send, sum(if(Open.email_id IS NOT NULL, 1, 0)) as count_open, Sent.site
 FROM (
 SELECT distinct substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) AS sent_date,
