@@ -1,9 +1,10 @@
 {
   "users": [
-    "daniela.medina@mercadolibre.com"
+    "daniela.medina@mercadolibre.com",
+     "ba-analytics@mercadolibre.com"
   ],
   "process_name": "count_clicks_banner",
-  "cron": "00 08 * * *",
+  "cron": "00 07 * * *",
   "extract": {
     "operation": "append",
     "columns": [

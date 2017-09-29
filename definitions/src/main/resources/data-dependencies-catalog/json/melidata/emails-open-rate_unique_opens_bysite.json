@@ -1,0 +1,57 @@
+{
+  "users": [
+    "lucia.blanc@mercadolibre.com"
+  ],
+  "process_name": "emails_open_rate_unique_opens_bysite",
+  "cron": "",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "sent_date",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "template",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "path",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "count_send",
+        "type": "INTEGER"
+      },
+      {
+        "name": "count_open",
+        "type": "INTEGER"
+      },
+      {
+        "name": "site",
+        "type": "UNICODE_STRING"
+      }
+    ],
+    "sql": {
+      "script": "business-assurance/emails-open-rate_unique_opens_bysite.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "2017-09-08",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "2017-09-09",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param03",
+          "value": "2017-09-15",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

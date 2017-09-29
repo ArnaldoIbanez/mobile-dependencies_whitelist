@@ -1,48 +1,47 @@
 {
-  "users": [
-    "daniela.medina@mercadolibre.com"
+  "users":
+  [
+    "javier.jorge@mercadolibre.com"
   ],
-  "process_name": "deals_count_clicks_banner",
-  "cron": "15 14 * * *",
-  "extract": {
+  "process_name": "recommendations_track_errors",
+  "cron": "30 01 * * * ",
+  "extract":
+  {
     "operation": "append",
-    "columns": [
+    "columns":
+    [
       {
         "name": "ds",
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "Site",
+        "name": "site_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Plataforma",
+        "name": "client",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "size",
+        "name": "emptyResultCause",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "banner_name",
-        "type": "UNICODE_STRING"
-      },
-        {
-        "name": "SellerID",
-        "type": "UNICODE_STRING"
-      },
-       {
-        "name": "DealID",
-        "type": "UNICODE_STRING"
-      },
-        {
-        "name": "totalClicks",
+        "name": "calls",
         "type": "INTEGER"
+      },
+      {
+        "name": "error",
+        "type": "INTEGER"
+      },
+      {
+        "name": "error_rate",
+        "type": "DOUBLE"
       }
     ],
     "sql": {
-      "script": "business-assurance/dealscantclicks.sql",
+      "script": "melidata/recommendations-track-errors.sql",
       "parameters": [
         {
           "name": "param01",

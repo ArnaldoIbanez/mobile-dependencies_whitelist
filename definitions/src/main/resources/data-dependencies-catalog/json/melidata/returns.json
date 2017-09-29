@@ -2,59 +2,59 @@
   "users": [
     "lucia.blanc@mercadolibre.com"
   ],
-  "process_name": "classifieds-alerts",
-  "cron": "00 14 * * *",
+  "process_name": "returns",
+  "cron": "00 06 * * *",
   "extract": {
     "operation": "append",
     "columns": [
       {
-        "name": "ds",
+        "name": "fecha",
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "Type",
+        "name": "path",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Path",
+        "name": "item_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Site",
+        "name": "typification",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Business",
+        "name": "payment",
         "type": "UNICODE_STRING"
       },
-        {
-        "name": "UserUid",
+      {
+        "name": "shipping",
         "type": "UNICODE_STRING"
       },
-        {
-        "name": "UserId",
+      {
+        "name": "pickup_time",
         "type": "UNICODE_STRING"
       },
-        {
-        "name": "Platform",
+      {
+        "name": "platform",
         "type": "UNICODE_STRING"
       },
-        {
-        "name": "Referer",
+      {
+        "name": "site",
         "type": "UNICODE_STRING"
       },
-        {
-        "name": "Url",
+      {
+        "name": "user_id",
         "type": "UNICODE_STRING"
       },
-        {
-        "name": "Vertical",
+      {
+        "name": "user_nick",
         "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "business-assurance/classifieds-alerts.sql",
+      "script": "business-assurance/returns.sql",
       "parameters": [
         {
           "name": "param01",

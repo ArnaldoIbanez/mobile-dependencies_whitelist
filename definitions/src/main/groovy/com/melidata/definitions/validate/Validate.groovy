@@ -25,8 +25,12 @@ class Validate {
         def catalog = TestRunner.runScript(catalogScript)
         
         def result = generateResult(options, catalog)
-        writeResults(result, options)
-        if (options.summary) printSummary(result)
+        if (result.size() > 0) {
+            writeResults(result, options)
+            if (options.summary) printSummary(result)
+        } else {
+            println "No results found. Is the query OK?"
+        }
     }
 
 
@@ -50,25 +54,24 @@ class Validate {
     }
 
     private static void printSummary(List result) {
-        def map = [:], total = 0, fail = 0
+        def map = [:]
         result.each { track ->
             if ( map[track.message] ) {
                 map[track.message] = map[track.message] + 1
             } else {
                 map[track.message] = 1
             }
-            total++
-            if ( ! track.status ) fail++
         }
 
         println "Summary:"
-        map.each { message, count ->
-            println "$message : $count"
+        // Sort map by count (desc)
+        def fails = map.collect{msg, count -> [msg, count]}.sort{f1, f2 -> f2[1] <=> f1[1]}
+        fails.each { fail ->
+            println "${fail[0]} : ${fail[1]}"
         }
 
         println ""
-        println "Total: $total"
-        println "Fail: $fail (${fail * 100 / total} %)"
+        println "Total: ${result.size()}"
     }
 
     private static List generateResult(options, catalog) {
@@ -80,7 +83,9 @@ class Validate {
 
     private static List generateResultFromPresto(options, catalog) {
         def query = buildQuery(options)
-        System.err.println("Query: ${query}")
+        System.err.println("Query:")
+        System.err.println("${query}")
+        System.err.println("")
 
         def db = [url:'jdbc:presto://melidata-presto.ml.com:80/hive/default', 
                     user:'catalog', password:'psw', 
@@ -151,23 +156,23 @@ class Validate {
     private static String buildQuery(options) {
         def from = getFromDate(options)
         def to = getToDate(options)
-        def date = "AND ds >= '${from}' AND ds < '${to}'"
+        def date = "AND ds >= '${from}' AND ds < '${to}' \n"
         def path = ""
         def business = ""
         def platform = ""
         def site = ""
         def limit = "100"
 
-        if (options.path) path = "AND path = '${options.path}'"
-        if (options.business) business = "AND application.business = '${options.business}'"
-        if (options.platform) platform = "AND device.platform = '${options.platform}'"
-        if (options.site) site = "AND application.site_id = '${options.site}'"
+        if (options.path) path = "AND path LIKE '/${options.path}%' \n"
+        if (options.business) business = "AND application.business = '${options.business}' \n"
+        if (options.platform) platform = "AND device.platform = '${options.platform}' \n"
+        if (options.site) site = "AND application.site_id = '${options.site}' \n"
         if (options.limit) limit = options.limit
 
-        return ("SELECT id, type, path, event_data, device, application, platform " +
-               "FROM tracks " +
-               "WHERE catalog_data.is_valid = false "+
-               "${date} ${path} ${business} ${platform}  ${site} " +
+        return ("SELECT id, type, path, event_data, device, application, platform \n" +
+               "FROM tracks \n" +
+               "WHERE catalog_data.is_valid = false \n" +
+               "${date}${path}${business}${platform}${site}" +
                "limit ${limit}").toString()
     }
 

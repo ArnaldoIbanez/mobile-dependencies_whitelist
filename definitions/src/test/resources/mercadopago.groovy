@@ -181,6 +181,28 @@ trackTests {
             captcha_showed = false
             prog_reg_version = 0
         }
+
+        "/register/form/skip-update"(platform: "/web/desktop") {
+            app = "registration-update-opt"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+        }
+
+        "/register/optin"(platform: "/web/desktop") {
+            app = "registration"
+            prog_reg_version = 0
+        }
+
+        "/register/optin/push"(platform: "/web/mobile") {
+            app = "registration-optin"
+            prog_reg_version = 0
+        }
+
+        "/register/optin/skip"(platform: "/web/mobile") {
+            app = "registration-optin"
+            prog_reg_version = 0
+        }
     }
 
     test("Registration App"){
@@ -253,6 +275,34 @@ trackTests {
         "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
             error_type = "connectionError/invalidOneTimePassword/operatorNotSupported"
         }
+    }
+
+    test("Landing mercadopago home") {
+        "/landing/home" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago sellers") {
+        "/landing/sellers" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago sellers websites") {
+        "/landing/sellers/websites" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago sellers social") {
+        "/landing/sellers/social" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago buyers") {
+        "/landing/buyers" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago promotions") {
+        "/landing/promotions" (platform: "/web") {}
+    }
+
+    test("Mercadopago Activities List") {
+        "/listing/activities" (platform: "/web") {}
     }
 
     test("Landing mercadopago point") {
@@ -1004,6 +1054,17 @@ trackTests {
     }
 
     test("Bill payments") {
+
+        "/bill_payments/fixed_amount"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+
+        "/bill_payments/ticket_data"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+
         "/bill_payments/help"(platform: "/mobile") {
             flow = "/bill_payments"
             from = "/deep_link"
@@ -1095,6 +1156,10 @@ trackTests {
             flow = "/bill_payments"
             from = "/deep_link"
             result_status = "rejected"
+        }
+        "/bill_payments/fee"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
         }
     }
 
@@ -1324,6 +1389,17 @@ trackTests {
             status_detail = "internal_server_error"
         }
     }
+
+    test("Money Detail") {
+        "/money_detail/balance"(platform: "/mobile") {
+            flow = "/money_detail"
+            from = "/deep_link"
+        }
+        "/money_detail/help_modal"(platform: "/mobile") {
+            flow = "/money_detail"
+        }
+    }
+
     
     test("Notifications") {
                 
@@ -1410,8 +1486,76 @@ trackTests {
             is_otp = false
             is_admin_otp = false
         }
+        "/login/auth/push"(platform: "/", type: TrackType.Event) {
+            view = "waiting_view"
+            event_type = "click_go_to_password_button"
+            challenge = "push_authentication"
+            tx = "adHgjskcD01lM6EeLs7zUGgBaA1GiWqF6w_XQUgLJk0QAmdhE"
+            is_otp = false
+            is_admin_otp = false
+        }
         "/logout"(platform: "/", type: TrackType.Event) {
             flow = "internal"
+        }
+    }
+
+    test("Login Status with Smart Lock for Passwords") {
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = true
+            smartlock_status = "SUCCESS"
+            section = "application_startup"
+        }
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = false
+            smartlock_status = "SUCCESS"
+            section = "application_startup"
+        }
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = true
+            smartlock_status = "RESOLUTION_REQUIRED"
+            section = "application_startup"
+        }
+        "/login/status"(platform: "/mobile", type: TrackType.Event) {
+            is_logged = false
+            smartlock_status = "RESOLUTION_REQUIRED"
+            section = "application_startup"
+        }
+    }
+
+    test("Requesting credentials to Smart Lock for Passwords") {
+        "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {}
+        "/login/smartlock/success"(platform: "/mobile", type: TrackType.Event) {}
+        "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
+            error = "RESOLUTION_REQUIRED"
+        }
+        "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
+            error = "CANCELED"
+        }
+        "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
+            error = "VALIDATION_REQUIRED"
+        }
+    }
+
+    test("Saving credentials to Smart Lock for Passwords") {
+        "/login/smartlock/save_credentials"(platform: "/mobile") {}
+        "/login/smartlock/save_credentials/already_saved"(platform: "/mobile", type: TrackType.Event) {}
+        "/login/smartlock/save_credentials/resolution_required"(platform: "/mobile", type: TrackType.Event) {
+            success = true
+        }
+        "/login/smartlock/save_credentials/resolution_required"(platform: "/mobile", type: TrackType.Event) {
+            success = false
+        }
+        "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
+            status = "CANCELED"
+        }
+        "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
+            status = "TIMEOUT"
+        }
+        "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
+            status = "NETWORK_ERROR"
+        }
+        "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
+            status = "API_NOT_CONNECTED"
         }
     }
 

@@ -1,56 +1,65 @@
 {
   "users": [
-    "lucia.blanc@mercadolibre.com"
+    "nicolas.alaimo@mercadolibre.com",
+     "ba-analytics@mercadolibre.com"
   ],
-  "process_name": "alerts-search-classi",
-  "cron": "00 06 * * *",
+  "process_name": "deals_clics_and_orders",
+  "cron": "",
   "extract": {
     "operation": "append",
     "columns": [
       {
-        "name": "ds",
+        "name": "fecha_clic",
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "Type",
+        "name": "site_deal",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Path",
+        "name": "platform_deal",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Site",
+        "name": "deal_Label",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Business",
+        "name": "deal_Source",
         "type": "UNICODE_STRING"
       },
         {
-        "name": "UserUid",
+        "name": "deal_Position",
         "type": "UNICODE_STRING"
       },
         {
-        "name": "UserId",
+        "name": "deal_Type",
         "type": "UNICODE_STRING"
       },
         {
-        "name": "Platform",
+        "name": "deal_id",
         "type": "UNICODE_STRING"
       },
         {
-        "name": "Referer",
-        "type": "UNICODE_STRING"
+        "name": "clics_totales",
+        "type": "INTEGER"
       },
         {
-        "name": "Url",
-        "type": "UNICODE_STRING"
-      }
+        "name": "clics_unicos",
+        "type": "INTEGER"
+      },                  
+        {
+        "name": "orders",
+        "type": "INTEGER"
+      },    
+        {
+        "name": "gmv",
+        "type": "DOUBLE"
+      }                
     ],
     "sql": {
-      "script": "business-assurance/alertssearchclassi.sql",
+      "script": "business-assurance/deals_clics_and_orders.sql",
       "parameters": [
         {
           "name": "param01",
@@ -66,4 +75,3 @@
     }
   }
 }
-

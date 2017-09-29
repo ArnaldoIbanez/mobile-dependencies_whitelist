@@ -59,11 +59,13 @@ catalog {
         include business, "marketplace.groovy"
         include business, "myml.groovy"
         include business, "notifications.groovy"
+        include business, "onboarding.groovy"
         include business, "quotation.groovy"
         include business, "search.groovy"
         include business, "sell.groovy"
         include business, "vip.groovy"
         include business, "returns.groovy"
+        include business, "freeData.groovy"
     }
 
     mercadopago.each { business ->
