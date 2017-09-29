@@ -5455,6 +5455,8 @@ trackTests {
             frequency = "WEEKS_2"
             frequency_before = "WEEKS_1"
             context = "details/myml"
+            order_id="1425420000"
+            item_id="MLM12345"
         }
         "/subscriptions/delivery/cancel"(platform: "/", type: TrackType.View) {
             context = "now"

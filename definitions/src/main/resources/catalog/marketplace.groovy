@@ -458,6 +458,8 @@ tracks {
         frequency(required: true, type: PropertyType.String)
         frequency_before(type: PropertyType.String)
         context(required: true, type: PropertyType.String)
+        order_id(required: true, type: PropertyType.String)
+        item_id(required: true, type: PropertyType.String)
     }
 
     "/subscriptions/review"(platform: "/", type: TrackType.View) {
@@ -471,8 +473,8 @@ tracks {
     }
 
     "/subscriptions/congrats"(platform: "/", type: TrackType.View) {
-        order_id(required: true, type: PropertyType.String)
-        item_id(required: true, type: PropertyType.String)
+        order_id(required: false, type: PropertyType.String)
+        item_id(required: false, type: PropertyType.String)
     }
     "/subscriptions/congrats/view_subscription"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.String)
