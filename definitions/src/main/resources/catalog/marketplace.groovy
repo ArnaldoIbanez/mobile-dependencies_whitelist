@@ -448,7 +448,10 @@ tracks {
     }
 
     // Subscriptions
-    "/subscriptions"(platform: "/", isAbstract: true) {}
+    "/subscriptions"(platform: "/", isAbstract: true) {
+        order_id(required: true, type: PropertyType.String)
+        item_id(required: true, type: PropertyType.String)
+    }
 
     "/subscriptions/frequency"(platform: "/", type: TrackType.View) {}
     "/subscriptions/change_frequency"(platform: "/", type: TrackType.Event) {
@@ -464,9 +467,9 @@ tracks {
 
     "/subscriptions/congrats"(platform: "/", type: TrackType.View) {}
     "/subscriptions/congrats/view_subscription"(platform: "/", type: TrackType.Event) {}
-    "/subscriptions/congrats/subscribe"(platform: "/", type: TrackType.Event) {}
+    "/subscriptions/congrats/subscribe"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {}
 
-    "/subscriptions/summary"(platform: "/", type: TrackType.View) {}
+    "/subscriptions/summary"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
     "/subscriptions/detail"(platform: "/", type: TrackType.View) {}
     "/subscriptions/detail/modify_frequency"(platform: "/", type: TrackType.View) {}
 
