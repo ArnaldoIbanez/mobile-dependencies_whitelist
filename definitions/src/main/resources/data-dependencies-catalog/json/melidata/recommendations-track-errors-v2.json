@@ -7,7 +7,7 @@
   "cron": " ",
   "extract":
   {
-    "operation": "append",
+    "operation": "overwrite",
     "columns":
     [
       {
