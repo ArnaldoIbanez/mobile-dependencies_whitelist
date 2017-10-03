@@ -30,7 +30,7 @@ FROM
         , 'OK' as emptyResultCause
       FROM tracks
       WHERE 
-        s > '@param01' 
+        ds > '@param01' 
         AND ds < '@param02'
         AND get_json_object(event_data, '$.recommendations')is not null  
         AND get_json_object(event_data, '$.recommendations.has_errors') = 'false'
@@ -49,7 +49,7 @@ FROM
         , jest(event_data, 'recommendations.track_info.empty_result_cause') as emptyResultCause
       FROM tracks
       WHERE 
-        s > '@param01' 
+        ds > '@param01' 
         AND ds < '@param02'
         AND get_json_object(event_data, '$.recommendations')is not null  
         AND get_json_object(event_data, '$.recommendations.has_errors') = 'false'
@@ -68,7 +68,7 @@ FROM
         , 'HASERROR' as emptyResultCause
       FROM tracks
       WHERE 
-        s > '@param01' 
+        ds > '@param01' 
         AND ds < '@param02'
         AND jest(event_data, 'recommendations.has_errors') = 'true'
     ) ttemp3
