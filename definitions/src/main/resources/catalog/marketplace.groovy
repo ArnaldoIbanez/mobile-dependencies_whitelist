@@ -448,70 +448,41 @@ tracks {
     }
 
     // Subscriptions
-    "/subscriptions"(platform: "/", isAbstract: true) {}
-
-    "/subscriptions/frequency"(platform: "/", type: TrackType.View) {
+    "/subscriptions"(platform: "/", isAbstract: true) {
         order_id(required: true, type: PropertyType.String)
         item_id(required: true, type: PropertyType.String)
     }
+
+    "/subscriptions/frequency"(platform: "/", type: TrackType.View) {}
     "/subscriptions/change_frequency"(platform: "/", type: TrackType.Event) {
         frequency(required: true, type: PropertyType.String)
         frequency_before(type: PropertyType.String)
         context(required: true, type: PropertyType.String)
-        order_id(required: true, type: PropertyType.String)
-        item_id(required: true, type: PropertyType.String)
     }
 
-    "/subscriptions/review"(platform: "/", type: TrackType.View) {
-        order_id(required: true, type: PropertyType.String)
-        item_id(required: true, type: PropertyType.String)
-    }
+    "/subscriptions/review"(platform: "/", type: TrackType.View) {}
     "/subscriptions/review/confirm"(platform: "/", type: TrackType.Event) {
         context(required: true, type: PropertyType.String)
-        order_id(required: true, type: PropertyType.String)
-        item_id(required: true, type: PropertyType.String)
     }
 
-    "/subscriptions/congrats"(platform: "/", type: TrackType.View) {
-        order_id(required: false, type: PropertyType.String)
-        item_id(required: false, type: PropertyType.String)
-    }
-    "/subscriptions/congrats/view_subscription"(platform: "/", type: TrackType.Event) {
-        order_id(required: true, type: PropertyType.String)
-        item_id(required: true, type: PropertyType.String)
-    }
-    "/subscriptions/congrats/subscribe"(platform: "/", type: TrackType.Event) {}
+    "/subscriptions/congrats"(platform: "/", type: TrackType.View) {}
+    "/subscriptions/congrats/view_subscription"(platform: "/", type: TrackType.Event) {}
+    "/subscriptions/congrats/subscribe"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {}
 
-    "/subscriptions/summary"(platform: "/", type: TrackType.View) {}
-    "/subscriptions/detail"(platform: "/", type: TrackType.View) {
-        order_id(required: true, type: PropertyType.String)
-        item_id(required: true, type: PropertyType.String)
-    }
-    "/subscriptions/detail/modify_frequency"(platform: "/", type: TrackType.View) {
-        order_id(required: true, type: PropertyType.String)
-        item_id(required: true, type: PropertyType.String)
-    }
+    "/subscriptions/summary"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
+    "/subscriptions/detail"(platform: "/", type: TrackType.View) {}
+    "/subscriptions/detail/modify_frequency"(platform: "/", type: TrackType.View) {}
 
     "/subscriptions/delivery"(platform: "/", isAbstract: true) {}
     "/subscriptions/delivery/cancel"(platform: "/", type: TrackType.View) {
         context(required: true, type: PropertyType.String)
-        order_id(required: true, type: PropertyType.String)
-        item_id(required: true, type: PropertyType.String)
     }
     "/subscriptions/delivery/cancel"(platform: "/", type: TrackType.Event) {
         context(required: true, type: PropertyType.String)
-        order_id(required: true, type: PropertyType.String)
-        item_id(required: true, type: PropertyType.String)
     }
 
-    "/subscriptions/detail/cancel"(platform: "/", type: TrackType.View) {
-        order_id(required: true, type: PropertyType.String)
-        item_id(required: true, type: PropertyType.String)
-    }
-    "/subscriptions/detail/cancel/subscription"(platform: "/", type: TrackType.Event) {
-        order_id(required: true, type: PropertyType.String)
-        item_id(required: true, type: PropertyType.String)
-    }
+    "/subscriptions/detail/cancel"(platform: "/", type: TrackType.View) {}
+    "/subscriptions/detail/cancel/subscription"(platform: "/", type: TrackType.Event) {}
 
     "/sso" (platform: "/mobile", isAbstract: true){}
     "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
