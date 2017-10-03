@@ -73,7 +73,7 @@
       },
     ],
     "sql": {
-      "script": "melidata/recommendations-track-errors.sql",
+      "script": "melidata/recommendations-track-errors-v2.sql",
       "parameters": [
         {
           "name": "param01",
