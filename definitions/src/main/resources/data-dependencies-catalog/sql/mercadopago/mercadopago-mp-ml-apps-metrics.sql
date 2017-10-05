@@ -7,14 +7,14 @@ FROM (SELECT DISTINCT (mp.usr.user_id) AS user_id
       AND   mp.device.platform LIKE '/mobile/%'
       AND   mp.TYPE = 'view'
       AND   mp.application.business = 'mercadopago'
-      AND   mp.application.site_id = 'MLA'
+      AND   mp.application.site_id in ('MLA', 'MLB', 'MLM')
       GROUP BY DISTINCT (mp.usr.user_id)) AS mp_users
   FULL OUTER JOIN (SELECT DISTINCT (ml.usr.user_id) AS user_id
                    FROM tracks ml
                    WHERE ml.ds >= '@param01'
                    AND   ml.ds < '@param02'
                    AND   ml.device.platform LIKE '/mobile/%'
-                   AND   ml.application.site_id = 'MLA'
+                   AND   ml.application.site_id in ('MLA', 'MLB', 'MLM')
                    AND   ml.TYPE = 'view'
                    AND   ml.application.business = 'mercadolibre'
                    GROUP BY DISTINCT (ml.usr.user_id)) AS ml_users ON mp_users.user_id = ml_users.user_id;
