@@ -1,4 +1,5 @@
-select application.site_id as Site,
+select substr(ds,1,10) as ds,
+application.site_id as Site,
 device.platform as Device,
 jest(event_data,'vertical') as Vertical,
 jest(event_data,'items[0].item.condition') as Item_condition,

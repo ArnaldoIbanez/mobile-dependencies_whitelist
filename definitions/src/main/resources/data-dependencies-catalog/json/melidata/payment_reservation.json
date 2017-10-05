@@ -2,11 +2,16 @@
   "users": [
     "julio.cardenas@mercadolibre.cl"
   ],
-  "process_name": "payment_reservation",
+  "process_name": "payment_classi_reservation",
   "cron": " ",
   "extract": {
     "operation": "append",
     "columns": [
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
       {
         "name": "Site",
         "type": "UNICODE_STRING"
