@@ -1,35 +1,47 @@
 {
-  "users": [
-    "german.bringas@mercadolibre.com"
+  "users":
+  [
+    "javier.jorge@mercadolibre.com"
   ],
-  "process_name": "mercadopago-push-notifications-metrics",
-  "cron": "10 00 * * *",
-  "extract": {
+  "process_name": "recommendations_track_errors",
+  "cron": "30 01 * * * ",
+  "extract":
+  {
     "operation": "append",
-    "columns": [
+    "columns":
+    [
       {
         "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "site_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "campaign_id",
+        "name": "client",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "event_type",
+        "name": "emptyResultCause",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "platform",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "users",
+        "name": "calls",
         "type": "INTEGER"
+      },
+      {
+        "name": "error",
+        "type": "INTEGER"
+      },
+      {
+        "name": "error_rate",
+        "type": "DOUBLE"
       }
     ],
     "sql": {
-      "script": "mercadopago/push-notifications-metrics.sql",
+      "script": "melidata/recommendations-track-errors.sql",
       "parameters": [
         {
           "name": "param01",

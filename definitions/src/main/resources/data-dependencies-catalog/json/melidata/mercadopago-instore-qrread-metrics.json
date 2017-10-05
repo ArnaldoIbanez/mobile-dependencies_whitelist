@@ -3,7 +3,7 @@
     "german.bringas@mercadolibre.com"
   ],
   "process_name": "mercadopago-instore-qrread-metrics",
-  "cron": "0 8 * * *",
+  "cron": "00 08 * * *",
   "extract": {
     "operation": "append",
     "columns": [

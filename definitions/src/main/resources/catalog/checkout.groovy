@@ -90,7 +90,7 @@ tracks {
         congrats_seq(serverSide: true)
         total_amount_local(serverSide: true)
         total_amount_usd(serverSide: true)
-        first_for_order(serverSide: true)        
+        first_for_order(serverSide: true)
     }
 
     /*
@@ -142,6 +142,12 @@ tracks {
 
     /** *****************************************************************/
     //Mobile Checkout Apps
+    "/checkout"(platform: "/mobile") {
+        combination_2mp(required:false, description: "2MP switch state")
+        vertical(required: false, description: "vertical of transaction")
+        reservation_price(required: false, description: "price of a reservation transaction")
+    }
+    
     "/checkout/wrapper"(platform: "/mobile") {} //Melidata experiment
     "/checkout/init"(platform: "/mobile") {
         //Might not have most of status values in case of requestFailure
@@ -200,6 +206,9 @@ tracks {
         location(required: false, type: PropertyType.String)
         geolocation_method(required: false, type: PropertyType.String)
     }
+
+    "/checkout/payments_cancelation"(platform: "/mobile") {}
+    
     "/checkout/geolocation"(platform: "/", type: TrackType.Event) {
         geolocation_error(required: true, description: "Why the geo failed")
     }
@@ -446,6 +455,11 @@ tracks {
     }
     // payment promotions screen. Eg: bank promos in MLA
     "/checkout/payments/promotions"(platform: "/mobile") {}
+
+    // 2MP switch tracks
+    "/checkout/payments/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/payments/2mp#not_use"(platform: "/mobile", type: TrackType.Event) {}
+
     //"/checkout/review" //shared between web and app, already defined in web section.
     "/checkout/review#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         status(required: true, type: PropertyType.String)
@@ -498,6 +512,16 @@ tracks {
         //    ]
     }
     "/checkout/review/terms"(platform: "/mobile") {}
+    "/checkout/review/discard_payment_combination"(platform: "/mobile") {}
+    "/checkout/review/inconsistency/payment_combination"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/review/inconsistency/payment_combination/payment"(platform: "/mobile") {}
+    "/checkout/review/inconsistency/payment_combination/installments"(platform: "/mobile") {}
+    "/checkout/review/inconsistency/payment_combination/shipping"(platform: "/mobile") {}
+
+    //Review summary header payment detail list
+    "/checkout/review/display_detail#displayed"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/review/display_detail#closed"(platform: "/mobile", type: TrackType.Event) {}
+
     "/checkout/additional_info"(platform: "/mobile") {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")

@@ -203,6 +203,13 @@ trackTests {
             app = "registration-optin"
             prog_reg_version = 0
         }
+
+        "/register/form/email-suggest"(platform: "/web/mobile") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+        }
     }
 
     test("Registration App"){
@@ -268,6 +275,43 @@ trackTests {
             item_id = "MLA21233"
         }
 
+        "/register/form/update"(platform:"/mobile") {
+            app = "question"
+            origin = "drawer"
+            item_id = "MLM23143"
+        }
+
+        "/register/form/update/error"(platform:"/mobile") {
+            app = "question"
+            origin = "drawer"
+            item_id = "MLM23143"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:14,
+                            field: 'first_name'
+                    ]
+            ]
+        }
+
+        "/register/form/update/save"(platform:"/mobile") {
+            app = "question"
+            origin = "drawer"
+            item_id = "MLM23143"
+        }
+
+        "/register/form/update/not-now"(platform:"/mobile") {
+            app = "question"
+            origin = "drawer"
+            item_id = "MLM23143"
+        }
+
+        "/register/successful-update"(platform:"/mobile") {
+            app = "question"
+            origin = "drawer"
+            item_id = "MLM23143"
+        }
+
     }
 
     test("Account Recovery tracking event") {
@@ -275,6 +319,34 @@ trackTests {
         "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
             error_type = "connectionError/invalidOneTimePassword/operatorNotSupported"
         }
+    }
+
+    test("Landing mercadopago home") {
+        "/landing/home" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago sellers") {
+        "/landing/sellers" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago sellers websites") {
+        "/landing/sellers/websites" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago sellers social") {
+        "/landing/sellers/social" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago buyers") {
+        "/landing/buyers" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago promotions") {
+        "/landing/promotions" (platform: "/web") {}
+    }
+
+    test("Mercadopago Activities List") {
+        "/listing/activities" (platform: "/web") {}
     }
 
     test("Landing mercadopago point") {
@@ -1129,6 +1201,10 @@ trackTests {
             from = "/deep_link"
             result_status = "rejected"
         }
+        "/bill_payments/fee"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
     }
 
     test("Recharge Sube") {
@@ -1357,6 +1433,17 @@ trackTests {
             status_detail = "internal_server_error"
         }
     }
+
+    test("Money Detail") {
+        "/money_detail/balance"(platform: "/mobile") {
+            flow = "/money_detail"
+            from = "/deep_link"
+        }
+        "/money_detail/help_modal"(platform: "/mobile") {
+            flow = "/money_detail"
+        }
+    }
+
     
     test("Notifications") {
                 
@@ -1443,6 +1530,14 @@ trackTests {
             is_otp = false
             is_admin_otp = false
         }
+        "/login/auth/push"(platform: "/", type: TrackType.Event) {
+            view = "waiting_view"
+            event_type = "click_go_to_password_button"
+            challenge = "push_authentication"
+            tx = "adHgjskcD01lM6EeLs7zUGgBaA1GiWqF6w_XQUgLJk0QAmdhE"
+            is_otp = false
+            is_admin_otp = false
+        }
         "/logout"(platform: "/", type: TrackType.Event) {
             flow = "internal"
         }
@@ -1468,6 +1563,43 @@ trackTests {
             is_logged = false
             smartlock_status = "RESOLUTION_REQUIRED"
             section = "application_startup"
+        }
+    }
+
+    test("Requesting credentials to Smart Lock for Passwords") {
+        "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {}
+        "/login/smartlock/success"(platform: "/mobile", type: TrackType.Event) {}
+        "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
+            error = "RESOLUTION_REQUIRED"
+        }
+        "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
+            error = "CANCELED"
+        }
+        "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
+            error = "VALIDATION_REQUIRED"
+        }
+    }
+
+    test("Saving credentials to Smart Lock for Passwords") {
+        "/login/smartlock/save_credentials"(platform: "/mobile") {}
+        "/login/smartlock/save_credentials/already_saved"(platform: "/mobile", type: TrackType.Event) {}
+        "/login/smartlock/save_credentials/resolution_required"(platform: "/mobile", type: TrackType.Event) {
+            success = true
+        }
+        "/login/smartlock/save_credentials/resolution_required"(platform: "/mobile", type: TrackType.Event) {
+            success = false
+        }
+        "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
+            status = "CANCELED"
+        }
+        "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
+            status = "TIMEOUT"
+        }
+        "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
+            status = "NETWORK_ERROR"
+        }
+        "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
+            status = "API_NOT_CONNECTED"
         }
     }
 

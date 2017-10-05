@@ -25,6 +25,32 @@ tracks {
     "/"(platform: "/web", isAbstract: true) {
     }
 
+    // MP Landings Scope
+    "/landing"(platform: "/web", isAbstract: true) {}
+
+    // MP Home
+    "/landing/home"(platform: "/web"){}
+
+    // MP Sellers 
+    "/landing/sellers"(platform: "/web"){}
+
+    // MP Sellers Websites
+    "/landing/sellers/websites"(platform: "/web"){}
+
+    // MP Sellers Social
+    "/landing/sellers/social"(platform: "/web"){}
+
+    // MP Buyers
+    "/landing/buyers"(platform: "/web"){}
+
+    // MP Promotions
+    "/landing/promotions"(platform: "/web"){}
+
+    // MP Activities
+    "/listing"(platform: "/web", isAbstract: true){}
+
+    "/listing/activities"(platform: "/web"){}
+
     "/point"(platform: "/", isAbstract: true) {}
 
     "/point/home"(platform: "/") {
@@ -282,6 +308,7 @@ tracks {
     }
     "/bill_payments/fixed_amount"(platform: "/mobile") {}
     "/bill_payments/ticket_data"(platform: "/mobile") {}
+    "/bill_payments/fee"(platform: "/mobile"){}
 
 
     "/recharge_sube"(platform: "/mobile", isAbstract: true) {
@@ -447,6 +474,15 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+
+
+    "/money_detail"(platform: "/mobile", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/money_detail/balance"(platform: "/mobile") {}
+    "/money_detail/help_modal"(platform: "/mobile") {}
+
     
     /**
      * END NOTIFICATIONS

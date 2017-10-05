@@ -29,6 +29,9 @@ tracks {
         has_error(type: PropertyType.Boolean, required: true)
         challenge(type: PropertyType.String, required: false)
         recaptcha(type: PropertyType.Boolean, required: false)
+        tx(type: PropertyType.String, required: false)
+        variant(type: PropertyType.String, required: false)
+        operator_id(required: false)
     }
 
     "/login/recovery"(platform: "/web", type: TrackType.Event) {}
@@ -63,9 +66,36 @@ tracks {
         flow(type: PropertyType.String, required: false)
     }
 
+    "/login/auth/push"(platform: "/", type: TrackType.Event) {
+        view(type: PropertyType.String, required: true)
+        event_type(type: PropertyType.String, required: true)
+        challenge(type: PropertyType.String, required: true)
+        tx(type: PropertyType.String, required: true)
+    }
+
     "/login/status"(platform: "/mobile", type: TrackType.Event) {
         is_logged(type: PropertyType.Boolean, required: true)
         smartlock_status(type: PropertyType.String, required: true)
         section(type: PropertyType.String, required: true)
+    }
+
+    "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/login/smartlock/success"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
+        error(type: PropertyType.String, required: true)
+    }
+
+    "/login/smartlock/save_credentials"(platform: "/mobile", isAbstract: true) {}
+
+    "/login/smartlock/save_credentials/already_saved"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/login/smartlock/save_credentials/resolution_required"(platform: "/mobile", type: TrackType.Event) {
+        success(type: PropertyType.Boolean, required: true)
+    }
+
+    "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
+        status(type: PropertyType.String, required: true)
     }
 }

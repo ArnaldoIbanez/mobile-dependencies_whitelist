@@ -7,34 +7,42 @@ trackTests {
 
     test("Returns tracks") {
 
-      "/return/typification"(platform:"/")  {
+      // STEP 01
+      "/return/typifications"(platform:"/")  {
       }
 
-      "/return/money_refund"(platform:"/") {
+      // STEP 02
+      "/return/payments"(platform:"/") {
         typification = "Producto defectuoso"
       }
 
-      "/return/collection"(platform:"/") {
-        money_refund = "2863383085"
+      // STEP 03
+      "/return/shipping"(platform:"/") {
+        payment = "2863383085"
       }
 
-      "/return/pick_up_option"(platform:"/") {
-        pickup_option = "pickup"
+      // STEP 04.a
+      "/return/pickup"(platform:"/") {
+        shipping = "pickup"
       }
 
-      "/return/carrier"(platform:"/") {
-        pickup_option = "carrier"
+      // STEP 04.b
+      "/return/delivery"(platform:"/") {
+        shipping = "carrier"
       }
 
+      // STEP 05
       "/return/congrats"(platform:"/") {
-          pickup_option = "carrier"
+          shipping = "carrier"
           carrier_id = "12331123"
       }
 
+      // STEP 05.cta.a
       "/return/congrats/print_label"(platform:"/") {
           print_url = "https://www.mercadolibre.com"
       }
 
+      // STEP 05.cta.b
       "/return/congrats/remedy_label"(platform:"/") {
       }
     }
