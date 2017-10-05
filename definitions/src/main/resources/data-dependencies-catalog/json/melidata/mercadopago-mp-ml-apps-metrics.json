@@ -17,7 +17,7 @@
       }
     ],
     "sql": {
-      "script": "mercadopago/instore/mercadopago-mp-ml-apps-metrics.sql",
+      "script": "mercadopago/mercadopago-mp-ml-apps-metrics.sql",
       "parameters": [
         {
           "name": "param01",
