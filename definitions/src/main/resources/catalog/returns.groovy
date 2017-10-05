@@ -36,9 +36,6 @@ tracks {
 
     // STEP 04.b
     "/return/delivery"(platform: "/", type: TrackType.View) { }
-    "/return/delivery"(platform: "/", type: TrackType.Event) {
-      carrier_id(required: false, type: PropertyType.String)
-    }
 
     // STEP 05
     "/return/congrats"(platform: "/", type: TrackType.View) { 
@@ -46,7 +43,6 @@ tracks {
       payment(required: false, type: PropertyType.String)
       shipping(required: false, type: PropertyType.String)
       pickup_time(required: false, type: PropertyType.String)
-      carrier_id(required: false, type: PropertyType.String)
     }
 
     // STEP 05.cta.a

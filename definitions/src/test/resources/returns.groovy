@@ -28,9 +28,7 @@ trackTests {
       }
 
       // STEP 04.b
-      "/return/delivery"(platform: "/") {
-        carrier_id = "carrierId"
-      }
+      "/return/delivery"(platform: "/") { }
 
       // STEP 05
       "/return/congrats"(platform: "/") {
@@ -38,7 +36,6 @@ trackTests {
         payment = "paymentId"
         shipping = "carrier"
         pickup_time = "pickupTime"
-        carrier_id = "carrierId"
       }
 
       // STEP 05.cta.a
