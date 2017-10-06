@@ -4,12 +4,10 @@ select ds, site_id, platform, client, backend, count(*) orders, sum(item_quantit
        sum( case when order_timestamp - vip_timestamp < 60*60 then gmv else 0 end ) gmv_1h
   from (
   
-    --se queda con 1 click por cada order/pk
     select substr(ds, 1, 10) ds, max(vip_timestamp) vip_timestamp, max(order_timestamp) order_timestamp, site_id, user_id, platform, 
               order_id, item_id, client, backend, cast (item_quantity as double) item_quantity, cast(gmv as double) gmv, count(*) dups
         from ( 
-      
-        -- orders x clicks
+
         select o.ds, 
                 unix_timestamp(regexp_replace(r.user_timestamp,'T',' ')) vip_timestamp, 
                 unix_timestamp(regexp_replace(o.user_timestamp,'T',' ')) order_timestamp, 
