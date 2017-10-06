@@ -40,7 +40,7 @@
       },
       {
         "name": "sis",
-        "type": "INTEGER"
+        "type": "DOUBLE"
       },
       {
         "name": "gmv",
@@ -52,7 +52,7 @@
       },
       {
         "name": "sis_1h",
-        "type": "INTEGER"
+        "type": "DOUBLE"
       },
       {
         "name": "gmv_1h",
