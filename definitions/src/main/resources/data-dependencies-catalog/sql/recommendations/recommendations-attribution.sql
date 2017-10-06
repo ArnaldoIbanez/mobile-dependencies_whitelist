@@ -3,7 +3,7 @@ select ds, site_id, platform, client, backend, count(*) orders, sum(item_quantit
        sum( case when order_timestamp - vip_timestamp < 60*60 then item_quantity else 0 end ) sis_1h,
        sum( case when order_timestamp - vip_timestamp < 60*60 then gmv else 0 end ) gmv_1h
   from (
-  
+
     select substr(ds, 1, 10) ds, max(vip_timestamp) vip_timestamp, max(order_timestamp) order_timestamp, site_id, user_id, platform, 
               order_id, item_id, client, backend, cast (item_quantity as double) item_quantity, cast(gmv as double) gmv, count(*) dups
         from ( 
@@ -25,6 +25,7 @@ select ds, site_id, platform, client, backend, count(*) orders, sum(item_quantit
          where jest(o.event_data, 'items[0].item.id') = jest(r.event_data, 'item_id')
            and r.path = '/vip'
            and jest(r.others['fragment'], 'reco_client') <> ''
+           and jest(r.others['fragment'], 'reco_client') is not null
            and o.usr.user_id = r.usr.user_id
            and r.ds > '@param01' and o.ds < '@param03'
            and o.ds > '@param02' and o.ds < '@param03'
