@@ -1,4 +1,4 @@
-elect ds, site_id, platform, client, backend, count(*) orders, sum(item_quantity) sis, sum(gmv) gmv,
+select ds, site_id, platform, client, backend, count(*) orders, sum(item_quantity) sis, sum(gmv) gmv,
        sum( case when order_timestamp - vip_timestamp < 60*60 then 1 else 0 end ) orders_1h,
        sum( case when order_timestamp - vip_timestamp < 60*60 then item_quantity else 0 end ) sis_1h,
        sum( case when order_timestamp - vip_timestamp < 60*60 then gmv else 0 end ) gmv_1h
