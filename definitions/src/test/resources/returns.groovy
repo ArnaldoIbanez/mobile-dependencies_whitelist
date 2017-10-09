@@ -10,21 +10,25 @@ trackTests {
       // STEP 01
       "/return/typifications"(platform: "/")  {
         typification = "broken_item"
+        action = "selection"
       }
 
       // STEP 02
       "/return/payments"(platform: "/") {
         payment = "paymentId"
+        action = "selection"
       }
 
       // STEP 03
       "/return/shipping"(platform: "/") {
         shipping = "pickup"
+        action = "selection"
       }
 
       // STEP 04.a
       "/return/pickup"(platform: "/") {
         pickup_time = "pickupTime"
+        action = "selection"
       }
 
       // STEP 04.b

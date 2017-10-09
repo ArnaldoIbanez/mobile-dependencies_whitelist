@@ -8,6 +8,7 @@ tracks {
       category_l1(required: false, type: PropertyType.String)
       officialstore(required: false, type: PropertyType.String)
       item_id(required: false, type: PropertyType.String)
+      action(required: false, type: PropertyType.String)
     }
 
     // STEP 01
