@@ -5,7 +5,7 @@ import com.ml.melidata.TrackType
 tracks {
 
     "/return"(platform: "/", isAbstract: true) {
-      category_l1(required: false, type: PropertyType.String)
+      category_id(required: false, type: PropertyType.String)
       officialstore(required: false, type: PropertyType.String)
       item_id(required: false, type: PropertyType.String)
       action(required: false, type: PropertyType.String)

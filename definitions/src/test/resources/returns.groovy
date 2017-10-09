@@ -36,6 +36,9 @@ trackTests {
 
       // STEP 05
       "/return/congrats"(platform: "/") {
+        item_id = "item_id"
+        category_id = "category_id"
+        officialstore = "officialstore"
         typification = "broken_item"
         payment = "paymentId"
         shipping = "carrier"
