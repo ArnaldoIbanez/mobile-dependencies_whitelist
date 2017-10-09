@@ -42,7 +42,7 @@ tracks {
         page_vertical(required: false, type: PropertyType.String)
         gallery_pattern(required: false, type: PropertyType.String, description: "Defines images pattern in publications")
         review_rate(required: false, inheritable: false)
-        review_attributes(required: false, inheritable: false)
+        reviews_attributes(required: false, inheritable: false)
     }
 
     "/vip"(platform: "/web") {
