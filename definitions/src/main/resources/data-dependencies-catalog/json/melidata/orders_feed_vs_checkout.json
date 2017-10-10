@@ -31,7 +31,7 @@
     ],
     "sql": {
 
-      "script": "melidata/oders_feed_vs_checkout.sql",
+      "script": "melidata/orders_feed_vs_checkout.sql",
       "parameters": [
         {
           "name": "param01",
