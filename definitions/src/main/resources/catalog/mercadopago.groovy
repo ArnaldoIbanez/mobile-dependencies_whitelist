@@ -65,75 +65,7 @@ tracks {
 
     // MP Mobile Point
 
-    "/payment"(platform: "/mobile") {}
-
-    "/payment/card"(platform: "/mobile") {
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-        method (required:true, type: PropertyType.String, description: "Card reading method swipe/dip/tap")
-        currency (type: PropertyType.String, required: false, description: "Transaction currency")
-        amount (type: PropertyType.Numeric, required: false, description: "Transaction amount")
-        reason (required:false, type: PropertyType.String, description: "Payment reason")
-        poi (required:true, type: PropertyType.String, description: "Device serial number")
-        poi_type (required:true, type: PropertyType.String, description: "Type of device")
-    }
-
-    "/payment/installments"(platform: "/mobile") {
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-        method (required:true, type: PropertyType.String, description: "Card reading method swipe/dip/tap")
-        currency (type: PropertyType.String, required: false, description: "Transaction currency")
-        amount (type: PropertyType.Numeric, required: false, description: "Transaction amount")
-        reason (required:false, type: PropertyType.String, description: "Payment reason")
-        poi (required:true, type: PropertyType.String, description: "Device serial number")
-        poi_type (required:true, type: PropertyType.String, description: "Type of device")
-    }
-
-    "/payment/card_type"(platform: "/mobile") {
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-        method (required:true, type: PropertyType.String, description: "Card reading method swipe/dip/tap")
-        currency (type: PropertyType.String, required: false, description: "Transaction currency")
-        amount (type: PropertyType.Numeric, required: false, description: "Transaction amount")
-        installments (type: PropertyType.Numeric, required: false, description: "Installments amount")
-        reason (required:false, type: PropertyType.String, description: "Payment reason")
-        poi (required:true, type: PropertyType.String, description: "Device serial number")
-        poi_type (required:true, type: PropertyType.String, description: "Type of device")
-    }
-
-    "/payment/signature"(platform: "/mobile") {
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-        method (required:true, type: PropertyType.String, description: "Card reading method swipe/dip/tap")
-        currency (type: PropertyType.String, required: false, description: "Transaction currency")
-        amount (type: PropertyType.Numeric, required: false, description: "Transaction amount")
-        installments (type: PropertyType.Numeric, required: false, description: "Installments amount")
-        reason (required:false, type: PropertyType.String, description: "Payment reason")
-        poi (required:true, type: PropertyType.String, description: "Device serial number")
-        poi_type (required:true, type: PropertyType.String, description: "Type of device")
-        payment_method_id (required:true, type: PropertyType.String, description: "Payment Method used")
-    }
-
-    "/payment/security_code"(platform: "/mobile") {
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-        method (required:true, type: PropertyType.String, description: "Card reading method swipe/dip/tap")
-        currency (type: PropertyType.String, required: false, description: "Transaction currency")
-        amount (type: PropertyType.Numeric, required: false, description: "Transaction amount")
-        installments (type: PropertyType.Numeric, required: false, description: "Installments amount")
-        reason (required:false, type: PropertyType.String, description: "Payment reason")
-    }
-
-    "/payment/identification_number"(platform: "/mobile") {
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-        method (required:true, type: PropertyType.String, description: "Card reading method swipe/dip/tap")
-        currency (type: PropertyType.String, required: false, description: "Transaction currency")
-        amount (type: PropertyType.Numeric, required: false, description: "Transaction amount")
-        installments (type: PropertyType.Numeric, required: false, description: "Installments amount")
-        reason (required:false, type: PropertyType.String, description: "Payment reason")
-    }
-
-    "/payment/error"(platform: "/mobile") {
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-        error_msg (required:true, type: PropertyType.String, description: "Error shown to user")
-    }
-
-    "/payment/result"(platform: "/mobile") {
+    "/point_payment/"(platform: "/mobile") {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
         method (required:true, type: PropertyType.String, description: "Card reading method swipe/dip/tap")
         currency (type: PropertyType.String, required: false, description: "Transaction currency")
@@ -148,6 +80,18 @@ tracks {
         operator_id (required: false, type: PropertyType.Numeric, description: "Operator identification")
     }
 
+    "/point_payment/card"(platform: "/mobile") {}
+    "/point_payment/installments"(platform: "/mobile") {}
+    "/point_payment/card_type"(platform: "/mobile") {}
+    "/point_payment/signature"(platform: "/mobile") {}
+    "/point_payment/security_code"(platform: "/mobile") {}
+    "/point_payment/identification_number"(platform: "/mobile") {}
+    "/point_payment/result"(platform: "/mobile") {}
+    "/point_payment/error"(platform: "/mobile") {
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+        error_msg (required:true, type: PropertyType.String, description: "Error shown to user")
+    }
+    
     // MPMOBILE
     "/account_summary"(platform: "/mobile") {}
     "/account_summary/filters"(platform: "/mobile") {}
