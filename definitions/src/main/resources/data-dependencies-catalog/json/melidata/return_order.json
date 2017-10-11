@@ -2,39 +2,43 @@
   "users": [
     "lucia.blanc@mercadolibre.com"
   ],
-  "process_name": "return_vip",
+  "process_name": "return_order",
   "cron": "",
   "extract": {
     "operation": "append",
     "columns": [
       {
-        "name": "Site_vip",
+        "name": "Site_order",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Plataforma_vip",
+        "name": "Plataforma_order",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Dev_option_vip",
+        "name": "Dev_option_order",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Item_vip",
+        "name": "Item_order",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Cantidad_vip",
+        "name": "Cantidad_order",
         "type": "INTEGER"
       },
       {
-        "name": "Fecha_vip",
+        "name": "Fecha_order",
         "type": "DATE",
         "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "Category_order",
+        "type": "INTEGER",
       }
     ],
     "sql": {
-      "script": "business-assurance/return_vip.sql",
+      "script": "business-assurance/return_order.sql",
       "parameters": [
         {
           "name": "param01",
