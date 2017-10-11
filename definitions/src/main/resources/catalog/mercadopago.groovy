@@ -67,16 +67,16 @@ tracks {
 
     "/point_payment/"(platform: "/mobile") {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
-        method (required:true, type: PropertyType.String, description: "Card reading method swipe/dip/tap")
-        currency (type: PropertyType.String, required: false, description: "Transaction currency")
-        amount (type: PropertyType.Numeric, required: false, description: "Transaction amount")
-        installments (type: PropertyType.Numeric, required: false, description: "Installments amount")
-        payment_status (required:true, type: PropertyType.String, description: "Payment result status")
-        payment_detail (required:true, type: PropertyType.String, description: "Payment result detail")
+        method (required:false, type: PropertyType.String, description: "Card reading method swipe/dip/tap")
+        currency (required:false, type: PropertyType.String, required: false, description: "Transaction currency")
+        amount (required:false, type: PropertyType.Numeric, required: false, description: "Transaction amount")
+        installments (required:false, type: PropertyType.Numeric, required: false, description: "Installments amount")
+        payment_status (required:false, type: PropertyType.String, description: "Payment result status")
+        payment_detail (required:false, type: PropertyType.String, description: "Payment result detail")
         reason (required:false, type: PropertyType.String, description: "Payment reason")
-        poi (required:true, type: PropertyType.String, description: "Device serial number")
-        poi_type (required:true, type: PropertyType.String, description: "Type of device")
-        payment_method_id (required:true, type: PropertyType.String, description: "Payment Method used")
+        poi (required:false, type: PropertyType.String, description: "Device serial number")
+        poi_type (required:false, type: PropertyType.String, description: "Type of device")
+        payment_method_id (required:false, type: PropertyType.String, description: "Payment Method used")
         operator_id (required: false, type: PropertyType.Numeric, description: "Operator identification")
     }
 
@@ -89,7 +89,7 @@ tracks {
     "/point_payment/result"(platform: "/mobile") {}
     "/point_payment/error"(platform: "/mobile") {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
-        error_msg (required:true, type: PropertyType.String, description: "Error shown to user")
+        error_msg (required:false, type: PropertyType.String, description: "Error shown to user")
     }
     
     // MPMOBILE

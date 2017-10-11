@@ -450,11 +450,10 @@ trackTests {
             from = "/catalog"
             method = "swipe"
             currency = "ARS"
-            amount = "10"
-            installments = "1"
+            amount = 10
+            installments = 1
             payment_status = "approved"
             payment_detail = "accredited"
-            reason = ""
             poi = "BBPOS"
             poi_type = "BBPOS-01099923701497"
             payment_method_id = "debvisa"
