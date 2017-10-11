@@ -474,6 +474,7 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    "/digital_goods/terms_and_conditions"(platform: "/mobile") {}
 
 
     "/money_detail"(platform: "/mobile", isAbstract: true) {

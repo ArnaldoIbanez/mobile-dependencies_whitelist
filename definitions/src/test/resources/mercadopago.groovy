@@ -849,6 +849,9 @@ trackTests {
             result_status = "rejected"
             status_detail = "call_for_auth"
         }
+        "/digital_goods/terms_and_conditions"(platform: "/mobile") {
+            flow = "digital_goods"
+        }
     }
 
     test("Cellphone recharge") {
