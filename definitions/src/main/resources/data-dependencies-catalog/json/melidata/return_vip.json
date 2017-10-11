@@ -1,0 +1,52 @@
+{
+  "users": [
+    "lucia.blanc@mercadolibre.com"
+  ],
+  "process_name": "return_vip",
+  "cron": "",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "Fecha_vip",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "Site_vip",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Plataforma_vip",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Dev_option_vip",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Item_vip",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Cantidad_vip",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "business-assurance/return_vip.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
