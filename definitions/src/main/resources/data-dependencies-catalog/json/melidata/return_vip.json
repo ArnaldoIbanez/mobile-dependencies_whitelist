@@ -8,11 +8,6 @@
     "operation": "append",
     "columns": [
       {
-        "name": "Fecha_vip",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
-      {
         "name": "Site_vip",
         "type": "UNICODE_STRING"
       },
@@ -31,6 +26,11 @@
       {
         "name": "Cantidad_vip",
         "type": "INTEGER"
+      },
+      {
+        "name": "Fecha_vip",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
       }
     ],
     "sql": {

@@ -2,7 +2,7 @@ select application.site_id as Site_vip, device.platform AS Plataforma_vip, jest(
   count(distinct usr.uid) as Cantidad_vip, substr(ds,1,10) as Fecha_vip 
   from tracks
   where ds >= '2017-09-13' 
-    AND ds < '2017-10-10'
+    AND ds < '2017-10-11'
     AND usr.user_id != '' 
     and usr.user_id != '0' 
     AND usr.user_nick != '' 
