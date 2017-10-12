@@ -447,7 +447,6 @@ trackTests {
     test("Point Payment") {
 
         "/point_payment/"(platform: "/mobile") {
-            from = "/catalog"
             method = "swipe"
             currency = "ARS"
             amount = 10
@@ -461,23 +460,13 @@ trackTests {
         }
 
         "/point_payment/card"(platform: "/mobile") {}
-        
         "/point_payment/installments"(platform: "/mobile") {}
-        
         "/point_payment/card_type"(platform: "/mobile") {}
-        
         "/point_payment/signature"(platform: "/mobile") {}
-        
         "/point_payment/security_code"(platform: "/mobile") {}
-        
         "/point_payment/identification_number"(platform: "/mobile") {}
-        
         "/point_payment/result"(platform: "/mobile") {}
-        
-        "/point_payment/error"(platform: "/mobile") {
-            from = "/point_catalog"
-            error_msg = "No podemos procesar esta tarjeta. Prueba con otra"
-        }
+        "/point_payment/error"(platform: "/mobile") {}
     }
 
     test("QR") {

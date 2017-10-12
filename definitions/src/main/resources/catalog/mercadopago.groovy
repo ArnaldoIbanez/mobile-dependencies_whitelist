@@ -77,7 +77,7 @@ tracks {
         poi (required:false, type: PropertyType.String, description: "Device serial number")
         poi_type (required:false, type: PropertyType.String, description: "Type of device")
         payment_method_id (required:false, type: PropertyType.String, description: "Payment Method used")
-        operator_id (required: false, type: PropertyType.Numeric, description: "Operator identification")
+        operator_id (required: false, type: PropertyType.String, description: "Operator identification")
     }
 
     "/point_payment/card"(platform: "/mobile") {}
