@@ -5,8 +5,13 @@
   "process_name": "payment_reservation",
   "cron": " ",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
       {
         "name": "Site",
         "type": "UNICODE_STRING"
