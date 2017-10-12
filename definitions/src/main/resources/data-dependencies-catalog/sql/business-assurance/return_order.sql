@@ -1,4 +1,4 @@
-select vips_dev.site as Site_order, vips_dev.Plataforma as Plataforma_order, vips_dev.dev_option as Dev_option_order, vips_dev.ItemID as Item_order, count(1) as Cantidad_order, orders.ds as Fecha_order, orders.category_order as Category_order --, count(distinct(todo.uid)) as users_vip, count(distinct(todo.uid_order)) as users_orders --todo.ItemID,
+select vips_dev.site as Site_order, vips_dev.Plataforma as Plataforma_order, vips_dev.dev_option as Dev_option_order, vips_dev.ItemID as Item_order, count(1) as Cantidad_order, orders.ds as Fecha_order, orders.category_order as Category_order
 from 
   (select application.site_id as Site, device.platform AS Plataforma, jest(event_data, 'item_id') as ItemID,
   usr.uid, jest(event_data, 'return_available') as dev_option
