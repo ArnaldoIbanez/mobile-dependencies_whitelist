@@ -1,8 +1,8 @@
 select application.site_id as Site_vip, device.platform AS Plataforma_vip, jest(event_data, 'return_available') as Dev_option_vip, jest(event_data, 'item_id') as Item_vip,
   count(distinct usr.uid) as Cantidad_vip, substr(ds,1,10) as Fecha_vip 
   from tracks
-  where ds >= '2017-09-13' 
-    AND ds < '2017-10-11'
+  where ds >= '@param01' 
+    AND ds < '@param02'
     AND usr.user_id != '' 
     and usr.user_id != '0' 
     AND usr.user_nick != '' 
