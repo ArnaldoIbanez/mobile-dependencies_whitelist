@@ -3,8 +3,8 @@ from
   (select application.site_id as Site, device.platform AS Plataforma, jest(event_data, 'item_id') as ItemID,
   usr.uid, jest(event_data, 'return_available') as dev_option
   from tracks
-  where ds >= '2017-09-13' 
-    AND ds < '2017-10-11'
+  where ds >= '@param01' 
+    AND ds < '@param02'
   AND usr.user_id != '' 
   and usr.user_id != '0' 
   AND usr.user_nick != '' 
@@ -22,8 +22,8 @@ from
   
 (select substr(ds,1,10) as ds, application.site_id as Site_order, device.platform AS plataforma_order, usr.uid as uid_order, jest(event_data, 'items[0].item.id') AS ItemID_order, jest(event_data, 'items[0].item.category_id') as category_order
   from tracks         
-  where ds >= '2017-09-13' 
-    AND ds < '2017-10-11'
+  where ds >= '@param01' 
+    AND ds < '@param02'
   and path = '/orders/ordercreated' 
   AND application.site_id = 'MLM') orders
 
