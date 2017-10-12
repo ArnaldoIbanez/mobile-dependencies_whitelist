@@ -34,7 +34,7 @@
       },
       {
         "name": "Category_order",
-        "type": "INTEGER",
+        "type": "UNICODE_STRING",
       }
     ],
     "sql": {
@@ -42,13 +42,13 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
-          "format": "2017-09-13"
+          "value": "2017-09-13",
+          "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
           "value": "DAY-0",
-          "format": "2017-09-25"
+          "format": "yyyy-MM-dd"
         }
       ]
     }
