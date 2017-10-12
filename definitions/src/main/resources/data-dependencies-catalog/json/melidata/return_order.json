@@ -3,7 +3,7 @@
     "lucia.blanc@mercadolibre.com"
   ],
   "process_name": "return_order",
-  "cron": "",
+  "cron": " ",
   "extract": {
     "operation": "overwrite",
     "columns": [

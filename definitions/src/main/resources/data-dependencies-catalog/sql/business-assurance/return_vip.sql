@@ -6,7 +6,7 @@ select application.site_id as Site_vip, device.platform AS Plataforma_vip, jest(
     AND usr.user_id != '' 
     and usr.user_id != '0' 
     AND usr.user_nick != '' 
-    AND usr.user_nick != '0' -- contemplar solo los logueados
+    AND usr.user_nick != '0'
     AND NOT is_bot(device.user_agent)
     and path = '/vip'
     AND application.site_id = 'MLM'
