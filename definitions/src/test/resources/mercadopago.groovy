@@ -446,27 +446,26 @@ trackTests {
 
     test("Point Payment") {
 
-        "/point_payment/"(platform: "/mobile") {
+        "/point_payment/"(platform: "/mobile", type: TrackType.View) {
             method = "swipe"
             currency = "ARS"
             amount = 10
             installments = 1
             payment_status = "approved"
             payment_detail = "accredited"
-            poi = "BBPOS"
-            poi_type = "BBPOS-01099923701497"
+            poi = "BBPOS-01099923701497"
+            poi_type = "BBPOS"
             payment_method_id = "debvisa"
-            operator_id = "238628"
         }
 
-        "/point_payment/card"(platform: "/mobile") {}
-        "/point_payment/installments"(platform: "/mobile") {}
-        "/point_payment/card_type"(platform: "/mobile") {}
-        "/point_payment/signature"(platform: "/mobile") {}
-        "/point_payment/security_code"(platform: "/mobile") {}
-        "/point_payment/identification_number"(platform: "/mobile") {}
-        "/point_payment/result"(platform: "/mobile") {}
-        "/point_payment/error"(platform: "/mobile") {}
+        "/point_payment/card"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/installments"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/card_type"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/signature"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/security_code"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/identification_number"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/result"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/error"(platform: "/mobile", type: TrackType.View) {}
     }
 
     test("QR") {

@@ -65,31 +65,33 @@ tracks {
 
     // MP Mobile Point
 
-    "/point_payment/"(platform: "/mobile") {
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-        method (required:false, type: PropertyType.String, description: "Card reading method swipe/dip/tap")
-        currency (required:false, type: PropertyType.String, required: false, description: "Transaction currency")
-        amount (required:false, type: PropertyType.Numeric, required: false, description: "Transaction amount")
-        installments (required:false, type: PropertyType.Numeric, required: false, description: "Installments amount")
-        payment_status (required:false, type: PropertyType.String, description: "Payment result status")
-        payment_detail (required:false, type: PropertyType.String, description: "Payment result detail")
-        reason (required:false, type: PropertyType.String, description: "Payment reason")
-        poi (required:false, type: PropertyType.String, description: "Device serial number")
-        poi_type (required:false, type: PropertyType.String, description: "Type of device")
-        payment_method_id (required:false, type: PropertyType.String, description: "Payment Method used")
+    "/myml/account_balance/send_money"
+
+    "/point_payment/"(platform: "/mobile", type: TrackType.View) {
+        from (required: false, type: PropertyType.String, description: "Where the flow start")
+        method (required: false, type: PropertyType.String, description: "Card reading method swipe/dip/tap", values: ["swipe", "dip", "tap"])
+        currency (required: false, type: PropertyType.String, description: "Transaction currency")
+        amount (required: false, type: PropertyType.Numeric, description: "Transaction amount")
+        installments (required: false, type: PropertyType.Numeric, description: "Installments amount")
+        payment_status (required: false, type: PropertyType.String, description: "Payment result status")
+        payment_detail (required: false, type: PropertyType.String, description: "Payment result detail")
+        reason (required: false, type: PropertyType.String, description: "Payment reason")
+        poi (required: false, type: PropertyType.String, description: "Device serial number")
+        poi_type (required: false, type: PropertyType.String, description: "Type of device")
+        payment_method_id (required: false, type: PropertyType.String, description: "Payment Method used")
         operator_id (required: false, type: PropertyType.String, description: "Operator identification")
     }
 
-    "/point_payment/card"(platform: "/mobile") {}
-    "/point_payment/installments"(platform: "/mobile") {}
-    "/point_payment/card_type"(platform: "/mobile") {}
-    "/point_payment/signature"(platform: "/mobile") {}
-    "/point_payment/security_code"(platform: "/mobile") {}
-    "/point_payment/identification_number"(platform: "/mobile") {}
-    "/point_payment/result"(platform: "/mobile") {}
-    "/point_payment/error"(platform: "/mobile") {
+    "/point_payment/card"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/installments"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/card_type"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/signature"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/security_code"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/identification_number"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/result"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/error"(platform: "/mobile", type: TrackType.View) {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
-        error_msg (required:false, type: PropertyType.String, description: "Error shown to user")
+        error_msg (required:false, type: PropertyType.String, description: "Error shown to seller")
     }
     
     // MPMOBILE
