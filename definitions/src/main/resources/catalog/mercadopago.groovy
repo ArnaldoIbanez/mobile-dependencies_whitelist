@@ -65,9 +65,7 @@ tracks {
 
     // MP Mobile Point
 
-    "/myml/account_balance/send_money"
-
-    "/point_payment/"(platform: "/mobile", type: TrackType.View) {
+    "/point_payment"(platform: "/mobile", type: TrackType.View) {
         from (required: false, type: PropertyType.String, description: "Where the flow start")
         method (required: false, type: PropertyType.String, description: "Card reading method swipe/dip/tap", values: ["swipe", "dip", "tap"])
         currency (required: false, type: PropertyType.String, description: "Transaction currency")

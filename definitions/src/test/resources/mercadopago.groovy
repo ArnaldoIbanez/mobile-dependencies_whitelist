@@ -464,8 +464,22 @@ trackTests {
         "/point_payment/signature"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/security_code"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/identification_number"(platform: "/mobile", type: TrackType.View) {}
-        "/point_payment/result"(platform: "/mobile", type: TrackType.View) {}
-        "/point_payment/error"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/result"(platform: "/mobile", type: TrackType.View) {
+            method = "swipe"
+            currency = "ARS"
+            amount = 10
+            installments = 1
+            payment_status = "approved"
+            payment_detail = "accredited"
+            poi = "BBPOS-01099923701497"
+            poi_type = "BBPOS"
+            payment_method_id = "debvisa"
+            operator_id = "12345678"
+        }
+        "/point_payment/error"(platform: "/mobile", type: TrackType.View) {
+            from = "/point_catalog"
+            error_msg = "No podemos procesar esta tarjeta. Prueba con otra"
+        }
     }
 
     test("QR") {
