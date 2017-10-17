@@ -53,6 +53,7 @@ tracks {
 
     "/point"(platform: "/", isAbstract: true) {}
 
+    // MP Point Landings
     "/point/home"(platform: "/") {
         product (type: PropertyType.String, description: "Name of device, example: 'point-h'")
         currency (type: PropertyType.String, required: false, description: "Currency")
@@ -62,6 +63,34 @@ tracks {
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
     }
 
+    // MP Mobile Point
+    "/point_payment"(platform: "/mobile", type: TrackType.View) {
+        from (required: false, type: PropertyType.String, description: "Where the flow start")
+        method (required: false, type: PropertyType.String, description: "Card reading method swipe/dip/tap", values: ["swipe", "dip", "tap"])
+        currency (required: false, type: PropertyType.String, description: "Transaction currency")
+        amount (required: false, type: PropertyType.Numeric, description: "Transaction amount")
+        installments (required: false, type: PropertyType.Numeric, description: "Installments amount")
+        payment_status (required: false, type: PropertyType.String, description: "Payment result status")
+        payment_detail (required: false, type: PropertyType.String, description: "Payment result detail")
+        reason (required: false, type: PropertyType.String, description: "Payment reason")
+        poi (required: false, type: PropertyType.String, description: "Device serial number")
+        poi_type (required: false, type: PropertyType.String, description: "Type of device")
+        payment_method_id (required: false, type: PropertyType.String, description: "Payment Method used")
+        operator_id (required: false, type: PropertyType.String, description: "Operator identification")
+    }
+
+    "/point_payment/card"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/installments"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/card_type"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/signature"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/security_code"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/identification_number"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/result"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/error"(platform: "/mobile", type: TrackType.View) {
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+        error_msg (required:false, type: PropertyType.String, description: "Error shown to seller")
+    }
+    
     // MPMOBILE
     "/account_summary"(platform: "/mobile") {}
     "/account_summary/filters"(platform: "/mobile") {}
