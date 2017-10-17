@@ -64,7 +64,6 @@ tracks {
     }
 
     // MP Mobile Point
-
     "/point_payment"(platform: "/mobile", type: TrackType.View) {
         from (required: false, type: PropertyType.String, description: "Where the flow start")
         method (required: false, type: PropertyType.String, description: "Card reading method swipe/dip/tap", values: ["swipe", "dip", "tap"])

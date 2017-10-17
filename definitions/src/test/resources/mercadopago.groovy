@@ -446,18 +446,7 @@ trackTests {
 
     test("Point Payment") {
 
-        "/point_payment/"(platform: "/mobile", type: TrackType.View) {
-            method = "swipe"
-            currency = "ARS"
-            amount = 10
-            installments = 1
-            payment_status = "approved"
-            payment_detail = "accredited"
-            poi = "BBPOS-01099923701497"
-            poi_type = "BBPOS"
-            payment_method_id = "debvisa"
-        }
-
+        "/point_payment"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/card"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/installments"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/card_type"(platform: "/mobile", type: TrackType.View) {}
