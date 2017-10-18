@@ -5,7 +5,7 @@
   "process_name": "mercadopago-mp-ml-apps-metrics",
   "cron": " ",
   "extract": {
-    "operation": "overwrite",
+    "operation": "destroy",
     "columns": [
       {
         "name": "mp_user_id",
