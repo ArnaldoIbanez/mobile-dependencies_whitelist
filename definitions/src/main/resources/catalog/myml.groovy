@@ -247,6 +247,6 @@ tracks {
     "/myml/profile/update_form/save/"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/profile/complete_data/"(platform: "/mobile", type: TrackType.Event) {}
     "/myml/profile/review_data/edit/"(platform: "/mobile", type: TrackType.Event) {}
-    "/myml/profile/review_data/confirm"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/profile/review_data/confirm/"(platform: "/mobile", type: TrackType.Event) {}
 
 }
