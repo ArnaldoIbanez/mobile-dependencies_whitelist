@@ -76,8 +76,9 @@ tracks {
     //REVIEWS FRONTEND
     "/reviews/form"(platform: "/") {
         item_id()
-        step(required: false)
+        step()
         flow(required: false)
+        action(required: false)
     }
 
     "/reviews/edit"(platform: "/") {

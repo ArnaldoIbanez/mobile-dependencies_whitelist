@@ -244,6 +244,11 @@ trackTests {
 
     //Reviews
     test("Reviews tracks") {
+        def dataSetForm = {
+            item_id="MLA533657947"
+            step="description"
+        }
+
         def dataSet = {
             item_id="MLA533657947"
         }
@@ -253,7 +258,7 @@ trackTests {
             review_length=321
         }
 
-        "/reviews/form"(platform:"/", dataSet)
+        "/reviews/form"(platform:"/", dataSetForm)
 
         "/reviews/edit"(platform:"/", dataSet)
 
