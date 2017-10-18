@@ -1,0 +1,10 @@
+{
+  "users": [
+    "german.bringas@mercadolibre.com"
+  ],
+  "process_name": "mercadopago-mp-ml-apps-metrics",
+  "cron": " ",
+  "extract": {
+    "operation": "destroy"
+  }
+}
