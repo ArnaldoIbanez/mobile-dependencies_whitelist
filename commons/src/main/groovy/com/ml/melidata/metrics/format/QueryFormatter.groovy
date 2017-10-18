@@ -45,11 +45,13 @@ class QueryFormatter {
             Map jsonMap = new JsonSlurper().parseText(json)
             String scriptpath = jsonMap.extract.sql.script
             String query = sqlSnippets[scriptpath]
-            if (query) {
+            if (!query) {
+                throw new CatalogException("Script " + scriptpath + " does not exist")
+            } else if (query.contains("--")) {
+                throw new CatalogException("Query " + jsonMap.process_name + " cannot contain comments")
+            } else {
                 jsonMap.extract.sql.script = sanitize(query)
                 list.add(jsonMap)
-            } else {
-                throw new CatalogException("Script " + scriptpath + " does not exist")
             }
         }
         return list
