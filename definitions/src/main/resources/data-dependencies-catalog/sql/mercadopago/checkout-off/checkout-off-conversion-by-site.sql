@@ -21,8 +21,7 @@ SELECT tracks_flows_total.platform,
                               path = '/checkout_off/init' and
                               jest(event_data, 'scope') != 'beta' and
                               jest(event_data, 'scope') IS NOT NULL and
-                              catalog_data.is_valid = true and
-                              (application.site_id <> 'MLA' or jest(event_data, 'collector_id') IN ('99635234', '99696162', '152667538', '192113402', '118966385', '109458301', '138185050', '177944835', '177928883', '127725750', '149532342', '144300544', '16496382', '62615447', '73314351', '137131218', '161489845', '154550560', '175655856', '147419035', '205060854', '153906449', '149974837', '47642517', '122909634', '115825462'))
+                              catalog_data.is_valid = true
                             GROUP BY device.platform, substr(ds, 1, 10), application.site_id
       ) tracks_flows_total
   LEFT JOIN
@@ -36,8 +35,7 @@ SELECT tracks_flows_total.platform,
                               path = '/checkout_off/congrats' and
                               jest(event_data, 'scope') != 'beta' and
                               jest(event_data, 'scope') IS NOT NULL and
-                              catalog_data.is_valid = true and
-                              (application.site_id <> 'MLA' or jest(event_data, 'collector_id') IN ('99635234', '99696162', '152667538', '192113402', '118966385', '109458301', '138185050', '177944835', '177928883', '127725750', '149532342', '144300544', '16496382', '62615447', '73314351', '137131218', '161489845', '154550560', '175655856', '147419035', '205060854', '153906449', '149974837', '47642517', '122909634', '115825462'))
+                              catalog_data.is_valid = true
                             GROUP BY device.platform, substr(ds, 1, 10), application.site_id
       ) tracks_flow_collections_total
     ON tracks_flows_total.platform = tracks_flow_collections_total.platform and tracks_flows_total.site_id = tracks_flow_collections_total.site_id and tracks_flows_total.ds_date = tracks_flow_collections_total.ds_date
@@ -53,8 +51,7 @@ SELECT tracks_flows_total.platform,
                               application.version = 'v0' and
                               jest(event_data, 'scope') != 'beta' and
                               jest(event_data, 'scope') IS NOT NULL and
-                              catalog_data.is_valid = true and
-                              (application.site_id <> 'MLA' or jest(event_data, 'collector_id') IN ('99635234', '99696162', '152667538', '192113402', '118966385', '109458301', '138185050', '177944835', '177928883', '127725750', '149532342', '144300544', '16496382', '62615447', '73314351', '137131218', '161489845', '154550560', '175655856', '147419035', '205060854', '153906449', '149974837', '47642517', '122909634', '115825462'))
+                              catalog_data.is_valid = true
                             GROUP BY device.platform, substr(ds, 1, 10), application.site_id
     ) tracks_1
     ON tracks_flows_total.platform = tracks_1.platform and tracks_flows_total.site_id = tracks_1.site_id and tracks_flows_total.ds_date = tracks_1.ds_date
@@ -70,8 +67,7 @@ SELECT tracks_flows_total.platform,
                               application.version = 'v0' and
                               jest(event_data, 'scope') != 'beta' and
                               jest(event_data, 'scope') IS NOT NULL and
-                              catalog_data.is_valid = true and
-                              (application.site_id <> 'MLA' or jest(event_data, 'collector_id') IN ('99635234', '99696162', '152667538', '192113402', '118966385', '109458301', '138185050', '177944835', '177928883', '127725750', '149532342', '144300544', '16496382', '62615447', '73314351', '137131218', '161489845', '154550560', '175655856', '147419035', '205060854', '153906449', '149974837', '47642517', '122909634', '115825462'))
+                              catalog_data.is_valid = true
                             GROUP BY device.platform, substr(ds, 1, 10), application.site_id
             ) tracks_2
     ON tracks_flows_total.platform = tracks_2.platform and tracks_flows_total.site_id = tracks_2.site_id and tracks_flows_total.ds_date = tracks_2.ds_date
@@ -87,8 +83,7 @@ SELECT tracks_flows_total.platform,
                               application.version = 'v1' and
                               jest(event_data, 'scope') != 'beta' and
                               jest(event_data, 'scope') IS NOT NULL and
-                              catalog_data.is_valid = true and
-                              (application.site_id <> 'MLA' or jest(event_data, 'collector_id') IN ('99635234', '99696162', '152667538', '192113402', '118966385', '109458301', '138185050', '177944835', '177928883', '127725750', '149532342', '144300544', '16496382', '62615447', '73314351', '137131218', '161489845', '154550560', '175655856', '147419035', '205060854', '153906449', '149974837', '47642517', '122909634', '115825462'))
+                              catalog_data.is_valid = true
                             GROUP BY device.platform, substr(ds, 1, 10), application.site_id
             ) tracks_3
      ON tracks_flows_total.platform = tracks_3.platform and tracks_flows_total.site_id = tracks_3.site_id and tracks_flows_total.ds_date = tracks_3.ds_date
@@ -104,8 +99,7 @@ SELECT tracks_flows_total.platform,
                               application.version = 'v1' and
                               jest(event_data, 'scope') != 'beta' and
                               jest(event_data, 'scope') IS NOT NULL and
-                              catalog_data.is_valid = true and
-                              (application.site_id <> 'MLA' or jest(event_data, 'collector_id') IN ('99635234', '99696162', '152667538', '192113402', '118966385', '109458301', '138185050', '177944835', '177928883', '127725750', '149532342', '144300544', '16496382', '62615447', '73314351', '137131218', '161489845', '154550560', '175655856', '147419035', '205060854', '153906449', '149974837', '47642517', '122909634', '115825462'))
+                              catalog_data.is_valid = true
                             GROUP BY device.platform, substr(ds, 1, 10), application.site_id
      ) tracks_4
      ON tracks_flows_total.platform = tracks_4.platform and tracks_flows_total.site_id = tracks_4.site_id and tracks_flows_total.ds_date = tracks_4.ds_date

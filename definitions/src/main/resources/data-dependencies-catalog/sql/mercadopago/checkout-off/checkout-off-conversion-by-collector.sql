@@ -24,8 +24,7 @@ SELECT tracks_flows_total.platform,
                               path = '/checkout_off/init' and
                               jest(event_data, 'scope') != 'beta' and
                               jest(event_data, 'scope') IS NOT NULL and
-                              catalog_data.is_valid = true and
-                              (application.site_id <> 'MLA' or jest(event_data, 'collector_id') IN ('99635234', '99696162', '152667538', '192113402', '118966385', '109458301', '138185050', '177944835', '177928883', '127725750', '149532342', '144300544', '16496382', '62615447', '73314351', '137131218', '161489845', '154550560', '175655856', '147419035', '205060854', '153906449', '149974837', '47642517', '122909634', '115825462'))
+                              catalog_data.is_valid = true
                             GROUP BY device.platform, substr(ds, 1, 10), jest(event_data, 'collector_nickname'),
                                      jest(event_data, 'collector_id'), application.site_id
       ) tracks_flows_total
@@ -41,8 +40,7 @@ SELECT tracks_flows_total.platform,
                               path = '/checkout_off/congrats' and
                               jest(event_data, 'scope') != 'beta' and
                               jest(event_data, 'scope') IS NOT NULL and
-                              catalog_data.is_valid = true and
-                              (application.site_id <> 'MLA' or jest(event_data, 'collector_id') IN ('99635234', '99696162', '152667538', '192113402', '118966385', '109458301', '138185050', '177944835', '177928883', '127725750', '149532342', '144300544', '16496382', '62615447', '73314351', '137131218', '161489845', '154550560', '175655856', '147419035', '205060854', '153906449', '149974837', '47642517', '122909634', '115825462'))
+                              catalog_data.is_valid = true
                             GROUP BY device.platform, substr(ds, 1, 10), jest(event_data, 'collector_nickname'),
                                      jest(event_data, 'collector_id'), application.site_id
       ) tracks_flow_collections_total
@@ -62,8 +60,7 @@ SELECT tracks_flows_total.platform,
                               application.version = 'v0' and
                               jest(event_data, 'scope') != 'beta' and
                               jest(event_data, 'scope') IS NOT NULL and
-                              catalog_data.is_valid = true and
-                              (application.site_id <> 'MLA' or jest(event_data, 'collector_id') IN ('99635234', '99696162', '152667538', '192113402', '118966385', '109458301', '138185050', '177944835', '177928883', '127725750', '149532342', '144300544', '16496382', '62615447', '73314351', '137131218', '161489845', '154550560', '175655856', '147419035', '205060854', '153906449', '149974837', '47642517', '122909634', '115825462'))
+                              catalog_data.is_valid = true
                             GROUP BY device.platform, substr(ds, 1, 10), jest(event_data, 'collector_nickname'),
                                      jest(event_data, 'collector_id'), application.site_id
     ) tracks_1
@@ -82,8 +79,7 @@ SELECT tracks_flows_total.platform,
                               application.version = 'v0' and
                               jest(event_data, 'scope') != 'beta' and
                               jest(event_data, 'scope') IS NOT NULL and
-                              catalog_data.is_valid = true and
-                              (application.site_id <> 'MLA' or jest(event_data, 'collector_id') IN ('99635234', '99696162', '152667538', '192113402', '118966385', '109458301', '138185050', '177944835', '177928883', '127725750', '149532342', '144300544', '16496382', '62615447', '73314351', '137131218', '161489845', '154550560', '175655856', '147419035', '205060854', '153906449', '149974837', '47642517', '122909634', '115825462'))
+                              catalog_data.is_valid = true
                             GROUP BY device.platform, substr(ds, 1, 10), jest(event_data, 'collector_nickname'),
                                      jest(event_data, 'collector_id'), application.site_id
             ) tracks_2
@@ -102,8 +98,7 @@ SELECT tracks_flows_total.platform,
                               application.version = 'v1' and
                               jest(event_data, 'scope') != 'beta' and
                               jest(event_data, 'scope') IS NOT NULL and
-                              catalog_data.is_valid = true and
-                              (application.site_id <> 'MLA' or jest(event_data, 'collector_id') IN ('99635234', '99696162', '152667538', '192113402', '118966385', '109458301', '138185050', '177944835', '177928883', '127725750', '149532342', '144300544', '16496382', '62615447', '73314351', '137131218', '161489845', '154550560', '175655856', '147419035', '205060854', '153906449', '149974837', '47642517', '122909634', '115825462'))
+                              catalog_data.is_valid = true
                             GROUP BY device.platform, substr(ds, 1, 10), jest(event_data, 'collector_nickname'),
                                      jest(event_data, 'collector_id'), application.site_id
             ) tracks_3
@@ -122,8 +117,7 @@ SELECT tracks_flows_total.platform,
                               application.version = 'v1' and
                               jest(event_data, 'scope') != 'beta' and
                               jest(event_data, 'scope') IS NOT NULL and
-                              catalog_data.is_valid = true and
-                              (application.site_id <> 'MLA' or jest(event_data, 'collector_id') IN ('99635234', '99696162', '152667538', '192113402', '118966385', '109458301', '138185050', '177944835', '177928883', '127725750', '149532342', '144300544', '16496382', '62615447', '73314351', '137131218', '161489845', '154550560', '175655856', '147419035', '205060854', '153906449', '149974837', '47642517', '122909634', '115825462'))
+                              catalog_data.is_valid = true
                             GROUP BY device.platform, substr(ds, 1, 10), jest(event_data, 'collector_nickname'),
                                      jest(event_data, 'collector_id'), application.site_id
      ) tracks_4
