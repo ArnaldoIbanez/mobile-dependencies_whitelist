@@ -28,8 +28,8 @@ SUM(IF((path = '/checkout/congrats') AND (others['fragment'] LIKE '%SA:true%'),1
 SUM(IF((path = '/checkout/congrats'),1,0)) AS sena_total
 FROM tracks 
 WHERE  
-ds >= '2017-10-12' 
-AND ds < '2017-10-19'
+ds >= '@param01' 
+AND ds < '@param02'
 AND jest(event_data, 'vertical') IN ('REAL_ESTATE', 'real_estate', 'realEstate', 'RE', 'MOTOR', 'MOTORCYCLE', 'motors', 'SERVICE', 'services')
 GROUP BY (CASE jest(event_data, 'vertical')  WHEN 'MOTOR' THEN 'MOTORS' 
                                     WHEN 'motors' THEN 'MOTORS'
