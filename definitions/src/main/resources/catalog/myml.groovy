@@ -239,14 +239,14 @@ tracks {
         source(required: false, description: "Relist flow that was used to relist the item")
     }
 
-    "/myml/profile/"(platform: "/mobile", type: TrackType.View) {}
-    "/myml/profile/review_data/"(platform: "/mobile", type: TrackType.View) {}
-    "/myml/profile/complete_data/"(platform: "/mobile", type: TrackType.View) {}
-    "/myml/profile/update_form/"(platform: "/mobile", type: TrackType.View) {}
-    "/myml/profile/update_success/"(platform: "/mobile", type: TrackType.View) {}
-    "/myml/profile/update_form/save/"(platform: "/mobile", type: TrackType.Event) {}
-    "/myml/profile/complete_data/"(platform: "/mobile", type: TrackType.Event) {}
-    "/myml/profile/review_data/edit/"(platform: "/mobile", type: TrackType.Event) {}
-    "/myml/profile/review_data/confirm/"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/profile"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/profile/review_data"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/profile/complete_data"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/profile/update_form"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/profile/update_success"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/profile/update_form/save"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/profile/complete_data"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/profile/review_data/edit"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/profile/review_data/confirm"(platform: "/mobile", type: TrackType.Event) {}
 
 }

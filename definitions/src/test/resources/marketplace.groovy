@@ -3936,6 +3936,18 @@ trackTests {
         "/myml/summary"(platform: "/web"){}
     }
 
+    test("Myml My Data"){
+        "/myml/profile"(platform: "/mobile"){}
+        "/myml/profile/review_data"(platform: "/mobile"){}
+        "/myml/profile/complete_data"(platform: "/mobile"){}
+        "/myml/profile/update_form"(platform: "/mobile"){}
+        "/myml/profile/update_success"(platform: "/mobile"){}
+        "/myml/profile/update_form/save"(platform: "/mobile"){}
+        "/myml/profile/complete_data"(platform: "/mobile"){}
+        "/myml/profile/review_data/edit"(platform: "/mobile"){}
+        "/myml/profile/review_data/confirm"(platform: "/mobile"){}
+    }
+
     test("Myml Suggested Discounts"){
         "/myml/suggested_discounts/landing"(platform: "/mobile"){item_id = "MLA123456"}
         "/myml/suggested_discounts/landing/about"(platform: "/mobile"){item_id = "MLA123456"}
