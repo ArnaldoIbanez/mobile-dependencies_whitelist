@@ -58,6 +58,7 @@ tracks {
         //deal_id
         // exhibitors_id
         related_searches(required: false, description:'indicates whether clicked search related')
+        related_searches_info(required: false, description: 'Tracks related searches coverage')
         //query
         // position
         //quantity
