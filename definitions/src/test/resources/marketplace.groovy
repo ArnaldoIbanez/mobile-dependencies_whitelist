@@ -129,6 +129,11 @@ trackTests {
                 query= 'ipod'
                 position=1
                 quantity=2
+                related_by_category=false
+            }
+            related_searches_info={
+                quantity=2
+                related_queries=['ipod', 'ipod nano']
             }
             autosuggest={
                 suggest_position=3
