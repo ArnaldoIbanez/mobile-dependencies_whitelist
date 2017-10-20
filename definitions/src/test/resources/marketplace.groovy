@@ -3940,10 +3940,10 @@ trackTests {
         "/myml/profile"(platform: "/mobile"){}
         "/myml/profile/review_data"(platform: "/mobile"){}
         "/myml/profile/complete_data"(platform: "/mobile"){}
-        "/myml/profile/update_form"(platform: "/mobile"){}
-        "/myml/profile/update_success"(platform: "/mobile"){
+        "/myml/profile/update_form"(platform: "/mobile"){
             has_inferred_data = true
         }
+        "/myml/profile/update_success"(platform: "/mobile"){}
         "/myml/profile/review_data/confirm"(platform: "/mobile"){}
     }
 
