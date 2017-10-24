@@ -413,10 +413,26 @@ metrics {
 
 	}
 
-	"seller_called"(description: "track vip call seller as success for classifieds") {
+	"seller_contacted"(description: "track vip contact seller as success for classifieds") {
 		countsOn {
 			condition {
-				path("/vip/call_seller", "/vip/show_phone")
+				path("/vip/call_seller", "/vip/show_phone", "/vip/contact_seller")
+			}
+		}
+	}
+
+	"quotations"(description: "track quotation as success for classifieds") {
+		countsOn {
+			condition {
+				path("/quotation/congrats")
+			}
+		}
+	}
+
+	"vip/reservation_intention"(description: "track vip reservations init process for classifieds") {
+		countsOn {
+			condition {
+				path("/vip/reservation_intention")
 			}
 		}
 	}
