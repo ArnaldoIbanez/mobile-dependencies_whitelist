@@ -56,6 +56,7 @@ catalog {
         include business, "email.groovy"
         include business, "home.groovy"
         include business, "loyalty.groovy"
+        include business, "referralprogram.groovy"
         include business, "marketplace.groovy"
         include business, "myml.groovy"
         include business, "notifications.groovy"
