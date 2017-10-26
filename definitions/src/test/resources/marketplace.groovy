@@ -4277,19 +4277,19 @@ trackTests {
     }
 
     test("Referral Program tracks") {
-        "/referral/promoter/main"(platform: "/", type: TrackType.View)
+        "/referral/promoter/main"(platform: "/", type: TrackType.View) {}
 
-        "/referral/promoter/error/self_invite"(platform: "/", type: TrackType.View)
+        "/referral/promoter/error/self_invite"(platform: "/", type: TrackType.View) {}
 
-        "/referral/promoter/error/activated_user"(platform: "/", type: TrackType.View)
+        "/referral/promoter/error/activated_user"(platform: "/", type: TrackType.View) {}
 
-        "/referral/referred/main"(platform: "/", type: TrackType.View)
+        "/referral/referred/main"(platform: "/", type: TrackType.View) {}
 
-        "/referral/referred/error/has_benefit"(platform: "/", type: TrackType.View)
+        "/referral/referred/error/has_benefit"(platform: "/", type: TrackType.View) {}
 
-        "/referral/referred/congrats/login"(platform: "/mobile", type: TrackType.View)
+        "/referral/referred/congrats/login"(platform: "/mobile", type: TrackType.View) {}
 
-        "/referral/referred/congrats/register"(platform: "/mobile", type: TrackType.View)
+        "/referral/referred/congrats/register"(platform: "/mobile", type: TrackType.View) {}
     }
 
     test("Mobile Navigation Menu"){
