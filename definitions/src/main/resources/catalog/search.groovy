@@ -60,7 +60,6 @@ tracks {
         related_searches(required: false, description:'indicates whether clicked search related')
         related_searches_info(required: false, description: 'Tracks related searches coverage')
         canonical(required: false, description: 'url: canonical URL for the request; no_follow_tag: if the link rel="canonical" has no follow parameter; if the canonical URL has a mirror category configured')
-        user_ip(required: false)
         //query
         // position
         //quantity
