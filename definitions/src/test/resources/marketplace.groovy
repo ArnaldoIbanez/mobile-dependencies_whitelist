@@ -3863,6 +3863,36 @@ trackTests {
         "/sell/update/congrats_upgrade"(platform: "/mobile") {item_id = "MLA123456"}
     }
 
+    test("Modal attributes pseudo obligatory - List"){
+        "/sell/list/modal_attributes/show"(platform: "/web") {
+            session_id = "214464778-list-d5e5a20b2935"
+            empty_attrs_pk = "1"
+            empty_attrs_not_pk = "2"
+        }
+        "/sell/list/modal_attributes/submit"(platform: "/web") {
+            domain_id ="MLA-CAMERAS"
+            session_id = "214464778-list-d5e5a20b2935"
+            attribute_id = "MODEL"
+            option_selected = "no_possible"
+            option_value = ""
+        }
+    }  
+
+    test("Modal attributes pseudo obligatory - Update"){
+        "/sell/update/modal_attributes/show"(platform: "/web") {
+            session_id = "214464778-list-d5e5a20b2935"
+            empty_attrs_pk = "1"
+            empty_attrs_not_pk = "2"
+        }
+        "/sell/update/modal_attributes/submit"(platform: "/web") {
+            domain_id ="MLA-CAMERAS"
+            session_id = "214464778-list-d5e5a20b2935"
+            attribute_id = "MODEL"
+            option_selected = "no_possible"
+            option_value = ""
+        }
+    }  
+
     test("Item events"){
         def dataListItem = {
             item_id = "MLA123456"
