@@ -506,6 +506,8 @@ tracks {
 
     "/sell/list/modal_attributes"(platform: "/web", isAbstract: true) {
         session_id(required: false, description: "Session id", type: PropertyType.String)
+        condition(required: true, description: "Item condition", type: PropertyType.String)
+        user_id(required: true, description: "User id", type: PropertyType.String)
     }
     "/sell/list/modal_attributes/show"(platform: "/web", type: TrackType.Event) {
         empty_attrs_pk(required: false, description: "Quantity of attributes PK", type: PropertyType.Numeric)
@@ -521,6 +523,9 @@ tracks {
 
     "/sell/update/modal_attributes"(platform: "/web", isAbstract: true) {
         session_id(required: false, description: "Session id", type: PropertyType.String)
+        item_id(required: false, description: "Item id", type: PropertyType.String)
+        condition(required: true, description: "Item condition", type: PropertyType.String)
+        user_id(required: true, description: "User id", type: PropertyType.String)
     }
     "/sell/update/modal_attributes/show"(platform: "/web", type: TrackType.Event) {
         empty_attrs_pk(required: false, description: "Quantity of attributes PK", type: PropertyType.Numeric)

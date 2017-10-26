@@ -3868,6 +3868,8 @@ trackTests {
             session_id = "214464778-list-d5e5a20b2935"
             empty_attrs_pk = "1"
             empty_attrs_not_pk = "2"
+            condition = "new"
+            user_id = "123456"
         }
         "/sell/list/modal_attributes/submit"(platform: "/web") {
             domain_id ="MLA-CAMERAS"
@@ -3883,6 +3885,9 @@ trackTests {
             session_id = "214464778-list-d5e5a20b2935"
             empty_attrs_pk = "1"
             empty_attrs_not_pk = "2"
+            condition = "new"
+            user_id = "123456"
+            item_id = "MLA123456"
         }
         "/sell/update/modal_attributes/submit"(platform: "/web") {
             domain_id ="MLA-CAMERAS"
@@ -3890,6 +3895,7 @@ trackTests {
             attribute_id = "MODEL"
             option_selected = "no_possible"
             option_value = ""
+            item_id = "MLA123456"
         }
     }  
 
