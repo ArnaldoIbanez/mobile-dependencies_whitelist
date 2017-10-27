@@ -13,6 +13,15 @@ tracks {
 
     "/referral/promoter/main"(type: TrackType.View) {}
 
+    "/referral/promoter/main/social"(type: TrackType.Event) {
+        action(required: true,
+                values: ["share_link", "copy_link"],
+                description: "Type of promoter main page social share button clicked")
+        label(required: false,
+                values: ["whatsapp", "facebook", "twitter", "email"],
+                description: "Type of share_link event")
+    }
+
     "/referral/promoter/error"(platform: "/", isAbstract: true) {}
 
     "/referral/promoter/error/self_invite"(type: TrackType.View) {}
