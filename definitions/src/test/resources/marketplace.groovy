@@ -135,6 +135,12 @@ trackTests {
                 quantity=2
                 related_queries=['ipod', 'ipod nano']
             }
+            canonical={
+                url = "https://listado.mercadolibre.com.ar/zapatillas"
+                no_follow_tag = true
+                mirror_category_canonical = true
+            }
+
             autosuggest={
                 suggest_position=3
             }
