@@ -199,6 +199,10 @@ tracks {
     "/sell/list/pictures/crop"(platform: "/", type: TrackType.View) {
         session_id(required: false, description: "Session id", type: PropertyType.String)
     }
+    "/sell/list/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, description: "Session id", type: PropertyType.String)   
+        album_name(required: false, description: "Album name", type: PropertyType.String)   
+    }
     "/sell/list/pictures_uploader"(platform: "/", isAbstract: true) {
         session_id(required: false, description: "Session id", type: PropertyType.String)
     }
@@ -409,6 +413,10 @@ tracks {
     }
     "/sell/update/pictures/crop"(platform: "/", type: TrackType.View) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
+    }
+    "/sell/update/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, description: "Session id", type: PropertyType.String)   
+        album_name(required: false, description: "Album name", type: PropertyType.String)   
     }
     "/sell/update/pictures_uploader"(platform: "/", isAbstract: true) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
