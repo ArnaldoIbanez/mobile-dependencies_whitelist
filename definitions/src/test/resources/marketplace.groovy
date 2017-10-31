@@ -1269,6 +1269,9 @@ trackTests {
                     ]
             ]
         }
+
+        "/checkout/payments/payment_combination/debit_card"(platform:"/mobile") {}
+
         "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
             status = "success"
         }
