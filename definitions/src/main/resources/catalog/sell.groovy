@@ -504,38 +504,33 @@ tracks {
         item_id(required: false, description: "Item id", type: PropertyType.String)
     }
 
-    "/sell/list/modal_attributes"(platform: "/web", isAbstract: true) {
+    "/sell/list/modal_attributes"(platform: "/web", type: TrackType.View) {
         session_id(required: false, description: "Session id", type: PropertyType.String)
-        condition(required: true, description: "Item condition", type: PropertyType.String)
         user_id(required: true, description: "User id", type: PropertyType.String)
-    }
-    "/sell/list/modal_attributes/show"(platform: "/web", type: TrackType.Event) {
+        condition(required: true, description: "Item condition", type: PropertyType.String)
         empty_attrs_pk(required: false, description: "Quantity of attributes PK", type: PropertyType.Numeric)
         empty_attrs_not_pk(required: false, description: "Quantity of attributes not PK", type: PropertyType.Numeric)
     }
     "/sell/list/modal_attributes/submit"(platform: "/web", type: TrackType.Event) {
-        // option selected
+        session_id(required: false, description: "Session id", type: PropertyType.String)
+        user_id(required: true, description: "User id", type: PropertyType.String)
         domain_id(required: true, description: "Domain id", type: PropertyType.String)
         attribute_id(required: true, description: "Attribute id", type: PropertyType.String)
         option_selected(required: true, description: "Radio option selected", type: PropertyType.String)
-        option_value(required: false, description: "The other value", type: PropertyType.String)
     }
 
-    "/sell/update/modal_attributes"(platform: "/web", isAbstract: true) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+    "/sell/update/modal_attributes"(platform: "/web", type: TrackType.View) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
         condition(required: true, description: "Item condition", type: PropertyType.String)
         user_id(required: true, description: "User id", type: PropertyType.String)
-    }
-    "/sell/update/modal_attributes/show"(platform: "/web", type: TrackType.Event) {
         empty_attrs_pk(required: false, description: "Quantity of attributes PK", type: PropertyType.Numeric)
         empty_attrs_not_pk(required: false, description: "Quantity of attributes not PK", type: PropertyType.Numeric)
     }
     "/sell/update/modal_attributes/submit"(platform: "/web", type: TrackType.Event) {
+        item_id(required: false, description: "Item id", type: PropertyType.String)
         domain_id(required: true, description: "Domain id", type: PropertyType.String)
         attribute_id(required: true, description: "Attribute id", type: PropertyType.String)
         option_selected(required: true, description: "Radio option selected", type: PropertyType.String)
-        option_value(required: false, description: "The other value", type: PropertyType.String)
     }
 
 }
