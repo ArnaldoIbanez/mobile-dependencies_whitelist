@@ -460,6 +460,10 @@ tracks {
     "/checkout/payments/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/payments/2mp#not_use"(platform: "/mobile", type: TrackType.Event) {}
 
+    //2MP Disclaimer combination modal view.
+    "/checkout/payments/payment_combination"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/payments/payment_combination/debit_card"(platform: "/mobile") {}
+
     //"/checkout/review" //shared between web and app, already defined in web section.
     "/checkout/review#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         status(required: true, type: PropertyType.String)
