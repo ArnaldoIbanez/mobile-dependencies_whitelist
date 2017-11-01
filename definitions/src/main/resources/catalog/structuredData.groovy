@@ -58,6 +58,18 @@ tracks {
         catalogWidgetGroup
     }
 
+    "/catalogwidget/pi"(platform: "/") {
+        catalogWidgetGroup
+    }
+
+    "/catalogwidget/pi_save"(platform: "/") {
+        catalogWidgetGroup
+    }
+
+    "/catalogwidget/pi_cancel"(platform: "/") {
+        catalogWidgetGroup
+    }
+
     "/catalogwidget/next"(platform: "/") {
         catalogWidgetGroup
         catalogWidgetCompletenessGroup
