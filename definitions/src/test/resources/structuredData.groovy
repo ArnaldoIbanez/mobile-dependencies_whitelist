@@ -203,6 +203,39 @@ trackTests {
         }
     }
 
+    test("catalog_widget pi view should be tracked"){
+        "/catalogwidget/pi"(platform: "/", type: TrackType.Event) {
+            category_id = "MLA390784"
+            page = "summary"
+            item_id = "MLA682118081"
+            officialstore = false
+            domain_id = "MLA-FRAGRANCES"
+            seller_id = "241616388"
+        }
+    }
+
+    test("catalog_widget pi confirmation should be tracked"){
+        "/catalogwidget/pi_save"(platform: "/", type: TrackType.Event) {
+            category_id = "MLA390784"
+            page = "summary"
+            item_id = "MLA682118081"
+            officialstore = false
+            domain_id = "MLA-FRAGRANCES"
+            seller_id = "241616388"
+        }
+    }
+
+    test("catalog_widget pi cancel should be tracked"){
+        "/catalogwidget/pi_cancel"(platform: "/", type: TrackType.Event) {
+            category_id = "MLA390784"
+            page = "summary"
+            item_id = "MLA682118081"
+            officialstore = false
+            domain_id = "MLA-FRAGRANCES"
+            seller_id = "241616388"
+        }
+    }
+
     test("catalog_widget navigation should be tracked"){
         "/catalogwidget/next"(platform: "/", type: TrackType.Event){
             category_id = "MLA390784"
