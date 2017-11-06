@@ -42,7 +42,7 @@
       }
     ],
     "sql": {
-      "script": "business-assurance/billboard-resize.sql",
+      "script": "business-assurance/billboard_resize.sql",
       "parameters": [
         {
           "name": "param01",
