@@ -269,6 +269,27 @@ trackTests {
             review_length=321
         }
 
+        def vipTrack = {
+          item_id = "MLA631609359"
+          reviews_all_count = 3
+          reviews_negative_count = 0
+          likes = 0
+          dislikes = 0
+          reviews_positive_count = 0
+          reviews_shown = [
+            {
+              filter = "all"
+              length = 300
+              position = 2
+              reviewId = "3581337"
+              time = 27364
+              words = 52
+            }
+          ]
+          time_ellapsed = 75211
+          type = "detail"
+        }
+
         "/reviews/form"(platform:"/", dataSetForm)
 
         "/reviews/edit"(platform:"/", dataSet)
@@ -284,6 +305,8 @@ trackTests {
         "/reviews/email"(platform:"/email", dataSet)
 
         "/reviews"(platform:"/email", dataSet)
+
+        "/reviews/show"(platform:"/", vipTrack)
     }
 
     //VIP FLOW
