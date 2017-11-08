@@ -112,6 +112,20 @@ tracks {
     }
 
 
+    "/reviews/show"(platform: "/") {
+        item_id(required: true)
+        type(required: true)
+        access(required: false)
+        catalog_product_id(required: false)
+        reviews_all_count(required: false)
+        reviews_positive_count(required: false)
+        reviews_negative_count(required: false)
+        vote_up(required: false)
+        vote_down(required: false)
+        time_ellapsed(required: false)
+        review_id(required: false)
+        reviews_shown(required: false, type: PropertyType.ArrayList)
+    }
 
     //BOOKMARKS
 
