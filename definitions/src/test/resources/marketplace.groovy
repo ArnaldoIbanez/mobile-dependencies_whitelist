@@ -273,8 +273,14 @@ trackTests {
           item_id = "MLA631609359"
           reviews_all_count = 3
           reviews_negative_count = 0
-          likes = 0
-          dislikes = 0
+          vote_up = {
+            reviews_id = [1,2]
+            count = 2
+          }
+          vote_down = {
+            reviews_id = [3,4]
+            count = 2
+          }
           reviews_positive_count = 0
           reviews_shown = [
             {
