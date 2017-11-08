@@ -5,7 +5,7 @@
   "process_name": "search-alerts-vip",
   "cron": "",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "ds",
@@ -42,7 +42,7 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2017-05-21",
+          "value": "2017-04-21",
           "format": "yyyy-MM-dd"
         },
         {
