@@ -8,7 +8,7 @@ SELECT substr(ds,1,10) as ds,
        jet(event_data,'condition') AS condicion,
        application.site_id AS site
 FROM tracks
-WHERE ds >= '2017-11-03 18'
-AND   ds < '2017-11-09 07'
+WHERE ds >= '@param01'
+AND   ds < '@param02'
 AND   path IN ('/sell/list/modal_attributes', '/sell/update/modal_attributes')
 ORDER BY source

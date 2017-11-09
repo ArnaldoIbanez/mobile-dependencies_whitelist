@@ -12,7 +12,7 @@ SELECT substr(ds,1,10) as ds,
        jet(event_data,'hierarchy') AS hierarchy,
        application.site_id AS site
 FROM tracks
-WHERE ds >= '2017-11-03 18'
-AND   ds < '2017-11-09 07'
+WHERE ds >= '@param01'
+AND   ds < '@param02'
 AND   path IN ('/sell/list/modal_attributes/submit', '/sell/update/modal_attributes/submit')
 ORDER BY source, dominio, atributo
