@@ -11,4 +11,4 @@ FROM tracks
 WHERE ds >= '2017-11-03 18'
 AND   ds < '2017-11-09 07'
 AND   path IN ('/sell/list/modal_attributes', '/sell/update/modal_attributes')
-ORDER BY source, dominio, atributo
+ORDER BY source
