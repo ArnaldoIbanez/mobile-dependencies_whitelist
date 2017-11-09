@@ -42,7 +42,7 @@
         "name": "site",
         "type": "UNICODE_STRING"
       }
-      
+
     ],
     "sql": {
       "script": "business-assurance/structured-data-modal-views.sql",
