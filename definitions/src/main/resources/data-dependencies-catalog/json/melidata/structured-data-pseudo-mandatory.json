@@ -62,12 +62,12 @@
         {
           "name": "param01",
           "value": "2017-11-03 18",
-          "format": "yyyy-MM-dd"
+          "format": "yyyy-MM-dd hh"
         },
         {
           "name": "param02",
           "value": "2017-11-09 07",
-          "format": "yyyy-MM-dd"
+          "format": "yyyy-MM-dd hh"
         }
       ]
     }
