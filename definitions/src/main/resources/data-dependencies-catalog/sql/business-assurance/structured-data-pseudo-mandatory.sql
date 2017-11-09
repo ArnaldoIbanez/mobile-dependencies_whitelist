@@ -8,9 +8,11 @@ SELECT substr(ds,1,10) as ds,
        jet(event_data,'value') AS valor,
        usr.user_id AS seller,
        jet(event_data,'item_id') AS item,
-       jet(event_data,'condition') AS condicion
+       jet(event_data,'condition') AS condicion,
+       jet(event_data,'hierarchy') AS hierarchy,
+       application.site_id AS site
 FROM tracks
-WHERE ds >= '@param01'
-AND   ds < '@param02'
+WHERE ds >= '2017-11-03 18'
+AND   ds < '2017-11-09 07'
 AND   path IN ('/sell/list/modal_attributes/submit', '/sell/update/modal_attributes/submit')
 ORDER BY source, dominio, atributo

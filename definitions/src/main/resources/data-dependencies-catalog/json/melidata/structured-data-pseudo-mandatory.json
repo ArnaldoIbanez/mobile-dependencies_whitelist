@@ -5,9 +5,9 @@
     "sebastian.schmukliar@mercadolibre.com"
   ],
   "process_name": "structured_data_modal_attributes_submit",
-  "cron": "00 07 * * *",
+  "cron": "* * * * *",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
       {
         "name": "ds",
@@ -45,7 +45,16 @@
       {
         "name": "condicion",
         "type": "UNICODE_STRING"
+      },
+      {
+        "name": "hierarchy",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "site",
+        "type": "UNICODE_STRING"
       }
+
     ],
     "sql": {
       "script": "business-assurance/structured-data-pseudo-mandatory.sql",
