@@ -7,7 +7,7 @@
   "process_name": "structured_data_modal_attributes_views",
   "cron": "",
   "extract": {
-    "operation": "destroy",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "ds",
