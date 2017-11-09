@@ -7,7 +7,7 @@
   "process_name": "structured_data_modal_attributes_views",
   "cron": "",
   "extract": {
-    "operation": "overwrite",
+    "operation": "destroy",
     "columns": [
       {
         "name": "ds",
@@ -49,13 +49,13 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
-          "format": "yyyy-MM-dd"
+          "value": "2017-11-03 18",
+          "format": "yyyy-MM-dd hhg"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
-          "format": "yyyy-MM-dd"
+          "value": "2017-11-09 07",
+          "format": "yyyy-MM-dd hh"
         }
       ]
     }
