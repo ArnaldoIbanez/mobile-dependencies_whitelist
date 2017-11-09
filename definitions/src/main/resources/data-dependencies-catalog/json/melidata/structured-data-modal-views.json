@@ -4,7 +4,7 @@
     "gabriel.bertolo@mercadolibre.com",
     "sebastian.schmukliar@mercadolibre.com"
   ],
-  "process_name": "structured_data_modal_attributes_submit",
+  "process_name": "structured_data_modal_attributes_views",
   "cron": "",
   "extract": {
     "operation": "overwrite",
@@ -23,15 +23,11 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "atributo",
+        "name": "empty_attrs_pk",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "opcion",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "valor",
+        "name": "empty_attrs_not_pk",
         "type": "UNICODE_STRING"
       },
       {
@@ -39,15 +35,7 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "item",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "condicion",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "hierarchy",
         "type": "UNICODE_STRING"
       },
       {
@@ -57,7 +45,7 @@
 
     ],
     "sql": {
-      "script": "business-assurance/structured-data-pseudo-mandatory.sql",
+      "script": "business-assurance/structured-data-modal-views.sql",
       "parameters": [
         {
           "name": "param01",
