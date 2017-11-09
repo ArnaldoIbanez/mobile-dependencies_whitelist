@@ -49,7 +49,7 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "git ",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
