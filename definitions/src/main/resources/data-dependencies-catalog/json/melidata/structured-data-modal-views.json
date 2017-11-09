@@ -5,9 +5,9 @@
     "sebastian.schmukliar@mercadolibre.com"
   ],
   "process_name": "structured_data_modal_attributes_views",
-  "cron": "00 07 * * *",
+  "cron": "",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
       {
         "name": "ds",
@@ -49,7 +49,7 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "git ",
           "format": "yyyy-MM-dd"
         },
         {
