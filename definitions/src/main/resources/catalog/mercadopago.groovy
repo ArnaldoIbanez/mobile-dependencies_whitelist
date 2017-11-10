@@ -24,6 +24,9 @@ tracks {
 
     "/"(platform: "/web", isAbstract: true) {
     }
+
+    "/blog"(platform: "/web", isAbstract: true) {
+    }
     
     "/blog/home"(platform: "/web") {
     }
