@@ -23,6 +23,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "categoria",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "atributo",
         "type": "UNICODE_STRING"
       },
