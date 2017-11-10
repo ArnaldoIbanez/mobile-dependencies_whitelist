@@ -19,10 +19,6 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "dominio",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "empty_attrs_pk",
         "type": "UNICODE_STRING"
       },
@@ -54,7 +50,7 @@
         },
         {
           "name": "param02",
-          "value": "2017-11-09 07",
+          "value": "2017-11-10 07",
           "format": "yyyy-MM-dd hh"
         }
       ]
