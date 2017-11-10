@@ -43,6 +43,10 @@ trackTests {
             previous_size = 122592
         }
     }
+    
+    test("Mercado Pago blog") {
+        "/blog/home"(platform: "/web/desktop", type: TrackType.View) {}
+    }
 
     test("Register") {
         "/register/success"(platform: "/mobile") {
