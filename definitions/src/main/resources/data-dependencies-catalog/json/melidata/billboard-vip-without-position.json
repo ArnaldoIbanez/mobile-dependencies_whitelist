@@ -2,7 +2,7 @@
   "users": [
     "lucia.blanc@mercadolibre.com"
   ],
-  "process_name": "search-alerts-total-events",
+  "process_name": "billboard-vip-without-position",
   "cron": "",
   "extract": {
     "operation": "append",
@@ -38,16 +38,16 @@
       }
     ],
     "sql": {
-      "script": "business-assurance/search_alerts_total_events.sql",
+      "script": "business-assurance/billboard_vip_without_position.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "2017-07-21",
+          "value": "2017-01-01",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "2017-08-21",
+          "value": "2017-03-01",
           "format": "yyyy-MM-dd"
         }
       ]
