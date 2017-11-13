@@ -65,13 +65,13 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
-          "format": "yyyy-MM-dd"
+          "value": "2017-11-03 07",
+          "format": "yyyy-MM-dd hh"
         },
         {
-          "name": "2017-11-03 07",
+          "name": "param02",
           "value": "2017-11-13 07",
-          "format": "yyyy-MM-dd"
+          "format": "yyyy-MM-dd hh"
         }
       ]
     }
