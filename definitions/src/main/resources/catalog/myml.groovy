@@ -171,6 +171,8 @@ tracks {
     "/myml/account_balance/bill_payments"(platform: "/mobile", type: TrackType.Event) {
         mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
     }
+    "/myml/account_balance/generic_error"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/account_balance/scan_qr"(platform: "/mobile", type: TrackType.View) {}
 
     "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
     "/myml/account_balance/install/go_to_store"(platform: "/mobile", type: TrackType.Event) {}

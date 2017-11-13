@@ -3917,7 +3917,7 @@ trackTests {
             option_selected = "no_possible"
             user_id = "123456"
         }
-    }  
+    }
 
     test("Modal attributes pseudo obligatory - Update"){
         "/sell/update/modal_attributes"(platform: "/web") {
@@ -3935,7 +3935,7 @@ trackTests {
             option_selected = "no_possible"
             item_id = "MLA123456"
         }
-    }  
+    }
 
     test("Item events"){
         def dataListItem = {
@@ -4077,6 +4077,8 @@ trackTests {
         "/myml/account_balance/bill_payments"(platform: "/mobile", type: TrackType.Event) {
             mp_installed = true
         }
+        "/myml/account_balance/generic_error"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/account_balance/scan_qr"(platform: "/mobile", type: TrackType.View) {}
     }
 
     test("MyMl new reputation flow seller") {
