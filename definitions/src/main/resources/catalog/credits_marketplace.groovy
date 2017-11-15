@@ -15,9 +15,6 @@ tracks {
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
     "/credits/consumer/enrollment"(platform: "/", isAbstract: true) {}
-    "/credits/consumer/payinstallment"(platform: "/", isAbstract: true) {}
-    "/credits/consumer/payinstallment/on_time"(platform: "/", isAbstract: true) {}
-    "/credits/consumer/payinstallment/late_pay"(platform: "/", isAbstract: true) {}
 
     //Landing consumer
     "/credits/consumer/enrollment"(platform: "/", type: TrackType.View) {}
@@ -37,6 +34,7 @@ tracks {
 
     //Landing Push Native
     //On Time payment
+    "/credits/consumer/payinstallment/"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/payinstallment/on_time"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/payinstallment/on_time/pay"(platform: "/", type: TrackType.Event) {}
 
