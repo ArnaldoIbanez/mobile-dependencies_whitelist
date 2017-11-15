@@ -15,6 +15,9 @@ tracks {
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
     "/credits/consumer/enrollment"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/payinstallment"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/payinstallment/on_time"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/payinstallment/late_pay"(platform: "/", isAbstract: true) {}
 
     //Landing consumer
     "/credits/consumer/enrollment"(platform: "/", type: TrackType.View) {}
@@ -31,4 +34,16 @@ tracks {
     //Congrats
     "/credits/consumer/enrollment/congrats"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/enrollment/congrats/buy"(platform: "/", type: TrackType.Event) {}
+
+    //Landing Push Native
+    //On Time payment
+    "/credits/consumer/payinstallment/on_time"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/payinstallment/on_time/pay"(platform: "/", type: TrackType.Event) {}
+
+    //Delayed payment
+    "/credits/consumer/payinstallment/late_pay"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/payinstallment/late_pay/pay"(platform: "/", type: TrackType.Event) {}
+
+    //Payed
+    "/credits/consumer/payinstallment/payed"(platform: "/", type: TrackType.View) {}
 }
