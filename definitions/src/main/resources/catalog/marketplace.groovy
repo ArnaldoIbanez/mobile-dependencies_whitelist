@@ -468,6 +468,7 @@ tracks {
     "/subscriptions"(platform: "/", isAbstract: true) {
         order_id(required: true, type: PropertyType.String)
         item_id(required: true, type: PropertyType.String)
+        category_id(required: true, type: PropertyType.String)
     }
 
     "/subscriptions/frequency"(platform: "/", type: TrackType.View) {}
