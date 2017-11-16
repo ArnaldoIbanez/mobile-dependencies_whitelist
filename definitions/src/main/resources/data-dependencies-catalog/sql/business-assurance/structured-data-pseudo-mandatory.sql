@@ -3,6 +3,7 @@ SELECT substr(ds,1,10) as ds,
             WHEN path LIKE '%update%' THEN 'UPDATE'
         END AS source,
        jet(event_data,'domain_id') AS dominio,
+       jet(event_data,'category_id') AS categoria,
        jet(event_data,'attribute_id') AS atributo,
        jet(event_data,'option_selected') AS opcion,
        jet(event_data,'value') AS valor,

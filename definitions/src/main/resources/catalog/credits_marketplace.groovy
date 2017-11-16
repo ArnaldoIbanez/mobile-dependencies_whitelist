@@ -31,4 +31,17 @@ tracks {
     //Congrats
     "/credits/consumer/enrollment/congrats"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/enrollment/congrats/buy"(platform: "/", type: TrackType.Event) {}
+
+    //Landing Push Native
+    //On Time payment
+    "/credits/consumer/payinstallment/"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/payinstallment/on_time"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/payinstallment/on_time/pay"(platform: "/", type: TrackType.Event) {}
+
+    //Delayed payment
+    "/credits/consumer/payinstallment/late_pay"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/payinstallment/late_pay/pay"(platform: "/", type: TrackType.Event) {}
+
+    //Payed
+    "/credits/consumer/payinstallment/payed"(platform: "/", type: TrackType.View) {}
 }
