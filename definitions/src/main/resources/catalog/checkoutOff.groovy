@@ -9,7 +9,7 @@ tracks {
         checkout_flow_id(required: true, description: "checkout flow id")
         collector_id(required: true)
         collector_nickname(required: true)
-        preference_id(required: true)
+        preference_id(required: false)
         scope(required: false, description: "pool that generates the tracks: mla, mlb, mlm, rola, revamp")
     }
 
@@ -102,5 +102,19 @@ tracks {
         response_status(required: true)
         exception_message(required: false)
     }
+
+    //-----------------------Unified tracking catalog--------------------
+
+    "/checkout_off/v1"(platform: "/", isAbstract: true){
+        client_id(required: true, description: "Application's client_id")
+        environment(required: true, description: "Production or staging tracks")
+        screen_name(required: false, description: "A describing name of the screen viewed or where an event occurred")
+    }
+
+    // A new checkout flow has been started
+    "/checkout_off/v1/init"(platform: "/", type: TrackType.Event){}
+
+    // The user has completed the checkout and confirmed its intention to pay. This will be used to track conversion, but does not mean that the payment has been processed."
+    "/checkout_off/v1/checkout_confirmed"(platform: "/", type: TrackType.Event){}
 
 }
