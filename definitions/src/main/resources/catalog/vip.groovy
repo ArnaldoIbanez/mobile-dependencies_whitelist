@@ -171,5 +171,43 @@ tracks {
     "/shipping/mercadoenvios/shipping_cost/fail"(platform: "/mobile", type: TrackType.Event) {
     }
 
+    //New Shipping calculator
 
+    "/vip/shipping"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {
+    }
+
+    "/vip/shipping/calculator"(platform: "/", isAbstract: true) {
+    }
+
+    "/vip/shipping/calculator/calculate"(platform: "/", type: TrackType.Event) {
+        cp_autocomplete(type: PropertyType.Boolean)
+    }
+
+    "/vip/shipping/calculator/i_dont_know_my_code"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/vip/shipping/calculator/calculate_error"(platform: "/", type: TrackType.Event) {
+        error_type()
+    }
+
+    "/vip/shipping/calculator/agencies"(platform: "/", isAbstract: true) {
+    }
+
+    "/vip/shipping/calculator/agencies/show_agencies_map_for_pickup"(platform: "/", type: TrackType.View) {
+    }
+
+    "/vip/shipping/calculator/choose_state"(platform: "/", type: TrackType.View) {
+    }
+ 
+    "/vip/shipping/calculator/choose_city"(platform: "/", type: TrackType.View) {
+    }
+
+    "/vip/shipping/calculator/go_to_vip"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, description: "Item ID")
+        item_selected_quantity(required: true)
+        item_shipping_quantity(required: true)
+        shipping_default(required: false)
+        shipping_selected(required: true)
+        shipping_available_opcion(required: true, type:PropertyType.ArrayList)
+    }
 }
