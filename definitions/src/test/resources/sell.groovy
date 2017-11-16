@@ -17,4 +17,18 @@ trackTests {
             price = 10000
     	}
     }
+
+    test("Selected a photo album in the list flow") {
+        "/sell/list/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "245084411-list-4519bc3c72aa"
+            album_name = "Galería de fotos"
+        }
+    }
+
+    test("Selected a photo album in the modify flow") {
+        "/sell/update/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "245084411-list-4519bc3c72aa"
+            album_name = "Galería de fotos"
+        }
+    }
 }

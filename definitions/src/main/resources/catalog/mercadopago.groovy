@@ -25,8 +25,42 @@ tracks {
     "/"(platform: "/web", isAbstract: true) {
     }
 
+    "/blog"(platform: "/web", isAbstract: true) {
+    }
+    
+    "/blog/home"(platform: "/web") {
+    }
+
+
+    // MP Landings Scope
+    "/landing"(platform: "/web", isAbstract: true) {}
+
+    // MP Home
+    "/landing/home"(platform: "/web"){}
+
+    // MP Sellers 
+    "/landing/sellers"(platform: "/web"){}
+
+    // MP Sellers Websites
+    "/landing/sellers/websites"(platform: "/web"){}
+
+    // MP Sellers Social
+    "/landing/sellers/social"(platform: "/web"){}
+
+    // MP Buyers
+    "/landing/buyers"(platform: "/web"){}
+
+    // MP Promotions
+    "/landing/promotions"(platform: "/web"){}
+
+    // MP Activities
+    "/listing"(platform: "/web", isAbstract: true){}
+
+    "/listing/activities"(platform: "/web"){}
+
     "/point"(platform: "/", isAbstract: true) {}
 
+    // MP Point Landings
     "/point/home"(platform: "/") {
         product (type: PropertyType.String, description: "Name of device, example: 'point-h'")
         currency (type: PropertyType.String, required: false, description: "Currency")
@@ -36,6 +70,34 @@ tracks {
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
     }
 
+    // MP Mobile Point
+    "/point_payment"(platform: "/mobile", type: TrackType.View) {
+        from (required: false, type: PropertyType.String, description: "Where the flow start")
+        method (required: false, type: PropertyType.String, description: "Card reading method swipe/dip/tap", values: ["swipe", "dip", "tap"])
+        currency (required: false, type: PropertyType.String, description: "Transaction currency")
+        amount (required: false, type: PropertyType.Numeric, description: "Transaction amount")
+        installments (required: false, type: PropertyType.Numeric, description: "Installments amount")
+        payment_status (required: false, type: PropertyType.String, description: "Payment result status")
+        payment_detail (required: false, type: PropertyType.String, description: "Payment result detail")
+        reason (required: false, type: PropertyType.String, description: "Payment reason")
+        poi (required: false, type: PropertyType.String, description: "Device serial number")
+        poi_type (required: false, type: PropertyType.String, description: "Type of device")
+        payment_method_id (required: false, type: PropertyType.String, description: "Payment Method used")
+        operator_id (required: false, type: PropertyType.String, description: "Operator identification")
+    }
+
+    "/point_payment/card"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/installments"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/card_type"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/signature"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/security_code"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/identification_number"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/result"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/error"(platform: "/mobile", type: TrackType.View) {
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+        error_msg (required:false, type: PropertyType.String, description: "Error shown to seller")
+    }
+    
     // MPMOBILE
     "/account_summary"(platform: "/mobile") {}
     "/account_summary/filters"(platform: "/mobile") {}
@@ -282,6 +344,7 @@ tracks {
     }
     "/bill_payments/fixed_amount"(platform: "/mobile") {}
     "/bill_payments/ticket_data"(platform: "/mobile") {}
+    "/bill_payments/fee"(platform: "/mobile"){}
 
 
     "/recharge_sube"(platform: "/mobile", isAbstract: true) {
@@ -447,6 +510,16 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    "/digital_goods/terms_and_conditions"(platform: "/mobile") {}
+
+
+    "/money_detail"(platform: "/mobile", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/money_detail/balance"(platform: "/mobile") {}
+    "/money_detail/help_modal"(platform: "/mobile") {}
+
     
     /**
      * END NOTIFICATIONS

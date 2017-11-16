@@ -2,8 +2,8 @@
   "users": [
     "lucia.blanc@mercadolibre.com"
   ],
-  "process_name": "alerts-search-classi",
-  "cron": "00 06 * * *",
+  "process_name": "billboard",
+  "cron": "",
   "extract": {
     "operation": "append",
     "columns": [
@@ -13,57 +13,48 @@
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "Type",
+        "name": "site",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Path",
+        "name": "business",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Site",
+        "name": "vertical",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Business",
+        "name": "plataforma",
         "type": "UNICODE_STRING"
       },
-        {
-        "name": "UserUid",
+      {
+        "name": "path",
         "type": "UNICODE_STRING"
       },
-        {
-        "name": "UserId",
-        "type": "UNICODE_STRING"
+      {
+        "name": "posicion",
+        "type": "INTEGER"
       },
-        {
-        "name": "Platform",
-        "type": "UNICODE_STRING"
-      },
-        {
-        "name": "Referer",
-        "type": "UNICODE_STRING"
-      },
-        {
-        "name": "Url",
-        "type": "UNICODE_STRING"
+      {
+        "name": "cantidad",
+        "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "business-assurance/alertssearchclassi.sql",
+      "script": "business-assurance/billboard.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2017-03-01",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "2017-05-01",
           "format": "yyyy-MM-dd"
         }
       ]
     }
   }
 }
-

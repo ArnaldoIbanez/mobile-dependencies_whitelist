@@ -56,6 +56,7 @@ catalog {
         include business, "email.groovy"
         include business, "home.groovy"
         include business, "loyalty.groovy"
+        include business, "referralprogram.groovy"
         include business, "marketplace.groovy"
         include business, "myml.groovy"
         include business, "notifications.groovy"
@@ -65,6 +66,8 @@ catalog {
         include business, "sell.groovy"
         include business, "vip.groovy"
         include business, "returns.groovy"
+        include business, "freeData.groovy"
+        include business, "structuredData.groovy"
     }
 
     mercadopago.each { business ->

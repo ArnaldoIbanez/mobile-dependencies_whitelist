@@ -11,7 +11,7 @@ count(1) as total_clicks
 from tracks
 where 	   ds >='@param01'
 and 	   ds <'@param02'
-and others['fragment'] like '%DEAL%'
+and others['fragment'] like '%DEAL_ID%'
 and jest(others['fragment'], 'DEAL_ID') != '[]'
 group by 
 substr(ds,1,10),

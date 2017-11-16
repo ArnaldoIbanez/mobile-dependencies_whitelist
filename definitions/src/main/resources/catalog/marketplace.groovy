@@ -3,17 +3,17 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 /**
-*
-* The events means actions that happens without launch a View,
-* as example of that we can consider Bookmark an item in a VIP page
-* Every event is an action, so the verbs available are:
-*
-* - back:  the event of back from a page, specially in mobile
-* - abort: the user abort the action (e.g: back pressed before api response)
-* - delete: when something is deleted
-* - apply: when a criteria is applied
-* - post: create a new entity
-*/
+ *
+ * The events means actions that happens without launch a View,
+ * as example of that we can consider Bookmark an item in a VIP page
+ * Every event is an action, so the verbs available are:
+ *
+ * - back:  the event of back from a page, specially in mobile
+ * - abort: the user abort the action (e.g: back pressed before api response)
+ * - delete: when something is deleted
+ * - apply: when a criteria is applied
+ * - post: create a new entity
+ */
 
 tracks {
 
@@ -24,17 +24,17 @@ tracks {
     "/"(platform: "/", isAbstract: true) {
         //Recommendations data
         recommendations (required: false, description: "Recommendations data map")
-            // has_errors,
-            // hidden_by_client,
-            // client,
-            // backend_id,
-            // track_info:[
-            //              has_recommendations,
-            //              item_category,
-            //              recommended_items:[]
-            //              recommended_categories:[]
-            //    ]
-            //
+        // has_errors,
+        // hidden_by_client,
+        // client,
+        // backend_id,
+        // track_info:[
+        //              has_recommendations,
+        //              item_category,
+        //              recommended_items:[]
+        //              recommended_categories:[]
+        //    ]
+        //
     }
 
     //EXTERNAL
@@ -76,6 +76,9 @@ tracks {
     //REVIEWS FRONTEND
     "/reviews/form"(platform: "/") {
         item_id()
+        step()
+        flow(required: false)
+        action(required: false)
     }
 
     "/reviews/edit"(platform: "/") {
@@ -109,12 +112,27 @@ tracks {
     }
 
 
+    "/reviews/show"(platform: "/") {
+        item_id(required: true)
+        type(required: true)
+        access(required: false)
+        catalog_product_id(required: false)
+        reviews_all_count(required: false)
+        reviews_positive_count(required: false)
+        reviews_negative_count(required: false)
+        vote_up(required: false)
+        vote_down(required: false)
+        time_ellapsed(required: false)
+        review_id(required: false)
+        reviews_shown(required: false, type: PropertyType.ArrayList)
+    }
 
     //BOOKMARKS
 
     "/bookmarks/action"(platform: "/mobile", isAbstract: true) {}
 
-    "/bookmarks"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
+    "/bookmarks"(platform: "/", type: TrackType.Event, isAbstract: true) {
+        item_id(required: false)
         context(required: false)
     }
 
@@ -144,6 +162,32 @@ tracks {
         context()
         action_location(required:false, type: PropertyType.String)
     }
+    //Bookmark add to Cart
+    "/bookmarks/add_to_cart" (platform: "/", type: TrackType.Event) {}
+
+    //Bookmark show
+    "/bookmarks/show_bookmarks"(platform: "/", type: TrackType.Event) {}
+
+    //Bookmark load more
+    "/bookmarks/load_more"(platform: "/", type: TrackType.Event) {}
+
+    //Bookmarks refresh view
+    "/bookmarks/refresh"(platform: "/", type: TrackType.Event) {}
+
+    //Bookmarks Server error view
+    "/bookmarks/show_server_error"(platform: "/", type: TrackType.Event) {}
+
+    //Bookmarks Retry
+    "/bookmarks/retry_after_error"(platform: "/", type: TrackType.Event) {}
+
+    //Bookmarks If doesn't have session show feedback
+    "/bookmarks/show_not_logged_in_feedback"(platform: "/", type: TrackType.Event) {}
+
+    //Bookmarks Go to Login
+    "/bookmarks/go_to_login"(platform: "/", type: TrackType.Event) {}
+
+    //Bookmarks show ZRP
+    "/bookmarks/show_ZRP"(platform: "/", type: TrackType.Event) {}
 
     "/questions/ask/post" (platform: "/web", type: TrackType.Event) {
         item_id()
@@ -236,7 +280,7 @@ tracks {
     "/landing/generic"(platform: "/mobile") {
         url(required:true, descripcion:"The url to be loaded by the generic landing")
         is_main_url(required:false, type: PropertyType.Boolean,
-            descripcion: "True if the url is the first url to be loaded. Next urls will have this flag in false (redirects, taps)")
+                descripcion: "True if the url is the first url to be loaded. Next urls will have this flag in false (redirects, taps)")
     }
 
     "/orders"(platform: "/", isAbstract: true) {}
@@ -249,12 +293,12 @@ tracks {
         total_amount_with_shipping(required: false, description: "order amount including shipping cost")
         items( required: true, type:PropertyType.ArrayList, description: "Array of items in the order with following data" )
         //item
-            //id
-            //title
-            //selle_custom_fields
-            //variation_attributes
-            //category_id
-            //variation_id
+        //id
+        //title
+        //selle_custom_fields
+        //variation_attributes
+        //category_id
+        //variation_id
         //quantity
         //unit_price
         //currency_id
@@ -282,6 +326,8 @@ tracks {
         buyer(required: true, description: "buyer information") // id, nickname
         seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data") // id, nickname
         is_carrito(required: true, description: "Whetever this order was created by a carrito or not ")
+        reservation(required: true, type: PropertyType.Boolean, description: "If the order came from a motor reservation")
+        subscription(required: true, type: PropertyType.Boolean, description: "If the order was generated from a subscription")
     }
 
 
@@ -394,8 +440,8 @@ tracks {
     "/feedback/congrats"(platform: "/") {}
 
 
-   //Recommendations => Should be embebed in host tracks, except for client-side clientes ( i.e. /vip )
-   "/recommendations"(platform: "/") {
+    //Recommendations => Should be embebed in host tracks, except for client-side clientes ( i.e. /vip )
+    "/recommendations"(platform: "/") {
 
     }
 
@@ -419,7 +465,10 @@ tracks {
     }
 
     // Subscriptions
-    "/subscriptions"(platform: "/", isAbstract: true) {}
+    "/subscriptions"(platform: "/", isAbstract: true) {
+        order_id(required: true, type: PropertyType.String)
+        item_id(required: true, type: PropertyType.String)
+    }
 
     "/subscriptions/frequency"(platform: "/", type: TrackType.View) {}
     "/subscriptions/change_frequency"(platform: "/", type: TrackType.Event) {
@@ -432,12 +481,12 @@ tracks {
     "/subscriptions/review/confirm"(platform: "/", type: TrackType.Event) {
         context(required: true, type: PropertyType.String)
     }
-    
+
     "/subscriptions/congrats"(platform: "/", type: TrackType.View) {}
     "/subscriptions/congrats/view_subscription"(platform: "/", type: TrackType.Event) {}
-    "/subscriptions/congrats/subscribe"(platform: "/", type: TrackType.Event) {}
+    "/subscriptions/congrats/subscribe"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {}
 
-    "/subscriptions/summary"(platform: "/", type: TrackType.View) {}
+    "/subscriptions/summary"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
     "/subscriptions/detail"(platform: "/", type: TrackType.View) {}
     "/subscriptions/detail/modify_frequency"(platform: "/", type: TrackType.View) {}
 
@@ -451,7 +500,7 @@ tracks {
 
     "/subscriptions/detail/cancel"(platform: "/", type: TrackType.View) {}
     "/subscriptions/detail/cancel/subscription"(platform: "/", type: TrackType.Event) {}
-    
+
     "/sso" (platform: "/mobile", isAbstract: true){}
     "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
     "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}
@@ -467,4 +516,7 @@ tracks {
     "/cx/click_on_suggestion" (platform: "/mobile", type: TrackType.Event){}
     "/cx/contact_types" (platform: "/mobile", isAbstract: true){}
     "/cx/contact_types/click_on_contact_form" (platform: "/mobile", type: TrackType.Event){}
+
+    "/recommendations/print" (platform: "/"){}
+
 }

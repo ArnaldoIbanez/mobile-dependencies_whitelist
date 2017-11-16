@@ -33,6 +33,11 @@ tracks {
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:true)
     }
 
+    "/register/optin"(platform:"/web", type: TrackType.View) {
+        app(type: PropertyType.String, description: "Registration app", required:true)
+        prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:true)
+    }
+
     "/register/form/error"(platform:"/web", type: TrackType.View) {
         errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
         errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
@@ -108,6 +113,31 @@ tracks {
     "/register/account-recovery-hub/use-another-email"(platform: "/mobile", type: TrackType.Event){}
 
     "/register/congrats"(platform: "/mobile", type: TrackType.View){
+        app(type: PropertyType.String, required:true, description: "Current Flow")
+        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
+        item_id(type: PropertyType.String, required:false, description: "Item" )
+    }
+
+    "/register/form/skip-update"(platform: "/web", type: TrackType.View){}
+    "/register/optin/push"(platform: "/web", type: TrackType.View){}
+    "/register/optin/skip"(platform: "/web", type: TrackType.View){}
+    "/register/form/email-suggest"(platform: "/web", type: TrackType.Event){}
+
+    "/register/form/update"(platform: "/mobile", type: TrackType.View){
+        app(type: PropertyType.String, required:true, description: "Current Flow")
+        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
+        item_id(type: PropertyType.String, required:false, description: "Item" )
+    }
+
+    "/register/form/update/error"(platform:"/mobile", type: TrackType.View) {
+        errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
+        errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
+    }
+
+    "/register/form/update/save"(platform: "/mobile", type: TrackType.Event){}
+    "/register/form/update/not-now"(platform: "/mobile", type: TrackType.Event){}
+
+    "/register/successful-update"(platform: "/mobile", type: TrackType.View){
         app(type: PropertyType.String, required:true, description: "Current Flow")
         origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
         item_id(type: PropertyType.String, required:false, description: "Item" )

@@ -36,13 +36,19 @@ tracks {
         cart_content(required: false, type: PropertyType.Boolean, description: "Indicates if the VIP has cart features")
         loyalty_level(required: false, description: "User's loyalty level")
         free_shipping_benefit(required: false, type: PropertyType.Boolean, description: "Indicates if the user has free shipping benefit")
+        return_available(required: false, type: PropertyType.String, values: ["Yes", "No"], description: "Indicates if the user has free return for the item")
+        item_price(required: false, type: PropertyType.Map, description: "Indicates the item price in different currencies")
+        search_query(required: false, type: PropertyType.String)
+        page_vertical(required: false, type: PropertyType.String)
+        gallery_pattern(required: false, type: PropertyType.String, description: "Defines images pattern in publications")
+        review_rate(required: false, inheritable: false)
+        reviews_attributes(required: false, inheritable: false)
     }
 
     "/vip"(platform: "/web") {
-        review_rate(inheritable: false)
+        specifications_size(required: false, description: "Specifications attributes quantity")
         description_type(required: false, description: "Description type: plain text, html, both, none", values: ["plain_text", "html", "both", "none"])
         max_size_gallery(required: false, description: "Max_size of first picture gallery")
-        specifications_size(required: false, description: "Specifications attributes quantity")
     }
 
     "/vip"(platform: "/mobile") {
@@ -75,7 +81,9 @@ tracks {
 
     "/vip/description/back"(platform: "/mobile") {}
 
-    "/vip/item_gallery"(platform: "/mobile", parentPropertiesInherited: false) {}
+    "/vip/item_gallery"(platform: "/mobile", parentPropertiesInherited: false) {
+        context(required: false)
+    }
 
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
@@ -103,7 +111,7 @@ tracks {
 
     "/vip/payment_method/back"(platform: "/mobile") {}
 
-    "/vip/variations"(platform: "/mobile") {}
+    "/vip/variations"(platform: "/") {}
 
     "/vip/variations/back"(platform: "/mobile") {}
 
@@ -115,6 +123,9 @@ tracks {
 
     "/vip/quantity"(platform: "/mobile") {}
 
+    "/vip/reviews"(platform: "/", type: TrackType.View) {
+        show(required: false, inheritable: false, type: PropertyType.String)
+    }
 
     // ADDRESS
 
@@ -160,5 +171,43 @@ tracks {
     "/shipping/mercadoenvios/shipping_cost/fail"(platform: "/mobile", type: TrackType.Event) {
     }
 
+    //New Shipping calculator
 
+    "/vip/shipping"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {
+    }
+
+    "/vip/shipping/calculator"(platform: "/", isAbstract: true) {
+    }
+
+    "/vip/shipping/calculator/calculate"(platform: "/", type: TrackType.Event) {
+        cp_autocomplete(type: PropertyType.Boolean)
+    }
+
+    "/vip/shipping/calculator/i_dont_know_my_code"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/vip/shipping/calculator/calculate_error"(platform: "/", type: TrackType.Event) {
+        error_type()
+    }
+
+    "/vip/shipping/calculator/agencies"(platform: "/", isAbstract: true) {
+    }
+
+    "/vip/shipping/calculator/agencies/show_agencies_map_for_pickup"(platform: "/", type: TrackType.View) {
+    }
+
+    "/vip/shipping/calculator/choose_state"(platform: "/", type: TrackType.View) {
+    }
+ 
+    "/vip/shipping/calculator/choose_city"(platform: "/", type: TrackType.View) {
+    }
+
+    "/vip/shipping/calculator/go_to_vip"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, description: "Item ID")
+        item_selected_quantity(required: true)
+        item_shipping_quantity(required: true)
+        shipping_default(required: false)
+        shipping_selected(required: true)
+        shipping_available_opcion(required: true, type:PropertyType.ArrayList)
+    }
 }

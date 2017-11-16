@@ -61,7 +61,9 @@ tracks {
     	mymlGroup
     }
 
-    "/myml/purchases/list"(platform: "/") {}
+    "/myml/purchases/list"(platform: "/") {
+        return_available(required: false, type: PropertyType.String, values: ["Yes", "No"], description: "Indicates if there is at least one item that has free return")
+    }
 
     "/myml/purchases/detail"(platform: "/") {}
 
@@ -169,6 +171,10 @@ tracks {
     "/myml/account_balance/bill_payments"(platform: "/mobile", type: TrackType.Event) {
         mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
     }
+    "/myml/account_balance/generic_error"(platform: "/mobile", type: TrackType.View) {
+        additional_info (required:false, description: "Extra info")
+    }
+    "/myml/account_balance/scan_qr"(platform: "/mobile", type: TrackType.View) {}
 
     "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
     "/myml/account_balance/install/go_to_store"(platform: "/mobile", type: TrackType.Event) {}
@@ -237,5 +243,13 @@ tracks {
         source(required: false, description: "Relist flow that was used to relist the item")
     }
 
+    "/myml/profile"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/profile/review_data"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/profile/complete_data"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/profile/update_form"(platform: "/mobile", type: TrackType.View) {
+        has_inferred_data(required:true, type: PropertyType.Boolean)
+    }
+    "/myml/profile/update_success"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/profile/review_data/confirm"(platform: "/mobile", type: TrackType.Event) {}
 
 }

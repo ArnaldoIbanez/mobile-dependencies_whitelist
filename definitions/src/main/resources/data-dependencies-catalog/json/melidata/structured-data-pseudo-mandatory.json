@@ -1,9 +1,11 @@
 {
   "users": [
-    "lucia.blanc@mercadolibre.com"
+    "emmanuel.mastronardi@mercadolibre.com",
+    "gabriel.bertolo@mercadolibre.com",
+    "sebastian.schmukliar@mercadolibre.com"
   ],
-  "process_name": "classifieds-alerts",
-  "cron": "00 14 * * *",
+  "process_name": "structured_data_modal_attributes_submit",
+  "cron": "00 07 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -13,48 +15,53 @@
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "Type",
+        "name": "source",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Path",
+        "name": "dominio",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Site",
+        "name": "categoria",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Business",
+        "name": "atributo",
         "type": "UNICODE_STRING"
       },
-        {
-        "name": "UserUid",
+      {
+        "name": "opcion",
         "type": "UNICODE_STRING"
       },
-        {
-        "name": "UserId",
+      {
+        "name": "valor",
         "type": "UNICODE_STRING"
       },
-        {
-        "name": "Platform",
+      {
+        "name": "seller",
         "type": "UNICODE_STRING"
       },
-        {
-        "name": "Referer",
+      {
+        "name": "item",
         "type": "UNICODE_STRING"
       },
-        {
-        "name": "Url",
+      {
+        "name": "condicion",
         "type": "UNICODE_STRING"
       },
-        {
-        "name": "Vertical",
+      {
+        "name": "hierarchy",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "site",
         "type": "UNICODE_STRING"
       }
+
     ],
     "sql": {
-      "script": "business-assurance/classifieds-alerts.sql",
+      "script": "business-assurance/structured-data-pseudo-mandatory.sql",
       "parameters": [
         {
           "name": "param01",

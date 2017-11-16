@@ -1,0 +1,56 @@
+{
+  "users": [
+    "lucia.blanc@mercadolibre.com"
+  ],
+  "process_name": "billboard-vip-without-position",
+  "cron": "",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "site",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "business",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "vertical",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "plataforma",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "path",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "cantidad",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "business-assurance/billboard_vip_without_position.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "2017-01-01",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "2017-03-01",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

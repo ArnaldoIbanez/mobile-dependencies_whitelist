@@ -7,35 +7,56 @@ trackTests {
 
     test("Returns tracks") {
 
-      "/return/typification"(platform:"/")  {
+      // STEP 01
+      "/return/typifications"(platform: "/")  {
+        typification = "broken_item"
+        action = "selection"
       }
 
-      "/return/money_refund"(platform:"/") {
-        typification = "Producto defectuoso"
+      // STEP 02
+      "/return/payments"(platform: "/") {
+        payment = "paymentId"
+        action = "selection"
       }
 
-      "/return/collection"(platform:"/") {
-        money_refund = "2863383085"
+      // STEP 03
+      "/return/shipping"(platform: "/") {
+        shipping = "pickup"
+        action = "selection"
       }
 
-      "/return/pick_up_option"(platform:"/") {
-        pickup_option = "pickup"
+      // STEP 04.a
+      "/return/pickup"(platform: "/") {
+        pickup_time = "pickupTime"
+        action = "selection"
       }
 
-      "/return/carrier"(platform:"/") {
-        pickup_option = "carrier"
+      // STEP 04.b
+      "/return/delivery"(platform: "/") { }
+
+      // STEP 05
+      "/return/congrats"(platform: "/") {
+        item_id = "item_id"
+        category_id = "category_id"
+        officialstore = "officialstore"
+        typification = "broken_item"
+        payment = "paymentId"
+        shipping = "carrier"
+        pickup_time = "pickupTime"
       }
 
-      "/return/congrats"(platform:"/") {
-          pickup_option = "carrier"
-          carrier_id = "12331123"
+      // STEP 05.cta.a
+      "/return/congrats/print_label"(platform: "/") {
+        print_url = "https://www.mercadolibre.com"
       }
 
-      "/return/congrats/print_label"(platform:"/") {
-          print_url = "https://www.mercadolibre.com"
-      }
+      // STEP 05.cta.b
+      "/return/congrats/remedy_label"(platform: "/") { }
 
-      "/return/congrats/remedy_label"(platform:"/") {
+      // Modal
+      "/return/modal"(platform: "/") {
+        action = "modal_action"
+        id = "modal_id"
       }
     }
 }
