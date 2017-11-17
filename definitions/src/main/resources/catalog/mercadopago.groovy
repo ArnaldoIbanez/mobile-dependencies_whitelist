@@ -25,6 +25,13 @@ tracks {
     "/"(platform: "/web", isAbstract: true) {
     }
 
+    "/blog"(platform: "/web", isAbstract: true) {
+    }
+    
+    "/blog/home"(platform: "/web") {
+    }
+
+
     // MP Landings Scope
     "/landing"(platform: "/web", isAbstract: true) {}
 
