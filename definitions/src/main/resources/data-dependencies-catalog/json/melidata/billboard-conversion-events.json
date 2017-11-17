@@ -2,47 +2,51 @@
   "users": [
     "lucia.blanc@mercadolibre.com"
   ],
-  "process_name": "billboard",
+  "process_name": "billboard-conversion-events",
   "cron": "",
   "extract": {
     "operation": "append",
     "columns": [
       {
-        "name": "ds",
+        "name": "Fecha",
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "site",
+        "name": "Site",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "business",
+        "name": "Business",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "vertical",
+        "name": "Vertical",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "plataforma",
+        "name": "Plataforma",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "path",
+        "name": "Item",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "posicion",
+        "name": "Path",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Cant_bb",
         "type": "INTEGER"
       },
       {
-        "name": "cantidad",
+        "name": "Cant_notbb",
         "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "business-assurance/billboard.sql",
+      "script": "business-assurance/billboard_conversion_events.sql",
       "parameters": [
         {
           "name": "param01",
