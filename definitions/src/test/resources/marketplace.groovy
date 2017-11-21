@@ -4411,14 +4411,14 @@ trackTests {
 
     test("Mobile Navigation Tabs"){
         "/navigation/tabs"(platform: "/mobile/ios", type: TrackType.Event) {
-            action = "TAB_SELECTED",
+            action = "TAB_SELECTED"
             tab = "BOOKMARKS"
         }
     }
 
     test("Mobile Navigation to Cart"){
         "/navigation/cart"(platform: "/mobile/ios", type: TrackType.Event) {
-            action = "CART_SELECTED",
+            action = "CART_SELECTED"
             origin = "SEARCH"
         }
     }

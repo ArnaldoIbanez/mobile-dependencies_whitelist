@@ -428,13 +428,13 @@ tracks {
     }
 
     "/navigation/tabs"(platform: "/mobile/ios", type: TrackType.Event) {
-        action(required: true, type PropertyType.String, description: "Kind of navigation action")
-        tab(required:true, type PropertyType.String, description: "Indicates which tab was selected")
+        action(required: true, type: PropertyType.String, description: "Kind of navigation action")
+        tab(required:true, type: PropertyType.String, description: "Indicates which tab was selected")
     }
 
     "/navigation/cart"(platform: "/mobile/ios", type: TrackType.Event) {
-        action(required: true, type PropertyType.String, description: "Kind of navigation action")
-        origin(required: true, type PropertyType.String, description: "Name of the screen where the Cart button was selected")
+        action(required: true, type: PropertyType.String, description: "Kind of navigation action")
+        origin(required: true, type: PropertyType.String, description: "Name of the screen where the Cart button was selected")
     }
 
     //Logout
