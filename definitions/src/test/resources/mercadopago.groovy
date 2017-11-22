@@ -1745,6 +1745,35 @@ trackTests {
             result = "valid"
             flow = "ms_hard_validation"
         }
+
+        "/identity-validation/mp_phone_code"(platform: "/mobile") {}
+        "/identity-validation/mp_phone"(platform: "/mobile") {}
+        "/identity-validation/mp_upload_doc"(platform: "/mobile") {}
+        "/identity-validation/mp_landing"(platform: "/mobile") {}
+        "/identity-validation/mp_congrats"(platform: "/mobile") {}
+        "/identity-validation/mp_landing_doc"(platform: "/mobile") {}
+        "/identity-validation/mp_doc_number"(platform: "/mobile") {}
+
+        "/identity-validation/upload_compress"(platform: "/mobile/ios") {
+            upload_time = 10
+            compression_time = 10
+        }
+
+        "/identity-validation/upload_compress"(platform: "/mobile/android") {
+            upload_time = 10
+            compression_time = 10
+        }
+
+        "/identity-validation/upload_compress"(platform: "/web/mobile") {
+            upload_time = 10
+            compression_time = 10
+        }
+
+        "/identity-validation/upload_compress"(platform: "/web/desktop") {
+            upload_time = 10
+            compression_time = 10
+        }
+
     }
 
     test("Checkout Off"){

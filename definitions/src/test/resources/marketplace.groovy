@@ -4681,6 +4681,26 @@ trackTests {
             result = "valid"
             flow = "ms_hard_validation"
         }
+
+        "/identity-validation/upload_compress"(platform: "/mobile/ios") {
+            upload_time = 10
+            compression_time = 10
+        }
+
+        "/identity-validation/upload_compress"(platform: "/mobile/android") {
+            upload_time = 10
+            compression_time = 10
+        }
+
+        "/identity-validation/upload_compress"(platform: "/web/mobile") {
+            upload_time = 10
+            compression_time = 10
+        }
+
+        "/identity-validation/upload_compress"(platform: "/web/desktop") {
+            upload_time = 10
+            compression_time = 10
+        }
     }
 
     test("recommendations tracking in feedbacks congrats") {

@@ -27,4 +27,13 @@ tracks {
         result(type: PropertyType.String, required: true, description: "The result of validation. Ej. valid, invalid")
     }
 
+    "/identity-validation/upload_compress"(platform: "/", type: TrackType.Event) {
+        upload_time(type: PropertyType.Numeric, required: true, description: "The time in second to upload image")
+        compression_time(type: PropertyType.Numeric, required: true, description: "The time in second to compress a image.")
+    }
+
+    "/identity-validation/upload_compress"(platform: "/", type: TrackType.Event) {
+        upload_time(type: PropertyType.Numeric, required: true, description: "The time in second to upload image")
+        compression_time(type: PropertyType.Numeric, required: true, description: "The time in second to compress a image.")
+    }
 }
