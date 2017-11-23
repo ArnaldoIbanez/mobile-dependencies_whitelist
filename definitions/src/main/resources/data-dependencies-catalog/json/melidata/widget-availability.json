@@ -1,0 +1,76 @@
+{
+  "users": [
+    "cx-channels@mercadolibre.com"
+  ],
+  "process_name": "widget-availability-events",
+  "cron": "",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "Fecha",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "problem_type",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "reason",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "origin",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "is_available",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "segment",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "render",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "business",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "app_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "queue_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "count",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "crm/widget-availability.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "2017-10-01",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "2017-11-17",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
