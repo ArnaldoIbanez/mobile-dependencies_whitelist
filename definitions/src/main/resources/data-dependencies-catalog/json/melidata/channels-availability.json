@@ -2,15 +2,15 @@
   "users": [
     "cx-channels@mercadolibre.com"
   ],
-  "process_name": "widget-availability-events",
+  "process_name": "channels-availability-events",
   "cron": "",
   "extract": {
     "operation": "append",
     "columns": [
       {
-        "name": "Fecha",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
+        "name": "requested_datetime",
+        "type": "DATETIME",
+        "format": "yyyy-MM-dd HH:mm:SS.SSS"
       },
       {
         "name": "site_id",
@@ -37,10 +37,6 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "render",
-        "type": "BOOLEAN"
-      },
-      {
         "name": "business",
         "type": "UNICODE_STRING"
       },
@@ -53,22 +49,22 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "count",
+        "name": "quantity",
         "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "crm/widget-availability.sql",
+      "script": "cx/channels-availability.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "2017-10-01",
-          "format": "yyyy-MM-dd"
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd HH:mm:SS.SSS"
         },
         {
           "name": "param02",
-          "value": "2017-11-17",
-          "format": "yyyy-MM-dd"
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd HH:mm:SS.SSS"
         }
       ]
     }
