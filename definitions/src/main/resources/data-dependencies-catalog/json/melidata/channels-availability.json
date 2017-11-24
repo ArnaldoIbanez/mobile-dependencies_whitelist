@@ -1,0 +1,72 @@
+{
+  "users": [
+    "cx-channels@mercadolibre.com"
+  ],
+  "process_name": "channels-availability-events",
+  "cron": "",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "requested_datetime",
+        "type": "DATETIME",
+        "format": "yyyy-MM-dd HH:mm:SS.SSS"
+      },
+      {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "problem_type",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "reason",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "origin",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "is_available",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "segment",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "business",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "app_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "queue_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "quantity",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "cx/channels-availability.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd HH:mm:SS.SSS"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd HH:mm:SS.SSS"
+        }
+      ]
+    }
+  }
+}
