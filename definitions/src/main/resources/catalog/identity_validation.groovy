@@ -36,4 +36,13 @@ tracks {
         upload_time(type: PropertyType.Numeric, required: true, description: "The time in second to upload image")
         compression_time(type: PropertyType.Numeric, required: true, description: "The time in second to compress a image.")
     }
+
+    "/identity-validation/phone_code"(platform: "/", type: TrackType.View) {}
+    "/identity-validation/phone"(platform: "/", type: TrackType.View) {}
+    "/identity-validation/upload_doc"(platform: "/", type: TrackType.View) {}
+    "/identity-validation/landing"(platform: "/", type: TrackType.View) {}
+    "/identity-validation/congrats"(platform: "/", type: TrackType.View) {}
+    "/identity-validation/landing_doc"(platform: "/", type: TrackType.View) {}
+    "/identity-validation/doc_number"(platform: "/", type: TrackType.View) {}
+
 }

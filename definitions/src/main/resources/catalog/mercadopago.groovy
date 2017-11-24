@@ -524,14 +524,5 @@ tracks {
      * END NOTIFICATIONS
      **/
 
-    // Identity validation module
-    "/identity-validation/mp_phone_code"(platform: "/mobile") {}
-    "/identity-validation/mp_phone"(platform: "/mobile") {}
-    "/identity-validation/mp_upload_doc"(platform: "/mobile") {}
-    "/identity-validation/mp_landing"(platform: "/mobile") {}
-    "/identity-validation/mp_congrats"(platform: "/mobile") {}
-    "/identity-validation/mp_landing_doc"(platform: "/mobile") {}
-    "/identity-validation/mp_doc_number"(platform: "/mobile") {}
-
     // END -- MPMOBILE
 }

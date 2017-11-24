@@ -4701,6 +4701,30 @@ trackTests {
             upload_time = 10
             compression_time = 10
         }
+
+        "/identity-validation/phone_code"(platform: "/mobile") {}
+        "/identity-validation/phone"(platform: "/mobile") {}
+        "/identity-validation/upload_doc"(platform: "/mobile") {}
+        "/identity-validation/landing"(platform: "/mobile") {}
+        "/identity-validation/congrats"(platform: "/mobile") {}
+        "/identity-validation/landing_doc"(platform: "/mobile") {}
+        "/identity-validation/doc_number"(platform: "/mobile") {}
+
+        "/identity-validation/phone_code"(platform: "/web/desktop") {}
+        "/identity-validation/phone"(platform: "/web/desktop") {}
+        "/identity-validation/upload_doc"(platform: "/web/desktop") {}
+        "/identity-validation/landing"(platform: "/web/desktop") {}
+        "/identity-validation/congrats"(platform: "/web/desktop") {}
+        "/identity-validation/landing_doc"(platform: "/web/desktop") {}
+        "/identity-validation/doc_number"(platform: "/web/desktop") {}
+
+        "/identity-validation/phone_code"(platform: "/web/mobile") {}
+        "/identity-validation/phone"(platform: "/web/mobile") {}
+        "/identity-validation/upload_doc"(platform: "/web/mobile") {}
+        "/identity-validation/landing"(platform: "/web/mobile") {}
+        "/identity-validation/congrats"(platform: "/web/mobile") {}
+        "/identity-validation/landing_doc"(platform: "/web/mobile") {}
+        "/identity-validation/doc_number"(platform: "/web/mobile") {}
     }
 
     test("recommendations tracking in feedbacks congrats") {
