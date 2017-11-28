@@ -10,7 +10,7 @@
       {
         "name": "requested_datetime",
         "type": "DATETIME",
-        "format": "yyyy-MM-dd HH:mm:SS.SSS"
+        "format": "yyyy-MM-dd hh"
       },
       {
         "name": "site_id",
@@ -59,12 +59,12 @@
         {
           "name": "param01",
           "value": "DAY-1",
-          "format": "yyyy-MM-dd HH:mm:SS.SSS"
+          "format": "yyyy-MM-dd hh"
         },
         {
           "name": "param02",
           "value": "DAY-0",
-          "format": "yyyy-MM-dd HH:mm:SS.SSS"
+          "format": "yyyy-MM-dd hh"
         }
       ]
     }
