@@ -21,7 +21,7 @@ LATERAL VIEW
       json_tuple(v1.event_data, 'problem_type', 'reason', 'origin', 'is_available', 'segment', 'queue_id') v3 
       as problem_type, reason, origin, is_available, segment, queue_id
 WHERE
-      tj.ds >= '2017-11-28 00' AND tj.ds < '2017-11-28 08'
+      tj.ds >= '@param01' AND tj.ds < '@param02'
       and jest(data, 'path')='/availability/requested'
       and jest(data, 'event_data.environment') = 'PRODUCTION'
 GROUP BY
