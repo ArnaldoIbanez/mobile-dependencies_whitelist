@@ -520,10 +520,9 @@ tracks {
     "/money_detail/balance"(platform: "/mobile") {}
     "/money_detail/help_modal"(platform: "/mobile") {}
 
-    
     /**
      * END NOTIFICATIONS
-     **/    
+     **/
 
     // END -- MPMOBILE
 }
