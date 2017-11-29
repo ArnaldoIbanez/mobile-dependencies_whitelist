@@ -3,14 +3,14 @@
     "cx-channels@mercadolibre.com"
   ],
   "process_name": "channels-availability-events",
-  "cron": "00 05 * * *",
+  "cron": "",
   "extract": {
     "operation": "append",
     "columns": [
       {
         "name": "requested_datetime",
         "type": "DATETIME",
-        "format": "yyyy-MM-dd hh"
+        "format": "yyyy-MM-dd HH"
       },
       {
         "name": "site_id",
@@ -59,12 +59,12 @@
         {
           "name": "param01",
           "value": "DAY-1",
-          "format": "yyyy-MM-dd hh"
+          "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
           "value": "DAY-0",
-          "format": "yyyy-MM-dd hh"
+          "format": "yyyy-MM-dd"
         }
       ]
     }
