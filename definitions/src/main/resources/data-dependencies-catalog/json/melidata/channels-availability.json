@@ -2,7 +2,7 @@
   "users": [
     "cx-channels@mercadolibre.com"
   ],
-  "process_name": "channels-availability-events",
+  "process_name": "channels-availability-event",
   "cron": "",
   "extract": {
     "operation": "append",
