@@ -9,8 +9,7 @@
     "columns": [
       {
         "name": "requested_datetime",
-        "type": "DATETIME",
-        "format": "yyyy-MM-dd HH"
+        "type": "UNICODE_STRING"
       },
       {
         "name": "site_id",
