@@ -3,7 +3,7 @@
     "lucia.blanc@mercadolibre.com"
   ],
   "process_name": "return-conversion",
-  "cron": "",
+  "cron": " ",
   "extract": {
     "operation": "append",
     "columns": [
@@ -42,7 +42,7 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2017-11-28",
+          "value": "2017-11-29",
           "format": "yyyy-MM-dd"
         },
         {
