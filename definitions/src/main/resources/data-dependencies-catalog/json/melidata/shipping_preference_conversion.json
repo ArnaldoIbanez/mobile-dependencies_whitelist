@@ -2,7 +2,7 @@
   "users": [
     "lucia.blanc@mercadolibre.com"
   ],
-  "process_name": "billboard-events",
+  "process_name": "shipping_preference_conversion",
   "cron": "",
   "extract": {
     "operation": "append",
@@ -66,7 +66,7 @@
       }
     ],
     "sql": {
-      "script": "business-assurance/billboard_events.sql",
+      "script": "business-assurance/shipping_preference_conversion.sql",
       "parameters": [
         {
           "name": "param01",
