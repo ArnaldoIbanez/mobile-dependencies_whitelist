@@ -26,5 +26,10 @@ tracks {
     "/email/late_fee"(platform: "/email"){
         days(type: PropertyType.Numeric, required: true)
     }
-    
+
+    "/email/new"(platform: "/email", isAbstract: true){
+    }
+
+    "/email/new/optout"(platform: "/email"){
+    }
 }
