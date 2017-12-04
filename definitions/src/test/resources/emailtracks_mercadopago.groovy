@@ -29,5 +29,10 @@ trackTests {
             defaultTrackInformation()
             days = 3
         }
+
+        "/email/new/optout"(platform: "/email") {
+            defaultTrackInformation()
+            email_template = "MCRDT_OPTOUT"
+        }
     }
 }
