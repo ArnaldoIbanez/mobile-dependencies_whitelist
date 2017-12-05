@@ -19,4 +19,6 @@ tracks {
     "/onboarding/registration"(platform: "/mobile", type: TrackType.Event) {
         type(type: PropertyType.String, required: true)
     }
+
+    "/onboarding/flow"(platform: "/mobile", type: TrackType.View) {}
 }
