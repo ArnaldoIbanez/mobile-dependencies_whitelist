@@ -2,10 +2,10 @@
   "users": [
     "cx-channels@mercadolibre.com"
   ],
-  "process_name": "channels-availability-events",
-  "cron": "",
+  "process_name": "channels-availability-event",
+  "cron": "00 05 * * *",
   "extract": {
-    "operation": "delete",
+    "operation": "append",
     "columns": [
       {
         "name": "requested_datetime",
