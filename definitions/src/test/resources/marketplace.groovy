@@ -70,6 +70,8 @@ trackTests {
         "/onboarding/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
         "/onboarding/skip"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/onboarding/flow"(platform: "/mobile", type: TrackType.View) {}
     }
 
     test("Search core tracking"){

@@ -21,5 +21,5 @@ tracks {
     }
 
     "/onboarding/flow"(platform: "/mobile", type: TrackType.View) {}
-    
+
 }
