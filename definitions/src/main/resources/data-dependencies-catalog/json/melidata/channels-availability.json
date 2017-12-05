@@ -56,15 +56,25 @@
       "script": "cx/channels-availability.sql",
       "parameters": [
         {
-          "name": "param01",
+          "name": "ds_from",
           "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
-          "name": "param02",
+          "name": "ds_to",
           "value": "DAY-0",
           "format": "yyyy-MM-dd"
-        }
+        },
+        {
+          "name": "real_date_from",
+          "value": "DAY-2",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "real_date_to",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        }           
       ]
     }
   }
