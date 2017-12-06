@@ -5,7 +5,7 @@
   "process_name": "channels-availability-event",
   "cron": "00 05 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "requested_datetime",
@@ -56,15 +56,25 @@
       "script": "cx/channels-availability.sql",
       "parameters": [
         {
-          "name": "param01",
-          "value": "DAY-1",
+          "name": "ds_from",
+          "value": "2017-12-01",
           "format": "yyyy-MM-dd"
         },
         {
-          "name": "param02",
-          "value": "DAY-0",
+          "name": "ds_to",
+          "value": "2017-12-06",
           "format": "yyyy-MM-dd"
-        }
+        },
+        {
+          "name": "real_date_from",
+          "value": "2017-11-30",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "real_date_to",
+          "value": "2017-12-05",
+          "format": "yyyy-MM-dd"
+        }           
       ]
     }
   }
