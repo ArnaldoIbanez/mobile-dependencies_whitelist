@@ -23,9 +23,9 @@ LATERAL VIEW
       as problem_type, reason, origin, is_available, segment, queue_id
 WHERE
       tj.ds >=  '@ds_from 02' 
-      AND tj.ds < '@ds_to 05' --desde DAY-1 A DAY-0
-      AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T',' ')), 'yyyy-MM-dd HH') >= '@real_date_from 23'  -- DESDE DAY-2
-      AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T',' ')), 'yyyy-MM-dd HH') <  '@real_date_to 23' -- HASTA DAY-1
+      AND tj.ds < '@ds_to 05'
+      AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T',' ')), 'yyyy-MM-dd HH') >= '@real_date_from 23'  
+      AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T',' ')), 'yyyy-MM-dd HH') <  '@real_date_to 23' 
       AND jest(data, 'path')='/availability/requested'
       AND jest(data, 'event_data.environment') = 'PRODUCTION'
 
