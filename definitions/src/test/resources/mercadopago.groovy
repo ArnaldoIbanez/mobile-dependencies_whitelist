@@ -1355,6 +1355,18 @@ trackTests {
         }
     }
 
+    test("new-withdraw") {
+        "/new-withdraw"(platform: "/"){}
+        "/new-withdraw/confirm"(platform: "/"){}
+        "/new-withdraw/acccount-select"(platform: "/"){}
+        "/new-withdraw/second-password"(platform: "/"){}
+        "/new-withdraw/congrats"(platform: "/"){}
+    }
+
+    test("new-account"){
+        "new-account"(platform: "/"){}
+    }
+
     test("Withdraw") {
         "/withdraw/withdrawable_money"(platform: "/mobile") {
             flow = "/withdraw"
