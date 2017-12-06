@@ -1364,7 +1364,7 @@ trackTests {
     }
 
     test("new-account"){
-        "new-account"(platform: "/"){}
+        "/new-account"(platform: "/"){}
     }
 
     test("Withdraw") {
