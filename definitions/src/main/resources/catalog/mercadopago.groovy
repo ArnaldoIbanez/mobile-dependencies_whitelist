@@ -396,9 +396,7 @@ tracks {
     "/new-withdraw/confirm"(platform: "/") {}
     "/new-withdraw/account-select"(platform: "/") {}
     "/new-withdraw/second-password"(platform: "/") {}
-    "/new-withdraw/congrats"(platform: "/") {
-        type (required:false, type: PropertyType.String, description: "result type of the withdraw")
-    }
+    "/new-withdraw/congrats"(platform: "/") {}
     "new-account"(platform: "/") {}
 
     "/withdraw"(platform: "/mobile", isAbstract: true) {
