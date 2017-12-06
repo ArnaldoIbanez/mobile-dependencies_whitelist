@@ -1356,11 +1356,11 @@ trackTests {
     }
 
     test("new-withdraw") {
-        "/new-withdraw"(platform: "/"){}
-        "/new-withdraw/confirm"(platform: "/"){}
-        "/new-withdraw/account-select"(platform: "/"){}
-        "/new-withdraw/second-password"(platform: "/"){}
-        "/new-withdraw/congrats"(platform: "/"){}
+        "/new-withdraw"(platform: "/", type: TrackType.view){}
+        "/new-withdraw/confirm"(platform: "/", type: TrackType.view){}
+        "/new-withdraw/account-select"(platform: "/", type: TrackType.view){}
+        "/new-withdraw/second-password"(platform: "/", type: TrackType.view){}
+        "/new-withdraw/congrats"(platform: "/", type: TrackType.view){}
     }
 
     test("new-account"){
