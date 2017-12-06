@@ -392,12 +392,12 @@ tracks {
     }
 
     //tracks for new flow (withdraw and new account)
-    "/new-withdraw"(platform: "/") {}
-    "/new-withdraw/confirm"(platform: "/") {}
-    "/new-withdraw/account-select"(platform: "/") {}
-    "/new-withdraw/second-password"(platform: "/") {}
-    "/new-withdraw/congrats"(platform: "/") {}
-    "/new-account"(platform: "/") {}
+    "/new-withdraw"(platform: "/", type: TrackType.View) {}
+    "/new-withdraw/confirm"(platform: "/", type: TrackType.View) {}
+    "/new-withdraw/account-select"(platform: "/", type: TrackType.View) {}
+    "/new-withdraw/second-password"(platform: "/", type: TrackType.View) {}
+    "/new-withdraw/congrats"(platform: "/", type: TrackType.View) {}
+    "/new-account"(platform: "/", type: TrackType.View) {}
 
     "/withdraw"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
