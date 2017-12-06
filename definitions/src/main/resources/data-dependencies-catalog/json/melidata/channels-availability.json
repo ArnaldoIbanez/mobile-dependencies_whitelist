@@ -5,7 +5,7 @@
   "process_name": "channels-availability-events",
   "cron": "",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "requested_datetime",
@@ -57,22 +57,22 @@
       "parameters": [
         {
           "name": "ds_from",
-          "value": "DAY-1",
+          "value": "2017-12-01",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "ds_to",
-          "value": "DAY-0",
+          "value": "2017-12-06",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "real_date_from",
-          "value": "DAY-2",
+          "value": "2017-11-30",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "real_date_to",
-          "value": "DAY-1",
+          "value": "2017-12-05",
           "format": "yyyy-MM-dd"
         }           
       ]
