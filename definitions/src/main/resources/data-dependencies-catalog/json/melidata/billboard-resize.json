@@ -2,10 +2,10 @@
   "users": [
     "lucia.blanc@mercadolibre.com"
   ],
-  "process_name": "destroy",
+  "process_name": "billboard-resize",
   "cron": "",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
       {
         "name": "ds",
