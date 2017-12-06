@@ -5,7 +5,7 @@
   "process_name": "billboard",
   "cron": "",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
       {
         "name": "ds",
