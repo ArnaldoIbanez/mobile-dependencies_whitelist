@@ -1358,9 +1358,20 @@ trackTests {
     test("new-withdraw") {
         "/new-withdraw"(platform: "/"){}
         "/new-withdraw/confirm"(platform: "/"){}
-        "/new-withdraw/acccount-select"(platform: "/"){}
+        "/new-withdraw/account-select"(platform: "/"){}
         "/new-withdraw/second-password"(platform: "/"){}
-        "/new-withdraw/congrats"(platform: "/"){}
+        "/new-withdraw/congrats"(platform: "/"){
+            type: "waiting"
+        }
+        "/new-withdraw/congrats"(platform: "/"){
+            type: "success"
+        }
+        "/new-withdraw/congrats"(platform: "/"){
+            type: "warning"
+        }
+        "/new-withdraw/congrats"(platform: "/"){
+            type: "error"
+        }
     }
 
     test("new-account"){

@@ -394,9 +394,11 @@ tracks {
     //tracks for new flow (withdraw and new account)
     "/new-withdraw"(platform: "/") {}
     "/new-withdraw/confirm"(platform: "/") {}
-    "/new-withdraw/acccount-select"(platform: "/") {}
+    "/new-withdraw/account-select"(platform: "/") {}
     "/new-withdraw/second-password"(platform: "/") {}
-    "/new-withdraw/congrats"(platform: "/") {}
+    "/new-withdraw/congrats"(platform: "/") {
+        type (required:false, type: PropertyType.String, description: "result type of the withdraw")
+    }
     "new-account"(platform: "/") {}
 
     "/withdraw"(platform: "/mobile", isAbstract: true) {
