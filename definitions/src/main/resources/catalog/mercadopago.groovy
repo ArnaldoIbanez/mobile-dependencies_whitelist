@@ -397,7 +397,7 @@ tracks {
     "/new-withdraw/account-select"(platform: "/") {}
     "/new-withdraw/second-password"(platform: "/") {}
     "/new-withdraw/congrats"(platform: "/") {}
-    "new-account"(platform: "/") {}
+    "/new-account"(platform: "/") {}
 
     "/withdraw"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
