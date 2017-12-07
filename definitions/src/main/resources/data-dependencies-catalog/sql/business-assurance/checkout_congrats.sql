@@ -34,7 +34,6 @@ from
 where
   ds >= '@param01'
   and ds < '@param02'
-  and application.site_id = 'MLM'
   and path = '/checkout/congrats' 
   and CAST(jest(event_data, 'total_amount_usd') as DOUBLE) <= 10000
   and jest(event_data, 'congrats_seq') = '1'
