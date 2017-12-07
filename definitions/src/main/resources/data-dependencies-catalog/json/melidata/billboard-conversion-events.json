@@ -3,9 +3,9 @@
     "lucia.blanc@mercadolibre.com"
   ],
   "process_name": "billboard-conversion-events",
-  "cron": "",
+  "cron": "00 14 * * *",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
         "name": "Fecha",
@@ -50,12 +50,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2017-11-01",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "2017-12-06",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
       ]
