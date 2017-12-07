@@ -3,7 +3,7 @@
     "lucia.blanc@mercadolibre.com"
   ],
   "process_name": "billboard-conversion-events",
-  "cron": "00 14 * * *",
+  "cron": "00 15 * * *",
   "extract": {
     "operation": "append",
     "columns": [
