@@ -22,10 +22,10 @@ LATERAL VIEW
       json_tuple(v1.event_data, 'problem_type', 'reason', 'origin', 'is_available', 'segment', 'queue_id') v3 
       as problem_type, reason, origin, is_available, segment, queue_id
 WHERE
-      tj.ds >=  '@ds_from 02' 
-      AND tj.ds < '@ds_to 05'
-      AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T',' ')), 'yyyy-MM-dd HH') >= '@real_date_from 23'  
-      AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T',' ')), 'yyyy-MM-dd HH') <  '@real_date_to 23' 
+      tj.ds >=  '@param01 02' 
+      AND tj.ds < '@param02 05'
+      AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T',' ')), 'yyyy-MM-dd HH') >= '@param03 23'  
+      AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T',' ')), 'yyyy-MM-dd HH') <  '@param04 23' 
       AND jest(data, 'path')='/availability/requested'
       AND jest(data, 'event_data.environment') = 'PRODUCTION'
 
