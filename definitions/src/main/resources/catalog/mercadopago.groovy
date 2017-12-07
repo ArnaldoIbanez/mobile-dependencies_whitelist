@@ -391,6 +391,14 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
+    //tracks for new flow (withdraw and new account)
+    "/new-withdraw"(platform: "/", type: TrackType.View) {}
+    "/new-withdraw/confirm"(platform: "/", type: TrackType.View) {}
+    "/new-withdraw/account-select"(platform: "/", type: TrackType.View) {}
+    "/new-withdraw/second-password"(platform: "/", type: TrackType.View) {}
+    "/new-withdraw/congrats"(platform: "/", type: TrackType.View) {}
+    "/new-account"(platform: "/", type: TrackType.View) {}
+
     "/withdraw"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
