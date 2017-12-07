@@ -5,7 +5,7 @@
   "process_name": "billboard-vip",
   "cron": "",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "ds",
@@ -46,12 +46,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2017-10-01",
+          "value": "2017-11-01",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "2017-11-17",
+          "value": "2017-12-07",
           "format": "yyyy-MM-dd"
         }
       ]
