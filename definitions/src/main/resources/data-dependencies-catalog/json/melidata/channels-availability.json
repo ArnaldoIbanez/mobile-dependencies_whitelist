@@ -3,7 +3,7 @@
     "cx-channels@mercadolibre.com"
   ],
   "process_name": "channels-availability-event",
-  "cron": "40 18 * * *",
+  "cron": " ",
   "extract": {
     "operation": "overwrite",
     "columns": [
@@ -56,22 +56,22 @@
       "script": "cx/channels-availability.sql",
       "parameters": [
         {
-          "name": "ds_from",
+          "name": "param01",
           "value": "2017-12-01",
           "format": "yyyy-MM-dd"
         },
         {
-          "name": "ds_to",
+          "name": "param02",
           "value": "2017-12-06",
           "format": "yyyy-MM-dd"
         },
         {
-          "name": "real_date_from",
+          "name": "param03",
           "value": "2017-11-30",
           "format": "yyyy-MM-dd"
         },
         {
-          "name": "real_date_to",
+          "name": "param04",
           "value": "2017-12-05",
           "format": "yyyy-MM-dd"
         }           
