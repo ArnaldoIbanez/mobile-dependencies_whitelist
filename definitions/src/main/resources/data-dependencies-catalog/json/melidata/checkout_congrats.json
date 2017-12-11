@@ -3,7 +3,7 @@
     "giselle.carreras@mercadolibre.com"
   ],
   "process_name": "checkout_congrats",
-  "cron": "00 08 * * *",
+  "cron": "",
   "extract": {
     "operation": "append",
     "columns": [
