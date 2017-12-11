@@ -2,56 +2,56 @@
   "users": [
     "lucia.blanc@mercadolibre.com"
   ],
-  "process_name": "billboard-resize",
-  "cron": " ",
+  "process_name": "shipping_preference_vip",
+  "cron": "",
   "extract": {
-    "operation": "destroy",
-    "columns": [
+    "operation": "append",
+    "columns": [      
       {
-        "name": "ds",
+        "name": "fecha",
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "site",
+        "name": "shipping_preference",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "business",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "vertical",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "plataforma",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "action",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "path",
+        "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
         "name": "cantidad",
         "type": "INTEGER"
+      },
+      {
+        "name": "L1",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "L1_name",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "L2",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "L2_name",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "business-assurance/billboard_resize.sql",
+      "script": "business-assurance/shipping_preference_vip.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "2017-10-01",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "2017-11-17",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
       ]
