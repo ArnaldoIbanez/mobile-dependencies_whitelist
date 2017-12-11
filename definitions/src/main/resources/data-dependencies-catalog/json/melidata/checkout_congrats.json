@@ -98,7 +98,7 @@
       },
       {
         "name": "item_buying_mode",
-        "type": "DOUBLE"
+        "type": "UNICODE_STRING"
       },
       {
         "name": "item_listing_type_id",

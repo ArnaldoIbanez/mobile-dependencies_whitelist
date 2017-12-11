@@ -32,8 +32,8 @@ select
 from 
   tracks 
 where
-  ds >= '2017-09-11 08:00:00'
-  and ds < '2017-10-11 08:00:00'
+  ds >= '2017-11-11 08:00:00'
+  and ds < '2017-12-11 08:00:00'
   and path = '/checkout/congrats' 
   and CAST(jest(event_data, 'total_amount_usd') as DOUBLE) <= 10000
   and jest(event_data, 'congrats_seq') = '1'
