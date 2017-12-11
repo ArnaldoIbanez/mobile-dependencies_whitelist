@@ -101,10 +101,6 @@
         "type": "DOUBLE"
       },
       {
-        "name": "item_quantity",
-        "type": "INTEGER"
-      },
-      {
         "name": "item_listing_type_id",
         "type": "UNICODE_STRING"
       },
@@ -125,8 +121,12 @@
         "type": "DOUBLE"
       },
       {
-        "name": "v5_total_amount_usd",
+        "name": "total_amount_usd",
         "type": "DOUBLE"
+      },
+      {
+        "name": "total_si",
+        "type": "INTEGER"
       }     
 ],
 "sql": {
