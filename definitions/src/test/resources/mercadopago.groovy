@@ -353,6 +353,10 @@ trackTests {
         "/listing/activities" (platform: "/web") {}
     }
 
+    test("Mercadopago Gateway List") {
+        "/listing/gateway" (platform: "/web") {}
+    }
+
     test("Landing mercadopago point") {
         "/point/home" (platform: "/") {
             product = "point-h"

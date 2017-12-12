@@ -58,6 +58,8 @@ tracks {
 
     "/listing/activities"(platform: "/web"){}
 
+    "/listing/gateway"(platform: "/web"){}
+
     "/point"(platform: "/", isAbstract: true) {}
 
     // MP Point Landings
