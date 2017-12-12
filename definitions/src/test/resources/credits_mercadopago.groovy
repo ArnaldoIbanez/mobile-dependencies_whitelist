@@ -19,6 +19,9 @@ trackTests {
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {}
         "/credits/merchant/offer"(platform: "/web/desktop") {}
         "/credits/merchant/no_offer"(platform: "/web/desktop") {}
+        "/credits/merchant/public_landing"(platform: "/web/desktop") {
+            user_profile = 'offer'
+        }
 
         //Events
         //Landing merchant
