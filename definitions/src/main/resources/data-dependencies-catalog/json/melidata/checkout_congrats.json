@@ -42,7 +42,7 @@
       },
       {
         "name": "installments",
-        "type": "INTEGER"
+        "type": "UNICODE_STRING"
       },
       {
         "name": "vertical",
