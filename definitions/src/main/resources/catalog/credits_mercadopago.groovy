@@ -14,6 +14,9 @@ tracks {
     "/credits/merchant"(platform: "/", isAbstract: true) {}
     "/credits/merchant/enrollment"(platform: "/", isAbstract: true) {}
     "/credits/merchant/enrollment/load_documents"(platform: "/", isAbstract: true) {}
+    "/credits/merchant/public_landing"(platform: "/", type: TrackType.View) {
+        user_profile(type: PropertyType.String, required: true)
+    }
 
     //Landing merchant
     "/credits/merchant/enrollment"(platform: "/", type: TrackType.View) {}
