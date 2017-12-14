@@ -24,7 +24,7 @@ FROM
   AND jest(event_data, 'shipping_preference') IS NOT NULL
   GROUP BY jest(event_data, 'shipping_preference'), jest(event_data, 'item_id'), substr(ds,1,10), jest(event_data, 'free_shipping_benefit'), usr.uid, device.platform
 ) AS vips
-LEFT JOIN
+INNER JOIN
 (
   SELECT substr(ds,1,10) as fecha, jest(event_data, 'items[0].item.id') as item_id, jest(event_data, 'shipping[0].shipping_option.shipping_method_id') as method_id, jest(event_data, 'shipping[0].shipping_option.name') as shipping_option, count(distinct jest(event_data, 'order_id')) as cantidad, usr.uid as uid, usr.user_id as user_id, device.platform as platform, application.site_id as site, 
   jest(event_data,'items[0].item.category_path[0]') as l1,
