@@ -8,13 +8,14 @@ SELECT bb.ds as Fecha, bb.site as Site, bb.business as Business, bb.vertical as 
     device.platform as plataforma,
     jest(event_data,'item_id') as item, 
     path as path,
-    count(distinct usr.uid) as cantidad 
+    count(distinct (concat(usr.uid,'-',jest(event_data,'item_id')))) as cantidad,
+    count(*) as cantidad_total_bb
   FROM TRACKS
   WHERE
     jest(event_data, 'vertical') IN ('REAL_ESTATE', 'real_estate', 'realEstate', 'RE', 'MOTOR', 'MOTORCYCLE', 'motors', 'SERVICE', 'services')
     AND others['fragment'] LIKE '%BB:%'
     AND path IN ('/vip','/vip/show_phone', '/vip/call_seller', '/vip/contact_seller', '/quotation/congrats', '/quotation/show_price', '/checkout/congrats')
-    AND device.platform IN ('/web/desktop', '/web/desktop/forced', '/web/desktop/forced/static', '/web/desktop/static', '/web/mobile', '/web/mobile/forced', '/web/mobile/forced/static', '/web/mobile/static')
+    AND device.platform LIKE '/web%'
     AND application.site_id IN ('MCO', 'MLA', 'MLB', 'MLC', 'MLM', 'MLU', 'MLV')
     AND ds >= '@param01' and ds < '@param02'
   GROUP BY substr(ds,1,10),
@@ -35,13 +36,14 @@ LEFT JOIN
     device.platform as plataforma,
     jest(event_data,'item_id') as item, 
     path as path,
-    count(distinct usr.uid) as cantidad
+    count(distinct (concat(usr.uid,'-',jest(event_data,'item_id')))) as cantidad,
+    count(*) as cantidad_total_search
   FROM TRACKS
   WHERE
     jest(event_data, 'vertical') IN ('REAL_ESTATE', 'real_estate', 'realEstate', 'RE', 'MOTOR', 'MOTORCYCLE', 'motors', 'SERVICE', 'services')
     AND others['fragment'] NOT LIKE '%BB:%'
     AND path IN ('/vip','/vip/show_phone', '/vip/call_seller', '/vip/contact_seller', '/quotation/congrats', '/quotation/show_price', '/checkout/congrats')
-    AND device.platform IN ('/web/desktop', '/web/desktop/forced', '/web/desktop/forced/static', '/web/desktop/static', '/web/mobile', '/web/mobile/forced', '/web/mobile/forced/static', '/web/mobile/static')
+    AND device.platform LIKE '/web%'
     AND application.site_id IN ('MCO', 'MLA', 'MLB', 'MLC', 'MLM', 'MLU', 'MLV')
     AND ds >= '@param01' and ds < '@param02'
   GROUP BY substr(ds,1,10), 
