@@ -35,5 +35,18 @@ tracks {
         )
     }
 
+    "/loyalty/user/change_level"(platform: "/", type: TrackType.Event) {
+        old_level(type: PropertyType.Numeric,required: true, description: "Indicates previews user level"
+        )
+    }
 
+    "/loyalty/user/benefit"(platform: "/", type: TrackType.Event) {
+        consumed_benefit(required: true, description: "Indicates which benefit a user has consumed"
+        )
+    }
+
+    "/loyalty/user/float_notification"(platform: "/", type: TrackType.Event) {
+        event_type(required: true, description: "Type of loyalty notification event"
+        )
+    }
 }
