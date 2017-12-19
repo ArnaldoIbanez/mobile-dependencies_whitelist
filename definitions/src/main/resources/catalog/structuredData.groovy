@@ -12,16 +12,21 @@ tracks {
         completeness_level(required: false, description: "Completeness level from [total, partial, total_pi, none]")
         items_left(required: true, description: "Items left on widget")
         missing_attributes(required: false, description: "Attributes left on item")
+        pi(required:false, description: "Item has a Product Identifier")
     }
 
     propertyGroups {
-        catalogWidgetGroup(category_id, page, item_id, officialstore, domain_id, seller_id)
+        catalogWidgetGroup(category_id, page, item_id, officialstore, domain_id, seller_id, pi)
         catalogWidgetCompletenessGroup(completeness_level, items_left, missing_attributes)
     }
 
     "/catalogwidget"(platform: "/", isAbstract: true) {}
 
     "/catalogwidget/show"(platform: "/") {
+        catalogWidgetGroup
+    }
+
+    "/catalogwidget/showItem"(platform: "/") {
         catalogWidgetGroup
     }
 
