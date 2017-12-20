@@ -13,63 +13,31 @@
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "Type",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "App",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Source",
+        "name": "Sessions",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Item_ID",
+        "name": "Hub",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Version",
+        "name": "Form",
         "type": "UNICODE_STRING"
       },
         {
-        "name": "Path",
+        "name": "FormError",
         "type": "UNICODE_STRING"
       },
          {
-        "name": "Site",
+        "name": "AnotherEmail",
         "type": "UNICODE_STRING"
       },
          {
-        "name": "Business",
-        "type": "UNICODE_STRING"
-      },
-        {
-        "name": "UserUid",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "UserId",
-        "type": "UNICODE_STRING"
-      },
-        {
-        "name": "Platform",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "Platform_Device",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "Platform_Device_Type",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "Referer",
-        "type": "UNICODE_STRING"
-      },
-        {
-        "name": "Url",
+        "name": "Success",
         "type": "UNICODE_STRING"
       }
     ],
