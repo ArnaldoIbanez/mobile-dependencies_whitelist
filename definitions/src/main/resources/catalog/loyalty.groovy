@@ -29,24 +29,32 @@ tracks {
     //Loyalty Program User Tracking
     "/loyalty/user"(platform: "/", type: TrackType.Event) {
         in_loyalty_program(
-            required: true,
-            type:PropertyType.Boolean,
-            description: "Indicates if the user is in or out of the loyalty program"
+                required: true,
+                type: PropertyType.Boolean,
+                description: "Indicates if the user is in or out of the loyalty program"
         )
     }
 
     "/loyalty/user/change_level"(platform: "/", type: TrackType.Event) {
-        old_level(type: PropertyType.Numeric,required: true, description: "Indicates previews user level"
+        old_level(type: PropertyType.Numeric, required: true, description: "Indicates previews user level"
         )
     }
 
+
     "/loyalty/user/benefit"(platform: "/", type: TrackType.Event) {
-        consumed_benefit(required: true, description: "Indicates which benefit a user has consumed"
+        benefit(required: true, description: "Indicates which benefit was used")
+        consumable(required: true,
+                type: PropertyType.Boolean,
+                description: "Indicates if the benefit is consumable"
         )
+    }
+
+    "/loyalty/user/expire_points"(platform: "/", type: TrackType.Event) {
+        order_id(required: true, description: "Indicates which order had it's points expired")
     }
 
     "/loyalty/user/float_notification"(platform: "/", type: TrackType.Event) {
-        event_type(required: true, description: "Type of loyalty notification event"
+        event_type(required: true, description: "Description of loyalty notification event"
         )
     }
 }
