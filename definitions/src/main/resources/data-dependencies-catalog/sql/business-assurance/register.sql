@@ -17,5 +17,5 @@ platform.http.http_referer AS Referer,
 platform.http.http_url as Url
 from tracks
 where path like '/register%'
-and ds >= '2017-10-01'
-and ds < '2017-11-01'
+and ds >= '@param01'
+and ds < '@param02'
