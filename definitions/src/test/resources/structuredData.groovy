@@ -15,7 +15,20 @@ trackTests {
             officialstore = false
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
+            pi = false
     	}
+    }
+
+    test("catalog_widget item render should be tracked"){
+        "/catalogwidget/showItem"(platform: "/", type: TrackType.Event){
+            category_id = "MLA390784"
+            page = "summary"
+            item_id = "MLA682118081"
+            officialstore = false
+            domain_id = "MLA-FRAGRANCES"
+            seller_id = "241616388"
+            pi = true
+        }
     }
 
     test("catalog_widget save with total completeness_level should be tracked"){
@@ -29,6 +42,7 @@ trackTests {
             missing_attributes = "GTIN"
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
+            pi = false
         }
     }
 
@@ -43,6 +57,7 @@ trackTests {
             missing_attributes = "GTIN,BRAND,MODEL"
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
+            pi = false
         }
     }
 
@@ -57,6 +72,7 @@ trackTests {
             missing_attributes = ""
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
+            pi = true
         }
     }
 
@@ -71,6 +87,7 @@ trackTests {
             missing_attributes = ""
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
+            pi = true
         }
     }
 
@@ -84,6 +101,7 @@ trackTests {
             missing_attributes = "GTIN"
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
+            pi = false
         }
     }
 
@@ -97,6 +115,7 @@ trackTests {
             missing_attributes = "GTIN"
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
+            pi = true
         }
     }
 
@@ -108,6 +127,7 @@ trackTests {
             officialstore = false
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
+            pi = false
         }
     }
 
@@ -119,6 +139,7 @@ trackTests {
             officialstore = false
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
+            pi = false
         }
     }
 
@@ -130,6 +151,7 @@ trackTests {
             officialstore = false
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
+            pi = false
         }
     }
 
@@ -144,6 +166,7 @@ trackTests {
             missing_attributes = "BRAND,MODEL,GTIN"
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
+            pi = false
         }
     }
 
@@ -159,6 +182,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             motive = "notApply"
+            pi = false
         }
     }
 
@@ -174,6 +198,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             motive = "noData"
+            pi = false
         }
     }
 
@@ -189,6 +214,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             motive = "Custom reason"
+            pi = false
         }
     }
 
@@ -200,6 +226,7 @@ trackTests {
             officialstore = false
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
+            pi = false
         }
     }
 
@@ -211,6 +238,7 @@ trackTests {
             officialstore = false
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
+            pi = false
         }
     }
 
@@ -222,6 +250,7 @@ trackTests {
             officialstore = false
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
+            pi = false
         }
     }
 
@@ -233,6 +262,7 @@ trackTests {
             officialstore = false
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
+            pi = false
         }
     }
 
@@ -247,6 +277,7 @@ trackTests {
             missing_attributes = "BRAND,MODEL,GTIN"
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
+            pi = false
         }
     }
 
@@ -260,6 +291,7 @@ trackTests {
             seller_id = "241616388"
             status_code = "200"
             error = "Null exception"
+            pi = false
         }
     }
 
@@ -273,6 +305,7 @@ trackTests {
             seller_id = "241616388"
             status_code = "200"
             error = "Generic error"
+            pi = false
         }
     }
 
@@ -287,6 +320,7 @@ trackTests {
             missing_attributes = ""
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
+            pi = false
         }
     }
 
@@ -298,6 +332,7 @@ trackTests {
             officialstore = false
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
+            pi = false
         }
     }
 
@@ -309,6 +344,7 @@ trackTests {
             officialstore = false
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
+            pi = false
         }
     }
 }
