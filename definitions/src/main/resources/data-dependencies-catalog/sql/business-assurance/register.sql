@@ -56,5 +56,5 @@ WHERE ds >= '@param01' AND ds < '@param02'
 	AND path like '/register%'
 	AND device.platform like '/mobile%'
 
-GROUP BY 1,2
-ORDER BY 1 DESC
+GROUP BY substr(ds,1,10) as ds,jest(event_data, 'app')
+
