@@ -1,6 +1,6 @@
 
 SELECT 
-substr(ds,1,10) as ds,
+  substr(ds,1,10) as ds,
   jest(event_data, 'app') as App,
   count(distinct usr.uid) as Sessions,
   count(distinct hub.uid) as Hub,
