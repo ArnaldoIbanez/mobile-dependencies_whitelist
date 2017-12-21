@@ -32,6 +32,11 @@ tracks {
         view_type(required:true, description: "Type of the view. Upgrade / Upgrade full screen / single option, ect...")
     }
 
+    "/sell/change_listing_type/upgrade_intention"(platform: "/web", type: TrackType.Event){
+        item_id(required: true)
+        vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
+    }
+
     "/sell/quick_relist"(platform: "/web/desktop", isAbstract: true){}
     "/sell/quick_relist/single"(platform: "/web/desktop", type: TrackType.View){
         item_id(required: true, description: "Item id")
