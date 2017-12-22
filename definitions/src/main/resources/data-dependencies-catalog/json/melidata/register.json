@@ -3,7 +3,7 @@
     "marina.propato@mercadolibre.com"
   ],
   "process_name": "register",
-  "cron": "",
+  "cron": "00 06 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -46,12 +46,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2017-10-01",
+          "value": "2017-12-20",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "2017-11-01",
+          "value": "2017-12-21",
           "format": "yyyy-MM-dd"
         }
       ]
