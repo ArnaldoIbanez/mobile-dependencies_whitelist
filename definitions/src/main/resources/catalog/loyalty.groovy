@@ -19,6 +19,9 @@ tracks {
     "/loyalty/score/benefits"(type: TrackType.View) {} //Benefits tab
     "/loyalty/score/achievements"(type: TrackType.View) {} //Achievements tab
 
+    "/loyalty/score/benefit"(platform: "/", type: TrackType.View) {
+        benefit(required: true, description: "Indicates which benefit was viewed")
+    }
 
     "/loyalty/notification"(type: TrackType.Event) {
         event_type(required: true,
