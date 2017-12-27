@@ -486,6 +486,18 @@ metrics {
 			}
 		}
 	}
+	
+	"upgrade_listing"(description: "upgrade listing success for sell experiments") {
+		startWith {
+			experiment("sell/congrats_upgrade_listing_type")
+		}
+		
+		countsOn {
+			condition {
+				path("/sell/upgrade/listing_types")
+			}
+		}
+	}
 
 	"search/showBetterImagesFixed.notRetinaScreen"(description: "Better images experiment for non retina screens"){
 		startWith{

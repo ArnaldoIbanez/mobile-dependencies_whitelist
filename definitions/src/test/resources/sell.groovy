@@ -31,4 +31,13 @@ trackTests {
             album_name = "Galería de fotos"
         }
     }
+
+    test("The intention of upgrading should be tracked"){
+        "/sell/change_listing_type/upgrade_intention"(platform: "/web", type: TrackType.Event){
+            source = "upgrade_on"
+            seller_experience = "ADVANCED"
+            item_id = "MLB13838282"
+            vertical = "MOTOR"
+        }
+    }
 }
