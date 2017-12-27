@@ -59,4 +59,9 @@ tracks {
       id(required: true, type: PropertyType.String)
       modal_data(required: false, type: PropertyType.Map)
     }
+
+    "/return/external"(platform: "/", type: TrackType.Event) {
+      id(required: true, type: PropertyType.String)
+      data(required: false, type: PropertyType.Map)
+    }
 }

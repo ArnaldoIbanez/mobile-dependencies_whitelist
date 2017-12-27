@@ -58,5 +58,10 @@ trackTests {
         action = "modal_action"
         id = "modal_id"
       }
+
+      // Redirect to Claims
+      "/return/external"(platform: "/") {
+        id = "claims"
+      }
     }
 }
