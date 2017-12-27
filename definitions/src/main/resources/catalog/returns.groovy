@@ -59,4 +59,6 @@ tracks {
       id(required: true, type: PropertyType.String)
       modal_data(required: false, type: PropertyType.Map)
     }
+
+    "/return/external/claims"(platform: "/", type: TrackType.Event) { }
 }
