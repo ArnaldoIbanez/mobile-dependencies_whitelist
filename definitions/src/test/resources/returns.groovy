@@ -60,6 +60,8 @@ trackTests {
       }
 
       // Redirect to Claims
-      "/return/external/claims"(platform: "/") { }
+      "/return/external"(platform: "/") {
+        id = "claims"
+      }
     }
 }
