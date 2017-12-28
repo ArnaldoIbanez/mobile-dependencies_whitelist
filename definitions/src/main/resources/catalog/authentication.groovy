@@ -103,7 +103,7 @@ tracks {
 
     "/oauth/authorization"(platform: "/", isAbstract: true) {}
 
-    "/oauth/authorization/form"(platform: "/", type: TrackType.Event) {
+    "/oauth/authorization/form"(platform: "/", type: TrackType.View) {
         source(type: PropertyType.String, required: true)
     }
 
