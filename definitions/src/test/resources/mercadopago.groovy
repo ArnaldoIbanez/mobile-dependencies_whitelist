@@ -1592,6 +1592,15 @@ trackTests {
             flow = "internal"
         }
     }
+    test("App authorization tracks") {
+        "/oauth/authorization/form"(platform: "/", type: TrackType.Event) {
+            source = "LFE"
+        }
+        "/oauth/authorization/form/access"(platform: "/", type: TrackType.Event) {
+            source = "LFE"
+            authorize = true
+        }
+    }
 
     test("Login Status with Smart Lock for Passwords") {
         "/login/status"(platform: "/mobile", type: TrackType.Event) {

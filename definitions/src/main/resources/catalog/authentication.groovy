@@ -98,4 +98,16 @@ tracks {
     "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
         status(type: PropertyType.String, required: true)
     }
+
+    "/oauth"(platform: "/", isAbstract: true) {}
+
+    "/oauth/authorization"(platform: "/", isAbstract: true) {}
+
+    "/oauth/authorization/form"(platform: "/", type: TrackType.Event) {
+        source(type: PropertyType.String, required: true)
+    }
+
+    "/oauth/authorization/form/access"(platform: "/", type: TrackType.Event) {
+        authorize(type: PropertyType.Boolean, required: true)
+    }
 }
