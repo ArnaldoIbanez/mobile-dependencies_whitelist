@@ -31,6 +31,25 @@ tracks {
     "/blog/home"(platform: "/web") {
     }
 
+    //MP frontend
+    "/accountFund/index"(platform: "/web"){}
+    "/campaigns/create"(platform: "/web"){}
+    "/cellphoneRecharge/phone"(platform: "/web"){}
+    "/moneyRequest/index"(platform: "/web"){}
+    "/moneyRequest/congrats"(platform: "/web"){}
+    "/moneyTransfer/index"(platform: "/web"){}
+    "/subscriptionPlan/create"(platform: "/web"){}
+
+    //MP personalFrontend
+    "/button/list"(platform: "/web"){}
+    "/button/create"(platform: "/web"){}
+    "/myBusiness/index"(platform: "/web"){}
+
+    //MP withdraw
+    "/withdraw/withdraw"(platform: "/web"){}
+
+    //MP listings
+    "/listings/movements"(platform: "/web"){}
 
     // MP Landings Scope
     "/landing"(platform: "/web", isAbstract: true) {}
