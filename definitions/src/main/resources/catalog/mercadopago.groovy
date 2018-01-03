@@ -32,18 +32,18 @@ tracks {
     }
 
     //MP frontend
-    "/accountFund/index"(platform: "/web"){}
+    "/account_fund/index"(platform: "/web"){}
     "/campaigns/create"(platform: "/web"){}
-    "/cellphoneRecharge/phone"(platform: "/web"){}
-    "/moneyRequest/index"(platform: "/web"){}
-    "/moneyRequest/congrats"(platform: "/web"){}
-    "/moneyTransfer/index"(platform: "/web"){}
-    "/subscriptionPlan/create"(platform: "/web"){}
+    "/cellphone_recharge/phone"(platform: "/web"){}
+    "/money_request/index"(platform: "/web"){}
+    "/money_request/congrats"(platform: "/web"){}
+    "/money_transfer/index"(platform: "/web"){}
+    "/subscription_plan/create"(platform: "/web"){}
 
     //MP personalFrontend
     "/button/list"(platform: "/web"){}
     "/button/create"(platform: "/web"){}
-    "/myBusiness/index"(platform: "/web"){}
+    "/my_business/index"(platform: "/web"){}
 
     //MP withdraw
     "/withdraw/withdraw"(platform: "/web"){}

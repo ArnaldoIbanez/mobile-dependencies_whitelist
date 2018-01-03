@@ -2094,7 +2094,7 @@ trackTests {
 
     //MP frontend
     test("Ingresar dinero en cuenta"){
-        "/accountFund/index"(platform: "/web", type: TrackType.View) {}
+        "/account_fund/index"(platform: "/web", type: TrackType.View) {}
     }
 
     test("Configuracion de campanias de descuento"){
@@ -2102,20 +2102,20 @@ trackTests {
     }
 
     test("Recargar Celular"){
-        "/cellphoneRecharge/phone"(platform: "/web", type: TrackType.View){}
+        "/cellphone_recharge/phone"(platform: "/web", type: TrackType.View){}
     }
 
     test("Solicitar Dinero"){
-        "/moneyRequest/index"(platform: "/web", type: TrackType.View){}
-        "/moneyRequest/congrats"(platform: "/web", type: TrackType.View){}
+        "/money_request/index"(platform: "/web", type: TrackType.View){}
+        "/money_request/congrats"(platform: "/web", type: TrackType.View){}
     }
 
     test("Enviar Dinero"){
-        "/moneyTransfer/index"(platform: "/web", type: TrackType.View){}
+        "/money_transfer/index"(platform: "/web", type: TrackType.View){}
     }
 
     test("Suscripciones"){
-        "/subscriptionPlan/create"(platform: "/web", type: TrackType.View){}
+        "/subscription_plan/create"(platform: "/web", type: TrackType.View){}
     }
 
     //MP personalFrontend
@@ -2128,7 +2128,7 @@ trackTests {
     }
 
     test("Configuraciones de Negocio"){
-        "/myBusiness/index"(platform: "/web", type: TrackType.View){}
+        "/my_business/index"(platform: "/web", type: TrackType.View){}
     }
 
     //MP withdraw
