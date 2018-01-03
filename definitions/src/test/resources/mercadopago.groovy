@@ -2091,4 +2091,53 @@ trackTests {
             environment = "production"
         }
     }
+
+    //MP frontend
+    test("Ingresar dinero en cuenta"){
+        "/accountFund/index"(platform: "/web", type: TrackType.View) {}
+    }
+
+    test("Configuracion de campanias de descuento"){
+        "/campaigns/create"(platform: "/web", type: TrackType.View){}
+    }
+
+    test("Recargar Celular"){
+        "/cellphoneRecharge/phone"(platform: "/web", type: TrackType.View){}
+    }
+
+    test("Solicitar Dinero"){
+        "/moneyRequest/index"(platform: "/web", type: TrackType.View){}
+        "/moneyRequest/congrats"(platform: "/web", type: TrackType.View){}
+    }
+
+    test("Enviar Dinero"){
+        "/moneyTransfer/index"(platform: "/web", type: TrackType.View){}
+    }
+
+    test("Suscripciones"){
+        "/subscriptionPlan/create"(platform: "/web", type: TrackType.View){}
+    }
+
+    //MP personalFrontend
+    test("Listado de Herramientas Creadas"){
+        "/button/list"(platform: "/web", type: TrackType.View){}
+    }
+
+    test("Crear Herramienta de cobro"){
+        "/button/create"(platform: "/web", type: TrackType.View){}
+    }
+
+    test("Configuraciones de Negocio"){
+        "/myBusiness/index"(platform: "/web", type: TrackType.View){}
+    }
+
+    //MP withdraw
+    test("Retiro de Dinero"){
+        "/withdraw/withdraw"(platform: "/web", type: TrackType.View){}
+    }
+
+    //MP listings
+    test("Informes"){
+        "/listings/movements"(platform: "/web", type: TrackType.View){}
+    }
 }
