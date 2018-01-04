@@ -57,7 +57,7 @@ tracks {
     }
 
     "/loyalty/user/float_notification"(platform: "/", type: TrackType.Event) {
-        event_type(required: true, description: "Description of loyalty notification event"
-        )
+        event_type(required: true, description: "Description of loyalty notification event")
+        notification_ids(required: true, description: "List of notification ids" )
     }
 }
