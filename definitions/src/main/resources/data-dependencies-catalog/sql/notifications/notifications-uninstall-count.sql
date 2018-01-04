@@ -27,6 +27,6 @@ WHERE ds in (SELECT MAX(t.ds)
             AND   t.ds < '@param02'
             AND   t.path LIKE '/notification/%'
             AND   jest(t.event_data,'event_type') = 'shown'
-            AND   jest(t.event_data,'device_id'
-            AND  t.device.platform = '/mobile/android') = temporal.device_id)
+            AND  t.device.platform = '/mobile/android'
+            AND   jest(t.event_data,'device_id') = temporal.device_id)
 GROUP BY temporal.notification_type, temporal.platform, temporal.site_id, temporal.marketplace
