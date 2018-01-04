@@ -54,6 +54,7 @@ trackTests {
         "/loyalty/user/float_notification"(platform: "/", type: TrackType.Event) {
             event_type = "sent"
             in_loyalty_program = true
+            notification_ids = "[123]"
 
         }
     }
