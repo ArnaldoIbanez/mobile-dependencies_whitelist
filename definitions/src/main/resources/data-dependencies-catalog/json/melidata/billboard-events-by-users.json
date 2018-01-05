@@ -2,7 +2,7 @@
   "users": [
     "lucia.blanc@mercadolibre.com"
   ],
-  "process_name": "billboard-conversion-events",
+  "process_name": "billboard-events-by-users",
   "cron": "",
   "extract": {
     "operation": "append",
@@ -37,25 +37,37 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Cant_bb",
+        "name": "Uid",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "User_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "User_nick",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Cantidad",
         "type": "INTEGER"
       },
       {
-        "name": "Cant_notbb",
+        "name": "Cantidad_total_bb",
         "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "business-assurance/billboard_conversion_events.sql",
+      "script": "business-assurance/billboard_events_by_users.sql",
       "parameters": [
         {
            "name": "param01",
-           "value": "2017-12-01",
+           "value": "2017-11-01",
            "format": "yyyy-MM-dd"
          },
          {
            "name": "param02",
-           "value": "2018-01-01",
+           "value": "2017-12-01",
            "format": "yyyy-MM-dd"
          }
       ]
