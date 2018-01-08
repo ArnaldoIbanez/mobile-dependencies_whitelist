@@ -222,7 +222,7 @@ tracks {
     }
     //Este path recibira las keys de los errores en las validaciones del images_uploader
     "/sell/list/pictures_uploader/validations"(platform: "/web", type: TrackType.Event) {
-        error_key(required: false, description: "error description", type: PropertyType.String)
+        error_key(required: false, description: "error key", type: PropertyType.String)
     }
     "/sell/list/pictures_review"(platform: "/", type: TrackType.View) {
         session_id(required: false, description: "Session id", type: PropertyType.String)

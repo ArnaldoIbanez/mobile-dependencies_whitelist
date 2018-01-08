@@ -3843,7 +3843,7 @@ trackTests {
     }
 
     test("validations in pictures_uploader - List"){
-        "sell/list/pictures_uploader/validations"(platform: "/web") {
+        "/sell/list/pictures_uploader/validations"(platform: "/web") {
              error_key = "PICTURE_INVALID_QUALITY"
          }
     }
