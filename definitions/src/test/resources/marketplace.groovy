@@ -3842,6 +3842,12 @@ trackTests {
         "/sell/list/congrats_upgrade"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
     }
 
+    test("validations in pictures_uploader - List"){
+        "sell/list/pictures_uploader/validations"(platform: "/web") {
+             error_key = "PICTURE_INVALID_QUALITY"
+         }
+    }
+
     test("Native Sell Modify Steps"){
         "/sell/update/sip"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/publish/pictures_fail"(platform: "/mobile") {
