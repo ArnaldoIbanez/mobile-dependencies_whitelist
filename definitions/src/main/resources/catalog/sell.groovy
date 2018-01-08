@@ -220,6 +220,11 @@ tracks {
     "/sell/list/pictures_uploader/crop/crop_acepted"(platform: "/", type: TrackType.Event) {
         session_id(required: false, description: "Session id", type: PropertyType.String)
     }
+    //Este path recibira los errores en las validaciones de images_uploader, la key(string) del mismo 
+    //se recibira por parametros
+     "/sell/list/pictures_uploader/validations"(platform: "/web", type: TrackType.Event) {
+        error_key(required: false, description: "error description", type: PropertyType.String)
+    }
     "/sell/list/pictures_review"(platform: "/", type: TrackType.View) {
         session_id(required: false, description: "Session id", type: PropertyType.String)
     }
