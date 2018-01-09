@@ -340,6 +340,9 @@ tracks {
         condition(required: false, description: "Item condition: used/new/not_specified")
         price(required: false, description: "Item price")
     }
+    "/sell/list/sale_condition"(platform: "/", type: TrackType.View){
+        session_id(required: false, description: "Session id", type: PropertyType.String)
+    }
 
 //update flow
 
