@@ -53,7 +53,8 @@ tracks {
     }
 
     "/loyalty/user/expire_points"(platform: "/", type: TrackType.Event) {
-        order_id(required: true, description: "Indicates which order had it's points expired")
+        expired_points(required: true, description: "Points expired")
+        due_date(required: true, description: "Due date for expiration")
     }
 
     "/loyalty/user/float_notification"(platform: "/", type: TrackType.Event) {
