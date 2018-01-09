@@ -43,9 +43,9 @@ trackTests {
 
     test("Loyalty points expiration") {
         "/loyalty/user/expire_points"(platform: "/", type: TrackType.Event) {
-            order_id = "123"
+            expired_points = "123"
+            due_date = "24/11/89"
             in_loyalty_program = true
-
         }
     }
 
