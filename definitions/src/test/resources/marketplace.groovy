@@ -3845,6 +3845,7 @@ trackTests {
     test("validations in pictures_uploader - List"){
         "/sell/list/pictures_uploader/validations"(platform: "/web") {
              error_key = "PICTURE_INVALID_QUALITY"
+             session_id = "214464778-list-d5e5a20b2935"
          }
     }
 
