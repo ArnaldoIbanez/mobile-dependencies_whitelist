@@ -220,6 +220,11 @@ tracks {
     "/sell/list/pictures_uploader/crop/crop_acepted"(platform: "/", type: TrackType.Event) {
         session_id(required: false, description: "Session id", type: PropertyType.String)
     }
+    //Este path recibira las keys de los errores en las validaciones del images_uploader
+    "/sell/list/pictures_uploader/validations"(platform: "/web", type: TrackType.Event) {
+        error_key(required: true, description: "error key", type: PropertyType.String)
+        session_id(required: false, description: "Session id", type: PropertyType.String)
+    }
     "/sell/list/pictures_review"(platform: "/", type: TrackType.View) {
         session_id(required: false, description: "Session id", type: PropertyType.String)
     }
@@ -335,6 +340,9 @@ tracks {
         buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
         condition(required: false, description: "Item condition: used/new/not_specified")
         price(required: false, description: "Item price")
+    }
+    "/sell/list/sale_condition"(platform: "/", type: TrackType.View){
+        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
 
 //update flow

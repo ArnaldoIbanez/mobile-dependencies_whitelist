@@ -18,6 +18,12 @@ trackTests {
     	}
     }
 
+    test("sale_condition step should be tracked"){
+    	"/sell/list/sale_condition"(platform: "/", type: TrackType.View){
+            session_id = "11111"
+    	}
+    }
+
     test("Selected a photo album in the list flow") {
         "/sell/list/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
             session_id = "245084411-list-4519bc3c72aa"
