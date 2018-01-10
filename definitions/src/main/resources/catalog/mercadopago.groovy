@@ -538,7 +538,7 @@ tracks {
     //MP listings
     "/listings"(platform: "/web", isAbstract: true){}
     "/listings/movements"(platform: "/web", type: TrackType.View){}
-    "/movements/with_holdings"(platform: "/web", type: TrackType.View){}
+    "/listings/with_holdings"(platform: "/web", type: TrackType.View){}
 
     //MP personalFrontend
     "/tools"(platform: "/web", isAbstract: true){}
@@ -549,7 +549,10 @@ tracks {
     "/tools/create"(platform: "/web", type: TrackType.View){}
     "/tools/confirm_create_edit"(platform: "/web"){}
 
+    "/charts"(platform: "/web", isAbstract: true){}
     "/charts/show"(platform: "/web", type: TrackType.View){}
+
+    "/balance"(platform: "/web", isAbstract: true){}
     "/balance/reports"(platform: "/web", type: TrackType.View){}
 
     "/my_business"(platform: "/web", type: TrackType.View){}

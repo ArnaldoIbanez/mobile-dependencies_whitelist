@@ -2137,7 +2137,7 @@ trackTests {
     //MP listings
     test("Informes"){
         "/listings/movements"(platform: "/web", type: TrackType.View){}
-        "/movements/with_holdings"(platform: "/web", type: TrackType.View){}
+        "/listings/with_holdings"(platform: "/web", type: TrackType.View){}
         "/charts/show"(platform: "/web", type: TrackType.View){}
         "/balance/reports"(platform: "/web", type: TrackType.View){}
     }
