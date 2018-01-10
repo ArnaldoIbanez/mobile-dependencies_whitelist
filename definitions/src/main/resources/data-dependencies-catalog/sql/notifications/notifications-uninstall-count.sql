@@ -1,4 +1,4 @@
-SELECT '@param01' AS fecha, COUNT(1) as total, temporal.notification_type, 'android', temporal.site_id, temporal.marketplace
+SELECT '@param03' AS fecha, COUNT(1) as total, temporal.notification_type, 'android', temporal.site_id, temporal.marketplace
 FROM (SELECT *
       FROM (SELECT split(path,'/')[2] AS notification_type_purge,
                    jest(s1.event_data,'device_id') AS device_id_purge

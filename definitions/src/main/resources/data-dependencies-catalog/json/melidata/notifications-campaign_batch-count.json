@@ -2,24 +2,30 @@
   "users": [
     "notifications-it@mercadolibre.com"
   ],
-  "process_name": "notifications_uninstalls",
+  "process_name": "notifications_campaign-batch",
   "cron": "00 06 * * *",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [{
       "name": "fecha",
       "type": "UNICODE_STRING"
-    }, {
+    },{
       "name": "total",
       "type": "INTEGER",
       "format": "yyyy-MM-dd"
     }, {
-      "name": "notification_type",
+      "name": "campaign_batch",
+      "type": "UNICODE_STRING"
+    }, {
+      "name": "campaign_id",
+      "type": "UNICODE_STRING"
+    },{
+      "name": "batch_id",
       "type": "UNICODE_STRING"
     }, {
       "name": "platform",
       "type": "UNICODE_STRING"
-    }, {
+    },{
       "name": "site_id",
       "type": "UNICODE_STRING"
     }, {
