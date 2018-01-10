@@ -544,10 +544,10 @@ tracks {
     "/tools"(platform: "/web", isAbstract: true){}
 
     "/tools/list"(platform: "/web", type: TrackType.View){}
-    "/tools/list/button_create"(platform: "/web")
+    "/tools/list/button_create"(platform: "/web"){}
 
     "/tools/create"(platform: "/web", type: TrackType.View){}
-    "/tools/confirm_create_edit"(platform: "/web")
+    "/tools/confirm_create_edit"(platform: "/web"){}
 
     "/charts/show"(platform: "/web", type: TrackType.View){}
     "/balance/reports"(platform: "/web", type: TrackType.View){}
