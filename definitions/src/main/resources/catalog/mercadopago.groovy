@@ -536,10 +536,13 @@ tracks {
     // END -- MPMOBILE
 
     //MP listings
+    "/listings"(platform: "/web", isAbstract: true){}
     "/listings/movements"(platform: "/web", type: TrackType.View){}
     "/movements/with_holdings"(platform: "/web", type: TrackType.View){}
 
     //MP personalFrontend
+    "/tools"(platform: "/web", isAbstract: true){}
+
     "/tools/list"(platform: "/web", type: TrackType.View){}
     "/tools/list/button_create"(platform: "/web")
 
@@ -567,9 +570,11 @@ tracks {
     "/money_request/confirm"(platform: "/web"){}
     "/money_request/congrats"(platform: "/web"){}
 
+    "/campaigns"(platform: "/web", isAbstract: true){}
     "/campaigns/create"(platform: "/web", type: TrackType.View){}
     "/campaigns/confirm_create"(platform: "/web"){}
 
+    "/subscription_plan"(platform: "/web", isAbstract: true){}
     "/subscription_plan/create"(platform: "/web", type: TrackType.View){}
     "/subscription_plan/confirm_create"(platform: "/web"){}
 
