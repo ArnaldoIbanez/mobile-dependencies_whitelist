@@ -454,7 +454,9 @@ trackTests {
             status_detail = "call_for_auth"
         }
 
-        "/send_money/confirm"(platform: "/web"){}
+        "/send_money/confirm"(platform: "/web"){
+            flow = "/send_money"
+        }
     }
 
     test("Checkout") {
@@ -1019,7 +1021,9 @@ trackTests {
             result_status = "rejected"
         }
 
-        "/cellphone_recharge/confirm"(platform: "/web"){}
+        "/cellphone_recharge/confirm"(platform: "/web"){
+            flow = "/cellphone_recharge"
+        }
     }
 
     test("Scheduled recharge") {
@@ -1138,8 +1142,12 @@ trackTests {
             result_status = "approved"
         }
 
-        "/money_request/confirm"(platform: "/web"){}
-        "/money_request/congrats"(platform: "/web"){}
+        "/money_request/confirm"(platform: "/web"){
+            flow = "/money_request"
+        }
+        "/money_request/congrats"(platform: "/web"){
+            flow = "/money_request"
+        }
     }
 
     test("Bill payments") {
@@ -1365,7 +1373,9 @@ trackTests {
             status_detail = "unavailable"
         }
 
-        "/fund_account/confirm"(platform: "/web"){}
+        "/fund_account/confirm"(platform: "/web"){
+            flow = "/fund_account"
+        }
     }
 
     test("new-withdraw") {
