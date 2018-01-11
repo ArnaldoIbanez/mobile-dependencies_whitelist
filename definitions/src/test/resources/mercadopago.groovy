@@ -453,6 +453,10 @@ trackTests {
             result_status = "rejected"
             status_detail = "call_for_auth"
         }
+
+        "/send_money/confirm"(platform: "/web"){
+            flow = "/send_money"
+        }
     }
 
     test("Checkout") {
@@ -1016,6 +1020,10 @@ trackTests {
             from = "/deep_link"
             result_status = "rejected"
         }
+
+        "/cellphone_recharge/confirm"(platform: "/web"){
+            flow = "/cellphone_recharge"
+        }
     }
 
     test("Scheduled recharge") {
@@ -1132,6 +1140,13 @@ trackTests {
             flow = "/money_request"
             from = "/deep_link"
             result_status = "approved"
+        }
+
+        "/money_request/confirm"(platform: "/web"){
+            flow = "/money_request"
+        }
+        "/money_request/congrats"(platform: "/web"){
+            flow = "/money_request"
         }
     }
 
@@ -1357,6 +1372,10 @@ trackTests {
             result_status = "rejected"
             status_detail = "unavailable"
         }
+
+        "/fund_account/confirm"(platform: "/web"){
+            flow = "/fund_account"
+        }
     }
 
     test("new-withdraw") {
@@ -1376,7 +1395,7 @@ trackTests {
             flow = "/withdraw"
             from = "/deep_link"
         }
-        "/withdraw/take_money_out"(platform: "/mobile") {
+        "/withdraw/take_money_out"(platform: "/") {
             flow = "/withdraw"
             from = "/deep_link"
         }
@@ -2090,5 +2109,46 @@ trackTests {
             client_id = "1321312"
             environment = "production"
         }
+    }
+
+    //MP frontend
+    test("Configuracion de campanias de descuento"){
+        "/campaigns/create"(platform: "/web", type: TrackType.View){}
+        "/campaigns/confirm_create"(platform: "/web"){}
+    }
+
+    test("Suscripciones"){
+        "/subscription_plan/create"(platform: "/web", type: TrackType.View){}
+        "/subscription_plan/confirm_create"(platform: "/web"){}
+    }
+
+    //MP personalFrontend
+    test("Listado de Herramientas Creadas"){
+        "/tools/list"(platform: "/web", type: TrackType.View){}
+        "/tools/list/button_create"(platform: "/web"){}
+    }
+
+    test("Crear Herramienta de cobro"){
+        "/tools/create"(platform: "/web", type: TrackType.View){}
+        "/tools/confirm_create_edit"(platform: "/web"){}
+    }
+
+    test("Configuraciones de Negocio"){
+        "/my_business"(platform: "/web", type: TrackType.View){}
+        "/my_business/how_it_works_ME"(platform: "/web"){}
+        "/my_business/enable_ME"(platform: "/web"){}
+        "/my_business/disable_ME"(platform: "/web"){}
+
+        "/my_business/split_payment"(platform: "/web"){}
+        "/my_business/recovery_mails"(platform: "/web"){}
+        "/my_business/cost_absorption"(platform: "/web"){}
+    }
+
+    //MP listings
+    test("Informes"){
+        "/listings/movements"(platform: "/web", type: TrackType.View){}
+        "/listings/with_holdings"(platform: "/web", type: TrackType.View){}
+        "/charts/show"(platform: "/web", type: TrackType.View){}
+        "/balance/reports"(platform: "/web", type: TrackType.View){}
     }
 }
