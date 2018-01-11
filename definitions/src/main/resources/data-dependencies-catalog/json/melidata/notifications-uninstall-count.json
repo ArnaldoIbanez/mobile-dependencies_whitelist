@@ -5,7 +5,7 @@
   "process_name": "notifications_uninstalls",
   "cron": "00 06 * * *",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [{
       "name": "fecha",
       "type": "UNICODE_STRING"
