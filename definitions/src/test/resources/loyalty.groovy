@@ -37,7 +37,7 @@ trackTests {
             benefit = "FREE_SHIPPING"
             consumable = false
             in_loyalty_program = true
-
+            reference = "123"
         }
     }
 
