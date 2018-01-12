@@ -4420,7 +4420,7 @@ trackTests {
 
     test("Mobile Navigation Drawer"){
         "/navigation/drawer"(platform: "/mobile/android", type: TrackType.Event) {
-            destination = "my_account"
+            section = "my_account"
         }
     }
 
