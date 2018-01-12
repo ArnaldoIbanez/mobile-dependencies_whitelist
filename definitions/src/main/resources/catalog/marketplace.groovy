@@ -427,6 +427,10 @@ tracks {
         origin(required: true, type: PropertyType.String, description: "Analytic's name of the screen where the menu was opened")
     }
 
+    "/mobile/drawer"(platform: "/mobile/android", type: TrackType.Event) {
+        destination(required: true, type: PropertyType.String, description: "Destination host after click")
+    }
+
     "/navigation/tabs"(platform: "/mobile/ios", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Kind of navigation action")
         tab(required:true, type: PropertyType.String, description: "Indicates which tab was selected")
