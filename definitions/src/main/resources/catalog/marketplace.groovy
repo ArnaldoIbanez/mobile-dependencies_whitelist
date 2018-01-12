@@ -427,6 +427,7 @@ tracks {
         origin(required: true, type: PropertyType.String, description: "Analytic's name of the screen where the menu was opened")
     }
 
+    "/mobile"(platform: "/", isAbstract: true) {}
     "/mobile/drawer"(platform: "/mobile/android", type: TrackType.Event) {
         destination(required: true, type: PropertyType.String, description: "Destination host after click")
     }
