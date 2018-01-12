@@ -4418,6 +4418,12 @@ trackTests {
         }
     }
 
+    test("Mobile Navigation Drawer"){
+        "/navigation/drawer"(platform: "/mobile/android", type: TrackType.Event) {
+            section = "my_account"
+        }
+    }
+
     test("Mobile Navigation Tabs"){
         "/navigation/tabs"(platform: "/mobile/ios", type: TrackType.Event) {
             action = "TAB_SELECTED"
