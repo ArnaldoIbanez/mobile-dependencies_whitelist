@@ -4419,7 +4419,7 @@ trackTests {
     }
 
     test("Mobile Navigation Drawer"){
-        "/mobile/drawer"(platform: "/mobile/android", type: TrackType.Event) {
+        "/navigation/drawer"(platform: "/mobile/android", type: TrackType.Event) {
             destination = "my_account"
         }
     }
