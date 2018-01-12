@@ -5406,6 +5406,14 @@ trackTests {
         }
         "/cart/checkout/payment/security_code"(platform:"/web", dataSet)
 
+        // JULIO
+        // 2MP
+        //"/cart/checkout/payments/payment_combination"(platform:"/mobile", dataSet)
+
+        //"/cart/checkout/review/discard_payment_combination"(platform:"/mobile", dataSet)
+        //"/cart/checkout/review/inconsistency/payment_combination"(platform:"/mobile", dataSet)
+        //"/cart/checkout/review/inconsistency/payment_combination/payment"(platform:"/mobile", dataSet)
+
     }
 
 
