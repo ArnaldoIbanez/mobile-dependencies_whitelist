@@ -50,6 +50,7 @@ tracks {
                 type: PropertyType.Boolean,
                 description: "Indicates if the benefit is consumable"
         )
+        reference(required: true, description: "Reference to the order")
     }
 
     "/loyalty/user/expire_points"(platform: "/", type: TrackType.Event) {
