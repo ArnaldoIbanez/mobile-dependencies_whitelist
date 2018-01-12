@@ -31,7 +31,6 @@ tracks {
     "/blog/home"(platform: "/web") {
     }
 
-
     // MP Landings Scope
     "/landing"(platform: "/web", isAbstract: true) {}
 
@@ -123,7 +122,7 @@ tracks {
     "/login/identification"(platform: "/mobile") {}
 
 
-    "/send_money"(platform: "/mobile", isAbstract: true) {
+    "/send_money"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
@@ -230,7 +229,7 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
-    "/cellphone_recharge"(platform: "/mobile", isAbstract: true) {
+    "/cellphone_recharge"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
@@ -381,7 +380,7 @@ tracks {
     }
 
 
-    "/money_request"(platform: "/mobile", isAbstract: true) {
+    "/money_request"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
@@ -401,12 +400,12 @@ tracks {
     "/new-withdraw/congrats"(platform: "/", type: TrackType.View) {}
     "/new-account"(platform: "/", type: TrackType.View) {}
 
-    "/withdraw"(platform: "/mobile", isAbstract: true) {
+    "/withdraw"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
+    "/withdraw/take_money_out"(platform: "/") {}
     "/withdraw/withdrawable_money"(platform: "/mobile") {}
-    "/withdraw/take_money_out"(platform: "/mobile") {}
     "/withdraw/select_bank"(platform: "/mobile") {}
     "/withdraw/result"(platform: "/mobile") {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
@@ -424,7 +423,7 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
-    "/fund_account"(platform: "/mobile", isAbstract: true) {
+    "/fund_account"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
@@ -535,4 +534,53 @@ tracks {
      **/
 
     // END -- MPMOBILE
+
+    //MP listings
+    "/listings"(platform: "/web", isAbstract: true){}
+    "/listings/movements"(platform: "/web", type: TrackType.View){}
+    "/listings/with_holdings"(platform: "/web", type: TrackType.View){}
+
+    //MP personalFrontend
+    "/tools"(platform: "/web", isAbstract: true){}
+
+    "/tools/list"(platform: "/web", type: TrackType.View){}
+    "/tools/list/button_create"(platform: "/web"){}
+
+    "/tools/create"(platform: "/web", type: TrackType.View){}
+    "/tools/confirm_create_edit"(platform: "/web"){}
+
+    "/charts"(platform: "/web", isAbstract: true){}
+    "/charts/show"(platform: "/web", type: TrackType.View){}
+
+    "/balance"(platform: "/web", isAbstract: true){}
+    "/balance/reports"(platform: "/web", type: TrackType.View){}
+
+    "/my_business"(platform: "/web", type: TrackType.View){}
+    "/my_business/how_it_works_ME"(platform: "/web"){}
+    "/my_business/enable_ME"(platform: "/web"){}
+    "/my_business/disable_ME"(platform: "/web"){}
+
+    "/my_business/split_payment"(platform: "/web"){}
+    "/my_business/recovery_mails"(platform: "/web"){}
+    "/my_business/cost_absorption"(platform: "/web"){}
+
+    //END -- MP personalFrontend
+
+    //MP frontend
+    "/cellphone_recharge/confirm"(platform: "/web"){}
+    "/fund_account/confirm"(platform: "/web"){}
+    "/send_money/confirm"(platform: "/web"){}
+    "/money_request/confirm"(platform: "/web"){}
+    "/money_request/congrats"(platform: "/web"){}
+
+    "/campaigns"(platform: "/web", isAbstract: true){}
+    "/campaigns/create"(platform: "/web", type: TrackType.View){}
+    "/campaigns/confirm_create"(platform: "/web"){}
+
+    "/subscription_plan"(platform: "/web", isAbstract: true){}
+    "/subscription_plan/create"(platform: "/web", type: TrackType.View){}
+    "/subscription_plan/confirm_create"(platform: "/web"){}
+
+    //END -- MP frontend
+
 }
