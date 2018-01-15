@@ -5410,9 +5410,7 @@ trackTests {
             user_identification_fields: ["doc_type", "doc_number"]
         }
         "/cart/checkout/payment/security_code"(platform:"/web", dataSet)
-
-        // JULIO
-
+        
         //2MP
         //Switch
         "/cart/checkout/payments/2mp#use"(platform: "/mobile", dataSet)
