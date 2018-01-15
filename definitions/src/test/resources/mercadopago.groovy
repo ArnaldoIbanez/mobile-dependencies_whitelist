@@ -503,6 +503,7 @@ trackTests {
     test("Point Payment") {
 
         "/point_payment"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/main"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/card"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/installments"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/card_type"(platform: "/mobile", type: TrackType.View) {}
@@ -525,6 +526,14 @@ trackTests {
             from = "/point_catalog"
             error_msg = "No podemos procesar esta tarjeta. Prueba con otra"
         }
+    }
+
+    test("Point Catalog") {
+
+        "/catalog"(platform: "/mobile", type: TrackType.View) {}
+        "/catalog/create_product"(platform: "/mobile", type: TrackType.View) {}
+        "/catalog/create_product/picture"(platform: "/mobile", type: TrackType.View) {}
+        "/catalog/discount"(platform: "/mobile", type: TrackType.View) {}
     }
 
     test("QR") {
