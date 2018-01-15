@@ -87,6 +87,7 @@ tracks {
         operator_id (required: false, type: PropertyType.String, description: "Operator identification")
     }
 
+    "/point_payment/main"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/card"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/installments"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/card_type"(platform: "/mobile", type: TrackType.View) {}
@@ -98,6 +99,13 @@ tracks {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
         error_msg (required:false, type: PropertyType.String, description: "Error shown to seller")
     }
+
+    // MP Mobile Point Catalog
+
+    "/catalog"(platform: "/mobile", type: TrackType.View) {}
+    "/catalog/create_product"(platform: "/mobile", type: TrackType.View) {}
+    "/catalog/create_product/picture"(platform: "/mobile", type: TrackType.View) {}
+    "/catalog/discount"(platform: "/mobile", type: TrackType.View) {}
     
     // MPMOBILE
     "/account_summary"(platform: "/mobile") {}
