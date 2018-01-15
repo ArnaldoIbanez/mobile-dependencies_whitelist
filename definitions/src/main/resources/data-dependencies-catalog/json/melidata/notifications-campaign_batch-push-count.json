@@ -3,7 +3,7 @@
       "notifications-it@mercadolibre.com"
     ],
     "process_name": "notifications-campaign_batch_push-count",
-    "cron": "00 05 * * *",
+    "cron": "",
     "extract": {
       "operation": "append",
       "columns": [{
