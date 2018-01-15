@@ -263,22 +263,31 @@ tracks {
 "/cart/checkout/show_geolocation_map"(platform:"/mobile", type: TrackType.View) {}
 
 // 2MP
+"/cart/checkout/payments"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
+
 // switch tracks
 "/cart/checkout/payments/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
 "/cart/checkout/payments/2mp#not_use"(platform: "/mobile", type: TrackType.Event) {}
 
+
 //2MP Disclaimer combination modal view.
-"/checkout/payments/payment_combination"(platform: "/mobile") {}
+"/cart/checkout/payments/payment_combination"(platform: "/mobile", isAbstract: true) {}
+"/cart/checkout/payments/payment_combination/payment_method_not_supported"(platform:"/mobile", type: TrackType.View) {}
+
+// 2MP Cancelation
+"/cart/checkout/payments_cancelation"(platform: "/mobile", type: TrackType.View) {}
 
 // 2MP Inconsistencias
 "/cart/checkout/review/discard_payment_combination"(platform: "/mobile") {}
+
+"/cart/checkout/review/inconsistency"(platform: "/mobile", isAbstract: true) {}
 "/cart/checkout/review/inconsistency/payment_combination"(platform: "/mobile", isAbstract: true) {}
 "/cart/checkout/review/inconsistency/payment_combination/payment"(platform: "/mobile") {}
 "/cart/checkout/review/inconsistency/payment_combination/installments"(platform: "/mobile") {}
 "/cart/checkout/review/inconsistency/payment_combination/shipping"(platform: "/mobile") {}
 "/cart/checkout/review/inconsistency/payment_combination/new_split"(platform: "/mobile") {}
 
-"/cart/checkout/payments_cancelation"(platform: "/mobile") {}
+
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin Mobile platform

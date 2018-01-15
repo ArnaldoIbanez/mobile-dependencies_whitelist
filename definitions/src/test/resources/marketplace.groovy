@@ -1303,6 +1303,11 @@ trackTests {
         "/checkout/payments/payment_combination/debit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+
+        "/checkout/payments/payment_combination/payment_method_not_supported"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
+
         "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
             status = "success"
         }
@@ -5407,15 +5412,26 @@ trackTests {
         "/cart/checkout/payment/security_code"(platform:"/web", dataSet)
 
         // JULIO
-        // 2MP
-        //"/cart/checkout/payments/payment_combination"(platform:"/mobile", dataSet)
 
-        //"/cart/checkout/review/discard_payment_combination"(platform:"/mobile", dataSet)
-        //"/cart/checkout/review/inconsistency/payment_combination"(platform:"/mobile", dataSet)
-        //"/cart/checkout/review/inconsistency/payment_combination/payment"(platform:"/mobile", dataSet)
+        //2MP
+        //Switch
+        "/cart/checkout/payments/2mp#use"(platform: "/mobile", dataSet)
+        "/cart/checkout/payments/2mp#not_use"(platform: "/mobile",dataSet)
 
+        // Disclaimer combination modal view.
+        "/cart/checkout/payments/payment_combination/payment_method_not_supported"(platform:"/mobile", dataSet)
+
+        // Cancelarion
+        "/cart/checkout/payments_cancelation"(platform:"/mobile", dataSet)
+
+        //Inconsistencias
+        "/cart/checkout/review/discard_payment_combination"(platform:"/mobile", dataSet)
+        "/cart/checkout/review/inconsistency/payment_combination"(platform:"/mobile", dataSet)
+        "/cart/checkout/review/inconsistency/payment_combination/payment"(platform:"/mobile", dataSet)
+        "/cart/checkout/review/inconsistency/payment_combination/installments"(platform: "/mobile", dataSet)
+        "/cart/checkout/review/inconsistency/payment_combination/shipping"(platform: "/mobile", dataSet) 
+        "/cart/checkout/review/inconsistency/payment_combination/new_split"(platform: "/mobile", dataSet)
     }
-
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 // TRACKS CART LIST
