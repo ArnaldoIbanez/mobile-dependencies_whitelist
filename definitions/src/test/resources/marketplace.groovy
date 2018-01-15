@@ -5410,11 +5410,12 @@ trackTests {
             user_identification_fields: ["doc_type", "doc_number"]
         }
         "/cart/checkout/payment/security_code"(platform:"/web", dataSet)
-        
+
         //2MP
         //Switch
         "/cart/checkout/payments/2mp#use"(platform: "/mobile", dataSet)
         "/cart/checkout/payments/2mp#not_use"(platform: "/mobile",dataSet)
+        "/cart/checkout/payments/2mp/split"(platform: "/mobile",dataSet)
 
         // Disclaimer combination modal view.
         "/cart/checkout/payments/payment_combination/payment_method_not_supported"(platform:"/mobile", dataSet)

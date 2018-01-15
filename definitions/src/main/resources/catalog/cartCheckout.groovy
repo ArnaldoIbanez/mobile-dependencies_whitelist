@@ -266,8 +266,12 @@ tracks {
 "/cart/checkout/payments"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
 
 // switch tracks
+"/cart/checkout/payments/2mp"(platform: "/mobile", isAbstract: true) {}
+"/cart/checkout/payments/2mp/split"(platform: "/mobile", type: TrackType.Event) {}
+
 "/cart/checkout/payments/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
 "/cart/checkout/payments/2mp#not_use"(platform: "/mobile", type: TrackType.Event) {}
+
 
 
 //2MP Disclaimer combination modal view.
