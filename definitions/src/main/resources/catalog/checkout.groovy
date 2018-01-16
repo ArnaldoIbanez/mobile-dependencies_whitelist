@@ -463,6 +463,7 @@ tracks {
     //2MP Disclaimer combination modal view.
     "/checkout/payments/payment_combination"(platform: "/mobile", isAbstract: true) {}
     "/checkout/payments/payment_combination/debit_card"(platform: "/mobile") {}
+    "/checkout/payments/payment_combination/payment_method_not_supported"(platform:"/mobile", type: TrackType.View) {}
 
     //"/checkout/review" //shared between web and app, already defined in web section.
     "/checkout/review#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
