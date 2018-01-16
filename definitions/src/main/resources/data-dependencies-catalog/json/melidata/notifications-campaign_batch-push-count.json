@@ -14,15 +14,6 @@
         "name": "fecha",
         "type": "UNICODE_STRING"
       }, {
-        "name": "campaign_batch",
-        "type": "UNICODE_STRING"
-      }, {
-        "name": "batch_id",
-        "type": "UNICODE_STRING"
-      }, {
-        "name": "campaign_id",
-        "type": "UNICODE_STRING"
-      }, {
         "name": "event_type",
         "type": "UNICODE_STRING"
       }, {
@@ -42,6 +33,15 @@
         "type": "UNICODE_STRING"
       }, {
         "name": "action_type",
+        "type": "UNICODE_STRING"
+      }, {
+        "name": "campaign_batch",
+        "type": "UNICODE_STRING"
+      }, {
+        "name": "batch_id",
+        "type": "UNICODE_STRING"
+      }, {
+        "name": "campaign_id",
         "type": "UNICODE_STRING"
       }],
       "sql": {

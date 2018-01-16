@@ -4,7 +4,7 @@ FROM (
         jet(event_data,'event_type') AS event_type,
         split(device.platform,'/')[2] AS platform,
         device.os_version AS os_version,
-        application.site_id AS site,
+        application.site_id AS site_id,
         application.business AS marketplace,
         application.version AS app_version,
         jet(event_data,'action_type') AS action_type,
