@@ -1,0 +1,52 @@
+{
+  "users": [
+    "alejandro.torres@mercadolibre.com"
+  ],
+  "process_name": "mediations-stale_flow",
+  "cron": "* 07 * * *",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "total",
+        "type": "INTEGER"
+      },
+      {
+        "name": "reason",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "expected_resolution",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "business",
+        "type": "UNICODE_STRING"
+      }
+    ],
+    "sql": {
+      "script": "mediations/stale-flow.sql",
+      "parameters": [
+        {
+          "name": "day01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "day02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
