@@ -37,12 +37,12 @@
       "script": "mediations/stale-flow.sql",
       "parameters": [
         {
-          "name": "day01",
+          "name": "param01",
           "value": "2018-01-09",
           "format": "yyyy-MM-dd"
         },
         {
-          "name": "day02",
+          "name": "param02",
           "value": "2018-01-17",
           "format": "yyyy-MM-dd"
         }
