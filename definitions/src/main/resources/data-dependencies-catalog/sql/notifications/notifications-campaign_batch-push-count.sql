@@ -17,4 +17,4 @@ FROM (
  AND   ds < '@param02'
  AND (jest(event_data,'context') is null OR jest(event_data,'context') != 'notification_center')
 ) t
-GROUP BY t.fecha, t.campaign_batch, t.campaign_id, t.batch_id, t.event_type, t.platform, t.os_version, t.site, t.marketplace, t.app_version, t.action_type
+GROUP BY t.fecha, t.campaign_batch, t.campaign_id, t.batch_id, t.event_type, t.platform, t.os_version, t.site_id, t.marketplace, t.app_version, t.action_type
