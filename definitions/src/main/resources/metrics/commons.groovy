@@ -75,5 +75,15 @@ metrics {
 		}
 	}
 
-
+	"sell_upgrade_intention"(description: "Intention for upgrading - Selling flow") {	
+		startWith {
+	            experiment(regex("sell/.*"))
+		}
+		
+		countsOn {
+			condition {
+				path("/sell/change_listing_type/upgrade_intention")
+			}
+		}
+	}
 }
