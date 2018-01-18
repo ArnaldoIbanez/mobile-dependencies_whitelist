@@ -1,0 +1,72 @@
+{
+  "users": [
+    "tomas.auchterlonie@mercadolibre.com"
+  ],
+  "process_name": "returns-intent-to-return",
+  "cron": "00 06 * * *",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "fecha",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "intencion_de_devolver",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "termino_en_claims",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "otro_problema",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "site",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "user_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "user_nick",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "path",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "typification",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "action",
+        "type": "UNICODE_STRING"
+      }
+    ],
+    "sql": {
+      "script": "returns/intent-to-return.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
