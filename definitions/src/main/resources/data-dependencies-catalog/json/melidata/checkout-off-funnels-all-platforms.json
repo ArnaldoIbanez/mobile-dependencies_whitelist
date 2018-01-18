@@ -1,0 +1,64 @@
+{
+  "users": [
+      "horacio.lopez@mercadolibre.com", "mauro.reverter@mercadolibre.com"
+  ],
+  "process_name": "checkout-off-funnels-all-platforms",
+  "cron": "00 06 * * *",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "event_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "flow",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "version",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "collector",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "environment",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "ocurrences",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+        "script": "mercadopago/checkout-off/checkout-off-funnels-all-platforms.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

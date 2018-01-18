@@ -117,4 +117,51 @@ tracks {
     // The user has completed the checkout and confirmed its intention to pay. This will be used to track conversion, but does not mean that the payment has been processed."
     "/checkout_off/v1/checkout_confirmed"(platform: "/", type: TrackType.Event){}
 
+    "/checkout_off/v1/login"(platform: "/", type: TrackType.View){}
+
+    "/checkout_off/v1/login/guest"(platform: "/", type: TrackType.View){}
+
+    "/checkout_off/v1/login/discount"(platform: "/", type: TrackType.View){}
+
+    "/checkout_off/v1/express"(platform: "/", type: TrackType.View){}
+
+    "/checkout_off/v1/payment_option"(platform: "/", type: TrackType.View){}
+
+    "/checkout_off/v1/payment_option/ticket"(platform: "/", type: TrackType.View){}
+
+    "/checkout_off/v1/payment_option/bank_transfer"(platform: "/", type: TrackType.View){}
+
+    "/checkout_off/v1/payment_option/cards"(platform: "/", type: TrackType.View){}
+
+    "/checkout_off/v1/card"(platform: "/", isAbstract: true) {}
+
+    "/checkout_off/v1/card/credit_card"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/card/debit_card"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/card/issuer"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/card/installments"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/identification"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/shipping"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/shipping/address"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/shipping/method"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/review"(platform: "/", type: TrackType.View){}
+    
+    "/checkout_off/v1/congrats"(platform: "/", isAbstract: true){}
+
+    "/checkout_off/v1/congrats/approved"(platform: "/", type: TrackType.View){}
+
+    "/checkout_off/v1/congrats/pending"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/congrats/instructions"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/congrats/rejected"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/congrats/in_process"(platform: "/", type: TrackType.View) {}
 }
