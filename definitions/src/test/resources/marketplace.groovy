@@ -1308,6 +1308,28 @@ trackTests {
             checkoutStatus()
         }
 
+        // Discount Coupons
+        "/checkout/payments/add_coupon"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
+        "/checkout/payments/coupon_ok"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            coupon = 99
+        }
+        "/checkout/payments/add_another_coupon"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
+        "/checkout/payments/coupon_error"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
+        "/checkout/payments/invalid_coupon"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+        }
+        "/checkout/payments/expired_coupon"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+        }
+
+
         "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
             status = "success"
         }
