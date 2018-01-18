@@ -3,7 +3,6 @@
     "tomas.auchterlonie@mercadolibre.com"
   ],
   "process_name": "returns-intent-to-return",
-  "cron": "00 06 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -14,15 +13,15 @@
       },
       {
         "name": "intencion_de_devolver",
-        "type": "UNICODE_STRING"
+        "type": "INTEGER"
       },
       {
         "name": "termino_en_claims",
-        "type": "UNICODE_STRING"
+        "type": "INTEGER"
       },
       {
         "name": "otro_problema",
-        "type": "UNICODE_STRING"
+        "type": "INTEGER"
       },
       {
         "name": "platform",
@@ -35,22 +34,6 @@
       {
         "name": "user_id",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "user_nick",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "path",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "typification",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "action",
-        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
@@ -58,12 +41,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2017-12-29",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "2018-01-18",
           "format": "yyyy-MM-dd"
         }
       ]
