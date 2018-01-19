@@ -57,7 +57,10 @@ tracks {
     "/credits/merchant/administrator/detail"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/offer"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/no_offer"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/admin_on_time"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/admin_late_pay"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/hero_cta"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/second_offer_cta"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant/help"(platform: "/", type: TrackType.Event) {}
 
     //Help merchant
