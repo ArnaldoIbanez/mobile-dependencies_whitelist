@@ -3,7 +3,7 @@
     "tomas.auchterlonie@mercadolibre.com"
   ],
   "process_name": "returns-intent-to-return",
-  "cron": "00 23 * * *",
+  "cron": "00 11 * * *",
   "extract": {
     "operation": "append",
     "columns": [
