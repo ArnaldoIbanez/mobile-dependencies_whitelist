@@ -16,6 +16,8 @@ trackTests {
         "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/error"(platform: "/web/desktop") {}
         "/credits/merchant/administrator"(platform: "/web/desktop") {}
+        "/credits/merchant/admin_on_time"(platform: "/web/desktop") {}
+        "/credits/merchant/admin_late_pay"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {}
         "/credits/merchant/offer"(platform: "/web/desktop") {}
         "/credits/merchant/no_offer"(platform: "/web/desktop") {}
@@ -51,6 +53,7 @@ trackTests {
 
         //Dashboard merchant
         "/credits/merchant/hero_cta"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant/second_offer_cta"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/merchant/help"(platform: "/web/desktop", type: TrackType.Event) {}
     }
 

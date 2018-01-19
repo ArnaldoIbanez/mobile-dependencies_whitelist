@@ -1,49 +1,53 @@
 {
   "users": [
-    "alejandro.torres@mercadolibre.com"
+    "tomas.auchterlonie@mercadolibre.com"
   ],
-  "process_name": "mediations-stale_flow",
-  "cron": " ",
+  "process_name": "returns-intent-to-return",
+  "cron": "00 11 * * *",
   "extract": {
     "operation": "append",
     "columns": [
       {
-        "name": "ds",
+        "name": "fecha",
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "total",
+        "name": "intencion_de_devolver",
         "type": "INTEGER"
       },
       {
-        "name": "reason",
-        "type": "UNICODE_STRING"
+        "name": "termino_en_claims",
+        "type": "INTEGER"
       },
       {
-        "name": "expected_resolution",
-        "type": "UNICODE_STRING"
+        "name": "otro_problema",
+        "type": "INTEGER"
       },
       {
         "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "business",
+        "name": "site",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "user_id",
         "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "mediations/stale-flow.sql",
+      "script": "returns/intent-to-return.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "2018-01-09",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "2018-01-19",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
       ]
