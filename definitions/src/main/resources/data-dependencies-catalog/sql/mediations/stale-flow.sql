@@ -6,8 +6,8 @@ SELECT substr(ds,1,10) AS ds,
        application.business AS business
 FROM tracks
 WHERE path = '/claims/stale'
-AND   ds < 'param02'
-AND   ds >= 'param01'
+AND   ds < '@param02'
+AND   ds >= '@param01'
 GROUP BY substr(ds,1,10),
          device.platform,
          jest(event_data,'reason'),
