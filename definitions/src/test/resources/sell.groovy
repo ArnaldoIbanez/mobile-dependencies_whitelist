@@ -46,4 +46,30 @@ trackTests {
             vertical = "MOTOR"
         }
     }
+
+    test("item_description step with attributes predicted"){
+        "/sell/list/item_description/title_prediction"(platform: "/", type: TrackType.Event){
+            session_id = "11111"
+            category_id = "MLA123"
+            domain_id = "MLA-CAMERAS"
+            attributes = [
+                [
+                    OPERATING_SYSTEM:"Android"
+                ]
+            ]
+        }
+    }
+
+    test("item_description step with attributes"){
+        "/sell/list/item_description/final_attributes"(platform: "/", type: TrackType.Event){
+            session_id = "11111"
+            category_id = "MLA123"
+            domain_id = "MLA-CAMERAS"
+            attributes = [
+                [
+                    OPERATING_SYSTEM:"iOS"
+                ]
+            ]
+        }
+    }
 }
