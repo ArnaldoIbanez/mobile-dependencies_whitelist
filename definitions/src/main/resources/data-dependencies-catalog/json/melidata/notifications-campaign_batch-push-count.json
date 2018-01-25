@@ -2,7 +2,7 @@
     "users": [
       "notifications-it@mercadolibre.com"
     ],
-    "process_name": "notifications-campaign_batch_push-count",
+    "process_name": "notifications_campaign-batch-push-count",
     "cron": "",
     "extract": {
       "operation": "overwrite",
