@@ -2,7 +2,7 @@
   "users": [
     "notifications-it@mercadolibre.com"
   ],
-  "process_name": "notifications_campaign-batch",
+  "process_name": "notifications_campaign-batch-uninstall-count",
   "cron": "",
   "extract": {
     "operation": "overwrite",
@@ -33,7 +33,7 @@
       "type": "UNICODE_STRING"
     }],
     "sql": {
-      "script": "notifications/notifications-campaign_batch-count.sql",
+      "script": "notifications/notifications-campaign_batch-uninstall-count.sql",
       "parameters": [{
         "name": "param01",
         "value": "DAY-1",
