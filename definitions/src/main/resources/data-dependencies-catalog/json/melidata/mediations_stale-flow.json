@@ -3,9 +3,9 @@
     "alejandro.torres@mercadolibre.com"
   ],
   "process_name": "mediations-stale_flow",
-  "cron": "* 07 * * *",
+  "cron": "",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "ds",
@@ -13,16 +13,12 @@
         "format": "yyyy-MM-dd"
       },
       {
+        "name": "site",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "total",
         "type": "INTEGER"
-      },
-      {
-        "name": "reason",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "expected_resolution",
-        "type": "UNICODE_STRING"
       },
       {
         "name": "platform",
@@ -30,6 +26,14 @@
       },
       {
         "name": "business",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "reason",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "expected_resolution",
         "type": "UNICODE_STRING"
       }
     ],
@@ -39,12 +43,12 @@
         {
           "name": "param01",
           "value": "DAY-1",
-          "format": "yyyy-MM-dd"
+          "format": "2018-01-09"
         },
         {
           "name": "param02",
           "value": "DAY-0",
-          "format": "yyyy-MM-dd"
+          "format": "2018-01-25"
         }
       ]
     }
