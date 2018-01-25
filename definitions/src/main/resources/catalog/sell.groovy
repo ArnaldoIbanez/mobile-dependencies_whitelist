@@ -344,6 +344,21 @@ tracks {
     "/sell/list/sale_condition"(platform: "/", type: TrackType.View){
         session_id(required: false, description: "Session id", type: PropertyType.String)
     }
+    "/sell/list/item_description/title_prediction"(platform: "/", type: TrackType.View){
+        session_id(required: false, description: "Session id", type: PropertyType.String)
+        category_id(required: false, description: "Category id", type: PropertyType.String)
+        user_id(required: false, description: "User id", type: PropertyType.String)
+        domain_id(required: false, description: "Domain id", type: PropertyType.String)
+        attributes(required: false, description: "Attributes", type: PropertyType.ArrayList)
+    }
+
+    "/sell/list/item_description/final_attributes"(platform: "/", type: TrackType.View){
+        session_id(required: false, description: "Session id", type: PropertyType.String)
+        category_id(required: false, description: "Category id", type: PropertyType.String)
+        user_id(required: false, description: "User id", type: PropertyType.String)
+        domain_id(required: false, description: "Domain id", type: PropertyType.String)
+        attributes(required: false, description: "Attributes", type: PropertyType.ArrayList)
+    }
 
 //update flow
 
