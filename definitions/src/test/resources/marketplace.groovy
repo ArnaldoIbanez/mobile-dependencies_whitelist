@@ -5448,6 +5448,27 @@ trackTests {
         // Disclaimer combination modal view.
         "/cart/checkout/payments/payment_combination/payment_method_not_supported"(platform:"/mobile", dataSet)
 
+        // Discount Coupons
+        "/cart/checkout/payments/add_coupon"(platform:"/mobile", type:TrackType.View) {
+            dataSet()
+        }
+        "/cart/checkout/payments/coupon_ok"(platform:"/mobile", type:TrackType.View) {
+            dataSet()
+            coupon = 99
+        }
+        "/cart/checkout/payments/add_another_coupon"(platform:"/mobile", type:TrackType.View) {
+            dataSet()
+        }
+        "/cart/checkout/payments/coupon_error"(platform:"/mobile", type:TrackType.View) {
+            dataSet()
+        }
+        "/cart/checkout/payments/invalid_coupon"(platform:"/mobile", type:TrackType.Event) {
+            dataSet()
+        }
+        "/cart/checkout/payments/expired_coupon"(platform:"/mobile", type:TrackType.Event) {
+            dataSet()
+        }
+
         // Cancelarion
         "/cart/checkout/payments_cancelation"(platform:"/mobile", dataSet)
 
