@@ -13,16 +13,12 @@
         "format": "yyyy-MM-dd"
       },
       {
+        "name": "site",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "total",
         "type": "INTEGER"
-      },
-      {
-        "name": "reason",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "expected_resolution",
-        "type": "UNICODE_STRING"
       },
       {
         "name": "platform",
@@ -30,6 +26,14 @@
       },
       {
         "name": "business",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "reason",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "expected_resolution",
         "type": "UNICODE_STRING"
       }
     ],
