@@ -3,9 +3,9 @@
     "alejandro.torres@mercadolibre.com"
   ],
   "process_name": "mediations-stale_flow",
-  "cron": " ",
+  "cron": "",
   "extract": {
-    "operation": "delete",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "ds",
@@ -42,13 +42,13 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
-          "format": "2018-01-09"
+          "value": "2018-01-09",
+          "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
-          "format": "2018-01-26"
+          "value": "2018-01-26",
+          "format": "yyyy-MM-dd"
         }
       ]
     }
