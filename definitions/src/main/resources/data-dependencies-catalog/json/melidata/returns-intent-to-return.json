@@ -3,9 +3,8 @@
     "tomas.auchterlonie@mercadolibre.com"
   ],
   "process_name": "returns-intent-to-return",
-  "cron": "00 11 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "fecha",
@@ -42,12 +41,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2017-12-29",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "2018-01-26",
           "format": "yyyy-MM-dd"
         }
       ]
