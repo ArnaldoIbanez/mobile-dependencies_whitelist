@@ -24,4 +24,3 @@ GROUP BY substr(ds,1,10),
 	device.platform,
 	application.site_id,
 	usr.user_id) A
-WHERE (termino_en_claims - otro_problema) > 0
