@@ -3,7 +3,7 @@
     "notifications-it@mercadolibre.com"
   ],
   "process_name": "notifications_campaign-batch-uninstall-count",
-  "cron": "",
+  "cron": " ",
   "extract": {
     "operation": "overwrite",
     "columns": [{
