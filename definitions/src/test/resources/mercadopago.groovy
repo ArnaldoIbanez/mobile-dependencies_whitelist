@@ -526,6 +526,16 @@ trackTests {
             from = "/point_catalog"
             error_msg = "No podemos procesar esta tarjeta. Prueba con otra"
         }
+        "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event) {
+            level ="error"
+            flow ="pairing"
+            message ="Can't pair"
+        }
+        "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event) {
+            level ="info"
+            flow ="payment_methods_get"
+            data ="{data: log}"
+        }
     }
 
     test("Point Catalog") {
