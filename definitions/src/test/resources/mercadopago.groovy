@@ -511,6 +511,7 @@ trackTests {
         "/point_payment/security_code"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/identification_number"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/result"(platform: "/mobile", type: TrackType.View) {
+            flow_id = "1231313123213"
             method = "swipe"
             currency = "ARS"
             amount = 10
@@ -527,11 +528,14 @@ trackTests {
             error_msg = "No podemos procesar esta tarjeta. Prueba con otra"
         }
         "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
             level ="error"
             flow ="pairing"
             message ="Can't pair"
         }
         "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
             level ="info"
             flow ="payment_methods_get"
             data ="{data: log}"

@@ -73,6 +73,7 @@ tracks {
 
     // MP Mobile Point
     "/point_payment"(platform: "/mobile", type: TrackType.View) {
+        flow_id (required: false, type: PropertyType.String, description: "Flow id.")
         from (required: false, type: PropertyType.String, description: "Where the flow start")
         method (required: false, type: PropertyType.String, description: "Card reading method swipe/dip/tap", values: ["swipe", "dip", "tap"])
         currency (required: false, type: PropertyType.String, description: "Transaction currency")
@@ -101,6 +102,8 @@ tracks {
     }
 
     "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event) {
+        flow_id (required: true, type: PropertyType.String, description: "Flow id.")
+        user_id (required: false, type: PropertyType.String, description: "User id.")
         level (required: true, type: PropertyType.String, description: "Log level (error|info)", values: ["error", "info"])
         flow (required: true, type: PropertyType.String,
                 description: "Flow type: pairing/configuration/payment_methods_get/payment_methods_response/card_token_results/guessing",
