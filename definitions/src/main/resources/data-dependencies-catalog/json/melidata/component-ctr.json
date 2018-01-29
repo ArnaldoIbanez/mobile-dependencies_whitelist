@@ -5,7 +5,7 @@
   "process_name": "component_ctr",
   "cron": "00 04 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "ds",
