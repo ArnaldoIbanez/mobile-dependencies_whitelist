@@ -16,7 +16,7 @@ LATERAL VIEW json_tuple(`data`, 'device') dev AS `device`
 LATERAL VIEW json_tuple(dev.`device`, 'platform') jt2 AS `platform`
 LATERAL VIEW json_tuple(`data`, 'application') app AS `application`
 LATERAL VIEW json_tuple(app.`application`, 'site_id') jt3 AS `site_id`
-WHERE ds >= '2018-01-08 20' AND ds < '2018-01-27 20'
+WHERE ds >= '@param03 20' AND ds < '@param04 20'
     AND `jt`.`event` = 'print'
     AND `jt`.`id` IS NOT NULL
 GROUP BY from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd hh') - 14400, 'yyyy-MM-dd hh'), `jt`.`id`) AS t1
@@ -28,7 +28,7 @@ LEFT JOIN
     COUNT(`jt`.`id`) AS `clicks`
 FROM tracks
 LATERAL VIEW json_tuple(others['fragment'], 'c_event', 'c_id') jt AS `event`, `id`
-WHERE ds>= '2018-01-09' AND ds < '2018-01-28'
+WHERE ds>= '@param01' AND ds < '@param02'
     AND `type` = 'view'
     AND `path` <> '/recommendations'
     AND `jt`.`id` IS NOT NULL
