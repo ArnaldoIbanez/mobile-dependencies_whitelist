@@ -20,7 +20,7 @@ LATERAL VIEW json_tuple(`data`, 'device') dev AS `device`
 LATERAL VIEW json_tuple(dev.`device`, 'platform') jt2 AS `platform`
 LATERAL VIEW json_tuple(`data`, 'application') app AS `application`
 LATERAL VIEW json_tuple(app.`application`, 'site_id') jt3 AS `site_id`
-WHERE ds >= '@2018-01-08 20' AND ds < '2018-01-27 20'
+WHERE ds >= '2018-01-08 20' AND ds < '2018-01-27 20'
     AND `jt`.`event` = 'print'
     AND `jt`.`id` IS NOT NULL
 GROUP BY from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd hh') - 14400, 'yyyy-MM-dd hh'), `jt2`.`platform`,`jt3`.`site_id`, `jt`.`id`) AS t1
