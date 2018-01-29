@@ -13,6 +13,14 @@
         "format": "yyyy-MM-dd"
       },
       {
+        "name": "device_type",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "component",
         "type": "UNICODE_STRING"
       },
