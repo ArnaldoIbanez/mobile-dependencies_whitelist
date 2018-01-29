@@ -3,22 +3,14 @@
     "franco.vitali@mercadolibre.com"
   ],
   "process_name": "component_ctr",
-  "cron": "",
+  "cron": "00 04 * * *",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
         "name": "ds",
         "type": "DATE",
         "format": "yyyy-MM-dd"
-      },
-      {
-        "name": "device_type",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "site_id",
-        "type": "UNICODE_STRING"
       },
       {
         "name": "component",
