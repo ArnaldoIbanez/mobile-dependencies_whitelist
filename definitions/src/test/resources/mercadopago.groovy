@@ -2111,6 +2111,19 @@ trackTests {
             collector_nickname = "collector nickname test"
             client_id = "1321312"
             environment = "production"
+            purchase_amount = "500"
+        }
+
+        "/checkout_off/v1/payment_method_selected"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+            payment_method = "visa"
+            payment_type = "credit_card"
+            purchase_amount = "500"
+            automatic_selection = true
         }
 
         "/checkout_off/v1/checkout_confirmed"(platform: "/web/mobile") {
@@ -2119,6 +2132,21 @@ trackTests {
             collector_nickname = "collector nickname test"
             client_id = "1321312"
             environment = "production"
+            purchase_amount = "500"
+        }
+
+        "/checkout_off/v1/payment_created"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+            payment_id = "3212321"
+            payment_amount = "500"
+            payment_method = "visa"
+            payment_type = "credit_card"
+            payment_status = "approved"
+            payment_status_detail = "accredited"
         }
 
         //Views
@@ -2179,6 +2207,46 @@ trackTests {
         }
 
         "/checkout_off/v1/payment_option/cards"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+        }
+
+        "/checkout_off/v1/additional_info/bolbradesco"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+        }
+
+        "/checkout_off/v1/additional_info/pse"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+        }
+
+        "/checkout_off/v1/additional_info/khipu"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+        }
+
+        "/checkout_off/v1/additional_info/redpagos"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+        }
+
+        "/checkout_off/v1/additional_info/abitab"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
             collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
             collector_nickname = "collector nickname test"
