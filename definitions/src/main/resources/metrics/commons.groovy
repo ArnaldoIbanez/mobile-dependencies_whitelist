@@ -86,4 +86,16 @@ metrics {
 			}
 		}
 	}
+	
+	"sell_list_congrats"(description: "Arrival to congrats page - Selling flow") {	
+		startWith {
+	            experiment(regex("sell/.*"))
+		}
+		
+		countsOn {
+			condition {
+				path("/sell/list/congrats")
+			}
+		}
+	}
 }
