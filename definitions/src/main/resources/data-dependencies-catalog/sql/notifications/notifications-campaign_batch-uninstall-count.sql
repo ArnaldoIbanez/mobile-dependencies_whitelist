@@ -18,7 +18,7 @@ FROM (SELECT campaign_id,
                    jest(s2.event_data,'device_id') AS device_id,
                    jest(s2.event_data,'batch_id') AS batch_id,
                    jest(s2.event_data,'campaign_id') AS campaign_id,
-                   CONCAT(jest(s2.event_data,'campaign_id'), '-', jest(s2.event_data,'batch_id')) as campaign_batch,
+                   CONCAT(IFNULL(jest(s2.event_data,'campaign_id'),''), '-', IFNULL(jest(s2.event_data,'batch_id'),'')) as campaign_batch,
                    ds
             FROM tracks s2
             WHERE s2.ds >= '@param03'
