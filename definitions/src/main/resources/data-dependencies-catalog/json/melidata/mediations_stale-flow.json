@@ -5,7 +5,7 @@
   "process_name": "mediations-stale_flow",
   "cron": "",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
         "name": "ds",
@@ -42,12 +42,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2018-01-09",
+          "value": "2018-01-25",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "2018-01-26",
+          "value": "2018-01-30",
           "format": "yyyy-MM-dd"
         }
       ]
