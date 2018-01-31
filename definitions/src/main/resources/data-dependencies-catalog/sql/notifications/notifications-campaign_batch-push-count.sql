@@ -16,5 +16,7 @@ FROM (
  AND   ds >= '@param01'
  AND   ds < '@param02'
  AND (jest(event_data,'context') is null OR jest(event_data,'context') != 'notification_center')
+ AND  path = '/notification/campaigns_campaigns'
+ and device.platform = '/mobile/android'
 ) t
 GROUP BY t.fecha, t.campaign_batch, t.campaign_id, t.batch_id, t.event_type, t.platform, t.os_version, t.site_id, t.marketplace, t.app_version, t.action_type
