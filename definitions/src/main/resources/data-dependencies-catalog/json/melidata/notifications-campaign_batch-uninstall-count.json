@@ -5,7 +5,7 @@
   "process_name": "notifications_campaign-batch-uninstall-count",
   "cron": "00 06 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [{
       "name": "fecha",
       "type": "UNICODE_STRING"
