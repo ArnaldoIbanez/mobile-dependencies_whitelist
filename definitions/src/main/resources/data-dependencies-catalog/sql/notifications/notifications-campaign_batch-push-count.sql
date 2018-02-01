@@ -8,7 +8,7 @@ FROM (
         application.business AS marketplace,
         application.version AS app_version,
         jet(event_data,'action_type') AS action_type,
-        CONCAT(IFNULL(jest(event_data,'campaign_id'),''), '-', IFNULL(jest(event_data,'batch_id'),'')) as campaign_batch,
+        CONCAT(jest(event_data,'campaign_id'), '-', jest(event_data,'batch_id')) as campaign_batch,
         jest(event_data,'batch_id') as batch_id,
         jest(event_data,'campaign_id') as campaign_id
  FROM tracks
