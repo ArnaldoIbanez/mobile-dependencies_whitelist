@@ -1,4 +1,4 @@
-SELECT tracks.path as event_id, complete_flows.flow as flow, device.platform as platform, application.site_id as site_id, application.version as version, jest(event_data, 'collector_nickname') as collector, jest(event_data, 'environment') as environment, substr(ds, 1, 10) as ds_date, count(*) as ocurrences
+SELECT regexp_replace(tracks.path, '/checkout_off/v1', '') as event_id, complete_flows.flow as flow, device.platform as platform, application.site_id as site_id, application.version as version, jest(event_data, 'collector_nickname') as collector, jest(event_data, 'environment') as environment, substr(ds, 1, 10) as ds_date, count(*) as ocurrences
 FROM tracks
 LEFT JOIN
 (
@@ -17,5 +17,5 @@ WHERE ds>='@param01' and
 ds<'@param02' and
 path like '/checkout_off/v1%'
 GROUP BY tracks.path, complete_flows.flow, device.platform, application.site_id, application.version, jest(event_data, 'collector_nickname'), jest(event_data, 'environment'), substr(ds, 1, 10)
-HAVING count(*) >= 20
+HAVING count(*) > 1
 ORDER BY ocurrences DESC

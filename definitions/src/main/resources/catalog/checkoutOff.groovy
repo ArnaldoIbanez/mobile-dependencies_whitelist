@@ -112,10 +112,32 @@ tracks {
     }
 
     // A new checkout flow has been started
-    "/checkout_off/v1/init"(platform: "/", type: TrackType.Event){}
+    "/checkout_off/v1/init"(platform: "/", type: TrackType.Event){
+        purchase_amount(required: false)
+    }
+
+    "/checkout_off/v1/payment_method_selected"(platform: "/", type: TrackType.Event){
+        payment_method(required: true)
+        payment_type(required: true)
+        purchase_amount(required: true)
+        automatic_selection(required:true)
+    }
 
     // The user has completed the checkout and confirmed its intention to pay. This will be used to track conversion, but does not mean that the payment has been processed."
-    "/checkout_off/v1/checkout_confirmed"(platform: "/", type: TrackType.Event){}
+    "/checkout_off/v1/checkout_confirmed"(platform: "/", type: TrackType.Event){
+        payment_method(required: false)
+        payment_type(required: false)
+        purchase_amount(required: false)
+    }
+
+    "/checkout_off/v1/payment_created"(platform: "/", type: TrackType.Event){
+        payment_id(required: true)
+        payment_amount(required: true)
+        payment_method(required: true)
+        payment_type(required: true)
+        payment_status(required: true)
+        payment_status_detail(required: true)
+    }
 
     "/checkout_off/v1/login"(platform: "/", type: TrackType.View){}
 
@@ -132,6 +154,18 @@ tracks {
     "/checkout_off/v1/payment_option/bank_transfer"(platform: "/", type: TrackType.View){}
 
     "/checkout_off/v1/payment_option/cards"(platform: "/", type: TrackType.View){}
+
+    "/checkout_off/v1/additional_info"(platform: "/", isAbstract: true) {}
+
+    "/checkout_off/v1/additional_info/bolbradesco"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/additional_info/khipu"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/additional_info/redpagos"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/additional_info/abitab"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/additional_info/pse"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/v1/card"(platform: "/", isAbstract: true) {}
 

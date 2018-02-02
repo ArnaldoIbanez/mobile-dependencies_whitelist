@@ -59,5 +59,11 @@ trackTests {
         }
     }
 
+    test("Loyalty landing") {
+        "/loyalty/landing"(platform: "/", type: TrackType.Event) {
+            landing_id = "FREE_SHIPPING"
+        }
+    }
+
 
 }
