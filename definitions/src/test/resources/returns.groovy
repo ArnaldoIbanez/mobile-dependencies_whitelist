@@ -63,5 +63,10 @@ trackTests {
       "/return/external"(platform: "/") {
         id = "claims"
       }
+
+      // Error Page
+      "/return/error"(platform: "/") {
+        url = "/return/sarasa"
+      }
     }
 }
