@@ -3,9 +3,9 @@
     "notifications-it@mercadolibre.com"
   ],
   "process_name": "notifications_campaign-batch-uninstall-count",
-  "cron": " ",
+  "cron": "00 06 * * *",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [{
       "name": "fecha",
       "type": "UNICODE_STRING"
