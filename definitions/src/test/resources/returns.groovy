@@ -66,7 +66,7 @@ trackTests {
 
       // Error Page
       "/return/error"(platform: "/") {
-        url = "/return/sarasa"
+        previous_step = "delivery"
       }
     }
 }
