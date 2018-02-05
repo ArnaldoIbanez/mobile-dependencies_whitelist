@@ -101,16 +101,19 @@ tracks {
         error_msg (required:false, type: PropertyType.String, description: "Error shown to seller")
     }
 
-    "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event) {
+    "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
         flow_id (required: true, type: PropertyType.String, description: "Flow id.")
         user_id (required: false, type: PropertyType.String, description: "User id.")
         level (required: true, type: PropertyType.String, description: "Log level (error|info)", values: ["error", "info"])
-        flow (required: true, type: PropertyType.String,
-                description: "Flow type: pairing/configuration/payment_methods_get/payment_methods_response/card_token_results/guessing",
-                values: ["pairing", "configuration", "payment_methods_get", "payment_methods_response", "card_token_results", "guessing"])
         message(required: false, type:  PropertyType.String, description: "message to log")
         data (required: false, type:  PropertyType.String, description: "data to log")
     }
+
+    "/point_payment/flow_tracker/pairing"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/configuration"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/payment_methods_get"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/payment_methods_response"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/card_token_results"(platform: "/mobile", type: TrackType.Event) {}
 
     // MP Mobile Point Catalog
 

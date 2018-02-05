@@ -527,18 +527,34 @@ trackTests {
             from = "/point_catalog"
             error_msg = "No podemos procesar esta tarjeta. Prueba con otra"
         }
-        "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event) {
+        "/point_payment/flow_tracker/pairing"(platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
             level ="error"
-            flow ="pairing"
             message ="Can't pair"
         }
-        "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event) {
+        "/point_payment/flow_tracker/payment_methods_get"(platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
             user_id = "123241234413"
             level ="info"
-            flow ="payment_methods_get"
             data ="{data: log}"
+        }
+        "/point_payment/flow_tracker/configuration"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{configured: 2313}"
+        }
+        "/point_payment/flow_tracker/payment_methods_response"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{response: 2313}"
+        }
+        "/point_payment/flow_tracker/card_token_results"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
         }
     }
 
