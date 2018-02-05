@@ -5,7 +5,7 @@
     "process_name": "notifications_campaign-batch-push-count",
     "cron": " ",
     "extract": {
-      "operation": "overwrite",
+      "operation": "append",
       "columns": [{
         "name": "total",
         "type": "INTEGER",
