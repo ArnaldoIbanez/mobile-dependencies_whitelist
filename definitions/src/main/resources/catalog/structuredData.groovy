@@ -13,11 +13,12 @@ tracks {
         items_left(required: true, description: "Items left on widget")
         missing_attributes(required: false, description: "Attributes left on item")
         pi(required:false, description: "Item has a Product Identifier")
+        inferred_attributes(required: false, description: "Inferred attributes")
     }
 
     propertyGroups {
         catalogWidgetGroup(category_id, page, item_id, officialstore, domain_id, seller_id, pi)
-        catalogWidgetCompletenessGroup(completeness_level, items_left, missing_attributes)
+        catalogWidgetCompletenessGroup(completeness_level, items_left, missing_attributes, inferred_attributes)
     }
 
     "/catalogwidget"(platform: "/", isAbstract: true) {}

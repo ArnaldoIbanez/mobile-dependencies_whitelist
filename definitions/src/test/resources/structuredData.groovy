@@ -43,6 +43,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
 
@@ -58,6 +59,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
 
@@ -73,6 +75,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = true
+            inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
 
@@ -88,6 +91,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = true
+            inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
 
@@ -167,6 +171,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
 
@@ -183,6 +188,7 @@ trackTests {
             seller_id = "241616388"
             motive = "notApply"
             pi = false
+            inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
 
@@ -199,6 +205,7 @@ trackTests {
             seller_id = "241616388"
             motive = "noData"
             pi = false
+            inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
 
@@ -215,6 +222,7 @@ trackTests {
             seller_id = "241616388"
             motive = "Custom reason"
             pi = false
+            inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
 
@@ -278,6 +286,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
 
@@ -321,6 +330,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
 
