@@ -66,6 +66,6 @@ tracks {
     }
 
     "/return/error"(platform: "/", type: TrackType.View) {
-      url(required: true, type: PropertyType.String)
+      previous_step(required: true, type: PropertyType.String)
     }
 }
