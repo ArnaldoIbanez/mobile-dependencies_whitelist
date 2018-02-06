@@ -165,13 +165,9 @@ trackTests {
             page = "summary"
             item_id = "MLA682118081"
             officialstore = false
-            completeness_level = "none"
-            items_left = 15
-            missing_attributes = "BRAND,MODEL,GTIN"
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
-            inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
 
@@ -181,48 +177,10 @@ trackTests {
             page = "summary"
             item_id = "MLA682118081"
             officialstore = false
-            completeness_level = "none"
-            items_left = 15
-            missing_attributes = "BRAND,MODEL,GTIN"
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
-            motive = "notApply"
             pi = false
-            inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
-        }
-    }
-
-    test("catalog_widget skip should be tracked"){
-        "/catalogwidget/omit_save"(platform: "/", type: TrackType.Event){
-            category_id = "MLA390784"
-            page = "summary"
-            item_id = "MLA682118081"
-            officialstore = false
-            completeness_level = "none"
             items_left = 15
-            missing_attributes = "BRAND,MODEL,GTIN"
-            domain_id = "MLA-FRAGRANCES"
-            seller_id = "241616388"
-            motive = "noData"
-            pi = false
-            inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
-        }
-    }
-
-    test("catalog_widget skip should be tracked"){
-        "/catalogwidget/omit_save"(platform: "/", type: TrackType.Event){
-            category_id = "MLA390784"
-            page = "summary"
-            item_id = "MLA682118081"
-            officialstore = false
-            completeness_level = "none"
-            items_left = 15
-            missing_attributes = "BRAND,MODEL,GTIN"
-            domain_id = "MLA-FRAGRANCES"
-            seller_id = "241616388"
-            motive = "Custom reason"
-            pi = false
-            inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
 
@@ -355,6 +313,38 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+        }
+    }
+
+    test("catalog_widget new omit should be tracked"){
+        "/catalogwidget/omit_attributes"(platform: "/", type: TrackType.Event){
+            category_id = "MLA390784"
+            page = "summary"
+            condition = "new"
+            item_id = "MLA682118081"
+            officialstore = false
+            seller_id = "241616388"
+            pi = false
+            domain_id = "MLA-FRAGRANCES"
+            empty_attrs_not_pk = 4
+            empty_attrs_pk = 2
+        }
+    }
+
+    test("catalog_widget new omit save should be tracked"){
+        "/catalogwidget/omit_attributes/submit"(platform: "/", type: TrackType.Event){
+            category_id = "MLA390784"
+            page = "summary"
+            condition = "new"
+            item_id = "MLA682118081"
+            officialstore = false
+            seller_id = "241616388"
+            pi = false
+            domain_id = "MLA-FRAGRANCES"
+            attribute_id = "BRAND"
+            hierarchy = "PARENT_PK"
+            option_selected = "not_possible"
+            value = "Not apply"
         }
     }
 }

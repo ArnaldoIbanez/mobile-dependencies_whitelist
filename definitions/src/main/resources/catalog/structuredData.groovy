@@ -14,10 +14,11 @@ tracks {
         missing_attributes(required: false, description: "Attributes left on item")
         pi(required:false, description: "Item has a Product Identifier")
         inferred_attributes(required: false, description: "Inferred attributes")
+        condition(required: false, description: "Item condition")
     }
 
     propertyGroups {
-        catalogWidgetGroup(category_id, page, item_id, officialstore, domain_id, seller_id, pi)
+        catalogWidgetGroup(category_id, page, item_id, officialstore, domain_id, seller_id, pi, condition)
         catalogWidgetCompletenessGroup(completeness_level, items_left, missing_attributes, inferred_attributes)
     }
 
@@ -51,13 +52,11 @@ tracks {
 
     "/catalogwidget/omit"(platform: "/") {
         catalogWidgetGroup
-        catalogWidgetCompletenessGroup
     }
 
     "/catalogwidget/omit_save"(platform: "/") {
         catalogWidgetGroup
-        catalogWidgetCompletenessGroup
-        motive(required: true, description: "Skip motive")
+        items_left(required: false, description: "Items left on widget")
     }
 
     "/catalogwidget/discover"(platform: "/") {
@@ -104,5 +103,19 @@ tracks {
 
     "/catalogwidget/coachmark"(platform: "/") {
         catalogWidgetGroup
+    }
+
+    "/catalogwidget/omit_attributes"(platform: "/") {
+        catalogWidgetGroup
+        empty_attrs_not_pk(required: false, description: "Quantity of attributes PK")
+        empty_attrs_pk(required: false, description: "Quantity of attributes not PK")
+    }
+
+    "/catalogwidget/omit_attributes/submit"(platform: "/") {
+        catalogWidgetGroup
+        attribute_id(required: true, description: "Attribute id")
+        hierarchy(required: true, description: "Hierarchy attribute")
+        option_selected(required: true, description: "Radio option selected")
+        value(required: true, description: "Omit value")
     }
 }
