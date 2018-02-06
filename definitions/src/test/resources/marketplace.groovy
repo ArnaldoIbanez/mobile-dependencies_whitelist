@@ -1314,7 +1314,7 @@ trackTests {
         }
         "/checkout/payments/coupon_ok"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
-            coupon = 99
+            coupon = "coupon1,coupon2"
         }
         "/checkout/payments/add_another_coupon"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -1328,7 +1328,9 @@ trackTests {
         "/checkout/payments/expired_coupon"(platform:"/mobile", type:TrackType.Event) {
             checkoutStatus()
         }
-
+        "/checkout/payments/add_another_coupon/delete_coupon"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+        }
 
         "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
             status = "success"
@@ -5454,7 +5456,7 @@ trackTests {
         }
         "/cart/checkout/payments/coupon_ok"(platform:"/mobile", type:TrackType.View) {
             dataSet()
-            coupon = 99
+            coupon = "coupon1,coupon2"
         }
         "/cart/checkout/payments/add_another_coupon"(platform:"/mobile", type:TrackType.View) {
             dataSet()
@@ -5466,6 +5468,9 @@ trackTests {
             dataSet()
         }
         "/cart/checkout/payments/expired_coupon"(platform:"/mobile", type:TrackType.Event) {
+            dataSet()
+        }
+        "/cart/checkout/payments/add_another_coupon/delete_coupon"(platform:"/mobile", type:TrackType.Event) {
             dataSet()
         }
 

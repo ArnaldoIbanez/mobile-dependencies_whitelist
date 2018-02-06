@@ -281,13 +281,14 @@ tracks {
 // Discount coupons
 "/cart/checkout/payments/add_coupon"(platform:"/mobile", type: TrackType.View) {}
 "/cart/checkout/payments/coupon_ok"(platform:"/mobile", type: TrackType.View) {
-    coupon(required: true, type: PropertyType.Numeric)
+    coupon(required: true, type: PropertyType.String)
 }
 "/cart/checkout/payments/add_another_coupon"(platform:"/mobile", type: TrackType.View) {}
 "/cart/checkout/payments/coupon_error"(platform:"/mobile", type: TrackType.View) {}
 
 "/cart/checkout/payments/invalid_coupon"(platform:"/mobile", type: TrackType.Event) {}
 "/cart/checkout/payments/expired_coupon"(platform:"/mobile", type: TrackType.Event) {}
+"/cart/checkout/payments/add_another_coupon/delete_coupon"(platform:"/mobile", type: TrackType.Event) {}
 
 // 2MP Cancelation
 "/cart/checkout/payments_cancelation"(platform: "/mobile", type: TrackType.View) {}

@@ -64,4 +64,8 @@ tracks {
       id(required: true, type: PropertyType.String)
       data(required: false, type: PropertyType.Map)
     }
+
+    "/return/error"(platform: "/", type: TrackType.View) {
+      previous_step(required: true, type: PropertyType.String)
+    }
 }
