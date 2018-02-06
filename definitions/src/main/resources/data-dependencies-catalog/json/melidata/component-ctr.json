@@ -3,7 +3,7 @@
     "franco.vitali@mercadolibre.com"
   ],
   "process_name": "component_ctr",
-  "cron": "",
+  "cron": "00 04 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -38,22 +38,22 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2018-01-29",
+          "value": "day-1",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "2018-02-05",
+          "value": "day-0",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param03",
-          "value": "2018-01-28",
+          "value": "day-2",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param04",
-          "value": "2018-02-04",
+          "value": "day-1",
           "format": "yyyy-MM-dd"
         }
       ]
