@@ -1,4 +1,5 @@
-SELECT 
+SET hive.tez.java.opts = - Xmx5000m;
+SELECT
     t1.dsx AS `ds`,
     t1.platform AS `device_type`,
     t1.site_id AS `site_id`,
