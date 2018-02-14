@@ -6,7 +6,7 @@
     "juanjose.barrera@mercadolibre.com"
   ],
   "process_name": "component_ctr",
-  "cron": "",
+  "cron": " ",
   "extract": {
     "operation": "append",
     "columns": [
