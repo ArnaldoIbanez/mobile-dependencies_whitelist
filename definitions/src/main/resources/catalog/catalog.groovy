@@ -76,6 +76,7 @@ catalog {
         include business, "checkoutOff.groovy"
         include business, "credits_mercadopago.groovy"
         include business, "mercadopago_mails.groovy"
+        include business, "mercadopago_devsite.groovy"
     }
 
 }
