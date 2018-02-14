@@ -74,7 +74,7 @@ tracks {
         quantity_pre_selected(required: false)
         order_payment_required(required: false)
         shipping_pre_selected(required: false)
-        
+        total_amount(required: false, type: PropertyType.Numeric)
         buy_equal_pay(required: false, description: "BP flag")
         recovery_flow(required: false, description: "Is recovery CHO flow")
         register_int(required: false, description: "Integrated registration")
@@ -91,6 +91,9 @@ tracks {
         total_amount_local(serverSide: true)
         total_amount_usd(serverSide: true)
         first_for_order(serverSide: true)
+
+        // Checkout flows
+        checkoutflow(required: false, type: PropertyType.String)
     }
 
     /*
@@ -878,6 +881,12 @@ tracks {
     "/checkout/shipping/store_selection"(platform:"/", type: TrackType.View) {}
 
     "/checkout/shipping/agencies_contact_info"(platform:"/", type: TrackType.View) {}
+
+    // Suscripciones
+    "/checkout/review/edit_frequency"(platform:"/", type: TrackType.Event) {
+        frequency(required: true, type: PropertyType.String)
+        frequency_before(required: true, type: PropertyType.String)
+    }
 
     //Eventos en la "/checkout/congrats"
     //------------------------------------------------------------------------------------
