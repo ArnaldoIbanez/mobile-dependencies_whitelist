@@ -74,7 +74,7 @@ tracks {
         quantity_pre_selected(required: false)
         order_payment_required(required: false)
         shipping_pre_selected(required: false)
-        total_amount(required: false, type: PropertyType.Numeric)
+        
         buy_equal_pay(required: false, description: "BP flag")
         recovery_flow(required: false, description: "Is recovery CHO flow")
         register_int(required: false, description: "Integrated registration")
