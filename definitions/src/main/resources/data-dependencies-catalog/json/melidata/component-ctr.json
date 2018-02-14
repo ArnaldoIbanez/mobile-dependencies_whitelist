@@ -41,22 +41,22 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2018-02-07",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "2018-02-08",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param03",
-          "value": "DAY-2",
+          "value": "2018-02-06",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param04",
-          "value": "DAY-1",
+          "value": "2018-02-07",
           "format": "yyyy-MM-dd"
         }
       ]
