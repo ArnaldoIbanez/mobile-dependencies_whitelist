@@ -34,7 +34,7 @@ LEFT JOIN
     COUNT(`jt`.`id`) AS `clicks`
 FROM tracks
 LATERAL VIEW json_tuple(others['fragment'], 'c_event', 'c_id') jt AS `event`, `id`
-WHERE ds>= '@param01' AND ds < '@param01'
+WHERE ds>= '@param01' AND ds < '@param02'
     AND `type` = 'view'
     AND `path` <> '/recommendations'
     AND `jt`.`id` IS NOT NULL
