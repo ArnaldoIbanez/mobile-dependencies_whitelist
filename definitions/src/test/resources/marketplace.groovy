@@ -5203,7 +5203,17 @@ trackTests {
         // Suscripciones
         "/checkout/shipping"(platform:"/web") {
             dataSet()
-            checkoutflow = "subscriptions"
+            checkoutflow = "subscription"
+        }
+
+        "/checkout/shipping"(platform:"/web") {
+            dataSet()
+            checkoutflow = "direct"
+        }
+
+        "/checkout/shipping"(platform:"/web") {
+            dataSet()
+            checkoutflow = "cart"
         }
 
         "/checkout/review/edit_frequency"(platform:"/web") {

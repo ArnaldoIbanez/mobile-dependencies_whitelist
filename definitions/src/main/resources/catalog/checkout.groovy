@@ -93,7 +93,7 @@ tracks {
         first_for_order(serverSide: true)
 
         // Checkout flows
-        checkoutflow(required: false, type: PropertyType.String)
+        checkout_flow(required: false, type: PropertyType.String, values: ["subscription", "direct", "cart"])
     }
 
     /*
