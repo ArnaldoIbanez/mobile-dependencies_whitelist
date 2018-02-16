@@ -5,7 +5,7 @@ select DAY,
 	sum(payments) PAYMENTS_2, 
 	sum(shipping) SHIPPING_3, 
 	sum(pickup_delivery) PICKUP_DELIVERY_4, 
-	sum(deliveryreview) DELIVERY_REVIEW_4, 
+	sum(delivery_review) DELIVERY_REVIEW_4, 
 	sum(congrats) CONGRATS_5 
 from (
 	select substr(ds, 1, 10) DAY, application.site_id SITE, device.platform PLATFORM,
@@ -14,10 +14,10 @@ from (
 	COUNT(DISTINCT case when path = '/return/payments' then usr.user_id else NULL end) payments,
 	COUNT(DISTINCT case when path = '/return/shipping' then usr.user_id else NULL end) shipping,
 	COUNT(DISTINCT case when path = '/return/pickup' or path = '/return/delivery' then usr.user_id else NULL end) pickup_delivery,
-	COUNT(DISTINCT case when path = '/return/deliveryreview' then usr.user_id else NULL end) deliveryreview,
+	COUNT(DISTINCT case when path = '/return/delivery_review' then usr.user_id else NULL end) delivery_review,
 	COUNT(DISTINCT case when path = '/return/congrats' then usr.user_id else NULL end) congrats
 	from default.tracks 
-	 where path IN ('/return/typifications', '/return/payments', '/return/shipping', '/return/pickup', '/return/delivery', '/return/deliveryreview', '/return/congrats')
+	 where path IN ('/return/typifications', '/return/payments', '/return/shipping', '/return/pickup', '/return/delivery', '/return/delivery_review', '/return/congrats')
 	       and substr(ds,1,10) between '@param01' and '@param02' 
 	       and application.site_id IN ('MLM', 'MLB')
 group by substr(ds, 1, 10), application.site_id,device.platform, path, event_data) Y
