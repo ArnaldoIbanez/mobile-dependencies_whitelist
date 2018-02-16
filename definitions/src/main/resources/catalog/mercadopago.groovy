@@ -399,6 +399,7 @@ tracks {
     "/new-withdraw/account-select"(platform: "/", type: TrackType.View) {}
     "/new-withdraw/second-password"(platform: "/", type: TrackType.View) {}
     "/new-withdraw/congrats"(platform: "/", type: TrackType.View) {}
+    "/new-withdraw/congrats-advance"(platform: "/", type: TrackType.View) {}
     "/new-account"(platform: "/", type: TrackType.View) {}
 
     "/withdraw"(platform: "/mobile", isAbstract: true) {

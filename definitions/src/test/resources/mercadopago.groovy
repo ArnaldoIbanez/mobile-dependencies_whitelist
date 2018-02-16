@@ -1365,6 +1365,7 @@ trackTests {
         "/new-withdraw/account-select"(platform: "/", type: TrackType.View){}
         "/new-withdraw/second-password"(platform: "/", type: TrackType.View){}
         "/new-withdraw/congrats"(platform: "/", type: TrackType.View){}
+        "/new-withdraw/congrats-advance"(platform: "/", type: TrackType.View){}
     }
 
     test("new-account"){
