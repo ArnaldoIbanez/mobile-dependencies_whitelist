@@ -5211,11 +5211,6 @@ trackTests {
             checkout_flow = "direct"
         }
 
-        "/checkout/shipping"(platform:"/web") {
-            dataSet()
-            checkout_flow = "cart"
-        }
-
         "/checkout/review/edit_frequency"(platform:"/web") {
             frequency = "WEEKS_2"
             frequency_before = "WEEKS_3"
