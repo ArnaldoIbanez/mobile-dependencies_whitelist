@@ -1,0 +1,64 @@
+{
+  "users": [
+    "tomas.auchterlonie@mercadolibre.com"
+  ],
+  "process_name": "returns-drop-out",
+  "cron": "00 11 * * *",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "DAY",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "site",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "typifications_1",
+        "type": "INTEGER"
+      },
+      {
+        "name": "payments_2",
+        "type": "INTEGER"
+      },
+      {
+        "name": "shipping_3",
+        "type": "INTEGER"
+      },
+      {
+        "name": "pickup_delivery_4",
+        "type": "INTEGER"
+      },
+      {
+        "name": "delivery_review_4",
+        "type": "INTEGER"
+      },
+      {
+        "name": "congrats_5",
+        "type": "INTEGER"
+      },
+    ],
+    "sql": {
+      "script": "returns/returns-drop-out.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "2017-10-01",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "2018-02-15",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
