@@ -2437,4 +2437,14 @@ trackTests {
         "/charts/show"(platform: "/web", type: TrackType.View){}
         "/balance/reports"(platform: "/web", type: TrackType.View){}
     }
+
+    // MP Devsite
+    test("MercadoPago Devsite"){
+        "/devsite/navigation"(platform: "/web/mobile", type: TrackType.View) {
+            user_id = "1321312"
+            lang = "es"
+            site = "mla"
+            uri = "/guides"
+        }
+    }
 }
