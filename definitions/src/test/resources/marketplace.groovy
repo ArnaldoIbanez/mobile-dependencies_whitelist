@@ -5200,6 +5200,22 @@ trackTests {
         "/checkout/shipping/select_option/send_to_my_address"(platform:"/web", dataSet)
         "/checkout/shipping/store_selection"(platform:"/web", dataSet)
 
+        // Suscripciones
+        "/checkout/shipping"(platform:"/web") {
+            dataSet()
+            checkout_flow = "subscription"
+        }
+
+        "/checkout/shipping"(platform:"/web") {
+            dataSet()
+            checkout_flow = "direct"
+        }
+
+        "/checkout/review/edit_frequency"(platform:"/web") {
+            frequency = "WEEKS_2"
+            frequency_before = "WEEKS_3"
+        }
+
     }
 
 

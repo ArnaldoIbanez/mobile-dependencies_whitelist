@@ -91,6 +91,9 @@ tracks {
         total_amount_local(serverSide: true)
         total_amount_usd(serverSide: true)
         first_for_order(serverSide: true)
+
+        // Checkout flows
+        checkout_flow(required: false, type: PropertyType.String, values: ["subscription", "direct"])
     }
 
     /*
@@ -878,6 +881,12 @@ tracks {
     "/checkout/shipping/store_selection"(platform:"/", type: TrackType.View) {}
 
     "/checkout/shipping/agencies_contact_info"(platform:"/", type: TrackType.View) {}
+
+    // Suscripciones
+    "/checkout/review/edit_frequency"(platform:"/", type: TrackType.Event) {
+        frequency(required: true, type: PropertyType.String)
+        frequency_before(required: true, type: PropertyType.String)
+    }
 
     //Eventos en la "/checkout/congrats"
     //------------------------------------------------------------------------------------

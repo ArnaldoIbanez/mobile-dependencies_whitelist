@@ -1423,6 +1423,7 @@ trackTests {
         "/new-withdraw/account-select"(platform: "/", type: TrackType.View){}
         "/new-withdraw/second-password"(platform: "/", type: TrackType.View){}
         "/new-withdraw/congrats"(platform: "/", type: TrackType.View){}
+        "/new-withdraw/congrats-advance"(platform: "/", type: TrackType.View){}
     }
 
     test("new-account"){
@@ -2436,5 +2437,15 @@ trackTests {
         "/listings/with_holdings"(platform: "/web", type: TrackType.View){}
         "/charts/show"(platform: "/web", type: TrackType.View){}
         "/balance/reports"(platform: "/web", type: TrackType.View){}
+    }
+
+    // MP Devsite
+    test("MercadoPago Devsite"){
+        "/devsite/navigation"(platform: "/web/mobile", type: TrackType.View) {
+            user_id = "1321312"
+            lang = "es"
+            site = "mla"
+            uri = "/guides"
+        }
     }
 }
