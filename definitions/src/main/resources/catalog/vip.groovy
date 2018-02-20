@@ -106,7 +106,7 @@ tracks {
     }
 
     "/vip/coordinate_availability"(platform: "/mobile", type: TrackType.Event) {
-        item_id(required: true, type:PropertyType.String, description: "Item id")
+        item_id()
     }
 
     "/vip/map/"(platform: "/mobile") {}
