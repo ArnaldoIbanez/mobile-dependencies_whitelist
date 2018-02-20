@@ -109,6 +109,20 @@ trackTests {
         }
     }
 
+    test("catalog_widget forced cancel should be tracked"){
+        "/catalogwidget/cancel/forced"(platform: "/", type: TrackType.Event){
+            category_id = "MLA390784"
+            page = "summary"
+            item_id = "MLA682118081"
+            officialstore = false
+            items_left = 8
+            missing_attributes = "GTIN"
+            domain_id = "MLA-FRAGRANCES"
+            seller_id = "241616388"
+            pi = false
+        }
+    }
+
     test("catalog_widget cancel should be tracked"){
         "/catalogwidget/cancel"(platform: "/", type: TrackType.Event){
             category_id = "MLA390784"
