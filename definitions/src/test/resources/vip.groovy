@@ -26,6 +26,9 @@ trackTests {
             trackModals()
         }
 
+        "/vip/coordinate_availability"(platform: "/mobile", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
     }
 
     test("New Shipping calculator"){
