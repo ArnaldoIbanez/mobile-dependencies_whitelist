@@ -105,9 +105,7 @@ tracks {
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
     }
 
-    "/vip/coordinate_availability"(platform: "/mobile", type: TrackType.Event) {
-        item_id()
-    }
+    "/vip/coordinate_availability"(platform: "/mobile", type: TrackType.Event) {}
 
     "/vip/map/"(platform: "/mobile") {}
 
