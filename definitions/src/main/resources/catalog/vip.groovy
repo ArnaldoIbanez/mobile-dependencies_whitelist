@@ -105,6 +105,10 @@ tracks {
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
     }
 
+    "/vip/coordinate_availability"(platform: "/mobile", type: TrackType.Event) {
+        item_id(required: true, type:PropertyType.String, description: "Item id")
+    }
+
     "/vip/map/"(platform: "/mobile") {}
 
     "/vip/payment_method"(platform: "/mobile") {}
