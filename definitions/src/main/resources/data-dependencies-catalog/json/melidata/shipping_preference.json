@@ -2,7 +2,7 @@
   "users": [
     "lucia.blanc@mercadolibre.com"
   ],
-  "process_name": "shipping_preference_conversion",
+  "process_name": "shipping_preference",
   "cron": "",
   "extract": {
     "operation": "append",
