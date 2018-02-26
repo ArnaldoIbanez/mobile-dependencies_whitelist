@@ -42,6 +42,11 @@ tracks {
         catalogWidgetCompletenessGroup
     }
 
+    "/catalogwidget/cancel/forced"(platform: "/") {
+        catalogWidgetGroup
+        catalogWidgetCompletenessGroup
+    }
+
     "/catalogwidget/minimize"(platform: "/") {
         catalogWidgetGroup
     }

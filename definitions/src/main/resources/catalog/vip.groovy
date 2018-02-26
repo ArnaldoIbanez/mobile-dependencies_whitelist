@@ -107,6 +107,8 @@ tracks {
 
     "/vip/coordinate_availability"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/vip/contract_intention"(platform: "/mobile", type: TrackType.Event) {}
+
     "/vip/map/"(platform: "/mobile") {}
 
     "/vip/payment_method"(platform: "/mobile") {}

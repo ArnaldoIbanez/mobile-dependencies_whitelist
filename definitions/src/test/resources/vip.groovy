@@ -29,6 +29,10 @@ trackTests {
         "/vip/coordinate_availability"(platform: "/mobile", type: TrackType.Event) {
             defaultTrackInformation()
         }
+
+        "/vip/contract_intention"(platform: "/mobile", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
     }
 
     test("New Shipping calculator"){
