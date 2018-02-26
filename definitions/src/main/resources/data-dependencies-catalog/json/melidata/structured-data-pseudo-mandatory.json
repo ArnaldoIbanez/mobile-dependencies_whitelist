@@ -2,7 +2,9 @@
   "users": [
     "emmanuel.mastronardi@mercadolibre.com",
     "gabriel.bertolo@mercadolibre.com",
-    "sebastian.schmukliar@mercadolibre.com"
+    "sebastian.schmukliar@mercadolibre.com",
+    "diego.borda@mercadolibre.com",
+    "gonzalo.gismero@mercadolibre.com"
   ],
   "process_name": "structured_data_modal_attributes_submit",
   "cron": "",
