@@ -18,8 +18,7 @@ from (
 	COUNT(DISTINCT case when path = '/return/congrats' then usr.user_id else NULL end) congrats
 	from default.tracks 
 	 where path IN ('/return/typifications', '/return/payments', '/return/shipping', '/return/pickup', '/return/delivery', '/return/delivery_review', '/return/congrats')
-	       and substr(ds,1,10) >= '@param01' 
-	       and substr(ds,1,10) < '@param02' 
+	       and substr(ds,1,10) between '@param01' and '@param02' 
 	       and application.site_id IN ('MLM', 'MLB')
 group by substr(ds, 1, 10), application.site_id,device.platform, path, event_data) Y
 group by DAY, site, PLATFORM 
