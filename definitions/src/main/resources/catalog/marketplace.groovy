@@ -516,6 +516,19 @@ tracks {
     "/subscriptions/detail/cancel"(platform: "/", type: TrackType.View) {}
     "/subscriptions/detail/cancel/subscription"(platform: "/", type: TrackType.Event) {}
 
+    //Landings Subscriptions
+    "/subscriptions_landing"(platform: "/", type: TrackType.View) {}
+
+    "/subscriptions_landing/select_item_slide"(platform: "/", type: TrackType.Event) {
+        category_id(required: true, type: PropertyType.String)
+    }
+
+    "/subscriptions_landing/select_other_product"(platform: "/", type: TrackType.Event) {}
+
+    "/subscriptions_landing/subscription_myml"(platform: "/", type: TrackType.Event) {}
+
+    "/subscriptions_landing/terms_condition"(platform: "/", type: TrackType.Event) {}
+
     "/sso" (platform: "/mobile", isAbstract: true){}
     "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
     "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}
