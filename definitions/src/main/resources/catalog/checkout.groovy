@@ -37,7 +37,7 @@ tracks {
         // name,
         // shipping_method_id,
         // shipping_mode
-        // free_shipping_benefit        
+        // free_shipping_benefit
 
         payments(required: false, description: "Array of payment information") //
         // id
@@ -74,7 +74,7 @@ tracks {
         quantity_pre_selected(required: false)
         order_payment_required(required: false)
         shipping_pre_selected(required: false)
-        
+
         buy_equal_pay(required: false, description: "BP flag")
         recovery_flow(required: false, description: "Is recovery CHO flow")
         register_int(required: false, description: "Integrated registration")
@@ -124,7 +124,7 @@ tracks {
     }
 
     "/checkout/payments"(platform: "/", isAbstract: true) {
-    }    
+    }
 
     "/checkout/payments/select_payment_method"(platform: "/web") {}
     "/checkout/payments/select_payment_type"(platform: "/web") {}
@@ -150,7 +150,7 @@ tracks {
         vertical(required: false, description: "vertical of transaction")
         reservation_price(required: false, description: "price of a reservation transaction")
     }
-    
+
     "/checkout/wrapper"(platform: "/mobile") {} //Melidata experiment
     "/checkout/init"(platform: "/mobile") {
         //Might not have most of status values in case of requestFailure
@@ -211,11 +211,13 @@ tracks {
     }
 
     "/checkout/payments_cancelation"(platform: "/mobile") {}
-    
+
+    "/checkout/onboard"(platform: "/mobile") {}
+
     "/checkout/geolocation"(platform: "/", type: TrackType.Event) {
         geolocation_error(required: true, description: "Why the geo failed")
     }
-    
+
     "/checkout/shipping"(platform: "/", type: TrackType.View) {
     }
 
@@ -612,7 +614,7 @@ tracks {
 
     "/checkout/congrats/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {
 
-    } 
+    }
 
     "/checkout/finish"(platform: "/mobile", isAbstract: true) {
         /** **************************************/
@@ -676,7 +678,7 @@ tracks {
 
     "/checkout/finish/second_step"(platform: "/mobile", isAbstract: true) {}
 
-    "/checkout/finish/second_step/error_details"(platform: "/mobile") {}   
+    "/checkout/finish/second_step/error_details"(platform: "/mobile") {}
 
     "/checkout/congrats/pending"(platform: "/mobile") {}
 
@@ -820,7 +822,7 @@ tracks {
     "/checkout/shipping/select_option/send_to_my_address/"(platform:"/web", type: TrackType.View) {}
 
     "/checkout/shipping/select_option/agency_pickup/"(platform:"/web", type: TrackType.View) {}
-    
+
     "/checkout/items_not_available"(platform:"/", type: TrackType.View) {}
 
     "/checkout/payment/select_method"(platform:"/", type: TrackType.View) {}
@@ -838,7 +840,7 @@ tracks {
 
     "/checkout/payment/input_card/edit_payment"(platform:"/", type: TrackType.Event) {}
     "/checkout/payment/input_card/security_code_tooltip"(platform:"/", type: TrackType.Event) {}
-    "/checkout/payment/security_code"(platform:"/", type: TrackType.View) {} 
+    "/checkout/payment/security_code"(platform:"/", type: TrackType.View) {}
 
     "/checkout/payment/select_installments"(platform:"/", type: TrackType.View) {}
 
@@ -926,7 +928,7 @@ tracks {
     "/checkout/shipping/input_address_number"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/input_address_number/whithout_number"(platform:"/", type: TrackType.Event) {}
     "/checkout/shipping/select_option_detail"(platform:"/", type: TrackType.View) {}
-    "/checkout/shipping/input_address_apartment"(platform:"/", type: TrackType.View) {}    
+    "/checkout/shipping/input_address_apartment"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/select_contact_info"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/add_contact_info"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/input_contact_info"(platform:"/", type: TrackType.View) {}

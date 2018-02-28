@@ -2357,6 +2357,10 @@ trackTests {
         "/checkout/payments_cancelation"(platform: "/mobile", type:TrackType.View) {}
     }
 
+    test("checkout onboard") {
+        "/checkout/onboard"(platform: "/mobile", type:TrackType.View) {}
+    }
+
     test("checkout summary payment detail expand/collapse") {
         "/checkout/review/display_detail#displayed"(platform: "/mobile", type: TrackType.Event) {}
         "/checkout/review/display_detail#closed"(platform: "/mobile", type: TrackType.Event) {}
@@ -5498,7 +5502,7 @@ trackTests {
         "/cart/checkout/review/inconsistency/payment_combination"(platform:"/mobile", dataSet)
         "/cart/checkout/review/inconsistency/payment_combination/payment"(platform:"/mobile", dataSet)
         "/cart/checkout/review/inconsistency/payment_combination/installments"(platform: "/mobile", dataSet)
-        "/cart/checkout/review/inconsistency/payment_combination/shipping"(platform: "/mobile", dataSet) 
+        "/cart/checkout/review/inconsistency/payment_combination/shipping"(platform: "/mobile", dataSet)
         "/cart/checkout/review/inconsistency/payment_combination/new_split"(platform: "/mobile", dataSet)
     }
 
