@@ -523,10 +523,6 @@ tracks {
         category_id(required: true, type: PropertyType.String)
     }
 
-    "/subscriptions_landing/select_other_product"(platform: "/", type: TrackType.Event) {}
-
-    "/subscriptions_landing/subscription_myml"(platform: "/", type: TrackType.Event) {}
-
     "/subscriptions_landing/terms_condition"(platform: "/", type: TrackType.Event) {}
 
     "/sso" (platform: "/mobile", isAbstract: true){}
