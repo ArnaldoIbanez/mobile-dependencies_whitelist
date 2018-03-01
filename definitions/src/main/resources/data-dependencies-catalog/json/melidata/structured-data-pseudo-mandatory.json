@@ -7,7 +7,7 @@
     "gonzalo.gismero@mercadolibre.com"
   ],
   "process_name": "structured_data_modal_attributes_submit",
-  "cron": "",
+  "cron": " ",
   "extract": {
     "operation": "append",
     "columns": [
