@@ -9,8 +9,6 @@ FROM (
   WHERE 
     ds >= '@param01' 
   	AND ds < '@param02'
-    ds >= '2018-03-01 10' 
-    AND ds < '2018-03-02 00'
     AND path like '%/email/orders%'
     AND json_extract_scalar(event_data,'$.event_type') = 'cancel_old_emails'
 )  
