@@ -5854,6 +5854,14 @@ trackTests {
             item_id="MLM12345"
             category_id="CAT123"
         }
+        
+        "/subscriptions_landing"(platform: "/", type: TrackType.View) {}
+
+        "/subscriptions_landing/select_item_slide"(platform: "/", type: TrackType.Event) {
+            category_id="CAT123"
+        }
+
+        "/subscriptions_landing/terms_condition"(platform: "/", type: TrackType.Event) {}
     }
 
     test("install_event"){
