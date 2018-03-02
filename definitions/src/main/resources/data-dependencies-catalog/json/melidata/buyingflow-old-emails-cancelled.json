@@ -3,7 +3,7 @@
     "emiliano.somoza@mercadolibre.com"
   ],
   "process_name": "buyingflow-old-emails-cancelled",
-  "cron": "00 07 * * *",
+  "cron": "",
   "extract": {
     "operation": "append",
     "columns": [
