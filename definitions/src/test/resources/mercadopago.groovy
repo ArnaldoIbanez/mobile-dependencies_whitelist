@@ -2396,6 +2396,18 @@ trackTests {
             client_id = "1321312"
             environment = "production"
         }
+
+        "/checkout_off/v1/payment_canceled"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+            payment_id = "3212321"
+            payment_amount = "500"
+            payment_method = "visa"
+            payment_type = "credit_card"
+        }
     }
 
     //MP frontend

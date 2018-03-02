@@ -139,6 +139,13 @@ tracks {
         payment_status_detail(required: true)
     }
 
+    "/checkout_off/v1/payment_canceled"(platform: "/", type: TrackType.Event){
+        payment_id(required: true)
+        payment_method(required: true)
+        payment_type(required: true)
+        payment_amount(required: true)
+    }
+
     "/checkout_off/v1/login"(platform: "/", type: TrackType.View){}
 
     "/checkout_off/v1/login/guest"(platform: "/", type: TrackType.View){}
