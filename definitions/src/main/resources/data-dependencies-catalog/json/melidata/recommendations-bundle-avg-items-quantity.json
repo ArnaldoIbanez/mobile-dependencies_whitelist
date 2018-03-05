@@ -1,0 +1,39 @@
+{
+  "users":
+  [
+    "carlos.rodrigo@mercadolibre.com",
+    "recommendations_fe@mercadolibre.com"
+  ],
+  "process_name": "recommendations_bundle_avg_items_quantity",
+  "cron": "",
+  "extract":
+  {
+    "operation": "append",
+    "columns":
+    [
+      {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "avg_items_quantity",
+        "type": "DECIMAL"
+      }
+    ],
+    "sql": {
+      "script": "recommendation/bundle-avg-items-quantity.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

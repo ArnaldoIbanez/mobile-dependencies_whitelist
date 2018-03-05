@@ -1,0 +1,47 @@
+{
+  "users":
+  [
+    "carlos.rodrigo@mercadolibre.com",
+    "recommendations_fe@mercadolibre.com"
+  ],
+  "process_name": "recommendations_bundle_atc_metrics",
+  "cron": "",
+  "extract":
+  {
+    "operation": "append",
+    "columns":
+    [
+      {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "unlogged_users_add_to_cart",
+        "type": "INTEGER"
+      },
+      {
+        "name": "all_add_to_cart",
+        "type": "INTEGER"
+      },
+      {
+        "name": "avg_items_added_to_cart",
+        "type": "DECIMAL"
+      }
+    ],
+    "sql": {
+      "script": "recommendation/bundle-atc-metrics.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
