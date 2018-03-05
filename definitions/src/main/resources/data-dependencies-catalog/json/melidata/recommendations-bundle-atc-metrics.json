@@ -1,8 +1,7 @@
 {
   "users":
   [
-    "carlos.rodrigo@mercadolibre.com",
-    "recommendations_fe@mercadolibre.com"
+    "carlos.rodrigo@mercadolibre.com"
   ],
   "process_name": "recommendations_bundle_atc_metrics",
   "cron": "",
