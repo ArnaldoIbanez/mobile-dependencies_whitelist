@@ -28,7 +28,7 @@
       }
     ],
     "sql": {
-      "script": "recommendation/bundle-atc-metrics.sql",
+      "script": "recommendations/bundle-atc-metrics.sql",
       "parameters": [
         {
           "name": "param01",

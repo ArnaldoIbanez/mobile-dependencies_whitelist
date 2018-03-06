@@ -20,7 +20,7 @@
       }
     ],
     "sql": {
-      "script": "recommendation/bundle-avg-items-quantity.sql",
+      "script": "recommendations/bundle-avg-items-quantity.sql",
       "parameters": [
         {
           "name": "param01",

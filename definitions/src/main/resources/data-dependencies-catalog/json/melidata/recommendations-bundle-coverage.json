@@ -28,7 +28,7 @@
       }
     ],
     "sql": {
-      "script": "recommendation/bundle-coverage.sql",
+      "script": "recommendations/bundle-coverage.sql",
       "parameters": [
         {
           "name": "param01",
