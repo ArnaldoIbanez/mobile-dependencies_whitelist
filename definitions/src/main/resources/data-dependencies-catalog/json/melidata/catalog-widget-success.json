@@ -14,15 +14,11 @@
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "Item_id",
+        "name": "item_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Domain_id",
-        "type": "UNICODE_STRING"
-      },
-        {
-        "name": "Path",
+        "name": "domain_id",
         "type": "UNICODE_STRING"
       },
       {

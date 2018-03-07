@@ -123,7 +123,7 @@
       },
       {
         "name": "ReDo",
-        "type": "UINTEGER"
+        "type": "INTEGER"
       },
       {
         "name": "PI_Save",
