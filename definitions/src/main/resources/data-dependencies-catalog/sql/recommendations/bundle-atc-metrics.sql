@@ -7,6 +7,6 @@ LATERAL VIEW json_tuple(event_data, 'items') v as recommended_items
 WHERE path = '/recommendations/add_to_cart' 
 AND JEST(event_data, 'client') = 'vip_combo' 
 AND JEST(event_data,'items') is not NULL 
-AND DS >= '2018-01-27' 
-AND DS < '@param2'
+AND DS >= '@param01' 
+AND DS < '@param02'
 GROUP BY application.site_id
