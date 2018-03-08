@@ -4,12 +4,17 @@
     "carlos.rodrigo@mercadolibre.com"
   ],
   "process_name": "recommendations_bundle_atc_metrics",
-  "cron": "",
+  "cron": "0 18 * * *",
   "extract":
   {
-    "operation": "append",
+    "operation": "overwrite",
     "columns":
     [
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
       {
         "name": "site_id",
         "type": "UNICODE_STRING"

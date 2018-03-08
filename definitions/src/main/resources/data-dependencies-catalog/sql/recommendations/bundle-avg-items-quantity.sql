@@ -1,4 +1,5 @@
-SELECT application.site_id site_id, 
+SELECT ds,
+       application.site_id site_id, 
        avg(size(json_to_array(jest(event_data,'recommendations.track_info.recommended_items')))) avg_items_quantity
 FROM tracks 
 WHERE path = '/vip'

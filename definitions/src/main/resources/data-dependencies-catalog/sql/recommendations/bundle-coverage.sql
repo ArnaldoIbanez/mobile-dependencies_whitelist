@@ -1,4 +1,5 @@
-SELECT  application.site_id as site_id, 
+SELECT  ds,
+        application.site_id as site_id, 
         SUM(CASE WHEN jest(event_data, 'recommendations.track_info.has_recommendations') = 'true' THEN 1 ELSE 0 END) vips_with_bundle,
         SUM(CASE WHEN jest(event_data, 'recommendations.track_info.has_recommendations') = 'true' AND
                       (
