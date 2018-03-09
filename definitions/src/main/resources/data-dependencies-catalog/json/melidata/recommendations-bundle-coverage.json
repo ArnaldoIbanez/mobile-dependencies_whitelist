@@ -4,7 +4,7 @@
     "carlos.rodrigo@mercadolibre.com"
   ],
   "process_name": "recommendations_bundle_coverage",
-  "cron": "00 05 * * *",
+  "cron": "",
   "extract":
   {
     "operation": "overwrite",
