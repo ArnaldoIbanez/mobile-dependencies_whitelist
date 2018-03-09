@@ -487,6 +487,7 @@ tracks {
     "/checkout/payments/add_another_coupon/delete_coupon"(platform:"/mobile", type: TrackType.Event) {}
 
     //Billing info
+    "/checkout/billing"(platform: "/mobile", isAbstract: true) {}
     "/checkout/billing/physical_person"(platform: "/mobile") {}
     "/checkout/billing/legal_person"(platform: "/mobile") {}
     "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {

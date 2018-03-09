@@ -5507,10 +5507,10 @@ trackTests {
         // Cancelarion
         "/cart/checkout/payments_cancelation"(platform:"/mobile", dataSet)
 
-        "/checkout/billing/physical_person"(platform: "/mobile") {
+        "/cart/checkout/billing/physical_person"(platform: "/mobile") {
             dataSet()
         }
-        "/checkout/billing/legal_person"(platform: "/mobile") {
+        "/cart/checkout/billing/legal_person"(platform: "/mobile") {
             dataSet()
         }
         "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {

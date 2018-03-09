@@ -296,9 +296,10 @@ tracks {
 "/cart/checkout/payments_cancelation"(platform: "/mobile", type: TrackType.View) {}
 
 //Billing info
-    "/checkout/billing/physical_person"(platform: "/mobile") {}
-    "/checkout/billing/legal_person"(platform: "/mobile") {}
-    "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/cart/checkout/billing"(platform: "/mobile", isAbstract: true) {}
+    "/cart/checkout/billing/physical_person"(platform: "/mobile") {}
+    "/cart/checkout/billing/legal_person"(platform: "/mobile") {}
+    "/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     }
 
 // 2MP Inconsistencias
