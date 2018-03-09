@@ -3,10 +3,10 @@
     "fernando.keuroglian@mercadolibre.com",
      "ba-analytics@mercadolibre.com"
   ],
-  "process_name": "catalog-widget-success",
-  "cron": "",
+  "process_name": "catalog-widget-metricas-success",
+  "cron": "00 07 * * *",
   "extract": {
-    "operation": "destroy",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "fecha",
@@ -43,7 +43,7 @@
       }
     ],
     "sql": {
-      "script": "business-assurance/catalog-widget-success.sql",
+      "script": "business-assurance/catalog-widget-metricas-success.sql",
       "parameters": [
         {
           "name": "param01",
