@@ -3,7 +3,7 @@
     "fernando.keuroglian@mercadolibre.com",
      "ba-analytics@mercadolibre.com"
   ],
-  "process_name": "catalog-widget-success",
+  "process_name": "catalog-widget-save",
   "cron": "00 07 * * *",
   "extract": {
     "operation": "overwrite",
@@ -14,40 +14,24 @@
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "item_id",
+        "name": "site",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "domain_id",
+        "name": "Page",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Site_id",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "id",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "new_value",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "old_value",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "success",
-        "type": "UNICODE_STRING"
+        "name": "Cantidad_Save",
+        "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "business-assurance/catalog-widget-success.sql",
+      "script": "business-assurance/catalog-widget-save.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-15",
+          "value": "DAY-30",
           "format": "yyyy-MM-dd"
         },
         {

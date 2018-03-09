@@ -155,7 +155,7 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-15",
+          "value": "DAY-6",
           "format": "yyyy-MM-dd"
         },
         {
