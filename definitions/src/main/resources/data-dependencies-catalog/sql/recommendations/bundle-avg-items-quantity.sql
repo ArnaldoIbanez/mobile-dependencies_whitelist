@@ -5,6 +5,7 @@ FROM tracks
 WHERE path = '/vip'
 AND jest(event_data, 'recommendations.client') = 'vip_combo'
 AND jest(event_data, 'recommendations.track_info.has_recommendations') = 'true'
-AND ds >= '2018-01-27'
+AND ds >= '@param01'
 AND ds < '@param02'
-GROUP BY application.site_id
+GROUP BY application.site_id, ds
+ORDER BY ds
