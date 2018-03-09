@@ -5335,11 +5335,6 @@ trackTests {
             dataSet()
             geolocation_error = "TIMEOUT"
         }
-        "/cart/checkout/options"(platform:"/mobile", type:TrackType.Event) {
-            dataSet()
-            payment_data = "[credit_card:-, ticket:abitab, ticket:redpagos, cash:cash]"
-            shipping_data = ["mercadoenvios", "local_pick_up"]
-        }
         "/cart/checkout/items_not_available"(platform:"/", dataSet)
         "/cart/checkout/error"(platform:"/", dataSet)
         "/cart/checkout/payment/billing_information"(platform:"/mobile") {

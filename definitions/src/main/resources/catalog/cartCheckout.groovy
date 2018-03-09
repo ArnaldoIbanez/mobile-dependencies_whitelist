@@ -197,11 +197,6 @@ tracks {
 
 "/cart/checkout"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
 
-"/cart/checkout/options"(platform: "/mobile", type: TrackType.Event) {
-    shipping_data(required: true, type: PropertyType.ArrayList, description: "Shipping options available for the buyer")
-    payment_data(required: true, type: PropertyType.String, description: "Payment options available for the buyer")
-}
-
 "/cart/checkout/shipping"(platform:"/mobile", type: TrackType.View) {}
 
 "/cart/checkout/shipping/edit_address"(platform:"/mobile", type: TrackType.Event) {}
