@@ -983,6 +983,10 @@ trackTests {
             location = "34.677755,56.444433"
             geolocation_method = "platform"
         }
+        "/checkout/options"(platform:"/mobile", type:TrackType.Event) {
+            payment_data = "[credit_card:-, ticket:abitab, ticket:redpagos, cash:cash]"
+            shipping_data = ["mercadoenvios", "local_pick_up"]
+        }
         "/checkout/geolocation"(platform:"/mobile", type:TrackType.Event) {
             geolocation_error = "TIMEOUT"
         }
@@ -5330,6 +5334,11 @@ trackTests {
         "/cart/checkout/geolocation"(platform:"/", type: TrackType.Event) {
             dataSet()
             geolocation_error = "TIMEOUT"
+        }
+        "/cart/checkout/options"(platform:"/mobile", type:TrackType.Event) {
+            dataSet()
+            payment_data = "[credit_card:-, ticket:abitab, ticket:redpagos, cash:cash]"
+            shipping_data = ["mercadoenvios", "local_pick_up"]
         }
         "/cart/checkout/items_not_available"(platform:"/", dataSet)
         "/cart/checkout/error"(platform:"/", dataSet)
