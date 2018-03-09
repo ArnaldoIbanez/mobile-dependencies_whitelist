@@ -4,9 +4,9 @@
      "ba-analytics@mercadolibre.com"
   ],
   "process_name": "catalog-widget-success",
-  "cron": "00 07 * * *",
+  "cron": "",
   "extract": {
-    "operation": "overwrite",
+    "operation": "destroy",
     "columns": [
       {
         "name": "fecha",
