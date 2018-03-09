@@ -4,10 +4,10 @@
     "carlos.rodrigo@mercadolibre.com"
   ],
   "process_name": "recommendations_bundle_atc_metrics",
-  "cron": "",
+  "cron": "05 07 * * *",
   "extract":
   {
-    "operation": "overwrite",
+    "operation": "append",
     "columns":
     [
       {
@@ -29,7 +29,7 @@
       },
       {
         "name": "avg_items_added_to_cart",
-        "type": "DECIMAL"
+        "type": "DOUBLE"
       }
     ],
     "sql": {
