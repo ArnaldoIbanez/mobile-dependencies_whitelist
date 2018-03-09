@@ -96,7 +96,7 @@ tracks {
         checkout_flow(required: false, type: PropertyType.String, values: ["subscription", "direct"])
 
         //Billing info
-        billing_info(required:false type:PropertyType.Map, description: "Dictionary containing the user selected billing info")
+        billing_info(required:false, description: "Dictionary containing the user selected billing info")
     }
 
     /*

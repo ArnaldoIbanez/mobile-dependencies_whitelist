@@ -85,7 +85,7 @@ tracks {
     location(required: false, type: PropertyType.String)
     geolocation_method(required: false, type: PropertyType.String)
 
-    billing_info(required:false type:PropertyType.Map, description: "Dictionary containing the user selected billing info")
+    billing_info(required:false, description: "Dictionary containing the user selected billing info")
 }
 
 "/cart/checkout/geolocation" (platform: "/", type: TrackType.Event) {
