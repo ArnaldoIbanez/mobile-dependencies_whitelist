@@ -4,10 +4,10 @@
     "carlos.rodrigo@mercadolibre.com"
   ],
   "process_name": "recommendations_bundle_avg_items_quantity",
-  "cron": "",
+  "cron": "00 05 * * *",
   "extract":
   {
-    "operation": "overwrite",
+    "operation": "append",
     "columns":
     [
       {
@@ -29,12 +29,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2018-01-27",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "2018-03-12",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
       ]
