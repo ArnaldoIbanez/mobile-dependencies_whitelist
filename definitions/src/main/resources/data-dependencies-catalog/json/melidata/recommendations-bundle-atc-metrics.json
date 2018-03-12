@@ -29,7 +29,7 @@
       },
       {
         "name": "avg_items_added_to_cart",
-        "type": "DECIMAL"
+        "type": "DOUBLE"
       }
     ],
     "sql": {
@@ -42,7 +42,7 @@
         },
         {
           "name": "param02",
-          "value": "2018-03-10",
+          "value": "2018-03-12",
           "format": "yyyy-MM-dd"
         }
       ]
