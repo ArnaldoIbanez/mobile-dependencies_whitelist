@@ -7,9 +7,14 @@
   "cron": "",
   "extract":
   {
-    "operation": "append",
+    "operation": "overwrite",
     "columns":
     [
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
       {
         "name": "site_id",
         "type": "UNICODE_STRING"
@@ -24,7 +29,7 @@
       },
       {
         "name": "avg_items_added_to_cart",
-        "type": "DECIMAL"
+        "type": "DOUBLE"
       }
     ],
     "sql": {
@@ -32,12 +37,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2018-01-27",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "2018-03-12",
           "format": "yyyy-MM-dd"
         }
       ]
