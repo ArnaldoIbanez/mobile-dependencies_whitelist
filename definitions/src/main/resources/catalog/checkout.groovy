@@ -210,6 +210,11 @@ tracks {
         geolocation_method(required: false, type: PropertyType.String)
     }
 
+    "/checkout/options"(platform: "/mobile", type: TrackType.Event) {
+        shipping_data(required: true, type: PropertyType.ArrayList, description: "Shipping options available for the buyer")
+        payment_data(required: true, type: PropertyType.String, description: "Payment options available for the buyer")
+    }
+
     "/checkout/payments_cancelation"(platform: "/mobile") {}
 
     "/checkout/onboard"(platform: "/mobile") {}
