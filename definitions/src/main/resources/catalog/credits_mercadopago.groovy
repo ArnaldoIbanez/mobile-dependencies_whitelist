@@ -74,4 +74,12 @@ tracks {
     //Administrator consumer
     "/credits/consumer/administrator"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/administrator/detail"(platform: "/", type: TrackType.View) {}
+
+    //Definitions - Money Advance
+    "/credits/moneyadvance"(platform: "/", isAbstract: true) {}
+
+    //Money Advance - Automatic Cash Advance
+    "/credits/moneyadvance/automatic"(platform: "/", isAbstract: true) {}
+    "/credits/moneyadvance/automatic/offer"(platform: "/", type: TrackType.View) {}
+    "/credits/moneyadvance/automatic/congrats"(platform: "/", type: TrackType.View) {}
 }
