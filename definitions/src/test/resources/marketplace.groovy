@@ -983,6 +983,10 @@ trackTests {
             location = "34.677755,56.444433"
             geolocation_method = "platform"
         }
+        "/checkout/options"(platform:"/mobile", type:TrackType.Event) {
+            payment_data = "[credit_card:-, ticket:abitab, ticket:redpagos, cash:cash]"
+            shipping_data = ["mercadoenvios", "local_pick_up"]
+        }
         "/checkout/geolocation"(platform:"/mobile", type:TrackType.Event) {
             geolocation_error = "TIMEOUT"
         }
@@ -1314,7 +1318,7 @@ trackTests {
         }
         "/checkout/payments/coupon_ok"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
-            coupon = 99
+            coupon = "coupon1,coupon2"
         }
         "/checkout/payments/add_another_coupon"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -1328,7 +1332,9 @@ trackTests {
         "/checkout/payments/expired_coupon"(platform:"/mobile", type:TrackType.Event) {
             checkoutStatus()
         }
-
+        "/checkout/payments/add_another_coupon/delete_coupon"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+        }
 
         "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
             status = "success"
@@ -2353,6 +2359,10 @@ trackTests {
 
     test("checkout payments cancelation") {
         "/checkout/payments_cancelation"(platform: "/mobile", type:TrackType.View) {}
+    }
+
+    test("checkout onboard") {
+        "/checkout/onboard"(platform: "/mobile", type:TrackType.View) {}
     }
 
     test("checkout summary payment detail expand/collapse") {
@@ -5198,6 +5208,22 @@ trackTests {
         "/checkout/shipping/select_option/send_to_my_address"(platform:"/web", dataSet)
         "/checkout/shipping/store_selection"(platform:"/web", dataSet)
 
+        // Suscripciones
+        "/checkout/shipping"(platform:"/web") {
+            dataSet()
+            checkout_flow = "subscription"
+        }
+
+        "/checkout/shipping"(platform:"/web") {
+            dataSet()
+            checkout_flow = "direct"
+        }
+
+        "/checkout/review/edit_frequency"(platform:"/web") {
+            frequency = "WEEKS_2"
+            frequency_before = "WEEKS_3"
+        }
+
     }
 
 
@@ -5454,7 +5480,7 @@ trackTests {
         }
         "/cart/checkout/payments/coupon_ok"(platform:"/mobile", type:TrackType.View) {
             dataSet()
-            coupon = 99
+            coupon = "coupon1,coupon2"
         }
         "/cart/checkout/payments/add_another_coupon"(platform:"/mobile", type:TrackType.View) {
             dataSet()
@@ -5468,6 +5494,9 @@ trackTests {
         "/cart/checkout/payments/expired_coupon"(platform:"/mobile", type:TrackType.Event) {
             dataSet()
         }
+        "/cart/checkout/payments/add_another_coupon/delete_coupon"(platform:"/mobile", type:TrackType.Event) {
+            dataSet()
+        }
 
         // Cancelarion
         "/cart/checkout/payments_cancelation"(platform:"/mobile", dataSet)
@@ -5477,7 +5506,7 @@ trackTests {
         "/cart/checkout/review/inconsistency/payment_combination"(platform:"/mobile", dataSet)
         "/cart/checkout/review/inconsistency/payment_combination/payment"(platform:"/mobile", dataSet)
         "/cart/checkout/review/inconsistency/payment_combination/installments"(platform: "/mobile", dataSet)
-        "/cart/checkout/review/inconsistency/payment_combination/shipping"(platform: "/mobile", dataSet) 
+        "/cart/checkout/review/inconsistency/payment_combination/shipping"(platform: "/mobile", dataSet)
         "/cart/checkout/review/inconsistency/payment_combination/new_split"(platform: "/mobile", dataSet)
     }
 
@@ -5829,6 +5858,14 @@ trackTests {
             item_id="MLM12345"
             category_id="CAT123"
         }
+        
+        "/subscriptions_landing"(platform: "/", type: TrackType.View) {}
+
+        "/subscriptions_landing/select_item_slide"(platform: "/", type: TrackType.Event) {
+            category_id="CAT123"
+        }
+
+        "/subscriptions_landing/terms_condition"(platform: "/", type: TrackType.Event) {}
     }
 
     test("install_event"){

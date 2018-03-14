@@ -41,7 +41,6 @@ LEFT JOIN
   FROM TRACKS
   WHERE
     jest(event_data, 'vertical') IN ('REAL_ESTATE', 'real_estate', 'realEstate', 'RE', 'MOTOR', 'MOTORCYCLE', 'motors', 'SERVICE', 'services')
-    AND others['fragment'] NOT LIKE '%BB:%'
     AND path IN ('/vip','/vip/show_phone', '/vip/call_seller', '/vip/contact_seller', '/quotation/congrats', '/quotation/show_price', '/checkout/congrats')
     AND device.platform LIKE '/web%'
     AND application.site_id IN ('MCO', 'MLA', 'MLB', 'MLC', 'MLM', 'MLU', 'MLV')

@@ -11,24 +11,44 @@ trackTests {
       "/return/typifications"(platform: "/")  {
         typification = "broken_item"
         action = "selection"
+        loyalty_level = 1
+        date_delivered = "date_delivered"
+        cart_order = true
+        item_category = "item_category"
+        item_category_l1 = "item_category_l1"
       }
 
       // STEP 02
       "/return/payments"(platform: "/") {
         payment = "paymentId"
         action = "selection"
+        loyalty_level = 1
+        date_delivered = "date_delivered"
+        cart_order = true
+        item_category = "item_category"
+        item_category_l1 = "item_category_l1"
       }
 
       // STEP 03
       "/return/shipping"(platform: "/") {
         shipping = "pickup"
         action = "selection"
+        loyalty_level = 1
+        date_delivered = "date_delivered"
+        cart_order = true
+        item_category = "item_category"
+        item_category_l1 = "item_category_l1"
       }
 
       // STEP 04.a
       "/return/pickup"(platform: "/") {
         pickup_time = "pickupTime"
         action = "selection"
+        loyalty_level = 1
+        date_delivered = "date_delivered"
+        cart_order = true
+        item_category = "item_category"
+        item_category_l1 = "item_category_l1"
       }
 
       // STEP 04.b
@@ -43,6 +63,11 @@ trackTests {
         payment = "paymentId"
         shipping = "carrier"
         pickup_time = "pickupTime"
+        loyalty_level = 1
+        date_delivered = "date_delivered"
+        cart_order = true
+        item_category = "item_category"
+        item_category_l1 = "item_category_l1"
       }
 
       // STEP 05.cta.a
@@ -62,6 +87,21 @@ trackTests {
       // Redirect to Claims
       "/return/external"(platform: "/") {
         id = "claims"
+        loyalty_level = 1
+        date_delivered = "date_delivered"
+        cart_order = true
+        item_category = "item_category"
+        item_category_l1 = "item_category_l1"
+      }
+
+      // Error Page
+      "/return/error"(platform: "/") {
+        previous_step = "delivery"
+        loyalty_level = 1
+        date_delivered = "date_delivered"
+        cart_order = true
+        item_category = "item_category"
+        item_category_l1 = "item_category_l1"
       }
     }
 }

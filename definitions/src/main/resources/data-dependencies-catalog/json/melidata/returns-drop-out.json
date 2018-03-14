@@ -2,43 +2,51 @@
   "users": [
     "tomas.auchterlonie@mercadolibre.com"
   ],
-  "process_name": "returns-intent-to-return",
+  "process_name": "returns-drop-out",
   "cron": "00 11 * * *",
   "extract": {
     "operation": "append",
     "columns": [
       {
-        "name": "fecha",
+        "name": "DAY",
         "type": "DATE",
         "format": "yyyy-MM-dd"
-      },
-      {
-        "name": "intencion_de_devolver",
-        "type": "INTEGER"
-      },
-      {
-        "name": "termino_en_claims",
-        "type": "INTEGER"
-      },
-      {
-        "name": "otro_problema",
-        "type": "INTEGER"
-      },
-      {
-        "name": "platform",
-        "type": "UNICODE_STRING"
       },
       {
         "name": "site",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "user_id",
+        "name": "platform",
         "type": "UNICODE_STRING"
-      }
+      },
+      {
+        "name": "typifications_1",
+        "type": "INTEGER"
+      },
+      {
+        "name": "payments_2",
+        "type": "INTEGER"
+      },
+      {
+        "name": "shipping_3",
+        "type": "INTEGER"
+      },
+      {
+        "name": "pickup_delivery_4",
+        "type": "INTEGER"
+      },
+      {
+        "name": "delivery_review_4",
+        "type": "INTEGER"
+      },
+      {
+        "name": "congrats_5",
+        "type": "INTEGER"
+      },
     ],
     "sql": {
-      "script": "returns/intent-to-return.sql",
+      "script": "returns/returns-drop-out.sql",
       "parameters": [
         {
           "name": "param01",
@@ -46,7 +54,7 @@
           "format": "yyyy-MM-dd"
         },
         {
-          "name": "param02",
+          "name": "param02", 
           "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }

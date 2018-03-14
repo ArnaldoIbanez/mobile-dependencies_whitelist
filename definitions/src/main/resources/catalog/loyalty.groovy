@@ -62,4 +62,9 @@ tracks {
         event_type(required: true, description: "Description of loyalty notification event")
         notification_ids(required: true, description: "List of notification ids" )
     }
+
+    "/loyalty/landing"(platform: "/", type: TrackType.Event) {
+        landing_id(required: true, description: "id of landing") 
+    }
+
 }

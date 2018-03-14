@@ -511,6 +511,7 @@ trackTests {
         "/point_payment/security_code"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/identification_number"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/result"(platform: "/mobile", type: TrackType.View) {
+            flow_id = "1231313123213"
             method = "swipe"
             currency = "ARS"
             amount = 10
@@ -525,6 +526,35 @@ trackTests {
         "/point_payment/error"(platform: "/mobile", type: TrackType.View) {
             from = "/point_catalog"
             error_msg = "No podemos procesar esta tarjeta. Prueba con otra"
+        }
+        "/point_payment/flow_tracker/pairing"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            level ="error"
+            message ="Can't pair"
+        }
+        "/point_payment/flow_tracker/payment_methods_get"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{data: log}"
+        }
+        "/point_payment/flow_tracker/configuration"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{configured: 2313}"
+        }
+        "/point_payment/flow_tracker/payment_methods_response"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{response: 2313}"
+        }
+        "/point_payment/flow_tracker/card_token_results"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
         }
     }
 
@@ -1393,6 +1423,7 @@ trackTests {
         "/new-withdraw/account-select"(platform: "/", type: TrackType.View){}
         "/new-withdraw/second-password"(platform: "/", type: TrackType.View){}
         "/new-withdraw/congrats"(platform: "/", type: TrackType.View){}
+        "/new-withdraw/congrats-advance"(platform: "/", type: TrackType.View){}
     }
 
     test("new-account"){
@@ -2111,6 +2142,19 @@ trackTests {
             collector_nickname = "collector nickname test"
             client_id = "1321312"
             environment = "production"
+            purchase_amount = "500"
+        }
+
+        "/checkout_off/v1/payment_method_selected"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+            payment_method = "visa"
+            payment_type = "credit_card"
+            purchase_amount = "500"
+            automatic_selection = true
         }
 
         "/checkout_off/v1/checkout_confirmed"(platform: "/web/mobile") {
@@ -2119,6 +2163,21 @@ trackTests {
             collector_nickname = "collector nickname test"
             client_id = "1321312"
             environment = "production"
+            purchase_amount = "500"
+        }
+
+        "/checkout_off/v1/payment_created"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+            payment_id = "3212321"
+            payment_amount = "500"
+            payment_method = "visa"
+            payment_type = "credit_card"
+            payment_status = "approved"
+            payment_status_detail = "accredited"
         }
 
         //Views
@@ -2179,6 +2238,46 @@ trackTests {
         }
 
         "/checkout_off/v1/payment_option/cards"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+        }
+
+        "/checkout_off/v1/additional_info/bolbradesco"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+        }
+
+        "/checkout_off/v1/additional_info/pse"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+        }
+
+        "/checkout_off/v1/additional_info/khipu"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+        }
+
+        "/checkout_off/v1/additional_info/redpagos"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+        }
+
+        "/checkout_off/v1/additional_info/abitab"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
             collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
             collector_nickname = "collector nickname test"
@@ -2297,6 +2396,18 @@ trackTests {
             client_id = "1321312"
             environment = "production"
         }
+
+        "/checkout_off/v1/payment_canceled"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+            payment_id = "3212321"
+            payment_amount = "500"
+            payment_method = "visa"
+            payment_type = "credit_card"
+        }
     }
 
     //MP frontend
@@ -2338,5 +2449,15 @@ trackTests {
         "/listings/with_holdings"(platform: "/web", type: TrackType.View){}
         "/charts/show"(platform: "/web", type: TrackType.View){}
         "/balance/reports"(platform: "/web", type: TrackType.View){}
+    }
+
+    // MP Devsite
+    test("MercadoPago Devsite"){
+        "/devsite/navigation"(platform: "/web/mobile", type: TrackType.View) {
+            user_id = "1321312"
+            lang = "es"
+            site = "mla"
+            uri = "/guides"
+        }
     }
 }

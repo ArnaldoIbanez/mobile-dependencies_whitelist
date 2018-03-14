@@ -62,4 +62,10 @@ trackTests {
         "/credits/consumer/administrator"(platform: "/web/desktop") {}
         "/credits/consumer/administrator/detail"(platform: "/web/desktop") {}
     }
+
+    test("money advance - automatic cash advances"){
+        //Views
+        "/credits/moneyadvance/automatic/offer"(platform: "/web/desktop") {}
+        "/credits/moneyadvance/automatic/congrats"(platform: "/web/desktop") {}
+    }
 }

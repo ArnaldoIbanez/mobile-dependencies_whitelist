@@ -1,9 +1,8 @@
 {
   "users": [
-    "daniela.medina@mercadolibre.com",
-     "ba-analytics@mercadolibre.com"
+    "emiliano.somoza@mercadolibre.com"
   ],
-  "process_name": "count_clicks_banner",
+  "process_name": "buyingflow-old-emails-cancelled",
   "cron": "",
   "extract": {
     "operation": "append",
@@ -14,32 +13,20 @@
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "Site",
+        "name": "site",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Plataforma",
+        "name": "email_template",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "size",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "banner_name",
-        "type": "UNICODE_STRING"
-      },
-        {
-        "name": "SellerID",
-        "type": "UNICODE_STRING"
-      },
-        {
-        "name": "total",
+        "name": "quantity",
         "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "business-assurance/cantidaddeclicks.sql",
+      "script": "buyingflow/old-emails-cancelled.sql",
       "parameters": [
         {
           "name": "param01",

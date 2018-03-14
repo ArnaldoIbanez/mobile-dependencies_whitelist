@@ -42,6 +42,15 @@ metrics {
 		}
 	}
 
+	
+	"checkout.loading"(description: "The checkout V5 first-page after performing a buy_intention ") {
+		countsOn {
+			condition {
+				path("/checkout/loading")
+			}
+		}
+	}
+	
 	"checkout.login"(description: "path: /checkout/login/confirm_authenticated or /checkout/login/first_purchase_not_authenticated or /checkout/login/confirm_not_authenticated") {
 		countsOn {
 			condition {

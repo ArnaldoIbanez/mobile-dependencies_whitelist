@@ -1,49 +1,37 @@
 {
   "users": [
-    "daniela.medina@mercadolibre.com",
+    "fernando.keuroglian@mercadolibre.com",
      "ba-analytics@mercadolibre.com"
   ],
-  "process_name": "count_clicks_banner",
-  "cron": "",
+  "process_name": "catalog-widget-save",
+  "cron": "00 07 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
-        "name": "ds",
+        "name": "fecha",
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "Site",
+        "name": "site",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Plataforma",
+        "name": "Page",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "size",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "banner_name",
-        "type": "UNICODE_STRING"
-      },
-        {
-        "name": "SellerID",
-        "type": "UNICODE_STRING"
-      },
-        {
-        "name": "total",
+        "name": "Cantidad_Save",
         "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "business-assurance/cantidaddeclicks.sql",
+      "script": "business-assurance/catalog-widget-save.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "DAY-30",
           "format": "yyyy-MM-dd"
         },
         {

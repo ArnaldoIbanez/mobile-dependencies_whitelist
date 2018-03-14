@@ -1,44 +1,39 @@
 {
-  "users": [
-    "alejandro.torres@mercadolibre.com"
+  "users":
+  [
+    "carlos.rodrigo@mercadolibre.com"
   ],
-  "process_name": "mediations-stale_flow",
-  "cron": "* 07 * * *",
-  "extract": {
+  "process_name": "recommendations_bundle_coverage",
+  "cron": "00 05 * * *",
+  "extract":
+  {
     "operation": "append",
-    "columns": [
+    "columns":
+    [
       {
         "name": "ds",
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "site",
+        "name": "site_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "total",
+        "name": "vips_with_bundle",
         "type": "INTEGER"
       },
       {
-        "name": "platform",
-        "type": "UNICODE_STRING"
+        "name": "vips_with_bundle_fvf_value",
+        "type": "INTEGER"
       },
       {
-        "name": "business",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "reason",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "expected_resolution",
-        "type": "UNICODE_STRING"
+        "name": "total_vips",
+        "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "mediations/stale-flow.sql",
+      "script": "recommendations/bundle-coverage.sql",
       "parameters": [
         {
           "name": "param01",

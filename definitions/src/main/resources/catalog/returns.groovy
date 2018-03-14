@@ -9,6 +9,11 @@ tracks {
       officialstore(required: false, type: PropertyType.String)
       item_id(required: false, type: PropertyType.String)
       action(required: false, type: PropertyType.String)
+      loyalty_level(required: false, type: PropertyType.Numeric)
+      date_delivered(required: false, type: PropertyType.String)
+      cart_order(required: false, type: PropertyType.Boolean)
+      item_category(required: false, type: PropertyType.String)
+      item_category_l1(required: false, type: PropertyType.String)
     }
 
     // STEP 01
@@ -63,5 +68,9 @@ tracks {
     "/return/external"(platform: "/", type: TrackType.Event) {
       id(required: true, type: PropertyType.String)
       data(required: false, type: PropertyType.Map)
+    }
+
+    "/return/error"(platform: "/", type: TrackType.View) {
+      previous_step(required: true, type: PropertyType.String)
     }
 }

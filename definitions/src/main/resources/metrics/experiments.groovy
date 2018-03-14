@@ -416,7 +416,39 @@ metrics {
 	"seller_contacted"(description: "track vip contact seller as success for classifieds") {
 		countsOn {
 			condition {
+				path("/vip/call_seller", "/vip/contact_seller")
+			}
+		}
+	}
+
+	"user_vip_interaction"(description: "track vip user interaction as success for classifieds") {
+		countsOn {
+			condition {
 				path("/vip/call_seller", "/vip/show_phone", "/vip/contact_seller")
+			}
+		}
+	}
+
+	"call_seller"(description: "track vip call seller as success for classifieds") {
+		countsOn {
+			condition {
+				path("/vip/call_seller")
+			}
+		}
+	}
+
+	"show_phone"(description: "track vip show phone as success for classifieds") {
+		countsOn {
+			condition {
+				path("/vip/show_phone")
+			}
+		}
+	}
+
+	"contact_seller"(description: "track vip contact seller as success for classifieds") {
+		countsOn {
+			condition {
+				path("/vip/contact_seller")
 			}
 		}
 	}
