@@ -8,8 +8,7 @@ tracks {
     defaultBusiness = "mercadopago"
 
     // General Path
-    "/prepaid"(platform: "/", isAbstract: true) {}
-    "/prepaid/acquisition/landing"(platform: "/", type: TrackType.View){ 
+    "/prepaid"(platform: "/", isAbstract: true) {
         user_profile(
             required: false, 
             type: PropertyType.String, 
@@ -22,9 +21,10 @@ tracks {
             description: "Recording id of hotjar."
         )
     }
-    "/prepaid/acquisition"(platform: "/", isAbstract: true){}
-    "/prepaid/activation"(platform: "/", isAbstract: true){}
-    "/prepaid/tracking"(platform: "/", isAbstract: true){}
+    "/prepaid/acquisition/landing"(platform: "/", isAbstract: true){}
+    "/prepaid/acquisition/landing/inactive"(platform: "/", isAbstract: true){}
+    "/prepaid/acquisition"(platform: "/", type: TrackType.View) {}
+    "/prepaid/activation"(platform: "/", type: TrackType.View) {}
 
     // Landing
     // MLA => https://www.mercadopago.com.ar/tarjeta-prepaga
@@ -41,15 +41,15 @@ tracks {
     // MLA => https://www.mercadopago.com.ar/prepaid/acquisition
     // MLB => https://www.mercadopago.com.br/prepaid/acquisition
     "/prepaid/acquisition/confirmation_account"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/congrats/registration"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/juridical_info"(platform: "/", type: TrackType.View) {}
-    "/prepaid/acquisition/personal_info"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/personal_info"(platform: "/", isAbstract: true, type: TrackType.View) {}
     "/prepaid/acquisition/personal_info/identity"(platform: "/web/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/personal_info/gender"(platform: "/web/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/personal_info/activity"(platform: "/web/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/review"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/review/welcome"(platform: "/web/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/need_fund"(platform: "/", type: TrackType.View) {}
-    "/prepaid/acquisition/congrats/registration"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/congrats"(platform: "/", type: TrackType.View) {
         congrats_type(
             required: false, 
