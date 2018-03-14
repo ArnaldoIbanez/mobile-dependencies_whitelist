@@ -20,6 +20,11 @@ tracks {
             values: ["buyers", "sellers"],
             description: "User profiles."
         )
+        hotjar_id(
+            required: false, 
+            type: PropertyType.Numeric, 
+            description: "User profiles."
+        )
     }
     "/prepaid/acquisition"(platform: "/", isAbstract: true){}
     "/prepaid/activation"(platform: "/", isAbstract: true){}

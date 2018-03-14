@@ -24,6 +24,9 @@ trackTests {
         "/prepaid/acquisition/landing/card_request"(platform: "/", type: TrackType.Event) {
             user_profile = "sellers"
         }
+        "/prepaid/acquisition/landing/card_request"(platform: "/", type: TrackType.Event) {
+            hotjar_id = 1196462401
+        }
     }
 
 
