@@ -16,17 +16,9 @@ trackTests {
         "/prepaid/acquisition/landing/inactive/not_delivered_stolen_card"(platform: "/web/desktop") {}
         "/prepaid/acquisition/landing/inactive/not_delivered_card"(platform: "/web/desktop") {}
         "/prepaid/acquisition/landing/active_card"(platform: "/web/desktop") {}
-
-        // Event
-        "/prepaid/acquisition/landing"(platform: "/", type: TrackType.Event) {
-            user_profile = "buyers"
-        }
-        "/prepaid/acquisition/landing/card_request"(platform: "/", type: TrackType.Event) {
-            user_profile = "sellers"
-        }
-        "/prepaid/acquisition/landing/card_request"(platform: "/", type: TrackType.Event) {
-            hotjar_id = 1196462401
-        }
+        "/prepaid/acquisition/landing"(platform: "/", type: TrackType.View) { user_profile = "buyers" }
+        "/prepaid/acquisition/landing/card_request"(platform: "/", type: TrackType.View) { user_profile = "sellers" }
+        "/prepaid/acquisition/landing/card_request"(platform: "/", type: TrackType.View) { hotjar_id = 1196462401 }
     }
 
 
@@ -43,18 +35,15 @@ trackTests {
         "/prepaid/acquisition/review"(platform: "/web/desktop") {}
         "/prepaid/acquisition/review/welcome"(platform: "/web/mobile") {}
         "/prepaid/acquisition/need_fund"(platform: "/web/desktop") {}
-
-        // Event
-        "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.Event) { congrats_type = "bapropagos" }
-        "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.Event) { congrats_type = "redlink" }
-        "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.Event) { congrats_type = "maestro" }
-        "/prepaid/acquisition/congrats"(platform: "/web/mobile", type: TrackType.Event) { congrats_type = "bolbradesco" }
-        "/prepaid/acquisition/congrats"(platform: "/web/mobile", type: TrackType.Event) { congrats_type = "rapipago" }
-        
-        "/prepaid/acquisition/error"(platform: "/web/desktop", type: TrackType.Event) { error_type = "main_error" }
-        "/prepaid/acquisition/error"(platform: "/web/desktop", type: TrackType.Event) { error_type = "have_a_card" }
-        "/prepaid/acquisition/error"(platform: "/web/mobile", type: TrackType.Event) { error_type = "juridical_error" }
-        "/prepaid/acquisition/error"(platform: "/web/mobile", type: TrackType.Event) { error_type = "denied_error" }
+        "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) { congrats_type = "bapropagos" }
+        "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) { congrats_type = "redlink" }
+        "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) { congrats_type = "maestro" }
+        "/prepaid/acquisition/congrats"(platform: "/web/mobile", type: TrackType.View) { congrats_type = "bolbradesco" }
+        "/prepaid/acquisition/congrats"(platform: "/web/mobile", type: TrackType.View) { congrats_type = "rapipago" }
+        "/prepaid/acquisition/error"(platform: "/web/desktop", type: TrackType.View) { error_type = "main_error" }
+        "/prepaid/acquisition/error"(platform: "/web/desktop", type: TrackType.View) { error_type = "have_a_card" }
+        "/prepaid/acquisition/error"(platform: "/web/mobile", type: TrackType.View) { error_type = "juridical_error" }
+        "/prepaid/acquisition/error"(platform: "/web/mobile", type: TrackType.View) { error_type = "denied_error" }
     } 
 
 
@@ -65,20 +54,18 @@ trackTests {
         "/prepaid/activation/last_digits"(platform: "/web/desktop") {}
         "/prepaid/activation/marital_status"(platform: "/web/desktop") {}
         "/prepaid/activation/congrats"(platform: "/web/desktop") {}
-
-        // Event
-        "/prepaid/activation/error"(platform: "/", type: TrackType.Event) { error_type = "main_error" }
-        "/prepaid/activation/error"(platform: "/", type: TrackType.Event) { error_type = "not_found" }
+        "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "main_error" }
+        "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "not_found" }
     }
 
 
     test("cards prepaid shipment tracking") {
-        
-        // Event
-        "/prepaid/tracking"(platform: "/", type: TrackType.Event) { status = "on_track" }
-        "/prepaid/tracking"(platform: "/", type: TrackType.Event) { status = "delayed" }
-        "/prepaid/tracking"(platform: "/", type: TrackType.Event) { status = "to_collect" }
-        "/prepaid/tracking"(platform: "/", type: TrackType.Event) { status = "not_delivered" }
+
+        // View
+        "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "on_track" }
+        "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "delayed" }
+        "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "to_collect" }
+        "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "not_delivered" }
     }
 
 

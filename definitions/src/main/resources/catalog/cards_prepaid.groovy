@@ -8,12 +8,8 @@ tracks {
     defaultBusiness = "mercadopago"
 
     // General Path
-    "/"(platform: "/", isAbstract: true) {}
     "/prepaid"(platform: "/", isAbstract: true) {}
-
-    // Consulta - Se declara Event o View? o uno y uno?
-    // Consulta - user_profile se hereda a los hijos por ser abstract?
-    "/prepaid/acquisition/landing"(platform: "/", type: TrackType.Event){ 
+    "/prepaid/acquisition/landing"(platform: "/", type: TrackType.View){ 
         user_profile(
             required: false, 
             type: PropertyType.String, 
@@ -23,7 +19,7 @@ tracks {
         hotjar_id(
             required: false, 
             type: PropertyType.Numeric, 
-            description: "User profiles."
+            description: "Recording id of hotjar."
         )
     }
     "/prepaid/acquisition"(platform: "/", isAbstract: true){}
@@ -45,7 +41,6 @@ tracks {
     // MLA => https://www.mercadopago.com.ar/prepaid/acquisition
     // MLB => https://www.mercadopago.com.br/prepaid/acquisition
     "/prepaid/acquisition/confirmation_account"(platform: "/", type: TrackType.View) {}
-    "/prepaid/acquisition/congrats/registration"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/juridical_info"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/personal_info"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/personal_info/identity"(platform: "/web/mobile", type: TrackType.View) {}
@@ -54,17 +49,18 @@ tracks {
     "/prepaid/acquisition/review"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/review/welcome"(platform: "/web/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/need_fund"(platform: "/", type: TrackType.View) {}
-    "/prepaid/acquisition/congrats"(platform: "/", type: TrackType.Event) {
+    "/prepaid/acquisition/congrats/registration"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/congrats"(platform: "/", type: TrackType.View) {
         congrats_type(
-            required: true, 
+            required: false, 
             type: PropertyType.String, 
             values: ["bapropagos", "pagofacil", "rapipago", "cobroexpress", "cargavirtual", "redlink", "maestro", "debcabal", "bolbradesco"],
             description: "Types of congrats pages by payment method ID."
         )
     }
-    "/prepaid/acquisition/error"(platform: "/", type: TrackType.Event) {
+    "/prepaid/acquisition/error"(platform: "/", type: TrackType.View) {
         error_type(
-            required: true, 
+            required: false, 
             type: PropertyType.String, 
             values: ["main_error", "have_a_card", "juridical_error", "personal_error", "deceased_error", "underage_error", "denied_error"],
             description: "Types of error pages in acquisition flow."
@@ -77,9 +73,9 @@ tracks {
     "/prepaid/activation/last_digits"(platform: "/", type: TrackType.View) {}
     "/prepaid/activation/marital_status"(platform: "/", type: TrackType.View) {}
     "/prepaid/activation/congrats"(platform: "/", type: TrackType.View) {}
-    "/prepaid/activation/error"(platform: "/", type: TrackType.Event) {
+    "/prepaid/activation/error"(platform: "/", type: TrackType.View) {
         error_type(
-            required: true, 
+            required: false, 
             type: PropertyType.String, 
             values: ["main_error", "not_found"],
             description: "Types of error pages in activitation flow."
@@ -88,9 +84,9 @@ tracks {
 
     // Shipment tracking
     // MLA => https://www.mercadopago.com.ar/prepaid/tracking
-    "/prepaid/tracking"(platform: "/", type: TrackType.Event) {
+    "/prepaid/tracking"(platform: "/", type: TrackType.View) {
         status(
-            required: true, 
+            required: false, 
             type: PropertyType.String, 
             values: ["on_track", "delayed", "to_collect", "not_delivered"],
             description: "Shipment tracking status."
