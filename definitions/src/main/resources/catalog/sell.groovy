@@ -7,7 +7,7 @@ tracks {
 
     // Sell
     "/sell"(platform: "/", isAbstract: true) {}
-    "/sell/list"(platform: "/", isAbstract: true){ }
+    "/sell/list"(platform: "/", isAbstract: true){}
     "/sell/change_listing_type"(platform: "/web", isAbstract: true) {
         source(required: true, description: "Source could be differents types of email, my account, etc.", type: PropertyType.String)
         seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
