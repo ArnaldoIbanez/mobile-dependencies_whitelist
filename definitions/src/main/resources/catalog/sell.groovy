@@ -566,6 +566,8 @@ tracks {
         option_selected(required: true, description: "Radio option selected", type: PropertyType.String)
     }
     
+    "/sell/qr"(platform: "/", isAbstract: true) {}
+    
     "/sell/qr/print_intention"(platform: "/web", type: TrackType.View){
         item_id(required: true)
         qr_type(required: true)
