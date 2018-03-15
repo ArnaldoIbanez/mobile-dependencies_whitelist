@@ -13,8 +13,8 @@ metrics {
             set_property("item_id", "event_data.item_id")
         }
     }
-	
-	
+
+
     "vip/plainText"(description: "define properties for item_id for vip description (html vs plain) experiment") {
         startWith {
             set_property("item_id", "event_data.item_id")
@@ -518,12 +518,12 @@ metrics {
 			}
 		}
 	}
-	
+
 	"upgrade_listing"(description: "upgrade listing success for sell experiments") {
 		startWith {
 			experiment("sell/congrats_upgrade_listing_type")
 		}
-		
+
 		countsOn {
 			condition {
 				path("/sell/upgrade/listing_types")
@@ -544,4 +544,16 @@ metrics {
 			}
 		}
 	}
+
+    "mclics/upper-funnel"(description: "upper funnel experiment for pads") {
+        startWith {
+            path("/search")
+            condition {
+                and(
+                    empty('experiment.mclics/upper-funnel', false)
+                    equals('event_data.upper_funnel', true)
+                )
+            }
+        }
+    }
 }
