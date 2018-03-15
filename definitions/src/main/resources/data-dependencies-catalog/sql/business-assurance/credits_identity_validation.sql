@@ -1,5 +1,5 @@
 SELECT 
-substr(S.DS_1,1,10) as Fecha,  
+substr(S.DS_1,1,10) as Fecha ,  
 sum(if(S.PATH_1 IS NOT NULL, 1, 0)) as Start_Validation, 
 sum(if(F.PATH_2 IS NOT NULL, 1, 0)) as Finish_Validation 
 FROM 
