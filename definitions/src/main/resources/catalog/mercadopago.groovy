@@ -418,8 +418,8 @@ tracks {
     //tracks for new flow (withdraw and new account)
     "/new-withdraw"(platform: "/", type: TrackType.View) {}
     "/new-withdraw/confirm"(platform: "/", type: TrackType.View) {
-        type (required: false, type: PropertyType.String, description: "tipo de confirm")
-        type_detail (required: false, type: PropertyType.String, description: "detalle de confirm")
+        type (required: true, type: PropertyType.String, description: "tipo de confirm")
+        type_detail (required: true, type: PropertyType.String, description: "detalle de confirm")
     }
     "/new-withdraw/account-select"(platform: "/", type: TrackType.View) {}
     "/new-withdraw/second-password"(platform: "/", type: TrackType.View) {}
