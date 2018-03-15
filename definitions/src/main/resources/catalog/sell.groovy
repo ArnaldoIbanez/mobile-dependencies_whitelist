@@ -571,8 +571,8 @@ tracks {
     "/sell/qr/print_intention"(platform: "/web", type: TrackType.View){
         item_id(required: true)
         qr_type(required: true)
-        listing_type_id(required: false)
-        vertical(required: false)
+        listing_type_id(required: true)
+        vertical(required: true)
     }
 
 }
