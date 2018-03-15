@@ -4070,6 +4070,8 @@ trackTests {
         }
         "/myml/profile/update_success"(platform: "/mobile"){}
         "/myml/profile/review_data/confirm"(platform: "/mobile"){}
+        "/myml/company_profile"(platform: "/mobile"){}
+        "/myml/fiscal_data_edit"(platform: "/mobile"){}
     }
 
     test("Myml Suggested Discounts"){
