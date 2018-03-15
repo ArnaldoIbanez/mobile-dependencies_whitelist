@@ -9,7 +9,7 @@ WHERE PATH = '/identity-validation/start_validation'
 and (ds >= '@param01'
 and ds < '@param02')
 and application.site_id = 'MLA'
-and jest(event_data, 'flow') = 'credits') as S
+and jest(event_data, 'flow') = 'credits' ) as S
 
 LEFT JOIN 
 
