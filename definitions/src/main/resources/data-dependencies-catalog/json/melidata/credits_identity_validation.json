@@ -1,0 +1,48 @@
+{
+  "users": [
+    "marina.propato@mercadolibre.com"
+  ],
+  "process_name": "credits_identity_validation",
+  "cron": "00 11 * * *",
+  "extract": {
+    "operation": "append",
+    "columns": [
+    
+      {
+        "name": "Fecha",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Start_Validation",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "Finish_Validation",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      }
+    ],
+    "sql": {
+      "script": "business-assurance/credits_identity_validation.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-4",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-3",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param03",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
+
