@@ -1419,7 +1419,10 @@ trackTests {
 
     test("new-withdraw") {
         "/new-withdraw"(platform: "/", type: TrackType.View){}
-        "/new-withdraw/confirm"(platform: "/", type: TrackType.View){}
+        "/new-withdraw/confirm"(platform: "/", type: TrackType.View){
+            type="cap_prediction"
+            type_detail="by_cap_uif"
+        }
         "/new-withdraw/account-select"(platform: "/", type: TrackType.View){}
         "/new-withdraw/second-password"(platform: "/", type: TrackType.View){}
         "/new-withdraw/congrats"(platform: "/", type: TrackType.View){}
