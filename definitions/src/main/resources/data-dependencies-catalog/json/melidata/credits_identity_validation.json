@@ -3,7 +3,7 @@
     "marina.propato@mercadolibre.com"
   ],
   "process_name": "credits_identity_validation",
-  "cron": "00 16 * * *",
+  "cron": "00 10 * * *",
   "extract": {
     "operation": "append",
     "columns": [
