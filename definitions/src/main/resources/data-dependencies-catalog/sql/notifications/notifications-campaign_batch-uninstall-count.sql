@@ -6,13 +6,13 @@ FROM (SELECT campaign_id,
                    ds,
                    batch_id,
                    campaign_batch
-      FROM (SELECT jest(s1.event_data,'device_id') AS device_id_purge
+      FROM (SELECT s1.device.device_id AS device_id_purge
             FROM tracks AS s1
-            WHERE s1.ds >= '@param03'
-            AND   s1.ds < '@param01'
+            WHERE s1.ds >= '@param03' 
+            AND   s1.ds < '@param01' 
             AND   s1.path LIKE '/notification/%'
             AND   jest(s1.event_data,'event_type') = 'purged_token'
-            and s1.device.platform = '/mobile/android') AS t1,
+            AND   s1.device.platform = '/mobile/android') AS t1,
            (SELECT application.site_id AS site_id,
                    application.business AS marketplace,
                    jest(s2.event_data,'device_id') AS device_id,
