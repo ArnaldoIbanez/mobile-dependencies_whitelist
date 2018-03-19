@@ -1064,14 +1064,14 @@ trackTests {
             flow = "/cellphone_recharge"
         }
 
-        "/cellphone_recharge/suggested-phones"(platform: "/web", type: TrackType.View) {
+        "/cellphone_recharge/suggested_phones"(platform: "/web", type: TrackType.View) {
             flow = "/cellphone_recharge"
             from = "/sidebar_taladro"
         }
-        "/cellphone_recharge/second-password"(platform: "/web", type: TrackType.View) {
+        "/cellphone_recharge/second_password"(platform: "/web", type: TrackType.View) {
             flow = "/cellphone_recharge"
         }
-        "/cellphone_recharge/phone-income"(platform: "/web", type: TrackType.View) {
+        "/cellphone_recharge/phone_income"(platform: "/web", type: TrackType.View) {
             flow = "/cellphone_recharge"
         }
         "/cellphone_recharge/congrats"(platform: "/web", type: TrackType.View) {
@@ -1095,13 +1095,13 @@ trackTests {
         "/cellphone_recharge/amounts"(platform: "/web", type: TrackType.View) {
             flow = "/cellphone_recharge"
         }
-        "/cellphone_recharge/amount-recommended"(platform: "/web", type: TrackType.View) {
+        "/cellphone_recharge/amount_recommended"(platform: "/web", type: TrackType.View) {
             flow = "/cellphone_recharge"
         }
-        "/cellphone_recharge/alias-income"(platform: "/web/mobile", type: TrackType.View) {
+        "/cellphone_recharge/alias_income"(platform: "/web/mobile", type: TrackType.View) {
             flow = "/cellphone_recharge"
         }
-        "/cellphone_recharge/account-money"(platform: "/web", type: TrackType.View) {
+        "/cellphone_recharge/account_money"(platform: "/web", type: TrackType.View) {
             flow = "/cellphone_recharge"
         }
     }
