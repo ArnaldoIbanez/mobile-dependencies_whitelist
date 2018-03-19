@@ -6,7 +6,7 @@
   "process_name": "catalog-widget",
   "cron": "00 07 * * *",
   "extract": {
-    "operation": "overwrite",
+    "operation": "destroy",
     "columns": [
       {
         "name": "fecha",
