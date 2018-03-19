@@ -3,7 +3,7 @@
     "notifications-it@mercadolibre.com"
   ],
   "process_name": "notifications_uninstalls",
-  "cron": "",
+  "cron": "00 06 * * *",
   "extract": {
     "operation": "append",
     "columns": [{
