@@ -1,13 +1,5 @@
+
 # Melidata Catalog
-
-
-
-<kbd>
-  <img src="http://216.33.196.24/drone/api/badge/github.com/mercadolibre/melidata-catalog/status.svg?branch=master">
-</kbd>
-
-![BuildStatus](http://216.33.196.24/drone/api/badge/github.com/mercadolibre/melidata-catalog/status.svg?branch=master)
-[![Build Status](http://216.33.196.24/drone/api/badge/github.com/mercadolibre/melidata-catalog/status.svg?branch=master)](http://drone.melicloud.com/github.com/mercadolibre/melidata-catalog)
 
 This repository contains all the definitions for the information tracked thru *melidata* platform
 
