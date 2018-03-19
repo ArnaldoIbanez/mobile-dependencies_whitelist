@@ -1063,6 +1063,47 @@ trackTests {
         "/cellphone_recharge/confirm"(platform: "/web"){
             flow = "/cellphone_recharge"
         }
+
+        "/cellphone_recharge/suggested-phones"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+            from = "/sidebar_taladro"
+        }
+        "/cellphone_recharge/second-password"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
+        "/cellphone_recharge/phone-income"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
+        "/cellphone_recharge/congrats"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+            status = "approved"
+        }
+        "/cellphone_recharge/congrats"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+            status = "pending"
+        }
+        "/cellphone_recharge/congrats"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+            status = "rejected"
+        }
+        "/cellphone_recharge/companies"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
+        "/cellphone_recharge/checkout"(platform: "/web/desktop", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
+        "/cellphone_recharge/amounts"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
+        "/cellphone_recharge/amount-recommended"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
+        "/cellphone_recharge/alias-income"(platform: "/web/mobile", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
+        "/cellphone_recharge/account-money"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
     }
 
     test("Scheduled recharge") {
