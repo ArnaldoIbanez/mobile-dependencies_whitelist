@@ -43,8 +43,15 @@ tracks {
     // STEP 04.b
     "/return/delivery"(platform: "/", type: TrackType.View) { }
 
+    // STEP 04.c
+    "/return/review"(platform: "/", type: TrackType.View) { }
+    "/return/review"(platform: "/", type: TrackType.Event) {
+      continueButton(required: false, type: PropertyType.Boolean)
+      type(required: false, type: PropertyType.String)
+    }
+
     // STEP 05
-    "/return/congrats"(platform: "/", type: TrackType.View) { 
+    "/return/congrats"(platform: "/", type: TrackType.View) {
       typification(required: false, type: PropertyType.String)
       payment(required: false, type: PropertyType.String)
       shipping(required: false, type: PropertyType.String)

@@ -77,6 +77,7 @@ catalog {
         include business, "credits_mercadopago.groovy"
         include business, "mercadopago_mails.groovy"
         include business, "mercadopago_devsite.groovy"
+        include business, "cards_prepaid.groovy"
     }
 
 }

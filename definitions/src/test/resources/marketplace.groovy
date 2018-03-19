@@ -983,6 +983,10 @@ trackTests {
             location = "34.677755,56.444433"
             geolocation_method = "platform"
         }
+        "/checkout/options"(platform:"/mobile", type:TrackType.Event) {
+            payment_data = "[credit_card:-, ticket:abitab, ticket:redpagos, cash:cash]"
+            shipping_data = ["mercadoenvios", "local_pick_up"]
+        }
         "/checkout/geolocation"(platform:"/mobile", type:TrackType.Event) {
             geolocation_error = "TIMEOUT"
         }
@@ -4066,6 +4070,8 @@ trackTests {
         }
         "/myml/profile/update_success"(platform: "/mobile"){}
         "/myml/profile/review_data/confirm"(platform: "/mobile"){}
+        "/myml/company_profile"(platform: "/mobile"){}
+        "/myml/fiscal_data_edit"(platform: "/mobile"){}
     }
 
     test("Myml Suggested Discounts"){

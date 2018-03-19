@@ -9,8 +9,8 @@ metrics {
             set_property("item_id", "event_data.item_id")
         }
     }
-	
-	
+
+
     "vip/plainText"(description: "define properties for item_id for vip description (html vs plain) experiment") {
         startWith {
             set_property("item_id", "event_data.item_id")
@@ -161,12 +161,26 @@ metrics {
 			}
 		}
 	}
-	
+
+	"search/showBetterImagesFixed.retinaScreen"(description: "Better images experiment for retina screens"){
+		startWith{
+			condition {
+				and(
+						empty("experiments.search/showBetterImagesFixed", false),
+						equals('event_data.isRetina', true)
+				)
+			}
+			openBy {
+				"experiments.search/showBetterImagesFixed"(default: "DEFAULT")
+			}
+		}
+	}
+
 	"upgrade_listing"(description: "upgrade listing success for sell experiments") {
 		startWith {
 			experiment("sell/congrats_upgrade_listing_type")
 		}
-		
+
 		countsOn {
 			condition {
 				path("/sell/upgrade/listing_types")
@@ -174,4 +188,30 @@ metrics {
 		}
 	}
 
+
+	"search/showBetterImagesFixed.notRetinaScreen"(description: "Better images experiment for non retina screens"){
+		startWith{
+			condition {
+				and(
+						empty("experiments.search/showBetterImagesFixed", false),
+						equals('event_data.isRetina', false)
+				)
+			}
+			openBy {
+				"experiments.search/showBetterImagesFixed"(default: "DEFAULT")
+			}
+		}
+	}
+
+    "mclics/upper-funnel"(description: "upper funnel experiment for pads") {
+        startWith {
+            path("/search")
+            condition {
+                and(
+                    empty('experiments.mclics/upper-funnel', false)
+                    equals('event_data.upper_funnel', true)
+                )
+            }
+        }
+    }
 }

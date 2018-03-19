@@ -1063,6 +1063,47 @@ trackTests {
         "/cellphone_recharge/confirm"(platform: "/web"){
             flow = "/cellphone_recharge"
         }
+
+        "/cellphone_recharge/suggested_phones"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+            from = "/sidebar_taladro"
+        }
+        "/cellphone_recharge/second_password"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
+        "/cellphone_recharge/phone_income"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
+        "/cellphone_recharge/congrats"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+            status = "approved"
+        }
+        "/cellphone_recharge/congrats"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+            status = "pending"
+        }
+        "/cellphone_recharge/congrats"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+            status = "rejected"
+        }
+        "/cellphone_recharge/companies"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
+        "/cellphone_recharge/checkout"(platform: "/web/desktop", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
+        "/cellphone_recharge/amounts"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
+        "/cellphone_recharge/amount_recommended"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
+        "/cellphone_recharge/alias_income"(platform: "/web/mobile", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
+        "/cellphone_recharge/account_money"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
     }
 
     test("Scheduled recharge") {
@@ -1419,7 +1460,10 @@ trackTests {
 
     test("new-withdraw") {
         "/new-withdraw"(platform: "/", type: TrackType.View){}
-        "/new-withdraw/confirm"(platform: "/", type: TrackType.View){}
+        "/new-withdraw/confirm"(platform: "/", type: TrackType.View){
+            type="cap_prediction"
+            type_detail="by_cap_uif"
+        }
         "/new-withdraw/account-select"(platform: "/", type: TrackType.View){}
         "/new-withdraw/second-password"(platform: "/", type: TrackType.View){}
         "/new-withdraw/congrats"(platform: "/", type: TrackType.View){}

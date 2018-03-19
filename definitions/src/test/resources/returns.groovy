@@ -54,6 +54,9 @@ trackTests {
       // STEP 04.b
       "/return/delivery"(platform: "/") { }
 
+      // STEP 04.c
+      "/return/review"(platform: "/") { }
+
       // STEP 05
       "/return/congrats"(platform: "/") {
         item_id = "item_id"

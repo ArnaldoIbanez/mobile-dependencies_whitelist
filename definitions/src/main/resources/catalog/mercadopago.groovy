@@ -292,6 +292,20 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
+    // Cellphone Recharge Frontend
+    "/cellphone_recharge/suggested_phones"(platform: "/web", type: TrackType.View) {}
+    "/cellphone_recharge/second_password"(platform: "/web", type: TrackType.View) {}
+    "/cellphone_recharge/phone_income"(platform: "/web", type: TrackType.View) {}
+    "/cellphone_recharge/congrats"(platform: "/web", type: TrackType.View) {
+        status (required:true, type: PropertyType.String, description: "Payment status (approved, pending, rejected)")
+    }
+    "/cellphone_recharge/companies"(platform: "/web", type: TrackType.View) {}
+    "/cellphone_recharge/checkout"(platform: "/web/desktop", type: TrackType.View) {}
+    "/cellphone_recharge/amounts"(platform: "/web", type: TrackType.View) {}
+    "/cellphone_recharge/amount_recommended"(platform: "/web", type: TrackType.View) {}
+    "/cellphone_recharge/alias_income"(platform: "/web/mobile", type: TrackType.View) {}
+    "/cellphone_recharge/account_money"(platform: "/web", type: TrackType.View) {}
+
     "/scheduled_recharge"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
@@ -417,7 +431,10 @@ tracks {
 
     //tracks for new flow (withdraw and new account)
     "/new-withdraw"(platform: "/", type: TrackType.View) {}
-    "/new-withdraw/confirm"(platform: "/", type: TrackType.View) {}
+    "/new-withdraw/confirm"(platform: "/", type: TrackType.View) {
+        type (required: true, type: PropertyType.String, description: "tipo de confirm")
+        type_detail (required: true, type: PropertyType.String, description: "detalle de confirm")
+    }
     "/new-withdraw/account-select"(platform: "/", type: TrackType.View) {}
     "/new-withdraw/second-password"(platform: "/", type: TrackType.View) {}
     "/new-withdraw/congrats"(platform: "/", type: TrackType.View) {}

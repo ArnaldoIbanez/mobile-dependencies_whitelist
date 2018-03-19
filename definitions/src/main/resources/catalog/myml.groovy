@@ -251,5 +251,7 @@ tracks {
     }
     "/myml/profile/update_success"(platform: "/mobile", type: TrackType.View) {}
     "/myml/profile/review_data/confirm"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/company_profile"(platform: "/mobile", type: TrackType.View){}
+    "/myml/fiscal_data_edit"(platform: "/mobile", type:TrackType.View){}
 
 }

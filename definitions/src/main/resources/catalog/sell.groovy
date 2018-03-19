@@ -7,7 +7,7 @@ tracks {
 
     // Sell
     "/sell"(platform: "/", isAbstract: true) {}
-    "/sell/list"(platform: "/", isAbstract: true){ }
+    "/sell/list"(platform: "/", isAbstract: true){}
     "/sell/change_listing_type"(platform: "/web", isAbstract: true) {
         source(required: true, description: "Source could be differents types of email, my account, etc.", type: PropertyType.String)
         seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
@@ -564,6 +564,15 @@ tracks {
         domain_id(required: true, description: "Domain id", type: PropertyType.String)
         attribute_id(required: true, description: "Attribute id", type: PropertyType.String)
         option_selected(required: true, description: "Radio option selected", type: PropertyType.String)
+    }
+    
+    "/sell/qr"(platform: "/", isAbstract: true) {}
+    
+    "/sell/qr/print_intention"(platform: "/web", type: TrackType.View){
+        item_id(required: true)
+        qr_type(required: true)
+        listing_type_id(required: true)
+        vertical(required: true)
     }
 
 }
