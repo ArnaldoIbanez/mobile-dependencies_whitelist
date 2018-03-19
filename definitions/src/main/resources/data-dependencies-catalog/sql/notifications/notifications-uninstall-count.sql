@@ -23,7 +23,7 @@ FROM (SELECT shown_table.notification_type,
             AND   s2.ds < '@param02'
             AND   s2.path LIKE '/notification/%'
             AND   jest(s2.event_data,'event_type') = 'shown'
-            AND   jest(s2.event_data,'test_notification') = 'false'
+            AND   (jest(s2.event_data,'test_notification') = 'false' OR jest(s2.event_data,'test_notification') is NULL)
             AND   s2.device.platform = '/mobile/android') shown_table
       WHERE purged_table.device_id_purge = shown_table.device_id) AS temporal
 WHERE ds in (SELECT MAX(t.ds)
