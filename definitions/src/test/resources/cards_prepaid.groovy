@@ -10,16 +10,18 @@ trackTests {
         // View
         "/prepaid/"(platform: "/", type: TrackType.View) {}
         "/prepaid/"(platform: "/", type: TrackType.View) { user_profile = "buyers" }
-        "/prepaid/"(platform: "/", type: TrackType.View) {  hotjar_id = 1196462402 }
+        "/prepaid/hotjar"(platform: "/", type: TrackType.Event) { hotjar_user_id = 1196462402 }
         "/prepaid/acquisition"(platform: "/web/desktop") {}
+        "/prepaid/acquisition"(platform: "/web/desktop") { is_point = true }
+        "/prepaid/acquisition"(platform: "/web/desktop") { is_point = false }
         "/prepaid/acquisition/landing/card_request"(platform: "/web/desktop") {}
         "/prepaid/acquisition/landing/card_request"(platform: "/", type: TrackType.View) { user_profile = "sellers" }
-        "/prepaid/acquisition/landing/card_request"(platform: "/", type: TrackType.View) { hotjar_id = 1196462401 }
         "/prepaid/acquisition/landing/on_delivery_card"(platform: "/web/desktop") {}
         "/prepaid/acquisition/landing/delivered_card"(platform: "/web/desktop") {}
         "/prepaid/acquisition/landing/inactive/user_request"(platform: "/web/desktop") {}
         "/prepaid/acquisition/landing/inactive/not_delivered_stolen_card"(platform: "/web/desktop") {}
         "/prepaid/acquisition/landing/inactive/not_delivered_card"(platform: "/web/desktop") {}
+        "/prepaid/acquisition/landing/need_fund"(platform: "/web/desktop") {}
         "/prepaid/acquisition/landing/active_card"(platform: "/web/desktop") {}
     }
 
@@ -28,7 +30,7 @@ trackTests {
 
         // View
         "/prepaid/acquisition/confirmation_account"(platform: "/web/desktop") {}
-        "/prepaid/acquisition/congrats/registration"(platform: "/web/desktop") {}
+        "/prepaid/acquisition/registration/congrats"(platform: "/web/desktop") {}
         "/prepaid/acquisition/juridical_info"(platform: "/web/desktop") {}
         "/prepaid/acquisition/personal_info"(platform: "/web/desktop") {}
         "/prepaid/acquisition/personal_info/identity"(platform: "/web/mobile") {}

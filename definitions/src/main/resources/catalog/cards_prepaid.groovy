@@ -15,15 +15,26 @@ tracks {
             values: ["buyers", "sellers"],
             description: "User profiles."
         )
-        hotjar_id(
+    }
+
+    "/prepaid/hotjar"(platform: "/", type: TrackType.Event) {
+        hotjar_user_id(
             required: false, 
             type: PropertyType.Numeric, 
             description: "Recording id of hotjar."
         )
     }
+
     "/prepaid/acquisition/landing"(platform: "/", isAbstract: true){}
     "/prepaid/acquisition/landing/inactive"(platform: "/", isAbstract: true){}
-    "/prepaid/acquisition"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/registration"(platform: "/", isAbstract: true){}
+    "/prepaid/acquisition"(platform: "/", type: TrackType.View) {
+        is_point(
+            required: false, 
+            type: PropertyType.Boolean, 
+            description: "Flag to indicate if is a user of Point."
+        )
+    }
     "/prepaid/activation"(platform: "/", type: TrackType.View) {}
 
     // Landing
@@ -35,13 +46,14 @@ tracks {
     "/prepaid/acquisition/landing/inactive/user_request"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/landing/inactive/not_delivered_stolen_card"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/landing/inactive/not_delivered_card"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/landing/need_fund"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/landing/active_card"(platform: "/", type: TrackType.View) {}
 
     // Acquisition Flow
     // MLA => https://www.mercadopago.com.ar/prepaid/acquisition
     // MLB => https://www.mercadopago.com.br/prepaid/acquisition
     "/prepaid/acquisition/confirmation_account"(platform: "/", type: TrackType.View) {}
-    "/prepaid/acquisition/congrats/registration"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/registration/congrats"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/juridical_info"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/personal_info"(platform: "/", isAbstract: true, type: TrackType.View) {}
     "/prepaid/acquisition/personal_info/identity"(platform: "/web/mobile", type: TrackType.View) {}
