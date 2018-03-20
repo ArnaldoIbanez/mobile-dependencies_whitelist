@@ -64,7 +64,7 @@ tracks {
     "/prepaid/acquisition/need_fund"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/congrats"(platform: "/", type: TrackType.View) {
         congrats_type(
-            required: false, 
+            required: true, 
             type: PropertyType.String, 
             values: ["bapropagos", "pagofacil", "rapipago", "cobroexpress", "cargavirtual", "redlink", "maestro", "debcabal", "bolbradesco"],
             description: "Types of congrats pages by payment method ID."
@@ -72,7 +72,7 @@ tracks {
     }
     "/prepaid/acquisition/error"(platform: "/", type: TrackType.View) {
         error_type(
-            required: false, 
+            required: true, 
             type: PropertyType.String, 
             values: ["main_error", "have_a_card", "juridical_error", "personal_error", "deceased_error", "underage_error", "denied_error"],
             description: "Types of error pages in acquisition flow."
@@ -87,7 +87,7 @@ tracks {
     "/prepaid/activation/congrats"(platform: "/", type: TrackType.View) {}
     "/prepaid/activation/error"(platform: "/", type: TrackType.View) {
         error_type(
-            required: false, 
+            required: true, 
             type: PropertyType.String, 
             values: ["main_error", "not_found"],
             description: "Types of error pages in activitation flow."
@@ -98,7 +98,7 @@ tracks {
     // MLA => https://www.mercadopago.com.ar/prepaid/tracking
     "/prepaid/tracking"(platform: "/", type: TrackType.View) {
         status(
-            required: false, 
+            required: true, 
             type: PropertyType.String, 
             values: ["on_track", "delayed", "to_collect", "not_delivered"],
             description: "Shipment tracking status."
