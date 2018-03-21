@@ -5519,7 +5519,6 @@ trackTests {
             dataSet()
         }
         "/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event) {
-            dataSet()
         }
 
         //Inconsistencias
