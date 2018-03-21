@@ -5901,11 +5901,7 @@ trackTests {
             item_id="MLM12345"
             category_id="CAT123"
         }
-        "/subscriptions/detail/modify_frequency"(platform: "/" ,type: TrackType.View) {
-            order_id="1425420000"
-            item_id="MLM12345"
-            category_id="CAT123"
-        }
+        "/subscriptions/detail/modify_frequency"(platform: "/" ,type: TrackType.View) {}
         "/subscriptions/change_frequency" (platform:"/", type: TrackType.View) {
             frequency = "WEEKS_2"
             frequency_before = "WEEKS_1"
