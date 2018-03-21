@@ -492,6 +492,13 @@ tracks {
         context(required: true, type: PropertyType.String)
     }
 
+    "/subscriptions/address"(platform: "/", type: TrackType.View) {}
+    "/subscriptions/change_address"(platform: "/", type: TrackType.Event) {
+        address(required: true, type: PropertyType.String)
+        address_before(type: PropertyType.String)
+        context(required: true, type: PropertyType.String)
+    }
+
     "/subscriptions/review"(platform: "/", type: TrackType.View) {}
     "/subscriptions/review/confirm"(platform: "/", type: TrackType.Event) {
         context(required: true, type: PropertyType.String)

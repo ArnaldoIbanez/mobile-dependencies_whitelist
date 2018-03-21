@@ -5914,6 +5914,12 @@ trackTests {
             item_id="MLM12345"
             category_id="CAT123"
         }
+        "/subscriptions/address" (platform:"/", type: TrackType.View) {}
+        "/subscriptions/change_address" (platform:"/", type: TrackType.View) {
+            address = "6657"
+            address_before = "8877"
+            context = "details/myml"
+        }
         "/subscriptions/delivery/cancel"(platform: "/", type: TrackType.View) {
             context = "now"
             order_id="1425420000"
