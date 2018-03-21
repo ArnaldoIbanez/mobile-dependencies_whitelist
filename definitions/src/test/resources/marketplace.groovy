@@ -1342,7 +1342,7 @@ trackTests {
         "/checkout/billing/legal_person"(platform: "/mobile") {
             checkoutStatus()
         }
-        "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event) {
             checkoutStatus()
         }
 
@@ -5519,7 +5519,7 @@ trackTests {
         "/cart/checkout/billing/legal_person"(platform: "/mobile") {
             dataSet()
         }
-        "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event) {
             dataSet()
         }
 
