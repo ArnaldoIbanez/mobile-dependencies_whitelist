@@ -1342,8 +1342,7 @@ trackTests {
         "/checkout/billing/legal_person"(platform: "/mobile") {
             checkoutStatus()
         }
-        "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-            checkoutStatus()
+        "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event) {
         }
 
         "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
@@ -5519,8 +5518,7 @@ trackTests {
         "/cart/checkout/billing/legal_person"(platform: "/mobile") {
             dataSet()
         }
-        "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-            dataSet()
+        "/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event) {
         }
 
         //Inconsistencias
