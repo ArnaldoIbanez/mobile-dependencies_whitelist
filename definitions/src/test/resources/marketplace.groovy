@@ -1343,7 +1343,6 @@ trackTests {
             checkoutStatus()
         }
         "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event) {
-            checkoutStatus()
         }
 
         "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
@@ -5519,7 +5518,7 @@ trackTests {
         "/cart/checkout/billing/legal_person"(platform: "/mobile") {
             dataSet()
         }
-        "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event) {
+        "/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event) {
             dataSet()
         }
 
