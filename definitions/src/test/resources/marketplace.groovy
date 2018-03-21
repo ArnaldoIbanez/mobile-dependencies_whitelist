@@ -5915,7 +5915,7 @@ trackTests {
             category_id="CAT123"
         }
         "/subscriptions/address" (platform:"/", type: TrackType.View) {}
-        "/subscriptions/change_address" (platform:"/", type: TrackType.View) {
+        "/subscriptions/change_address" (platform:"/", type: TrackType.Event) {
             address = "6657"
             address_before = "8877"
             context = "details/myml"
