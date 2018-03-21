@@ -84,8 +84,6 @@ tracks {
     success(required: false, type: PropertyType.Boolean, description: "Indica que la localizacion del usuario fue exitosa")
     location(required: false, type: PropertyType.String)
     geolocation_method(required: false, type: PropertyType.String)
-
-    billing_info(required:false, description: "Dictionary containing the user selected billing info")
 }
 
 "/cart/checkout/geolocation" (platform: "/", type: TrackType.Event) {
@@ -294,13 +292,6 @@ tracks {
 
 // 2MP Cancelation
 "/cart/checkout/payments_cancelation"(platform: "/mobile", type: TrackType.View) {}
-
-//Billing info
-    "/cart/checkout/billing"(platform: "/mobile", isAbstract: true) {}
-    "/cart/checkout/billing/physical_person"(platform: "/mobile") {}
-    "/cart/checkout/billing/legal_person"(platform: "/mobile") {}
-    "/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-    }
 
 // 2MP Inconsistencias
 "/cart/checkout/review/discard_payment_combination"(platform: "/mobile") {}
