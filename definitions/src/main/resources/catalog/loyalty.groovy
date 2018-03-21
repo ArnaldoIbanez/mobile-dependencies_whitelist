@@ -66,5 +66,17 @@ tracks {
     "/loyalty/landing"(platform: "/", type: TrackType.Event) {
         landing_id(required: true, description: "id of landing") 
     }
+    
+    "/loyalty/discounts/" (platform: "/", type: TrackType.View) {
+    }
+
+    "/loyalty/discounts/apply" (platform: "/", type: TrackType.Event) {
+        levels(required: true, type: PropertyType.ArrayList, description: "Levels to which the discount applies")
+        amount(required: true, description: "Percentage of the discount")
+    }
+
+    "/loyalty/marketplace/delete" (platform: "/", type: TrackType.Event) { 
+        levels(required: true, type: PropertyType.ArrayList, description: "Levels to which the discount applied")
+    }
 
 }

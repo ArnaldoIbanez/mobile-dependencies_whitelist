@@ -65,5 +65,18 @@ trackTests {
         }
     }
 
+    test("Discounts") {
+        "/loyalty/discounts/" (platform: "/", type: TrackType.View) {
+        }
+
+        "/loyalty/discounts/apply" (platform: "/", type: TrackType.Event) {
+            levels = [1, 2]
+            amount = 20
+        }
+
+        "/loyalty/marketplace/delete" (platform: "/", type: TrackType.Event) { 
+            levels = [3, 4, 5, 6]
+        }
+    }
 
 }
