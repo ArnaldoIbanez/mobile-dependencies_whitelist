@@ -94,6 +94,9 @@ tracks {
 
         // Checkout flows
         checkout_flow(required: false, type: PropertyType.String, values: ["subscription", "direct"])
+
+        //Billing info
+        billing_info(required:false, description: "Dictionary containing the user selected billing info")
     }
 
     /*
@@ -328,6 +331,7 @@ tracks {
         contact_name(required: false, type: PropertyType.String)
         contact_phone(required: false, type: PropertyType.String)
     }
+    
     //Select address
     "/checkout/shipping/select_address"(platform: "/") {
         //View specific data
@@ -487,6 +491,13 @@ tracks {
     "/checkout/payments/expired_coupon"(platform:"/mobile", type: TrackType.Event) {}
     "/checkout/payments/add_another_coupon/delete_coupon"(platform:"/mobile", type: TrackType.Event) {}
 
+    //Billing info
+    "/checkout/billing"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/billing/physical_person"(platform: "/mobile") {}
+    "/checkout/billing/legal_person"(platform: "/mobile") {}
+    "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    }
+    
     //"/checkout/review" //shared between web and app, already defined in web section.
     "/checkout/review#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         status(required: true, type: PropertyType.String)

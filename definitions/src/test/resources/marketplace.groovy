@@ -1336,6 +1336,15 @@ trackTests {
             checkoutStatus()
         }
 
+         "/checkout/billing/physical_person"(platform: "/mobile") {
+            checkoutStatus()
+         }
+        "/checkout/billing/legal_person"(platform: "/mobile") {
+            checkoutStatus()
+        }
+        "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event) {
+        }
+
         "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
             status = "success"
         }
@@ -5502,6 +5511,15 @@ trackTests {
 
         // Cancelarion
         "/cart/checkout/payments_cancelation"(platform:"/mobile", dataSet)
+
+        "/cart/checkout/billing/physical_person"(platform: "/mobile") {
+            dataSet()
+        }
+        "/cart/checkout/billing/legal_person"(platform: "/mobile") {
+            dataSet()
+        }
+        "/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event) {
+        }
 
         //Inconsistencias
         "/cart/checkout/review/discard_payment_combination"(platform:"/mobile", dataSet)
