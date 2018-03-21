@@ -4,7 +4,7 @@
     "melidata_dev@mercadolibre.com"
   ],
   "process_name": "orders_insight",
-  "cron": "00 09 * * *",
+  "cron": "00 15 * * *",
   "extract": {
     "operation": "append",
     "columns": [
