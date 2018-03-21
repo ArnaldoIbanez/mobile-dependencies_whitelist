@@ -254,4 +254,16 @@ tracks {
     "/myml/company_profile"(platform: "/mobile", type: TrackType.View){}
     "/myml/fiscal_data_edit"(platform: "/mobile", type:TrackType.View){}
 
+    // Loyalty discounts. May need to add parentPropertiesInherited: false property
+    "/myml/loyal_discounts" (platform: "/", type: TrackType.View) {}
+    "/myml/loyal_discounts/add" (platform: "/web", type: TrackType.Event) {
+        item (required: true)
+        percentage (required: true)
+        type (required: true, values: ["loyal", "non-loyal"])
+    }
+    "/myml/loyal_discounts/delete" (platform: "/", type: TrackType.Event) {
+        item_id (required: true)
+        type (required: true, values: ["loyal", "non-loyal"])
+    }
+
 }
