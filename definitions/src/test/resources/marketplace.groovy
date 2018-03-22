@@ -1336,6 +1336,15 @@ trackTests {
             checkoutStatus()
         }
 
+         "/checkout/billing/physical_person"(platform: "/mobile") {
+            checkoutStatus()
+         }
+        "/checkout/billing/legal_person"(platform: "/mobile") {
+            checkoutStatus()
+        }
+        "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event) {
+        }
+
         "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
             status = "success"
         }
@@ -5503,6 +5512,15 @@ trackTests {
         // Cancelarion
         "/cart/checkout/payments_cancelation"(platform:"/mobile", dataSet)
 
+        "/cart/checkout/billing/physical_person"(platform: "/mobile") {
+            dataSet()
+        }
+        "/cart/checkout/billing/legal_person"(platform: "/mobile") {
+            dataSet()
+        }
+        "/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event) {
+        }
+
         //Inconsistencias
         "/cart/checkout/review/discard_payment_combination"(platform:"/mobile", dataSet)
         "/cart/checkout/review/inconsistency/payment_combination"(platform:"/mobile", dataSet)
@@ -5742,6 +5760,64 @@ trackTests {
         "/myml/purchases/order"(platform:"/") {}
 
         "/myml/purchases/detail/history"(platform:"/") {}
+
+        "/myml/loyal_discounts" (platform: "/", type: TrackType.View) {}
+        "/myml/loyal_discounts/add" (platform: "/web", type: TrackType.Event) {
+            item = {
+                id = 'MLA713079054'
+                price = '300'
+                original_price = '1000'
+                sale_terms = [  
+                  {  
+                     id = "LOYALTY_LEVEL_6"
+                     name = "Precio por nivel 6 de loyalty"
+                     value_id = null
+                     value_name = "25 ARS"
+                     value_struct = {  
+                        number = 25
+                        unit = "ARS"
+                     }
+                  },
+                  {  
+                     id = "LOYALTY_LEVEL_5"
+                     name = "Precio por nivel 5 de loyalty"
+                     value_id = null
+                     value_name = "25 ARS"
+                     value_struct = {  
+                        number = 25
+                        unit = "ARS"
+                     }
+                  },
+                  {  
+                     id = "LOYALTY_LEVEL_4"
+                     name = "Precio por nivel 4 de loyalty"
+                     value_id = null
+                     value_name = "25 ARS"
+                     value_struct = {  
+                        number = 25
+                        unit = "ARS"
+                     }
+                  },
+                  {  
+                     id = "LOYALTY_LEVEL_3"
+                     name = "Precio por nivel 3 de loyalty"
+                     value_id = null
+                     value_name = "25 ARS"
+                     value_struct = {  
+                        number = 25
+                        unit = "ARS"
+                     }
+                  }
+               ]
+            }
+            percentage = 70
+            type = "loyal"
+        }
+        "/myml/loyal_discounts/delete" (platform: "/", type: TrackType.Event) {
+            item_id = 'MLA713079054'
+            type = "non-loyal"
+        }
+
 
     }
 
