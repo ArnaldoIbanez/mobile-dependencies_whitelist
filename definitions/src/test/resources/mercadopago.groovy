@@ -2208,6 +2208,8 @@ trackTests {
             client_id = "1321312"
             environment = "production"
             purchase_amount = "500"
+            card_id = "1234"
+            installments = 3
         }
 
         "/checkout_off/v1/payment_created"(platform: "/web/mobile") {
@@ -2263,6 +2265,7 @@ trackTests {
             collector_nickname = "collector nickname test"
             client_id = "1321312"
             environment = "production"
+            options = "visa:credit_card|master:credit_card"
         }
 
         "/checkout_off/v1/payment_option/ticket"(platform: "/web/mobile") {
@@ -2287,6 +2290,7 @@ trackTests {
             collector_nickname = "collector nickname test"
             client_id = "1321312"
             environment = "production"
+            options = "visa:credit_card|master:credit_card|visa:credit_card:1234"
         }
 
         "/checkout_off/v1/additional_info/bolbradesco"(platform: "/web/mobile") {
