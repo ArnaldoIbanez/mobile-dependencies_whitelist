@@ -128,6 +128,8 @@ tracks {
         payment_method(required: false)
         payment_type(required: false)
         purchase_amount(required: false)
+        card_id(required: false)
+        installments(required: false)
     }
 
     "/checkout_off/v1/payment_created"(platform: "/", type: TrackType.Event){
@@ -154,13 +156,21 @@ tracks {
 
     "/checkout_off/v1/express"(platform: "/", type: TrackType.View){}
 
-    "/checkout_off/v1/payment_option"(platform: "/", type: TrackType.View){}
+    "/checkout_off/v1/payment_option"(platform: "/", type: TrackType.View){
+        options (required: false)
+    }
 
-    "/checkout_off/v1/payment_option/ticket"(platform: "/", type: TrackType.View){}
+    "/checkout_off/v1/payment_option/ticket"(platform: "/", type: TrackType.View){
+        options (required: false)
+    }
 
-    "/checkout_off/v1/payment_option/bank_transfer"(platform: "/", type: TrackType.View){}
+    "/checkout_off/v1/payment_option/bank_transfer"(platform: "/", type: TrackType.View){
+        options (required: false)
+    }
 
-    "/checkout_off/v1/payment_option/cards"(platform: "/", type: TrackType.View){}
+    "/checkout_off/v1/payment_option/cards"(platform: "/", type: TrackType.View){
+        options (required: false)
+    }
 
     "/checkout_off/v1/additional_info"(platform: "/", isAbstract: true) {}
 
