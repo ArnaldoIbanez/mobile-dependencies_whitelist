@@ -494,8 +494,6 @@ tracks {
 
     "/subscriptions/address"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
     "/subscriptions/change_address"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
-        address(required: true, type: PropertyType.String)
-        address_before(type: PropertyType.String)
         context(required: true, type: PropertyType.String)
     }
 
