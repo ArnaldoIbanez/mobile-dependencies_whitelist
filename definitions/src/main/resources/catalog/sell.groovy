@@ -73,6 +73,7 @@ tracks {
 
     // Tambien se utiliza para Apps
     "/sell/list/congrats"(platform: "/", type: TrackType.View){
+        session_id(required: false, description: "The listing session id")
         item_id(required: false, description: "Item id")
         listing_type_id(required: false, description: "Item listing type id")
         vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
