@@ -19,7 +19,7 @@ tracks {
 
     "/prepaid/hotjar"(platform: "/", type: TrackType.Event) {
         hotjar_user_id(
-            required: false, 
+            required: true, 
             type: PropertyType.Numeric, 
             description: "Recording id of hotjar."
         )
