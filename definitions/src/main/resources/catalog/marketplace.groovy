@@ -492,6 +492,11 @@ tracks {
         context(required: true, type: PropertyType.String)
     }
 
+    "/subscriptions/address"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
+    "/subscriptions/change_address"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+        context(required: true, type: PropertyType.String)
+    }
+
     "/subscriptions/review"(platform: "/", type: TrackType.View) {}
     "/subscriptions/review/confirm"(platform: "/", type: TrackType.Event) {
         context(required: true, type: PropertyType.String)
@@ -503,7 +508,7 @@ tracks {
 
     "/subscriptions/summary"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
     "/subscriptions/detail"(platform: "/", type: TrackType.View) {}
-    "/subscriptions/detail/modify_frequency"(platform: "/", type: TrackType.View) {}
+    "/subscriptions/detail/modify_frequency"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
 
     "/subscriptions/delivery"(platform: "/", isAbstract: true) {}
     "/subscriptions/delivery/cancel"(platform: "/", type: TrackType.View) {
