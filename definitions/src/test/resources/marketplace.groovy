@@ -5811,11 +5811,11 @@ trackTests {
                ]
             }
             percentage = 70
-            type = "loyal"
+            type = "LOW_LOYAL"
         }
         "/myml/loyal_discounts/delete" (platform: "/", type: TrackType.Event) {
             item_id = 'MLA713079054'
-            type = "non-loyal"
+            type = "HIGH_LOYAL"
         }
 
 
