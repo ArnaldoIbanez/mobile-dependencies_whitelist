@@ -5368,6 +5368,7 @@ trackTests {
         "/cart/checkout/payment/create_second_password"(platform:"/", dataSet)
         "/cart/checkout/payment/input_second_password"(platform:"/", dataSet)
         "/cart/checkout/payment/input_second_password/edit_payment"(platform:"/", dataSet)
+        "/cart/checkout/payment/promotions"(platform:"/", dataSet)
         "/cart/checkout/review/edit_payment"(platform:"/", dataSet)
         "/cart/checkout/review/edit_first_payment"(platform:"/", dataSet)
         "/cart/checkout/review/edit_second_payment"(platform:"/", dataSet)

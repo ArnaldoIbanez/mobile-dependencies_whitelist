@@ -139,6 +139,9 @@ tracks {
 
 "/cart/checkout/payment/input_second_password/edit_payment"(platform:"/", type: TrackType.Event) {}
 
+// payment promotions screen. Eg: bank promos in MLA
+"/cart/checkout/payments/promotions"(platform: "/", type: TrackType.Event) {}
+
 "/cart/checkout/review"(platform:"/", type: TrackType.View) {
 }
 
