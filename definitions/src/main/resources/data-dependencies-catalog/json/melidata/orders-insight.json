@@ -4,7 +4,7 @@
     "melidata_dev@mercadolibre.com"
   ],
   "process_name": "orders_insight",
-  "cron": "00 14 * * *",
+  "cron": "40 17 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -40,13 +40,13 @@
           "format": "yyyy-MM-dd"
         },
         {
-          "name": "param03",
-          "value": "DAY-1",
+          "name": "param02",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         },
         {
-          "name": "param02",
-          "value": "DAY-0",
+          "name": "param03",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         }
       ]
