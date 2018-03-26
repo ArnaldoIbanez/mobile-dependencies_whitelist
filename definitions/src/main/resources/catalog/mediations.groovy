@@ -46,7 +46,7 @@ tracks {
     /**
      * Claims view when the payment is already refunded.
      */
-    "/claims/post_refund"(platform: "/", type: TrackType.View) {
+    "/claims/refunded"(platform: "/", type: TrackType.View) {
         expected_resolution(required: false, type: PropertyType.String, description: 'The complaint expected resolution', values: ['refund', 'product'])
     }
 }

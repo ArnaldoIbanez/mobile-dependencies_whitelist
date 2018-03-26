@@ -5,7 +5,7 @@ SELECT substr(ds,1,10) AS ds,
        application.business AS business,
        jest(event_data,'expected_resolution') AS expected_resolution
 FROM tracks
-WHERE path = '/claims/post_refund'
+WHERE path = '/claims/refunded'
 AND   ds < '@param02'
 AND   ds >= '@param01'
 GROUP BY application.site_id,

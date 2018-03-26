@@ -36,7 +36,7 @@ trackTests {
     }
 
     test("Claims payment already refunded view") {
-        "/claims/post_refund"(platform: "/", type: TrackType.View) {
+        "/claims/refunded"(platform: "/", type: TrackType.View) {
             expected_resolution = 'product'
         }
     }
