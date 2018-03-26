@@ -2,7 +2,7 @@ SELECT substr(distinct_amount.ds,1,10) AS ds,
        distinct_amount.total AS unrepeated,
        total_amount.total AS total
 FROM (
-    SELECT ds, COUNT(1) AS total
+    SELECT ds, COUNT(id) AS total
     FROM (
         SELECT DISTINCT id, ds
         FROM tracks
@@ -12,7 +12,7 @@ FROM (
     GROUP BY ds
 ) distinct_amount
 INNER JOIN (
-    SELECT ds, COUNT(1) AS total
+    SELECT ds, COUNT(id) AS total
     FROM tracks
     WHERE ds >= '@param01'
     AND   ds < '@param02'
