@@ -9,7 +9,7 @@ SELECT substr(ds,1,10) as fecha,
 FROM tracks
 	where type = 'event' 
 	and path = '/email/generic' 
-	and ds >= '@param01' and ds <= '@param02'
+	and (ds >= '@param01' and ds <= '@param02')
 	and jest(event_data, 'email_template') IN ('@param03')
 	and jest(event_data, 'event_type') = 'send'
 	and application.site_id IN ('MLA')
