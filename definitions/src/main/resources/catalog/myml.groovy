@@ -259,11 +259,11 @@ tracks {
     "/myml/loyal_discounts/add" (platform: "/web", type: TrackType.Event) {
         item (required: true)
         percentage (required: true)
-        type (required: true, values: ["loyal", "non-loyal"])
+        type (required: true, values: ["LOW_LOYAL", "HIGH_LOYAL"])
     }
     "/myml/loyal_discounts/delete" (platform: "/", type: TrackType.Event) {
         item_id (required: true)
-        type (required: true, values: ["loyal", "non-loyal"])
+        type (required: true, values: ["LOW_LOYAL", "HIGH_LOYAL"])
     }
 
 }
