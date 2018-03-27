@@ -468,7 +468,7 @@ tracks {
         //    ]
     }
     // payment promotions screen. Eg: bank promos in MLA
-    "/checkout/payments/promotions"(platform: "/mobile") {}
+    "/checkout/payment/promotions"(platform: "/mobile") {}
 
     // 2MP switch tracks
     "/checkout/payments/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
