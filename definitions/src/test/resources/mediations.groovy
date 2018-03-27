@@ -15,6 +15,7 @@ trackTests {
             returns_item_category="MLB107481"
             returns_refund_account_money=false
             returns_item_category_l1="MLB1574"
+            returns_authorized=true
         }
         "/claims/create_claim/denied"(platform: "/", type: TrackType.View) {
             reason = 'payment_not_found'

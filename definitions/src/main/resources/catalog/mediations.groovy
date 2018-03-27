@@ -22,6 +22,7 @@ tracks {
         returns_item_category(required: false, type: PropertyType.String)
         returns_item_category_l1(required: false, type: PropertyType.String)
         returns_refund_account_money(required: false, type: PropertyType.Boolean)
+        returns_authorized(required: false, type: PropertyType.Boolean)
     }
 
     "/claims/create_claim/denied"(platform: "/", type: TrackType.View) {
