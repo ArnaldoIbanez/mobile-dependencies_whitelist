@@ -69,6 +69,7 @@ tracks {
         //block_store_position
         landing(required:false, description:'indicates landing base, premium, etc')
         pads(required: false, description:'item_id from the pads returned for listings')
+        upper_funnel(required: false, description: 'indicates if advertising query was considered upper funnel')
         layout(required: false, description:'layout of search')
         geolocation(required: false, description:'geolocation')
         landing(required: false, description:'landings: base, premium, etc')
