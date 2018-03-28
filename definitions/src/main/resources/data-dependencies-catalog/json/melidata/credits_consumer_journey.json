@@ -1,0 +1,65 @@
+{
+  "users": [
+    "lucila.zimerman@mercadolibre.com"
+  ],
+  "process_name": "consumer_journey",
+  "cron": "",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "fecha",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "email_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "path",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "template",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "event_type",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "milestone",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "bucket",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "sent_date",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      }
+    ],
+    "sql": {
+      "script": "business-assurance/credits_consumer_journey.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "2018-03-05",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "2018-03-27",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param03",
+          "value": "CONS_COLLECTION"
+        }
+      ]
+    }
+  }
+}
