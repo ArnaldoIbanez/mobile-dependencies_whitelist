@@ -10,9 +10,9 @@ FROM tracks
 	where type = 'event' 
 	and path = '/email/generic' 
 	and (ds >= '@param01' and ds <= '@param02')
-	and jest(event_data, 'email_template') IN ('@param03')
+	and jest(event_data, 'email_template') = '@param03'
 	and jest(event_data, 'event_type') = 'send'
-	and application.site_id IN ('MLA')
+	and application.site_id = 'MLA'
 
 UNION
 
@@ -34,14 +34,14 @@ FROM tracks
 				type = 'event' 
 				and path = '/email/generic' 
 				and (ds >= '@param01' and ds <= '@param02') 
-				and jest(event_data, 'email_template') IN ('@param03') 
+				and jest(event_data, 'email_template') = '@param03'
 				and jest(event_data, 'event_type') = 'send' 
-				and application.site_id IN ('MLA')) TRACKDATA 
+				and application.site_id = 'MLA' ) TRACKDATA 
 	ON jest(event_data, 'email_id') = TRACKDATA.email_id
 WHERE 
 		type = 'event' 
 		and path = '/email/generic' 
-		and (ds >= '@param1' and ds <= '@param02')
-		and jest(event_data, 'email_template') IN ('@param03') 
+		and (ds >= '@param01' and ds <= '@param02')
+		and jest(event_data, 'email_template') = '@param03'
 		and jest(event_data, 'event_type') = 'open' 
-		and application.site_id IN ('MLA')
+		and application.site_id = 'MLA'
