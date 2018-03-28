@@ -34,4 +34,10 @@ trackTests {
             status = 'claim_opened'
         }
     }
+
+    test("Claims payment already refunded view") {
+        "/claims/refunded"(platform: "/", type: TrackType.View) {
+            expected_resolution = 'product'
+        }
+    }
 }

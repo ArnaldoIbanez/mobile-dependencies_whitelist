@@ -42,4 +42,11 @@ tracks {
     "/claims/detail"(platform: "/", type: TrackType.View) {
         status(required: false, type: PropertyType.String, description: 'The current claim status.')
     }
+
+    /**
+     * Claims view when the payment is already refunded.
+     */
+    "/claims/refunded"(platform: "/", type: TrackType.View) {
+        expected_resolution(required: false, type: PropertyType.String, description: 'The complaint expected resolution', values: ['refund', 'product'])
+    }
 }
