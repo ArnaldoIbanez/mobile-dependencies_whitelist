@@ -3,7 +3,7 @@
     "lucila.zimerman@mercadolibre.com"
   ],
   "process_name": "consumer_journey",
-  "cron": "0 5 * * *",
+  "cron": "",
   "extract": {
     "operation": "append",
     "columns": [
@@ -47,12 +47,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2018-03-05",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "2018-03-27",
           "format": "yyyy-MM-dd"
         },
         {
