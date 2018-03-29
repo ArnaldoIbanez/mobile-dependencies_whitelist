@@ -62,6 +62,7 @@ catalog {
         include business, "notifications.groovy"
         include business, "onboarding.groovy"
         include business, "quotation.groovy"
+        include business, "make_an_offer.groovy"
         include business, "search.groovy"
         include business, "sell.groovy"
         include business, "vip.groovy"
