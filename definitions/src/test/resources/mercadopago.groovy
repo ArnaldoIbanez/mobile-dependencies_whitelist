@@ -400,63 +400,63 @@ trackTests {
 
     test("Sign In") {
         "/sign_in/facebook"(platform: "/mobile") {
-            _label = "success"
+            label = "success"
         }
         "/sign_in/facebook"(platform: "/mobile") {
-            _label = "cenceled"
+            label = "cenceled"
         }
         "/sign_in/facebook"(platform: "/mobile") {
-            _label = "failure"
+            label = "failure"
         }
         "/sign_in/google"(platform: "/mobile") {
-            _label = "success"
+            label = "success"
         }
         "/sign_in/google"(platform: "/mobile") {
-            _label = "failure"
+            label = "failure"
         }
         "/sign_in/sso"(platform: "/mobile") {
-            _label = "success"
+            label = "success"
         }
         "/sign_in/sso"(platform: "/mobile") {
-            _label = "failure"
+            label = "failure"
         }
         "/sign_in/smart_lock"(platform: "/mobile") {
-            _label = "success"
+            label = "success"
         }
         "/sign_in/smart_lock"(platform: "/mobile") {
-            _label = "failure"
+            label = "failure"
         }
         "/sign_in/mail"(platform: "/mobile") {
-            _label = "success"
+            label = "success"
         }
         "/sign_in/mail"(platform: "/mobile") {
-            _label = "failure"
-            _description = "already_exists"
+            label = "failure"
+            description = "already_exists"
         }
     }
 
     test("Sign Up") {
         "/sign_up/facebook"(platform: "/mobile") {
-            _label = "success"
+            label = "success"
         }
         "/sign_up/facebook"(platform: "/mobile") {
-            _label = "cenceled"
+            label = "cenceled"
         }
         "/sign_up/facebook"(platform: "/mobile") {
-            _label = "failure"
+            label = "failure"
         }
         "/sign_up/google"(platform: "/mobile") {
-            _label = "success"
+            label = "success"
         }
         "/sign_up/google"(platform: "/mobile") {
-            _label = "failure"
+            label = "failure"
         }
         "/sign_up/mail"(platform: "/mobile") {
-            _label = "success"
+            label = "success"
         }
         "/sign_up/mail"(platform: "/mobile") {
-            _label = "failure"
-            _description = "already_exists"
+            label = "failure"
+            description = "already_exists"
         }
     }
 
