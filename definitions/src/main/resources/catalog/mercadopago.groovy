@@ -146,31 +146,31 @@ tracks {
 
     "/sign_in"(platform: "/mobile", isAbstract: true) {}
     "/sign_in/sso"(platform: "/mobile", type: TrackType.Event) {
-        _label (required:true, type: PropertyType.String, description: "Status")
+        label (required:true, type: PropertyType.String, description: "Status")
     }
     "/sign_in/smart_lock"(platform: "/mobile", type: TrackType.Event) {
-        _label (required:true, type: PropertyType.String, description: "Status")
+        label (required:true, type: PropertyType.String, description: "Status")
     }
     "/sign_in/facebook"(platform: "/mobile", type: TrackType.Event) {
-        _label (required:true, type: PropertyType.String, description: "Status")
+        label (required:true, type: PropertyType.String, description: "Status")
     }
     "/sign_in/google"(platform: "/mobile", type: TrackType.Event) {
-        _label (required:true, type: PropertyType.String, description: "Status")
+        label (required:true, type: PropertyType.String, description: "Status")
     }
     "/sign_in/mail"(platform: "/mobile", type: TrackType.Event) {
-        _label (required:true, type: PropertyType.String, description: "Status")
-        _description (required:false, type: PropertyType.String, description: "Status description")
+        label (required:true, type: PropertyType.String, description: "Status")
+        description (required:false, type: PropertyType.String, description: "Status description")
     }
     "/sign_up"(platform: "/mobile", isAbstract: true) {}
     "/sign_up/facebook"(platform: "/mobile", type: TrackType.Event) {
-        _label (required:true, type: PropertyType.String, description: "Status")
+        label (required:true, type: PropertyType.String, description: "Status")
     }
     "/sign_up/google"(platform: "/mobile", type: TrackType.Event) {
-        _label (required:true, type: PropertyType.String, description: "Status")
+        label (required:true, type: PropertyType.String, description: "Status")
     }
     "/sign_up/mail"(platform: "/mobile", type: TrackType.Event) {
-        _label (required:true, type: PropertyType.String, description: "Status")
-        _description (required:false, type: PropertyType.String, description: "Status description")
+        label (required:true, type: PropertyType.String, description: "Status")
+        description (required:false, type: PropertyType.String, description: "Status description")
     }
 
     "/send_money"(platform: "/", isAbstract: true) {
