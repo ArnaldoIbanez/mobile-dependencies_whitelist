@@ -266,4 +266,9 @@ tracks {
         type (required: true, values: ["LOW_LOYAL", "HIGH_LOYAL"])
     }
 
+    //Invoice flow
+    "/myml/invoices"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/review"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/review/create_invoice"(platform: "/", type: TrackType.Event) {}
+
 }
