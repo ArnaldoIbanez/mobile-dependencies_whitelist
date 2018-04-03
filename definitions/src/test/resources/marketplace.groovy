@@ -6012,7 +6012,7 @@ trackTests {
 
     test("Test invoice flow tracking") {
         
-        "/myml/invoices/review"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/review"(platform: "/") {}
         "/myml/invoices/review/create_invoice"(platform: "/", type: TrackType.Event) {}
     }
 }
