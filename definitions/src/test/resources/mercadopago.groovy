@@ -1921,6 +1921,24 @@ trackTests {
     }
 
     test("Checkout Off"){
+
+        def defaultOptions = {
+            options = [
+                    [
+                            has_esc       : false,
+                            card_id       : "",
+                            payment_method: "visa",
+                            payment_type  : "credit_card"
+                    ],
+                    [
+                            has_esc       : true,
+                            card_id       : "1234",
+                            payment_method: "visa",
+                            payment_type  : "credit_card"
+                    ]
+            ]
+        }
+
         "/checkout_off/init"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
             collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
@@ -2265,7 +2283,7 @@ trackTests {
             collector_nickname = "collector nickname test"
             client_id = "1321312"
             environment = "production"
-            options = "[{\"has_esc\":false,\"card_id\":\"\",\"payment_method\":\"visa\",\"payment_type\":\"credit_card\"},{\"has_esc\":false,\"card_id\":\"1234\",\"payment_method\":\"amex\",\"payment_type\":\"credit_card\"},{\"has_esc\":true,\"card_id\":\"123\",\"payment_method\":\"mercadopago_cc\",\"payment_type\":\"credit_card\"}]"
+            defaultOptions()
         }
 
         "/checkout_off/v1/payment_option/ticket"(platform: "/web/mobile") {
@@ -2290,7 +2308,7 @@ trackTests {
             collector_nickname = "collector nickname test"
             client_id = "1321312"
             environment = "production"
-            options = "[{\"has_esc\":false,\"card_id\":\"\",\"payment_method\":\"cargavirtual\",\"payment_type\":\"ticket\"},{\"has_esc\":true,\"card_id\":\"1234\",\"payment_method\":\"amex\",\"payment_type\":\"credit_card\"}]"
+            defaultOptions()
         }
 
         "/checkout_off/v1/additional_info/bolbradesco"(platform: "/web/mobile") {

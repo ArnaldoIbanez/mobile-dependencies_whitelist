@@ -157,19 +157,19 @@ tracks {
     "/checkout_off/v1/express"(platform: "/", type: TrackType.View){}
 
     "/checkout_off/v1/payment_option"(platform: "/", type: TrackType.View){
-        options (required: false)
+        options (required: false, type:PropertyType.ArrayList, description: "Payment options offered. Options format: {\"has_esc\":false,\"card_id\":\"\",\"payment_method\":\"visa\",\"payment_type\":\"credit_card\"}")
     }
 
     "/checkout_off/v1/payment_option/ticket"(platform: "/", type: TrackType.View){
-        options (required: false)
+        options (required: false, type:PropertyType.ArrayList, description: "Payment options offered. Options format: {\"has_esc\":false,\"card_id\":\"\",\"payment_method\":\"visa\",\"payment_type\":\"credit_card\"}")
     }
 
     "/checkout_off/v1/payment_option/bank_transfer"(platform: "/", type: TrackType.View){
-        options (required: false)
+        options (required: false, type:PropertyType.ArrayList, description: "Payment options offered. Options format: {\"has_esc\":false,\"card_id\":\"\",\"payment_method\":\"visa\",\"payment_type\":\"credit_card\"}")
     }
 
     "/checkout_off/v1/payment_option/cards"(platform: "/", type: TrackType.View){
-        options (required: false)
+        options (required: false, type:PropertyType.ArrayList, description: "Payment options offered. Options format: {\"has_esc\":false,\"card_id\":\"\",\"payment_method\":\"visa\",\"payment_type\":\"credit_card\"}")
     }
 
     "/checkout_off/v1/additional_info"(platform: "/", isAbstract: true) {}
