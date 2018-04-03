@@ -398,6 +398,68 @@ trackTests {
         }
     }
 
+    test("Sign In") {
+        "/sign_in/facebook"(platform: "/mobile") {
+            label = "success"
+        }
+        "/sign_in/facebook"(platform: "/mobile") {
+            label = "cenceled"
+        }
+        "/sign_in/facebook"(platform: "/mobile") {
+            label = "failure"
+        }
+        "/sign_in/google"(platform: "/mobile") {
+            label = "success"
+        }
+        "/sign_in/google"(platform: "/mobile") {
+            label = "failure"
+        }
+        "/sign_in/sso"(platform: "/mobile") {
+            label = "success"
+        }
+        "/sign_in/sso"(platform: "/mobile") {
+            label = "failure"
+        }
+        "/sign_in/smart_lock"(platform: "/mobile") {
+            label = "success"
+        }
+        "/sign_in/smart_lock"(platform: "/mobile") {
+            label = "failure"
+        }
+        "/sign_in/mail"(platform: "/mobile") {
+            label = "success"
+        }
+        "/sign_in/mail"(platform: "/mobile") {
+            label = "failure"
+            description = "already_exists"
+        }
+    }
+
+    test("Sign Up") {
+        "/sign_up/facebook"(platform: "/mobile") {
+            label = "success"
+        }
+        "/sign_up/facebook"(platform: "/mobile") {
+            label = "cenceled"
+        }
+        "/sign_up/facebook"(platform: "/mobile") {
+            label = "failure"
+        }
+        "/sign_up/google"(platform: "/mobile") {
+            label = "success"
+        }
+        "/sign_up/google"(platform: "/mobile") {
+            label = "failure"
+        }
+        "/sign_up/mail"(platform: "/mobile") {
+            label = "success"
+        }
+        "/sign_up/mail"(platform: "/mobile") {
+            label = "failure"
+            description = "already_exists"
+        }
+    }
+
     test("Send Money") {
         "/send_money/fill_transaction_data"(platform: "/mobile") {
             flow = "/send_money"
