@@ -3895,6 +3895,24 @@ trackTests {
          }
     }
 
+    test("Custom color name changed - Update"){
+        "/sell/update/color_selection/custom_color"(platform: "/web"){
+            session_id = "290061169-update-32b1d9b3eae8"
+            category_domain = "MLA-GLOVES"
+            category_id = "MLA61216"
+            is_custom_name = true
+        }
+    }
+
+    test("Custom color name changed - List"){
+        "/sell/list/color_selection/custom_color"(platform: "/web"){
+            session_id = "290061169-list-32b1d9b3eae8"
+            category_domain = "MLA-GLOVES"
+            category_id = "MLA61216"
+            is_custom_name = true
+        }
+    }
+
     test("Native Sell Modify Steps"){
         "/sell/update/sip"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/publish/pictures_fail"(platform: "/mobile") {

@@ -169,6 +169,12 @@ tracks {
     "/sell/list/color_selection_review"(platform: "/", type: TrackType.View) {
         session_id(required: false, description: "Session id", type: PropertyType.String)
     }
+    "/sell/list/color_selection/custom_color"(platform: "/web", type: TrackType.Event) {
+        session_id(required: true, description: "Session Id", type: PropertyType.String)
+        category_domain(required: true, description: "Category Domain", type: PropertyType.String)
+        category_id(required: true, description: "Category Id", type: PropertyType.String)
+        is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.Boolean)
+    }
     "/sell/list/condition"(platform: "/", type: TrackType.View) {
         session_id(required: false, description: "Session id", type: PropertyType.String)
     }
@@ -406,6 +412,12 @@ tracks {
     }
     "/sell/update/color_selection_review"(platform: "/", type: TrackType.View) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
+    }
+    "/sell/update/color_selection/custom_color"(platform: "/web", type: TrackType.Event) {
+        session_id(required: true, description: "Session Id", type: PropertyType.String)
+        category_domain(required: true, description: "Category Domain", type: PropertyType.String)
+        category_id(required: true, description: "Category Id", type: PropertyType.String)
+        is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.Boolean)
     }
     "/sell/update/condition"(platform: "/", type: TrackType.View) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
