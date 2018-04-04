@@ -398,6 +398,68 @@ trackTests {
         }
     }
 
+    test("Sign In") {
+        "/sign_in/facebook"(platform: "/mobile") {
+            label = "success"
+        }
+        "/sign_in/facebook"(platform: "/mobile") {
+            label = "cenceled"
+        }
+        "/sign_in/facebook"(platform: "/mobile") {
+            label = "failure"
+        }
+        "/sign_in/google"(platform: "/mobile") {
+            label = "success"
+        }
+        "/sign_in/google"(platform: "/mobile") {
+            label = "failure"
+        }
+        "/sign_in/sso"(platform: "/mobile") {
+            label = "success"
+        }
+        "/sign_in/sso"(platform: "/mobile") {
+            label = "failure"
+        }
+        "/sign_in/smart_lock"(platform: "/mobile") {
+            label = "success"
+        }
+        "/sign_in/smart_lock"(platform: "/mobile") {
+            label = "failure"
+        }
+        "/sign_in/mail"(platform: "/mobile") {
+            label = "success"
+        }
+        "/sign_in/mail"(platform: "/mobile") {
+            label = "failure"
+            description = "already_exists"
+        }
+    }
+
+    test("Sign Up") {
+        "/sign_up/facebook"(platform: "/mobile") {
+            label = "success"
+        }
+        "/sign_up/facebook"(platform: "/mobile") {
+            label = "cenceled"
+        }
+        "/sign_up/facebook"(platform: "/mobile") {
+            label = "failure"
+        }
+        "/sign_up/google"(platform: "/mobile") {
+            label = "success"
+        }
+        "/sign_up/google"(platform: "/mobile") {
+            label = "failure"
+        }
+        "/sign_up/mail"(platform: "/mobile") {
+            label = "success"
+        }
+        "/sign_up/mail"(platform: "/mobile") {
+            label = "failure"
+            description = "already_exists"
+        }
+    }
+
     test("Send Money") {
         "/send_money/fill_transaction_data"(platform: "/mobile") {
             flow = "/send_money"
@@ -1921,6 +1983,24 @@ trackTests {
     }
 
     test("Checkout Off"){
+
+        def defaultOptions = {
+            options = [
+                    [
+                            has_esc       : false,
+                            card_id       : "",
+                            payment_method: "visa",
+                            payment_type  : "credit_card"
+                    ],
+                    [
+                            has_esc       : true,
+                            card_id       : "1234",
+                            payment_method: "visa",
+                            payment_type  : "credit_card"
+                    ]
+            ]
+        }
+
         "/checkout_off/init"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
             collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
@@ -2208,6 +2288,8 @@ trackTests {
             client_id = "1321312"
             environment = "production"
             purchase_amount = "500"
+            card_id = "1234"
+            installments = 3
         }
 
         "/checkout_off/v1/payment_created"(platform: "/web/mobile") {
@@ -2263,6 +2345,7 @@ trackTests {
             collector_nickname = "collector nickname test"
             client_id = "1321312"
             environment = "production"
+            defaultOptions()
         }
 
         "/checkout_off/v1/payment_option/ticket"(platform: "/web/mobile") {
@@ -2287,6 +2370,7 @@ trackTests {
             collector_nickname = "collector nickname test"
             client_id = "1321312"
             environment = "production"
+            defaultOptions()
         }
 
         "/checkout_off/v1/additional_info/bolbradesco"(platform: "/web/mobile") {

@@ -139,11 +139,39 @@ tracks {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-    "/login/splitter"(platform: "/mobile") {}
-    "/login/sign_in"(platform: "/mobile") {}
-    "/login/sign_up"(platform: "/mobile") {}
+    "/login/splitter"(platform: "/mobile", type: TrackType.View) {}
+    "/login/sign_in"(platform: "/mobile", type: TrackType.View) {}
+    "/login/sign_up"(platform: "/mobile", type: TrackType.View) {}
     "/login/identification"(platform: "/mobile") {}
 
+    "/sign_in"(platform: "/mobile", isAbstract: true) {}
+    "/sign_in/sso"(platform: "/mobile", type: TrackType.Event) {
+        label (required:true, type: PropertyType.String, description: "Status")
+    }
+    "/sign_in/smart_lock"(platform: "/mobile", type: TrackType.Event) {
+        label (required:true, type: PropertyType.String, description: "Status")
+    }
+    "/sign_in/facebook"(platform: "/mobile", type: TrackType.Event) {
+        label (required:true, type: PropertyType.String, description: "Status")
+    }
+    "/sign_in/google"(platform: "/mobile", type: TrackType.Event) {
+        label (required:true, type: PropertyType.String, description: "Status")
+    }
+    "/sign_in/mail"(platform: "/mobile", type: TrackType.Event) {
+        label (required:true, type: PropertyType.String, description: "Status")
+        description (required:false, type: PropertyType.String, description: "Status description")
+    }
+    "/sign_up"(platform: "/mobile", isAbstract: true) {}
+    "/sign_up/facebook"(platform: "/mobile", type: TrackType.Event) {
+        label (required:true, type: PropertyType.String, description: "Status")
+    }
+    "/sign_up/google"(platform: "/mobile", type: TrackType.Event) {
+        label (required:true, type: PropertyType.String, description: "Status")
+    }
+    "/sign_up/mail"(platform: "/mobile", type: TrackType.Event) {
+        label (required:true, type: PropertyType.String, description: "Status")
+        description (required:false, type: PropertyType.String, description: "Status description")
+    }
 
     "/send_money"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
