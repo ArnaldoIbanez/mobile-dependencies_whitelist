@@ -5,16 +5,16 @@
   "process_name": "consumer_journey",
   "cron": "",
   "extract": {
-    "operation": "destroy",
+    "operation": "append",
     "columns": [
+      {
+        "name": "email_id",
+        "type": "UNICODE_STRING"
+      },
       {
         "name": "fecha",
         "type": "DATE",
         "format": "yyyy-MM-dd"
-      },
-      {
-        "name": "email_id",
-        "type": "UNICODE_STRING"
       },
       {
         "name": "path",
@@ -47,12 +47,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2018-03-05",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "2018-04-04",
           "format": "yyyy-MM-dd"
         }
       ]
