@@ -5,7 +5,7 @@
   "process_name": "consumer_journey",
   "cron": "",
   "extract": {
-    "operation": "destroy",
+    "operation": "append",
     "columns": [
       {
         "name": "email_id",
