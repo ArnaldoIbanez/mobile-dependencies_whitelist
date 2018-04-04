@@ -8,12 +8,16 @@
   "process_name": "component_ctr",
   "cron": "00 04 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "ds",
         "type": "DATE",
         "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "component",
+        "type": "UNICODE_STRING"
       },
       {
         "name": "device_type",
@@ -24,7 +28,19 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "component",
+        "name": "component_order",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "campaign",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "brand_name",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "category_id",
         "type": "UNICODE_STRING"
       },
       {
@@ -41,22 +57,22 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2018-02-08",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "2018-02-28",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param03",
-          "value": "DAY-2",
+          "value": "2018-02-07",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param04",
-          "value": "DAY-1",
+          "value": "2018-02-27",
           "format": "yyyy-MM-dd"
         }
       ]
