@@ -3,9 +3,9 @@
     "lucila.zimerman@mercadolibre.com"
   ],
   "process_name": "consumer_journey",
-  "cron": "0 5 * * *",
+  "cron": "",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
       {
         "name": "fecha",
