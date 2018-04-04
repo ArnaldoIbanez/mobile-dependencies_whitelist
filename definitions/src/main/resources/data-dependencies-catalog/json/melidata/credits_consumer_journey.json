@@ -8,13 +8,13 @@
     "operation": "destroy",
     "columns": [
       {
+        "name": "email_id",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "fecha",
         "type": "DATE",
         "format": "yyyy-MM-dd"
-      },
-      {
-        "name": "email_id",
-        "type": "UNICODE_STRING"
       },
       {
         "name": "path",
