@@ -9,7 +9,7 @@ SELECT json_extract_scalar(event_data, '$.email_id') as email_id,
 FROM tracks
 	where type = 'event' 
 	and path = '/email/generic' 
-	and (ds >= '2018-03-05' and ds <= '2018-04-04')
+	and (ds >= '@param01' and ds <= '@param02')
 	and json_extract_scalar(event_data, '$.email_template') = 'CONS_COLLECTION'
 	and json_extract_scalar(event_data, '$.event_type') = 'send'
 	and application.site_id = 'MLA'
@@ -33,7 +33,7 @@ FROM tracks
 		WHERE 
 				type = 'event' 
 				and path = '/email/generic' 
-				and (ds >= '2018-03-20' and ds <= '2018-04-04') 
+				and (ds >= '2018-03-20' and ds <= '@param02') 
 				and json_extract_scalar(event_data, '$.email_template') = 'CONS_COLLECTION'
 				and json_extract_scalar(event_data, '$.event_type') = 'send' 
 				and application.site_id = 'MLA' ) TRACKDATA 
@@ -41,7 +41,7 @@ FROM tracks
 WHERE 
 		type = 'event' 
 		and path = '/email/generic' 
-		and (ds >= '2018-03-05' and ds <= '2018-04-04')
+		and (ds >= '@param01' and ds <= '@param02')
 		and json_extract_scalar(event_data, '$.email_template') = 'CONS_COLLECTION'
 		and json_extract_scalar(event_data, '$.event_type') = 'open' 
 		and application.site_id = 'MLA'
