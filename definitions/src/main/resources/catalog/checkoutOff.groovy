@@ -215,4 +215,8 @@ tracks {
     "/checkout_off/v1/congrats/rejected"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/v1/congrats/in_process"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/consumer_credit"(platform: "/", isAbstract: true){}
+
+    "/checkout_off/v1/consumer_credit/installments"(platform: "/", type: TrackType.View) {}
 }
