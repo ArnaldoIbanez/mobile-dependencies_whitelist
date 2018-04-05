@@ -20,6 +20,11 @@ tracks {
     "/credits/consumer/enrollment"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/enrollment/educational"(platform: "/", type: TrackType.View) {}
 
+    //Public Landing consumer
+    "/credits/consumer/public_landing"(platform: "/", type: TrackType.View) {
+        user_profile(type: PropertyType.String, required: true)
+    }
+
     //SMS validation
     "/credits/consumer/enrollment/sms_validation"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/enrollment/sms_validation/cancel"(platform: "/", type: TrackType.Event) {}
