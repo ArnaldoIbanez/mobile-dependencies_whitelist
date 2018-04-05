@@ -270,32 +270,32 @@ tracks {
 "/cart/checkout/show_geolocation_map"(platform:"/mobile", type: TrackType.View) {}
 
 // 2MP
-"/cart/checkout/payments"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
+"/cart/checkout/payment"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
 
 // switch tracks
-"/cart/checkout/payments/2mp"(platform: "/mobile", isAbstract: true) {}
-"/cart/checkout/payments/2mp/split"(platform: "/mobile", type: TrackType.Event) {}
+"/cart/checkout/payment/2mp"(platform: "/mobile", isAbstract: true) {}
+"/cart/checkout/payment/2mp/split"(platform: "/mobile", type: TrackType.Event) {}
 
-"/cart/checkout/payments/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
-"/cart/checkout/payments/2mp#not_use"(platform: "/mobile", type: TrackType.Event) {}
+"/cart/checkout/payment/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
+"/cart/checkout/payment/2mp#not_use"(platform: "/mobile", type: TrackType.Event) {}
 
 
 
 //2MP Disclaimer combination modal view.
-"/cart/checkout/payments/payment_combination"(platform: "/mobile", isAbstract: true) {}
-"/cart/checkout/payments/payment_combination/payment_method_not_supported"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/payment/payment_combination"(platform: "/mobile", isAbstract: true) {}
+"/cart/checkout/payment/payment_combination/payment_method_not_supported"(platform:"/mobile", type: TrackType.View) {}
 
 // Discount coupons
-"/cart/checkout/payments/add_coupon"(platform:"/mobile", type: TrackType.View) {}
-"/cart/checkout/payments/coupon_ok"(platform:"/mobile", type: TrackType.View) {
+"/cart/checkout/payment/add_coupon"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/payment/coupon_ok"(platform:"/mobile", type: TrackType.View) {
     coupon(required: true, type: PropertyType.String)
 }
-"/cart/checkout/payments/add_another_coupon"(platform:"/mobile", type: TrackType.View) {}
-"/cart/checkout/payments/coupon_error"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/payment/add_another_coupon"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/payment/coupon_error"(platform:"/mobile", type: TrackType.View) {}
 
-"/cart/checkout/payments/invalid_coupon"(platform:"/mobile", type: TrackType.Event) {}
-"/cart/checkout/payments/expired_coupon"(platform:"/mobile", type: TrackType.Event) {}
-"/cart/checkout/payments/add_another_coupon/delete_coupon"(platform:"/mobile", type: TrackType.Event) {}
+"/cart/checkout/payment/invalid_coupon"(platform:"/mobile", type: TrackType.Event) {}
+"/cart/checkout/payment/expired_coupon"(platform:"/mobile", type: TrackType.Event) {}
+"/cart/checkout/payment/add_another_coupon/delete_coupon"(platform:"/mobile", type: TrackType.Event) {}
 
 // 2MP Cancelation
 "/cart/checkout/payments_cancelation"(platform: "/mobile", type: TrackType.View) {}
