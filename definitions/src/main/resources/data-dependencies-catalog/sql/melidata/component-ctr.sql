@@ -1,5 +1,5 @@
 SELECT
-    t1.dsx AS `ds`,
+    SUBSTR(t1.dsx, 1, 10) AS `ds`,
     t1.component AS `component`,
     t1.platform AS `device_type`,
     t1.site_id AS `site_id`,
