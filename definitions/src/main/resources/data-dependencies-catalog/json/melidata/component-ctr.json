@@ -8,7 +8,7 @@
   "process_name": "component_ctr",
   "cron": "",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
         "name": "ds",
@@ -57,22 +57,22 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2018-02-08",
+          "value": "2018-03-01",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "2018-02-28",
+          "value": "2018-04-05",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param03",
-          "value": "2018-02-07",
+          "value": "2018-02-28",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param04",
-          "value": "2018-02-27",
+          "value": "2018-04-04",
           "format": "yyyy-MM-dd"
         }
       ]
