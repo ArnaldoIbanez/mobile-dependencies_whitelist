@@ -1,4 +1,4 @@
-select ds as date, path, get_json_object(event_data, '$.event_type') as event_type,
+select ds as date_sent, path, get_json_object(event_data, '$.event_type') as event_type,
                  get_json_object(event_data, '$.context') as context ,
                  application.site_id as site_id,
                  usr.user_id as user_id,
