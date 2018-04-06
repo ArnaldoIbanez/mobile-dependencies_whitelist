@@ -1166,6 +1166,12 @@ trackTests {
         "/cellphone_recharge/account_money"(platform: "/web", type: TrackType.View) {
             flow = "/cellphone_recharge"
         }
+        "/cellphone_recharge/error"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
+        "/cellphone_recharge/not-found"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
     }
 
     test("Scheduled recharge") {
