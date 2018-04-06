@@ -7,42 +7,47 @@ tracks {
     //VIP FLOW
 
     "/vip"(platform: "/") {
+
+        // ITEM FIELDS
         item_id(required: true, description: "Item ID")
         category_id(required: true, description: "Item's category id")
-        deal_ids(required: false, description: "IDs of applied discounts")
-        buying_mode(required: false, description: "Indicates if it's an aution, buy_it_now or classified")
-        official_store_id(required: false, description: "Id of item's official store")
-        item_status(required: false, description: "Whenever the items is active, closed or paused")
-        category_path(required: false, "Category path of the the item")
-        vertical(deprecated: true, required: false)
-        quantity(deprecated: true, required: false)
-        item_condition(deprecated: true, required: false)
-        currency_id(deprecated: true, required: false)
-        price(deprecated: true, required: false)
-        seller_id(deprecated: true, required: false)
-        power_seller_status(deprecated: true, required: false)
-        listing_type_id(deprecated: true, required: false)
-        start_time(deprecated: true, required: false)
-        stop_time(deprecated: true, required: false)
-        shipping_mode(deprecated: true, required: false)
-        free_shipping(deprecated: true, required: false)
-        local_pick_up(deprecated: true, required: false)
-        promoted_items_clicked(required: false, descripcion: 'Indicates whether clicked promoted items before reaching this vip')
-        billboard_clicked_position(required:false, type: PropertyType.Numeric)
-        store_type(required: false, description: "Indicates store type")
-        reputation_level(required: false, description: "Seller's reputation level")
-        quotation_available(required: false, type: PropertyType.Boolean, description: "Indicates if the item can be quoted (cotizado)")
-        fulfillment(required: false, type: PropertyType.Boolean, description: "Indicates if the item has fulfillment")
-        cart_content(required: false, type: PropertyType.Boolean, description: "Indicates if the VIP has cart features")
-        loyalty_level(required: false, description: "User's loyalty level")
-        free_shipping_benefit(required: false, type: PropertyType.Boolean, description: "Indicates if the user has free shipping benefit")
-        return_available(required: false, type: PropertyType.String, values: ["Yes", "No"], description: "Indicates if the user has free return for the item")
+        buying_mode(required: true, values: ["buy_it_now", "auction","classified"], description: "Indicates if it's an aution, buy_it_now or classified")
+        item_status(required: false, values: ["active", "closed","paused"], description: "Whenever the items is active, closed or paused")
+        category_path(required: true, "Category path of the the item")
+        // TODO ADD DESCRIPTIONS
+        vertical(required: true , description: "Vertical of the item")
+        item_condition(required: true, values: ["new","used","refurbish"])
+        currency_id( required: true)
+        price( required: false, description: "The price the user finally sees. Not send in classi")
         item_price(required: false, type: PropertyType.Map, description: "Indicates the item price in different currencies")
-        search_query(required: false, type: PropertyType.String)
-        page_vertical(required: false, type: PropertyType.String)
-        gallery_pattern(required: false, type: PropertyType.String, description: "Defines images pattern in publications")
+        listing_type_id(required: true)
+        deal_ids(required: false, description: "IDs of applied discounts")
         review_rate(required: false, inheritable: false)
         reviews_attributes(required: false, inheritable: false)
+        return_available(required: false, type: PropertyType.String, values: ["yes", "no"], description: "Indicates if the user has free return for the item")
+
+        //SELLER FIELDS
+        seller_id( required: true)
+        power_seller_status(required: true )
+        reputation_level(required: false, description: "Seller's reputation level")
+
+        // CLASI FIELDS
+        reservation_price( required: false, description: "")
+        quotation_available(required: false, type: PropertyType.Boolean, description: "Indicates if the item can be quoted (cotizado)")
+
+        // OFFICIAL_STORES
+        official_store_id(required: false, description: "Id of item's official store")
+        store_type(required: false, description: "Indicates store type")
+
+        // SHIPPING ( NOT PRESENT IN CLASI )
+        shipping_mode(required: false)
+        free_shipping(required: false)
+        local_pick_up(required: false)
+        fulfillment(required: false, type: PropertyType.Boolean, description: "Indicates if the item has fulfillment")
+        free_shipping_benefit(required: false, type: PropertyType.Boolean, description: "Indicates if the user has free shipping benefit")
+
+        cart_content(required: false, type: PropertyType.Boolean, description: "Indicates if the VIP has cart features")
+        loyalty_level(required: false, description: "User's loyalty level")
     }
 
     "/vip"(platform: "/web") {
