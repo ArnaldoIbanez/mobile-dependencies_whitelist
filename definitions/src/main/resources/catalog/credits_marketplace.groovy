@@ -24,6 +24,15 @@ tracks {
     "/credits/consumer/public_landing"(platform: "/", type: TrackType.View) {
         user_profile(type: PropertyType.String, required: true)
     }
+    "/credits/consumer/public_landing/click_hero"(platform: "/", type: TrackType.Event) {
+        user_profile(type: PropertyType.String, required: true)
+    }
+    "/credits/consumer/public_landing/click_activation"(platform: "/", type: TrackType.Event) {
+        user_profile(type: PropertyType.String, required: true)
+    }
+    "/credits/consumer/public_landing/click_help"(platform: "/", type: TrackType.Event) {
+        user_profile(type: PropertyType.String, required: true)
+    }
 
     //SMS validation
     "/credits/consumer/enrollment/sms_validation"(platform: "/", type: TrackType.View) {}
