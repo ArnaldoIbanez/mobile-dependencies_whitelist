@@ -333,6 +333,8 @@ tracks {
     "/cellphone_recharge/amount_recommended"(platform: "/web", type: TrackType.View) {}
     "/cellphone_recharge/alias_income"(platform: "/web/mobile", type: TrackType.View) {}
     "/cellphone_recharge/account_money"(platform: "/web", type: TrackType.View) {}
+    "/cellphone_recharge/error"(platform: "/web", type: TrackType.View) {}
+    "/cellphone_recharge/not-found"(platform: "/web", type: TrackType.View) {}
 
     "/scheduled_recharge"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
