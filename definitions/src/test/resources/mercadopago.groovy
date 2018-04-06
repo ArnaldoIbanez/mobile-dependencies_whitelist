@@ -1169,7 +1169,7 @@ trackTests {
         "/cellphone_recharge/error"(platform: "/web", type: TrackType.View) {
             flow = "/cellphone_recharge"
         }
-        "/cellphone_recharge/found"(platform: "/web", type: TrackType.View) {
+        "/cellphone_recharge/not-found"(platform: "/web", type: TrackType.View) {
             flow = "/cellphone_recharge"
         }
     }
