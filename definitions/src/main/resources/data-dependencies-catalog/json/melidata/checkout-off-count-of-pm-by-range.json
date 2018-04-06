@@ -2,7 +2,7 @@
   "users": [
       "horacio.lopez@mercadolibre.com", "mauro.reverter@mercadolibre.com", "andrea.lata@mercadolibre.com"
   ],
-  "process_name": "checkout-off-percentage-of-pm-by-range",
+  "process_name": "checkout-off-count-of-pm-by-range",
   "cron": "00 06 * * *",
   "extract": {
     "operation": "append",
@@ -54,7 +54,7 @@
       }
     ],
     "sql": {
-        "script": "mercadopago/checkout-off/checkout-off-percentage-of-pm-by-range.sql",
+        "script": "mercadopago/checkout-off/checkout-off-count-of-pm-by-range.sql",
       "parameters": [
         {
           "name": "param01",
