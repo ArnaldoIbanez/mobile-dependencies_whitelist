@@ -14,7 +14,7 @@ from(
   from tracks
   WHERE ds>='@param01' and 
         ds<='@param02' and
-        path like '/checkout_off/v1/test/payment_option%' and
+        path like '/checkout_off/v1/payment_option%' and
         (jest(event_data, 'options') like '%credit_card%' and 
          jest(event_data, 'options') like '%debit_card%' and 
           jest(event_data, 'options') like '%account_money%')
@@ -25,7 +25,7 @@ from(
     WHERE
       ds>='@param01' and 
       ds<='@param02' and
-      path = '/checkout_off/v1/test/checkout_confirmed'   
+      path = '/checkout_off/v1/checkout_confirmed'   
       ) checkout_confirmed
   ON payment_option.flow_id = checkout_confirmed.flow_id
   GROUP BY confirmation.payment_type, confirmation.site_id, confirmation.version, confirmation.environment, confirmation.platform, confirmation.collector_id
