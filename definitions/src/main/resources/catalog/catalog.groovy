@@ -53,6 +53,7 @@ catalog {
         include business, "cartList.groovy"
         include business, "checkout.groovy"
         include business, "credits_marketplace.groovy"
+        include business, "denounce.groovy"
         include business, "email.groovy"
         include business, "home.groovy"
         include business, "loyalty.groovy"
