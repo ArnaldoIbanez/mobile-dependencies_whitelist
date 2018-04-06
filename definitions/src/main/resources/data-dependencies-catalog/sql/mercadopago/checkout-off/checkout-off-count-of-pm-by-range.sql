@@ -5,10 +5,10 @@ checkout_confirmed.version as version,
 checkout_confirmed.platform as platform,
 checkout_confirmed.collector_id as collector,
 checkout_confirmed.payment_type as payment_type,
-count(CASE WHEN confirmcheckout_confirmedation.purchase_amount >='0' AND checkout_confirmed.purchase_amount <= '600' THEN 1 END) as monto_rango1,
-count(CASE WHEN checkout_confirmed.purchase_amount >'600' AND checkout_confirmed.purchase_amount <= '1000' THEN 1 END) as monto_rango2,
-count(CASE WHEN checkout_confirmed.purchase_amount >'1000' AND checkout_confirmed.purchase_amount <= '5000' THEN 1 END) as monto_rango3,
-count(CASE WHEN checkout_confirmed.purchase_amount >'5000' THEN 1 END) as monto_rango4
+SUM(IF(cast(checkout_confirmed.purchase_amount as decimal(18,6)) >= 0 AND cast(checkout_confirmed.purchase_amount as decimal(18,6)) <= 600, 1, 0)) as monto_rango1,
+SUM(IF(cast(checkout_confirmed.purchase_amount as decimal(18,6)) > 600 AND cast(checkout_confirmed.purchase_amount as decimal(18,6)) <= 1000, 1, 0)) as monto_rango2,
+SUM(IF(cast(checkout_confirmed.purchase_amount as decimal(18,6)) > 1000 AND cast(checkout_confirmed.purchase_amount as decimal(18,6)) <= 5000, 1, 0)) as monto_rango3,
+SUM(IF(cast(checkout_confirmed.purchase_amount as decimal(18,6)) > 5000 , 1, 0)) as monto_rango4
 from(
   select jest(event_data, 'options') as options, jest(event_data, 'checkout_flow_id') flow_id, application.site_id, application.version, jest(event_data, 'environment') as environment, device.platform as platform, jest(event_data, 'collector_id') as collector_id
   from tracks
@@ -28,4 +28,4 @@ from(
       path = '/checkout_off/v1/checkout_confirmed'   
       ) checkout_confirmed
   ON payment_option.flow_id = checkout_confirmed.flow_id
-  GROUP BY confirmation.payment_type, confirmation.site_id, confirmation.version, confirmation.environment, confirmation.platform, confirmation.collector_id
+  GROUP BY checkout_confirmed.payment_type, checkout_confirmed.site_id, checkout_confirmed.version, checkout_confirmed.environment, checkout_confirmed.platform, checkout_confirmed.collector_id
