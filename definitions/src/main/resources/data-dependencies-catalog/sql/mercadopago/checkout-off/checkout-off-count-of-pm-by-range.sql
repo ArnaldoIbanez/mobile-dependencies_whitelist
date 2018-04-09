@@ -29,4 +29,4 @@ from(
       path = '/checkout_off/v1/checkout_confirmed'   
       ) checkout_confirmed
   ON payment_option.flow_id = checkout_confirmed.flow_id
-  GROUP BY checkout_confirmed.payment_type, checkout_confirmed.site_id, checkout_confirmed.version, checkout_confirmed.environment, checkout_confirmed.platform, checkout_confirmed.collector_id
+  GROUP BY checkout_confirmed.payment_type, checkout_confirmed.site_id, checkout_confirmed.version, checkout_confirmed.environment, checkout_confirmed.platform, checkout_confirmed.collector_id, substr(ds, 1, 10)
