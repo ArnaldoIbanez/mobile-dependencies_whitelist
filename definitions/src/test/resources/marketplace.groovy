@@ -983,7 +983,7 @@ trackTests {
             location = "34.677755,56.444433"
             geolocation_method = "platform"
         }
-        "/checkout/options"(platform:"/mobile", type:TrackType.Event) {
+        "/checkout/init/options"(platform:"/mobile", type:TrackType.Event) {
             payment_data = "[credit_card:-, ticket:abitab, ticket:redpagos, cash:cash]"
             shipping_data = ["mercadoenvios", "local_pick_up"]
         }
