@@ -6004,7 +6004,7 @@ trackTests {
             status = "sponsored"
         }
     }
-    test("Questions tracking MyML") {
+    test("myml Questions tracking") {
         "/myml/questions/ask/post" (platform:"/", type: TrackType.Event) {
             item_id = "MLA533657947"
             failed = false
