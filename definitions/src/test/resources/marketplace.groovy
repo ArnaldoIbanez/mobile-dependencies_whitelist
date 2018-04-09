@@ -1602,7 +1602,7 @@ trackTests {
             ]
         }
 
-        "/checkout/payment/select_payment_method"(platform:"/web/desktop") {
+        "/checkout/payments/select_payment_method"(platform:"/web/desktop") {
             order_id=1234
             status="payment_required"
             total_amount=2000
@@ -1665,7 +1665,7 @@ trackTests {
             ]
         }
 
-        "/checkout/payment/select_payment_type"(platform:"/web/desktop") {
+        "/checkout/payments/select_payment_type"(platform:"/web/desktop") {
             order_id=1234
             status="payment_required"
             total_amount=2000
@@ -1728,7 +1728,7 @@ trackTests {
             ]
         }
 
-        "/checkout/payment/select_split_payment"(platform:"/web/desktop") {
+        "/checkout/payments/select_split_payment"(platform:"/web/desktop") {
             order_id=1234
             status="payment_required"
             total_amount=2000
@@ -1791,7 +1791,7 @@ trackTests {
             ]
         }
 
-        "/checkout/payment/input_proactive_payment_amount"(platform:"/web/desktop") {
+        "/checkout/payments/input_proactive_payment_amount"(platform:"/web/desktop") {
             order_id=1234
             status="payment_required"
             total_amount=2000
@@ -1853,7 +1853,7 @@ trackTests {
             ]
         }
 
-        "/checkout/payment/select_payment_method"(platform:"/web/desktop") {
+        "/checkout/payments/select_payment_method"(platform:"/web/desktop") {
             order_id=1234
             status="payment_required"
             total_amount=200
@@ -1881,7 +1881,7 @@ trackTests {
 
         }
 
-        "/checkout/payment/select_payment_method"(platform:"/web/desktop") {
+        "/checkout/payments/select_payment_method"(platform:"/web/desktop") {
             order_id=1234
             status="payment_required"
             total_amount=200
@@ -1920,7 +1920,7 @@ trackTests {
 
         }
 
-        "/checkout/payment/select_payment_method"(platform:"/web/desktop") {
+        "/checkout/payments/select_payment_method"(platform:"/web/desktop") {
             order_id=1234
             status="payment_required"
             total_amount=2000
@@ -1983,7 +1983,7 @@ trackTests {
             ]
         }
 
-        "/checkout/payment/installments#submit"(platform:"/web/desktop", type: TrackType.Event) {
+        "/checkout/payments/installments#submit"(platform:"/web/desktop", type: TrackType.Event) {
             pay_pref_id="ABCD1234"
             total_price=1000
             preferred_installment=6
