@@ -257,6 +257,8 @@ tracks {
 
 "/cart/checkout/payment/select_second_installment"(platform:"/mobile", type: TrackType.View) {}
 
+"/cart/checkout/payment/transfer"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
+
 "/cart/checkout/payment/transfer/select_bank"(platform:"/mobile", type: TrackType.View) {}
 
 "/cart/checkout/review"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
