@@ -4069,7 +4069,6 @@ trackTests {
         "/myml/questions"(platform: "/web"){}
         "/myml/summary"(platform: "/web"){}
     }
-
     test("Myml My Data"){
         "/myml/profile"(platform: "/mobile"){}
         "/myml/profile/review_data"(platform: "/mobile"){}
@@ -6003,6 +6002,12 @@ trackTests {
 
         "/free_navigation/purchase"(platform:"/mobile", type:TrackType.Event) {
             status = "sponsored"
+        }
+    }
+    test("Questions tracking MyML") {
+        "/myml/questions/ask/post" (platform:"/", type: TrackType.Event) {
+            item_id = "MLA533657947"
+            failed = false
         }
     }
 }

@@ -265,5 +265,8 @@ tracks {
         item_id (required: true)
         type (required: true, values: ["LOW_LOYAL", "HIGH_LOYAL"])
     }
-
+    "/questions/ask/post" (platform: "/", type: TrackType.Event) {
+        item_id()
+        action_location(required:false, type: PropertyType.String)
+    }
 }
