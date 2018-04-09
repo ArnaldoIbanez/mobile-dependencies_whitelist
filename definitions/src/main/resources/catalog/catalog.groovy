@@ -71,6 +71,7 @@ catalog {
         include business, "freeData.groovy"
         include business, "structuredData.groovy"
         include business, "mediations.groovy"
+        include business, "cellphone_recharge.groovy"
     }
 
     mercadopago.each { business ->
@@ -80,6 +81,7 @@ catalog {
         include business, "mercadopago_mails.groovy"
         include business, "mercadopago_devsite.groovy"
         include business, "cards_prepaid.groovy"
+        include business, "cellphone_recharge.groovy"
     }
 
 }
