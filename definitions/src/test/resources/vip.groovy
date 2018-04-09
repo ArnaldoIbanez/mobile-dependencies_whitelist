@@ -342,34 +342,34 @@ trackTests {
         "/vip/shipping/calculator/choose_city"(platform: "/mobile/ios") {
         }
 
-        def defaultShipping = {
-        shipping_type = "delivery"
-        shipping_method_id = 123
-        shipping_benefit = "loyalty"
-        shipping_price = {
-            price = 0
-            currency_id  = "ARS"
-        }
-        shipping_days = {
-            min = 4
-            max = 5
-        }
-        recommend = true
-        }
+        def defaultShipping = [
+        shipping_type : "delivery",
+        shipping_method_id : 123,
+        shipping_benefit : "loyalty",
+        shipping_price : [
+            price : 0,
+            currency_id  : "ARS",
+        ],
+        shipping_days : [
+            min : 4,
+            max : 5
+        ],
+        recommend : true
+        ]
 
-        def otherShipping = {
-        shipping_type = "delivery"
-        shipping_method_id = 1234
-        shipping_price = {
-            price = 100
-            currency_id  = "ARS"
-        }
-        shipping_days = {
-            min = 4
-            max = 5
-        }
-        recommend = false
-        }
+        def otherShipping = [
+        shipping_type : "delivery",
+        shipping_method_id : 1234,
+        shipping_price : [
+            price : 100 ,
+            currency_id  : "ARS"
+        ],
+        shipping_days : [
+            min : 4,
+            max : 5
+        ],
+        recommend : false
+        ]
 
         "/vip/shipping/calculator/go_to_vip"(platform: "/mobile/ios") {
             item_id = "MLA123"
