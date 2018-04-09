@@ -360,42 +360,42 @@ tracks {
     }
 
     //Select paymentMethod
-    "/checkout/payments/preload_credit_card"(platform: "/mobile", type: TrackType.View) {}//Melidata experiment
+    "/checkout/payment/preload_credit_card"(platform: "/mobile", type: TrackType.View) {}//Melidata experiment
 
-    "/checkout/payments/select_method"(platform: "/mobile") {
+    "/checkout/payment/select_method"(platform: "/mobile") {
         //List of available payment_methods and coupon info
         available_methods(required: true, type: PropertyType.ArrayList)
         coupon(required: false, type: PropertyType.Boolean)
         coupon_discount(required: false, type: PropertyType.Numeric)
     }
-    "/checkout/payments/select_method#new_payment_method_selected"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/payment/select_method#new_payment_method_selected"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         payment_method_id(required: false, type: PropertyType.String)
         payment_type_id(required: false, type: PropertyType.String)
     }
-    "/checkout/payments/coupon_detail"(platform: "/mobile") {}
+    "/checkout/payment/coupon_detail"(platform: "/mobile") {}
     // Add card form
-    "/checkout/payments/add_debit_card"(platform: "/mobile") {}
-    "/checkout/payments/add_debit_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/payment/add_debit_card"(platform: "/mobile") {}
+    "/checkout/payment/add_debit_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         bin(required: true, type: PropertyType.String)
         success(required: true, type: PropertyType.Boolean)
     }
-    "/checkout/payments/add_debit_card/select_bank"(platform: "/mobile") {
+    "/checkout/payment/add_debit_card/select_bank"(platform: "/mobile") {
         available_issuers(required: true, type: PropertyType.ArrayList)
     }
-    "/checkout/payments/add_prepaid_card"(platform: "/mobile") {}
-    "/checkout/payments/add_prepaid_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/payment/add_prepaid_card"(platform: "/mobile") {}
+    "/checkout/payment/add_prepaid_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         bin(required: true, type: PropertyType.String)
         success(required: true, type: PropertyType.Boolean)
     }
-    "/checkout/payments/add_card"(platform: "/mobile") {}
-    "/checkout/payments/add_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/payment/add_card"(platform: "/mobile") {}
+    "/checkout/payment/add_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         bin(required: true, type: PropertyType.String)
         success(required: true, type: PropertyType.Boolean)
     }
-    "/checkout/payments/add_card/select_bank"(platform: "/mobile") {
+    "/checkout/payment/add_card/select_bank"(platform: "/mobile") {
         available_issuers(required: true, type: PropertyType.ArrayList)
     }
-    "/checkout/payments/add_card/installments"(platform: "/mobile") {
+    "/checkout/payment/add_card/installments"(platform: "/mobile") {
         //List of available installments
         available_installments(required: true, type: PropertyType.ArrayList)
         //installments: [
@@ -405,16 +405,16 @@ tracks {
         //      without_fee: true
         //    ]
     }
-    "/checkout/payments/stored_card"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/payments/stored_card/select_bank"(platform: "/mobile") {
+    "/checkout/payment/stored_card"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/payment/stored_card/select_bank"(platform: "/mobile") {
         available_methods(required: true, type: PropertyType.ArrayList, description: "list of available banks")
     }
-    "/checkout/payments/stored_card/security_code"(platform: "/mobile") {
+    "/checkout/payment/stored_card/security_code"(platform: "/mobile") {
         //List of visible fields
         user_identification_fields(required: false, type: PropertyType.ArrayList)
         //user_identification_fields: ["doc_type", "doc_number"]
     }
-    "/checkout/payments/stored_card/installments"(platform: "/mobile") {
+    "/checkout/payment/stored_card/installments"(platform: "/mobile") {
         credit_card_id(required: false, type: PropertyType.String)
         //List of available installments
         available_installments(required: true, type: PropertyType.ArrayList)
@@ -425,39 +425,39 @@ tracks {
         //      without_fee: true
         //    ]
     }
-    "/checkout/payments/stored_card/installments#change_payment_method"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/payment/stored_card/installments#change_payment_method"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         event_source(required: true, type: PropertyType.String)
     }
-    "/checkout/payments/account_money"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/payments/account_money/create"(platform: "/mobile") {}
-    "/checkout/payments/account_money/password"(platform: "/mobile") {}
-    "/checkout/payments/account_money/password#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/payment/account_money"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/payment/account_money/create"(platform: "/mobile") {}
+    "/checkout/payment/account_money/password"(platform: "/mobile") {}
+    "/checkout/payment/account_money/password#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     }
-    "/checkout/payments/select_issuer"(platform: "/mobile") {}
+    "/checkout/payment/select_issuer"(platform: "/mobile") {}
     // mlm grouping
-    "/checkout/payments/cash"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/payments/cash/select_store"(platform: "/mobile") {
+    "/checkout/payment/cash"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/payment/cash/select_store"(platform: "/mobile") {
         available_methods(required: true, type: PropertyType.ArrayList)
     }
-    "/checkout/payments/cash/select_store/select_address"(platform: "/mobile", parentPropertiesInherited: false) {}
-    "/checkout/payments/cash/select_store#request_permissions"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/payment/cash/select_store/select_address"(platform: "/mobile", parentPropertiesInherited: false) {}
+    "/checkout/payment/cash/select_store#request_permissions"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         permissions(required: true, type: PropertyType.String)
         extended(required: true, type: PropertyType.Boolean)
     }
-    "/checkout/payments/transfer"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/payments/transfer/select_bank"(platform: "/mobile") {
+    "/checkout/payment/transfer"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/payment/transfer/select_bank"(platform: "/mobile") {
         available_methods(required: true, type: PropertyType.ArrayList)
     }
-    "/checkout/payments/billing_info"(platform: "/mobile") {
+    "/checkout/payment/billing_info"(platform: "/mobile") {
         //List of visible fields
         user_identification_fields(required: false, type: PropertyType.ArrayList)
         //user_identification_fields: ["doc_type", "doc_number", "name", "las_name"]
     }
-    "/checkout/payments/billing_info#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/payment/billing_info#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         billing_info_state(required: true, type: PropertyType.String)
     }
-    "/checkout/payments/consumer_credits"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/payments/consumer_credits/installments"(platform: "/mobile") {
+    "/checkout/payment/consumer_credits"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/payment/consumer_credits/installments"(platform: "/mobile") {
         //List of available installments
         available_installments(required: true, type: PropertyType.ArrayList)
         //installments: [
@@ -471,25 +471,25 @@ tracks {
     "/checkout/payment/promotions"(platform: "/mobile") {}
 
     // 2MP switch tracks
-    "/checkout/payments/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
-    "/checkout/payments/2mp#not_use"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/payment/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/payment/2mp#not_use"(platform: "/mobile", type: TrackType.Event) {}
 
     //2MP Disclaimer combination modal view.
-    "/checkout/payments/payment_combination"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/payments/payment_combination/debit_card"(platform: "/mobile") {}
-    "/checkout/payments/payment_combination/payment_method_not_supported"(platform:"/mobile", type: TrackType.View) {}
+    "/checkout/payment/payment_combination"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/payment/payment_combination/debit_card"(platform: "/mobile") {}
+    "/checkout/payment/payment_combination/payment_method_not_supported"(platform:"/mobile", type: TrackType.View) {}
 
     // Discount coupons
-    "/checkout/payments/add_coupon"(platform:"/mobile", type: TrackType.View) {}
-    "/checkout/payments/coupon_ok"(platform:"/mobile", type: TrackType.View) {
+    "/checkout/payment/add_coupon"(platform:"/mobile", type: TrackType.View) {}
+    "/checkout/payment/coupon_ok"(platform:"/mobile", type: TrackType.View) {
         coupon(required: true, type: PropertyType.String)
     }
-    "/checkout/payments/add_another_coupon"(platform:"/mobile", type: TrackType.View) {}
-    "/checkout/payments/coupon_error"(platform:"/mobile", type: TrackType.View) {}
+    "/checkout/payment/add_another_coupon"(platform:"/mobile", type: TrackType.View) {}
+    "/checkout/payment/coupon_error"(platform:"/mobile", type: TrackType.View) {}
 
-    "/checkout/payments/invalid_coupon"(platform:"/mobile", type: TrackType.Event) {}
-    "/checkout/payments/expired_coupon"(platform:"/mobile", type: TrackType.Event) {}
-    "/checkout/payments/add_another_coupon/delete_coupon"(platform:"/mobile", type: TrackType.Event) {}
+    "/checkout/payment/invalid_coupon"(platform:"/mobile", type: TrackType.Event) {}
+    "/checkout/payment/expired_coupon"(platform:"/mobile", type: TrackType.Event) {}
+    "/checkout/payment/add_another_coupon/delete_coupon"(platform:"/mobile", type: TrackType.Event) {}
 
     //Billing info
     "/checkout/billing"(platform: "/mobile", isAbstract: true) {}
