@@ -2,7 +2,7 @@
   "users": [
     "gabriel.neil@mercadolibre.com"
   ],
-  "process_name": "consumer_journey_mobile",
+  "process_name": "consumer_journey_checkout",
   "cron": "",
   "extract": {
     "operation": "overwrite",
@@ -13,36 +13,20 @@
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "path",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "event_type",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "context",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "site_id",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "user_id",
-        "type": "INTEGER"
       },
       {
         "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "device_name",
-        "type": "UNICODE_STRING"
+        "name": "user_id",
+        "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "business-assurance/credits_consumer_journey_mobile.sql",
+      "script": "business-assurance/credits_consumer_journey_checkout.sql",
       "parameters": [
         {
           "name": "param01",
