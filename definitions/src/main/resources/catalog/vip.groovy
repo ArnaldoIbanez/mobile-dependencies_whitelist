@@ -11,16 +11,17 @@ tracks {
         // ITEM FIELDS
         item_id(required: true, description: "Item ID")
         category_id(required: true, description: "Item's category id")
-        buying_mode(required: true, values: ["buy_it_now", "auction","classified"], description: "Indicates if it's an aution, buy_it_now or classified")
-        item_status(required: false, values: ["active", "closed","paused"], description: "Whenever the items is active, closed or paused")
+        buying_mode(required: true, values: ["buy_it_now", "auction","classified"], description: "Indicates if it's an auction, buy_it_now or classified")
         category_path(required: true, "Category path of the the item")
         // TODO ADD DESCRIPTIONS
-        vertical(required: true , description: "Vertical of the item")
+        vertical(required: true , description: "Vertical of the item") // TODO Please add the values this property can take MOTORS, REAL-STATE, CORE?
         item_condition(required: true, values: ["new","used","refurbish"])
-        currency_id( required: true)
+        currency_id( required: false)
+        listing_type_id(required: true) // TODO Please add the values this property can take MOTORS, REAL-STATE, CORE?
+        item_status(required: false, values: ["active", "closed","paused"], description: "Whenever the items is active, closed or paused")
         price( required: false, description: "The price the user finally sees. Not send in classi")
+        quantity( required: false, description: "Available items quantity show at this vip")
         item_price(required: false, type: PropertyType.Map, description: "Indicates the item price in different currencies")
-        listing_type_id(required: true)
         deal_ids(required: false, description: "IDs of applied discounts")
         review_rate(required: false, inheritable: false)
         reviews_attributes(required: false, inheritable: false)
