@@ -8,7 +8,8 @@ checkout_confirmed.payment_type as payment_type,
 SUM(IF(cast(checkout_confirmed.purchase_amount as decimal(18,6)) >= 0 AND cast(checkout_confirmed.purchase_amount as decimal(18,6)) <= 600, 1, 0)) as monto_rango1,
 SUM(IF(cast(checkout_confirmed.purchase_amount as decimal(18,6)) > 600 AND cast(checkout_confirmed.purchase_amount as decimal(18,6)) <= 1000, 1, 0)) as monto_rango2,
 SUM(IF(cast(checkout_confirmed.purchase_amount as decimal(18,6)) > 1000 AND cast(checkout_confirmed.purchase_amount as decimal(18,6)) <= 5000, 1, 0)) as monto_rango3,
-SUM(IF(cast(checkout_confirmed.purchase_amount as decimal(18,6)) > 5000 , 1, 0)) as monto_rango4
+SUM(IF(cast(checkout_confirmed.purchase_amount as decimal(18,6)) > 5000 , 1, 0)) as monto_rango4,
+substr(ds, 1, 10) as ds_date
 from(
   select jest(event_data, 'options') as options, jest(event_data, 'checkout_flow_id') flow_id, application.site_id, application.version, jest(event_data, 'environment') as environment, device.platform as platform, jest(event_data, 'collector_id') as collector_id
   from tracks
