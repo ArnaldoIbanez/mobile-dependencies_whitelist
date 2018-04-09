@@ -12,23 +12,22 @@ tracks {
         item_id(required: true, description: "Item ID")
         category_id(required: true, description: "Item's category id")
         buying_mode(required: true, values: ["buy_it_now", "auction","classified"], description: "Indicates if it's an auction, buy_it_now or classified")
-        category_path(required: true, "Category path of the the item")
-        // TODO ADD DESCRIPTIONS
-        vertical(required: true , description: "Vertical of the item") // TODO Please add the values this property can take MOTORS, REAL-STATE, CORE?
+        category_path(required: true, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        vertical(required: true , description: "Vertical of the item") // TODO: Please add the values this property can take MOTORS, REAL-STATE, CORE?
         item_condition(required: true, values: ["new","used","refurbish"])
-        currency_id( required: false)
-        listing_type_id(required: true) // TODO Please add the values this property can take MOTORS, REAL-STATE, CORE?
+        currency_id( required: false) // TODO: Currency y Price no pueden ser fields requeridos?
+        price( required: false, type: PropertyType.Numeric, description: "The price the user finally sees. Not send in classi") //
+        listing_type_id(required: true) // TODO: Please add the values this property can take MOTORS, REAL-STATE, CORE?
         item_status(required: false, values: ["active", "closed","paused"], description: "Whenever the items is active, closed or paused")
-        price( required: false, description: "The price the user finally sees. Not send in classi")
         quantity( required: false, description: "Available items quantity show at this vip")
         item_price(required: false, type: PropertyType.Map, description: "Indicates the item price in different currencies")
-        deal_ids(required: false, description: "IDs of applied discounts")
-        review_rate(required: false, inheritable: false)
+        deal_ids(required: false,type: PropertyType.ArrayList , description: "IDs of applied discounts")
+        review_rate(required: false, type: PropertyType.Numeric, inheritable: false)
         reviews_attributes(required: false, inheritable: false)
         return_available(required: false, type: PropertyType.String, values: ["yes", "no"], description: "Indicates if the user has free return for the item")
 
         //SELLER FIELDS
-        seller_id( required: true)
+        seller_id( required: true) //TODO add description & values
         power_seller_status(required: true )
         reputation_level(required: false, description: "Seller's reputation level")
 
@@ -41,7 +40,7 @@ tracks {
         store_type(required: false, description: "Indicates store type")
 
         // SHIPPING ( NOT PRESENT IN CLASI )
-        shipping_mode(required: false)
+        shipping_mode(required: false) //TODO add descriptions, values, propertyTypes
         free_shipping(required: false)
         local_pick_up(required: false)
         fulfillment(required: false, type: PropertyType.Boolean, description: "Indicates if the item has fulfillment")
