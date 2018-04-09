@@ -983,7 +983,7 @@ trackTests {
             location = "34.677755,56.444433"
             geolocation_method = "platform"
         }
-        "/checkout/options"(platform:"/mobile", type:TrackType.Event) {
+        "/checkout/init/options"(platform:"/mobile", type:TrackType.Event) {
             payment_data = "[credit_card:-, ticket:abitab, ticket:redpagos, cash:cash]"
             shipping_data = ["mercadoenvios", "local_pick_up"]
         }
@@ -1154,52 +1154,52 @@ trackTests {
             agencies = 10
         }
 
-        "/checkout/payments/preload_credit_card"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/preload_credit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/select_method"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/select_method"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_methods = ["visa", "master", "amex", "cash"]
             coupon = true
             coupon_discount = 20
         }
-        "/checkout/payments/select_method#new_payment_method_selected"(platform:"/mobile",  type: TrackType.Event) {
+        "/checkout/payment/select_method#new_payment_method_selected"(platform:"/mobile",  type: TrackType.Event) {
             payment_method_id = "payment_method_id"
             payment_type_id = "payment_type_id"
         }
-        "/checkout/payments/coupon_detail"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/coupon_detail"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/add_debit_card"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/add_debit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/add_debit_card#card_config"(platform:"/mobile", type: TrackType.Event) {
+        "/checkout/payment/add_debit_card#card_config"(platform:"/mobile", type: TrackType.Event) {
             bin = "123456"
             success = true
         }
-        "/checkout/payments/add_debit_card/select_bank"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/add_debit_card/select_bank"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_issuers = ["Visa", "Banamex", "Santander"]
         }
-        "/checkout/payments/add_prepaid_card"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/add_prepaid_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/add_prepaid_card#card_config"(platform:"/mobile", type: TrackType.Event) {
+        "/checkout/payment/add_prepaid_card#card_config"(platform:"/mobile", type: TrackType.Event) {
             bin = "123456"
             success = true
         }
-        "/checkout/payments/add_card"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/add_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/add_card#card_config"(platform:"/mobile", type: TrackType.Event) {
+        "/checkout/payment/add_card#card_config"(platform:"/mobile", type: TrackType.Event) {
             bin = "123456"
             success = true
         }
-        "/checkout/payments/add_card/select_bank"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/add_card/select_bank"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_issuers = ["Visa", "Banamex", "Santander"]
         }
-        "/checkout/payments/add_card/installments"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/add_card/installments"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_installments = [
                     [
@@ -1219,15 +1219,15 @@ trackTests {
                     ]
             ]
         }
-        "/checkout/payments/stored_card/select_bank"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/stored_card/select_bank"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_methods = ["industrial", "bancor", "santander"]
         }
-        "/checkout/payments/stored_card/security_code"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/stored_card/security_code"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             user_identification_fields = ["doc_type", "doc_number"]
         }
-        "/checkout/payments/stored_card/installments"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/stored_card/installments"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             credit_card_id = "1234"
             available_installments = [
@@ -1248,43 +1248,43 @@ trackTests {
                     ]
             ]
         }
-        "/checkout/payments/stored_card/installments#change_payment_method"(platform:"/mobile", type:TrackType.Event) {
+        "/checkout/payment/stored_card/installments#change_payment_method"(platform:"/mobile", type:TrackType.Event) {
             event_source = "installments_row"
         }
-        "/checkout/payments/account_money/create"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/account_money/create"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/account_money/password"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/account_money/password"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/account_money/password#submit"(platform:"/mobile", type:TrackType.Event) {}
-        "/checkout/payments/select_issuer"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/account_money/password#submit"(platform:"/mobile", type:TrackType.Event) {}
+        "/checkout/payment/select_issuer"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/cash/select_store"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/cash/select_store"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_methods = ["telecomm", "oxxo", "bancomer", "banamex"]
         }
-        "/checkout/payments/cash/select_store/select_address"(platform:"/mobile") {}
-        "/checkout/payments/cash/select_store#request_permissions"(platform:"/mobile", type: TrackType.Event) {
+        "/checkout/payment/cash/select_store/select_address"(platform:"/mobile") {}
+        "/checkout/payment/cash/select_store#request_permissions"(platform:"/mobile", type: TrackType.Event) {
             permissions = "android.permission.ACCESS_FINE_LOCATION"
             extended = true
         }
-        "/checkout/payments/transfer/select_bank"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/transfer/select_bank"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_methods = ["telecomm", "bancomer", "banamex"]
         }
-        "/checkout/payments/billing_info"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/billing_info"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             user_identification_fields: ["doc_type", "doc_number", "name", "las_name"]
         }
-        "/checkout/payments/billing_info#submit"(platform:"/mobile", type:TrackType.Event) {
+        "/checkout/payment/billing_info#submit"(platform:"/mobile", type:TrackType.Event) {
             billing_info_state = "same_billing_info"
         }
         "/checkout/payment/promotions"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/consumer_credits/installments"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/consumer_credits/installments"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_installments = [
                     [
@@ -1304,35 +1304,35 @@ trackTests {
                     ]
             ]
         }
-        "/checkout/payments/payment_combination/debit_card"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/payment_combination/debit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
 
-        "/checkout/payments/payment_combination/payment_method_not_supported"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/payment_combination/payment_method_not_supported"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
 
         // Discount Coupons
-        "/checkout/payments/add_coupon"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/add_coupon"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/coupon_ok"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/coupon_ok"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             coupon = "coupon1,coupon2"
         }
-        "/checkout/payments/add_another_coupon"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/add_another_coupon"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/coupon_error"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/coupon_error"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/invalid_coupon"(platform:"/mobile", type:TrackType.Event) {
+        "/checkout/payment/invalid_coupon"(platform:"/mobile", type:TrackType.Event) {
             checkoutStatus()
         }
-        "/checkout/payments/expired_coupon"(platform:"/mobile", type:TrackType.Event) {
+        "/checkout/payment/expired_coupon"(platform:"/mobile", type:TrackType.Event) {
             checkoutStatus()
         }
-        "/checkout/payments/add_another_coupon/delete_coupon"(platform:"/mobile", type:TrackType.Event) {
+        "/checkout/payment/add_another_coupon/delete_coupon"(platform:"/mobile", type:TrackType.Event) {
             checkoutStatus()
         }
 
@@ -2295,8 +2295,8 @@ trackTests {
     }
 
     test("checkout payment combination switch events") {
-        "/checkout/payments/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
-        "/checkout/payments/2mp#not_use"(platform: "/mobile", type: TrackType.Event) {}
+        "/checkout/payment/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
+        "/checkout/payment/2mp#not_use"(platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("checkout payment combination review") {
@@ -5479,6 +5479,7 @@ trackTests {
         "/cart/checkout/payment/select_split_installments/split_detail"(platform:"/mobile", dataSet)
         "/cart/checkout/payment/select_first_installment"(platform:"/mobile", dataSet)
         "/cart/checkout/payment/select_second_installment"(platform:"/mobile", dataSet)
+        "/cart/checkout/payment/transfer/select_bank"(platform:"/mobile", dataSet)
         "/cart/checkout/review/edit_unique_installment"(platform:"/mobile", dataSet)
         "/cart/checkout/review/edit_first_installment"(platform:"/mobile", dataSet)
         "/cart/checkout/review/edit_second_installment"(platform:"/mobile", dataSet)
@@ -5496,34 +5497,34 @@ trackTests {
 
         //2MP
         //Switch
-        "/cart/checkout/payments/2mp#use"(platform: "/mobile", dataSet)
-        "/cart/checkout/payments/2mp#not_use"(platform: "/mobile",dataSet)
-        "/cart/checkout/payments/2mp/split"(platform: "/mobile",dataSet)
+        "/cart/checkout/payment/2mp#use"(platform: "/mobile", dataSet)
+        "/cart/checkout/payment/2mp#not_use"(platform: "/mobile",dataSet)
+        "/cart/checkout/payment/2mp/split"(platform: "/mobile",dataSet)
 
         // Disclaimer combination modal view.
-        "/cart/checkout/payments/payment_combination/payment_method_not_supported"(platform:"/mobile", dataSet)
+        "/cart/checkout/payment/payment_combination/payment_method_not_supported"(platform:"/mobile", dataSet)
 
         // Discount Coupons
-        "/cart/checkout/payments/add_coupon"(platform:"/mobile", type:TrackType.View) {
+        "/cart/checkout/payment/add_coupon"(platform:"/mobile", type:TrackType.View) {
             dataSet()
         }
-        "/cart/checkout/payments/coupon_ok"(platform:"/mobile", type:TrackType.View) {
+        "/cart/checkout/payment/coupon_ok"(platform:"/mobile", type:TrackType.View) {
             dataSet()
             coupon = "coupon1,coupon2"
         }
-        "/cart/checkout/payments/add_another_coupon"(platform:"/mobile", type:TrackType.View) {
+        "/cart/checkout/payment/add_another_coupon"(platform:"/mobile", type:TrackType.View) {
             dataSet()
         }
-        "/cart/checkout/payments/coupon_error"(platform:"/mobile", type:TrackType.View) {
+        "/cart/checkout/payment/coupon_error"(platform:"/mobile", type:TrackType.View) {
             dataSet()
         }
-        "/cart/checkout/payments/invalid_coupon"(platform:"/mobile", type:TrackType.Event) {
+        "/cart/checkout/payment/invalid_coupon"(platform:"/mobile", type:TrackType.Event) {
             dataSet()
         }
-        "/cart/checkout/payments/expired_coupon"(platform:"/mobile", type:TrackType.Event) {
+        "/cart/checkout/payment/expired_coupon"(platform:"/mobile", type:TrackType.Event) {
             dataSet()
         }
-        "/cart/checkout/payments/add_another_coupon/delete_coupon"(platform:"/mobile", type:TrackType.Event) {
+        "/cart/checkout/payment/add_another_coupon/delete_coupon"(platform:"/mobile", type:TrackType.Event) {
             dataSet()
         }
 
