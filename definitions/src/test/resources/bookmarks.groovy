@@ -9,11 +9,13 @@ trackTests {
         "/bookmarks/action/post" (platform:"/mobile", type: TrackType.Event) {
             item_id = "MLA533657947"
             action_location = "maininfo"
+            context = "/vip"
         }
 
         "/bookmarks/action/delete" (platform:"/mobile", type: TrackType.Event) {
             item_id = "MLA533657947"
             action_location = "maininfo"
+            context = "/myml"
         }
     }
 
