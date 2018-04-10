@@ -265,6 +265,17 @@ tracks {
         item_id (required: true)
         type (required: true, values: ["LOW_LOYAL", "HIGH_LOYAL"])
     }
+    "/myml/questions/ask"(platform: "/", isAbstract: true) {}
+    "/myml/questions/ask/post" (platform: "/", type: TrackType.Event) {
+        item_id(required: true, description: "item Id")
+        failed(required: true, description: "Flag to action delete failed")
+        action_location(required:false, type: PropertyType.String)
+    }
+    "/myml/bookmarks/delete" (platform: "/", type: TrackType.Event) {
+        item_id(required: true, description: "item Id")
+        failed(required: true, description: "Flag to action delete failed")
+        action_location(required:false, type: PropertyType.String)
+    }
 
     //Invoice flow
     "/myml/invoices"(platform: "/", isAbstract: true) {}
