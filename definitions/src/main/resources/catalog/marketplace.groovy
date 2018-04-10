@@ -129,60 +129,7 @@ tracks {
 
     //BOOKMARKS
 
-    "/bookmarks/action"(platform: "/mobile", isAbstract: true) {}
 
-    "/bookmarks"(platform: "/", type: TrackType.Event, isAbstract: true) {
-        item_id(required: false)
-        context(required: false)
-    }
-
-    "/bookmarks/action/post"(platform: "/mobile", type: TrackType.Event) {
-        item_id()
-        action_location(required:false, type: PropertyType.String)
-    }
-
-    "/bookmarks/action/delete"(platform: "/mobile", type: TrackType.Event) {
-        item_id()
-        action_location(required:false, type: PropertyType.String)
-    }
-
-    //Bookmark and question tracking from feeds for Emkt
-    "/bookmarks/action/post" (platform: "/web", type: TrackType.Event) {
-        item_id()
-        context()
-        action_location(required:false, type: PropertyType.String)
-    }
-    //Bookmark add to Cart
-    "/bookmarks/add_to_cart" (platform: "/", type: TrackType.Event) {}
-
-    //Bookmark show
-    "/bookmarks/show_bookmarks"(platform: "/", type: TrackType.Event) {}
-
-    //Bookmark load more
-    "/bookmarks/load_more"(platform: "/", type: TrackType.Event) {}
-
-    //Bookmarks refresh view
-    "/bookmarks/refresh"(platform: "/", type: TrackType.Event) {}
-
-    //Bookmarks Server error view
-    "/bookmarks/show_server_error"(platform: "/", type: TrackType.Event) {}
-
-    //Bookmarks Retry
-    "/bookmarks/retry_after_error"(platform: "/", type: TrackType.Event) {}
-
-    //Bookmarks If doesn't have session show feedback
-    "/bookmarks/show_not_logged_in_feedback"(platform: "/", type: TrackType.Event) {}
-
-    //Bookmarks Go to Login
-    "/bookmarks/go_to_login"(platform: "/", type: TrackType.Event) {}
-
-    //Bookmarks show ZRP
-    "/bookmarks/show_ZRP"(platform: "/", type: TrackType.Event) {}
-
-    "/questions/ask/post" (platform: "/web", type: TrackType.Event) {
-        item_id()
-        action_location(required:false, type: PropertyType.String)
-    }
 
     // Questions
     "/questions"(platform: "/mobile", isAbstract: true) {
@@ -198,6 +145,11 @@ tracks {
         //TODO revisar si no conviene pasar failed() a otro path "/questions/ask/post/failed"
         failed()
         question_id(required: false, description: "it has no value if failed is true")
+    }
+
+    "/questions/ask/post" (platform: "/web", type: TrackType.Event) {
+        item_id()
+        action_location(required:false, type: PropertyType.String)
     }
 
     "/questions/ask/back"(platform: "/mobile", type: TrackType.Event) {

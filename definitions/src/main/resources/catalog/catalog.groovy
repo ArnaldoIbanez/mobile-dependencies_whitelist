@@ -48,6 +48,7 @@ catalog {
     }
 
     marketplace.each { business ->
+        include business, "bookmarks.groovy"
         include business, "buyIntention.groovy"
         include business, "cartCheckout.groovy"
         include business, "cartList.groovy"
