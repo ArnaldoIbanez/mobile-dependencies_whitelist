@@ -340,6 +340,11 @@ tracks {
     "/sell/update/color_selection_review"(platform: "/", type: TrackType.View) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
     }
+    "/sell/update/color_selection/custom_color"(platform: "/web", type: TrackType.Event) {
+        session_id(required: true, description: "Session Id", type: PropertyType.String)
+        category_domain(required: true, description: "Category Domain", type: PropertyType.String)
+        is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.Boolean)
+    }
     "/sell/update/condition"(platform: "/", type: TrackType.View) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
     }
@@ -503,7 +508,6 @@ tracks {
         domain_id(required: true, description: "Domain id", type: PropertyType.String)
         attribute_id(required: true, description: "Attribute id", type: PropertyType.String)
         option_selected(required: true, description: "Radio option selected", type: PropertyType.String)
-
     }
     
     "/sell/qr"(platform: "/", isAbstract: true) {}

@@ -285,13 +285,6 @@ tracks {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
     "/cellphone_recharge/push_handler"(platform: "/mobile") {}
-    "/cellphone_recharge/recents"(platform: "/mobile") {}
-    "/cellphone_recharge/set_telephone_number"(platform: "/mobile") {}
-    "/cellphone_recharge/contacts"(platform: "/mobile") {}
-    "/cellphone_recharge/carriers"(platform: "/mobile") {}
-    "/cellphone_recharge/recommended"(platform: "/mobile") {}
-    "/cellphone_recharge/packages"(platform: "/mobile") {}
-    "/cellphone_recharge/manual_amount"(platform: "/mobile") {}
     "/cellphone_recharge/pay"(platform: "/mobile") {}
     "/cellphone_recharge/deals"(platform: "/mobile") {}
     "/cellphone_recharge/deals/terms"(platform: "/mobile") {}
@@ -333,6 +326,8 @@ tracks {
     "/cellphone_recharge/amount_recommended"(platform: "/web", type: TrackType.View) {}
     "/cellphone_recharge/alias_income"(platform: "/web/mobile", type: TrackType.View) {}
     "/cellphone_recharge/account_money"(platform: "/web", type: TrackType.View) {}
+    "/cellphone_recharge/error"(platform: "/web", type: TrackType.View) {}
+    "/cellphone_recharge/not-found"(platform: "/web", type: TrackType.View) {}
 
     "/scheduled_recharge"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
