@@ -9,54 +9,73 @@ tracks {
     "/vip"(platform: "/") {
 
         // ITEM FIELDS
-        item_id(required: true, description: "Item ID")
-        category_id(required: true, description: "Item's category id")
-        buying_mode(required: true, values: ["buy_it_now", "auction","classified"], description: "Indicates if it's an auction, buy_it_now or classified")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        buying_mode(required: true, type: PropertyType.String, values: ["buy_it_now", "auction","classified"],
+                description: "Indicates if it's an auction, buy_it_now or classified")
         category_path(required: true, type: PropertyType.ArrayList , description:  "Category path of the the item")
-        vertical(required: true , description: "Vertical of the item") // TODO: Please add the values this property can take MOTORS, REAL-STATE, CORE?
-        item_condition(required: true, values: ["new","used","refurbish"])
-        currency_id( required: false) // TODO: Currency y Price no pueden ser fields requeridos?
-        price( required: false, type: PropertyType.Numeric, description: "The price the user finally sees. Not send in classi") //
-        listing_type_id(required: true) // TODO: Please add the values this property can take MOTORS, REAL-STATE, CORE?
-        item_status(required: false, values: ["active", "closed","paused"], description: "Whenever the items is active, closed or paused")
-        quantity( required: false, description: "Available items quantity show at this vip")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished"],
+                description: "Whether the item is new, used or refurbished")
+        listing_type_id(required: true, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        item_status(required: true, type: PropertyType.String, values: ["active", "closed", "paused"],
+                description: "Whenever the items is active, closed or paused")
+        quantity( required: false, type: PropertyType.Numeric, description: "Available items quantity show at this vip")
         item_price(required: false, type: PropertyType.Map, description: "Indicates the item price in different currencies")
-        deal_ids(required: false,type: PropertyType.ArrayList , description: "IDs of applied discounts")
-        review_rate(required: false, type: PropertyType.Numeric, inheritable: false)
-        reviews_attributes(required: false, inheritable: false)
-        return_available(required: false, type: PropertyType.String, values: ["yes", "no"], description: "Indicates if the user has free return for the item")
+        deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
+        review_rate(required: false, type: PropertyType.Numeric, inheritable: false,
+                description: "The rating average of the reviews")
+        reviews_attributes(required: false, type: PropertyType.ArrayList, inheritable: false,
+                description: "Reviewable catalog attribute names")
+        return_available(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the user has free return for the item")
 
         //SELLER FIELDS
-        seller_id( required: true) //TODO add description & values
-        power_seller_status(required: true )
-        reputation_level(required: false, description: "Seller's reputation level")
+        seller_id(required: true, type: PropertyType.Numeric)
+        power_seller_status(required: false, type: PropertyType.String, values: ["silver", "gold", "platinum"],
+                description: "Seller's Mercado Lider level")
+        reputation_level(required: false, type: PropertyType.String,
+                values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"],
+                description: "Seller's reputation level")
 
         // CLASI FIELDS
-        reservation_price( required: false, description: "")
-        quotation_available(required: false, type: PropertyType.Boolean, description: "Indicates if the item can be quoted (cotizado)")
+        reservation_price(required: false, description: "")
+        quotation_available(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item can be quoted (cotizado)")
 
         // OFFICIAL_STORES
-        official_store_id(required: false, description: "Id of item's official store")
-        store_type(required: false, description: "Indicates store type")
+        official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
+        // TODO: store type sigue teniendo sentido? Ya no existen la tiendas premium
+        store_type(required: false, type: PropertyType.String, values: ["brand"], description: "Indicates store type")
 
         // SHIPPING ( NOT PRESENT IN CLASI )
-        shipping_mode(required: false) //TODO add descriptions, values, propertyTypes
-        free_shipping(required: false)
-        local_pick_up(required: false)
+        // TODO varios de estos datos no los estamos mandando (al menos en web). Ver por qué
+        shipping_mode(required: false, type: PropertyType.String, values: ["not_specified", "custom", "me1", "me2"],
+                description: "Mercado Envios mode")
+        free_shipping(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the items has free shipping")
+        local_pick_up(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item has local pick up")
         fulfillment(required: false, type: PropertyType.Boolean, description: "Indicates if the item has fulfillment")
         free_shipping_benefit(required: false, type: PropertyType.Boolean, description: "Indicates if the user has free shipping benefit")
 
-        cart_content(required: false, type: PropertyType.Boolean, description: "Indicates if the VIP has cart features")
-        loyalty_level(required: false, description: "User's loyalty level")
+        cart_content(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the VIP has cart features (only for core items)")
+        loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
     }
 
     "/vip"(platform: "/web") {
-        specifications_size(required: false, description: "Specifications attributes quantity")
+        specifications_size(required: false, type: PropertyType.Numeric, description: "Specifications attributes quantity")
+        // TODO: ver si ya se apagaron las descripciones html. En tal caso, podriamos sacar este track
         description_type(required: false, description: "Description type: plain text, html, both, none", values: ["plain_text", "html", "both", "none"])
-        max_size_gallery(required: false, description: "Max_size of first picture gallery")
+        max_size_gallery(required: false, type: PropertyType.String, description: "Max_size of first picture gallery")
     }
 
     "/vip"(platform: "/mobile") {
+        //TODO: por que esta category_id repetido?
         category_id(required: false, description: "Item's category id")
         context(required: false)
         resolution(required: false, description: "Indicates if the device has high or low resolution")
