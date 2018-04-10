@@ -272,30 +272,30 @@ trackTests {
         }
 
         def vipTrack = {
-          item_id = "MLA631609359"
-          reviews_all_count = 3
-          reviews_negative_count = 0
-          vote_up = {
-            reviews_id = [1,2]
-            count = 2
-          }
-          vote_down = {
-            reviews_id = [3,4]
-            count = 2
-          }
-          reviews_positive_count = 0
-          reviews_shown = [
-            {
-              filter = "all"
-              length = 300
-              position = 2
-              reviewId = "3581337"
-              time = 27364
-              words = 52
+            item_id = "MLA631609359"
+            reviews_all_count = 3
+            reviews_negative_count = 0
+            vote_up = {
+                reviews_id = [1,2]
+                count = 2
             }
-          ]
-          time_ellapsed = 75211
-          type = "detail"
+            vote_down = {
+                reviews_id = [3,4]
+                count = 2
+            }
+            reviews_positive_count = 0
+            reviews_shown = [
+                    {
+                        filter = "all"
+                        length = 300
+                        position = 2
+                        reviewId = "3581337"
+                        time = 27364
+                        words = 52
+                    }
+            ]
+            time_ellapsed = 75211
+            type = "detail"
         }
 
         "/reviews/form"(platform:"/", dataSetForm)
@@ -1336,9 +1336,9 @@ trackTests {
             checkoutStatus()
         }
 
-         "/checkout/billing/physical_person"(platform: "/mobile") {
+        "/checkout/billing/physical_person"(platform: "/mobile") {
             checkoutStatus()
-         }
+        }
         "/checkout/billing/legal_person"(platform: "/mobile") {
             checkoutStatus()
         }
@@ -3890,9 +3890,9 @@ trackTests {
 
     test("validations in pictures_uploader - List"){
         "/sell/list/pictures_uploader/validations"(platform: "/web") {
-             error_key = "PICTURE_INVALID_QUALITY"
-             session_id = "214464778-list-d5e5a20b2935"
-         }
+            error_key = "PICTURE_INVALID_QUALITY"
+            session_id = "214464778-list-d5e5a20b2935"
+        }
     }
 
     test("Custom color name changed - Update"){
@@ -4086,6 +4086,7 @@ trackTests {
         "/myml/questions"(platform: "/web"){}
         "/myml/summary"(platform: "/web"){}
     }
+
     test("Myml My Data"){
         "/myml/profile"(platform: "/mobile"){}
         "/myml/profile/review_data"(platform: "/mobile"){}
@@ -5785,48 +5786,48 @@ trackTests {
                 id = 'MLA713079054'
                 price = '300'
                 original_price = '1000'
-                sale_terms = [  
-                  {  
-                     id = "LOYALTY_LEVEL_6"
-                     name = "Precio por nivel 6 de loyalty"
-                     value_id = null
-                     value_name = "25 ARS"
-                     value_struct = {  
-                        number = 25
-                        unit = "ARS"
-                     }
-                  },
-                  {  
-                     id = "LOYALTY_LEVEL_5"
-                     name = "Precio por nivel 5 de loyalty"
-                     value_id = null
-                     value_name = "25 ARS"
-                     value_struct = {  
-                        number = 25
-                        unit = "ARS"
-                     }
-                  },
-                  {  
-                     id = "LOYALTY_LEVEL_4"
-                     name = "Precio por nivel 4 de loyalty"
-                     value_id = null
-                     value_name = "25 ARS"
-                     value_struct = {  
-                        number = 25
-                        unit = "ARS"
-                     }
-                  },
-                  {  
-                     id = "LOYALTY_LEVEL_3"
-                     name = "Precio por nivel 3 de loyalty"
-                     value_id = null
-                     value_name = "25 ARS"
-                     value_struct = {  
-                        number = 25
-                        unit = "ARS"
-                     }
-                  }
-               ]
+                sale_terms = [
+                        {
+                            id = "LOYALTY_LEVEL_6"
+                            name = "Precio por nivel 6 de loyalty"
+                            value_id = null
+                            value_name = "25 ARS"
+                            value_struct = {
+                                number = 25
+                                unit = "ARS"
+                            }
+                        },
+                        {
+                            id = "LOYALTY_LEVEL_5"
+                            name = "Precio por nivel 5 de loyalty"
+                            value_id = null
+                            value_name = "25 ARS"
+                            value_struct = {
+                                number = 25
+                                unit = "ARS"
+                            }
+                        },
+                        {
+                            id = "LOYALTY_LEVEL_4"
+                            name = "Precio por nivel 4 de loyalty"
+                            value_id = null
+                            value_name = "25 ARS"
+                            value_struct = {
+                                number = 25
+                                unit = "ARS"
+                            }
+                        },
+                        {
+                            id = "LOYALTY_LEVEL_3"
+                            name = "Precio por nivel 3 de loyalty"
+                            value_id = null
+                            value_name = "25 ARS"
+                            value_struct = {
+                                number = 25
+                                unit = "ARS"
+                            }
+                        }
+                ]
             }
             percentage = 70
             type = "LOW_LOYAL"
@@ -5954,7 +5955,7 @@ trackTests {
             item_id="MLM12345"
             category_id="CAT123"
         }
-        
+
         "/subscriptions_landing"(platform: "/", type: TrackType.View) {}
 
         "/subscriptions_landing/select_item_slide"(platform: "/", type: TrackType.Event) {
@@ -6022,30 +6023,27 @@ trackTests {
             status = "sponsored"
         }
     }
-
     test("myml Questions tracking") {
         "/myml/questions/ask/post" (platform:"/", type: TrackType.Event) {
             item_id = "MLA533657947"
             failed = false
-            action_location = "maininfo"
+            action_location ="maininfo"
         }
     }
     test("myml Bookmarks delete tracking") {
         "/myml/bookmarks/delete" (platform:"/", type: TrackType.Event) {
             item_id = "MLA533657947"
             failed = false
-            action_location = "maininfo"
+            action_location ="maininfo"
         }
-
-
+    }
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 // TRACKS MYML Invoices
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     test("Test invoice flow tracking") {
-        
+
         "/myml/invoices/review"(platform: "/") {}
         "/myml/invoices/review/create_invoice"(platform: "/", type: TrackType.Event) {}
-
     }
 }
