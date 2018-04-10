@@ -1000,40 +1000,6 @@ trackTests {
             from = "/deep_link"
         }
 
-        "/cellphone_recharge/recents"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-
-        "/cellphone_recharge/set_telephone_number"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-
-        "/cellphone_recharge/contacts"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-
-        "/cellphone_recharge/carriers"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-
-        "/cellphone_recharge/recommended"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-
-        "/cellphone_recharge/packages"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-
-        "/cellphone_recharge/manual_amount"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
         "/cellphone_recharge/pay"(platform: "/mobile") {
             flow = "/qr_code"
             from = "/deep_link"
@@ -1164,6 +1130,12 @@ trackTests {
             flow = "/cellphone_recharge"
         }
         "/cellphone_recharge/account_money"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
+        "/cellphone_recharge/error"(platform: "/web", type: TrackType.View) {
+            flow = "/cellphone_recharge"
+        }
+        "/cellphone_recharge/not-found"(platform: "/web", type: TrackType.View) {
             flow = "/cellphone_recharge"
         }
     }
@@ -2535,6 +2507,14 @@ trackTests {
             payment_amount = "500"
             payment_method = "visa"
             payment_type = "credit_card"
+        }
+
+        "/checkout_off/v1/consumer_credit/installments"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
         }
     }
 

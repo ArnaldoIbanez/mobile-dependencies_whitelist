@@ -13,10 +13,22 @@ tracks {
      * Claim creation steps.
      */
     "/claims/create_claim"(platform: "/", isAbstract: true) { }
-    "/claims/create_claim/allow"(platform: "/", type: TrackType.View)  { }
+
+    "/claims/create_claim/allow"(platform: "/", type: TrackType.View)  {
+        ref(required: false, type: PropertyType.String)
+        returns_loyalty_level(required: false, type: PropertyType.Numeric)
+        returns_date_delivered(required: false, type: PropertyType.String)
+        returns_cart_order(required: false, type: PropertyType.Boolean)
+        returns_item_category(required: false, type: PropertyType.String)
+        returns_item_category_l1(required: false, type: PropertyType.String)
+        returns_refund_account_money(required: false, type: PropertyType.Boolean)
+        returns_authorized(required: false, type: PropertyType.Boolean)
+    }
+
     "/claims/create_claim/denied"(platform: "/", type: TrackType.View) {
         reason(description: 'Claim denied reason.')
     }
+
     "/claims/create_claim/creation"(platform: "/", type: TrackType.Event)  {
         reason(required: true, description: 'The claim creation reason.', values: ['delivered', 'undelivered'])
     }

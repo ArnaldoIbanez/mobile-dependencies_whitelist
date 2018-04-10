@@ -7,7 +7,16 @@ trackTests {
     test("Claim creation step") {
         "/claims"(platform: "/") { }
         "/claims/create_claim"(platform: "/") { }
-        "/claims/create_claim/allow"(platform: "/", type: TrackType.View)  { }
+        "/claims/create_claim/allow"(platform: "/", type: TrackType.View)  {
+            ref="returns"
+            returns_loyalty_level=6
+            returns_date_delivered="2018-03-26"
+            returns_cart_order=false
+            returns_item_category="MLB107481"
+            returns_refund_account_money=false
+            returns_item_category_l1="MLB1574"
+            returns_authorized=true
+        }
         "/claims/create_claim/denied"(platform: "/", type: TrackType.View) {
             reason = 'payment_not_found'
         }
