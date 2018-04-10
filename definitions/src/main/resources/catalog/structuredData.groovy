@@ -1,4 +1,6 @@
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
+import com.ml.melidata.catalog.PropertyType
+
 
 tracks {
 
@@ -121,6 +123,8 @@ tracks {
         attribute_id(required: true, description: "Attribute id")
         hierarchy(required: true, description: "Hierarchy attribute")
         option_selected(required: true, description: "Radio option selected")
-        value(required: true, description: "Omit value")
+        value(required: false, description: "Omit value")
+        domain_id(required: true, description: "Domain ID")
+        category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
     }
 }
