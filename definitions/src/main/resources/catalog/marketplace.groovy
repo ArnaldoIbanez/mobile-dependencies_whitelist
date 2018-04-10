@@ -126,10 +126,7 @@ tracks {
         review_id(required: false)
         reviews_shown(required: false, type: PropertyType.ArrayList)
     }
-
-    //BOOKMARKS
-
-
+    
 
     // Questions
     "/questions"(platform: "/mobile", isAbstract: true) {
