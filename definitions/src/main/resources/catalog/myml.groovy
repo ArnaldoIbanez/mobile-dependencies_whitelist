@@ -266,8 +266,13 @@ tracks {
         type (required: true, values: ["LOW_LOYAL", "HIGH_LOYAL"])
     }
     "/myml/questions/ask/post" (platform: "/", type: TrackType.Event) {
-        item_id()
-        failed()
+        item_id(required: true, description: "item Id")
+        failed(required: true, description: "Flag to action delete failed")
+        action_location(required:false, type: PropertyType.String)
+    }
+    "/myml/bookmarks/delete" (platform: "/", type: TrackType.Event) {
+        item_id(required: true, description: "item Id")
+        failed(required: true, description: "Flag to action delete failed")
         action_location(required:false, type: PropertyType.String)
     }
 }

@@ -6010,4 +6010,10 @@ trackTests {
             failed = false
         }
     }
+    test("myml Bookmarks delete tracking") {
+        "/myml/bookmarks/delete" (platform:"/", type: TrackType.Event) {
+            item_id = "MLA533657947"
+            failed = false
+        }
+    }
 }
