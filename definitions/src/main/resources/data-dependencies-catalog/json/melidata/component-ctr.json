@@ -16,6 +16,10 @@
         "format": "yyyy-MM-dd"
       },
       {
+        "name": "component",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "device_type",
         "type": "UNICODE_STRING"
       },
@@ -24,7 +28,19 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "component",
+        "name": "component_order",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "campaign",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "brand_name",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "category_id",
         "type": "UNICODE_STRING"
       },
       {

@@ -53,6 +53,7 @@ catalog {
         include business, "cartList.groovy"
         include business, "checkout.groovy"
         include business, "credits_marketplace.groovy"
+        include business, "denounce.groovy"
         include business, "email.groovy"
         include business, "home.groovy"
         include business, "loyalty.groovy"
@@ -70,6 +71,7 @@ catalog {
         include business, "freeData.groovy"
         include business, "structuredData.groovy"
         include business, "mediations.groovy"
+        include business, "cellphone_recharge.groovy"
     }
 
     mercadopago.each { business ->
@@ -79,6 +81,7 @@ catalog {
         include business, "mercadopago_mails.groovy"
         include business, "mercadopago_devsite.groovy"
         include business, "cards_prepaid.groovy"
+        include business, "cellphone_recharge.groovy"
     }
 
 }

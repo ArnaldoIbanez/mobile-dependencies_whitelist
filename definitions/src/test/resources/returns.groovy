@@ -16,6 +16,7 @@ trackTests {
         cart_order = true
         item_category = "item_category"
         item_category_l1 = "item_category_l1"
+        returns_refund_account_money=false
       }
 
       // STEP 02
@@ -27,6 +28,7 @@ trackTests {
         cart_order = true
         item_category = "item_category"
         item_category_l1 = "item_category_l1"
+        returns_refund_account_money=false
       }
 
       // STEP 03
@@ -38,6 +40,7 @@ trackTests {
         cart_order = true
         item_category = "item_category"
         item_category_l1 = "item_category_l1"
+        returns_refund_account_money=false
       }
 
       // STEP 04.a
@@ -49,6 +52,7 @@ trackTests {
         cart_order = true
         item_category = "item_category"
         item_category_l1 = "item_category_l1"
+        returns_refund_account_money=false
       }
 
       // STEP 04.b
@@ -71,6 +75,7 @@ trackTests {
         cart_order = true
         item_category = "item_category"
         item_category_l1 = "item_category_l1"
+        returns_refund_account_money=false
       }
 
       // STEP 05.cta.a
@@ -95,6 +100,7 @@ trackTests {
         cart_order = true
         item_category = "item_category"
         item_category_l1 = "item_category_l1"
+        returns_refund_account_money=false
       }
 
       // Error Page
@@ -105,6 +111,7 @@ trackTests {
         cart_order = true
         item_category = "item_category"
         item_category_l1 = "item_category_l1"
+        returns_refund_account_money=false
       }
     }
 }

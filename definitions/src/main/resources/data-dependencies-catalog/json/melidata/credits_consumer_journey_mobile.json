@@ -1,18 +1,14 @@
 {
   "users": [
-    "lucila.zimerman@mercadolibre.com"
+    "gabriel.neil@mercadolibre.com"
   ],
-  "process_name": "consumer_journey",
-  "cron": "0 5 * * *",
+  "process_name": "consumer_journey_mobile",
+  "cron": "",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
-        "name": "email_id",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "fecha",
+        "name": "date_sent",
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },
@@ -21,38 +17,41 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "template",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "event_type",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "milestone",
+        "name": "context",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "bucket",
+        "name": "site_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "sent_date",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
+        "name": "user_id",
+        "type": "INTEGER"
+      },
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "device_name",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "business-assurance/credits_consumer_journey.sql",
+      "script": "business-assurance/credits_consumer_journey_mobile.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2018-03-05",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "2018-04-09",
           "format": "yyyy-MM-dd"
         }
       ]
