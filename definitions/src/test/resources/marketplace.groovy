@@ -589,16 +589,6 @@ trackTests {
     }
 
     test("Bookmark tracking in android") {
-        "/bookmarks/post" (platform:"/mobile", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/delete" (platform:"/mobile", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
         "/bookmarks/action/post" (platform:"/mobile", type: TrackType.Event) {
             item_id = "MLA533657947"
             action_location = "maininfo"
@@ -6023,7 +6013,7 @@ trackTests {
             status = "sponsored"
         }
     }
-    
+
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 // TRACKS MYML Invoices
 //------------------------------------------------------------------------------------------------------------------------------------------------------

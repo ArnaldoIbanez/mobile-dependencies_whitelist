@@ -136,16 +136,6 @@ tracks {
         context(required: false)
     }
 
-    //deprecated: true
-    "/bookmarks/post"(platform: "/mobile", type: TrackType.Event) {
-        item_id()
-    }
-
-    //deprecated: true
-    "/bookmarks/delete"(platform: "/mobile", type: TrackType.Event) {
-        item_id()
-    }
-
     "/bookmarks/action/post"(platform: "/mobile", type: TrackType.Event) {
         item_id()
         action_location(required:false, type: PropertyType.String)
