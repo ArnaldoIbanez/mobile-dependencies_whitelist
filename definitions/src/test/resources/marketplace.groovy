@@ -6008,12 +6008,14 @@ trackTests {
         "/myml/questions/ask/post" (platform:"/", type: TrackType.Event) {
             item_id = "MLA533657947"
             failed = false
+            action_location = "maininfo"
         }
     }
     test("myml Bookmarks delete tracking") {
         "/myml/bookmarks/delete" (platform:"/", type: TrackType.Event) {
             item_id = "MLA533657947"
             failed = false
+            action_location = "maininfo"
         }
     }
 }
