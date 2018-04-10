@@ -282,8 +282,10 @@ tracks {
         category_id(required: true,  description: "Home's category")
     }
 
-    "/home"(platform: "/web", type: TrackType.View) {
-        from(required: false,  description: "Who is redirecting")
+    // Real estate page view
+    "/home/category/real-estate"(platform: "/", type: TrackType.View) {
+        filters(required: false, description: "Filter applied in the last search")
+        carousels(required: false, description: "Carousels in the home page to the properties")
     }
 
     "/permissions"(platform: "/mobile", isAbstract: true){}
@@ -296,13 +298,6 @@ tracks {
     "/permissions/location/native"(platform: "/mobile", isAbstract: true){}
     "/permissions/location/native/accept"(platform: "/mobile", type: TrackType.Event){}
     "/permissions/location/native/deny"(platform: "/mobile", type: TrackType.Event){}
-
-    // Real estate page view
-    "/home/category/real-estate"(platform: "/", type: TrackType.View) {
-        filters(required: false, description: "Filter applied in the last search")
-        carousels(required: false, description: "Carousels in the home page to the properties")
-    }
-
 
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
