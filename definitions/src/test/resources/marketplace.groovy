@@ -3814,7 +3814,7 @@ trackTests {
             session_id = "214464778-list-d5e5a20b2935"
             has_selected_pictures = true
         }
-        "/sell/list/category_sugestion"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/category_suggestion"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/category_navigation"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/color_selection"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/color_selection_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
@@ -3834,17 +3834,17 @@ trackTests {
         "/sell/list/pictures_review/gallery"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures_review/editor"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures_review/crop"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/price_core"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/price_core/similar_products"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/price_core_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/price_core_review/similar_products"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/price"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/price/similar_products"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/price_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/price_review/similar_products"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/seller_registration"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/seller_registration_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/seller_registration_zip_code"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/size_selection"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/size_selection_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/title_core"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/title_core_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/title"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/title_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/shipping_options_me"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/shipping_options_me_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures_landing"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
@@ -3880,8 +3880,8 @@ trackTests {
         "/sell/list/sip/notification/congrats"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures_uploader/crop/crop_canceled"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures_uploader/crop/crop_acepted"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/price_core/similar_products/similar_item_selected"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/price_core/similar_products/similar_item_shown"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/price/similar_products/similar_item_selected"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/price/similar_products/similar_item_shown"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/zip_code/zip_code/search_zip_code"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/listing_types"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/listing_types_upgrade"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
@@ -3928,7 +3928,7 @@ trackTests {
         "/sell/update/sip/notification/view_item"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/notification/upgrade"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/notification/congrats"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/category_sugestion"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/category_suggestion"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/category_navigation"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/color_selection"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/color_selection_review"(platform: "/mobile") {item_id = "MLA123456"}
@@ -3950,15 +3950,15 @@ trackTests {
         "/sell/update/pictures_review/gallery"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures_review/editor"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures_review/crop"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/price_core"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/price_core/similar_products/similar_item_selected"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/price_core/similar_products/similar_item_shown"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/price_core_review"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/price_core_review/similar_products"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/price"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/price/similar_products/similar_item_selected"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/price/similar_products/similar_item_shown"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/price_review"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/price_review/similar_products"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/size_selection"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/size_selection_review"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/title_core"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/title_core_review"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/title"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/title_review"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/shipping_options_me"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/shipping_options_me_review"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip_landing"(platform: "/mobile") {item_id = "MLA123456"}
@@ -3979,7 +3979,6 @@ trackTests {
             empty_attrs_pk = 1
             empty_attrs_not_pk = 2
             condition = "new"
-            user_id = "123456"
         }
         "/sell/list/modal_attributes/submit"(platform: "/web") {
             domain_id ="MLA-CAMERAS"
@@ -3987,7 +3986,8 @@ trackTests {
             attribute_id = "MODEL"
             condition = "new"
             option_selected = "no_possible"
-            user_id = "123456"
+            category_path = ["MLA12345", "MLA4356"]
+            value = ""
         }
     }
 
@@ -3996,14 +3996,12 @@ trackTests {
             empty_attrs_pk = 1
             empty_attrs_not_pk = 2
             condition = "new"
-            user_id = "123456"
             item_id = "MLA123456"
         }
         "/sell/update/modal_attributes/submit"(platform: "/web") {
             domain_id ="MLA-CAMERAS"
             attribute_id = "MODEL"
             condition = "new"
-            user_id = "123456"
             option_selected = "no_possible"
             item_id = "MLA123456"
         }
