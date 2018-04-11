@@ -1,5 +1,5 @@
 {
-  "cron": "",
+  "cron": "00 07 * * *",
   "users": [
     "joaquin.iurchuk@mercadolibre.com",
     "it-datos-fiscales-mobile@mercadolibre.com"
@@ -11,12 +11,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2018-03-22",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "2018-04-11",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
       ],
