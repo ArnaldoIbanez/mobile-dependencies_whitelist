@@ -4,7 +4,7 @@ SELECT count(DISTINCT usr) as total ,
        device.platform as platform
 FROM tracks
 WHERE path = '/myml/company_profile'
-  AND ds >= '2018-04-10'
-  AND ds <= '2018-04-12'
+  AND ds >= '@param01'
+  AND ds <= '@param012'
 group by substr(ds,1,10), device.platform, application.site_id
 order by substr(ds,1,10)
