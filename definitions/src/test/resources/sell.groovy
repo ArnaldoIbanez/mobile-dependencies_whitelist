@@ -82,6 +82,9 @@ trackTests {
         }
     }
 
-    test("track for phone suggestion"){}
-    "/sell/list/phone_suggestion"(platform: "/mobile", type: TrackType.View)
+    test("track for phone suggestion") {
+        "/sell/list/phone_suggestion"(platform: "/mobile", type: TrackType.View) {
+            session_id = "11111"
+        }
+    }
 }
