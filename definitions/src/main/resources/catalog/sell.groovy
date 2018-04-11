@@ -511,7 +511,7 @@ tracks {
     "/sell/update/modal_attributes/submit"(platform: "/web", type: TrackType.Event) {
         domain_id(required: true, description: "Domain id", type: PropertyType.String)
         attribute_id(required: true, description: "Attribute id", type: PropertyType.String)
-        option_selected(required: true, description: "Radio option selected", type: PropertyType.Stringc)
+        option_selected(required: true, description: "Radio option selected", type: PropertyType.String)
     }
     
     "/sell/qr"(platform: "/", isAbstract: true) {}
