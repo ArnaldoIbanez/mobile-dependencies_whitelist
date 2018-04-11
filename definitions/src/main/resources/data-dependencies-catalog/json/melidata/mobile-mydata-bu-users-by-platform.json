@@ -1,0 +1,45 @@
+{
+  "cron": "",
+  "users": [
+    "joaquin.iurchuk@mercadolibre.com",
+    "it-datos-fiscales-mobile@mercadolibre.com"
+  ],
+  "process_name": "mobile_mydata_bu_users_by_platform",
+  "extract": {
+    "operation": "append",
+    "sql": {
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "2018-03-22",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "2018-04-11",
+          "format": "yyyy-MM-dd"
+        }
+      ],
+      "script": "melidata/mobile-mydata-bu-users-by-platform.sql"
+    },
+    "columns": [
+      {
+        "name": "total",
+        "type": "INTEGER"
+      },
+      {
+        "name": "ds",
+        "format": "yyyy-MM-dd",
+        "type": "DATE"
+      },
+      {
+        "name": "country",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      }
+    ]
+  }
+}
