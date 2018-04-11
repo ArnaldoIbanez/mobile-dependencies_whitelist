@@ -81,4 +81,7 @@ trackTests {
             vertical = "MOTOR" 
         }
     }
+
+    test("track for phone suggestion"){}
+    "/sell/list/phone_suggestion"(platform: "/mobile", type: TrackType.View)
 }

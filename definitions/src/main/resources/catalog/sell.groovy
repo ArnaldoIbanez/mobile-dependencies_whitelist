@@ -169,7 +169,6 @@ tracks {
 
     "/sell/list/category_suggestion"(platform: "/", type: TrackType.View) {}
     "/sell/list/category_navigation"(platform: "/", type: TrackType.View) {}
-    "/sell/list/category/selection/confirm_suggested"(platform: "/", type: TrackType.Event) {}
     "/sell/list/color_selection"(platform: "/", type: TrackType.View) {}
     "/sell/list/color_selection_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/color_selection/custom_color"(platform: "/web", type: TrackType.Event) {
@@ -177,6 +176,7 @@ tracks {
         category_id(required: true, description: "Category Id", type: PropertyType.String)
         is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.Boolean)
     }
+    "/sell/list/phone_suggestion"(platform:"/mobile", type:TrackType.View){}
     "/sell/list/condition"(platform: "/", type: TrackType.View) {}
     "/sell/list/condition_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/description"(platform: "/", type: TrackType.View) {}
@@ -511,7 +511,7 @@ tracks {
     "/sell/update/modal_attributes/submit"(platform: "/web", type: TrackType.Event) {
         domain_id(required: true, description: "Domain id", type: PropertyType.String)
         attribute_id(required: true, description: "Attribute id", type: PropertyType.String)
-        option_selected(required: true, description: "Radio option selected", type: PropertyType.String)
+        option_selected(required: true, description: "Radio option selected", type: PropertyType.Stringc)
     }
     
     "/sell/qr"(platform: "/", isAbstract: true) {}
