@@ -87,4 +87,10 @@ trackTests {
             session_id = "11111"
         }
     }
+    test("tracks for zip code") {
+        "/sell/list/zip_code"(platform: "/") { session_id = "214464778-list-d5e5a20b2935" }
+        "/sell/list/zip_code/zip_code"(platform: "/") { session_id = "214464778-list-d5e5a20b2935" }
+        "/sell/list/zip_code/zip_code/search_zip_code"(platform: "/") { session_id = "214464778-list-d5e5a20b2935" }
+    }
+
 }

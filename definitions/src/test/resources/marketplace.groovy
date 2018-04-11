@@ -3806,7 +3806,7 @@ trackTests {
 
     test("Native Sell flow steps"){
         "/sell/list/congrats"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/draft"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/sip"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/congrats"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/pictures_review"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
@@ -3917,10 +3917,6 @@ trackTests {
         "/sell/list/pictures_uploader/crop/crop_acepted"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/price/similar_products/similar_item_selected"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/price/similar_products/similar_item_shown"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/zip_code"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/zip_code/zip_code"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/zip_code/zip_code/search_zip_code"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-
         "/sell/list/listing_types"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/listing_types_upgrade"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/congrats_upgrade"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}

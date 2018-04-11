@@ -108,6 +108,7 @@ tracks {
     "/sell/list/drafts/draft_action"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/drafts/draft_action/draft_deleted"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/drafts/draft_action/draft_resumed"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/draft"(platform:"/mobile", type: TrackType.View, isAbstract: true){}
     "/sell/list/draft/sip"(platform:"/mobile", type: TrackType.View){
         has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
     }
@@ -213,6 +214,8 @@ tracks {
     "/sell/list/seller_registration"(platform: "/", type: TrackType.View) {}
     "/sell/list/seller_registration_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/seller_registration_zip_code"(platform: "/", type: TrackType.View) {}
+    "/sell/list/zip_code"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+    "/sell/list/zip_code/zip_code"(platform: "/", type: TrackType.Event, isAbstract: true) {}
     "/sell/list/zip_code/zip_code/search_zip_code"(platform: "/", type: TrackType.Event) {}
 
     "/sell/list/size_selection"(platform: "/", type: TrackType.View) {
