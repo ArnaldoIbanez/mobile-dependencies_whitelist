@@ -2,7 +2,7 @@
   "users": [
     "martin.maldonado@mercadolibre.com"
   ],
-  "process_name": "returns-intent-to-return",
+  "process_name": "returns-intent-to-return-v2",
   "cron": "",
   "extract": {
     "operation": "overwrite",
@@ -35,6 +35,22 @@
       {
         "name": "user_id",
         "type": "UNICODE_STRING"
+      },
+      {
+        "name": "loyalty_level",
+        "type": "INTEGER"
+      },
+      {
+        "name": "is_cart_order",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "item_category",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "item_category_l1",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
@@ -42,12 +58,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2018-02-12",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-61",
+          "value": "2018-04-11",
           "format": "yyyy-MM-dd"
         }
       ]
