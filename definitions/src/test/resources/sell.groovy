@@ -33,7 +33,7 @@ trackTests {
 
     test("Selected a photo album in the modify flow") {
         "/sell/update/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
-            session_id = "245084411-list-4519bc3c72aa"
+            item_id = "MLA1234"
             album_name = "Galería de fotos"
         }
     }

@@ -8,7 +8,7 @@ tracks {
     // Sell
     "/sell"(platform: "/", isAbstract: true) {}
     "/sell/list"(platform: "/", isAbstract: true){
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+        session_id(required: false, description: "Session id for a specific user flow", type: PropertyType.String)
     }
     "/sell/change_listing_type"(platform: "/web", isAbstract: true) {
         source(required: true, description: "Source could be differents types of email, my account, etc.", type: PropertyType.String)
@@ -393,8 +393,8 @@ tracks {
         item_id(required: false, description: "Item id", type: PropertyType.String)
     }
     "/sell/update/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-        album_name(required: false, description: "Album name", type: PropertyType.String)   
+        item_id(required: true, description: "Item id", type: PropertyType.String)
+        album_name(required: true, description: "Album name", type: PropertyType.String)
     }
     "/sell/update/pictures_uploader"(platform: "/", isAbstract: true) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
