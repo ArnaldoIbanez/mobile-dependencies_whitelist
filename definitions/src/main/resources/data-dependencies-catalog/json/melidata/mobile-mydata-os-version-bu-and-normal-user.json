@@ -19,7 +19,7 @@
           "format": "yyyy-MM-dd"
         }
       ],
-      "script": "melidata/mobile-mydata-os-version-bu-and-normal-user"
+      "script": "melidata/mobile-mydata-os-version-bu-and-normal-user.sql"
     },
     "columns": [
       {
