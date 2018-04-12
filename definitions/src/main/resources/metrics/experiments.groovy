@@ -36,6 +36,31 @@ metrics {
 		}
 	}
 
+	"search/brandCarrouselOnlyInCategs"(description: "extend experiment /search/brandCarrousel", parametricName: false) {
+		startWith {
+			condition {
+				and(
+						empty("experiments.search/brandCarrousel", false),
+						or(
+								like('event_data.category_path', '.*MLM5607(-|$).*'), //Tenis MLM
+								like('event_data.category_path', '.*MLM6585(-|$).*'), //Tenis MLM
+								like('event_data.category_path', '.*MLM158119(-|$).*'), //Refrigeradores MLM
+								like('event_data.category_path', '.*MLM1271(-|$).*'), //Perfumes MLM
+								like('event_data.category_path', '.*MLM180982(-|$).*'), //Maquillaje MLM
+								like('event_data.category_path', '.*MLM120666(-|$).*'), //Ropa deportiva MLM
+								like('event_data.category_path', '.*MLM182735(-|$).*') //Ropa deportiva MLM 
+						)
+				)
+			}
+
+			openBy {
+				"experiments.search/brandCarrousel"(default: "DEFAULT")
+			}
+
+		}
+	}
+
+
 
 	"relist_upgrade"(description: "An Item was relisted in a higher listing type than its parent") {
 		startWith {
