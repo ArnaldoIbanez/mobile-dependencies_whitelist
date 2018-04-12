@@ -44,7 +44,7 @@ metrics {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				and(
+				or(
 					like('event_data.items[0].item.category_path', '.*MLM5607(-|$).*'), //Tenis MLM
 					like('event_data.items[0].item.category_path', '.*MLM6585(-|$).*'), //Tenis MLM
 					like('event_data.items[0].item.category_path', '.*MLM158119(-|$).*'), //Refrigeradores MLM
