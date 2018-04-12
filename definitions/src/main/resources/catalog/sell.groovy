@@ -507,7 +507,7 @@ tracks {
 
     "/sell/update/modal_attributes"(platform: "/web", type: TrackType.View) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
-        condition(required: false, description: "Item condition", type: PropertyType.String)
+        condition(required: false, description: "Item condition", type: PropertyType.String, values:["new", "used", "not_specified", "refurbished"])
         empty_attrs_pk(required: false, description: "Quantity of attributes PK", type: PropertyType.Numeric)
         empty_attrs_not_pk(required: false, description: "Quantity of attributes not PK", type: PropertyType.Numeric)
     }
