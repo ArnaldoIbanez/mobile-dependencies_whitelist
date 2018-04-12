@@ -497,11 +497,11 @@ tracks {
     }
     "/sell/list/modal_attributes/submit"(platform: "/web", type: TrackType.Event) {
         domain_id(required: true, description: "Domain id", type: PropertyType.String)
-        attribute_id(required: true, description: "Attribute id", type: PropertyType.String)
-        option_selected(required: true, description: "Radio option selected", type: PropertyType.String)
         category_id(required: false, description: "Category Id", type: PropertyType.String)
         category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
-        hierarchy(required:false, description: "Attribute hierarchy", type: PropertyType.String)
+        attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
+        hierarchy(required: true, description: "Hierarchy attribute", values:["CHILD_DEPENDENT", "CHILD_PK", "FAMILY", "ITEM", "PARENT_PK", "PRODUCT_IDENTIFIER"], PropertyType.String)
+        option_selected(required: true, description: "Radio option selected", values:["completed", "no_data", "not_possible", "other"], PropertyType.String)
         value(required:true, description: "Value for attribute or feedback", type: PropertyType.String)
     }
 
@@ -513,8 +513,9 @@ tracks {
     }
     "/sell/update/modal_attributes/submit"(platform: "/web", type: TrackType.Event) {
         domain_id(required: true, description: "Domain id", type: PropertyType.String)
-        attribute_id(required: true, description: "Attribute id", type: PropertyType.String)
-        option_selected(required: true, description: "Radio option selected", type: PropertyType.String)
+        attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
+        hierarchy(required: true, description: "Hierarchy attribute", values:["CHILD_DEPENDENT", "CHILD_PK", "FAMILY", "ITEM", "PARENT_PK", "PRODUCT_IDENTIFIER"], PropertyType.String)
+        option_selected(required: true, description: "Radio option selected", values:["completed", "no_data", "not_possible", "other"], PropertyType.String)
     }
     
     "/sell/qr"(platform: "/", isAbstract: true) {}
