@@ -1,0 +1,51 @@
+import com.ml.melidata.catalog.PropertyType
+import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
+import com.ml.melidata.TrackType
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+tracks {
+
+// Questions
+    "/questions"(platform: "/mobile", isAbstract: true) {
+        item_id(required: false)
+        context()
+    }
+
+    "/questions/ask"(platform: "/") {}
+
+    "/questions/ask/post"(platform: "/", type: TrackType.Event) {
+        //TODO revisar si no conviene pasar failed() a otro path "/questions/ask/post/failed"
+        failed()
+        question_id(required: false, description: "it has no value if failed is true")
+    }
+
+    "/questions/ask/post" (platform: "/web", type: TrackType.Event) {
+        item_id()
+        action_location(required:false, type: PropertyType.String)
+    }
+
+    "/questions/ask/back"(platform: "/mobile", type: TrackType.Event) {
+    }
+
+    "/questions/answer"(platform: "/mobile") {
+        from_deeplink(required: false, description: "True, when it access from deeplink, otherwise not")
+    }
+
+    "/questions/answer/post"(platform: "/mobile", type: TrackType.Event) {
+        failed()
+        question_id(required: false, description: "it has no value if failed is true")
+        attach_id(required: false, description: "Attached Item id")
+    }
+
+    "/questions/answer/back"(platform: "/mobile", type: TrackType.Event) {
+    }
+
+    "/questions/back"(platform: "/mobile") {}
+
+    "/questions/list"(platform: "/mobile") {}
+
+}

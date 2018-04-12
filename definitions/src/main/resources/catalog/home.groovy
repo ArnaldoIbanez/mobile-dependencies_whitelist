@@ -10,6 +10,10 @@ tracks {
         retry_after_error(required: false)
     }
 
+    "/home"(platform: "/web", type: TrackType.View) {
+        from(required: false,  description: "Who is redirecting")
+    }
+
     "/home/failure"(platform: "/mobile", type: TrackType.Event) {
           error_message(required: false)
     }

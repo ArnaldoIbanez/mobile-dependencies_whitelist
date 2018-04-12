@@ -272,30 +272,30 @@ trackTests {
         }
 
         def vipTrack = {
-          item_id = "MLA631609359"
-          reviews_all_count = 3
-          reviews_negative_count = 0
-          vote_up = {
-            reviews_id = [1,2]
-            count = 2
-          }
-          vote_down = {
-            reviews_id = [3,4]
-            count = 2
-          }
-          reviews_positive_count = 0
-          reviews_shown = [
-            {
-              filter = "all"
-              length = 300
-              position = 2
-              reviewId = "3581337"
-              time = 27364
-              words = 52
+            item_id = "MLA631609359"
+            reviews_all_count = 3
+            reviews_negative_count = 0
+            vote_up = {
+                reviews_id = [1,2]
+                count = 2
             }
-          ]
-          time_ellapsed = 75211
-          type = "detail"
+            vote_down = {
+                reviews_id = [3,4]
+                count = 2
+            }
+            reviews_positive_count = 0
+            reviews_shown = [
+                    {
+                        filter = "all"
+                        length = 300
+                        position = 2
+                        reviewId = "3581337"
+                        time = 27364
+                        words = 52
+                    }
+            ]
+            time_ellapsed = 75211
+            type = "detail"
         }
 
         "/reviews/form"(platform:"/", dataSetForm)
@@ -588,174 +588,7 @@ trackTests {
         }
     }
 
-    test("Bookmark tracking in android") {
-        "/bookmarks/post" (platform:"/mobile", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
 
-        "/bookmarks/delete" (platform:"/mobile", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/action/post" (platform:"/mobile", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            action_location = "maininfo"
-        }
-
-        "/bookmarks/action/delete" (platform:"/mobile", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            action_location = "maininfo"
-        }
-    }
-
-    test("Bookmark tracking in web") {
-        "/bookmarks/action/post" (platform:"/web", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/action/post" (platform:"/web", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/vip"
-        }
-    }
-
-    test("Bookmarks tracking add to cart") {
-        "/bookmarks/add_to_cart" (type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-    }
-
-    test("Bookmarks tracking in all platforms") {
-
-        "/bookmarks/show_bookmarks" (type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/load_more" (type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/refresh" (type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/show_server_error" (type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/retry_after_error" (type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/show_not_logged_in_feedback" (type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/go_to_login" (type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/show_ZRP" (type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-    }
-
-
-
-    test("Questions tracking in web") {
-        "/questions/ask/post" (platform:"/web", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            failed = false
-        }
-    }
-
-    test("Questions") {
-
-        "/questions/list"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/vip"
-        }
-
-        "/questions/list"(platform: "/mobile") {
-            context = "/seller_questions"
-        }
-
-        "/questions/list"(platform: "/mobile") {
-            context = "/buyer_questions"
-        }
-
-        "/questions/ask"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/vip"
-        }
-
-        "/questions/ask/post"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/vip"
-            failed = false
-        }
-
-        "/questions/answer/post"(platform: "/mobile") {
-            context = "/questions"
-            item_id = "MLA12345"
-            question_id = "12346"
-            attach_id = "MLA12347"
-            failed = false
-        }
-
-        "/questions/ask/back"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/vip"
-        }
-
-        "/questions/answer"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/notifications"
-        }
-
-        "/questions/answer"(platform: "/mobile") {
-            context = "/questions"
-            item_id = "MLA12345"
-            from_deeplink = true
-        }
-
-        "/questions/answer/post"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/notifications"
-            failed = false
-        }
-
-        "/questions/answer/post"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/notifications"
-            failed = true
-        }
-
-        "/questions/answer/back"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/vip"
-        }
-
-
-        "/questions/back"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/vip"
-        }
-
-    }
 
     test("Checkout Basic Flow test. Legacy test for previous mobile versions") {
 
@@ -1336,9 +1169,9 @@ trackTests {
             checkoutStatus()
         }
 
-         "/checkout/billing/physical_person"(platform: "/mobile") {
+        "/checkout/billing/physical_person"(platform: "/mobile") {
             checkoutStatus()
-         }
+        }
         "/checkout/billing/legal_person"(platform: "/mobile") {
             checkoutStatus()
         }
@@ -5500,48 +5333,48 @@ trackTests {
                 id = 'MLA713079054'
                 price = '300'
                 original_price = '1000'
-                sale_terms = [  
-                  {  
-                     id = "LOYALTY_LEVEL_6"
-                     name = "Precio por nivel 6 de loyalty"
-                     value_id = null
-                     value_name = "25 ARS"
-                     value_struct = {  
-                        number = 25
-                        unit = "ARS"
-                     }
-                  },
-                  {  
-                     id = "LOYALTY_LEVEL_5"
-                     name = "Precio por nivel 5 de loyalty"
-                     value_id = null
-                     value_name = "25 ARS"
-                     value_struct = {  
-                        number = 25
-                        unit = "ARS"
-                     }
-                  },
-                  {  
-                     id = "LOYALTY_LEVEL_4"
-                     name = "Precio por nivel 4 de loyalty"
-                     value_id = null
-                     value_name = "25 ARS"
-                     value_struct = {  
-                        number = 25
-                        unit = "ARS"
-                     }
-                  },
-                  {  
-                     id = "LOYALTY_LEVEL_3"
-                     name = "Precio por nivel 3 de loyalty"
-                     value_id = null
-                     value_name = "25 ARS"
-                     value_struct = {  
-                        number = 25
-                        unit = "ARS"
-                     }
-                  }
-               ]
+                sale_terms = [
+                        {
+                            id = "LOYALTY_LEVEL_6"
+                            name = "Precio por nivel 6 de loyalty"
+                            value_id = null
+                            value_name = "25 ARS"
+                            value_struct = {
+                                number = 25
+                                unit = "ARS"
+                            }
+                        },
+                        {
+                            id = "LOYALTY_LEVEL_5"
+                            name = "Precio por nivel 5 de loyalty"
+                            value_id = null
+                            value_name = "25 ARS"
+                            value_struct = {
+                                number = 25
+                                unit = "ARS"
+                            }
+                        },
+                        {
+                            id = "LOYALTY_LEVEL_4"
+                            name = "Precio por nivel 4 de loyalty"
+                            value_id = null
+                            value_name = "25 ARS"
+                            value_struct = {
+                                number = 25
+                                unit = "ARS"
+                            }
+                        },
+                        {
+                            id = "LOYALTY_LEVEL_3"
+                            name = "Precio por nivel 3 de loyalty"
+                            value_id = null
+                            value_name = "25 ARS"
+                            value_struct = {
+                                number = 25
+                                unit = "ARS"
+                            }
+                        }
+                ]
             }
             percentage = 70
             type = "LOW_LOYAL"
@@ -5669,7 +5502,7 @@ trackTests {
             item_id="MLM12345"
             category_id="CAT123"
         }
-        
+
         "/subscriptions_landing"(platform: "/", type: TrackType.View) {}
 
         "/subscriptions_landing/select_item_slide"(platform: "/", type: TrackType.Event) {
@@ -5743,7 +5576,7 @@ trackTests {
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     test("Test invoice flow tracking") {
-        
+
         "/myml/invoices/review"(platform: "/") {}
         "/myml/invoices/review/create_invoice"(platform: "/", type: TrackType.Event) {}
     }

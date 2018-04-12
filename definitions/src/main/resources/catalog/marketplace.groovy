@@ -127,108 +127,6 @@ tracks {
         reviews_shown(required: false, type: PropertyType.ArrayList)
     }
 
-    //BOOKMARKS
-
-    "/bookmarks/action"(platform: "/mobile", isAbstract: true) {}
-
-    "/bookmarks"(platform: "/", type: TrackType.Event, isAbstract: true) {
-        item_id(required: false)
-        context(required: false)
-    }
-
-    //deprecated: true
-    "/bookmarks/post"(platform: "/mobile", type: TrackType.Event) {
-        item_id()
-    }
-
-    //deprecated: true
-    "/bookmarks/delete"(platform: "/mobile", type: TrackType.Event) {
-        item_id()
-    }
-
-    "/bookmarks/action/post"(platform: "/mobile", type: TrackType.Event) {
-        item_id()
-        action_location(required:false, type: PropertyType.String)
-    }
-
-    "/bookmarks/action/delete"(platform: "/mobile", type: TrackType.Event) {
-        item_id()
-        action_location(required:false, type: PropertyType.String)
-    }
-
-    //Bookmark and question tracking from feeds for Emkt
-    "/bookmarks/action/post" (platform: "/web", type: TrackType.Event) {
-        item_id()
-        context()
-        action_location(required:false, type: PropertyType.String)
-    }
-    //Bookmark add to Cart
-    "/bookmarks/add_to_cart" (platform: "/", type: TrackType.Event) {}
-
-    //Bookmark show
-    "/bookmarks/show_bookmarks"(platform: "/", type: TrackType.Event) {}
-
-    //Bookmark load more
-    "/bookmarks/load_more"(platform: "/", type: TrackType.Event) {}
-
-    //Bookmarks refresh view
-    "/bookmarks/refresh"(platform: "/", type: TrackType.Event) {}
-
-    //Bookmarks Server error view
-    "/bookmarks/show_server_error"(platform: "/", type: TrackType.Event) {}
-
-    //Bookmarks Retry
-    "/bookmarks/retry_after_error"(platform: "/", type: TrackType.Event) {}
-
-    //Bookmarks If doesn't have session show feedback
-    "/bookmarks/show_not_logged_in_feedback"(platform: "/", type: TrackType.Event) {}
-
-    //Bookmarks Go to Login
-    "/bookmarks/go_to_login"(platform: "/", type: TrackType.Event) {}
-
-    //Bookmarks show ZRP
-    "/bookmarks/show_ZRP"(platform: "/", type: TrackType.Event) {}
-
-    "/questions/ask/post" (platform: "/web", type: TrackType.Event) {
-        item_id()
-        action_location(required:false, type: PropertyType.String)
-    }
-
-    // Questions
-    "/questions"(platform: "/mobile", isAbstract: true) {
-        item_id(required: false)
-        context()
-    }
-
-    "/questions/list"(platform: "/mobile") {}
-
-    "/questions/ask"(platform: "/mobile") {}
-
-    "/questions/ask/post"(platform: "/", type: TrackType.Event) {
-        //TODO revisar si no conviene pasar failed() a otro path "/questions/ask/post/failed"
-        failed()
-        question_id(required: false, description: "it has no value if failed is true")
-    }
-
-    "/questions/ask/back"(platform: "/mobile", type: TrackType.Event) {
-    }
-
-    "/questions/answer"(platform: "/mobile") {
-        from_deeplink(required: false, description: "True, when it access from deeplink, otherwise not")
-    }
-
-    "/questions/answer/post"(platform: "/mobile", type: TrackType.Event) {
-        failed()
-        question_id(required: false, description: "it has no value if failed is true")
-        attach_id(required: false, description: "Attached Item id")
-    }
-
-    "/questions/answer/back"(platform: "/mobile", type: TrackType.Event) {
-    }
-
-    "/questions/back"(platform: "/mobile") {}
-
-
     // PAYMENTS FLOW
 
     "/payments"(platform: "/mobile", type: TrackType.View) {
@@ -384,8 +282,10 @@ tracks {
         category_id(required: true,  description: "Home's category")
     }
 
-    "/home"(platform: "/web", type: TrackType.View) {
-        from(required: false,  description: "Who is redirecting")
+    // Real estate page view
+    "/home/category/real-estate"(platform: "/", type: TrackType.View) {
+        filters(required: false, description: "Filter applied in the last search")
+        carousels(required: false, description: "Carousels in the home page to the properties")
     }
 
     "/permissions"(platform: "/mobile", isAbstract: true){}
@@ -398,13 +298,6 @@ tracks {
     "/permissions/location/native"(platform: "/mobile", isAbstract: true){}
     "/permissions/location/native/accept"(platform: "/mobile", type: TrackType.Event){}
     "/permissions/location/native/deny"(platform: "/mobile", type: TrackType.Event){}
-
-    // Real estate page view
-    "/home/category/real-estate"(platform: "/", type: TrackType.View) {
-        filters(required: false, description: "Filter applied in the last search")
-        carousels(required: false, description: "Carousels in the home page to the properties")
-    }
-
 
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
