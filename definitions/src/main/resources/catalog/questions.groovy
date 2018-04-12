@@ -10,13 +10,15 @@ import com.ml.melidata.TrackType
 tracks {
 
 // Questions
-    "/questions"(platform: "/mobile", isAbstract: true) {
+    "/questions"(platform: "/", isAbstract: true) {
         item_id(required: false)
-        context()
     }
-
-    "/questions/ask"(platform: "/") {}
-
+    "/questions/ask"(platform: "/", isAbstract: true) {
+        context(required:true ,description: "The page or section where the questions action is taking place" , values: ["/vip","/bookmarks","/questions","/notifications"])
+    }
+    "/questions/answer"(platform: "/", isAbstract: true) {
+        context(required:true ,description: "The page or section where the questions action is taking place" , values: ["/questions","/notifications"])
+    }
     "/questions/ask/post"(platform: "/", type: TrackType.Event) {
         //TODO revisar si no conviene pasar failed() a otro path "/questions/ask/post/failed"
         failed()
@@ -42,10 +44,12 @@ tracks {
     }
 
     "/questions/answer/back"(platform: "/mobile", type: TrackType.Event) {
+        context(required:true ,description: "The page or section where the questions action is taking place" , values: ["/vip"])
     }
 
-    "/questions/back"(platform: "/mobile") {}
+    "/questions/back"(platform: "/mobile") {
+        context(required:true ,description: "The page or section where the questions action is taking place" , values: ["/vip"])
+    }
 
-    "/questions/list"(platform: "/mobile") {}
 
 }
