@@ -38,25 +38,22 @@ metrics {
 
 	"search/brandCarrouselOnlyInCategs"(description: "extend experiment /search/brandCarrousel", parametricName: false) {
 		startWith {
+			experiment("search/brandCarrousel")
+		}
+
+		countsOn {
 			condition {
+				path("/orders/ordercreated")
 				and(
-						empty("experiments.search/brandCarrousel", false),
-						or(
-								like('event_data.category_path', '.*MLM5607(-|$).*'), //Tenis MLM
-								like('event_data.category_path', '.*MLM6585(-|$).*'), //Tenis MLM
-								like('event_data.category_path', '.*MLM158119(-|$).*'), //Refrigeradores MLM
-								like('event_data.category_path', '.*MLM1271(-|$).*'), //Perfumes MLM
-								like('event_data.category_path', '.*MLM180982(-|$).*'), //Maquillaje MLM
-								like('event_data.category_path', '.*MLM120666(-|$).*'), //Ropa deportiva MLM
-								like('event_data.category_path', '.*MLM182735(-|$).*') //Ropa deportiva MLM 
-						)
+					like('event_data.items[0].item.category_path', '.*MLM5607(-|$).*'), //Tenis MLM
+					like('event_data.items[0].item.category_path', '.*MLM6585(-|$).*'), //Tenis MLM
+					like('event_data.items[0].item.category_path', '.*MLM158119(-|$).*'), //Refrigeradores MLM
+					like('event_data.items[0].item.category_path', '.*MLM1271(-|$).*'), //Perfumes MLM
+					like('event_data.items[0].item.category_path', '.*MLM180982(-|$).*'), //Maquillaje MLM
+					like('event_data.items[0].item.category_path', '.*MLM120666(-|$).*'), //Ropa deportiva MLM
+					like('event_data.items[0].item.category_path', '.*MLM182735(-|$).*') //Ropa deportiva MLM 
 				)
 			}
-
-			openBy {
-				"experiments.search/brandCarrousel"(default: "DEFAULT")
-			}
-
 		}
 	}
 
