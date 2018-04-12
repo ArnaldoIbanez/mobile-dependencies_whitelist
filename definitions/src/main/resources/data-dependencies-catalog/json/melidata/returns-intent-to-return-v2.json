@@ -1,11 +1,11 @@
 {
   "users": [
-    "tomas.auchterlonie@mercadolibre.com"
+    "martin.maldonado@mercadolibre.com"
   ],
   "process_name": "returns-intent-to-return",
-  "cron": "00 11 * * *",
+  "cron": "",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "fecha",
@@ -38,7 +38,7 @@
       }
     ],
     "sql": {
-      "script": "returns/intent-to-return.sql",
+      "script": "returns/intent-to-return-v2.sql",
       "parameters": [
         {
           "name": "param01",
@@ -47,7 +47,7 @@
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "DAY-61",
           "format": "yyyy-MM-dd"
         }
       ]
