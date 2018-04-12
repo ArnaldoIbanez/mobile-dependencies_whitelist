@@ -43,10 +43,6 @@ tracks {
         attach_id(required: false, description: "Attached Item id")
     }
 
-    "/questions/answer/back"(platform: "/mobile", type: TrackType.Event) {
-        context(required:true ,description: "The page or section where the questions action is taking place" , values: ["/vip"])
-    }
-
     "/questions/back"(platform: "/mobile") {
         context(required:true ,description: "The page or section where the questions action is taking place" , values: ["/vip"])
     }

@@ -62,12 +62,6 @@ trackTests {
             failed = true
         }
 
-        "/questions/answer/back"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/vip"
-        }
-
-
         "/questions/back"(platform: "/mobile") {
             item_id = "MLA12345"
             context = "/vip"
