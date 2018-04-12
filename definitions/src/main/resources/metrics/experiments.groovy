@@ -224,16 +224,5 @@ metrics {
 			}
 		}
 	}
-
-    "mclics/upper-funnel"(description: "upper funnel experiment for pads") {
-        startWith {
-            path("/search")
-            condition {
-                and(
-                    empty('experiments.mclics/upper-funnel', false)
-                    equals('event_data.upper_funnel', true)
-                )
-            }
-        }
-    }
+	
 }
