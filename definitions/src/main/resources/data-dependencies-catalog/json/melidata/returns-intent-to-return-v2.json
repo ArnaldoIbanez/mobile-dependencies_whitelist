@@ -5,7 +5,7 @@
   "process_name": "returns-intent-to-return-v2",
   "cron": "",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
         "name": "fecha",
@@ -58,12 +58,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2018-03-12",
+          "value": "2018-02-12",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "2018-04-11",
+          "value": "2018-03-12",
           "format": "yyyy-MM-dd"
         }
       ]
