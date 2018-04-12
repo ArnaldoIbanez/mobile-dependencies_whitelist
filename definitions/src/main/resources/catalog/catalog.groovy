@@ -63,6 +63,7 @@ catalog {
         include business, "make_an_offer.groovy"
         include business, "marketplace.groovy"
         include business, "mediations.groovy"
+        include business, "melidata_sdk.groovy"
         include business, "myml.groovy"
         include business, "notifications.groovy"
         include business, "onboarding.groovy"
