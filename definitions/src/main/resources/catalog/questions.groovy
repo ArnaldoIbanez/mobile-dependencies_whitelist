@@ -10,7 +10,8 @@ import com.ml.melidata.TrackType
 tracks {
 
 // Questions
-    "/questions"(platform: "/", isAbstract: true) {
+
+    "/questions"(platform: "/") { // THIS IS A VIP MOBILE TRACK THAT TRACKS THE VIEW OF QUESTIONS LISTS FROM VIP
         item_id(required: false)
     }
     "/questions/ask"(platform: "/", isAbstract: true) {
