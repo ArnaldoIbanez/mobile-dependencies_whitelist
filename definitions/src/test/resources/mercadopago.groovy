@@ -2568,4 +2568,11 @@ trackTests {
             uri = "/guides"
         }
     }
+
+    test("free data") {
+
+        "/free_navigation/not_available"(platform:"/mobile", type:TrackType.Event) {}
+
+        "/free_navigation/wifi"(platform:"/mobile", type:TrackType.Event) {}
+    }
 }
