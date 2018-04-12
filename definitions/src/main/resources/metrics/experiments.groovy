@@ -45,13 +45,13 @@ metrics {
 			condition {
 				path("/orders/ordercreated")
 				or(
-					like('event_data.items[0].item.category_path', '.*MLM5607(-|$).*'), //Tenis MLM
-					like('event_data.items[0].item.category_path', '.*MLM6585(-|$).*'), //Tenis MLM
-					like('event_data.items[0].item.category_path', '.*MLM158119(-|$).*'), //Refrigeradores MLM
-					like('event_data.items[0].item.category_path', '.*MLM1271(-|$).*'), //Perfumes MLM
-					like('event_data.items[0].item.category_path', '.*MLM180982(-|$).*'), //Maquillaje MLM
-					like('event_data.items[0].item.category_path', '.*MLM120666(-|$).*'), //Ropa deportiva MLM
-					like('event_data.items[0].item.category_path', '.*MLM182735(-|$).*') //Ropa deportiva MLM 
+					like('event_data.items.item.category_path', '.*MLM5607(-|$).*'), //Tenis MLM
+					like('event_data.items.item.category_path', '.*MLM6585(-|$).*'), //Tenis MLM
+					like('event_data.items.item.category_path', '.*MLM158119(-|$).*'), //Refrigeradores MLM
+					like('event_data.items.item.category_path', '.*MLM1271(-|$).*'), //Perfumes MLM
+					like('event_data.items.item.category_path', '.*MLM180982(-|$).*'), //Maquillaje MLM
+					like('event_data.items.item.category_path', '.*MLM120666(-|$).*'), //Ropa deportiva MLM
+					like('event_data.items.item.category_path', '.*MLM182735(-|$).*') //Ropa deportiva MLM 
 				)
 			}
 		}
