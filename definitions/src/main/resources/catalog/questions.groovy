@@ -11,7 +11,7 @@ tracks {
 
 // Questions
 
-    "/questions"(platform: "/") { // THIS IS A VIP MOBILE TRACK THAT TRACKS THE VIEW OF QUESTIONS LISTS FROM VIP
+    "/questions"(platform: "/", isAbstract: true) { // THIS IS A VIP MOBILE TRACK THAT TRACKS THE VIEW OF QUESTIONS LISTS FROM VIP
         item_id(required: false)
     }
     "/questions/ask"(platform: "/", isAbstract: true) {
