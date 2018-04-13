@@ -1,11 +1,11 @@
 {
   "users": [
-    "tomas.auchterlonie@mercadolibre.com"
+    "martin.maldonado@mercadolibre.com"
   ],
-  "process_name": "returns-intent-to-return",
-  "cron": "00 11 * * *",
+  "process_name": "returns-intent-to-return-v2",
+  "cron": "",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "fecha",
@@ -35,19 +35,35 @@
       {
         "name": "user_id",
         "type": "UNICODE_STRING"
+      },
+      {
+        "name": "loyalty_level",
+        "type": "INTEGER"
+      },
+      {
+        "name": "is_cart_order",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "item_category",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "item_category_l1",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "returns/intent-to-return.sql",
+      "script": "returns/intent-to-return-v2.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2018-02-12",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "2018-03-12",
           "format": "yyyy-MM-dd"
         }
       ]
