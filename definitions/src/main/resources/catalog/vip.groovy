@@ -47,7 +47,12 @@ tracks {
         reservation_price(required: false, description: "Price of the reservation")
         quotation_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item can be quoted (cotizado)")
-        comparator_available(required: false, description: "Indicates if clasi item has model comparator available")
+        comparator_available(required: false, type: PropertyType.Boolean,
+                description: "Indicates if clasi item has model comparator available")
+        gallery_pattern(required: false, type: PropertyType.String,
+                description: "String in which each char indicates if the image's maxSize is bigger than the " +
+                        "double of the gallery size ('X'), smaller than the double but bigger than de gallery size ('Y'), " +
+                        "or smaller than the gallery size ('Z')")
 
         // OFFICIAL_STORES
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
