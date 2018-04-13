@@ -30,6 +30,8 @@ tracks {
                 description: "The rating average of the reviews")
         reviews_attributes(required: false, type: PropertyType.ArrayList, inheritable: false,
                 description: "Reviewable catalog attribute names")
+        shipping_preference(required: false, type: PropertyType.String,
+                description: "Shipping method's name shown when the user has zipcode/location preloaded")
         return_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has free return for the item")
 
@@ -42,9 +44,10 @@ tracks {
                 description: "Seller's reputation level")
 
         // CLASI FIELDS
-        reservation_price(required: false, description: "")
+        reservation_price(required: false, description: "Price of the reservation")
         quotation_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item can be quoted (cotizado)")
+        comparator_available(required: false, description: "Indicates if clasi item has model comparator available")
 
         // OFFICIAL_STORES
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
@@ -65,6 +68,14 @@ tracks {
         cart_content(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the VIP has cart features (only for core items)")
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
+
+        // SUBSCRIPTIONS (ONLY CORE)
+        available_subscriptions(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item has available subscriptions")
+        subscription_discount(required: false, type: PropertyType.Numeric,
+                description: "The value of the discount when the user subscribes to the item")
+        default_tab(required: false, type: PropertyType.String, values: ["buy", "subscription"],
+                description: "Indicates if the 'buy' tab or the 'subscription' tab is shown by default in the short description")
     }
 
     "/vip"(platform: "/web") {
