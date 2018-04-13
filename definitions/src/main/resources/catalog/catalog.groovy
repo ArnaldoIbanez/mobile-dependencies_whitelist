@@ -58,6 +58,7 @@ catalog {
         include business, "denounce.groovy"
         include business, "email.groovy"
         include business, "freeData.groovy"
+        include business, "fulfillment.groovy"
         include business, "home.groovy"
         include business, "loyalty.groovy"
         include business, "make_an_offer.groovy"
