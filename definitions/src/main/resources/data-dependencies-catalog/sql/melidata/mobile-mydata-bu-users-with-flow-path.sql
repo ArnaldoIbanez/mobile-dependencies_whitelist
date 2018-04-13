@@ -1,4 +1,4 @@
-select count (distinct usr) as total, 
+select count (distinct usr.user_id) as total, 
 device.platform as platform, 
 path as path, 
 application.site_id as country, 
