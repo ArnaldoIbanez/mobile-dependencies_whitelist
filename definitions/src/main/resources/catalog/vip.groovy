@@ -56,8 +56,7 @@ tracks {
 
         // OFFICIAL_STORES
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
-        // TODO: store type sigue teniendo sentido? Ya no existen la tiendas premium
-        store_type(required: false, type: PropertyType.String, values: ["brand"], description: "Indicates store type")
+        store_type(required: false, type: PropertyType.String, values: ["normal", "brand"], description: "Indicates store type")
 
         // SHIPPING ( NOT PRESENT IN CLASI )
         shipping_mode(required: false, type: PropertyType.String, values: ["not_specified", "custom", "me1", "me2"],
@@ -86,8 +85,8 @@ tracks {
 
     "/vip"(platform: "/web") {
         specifications_size(required: false, type: PropertyType.Numeric, description: "Specifications attributes quantity")
-        // TODO: ver si ya se apagaron las descripciones html. En tal caso, podriamos sacar este track
-        description_type(required: false, description: "Description type: plain text, html, both, none", values: ["plain_text", "html", "both", "none"])
+        description_type(required: false, description: "Description type: plain text, html, both, none",
+                values: ["plain_text", "html", "both", "none"])
         max_size_gallery(required: false, type: PropertyType.String, description: "Max_size of first picture gallery")
     }
 
