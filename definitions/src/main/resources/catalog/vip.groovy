@@ -60,15 +60,16 @@ tracks {
         store_type(required: false, type: PropertyType.String, values: ["brand"], description: "Indicates store type")
 
         // SHIPPING ( NOT PRESENT IN CLASI )
-        // TODO varios de estos datos no los estamos mandando (al menos en web). Ver por qué
         shipping_mode(required: false, type: PropertyType.String, values: ["not_specified", "custom", "me1", "me2"],
                 description: "Mercado Envios mode")
         free_shipping(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the items has free shipping")
         local_pick_up(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has local pick up")
-        fulfillment(required: false, type: PropertyType.Boolean, description: "Indicates if the item has fulfillment")
-        free_shipping_benefit(required: false, type: PropertyType.Boolean, description: "Indicates if the user has free shipping benefit")
+        logistic_type(required: false, values: ["drop_off", "custom", "cross_docking", "fulfillment"],
+                type: PropertyType.String, description: "Indicates the logistic type of the item")
+        free_shipping_benefit(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the user has free shipping for loyalty benefit")
 
         cart_content(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the VIP has cart features (only for core items)")
@@ -91,8 +92,6 @@ tracks {
     }
 
     "/vip"(platform: "/mobile") {
-        //TODO: por que esta category_id repetido?
-        category_id(required: false, description: "Item's category id")
         context(required: false)
         resolution(required: false, description: "Indicates if the device has high or low resolution")
     }
