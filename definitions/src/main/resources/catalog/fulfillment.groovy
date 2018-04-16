@@ -13,7 +13,7 @@ tracks {
     //View
     "/fbm/landing"(platform: "/", type: TrackType.View) {}
 
-    //Contact Me Button
+    //Contact me Button
     "/fbm/landing/contact_me"(platform: "/", type: TrackType.Event) {
         location(
             required: true,
@@ -27,7 +27,7 @@ tracks {
         faq(
             required: true,
             type: PropertyType.String,
-            description: "Wich FAQ has been opened."
+            description: "Which FAQ has been opened."
         )
     }
 
