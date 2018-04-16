@@ -4,10 +4,10 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    "/push_checkout_recovery"(platform: "/", type: TrackType.View) {
-        item_status(required: false, type: PropertyType.String, description: "main item status (no-stock, inative, etc)")
+    "/push_checkout_recovery"(platform: "/web/mobile", type: TrackType.View) {
+        item_status(required: true, type: PropertyType.String, description: "main item status (no-stock, inative, etc)")
     }
-    "/push_checkout_recovery/error"(platform: "/", type: TrackType.View) {}
-    "/push_checkout_recovery/notfound"(platform: "/", type: TrackType.View) {}
+    "/push_checkout_recovery/error"(platform: "/web/mobile", type: TrackType.View) {}
+    "/push_checkout_recovery/notfound"(platform: "/web/mobile", type: TrackType.View) {}
 
 }
