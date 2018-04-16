@@ -5575,8 +5575,12 @@ trackTests {
         "/push_checkout_recovery" (platform:"/web/mobile", type: TrackType.View) {
             item_status = "inactive"
         }
-        "/push_checkout_recovery/error" (platform:"/web/mobile", type: TrackType.View) {}
-        "/push_checkout_recovery/notfound" (platform:"/web/mobile", type: TrackType.View) {}
+        "/push_checkout_recovery/error" (platform:"/web/mobile", type: TrackType.View) {
+            item_status = "inactive"
+        }
+        "/push_checkout_recovery/notfound" (platform:"/web/mobile", type: TrackType.View) {
+            item_status = "inactive"
+        }
     }
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 // TRACKS MYML Invoices
