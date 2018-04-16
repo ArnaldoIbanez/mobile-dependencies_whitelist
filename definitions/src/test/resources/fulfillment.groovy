@@ -12,6 +12,8 @@ trackTests {
 
         //Views
         "/fbm/landing"(platform: "/", type: TrackType.View) {}
+        "/fbm/landing/optin"(platform: "/", type: TrackType.View) {}
+        "/fbm/landing/congrats"(platform: "/", type: TrackType.View) {}
 
         //Events
         "/fbm/landing/contact_me"(platform: "/", type: TrackType.Event) { location = "top" }
@@ -22,6 +24,7 @@ trackTests {
         "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "send_inventory_from_supplier"}
         "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "fees"}
         "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "manage_inventory"}
+        "/fbm/landing/cancel_opt_in"(platform: "/", type: TrackType.Event) { }
 
     }
 }
