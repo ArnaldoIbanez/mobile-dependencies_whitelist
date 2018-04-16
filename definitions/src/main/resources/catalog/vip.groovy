@@ -23,17 +23,19 @@ tracks {
                 description: "Listing type of the item")
         item_status(required: true, type: PropertyType.String, values: ["active", "closed", "paused"],
                 description: "Whenever the items is active, closed or paused")
+        deal_ids(required: true, type: PropertyType.ArrayList, description: "IDs of applied discounts")
+
+        // ONLY CORE FIELDS
         quantity( required: false, type: PropertyType.Numeric, description: "Available items quantity show at this vip")
         item_price(required: false, type: PropertyType.Map, description: "Indicates the item price in different currencies")
-        deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         review_rate(required: false, type: PropertyType.Numeric, inheritable: false,
                 description: "The rating average of the reviews")
         reviews_attributes(required: false, type: PropertyType.ArrayList, inheritable: false,
                 description: "Reviewable catalog attribute names")
-        shipping_preference(required: false, type: PropertyType.String,
-                description: "Shipping method's name shown when the user has zipcode/location preloaded")
         return_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has free return for the item")
+        cart_content(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the VIP has cart features (only for core items)")
 
         //SELLER FIELDS
         seller_id(required: true, type: PropertyType.Numeric)
@@ -59,6 +61,8 @@ tracks {
         store_type(required: false, type: PropertyType.String, values: ["normal", "brand"], description: "Indicates store type")
 
         // SHIPPING ( NOT PRESENT IN CLASI )
+        shipping_preference(required: false, type: PropertyType.String,
+                description: "Shipping method's name shown when the user has zipcode/location preloaded")
         shipping_mode(required: false, type: PropertyType.String, values: ["not_specified", "custom", "me1", "me2"],
                 description: "Mercado Envios mode")
         free_shipping(required: false, type: PropertyType.Boolean,
@@ -70,8 +74,7 @@ tracks {
         free_shipping_benefit(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has free shipping for loyalty benefit")
 
-        cart_content(required: false, type: PropertyType.Boolean,
-                description: "Indicates if the VIP has cart features (only for core items)")
+        // USER FIELD
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
 
         // SUBSCRIPTIONS (ONLY CORE)
