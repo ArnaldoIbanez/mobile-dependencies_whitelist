@@ -14,8 +14,7 @@ tracks {
     "/fbm/landing"(platform: "/", type: TrackType.View) {}
     "/fbm/landing/optin"(platform: "/", type: TrackType.View) {}
     "/fbm/landing/congrats"(platform: "/", type: TrackType.View) {}
-
-
+    
     //Contact me Button
     "/fbm/landing/contact_me"(platform: "/", type: TrackType.Event) {
         location(
@@ -34,7 +33,7 @@ tracks {
         )
     }
 
-    //FAQs about Fulfillment
+    //Cancel Fulfillment Opt-in
     "/fbm/landing/cancel_opt_in"(platform: "/", type: TrackType.Event) { }
 
 }
