@@ -14,15 +14,14 @@ trackTests {
         "/fbm/landing"(platform: "/", type: TrackType.View) {}
 
         //Events
-        "/fbm/landing/contact_me_button_top"(platform: "/", type: TrackType.Event) {}
-        "/fbm/landing/contact_me_button_bottom"(platform: "/", type: TrackType.Event) {}
-        "/fbm/landing/open_faq_opt_in"(platform: "/", type: TrackType.Event) {}
-        "/fbm/landing/open_faq_dc_location"(platform: "/", type: TrackType.Event) {}
-        "/fbm/landing/open_faq_send_my_inventory"(platform: "/", type: TrackType.Event) {}
-        "/fbm/landing/open_faq_send_inventory_from_supplier"(platform: "/", type: TrackType.Event) {}
-        "/fbm/landing/open_faq_fees"(platform: "/", type: TrackType.Event) {}
-        "/fbm/landing/open_faq_manage_inventory"(platform: "/", type: TrackType.Event) {}
-        "/fbm/landing/hotjar"(platform: "/", type: TrackType.Event) { hotjar_user_id = 1234567890 }
+        "/fbm/landing/contact_me"(platform: "/", type: TrackType.Event) { location = "top" }
+        "/fbm/landing/contact_me"(platform: "/", type: TrackType.Event) { location = "bottom"}
+        "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "opt_in"}
+        "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "dc_location"}
+        "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "send_my_inventory"}
+        "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "send_inventory_from_supplier"}
+        "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "fees"}
+        "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "manage_inventory"}
 
     }
 }

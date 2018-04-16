@@ -13,26 +13,21 @@ tracks {
     //View
     "/fbm/landing"(platform: "/", type: TrackType.View) {}
 
-    //Contact me Button at the Top of the page
-    "/fbm/landing/contact_me_button_top"(platform: "/", type: TrackType.Event) {}
-
-    //Contact me Button at the Bottom of the page
-    "/fbm/landing/contact_me_button_bottom"(platform: "/", type: TrackType.Event) {}
+    //Contact Me Button
+    "/fbm/landing/contact_me"(platform: "/", type: TrackType.Event) {
+        location(
+            required: true,
+            type: PropertyType.String,
+            description: "Location of the CTA Button."
+        )
+    }
 
     //FAQs about Fulfillment
-    "/fbm/landing/open_faq_opt_in"(platform: "/", type: TrackType.Event) {}
-    "/fbm/landing/open_faq_dc_location"(platform: "/", type: TrackType.Event) {}
-    "/fbm/landing/open_faq_send_my_inventory"(platform: "/", type: TrackType.Event) {}
-    "/fbm/landing/open_faq_send_inventory_from_supplier"(platform: "/", type: TrackType.Event) {}
-    "/fbm/landing/open_faq_fees"(platform: "/", type: TrackType.Event) {}
-    "/fbm/landing/open_faq_manage_inventory"(platform: "/", type: TrackType.Event) {}
-
-    //Hotjar
-    "/fbm/landing/hotjar"(platform: "/", type: TrackType.Event) {
-        hotjar_user_id(
+    "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) {
+        faq(
             required: true,
-            type: PropertyType.Numeric,
-            description: "Recording id of hotjar."
+            type: PropertyType.String,
+            description: "Wich FAQ has been opened."
         )
     }
 
