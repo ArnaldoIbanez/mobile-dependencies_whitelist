@@ -70,10 +70,12 @@ catalog {
         include business, "quotation.groovy"
         include business, "questions.groovy"
         include business, "referralprogram.groovy"
+        include business, "reviews.groovy"
         include business, "returns.groovy"
         include business, "search.groovy"
         include business, "sell.groovy"
         include business, "structuredData.groovy"
+        include business, "subscriptions.groovy"
         include business, "vip.groovy"
     }
 
