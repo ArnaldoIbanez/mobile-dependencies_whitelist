@@ -36,6 +36,7 @@ metrics {
 		}
 	}
 
+	// TODO REMOVE WHEN THIS EXPERIMENT IS OVER
 	"orders.InCarrouselCategories"(description: "extend experiment /search/brandCarrousel", parametricName: false, compute_order: true) {
 		startWith {
 			experiment("search/brandCarrousel")
@@ -45,18 +46,19 @@ metrics {
 			condition {
 				path("/orders/ordercreated")
 				or(
-					like('event_data.items.item.category_path', '.*MLM5607(-|$).*'), //Tenis MLM
-					like('event_data.items.item.category_path', '.*MLM6585(-|$).*'), //Tenis MLM
-					like('event_data.items.item.category_path', '.*MLM158119(-|$).*'), //Refrigeradores MLM
-					like('event_data.items.item.category_path', '.*MLM1271(-|$).*'), //Perfumes MLM
-					like('event_data.items.item.category_path', '.*MLM180982(-|$).*'), //Maquillaje MLM
-					like('event_data.items.item.category_path', '.*MLM120666(-|$).*'), //Ropa deportiva MLM
-					like('event_data.items.item.category_path', '.*MLM182735(-|$).*') //Ropa deportiva MLM
+					like('event_data.items.item.category_path', '."MLM5607".*'), //Tenis MLM
+					like('event_data.items.item.category_path', '.*"MLM6585".*'), //Tenis MLM//
+					like('event_data.items.item.category_path', '.*"MLM1002".*'), //Televisores MLML
+					like('event_data.items.item.category_path', '.*"MLM158119".*'), //Refrigeradores MLM
+					like('event_data.items.item.category_path', '.*"MLM1271".*'), //Perfumes MLM
+					like('event_data.items.item.category_path', '.*"MLM180982".*'), //Maquillaje MLM
+					like('event_data.items.item.category_path', '.*"MLM120666".*'), //Ropa deportiva MLM
+					like('event_data.items.item.category_path', '.*"MLM182735".*') //Ropa deportiva MLM
 				)
 			}
 		}
 	}
-	
+
 	"relist_upgrade"(description: "An Item was relisted in a higher listing type than its parent") {
 		startWith {
 			experiment("sell/full_relist_single_item")

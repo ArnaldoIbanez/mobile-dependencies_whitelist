@@ -7,7 +7,9 @@ tracks {
 
     // Sell
     "/sell"(platform: "/", isAbstract: true) {}
-    "/sell/list"(platform: "/", isAbstract: true){}
+    "/sell/list"(platform: "/", isAbstract: true){
+        session_id(required: false, description: "Session id for a specific user flow", type: PropertyType.String)
+    }
     "/sell/change_listing_type"(platform: "/web", isAbstract: true) {
         source(required: true, description: "Source could be differents types of email, my account, etc.", type: PropertyType.String)
         seller_experience(required: true, description: "Seller experience: newbie, intermediate or advanced")
@@ -102,246 +104,182 @@ tracks {
     }
 
     // Apps
-    "/sell/list/drafts"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/drafts/draft_action"(platform: "/", isAbstract: true) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/drafts/draft_action/draft_deleted"(platform: "/", type: TrackType.Event) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/drafts/draft_action/draft_resumed"(platform: "/", type: TrackType.Event) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-
-    "/sell/list/hub"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/walkthrough"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/hub_old"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/sip"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+    "/sell/list/drafts"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/drafts/draft_action"(platform: "/mobile", isAbstract: true) {}
+    "/sell/list/drafts/draft_action/draft_deleted"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/drafts/draft_action/draft_resumed"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/draft"(platform:"/mobile", type: TrackType.View, isAbstract: true){}
+    "/sell/list/draft/sip"(platform:"/mobile", type: TrackType.View){
         has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
     }
-    "/sell/list/sip/publish"(platform: "/", isAbstract: true) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+    "/sell/list/draft/congrats"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/pictures_review"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/sip_landing"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/price_review"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/seller_registration"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/shipping_options_me"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/listing_types"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/price"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/picture_preview_landing"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/pictures_review/editor"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/listing_types_review"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/shipping_options_me_review"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/attribute"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/phone_suggestion"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/payment_methods"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/condition"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/congrats/payment_pending"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/color_selection"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/description_review"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/seller_registration_zip_code"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/category_navigation"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/pictures"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/category_suggestion"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/title"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/title_review"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/registration_landing"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/size_selection"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/description_included"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/location"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/size_selection_review"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/shipping_landing"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/shipping_flat_cost"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/price_modality"(platform:"/mobile", type: TrackType.View){}
+
+    "/sell/list/hub"(platform: "/", type: TrackType.View) {}
+    "/sell/list/walkthrough"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/hub_old"(platform: "/", type: TrackType.View) {}
+
+    "/sell/list/sip"(platform: "/mobile", type: TrackType.View) {
+        has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
     }
-    "/sell/list/sip/publish/pictures_fail"(platform: "/", type: TrackType.Event) {
+    "/sell/list/sip/publish"(platform: "/mobile", isAbstract: true) {}
+    "/sell/list/sip/publish/pictures_fail"(platform: "/mobile", type: TrackType.Event) {
         total_pictures(required: true, description: "Total pictures", type: PropertyType.Numeric)
         fail_pictures(required: true, description: "Failed pictures", type: PropertyType.Numeric)
         pictures_errors(required: false, description: "Failed pictures", type: PropertyType.ArrayList)
-        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
-    "/sell/list/sip/publish/fail"(platform: "/", type: TrackType.Event) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+    "/sell/list/sip/publish/fail"(platform: "/mobile", type: TrackType.Event) {
         error_message(required: false, description: "Error message", type: PropertyType.String)
     }
-    "/sell/list/sip/publish/abandonment"(platform: "/", type: TrackType.Event) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/sip/notification"(platform: "/", isAbstract: true) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/sip/notification/view_item"(platform: "/", type: TrackType.Event) {
-        session_id(required: true, description: "Item id", type: PropertyType.String)
-    }
-    "/sell/list/sip/notification/upgrade"(platform: "/", type: TrackType.Event) {
-        session_id(required: true, description: "Item id", type: PropertyType.String)
-    }
-    "/sell/list/sip/notification/congrats"(platform: "/", type: TrackType.Event) {
-        session_id(required: true, description: "Item id", type: PropertyType.String)
-    }
+    "/sell/list/sip/publish/abandonment"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/sip/notification"(platform: "/mobile", isAbstract: true) {}
+    "/sell/list/sip/notification/view_item"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/sip/notification/upgrade"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/sip/notification/congrats"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/sell/list/category_sugestion"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/category_navigation"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/color_selection"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/color_selection_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
+    "/sell/list/category_suggestion"(platform: "/", type: TrackType.View) {}
+    "/sell/list/category_navigation"(platform: "/", type: TrackType.View) {}
+    "/sell/list/color_selection"(platform: "/", type: TrackType.View) {}
+    "/sell/list/color_selection_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/color_selection/custom_color"(platform: "/web", type: TrackType.Event) {
-        session_id(required: true, description: "Session Id", type: PropertyType.String)
         category_domain(required: true, description: "Category Domain", type: PropertyType.String)
         category_id(required: true, description: "Category Id", type: PropertyType.String)
         is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.Boolean)
     }
-    "/sell/list/condition"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/condition_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/description"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/description_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/payment_methods"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/payment_methods_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/listing_types"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/listing_types_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/pictures"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/pictures/gallery"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/pictures/editor"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/pictures/crop"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
+    "/sell/list/phone_suggestion"(platform:"/mobile", type:TrackType.View){}
+    "/sell/list/condition"(platform: "/", type: TrackType.View) {}
+    "/sell/list/condition_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/description"(platform: "/", type: TrackType.View) {}
+    "/sell/list/description_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/payment_methods"(platform: "/", type: TrackType.View) {}
+    "/sell/list/payment_methods_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/listing_types"(platform: "/", type: TrackType.View) {}
+    "/sell/list/listing_types_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures/gallery"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures/editor"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures/crop"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)   
-        album_name(required: false, description: "Album name", type: PropertyType.String)   
+        album_name(required: false, description: "Album name", type: PropertyType.String)
     }
-    "/sell/list/pictures_uploader"(platform: "/", isAbstract: true) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-     "/sell/list/pictures_uploader/crop"(platform: "/", isAbstract: true) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/pictures_uploader/crop/crop_canceled"(platform: "/", type: TrackType.Event) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/pictures_uploader/crop/crop_acepted"(platform: "/", type: TrackType.Event) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
+    "/sell/list/pictures_uploader"(platform: "/", isAbstract: true) {}
+     "/sell/list/pictures_uploader/crop"(platform: "/", isAbstract: true) {}
+    "/sell/list/pictures_uploader/crop/crop_canceled"(platform: "/", type: TrackType.Event) {}
+    "/sell/list/pictures_uploader/crop/crop_acepted"(platform: "/", type: TrackType.Event) {}
     //Este path recibira las keys de los errores en las validaciones del images_uploader
     "/sell/list/pictures_uploader/validations"(platform: "/web", type: TrackType.Event) {
         error_key(required: true, description: "error key", type: PropertyType.String)
-        session_id(required: false, description: "Session id", type: PropertyType.String)
     }
-    "/sell/list/pictures_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/pictures_review/gallery"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/pictures_review/editor"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/pictures_review/crop"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/price_core"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-     "/sell/list/price_core/similar_products"(platform: "/", isAbstract: true) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/price_core/similar_products/similar_item_selected"(platform: "/", type: TrackType.Event) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/price_core/similar_products/similar_item_shown"(platform: "/", type: TrackType.Event) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/price_core_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/price_core_review/similar_products"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/seller_registration"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/seller_registration_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/seller_registration_zip_code"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/zip_code"(platform: "/", isAbstract: true) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/zip_code/zip_code"(platform: "/", isAbstract: true) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
-    "/sell/list/zip_code/zip_code/search_zip_code"(platform: "/", type: TrackType.Event) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-    }
+    "/sell/list/pictures_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_review/gallery"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_review/editor"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_review/crop"(platform: "/", type: TrackType.View) {}
+    "/sell/list/price"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/price/similar_products"(platform: "/mobile") {}
+    "/sell/list/price/similar_products/similar_item_selected"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/price/similar_products/similar_item_shown"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/price_review"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/price_review/similar_products"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/seller_registration"(platform: "/", type: TrackType.View) {}
+    "/sell/list/seller_registration_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/seller_registration_zip_code"(platform: "/", type: TrackType.View) {}
+    "/sell/list/zip_code"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+    "/sell/list/zip_code/zip_code"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+    "/sell/list/zip_code/zip_code/search_zip_code"(platform: "/", type: TrackType.Event) {}
+
     "/sell/list/size_selection"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
     }
     "/sell/list/size_selection_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
     }
-    "/sell/list/title_core"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+    "/sell/list/title"(platform: "/", type: TrackType.View) {
+
     }
-    "/sell/list/title_core_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+    "/sell/list/title_review"(platform: "/", type: TrackType.View) {
+
     }
     "/sell/list/shipping_options_me"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
     }
     "/sell/list/shipping_options_me_review"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
     }
     "/sell/list/pictures_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
     }
     "/sell/list/registration_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
     }
     "/sell/list/registration_zip_code_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
     }
     "/sell/list/shipping_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
     }
     "/sell/list/sip_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
     }
     "/sell/list/sip_price_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
     }
     "/sell/list/sip_shipping_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
     }
     "/sell/list/sip_condition_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
     }
     "/sell/list/sip_condition_lt_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
     }
     "/sell/list/sip_condition_listing_type_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
     }
     "/sell/list/title_landing"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
     }
    "/sell/list/listing_types"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
     }
     "/sell/list/listing_types_upgrade"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
     }
     "/sell/list/congrats_upgrade"(platform: "/", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
     }
     "/sell/list/item_description"(platform: "/", type: TrackType.View){
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
         listing_type_id(required: false, description: "Item listing type id")
         vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
         buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
@@ -349,10 +287,10 @@ tracks {
         price(required: false, description: "Item price")
     }
     "/sell/list/sale_condition"(platform: "/", type: TrackType.View){
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
     }
     "/sell/list/item_description/title_prediction"(platform: "/", type: TrackType.View){
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
         category_id(required: false, description: "Category id", type: PropertyType.String)
         user_id(required: false, description: "User id", type: PropertyType.String)
         domain_id(required: false, description: "Domain id", type: PropertyType.String)
@@ -360,7 +298,7 @@ tracks {
     }
 
     "/sell/list/item_description/final_attributes"(platform: "/", type: TrackType.View){
-        session_id(required: false, description: "Session id", type: PropertyType.String)
+
         category_id(required: false, description: "Category id", type: PropertyType.String)
         user_id(required: false, description: "User id", type: PropertyType.String)
         domain_id(required: false, description: "Domain id", type: PropertyType.String)
@@ -401,7 +339,7 @@ tracks {
         item_id(required: true, description: "Item id", type: PropertyType.String)
     }
 
-    "/sell/update/category_sugestion"(platform: "/", type: TrackType.View) {
+    "/sell/update/category_suggestion"(platform: "/", type: TrackType.View) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
     }
     "/sell/update/category_navigation"(platform: "/", type: TrackType.View) {
@@ -455,8 +393,8 @@ tracks {
         item_id(required: false, description: "Item id", type: PropertyType.String)
     }
     "/sell/update/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)   
-        album_name(required: false, description: "Album name", type: PropertyType.String)   
+        item_id(required: true, description: "Item id", type: PropertyType.String)
+        album_name(required: true, description: "Album name", type: PropertyType.String)
     }
     "/sell/update/pictures_uploader"(platform: "/", isAbstract: true) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
@@ -482,22 +420,22 @@ tracks {
     "/sell/update/pictures_review/crop"(platform: "/", type: TrackType.View) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
     }
-    "/sell/update/price_core"(platform: "/", type: TrackType.View) {
+    "/sell/update/price"(platform: "/", type: TrackType.View) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
     }
-     "/sell/update/price_core/similar_products"(platform: "/", isAbstract: true) {
+     "/sell/update/price/similar_products"(platform: "/", isAbstract: true) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
     }
-    "/sell/update/price_core/similar_products/similar_item_selected"(platform: "/", type: TrackType.Event) {
+    "/sell/update/price/similar_products/similar_item_selected"(platform: "/", type: TrackType.Event) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
     }
-    "/sell/update/price_core/similar_products/similar_item_shown"(platform: "/", type: TrackType.Event) {
+    "/sell/update/price/similar_products/similar_item_shown"(platform: "/", type: TrackType.Event) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
     }
-    "/sell/update/price_core_review"(platform: "/", type: TrackType.View) {
+    "/sell/update/price_review"(platform: "/", type: TrackType.View) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
     }
-    "/sell/update/price_core_review/similar_products"(platform: "/", type: TrackType.View) {
+    "/sell/update/price_review/similar_products"(platform: "/", type: TrackType.View) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
     }
     "/sell/update/size_selection"(platform: "/", type: TrackType.View) {
@@ -506,10 +444,10 @@ tracks {
     "/sell/update/size_selection_review"(platform: "/", type: TrackType.View) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
     }
-    "/sell/update/title_core"(platform: "/", type: TrackType.View) {
+    "/sell/update/title"(platform: "/", type: TrackType.View) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
     }
-    "/sell/update/title_core_review"(platform: "/", type: TrackType.View) {
+    "/sell/update/title_review"(platform: "/", type: TrackType.View) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
     }
     "/sell/update/shipping_options_me"(platform: "/", type: TrackType.View) {
@@ -553,29 +491,31 @@ tracks {
     }
 
     "/sell/list/modal_attributes"(platform: "/web", type: TrackType.View) {
-        session_id(required: false, description: "Session id", type: PropertyType.String)
-        user_id(required: true, description: "User id", type: PropertyType.String)
-        condition(required: true, description: "Item condition", type: PropertyType.String)
+        condition(required: false, description: "Item condition", type: PropertyType.String)
         empty_attrs_pk(required: false, description: "Quantity of attributes PK", type: PropertyType.Numeric)
         empty_attrs_not_pk(required: false, description: "Quantity of attributes not PK", type: PropertyType.Numeric)
     }
     "/sell/list/modal_attributes/submit"(platform: "/web", type: TrackType.Event) {
         domain_id(required: true, description: "Domain id", type: PropertyType.String)
-        attribute_id(required: true, description: "Attribute id", type: PropertyType.String)
-        option_selected(required: true, description: "Radio option selected", type: PropertyType.String)
+        category_id(required: false, description: "Category Id", type: PropertyType.String)
+        category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
+        attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
+        hierarchy(required: true, description: "Hierarchy attribute", values:["CHILD_DEPENDENT", "CHILD_PK", "FAMILY", "ITEM", "PARENT_PK", "PRODUCT_IDENTIFIER"], PropertyType.String)
+        option_selected(required: true, description: "Radio option selected", values:["completed", "no_data", "not_possible", "other"], PropertyType.String)
+        value(required:true, description: "Value for attribute or feedback", type: PropertyType.String)
     }
 
     "/sell/update/modal_attributes"(platform: "/web", type: TrackType.View) {
         item_id(required: false, description: "Item id", type: PropertyType.String)
-        user_id(required: true, description: "User id", type: PropertyType.String)
-        condition(required: true, description: "Item condition", type: PropertyType.String)
+        condition(required: false, description: "Item condition", type: PropertyType.String, values:["new", "used", "not_specified", "refurbished"])
         empty_attrs_pk(required: false, description: "Quantity of attributes PK", type: PropertyType.Numeric)
         empty_attrs_not_pk(required: false, description: "Quantity of attributes not PK", type: PropertyType.Numeric)
     }
     "/sell/update/modal_attributes/submit"(platform: "/web", type: TrackType.Event) {
         domain_id(required: true, description: "Domain id", type: PropertyType.String)
-        attribute_id(required: true, description: "Attribute id", type: PropertyType.String)
-        option_selected(required: true, description: "Radio option selected", type: PropertyType.String)
+        attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
+        hierarchy(required: true, description: "Hierarchy attribute", values:["CHILD_DEPENDENT", "CHILD_PK", "FAMILY", "ITEM", "PARENT_PK", "PRODUCT_IDENTIFIER"], PropertyType.String)
+        option_selected(required: true, description: "Radio option selected", values:["completed", "no_data", "not_possible", "other"], PropertyType.String)
     }
     
     "/sell/qr"(platform: "/", isAbstract: true) {}

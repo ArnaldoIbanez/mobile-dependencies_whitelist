@@ -226,6 +226,9 @@ tracks {
         is_carrito(required: true, description: "Whetever this order was created by a carrito or not ")
         reservation(required: true, type: PropertyType.Boolean, description: "If the order came from a motor reservation")
         subscription(required: true, type: PropertyType.Boolean, description: "If the order was generated from a subscription")
+
+        total_amount_local(serverSide: true) // -> Lo completa Melidata automaticamente
+        total_amount_usd(serverSide: true) // -> Lo completa Melidata automaticamente
     }
 
 

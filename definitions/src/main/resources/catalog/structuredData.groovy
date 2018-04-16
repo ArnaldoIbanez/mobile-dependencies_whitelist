@@ -1,4 +1,6 @@
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
+import com.ml.melidata.catalog.PropertyType
+
 
 tracks {
 
@@ -118,9 +120,11 @@ tracks {
 
     "/catalogwidget/omit_attributes/submit"(platform: "/") {
         catalogWidgetGroup
-        attribute_id(required: true, description: "Attribute id")
-        hierarchy(required: true, description: "Hierarchy attribute")
-        option_selected(required: true, description: "Radio option selected")
-        value(required: true, description: "Omit value")
+        attribute_id(required: true, description: "Attribute id submitted")
+        hierarchy(required: true, description: "Hierarchy attribute", values:["CHILD_DEPENDENT", "CHILD_PK", "FAMILY", "ITEM", "PARENT_PK", "PRODUCT_IDENTIFIER"], PropertyType.String)
+        option_selected(required: true, description: "Radio option selected", values:["completed", "no_data", "not_possible", "other"], PropertyType.String)
+        value(required: false, description: "Value submitted on feedback or value for attribute", PropertyType.String)
+        domain_id(required: true, description: "Domain ID from attribute", PropertyType.String)
+        category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
     }
 }

@@ -359,6 +359,7 @@ trackTests {
             hierarchy = "PARENT_PK"
             option_selected = "not_possible"
             value = "Not apply"
+            category_path = ["MLA12345", "MLA4356"]
         }
     }
 }
