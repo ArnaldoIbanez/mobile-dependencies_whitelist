@@ -5572,13 +5572,16 @@ trackTests {
     }
 
     test("Checkout recovery with recos - push notification flow") {
-        "/push_checkout_recovery" (platform:"/web/mobile", type: TrackType.View) {
+        "/checkout_recovery" (platform:"/web/mobile", type: TrackType.View) {
+            item_id = "MLU451705243"
             item_status = "inactive"
         }
-        "/push_checkout_recovery/error" (platform:"/web/mobile", type: TrackType.View) {
+        "/checkout_recovery/error" (platform:"/web/mobile", type: TrackType.View) {
+            item_id = "MLU451705243"
             item_status = "inactive"
         }
-        "/push_checkout_recovery/notfound" (platform:"/web/mobile", type: TrackType.View) {
+        "/checkout_recovery/notfound" (platform:"/web/mobile", type: TrackType.View) {
+            item_id = "MLU451705243"
             item_status = "inactive"
         }
     }
