@@ -522,9 +522,10 @@ tracks {
     
     "/sell/qr/print_intention"(platform: "/web", type: TrackType.View){
         item_id(required: true)
-        qr_type(required: true)
+        user_type(required: true, description: "The type of User that opened the QR code", values: ["car_dealer", "normal", "unknown"])
         listing_type_id(required: true)
         vertical(required: true)
+        referrer(required: true, description: "From where the QR code was opened", values: ["email", "myml"])
     }
 
 }
