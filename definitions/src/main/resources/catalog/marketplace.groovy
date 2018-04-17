@@ -73,59 +73,6 @@ tracks {
     }
 
 
-    //REVIEWS FRONTEND
-    "/reviews/form"(platform: "/") {
-        item_id()
-        step()
-        flow(required: false)
-        action(required: false)
-    }
-
-    "/reviews/edit"(platform: "/") {
-        item_id()
-    }
-
-    "/reviews/congrats/delete"(platform: "/") {
-        item_id()
-    }
-
-    "/reviews/congrats/edit"(platform: "/") {
-        item_id()
-        review_length()
-    }
-
-    "/reviews/congrats"(platform: "/") {
-        item_id()
-        review_length(inheritable: false)
-    }
-
-    "/reviews/error"(platform: "/") {
-        item_id()
-    }
-
-    "/reviews/email"(platform: "/email") {
-        item_id()
-    }
-
-    "/reviews"(platform: "/") {
-        item_id()
-    }
-
-
-    "/reviews/show"(platform: "/") {
-        item_id(required: true)
-        type(required: true)
-        access(required: false)
-        catalog_product_id(required: false)
-        reviews_all_count(required: false)
-        reviews_positive_count(required: false)
-        reviews_negative_count(required: false)
-        vote_up(required: false)
-        vote_down(required: false)
-        time_ellapsed(required: false)
-        review_id(required: false)
-        reviews_shown(required: false, type: PropertyType.ArrayList)
-    }
 
     // PAYMENTS FLOW
 
@@ -373,58 +320,6 @@ tracks {
     "/deals/landing"(platform: "/") {
         deal_id(required: false, type: PropertyType.String)
     }
-
-    // Subscriptions
-    "/subscriptions"(platform: "/", isAbstract: true) {
-        order_id(required: true, type: PropertyType.String)
-        item_id(required: true, type: PropertyType.String)
-        category_id(required: true, type: PropertyType.String)
-    }
-
-    "/subscriptions/frequency"(platform: "/", type: TrackType.View) {}
-    "/subscriptions/change_frequency"(platform: "/", type: TrackType.Event) {
-        frequency(required: true, type: PropertyType.String)
-        frequency_before(type: PropertyType.String)
-        context(required: true, type: PropertyType.String)
-    }
-
-    "/subscriptions/address"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
-    "/subscriptions/change_address"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
-        context(required: true, type: PropertyType.String)
-    }
-
-    "/subscriptions/review"(platform: "/", type: TrackType.View) {}
-    "/subscriptions/review/confirm"(platform: "/", type: TrackType.Event) {
-        context(required: true, type: PropertyType.String)
-    }
-
-    "/subscriptions/congrats"(platform: "/", type: TrackType.View) {}
-    "/subscriptions/congrats/view_subscription"(platform: "/", type: TrackType.Event) {}
-    "/subscriptions/congrats/subscribe"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {}
-
-    "/subscriptions/summary"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
-    "/subscriptions/detail"(platform: "/", type: TrackType.View) {}
-    "/subscriptions/detail/modify_frequency"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
-
-    "/subscriptions/delivery"(platform: "/", isAbstract: true) {}
-    "/subscriptions/delivery/cancel"(platform: "/", type: TrackType.View) {
-        context(required: true, type: PropertyType.String)
-    }
-    "/subscriptions/delivery/cancel"(platform: "/", type: TrackType.Event) {
-        context(required: true, type: PropertyType.String)
-    }
-
-    "/subscriptions/detail/cancel"(platform: "/", type: TrackType.View) {}
-    "/subscriptions/detail/cancel/subscription"(platform: "/", type: TrackType.Event) {}
-
-    //Landings Subscriptions
-    "/subscriptions_landing"(platform: "/", type: TrackType.View) {}
-
-    "/subscriptions_landing/select_item_slide"(platform: "/", type: TrackType.Event) {
-        category_id(required: true, type: PropertyType.String)
-    }
-
-    "/subscriptions_landing/terms_condition"(platform: "/", type: TrackType.Event) {}
 
     "/sso" (platform: "/mobile", isAbstract: true){}
     "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
