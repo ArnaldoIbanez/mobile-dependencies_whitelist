@@ -654,7 +654,7 @@ tracks {
     "/free_navigation/wifi"(platform:"/mobile", type:TrackType.Event) {}
 
     "/mobile" (platform: "/mobile", isAbstract: true){}
-    "/mobile/bugsnag"(platform: "/mobile/android", type: TrackType.Event) {
+    "/mobile/bugsnag"(platform: "/mobile", type: TrackType.Event) {
         error_type               (required:false, type: PropertyType.String, description: "Track of Bugsnag error: error type")
         error_context            (required:true,  type: PropertyType.String, description: "Bugsnag context, the best important field on Canejo")
         error_severity           (required:false, type: PropertyType.String, description: "error or warning or info")
