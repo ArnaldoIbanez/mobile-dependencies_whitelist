@@ -5571,6 +5571,20 @@ trackTests {
         }
     }
 
+    test("Checkout recovery with recos - push notification flow") {
+        "/checkout_recovery" (platform:"/web/mobile", type: TrackType.View) {
+            item_id = "MLU451705243"
+            item_status = "inactive"
+        }
+        "/checkout_recovery/error" (platform:"/web/mobile", type: TrackType.View) {
+            item_id = "MLU451705243"
+            item_status = "inactive"
+        }
+        "/checkout_recovery/notfound" (platform:"/web/mobile", type: TrackType.View) {
+            item_id = "MLU451705243"
+            item_status = "inactive"
+        }
+    }
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 // TRACKS MYML Invoices
 //------------------------------------------------------------------------------------------------------------------------------------------------------

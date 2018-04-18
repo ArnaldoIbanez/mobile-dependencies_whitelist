@@ -68,6 +68,7 @@ catalog {
         include business, "myml.groovy"
         include business, "notifications.groovy"
         include business, "onboarding.groovy"
+        include business, "pushNotifications.groovy"
         include business, "quotation.groovy"
         include business, "questions.groovy"
         include business, "referralprogram.groovy"
