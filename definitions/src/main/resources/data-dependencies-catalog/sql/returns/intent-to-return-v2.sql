@@ -1,21 +1,16 @@
--- Esta query trae (haciendo llega_a_claims - apreto_el_boton) los casos en los que compradores quisieron
--- iniciar una Devolucion Express y no pudieron porque no tenian caps disponibles.
--- Es necesario tener en cuenta que dicha resta debe ser > 0. Esa restriccion no se agrego a la consulta
--- para minimizar la carga de la misma.
-
-SELECT 
-  user_id, --ID del buyer
-  MAX(llega_a_claims) AS llega_a_claims, -- Cantidad de veces que llego a claims desde Devoluciones Express
-  MAX(apreto_el_boton) AS apreto_el_boton, -- Cantidad de veces que presiono el boton "Otro Problema"
-  fecha, -- Fecha en formato 2000-12-31
-  platform, -- Android, iOS, web mobile o web desktop.
-  site, --Site
-  MAX(loyalty_level) AS loyalty_level, --Nivel de Mercado Puntos
-  MAX(cart_order)  AS is_cart_order, -- True si es una orden de carrito v2.
-  MAX(item_category) AS item_category, -- Categoria del item
-  MAX(item_category_l1) AS item_category_l1 -- Categoria L1 del item
+SELECT
+  user_id,
+  MAX(llega_a_claims) AS llega_a_claims,
+  MAX(apreto_el_boton) AS apreto_el_boton,
+  fecha,
+  platform,
+  site,
+  MAX(loyalty_level) AS loyalty_level,
+  MAX(cart_order)  AS is_cart_order,
+  MAX(item_category) AS item_category,
+  MAX(item_category_l1) AS item_category_l1
 FROM (
-SELECT -- Veces que se llega a claims desde Returns
+SELECT
     substr(ds,1,10) AS fecha,
   	1 AS llega_a_claims,
   	NULL AS apreto_el_boton,
@@ -34,12 +29,12 @@ SELECT -- Veces que se llega a claims desde Returns
   	AND type = 'view'
   GROUP BY
     usr.user_id,
-    substr(ds,1,10), -- Recortamos la fecha al formato deseado
+    substr(ds,1,10),
     application.site_id,
   	device.platform,
-    t1.event_data -- Traemos todo event_data, de donde tomamos la informacion contextual de la orden.
+    t1.event_data
 UNION ALL
-  SELECT -- Veces que se presiona el boton de Otro Problema.
+  SELECT
     substr(ds,1,10) AS fecha,
   	NULL AS llega_a_claims,
   	1 AS apreto_el_boton,
@@ -62,7 +57,7 @@ UNION ALL
     SUBSTR(ds,1,10),
     application.site_id,
   	device.platform
-    ) RS -- Armamos este result set para poder unir luego los valores validos de cada row con los MAX()
+    ) RS
 GROUP BY
   RS.user_id,
   RS.fecha,
