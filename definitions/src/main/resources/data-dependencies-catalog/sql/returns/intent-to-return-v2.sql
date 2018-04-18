@@ -1,36 +1,65 @@
-SELECT fecha,
-termino_en_claims - otro_problema AS intencion_de_devolver,
-termino_en_claims,
-otro_problema,
-platform,
-site,
-user_id,
-loyalty_level,
-is_cart_order,
-item_category,
-item_category_l1
-FROM (SELECT substr(ds,1,10) AS fecha,
-	COUNT (DISTINCT CASE WHEN (path IN ('/return/external', '/return/external/claims') AND type = 'view') THEN usr.user_id ELSE NULL END) AS termino_en_claims,
-	COUNT (DISTINCT CASE WHEN (path = '/return/typifications' AND (jest(event_data, 'typification') IN ('go_to_claim', 'gtc_other_problem') OR jest(event_data, 'dictionary_data.typification') IN ('go_to_claim', 'gtc_other_problem'))) THEN usr.user_id ELSE NULL END) AS otro_problema,
-	device.platform as platform,
-	application.site_id as site,
-	usr.user_id as user_id,
-	jest(event_data, 'loyalty_level') as loyalty_level,
- 	jest(event_data, 'cart_order') as is_cart_order,
- 	jest(event_data, 'item_category') as item_category,
- 	jest(event_data, 'item_category_l1') as item_category_l1
-FROM tracks 
-WHERE ds >= '@param01'
-	AND ds < '@param02' 
-	AND usr.user_nick not like 'TETE%'
-	AND usr.user_nick not like 'TT%'
-	AND usr.user_nick not like 'TEST%'
-	AND usr.user_nick not like 'BUYER%'
-	AND application.site_id IN ('MLM','MLB', 'MLA')
-	AND path IN ('/return/external', '/return/external/claims', '/return/typifications')
-	AND usr.user_id IS NOT NULL
-GROUP BY substr(ds,1,10),
-	device.platform,
-	application.site_id,
-	usr.user_id) A
-WHERE (termino_en_claims - otro_problema) > 0
+SELECT
+  user_id,
+  MAX(llega_a_claims) AS llega_a_claims,
+  MAX(apreto_el_boton) AS apreto_el_boton,
+  fecha,
+  platform,
+  site,
+  MAX(loyalty_level) AS loyalty_level,
+  MAX(cart_order)  AS is_cart_order,
+  MAX(item_category) AS item_category,
+  MAX(item_category_l1) AS item_category_l1
+FROM (
+SELECT
+    substr(ds,1,10) AS fecha,
+  	1 AS llega_a_claims,
+  	NULL AS apreto_el_boton,
+  	device.platform AS platform,
+  	application.site_id AS site,
+  	usr.user_id AS user_id,
+  	substr(jest(event_data, 'loyalty_level'),1,1) AS loyalty_level,
+    jest(event_data, 'cart_order') AS cart_order,
+    jest(event_data, 'item_category') AS item_category,
+    jest(event_data, 'item_category_l1') AS item_category_l1
+  FROM tracks t1
+  WHERE ds >= '@param01'
+  	AND ds < '@param02'
+  	AND application.site_id IN ('MLM', 'MLB', 'MLA')
+  	AND path IN ('/return/external', '/return/external/claims')
+  	AND type = 'view'
+  GROUP BY
+    usr.user_id,
+    substr(ds,1,10),
+    application.site_id,
+  	device.platform,
+    t1.event_data
+UNION ALL
+  SELECT
+    substr(ds,1,10) AS fecha,
+  	NULL AS llega_a_claims,
+  	1 AS apreto_el_boton,
+  	device.platform AS platform,
+  	application.site_id AS site,
+  	usr.user_id AS user_id,
+  	NULL AS loyalty_level,
+    NULL AS cart_order,
+    NULL AS item_category,
+    NULL AS item_category_l1
+  FROM tracks t2
+  WHERE ds >= '@param01'
+  	AND ds < '@param02'
+  	AND application.site_id IN ('MLM', 'MLB', 'MLA')
+  	AND t2.path = '/return/typifications'
+  	AND (jest(t2.event_data, 'typification') IN ('go_to_claim', 'gtc_other_problem', 'other_reaseon_gtc', 'other_reason_gtc') OR jest(t2.event_data, 'dictionary_data.typification') IN ('go_to_claim', 'gtc_other_problem', 'other_reaseon_gtc', 'other_reason_gtc'))
+  	
+  GROUP BY
+    usr.user_id,
+    SUBSTR(ds,1,10),
+    application.site_id,
+  	device.platform
+    ) RS
+GROUP BY
+  RS.user_id,
+  RS.fecha,
+  RS.platform,
+  RS.site

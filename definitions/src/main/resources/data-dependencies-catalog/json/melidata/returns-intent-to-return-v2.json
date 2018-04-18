@@ -58,13 +58,11 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2018-02-12",
-          "format": "yyyy-MM-dd"
+          "value": "2018-01-01 00"
         },
         {
           "name": "param02",
-          "value": "2018-03-12",
-          "format": "yyyy-MM-dd"
+          "value": "2018-02-01 00"
         }
       ]
     }
