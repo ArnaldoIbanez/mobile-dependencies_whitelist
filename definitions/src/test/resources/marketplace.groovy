@@ -5591,7 +5591,31 @@ trackTests {
 
     test("Create invoice flow") {
         "/myml/invoices/review"(platform: "/") {}
-        "/myml/invoices/review/create_invoice"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/review/create_invoice"(platform: "/", type: TrackType.Event) {
+            payload = {
+                additional_information = ""
+                recipient = {  
+                    address = {  
+                        street_number = "12312"
+                        complement = null
+                        street_name = "test"
+                        city = "Osasco"
+                        state = "SP"
+                        neighborhood = "Umuarama"
+                        zip_code = "06233034"
+                        country = "BR"
+                    }
+                    identifications = {  
+                        cpf = "15635614680"
+                    }
+                }
+                shipment = {}
+                orders = [  
+                    "1668688433"
+                ]
+            }
+        }
+        "/myml/invoices/review/create_invoice/response"(platform: "/", type: TrackType.Event) {}
     }
 
     test("Sales list flow") {
