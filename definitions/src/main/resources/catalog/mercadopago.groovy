@@ -647,4 +647,10 @@ tracks {
 
     //END -- MP frontend
 
+    "/free_navigation"(platform:"/mobile", isAbstract: true) {}
+
+    "/free_navigation/not_available"(platform:"/mobile", type:TrackType.Event) {}
+
+    "/free_navigation/wifi"(platform:"/mobile", type:TrackType.Event) {}
+
 }

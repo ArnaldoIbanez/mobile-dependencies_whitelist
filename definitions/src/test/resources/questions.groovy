@@ -6,26 +6,14 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
     test("Questions tracking in web") {
-        "/questions/ask/post" (platform:"/web", type: TrackType.Event) {
+        "/questions/ask/post" (platform:"/", type: TrackType.Event) {
             item_id = "MLA533657947"
             failed = false
+            context = "/questions"
         }
     }
 
     test("Questions") {
-
-        "/questions/list"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/vip"
-        }
-
-        "/questions/list"(platform: "/mobile") {
-            context = "/seller_questions"
-        }
-
-        "/questions/list"(platform: "/mobile") {
-            context = "/buyer_questions"
-        }
 
         "/questions/ask"(platform: "/mobile") {
             item_id = "MLA12345"
@@ -73,12 +61,6 @@ trackTests {
             context = "/notifications"
             failed = true
         }
-
-        "/questions/answer/back"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/vip"
-        }
-
 
         "/questions/back"(platform: "/mobile") {
             item_id = "MLA12345"
