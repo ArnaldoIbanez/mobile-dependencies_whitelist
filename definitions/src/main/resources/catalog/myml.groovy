@@ -266,9 +266,63 @@ tracks {
         type (required: true, values: ["LOW_LOYAL", "HIGH_LOYAL"])
     }
 
-    //Invoice flow
+    // Myml - Invoices
+
+    //Create Invoice flow
     "/myml/invoices"(platform: "/", isAbstract: true) {}
+
     "/myml/invoices/review"(platform: "/") {}
     "/myml/invoices/review/create_invoice"(platform: "/", type: TrackType.Event) {}
+
+    //Sales list
+    "/myml/invoices/sales_list"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/sales_list/create_invoice"(platform: "/", type: TrackType.Event) {}
+
+    //Optin flow
+    "/myml/invoices/landing"(platform: "/") {}
+    "/myml/invoices/landing/optin"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/invoices/company-info"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/company-info/certificate"(platform: "/") {}
+    "/myml/invoices/company-info/certificate/select_a1"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/certificate/select_a3"(platform: "/", type: TrackType.Event) {}
+    
+    "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
+    "/myml/invoices/company-info/certificate/a1/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {}
+    
+    "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
+    "/myml/invoices/company-info/certificate/a3/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/company-info/certificate/a3/save/request"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/certificate/a3/save/response"(platform: "/", type: TrackType.Event) {}
+    
+    "/myml/invoices/company-info/serie"(platform: "/") {}
+    "/myml/invoices/company-info/serie/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/company-info/serie/save/request"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/serie/save/response"(platform: "/", type: TrackType.Event) {}
+    
+    "/myml/invoices/company-info/cst"(platform: "/") {}
+    "/myml/invoices/company-info/cst/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/company-info/cst/save/request"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/cst/save/response"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/invoices/company-info/csosn"(platform: "/") {}
+    "/myml/invoices/company-info/csosn/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/company-info/csosn/save/request"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/company-info/csosn/save/response"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/company-info/ie"(platform: "/") {}
+    "/myml/invoices/company-info/ie/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/company-info/ie/save/request"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/company-info/ie/save/response"(platform: "/", isAbstract: true) {}
+    
+    "/myml/invoices/company-info/confirm"(platform: "/") {}
+    "/myml/invoices/company-info/confirm/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/confirm/save/response"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/invoices/company-info/success"(platform: "/") {}
 
 }

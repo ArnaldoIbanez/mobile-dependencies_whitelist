@@ -5589,9 +5589,42 @@ trackTests {
 // TRACKS MYML Invoices
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    test("Test invoice flow tracking") {
-
+    test("Create invoice flow") {
         "/myml/invoices/review"(platform: "/") {}
         "/myml/invoices/review/create_invoice"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Sales list flow") {
+        "/myml/invoices/sales_list/create_invoice"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Optin flow") {
+        "/myml/invoices/landing"(platform: "/") {}
+        "/myml/invoices/landing/optin"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/certificate"(platform: "/") {}
+        "/myml/invoices/company-info/certificate/select_a1"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/certificate/select_a3"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
+        "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
+        "/myml/invoices/company-info/certificate/a3/save/request"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/certificate/a3/save/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/serie"(platform: "/") {}
+        "/myml/invoices/company-info/serie/save/request"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/serie/save/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/cst"(platform: "/") {}
+        "/myml/invoices/company-info/cst/save/request"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/cst/save/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/csosn"(platform: "/") {}
+        "/myml/invoices/company-info/csosn/save/request"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/csosn/save/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/ie"(platform: "/") {}
+        "/myml/invoices/company-info/ie/save/request"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/ie/save/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/confirm"(platform: "/") {}
+        "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/confirm/save/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/success"(platform: "/") {}
     }
 }
