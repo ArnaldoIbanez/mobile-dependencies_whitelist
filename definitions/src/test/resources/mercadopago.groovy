@@ -1038,55 +1038,6 @@ trackTests {
             result_status = "rejected"
             status_detail = "call_for_auth"
         }
-        "/cellphone_recharge/px_payment_method_search"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_discount_summary"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_card_vault"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_card_number"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_card_holder_name"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_card_expiry_date"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_card_security_code"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_identification_number"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_card_issuers"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_card_installments"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_review_and_confirm"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_result"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-            result_status = "rejected"
-        }
 
         "/cellphone_recharge/confirm"(platform: "/web"){
             flow = "/cellphone_recharge"
