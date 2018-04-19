@@ -76,9 +76,10 @@ trackTests {
     test("track qr barcode printing intention"){
         "/sell/qr/print_intention"(platform: "/web", type: TrackType.View){
             item_id = "MLA705994967"
-            qr_type = "FSBO"
+            user_type = "normal"
             listing_type_id = "gold"
             vertical = "MOTOR" 
+            referrer = "email"
         }
     }
 
