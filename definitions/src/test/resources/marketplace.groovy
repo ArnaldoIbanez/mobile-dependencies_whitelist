@@ -157,7 +157,8 @@ trackTests {
             geolocation="AR:CABA"
             landing="base"
             layout_forced=true
-
+            promise_items=["232232000"]
+            has_logos:true
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -5584,6 +5585,6 @@ trackTests {
             item_id = "MLU451705243"
             item_status = "inactive"
         }
-    }
-    
+    }    
 }
+
