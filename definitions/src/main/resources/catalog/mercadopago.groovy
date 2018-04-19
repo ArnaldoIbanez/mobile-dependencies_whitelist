@@ -52,6 +52,9 @@ tracks {
     // MP Promotions
     "/landing/promotions"(platform: "/web"){}
 
+    // MP Card
+    "/landing/mp_card" (platform: "/web") {}
+
     // MP Activities
     "/listing"(platform: "/web", isAbstract: true){}
 
