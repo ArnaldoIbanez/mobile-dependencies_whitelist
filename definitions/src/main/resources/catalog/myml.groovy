@@ -276,10 +276,10 @@ tracks {
     "/myml/invoices/review"(platform: "/") {}
     "/myml/invoices/review/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/review/create_invoice"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, description: "Request data")
     }
     "/myml/invoices/review/create_invoice/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, , description: "Response data after request")
     }
     
     //origin
@@ -287,10 +287,10 @@ tracks {
     "/myml/invoices/items/origin/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/origin/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/items/origin/save/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, description: "Request data")
     }
     "/myml/invoices/items/origin/save/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, , description: "Response data after request")
     }
 
     //sku
@@ -298,10 +298,10 @@ tracks {
     "/myml/invoices/items/sku/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/sku/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/items/sku/save/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, description: "Request data")
     }
     "/myml/invoices/items/sku/save/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, , description: "Response data after request")
     }
 
     //csosn
@@ -309,10 +309,10 @@ tracks {
     "/myml/invoices/items/csosn/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/csosn/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/items/csosn/save/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, description: "Request data")
     }
     "/myml/invoices/items/csosn/save/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, , description: "Response data after request")
     }
 
     //ean
@@ -320,17 +320,17 @@ tracks {
     "/myml/invoices/items/ean/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/ean/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/items/ean/save/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, description: "Request data")
     }
     "/myml/invoices/items/ean/save/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, , description: "Response data after request")
     }
     "/myml/invoices/items/ean/validate"(platform: "/", isAbstract: true) {}
     "/myml/invoices/items/ean/validate/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, description: "Request data")
     }
     "/myml/invoices/items/ean/validate/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, , description: "Response data after request")
     }
 
     //ncm
@@ -338,17 +338,17 @@ tracks {
     "/myml/invoices/items/ncm/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/ncm/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/items/ncm/save/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, description: "Request data")
     }
     "/myml/invoices/items/ncm/save/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, , description: "Response data after request")
     }
     "/myml/invoices/items/ncm/search"(platform: "/", isAbstract: true) {}
     "/myml/invoices/items/ncm/search/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, description: "Request data")
     }
     "/myml/invoices/items/ncm/search/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, , description: "Response data after request")
     }
 
     //:::: Sales list
@@ -374,10 +374,10 @@ tracks {
     "/myml/invoices/company-info/certificate/a1/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, description: "Request data")
     }
     "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, , description: "Response data after request")
     }
     "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
     "/myml/invoices/company-info/certificate/a3/download_app"(platform: "/", type: TrackType.Event) {}
@@ -388,10 +388,10 @@ tracks {
     "/myml/invoices/company-info/serie/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/serie/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/serie/save/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, description: "Request data")
     }
     "/myml/invoices/company-info/serie/save/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, , description: "Response data after request")
     }
     
     //cst
@@ -399,10 +399,10 @@ tracks {
     "/myml/invoices/company-info/cst/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/cst/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/cst/save/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, description: "Request data")
     }
     "/myml/invoices/company-info/cst/save/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, , description: "Response data after request")
     }
 
     //csosn
@@ -410,30 +410,30 @@ tracks {
     "/myml/invoices/company-info/csosn/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/csosn/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/csosn/save/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, description: "Request data")
     }
     "/myml/invoices/company-info/csosn/save/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, , description: "Response data after request")
     }
 
     //ie
     "/myml/invoices/company-info/ie"(platform: "/") {}
     "/myml/invoices/company-info/ie/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/ie/save/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, description: "Request data")
     }
     "/myml/invoices/company-info/ie/save/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, , description: "Response data after request")
     }
     
     //confirm
     "/myml/invoices/company-info/confirm"(platform: "/") {}
     "/myml/invoices/company-info/confirm/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, description: "Request data")
     }
     "/myml/invoices/company-info/confirm/save/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
+        payload (required: false, , description: "Response data after request")
     }
     "/myml/invoices/company-info/success"(platform: "/") {}
 
