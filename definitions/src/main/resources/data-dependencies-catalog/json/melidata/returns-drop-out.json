@@ -3,9 +3,9 @@
     "tomas.auchterlonie@mercadolibre.com"
   ],
   "process_name": "returns-drop-out",
-  "cron": "00 11 * * *",
+  "cron": "",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
       {
         "name": "DAY",
@@ -33,11 +33,22 @@
         "type": "INTEGER"
       },
       {
-        "name": "pickup_delivery_4",
+        "name": "pickup_review_delivery_4",
         "type": "INTEGER"
       },
+
       {
-        "name": "delivery_review_4",
+        "name": "pickup_4",
+        "type": "INTEGER"
+      },
+
+      {
+        "name": "review_4",
+        "type": "INTEGER"
+      },
+
+      {
+        "name": "delivery_4",
         "type": "INTEGER"
       },
       {
@@ -50,12 +61,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2018-01-01",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02", 
-          "value": "DAY-0",
+          "value": "2018-01-31",
           "format": "yyyy-MM-dd"
         }
       ]
