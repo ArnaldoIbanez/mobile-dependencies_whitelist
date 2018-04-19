@@ -266,34 +266,98 @@ tracks {
         type (required: true, values: ["LOW_LOYAL", "HIGH_LOYAL"])
     }
 
-    // Myml - Invoices
-
-    //Create Invoice flow
+    //:::: MYML - INVOICES
     "/myml/invoices"(platform: "/", isAbstract: true) {}
 
+    //:::: Create Invoice flow items
+    "/myml/invoices/items"(platform: "/", isAbstract: true) {}
+
+    //review
     "/myml/invoices/review"(platform: "/") {}
+    "/myml/invoices/review/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/review/create_invoice"(platform: "/", type: TrackType.Event) {
         payload (required: false)
     }
     "/myml/invoices/review/create_invoice/response"(platform: "/", type: TrackType.Event) {
         payload (required: false)
     }
+    
+    //origin
+    "/myml/invoices/items/origin"(platform: "/") {}
+    "/myml/invoices/items/origin/help"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/origin/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/items/origin/save/request"(platform: "/", type: TrackType.Event) {
+        payload (required: false)
+    }
+    "/myml/invoices/items/origin/save/response"(platform: "/", type: TrackType.Event) {
+        payload (required: false)
+    }
 
-    //Sales list
+    //sku
+    "/myml/invoices/items/sku"(platform: "/") {}
+    "/myml/invoices/items/sku/help"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/sku/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/items/sku/save/request"(platform: "/", type: TrackType.Event) {
+        payload (required: false)
+    }
+    "/myml/invoices/items/sku/save/response"(platform: "/", type: TrackType.Event) {
+        payload (required: false)
+    }
+
+    //csosn
+    "/myml/invoices/items/csosn"(platform: "/") {}
+    "/myml/invoices/items/csosn/help"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/csosn/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/items/csosn/save/request"(platform: "/", type: TrackType.Event) {
+        payload (required: false)
+    }
+    "/myml/invoices/items/csosn/save/response"(platform: "/", type: TrackType.Event) {
+        payload (required: false)
+    }
+
+    //ean
+    "/myml/invoices/items/ean"(platform: "/") {}
+    "/myml/invoices/items/ean/help"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/ean/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/items/ean/save/request"(platform: "/", type: TrackType.Event) {
+        payload (required: false)
+    }
+    "/myml/invoices/items/ean/save/response"(platform: "/", type: TrackType.Event) {
+        payload (required: false)
+    }
+
+    //ncm
+    "/myml/invoices/items/ncm"(platform: "/") {}
+    "/myml/invoices/items/ncm/help"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/ncm/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/items/ncm/save/request"(platform: "/", type: TrackType.Event) {
+        payload (required: false)
+    }
+    "/myml/invoices/items/ncm/save/response"(platform: "/", type: TrackType.Event) {
+        payload (required: false)
+    }
+
+    //:::: Sales list
     "/myml/invoices/sales_list"(platform: "/", isAbstract: true) {}
     "/myml/invoices/sales_list/create_invoice"(platform: "/", type: TrackType.Event) {}
 
-    //Optin flow
-    "/myml/invoices/landing"(platform: "/") {}
-    "/myml/invoices/landing/optin"(platform: "/", type: TrackType.Event) {}
-
+    //:::: Optin flow
     "/myml/invoices/company-info"(platform: "/", isAbstract: true) {}
-
+    
+    //landing
+    "/myml/invoices/landing"(platform: "/") {}
+    "/myml/invoices/landing/optin"(platform: "/", type: TrackType.Event) {
+        type (required: true, values: ["top", "bottom"])
+    }
+    
+    //certificate
     "/myml/invoices/company-info/certificate"(platform: "/") {}
+    "/myml/invoices/company-info/certificate/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/select_a1"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/select_a3"(platform: "/", type: TrackType.Event) {}
     
     "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
+    "/myml/invoices/company-info/certificate/a1/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {
         payload (required: false)
@@ -301,17 +365,13 @@ tracks {
     "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
         payload (required: false)
     }
-    
     "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
-    "/myml/invoices/company-info/certificate/a3/save"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/company-info/certificate/a3/save/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
-    }
-    "/myml/invoices/company-info/certificate/a3/save/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false)
-    }
+    "/myml/invoices/company-info/certificate/a3/download_app"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/certificate/a3/handshake"(platform: "/", type: TrackType.Event) {}
     
+    //serie
     "/myml/invoices/company-info/serie"(platform: "/") {}
+    "/myml/invoices/company-info/serie/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/serie/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/serie/save/request"(platform: "/", type: TrackType.Event) {
         payload (required: false)
@@ -320,7 +380,9 @@ tracks {
         payload (required: false)
     }
     
+    //cst
     "/myml/invoices/company-info/cst"(platform: "/") {}
+    "/myml/invoices/company-info/cst/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/cst/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/cst/save/request"(platform: "/", type: TrackType.Event) {
         payload (required: false)
@@ -329,7 +391,9 @@ tracks {
         payload (required: false)
     }
 
+    //csosn
     "/myml/invoices/company-info/csosn"(platform: "/") {}
+    "/myml/invoices/company-info/csosn/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/csosn/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/csosn/save/request"(platform: "/", type: TrackType.Event) {
         payload (required: false)
@@ -338,6 +402,7 @@ tracks {
         payload (required: false)
     }
 
+    //ie
     "/myml/invoices/company-info/ie"(platform: "/") {}
     "/myml/invoices/company-info/ie/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/ie/save/request"(platform: "/", type: TrackType.Event) {
@@ -347,6 +412,7 @@ tracks {
         payload (required: false)
     }
     
+    //confirm
     "/myml/invoices/company-info/confirm"(platform: "/") {}
     "/myml/invoices/company-info/confirm/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
@@ -355,7 +421,6 @@ tracks {
     "/myml/invoices/company-info/confirm/save/response"(platform: "/", type: TrackType.Event) {
         payload (required: false)
     }
-
     "/myml/invoices/company-info/success"(platform: "/") {}
 
 }
