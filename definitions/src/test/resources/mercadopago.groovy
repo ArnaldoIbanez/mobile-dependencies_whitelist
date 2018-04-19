@@ -350,7 +350,7 @@ trackTests {
     }
 
     test("Landing mercadopago card") {
-        "/landing/mp_card" (platform: "/web") {}
+        "/cobranded/acquisition/landing" (platform: "/web") {}
     }
 
     test("Mercadopago Activities List") {
