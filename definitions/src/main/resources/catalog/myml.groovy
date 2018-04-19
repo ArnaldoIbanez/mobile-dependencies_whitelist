@@ -325,6 +325,13 @@ tracks {
     "/myml/invoices/items/ean/save/response"(platform: "/", type: TrackType.Event) {
         payload (required: false)
     }
+    "/myml/invoices/items/ean/validate"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/items/ean/validate/request"(platform: "/", type: TrackType.Event) {
+        payload (required: false)
+    }
+    "/myml/invoices/items/ean/validate/response"(platform: "/", type: TrackType.Event) {
+        payload (required: false)
+    }
 
     //ncm
     "/myml/invoices/items/ncm"(platform: "/") {}
@@ -334,6 +341,13 @@ tracks {
         payload (required: false)
     }
     "/myml/invoices/items/ncm/save/response"(platform: "/", type: TrackType.Event) {
+        payload (required: false)
+    }
+    "/myml/invoices/items/ncm/search"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/items/ncm/search/request"(platform: "/", type: TrackType.Event) {
+        payload (required: false)
+    }
+    "/myml/invoices/items/ncm/search/response"(platform: "/", type: TrackType.Event) {
         payload (required: false)
     }
 
@@ -346,7 +360,7 @@ tracks {
     
     //landing
     "/myml/invoices/landing"(platform: "/") {}
-    "/myml/invoices/landing/optin"(platform: "/", type: TrackType.Event) {
+    "/myml/invoices/landing/quero_faturar"(platform: "/", type: TrackType.Event) {
         type (required: true, values: ["top", "bottom"])
     }
     

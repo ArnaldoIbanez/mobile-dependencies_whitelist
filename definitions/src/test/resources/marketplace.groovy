@@ -5633,10 +5633,14 @@ trackTests {
         "/myml/invoices/items/ean/help"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/ean/save/request"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/ean/save/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/items/ean/validate/request"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/items/ean/validate/response"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/ncm"(platform: "/") {}
         "/myml/invoices/items/ncm/help"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/ncm/save/request"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/ncm/save/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/items/ncm/search/request"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/items/ncm/search/response"(platform: "/", type: TrackType.Event) {}
     }
 
     test("Sales list flow") {
@@ -5645,7 +5649,7 @@ trackTests {
 
     test("Optin flow") {
         "/myml/invoices/landing"(platform: "/") {}
-        "/myml/invoices/landing/optin"(platform: "/", type: TrackType.Event) {
+        "/myml/invoices/landing/quero_faturar"(platform: "/", type: TrackType.Event) {
             type = "top"
         }
         "/myml/invoices/company-info/certificate"(platform: "/") {}
