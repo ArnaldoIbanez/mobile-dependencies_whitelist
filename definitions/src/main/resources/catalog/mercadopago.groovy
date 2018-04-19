@@ -52,9 +52,6 @@ tracks {
     // MP Promotions
     "/landing/promotions"(platform: "/web"){}
 
-    // MP Card
-    "/landing/mp_card" (platform: "/web") {}
-
     // MP Activities
     "/listing"(platform: "/web", isAbstract: true){}
 
@@ -632,7 +629,6 @@ tracks {
     "/subscription_plan"(platform: "/web", isAbstract: true){}
     "/subscription_plan/create"(platform: "/web", type: TrackType.View){}
     "/subscription_plan/confirm_create"(platform: "/web"){}
-
     //END -- MP frontend
 
     "/free_navigation"(platform:"/mobile", isAbstract: true) {}
