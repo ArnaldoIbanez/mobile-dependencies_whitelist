@@ -52,9 +52,6 @@ tracks {
     // MP Promotions
     "/landing/promotions"(platform: "/web"){}
 
-    // MP Card
-    "/cobranded/acquisition/landing" (platform: "/web") {}
-
     // MP Activities
     "/listing"(platform: "/web", isAbstract: true){}
 
@@ -625,6 +622,9 @@ tracks {
     "/subscription_plan/create"(platform: "/web", type: TrackType.View){}
     "/subscription_plan/confirm_create"(platform: "/web"){}
 
+    "/cobranded" (isAbstract: true, platform: "/web") {}
+    "/cobranded/acquisition" (isAbstract: true) {}
+    "/cobranded/acquisition/landing" () {}
     //END -- MP frontend
 
 }
