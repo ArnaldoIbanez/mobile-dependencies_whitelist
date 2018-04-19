@@ -349,10 +349,6 @@ trackTests {
         "/landing/promotions" (platform: "/web") {}
     }
 
-    test("Landing mercadopago card") {
-        "/cobranded/acquisition/landing" (platform: "/web") {}
-    }
-
     test("Mercadopago Activities List") {
         "/listing/activities" (platform: "/web") {}
     }

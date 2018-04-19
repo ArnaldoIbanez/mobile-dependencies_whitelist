@@ -80,4 +80,8 @@ trackTests {
         // View
         "/prepaid/block"(platform: "/web/desktop") {}
     }
+
+    test("Landing Cobranded card") {
+        "/cobranded/acquisition/landing" (platform: "/web") {}
+    }
 }

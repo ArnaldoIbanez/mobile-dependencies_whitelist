@@ -621,10 +621,6 @@ tracks {
     "/subscription_plan"(platform: "/web", isAbstract: true){}
     "/subscription_plan/create"(platform: "/web", type: TrackType.View){}
     "/subscription_plan/confirm_create"(platform: "/web"){}
-
-    "/cobranded" (isAbstract: true, platform: "/web") {}
-    "/cobranded/acquisition" (isAbstract: true) {}
-    "/cobranded/acquisition/landing" () {}
     //END -- MP frontend
 
 }
