@@ -5,7 +5,7 @@
   "process_name": "returns-intent-to-return-v2",
   "cron": "",
   "extract": {
-    "operation": "destroy",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "user_id",
