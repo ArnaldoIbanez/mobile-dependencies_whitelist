@@ -865,7 +865,7 @@ trackTests {
         "/checkout/shipping/custom_address/zip_code#references"(platform:"/mobile", type: TrackType.Event) {}
         "/checkout/shipping/custom_address/zip_code#neighborhood"(platform:"/mobile", type: TrackType.Event) {}
         "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event) {}
-        
+
         "/checkout/shipping/custom_address/zip_code/query"(platform:"/mobile", type:TrackType.View) {}
         "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event) {
             query_parameters = "Mexico D.F."
@@ -4804,7 +4804,7 @@ trackTests {
 
         "/checkout/shipping"(platform:"/web") {
             dataSet()
-            checkout_flow = "direct"
+            checkout_flow = "purchase"
         }
 
         "/checkout/review/edit_frequency"(platform:"/web") {
@@ -5026,7 +5026,10 @@ trackTests {
         "/cart/checkout/shipping/select_method_ask_geolocation"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_zipcode"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/input_address"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/input_address"(platform:"/mobile") {
+            dataSet()
+            edit_flow = false
+        }
         "/cart/checkout/shipping/input_address#zip_code"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address#street_name"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address#street_number"(platform:"/mobile", dataSet)
@@ -5040,7 +5043,10 @@ trackTests {
         "/cart/checkout/shipping/select_address"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/select_option_detail"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address_apartment"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/select_contact_info"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/select_contact_info"(platform:"/mobile"){
+            dataSet()
+            available_options = 1
+        } 
         "/cart/checkout/shipping/select_contact_info#submit"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/add_contact_info"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_contact_info"(platform:"/mobile", dataSet)
