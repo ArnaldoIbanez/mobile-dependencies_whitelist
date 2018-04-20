@@ -21,7 +21,7 @@ tracks {
         total_amount(required: true)
     }
 
-    "/email/shipping_backoffice/generic"(platform: "/email") {
+    "/email/shipping_backoffice"(platform: "/email") {
         campaign_name(required: true,
                 description: "Name of the current mail campaign in which is included the email")
         campaign_date(required: true,
