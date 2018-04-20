@@ -71,6 +71,10 @@ tracks {
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
     }
 
+    "/merchant_acquisition"(platform: "/") {
+        product (type: PropertyType.String, description: "Name of device, example: 'point-h'")
+    }
+
     // MP Mobile Point
     "/point_payment"(platform: "/mobile", type: TrackType.View) {
         flow_id (required: false, type: PropertyType.String, description: "Flow id.")

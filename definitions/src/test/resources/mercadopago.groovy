@@ -366,6 +366,9 @@ trackTests {
             discount = 0.16
             price_with_discount = 334.8
         }
+        "/merchant_acquisition" (platform: "/") {
+            product = "qr"
+        }
     }
 
     // MPMOBILE TEST
