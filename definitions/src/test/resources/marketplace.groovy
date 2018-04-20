@@ -857,7 +857,15 @@ trackTests {
         "/checkout/shipping/custom_address/zip_code"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+        "/checkout/shipping/custom_address/zip_code#zip_code"(platform:"/mobile", type: TrackType.Event) {}
+        "/checkout/shipping/custom_address/zip_code#street_name"(platform:"/mobile", type: TrackType.Event) {}
+        "/checkout/shipping/custom_address/zip_code#street_number"(platform:"/mobile", type: TrackType.Event) {}
+        "/checkout/shipping/custom_address/zip_code#internal_number"(platform:"/mobile", type: TrackType.Event) {}
+        "/checkout/shipping/custom_address/zip_code#between_streets"(platform:"/mobile", type: TrackType.Event) {}
+        "/checkout/shipping/custom_address/zip_code#references"(platform:"/mobile", type: TrackType.Event) {}
+        "/checkout/shipping/custom_address/zip_code#neighborhood"(platform:"/mobile", type: TrackType.Event) {}
         "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event) {}
+        
         "/checkout/shipping/custom_address/zip_code/query"(platform:"/mobile", type:TrackType.View) {}
         "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event) {
             query_parameters = "Mexico D.F."
