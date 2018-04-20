@@ -12,56 +12,74 @@ trackTests {
 
     test("Create invoice flow items") {
         "/myml/invoices/review"(platform: "/") {}
-        "/myml/invoices/review/create_invoice"(platform: "/", type: TrackType.Event) {
-            payload = {
-                additional_information = ""
-                recipient = {  
-                    address = {  
-                        street_number = "12312"
-                        complement = null
-                        street_name = "test"
-                        city = "Osasco"
-                        state = "SP"
-                        neighborhood = "Umuarama"
-                        zip_code = "06233034"
-                        country = "BR"
-                    }
-                    identifications = {  
-                        cpf = "15635614680"
-                    }
-                }
-                shipment = {}
-                orders = [  
-                    "1668688433"
-                ]
-            }
+        "/myml/invoices/review/create_invoice"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/items/review/save/request"(platform: "/", type: TrackType.Event) {
+            orders = ["1690100108", "1690100101"]
         }
-        "/myml/invoices/review/create_invoice/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/items/review/save/response"(platform: "/", type: TrackType.Event) {
+            orders = ["1690100108", "1690100101"]
+            data = "{status: 200}"
+        }
         "/myml/invoices/review/help"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/origin"(platform: "/") {}
         "/myml/invoices/items/origin/help"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/items/origin/save/request"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/items/origin/save/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/items/origin/save/request"(platform: "/", type: TrackType.Event) {
+            origin_detail = "2"
+        }
+        "/myml/invoices/items/origin/save/response"(platform: "/", type: TrackType.Event) {
+            origin_detail = "2"
+            data = "{status: 200}"
+        }
         "/myml/invoices/items/sku"(platform: "/") {}
         "/myml/invoices/items/sku/help"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/items/sku/save/request"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/items/sku/save/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/items/sku/save/request"(platform: "/", type: TrackType.Event) {
+            seller_sku = "1234"
+        }
+        "/myml/invoices/items/sku/save/response"(platform: "/", type: TrackType.Event) {
+            seller_sku = "1234"
+            data = "{status: 404}"
+        }
         "/myml/invoices/items/csosn"(platform: "/") {}
         "/myml/invoices/items/csosn/help"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/items/csosn/save/request"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/items/csosn/save/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/items/csosn/save/request"(platform: "/", type: TrackType.Event) {
+            ICMS_SIMPLES = "300"
+            item_id = "MLB989120833"
+        }
+        "/myml/invoices/items/csosn/save/response"(platform: "/", type: TrackType.Event) {
+            ICMS_SIMPLES = "300"
+            item_id = "MLB989120833"
+            data = "{status: 500}"
+        }
         "/myml/invoices/items/ean"(platform: "/") {}
         "/myml/invoices/items/ean/help"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/items/ean/save/request"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/items/ean/save/response"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/items/ean/validate/request"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/items/ean/validate/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/items/ean/save/request"(platform: "/", type: TrackType.Event) {
+            disabled = false
+            ean = "7896483002647"
+        }
+        "/myml/invoices/items/ean/save/response"(platform: "/", type: TrackType.Event) {
+            disabled = false
+            ean = "7896483002647"
+            data = "{status: 200}"
+        }
+        "/myml/invoices/items/ean/validate"(platform: "/", type: TrackType.Event) {
+            ean = "7896483002647"
+        }
         "/myml/invoices/items/ncm"(platform: "/") {}
         "/myml/invoices/items/ncm/help"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/items/ncm/save/request"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/items/ncm/save/response"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/items/ncm/search/request"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/items/ncm/search/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/items/ncm/save/request"(platform: "/", type: TrackType.Event) {
+            ncm = "84716052"
+        }
+        "/myml/invoices/items/ncm/save/response"(platform: "/", type: TrackType.Event) {
+            ncm = "84716052"
+            data = "{status: 404}"
+        }
+        "/myml/invoices/items/ncm/search/request"(platform: "/", type: TrackType.Event) {
+            ncm = "84716052"
+        }
+        "/myml/invoices/items/ncm/search/response"(platform: "/", type: TrackType.Event) {
+            ncm = "84716052"
+            data = "{status: 404}"
+        }
     }
 
     test("Sales list flow") {

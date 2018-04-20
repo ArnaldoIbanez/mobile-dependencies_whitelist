@@ -270,86 +270,74 @@ tracks {
     "/myml/invoices"(platform: "/", isAbstract: true) {}
 
     //:::: Create Invoice flow items
-    "/myml/invoices/items"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/items"(platform: "/", isAbstract: true) {
+        data(required: false, type:  PropertyType.String, description: "request status code to log")
+    }
 
     //review
     "/myml/invoices/review"(platform: "/") {}
     "/myml/invoices/review/help"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/review/create_invoice"(platform: "/", type: TrackType.Event) {
-        payload (required: false, description: "Request data")
+    "/myml/invoices/review/create_invoice"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/review/save"(platform: "/", isAbstract: true) {
+        orders(required: true, type: PropertyType.ArrayList, description: "array with order Id")
     }
-    "/myml/invoices/review/create_invoice/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false, description: "Response data after request")
-    }
+    "/myml/invoices/items/review/save/request"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/review/save/response"(platform: "/", type: TrackType.Event) {}
     
     //origin
     "/myml/invoices/items/origin"(platform: "/") {}
     "/myml/invoices/items/origin/help"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/origin/save"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/items/origin/save/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false, description: "Request data")
+    "/myml/invoices/items/origin/save"(platform: "/", isAbstract: true) {
+        origin_detail(required: true, type: PropertyType.String, description: "origin id")
     }
-    "/myml/invoices/items/origin/save/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false, , description: "Response data after request")
-    }
+    "/myml/invoices/items/origin/save/request"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/origin/save/response"(platform: "/", type: TrackType.Event) {}
 
     //sku
     "/myml/invoices/items/sku"(platform: "/") {}
     "/myml/invoices/items/sku/help"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/sku/save"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/items/sku/save/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false, description: "Request data")
+    "/myml/invoices/items/sku/save"(platform: "/", isAbstract: true) {
+        seller_sku(required: true, type: PropertyType.String, description: "sku id")
     }
-    "/myml/invoices/items/sku/save/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false, , description: "Response data after request")
-    }
+    "/myml/invoices/items/sku/save/request"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/sku/save/response"(platform: "/", type: TrackType.Event) {}
 
     //csosn
     "/myml/invoices/items/csosn"(platform: "/") {}
     "/myml/invoices/items/csosn/help"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/csosn/save"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/items/csosn/save/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false, description: "Request data")
+    "/myml/invoices/items/csosn/save"(platform: "/", isAbstract: true) {
+        ICMS_SIMPLES(required: true, type: PropertyType.String, description: "icms id")
+        item_id(required: true, type:  PropertyType.String, description: "item mlb id")
     }
-    "/myml/invoices/items/csosn/save/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false, , description: "Response data after request")
-    }
+    "/myml/invoices/items/csosn/save/request"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/csosn/save/response"(platform: "/", type: TrackType.Event) {}
 
     //ean
     "/myml/invoices/items/ean"(platform: "/") {}
     "/myml/invoices/items/ean/help"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/ean/save"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/items/ean/save/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false, description: "Request data")
+    "/myml/invoices/items/ean/save"(platform: "/", isAbstract: true) {
+        disabled(required: true, type: PropertyType.Boolean, description: "checkbox is desabled boolean")
+        ean(required: true, type: PropertyType.String, description: "ean id")
     }
-    "/myml/invoices/items/ean/save/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false, description: "Response data after request")
-    }
-    "/myml/invoices/items/ean/validate"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/items/ean/validate/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false, description: "Request data")
-    }
-    "/myml/invoices/items/ean/validate/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false, description: "Response data after request")
+    "/myml/invoices/items/ean/save/request"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/ean/save/response"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/ean/validate"(platform: "/", type: TrackType.Event) {
+        ean(required: true, type: PropertyType.String, description: "ean id")
     }
 
     //ncm
     "/myml/invoices/items/ncm"(platform: "/") {}
     "/myml/invoices/items/ncm/help"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/ncm/save"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/items/ncm/save/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false, description: "Request data")
+    "/myml/invoices/items/ncm/save"(platform: "/", isAbstract: true) {
+        ncm(required: true, type: PropertyType.String, description: "ncm id")
     }
-    "/myml/invoices/items/ncm/save/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false, description: "Response data after request")
+    "/myml/invoices/items/ncm/save/request"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/ncm/save/response"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/ncm/search"(platform: "/", isAbstract: true) {
+        ncm(required: true, type: PropertyType.String, description: "ncm id")
     }
-    "/myml/invoices/items/ncm/search"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/items/ncm/search/request"(platform: "/", type: TrackType.Event) {
-        payload (required: false, description: "Request data")
-    }
-    "/myml/invoices/items/ncm/search/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false, description: "Response data after request")
-    }
+    "/myml/invoices/items/ncm/search/request"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/ncm/search/response"(platform: "/", type: TrackType.Event) {}
 
     //:::: Sales list
     "/myml/invoices/sales_list"(platform: "/", isAbstract: true) {}
@@ -433,7 +421,7 @@ tracks {
         payload (required: false, description: "Request data")
     }
     "/myml/invoices/company-info/confirm/save/response"(platform: "/", type: TrackType.Event) {
-        payload (required: false, description: "Response data after request")
+        payload (required: false, , description: "Response data after request")
     }
     "/myml/invoices/company-info/success"(platform: "/") {}
 
