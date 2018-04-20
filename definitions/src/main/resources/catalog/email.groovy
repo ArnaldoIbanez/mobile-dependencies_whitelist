@@ -21,10 +21,13 @@ tracks {
         total_amount(required: true)
     }
 
-    "/email/shpbo"(platform: "/email") {
-        campaign_name(required: true)
-        campaign_date(required: true)
-        is_test(required: true)
+    "/email/shipping_backoffice/generic"(platform: "/email") {
+        campaign_name(required: true,
+                description: "Name of the current mail campaign in which is included the email")
+        campaign_date(required: true,
+                description: "The date of current email sent")
+        is_test(required: true,
+                description: "represent if the email is a real email or a test email (wich es sent to validate the correct content)")
     }
 
     "/email/generic"(platform: "/email"){}
