@@ -239,7 +239,7 @@ tracks {
 "/cart/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/mobile", type: TrackType.Event) {}
 
 "/cart/checkout/shipping/input_address"(platform:"/mobile", type: TrackType.View) {
-    edit_flow(required: false, type: PropertyType.Boolean)
+    edit_flow(required: true, type: PropertyType.Boolean)
 }
 
 "/cart/checkout/shipping/input_address#zip_code"(platform:"/mobile", type: TrackType.Event) {}
@@ -261,7 +261,7 @@ tracks {
 "/cart/checkout/shipping/input_address_apartment"(platform:"/mobile", type: TrackType.View) {}
 
 "/cart/checkout/shipping/select_contact_info"(platform:"/mobile", type: TrackType.View) {
-    available_options(required: false, type: PropertyType.Numeric)
+    available_options(required: true, type: PropertyType.Numeric)
 }
 
 "/cart/checkout/shipping/select_contact_info#submit"(platform:"/mobile", type: TrackType.Event) {}
