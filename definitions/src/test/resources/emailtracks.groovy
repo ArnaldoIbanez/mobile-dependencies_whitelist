@@ -59,6 +59,12 @@ trackTests {
             defaultTrackInformation()
         }
 
+        "/email/shipping_backoffice"(platform: "/email") {
+            defaultTrackInformation()
+            campaign_name = "mail_camp_prueba"
+            campaign_date = "2018-04-17T19:34:57.121Z"
+            is_test = true
+        }
     }
 
 }
