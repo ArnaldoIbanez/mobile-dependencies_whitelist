@@ -1170,6 +1170,10 @@ trackTests {
             checkoutStatus()
         }
 
+        "/checkout/payment/select_type"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
+
         "/checkout/billing/physical_person"(platform: "/mobile") {
             checkoutStatus()
         }
@@ -4924,6 +4928,7 @@ trackTests {
         "/cart/checkout/payment/select_bank"(platform:"/", dataSet)
         "/cart/checkout/payment/view_location"(platform:"/", dataSet)
         "/cart/checkout/payment/input_card"(platform:"/", dataSet)
+        "/cart/checkout/payment/input_card#card_config"(platform:"/", dataSet)
         "/cart/checkout/payment/input_card/edit_payment"(platform:"/", dataSet)
         "/cart/checkout/payment/input_card/security_code_tooltip"(platform:"/", dataSet)
         "/cart/checkout/payment/select_installments"(platform:"/", dataSet)
@@ -5014,12 +5019,21 @@ trackTests {
         "/cart/checkout/shipping/input_zipcode"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/input_address#zip_code"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/input_address#street_name"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/input_address#street_number"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/input_address#internal_number"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/input_address#between_streets"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/input_address#references"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/input_address#neighborhood"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/input_address#submit"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address_number"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address_number/whithout_number"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/select_address"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/select_option_detail"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address_apartment"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/select_contact_info"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/select_contact_info#submit"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/add_contact_info"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_contact_info"(platform:"/mobile", dataSet)
         "/cart/checkout/payment/select_unique_installment"(platform:"/mobile", dataSet)
