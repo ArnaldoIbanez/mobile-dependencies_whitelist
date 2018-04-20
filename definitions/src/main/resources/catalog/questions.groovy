@@ -16,31 +16,38 @@ tracks {
     }
     "/questions/ask"(platform: "/", isAbstract: true) {
         context(required:true ,description: "The page or section where the questions action is taking place" , values: ["/vip","/bookmarks","/questions","/notifications"])
+        item_id( required: true, description: "Item id in which we are performing the question")
     }
-    "/questions/answer"(platform: "/", isAbstract: true) {
-        context(required:true ,description: "The page or section where the questions action is taking place" , values: ["/questions","/notifications"])
-    }
+
     "/questions/ask/post"(platform: "/", type: TrackType.Event) {
         //TODO revisar si no conviene pasar failed() a otro path "/questions/ask/post/failed"
-        failed()
         question_id(required: false, description: "it has no value if failed is true")
+        failed( required: true, description: "whenever the post was succesful or not")
     }
 
     "/questions/ask/post" (platform: "/web", type: TrackType.Event) {
-        item_id()
         action_location(required:false, type: PropertyType.String)
     }
 
     "/questions/ask/back"(platform: "/mobile", type: TrackType.Event) {
     }
 
+    "/questions/answer"(platform: "/", isAbstract: true) {
+        context(required:true ,description: "The page or section where the questions action is taking place" , values: ["/questions","/notifications"])
+        item_id( required: true, description: "Item id in which we are performing the question")
+    }
+
     "/questions/answer"(platform: "/mobile") {
         from_deeplink(required: false, description: "True, when it access from deeplink, otherwise not")
     }
 
-    "/questions/answer/post"(platform: "/mobile", type: TrackType.Event) {
-        failed()
+    "/questions/answer/post"(platform: "/", type: TrackType.Event) {
         question_id(required: false, description: "it has no value if failed is true")
+    }
+
+    "/questions/answer/post"(platform: "/mobile", type: TrackType.Event) {
+        //TODO revisar si no conviene pasar failed() a otro path "/questions/answer/post/failed"
+        failed( required: true, description: "whenever the post was succesful or not")
         attach_id(required: false, description: "Attached Item id")
     }
 

@@ -23,6 +23,7 @@ trackTests {
         "/questions/ask/post"(platform: "/mobile") {
             item_id = "MLA12345"
             context = "/vip"
+            question_id = "12346"
             failed = false
         }
 
@@ -53,12 +54,14 @@ trackTests {
         "/questions/answer/post"(platform: "/mobile") {
             item_id = "MLA12345"
             context = "/notifications"
+            question_id = "12346"
             failed = false
         }
 
         "/questions/answer/post"(platform: "/mobile") {
             item_id = "MLA12345"
             context = "/notifications"
+            question_id = "12346"
             failed = true
         }
 
