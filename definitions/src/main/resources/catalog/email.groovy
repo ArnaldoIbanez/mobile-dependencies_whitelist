@@ -1,7 +1,4 @@
-import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
-import com.ml.melidata.TrackType
-
 
 tracks {
 
@@ -22,6 +19,12 @@ tracks {
         seller_id(required: true)
         is_risk_user(required: false)
         total_amount(required: true)
+    }
+
+    "/email/shpbo"(platform: "/email") {
+        campaign_name(required: true)
+        campaign_date(required: true)
+        is_test(required: true)
     }
 
     "/email/generic"(platform: "/email"){}
