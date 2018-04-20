@@ -27,7 +27,7 @@ tracks {
         campaign_date(required: true,
                 description: "The date of current email sent")
         is_test(required: true,
-                description: "represent if the email is a real email or a test email (wich es sent to validate the correct content)")
+                description: "Represent if the email is a real email or a test email (which is sent to validate the correct content)")
     }
 
     "/email/generic"(platform: "/email"){}
