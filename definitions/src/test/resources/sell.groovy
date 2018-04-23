@@ -140,6 +140,13 @@ trackTests {
         "/sell/modify_and_relist/single/row"   (platform: "/web/desktop", itemData)
         "/sell/modify_and_relist/single/cards" (platform: "/web/desktop", itemData)
         "/sell/modify_and_relist/massive/row"  (platform: "/web/desktop", massiveItemData)
+        "/sell/relist"
+        "/sell/relist/congrats"(platform: "/web"){
+            can_complete_attributes= true
+        }
+        "/sell/relist/relist_congrats"(platform: "/mobile"){
+            item_id = "MLA12345"
+        }
     }
 
     test("Sell Flow view Pages"){

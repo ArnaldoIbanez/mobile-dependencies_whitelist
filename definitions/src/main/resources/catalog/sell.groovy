@@ -298,17 +298,15 @@ tracks {
     }
     "/sell/list/sale_condition"(platform: "/", type: TrackType.View){}
     "/sell/list/item_description/title_prediction"(platform: "/", type: TrackType.View){
-        category_id(required: false, description: "Category id", type: PropertyType.String)
-        user_id(required: false, description: "User id", type: PropertyType.String)
-        domain_id(required: false, description: "Domain id", type: PropertyType.String)
-        attributes(required: false, description: "Attributes", type: PropertyType.ArrayList)
+        category_id(required: true, description: "Category id", type: PropertyType.String)
+        domain_id(required: true, description: "Domain id", type: PropertyType.String)
+        attributes(required: true, description: "Attributes", type: PropertyType.ArrayList)
     }
 
     "/sell/list/item_description/final_attributes"(platform: "/", type: TrackType.View){
-        category_id(required: false, description: "Category id", type: PropertyType.String)
-        user_id(required: false, description: "User id", type: PropertyType.String)
-        domain_id(required: false, description: "Domain id", type: PropertyType.String)
-        attributes(required: false, description: "Attributes", type: PropertyType.ArrayList)
+        category_id(required: true, description: "Category id", type: PropertyType.String)
+        domain_id(required: true, description: "Domain id", type: PropertyType.String)
+        attributes(required: true, description: "Attributes", type: PropertyType.ArrayList)
     }
 
 //update flow
@@ -429,7 +427,16 @@ tracks {
         value(required:true, description: "Value for attribute or feedback", type: PropertyType.String)
 
     }
-    
+
+    // Relist flow
+    "/sell/relist"(platform: "/", isAbstract: true) {}
+    "/sell/relist/congrats"(platform: "/web", isAbstract: true) {
+        can_complete_attributes(required: true, description: "Field to identify if link to update was offered.", type: PropertyType.Boolean)
+    }
+    "/sell/relist/relist_congrats"(platform: "/mobile", type: TrackType.View) {
+        item_id (required: true, type: PropertyType.String)
+    }
+
     "/sell/qr"(platform: "/", isAbstract: true) {}
     
     "/sell/qr/print_intention"(platform: "/web", type: TrackType.View){
