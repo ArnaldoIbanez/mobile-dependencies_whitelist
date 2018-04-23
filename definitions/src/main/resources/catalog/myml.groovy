@@ -278,6 +278,8 @@ tracks {
     "/myml/invoices/review"(platform: "/") {}
     "/myml/invoices/review/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/review/create_invoice"(platform: "/", type: TrackType.Event) {}
+    
+    "/myml/invoices/items/review"(platform: "/") {}
     "/myml/invoices/items/review/save"(platform: "/", isAbstract: true) {
         orders(required: true, type: PropertyType.ArrayList, description: "array with order Id")
     }

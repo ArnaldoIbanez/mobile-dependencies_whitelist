@@ -13,6 +13,7 @@ trackTests {
     test("Create invoice flow items") {
         "/myml/invoices/review"(platform: "/") {}
         "/myml/invoices/review/create_invoice"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/items/review"(platform: "/") {}
         "/myml/invoices/items/review/save/request"(platform: "/", type: TrackType.Event) {
             orders = ["1690100108", "1690100101"]
         }
