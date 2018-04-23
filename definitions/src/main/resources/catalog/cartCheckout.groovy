@@ -207,7 +207,6 @@ tracks {
 "/cart"(platform:"/mobile", type: TrackType.View, isAbstract: true) {
     geolocated(required:false, type: PropertyType.Boolean, description: "Indica si se geolocalizo al usuario")
     combination_2mp(required:false, description: "2MP switch state")
-    sent_again(required: false, description: "check if already has a track not sent (check by track mode deferrerd too)")
 }
 
 "/cart/checkout"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}

@@ -152,7 +152,6 @@ tracks {
         combination_2mp(required:false, description: "2MP switch state")
         vertical(required: false, description: "vertical of transaction")
         reservation_price(required: false, description: "price of a reservation transaction")
-        sent_again(required: false, description: "check if already has a track not sent (check by track mode deferrerd too)")
     }
 
     "/checkout/wrapper"(platform: "/mobile") {} //Melidata experiment
