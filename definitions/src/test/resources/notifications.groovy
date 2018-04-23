@@ -540,6 +540,12 @@ trackTests {
             event_type = "auto_dismiss"
         }
 
+        "/notification/messages_read"(platform: "/mobile/android") {
+            news_id = "123"
+            event_type = "open"
+        }
+
+
         "/notification/moderations_item_warning"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
