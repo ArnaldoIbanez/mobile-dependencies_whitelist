@@ -308,7 +308,7 @@ tracks {
     "/myml/invoices/items/csosn"(platform: "/") {}
     "/myml/invoices/items/csosn/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/csosn/save"(platform: "/", isAbstract: true) {
-        ICMS_SIMPLES(required: true, type: PropertyType.String, description: "icms id")
+        icms_simples(required: true, type: PropertyType.String, description: "icms id")
         item_id(required: true, type:  PropertyType.String, description: "item mlb id")
     }
     "/myml/invoices/items/csosn/save/request"(platform: "/", type: TrackType.Event) {}
@@ -384,9 +384,9 @@ tracks {
     "/myml/invoices/company-info/cst"(platform: "/") {}
     "/myml/invoices/company-info/cst/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/cst/save"(platform: "/", isAbstract: true) {
-        IPI(required: true, type: PropertyType.String, description: "ipi id")
-        PIS(required: true, type: PropertyType.String, description: "pis id")
-        COFINS(required: true, type: PropertyType.String, description: "confins id")
+        ipi(required: true, type: PropertyType.String, description: "ipi id")
+        pis(required: true, type: PropertyType.String, description: "pis id")
+        cofins(required: true, type: PropertyType.String, description: "confins id")
     }
     "/myml/invoices/company-info/cst/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/cst/save/response"(platform: "/", type: TrackType.Event) {}
@@ -395,7 +395,7 @@ tracks {
     "/myml/invoices/company-info/csosn"(platform: "/") {}
     "/myml/invoices/company-info/csosn/help"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/csosn/save"(platform: "/", isAbstract: true) {
-        ICMS_SIMPLES(required: true, type: PropertyType.String, description: "confins id")
+        icms_simples(required: true, type: PropertyType.String, description: "confins id")
     }
     "/myml/invoices/company-info/csosn/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/csosn/save/response"(platform: "/", type: TrackType.Event) {}

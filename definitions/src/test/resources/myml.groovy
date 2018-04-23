@@ -43,11 +43,11 @@ trackTests {
         "/myml/invoices/items/csosn"(platform: "/") {}
         "/myml/invoices/items/csosn/help"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/csosn/save/request"(platform: "/", type: TrackType.Event) {
-            ICMS_SIMPLES = "300"
+            icms_simples = "300"
             item_id = "MLB989120833"
         }
         "/myml/invoices/items/csosn/save/response"(platform: "/", type: TrackType.Event) {
-            ICMS_SIMPLES = "300"
+            icms_simples = "300"
             item_id = "MLB989120833"
             data = "{status: 500}"
         }
@@ -117,23 +117,23 @@ trackTests {
         "/myml/invoices/company-info/cst"(platform: "/") {}
         "/myml/invoices/company-info/cst/help"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/cst/save/request"(platform: "/", type: TrackType.Event) {
-            IPI = "50"
-            PIS = "08"
-            COFINS = "08"
+            ipi = "50"
+            pis = "08"
+            cofins = "08"
         }
         "/myml/invoices/company-info/cst/save/response"(platform: "/", type: TrackType.Event) {
-            IPI = "50"
-            PIS = "08"
-            COFINS = "08"
+            ipi = "50"
+            pis = "08"
+            cofins = "08"
             data = "{status: 200}"
         }
         "/myml/invoices/company-info/csosn"(platform: "/") {}
         "/myml/invoices/company-info/csosn/help"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/csosn/save/request"(platform: "/", type: TrackType.Event) {
-            ICMS_SIMPLES = "500"
+            icms_simples = "500"
         }
         "/myml/invoices/company-info/csosn/save/response"(platform: "/", type: TrackType.Event) {
-            ICMS_SIMPLES = "500"
+            icms_simples = "500"
             data = "{status: 200}"
         }
         "/myml/invoices/company-info/ie"(platform: "/") {}
