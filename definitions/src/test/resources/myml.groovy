@@ -99,28 +99,60 @@ trackTests {
         "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
         "/myml/invoices/company-info/certificate/a1/help"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
+            data = "{status: 200}"
+        }
         "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
         "/myml/invoices/company-info/certificate/a3/download_app"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a3/handshake"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/serie"(platform: "/") {}
         "/myml/invoices/company-info/serie/help"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/company-info/serie/save/request"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/company-info/serie/save/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/serie/save/request"(platform: "/", type: TrackType.Event) {
+            series_id = 200
+        }
+        "/myml/invoices/company-info/serie/save/response"(platform: "/", type: TrackType.Event) {
+            series_id = 200
+            data = "{status: 200}"
+        }
         "/myml/invoices/company-info/cst"(platform: "/") {}
         "/myml/invoices/company-info/cst/help"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/company-info/cst/save/request"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/company-info/cst/save/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/cst/save/request"(platform: "/", type: TrackType.Event) {
+            IPI = "50"
+            PIS = "08"
+            COFINS = "08"
+        }
+        "/myml/invoices/company-info/cst/save/response"(platform: "/", type: TrackType.Event) {
+            IPI = "50"
+            PIS = "08"
+            COFINS = "08"
+            data = "{status: 200}"
+        }
         "/myml/invoices/company-info/csosn"(platform: "/") {}
         "/myml/invoices/company-info/csosn/help"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/company-info/csosn/save/request"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/company-info/csosn/save/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/csosn/save/request"(platform: "/", type: TrackType.Event) {
+            ICMS_SIMPLES = "500"
+        }
+        "/myml/invoices/company-info/csosn/save/response"(platform: "/", type: TrackType.Event) {
+            ICMS_SIMPLES = "500"
+            data = "{status: 200}"
+        }
         "/myml/invoices/company-info/ie"(platform: "/") {}
-        "/myml/invoices/company-info/ie/save/request"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/company-info/ie/save/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/ie/save/request"(platform: "/", type: TrackType.Event) {
+            state_registration = "492875457119"
+        }
+        "/myml/invoices/company-info/ie/save/response"(platform: "/", type: TrackType.Event) {
+            state_registration = "492875457119"
+            data = "{status: 404}"
+        }
         "/myml/invoices/company-info/confirm"(platform: "/") {}
-        "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/company-info/confirm/save/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
+            invoices_optin = "2018-04-23T11:39:25.500-03:00"
+
+        }
+        "/myml/invoices/company-info/confirm/save/response"(platform: "/", type: TrackType.Event) {
+            invoices_optin = "2018-04-23T11:39:25.500-03:00"
+            data = "{status: 200}"
+        }
         "/myml/invoices/company-info/success"(platform: "/") {}
     }
 }
