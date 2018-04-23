@@ -241,13 +241,30 @@ tracks {
     edit_flow(required: true, type: PropertyType.Boolean)
 }
 
-"/cart/checkout/shipping/input_address#zip_code"(platform:"/mobile", type: TrackType.Event) {}
-"/cart/checkout/shipping/input_address#street_name"(platform:"/mobile", type: TrackType.Event) {}
-"/cart/checkout/shipping/input_address#street_number"(platform:"/mobile", type: TrackType.Event) {}
-"/cart/checkout/shipping/input_address#internal_number"(platform:"/mobile", type: TrackType.Event) {}
-"/cart/checkout/shipping/input_address#between_streets"(platform:"/mobile", type: TrackType.Event) {}
-"/cart/checkout/shipping/input_address#references"(platform:"/mobile", type: TrackType.Event) {}
-"/cart/checkout/shipping/input_address#neighborhood"(platform:"/mobile", type: TrackType.Event) {}
+"/cart/checkout/shipping/input_address#zip_code"(platform:"/mobile", type: TrackType.Event) {
+    zip_code(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#street_name"(platform:"/mobile", type: TrackType.Event) {
+    street_name(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#street_number"(platform:"/mobile", type: TrackType.Event) {
+    street_number(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#internal_number"(platform:"/mobile", type: TrackType.Event) {
+    internal_number(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#between_streets"(platform:"/mobile", type: TrackType.Event) {
+    between_streets(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#references"(platform:"/mobile", type: TrackType.Event) {
+    references(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#neighborhood"(platform:"/mobile", type: TrackType.Event) {
+    neighborhood(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#additional_info"(platform:"/mobile", type: TrackType.Event) {
+    additional_info(required: false, type: PropertyType.String)
+}
 "/cart/checkout/shipping/input_address#submit"(platform:"/mobile", type: TrackType.Event) {}
 
 "/cart/checkout/shipping/input_address_number"(platform:"/mobile", type: TrackType.View) {}

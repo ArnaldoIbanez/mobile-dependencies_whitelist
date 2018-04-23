@@ -857,13 +857,30 @@ trackTests {
         "/checkout/shipping/custom_address/zip_code"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/shipping/custom_address/zip_code#zip_code"(platform:"/mobile", type: TrackType.Event) {}
-        "/checkout/shipping/custom_address/zip_code#street_name"(platform:"/mobile", type: TrackType.Event) {}
-        "/checkout/shipping/custom_address/zip_code#street_number"(platform:"/mobile", type: TrackType.Event) {}
-        "/checkout/shipping/custom_address/zip_code#internal_number"(platform:"/mobile", type: TrackType.Event) {}
-        "/checkout/shipping/custom_address/zip_code#between_streets"(platform:"/mobile", type: TrackType.Event) {}
-        "/checkout/shipping/custom_address/zip_code#references"(platform:"/mobile", type: TrackType.Event) {}
-        "/checkout/shipping/custom_address/zip_code#neighborhood"(platform:"/mobile", type: TrackType.Event) {}
+        "/checkout/shipping/custom_address/zip_code#zip_code"(platform:"/mobile", type: TrackType.Event) {
+            zip_code = "zip_code"
+        }
+        "/checkout/shipping/custom_address/zip_code#street_name"(platform:"/mobile", type: TrackType.Event) {
+            street_name = "street_name"
+        }
+        "/checkout/shipping/custom_address/zip_code#street_number"(platform:"/mobile", type: TrackType.Event) {
+            street_number = "street_number"
+        }
+        "/checkout/shipping/custom_address/zip_code#internal_number"(platform:"/mobile", type: TrackType.Event) {
+            internal_number = "internal_number"
+        }
+        "/checkout/shipping/custom_address/zip_code#between_streets"(platform:"/mobile", type: TrackType.Event) {
+            between_streets = "between_streets"
+        }
+        "/checkout/shipping/custom_address/zip_code#references"(platform:"/mobile", type: TrackType.Event) {
+            references = "references"
+        }
+        "/checkout/shipping/custom_address/zip_code#neighborhood"(platform:"/mobile", type: TrackType.Event) {
+            neighborhood = "neighborhood"
+        }
+        "/checkout/shipping/custom_address/zip_code#additional_info"(platform:"/mobile", type: TrackType.Event) {
+            additional_info = "neighborhood"
+        }
         "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event) {}
 
         "/checkout/shipping/custom_address/zip_code/query"(platform:"/mobile", type:TrackType.View) {}
@@ -4804,7 +4821,7 @@ trackTests {
 
         "/checkout/shipping"(platform:"/web") {
             dataSet()
-            checkout_flow = "purchase"
+            checkout_flow = "direct"
         }
 
         "/checkout/review/edit_frequency"(platform:"/web") {
@@ -5030,13 +5047,38 @@ trackTests {
             dataSet()
             edit_flow = false
         }
-        "/cart/checkout/shipping/input_address#zip_code"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/input_address#street_name"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/input_address#street_number"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/input_address#internal_number"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/input_address#between_streets"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/input_address#references"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/input_address#neighborhood"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/input_address#zip_code"(platform:"/mobile") {
+            dataSet()
+            zip_code = "zip_code"
+        }
+        "/cart/checkout/shipping/input_address#street_name"(platform:"/mobile") {
+            dataSet()
+            street_name = "street_name"
+        }
+        "/cart/checkout/shipping/input_address#street_number"(platform:"/mobile") {
+            dataSet()
+            street_number = "street_number"
+        }
+        "/cart/checkout/shipping/input_address#internal_number"(platform:"/mobile") {
+            dataSet()
+            internal_number = "internal_number"
+        }
+        "/cart/checkout/shipping/input_address#between_streets"(platform:"/mobile") {
+            dataSet()
+            between_streets = "between_streets"
+        }
+        "/cart/checkout/shipping/input_address#references"(platform:"/mobile") {
+            dataSet()
+            references = "references"
+        }
+        "/cart/checkout/shipping/input_address#neighborhood"(platform:"/mobile") {
+            dataSet()
+            neighborhood = "neighborhood"
+        }
+        "/cart/checkout/shipping/input_address#additional_info"(platform:"/mobile") {
+            dataSet()
+            additional_info = "additional_info"
+        }
         "/cart/checkout/shipping/input_address#submit"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address_number"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address_number/whithout_number"(platform:"/mobile", dataSet)

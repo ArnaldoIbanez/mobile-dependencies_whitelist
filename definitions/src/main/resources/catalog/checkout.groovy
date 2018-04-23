@@ -93,7 +93,7 @@ tracks {
         first_for_order(serverSide: true)
 
         // Checkout flows
-        checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "purchase"])
+        checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
 
         //Billing info
         billing_info(required:false, description: "Dictionary containing the user selected billing info")
@@ -255,13 +255,30 @@ tracks {
     "/checkout/shipping/custom_address"(platform: "/mobile", isAbstract: true) {}
     //Input zip_code
     "/checkout/shipping/custom_address/zip_code"(platform: "/mobile") {}
-    "/checkout/shipping/custom_address/zip_code#zip_code"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
-    "/checkout/shipping/custom_address/zip_code#street_name"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
-    "/checkout/shipping/custom_address/zip_code#street_number"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
-    "/checkout/shipping/custom_address/zip_code#internal_number"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
-    "/checkout/shipping/custom_address/zip_code#between_streets"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
-    "/checkout/shipping/custom_address/zip_code#references"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
-    "/checkout/shipping/custom_address/zip_code#neighborhood"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/checkout/shipping/custom_address/zip_code#zip_code"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        zip_code(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/custom_address/zip_code#street_name"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        street_name(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/custom_address/zip_code#street_number"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        street_number(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/custom_address/zip_code#internal_number"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        internal_number(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/custom_address/zip_code#between_streets"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        between_streets(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/custom_address/zip_code#references"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        references(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/custom_address/zip_code#neighborhood"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        neighborhood(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/custom_address/zip_code#additional_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        additional_info(required: false, type: PropertyType.String)
+    }
     "/checkout/shipping/custom_address/zip_code#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     }
     //Query zip code
