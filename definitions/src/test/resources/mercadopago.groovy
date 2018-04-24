@@ -357,6 +357,22 @@ trackTests {
         "/listing/gateway" (platform: "/web") {}
     }
 
+    test("MP-MA Landing QR") {
+        "/merchant_acquisition/qr/landing" (platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/qr/landing/promotions"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("MP-MA Flow QR") {
+        "/merchant_acquisition/qr/onboarding"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/qr/qr-code"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/qr/pending"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/qr/error"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/qr/qr-code/download"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/qr/qr-code/print"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/qr/qr-code/faqs"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/qr/qr-code/help"(platform:"/", type: TrackType.Event) {}
+    }
+
     test("Landing mercadopago point") {
         "/point/home" (platform: "/") {
             product = "point-h"
