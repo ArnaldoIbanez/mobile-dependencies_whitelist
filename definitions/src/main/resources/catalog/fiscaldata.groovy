@@ -16,12 +16,11 @@ import com.ml.melidata.TrackType
  */
 
 tracks {
-
-    // Registration
+    "/registration"(platform: "/", isAbstract: true) {}
     "/registration/form"(platform: "/", type: TrackType.Event) {}
     "/registration/congrats"(platform: "/", type: TrackType.Event) {}
 
-    // Flow
+    "/flow"(platform: "/", isAbstract: true) {}
     "/flow/tax_payer"(platform: "/", type: TrackType.Event) {}
     "/flow/iva"(platform: "/", type: TrackType.Event) {}
     "/flow/load_iva"(platform: "/", type: TrackType.Event) {}

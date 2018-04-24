@@ -3,16 +3,20 @@ import com.ml.melidata.TrackType;
 
 trackTests {
 
-    defaultBusiness = "fiscaldata"
+    defaultBusiness = "mercadolibre"
 
     test("registration_company") {
-        //Registration
+        "/registration"(platform: "/") {}
         "/registration/form"(platform: "/", type: TrackType.Event) {}
         "/registration/congrats"(platform: "/", type: TrackType.Event) {}
+
+        "/registration"(platform: "/", business:"mercadopago") {}
+        "/registration/form"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
+        "/registration/congrats"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
     }
 
     test("flow"){
-        //Flow load and update of Fiscal data.
+        "/flow"(platform: "/") {}
         "/flow/tax_payer"(platform: "/", type: TrackType.Event) {}
         "/flow/iva"(platform: "/", type: TrackType.Event) {}
         "/flow/load_iva"(platform: "/", type: TrackType.Event) {}
@@ -22,5 +26,16 @@ trackTests {
         "/flow/address"(platform: "/", type: TrackType.Event) {}
         "/flow/summary"(platform: "/", type: TrackType.Event) {}
         "/flow/congrats"(platform: "/", type: TrackType.Event) {}
+
+        "/flow"(platform: "/", business:"mercadopago") {}
+        "/flow/tax_payer"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
+        "/flow/iva"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
+        "/flow/load_iva"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
+        "/flow/iibb"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
+        "/flow/load_iibb"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
+        "/flow/province_iibb"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
+        "/flow/address"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
+        "/flow/summary"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
+        "/flow/congrats"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
     }
 }
