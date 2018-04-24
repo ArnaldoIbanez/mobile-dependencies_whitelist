@@ -14,72 +14,80 @@ trackTests {
         "/myml/invoices/review"(platform: "/") {}
         "/myml/invoices/review/create_invoice"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/review"(platform: "/") {}
-        "/myml/invoices/items/review/save/request"(platform: "/", type: TrackType.Event) {
-            orders = ["1690100108", "1690100101"]
-        }
+        "/myml/invoices/items/review/save/request"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/review/save/response"(platform: "/", type: TrackType.Event) {
-            orders = ["1690100108", "1690100101"]
-            data = "{status: 200}"
+            error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
-        "/myml/invoices/review/help"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/review/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/origin"(platform: "/") {}
-        "/myml/invoices/items/origin/help"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/items/origin/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/origin/save/request"(platform: "/", type: TrackType.Event) {
-            origin_detail = "2"
+            code = "2"
         }
         "/myml/invoices/items/origin/save/response"(platform: "/", type: TrackType.Event) {
-            origin_detail = "2"
-            data = "{status: 200}"
+            code = "2"
+            error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/items/sku"(platform: "/") {}
-        "/myml/invoices/items/sku/help"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/items/sku/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/sku/save/request"(platform: "/", type: TrackType.Event) {
-            seller_sku = "1234"
+            code = "1234"
         }
         "/myml/invoices/items/sku/save/response"(platform: "/", type: TrackType.Event) {
-            seller_sku = "1234"
-            data = "{status: 404}"
+            code = "1234"
+            error = "Não conseguimos processar a sua solicitação. Tente Novamente"
+            errorValidation = "O SKU não pode ser vazio"
         }
         "/myml/invoices/items/csosn"(platform: "/") {}
-        "/myml/invoices/items/csosn/help"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/items/csosn/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/csosn/save/request"(platform: "/", type: TrackType.Event) {
-            icms_simples = "300"
-            item_id = "MLB989120833"
+            code = "300"
         }
         "/myml/invoices/items/csosn/save/response"(platform: "/", type: TrackType.Event) {
-            icms_simples = "300"
-            item_id = "MLB989120833"
-            data = "{status: 500}"
+            code = "300"
+            error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/items/ean"(platform: "/") {}
-        "/myml/invoices/items/ean/help"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/items/ean/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/ean/save/request"(platform: "/", type: TrackType.Event) {
-            disabled = false
+            withoutCode = false
             ean = "7896483002647"
         }
         "/myml/invoices/items/ean/save/response"(platform: "/", type: TrackType.Event) {
-            disabled = false
+            withoutCode = false
             ean = "7896483002647"
-            data = "{status: 200}"
+            error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/items/ean/validate"(platform: "/", type: TrackType.Event) {
-            ean = "7896483002647"
+            ean = "1232"
+            errorValidation = "O código de EAN precisa ter entre 8 e 14 dígitos"
         }
+
+        "/myml/invoices/items/product-type"(platform: "/") {}
+        "/myml/invoices/items/product-type/help_tooltip"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/items/product-type/save/request"(platform: "/", type: TrackType.Event) {
+            code = "1232"
+        }
+         "/myml/invoices/items/product-type/save/response"(platform: "/", type: TrackType.Event) {
+            code = "1232"
+            error = "Não conseguimos processar a sua solicitação. Tente Novamente"
+        }
+
         "/myml/invoices/items/ncm"(platform: "/") {}
-        "/myml/invoices/items/ncm/help"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/items/ncm/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/ncm/save/request"(platform: "/", type: TrackType.Event) {
-            ncm = "84716052"
+            code = "84716052"
         }
         "/myml/invoices/items/ncm/save/response"(platform: "/", type: TrackType.Event) {
-            ncm = "84716052"
-            data = "{status: 404}"
+            code = "84716052"
+            error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/items/ncm/search/request"(platform: "/", type: TrackType.Event) {
-            ncm = "84716052"
+            code = "84716052"
         }
         "/myml/invoices/items/ncm/search/response"(platform: "/", type: TrackType.Event) {
-            ncm = "84716052"
-            data = "{status: 404}"
+            code = "84716052"
+            error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
     }
 
@@ -89,69 +97,60 @@ trackTests {
 
     test("Optin flow") {
         "/myml/invoices/landing"(platform: "/") {}
-        "/myml/invoices/landing/quero_faturar"(platform: "/", type: TrackType.Event) {
+        "/myml/invoices/landing/optin"(platform: "/", type: TrackType.Event) {
             type = "top"
         }
         "/myml/invoices/company-info/certificate"(platform: "/") {}
-        "/myml/invoices/company-info/certificate/help"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/company-info/certificate/select_a1"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/company-info/certificate/select_a3"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/certificate/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
-        "/myml/invoices/company-info/certificate/a1/help"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
-            data = "{status: 200}"
-        }
+        "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
-        "/myml/invoices/company-info/certificate/a3/download_app"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/company-info/certificate/a3/handshake"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/certificate/a3/handshake"(platform: "/", type: TrackType.Event) {
+            handshaking = true;
+            installer = "https://myaccount.mercadolivre.com.br/invoices-app/instaler.exe"
+        }
         "/myml/invoices/company-info/serie"(platform: "/") {}
-        "/myml/invoices/company-info/serie/help"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/serie/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/serie/save/request"(platform: "/", type: TrackType.Event) {
-            series_id = 200
+            serie = 200
         }
         "/myml/invoices/company-info/serie/save/response"(platform: "/", type: TrackType.Event) {
-            series_id = 200
-            data = "{status: 200}"
+            serie = 200
+            error = "Não conseguimos processar a sua solicitação. Tente Novamente"
+            errorValidation = "O número de série não pode ser vazio"
         }
         "/myml/invoices/company-info/cst"(platform: "/") {}
-        "/myml/invoices/company-info/cst/help"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/cst/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/cst/save/request"(platform: "/", type: TrackType.Event) {
-            ipi = "50"
-            pis = "08"
-            cofins = "08"
+            ipi_code = "50"
+            pis_code = "08"
         }
         "/myml/invoices/company-info/cst/save/response"(platform: "/", type: TrackType.Event) {
-            ipi = "50"
-            pis = "08"
-            cofins = "08"
-            data = "{status: 200}"
+            ipi_code = "50"
+            pis_code = "08"
+            error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/company-info/csosn"(platform: "/") {}
-        "/myml/invoices/company-info/csosn/help"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/csosn/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/csosn/save/request"(platform: "/", type: TrackType.Event) {
-            icms_simples = "500"
+            code = "500"
         }
         "/myml/invoices/company-info/csosn/save/response"(platform: "/", type: TrackType.Event) {
-            icms_simples = "500"
-            data = "{status: 200}"
+            code = "500"
+            error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/company-info/ie"(platform: "/") {}
         "/myml/invoices/company-info/ie/save/request"(platform: "/", type: TrackType.Event) {
-            state_registration = "492875457119"
+            code = "492875457119"
         }
         "/myml/invoices/company-info/ie/save/response"(platform: "/", type: TrackType.Event) {
-            state_registration = "492875457119"
-            data = "{status: 404}"
+            code = "492875457119"
+            error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/company-info/confirm"(platform: "/") {}
-        "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
-            invoices_optin = "2018-04-23T11:39:25.500-03:00"
-
-        }
+        "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/confirm/save/response"(platform: "/", type: TrackType.Event) {
-            invoices_optin = "2018-04-23T11:39:25.500-03:00"
-            data = "{status: 200}"
+            error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/company-info/success"(platform: "/") {}
     }

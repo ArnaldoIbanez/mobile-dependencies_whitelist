@@ -271,72 +271,79 @@ tracks {
 
     //:::: Create Invoice flow items
     "/myml/invoices/items"(platform: "/", isAbstract: true) {
-        data(required: false, type:  PropertyType.String, description: "request status code to log")
+        error(required: false, type:  PropertyType.String, description: "Error message that pop to user after request")
+        errorValidation(required: false, type:  PropertyType.String, description: "Error message when value is invalid")
     }
 
     //review
     "/myml/invoices/review"(platform: "/") {}
-    "/myml/invoices/review/help"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/review/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/review/create_invoice"(platform: "/", type: TrackType.Event) {}
     
     "/myml/invoices/items/review"(platform: "/") {}
-    "/myml/invoices/items/review/save"(platform: "/", isAbstract: true) {
-        orders(required: true, type: PropertyType.ArrayList, description: "array with order Id")
-    }
+    "/myml/invoices/items/review/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/items/review/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/review/save/response"(platform: "/", type: TrackType.Event) {}
     
     //origin
     "/myml/invoices/items/origin"(platform: "/") {}
-    "/myml/invoices/items/origin/help"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/origin/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/origin/save"(platform: "/", isAbstract: true) {
-        origin_detail(required: true, type: PropertyType.String, description: "origin id")
+        code(required: true, type: PropertyType.String, description: "Origin type id of the product selected")
     }
     "/myml/invoices/items/origin/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/origin/save/response"(platform: "/", type: TrackType.Event) {}
 
     //sku
     "/myml/invoices/items/sku"(platform: "/") {}
-    "/myml/invoices/items/sku/help"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/sku/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/sku/save"(platform: "/", isAbstract: true) {
-        seller_sku(required: true, type: PropertyType.String, description: "sku id")
+        code(required: true, type: PropertyType.String, description: "Sku id input")
     }
     "/myml/invoices/items/sku/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/sku/save/response"(platform: "/", type: TrackType.Event) {}
 
     //csosn
     "/myml/invoices/items/csosn"(platform: "/") {}
-    "/myml/invoices/items/csosn/help"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/csosn/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/csosn/save"(platform: "/", isAbstract: true) {
-        icms_simples(required: true, type: PropertyType.String, description: "icms id")
-        item_id(required: true, type:  PropertyType.String, description: "item mlb id")
+        code(required: true, type: PropertyType.String, description: "CSOSN type id of the product (tax information) selected")
     }
     "/myml/invoices/items/csosn/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/csosn/save/response"(platform: "/", type: TrackType.Event) {}
 
     //ean
     "/myml/invoices/items/ean"(platform: "/") {}
-    "/myml/invoices/items/ean/help"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/ean/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/ean/save"(platform: "/", isAbstract: true) {
-        disabled(required: true, type: PropertyType.Boolean, description: "checkbox is desabled boolean")
-        ean(required: true, type: PropertyType.String, description: "ean id")
+        ean(required: true, type: PropertyType.String, description: "Ean(europen article code) id input value")
+        withoutCode(required: true, type: PropertyType.Boolean, description: "Checkbox value empty boolean (without ean)")
     }
     "/myml/invoices/items/ean/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/ean/save/response"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/ean/validate"(platform: "/", type: TrackType.Event) {
-        ean(required: true, type: PropertyType.String, description: "ean id")
+        ean(required: true, type: PropertyType.String, description: "Ean(europen article code) id input value")
     }
+
+    //product-type
+    "/myml/invoices/items/product-type"(platform: "/") {}
+    "/myml/invoices/items/product-type/help_tooltip"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/product-type/save"(platform: "/", isAbstract: true) {
+        code(required: true, type: PropertyType.String, description: "Product origin id selected")
+    }
+    "/myml/invoices/items/product-type/save/request"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/product-type/save/response"(platform: "/", type: TrackType.Event) {}
 
     //ncm
     "/myml/invoices/items/ncm"(platform: "/") {}
-    "/myml/invoices/items/ncm/help"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/ncm/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/ncm/save"(platform: "/", isAbstract: true) {
-        ncm(required: true, type: PropertyType.String, description: "ncm id")
+        code(required: true, type: PropertyType.String, description: "Product Ncm(nomenclatura comum do mercosul) id input")
     }
     "/myml/invoices/items/ncm/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/ncm/save/response"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/ncm/search"(platform: "/", isAbstract: true) {
-        ncm(required: true, type: PropertyType.String, description: "ncm id")
+        code(required: true, type: PropertyType.String, description: "Search ncm info when user input code")
     }
     "/myml/invoices/items/ncm/search/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/ncm/search/response"(platform: "/", type: TrackType.Event) {}
@@ -347,55 +354,52 @@ tracks {
 
     //:::: Optin flow
     "/myml/invoices/company-info"(platform: "/", isAbstract: true) {
-        data(required: false, type:  PropertyType.String, description: "request status code to log")
+        error(required: false, type:  PropertyType.String, description: "Error message that pop to user after request")
+        errorValidation(required: false, type:  PropertyType.String, description: "Error message when value is invalid")
     }
     
     //landing
     "/myml/invoices/landing"(platform: "/") {}
-    "/myml/invoices/landing/quero_faturar"(platform: "/", type: TrackType.Event) {
-        type (required: true, values: ["top", "bottom"])
+    "/myml/invoices/landing/optin"(platform: "/", type: TrackType.Event) {
+        type (required: true, values: ["top", "bottom"], description: "Top or bottom button")
     }
     
     //certificate
     "/myml/invoices/company-info/certificate"(platform: "/") {}
-    "/myml/invoices/company-info/certificate/help"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/company-info/certificate/select_a1"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/company-info/certificate/select_a3"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/certificate/help_tooltip"(platform: "/", type: TrackType.Event) {}
     
     "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
-    "/myml/invoices/company-info/certificate/a1/help"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/company-info/certificate/a1/save"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
-    "/myml/invoices/company-info/certificate/a3/download_app"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/company-info/certificate/a3/handshake"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/certificate/a3/handshake"(platform: "/", type: TrackType.Event) {
+        handshaking(required: true, type: PropertyType.Boolean, description: "True or false for handshake when user request A3 app")
+        installer(required: false, type: PropertyType.String, description: "Url to that will be used to download the app")
+    }
     
     //serie
     "/myml/invoices/company-info/serie"(platform: "/") {}
-    "/myml/invoices/company-info/serie/help"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/serie/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/serie/save"(platform: "/", isAbstract: true) {
-        series_id(required: true, type: PropertyType.Numeric, description: "serie id")
+        serie(required: true, type: PropertyType.Numeric, description: "Invoices serie id input")
     }
     "/myml/invoices/company-info/serie/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/serie/save/response"(platform: "/", type: TrackType.Event) {}
     
     //cst
     "/myml/invoices/company-info/cst"(platform: "/") {}
-    "/myml/invoices/company-info/cst/help"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/cst/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/cst/save"(platform: "/", isAbstract: true) {
-        ipi(required: true, type: PropertyType.String, description: "ipi id")
-        pis(required: true, type: PropertyType.String, description: "pis id")
-        cofins(required: true, type: PropertyType.String, description: "confins id")
+        ipi_code(required: true, type: PropertyType.String, description: "Ipi code id (tax information) select value")
+        pis_code(required: true, type: PropertyType.String, description: "Pis code id (tax information) select value")
     }
     "/myml/invoices/company-info/cst/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/cst/save/response"(platform: "/", type: TrackType.Event) {}
 
     //csosn
     "/myml/invoices/company-info/csosn"(platform: "/") {}
-    "/myml/invoices/company-info/csosn/help"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/csosn/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/csosn/save"(platform: "/", isAbstract: true) {
-        icms_simples(required: true, type: PropertyType.String, description: "confins id")
+        code(required: true, type: PropertyType.String, description: "Icms code id (tax information) input")
     }
     "/myml/invoices/company-info/csosn/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/csosn/save/response"(platform: "/", type: TrackType.Event) {}
@@ -403,16 +407,14 @@ tracks {
     //ie
     "/myml/invoices/company-info/ie"(platform: "/") {}
     "/myml/invoices/company-info/ie/save"(platform: "/", isAbstract: true) {
-        state_registration(required: true, type: PropertyType.String, description: "state_registration id")
+        code(required: true, type: PropertyType.String, description: "User state registration code (tax information) input")
     }
     "/myml/invoices/company-info/ie/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/ie/save/response"(platform: "/", type: TrackType.Event) {}
     
     //confirm
     "/myml/invoices/company-info/confirm"(platform: "/") {}
-    "/myml/invoices/company-info/confirm/save"(platform: "/", isAbstract: true) {
-        invoices_optin(required: true, type: PropertyType.String, description: "state_registration id")
-    }
+    "/myml/invoices/company-info/confirm/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/confirm/save/response"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/success"(platform: "/") {}
