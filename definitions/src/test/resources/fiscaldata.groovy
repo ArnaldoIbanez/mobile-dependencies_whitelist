@@ -7,13 +7,13 @@ trackTests {
 
     // Company registration
     test("registration_company") {
-        "/registration"(platform: "/") {}
-        "/registration/form"(platform: "/", type: TrackType.View) {}
-        "/registration/congrats"(platform: "/", type: TrackType.View) {}
+        "/registration_company"(platform: "/") {}
+        "/registration_company/form"(platform: "/", type: TrackType.View) {}
+        "/registration_company/congrats"(platform: "/", type: TrackType.View) {}
 
-        "/registration"(platform: "/", business:"mercadopago") {}
-        "/registration/form"(platform: "/", business:"mercadopago", type: TrackType.View) {}
-        "/registration/congrats"(platform: "/", business:"mercadopago", type: TrackType.View) {}
+        "/registration_company"(platform: "/", business:"mercadopago") {}
+        "/registration_company/form"(platform: "/", business:"mercadopago", type: TrackType.View) {}
+        "/registration_company/congrats"(platform: "/", business:"mercadopago", type: TrackType.View) {}
     }
     // DDFF = Datos fiscales
     test("/flow_ddff"){

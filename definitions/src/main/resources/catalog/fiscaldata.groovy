@@ -2,9 +2,9 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
-    "/registration"(platform: "/", isAbstract: true) {}
-    "/registration/form"(platform: "/", type: TrackType.View) {}
-    "/registration/congrats"(platform: "/", type: TrackType.View) {}
+    "/registration_company"(platform: "/", isAbstract: true) {}
+    "/registration_company/form"(platform: "/", type: TrackType.View) {}
+    "/registration_company/congrats"(platform: "/", type: TrackType.View) {}
 
     "/flow_ddff"(platform: "/", isAbstract: true) {}
     "/flow_ddff/tax_payer"(platform: "/", type: TrackType.View) {}
