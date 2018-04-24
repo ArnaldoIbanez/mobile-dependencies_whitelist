@@ -87,8 +87,8 @@ tracks {
 
     billing_info(required:false, description: "Dictionary containing the user selected billing info")
 
-    available_methods(required: false, type: PropertyType.ArrayList)
-    available_installments(required: false, type: PropertyType.Numeric)
+    available_methods(required: false, type: PropertyType.ArrayList, description: "Available payment methods for this flow")
+    available_installments(required: false, description: "Dictionary containing the availble installments the user can choose from a card")
 }
 
 "/cart/checkout/geolocation" (platform: "/", type: TrackType.Event) {
@@ -102,8 +102,8 @@ tracks {
 "/cart/checkout/payment"(platform: "/", isAbstract: true) {}
 
 "/cart/checkout/payment/select_method"(platform:"/", type: TrackType.View) {
-    coupon(required: false, type: PropertyType.Boolean)
-    coupon_discount(required: false, type: PropertyType.Numeric)
+    coupon(required: false, type: PropertyType.Boolean, description: "If the user redeemed a coupon code")
+    coupon_discount(required: false, type: PropertyType.Numeric, description: "Total coupon discount")
 }
 
 "/cart/checkout/payment/select_method/edit_payment"(platform:"/", type: TrackType.Event) {}
@@ -117,7 +117,10 @@ tracks {
 
 "/cart/checkout/payment/input_card"(platform:"/", type: TrackType.View) {}
 
-"/cart/checkout/payment/input_card#card_config"(platform:"/", type: TrackType.Event) {}
+"/cart/checkout/payment/input_card#card_config"(platform: "/", type: TrackType.Event) {
+    bin(required: true, type: PropertyType.String)
+    success(required: true, type: PropertyType.Boolean)
+}
 
 "/cart/checkout/payment/input_card/edit_payment"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/payment/input_card/security_code_tooltip"(platform:"/", type: TrackType.Event) {}
@@ -277,7 +280,7 @@ tracks {
 "/cart/checkout/shipping/input_address_apartment"(platform:"/mobile", type: TrackType.View) {}
 
 "/cart/checkout/shipping/select_contact_info"(platform:"/mobile", type: TrackType.View) {
-    available_options(required: true, type: PropertyType.Numeric)
+    available_options(required: true, type: PropertyType.Numeric, description: "Number of available contacts")
 }
 
 "/cart/checkout/shipping/select_contact_info#submit"(platform:"/mobile", type: TrackType.Event) {}

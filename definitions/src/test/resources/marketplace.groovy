@@ -858,28 +858,28 @@ trackTests {
             checkoutStatus()
         }
         "/checkout/shipping/custom_address/zip_code#zip_code"(platform:"/mobile", type: TrackType.Event) {
-            zip_code = "zip_code"
+            zip_code = "1437"
         }
         "/checkout/shipping/custom_address/zip_code#street_name"(platform:"/mobile", type: TrackType.Event) {
-            street_name = "street_name"
+            street_name = "Av. Colonia"
         }
         "/checkout/shipping/custom_address/zip_code#street_number"(platform:"/mobile", type: TrackType.Event) {
-            street_number = "street_number"
+            street_number = "170"
         }
         "/checkout/shipping/custom_address/zip_code#internal_number"(platform:"/mobile", type: TrackType.Event) {
-            internal_number = "internal_number"
+            internal_number = "34"
         }
         "/checkout/shipping/custom_address/zip_code#between_streets"(platform:"/mobile", type: TrackType.Event) {
-            between_streets = "between_streets"
+            between_streets = "Patagones y Uspallata"
         }
         "/checkout/shipping/custom_address/zip_code#references"(platform:"/mobile", type: TrackType.Event) {
-            references = "references"
+            references = "Edificio CMD"
         }
         "/checkout/shipping/custom_address/zip_code#neighborhood"(platform:"/mobile", type: TrackType.Event) {
-            neighborhood = "neighborhood"
+            neighborhood = "Parque Patricios"
         }
         "/checkout/shipping/custom_address/zip_code#additional_info"(platform:"/mobile", type: TrackType.Event) {
-            additional_info = "neighborhood"
+            additional_info = "1er piso"
         }
         "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event) {}
 
@@ -4953,7 +4953,11 @@ trackTests {
         "/cart/checkout/payment/select_bank"(platform:"/", dataSet)
         "/cart/checkout/payment/view_location"(platform:"/", dataSet)
         "/cart/checkout/payment/input_card"(platform:"/", dataSet)
-        "/cart/checkout/payment/input_card#card_config"(platform:"/", dataSet)
+        "/cart/checkout/payment/input_card#card_config"(platform:"/") {
+            dataSet()
+            bin = "1234"
+            success = true
+        }
         "/cart/checkout/payment/input_card/edit_payment"(platform:"/", dataSet)
         "/cart/checkout/payment/input_card/security_code_tooltip"(platform:"/", dataSet)
         "/cart/checkout/payment/select_installments"(platform:"/", dataSet)
@@ -5049,35 +5053,35 @@ trackTests {
         }
         "/cart/checkout/shipping/input_address#zip_code"(platform:"/mobile") {
             dataSet()
-            zip_code = "zip_code"
+            zip_code = "1430"
         }
         "/cart/checkout/shipping/input_address#street_name"(platform:"/mobile") {
             dataSet()
-            street_name = "street_name"
+            street_name = "Arias"
         }
         "/cart/checkout/shipping/input_address#street_number"(platform:"/mobile") {
             dataSet()
-            street_number = "street_number"
+            street_number = "3751"
         }
         "/cart/checkout/shipping/input_address#internal_number"(platform:"/mobile") {
             dataSet()
-            internal_number = "internal_number"
+            internal_number = ""
         }
         "/cart/checkout/shipping/input_address#between_streets"(platform:"/mobile") {
             dataSet()
-            between_streets = "between_streets"
+            between_streets = "Posta y Av. Melian"
         }
         "/cart/checkout/shipping/input_address#references"(platform:"/mobile") {
             dataSet()
-            references = "references"
+            references = "Edificio Intecons"
         }
         "/cart/checkout/shipping/input_address#neighborhood"(platform:"/mobile") {
             dataSet()
-            neighborhood = "neighborhood"
+            neighborhood = "CABA"
         }
         "/cart/checkout/shipping/input_address#additional_info"(platform:"/mobile") {
             dataSet()
-            additional_info = "additional_info"
+            additional_info = "7mo piso"
         }
         "/cart/checkout/shipping/input_address#submit"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address_number"(platform:"/mobile", dataSet)
