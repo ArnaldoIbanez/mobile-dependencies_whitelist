@@ -359,7 +359,6 @@ trackTests {
 
     test("MP-MA Landing QR") {
         "/merchant_acquisition/qr/landing" (platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/qr/landing/get-qr-code"(platform: "/", type: TrackType.Event) {}
         "/merchant_acquisition/qr/landing/promotions"(platform: "/", type: TrackType.Event) {}
     }
 
@@ -368,12 +367,10 @@ trackTests {
         "/merchant_acquisition/qr/qr-code"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/pending"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/error"(platform:"/", type: TrackType.View) {}
-        "/merchant_acquisition/qr/onboarding/moreinfo"(platform:"/", type: TrackType.Event) {}
-        "/merchant_acquisition/qr/onboarding/get-qr-code"(platform:"/", type: TrackType.Event) {}
-        "/merchant_acquisition/qr/get-qr-code/download"(platform:"/", type: TrackType.Event) {}
-        "/merchant_acquisition/qr/get-qr-code/print"(platform:"/", type: TrackType.Event) {}
-        "/merchant_acquisition/qr/get-qr-code/faqs"(platform:"/", type: TrackType.Event) {}
-        "/merchant_acquisition/qr/get-qr-code/help"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/qr/qr-code/download"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/qr/qr-code/print"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/qr/qr-code/faqs"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/qr/qr-code/help"(platform:"/", type: TrackType.Event) {}
     }
 
     test("Landing mercadopago point") {
