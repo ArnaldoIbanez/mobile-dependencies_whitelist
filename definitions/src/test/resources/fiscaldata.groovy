@@ -5,37 +5,38 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
+    // Company registration
     test("registration_company") {
         "/registration"(platform: "/") {}
-        "/registration/form"(platform: "/", type: TrackType.Event) {}
-        "/registration/congrats"(platform: "/", type: TrackType.Event) {}
+        "/registration/form"(platform: "/", type: TrackType.View) {}
+        "/registration/congrats"(platform: "/", type: TrackType.View) {}
 
         "/registration"(platform: "/", business:"mercadopago") {}
-        "/registration/form"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
-        "/registration/congrats"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
+        "/registration/form"(platform: "/", business:"mercadopago", type: TrackType.View) {}
+        "/registration/congrats"(platform: "/", business:"mercadopago", type: TrackType.View) {}
     }
+    // DDFF = Datos fiscales
+    test("/flow_ddff"){
+        "/flow_ddff"(platform: "/") {}
+        "/flow_ddff/tax_payer"(platform: "/", type: TrackType.View) {}
+        "/flow_ddff/iva"(platform: "/", type: TrackType.View) {}
+        "/flow_ddff/load_iva"(platform: "/", type: TrackType.View) {}
+        "/flow_ddff/iibb"(platform: "/", type: TrackType.View) {}
+        "/flow_ddff/load_iibb"(platform: "/", type: TrackType.View) {}
+        "/flow_ddff/province_iibb"(platform: "/", type: TrackType.View) {}
+        "/flow_ddff/address"(platform: "/", type: TrackType.View) {}
+        "/flow_ddff/summary"(platform: "/", type: TrackType.View) {}
+        "/flow_ddff/congrats"(platform: "/", type: TrackType.View) {}
 
-    test("flow"){
-        "/flow"(platform: "/") {}
-        "/flow/tax_payer"(platform: "/", type: TrackType.Event) {}
-        "/flow/iva"(platform: "/", type: TrackType.Event) {}
-        "/flow/load_iva"(platform: "/", type: TrackType.Event) {}
-        "/flow/iibb"(platform: "/", type: TrackType.Event) {}
-        "/flow/load_iibb"(platform: "/", type: TrackType.Event) {}
-        "/flow/province_iibb"(platform: "/", type: TrackType.Event) {}
-        "/flow/address"(platform: "/", type: TrackType.Event) {}
-        "/flow/summary"(platform: "/", type: TrackType.Event) {}
-        "/flow/congrats"(platform: "/", type: TrackType.Event) {}
-
-        "/flow"(platform: "/", business:"mercadopago") {}
-        "/flow/tax_payer"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
-        "/flow/iva"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
-        "/flow/load_iva"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
-        "/flow/iibb"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
-        "/flow/load_iibb"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
-        "/flow/province_iibb"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
-        "/flow/address"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
-        "/flow/summary"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
-        "/flow/congrats"(platform: "/", business:"mercadopago", type: TrackType.Event) {}
+        "/flow_ddff"(platform: "/", business:"mercadopago") {}
+        "/flow_ddff/tax_payer"(platform: "/", business:"mercadopago", type: TrackType.View) {}
+        "/flow_ddff/iva"(platform: "/", business:"mercadopago", type: TrackType.View) {}
+        "/flow_ddff/load_iva"(platform: "/", business:"mercadopago", type: TrackType.View) {}
+        "/flow_ddff/iibb"(platform: "/", business:"mercadopago", type: TrackType.View) {}
+        "/flow_ddff/load_iibb"(platform: "/", business:"mercadopago", type: TrackType.View) {}
+        "/flow_ddff/province_iibb"(platform: "/", business:"mercadopago", type: TrackType.View) {}
+        "/flow_ddff/address"(platform: "/", business:"mercadopago", type: TrackType.View) {}
+        "/flow_ddff/summary"(platform: "/", business:"mercadopago", type: TrackType.View) {}
+        "/flow_ddff/congrats"(platform: "/", business:"mercadopago", type: TrackType.View) {}
     }
 }
