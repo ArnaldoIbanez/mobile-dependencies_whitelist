@@ -857,7 +857,32 @@ trackTests {
         "/checkout/shipping/custom_address/zip_code"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+        "/checkout/shipping/custom_address/zip_code#zip_code"(platform:"/mobile", type: TrackType.Event) {
+            zip_code = "1437"
+        }
+        "/checkout/shipping/custom_address/zip_code#street_name"(platform:"/mobile", type: TrackType.Event) {
+            street_name = "Av. Colonia"
+        }
+        "/checkout/shipping/custom_address/zip_code#street_number"(platform:"/mobile", type: TrackType.Event) {
+            street_number = "170"
+        }
+        "/checkout/shipping/custom_address/zip_code#internal_number"(platform:"/mobile", type: TrackType.Event) {
+            internal_number = "34"
+        }
+        "/checkout/shipping/custom_address/zip_code#between_streets"(platform:"/mobile", type: TrackType.Event) {
+            between_streets = "Patagones y Uspallata"
+        }
+        "/checkout/shipping/custom_address/zip_code#references"(platform:"/mobile", type: TrackType.Event) {
+            references = "Edificio CMD"
+        }
+        "/checkout/shipping/custom_address/zip_code#neighborhood"(platform:"/mobile", type: TrackType.Event) {
+            neighborhood = "Parque Patricios"
+        }
+        "/checkout/shipping/custom_address/zip_code#additional_info"(platform:"/mobile", type: TrackType.Event) {
+            additional_info = "1er piso"
+        }
         "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event) {}
+
         "/checkout/shipping/custom_address/zip_code/query"(platform:"/mobile", type:TrackType.View) {}
         "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event) {
             query_parameters = "Mexico D.F."
@@ -1167,6 +1192,10 @@ trackTests {
             checkoutStatus()
         }
         "/checkout/payment/add_another_coupon/delete_coupon"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+        }
+
+        "/checkout/payment/select_type"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
 
@@ -4857,6 +4886,11 @@ trackTests {
         "/cart/checkout/payment/select_bank"(platform:"/", dataSet)
         "/cart/checkout/payment/view_location"(platform:"/", dataSet)
         "/cart/checkout/payment/input_card"(platform:"/", dataSet)
+        "/cart/checkout/payment/input_card#card_config"(platform:"/") {
+            dataSet()
+            bin = "1234"
+            success = true
+        }
         "/cart/checkout/payment/input_card/edit_payment"(platform:"/", dataSet)
         "/cart/checkout/payment/input_card/security_code_tooltip"(platform:"/", dataSet)
         "/cart/checkout/payment/select_installments"(platform:"/", dataSet)
@@ -4946,13 +4980,53 @@ trackTests {
         "/cart/checkout/shipping/select_method_ask_geolocation"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_zipcode"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/input_address"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/input_address"(platform:"/mobile") {
+            dataSet()
+            edit_flow = false
+        }
+        "/cart/checkout/shipping/input_address#zip_code"(platform:"/mobile") {
+            dataSet()
+            zip_code = "1430"
+        }
+        "/cart/checkout/shipping/input_address#street_name"(platform:"/mobile") {
+            dataSet()
+            street_name = "Arias"
+        }
+        "/cart/checkout/shipping/input_address#street_number"(platform:"/mobile") {
+            dataSet()
+            street_number = "3751"
+        }
+        "/cart/checkout/shipping/input_address#internal_number"(platform:"/mobile") {
+            dataSet()
+            internal_number = ""
+        }
+        "/cart/checkout/shipping/input_address#between_streets"(platform:"/mobile") {
+            dataSet()
+            between_streets = "Posta y Av. Melian"
+        }
+        "/cart/checkout/shipping/input_address#references"(platform:"/mobile") {
+            dataSet()
+            references = "Edificio Intecons"
+        }
+        "/cart/checkout/shipping/input_address#neighborhood"(platform:"/mobile") {
+            dataSet()
+            neighborhood = "CABA"
+        }
+        "/cart/checkout/shipping/input_address#additional_info"(platform:"/mobile") {
+            dataSet()
+            additional_info = "7mo piso"
+        }
+        "/cart/checkout/shipping/input_address#submit"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address_number"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address_number/whithout_number"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/select_address"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/select_option_detail"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address_apartment"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/select_contact_info"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/select_contact_info"(platform:"/mobile"){
+            dataSet()
+            available_options = 1
+        } 
+        "/cart/checkout/shipping/select_contact_info#submit"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/add_contact_info"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_contact_info"(platform:"/mobile", dataSet)
         "/cart/checkout/payment/select_unique_installment"(platform:"/mobile", dataSet)
