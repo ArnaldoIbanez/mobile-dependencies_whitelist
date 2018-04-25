@@ -4169,11 +4169,11 @@ trackTests {
 
     test("Abuse Prevention in Identification and Authentication") {
         "/auth/abuse_prevention/login"(platform: "/web", type: TrackType.Event) {
-            site_id = "mla"
+            device_id = "1"
             platform = "web"
         }
         "/auth/abuse_prevention/login"(platform: "/mobile", type: TrackType.Event) {
-            site_id = "mla"
+            device_id = "1"
             platform = "mobile"
         }
         "/auth/abuse_prevention"(platform: "/mobile", type: TrackType.Event) {
