@@ -12,26 +12,32 @@ trackTests {
             category_id = "MLA43718"
             buying_mode = "buy_it_now"
             category_path = ["MLA1234","MLA6789"]
-            vertical = "motors"
+            vertical = "core"
             item_condition = "new"
-            currency_id = "ARS"
             listing_type_id = "gold_special"
-            seller_id = "131662738"
-            power_seller_status = "platinum"
+            item_status = "active"
+            deal_ids = []
+            seller_id = 131662738
         }
 
         def optionals = {
-            item_status = "active"
             quantity = 3
-            price = 15.3
-            official_store_id = "1"
+            item_price = [
+                price: 15.3,
+                currency_id: "ARS"
+            ]
+            return_available = false
+            cart_content = false
+            power_seller_status = "platinum"
+            reputation_level = "5_green"
+            official_store_id = 1
+            store_type = "brand"
             shipping_mode = "me2"
             free_shipping = true
             local_pick_up = false
-            reputation_level = "green_5"
-            fulfillment = true
-            resolution = "high"
-            cart_content = false
+            logistic_type = "fulfillment"
+            free_shipping_benefit = false
+            loyalty_level = 2
         }
 
         "/vip"(platform:"/mobile", {
@@ -42,7 +48,10 @@ trackTests {
         "/vip"(platform:"/mobile", {
             mandatory()
             optionals()
-            quotation_available = false
+            shipping_preference = "Express a domicilio"
+            available_subscriptions = true
+            subscription_discount = 10
+            default_tab = "subscription"
         })
 
         "/vip/failure"(platform:"/mobile", {
@@ -175,10 +184,11 @@ trackTests {
             category_path = ["MLA1234","MLA6789"]
             vertical = "motors"
             item_condition = "new"
-            currency_id = "ARS"
+            item_status = "active"
             listing_type_id = "gold_special"
-            seller_id = "131662738"
+            seller_id = 131662738
             power_seller_status = "platinum"
+            deal_ids = ["MLA100"]
         }
     }
 
@@ -192,10 +202,11 @@ trackTests {
             category_path = ["MLA1234","MLA6789"]
             vertical = "motors"
             item_condition = "new"
-            currency_id = "ARS"
+            item_status = "active"
             listing_type_id = "gold_special"
-            seller_id = "131662738"
+            seller_id = 131662738
             power_seller_status = "platinum"
+            deal_ids = ["MLA100"]
         }
     }
 
@@ -208,10 +219,11 @@ trackTests {
             category_path = ["MLA1234","MLA6789"]
             vertical = "motors"
             item_condition = "new"
-            currency_id = "ARS"
+            item_status = "active"
             listing_type_id = "gold_special"
-            seller_id = "131662738"
+            seller_id = 131662738
             power_seller_status = "platinum"
+            deal_ids = ["MLA100"]
         }
     }
 
@@ -224,10 +236,11 @@ trackTests {
             category_path = ["MLA1234","MLA6789"]
             vertical = "motors"
             item_condition = "new"
-            currency_id = "ARS"
+            item_status = "active"
             listing_type_id = "gold_special"
-            seller_id = "131662738"
+            seller_id = 131662738
             power_seller_status = "platinum"
+            deal_ids = ["MLA100"]
         }
     }
 
@@ -237,16 +250,17 @@ trackTests {
             category_id = "MLA43718"
             category_path = ["MLA1234","MLA6789"]
             buying_mode = "buy_it_now"
-            official_store_id = "1"
+            official_store_id = 1
             deal_ids = ["MLA24"]
             review_rate=5
             specifications_size = 1
             vertical = "motors"
             item_condition = "new"
-            currency_id = "ARS"
+            item_status = "active"
             listing_type_id = "gold_special"
-            seller_id = "131662738"
+            seller_id = 131662738
             power_seller_status = "platinum"
+            deal_ids = ["MLA100"]
         }
 
         "/vip"(platform:"/web", dataSet)
@@ -260,10 +274,11 @@ trackTests {
             buying_mode = "buy_it_now"
             vertical = "motors"
             item_condition = "new"
-            currency_id = "ARS"
+            item_status = "active"
             listing_type_id = "gold_special"
-            seller_id = "131662738"
+            seller_id = 131662738
             power_seller_status = "platinum"
+            deal_ids = ["MLA100"]
         }
 
         "/vip/protected_purchase/close" (platform:"/web/mobile", type: TrackType.Event) {
@@ -273,10 +288,11 @@ trackTests {
             buying_mode = "buy_it_now"
             vertical = "motors"
             item_condition = "new"
-            currency_id = "ARS"
+            item_status = "paused"
             listing_type_id = "gold_special"
-            seller_id = "131662738"
+            seller_id = 131662738
             power_seller_status = "platinum"
+            deal_ids = ["MLA100"]
         }
     }
 
@@ -290,10 +306,11 @@ trackTests {
             buying_mode = "buy_it_now"
             vertical = "motors"
             item_condition = "new"
-            currency_id = "ARS"
+            item_status = "active"
             listing_type_id = "gold_special"
-            seller_id = "131662738"
+            seller_id = 131662738
             power_seller_status = "platinum"
+            deal_ids = []
         }
 
         def trackModals = {
