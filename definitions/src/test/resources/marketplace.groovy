@@ -4167,6 +4167,20 @@ trackTests {
         }
     }
 
+    test("Abuse Prevention in Identification and Authentication") {
+        "/auth/abuse_prevention/login"(platform: "/web", type: TrackType.Event) {
+            site_id = "mla"
+            platform = "web"
+        }
+        "/auth/abuse_prevention/login"(platform: "/mobile", type: TrackType.Event) {
+            site_id = "mla"
+            platform = "mobile"
+        }
+        "/auth/abuse_prevention"(platform: "/mobile", type: TrackType.Event) {
+            result = "low"
+        }
+    }
+
     test("Loyalty user tracking") {
         "/loyalty/user"(platform: "/") {
             in_loyalty_program = true
@@ -5025,7 +5039,7 @@ trackTests {
         "/cart/checkout/shipping/select_contact_info"(platform:"/mobile"){
             dataSet()
             available_options = 1
-        } 
+        }
         "/cart/checkout/shipping/select_contact_info#submit"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/add_contact_info"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_contact_info"(platform:"/mobile", dataSet)
@@ -5594,23 +5608,22 @@ trackTests {
         }
     }
 
-    test("Bugsnag tracks to use on Canejo ML") {	
-        "/mobile/bugsnag"(platform:"/mobile/ios", type:TrackType.Event) {	
-            error_type = "signal"	
-            error_context = "withdraw"	
-            error_severity = "error"	
-            url_error = "<none>"	
-            error_mach_exception_name = "<none>"	
-            error_address = "4402117060"	
-            error_message = ""	
-            error_Id = "5aa6bcd0c098f300193384fb"	
-            error_timestamp = "2018-04-18T14:18:09.301Z"	
-            error_exception_class = "SIGTRAP"	
-            release_stage = "production"	
-            error_signal_name = "SIGTRAP"	
-            error_nsexception = "<none>"	
-        }	
-    }	    
-    
-}
+    test("Bugsnag tracks to use on Canejo ML") {
+        "/mobile/bugsnag"(platform:"/mobile/ios", type:TrackType.Event) {
+            error_type = "signal"
+            error_context = "withdraw"
+            error_severity = "error"
+            url_error = "<none>"
+            error_mach_exception_name = "<none>"
+            error_address = "4402117060"
+            error_message = ""
+            error_Id = "5aa6bcd0c098f300193384fb"
+            error_timestamp = "2018-04-18T14:18:09.301Z"
+            error_exception_class = "SIGTRAP"
+            release_stage = "production"
+            error_signal_name = "SIGTRAP"
+            error_nsexception = "<none>"
+        }
+    }
 
+}

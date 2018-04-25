@@ -59,8 +59,8 @@ tracks {
     }
 
     "/login/auth/challenge_success"(platform: "/", type: TrackType.View) {
-        challenge(type: PropertyType.String, required: true) 
-    }    
+        challenge(type: PropertyType.String, required: true)
+    }
 
     "/logout"(platform: "/", type: TrackType.Event) {
         flow(type: PropertyType.String, required: false)
@@ -110,4 +110,8 @@ tracks {
     "/oauth/authorization/form/access"(platform: "/", type: TrackType.Event) {
         authorize(type: PropertyType.Boolean, required: true)
     }
+
+    //Abuse Prevention
+    "/auth/abuse_prevention"(platform: "/", isAbstract: true) {}
+
 }
