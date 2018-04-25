@@ -140,7 +140,6 @@ trackTests {
         "/sell/modify_and_relist/single/row"   (platform: "/web/desktop", itemData)
         "/sell/modify_and_relist/single/cards" (platform: "/web/desktop", itemData)
         "/sell/modify_and_relist/massive/row"  (platform: "/web/desktop", massiveItemData)
-        "/sell/relist"
         "/sell/relist/congrats"(platform: "/web"){
             can_complete_attributes= true
         }
@@ -343,6 +342,7 @@ trackTests {
             session_id = "290061169-update-32b1d9b3eae8"
             category_domain = "MLA-GLOVES"
             is_custom_name = true
+            item_id = "MLA12345"
         }
     }
 

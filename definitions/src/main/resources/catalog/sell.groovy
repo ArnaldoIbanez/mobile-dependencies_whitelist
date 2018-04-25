@@ -161,16 +161,13 @@ tracks {
 
 
     "/sell/list/sip"(platform: "/mobile", type: TrackType.View) {
+        has_selected_pictures(required: true, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
+    }
+    "/sell/list/sip/publish"(platform: "/mobile", isAbstract: true) {
         has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
     }
     "/sell/list/sip/publish/publish_cancel"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/list/sip/publish"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/sip/publish/back_selected"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/list/sip/publish/pictures_fail"(platform: "/mobile", type: TrackType.Event) {
-        total_pictures(required: true, description: "Total pictures", type: PropertyType.Numeric)
-        fail_pictures(required: true, description: "Failed pictures", type: PropertyType.Numeric)
-        pictures_errors(required: false, description: "Failed pictures", type: PropertyType.ArrayList)
-    }
     "/sell/list/sip/publish/pictures_fail"(platform: "/mobile", type: TrackType.Event) {
         total_pictures(required: true, description: "Total pictures", type: PropertyType.Numeric)
         fail_pictures(required: true, description: "Failed pictures", type: PropertyType.Numeric)
@@ -180,8 +177,12 @@ tracks {
         error_message(required: false, description: "Error message", type: PropertyType.String)
     }
     "/sell/list/sip/section"(platform: "/mobile", isAbstract: true) {}
-    "/sell/list/sip/section/disabled"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/list/sip/update" (platform: "/mobile", type: TrackType.Event){}
+    "/sell/list/sip/section/disabled"(platform: "/mobile", type: TrackType.Event) {
+        has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
+    }
+    "/sell/list/sip/update" (platform: "/mobile", type: TrackType.Event){
+        has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
+    }
     "/sell/list/sip/update/listing_types_review" (platform: "/mobile", type: TrackType.Event){}
     "/sell/list/sip/update/listing_type" (platform: "/mobile", type: TrackType.Event){}
     "/sell/list/sip/update/description_review" (platform: "/mobile", type: TrackType.Event){}
@@ -198,16 +199,28 @@ tracks {
     "/sell/list/sip/update/shipping_options" (platform: "/mobile", type: TrackType.Event){}
     "/sell/list/sip/update/payment_methods_review" (platform: "/mobile", type: TrackType.Event){}
     "/sell/list/sip/update/payment_options" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/color_selection_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/condition_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/condition" (platform: "/mobile", type: TrackType.Event){}
+    "/sell/list/sip/update/color_selection_review" (platform: "/mobile", type: TrackType.Event){
+        has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
+    }
+    "/sell/list/sip/update/condition_review" (platform: "/mobile", type: TrackType.Event){
+        has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
+    }
+    "/sell/list/sip/update/condition" (platform: "/mobile", type: TrackType.Event){
+        has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
+    }
     "/sell/list/sip/update/include_description" (platform: "/mobile", type: TrackType.Event){}
     "/sell/list/sip/update/manufacturing_time_review" (platform: "/mobile", type: TrackType.Event){}
     "/sell/list/sip/update/manufacturing_time" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/location" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/size_selection_review" (platform: "/mobile", type: TrackType.Event){}
+    "/sell/list/sip/update/location" (platform: "/mobile", type: TrackType.Event){
+        has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
+    }
+    "/sell/list/sip/update/size_selection_review" (platform: "/mobile", type: TrackType.Event){
+        has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
+    }
 
-    "/sell/list/sip/notification"(platform: "/mobile", isAbstract: true) {}
+    "/sell/list/sip/notification"(platform: "/mobile", isAbstract: true) {
+        has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
+    }
     "/sell/list/sip/notification/view_item"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/sip/notification/upgrade"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/sip/notification/congrats"(platform: "/mobile", type: TrackType.Event) {}
@@ -311,7 +324,7 @@ tracks {
 
 //update flow
     "/sell/update" (platform: "/", isAbstract: true){
-        item_id(required: false, description: "Item id", type: PropertyType.String)
+        item_id(required: true, description: "Item id", type: PropertyType.String)
     }
     "/sell/update/sip"(platform: "/mobile", type: TrackType.View) {
         has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
