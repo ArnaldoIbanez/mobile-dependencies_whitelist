@@ -7,7 +7,7 @@ FROM
       platform,
       site site_id,
       user_id,
-      NULL AS authorized, -- Solo para matchear con la nueva tabla
+      NULL AS authorized,
       MAX(loyalty_level) AS loyalty_level,
       MAX(cart_order)  AS is_cart_order,
       MAX(item_category) AS item_category,
