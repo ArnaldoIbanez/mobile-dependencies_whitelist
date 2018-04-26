@@ -1,6 +1,6 @@
 {
   "users": [
-    "lucila.zimerman@mercadolibre.com"
+    "gabriel.neil@mercadolibre.com"
   ],
   "process_name": "consumer_journey",
   "cron": "0 5 * * *",
