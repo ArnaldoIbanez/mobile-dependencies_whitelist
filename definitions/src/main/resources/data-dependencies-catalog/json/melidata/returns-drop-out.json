@@ -3,9 +3,9 @@
     "tomas.auchterlonie@mercadolibre.com"
   ],
   "process_name": "returns-drop-out",
-  "cron": "00 11 * * *",
+  "cron": "",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
       {
         "name": "DAY",
@@ -13,49 +13,110 @@
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "site",
+        "name": "SITE",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "platform",
+        "name": "PLATFORM",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "typifications_1",
+        "name": "TYPIFICATIONS",
         "type": "INTEGER"
       },
       {
-        "name": "payments_2",
+        "name": "TYPIFICATIONS_WENT_CLAIMS",
         "type": "INTEGER"
       },
       {
-        "name": "shipping_3",
+        "name": "PAYMENTS",
         "type": "INTEGER"
       },
       {
-        "name": "pickup_delivery_4",
+        "name": "SHIPPING",
         "type": "INTEGER"
       },
       {
-        "name": "delivery_review_4",
+        "name": "REVIEW_PICKUP_DELIVERY",
         "type": "INTEGER"
       },
       {
-        "name": "congrats_5",
+        "name": "PICKUP",
         "type": "INTEGER"
       },
+      {
+        "name": "DELIVERY",
+        "type": "INTEGER"
+      },
+      {
+        "name": "REVIEW",
+        "type": "INTEGER"
+      },
+      {
+        "name": "CONGRATS",
+        "type": "INTEGER"
+      },
+      {
+        "name": "PAYMENTS_FROM_CLAIMS",
+        "type": "INTEGER"
+      },
+      {
+        "name": "SHIPPING_FROM_CLAIMS",
+        "type": "INTEGER"
+      },
+      {
+        "name": "REVIEW_PICKUP_DELIVERY_FROM_CLAIMS",
+        "type": "INTEGER"
+      },
+      {
+        "name": "PICKUP_FROM_CLAIMS",
+        "type": "INTEGER"
+      },
+      {
+        "name": "DELIVERY_FROM_CLAIMS",
+        "type": "INTEGER"
+      },
+      {
+        "name": "REVIEW_FROM_CLAIMS",
+        "type": "INTEGER"
+      },
+      {
+        "name": "CONGRATS_FROM_CLAIMS",
+        "type": "INTEGER"
+      },
+      {
+        "name": "TYPIFICATIONS_ERROR",
+        "type": "INTEGER"
+      },
+      {
+        "name": "PAYMENTS_ERROR",
+        "type": "INTEGER"
+      },
+      {
+        "name": "SHIPPING_ERROR",
+        "type": "INTEGER"
+      },
+      {
+        "name": "REVIEW_PICKUP_DELIVERY_ERROR",
+        "type": "INTEGER"
+      },
+      {
+        "name": "CONGRATS_ERROR",
+        "type": "INTEGER"
+      }
+
     ],
     "sql": {
       "script": "returns/returns-drop-out.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2018-01-01",
           "format": "yyyy-MM-dd"
         },
         {
-          "name": "param02", 
-          "value": "DAY-0",
+          "name": "param02",
+          "value": "2018-02-01",
           "format": "yyyy-MM-dd"
         }
       ]
