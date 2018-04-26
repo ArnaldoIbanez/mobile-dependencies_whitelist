@@ -50,6 +50,7 @@ trackTests {
         "/myml/invoices/items/ean"(platform: "/") {}
         "/myml/invoices/items/ean/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/ean/save/request"(platform: "/", type: TrackType.Event) {
+            itemId = "123123"
             data = {
                 disabled = false
                 ean = "0604095564050"

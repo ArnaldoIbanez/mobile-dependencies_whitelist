@@ -274,7 +274,6 @@ tracks {
         error(required: false, type:  PropertyType.String, description: "Error message that pop to user after request")
         errorValidation(required: false, type:  PropertyType.String, description: "Error message when value is invalid")
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
-        itemId(required: false, type: PropertyType.String, description: "itemId of product")
     }
 
     //review
@@ -319,6 +318,7 @@ tracks {
     "/myml/invoices/items/ean/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/ean/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/items/ean/save/request"(platform: "/", type: TrackType.Event) {
+        itemId(required: true, type: PropertyType.String, description: "itemId of product")
         data(required: true, description: "Ean(europen article code) and aditional infos")
     }
     "/myml/invoices/items/ean/save/response"(platform: "/", type: TrackType.Event) {}
