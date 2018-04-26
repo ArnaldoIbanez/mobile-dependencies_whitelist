@@ -112,6 +112,9 @@ tracks {
     }
 
     //Abuse Prevention
+    "/auth"(platform: "/", isAbstract: true) {}
     "/auth/abuse_prevention"(platform: "/", isAbstract: true) {}
+    "/auth/abuse_prevention/login"(platform: "/", isAbstract: true) {}    
+    "/auth/abuse_prevention/ban"(platform: "/", isAbstract: true) {}
 
 }
