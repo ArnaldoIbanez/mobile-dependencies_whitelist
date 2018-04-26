@@ -50,12 +50,16 @@ trackTests {
         "/myml/invoices/items/ean"(platform: "/") {}
         "/myml/invoices/items/ean/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/ean/save/request"(platform: "/", type: TrackType.Event) {
-            withoutCode = false
-            ean = "7896483002647"
+            itemId = "123123"
+            data = {
+                disabled = false
+                ean = "0604095564050"
+                meliItemId = "123123"
+                variaTionId = 23194473639
+            }
         }
         "/myml/invoices/items/ean/save/response"(platform: "/", type: TrackType.Event) {
-            withoutCode = false
-            ean = "7896483002647"
+            url = "https://myaccount.mercadolivre.com.br/invoices-app/review"
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/items/ean/validate"(platform: "/", type: TrackType.Event) {
