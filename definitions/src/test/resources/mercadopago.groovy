@@ -43,7 +43,7 @@ trackTests {
             previous_size = 122592
         }
     }
-    
+
     test("Mercado Pago blog") {
         "/blog/home"(platform: "/web/desktop", type: TrackType.View) {}
     }
@@ -1598,25 +1598,25 @@ trackTests {
         }
     }
 
-    
+
     test("Notifications") {
-                
+
         "/notification"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "sent"
         }
-        
+
         "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
                 news_id = "123"
                 campaign_id = "prueba_123"
                 event_type = "open"
-        }  
-        
+        }
+
         "/notification/money_transfer_received"(platform: "/mobile") {
                 news_id = "123"
                 event_type = "open"
-        }  
-        
+        }
+
         "/notification/money_transfer_request"(platform: "/mobile") {
                 news_id = "123"
                 event_type = "open"
@@ -1764,6 +1764,23 @@ trackTests {
         "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
             status = "API_NOT_CONNECTED"
         }
+    }
+
+    test("Abuse Prevention in Identification and Authentication") {
+      "/auth/abuse_prevention"(platform: "/mobile", type: TrackType.Event) {
+        result = "low"
+      }
+      "/auth/abuse_prevention/ban"(platform: "/web", type: TrackType.Event) {
+          result = "low"
+      }
+      "/auth/abuse_prevention/login"(platform: "/web", type: TrackType.Event) {
+        device_id = "1"
+        platform = "web"
+      }
+      "/auth/abuse_prevention/login"(platform: "/mobile", type: TrackType.Event) {
+        device_id = "1"
+        platform = "mobile"
+      }
     }
 
     test("Identity Validation ") {
@@ -2191,7 +2208,7 @@ trackTests {
             collector_nickname = "collector nickname test"
             preference_id = "96449980"
             scope = 'mla'
-            
+
             response_status = 500
             exception_message = "Some exception message"
         }
@@ -2423,7 +2440,7 @@ trackTests {
             client_id = "1321312"
             environment = "production"
         }
-        
+
         "/checkout_off/v1/congrats/approved"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
             collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"

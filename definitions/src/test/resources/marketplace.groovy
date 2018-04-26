@@ -4169,7 +4169,7 @@ trackTests {
 
     test("Abuse Prevention in Identification and Authentication") {
       "/auth/abuse_prevention"(platform: "/mobile", type: TrackType.Event) {
-          result = "low"
+        result = "low"
       }
       "/auth/abuse_prevention/ban"(platform: "/web", type: TrackType.Event) {
           result = "low"
