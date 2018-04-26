@@ -86,6 +86,9 @@ tracks {
     geolocation_method(required: false, type: PropertyType.String)
 
     billing_info(required:false, description: "Dictionary containing the user selected billing info")
+
+    available_methods(required: false, type: PropertyType.ArrayList, description: "Available payment methods for this flow")
+    available_installments(required: false, description: "Dictionary containing the availble installments the user can choose from a card")
 }
 
 "/cart/checkout/geolocation" (platform: "/", type: TrackType.Event) {
@@ -98,7 +101,10 @@ tracks {
 
 "/cart/checkout/payment"(platform: "/", isAbstract: true) {}
 
-"/cart/checkout/payment/select_method"(platform:"/", type: TrackType.View) {}
+"/cart/checkout/payment/select_method"(platform:"/", type: TrackType.View) {
+    coupon(required: false, type: PropertyType.Boolean, description: "If the user redeemed a coupon code")
+    coupon_discount(required: false, type: PropertyType.Numeric, description: "Total coupon discount")
+}
 
 "/cart/checkout/payment/select_method/edit_payment"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/payment/select_method/show_distances"(platform:"/", type: TrackType.Event) {}
@@ -110,6 +116,11 @@ tracks {
 "/cart/checkout/payment/view_location"(platform:"/", type: TrackType.View) {}
 
 "/cart/checkout/payment/input_card"(platform:"/", type: TrackType.View) {}
+
+"/cart/checkout/payment/input_card#card_config"(platform: "/", type: TrackType.Event) {
+    bin(required: true, type: PropertyType.String)
+    success(required: true, type: PropertyType.Boolean)
+}
 
 "/cart/checkout/payment/input_card/edit_payment"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/payment/input_card/security_code_tooltip"(platform:"/", type: TrackType.Event) {}
@@ -197,7 +208,8 @@ tracks {
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 "/cart"(platform:"/mobile", type: TrackType.View, isAbstract: true) {
-    geolocated(required:false, type: PropertyType.Boolean, description: "Indica si se geolocalizo al usuario")    
+    geolocated(required:false, type: PropertyType.Boolean, description: "Indica si se geolocalizo al usuario")
+    combination_2mp(required:false, description: "2MP switch state")
 }
 
 "/cart/checkout"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
@@ -228,7 +240,35 @@ tracks {
 "/cart/checkout/shipping/input_zipcode"(platform:"/mobile", type: TrackType.View) {}
 "/cart/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/mobile", type: TrackType.Event) {}
 
-"/cart/checkout/shipping/input_address"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/shipping/input_address"(platform:"/mobile", type: TrackType.View) {
+    edit_flow(required: true, type: PropertyType.Boolean)
+}
+
+"/cart/checkout/shipping/input_address#zip_code"(platform:"/mobile", type: TrackType.Event) {
+    zip_code(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#street_name"(platform:"/mobile", type: TrackType.Event) {
+    street_name(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#street_number"(platform:"/mobile", type: TrackType.Event) {
+    street_number(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#internal_number"(platform:"/mobile", type: TrackType.Event) {
+    internal_number(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#between_streets"(platform:"/mobile", type: TrackType.Event) {
+    between_streets(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#references"(platform:"/mobile", type: TrackType.Event) {
+    references(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#neighborhood"(platform:"/mobile", type: TrackType.Event) {
+    neighborhood(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#additional_info"(platform:"/mobile", type: TrackType.Event) {
+    additional_info(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#submit"(platform:"/mobile", type: TrackType.Event) {}
 
 "/cart/checkout/shipping/input_address_number"(platform:"/mobile", type: TrackType.View) {}
 "/cart/checkout/shipping/input_address_number/whithout_number"(platform:"/mobile", type: TrackType.Event) {}
@@ -239,7 +279,11 @@ tracks {
 
 "/cart/checkout/shipping/input_address_apartment"(platform:"/mobile", type: TrackType.View) {}
 
-"/cart/checkout/shipping/select_contact_info"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/shipping/select_contact_info"(platform:"/mobile", type: TrackType.View) {
+    available_options(required: true, type: PropertyType.Numeric, description: "Number of available contacts")
+}
+
+"/cart/checkout/shipping/select_contact_info#submit"(platform:"/mobile", type: TrackType.Event) {}
 
 "/cart/checkout/shipping/add_contact_info"(platform:"/mobile", type: TrackType.View) {}
 

@@ -61,7 +61,28 @@ tracks {
 
     "/point"(platform: "/", isAbstract: true) {}
 
-    // MP Point Landings
+    // Merchant Acquisition
+    "/merchant_acquisition"(platform: "/", isAbstract: true) {}
+    "/merchant_acquisition/qr"(platform: "/", isAbstract: true) {}
+    "/merchant_acquisition/qr/onboarding"(platform: "/", isAbstract: true) {}
+
+    // QR Landing > Pageviews
+    "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
+    // QR Landing > Events
+    "/merchant_acquisition/qr/landing/promotions"(platform:"/", type: TrackType.Event) {}
+
+    // QR Flow > Pageviews
+    "/merchant_acquisition/qr/onboarding"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/qr/qr-code"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/qr/pending"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/qr/error"(platform:"/", type: TrackType.View) {}
+    // QR Flow > Events
+    "/merchant_acquisition/qr/qr-code/download"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/qr/qr-code/print"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/qr/qr-code/faqs"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/qr/qr-code/help"(platform:"/", type: TrackType.Event) {}
+
+    // Merchant Acquisition Point Landings
     "/point/home"(platform: "/") {
         product (type: PropertyType.String, description: "Name of device, example: 'point-h'")
         currency (type: PropertyType.String, required: false, description: "Currency")
@@ -294,21 +315,6 @@ tracks {
     "/cellphone_recharge/add_card"(platform: "/mobile") {}
     "/cellphone_recharge/issuers"(platform: "/mobile") {}
     "/cellphone_recharge/result"(platform: "/mobile") {
-        result_status (required:true, type: PropertyType.String, description: "Operation result status")
-        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
-    }
-    "/cellphone_recharge/px_payment_method_search"(platform: "/mobile") {}
-    "/cellphone_recharge/px_discount_summary"(platform: "/mobile") {}
-    "/cellphone_recharge/px_card_vault"(platform: "/mobile") {}
-    "/cellphone_recharge/px_card_number"(platform: "/mobile") {}
-    "/cellphone_recharge/px_card_holder_name"(platform: "/mobile") {}
-    "/cellphone_recharge/px_card_expiry_date"(platform: "/mobile") {}
-    "/cellphone_recharge/px_card_security_code"(platform: "/mobile") {}
-    "/cellphone_recharge/px_identification_number"(platform: "/mobile") {}
-    "/cellphone_recharge/px_card_issuers"(platform: "/mobile") {}
-    "/cellphone_recharge/px_card_installments"(platform: "/mobile") {}
-    "/cellphone_recharge/px_review_and_confirm"(platform: "/mobile") {}
-    "/cellphone_recharge/px_result"(platform: "/mobile") {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
@@ -644,7 +650,6 @@ tracks {
     "/subscription_plan"(platform: "/web", isAbstract: true){}
     "/subscription_plan/create"(platform: "/web", type: TrackType.View){}
     "/subscription_plan/confirm_create"(platform: "/web"){}
-
     //END -- MP frontend
 
     "/free_navigation"(platform:"/mobile", isAbstract: true) {}
@@ -652,5 +657,22 @@ tracks {
     "/free_navigation/not_available"(platform:"/mobile", type:TrackType.Event) {}
 
     "/free_navigation/wifi"(platform:"/mobile", type:TrackType.Event) {}
+
+    "/mobile" (platform: "/mobile", isAbstract: true){}
+    "/mobile/bugsnag"(platform: "/mobile", type: TrackType.Event) {
+        error_type               (required:false, type: PropertyType.String, description: "Track of Bugsnag error: error type")
+        error_context            (required:true,  type: PropertyType.String, description: "Bugsnag context, the best important field on Canejo")
+        error_severity           (required:false, type: PropertyType.String, description: "error or warning or info")
+        url_error                (required:false, type: PropertyType.String, description: "url error")
+        error_mach_exception_name(required:false, type: PropertyType.String, description: "error mach exception name")
+        error_address            (required:false, type: PropertyType.String, description: "error address")
+        error_message            (required:false, type: PropertyType.String, description: "error message")
+        error_Id                 (required:false, type: PropertyType.String, description: "error id")
+        error_timestamp          (required:false, type: PropertyType.String, description: "error timestamp")
+        error_exception_class    (required:false, type: PropertyType.String, description: "error exception class")
+        release_stage            (required:false, type: PropertyType.String, description: "error stage, eg. production")
+        error_signal_name        (required:false, type: PropertyType.String, description: "error signal name")
+        error_nsexception        (required:false, type: PropertyType.String, description: "error nsException")
+    }
 
 }

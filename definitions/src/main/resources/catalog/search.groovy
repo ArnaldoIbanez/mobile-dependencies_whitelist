@@ -75,6 +75,8 @@ tracks {
         landing(required: false, description:'landings: base, premium, etc')
         layout_forced(required: false, description:'true if layout is changed by the user')
         shown_as_product(required: false, description: 'item ids shown with product link')
+        has_logos(required: false, description: 'whether any of the items has a brand logo to show', PropertyType.Boolean)
+        promise_items(required: false, description: 'which of the result items are showing a delivery promise', PropertyType.ArrayList)
     }
 
     "/search"(platform: "/mobile") {

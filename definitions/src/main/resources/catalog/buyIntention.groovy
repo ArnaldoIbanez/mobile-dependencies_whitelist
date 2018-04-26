@@ -43,8 +43,6 @@ tracks {
     //unit_price
 
     total_amount(required: true, description: "totalAmount")
-    //total_amount_local(serverSide: true) // -> Lo completa Melidata automaticamente
-    //total_amount_usd(serverSide: true) // -> Lo completa Melidata automaticamente
 
     buy_equal_pay(required: false, description: "BP flag")
     from (required:true, description: "Indicates from where the buy_intention was initiated. Where did the user pressed de 'COMPRAR' button", values: ["vip", "saved_for_later", "cart", "cart_item"])
