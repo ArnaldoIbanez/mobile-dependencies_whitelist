@@ -1,5 +1,5 @@
 SELECT
-  fecha, platform, site_id, user_id, authorized, loyalty_level, is_cart_order, item_category, item_category_l1
+  fecha, platform, site_id, user_id, loyalty_level, is_cart_order, item_category, item_category_l1
 FROM
   (
     SELECT
@@ -7,7 +7,6 @@ FROM
       platform,
       site site_id,
       user_id,
-      NULL AS authorized,
       MAX(loyalty_level) AS loyalty_level,
       MAX(cart_order)  AS is_cart_order,
       MAX(item_category) AS item_category,
@@ -16,13 +15,13 @@ FROM
       MAX(apreto_el_boton) AS button
     FROM (
            SELECT
-             substr(ds,1,10) AS fecha,
+             SUBSTR(ds,1,10) AS fecha,
              1 AS llega_a_claims,
              0 AS apreto_el_boton,
              device.platform AS platform,
              application.site_id AS site,
              usr.user_id AS user_id,
-             substr(jest(event_data, 'loyalty_level'),1,1) AS loyalty_level,
+             SUBSTR(jest(event_data, 'loyalty_level'),1,1) AS loyalty_level,
              jest(event_data, 'cart_order') AS cart_order,
              jest(event_data, 'item_category') AS item_category,
              jest(event_data, 'item_category_l1') AS item_category_l1
@@ -34,22 +33,22 @@ FROM
                  AND type = 'view'
            GROUP BY
              usr.user_id,
-             substr(ds,1,10),
+             SUBSTR(ds,1,10),
              application.site_id,
              device.platform,
              t1.event_data
            UNION ALL
            SELECT
-             substr(ds,1,10) AS fecha,
+             SUBSTR(ds,1,10) AS fecha,
              0 AS llega_a_claims,
              1 AS apreto_el_boton,
              device.platform AS platform,
              application.site_id AS site,
              usr.user_id AS user_id,
-             NULL AS loyalty_level,
-             NULL AS cart_order,
-             NULL AS item_category,
-             NULL AS item_category_l1
+             '0' AS loyalty_level,
+             'false' AS cart_order,
+             '' AS item_category,
+             '' AS item_category_l1
            FROM tracks t2
            WHERE ds >= '@param01'
                  AND ds < '@param02'
