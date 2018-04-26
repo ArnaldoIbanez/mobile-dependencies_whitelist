@@ -113,10 +113,10 @@ tracks {
 
     //Abuse Prevention
     "/auth"(platform: "/", isAbstract: true) {}
-    "/auth/abuse_prevention"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/auth/abuse_prevention"(platform: "/", type: TrackType.Event) {
       result(type: PropertyType.String, required: true)
     }
-    "/auth/abuse_prevention/login"(platform: "/", type: TrackType.Event) {
+    "/auth/abuse_prevention/login"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
       device_id(type: PropertyType.String, required: true)
       platform(type: PropertyType.String, required: true)
     }
