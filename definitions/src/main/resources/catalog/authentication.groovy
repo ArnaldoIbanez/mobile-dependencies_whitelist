@@ -113,8 +113,15 @@ tracks {
 
     //Abuse Prevention
     "/auth"(platform: "/", isAbstract: true) {}
-    "/auth/abuse_prevention"(platform: "/", isAbstract: true) {}
-    "/auth/abuse_prevention/login"(platform: "/", isAbstract: true) {}    
-    "/auth/abuse_prevention/ban"(platform: "/", isAbstract: true) {}
+    "/auth/abuse_prevention"(platform: "/", type: TrackType.Event) {
+      result(type: PropertyType.String, required: true)
+    }
+    "/auth/abuse_prevention/login"(platform: "/", type: TrackType.Event) {
+      device_id(type: PropertyType.String, required: true)
+      platform(type: PropertyType.String, required: true)
+    }
+    "/auth/abuse_prevention/ban"(platform: "/", type: TrackType.Event) {
+      result(type: PropertyType.String, required: true)
+    }
 
 }

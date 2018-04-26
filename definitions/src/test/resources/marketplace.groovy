@@ -4168,17 +4168,20 @@ trackTests {
     }
 
     test("Abuse Prevention in Identification and Authentication") {
-        "/auth/abuse_prevention/login"(platform: "/web", type: TrackType.Event) {
-            device_id = "1"
-            platform = "web"
-        }
-        "/auth/abuse_prevention/login"(platform: "/mobile", type: TrackType.Event) {
-            device_id = "1"
-            platform = "mobile"
-        }
-        "/auth/abuse_prevention"(platform: "/mobile", type: TrackType.Event) {
-            result = "low"
-        }
+      "/auth/abuse_prevention"(platform: "/mobile", type: TrackType.Event) {
+          result = "low"
+      }
+      "/auth/abuse_prevention/ban"(platform: "/web", type: TrackType.Event) {
+          result = "low"
+      }
+      "/auth/abuse_prevention/login"(platform: "/web", type: TrackType.Event) {
+        device_id = "1"
+        platform = "web"
+      }
+      "/auth/abuse_prevention/login"(platform: "/mobile", type: TrackType.Event) {
+        device_id = "1"
+        platform = "mobile"
+      }
     }
 
     test("Loyalty user tracking") {
