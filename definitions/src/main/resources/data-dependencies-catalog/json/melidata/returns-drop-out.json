@@ -5,7 +5,7 @@
   "process_name": "returns-drop-out",
   "cron": "",
   "extract": {
-    "operation": "destroy",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "day",
