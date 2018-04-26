@@ -25,10 +25,6 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "authorized",
-        "type": "BOOLEAN"
-      },
-      {
         "name": "loyalty_level",
         "type": "INTEGER"
       },
