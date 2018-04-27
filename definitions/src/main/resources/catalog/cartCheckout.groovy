@@ -187,17 +187,21 @@ tracks {
 
 "/cart/checkout/show_ticket"(platform:"/", type: TrackType.View) {}
 
-"/cart/checkout/invalid_sec_code"(platform:"/", type: TrackType.View) {}
+"/cart/checkout/invalid_sec_code"(platform:"/", type: TrackType.View) {} // To be deprecated
 
-"/cart/checkout/invalid_sec_code/input_code"(platform:"/", type: TrackType.View) {}
+"/cart/checkout/invalid_sec_code/input_code"(platform:"/", type: TrackType.View) {} // To be deprecated
+"/cart/checkout/finish/invalid_sec_code/input_code"(platform:"/", type: TrackType.View) {}
 
-"/cart/checkout/call_for_auth"(platform:"/", type: TrackType.View) {}
+"/cart/checkout/call_for_auth"(platform:"/", type: TrackType.View) {} // To be deprecated
 
-"/cart/checkout/call_for_auth/instructions"(platform:"/", type: TrackType.View) {}
+"/cart/checkout/call_for_auth/instructions"(platform:"/", type: TrackType.View) {} // To be deprecated
+"/cart/checkout/finish/call_for_auth/instructions"(platform:"/", type: TrackType.View) {}
 
-"/cart/checkout/call_for_auth/call_later"(platform:"/", type: TrackType.View) {}
+"/cart/checkout/call_for_auth/call_later"(platform:"/", type: TrackType.View) {} // To be deprecated
+"/cart/checkout/finish/call_for_auth/later"(platform:"/", type: TrackType.View) {}
 
-"/cart/checkout/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
+"/cart/checkout/call_for_auth/input_code"(platform:"/", type: TrackType.View) {} // To be deprecated
+"/cart/checkout/finish/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin All platforms

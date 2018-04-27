@@ -644,19 +644,20 @@ tracks {
     "/checkout/finish#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         action(required: true, description: "Action executed, for ex: call_seller, email_seller, etc")
     }
-    "/checkout/congrats/error"(platform: "/mobile") {}
+    "/checkout/congrats/error"(platform: "/mobile") {} // To be deprecated
 
-    "/checkout/congrats/call_for_auth"(platform: "/mobile") {}
+    "/checkout/congrats/call_for_auth"(platform: "/mobile") {} // To be deprecated
 
-    "/checkout/congrats/call_for_auth/instructions"(platform: "/mobile") {}
+    "/checkout/congrats/call_for_auth/instructions"(platform: "/mobile") {} // To be deprecated
+    "/checkout/finish/call_for_auth/instructions"(platform: "/mobile") {}
 
-    "/checkout/congrats/call_for_auth/later"(platform: "/mobile") {}
+    "/checkout/congrats/call_for_auth/later"(platform: "/mobile") {} // To be deprecated
+    "/checkout/finish/call_for_auth/later"(platform: "/mobile") {}
 
-    "/checkout/congrats/invalid_sec_code"(platform: "/mobile") {}
+    "/checkout/congrats/invalid_sec_code"(platform: "/mobile") {} // To be deprecated
 
-    "/checkout/congrats/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {
-
-    }
+    "/checkout/congrats/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {} // To be deprecated
+    "/checkout/finish/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {}
 
     "/checkout/finish"(platform: "/mobile", isAbstract: true) {
         /** **************************************/
@@ -722,7 +723,7 @@ tracks {
 
     "/checkout/finish/second_step/error_details"(platform: "/mobile") {}
 
-    "/checkout/congrats/pending"(platform: "/mobile") {}
+    "/checkout/congrats/pending"(platform: "/mobile") {} // To be deprecated
 
     "/checkout/error"(platform: "/") {
         order_id(required: false, description: "OrderId")
