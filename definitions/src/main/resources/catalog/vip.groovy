@@ -7,52 +7,93 @@ tracks {
     //VIP FLOW
 
     "/vip"(platform: "/") {
-        item_id(required: true, description: "Item ID")
-        category_id(required: true, description: "Item's category id")
-        deal_ids(required: false, description: "IDs of applied discounts")
-        buying_mode(required: false, description: "Indicates if it's an aution, buy_it_now or classified")
-        official_store_id(required: false, description: "Id of item's official store")
-        item_status(required: false, description: "Whenever the items is active, closed or paused")
-        category_path(required: false, "Category path of the the item")
-        vertical(deprecated: true, required: false)
-        quantity(deprecated: true, required: false)
-        item_condition(deprecated: true, required: false)
-        currency_id(deprecated: true, required: false)
-        price(deprecated: true, required: false)
-        seller_id(deprecated: true, required: false)
-        power_seller_status(deprecated: true, required: false)
-        listing_type_id(deprecated: true, required: false)
-        start_time(deprecated: true, required: false)
-        stop_time(deprecated: true, required: false)
-        shipping_mode(deprecated: true, required: false)
-        free_shipping(deprecated: true, required: false)
-        local_pick_up(deprecated: true, required: false)
-        promoted_items_clicked(required: false, descripcion: 'Indicates whether clicked promoted items before reaching this vip')
-        billboard_clicked_position(required:false, type: PropertyType.Numeric)
-        store_type(required: false, description: "Indicates store type")
-        reputation_level(required: false, description: "Seller's reputation level")
-        quotation_available(required: false, type: PropertyType.Boolean, description: "Indicates if the item can be quoted (cotizado)")
-        fulfillment(required: false, type: PropertyType.Boolean, description: "Indicates if the item has fulfillment")
-        cart_content(required: false, type: PropertyType.Boolean, description: "Indicates if the VIP has cart features")
-        loyalty_level(required: false, description: "User's loyalty level")
-        free_shipping_benefit(required: false, type: PropertyType.Boolean, description: "Indicates if the user has free shipping benefit")
-        return_available(required: false, type: PropertyType.String, values: ["Yes", "No"], description: "Indicates if the user has free return for the item")
+
+        // ITEM FIELDS
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        buying_mode(required: true, type: PropertyType.String, values: ["buy_it_now", "auction","classified"],
+                description: "Indicates if it's an auction, buy_it_now or classified")
+        category_path(required: true, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished"],
+                description: "Whether the item is new, used or refurbished")
+        listing_type_id(required: true, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        item_status(required: true, type: PropertyType.String, values: ["active", "closed", "paused"],
+                description: "Whenever the items is active, closed or paused")
+        deal_ids(required: true, type: PropertyType.ArrayList, description: "IDs of applied discounts")
+
+        // ONLY CORE FIELDS
+        quantity( required: false, type: PropertyType.Numeric, description: "Available items quantity show at this vip")
         item_price(required: false, type: PropertyType.Map, description: "Indicates the item price in different currencies")
-        search_query(required: false, type: PropertyType.String)
-        page_vertical(required: false, type: PropertyType.String)
-        gallery_pattern(required: false, type: PropertyType.String, description: "Defines images pattern in publications")
-        review_rate(required: false, inheritable: false)
-        reviews_attributes(required: false, inheritable: false)
+        review_rate(required: false, type: PropertyType.Numeric, inheritable: false,
+                description: "The rating average of the reviews")
+        reviews_attributes(required: false, type: PropertyType.ArrayList, inheritable: false,
+                description: "Reviewable catalog attribute names")
+        return_available(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the user has free return for the item")
+        cart_content(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the VIP has cart features (only for core items)")
+
+        //SELLER FIELDS
+        seller_id(required: true, type: PropertyType.Numeric)
+        power_seller_status(required: false, type: PropertyType.String, values: ["silver", "gold", "platinum"],
+                description: "Seller's Mercado Lider level")
+        reputation_level(required: false, type: PropertyType.String,
+                values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"],
+                description: "Seller's reputation level")
+
+        // CLASI FIELDS
+        reservation_price(required: false, description: "Price of the reservation")
+        quotation_available(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item can be quoted (cotizado)")
+        comparator_available(required: false, type: PropertyType.Boolean,
+                description: "Indicates if clasi item has model comparator available")
+        gallery_pattern(required: false, type: PropertyType.String,
+                description: "String in which each char indicates if the image's maxSize is bigger than the " +
+                        "double of the gallery size ('X'), smaller than the double but bigger than de gallery size ('Y'), " +
+                        "or smaller than the gallery size ('Z')")
+
+        // OFFICIAL_STORES
+        official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
+        store_type(required: false, type: PropertyType.String, values: ["normal", "brand"], description: "Indicates store type")
+
+        // SHIPPING ( NOT PRESENT IN CLASI )
+        shipping_preference(required: false, type: PropertyType.String,
+                description: "Shipping method's name shown when the user has zipcode/location preloaded")
+        shipping_mode(required: false, type: PropertyType.String, values: ["not_specified", "custom", "me1", "me2"],
+                description: "Mercado Envios mode")
+        free_shipping(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the items has free shipping")
+        local_pick_up(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item has local pick up")
+        logistic_type(required: false, values: ["drop_off", "custom", "cross_docking", "fulfillment"],
+                type: PropertyType.String, description: "Indicates the logistic type of the item")
+        free_shipping_benefit(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the user has free shipping for loyalty benefit")
+
+        // USER FIELD
+        loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
+
+        // SUBSCRIPTIONS (ONLY CORE)
+        available_subscriptions(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item has available subscriptions")
+        subscription_discount(required: false, type: PropertyType.Numeric,
+                description: "The value of the discount when the user subscribes to the item")
+        default_tab(required: false, type: PropertyType.String, values: ["buy", "subscription"],
+                description: "Indicates if the 'buy' tab or the 'subscription' tab is shown by default in the short description")
     }
 
     "/vip"(platform: "/web") {
-        specifications_size(required: false, description: "Specifications attributes quantity")
-        description_type(required: false, description: "Description type: plain text, html, both, none", values: ["plain_text", "html", "both", "none"])
-        max_size_gallery(required: false, description: "Max_size of first picture gallery")
+        specifications_size(required: false, type: PropertyType.Numeric, description: "Specifications attributes quantity")
+        description_type(required: false, description: "Description type: plain text, html, both, none",
+                values: ["plain_text", "html", "both", "none"])
+        max_size_gallery(required: false, type: PropertyType.String, description: "Max_size of first picture gallery")
     }
 
     "/vip"(platform: "/mobile") {
-        category_id(required: false, description: "Item's category id")
         context(required: false)
         resolution(required: false, description: "Indicates if the device has high or low resolution")
     }

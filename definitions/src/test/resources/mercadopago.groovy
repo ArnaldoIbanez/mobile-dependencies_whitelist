@@ -43,7 +43,7 @@ trackTests {
             previous_size = 122592
         }
     }
-    
+
     test("Mercado Pago blog") {
         "/blog/home"(platform: "/web/desktop", type: TrackType.View) {}
     }
@@ -355,6 +355,22 @@ trackTests {
 
     test("Mercadopago Gateway List") {
         "/listing/gateway" (platform: "/web") {}
+    }
+
+    test("MP-MA Landing QR") {
+        "/merchant_acquisition/qr/landing" (platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/qr/landing/promotions"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("MP-MA Flow QR") {
+        "/merchant_acquisition/qr/onboarding"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/qr/qr-code"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/qr/pending"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/qr/error"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/qr/qr-code/download"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/qr/qr-code/print"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/qr/qr-code/faqs"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/qr/qr-code/help"(platform:"/", type: TrackType.Event) {}
     }
 
     test("Landing mercadopago point") {
@@ -1038,55 +1054,6 @@ trackTests {
             result_status = "rejected"
             status_detail = "call_for_auth"
         }
-        "/cellphone_recharge/px_payment_method_search"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_discount_summary"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_card_vault"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_card_number"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_card_holder_name"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_card_expiry_date"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_card_security_code"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_identification_number"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_card_issuers"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_card_installments"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_review_and_confirm"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-        }
-        "/cellphone_recharge/px_result"(platform: "/mobile") {
-            flow = "/cellphone_recharge"
-            from = "/deep_link"
-            result_status = "rejected"
-        }
 
         "/cellphone_recharge/confirm"(platform: "/web"){
             flow = "/cellphone_recharge"
@@ -1631,25 +1598,25 @@ trackTests {
         }
     }
 
-    
+
     test("Notifications") {
-                
+
         "/notification"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "sent"
         }
-        
+
         "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
                 news_id = "123"
                 campaign_id = "prueba_123"
                 event_type = "open"
-        }  
-        
+        }
+
         "/notification/money_transfer_received"(platform: "/mobile") {
                 news_id = "123"
                 event_type = "open"
-        }  
-        
+        }
+
         "/notification/money_transfer_request"(platform: "/mobile") {
                 news_id = "123"
                 event_type = "open"
@@ -1797,6 +1764,23 @@ trackTests {
         "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
             status = "API_NOT_CONNECTED"
         }
+    }
+
+    test("Abuse Prevention in Identification and Authentication") {
+      "/auth/abuse_prevention"(platform: "/mobile", type: TrackType.Event) {
+        result = "low"
+      }
+      "/auth/abuse_prevention/ban"(platform: "/web", type: TrackType.Event) {
+          result = "low"
+      }
+      "/auth/abuse_prevention/login"(platform: "/web", type: TrackType.Event) {
+        device_id = "1"
+        platform = "web"
+      }
+      "/auth/abuse_prevention/login"(platform: "/mobile", type: TrackType.Event) {
+        device_id = "1"
+        platform = "mobile"
+      }
     }
 
     test("Identity Validation ") {
@@ -2224,7 +2208,7 @@ trackTests {
             collector_nickname = "collector nickname test"
             preference_id = "96449980"
             scope = 'mla'
-            
+
             response_status = 500
             exception_message = "Some exception message"
         }
@@ -2456,7 +2440,7 @@ trackTests {
             client_id = "1321312"
             environment = "production"
         }
-        
+
         "/checkout_off/v1/congrats/approved"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
             collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
@@ -2575,4 +2559,24 @@ trackTests {
 
         "/free_navigation/wifi"(platform:"/mobile", type:TrackType.Event) {}
     }
+
+
+    test("Bugsnag tracks to use on Canejo MP") {
+        "/mobile/bugsnag"(platform:"/mobile/android", type:TrackType.Event) {
+            error_type = "signal"
+            error_context = "withdraw"
+            error_severity = "error"
+            url_error = "<none>"
+            error_mach_exception_name = "<none>"
+            error_address = "4402117060"
+            error_message = ""
+            error_Id = "5aa6bcd0c098f300193384fb"
+            error_timestamp = "2018-04-18T14:18:09.301Z"
+            error_exception_class = "SIGTRAP"
+            release_stage = "production"
+            error_signal_name = "SIGTRAP"
+            error_nsexception = "<none>"
+        }
+    }
+
 }

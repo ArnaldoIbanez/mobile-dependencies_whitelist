@@ -215,6 +215,8 @@ tracks {
 
     //Messages
     "/notification/messages_new"(platform: "/") {}
+    "/notification/messages_read"(platform: "/") {}
+
 
     //Reputation
     "/notification/reputation-free_shipping_activation"(platform: "/") {}
@@ -237,5 +239,11 @@ tracks {
 
     //Security
     "/notification/security_enrollment"(platform: "/") {}
+
+    //Health Check
+    "/notification/health_check"(platform: "/") {
+        type(required: false, type: PropertyType.String, values: ["health_check"]) // TODO Delete this field, is being sent today, but it makes no sense
+        original_news_id( required: false, type: PropertyType.String, description: "Original identifier of the notification generated" ) 
+    }
 
 }
