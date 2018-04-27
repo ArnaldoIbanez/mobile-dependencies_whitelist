@@ -242,8 +242,8 @@ tracks {
 
     //Health Check
     "/notification/health_check"(platform: "/") {
-        type(required: false, type: PropertyType.String, values: ["health_check"]) // TODO Add description ( Hace falta agregar el type:healthcheck?
-        original_news_id( required: false, type: PropertyType.String ) // TODO Add description
+        type(required: false, type: PropertyType.String, values: ["health_check"]) // TODO Delete this field, is being sent today, but it makes no sense
+        original_news_id( required: false, type: PropertyType.String, description: "Original identifier of the notification generated" ) 
     }
 
 }
