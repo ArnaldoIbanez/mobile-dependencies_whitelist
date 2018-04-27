@@ -59,8 +59,8 @@ tracks {
     }
 
     "/login/auth/challenge_success"(platform: "/", type: TrackType.View) {
-        challenge(type: PropertyType.String, required: true) 
-    }    
+        challenge(type: PropertyType.String, required: true)
+    }
 
     "/logout"(platform: "/", type: TrackType.Event) {
         flow(type: PropertyType.String, required: false)
@@ -110,4 +110,18 @@ tracks {
     "/oauth/authorization/form/access"(platform: "/", type: TrackType.Event) {
         authorize(type: PropertyType.Boolean, required: true)
     }
+
+    //Abuse Prevention
+    "/auth"(platform: "/", isAbstract: true) {}
+    "/auth/abuse_prevention"(platform: "/", type: TrackType.Event) {
+      result(type: PropertyType.String, required: true)
+    }
+    "/auth/abuse_prevention/login"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+      device_id(type: PropertyType.String, required: true)
+      platform(type: PropertyType.String, required: true)
+    }
+    "/auth/abuse_prevention/ban"(platform: "/", type: TrackType.Event) {
+      result(type: PropertyType.String, required: true)
+    }
+
 }
