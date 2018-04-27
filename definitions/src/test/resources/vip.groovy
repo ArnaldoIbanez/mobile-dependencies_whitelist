@@ -18,14 +18,16 @@ trackTests {
             item_status = "active"
             deal_ids = []
             seller_id = 131662738
+
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+            discount_reasons = ["loyalty","deal"]
         }
 
         def optionals = {
             quantity = 3
-            item_price = [
-                price: 15.3,
-                currency_id: "ARS"
-            ]
+
             return_available = false
             cart_content = false
             power_seller_status = "platinum"
