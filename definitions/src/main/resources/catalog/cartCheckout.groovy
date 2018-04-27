@@ -171,7 +171,8 @@ tracks {
 
 "/cart/checkout/congrats"(platform:"/", type: TrackType.View) {
     congrats_seq(serverSide: true) // Lo completa Melidata automaticamente
-    first_for_order(serverSide: true) // Lo completa Melidata automaticamente         
+    first_for_order(serverSide: true) // Lo completa Melidata automaticamente
+    status(required: false, type: PropertyType.String)
 }
 
 "/cart/checkout/congrats/keep_buying"(platform:"/", type: TrackType.Event) {}
@@ -187,20 +188,14 @@ tracks {
 
 "/cart/checkout/show_ticket"(platform:"/", type: TrackType.View) {}
 
-"/cart/checkout/invalid_sec_code"(platform:"/", type: TrackType.View) {} // To be deprecated
+"/cart/checkout/finish"(platform:"/", type: TrackType.View, isAbstract: true) {}
 
-"/cart/checkout/invalid_sec_code/input_code"(platform:"/", type: TrackType.View) {} // To be deprecated
+"/cart/checkout/finish/invalid_sec_code"(platform:"/", type: TrackType.View, isAbstract: true) {}
 "/cart/checkout/finish/invalid_sec_code/input_code"(platform:"/", type: TrackType.View) {}
 
-"/cart/checkout/call_for_auth"(platform:"/", type: TrackType.View) {} // To be deprecated
-
-"/cart/checkout/call_for_auth/instructions"(platform:"/", type: TrackType.View) {} // To be deprecated
+"/cart/checkout/finish/call_for_auth"(platform:"/", type: TrackType.View, isAbstract: true) {}
 "/cart/checkout/finish/call_for_auth/instructions"(platform:"/", type: TrackType.View) {}
-
-"/cart/checkout/call_for_auth/call_later"(platform:"/", type: TrackType.View) {} // To be deprecated
 "/cart/checkout/finish/call_for_auth/later"(platform:"/", type: TrackType.View) {}
-
-"/cart/checkout/call_for_auth/input_code"(platform:"/", type: TrackType.View) {} // To be deprecated
 "/cart/checkout/finish/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
