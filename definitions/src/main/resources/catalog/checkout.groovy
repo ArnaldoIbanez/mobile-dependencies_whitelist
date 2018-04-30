@@ -718,8 +718,6 @@ tracks {
 
     "/checkout/finish/second_step/error_details"(platform: "/mobile") {}
 
-    "/checkout/congrats/pending"(platform: "/mobile") {} // To be deprecated
-
     "/checkout/error"(platform: "/") {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
