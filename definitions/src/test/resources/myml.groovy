@@ -46,7 +46,7 @@ trackTests {
         "/myml/invoices/items/csosn/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/csosn/save/request"(platform: "/", type: TrackType.Event) {
              data = {
-                ICMS_SIMPLES = '102'
+                icms_simples = '102'
                 itemId = "MLB989120833"
             }
             url = "https://myaccount.mercadolivre.com.br/invoices-app/review"
