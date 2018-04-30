@@ -22,10 +22,13 @@ trackTests {
         "/myml/invoices/items/origin"(platform: "/") {}
         "/myml/invoices/items/origin/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/origin/save/request"(platform: "/", type: TrackType.Event) {
-            code = "2"
+            itemId = "MLB989120833"
+            data = {
+                origin_detail = "4"
+            }
+            variationId = "1231"
         }
         "/myml/invoices/items/origin/save/response"(platform: "/", type: TrackType.Event) {
-            code = "2"
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/items/sku"(platform: "/") {}

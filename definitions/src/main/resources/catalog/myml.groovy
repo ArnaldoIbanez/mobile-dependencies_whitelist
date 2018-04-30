@@ -289,10 +289,12 @@ tracks {
     //origin
     "/myml/invoices/items/origin"(platform: "/") {}
     "/myml/invoices/items/origin/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/origin/save"(platform: "/", isAbstract: true) {
-        code(required: true, type: PropertyType.String, description: "Origin type id of the product selected")
+    "/myml/invoices/items/origin/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/items/origin/save/request"(platform: "/", type: TrackType.Event) {
+        data(required: true, description: "Product Origin type and aditional infos")
+        itemId(required: true, type: PropertyType.String, description: "itemId of product")
+        variationId(required: true, type: PropertyType.String, description: "variationId of product")
     }
-    "/myml/invoices/items/origin/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/origin/save/response"(platform: "/", type: TrackType.Event) {}
 
     //sku
