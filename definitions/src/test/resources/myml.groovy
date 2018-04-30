@@ -34,10 +34,11 @@ trackTests {
         "/myml/invoices/items/sku"(platform: "/") {}
         "/myml/invoices/items/sku/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/sku/save/request"(platform: "/", type: TrackType.Event) {
-            code = "1234"
+            itemId = "MLB989120833"
+            sku = "123"
+            variationId = null
         }
         "/myml/invoices/items/sku/save/response"(platform: "/", type: TrackType.Event) {
-            code = "1234"
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
             errorValidation = "O SKU não pode ser vazio"
         }

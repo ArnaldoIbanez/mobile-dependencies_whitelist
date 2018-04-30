@@ -293,17 +293,19 @@ tracks {
     "/myml/invoices/items/origin/save/request"(platform: "/", type: TrackType.Event) {
         data(required: true, description: "Product Origin type and aditional infos")
         itemId(required: true, type: PropertyType.String, description: "itemId of product")
-        variationId(required: true, type: PropertyType.String, description: "variationId of product")
+        variationId(required: false, type: PropertyType.String, description: "variationId of product")
     }
     "/myml/invoices/items/origin/save/response"(platform: "/", type: TrackType.Event) {}
 
     //sku
     "/myml/invoices/items/sku"(platform: "/") {}
     "/myml/invoices/items/sku/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/sku/save"(platform: "/", isAbstract: true) {
-        code(required: true, type: PropertyType.String, description: "Sku id input")
+    "/myml/invoices/items/sku/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/items/sku/save/request"(platform: "/", type: TrackType.Event) {
+        itemId(required: true, type: PropertyType.String, description: "itemId of product")
+        variationId(required: false, type: PropertyType.String, description: "variationId of product")
+        sku(required: true, type: PropertyType.String, description: "Sku id input")
     }
-    "/myml/invoices/items/sku/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/sku/save/response"(platform: "/", type: TrackType.Event) {}
 
     //csosn
