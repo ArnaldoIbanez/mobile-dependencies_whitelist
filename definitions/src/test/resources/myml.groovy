@@ -45,10 +45,13 @@ trackTests {
         "/myml/invoices/items/csosn"(platform: "/") {}
         "/myml/invoices/items/csosn/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/csosn/save/request"(platform: "/", type: TrackType.Event) {
-            code = "300"
+             data = {
+                ICMS_SIMPLES = '102'
+                itemId = "MLB989120833"
+            }
+            url = "https://myaccount.mercadolivre.com.br/invoices-app/review"
         }
         "/myml/invoices/items/csosn/save/response"(platform: "/", type: TrackType.Event) {
-            code = "300"
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/items/ean"(platform: "/") {}

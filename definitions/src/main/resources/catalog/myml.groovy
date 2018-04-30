@@ -311,10 +311,10 @@ tracks {
     //csosn
     "/myml/invoices/items/csosn"(platform: "/") {}
     "/myml/invoices/items/csosn/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/csosn/save"(platform: "/", isAbstract: true) {
-        code(required: true, type: PropertyType.String, description: "CSOSN type id of the product (tax information) selected")
+    "/myml/invoices/items/csosn/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/items/csosn/save/request"(platform: "/", type: TrackType.Event) {
+        data(required: true, description: "Product tax information and aditional infos")
     }
-    "/myml/invoices/items/csosn/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/csosn/save/response"(platform: "/", type: TrackType.Event) {}
 
     //ean
