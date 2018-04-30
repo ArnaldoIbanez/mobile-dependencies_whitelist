@@ -342,10 +342,12 @@ tracks {
     //ncm
     "/myml/invoices/items/ncm"(platform: "/") {}
     "/myml/invoices/items/ncm/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/ncm/save"(platform: "/", isAbstract: true) {
-        code(required: true, type: PropertyType.String, description: "Product Ncm(nomenclatura comum do mercosul) id input")
+    "/myml/invoices/items/ncm/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/items/ncm/save/request"(platform: "/", type: TrackType.Event) {
+        itemId(required: true, type: PropertyType.String, description: "itemId of product")
+        data(required: true, description: "Ncm (tax information)")
+        variationId(required: false, type: PropertyType.String, description: "variationId of product")
     }
-    "/myml/invoices/items/ncm/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/ncm/save/response"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/ncm/search"(platform: "/", isAbstract: true) {
         code(required: true, type: PropertyType.String, description: "Search ncm info when user input code")

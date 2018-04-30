@@ -87,10 +87,13 @@ trackTests {
         "/myml/invoices/items/ncm"(platform: "/") {}
         "/myml/invoices/items/ncm/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/ncm/save/request"(platform: "/", type: TrackType.Event) {
-            code = "84716052"
+            itemId = "MLB1020221729"
+            data = {
+                ncm = "84011000"
+            }
+            variationId = "12313"
         }
         "/myml/invoices/items/ncm/save/response"(platform: "/", type: TrackType.Event) {
-            code = "84716052"
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/items/ncm/search/request"(platform: "/", type: TrackType.Event) {
