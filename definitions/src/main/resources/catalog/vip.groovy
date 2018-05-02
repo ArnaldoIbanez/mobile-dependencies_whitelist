@@ -16,7 +16,7 @@ tracks {
         category_path(required: true, type: PropertyType.ArrayList , description:  "Category path of the the item")
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
-        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished"],
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
                 description: "Whether the item is new, used or refurbished")
         listing_type_id(required: true, type: PropertyType.String,
                 values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
@@ -69,7 +69,8 @@ tracks {
                 description: "Indicates if the items has free shipping")
         local_pick_up(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has local pick up")
-        logistic_type(required: false, values: ["drop_off", "custom", "cross_docking", "fulfillment"],
+        logistic_type(required: false,
+                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment"],
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
         free_shipping_benefit(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has free shipping for loyalty benefit")
