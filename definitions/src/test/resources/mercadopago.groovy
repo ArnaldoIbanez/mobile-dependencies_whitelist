@@ -216,6 +216,10 @@ trackTests {
         }
     }
 
+    test("Progressive registration") {
+        "/progressive_registration"(platform: "/mobile/android") {}
+    }
+
     test("Registration App"){
         // app module
         "/register/hub"(platform: "/mobile") {
