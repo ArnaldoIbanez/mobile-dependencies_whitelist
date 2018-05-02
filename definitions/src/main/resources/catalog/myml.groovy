@@ -289,28 +289,32 @@ tracks {
     //origin
     "/myml/invoices/items/origin"(platform: "/") {}
     "/myml/invoices/items/origin/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/origin/save"(platform: "/", isAbstract: true) {
-        code(required: true, type: PropertyType.String, description: "Origin type id of the product selected")
+    "/myml/invoices/items/origin/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/items/origin/save/request"(platform: "/", type: TrackType.Event) {
+        data(required: true, description: "Product Origin type and aditional infos")
+        itemId(required: true, type: PropertyType.String, description: "itemId of product")
+        variationId(required: false, type: PropertyType.String, description: "variationId of product")
     }
-    "/myml/invoices/items/origin/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/origin/save/response"(platform: "/", type: TrackType.Event) {}
 
     //sku
     "/myml/invoices/items/sku"(platform: "/") {}
     "/myml/invoices/items/sku/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/sku/save"(platform: "/", isAbstract: true) {
-        code(required: true, type: PropertyType.String, description: "Sku id input")
+    "/myml/invoices/items/sku/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/items/sku/save/request"(platform: "/", type: TrackType.Event) {
+        itemId(required: true, type: PropertyType.String, description: "itemId of product")
+        variationId(required: false, type: PropertyType.String, description: "variationId of product")
+        sku(required: true, type: PropertyType.String, description: "Sku id input")
     }
-    "/myml/invoices/items/sku/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/sku/save/response"(platform: "/", type: TrackType.Event) {}
 
     //csosn
     "/myml/invoices/items/csosn"(platform: "/") {}
     "/myml/invoices/items/csosn/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/csosn/save"(platform: "/", isAbstract: true) {
-        code(required: true, type: PropertyType.String, description: "CSOSN type id of the product (tax information) selected")
+    "/myml/invoices/items/csosn/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/items/csosn/save/request"(platform: "/", type: TrackType.Event) {
+        data(required: true, description: "Product tax information and aditional infos")
     }
-    "/myml/invoices/items/csosn/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/csosn/save/response"(platform: "/", type: TrackType.Event) {}
 
     //ean
@@ -329,19 +333,23 @@ tracks {
     //product-type
     "/myml/invoices/items/product-type"(platform: "/") {}
     "/myml/invoices/items/product-type/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/product-type/save"(platform: "/", isAbstract: true) {
-        code(required: true, type: PropertyType.String, description: "Product origin id selected")
+    "/myml/invoices/items/product-type/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/items/product-type/save/request"(platform: "/", type: TrackType.Event) {
+        itemId(required: true, type: PropertyType.String, description: "itemId of product")
+        variationId(required: false, type: PropertyType.String, description: "variationId of product")
+        data(required: true, description: "Product type selected and aditional infos")
     }
-    "/myml/invoices/items/product-type/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/product-type/save/response"(platform: "/", type: TrackType.Event) {}
 
     //ncm
     "/myml/invoices/items/ncm"(platform: "/") {}
     "/myml/invoices/items/ncm/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/ncm/save"(platform: "/", isAbstract: true) {
-        code(required: true, type: PropertyType.String, description: "Product Ncm(nomenclatura comum do mercosul) id input")
+    "/myml/invoices/items/ncm/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/items/ncm/save/request"(platform: "/", type: TrackType.Event) {
+        itemId(required: true, type: PropertyType.String, description: "itemId of product")
+        data(required: true, description: "Ncm (tax information)")
+        variationId(required: false, type: PropertyType.String, description: "variationId of product")
     }
-    "/myml/invoices/items/ncm/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/ncm/save/response"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/ncm/search"(platform: "/", isAbstract: true) {
         code(required: true, type: PropertyType.String, description: "Search ncm info when user input code")
