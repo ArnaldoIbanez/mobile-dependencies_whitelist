@@ -2119,6 +2119,10 @@ trackTests {
         }
     }
 
+    test("Progressive registration") {
+        "/progressive_registration"(platform: "/mobile/android") {}
+    }
+
     test("Register Web") {
         "/register/form"(platform: "/web/desktop") {
             app = "registration"

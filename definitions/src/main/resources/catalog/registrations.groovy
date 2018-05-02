@@ -143,5 +143,8 @@ tracks {
         item_id(type: PropertyType.String, required:false, description: "Item" )
     }
 
+    // TODO, PLEASE MOVE THIS TO SOMETHING LIKE /register/progresive o algo que sea más acorde a todo el tracking del modulo
+    "/progressive_registration"(platform:"/mobile", type: TrackType.View) {}
+
 }
 

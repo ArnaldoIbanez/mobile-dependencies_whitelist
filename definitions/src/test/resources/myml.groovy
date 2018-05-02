@@ -22,29 +22,36 @@ trackTests {
         "/myml/invoices/items/origin"(platform: "/") {}
         "/myml/invoices/items/origin/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/origin/save/request"(platform: "/", type: TrackType.Event) {
-            code = "2"
+            itemId = "MLB989120833"
+            data = {
+                origin_detail = "4"
+            }
+            variationId = "1231"
         }
         "/myml/invoices/items/origin/save/response"(platform: "/", type: TrackType.Event) {
-            code = "2"
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/items/sku"(platform: "/") {}
         "/myml/invoices/items/sku/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/sku/save/request"(platform: "/", type: TrackType.Event) {
-            code = "1234"
+            itemId = "MLB989120833"
+            sku = "123"
+            variationId = null
         }
         "/myml/invoices/items/sku/save/response"(platform: "/", type: TrackType.Event) {
-            code = "1234"
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
             errorValidation = "O SKU não pode ser vazio"
         }
         "/myml/invoices/items/csosn"(platform: "/") {}
         "/myml/invoices/items/csosn/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/csosn/save/request"(platform: "/", type: TrackType.Event) {
-            code = "300"
+             data = {
+                icms_simples = '102'
+                itemId = "MLB989120833"
+            }
+            url = "https://myaccount.mercadolivre.com.br/invoices-app/review"
         }
         "/myml/invoices/items/csosn/save/response"(platform: "/", type: TrackType.Event) {
-            code = "300"
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/items/ean"(platform: "/") {}
@@ -70,20 +77,28 @@ trackTests {
         "/myml/invoices/items/product-type"(platform: "/") {}
         "/myml/invoices/items/product-type/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/product-type/save/request"(platform: "/", type: TrackType.Event) {
-            code = "1232"
+            itemId = "123123"
+            data = {
+                origin_type = 'Revendedor'
+                origin_detail = '1'
+            }
+            url = "/invoices/items/MLB1017715653/ncm?orderId=1692199884"
+            variationId = null
         }
          "/myml/invoices/items/product-type/save/response"(platform: "/", type: TrackType.Event) {
-            code = "1232"
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
 
         "/myml/invoices/items/ncm"(platform: "/") {}
         "/myml/invoices/items/ncm/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/ncm/save/request"(platform: "/", type: TrackType.Event) {
-            code = "84716052"
+            itemId = "MLB1020221729"
+            data = {
+                ncm = "84011000"
+            }
+            variationId = "12313"
         }
         "/myml/invoices/items/ncm/save/response"(platform: "/", type: TrackType.Event) {
-            code = "84716052"
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/items/ncm/search/request"(platform: "/", type: TrackType.Event) {
