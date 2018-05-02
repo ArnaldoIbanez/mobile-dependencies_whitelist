@@ -77,10 +77,15 @@ trackTests {
         "/myml/invoices/items/product-type"(platform: "/") {}
         "/myml/invoices/items/product-type/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/product-type/save/request"(platform: "/", type: TrackType.Event) {
-            code = "1232"
+            itemId = "123123"
+            data = {
+                origin_type = 'Revendedor'
+                origin_detail = '1'
+            }
+            url = "/invoices/items/MLB1017715653/ncm?orderId=1692199884"
+            variationId = null
         }
          "/myml/invoices/items/product-type/save/response"(platform: "/", type: TrackType.Event) {
-            code = "1232"
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
 

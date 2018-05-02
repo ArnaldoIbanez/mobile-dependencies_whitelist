@@ -333,10 +333,12 @@ tracks {
     //product-type
     "/myml/invoices/items/product-type"(platform: "/") {}
     "/myml/invoices/items/product-type/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/product-type/save"(platform: "/", isAbstract: true) {
-        code(required: true, type: PropertyType.String, description: "Product origin id selected")
+    "/myml/invoices/items/product-type/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/items/product-type/save/request"(platform: "/", type: TrackType.Event) {
+        itemId(required: true, type: PropertyType.String, description: "itemId of product")
+        variationId(required: false, type: PropertyType.String, description: "variationId of product")
+        data(required: true, description: "Product type selected and aditional infos")
     }
-    "/myml/invoices/items/product-type/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/product-type/save/response"(platform: "/", type: TrackType.Event) {}
 
     //ncm
