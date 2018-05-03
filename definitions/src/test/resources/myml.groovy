@@ -101,12 +101,12 @@ trackTests {
         "/myml/invoices/items/ncm/save/response"(platform: "/", type: TrackType.Event) {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
-        "/myml/invoices/items/ncm/search/request"(platform: "/", type: TrackType.Event) {
-            data = {
+        "/myml/invoices/items/ncm/search/request"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/items/ncm/search/response"(platform: "/", type: TrackType.Event) {
+             data = {
                 ncm = "84011000"
             }
-        }
-        "/myml/invoices/items/ncm/search/response"(platform: "/", type: TrackType.Event) {
+
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
     }
