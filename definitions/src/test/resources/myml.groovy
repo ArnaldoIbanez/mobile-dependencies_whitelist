@@ -102,10 +102,11 @@ trackTests {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/items/ncm/search/request"(platform: "/", type: TrackType.Event) {
-            code = "84716052"
+            data = {
+                ncm = "84011000"
+            }
         }
         "/myml/invoices/items/ncm/search/response"(platform: "/", type: TrackType.Event) {
-            code = "84716052"
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
     }

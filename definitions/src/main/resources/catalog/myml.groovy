@@ -351,10 +351,10 @@ tracks {
         variationId(required: false, type: PropertyType.String, description: "variationId of product")
     }
     "/myml/invoices/items/ncm/save/response"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/ncm/search"(platform: "/", isAbstract: true) {
-        code(required: true, type: PropertyType.String, description: "Search ncm info when user input code")
+    "/myml/invoices/items/ncm/search"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/items/ncm/search/request"(platform: "/", type: TrackType.Event) {
+        data(required: true, description: "Search ncm info when user input code")
     }
-    "/myml/invoices/items/ncm/search/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/ncm/search/response"(platform: "/", type: TrackType.Event) {}
 
     //:::: Sales list
