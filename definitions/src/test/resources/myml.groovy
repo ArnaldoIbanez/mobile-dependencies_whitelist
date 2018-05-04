@@ -22,7 +22,7 @@ trackTests {
         "/myml/invoices/items/origin"(platform: "/") {}
         "/myml/invoices/items/origin/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/origin/save/request"(platform: "/", type: TrackType.Event) {
-            itemId = "MLB989120833"
+            item_id = "MLB989120833"
             data = {
                 origin_detail = "4"
             }
@@ -34,7 +34,7 @@ trackTests {
         "/myml/invoices/items/sku"(platform: "/") {}
         "/myml/invoices/items/sku/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/sku/save/request"(platform: "/", type: TrackType.Event) {
-            itemId = "MLB989120833"
+            item_id = "MLB989120833"
             sku = "123"
             variationId = null
         }
@@ -57,7 +57,7 @@ trackTests {
         "/myml/invoices/items/ean"(platform: "/") {}
         "/myml/invoices/items/ean/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/ean/save/request"(platform: "/", type: TrackType.Event) {
-            itemId = "123123"
+            item_id = "123123"
             data = {
                 disabled = false
                 ean = "0604095564050"
@@ -77,7 +77,7 @@ trackTests {
         "/myml/invoices/items/product-type"(platform: "/") {}
         "/myml/invoices/items/product-type/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/product-type/save/request"(platform: "/", type: TrackType.Event) {
-            itemId = "123123"
+            item_id = "123123"
             data = {
                 origin_type = 'Revendedor'
                 origin_detail = '1'
@@ -92,7 +92,7 @@ trackTests {
         "/myml/invoices/items/ncm"(platform: "/") {}
         "/myml/invoices/items/ncm/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/items/ncm/save/request"(platform: "/", type: TrackType.Event) {
-            itemId = "MLB1020221729"
+            item_id = "MLB1020221729"
             data = {
                 ncm = "84011000"
             }
