@@ -1017,10 +1017,6 @@ trackTests {
             checkoutStatus()
         }
 
-        "/checkout/congrats/pending"(platform:"/mobile", type:TrackType.View) {
-            checkoutStatus()
-        }
-
         "/checkout/finish#click"(platform: "/mobile", type: TrackType.Event) {
             action = 'call_seller'
         }
