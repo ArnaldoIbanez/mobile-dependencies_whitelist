@@ -877,6 +877,8 @@ tracks {
     "/checkout/payment/select_bank"(platform:"/", type: TrackType.View) {}
 
     "/checkout/payment/view_location"(platform:"/", type: TrackType.View) {}
+    "/checkout/payment/view_location#location"(platform:"/", type: TrackType.Event) {}
+    "/checkout/payment/view_location#preloaded"(platform:"/", type: TrackType.Event) {}
 
     "/checkout/payment/input_card"(platform:"/", type: TrackType.View) {}
 
