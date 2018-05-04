@@ -113,6 +113,7 @@ tracks {
         has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
     }
     "/sell/list/draft/congrats"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/location_suggestion"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/sip_landing"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/price_review"(platform:"/mobile", type: TrackType.View){}
@@ -150,6 +151,7 @@ tracks {
     "/sell/list/walkthrough"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/hub_old"(platform: "/", type: TrackType.View) {}
     "/sell/list/attribute"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/picture_preview_landing"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/picture_uploader"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/picture_uploader/mode"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/picture_uploader/mode/camera"(platform: "/mobile", type: TrackType.Event) {}
@@ -176,6 +178,7 @@ tracks {
     "/sell/list/sip/publish/fail"(platform: "/mobile", type: TrackType.Event) {
         error_message(required: false, description: "Error message", type: PropertyType.String)
     }
+    "/sell/list/sip/publish/abandonment"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/sip/section"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/sip/section/disabled"(platform: "/mobile", type: TrackType.Event) {
         has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
@@ -224,8 +227,9 @@ tracks {
     "/sell/list/sip/notification/view_item"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/sip/notification/upgrade"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/sip/notification/congrats"(platform: "/mobile", type: TrackType.Event) {}
-
+    "/sell/list/congrats/payment_pending"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/location"(platform: "/", type: TrackType.View) {}
+    ""
     "/sell/list/location_suggestion"(platform: "/", type: TrackType.View) {}
     "/sell/list/category_suggestion"(platform: "/", type: TrackType.View) {}
     "/sell/list/category_navigation"(platform: "/", type: TrackType.View) {}
@@ -276,6 +280,9 @@ tracks {
     "/sell/list/category/selection"(platform: "/mobile", isAbstract:true){}
     "/sell/list/category/selection/confirm_suggested"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/category/selection/wrong_suggested"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/category/selection/l1"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/category/selection/l2"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/category/selection/l3"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/price_modality"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/modal"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/modal/close"(platform: "/mobile", isAbstract: true) {}
@@ -369,7 +376,7 @@ tracks {
         album_name(required: true, description: "Album name", type: PropertyType.String)
     }
     "/sell/update/pictures_uploader"(platform: "/", isAbstract: true) {}
-     "/sell/update/pictures_uploader/crop"(platform: "/", isAbstract: true) {}
+    "/sell/update/pictures_uploader/crop"(platform: "/", isAbstract: true) {}
     "/sell/update/pictures_uploader/crop/crop_canceled"(platform: "/", type: TrackType.Event) {}
     "/sell/update/pictures_uploader/crop/crop_acepted"(platform: "/", type: TrackType.Event) {}
     "/sell/update/pictures_review"(platform: "/", type: TrackType.View) {}
@@ -400,6 +407,10 @@ tracks {
     "/sell/update/listing_types_upgrade"(platform: "/", type: TrackType.View) {}
     "/sell/update/congrats_upgrade"(platform: "/", type: TrackType.View) {}
 
+    "/sell/list/pictures_uploader"(platform: "/web/desktop", isAbstract: true){}
+    "/sell/list/pictures_uploader/validations"(platform: "/web/desktop", type: TrackType.Event){
+        error_key(required: true, description: "Error raised after picture validation", type: PropertyType.String)
+    }
     "/sell/list/modal_attributes"(platform: "/web", type: TrackType.View) {
         domain_id(required: true, description: "Domain id", type: PropertyType.String)
         condition(required: false, description: "Item condition", type: PropertyType.String)
