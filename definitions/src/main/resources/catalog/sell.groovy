@@ -229,7 +229,6 @@ tracks {
     "/sell/list/sip/notification/congrats"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/congrats/payment_pending"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/location"(platform: "/", type: TrackType.View) {}
-    ""
     "/sell/list/location_suggestion"(platform: "/", type: TrackType.View) {}
     "/sell/list/category_suggestion"(platform: "/", type: TrackType.View) {}
     "/sell/list/category_navigation"(platform: "/", type: TrackType.View) {}
