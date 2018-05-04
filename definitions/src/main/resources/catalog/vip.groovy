@@ -27,7 +27,12 @@ tracks {
 
         // ONLY CORE FIELDS
         quantity( required: false, type: PropertyType.Numeric, description: "Available items quantity show at this vip")
-        item_price(required: false, type: PropertyType.Map, description: "Indicates the item price in different currencies")
+        // TODO, podemos hacerlo required? Hay casos donde un item no tengan price?
+        price(required: false, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
+        original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
+        currency_id(required: false, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+        discount_reasons( required: false, type: PropertyType.ArrayList, description: "The discounts applied to this item original_price, to finally show price (loyalty, deal)")
+
         review_rate(required: false, type: PropertyType.Numeric, inheritable: false,
                 description: "The rating average of the reviews")
         reviews_attributes(required: false, type: PropertyType.ArrayList, inheritable: false,
