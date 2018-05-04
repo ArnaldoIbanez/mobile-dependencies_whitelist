@@ -9,4 +9,4 @@ device.platform as Platform
 FROM tracks 
 where path like '/register/%' 
 and ds >= '@param01' and ds < '@param02'
-group by substr(ds,1,10) ,jest(event_data, 'app') , Path,  application.Site_Id, type, device.platform
+group by substr(ds,1,10) , jest(event_data, 'app') , Path,  application.Site_Id, type, device.platform
