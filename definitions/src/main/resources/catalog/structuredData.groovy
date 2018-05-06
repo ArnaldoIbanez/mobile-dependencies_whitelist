@@ -9,7 +9,7 @@ tracks {
         page(required: true, description: "Page")
         item_id(required: true, description: "Item ID")
         officialstore(required: true, description: "Seller is offical store")
-        domain_id(required: true, description: "Domain ID")
+        domain_id(required: false, description: "Domain ID")
         seller_id(required: true, description: "Seller ID")
         completeness_level(required: false, description: "Completeness level from [total, partial, total_pi, none]")
         items_left(required: true, description: "Items left on widget")
@@ -17,10 +17,12 @@ tracks {
         pi(required:false, description: "Item has a Product Identifier")
         inferred_attributes(required: false, description: "Inferred attributes")
         condition(required: false, description: "Item condition")
+        category_path(required: true, description: "Category path for the item", type: PropertyType.ArrayList)
+        label(required: false, description: "Tab from listings page", type: PropertyType.String, values: ["paused", "active", "closed"])
     }
 
     propertyGroups {
-        catalogWidgetGroup(category_id, page, item_id, officialstore, domain_id, seller_id, pi, condition)
+        catalogWidgetGroup(category_id, page, item_id, officialstore, domain_id, seller_id, pi, condition, category_path, label)
         catalogWidgetCompletenessGroup(completeness_level, items_left, missing_attributes, inferred_attributes)
     }
 
@@ -30,7 +32,7 @@ tracks {
         catalogWidgetGroup
     }
 
-    "/catalogwidget/showItem"(platform: "/") {
+    "/catalogwidget/showitem"(platform: "/") {
         catalogWidgetGroup
     }
 
