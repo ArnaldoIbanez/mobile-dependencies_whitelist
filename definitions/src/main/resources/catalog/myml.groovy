@@ -292,7 +292,7 @@ tracks {
     "/myml/invoices/items/origin/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/items/origin/save/request"(platform: "/", type: TrackType.Event) {
         data(required: true, description: "Product Origin type and aditional infos")
-        itemId(required: true, type: PropertyType.String, description: "itemId of product")
+        item_id(required: true, type: PropertyType.String, description: "itemId of product")
         variationId(required: false, type: PropertyType.String, description: "variationId of product")
     }
     "/myml/invoices/items/origin/save/response"(platform: "/", type: TrackType.Event) {}
@@ -302,7 +302,7 @@ tracks {
     "/myml/invoices/items/sku/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/sku/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/items/sku/save/request"(platform: "/", type: TrackType.Event) {
-        itemId(required: true, type: PropertyType.String, description: "itemId of product")
+        item_id(required: true, type: PropertyType.String, description: "itemId of product")
         variationId(required: false, type: PropertyType.String, description: "variationId of product")
         sku(required: true, type: PropertyType.String, description: "Sku id input")
     }
@@ -322,7 +322,7 @@ tracks {
     "/myml/invoices/items/ean/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/ean/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/items/ean/save/request"(platform: "/", type: TrackType.Event) {
-        itemId(required: true, type: PropertyType.String, description: "itemId of product")
+        item_id(required: true, type: PropertyType.String, description: "itemId of product")
         data(required: true, description: "Ean(europen article code) and aditional infos")
     }
     "/myml/invoices/items/ean/save/response"(platform: "/", type: TrackType.Event) {}
@@ -335,7 +335,7 @@ tracks {
     "/myml/invoices/items/product-type/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/product-type/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/items/product-type/save/request"(platform: "/", type: TrackType.Event) {
-        itemId(required: true, type: PropertyType.String, description: "itemId of product")
+        item_id(required: true, type: PropertyType.String, description: "itemId of product")
         variationId(required: false, type: PropertyType.String, description: "variationId of product")
         data(required: true, description: "Product type selected and aditional infos")
     }
@@ -346,16 +346,16 @@ tracks {
     "/myml/invoices/items/ncm/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/items/ncm/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/items/ncm/save/request"(platform: "/", type: TrackType.Event) {
-        itemId(required: true, type: PropertyType.String, description: "itemId of product")
+        item_id(required: true, type: PropertyType.String, description: "itemId of product")
         data(required: true, description: "Ncm (tax information)")
         variationId(required: false, type: PropertyType.String, description: "variationId of product")
     }
     "/myml/invoices/items/ncm/save/response"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/ncm/search"(platform: "/", isAbstract: true) {
-        code(required: true, type: PropertyType.String, description: "Search ncm info when user input code")
-    }
+    "/myml/invoices/items/ncm/search"(platform: "/", isAbstract: true) {}
     "/myml/invoices/items/ncm/search/request"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/ncm/search/response"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/items/ncm/search/response"(platform: "/", type: TrackType.Event) {
+        data(required: true, description: "Search ncm info when user input code")
+    }
 
     //:::: Sales list
     "/myml/invoices/sales_list"(platform: "/", isAbstract: true) {}
