@@ -3620,21 +3620,26 @@ trackTests {
         "/buy_intention"(platform:"/mobile/android") {
             buyIntentionDataSet()
             from = "vip"
+            checkout_flow="direct"
         }
 
         "/buy_intention"(platform:"/mobile/ios") {
             buyIntentionDataSet()
             from = "cart"
+            checkout_flow="subscription"
         }
 
         "/buy_intention"(platform:"/web/mobile") {
             buyIntentionDataSet()
             from = "cart_item"
+            checkout_flow="reservation"
         }
 
         "/buy_intention"(platform:"/web/desktop") {
             buyIntentionDataSet()
             from = "saved_for_later"
+            checkout_flow="contract"
+
         }
 
     }
