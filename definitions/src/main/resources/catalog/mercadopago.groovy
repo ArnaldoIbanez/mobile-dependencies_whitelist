@@ -68,6 +68,7 @@ tracks {
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
+
     // QR Landing > Events
     "/merchant_acquisition/qr/landing/promotions"(platform:"/", type: TrackType.Event) {}
 
@@ -76,6 +77,8 @@ tracks {
     "/merchant_acquisition/qr/qr-code"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/qr/pending"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/qr/error"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/qr/settings"(platform:"/", type: TrackType.View) {}
+
     // QR Flow > Events
     "/merchant_acquisition/qr/qr-code/download"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/qr/qr-code/print"(platform:"/", type: TrackType.Event) {}
@@ -91,6 +94,7 @@ tracks {
         discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
     }
+    "/point/home/buy"(platform:"/", type: TrackType.Event) {}
 
     // MP Mobile Point
     "/point_payment"(platform: "/mobile", type: TrackType.View) {
