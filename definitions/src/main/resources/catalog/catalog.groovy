@@ -55,6 +55,7 @@ catalog {
         include business, "cartList.groovy"
         include business, "cellphone_recharge.groovy"
         include business, "checkout.groovy"
+        include business, "contract_claim.groovy"
         include business, "credits_marketplace.groovy"
         include business, "denounce.groovy"
         include business, "email.groovy"
