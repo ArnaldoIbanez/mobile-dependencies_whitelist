@@ -12,7 +12,7 @@ tracks {
 
     "/search"(platform: "/") {
         query(required: false, description: "the words used to make a search", type: PropertyType.String) // TODO: add description, make required
-        limit(required: true, description: "the max number of items returned", type: PropertyType.Numeric) // TODO descriptions
+        limit(required: true, description: "the max number of items returned", type: PropertyType.Numeric)
         offset(required: true, description: "the number of items skipped on the search", type: PropertyType.Numeric)
         total(required: true, description: "amount of search items returned", type: PropertyType.Numeric)
         category_id(required: false, description: "", regex: categoryRegex)//todo description
@@ -49,24 +49,14 @@ tracks {
 
     "/search"(platform: "/web") {
         visual_id(required: false) // TODO: erase, application.business
-        config_version(required: false) // TODO: erase
 
         only_in_type(required: false)
         click_banner(required: false, description:'Indicates that this listing has apppeared after clicking on a banner')
-        // exhibitors_id
         banner(required: false, description:'Banner showed in this listing info, if showed')
-        //deal_id
-        // exhibitors_id
         related_searches(required: false, description:'indicates whether clicked search related') // TODO, change to anchor
         related_searches_info(required: false, description: 'Tracks related searches coverage')
         canonical(required: false, description: 'url: canonical URL for the request; no_follow_tag: if the link rel="canonical" has no follow parameter; if the canonical URL has a mirror category configured') // TODO: Lo mantenemos
-        //query
-        //position
-        //quantity
         autosuggest(required: false, description:'indicates whether clicked autosuggest') // TODO, move to anchor
-        //suggest_position
-        //last_search_position
-        //block_store_position
         landing(required:false, description:'indicates landing base, premium, etc', values: ["base","premium","offical_store","deal"])
         upper_funnel(required: false, description: 'indicates if advertising query was considered upper funnel')
         geolocation(required: false, description:'geolocation')
@@ -75,9 +65,7 @@ tracks {
     }
 
     "/search"(platform: "/mobile") {
-        context(required: false) // TODO Erase
         breadcrumb_refined(required: false, description: 'if user used breadcrumb to refine their search',PropertyType.Boolean)
-        billboard_shown(required: false, description: 'if billboards where shown in the result',PropertyType.Boolean) // TODO erase
         error_message(required: false, PropertyType.String) // TODO: no podemos remover?
     }
 
@@ -85,6 +73,8 @@ tracks {
         error_message()
         limit(required: false, description: "override required property")
         offset(required: false, description: "override required property")
+        filters(required: false, description: "override required property")
+        billboards(required: false, description: "override required property")
     }
 
     "/search/long_press" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
@@ -93,6 +83,11 @@ tracks {
 
     "/search/share" (platform: "/mobile", type: TrackType.Event){
         item_id()
+        sort_id(required: false, description: "override required property")
+        filters(required: false, description: "override required property")
+        results(required: false, description: "override required property")
+        billboards(required: false, description: "override required property")
+        view_mode(required: false, description: "override required property")
     }
 
     "/search/back" (platform: "/mobile", type: TrackType.Event) {}
