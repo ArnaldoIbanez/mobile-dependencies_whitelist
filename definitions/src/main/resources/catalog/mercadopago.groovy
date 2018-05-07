@@ -68,7 +68,7 @@ tracks {
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
-    
+
     // QR Landing > Events
     "/merchant_acquisition/qr/landing/promotions"(platform:"/", type: TrackType.Event) {}
 
@@ -94,6 +94,7 @@ tracks {
         discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
     }
+    "/point/home/buy"(platform:"/", type: TrackType.Event) {}
 
     // MP Mobile Point
     "/point_payment"(platform: "/mobile", type: TrackType.View) {

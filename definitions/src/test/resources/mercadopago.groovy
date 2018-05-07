@@ -387,6 +387,9 @@ trackTests {
             discount = 0.16
             price_with_discount = 334.8
         }
+        "/point/home/buy"(platform:"/", type: TrackType.Event) {
+          product = "point"
+        }
     }
 
     // MPMOBILE TEST
