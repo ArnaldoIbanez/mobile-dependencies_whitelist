@@ -1,5 +1,5 @@
 SELECT 
-count(distinct usr.uid) as UID,
+count(distinct usr.uid) as UID ,
 substr(ds,1,10) as DS,
 jest(event_data, 'app') as App,
 Path as Path,
