@@ -96,6 +96,12 @@ tracks {
     }
     "/point/home/buy"(platform:"/", type: TrackType.Event) {}
 
+    // Point Flows
+    "/point/flows"(platform: "/", isAbstract: true) {}
+
+    // Point Flows Congrats > Pageviews
+    "/point/flows/congrats"(platform:"/", type: TrackType.View) {}
+
     // MP Mobile Point
     "/point_payment"(platform: "/mobile", type: TrackType.View) {
         flow_id (required: false, type: PropertyType.String, description: "Flow id.")
