@@ -3,7 +3,7 @@
     "alejandro.torres@mercadolibre.com"
   ],
   "process_name": "mediations-post_refund",
-  "cron": "* 07 * * *",
+  "cron": "00 07 * * *",
   "extract": {
     "operation": "append",
     "columns": [
