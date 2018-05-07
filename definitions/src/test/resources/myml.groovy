@@ -125,29 +125,38 @@ trackTests {
         "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
         "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
-        "/myml/invoices/company-info/certificate/a3/handshake"(platform: "/", type: TrackType.Event) {
-            handshaking = true;
-            installer = "https://myaccount.mercadolivre.com.br/invoices-app/instaler.exe"
+        "/myml/invoices/company-info/certificate/a3/handshake/request"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/certificate/a3/handshake/response"(platform: "/", type: TrackType.Event) {
+            data = {
+                id = 12
+                registration_date = 1525439080000
+                certificate_expiration_date = 1594575899000
+                certificate_serial_number = 154511657922040129596322265878669116287
+            }
         }
         "/myml/invoices/company-info/serie"(platform: "/") {}
         "/myml/invoices/company-info/serie/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/serie/save/request"(platform: "/", type: TrackType.Event) {
-            serie = 200
+            data = {
+                serie = 3
+                url = "/invoices/company-info/confirm"
+            }
         }
         "/myml/invoices/company-info/serie/save/response"(platform: "/", type: TrackType.Event) {
-            serie = 200
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
             errorValidation = "O número de série não pode ser vazio"
         }
         "/myml/invoices/company-info/cst"(platform: "/") {}
         "/myml/invoices/company-info/cst/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/cst/save/request"(platform: "/", type: TrackType.Event) {
-            ipi_code = "50"
-            pis_code = "08"
+            data = {
+                IPI = "53"
+                PIS = "07"
+                COFINS = "07"
+            }
+            url = "/invoices/company-info/confirm"
         }
         "/myml/invoices/company-info/cst/save/response"(platform: "/", type: TrackType.Event) {
-            ipi_code = "50"
-            pis_code = "08"
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/company-info/csosn"(platform: "/") {}
@@ -161,10 +170,9 @@ trackTests {
         }
         "/myml/invoices/company-info/ie"(platform: "/") {}
         "/myml/invoices/company-info/ie/save/request"(platform: "/", type: TrackType.Event) {
-            code = "492875457119"
+             data = "492875457119"
         }
         "/myml/invoices/company-info/ie/save/response"(platform: "/", type: TrackType.Event) {
-            code = "492875457119"
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/company-info/confirm"(platform: "/") {}
