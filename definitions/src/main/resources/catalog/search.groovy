@@ -11,80 +11,74 @@ tracks {
     //SEARCH FLOW
 
     "/search"(platform: "/") {
-        query(required: false)
-        limit(type: PropertyType.Numeric)
-        offset(type: PropertyType.Numeric)
-        total(description: "amount of search items returned", type: PropertyType.Numeric, required: false)
-        category_id(regex: categoryRegex, required: false)
-        category_path(description: "path from root category", regex: categoryPathRegex, type: PropertyType.ArrayList, required: false)
-        sort_id(required: false)
-        filters(required: false)
-        autoselected_filters(required: false, PropertyType.ArrayList)
-        view_mode(required: false, description: "MOSAIC, LIST or GALLERY")
-        filter_user_applied(deprecated: true, required: false)
-        tienda_oficial(deprecated: true, required: false)
-        official_store_id(deprecated: true, required: false)
-        deal(deprecated: true, required: false)
-        filter_tags(required: false, PropertyType.ArrayList)
-        results(required: false, PropertyType.ArrayList,description:"item ids from search result")
-        billboards(required: false, PropertyType.ArrayList, descriptoion: "items ids from billboard results")
-        isRetina(required: false, description: 'Whether the screen is retina display')
+        query(required: false, description: "the words used to make a search", type: PropertyType.String) // TODO: add description, make required
+        limit(required: true, description: "the max number of items returned", type: PropertyType.Numeric) // TODO descriptions
+        offset(required: true, description: "the number of items skipped on the search", type: PropertyType.Numeric)
+        total(required: true, description: "amount of search items returned", type: PropertyType.Numeric)
+        category_id(required: false, description: "", regex: categoryRegex)//todo description
+        category_path(required: false, description: "path from root category", regex: categoryPathRegex, type: PropertyType.ArrayList) // TODO: Se manda vacio?
+        sort_id(required: true, description: "relevance, price_asc or price_desc", values: ["relevance", "price_asc", "price_desc"]) // TODO descriptions
+        filters(required: true, description: "") //todo description?
+        autoselected_filters(required: false, description: "", PropertyType.ArrayList) // TODO descriptions
+        view_mode(required: true, description: "MOSAIC, LIST or GALLERY", values:["LIST","MOSAIC","GALLERY"]) // TODO add values and correcto web
+        official_store_id(required: false, description: "", type: PropertyType.Numeric) //TODO descriptions and type
+        deal(required: false, description: "") // TODO Name & description
+        filter_tags(required: false, description: "", PropertyType.ArrayList) //todo que es esto?
+        results(required: true, description: "item ids from search result", PropertyType.ArrayList)
+        billboards(required: true, description: "items ids from billboard results", PropertyType.ArrayList)
+        pads(required: false, description: "item_id from the pads returned for listings")
+        catalog_product_id(required: false, description: "Id of the product, only if the product header is shown") // TODO add type
+
         //Tracks from Search Backend:
         backend_data(required: false)
-        catalog_product_id(required: false, description: 'Id of the product, only if the product header is shown')
-            //ab(required: false, description:'ab testing related. to be deprecated')
-            //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
-            //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
-            //ac(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Not Comblinable')
-            //ap(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Combinable with other pages')
-            //fsm(required: false, description:'indicates on each result of paged if its full or soft match')
-            //qas(required: false, PropertyType.ArrayList, description:'auto selected filters')
-            //canonical(required: false, description:'url canonical')
-            //cli_rel_qty_configured(required: false, description:'client relationship')
-            //cli_rel_qty_link_to_category(required: false, description:'client relationship link to category')
-            //corrections(required: false, description:'corrections over query')
-            //processed_query(required: false, description:'processed query by backend')
-            //stems(required: false, description:'stems list which returns backend to stand out in frontend'
+
+        //ab(required: false, description:'ab testing related. to be deprecated')
+        //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
+        //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
+        //ac(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Not Comblinable')
+        //ap(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Combinable with other pages')
+        //fsm(required: false, description:'indicates on each result of paged if its full or soft match')
+        //qas(required: false, PropertyType.ArrayList, description:'auto selected filters')
+        //canonical(required: false, description:'url canonical')
+        //cli_rel_qty_configured(required: false, description:'client relationship')
+        //cli_rel_qty_link_to_category(required: false, description:'client relationship link to category')
+        //corrections(required: false, description:'corrections over query')
+        //processed_query(required: false, description:'processed query by backend')
+        //stems(required: false, description:'stems list which returns backend to stand out in frontend'
     }
 
     "/search"(platform: "/web") {
-        visual_id(required: false)
-        config_version(required: false)
-        filters(required: false)
+        visual_id(required: false) // TODO: erase, application.business
+        config_version(required: false) // TODO: erase
+
         only_in_type(required: false)
         click_banner(required: false, description:'Indicates that this listing has apppeared after clicking on a banner')
         // exhibitors_id
         banner(required: false, description:'Banner showed in this listing info, if showed')
         //deal_id
         // exhibitors_id
-        related_searches(required: false, description:'indicates whether clicked search related')
+        related_searches(required: false, description:'indicates whether clicked search related') // TODO, change to anchor
         related_searches_info(required: false, description: 'Tracks related searches coverage')
-        canonical(required: false, description: 'url: canonical URL for the request; no_follow_tag: if the link rel="canonical" has no follow parameter; if the canonical URL has a mirror category configured')
+        canonical(required: false, description: 'url: canonical URL for the request; no_follow_tag: if the link rel="canonical" has no follow parameter; if the canonical URL has a mirror category configured') // TODO: Lo mantenemos
         //query
-        // position
+        //position
         //quantity
-        autosuggest(required: false, description:'indicates whether clicked autosuggest')
+        autosuggest(required: false, description:'indicates whether clicked autosuggest') // TODO, move to anchor
         //suggest_position
         //last_search_position
         //block_store_position
-        landing(required:false, description:'indicates landing base, premium, etc')
-        pads(required: false, description:'item_id from the pads returned for listings')
+        landing(required:false, description:'indicates landing base, premium, etc', values: ["base","premium","offical_store","deal"])
         upper_funnel(required: false, description: 'indicates if advertising query was considered upper funnel')
-        layout(required: false, description:'layout of search')
         geolocation(required: false, description:'geolocation')
-        landing(required: false, description:'landings: base, premium, etc')
         layout_forced(required: false, description:'true if layout is changed by the user')
         shown_as_product(required: false, description: 'item ids shown with product link')
-        has_logos(required: false, description: 'whether any of the items has a brand logo to show', PropertyType.Boolean)
-        promise_items(required: false, description: 'which of the result items are showing a delivery promise', PropertyType.ArrayList)
     }
 
     "/search"(platform: "/mobile") {
-        filter_user_applied(deprecated: true, required: false)
-        context(required: false)
+        context(required: false) // TODO Erase
         breadcrumb_refined(required: false, description: 'if user used breadcrumb to refine their search',PropertyType.Boolean)
-        billboard_shown(required: false, description: 'if billboards where shown in the result',PropertyType.Boolean)
-        error_message(required: false, PropertyType.String)
+        billboard_shown(required: false, description: 'if billboards where shown in the result',PropertyType.Boolean) // TODO erase
+        error_message(required: false, PropertyType.String) // TODO: no podemos remover?
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
@@ -93,7 +87,7 @@ tracks {
         offset(required: false, description: "override required property")
     }
 
-    "/search/long_press" (platform: "/mobile", type: TrackType.Event){
+    "/search/long_press" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
         item_id()
     }
 
