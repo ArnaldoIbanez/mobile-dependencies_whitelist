@@ -384,7 +384,7 @@ tracks {
     "/myml/invoices/company-info/certificate/a3/handshake"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/certificate/a3/handshake/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a3/handshake/response"(platform: "/", type: TrackType.Event) {
-        data(required: true, description: "Handshake event infos")
+        data(required: true, description: "A3 certificate Handshake event infos")
     }
     
     //serie
