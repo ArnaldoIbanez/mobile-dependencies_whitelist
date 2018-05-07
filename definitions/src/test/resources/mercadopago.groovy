@@ -371,6 +371,7 @@ trackTests {
         "/merchant_acquisition/qr/qr-code"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/pending"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/error"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/qr/settings"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/qr-code/download"(platform:"/", type: TrackType.Event) {}
         "/merchant_acquisition/qr/qr-code/print"(platform:"/", type: TrackType.Event) {}
         "/merchant_acquisition/qr/qr-code/faqs"(platform:"/", type: TrackType.Event) {}
