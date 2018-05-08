@@ -38,6 +38,7 @@ tracks {
         reason(description: 'Claim denied reason.')
     }
 
+    //TODO @paltorres @nacho-ml please update this track in mediations repo so we can mark all these as required
     "/claims/create_claim/creation"(platform: "/", type: TrackType.Event)  {
         vertical(required: false, type: PropertyType.String)
         order_id(required: false, type: PropertyType.Numeric,  description: "order id related to the claim")
