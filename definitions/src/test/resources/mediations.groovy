@@ -57,7 +57,6 @@ trackTests {
             order_id = 1703206862
             item_id = 'MLA722247557'
             seller_id = 282439040
-            buyer_id = 318501512
             reason = 'undelivered'
             reason_detail = 'undelivered_repentant_buyer'
         }
@@ -67,7 +66,6 @@ trackTests {
             order_id = 1703206862
             item_id = 'MLA722247557'
             seller_id = 282439040
-            buyer_id = 318501512
             reason = 'undelivered'
             reason_detail = 'undelivered_repentant_buyer'
         }

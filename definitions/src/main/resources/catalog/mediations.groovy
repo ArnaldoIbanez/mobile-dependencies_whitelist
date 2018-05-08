@@ -43,7 +43,6 @@ tracks {
         order_id(required: false, type: PropertyType.Numeric,  description: "order id related to the claim")
         item_id(required: false, type: PropertyType.String,  description: "item id related to the claim")
         seller_id(required: false, type: PropertyType.Numeric,  description: "seller id related to the order")
-        buyer_id(required: false, type: PropertyType.Numeric,  description: "buyer id related to the order")
         reason(required: true, description: "The claim creation reason.", values: ['delivered', 'undelivered'])
         reason_detail(required: false, type: PropertyType.String,  description: "reason detail related to the claim")
     }
