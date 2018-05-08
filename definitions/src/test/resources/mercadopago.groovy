@@ -378,6 +378,10 @@ trackTests {
         "/merchant_acquisition/qr/qr-code/help"(platform:"/", type: TrackType.Event) {}
     }
 
+    test("Point Flow Congrats") {
+        "/point/flows/congrats"(platform:"/", type: TrackType.View) {}
+    }
+
     test("Landing mercadopago point") {
         "/point/home" (platform: "/") {
             product = "point-h"
