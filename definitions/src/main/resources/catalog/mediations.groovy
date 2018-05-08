@@ -15,13 +15,12 @@ tracks {
     "/claims/create_claim"(platform: "/", isAbstract: true) { }
 
     "/claims/create_claim/form"(platform: "/", isAbstract: true) { 
-        vertical(required: false, type: PropertyType.String)
-        order_id(required: false, type: PropertyType.Numeric,  description: "order id related to the claim")
-        item_id(required: false, type: PropertyType.String,  description: "item id related to the claim")
-        seller_id(required: false, type: PropertyType.Numeric,  description: "seller id related to the order")
-        buyer_id(required: false, type: PropertyType.Numeric,  description: "buyer id related to the order")
-        reason(required: false, description: 'The claim creation reason.', values: ['delivered', 'undelivered'])
-        reason_detail(required: false, type: PropertyType.String,  description: "reason detail related to the claim [respondent_unanswered|undelivered_repentant_buyer|undelivered_other]")
+        vertical(required: true, type: PropertyType.String)
+        order_id(required: true, type: PropertyType.Numeric,  description: "order id related to the claim")
+        item_id(required: true, type: PropertyType.String,  description: "item id related to the claim")
+        seller_id(required: true, type: PropertyType.Numeric,  description: "seller id related to the order")
+        reason(required: true, description: "The claim creation reason.", values: ['delivered', 'undelivered'])
+        reason_detail(required: true, type: PropertyType.String,  description: "reason detail related to the claim.", values: ['respondent_unanswered', 'undelivered_repentant_buyer', 'undelivered_other'])
     }
 
     "/claims/create_claim/allow"(platform: "/", type: TrackType.View)  {
@@ -45,7 +44,7 @@ tracks {
         item_id(required: false, type: PropertyType.String,  description: "item id related to the claim")
         seller_id(required: false, type: PropertyType.Numeric,  description: "seller id related to the order")
         buyer_id(required: false, type: PropertyType.Numeric,  description: "buyer id related to the order")
-        reason(required: false, description: 'The claim creation reason.', values: ['delivered', 'undelivered'])
+        reason(required: true, description: "The claim creation reason.", values: ['delivered', 'undelivered'])
         reason_detail(required: false, type: PropertyType.String,  description: "reason detail related to the claim")
     }
 
