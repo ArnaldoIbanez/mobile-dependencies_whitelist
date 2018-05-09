@@ -2685,6 +2685,9 @@ trackTests {
         }
 
         "/item/create"(platform: "/web", dataListItem)
+        "/item/update"(platform: "/web"){
+            item_id = "MLA12345"
+        }
         "/item/create"(platform: "/web", dataListItemWithCategorySuggestion)
         "/item/change_listing_type"(platform: "/web", dataChangeListingTypeItemFullInfo)
         "/item/change_listing_type"(platform: "/web", dataChangeListingTypeItemMinimumInfo)

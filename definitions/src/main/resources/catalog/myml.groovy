@@ -207,6 +207,10 @@ tracks {
         item_id(required: true, description: "Item id")
     }
 
+    "/item/update"(platform: "/", type: TrackType.Event) {
+
+    }
+
     "/item/create"(platform: "/", type: TrackType.Event) {
         listing_type_id(required: true, description: "Item listing type id")
         vertical(required: true, description: "Item Vertical: core/service/motor/real_estate/etc...")
