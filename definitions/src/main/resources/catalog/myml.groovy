@@ -369,6 +369,7 @@ tracks {
     "/myml/invoices/company-info"(platform: "/", isAbstract: true) {
         error(required: false, type:  PropertyType.String, description: "Error message that pop to user after request")
         errorValidation(required: false, type:  PropertyType.String, description: "Error message when value is invalid")
+        url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
     }
     
     //landing
@@ -384,28 +385,28 @@ tracks {
     "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
     "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
-    "/myml/invoices/company-info/certificate/a3/handshake"(platform: "/", type: TrackType.Event) {
-        handshaking(required: true, type: PropertyType.Boolean, description: "True or false for handshake when user request A3 app")
-        installer(required: false, type: PropertyType.String, description: "Url to that will be used to download the app")
+    "/myml/invoices/company-info/certificate/a3/handshake"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/company-info/certificate/a3/handshake/request"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/certificate/a3/handshake/response"(platform: "/", type: TrackType.Event) {
+        data(required: true, description: "A3 certificate Handshake event infos")
     }
     
     //serie
     "/myml/invoices/company-info/serie"(platform: "/") {}
     "/myml/invoices/company-info/serie/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/company-info/serie/save"(platform: "/", isAbstract: true) {
-        serie(required: true, type: PropertyType.Numeric, description: "Invoices serie id input")
+    "/myml/invoices/company-info/serie/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/company-info/serie/save/request"(platform: "/", type: TrackType.Event) {
+        data(required: true, description: "Serie number input and url to redirect")
     }
-    "/myml/invoices/company-info/serie/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/serie/save/response"(platform: "/", type: TrackType.Event) {}
     
     //cst
     "/myml/invoices/company-info/cst"(platform: "/") {}
     "/myml/invoices/company-info/cst/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/company-info/cst/save"(platform: "/", isAbstract: true) {
-        ipi_code(required: true, type: PropertyType.String, description: "Ipi code id (tax information) select value")
-        pis_code(required: true, type: PropertyType.String, description: "Pis code id (tax information) select value")
+    "/myml/invoices/company-info/cst/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/company-info/cst/save/request"(platform: "/", type: TrackType.Event) {
+        data(required: true, description: "Tax information of selected fields")
     }
-    "/myml/invoices/company-info/cst/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/cst/save/response"(platform: "/", type: TrackType.Event) {}
 
     //csosn
@@ -419,10 +420,10 @@ tracks {
 
     //ie
     "/myml/invoices/company-info/ie"(platform: "/") {}
-    "/myml/invoices/company-info/ie/save"(platform: "/", isAbstract: true) {
-        code(required: true, type: PropertyType.String, description: "User state registration code (tax information) input")
+    "/myml/invoices/company-info/ie/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/company-info/ie/save/request"(platform: "/", type: TrackType.Event) {
+        data(required: true, type: PropertyType.String, description: "User state registration code (tax information) input")
     }
-    "/myml/invoices/company-info/ie/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/ie/save/response"(platform: "/", type: TrackType.Event) {}
     
     //confirm
