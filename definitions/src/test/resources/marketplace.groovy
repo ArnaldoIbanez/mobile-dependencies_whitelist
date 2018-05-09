@@ -7,7 +7,9 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
     test("Root tracking") {
-        "/"(platform: "/mobile") {}
+        "/"(platform: "/mobile") {
+            sent_again=true
+        }
 
         "/"(platform: "/web/desktop") {}
     }
