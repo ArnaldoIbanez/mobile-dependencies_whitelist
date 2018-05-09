@@ -404,7 +404,7 @@ trackTests {
             category_domain = "MLA-GLOVES"
             category_id = "MLA61216"
             is_custom_name = true
-            item_id = "123456"
+            item_id = "MLA12345"
         }
     }
 
