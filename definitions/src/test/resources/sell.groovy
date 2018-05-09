@@ -402,8 +402,9 @@ trackTests {
         "/sell/update/color_selection/custom_color"(platform: "/web"){
             session_id = "290061169-update-32b1d9b3eae8"
             category_domain = "MLA-GLOVES"
+            category_id = "MLA61216"
             is_custom_name = true
-            item_id = "MLA12345"
+            item_id = "123456"
         }
     }
 
