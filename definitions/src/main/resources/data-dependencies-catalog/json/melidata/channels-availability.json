@@ -2,7 +2,7 @@
   "users": [
     "cx-channels@mercadolibre.com"
   ],
-  "process_name": "channels-availability-new-segments",
+  "process_name": "channels-availability-new-profiles",
   "cron": " ",
   "extract": {
     "operation": "append",
@@ -24,15 +24,15 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "ml_seller_segment",
+        "name": "ml_seller_profile",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "mp_seller_segment",
+        "name": "mp_seller_profile",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "ml_buyer_segment",
+        "name": "ml_buyer_profile",
         "type": "UNICODE_STRING"
       },
       {
@@ -73,7 +73,7 @@
       }
     ],
     "sql": {
-      "script": "cx/channels-availability-new-segments.sql",
+      "script": "cx/channels-availability-new-profiles.sql",
       "parameters": [
         {
           "name": "param01",
