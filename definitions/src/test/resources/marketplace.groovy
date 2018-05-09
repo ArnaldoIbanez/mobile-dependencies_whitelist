@@ -1002,25 +1002,13 @@ trackTests {
         "/checkout/additional_info"(platform: "/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/congrats/error"(platform:"/mobile", type:TrackType.View) {
-            checkoutStatus()
-            available_actions = ["retry", "change_payment_method"]
-        }
-        "/checkout/congrats/call_for_auth"(platform:"/mobile", type:TrackType.View) {
-            checkoutStatus()
-            available_actions = ["retry", "change_payment_method"]
-        }
-        "/checkout/congrats/call_for_auth/instructions"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/finish/call_for_auth/instructions"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/congrats/call_for_auth/later"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/finish/call_for_auth/later"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/congrats/invalid_sec_code"(platform:"/mobile", type:TrackType.View) {
-            checkoutStatus()
-            available_actions = ["retry", "change_payment_method"]
-        }
-        "/checkout/congrats/invalid_sec_code/input"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/finish/invalid_sec_code/input"(platform:"/mobile", type:TrackType.View) {
         }
 
         "/checkout/finish/choose_action"(platform:"/mobile", type:TrackType.View) {
@@ -1028,10 +1016,6 @@ trackTests {
         }
 
         "/checkout/finish/second_step/error_details"(platform:"/mobile", type:TrackType.View) {
-            checkoutStatus()
-        }
-
-        "/checkout/congrats/pending"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
 
@@ -4083,12 +4067,10 @@ trackTests {
             dataSetCongrats()
         }
         "/cart/checkout/show_ticket"(platform:"/", dataSet)
-        "/cart/checkout/invalid_sec_code"(platform:"/", dataSet)
-        "/cart/checkout/invalid_sec_code/input_code"(platform:"/", dataSet)
-        "/cart/checkout/call_for_auth"(platform:"/", dataSet)
-        "/cart/checkout/call_for_auth/instructions"(platform:"/", dataSet)
-        "/cart/checkout/call_for_auth/call_later"(platform:"/", dataSet)
-        "/cart/checkout/call_for_auth/input_code"(platform:"/", dataSet)
+        "/cart/checkout/finish/invalid_sec_code/input_code"(platform:"/", dataSet)
+        "/cart/checkout/finish/call_for_auth/instructions"(platform:"/", dataSet)
+        "/cart/checkout/finish/call_for_auth/later"(platform:"/", dataSet)
+        "/cart/checkout/finish/call_for_auth/input_code"(platform:"/", dataSet)
         "/cart/checkout/shipping"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/edit_address"(platform:"/mobile", dataSet)
         "/cart/checkout/loading"(platform: "/mobile", dataSet)

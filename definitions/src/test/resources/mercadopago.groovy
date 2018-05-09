@@ -371,10 +371,15 @@ trackTests {
         "/merchant_acquisition/qr/qr-code"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/pending"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/error"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/qr/settings"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/qr-code/download"(platform:"/", type: TrackType.Event) {}
         "/merchant_acquisition/qr/qr-code/print"(platform:"/", type: TrackType.Event) {}
         "/merchant_acquisition/qr/qr-code/faqs"(platform:"/", type: TrackType.Event) {}
         "/merchant_acquisition/qr/qr-code/help"(platform:"/", type: TrackType.Event) {}
+    }
+
+    test("Point Flow Congrats") {
+        "/point/flows/congrats"(platform:"/", type: TrackType.View) {}
     }
 
     test("Landing mercadopago point") {
@@ -385,6 +390,9 @@ trackTests {
             in_installments = true
             discount = 0.16
             price_with_discount = 334.8
+        }
+        "/point/home/buy"(platform:"/", type: TrackType.Event) {
+          product = "point"
         }
     }
 
