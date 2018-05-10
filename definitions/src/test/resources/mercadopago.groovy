@@ -242,7 +242,14 @@ trackTests {
             app = "favorite"
             origin = "email"
             item_id = "MLA21233"
+            register_type = "person"
         }
+
+        "/register/form"(platform:"/mobile") {
+            app = "normal"
+            register_type = "company"
+        }
+
         "/register/form/error"(platform:"/mobile") {
             app = "favorite"
             origin = "email"
@@ -254,7 +261,20 @@ trackTests {
                             field: 'email'
                     ]
             ]
+            register_type = "person"
         }
+
+        "/register/form/error"(platform:"/mobile") {
+            app = "normal"
+            errors = [
+                    [
+                            code:50,
+                            field: 'doc_number'
+                    ]
+            ]
+            register_type = "company"
+        }
+
         "/register/form/another-email"(platform:"/mobile") {
             app = "favorite"
             origin = "email"
@@ -281,6 +301,13 @@ trackTests {
             app = "favorite"
             origin = "email"
             item_id = "MLA21233"
+            register_type = "person"
+        }
+
+        "/register/congrats"(platform:"/mobile") {
+            app = "normal"
+            origin = "email"
+            register_type = "company"
         }
 
         "/register/form/update"(platform:"/mobile") {
@@ -318,6 +345,24 @@ trackTests {
             app = "question"
             origin = "drawer"
             item_id = "MLM23143"
+        }
+
+        "/register/form/company-link"(platform: "/mobile"){
+            app = "normal"
+        }
+
+        "/register/form/person-link"(platform: "/mobile"){
+            app = "normal"
+        }
+
+        "/register/congrats/complete-fiscal-data"(platform: "/mobile"){
+            app = "normal"
+            register_type = "company"
+        }
+
+        "/register/congrats/complete-fiscal-data-later"(platform: "/mobile"){
+            app = "normal"
+            register_type = "company"
         }
 
     }
