@@ -90,6 +90,8 @@ tracks {
         app(type: PropertyType.String, required:true, description: "Current Flow")
         origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
         item_id(type: PropertyType.String, required:false, description: "Item" )
+        // TODO: In the future register_type might be "required: true". We have to do some changes for that
+        register_type(type: PropertyType.String, required: false, description: "User type", values: ["person", "company"])
     }
 
     "/register/form/error"(platform:"/mobile", type: TrackType.View) {
@@ -116,6 +118,8 @@ tracks {
         app(type: PropertyType.String, required:true, description: "Current Flow")
         origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
         item_id(type: PropertyType.String, required:false, description: "Item" )
+        // TODO: In the future register_type might be "required: true". We have to do some changes for that
+        register_type(type: PropertyType.String, required: false, description: "User type", values: ["person", "company"])
     }
 
     "/register/form/skip-update"(platform: "/web", type: TrackType.View){}
@@ -145,6 +149,14 @@ tracks {
 
     // TODO, PLEASE MOVE THIS TO SOMETHING LIKE /register/progresive o algo que sea más acorde a todo el tracking del modulo
     "/progressive_registration"(platform:"/mobile", type: TrackType.View) {}
+
+    "/register/form/company-link"(platform: "/mobile", type: TrackType.Event){}
+    "/register/form/person-link"(platform: "/mobile", type: TrackType.Event){}
+
+    // Company Registration
+
+    "/register/congrats/complete-fiscal-data"(platform: "/mobile", type: TrackType.Event){}
+    "/register/congrats/complete-fiscal-data-later"(platform: "/mobile", type: TrackType.Event){}
 
 }
 
