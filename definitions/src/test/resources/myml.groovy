@@ -137,10 +137,8 @@ trackTests {
         "/myml/invoices/company-info/serie"(platform: "/") {}
         "/myml/invoices/company-info/serie/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/serie/save/request"(platform: "/", type: TrackType.Event) {
-            data = {
-                serie = 3
-                url = "/invoices/company-info/confirm"
-            }
+            serie = 3
+            url = "/invoices/company-info/confirm"
         }
         "/myml/invoices/company-info/serie/save/response"(platform: "/", type: TrackType.Event) {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
