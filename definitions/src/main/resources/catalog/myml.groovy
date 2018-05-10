@@ -396,7 +396,7 @@ tracks {
     "/myml/invoices/company-info/serie/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/serie/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/serie/save/request"(platform: "/", type: TrackType.Event) {
-        data(required: true, description: "Serie number input and url to redirect")
+        serie(required: true, description: "Serie number input and url to redirect")
     }
     "/myml/invoices/company-info/serie/save/response"(platform: "/", type: TrackType.Event) {}
     
