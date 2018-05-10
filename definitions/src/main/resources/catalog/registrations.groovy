@@ -90,7 +90,7 @@ tracks {
         app(type: PropertyType.String, required:true, description: "Current Flow")
         origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
         item_id(type: PropertyType.String, required:false, description: "Item" )
-        register_type(type: PropertyType.String, required: false, description: "person|company")
+        register_type(type: PropertyType.String, required: false, description: "User type", values: ["person", "company"])
     }
 
     "/register/form/error"(platform:"/mobile", type: TrackType.View) {
@@ -117,7 +117,7 @@ tracks {
         app(type: PropertyType.String, required:true, description: "Current Flow")
         origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
         item_id(type: PropertyType.String, required:false, description: "Item" )
-        register_type(type: PropertyType.String, required: false, description: "person|company")
+        register_type(type: PropertyType.String, required: false, description: "User type", values: ["person", "company"])
     }
 
     "/register/form/skip-update"(platform: "/web", type: TrackType.View){}
