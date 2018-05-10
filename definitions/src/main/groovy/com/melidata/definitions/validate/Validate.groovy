@@ -161,18 +161,23 @@ class Validate {
         def business = ""
         def platform = ""
         def site = ""
+        def version = ""
+        def pool_name = ""
         def limit = "100"
 
         if (options.path) path = "AND path LIKE '/${options.path}%' \n"
         if (options.business) business = "AND application.business = '${options.business}' \n"
         if (options.platform) platform = "AND device.platform = '${options.platform}' \n"
         if (options.site) site = "AND application.site_id = '${options.site}' \n"
+        if (options.version) version = "AND application.version = '${options.version}' \n"
+        if (options.pool_name) pool_name = "AND application.server_poolname LIKE '%${options.pool_name}%' \n"
         if (options.limit) limit = options.limit
+
 
         return ("SELECT id, type, path, event_data, device, application, platform \n" +
                "FROM tracks \n" +
                "WHERE catalog_data.is_valid = false \n" +
-               "${date}${path}${business}${platform}${site}" +
+               "${date}${path}${business}${platform}${site}${version}${pool_name}" +
                "limit ${limit}").toString()
     }
 
@@ -187,6 +192,9 @@ class Validate {
         cli.to_file(args:1, "to_file")
         cli.from_file(args:1, "from_file")
         cli.summary(args:0, "summary")
+        cli.version(args:1, "version")
+        cli.pool_name(args:1, "pool_name")
+
         return cli
     }
 
