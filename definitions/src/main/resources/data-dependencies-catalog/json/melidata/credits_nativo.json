@@ -1,0 +1,53 @@
+{
+  "users": [
+    "marina.propato@mercadolibre.com"
+  ],
+  "process_name": "credits_nativo",
+  "cron": " ",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "Fecha",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "User_Agent_MP",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "User_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Site",
+        "type": "UNICODE_STRING"
+      },
+        {
+        "name": "Platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Path",
+        "type": "UNICODE_STRING"
+      }
+    ],
+    "sql": {
+      "script": "business-assurance/credits_nativo.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "2018-01-01",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "2018-05-10",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
+
