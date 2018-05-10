@@ -90,6 +90,7 @@ tracks {
         app(type: PropertyType.String, required:true, description: "Current Flow")
         origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
         item_id(type: PropertyType.String, required:false, description: "Item" )
+        // TODO: In the future register_type might be "required: true". We have to do some changes for that
         register_type(type: PropertyType.String, required: false, description: "User type", values: ["person", "company"])
     }
 
@@ -117,6 +118,7 @@ tracks {
         app(type: PropertyType.String, required:true, description: "Current Flow")
         origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
         item_id(type: PropertyType.String, required:false, description: "Item" )
+        // TODO: In the future register_type might be "required: true". We have to do some changes for that
         register_type(type: PropertyType.String, required: false, description: "User type", values: ["person", "company"])
     }
 
