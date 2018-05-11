@@ -29,7 +29,7 @@ tracks {
     }
     "/notification_center/orders-seller"(platform: "/", type: TrackType.Event) {}
     "/notification_center/security-enrollment-legacy"(platform: "/", type: TrackType.Event) {}
-    "/notification_center/mediations-complainan-legacy"(platform: "/", type: TrackType.Event) {}
+    "/notification_center/mediations-complainant-legacy"(platform: "/", type: TrackType.Event) {}
     "/notification_center/purchase-pending-legacy"(platform: "/", type: TrackType.Event) {}
     "/notification_center/purchases-payments"(platform: "/", type: TrackType.Event) {
         purchase_id(required: false, type: PropertyType.Numeric, description:"Id of purchase.")
