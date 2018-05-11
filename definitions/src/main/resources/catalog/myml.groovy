@@ -364,6 +364,7 @@ tracks {
     //:::: Sales list
     "/myml/invoices/sales_list"(platform: "/", isAbstract: true) {}
     "/myml/invoices/sales_list/create_invoice"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/sales_list/zip_download"(platform: "/", type: TrackType.Event) {}
 
     //:::: Optin flow
     "/myml/invoices/company-info"(platform: "/", isAbstract: true) {
