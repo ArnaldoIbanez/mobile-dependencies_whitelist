@@ -11,23 +11,20 @@ tracks {
     //SEARCH FLOW
 
     "/search"(platform: "/") {
-        query(required: false, description: "the words used to make a search", type: PropertyType.String) // TODO: add description, make required
+        query(required: false, description: "the words used to make a search", type: PropertyType.String)
         limit(required: true, description: "the max number of items returned", type: PropertyType.Numeric)
         offset(required: true, description: "the number of items skipped on the search", type: PropertyType.Numeric)
         total(required: true, description: "amount of search items returned", type: PropertyType.Numeric)
-        category_id(required: false, description: "", regex: categoryRegex)//todo description
-        category_path(required: false, description: "path from root category", regex: categoryPathRegex, type: PropertyType.ArrayList) // TODO: Se manda vacio?
-        sort_id(required: true, description: "relevance, price_asc or price_desc", values: ["relevance", "price_asc", "price_desc"]) // TODO descriptions
-        filters(required: true, description: "") //todo description?
-        autoselected_filters(required: false, description: "", PropertyType.ArrayList) // TODO descriptions
-        view_mode(required: true, description: "MOSAIC, LIST or GALLERY", values:["LIST","MOSAIC","GALLERY"]) // TODO add values and correcto web
-        official_store_id(required: false, description: "", type: PropertyType.Numeric) //TODO descriptions and type
-        deal(required: false, description: "") // TODO Name & description
-        filter_tags(required: false, description: "", PropertyType.ArrayList) //todo que es esto?
+        category_id(required: false, regex: categoryRegex)
+        category_path(required: false, description: "path from root category", regex: categoryPathRegex, type: PropertyType.ArrayList)
+        sort_id(required: true, description: "relevance, price_asc or price_desc", values: ["relevance", "price_asc", "price_desc"])
+        filters(required: true, description: "filters applied")
+        autoselected_filters(required: false, description: "filters not applied by the user (category from canonical or adults)", PropertyType.ArrayList) //todo hablar con laura para ver si se pueden sacar
+        view_mode(required: true, description: "MOSAIC, LIST or GALLERY", values:["LIST","MOSAIC","GALLERY"])
         results(required: true, description: "item ids from search result", PropertyType.ArrayList)
         billboards(required: true, description: "items ids from billboard results", PropertyType.ArrayList)
-        pads(required: false, description: "item_id from the pads returned for listings")
-        catalog_product_id(required: false, description: "Id of the product, only if the product header is shown") // TODO add type
+        pads(required: true, description: "item_id from the pads returned for listings")
+        catalog_product_id(required: false, description: "Id of the product, only if the product header is showna", PropertyType.String)
 
         //Tracks from Search Backend:
         backend_data(required: false)
@@ -48,8 +45,6 @@ tracks {
     }
 
     "/search"(platform: "/web") {
-        visual_id(required: false) // TODO: erase, application.business
-
         only_in_type(required: false)
         click_banner(required: false, description:'Indicates that this listing has apppeared after clicking on a banner')
         banner(required: false, description:'Banner showed in this listing info, if showed')
