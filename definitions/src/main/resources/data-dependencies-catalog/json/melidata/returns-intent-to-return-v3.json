@@ -3,7 +3,7 @@
     "martin.maldonado@mercadolibre.com"
   ],
   "process_name": "returns-intent-to-return-v3",
-  "cron": "00 11 * * *",
+  "cron": "",
   "extract": {
     "operation": "append",
     "columns": [
@@ -46,11 +46,11 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1"
+          "value": "2018-04-27"
         },
         {
           "name": "param02",
-          "value": "DAY-0"
+          "value": "2018-05-07"
         }
       ]
     }
