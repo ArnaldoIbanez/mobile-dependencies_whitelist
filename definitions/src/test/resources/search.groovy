@@ -14,11 +14,11 @@ trackTests {
             category_path=["MLA1051", "MLA1055", "MLA32089"]
             category_id="MLA32089"
             filters=[]
+            pads=[]
             billboards=[]
             offset=0
             sort_id="relevance"
             view_mode="MOSAIC"
-            filter_tags=["locationFromHistory"]
             results=["232232000", "232232001", "232232002"]
             backend_data={
                 sm="sm"
@@ -37,18 +37,10 @@ trackTests {
             catalog_product_id="MLA123"
         }
 
-        def defaultEmptySearchInformation = {
-            limit=20
-            total=0
-            offset=0
-        }
-
-
         "/search"(platform: "/web",{
             total=0
             sort_id="relevance"
             view_mode="MOSAIC"
-            visual_id="STD"
             filters = { seller_id = "47316577" }
             only_in_type="Seller"
             limit=20
@@ -93,6 +85,7 @@ trackTests {
             geolocation="AR:CABA"
             landing="base"
             layout_forced=true
+            pads=[]
 
         })
 
@@ -109,6 +102,7 @@ trackTests {
             sort_id = "relevance"
             filters = {official_store="140"}
             autoselected_filters = ["official_store"]
+            pads=[]
         })
 
 
@@ -127,7 +121,6 @@ trackTests {
             item_id = "MLA170232"
         }
         "/search/share"(platform: "/mobile"){
-            defaultEmptySearchInformation()
             item_id = "MLA170232"
         }
         "/search/abort"(platform: "/mobile", defaultSearchInformation)
@@ -175,6 +168,7 @@ trackTests {
             total = 0
             sort_id = "relevance"
             filters = []
+            pads=[]
             view_mode = "LIST"
             results = []
             billboards = []
@@ -190,6 +184,7 @@ trackTests {
             total = 0
             sort_id = "relevance"
             filters = []
+            pads=[]
             view_mode = "LIST"
             results = []
             billboards = []

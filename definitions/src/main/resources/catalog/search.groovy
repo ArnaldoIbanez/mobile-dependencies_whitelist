@@ -76,13 +76,8 @@ tracks {
         item_id()
     }
 
-    "/search/share" (platform: "/mobile", type: TrackType.Event){
+    "/search/share" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
         item_id()
-        sort_id(required: false, description: "override required property")
-        filters(required: false, description: "override required property")
-        results(required: false, description: "override required property")
-        billboards(required: false, description: "override required property")
-        view_mode(required: false, description: "override required property")
     }
 
     "/search/back" (platform: "/mobile", type: TrackType.Event) {}
