@@ -46,7 +46,7 @@ trackTests {
             event_type: "open"
             deeplink: "meli://purchases/1285223441#payment"
             type_layout: "standard"
-            latest_news_type: "reputation-free_shipping_activation",
+            latest_news_type: "reputation-free_shipping_activation"
             latest_news_id: "reputation-free_shipping_activation-96149528-1525772236185"
 
         }
@@ -84,6 +84,17 @@ trackTests {
             type_layout: "standard"
         }
 
+        "/notification_center/purchases-payments"(platform: "/mobile"){
+            newsgroup_id: "purchase-pending-210167262-MLA646946595"
+            status: "read"
+            event_type: "open"
+            deeplink: "meli://item?id=MLA646946595"
+            type_layout: "standard"
+            purchase_id: 12132
+            latest_news_type: "loyalty-freeshipping"
+            latest_news_id: "loyalty-freeshipping-320135353"
+        }
+
         "/notification_center/loyalty"(platform: "/mobile"){
             newsgroup_id: "LOYALTY-48422892"
             status: "unread"
@@ -97,7 +108,7 @@ trackTests {
             event_type: "open"
             deeplink: "meli://loyalty/?selectedTab=benefits"
             type_layout: "standard"
-            latest_news_type: "loyalty-freeshipping",
+            latest_news_type: "loyalty-freeshipping"
             latest_news_id: "loyalty-freeshipping-320135353"
         }
 
@@ -141,7 +152,7 @@ trackTests {
             test_notification: false
             sent_date: "20180508"
             batch_id: "MLB_PACK_20180508_2"
-            latest_news_type: "campaigns-suggested_discounts_buyer",
+            latest_news_type: "campaigns-suggested_discounts_buyer"
             latest_news_id: "campaigns-suggested_discounts_buyer-143816022-MLB1013046714"
         }
         "/notification_center/campaigns-suggested_discounts_seller"(platform: "/mobile"){
@@ -152,7 +163,7 @@ trackTests {
             test_notification: false
             sent_date: "20180508"
             batch_id: "MLB_PACK_20180508_2"
-            latest_news_type: "campaigns-suggested_discounts_seller",
+            latest_news_type: "campaigns-suggested_discounts_seller"
             latest_news_id: "campaigns-suggested_discounts_seller-143816022-MLB1013046714"
         }
         "/notification_center/campaigns-buyequalspay"(platform: "/mobile"){
@@ -160,7 +171,7 @@ trackTests {
             event_type: "open"
             deeplink: "meli://item?id=MLA645507294"
             type_layout: "standard"
-            latest_news_type: "campaigns-buyequalspay",
+            latest_news_type: "campaigns-buyequalspay"
             latest_news_id: "campaigns-buyequalspay-143816022-MLB1013046714"
         }
         "/notification_center/campaigns-cart_recovery"(platform: "/mobile"){
@@ -172,7 +183,7 @@ trackTests {
             test_notification: false
             sent_date: "20180508"
             batch_id: "MLB_PACK_20180508_2"
-            latest_news_type: "campaigns-cart_recovery",
+            latest_news_type: "campaigns-cart_recovery"
             latest_news_id: "campaigns-cart_recovery-143816022-MLB1013046714"
         }
         "/notification_center/campaigns-checkout_recovery"(platform: "/mobile"){
@@ -184,30 +195,30 @@ trackTests {
             test_notification: false
             sent_date: "20180508"
             batch_id: "MLB_PACK_20180508_2"
-            latest_news_type: "campaigns-checkout_recovery",
+            latest_news_type: "campaigns-checkout_recovery"
             latest_news_id: "campaigns-checkout_recovery-143816022-MLB1013046714"
             item_id: "MLV515515631"
             experiment: false
         }
         "/notification_center/campaigns-deal_alert"(platform: "/mobile"){
-            campaign_id: "campaign1"
-            newsgroup_id: "campaigns-deal_alert-238379211"
+            campaign_id: "DEAL_ALERT_MLB_20180508"
+            newsgroup_id: "campaigns-deal_alert-152329972"
             event_type: "open"
-            deeplink: "meli://item?id=MLA645507294"
+            deeplink: "meli://item?id=MLB799297448&tool=69156792&word=COREPN_MLB_PUSH_DEALALERT_20180508&referrer=utm_source%3Dpromotional_notifications%26utm_medium%3Dnotifications%26utm_campaign%3DDEAL_ALERT_MLB_20180508%26utm_term%3Dpms-word%3ACOREPN_MLB_PUSH_DEALALERT_20180508%26utm_id%3Dpms-tool%3A69156792"
             type_layout: "standard"
             test_notification: false
             sent_date: "20180508"
             batch_id: "MLB_PACK_20180508_2"
-            latest_news_type: "campaigns-deal_alert",
-            latest_news_id: "campaigns-deal_alert-143816022-MLB1013046714"
-            item_id: "MLV515515631"
+            latest_news_type: "campaigns-deal_alert"
+            latest_news_id: "campaigns-deal_alert-152329972-MLB799297448"
+            item_id: "MLB799297448"
         }
         "/notification_center/campaigns-download_app"(platform: "/mobile"){
             newsgroup_id: "campaigns-download_app-96757367"
             event_type: "open"
             deeplink: "meli://item?id=MLA645507294"
             type_layout: "standard"
-            latest_news_type: "campaigns-download_app",
+            latest_news_type: "campaigns-download_app"
             latest_news_id: "campaigns-download_app-143816022-MLB1013046714"
         }
         "/notification_center/campaigns-prepaid_point"(platform: "/mobile"){
@@ -215,7 +226,7 @@ trackTests {
             event_type: "open"
             deeplink: "meli://item?id=MLA645507294"
             type_layout: "standard"
-            latest_news_type: "campaigns-prepaid_point",
+            latest_news_type: "campaigns-prepaid_point"
             latest_news_id: "campaigns-prepaid_point-143816022-MLB1013046714"
         }
         "/notification_center/campaigns-remarketing"(platform: "/mobile"){
@@ -227,7 +238,7 @@ trackTests {
             test_notification: false
             sent_date: "20180508"
             batch_id: "MLB_PACK_20180508_2"
-            latest_news_type: "campaigns-remarketing",
+            latest_news_type: "campaigns-remarketing"
             latest_news_id: "campaigns-remarketing-143816022-MLB1013046714"
         }
         "/notification_center/fraud-identity_validation"(platform: "/mobile"){
@@ -235,7 +246,7 @@ trackTests {
             event_type: "open"
             deeplink: "meli://item?id=MLA645507294"
             type_layout: "standard"
-            latest_news_type: "fraud-identity_validation",
+            latest_news_type: "fraud-identity_validation"
             latest_news_id: "campaigns-remarketing-143816022-MLB1013046714"
         }
 
@@ -304,7 +315,7 @@ trackTests {
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
         }
-        "/notification/istings_upgrade"(platform: "/mobile") {
+        "/notification/listings_upgrade"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
             deeplink ="meli://search?q=sony"
@@ -336,7 +347,7 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
             deeplink ="meli://buyer_questions"
-            question_id = 1234
+            question_id = "1234"
         }
 
         "/notification/carousel"(platform: "/mobile"){
@@ -385,11 +396,11 @@ trackTests {
             event_type = "open"
             purchase_id = 12132
         }
-        "/notification/reputation-free_shipping_activation"(platform: "/mobile") {
+        "/notification/reputation_free_shipping_activation"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
         }
-        "/notification/reputation-reputation_medal_lost_reminder"(platform: "/mobile") {
+        "/notification/reputation_medal_lost_reminder"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
         }
@@ -409,7 +420,7 @@ trackTests {
             notification_created_error = "Some exception message"
         }
 
-        "/notification/reputation-free_shipping_deactivation"(platform: "/mobile") {
+        "/notification/reputation_free_shipping_deactivation"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
         }
@@ -476,7 +487,7 @@ trackTests {
             deeplink = "meli://sales/11222#shipping"
             shipment_id = 1234
         }
-        "/notification/shipping_reminder_agency_withdrawal(platform: "/mobile"){
+        "/notification/shipping_reminder_agency_withdrawal"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
@@ -485,6 +496,25 @@ trackTests {
         }
 
         "/notification/shipping_not_delivered_receiver"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+
+        "/notification/shipping-soon_deliver"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_self_service_shipped"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_self_service_failed"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
@@ -584,10 +614,9 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
             notification_style = "BigTextStyle"
-            order_id = 1234
             claim_id = 3123
             action_type = "favorite"
-            latest_news_type ="mediations_complainant,
+            latest_news_type ="mediations_complainant"
             latest_news_id = "mediations_complainant-143816022-MLB1013046714"
         }
 
@@ -595,10 +624,9 @@ trackTests {
             news_id = "12332323"
             event_type = "auto_dismiss"
             notification_style = "BigTextStyle"
-            order_id = 1234
             claim_id = 3123
             action_type = "favorite"
-            latest_news_type ="mediations_complainant,
+            latest_news_type ="mediations_complainant"
             latest_news_id = "mediations_complainant-143816022-MLB1013046714"
         }
 
@@ -821,6 +849,11 @@ trackTests {
             event_type = "auto_dismiss"
         }
 
+        "/notification/campaigns_download_app"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
         "/notification/loyalty_welcome"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
@@ -844,8 +877,13 @@ trackTests {
         "/notification/security_enrollment"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
-            latest_news_type ="security_enrollment,
+            latest_news_type ="security_enrollment"
             latest_news_id = "security_enrollment-143816022-MLB1013046714"
+        }
+
+        "/notification/security_phone_confirmation"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
         }
 
         "/notification/reviews_reminder"(platform: "/mobile") {

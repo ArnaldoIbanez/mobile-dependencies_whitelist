@@ -96,7 +96,7 @@ tracks {
         latest_news_id(required: false, type: PropertyType.String, description:"Id of latest news.")
     }
     "/notification_center/campaigns-deal_alert"(platform: "/") {
-        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        campaign_id(required: false, description: "Id of the campaign related to the notification sent.")
         test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
         sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
         batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
@@ -204,10 +204,21 @@ tracks {
     "/notification/shipping_delivered"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
     }
-
-º    "/notification/shipping_reminder_agency_withdrawal"(platform: "/") {
+    "/notification/shipping_reminder_agency_withdrawal"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
         agency_to_agency(required:false, type:PropertyType.Boolean, description: "Indicates if package was sent to an agency in the first place or was shipped there because the user wasnt found in his address")
+    }
+    //Paquete proximo a entregarse
+    "/notification/shipping-soon_deliver"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+
+    "/notification/shipping_self_service_shipped"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+
+    "/notification/shipping_self_service_failed"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
     }
 
     //Seller questions
@@ -303,6 +314,7 @@ tracks {
     "/notification/purchase_pending"(platform: "/") {
         item_id(required: true, type: PropertyType.String)
     }
+
     "/notification/orders_pending"(platform: "/") {
         item_id(required: true, type: PropertyType.String)
     }
