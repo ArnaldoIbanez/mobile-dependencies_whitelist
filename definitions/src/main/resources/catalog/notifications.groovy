@@ -161,7 +161,7 @@ tracks {
     //Retiro en sucursal
     "/notification/shipping_agency_withdrawal"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
-        agency_to_agency(required:false, type:PropertyType.Boolean, description: "Indicates if package was sent to an agency in the first place or was shipped there because the user wasnt found in his address")
+        agency_to_agency(required:true, type:PropertyType.Boolean, description: "Indicates if package was sent to an agency in the first place or was shipped there because the user wasnt found in his address")
     }
 
     //Devolución de costo de envío por demora
@@ -206,7 +206,7 @@ tracks {
     }
     "/notification/shipping_reminder_agency_withdrawal"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
-        agency_to_agency(required:false, type:PropertyType.Boolean, description: "Indicates if package was sent to an agency in the first place or was shipped there because the user wasnt found in his address")
+        agency_to_agency(required:true, type:PropertyType.Boolean, description: "Indicates if package was sent to an agency in the first place or was shipped there because the user wasnt found in his address")
     }
     //Paquete proximo a entregarse
     "/notification/shipping-soon_deliver"(platform: "/") {
@@ -266,7 +266,7 @@ tracks {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
         sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
-        batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
     }
 
     //MKT Deals
@@ -281,23 +281,23 @@ tracks {
     //Cart Campaigns
     "/notification/campaigns_cart_recovery"(platform: "/") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
-        test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
-        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+        test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
         batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
     }
     "/notification/campaigns-checkout_recovery"(platform: "/") {
-        campaign_id(required: false, description: "Id of the campaign related to the campaigns notification sent.")
-        test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
-        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+        campaign_id(required: true, description: "Id of the campaign related to the campaigns notification sent.")
+        test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
         batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
-        item_id(required: false, type: PropertyType.String)
+        item_id(required: true, type: PropertyType.String)
         experiment(required: false, type: PropertyType.Boolean)
     }
     //
     "/notification/campaigns_deal_alert"(platform: "/") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
-        test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
-        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+        test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
         batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
     }
     "/notification/campaigns_download_app"(platform: "/", type: TrackType.Event) {}
