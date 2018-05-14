@@ -113,7 +113,10 @@ trackTests {
 
     test("Sales list flow") {
         "/myml/invoices/sales_list/create_invoice"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/sales_list/zip_download"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/sales_list/zip"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/sales_list/zip/download"(platform: "/", type: TrackType.Event) {
+            pdf = true
+        }
     }
 
     test("Optin flow") {
