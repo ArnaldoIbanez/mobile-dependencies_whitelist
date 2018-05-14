@@ -3,7 +3,7 @@
     "gabriel.neil@mercadolibre.com"
   ],
   "process_name": "consumer_journey_checkout",
-  "cron": "",
+  "cron": "0 5 * * *",
   "extract": {
     "operation": "append",
     "columns": [
