@@ -1,3 +1,5 @@
+import com.ml.melidata.TrackType
+
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.catalog.PropertyType
 
@@ -18,7 +20,7 @@ tracks {
         inferred_attributes(required: false, description: "Inferred attributes")
         condition(required: false, description: "Item condition")
         category_path(required: true, description: "Category path for the item", type: PropertyType.ArrayList)
-        label(required: false, description: "Tab from listings page", type: PropertyType.String, values: ["paused", "active", "closed"])
+        label(required: false, description: "Tab from listings page", type: PropertyType.String, values: ["paused", "active", "closed","pending"])
     }
 
     propertyGroups {
@@ -28,99 +30,99 @@ tracks {
 
     "/catalogwidget"(platform: "/", isAbstract: true) {}
 
-    "/catalogwidget/show"(platform: "/") {
+    "/catalogwidget/show"(platform: "/", type: TrackType.Event) {
         catalogWidgetGroup
     }
 
-    "/catalogwidget/showitem"(platform: "/") {
+    "/catalogwidget/showitem"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
     }
 
-    "/catalogwidget/save"(platform: "/") {
-        catalogWidgetGroup
-        catalogWidgetCompletenessGroup
-    }
-
-    "/catalogwidget/cancel"(platform: "/") {
+    "/catalogwidget/save"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
         catalogWidgetCompletenessGroup
     }
 
-    "/catalogwidget/cancel/forced"(platform: "/") {
+    "/catalogwidget/cancel"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
         catalogWidgetCompletenessGroup
     }
 
-    "/catalogwidget/minimize"(platform: "/") {
+    "/catalogwidget/cancel/forced"(platform: "/",type: TrackType.Event) {
+        catalogWidgetGroup
+        catalogWidgetCompletenessGroup
+    }
+
+    "/catalogwidget/minimize"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
     }
 
-    "/catalogwidget/maximize"(platform: "/") {
+    "/catalogwidget/maximize"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
     }
 
-    "/catalogwidget/omit"(platform: "/") {
+    "/catalogwidget/omit"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
     }
 
-    "/catalogwidget/omit_save"(platform: "/") {
+    "/catalogwidget/omit_save"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
         items_left(required: false, description: "Items left on widget")
     }
 
-    "/catalogwidget/discover"(platform: "/") {
+    "/catalogwidget/discover"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
     }
 
-    "/catalogwidget/pi"(platform: "/") {
+    "/catalogwidget/pi"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
     }
 
-    "/catalogwidget/pi_save"(platform: "/") {
+    "/catalogwidget/pi_save"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
     }
 
-    "/catalogwidget/pi_cancel"(platform: "/") {
+    "/catalogwidget/pi_cancel"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
     }
 
-    "/catalogwidget/next"(platform: "/") {
+    "/catalogwidget/next"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
         catalogWidgetCompletenessGroup
     }
 
-    "/catalogwidget/save_again"(platform: "/") {
+    "/catalogwidget/save_again"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
         status_code(required: true, description: "Error code")
         error(required: true, description: "Error")
     }
 
-    "/catalogwidget/redo"(platform: "/") {
+    "/catalogwidget/redo"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
         status_code(required: true, description: "Error code")
         error(required: true, description: "Error")
     }
 
-    "/catalogwidget/middle_congrats"(platform: "/") {
+    "/catalogwidget/middle_congrats"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
         catalogWidgetCompletenessGroup
     }
 
-    "/catalogwidget/final_congrats"(platform: "/") {
+    "/catalogwidget/final_congrats"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
     }
 
-    "/catalogwidget/coachmark"(platform: "/") {
+    "/catalogwidget/coachmark"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
     }
 
-    "/catalogwidget/omit_attributes"(platform: "/") {
+    "/catalogwidget/omit_attributes"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
         empty_attrs_not_pk(required: false, description: "Quantity of attributes PK")
         empty_attrs_pk(required: false, description: "Quantity of attributes not PK")
     }
 
-    "/catalogwidget/omit_attributes/submit"(platform: "/") {
+    "/catalogwidget/omit_attributes/submit"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
         attribute_id(required: true, description: "Attribute id submitted")
         hierarchy(required: true, description: "Hierarchy attribute", values:["CHILD_DEPENDENT", "CHILD_PK", "FAMILY", "ITEM", "PARENT_PK", "PRODUCT_IDENTIFIER"], PropertyType.String)
