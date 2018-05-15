@@ -179,18 +179,6 @@ tracks {
         query(required: false, description: "Official store name written in search box")
     }
 
-    //Breadcrumb
-    "/home/category"(platform: "/", type: TrackType.View) {
-        from(required: false,  description: "Who is redirecting")
-        category_id(required: true,  description: "Home's category")
-    }
-
-    // Real estate page view
-    "/home/category/real-estate"(platform: "/", type: TrackType.View) {
-        filters(required: false, description: "Filter applied in the last search")
-        carousels(required: false, description: "Carousels in the home page to the properties")
-    }
-
     "/permissions"(platform: "/mobile", isAbstract: true){}
     "/permissions/location"(platform: "/mobile", type: TrackType.View){
         context(required: "true", description: "Where are we requesting the permissions")
