@@ -79,6 +79,10 @@ tracks {
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
         free_shipping_benefit(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has free shipping for loyalty benefit")
+        shipping_promise(required: false, description: "Array of shippping promise in the order with following data")
+        //afterDispatch
+        //min_days
+        //max_days
 
         // USER FIELD
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
