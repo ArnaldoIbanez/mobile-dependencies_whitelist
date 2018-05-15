@@ -420,6 +420,7 @@ tracks {
     "/sell/update/pictures/gallery"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures/editor"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures/crop"(platform: "/", type: TrackType.View) {}
+    "/sell/update/variations_pi"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/pictures/crop/crop_accepted"(platform: "/", type: TrackType.Event) {}
     "/sell/update/pictures/crop/crop_canceled"(platform: "/", type: TrackType.Event) {}
     "/sell/update/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
