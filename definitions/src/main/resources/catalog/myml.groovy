@@ -437,4 +437,29 @@ tracks {
     "/myml/invoices/company-info/confirm/save/response"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/success"(platform: "/") {}
 
+    //:::: Order
+    "/myml/invoices/order"(platform: "/", isAbstract: true) {
+        error(required: false, type:  PropertyType.String, description: "Error message that pop to user after request")
+        errorValidation(required: false, type:  PropertyType.String, description: "Error message when value is invalid")
+        url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
+    }
+
+    //buyer
+    "/myml/invoices/order/buyer-info"(platform: "/") {}
+    "/myml/invoices/order/buyer-info/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/order/buyer-info/save/request"(platform: "/", type: TrackType.Event) {
+      receiverAddress(required: true, description: "Receiver adress info")   
+      billingInfo(required: true, description: "User billing info")
+      orderId(required: true, description: "Order ID of the item")   
+    }
+    "/myml/invoices/order/buyer-info/save/response"(platform: "/", type: TrackType.Event) {}
+
+    //buyer
+    "/myml/invoices/order/carrier"(platform: "/") {}
+    "/myml/invoices/order/carrier/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/order/carrier/save/request"(platform: "/", type: TrackType.Event) {
+      data(required: true, description: "Form values, buyer, transport company, quantiy and value that user inputs")   
+      orderId(required: true, description: "Order ID of the item")   
+    }
+    "/myml/invoices/order/carrier/save/response"(platform: "/", type: TrackType.Event) {}
 }
