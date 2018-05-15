@@ -443,7 +443,9 @@ trackTests {
 
     // MPMOBILE TEST
     test("account summary flow") {
-        "/account_summary"(platform: "/mobile") {}
+        "/account_summary"(platform: "/mobile") {
+            from = "/deep_link"
+        }
         "/account_summary/filters"(platform: "/mobile") {}
         "/account_summary/filtered_list"(platform: "/mobile") {}
         "/activity_detail"(platform: "/mobile") {}
