@@ -154,7 +154,9 @@ tracks {
     "/catalog/discount"(platform: "/mobile", type: TrackType.View) {}
     
     // MPMOBILE
-    "/account_summary"(platform: "/mobile") {}
+    "/account_summary"(platform: "/mobile") {
+        from (required:false, type: PropertyType.String, description: "Where the flow start", values:["/deep_link_ml","/deep_link","push"])
+    }
     "/account_summary/filters"(platform: "/mobile") {}
     "/account_summary/filtered_list"(platform: "/mobile") {}
 
