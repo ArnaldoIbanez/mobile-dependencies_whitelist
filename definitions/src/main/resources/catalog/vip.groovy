@@ -80,9 +80,9 @@ tracks {
         free_shipping_benefit(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has free shipping for loyalty benefit")
         shipping_promise(required: false, description: "Array of shippping promise in the order with following data")
-        //afterDispatch
-        //min_days
-        //max_days
+        //afterDispatch: if unknown or unknown_frame (true/false)
+        //min_days: minimum number of days of the promise. (int)
+        //max_days: maximun number of days of the promise. (int or null -If it doesn´t apply-)  
 
         // USER FIELD
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
