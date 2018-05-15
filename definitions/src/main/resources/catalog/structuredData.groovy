@@ -20,7 +20,7 @@ tracks {
         inferred_attributes(required: false, description: "Inferred attributes")
         condition(required: false, description: "Item condition")
         category_path(required: true, description: "Category path for the item", type: PropertyType.ArrayList)
-        label(required: false, description: "Tab from listings page", type: PropertyType.String, values: ["paused", "active", "closed"])
+        label(required: false, description: "Tab from listings page", type: PropertyType.String, values: ["paused", "active", "closed","pending"])
     }
 
     propertyGroups {
