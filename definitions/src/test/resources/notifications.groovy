@@ -41,14 +41,13 @@ trackTests {
         }
 
         "/notification_center/reputation"(platform: "/mobile"){
-            newsgroup_id: "reputation-free_shipping-1285223441"
+            newsgroup_id: "reputation-medal_lost_reminder-126635313"
             status: "read"
             event_type: "open"
-            deeplink: "meli://purchases/1285223441#payment"
+            deeplink: "https://reputacao.mercadolivre.com.br/myReputation"
             type_layout: "standard"
-            latest_news_type: "reputation-free_shipping_activation"
-            latest_news_id: "reputation-free_shipping_activation-96149528-1525772236185"
-
+            latest_news_type: "reputation-medal_lost_reminder"
+            latest_news_id: "reputation-medal_lost_reminder-126635313-grace_time_126635313-13804002905"
         }
 
         "/notification_center/orders-seller"(platform: "/mobile"){
@@ -85,31 +84,32 @@ trackTests {
         }
 
         "/notification_center/purchases-payments"(platform: "/mobile"){
-            newsgroup_id: "purchase-pending-210167262-MLA646946595"
+            newsgroup_id: "purchases-payments-1000000016305386"
             status: "read"
             event_type: "open"
-            deeplink: "meli://item?id=MLA646946595"
+            deeplink: "https://myaccount.mercadolibre.com.mx/purchases/1000000016305386/detail"
             type_layout: "standard"
-            purchase_id: 12132
-            latest_news_type: "loyalty-freeshipping"
-            latest_news_id: "loyalty-freeshipping-320135353"
+            purchase_id: 1000000016305386
+            latest_news_type: "purchases-payments_approved"
+            latest_news_id: "purchases-payments_approved-1000000016305386"
         }
 
         "/notification_center/loyalty"(platform: "/mobile"){
             newsgroup_id: "LOYALTY-48422892"
             status: "unread"
             event_type: "open"
-            deeplink: "meli://loyalty/?selectedTab=benefits"
+            deeplink: "https://www.mercadolivre.com.br/mercadopontos/fretegratis"
             type_layout: "standard"
+            latest_news_type: "loyalty-freeshipping"
+            latest_news_id: "loyalty-freeshipping-321438470"
         }
+
         "/notification_center/loyalty-freeshipping"(platform: "/mobile"){
-            newsgroup_id: "loyalty-freeshipping-320119287"
+            newsgroup_id: "loyalty-freeshipping-321438470"
             status: "unread"
             event_type: "open"
             deeplink: "meli://loyalty/?selectedTab=benefits"
             type_layout: "standard"
-            latest_news_type: "loyalty-freeshipping"
-            latest_news_id: "loyalty-freeshipping-320135353"
         }
 
         "/notification_center/listings"(platform: "/mobile"){
@@ -250,12 +250,10 @@ trackTests {
             latest_news_id: "campaigns-remarketing-143816022-MLB1013046714"
         }
 
-
         "/notification"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "sent"
         }
-
 
         "/notification"(platform: "/mobile") {
             news_id = "12332323"
@@ -877,7 +875,7 @@ trackTests {
         "/notification/security_enrollment"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
-            latest_news_type ="security_enrollment"
+            latest_news_type = "security_enrollment"
             latest_news_id = "security_enrollment-143816022-MLB1013046714"
         }
 
