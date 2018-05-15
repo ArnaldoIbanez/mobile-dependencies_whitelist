@@ -41,13 +41,13 @@ trackTests {
         }
 
         "/notification_center/reputation"(platform: "/mobile"){
-            newsgroup_id: "reputation-medal_lost_reminder-126635313"
-            status: "read"
-            event_type: "open"
-            deeplink: "https://reputacao.mercadolivre.com.br/myReputation"
-            type_layout: "standard"
-            latest_news_type: "reputation-medal_lost_reminder"
-            latest_news_id: "reputation-medal_lost_reminder-126635313-grace_time_126635313-13804002905"
+            newsgroup_id= "reputation-medal_lost_reminder-126635313"
+            status= "read"
+            event_type= "open"
+            deeplink= "https://reputacao.mercadolivre.com.br/myReputation"
+            type_layout= "standard"
+            latest_news_type= "reputation-medal_lost_reminder"
+            latest_news_id= "reputation-medal_lost_reminder-126635313-grace_time_126635313-13804002905"
         }
 
         "/notification_center/orders-seller"(platform: "/mobile"){
