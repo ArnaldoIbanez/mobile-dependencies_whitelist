@@ -5,6 +5,6 @@ select
   usr.user_id                as user_id,
   platform.http.http_referer as reference
 from tracks
-where (ds >= '@param01' and ds < '@param02')
+where (ds >= '@param01' and ds <= '@param02')
       and path = '/landing/promotions'
       and platform.http.http_referer like '%Journey_Cobranza%'
