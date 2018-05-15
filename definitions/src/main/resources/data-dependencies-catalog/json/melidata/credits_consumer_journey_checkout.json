@@ -3,7 +3,7 @@
     "gabriel.neil@mercadolibre.com"
   ],
   "process_name": "consumer_journey_checkout",
-  "cron": "0 5 * * *",
+  "cron": "",
   "extract": {
     "operation": "append",
     "columns": [
@@ -34,12 +34,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2018-05-13",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "2018-05-15",
           "format": "yyyy-MM-dd"
         }
       ]
