@@ -88,4 +88,6 @@ tracks {
     // Motors page view
     "/home/category/motors"(platform: "/", type: TrackType.View) {}
 
+    "/home/navigation"(platform: "/web", type: TrackType.View) {}
+
 }  

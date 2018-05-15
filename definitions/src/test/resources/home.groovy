@@ -10,6 +10,10 @@ trackTests {
             from="breadcrumb"
         }
     }
+    
+    test("Home Navigation") {
+        "/home/navigation"(platform: "/web/mobile") {}
+    }
 
     test("Home core tracking") {
         "/home"(platform: "/mobile") {}
