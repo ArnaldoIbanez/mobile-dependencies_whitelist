@@ -28,7 +28,7 @@ tracks {
         catalogWidgetCompletenessGroup(completeness_level, items_left, missing_attributes, inferred_attributes)
     }
 
-    "/catalogwidget"(platform: "/", isAbstract: true) {}
+    "/catalogwidget"(platform: "/", isAbstract: true, type: TrackType.Event) {}
 
     "/catalogwidget/show"(platform: "/", type: TrackType.Event) {
         catalogWidgetGroup
