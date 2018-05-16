@@ -5,7 +5,7 @@
   "process_name": "channels-availability-new-profiles",
   "cron": "00 05 * * *",
   "extract": {
-    "operation": "destroy",
+    "operation": "append",
     "columns": [
       {
         "name": "requested_datetime",
