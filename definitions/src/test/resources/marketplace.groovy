@@ -4409,6 +4409,8 @@ trackTests {
 
         "/myml/purchases/detail/history"(platform:"/") {}
 
+        "/myml/purchases/status" (platform:"/", type: TrackType.View) {}
+
         "/myml/loyal_discounts" (platform: "/", type: TrackType.View) {}
         "/myml/loyal_discounts/add" (platform: "/web", type: TrackType.Event) {
             item = {

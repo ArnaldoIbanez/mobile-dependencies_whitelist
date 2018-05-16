@@ -107,6 +107,7 @@ tracks {
 
     "/myml/purchases/feedback/error"(platform: "/mobile", type: TrackType.View) {}
 
+    "/myml/purchases/status"(platform:"/", type: TrackType.View) {}
 
     "/myml"(platform: "/", isAbstract: true) {}
     "/myml/listings"(platform: "/web", type: TrackType.View) {
