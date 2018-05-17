@@ -4381,6 +4381,8 @@ trackTests {
 
         "/myml/sales/questions"(platform: "/web") {}
 
+        "/myml/sales/shipping" (platform:"/", type: TrackType.View) {}
+
         "/myml/purchases/list"(platform: "/web") {}
 
         "/myml/purchases/detail"(platform: "/web") {}
@@ -4410,6 +4412,8 @@ trackTests {
         "/myml/purchases/detail/history"(platform:"/") {}
 
         "/myml/purchases/status" (platform:"/", type: TrackType.View) {}
+
+        "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {}
 
         "/myml/loyal_discounts" (platform: "/", type: TrackType.View) {}
         "/myml/loyal_discounts/add" (platform: "/web", type: TrackType.Event) {

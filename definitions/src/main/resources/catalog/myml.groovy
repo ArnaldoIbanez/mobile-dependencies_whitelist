@@ -51,6 +51,8 @@ tracks {
 
     "/myml/sales/order"(platform: "/") {}
 
+    "/myml/sales/shipping"(platform: "/", type: TrackType.View) {}
+
     "/myml/sales/shipping_detail"(platform: "/") {}
 
     "/myml/sales/messages"(platform: "/") {}
@@ -78,6 +80,8 @@ tracks {
     "/myml/purchases/print_label"(platform: "/") {}
 
     "/myml/purchases/print_label/show_stores_map"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/purchases/shipping"(platform: "/", type: TrackType.View) {}
 
     "/myml/purchases/shipping_detail"(platform: "/") {}
 
@@ -108,6 +112,7 @@ tracks {
     "/myml/purchases/feedback/error"(platform: "/mobile", type: TrackType.View) {}
 
     "/myml/purchases/status"(platform:"/", type: TrackType.View) {}
+
 
     "/myml"(platform: "/", isAbstract: true) {}
     "/myml/listings"(platform: "/web", type: TrackType.View) {
