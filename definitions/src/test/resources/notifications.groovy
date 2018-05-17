@@ -59,12 +59,33 @@ trackTests {
             type_layout= "bullet_list"
         }
 
+        "/notification_center/security-enrollment"(platform: "/mobile"){
+            newsgroup_id= "security-enrollment-142242996"
+            status= "unread"
+            event_type= "open"
+            deeplink= "meli://generic_landing?url=https%3A%2F%2Faccountrecovery.mercadolivre.com.br%2Fenrollment%3Fsection%3DMDP_UPDATED_NOTIF%26nativeMobile%3DANDROID"
+            type_layout= "standard"
+            latest_news_type= "security-enrollment"
+            latest_news_id= "security-enrollment-305337286"
+        }
+
         "/notification_center/security-enrollment-legacy"(platform: "/mobile"){
             newsgroup_id= "security-enrollment-142242996"
             status= "unread"
             event_type= "open"
             deeplink= "meli://generic_landing?url=https%3A%2F%2Faccountrecovery.mercadolivre.com.br%2Fenrollment%3Fsection%3DMDP_UPDATED_NOTIF%26nativeMobile%3DANDROID"
             type_layout= "standard"
+        }
+
+        "/notification_center/mediations-complainant"(platform: "/mobile"){
+            newsgroup_id= "mediations-995364894"
+            status= "read"
+            event_type= "open"
+            deeplink= "meli://generic_landing?url=https%3A%2F%2Fmediations.mercadolibre.com.ar%2Fclaims%2F995364894&authenticate=true"
+            type_layout= "standard"
+            claim_id= 995364894
+            latest_news_type= "mediations-complainant"
+            latest_news_id= "mediations-complainant-995364894-5afa30fa7eb37e6b7470573b"
         }
 
         "/notification_center/mediations-complainant-legacy"(platform: "/mobile"){
@@ -241,6 +262,14 @@ trackTests {
             latest_news_type= "campaigns-remarketing"
             latest_news_id= "campaigns-remarketing-143816022-MLB1013046714"
         }
+        "/notification_center/credits-consumer"(platform: "/mobile"){
+            newsgroup_id= "credits-consumer-213882865-255720"
+            event_type= "open"
+            deeplink= "meli://generic_landing?authenticate=true&url=https%3A%2F%2Fwww.mercadolibre.com.ar%2Fcredits%2Fconsumer%2Fnews%3FloanId%3D255720%26installmentId%3D1592866"
+            type_layout= "standard"
+            latest_news_type= "1592866"
+            latest_news_id= "credits-consumer_expired_second_notice-1592866"
+        }
         "/notification_center/fraud-identity_validation"(platform: "/mobile"){
             newsgroup_id= "fraud-identity_validation-142593788"
             event_type= "open"
@@ -250,6 +279,27 @@ trackTests {
             latest_news_id= "campaigns-remarketing-143816022-MLB1013046714"
         }
 
+        "/notification_center/packages-buyer"(platform: "/mobile"){
+            newsgroup_id= "packages-buyer-2000000032112757"
+            event_type= "open"
+            deeplink= "meli://messages/orders/1711206871"
+            type_layout= "bullet_list"
+        }
+        "/notification_center/packages-seller"(platform: "/mobile"){
+            newsgroup_id= "packages-seller-2000000031949978"
+            event_type= "open"
+            deeplink= "meli://messages/orders/1709786702"
+            type_layout= "bullet_list"
+        }
+        "/notification_center/returns"(platform: "/mobile"){
+            newsgroup_id= "packages-seller-2000000031949978"
+            event_type= "open"
+            deeplink= "meli://messages/orders/1709786702"
+            type_layout= "bullet_list"
+            order_id= 1692352012
+            latest_news_type= "returns-init_return"
+            latest_news_id= "returns-init_return-1692352012-88594841"
+        }
         "/notification"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "sent"
@@ -292,7 +342,7 @@ trackTests {
             batch_id = "MLB_PACK_20180508_2"
         }
 
-        "/notification/campaigns-checkout_recovery"(platform: "/mobile") {
+        "/notification/campaigns_checkout_recovery"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
             deeplink ="meli://search?q=sony"
@@ -313,6 +363,29 @@ trackTests {
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
         }
+
+        "/notification/credits_consumer_about_to_expire_n_loans_first_notice"(platform: "/mobile") {
+            news_id = "credits-consumer_about_to_expire_n_loans_first_notice-21680059-20180516"
+            event_type = "shown"
+        }
+
+        "/notification/credits_consumer_expired_n_loans_first_notice"(platform: "/mobile") {
+            news_id = "credits-consumer_expired_n_loans_first_notice-122359638-20180516"
+            event_type = "dismiss"
+        }
+
+        "/notification/credits_consumer_about_to_expire_second_notice"(platform: "/mobile") {
+            news_id = "credits-consumer_about_to_expire_second_notice-1660879"
+            event_type = "sent"
+        }
+
+        "/notification/credits_consumer_expired_first_notice"(platform: "/mobile") {
+            news_id = "credits-consumer_expired_first_notice-1329452"
+            event_type = "dismiss"
+            installment_id= 717743
+            loan_id= 107849
+        }
+
         "/notification/listings_upgrade"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
@@ -320,6 +393,7 @@ trackTests {
             item_id = "MLA122211"
             vertical = "services"
         }
+
         "/notification/listings_relist"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
@@ -327,11 +401,28 @@ trackTests {
             item_id = "MLA122211"
             vertical = "services"
         }
+
+        "/notification/listings"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "received"
+            deeplink ="meli://search?q=sony"
+        }
+
         "/notification/campaigns_syi_freemium"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
             deeplink ="meli://search?q=sony"
             campaign_id = "registered_between_1_and_2_weeks_ago_and_have_not_listed_in_core"
+        }
+
+        "/notification/campaigns_control_group"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "received"
+            deeplink ="meli://search?q=sony"
+            campaign_id = "registered_between_1_and_2_weeks_ago_and_have_not_listed_in_core"
+            test_notification = false
+            sent_date = "20180508"
+            batch_id = "MLB_PACK_20180508_2"
         }
 
         "/notification/questions_new"(platform: "/mobile") {
@@ -852,6 +943,27 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/campaigns_remarketing"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+            campaign_id= "MLV515515631"
+            test_notification= false
+            sent_date= "20180508"
+            batch_id = "MLB_PACK_20180508_2"
+        }
+
+        "/notification/packages_new"(platform: "/mobile") {
+              news_id = "123"
+            event_type = "auto_dismiss"
+            purchase_id= 1000000016589794
+            pack_id= 2000000032080846
+        }
+
+        "/notification/loyalty"(platform: "/mobile") {
+            news_id = "loyalty-137855615"
+            event_type = "open"
+        }
+
         "/notification/loyalty_welcome"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
@@ -870,6 +982,42 @@ trackTests {
         "/notification/loyalty_freeshipping"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
+        }
+
+        "/notification/returns_return_cancelled"(platform: "/mobile") {
+            news_id = "returns-return_cancelled-1674717959-216070768"
+            event_type = "arrived"
+            order_id= 1703754979
+        }
+
+        "/notification/returns_shipped_seller"(platform: "/mobile") {
+            news_id = "returns-shipped_seller-1703067817-269729837"
+            event_type = "sent"
+            order_id= 1703067817 
+        }
+
+        "/notification/returns_init_return"(platform: "/mobile") {
+            news_id = "returns-shipped_seller-1703067817-269729837"
+            event_type = "sent"
+            order_id= 1703067817 
+        }
+
+        "/notification/returns_init_return_buyer"(platform: "/mobile") {
+            news_id = "returns-shipped_seller-1703067817-269729837"
+            event_type = "sent"
+            order_id= 1703067817 
+        }
+
+        "/notification/returns_refund_payment"(platform: "/mobile") {
+            news_id = "returns-shipped_seller-1703067817-269729837"
+            event_type = "sent"
+            order_id= 1703067817 
+        }
+
+        "/notification/returns_reminder_printed"(platform: "/mobile") {
+            news_id = "returns-shipped_seller-1703067817-269729837"
+            event_type = "sent"
+            order_id= 1703067817 
         }
 
         "/notification/security_enrollment"(platform: "/mobile") {
