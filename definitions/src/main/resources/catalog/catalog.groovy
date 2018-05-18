@@ -47,6 +47,7 @@ catalog {
         include business, "melidata_sdk.groovy"
         include business, "registrations.groovy"
         include business, "fiscaldata.groovy"
+        include business, "chargebacks.groovy"
     }
 
     marketplace.each { business ->

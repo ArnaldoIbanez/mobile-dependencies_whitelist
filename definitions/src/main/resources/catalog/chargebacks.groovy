@@ -5,6 +5,9 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    "/chargebacks"(platform: "/", isAbstract: true) {}
+    "/chargebacks/payer"(platform: "/", isAbstract: true) {}
+
     "/chargebacks/payer/list"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
 
     "/chargebacks/payer/viewdetail"(platform: "/", type: TrackType.Event) {
@@ -14,7 +17,7 @@ tracks {
         payment_id(required: true, type: PropertyType.String)
         payer_id(required: true, type: PropertyType.Numeric)
     }
-
+    
     "/chargebacks/payer/viewdetail_buy"(platform: "/", type: TrackType.Event) {
         category_id(required: false, type: PropertyType.String)
         item_id(required: false, type: PropertyType.String)

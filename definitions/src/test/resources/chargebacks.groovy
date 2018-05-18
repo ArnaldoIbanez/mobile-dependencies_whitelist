@@ -6,7 +6,7 @@ trackTests {
 
     test("Chargebacks payer frontend tracks") {
 
-        "/chargebacks/payer/list"(platform: "/", ptype: TrackType.View) {}
+        "/chargebacks/payer/list"(platform: "/", type: TrackType.View) {}
 
         "/chargebacks/payer/viewdetail"(platform: "/", type: TrackType.Event) {
             case_id = "987987987004"
