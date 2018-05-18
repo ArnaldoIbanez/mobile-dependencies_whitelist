@@ -7,7 +7,6 @@ tracks {
     propertyDefinitions {
 	    cartContent(required:false, type: PropertyType.Boolean)
 	    status(required:false, type: PropertyType.String)
-
         PurchaseStatus(required:false, type: PropertyType.String)
 
 	    seller(required: false, type:PropertyType.ArrayList, description: "Array of sellers with their data")
@@ -23,7 +22,7 @@ tracks {
     }
 
     propertyGroups {
-        mymlGroup(cartContent, status, seller, buyer)
+        mymlGroup(cartContent, status, PurchaseStatus, seller, buyer)
     }
 
 
