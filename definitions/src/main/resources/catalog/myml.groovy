@@ -5,9 +5,9 @@ import com.ml.melidata.TrackType
 tracks {
 
     propertyDefinitions {
-	    cartContent(required:false, type: PropertyType.Boolean)
+	    cart_content(required:false, type: PropertyType.Boolean)
 	    status(required:false, type: PropertyType.String)
-        PurchaseStatus(required:false, type: PropertyType.String)
+        purchases_status(required:false, type: PropertyType.String)
 
 	    seller(required: false, type:PropertyType.ArrayList, description: "Array of sellers with their data")
 	    //id
@@ -22,7 +22,7 @@ tracks {
     }
 
     propertyGroups {
-        mymlGroup(cartContent, status, PurchaseStatus, seller, buyer)
+        mymlGroup(cart_content, status, purchases_status, seller, buyer)
     }
 
 
