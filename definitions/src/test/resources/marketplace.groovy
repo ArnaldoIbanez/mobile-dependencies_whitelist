@@ -2227,16 +2227,22 @@ trackTests {
 
         "/register/optin"(platform: "/web/desktop") {
             app = "registration"
+            source = "email"
+            captcha_showed = true
             prog_reg_version = 0
         }
 
         "/register/optin/push"(platform: "/web/mobile") {
             app = "registration-optin"
+            source = "email"
+            captcha_showed = true
             prog_reg_version = 0
         }
 
         "/register/optin/skip"(platform: "/web/mobile") {
             app = "registration-optin"
+            source = "email"
+            captcha_showed = true
             prog_reg_version = 0
         }
 
