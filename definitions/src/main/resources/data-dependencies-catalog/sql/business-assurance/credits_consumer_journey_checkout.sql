@@ -1,5 +1,6 @@
 select
-  DISTINCT (usr.user_id)     as user_id,
+  distinct
+  usr.user_id                as user_id,
   substr(ds, 1, 10)          as date_sent,
   application.site_id        as site_id,
   device.platform            as platform,
