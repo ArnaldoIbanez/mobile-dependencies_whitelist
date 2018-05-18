@@ -8,6 +8,8 @@ tracks {
 	    cartContent(required:false, type: PropertyType.Boolean)
 	    status(required:false, type: PropertyType.String)
 
+        PurchaseStatus(required:false, type: PropertyType.String)
+
 	    seller(required: false, type:PropertyType.ArrayList, description: "Array of sellers with their data")
 	    //id
 	    //nickname
