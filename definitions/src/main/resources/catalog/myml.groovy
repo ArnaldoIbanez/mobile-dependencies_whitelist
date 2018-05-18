@@ -28,6 +28,11 @@ tracks {
     "/myml/sales"(platform: "/", isAbstract: true) {
         mymlGroup
     }
+    // Deprecar en Julio
+    "/myml/sales"(platform: "/mobile", isAbstract: true) {
+        dimensions(required: false, type:PropertyType.ArrayList, description: "Array list attributes temporal for 1 months ")
+    }
+    //
 
     "/myml/sales/list"(platform: "/", type: TrackType.View) {}
 
@@ -59,6 +64,10 @@ tracks {
 
     "/myml/purchases"(platform: "/", isAbstract: true) {
     	mymlGroup
+    }
+    // Deprecar en Julio
+    "/myml/purchases"(platform: "/mobile", isAbstract: true) {
+        dimensions(required: false, type:PropertyType.ArrayList, description: "Array list attributes temporal for 1 months ")
     }
 
     "/myml/purchases/list"(platform: "/") {
