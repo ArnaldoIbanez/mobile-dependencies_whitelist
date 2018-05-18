@@ -151,10 +151,10 @@ tracks {
        **/
       "/notification"(platform: "/") {
           event_type(required: true,
-                  values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel","purged_token"],
+                  values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel","purged_token", "swipe"],
           description: "Type of notification event")
           action_type(required: false,
-                  values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer"])
+                  values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received"])
           deeplink(required: false, description: "The link were the notification should navigate to, if applies")
 
           //For event_type:autodismiss, indicates why the notification was dismissed
@@ -184,9 +184,25 @@ tracks {
 
       "/notification/instore_discover_activities"(platform: "/") {}
 
+      "/notification/messages_new"(platform: "/") {}
+
+      "/notification/moderations_item_to_patch"(platform: "/") {
+          item_id(required: true, type: PropertyType.String, description: "Id of item.")
+      }
+
+      "/notification/moderations_item_forbidden"(platform: "/") {
+          item_id(required: true, type: PropertyType.String, description: "Id of item.")
+      }
+
+      "/notification/moderations_item_warning"(platform: "/") {
+          item_id(required: true, type: PropertyType.String, description: "Id of item.")
+      }
+
       //Tu producto está en camino
       "/notification/shipping_shipped"(platform: "/") {
-          shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+          shipment_id(required: true, description: "Id of shipment.")
+          order_id(required: false, type: PropertyType.Numeric, description: "Id of order.")
+          pack_id(required: false, type: PropertyType.String, description: "Id of pack.")
       }
 
       //Retiro en sucursal
@@ -223,17 +239,17 @@ tracks {
 
       //Hubo un problema con tu paquete y te vamos a pagar (para el vendedor)
       "/notification/shipping_not_delivered_sender"(platform: "/") {
-          shipment_id(required: true, type: PropertyType.Numeric)
+          shipment_id(required: true, type: PropertyType.String)
       }
 
       //Hubo un problema con el envío (para el comprador)
       "/notification/shipping_not_delivered_receiver"(platform: "/") {
-          shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+          shipment_id(required: true, type: PropertyType.String, description: "Id of shipment.")
       }
 
       //Paquete entregado
       "/notification/shipping_delivered"(platform: "/") {
-          shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+          shipment_id(required: true, type: PropertyType.String, description: "Id of shipment.")
       }
       "/notification/shipping_reminder_agency_withdrawal"(platform: "/") {
           shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
@@ -252,19 +268,27 @@ tracks {
           shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
       }
 
+      "/notification/shipping_legacy_delivered"(platform: "/") {}
+      "/notification/shipping_legacy_shipped"(platform: "/") {}
+      "/notification/shipping_legacy_delayed_receiver"(platform: "/") {}
+      "/notification/shipping_legacy_agency_withdrawal"(platform: "/") {}
+
       //Seller questions
       "/notification/questions_new"(platform: "/") {
-          question_id(required: true, type: PropertyType.Numeric)
+          question_id(required: true, type: PropertyType.String)
       }
 
       //Buyer questions
       "/notification/questions_answered"(platform: "/") {
-          question_id(required: true, type: PropertyType.String)
+          question_id(required: true, type: PropertyType.Numeric)
       }
+
+      "/notification/questions-buyer"(platform: "/") {}
+      "/notification/questions-seller"(platform: "/") {}
 
       //New Sale
       "/notification/orders_new"(platform: "/") {
-          order_id(required: true, type: PropertyType.Numeric)
+          order_id(required: true, type: PropertyType.String)
       }
 
       //Cancel Order
@@ -284,12 +308,24 @@ tracks {
 
       //Delivered Order
       "/notification/orders_delivered"(platform: "/") {
-          order_id(required: true, type: PropertyType.Numeric)
+          order_id(required: true, type: PropertyType.String)
       }
 
       //Delivered Order
       "/notification/orders_timeout_confirmed"(platform: "/") {
           order_id(required: true, type: PropertyType.Numeric)
+      }
+
+      "/notification/orders-buyer"(platform: "/") {
+          newsgroup_id(required: false, type: PropertyType.String)
+          type_layout(required: false, type: PropertyType.String)
+          type(required: false, type: PropertyType.String)
+      }
+
+      "/notification/orders-seller"(platform: "/") {
+          newsgroup_id(required: false, type: PropertyType.String)
+          type_layout(required: false, type: PropertyType.String)
+          type(required: false, type: PropertyType.String)
       }
 
       //Generic Campaigns
@@ -360,6 +396,11 @@ tracks {
           purchase_id(required: true, type: PropertyType.Numeric)
       }
 
+      //Qrviral
+      "/notification/qrviral_onboard"(platform: "/") {}
+      "/notification/qrviral_reminder"(platform: "/") {}
+
+
       //Listings
       "/notification/listings"(platform: "/") {}
       "/notification/listings_upgrade"(platform: "/") {
@@ -402,22 +443,22 @@ tracks {
       //Payments
       "/notification/payments_pending_reminder"(platform: "/") {
           item_id(required: true, type: PropertyType.String)
-          order_id(required: true, type: PropertyType.Numeric)
+          order_id(required: true, type: PropertyType.String)
       }
       "/notification/payments_approved"(platform: "/") {
           item_id(required: true, type: PropertyType.String)
-          order_id(required: true, type: PropertyType.Numeric)
+          order_id(required: true, type: PropertyType.String)
       }
 
       "/notification/payments_rejected"(platform: "/") {
           item_id(required: true, type: PropertyType.String)
-          order_id(required: true, type: PropertyType.Numeric)
+          order_id(required: true, type: PropertyType.String)
       }
 
       //Deprecated - typo
       "/notification/payments_pending_remainder"(platform: "/") {
           item_id(required: true, type: PropertyType.String)
-          order_id(required: true, type: PropertyType.Numeric)
+          order_id(required: true, type: PropertyType.String)
       }
 
       //Messages
@@ -426,9 +467,45 @@ tracks {
 
 
       //Reputation
+      "/notification/reputation"(platform: "/") {
+          newsgroup_id(required: false, type: PropertyType.String)
+          type_layout(required: false, type: PropertyType.String)
+          type(required: false, type: PropertyType.String)
+          latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+          latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+      }
       "/notification/reputation_free_shipping_activation"(platform: "/") {}
       "/notification/reputation_free_shipping_deactivation"(platform: "/") {}
       "/notification/reputation_medal_lost_reminder"(platform: "/") {}
+
+      //Reservations
+      "/notification/reservations_new"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+      }
+      "/notification/reservations_reminder"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+      }
+      "/notification/reservations_confirmed"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+      }
+      "/notification/reservations_buyer_confirm_delivery"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+      }
+      "/notification/reservations_seller_confirm_delivery"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+      }
+      "/notification/reservations_timeout_buyer_cancel"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+      }
+      "/notification/reservations_seller_cancel"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+      }
+      "/notification/reservations_timeout_seller_cancel"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+      }
+      "/notification/reservations_buyer_confirm_delivery_reminder"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+      }
 
       //Notification suggested discounts
       "/notification/campaigns_suggested_discounts_seller"(platform: "/") {
@@ -452,6 +529,7 @@ tracks {
           test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+          deal_id(required: false, type: PropertyType.String, description: "Id of deal.")
       }
 
       //Packages
@@ -470,6 +548,8 @@ tracks {
       "/notification/loyalty_change_level"(platform: "/") {}
       "/notification/loyalty_freeshipping"(platform: "/") {}
 
+      //Mshops
+      "/notification/mshops_questions"(platform: "/") {}
       //Returns
       "/notification/returns_return_cancelled"(platform: "/") {
         order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
@@ -494,11 +574,11 @@ tracks {
     "/notification/reviews_reminder"(platform: "/") {}
 
     //Security
-    "/notification/security_enrollment"(platform: "/") {
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }
+    "/notification/security_enrollment"(platform: "/") {}
     "/notification/security_phone_confirmation"(platform: "/") {}
+    "/notification/security_event_feedback"(platform: "/") {}
+    "/notification/security_account_validation"(platform: "/") {}
+    "/notification/security_login_auth"(platform: "/") {}
 
     //Health Check
     "/notification/health_check"(platform: "/") {
