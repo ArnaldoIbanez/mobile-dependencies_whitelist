@@ -10,7 +10,7 @@
   "cron": "00 18 * * *",
   "extract":
   {
-    "operation": "append",
+    "operation": "destroy",
     "columns":
     [
       {
