@@ -32,7 +32,7 @@ tracks {
 
     // Deprecar en Julio
     "/myml/sales"(platform: "/mobile", isAbstract: true) {
-        dimensions(required: false, description: "Array list temporal for 1 months")
+        dimensions(required: false, description: "Temporal for 1 months")
     }
     //
 
@@ -71,7 +71,7 @@ tracks {
     }
     // Deprecar en Julio
     "/myml/purchases"(platform: "/mobile", isAbstract: true) {
-        dimensions(required: false, description: "Array list temporal for 1 months")
+        dimensions(required: false, description: "Temporal for 1 months")
     }
 
     "/myml/purchases/list"(platform: "/") {
