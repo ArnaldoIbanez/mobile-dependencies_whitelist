@@ -34,7 +34,7 @@ tracks {
     }
     "/notification_center/security-enrollment-legacy"(platform: "/", type: TrackType.Event) {}
     "/notification_center/mediations-complainant"(platform: "/", type: TrackType.Event) {
-        claim_id(required: false, type: PropertyType.Numeric, description:"Id of claim.")
+        claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -129,8 +129,8 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/credits-consumer"(platform: "/", type: TrackType.Event) {
-          installment_id(required: false, description: "Id of installment.")
-          loan_id(required: false, description: "Id of loan.")
+          installment_id(required: true, description: "Id of installment.")
+          loan_id(required: true, description: "Id of loan.")
           latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
           latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
       }
@@ -154,7 +154,7 @@ tracks {
                   values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel","purged_token", "swipe"],
           description: "Type of notification event")
           action_type(required: false,
-                  values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received"])
+                  values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback"])
           deeplink(required: false, description: "The link were the notification should navigate to, if applies")
 
           //For event_type:autodismiss, indicates why the notification was dismissed
@@ -201,8 +201,8 @@ tracks {
       //Tu producto está en camino
       "/notification/shipping_shipped"(platform: "/") {
           shipment_id(required: true, description: "Id of shipment.")
-          order_id(required: false, type: PropertyType.Numeric, description: "Id of order.")
-          pack_id(required: false, type: PropertyType.String, description: "Id of pack.")
+          order_id(required: true, type: PropertyType.String, description: "Id of order.")
+          pack_id(required: true, type: PropertyType.Numeric, description: "Id of pack.")
       }
 
       //Retiro en sucursal
@@ -319,13 +319,13 @@ tracks {
       "/notification/orders-buyer"(platform: "/") {
           newsgroup_id(required: false, type: PropertyType.String)
           type_layout(required: false, type: PropertyType.String)
-          type(required: false, type: PropertyType.String)
+          type(required: false, type: PropertyType.String, description: "type of order notification.")
       }
 
       "/notification/orders-seller"(platform: "/") {
           newsgroup_id(required: false, type: PropertyType.String)
           type_layout(required: false, type: PropertyType.String)
-          type(required: false, type: PropertyType.String)
+          type(required: false, type: PropertyType.String, description: "type of order notificaction.")
       }
 
       //Generic Campaigns

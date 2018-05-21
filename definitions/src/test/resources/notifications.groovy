@@ -37,7 +37,6 @@ trackTests {
             event_type= "open"
             deeplink= "meli://purchases/1285223441#payment"
             type_layout= "standard"
-
         }
 
         "/notification_center/reputation"(platform: "/mobile"){
@@ -267,6 +266,8 @@ trackTests {
             event_type= "open"
             deeplink= "meli://generic_landing?authenticate=true&url=https%3A%2F%2Fwww.mercadolibre.com.ar%2Fcredits%2Fconsumer%2Fnews%3FloanId%3D255720%26installmentId%3D1592866"
             type_layout= "standard"
+            installment_id= 717743
+            loan_id= 107849
             latest_news_type= "1592866"
             latest_news_id= "credits-consumer_expired_second_notice-1592866"
         }
@@ -505,10 +506,12 @@ trackTests {
         "/notification/orders-buyer"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
+            type= "orders-buyer"
         }
         "/notification/orders-seller"(platform: "/mobile") {
             news_id = "orders-seller-1712072317"
             event_type = "action_open"
+            type= "orders-seller"
         }
         "/notification/purchases_payments_approved"(platform: "/mobile") {
             news_id = "12332323"
@@ -613,6 +616,8 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
             shipment_id = 1234
+            order_id = "1234321"
+            pack_id= 2000000032080846
         }
 
         "/notification/shipping_delivered"(platform: "/mobile") {
