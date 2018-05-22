@@ -33,6 +33,11 @@ tracks {
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:true)
     }
 
+    "/register/optin"(platform:"/web", type: TrackType.View) {
+        app(type: PropertyType.String, description: "Registration app", required:true)
+        prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:true)
+    }
+
     "/register/form/error"(platform:"/web", type: TrackType.View) {
         errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
         errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
@@ -72,5 +77,86 @@ tracks {
     "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
         error_type(required:true, description: "connectionError/invalidOneTimePassword/operatorNotSupported")
     }
+
+    "/register/hub"(platform: "/mobile", type: TrackType.View){
+        app(type: PropertyType.String, required:true, description: "Current Flow")
+        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
+        item_id(type: PropertyType.String, required:false, description: "Item" )
+    }
+    "/register/hub/register-with-email"(platform: "/mobile", type: TrackType.Event){}
+    "/register/hub/register-with-facebook"(platform: "/mobile", type: TrackType.Event){}
+
+    "/register/form"(platform: "/mobile", type: TrackType.View){
+        app(type: PropertyType.String, required:true, description: "Current Flow")
+        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
+        item_id(type: PropertyType.String, required:false, description: "Item" )
+        // TODO: In the future register_type might be "required: true". We have to do some changes for that
+        register_type(type: PropertyType.String, required: false, description: "User type", values: ["person", "company"])
+    }
+
+    "/register/form/error"(platform:"/mobile", type: TrackType.View) {
+        errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
+        errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
+    }
+
+    "/register/form/another-email"(platform: "/mobile", type: TrackType.View){
+        app(type: PropertyType.String, required:true, description: "Current Flow")
+        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
+        item_id(type: PropertyType.String, required:false, description: "Item" )
+    }
+
+    "/register/account-recovery-hub"(platform: "/mobile", type: TrackType.View){
+        app(type: PropertyType.String, required:true, description: "Current Flow")
+        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
+        item_id(type: PropertyType.String, required:false, description: "Item" )
+    }
+
+    "/register/account-recovery-hub/account-recovery"(platform: "/mobile", type: TrackType.Event){}
+    "/register/account-recovery-hub/use-another-email"(platform: "/mobile", type: TrackType.Event){}
+
+    "/register/congrats"(platform: "/mobile", type: TrackType.View){
+        app(type: PropertyType.String, required:true, description: "Current Flow")
+        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
+        item_id(type: PropertyType.String, required:false, description: "Item" )
+        // TODO: In the future register_type might be "required: true". We have to do some changes for that
+        register_type(type: PropertyType.String, required: false, description: "User type", values: ["person", "company"])
+    }
+
+    "/register/form/skip-update"(platform: "/web", type: TrackType.View){}
+    "/register/optin/push"(platform: "/web", type: TrackType.View){}
+    "/register/optin/skip"(platform: "/web", type: TrackType.View){}
+    "/register/form/email-suggest"(platform: "/web", type: TrackType.Event){}
+
+    "/register/form/update"(platform: "/mobile", type: TrackType.View){
+        app(type: PropertyType.String, required:true, description: "Current Flow")
+        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
+        item_id(type: PropertyType.String, required:false, description: "Item" )
+    }
+
+    "/register/form/update/error"(platform:"/mobile", type: TrackType.View) {
+        errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
+        errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
+    }
+
+    "/register/form/update/save"(platform: "/mobile", type: TrackType.Event){}
+    "/register/form/update/not-now"(platform: "/mobile", type: TrackType.Event){}
+
+    "/register/successful-update"(platform: "/mobile", type: TrackType.View){
+        app(type: PropertyType.String, required:true, description: "Current Flow")
+        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
+        item_id(type: PropertyType.String, required:false, description: "Item" )
+    }
+
+    // TODO, PLEASE MOVE THIS TO SOMETHING LIKE /register/progresive o algo que sea más acorde a todo el tracking del modulo
+    "/progressive_registration"(platform:"/mobile", type: TrackType.View) {}
+
+    "/register/form/company-link"(platform: "/mobile", type: TrackType.Event){}
+    "/register/form/person-link"(platform: "/mobile", type: TrackType.Event){}
+
+    // Company Registration
+
+    "/register/congrats/complete-fiscal-data"(platform: "/mobile", type: TrackType.Event){}
+    "/register/congrats/complete-fiscal-data-later"(platform: "/mobile", type: TrackType.Event){}
+
 }
 

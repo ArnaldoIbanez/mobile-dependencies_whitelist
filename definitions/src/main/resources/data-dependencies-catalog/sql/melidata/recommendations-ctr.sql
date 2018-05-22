@@ -26,9 +26,10 @@ FROM(SELECT
     WHERE
         v2.track_info IS NOT NULL
         AND cast(get_json_object(v2.track_info,'$.has_recommendations') as varchar(50)) = 'true'
-        AND CAST(v2.hidden_by_client as varchar(50)) = 'false'
+        AND (CAST(v2.hidden_by_client as varchar(50)) = 'false' OR v2.hidden_by_client is null)
         AND (v2.algorithm is not null or v2.backend_id is not null)
         AND (v2.context is not null or v2.client is not null)
+        AND NOT is_bot(device.user_agent)
         AND ds >= '@param01 02' AND ds < '@param02 02') a
 GROUP BY a.ds,
          a.platform,
@@ -52,8 +53,9 @@ LEFT JOIN
         path = '/vip'
         AND v1.reco_client IS NOT NULL
         AND ds >= '@param01 02' AND ds < '@param02 02'
+        AND NOT is_bot(device.user_agent)
     GROUP BY
-        substr(ds,1,10),
+        '@param01',
         platform_level(device.platform,2),
         application.site_id,
         v1.reco_backend,

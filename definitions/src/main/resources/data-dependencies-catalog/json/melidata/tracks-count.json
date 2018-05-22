@@ -3,7 +3,7 @@
     "martin.ciruzzi@mercadolibre.com"
   ],
   "process_name": "tracks_count",
-  "cron": "* 07 * * *",
+  "cron": "45 10 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -31,7 +31,7 @@
     ],
     "sql": {
 
-      "script": "tracks-count.sql",
+      "script": "melidata/tracks-count.sql",
       "parameters": [
         {
           "name": "param01",

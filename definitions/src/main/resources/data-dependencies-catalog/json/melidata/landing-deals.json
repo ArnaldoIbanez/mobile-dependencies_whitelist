@@ -5,7 +5,7 @@
   "process_name": "landingdeals",
   "cron": "0 */4 * * *",
   "extract": {
-    "operation": "overwrite",
+    "operation": "destroy",
     "columns": [
       {
         "name": "site",

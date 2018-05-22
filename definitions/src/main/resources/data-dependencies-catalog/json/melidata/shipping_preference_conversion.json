@@ -1,0 +1,84 @@
+{
+  "users": [
+    "lucia.blanc@mercadolibre.com"
+  ],
+  "process_name": "shipping_preference_conversion",
+  "cron": "30 18 * * *",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "uid",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "user_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "fecha",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "item",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "freeshipping",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "shipping_preference_vip",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "cantidad_vip",
+        "type": "INTEGER"
+      },
+      {
+        "name": "method_id_congrats",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "shipping_name_congrats",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "cantidad_congrats",
+        "type": "INTEGER"
+      },
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "site",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "l1",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "l2",
+        "type": "UNICODE_STRING"
+      }
+    ],
+    "sql": {
+      "script": "business-assurance/shipping_preference_conversion.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

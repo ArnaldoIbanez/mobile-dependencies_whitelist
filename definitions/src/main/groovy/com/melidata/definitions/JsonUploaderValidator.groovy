@@ -1,8 +1,8 @@
 package com.melidata.definitions
 
 import com.melidata.metrics.format.QueryFormatter
+import com.melidata.definitions.MelidataJsonValidator
 import groovy.json.JsonException
-
 
 
 class JsonUploaderValidator {
@@ -16,9 +16,10 @@ class JsonUploaderValidator {
         println starBar()+"\n"
 
         def formatter = new QueryFormatter()
+        def queryFormatterOutput
 
         try {
-            def queryFormatterOutput = formatter.buildJson()
+            queryFormatterOutput = formatter.buildJson()
         }
         catch ( JsonException e ){
             println("\033[91m - Error while validating croned queries. Check $CONCAT_FILE_NAME \033[0m")
@@ -34,8 +35,8 @@ class JsonUploaderValidator {
         println("\033[92m - Queries validated succesfully \033[0m")
 
         // TODO ADD QUERY COMPILATION VALIDATION
-        // TODO ADD CRON COMPILATION VALIDATION
 
+        MelidataJsonValidator.validate(queryFormatterOutput)
         return true
     }
 

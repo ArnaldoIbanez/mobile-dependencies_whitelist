@@ -1,0 +1,81 @@
+{
+  "users": [
+    "emmanuel.mastronardi@mercadolibre.com",
+    "gabriel.bertolo@mercadolibre.com",
+    "sebastian.schmukliar@mercadolibre.com",
+    "diego.borda@mercadolibre.com",
+    "gonzalo.gismero@mercadolibre.com"
+  ],
+  "process_name": "structured_data_modal_attributes_submit",
+  "cron": "00 07 * * *",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "source",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "dominio",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "categoria",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "atributo",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "opcion",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "valor",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "seller",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "item",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "condicion",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "hierarchy",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "site",
+        "type": "UNICODE_STRING"
+      }
+
+    ],
+    "sql": {
+      "script": "business-assurance/structured-data-pseudo-mandatory.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

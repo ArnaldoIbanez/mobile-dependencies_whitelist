@@ -1,0 +1,48 @@
+{
+  "users": [
+    "gabriel.neil@mercadolibre.com"
+  ],
+  "process_name": "consumer_journey_checkout",
+  "cron": "0 5 * * *",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "date_sent",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "user_id",
+        "type": "INTEGER"
+      },
+      {
+        "name": "reference",
+        "type": "UNICODE_STRING"
+      }
+    ],
+    "sql": {
+      "script": "business-assurance/credits_consumer_journey_checkout.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

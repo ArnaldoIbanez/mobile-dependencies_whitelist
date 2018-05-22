@@ -28,9 +28,10 @@ FROM(SELECT
     WHERE
         v2.track_info IS NOT NULL
         AND cast(get_json_object(v2.track_info,'$.has_recommendations') as varchar(50)) = 'true'
-        AND CAST(v2.hidden_by_client as varchar(50)) = 'false'
+        AND (CAST(v2.hidden_by_client as varchar(50)) = 'false' OR v2.hidden_by_client is null)
         AND (v2.algorithm is not null or v2.backend_id is not null)
         AND (v2.context is not null or v2.client is not null)
+        AND NOT is_bot(device.user_agent)
         AND ds >= '@param02 02' AND ds < '@param03 02') a
 GROUP BY a.ds,
          a.platform,
@@ -62,6 +63,7 @@ FROM(
    WHERE
    	path = '/vip'
    	AND v1.client IS NOT NULL
+   	AND NOT is_bot(device.user_agent)
    	AND ds >= '@param01 02' AND ds < '@param03 02'
    )recommendations
 INNER JOIN(
@@ -69,7 +71,7 @@ INNER JOIN(
          '@param02' AS ds,
          	usr.user_id AS user_id,
          	order_id,
-         	CAST(get_json_object(get_json_object(get_json_object(event_data,'$.order_items[0]'),'$.item'),'$.id')AS varchar(50)) AS item_id,
+         	CAST(get_json_object(get_json_object(get_json_object(event_data,'$.items[0]'),'$.item'),'$.id')AS varchar(50)) AS item_id,
          	total_amount_usd,
 		user_timestamp
        	FROM tracks
@@ -78,6 +80,7 @@ INNER JOIN(
            	path like '/checkout/congrats%'
             AND ds >= '@param02 02' AND ds < '@param03 02'
            	AND CAST(v1.congrats_seq AS VARCHAR(50)) = '1'
+           	AND NOT is_bot(device.user_agent)
            	AND total_amount_usd < 10000
        	) orders
 ON  orders.item_id = recommendations.item_id

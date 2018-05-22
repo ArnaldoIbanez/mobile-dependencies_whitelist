@@ -1,0 +1,72 @@
+{
+  "users": [
+    "ext_grodrig@mercadolibre.com","ext_mberriel@mercadolibre.com"
+  ],
+  "process_name": "suggested_discount_tracks",
+  "cron": "00 01 * * *",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "siteId",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "path",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "userId",
+        "type": "INTEGER"
+      },
+      {
+        "name": "type",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "item_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "selected_discount",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "discount_status",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "action",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "onboarding_step",
+        "type": "UNICODE_STRING"
+      }
+    ],
+    "sql": {
+      "script": "melidata/suggested-discount-tracks.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
