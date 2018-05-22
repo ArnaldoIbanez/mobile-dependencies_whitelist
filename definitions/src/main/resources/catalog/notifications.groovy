@@ -316,10 +316,11 @@ tracks {
           order_id(required: true, type: PropertyType.Numeric)
       }
 
+      //Deprecated - typo @TODO Revisar este path para eliminarlo en el mediano plazo cuando las apps no lo envien mas
       "/notification/orders-buyer"(platform: "/") {
           newsgroup_id(required: false, type: PropertyType.String)
           type_layout(required: false, type: PropertyType.String)
-          type(required: false, type: PropertyType.String, description: "type of order notification.")
+          type(required: false, type: PropertyType.String, deprecated: true, description: "type of order notification.")
       }
 
       "/notification/orders-seller"(platform: "/") {
