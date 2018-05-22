@@ -4413,6 +4413,12 @@ trackTests {
 
         "/myml/purchases/status" (platform:"/", type: TrackType.View) {}
 
+        "/myml/purchases/items" (platform:"/", type: TrackType.View) {}
+
+        "/myml/purchases/seller" (platform:"/", type: TrackType.View) {}
+
+        "/myml/purchases/status" (platform:"/", type: TrackType.View) {}
+
         "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {}
 
         "/myml/loyal_discounts" (platform: "/", type: TrackType.View) {}

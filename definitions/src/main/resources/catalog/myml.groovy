@@ -66,6 +66,10 @@ tracks {
 
     "/myml/sales/questions"(platform: "/") {}
 
+    "/myml/sales/buyer"(platform:"/", type: TrackType.View) {}
+
+    "/myml/sales/item"(platform:"/", type: TrackType.View) {}
+
     "/myml/purchases"(platform: "/", isAbstract: true) {
     	mymlGroup
     }
@@ -124,6 +128,9 @@ tracks {
 
     "/myml/purchases/status"(platform:"/", type: TrackType.View) {}
 
+    "/myml/purchases/item"(platform:"/", type: TrackType.View) {}
+
+    "/myml/purchases/seller"(platform:"/", type: TrackType.View) {}
 
     "/myml"(platform: "/", isAbstract: true) {}
     "/myml/listings"(platform: "/web", type: TrackType.View) {
