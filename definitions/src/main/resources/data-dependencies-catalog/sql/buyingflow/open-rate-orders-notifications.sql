@@ -1,70 +1,55 @@
-SELECT 
-  ds,
-  site_id,
-  email_template,
-  ROUND((open_quantity * 100.0) / sent_quantity, 2) as percentage
-FROM 
+SELECT
+  Sent.sent_date, 
+  Sent.site_id,
+  Sent.email_id,
+  Sent.payment_method_id as payment_method_id,
+  Sent.payment_type as payment_type,
+  Sent.payment_status as payment_status,
+  Sent.status as status,
+  count (Sent.email_id) as count_send, 
+  sum(if(Open.email_id IS NOT NULL, 1, 0)) as count_open,
+  if(count (Sent.email_id) <> 0,
+  sum(if(Open.email_id IS NOT NULL, 1, 0)) * 100 / count (Sent.email_id),
+  0) as percentage
+FROM (
+  SELECT 
+    distinct substr(ds,1,10) AS sent_date,
+    application.site_id as site_id,
+    jest(event_data,'order_id') as order_id,
+    jest(event_data,'email_template') as email_id,
+    jest(event_data, 'payments[0].method_id') as payment_method_id,
+    jest(event_data, 'payments[0].type') as payment_type,
+    jest(event_data, 'payments[0].status') as payment_status,
+    jest(event_data,'order_status') as status
+  FROM tracks
+  WHERE 
+    ds >= '@param01' 
+    AND ds < '@param02'
+    AND jest(event_data,'event_type') = 'send'
+    AND path = '/email/orders'
+        ) AS Sent
+LEFT OUTER JOIN
 (
-  SELECT emails_send2.ds as ds,
-    emails_send2.site as site_id,
-    emails_send2.email_template as email_template,
-    COUNT(*) as sent_quantity,
-    SUM(CASE 
-      WHEN emails_open2.email_template is null THEN 0 
-      ELSE 1 
-    END) as open_quantity
-  FROM 
-    (SELECT
-      substr(ds,1,10) as ds,
-      application.site_id as site,
-      jest(event_data,'order_id') as order_id,
-      jest(event_data,'email_template') as email_template
-    FROM 
-      tracks 
-    WHERE 
-      ds >= '@param01'
-      AND ds < '@param02'
-      AND path = '/email/orders'
-      AND jest(event_data,'event_type') = 'send'
-    ) as emails_send2
-    LEFT JOIN
-    (SELECT
-      emails_open.ds,
-      emails_open.site,
-      emails_open.email_template,
-      emails_open.order_id
-    FROM
-      (SELECT
-        substr(ds,1,10) as ds,
-        application.site_id as site,
-        jest(event_data,'order_id') as order_id,
-        jest(event_data,'email_template') as email_template
-      FROM 
-        tracks 
-      WHERE 
-        ds >= '@param01'
-        AND ds < '@param02'
-        AND path = '/email/orders'
-        AND jest(event_data,'event_type') = 'open'
-      ) as emails_open,
-      (SELECT
-        substr(ds,1,10) as ds,
-        application.site_id as site,
-        jest(event_data,'order_id') as order_id,
-        jest(event_data,'email_template') as email_template
-      FROM 
-        tracks 
-      WHERE 
-        ds >= '@param01'
-        AND ds < '@param02'
-        AND path = '/email/orders'
-        AND jest(event_data,'event_type') = 'send'
-      ) as emails_send
-    WHERE emails_open.order_id = emails_send.order_id
-    AND emails_open.email_template = emails_send.email_template
-    ) as emails_open2
-  ON emails_send2.order_id = emails_open2.order_id
-  GROUP BY emails_send2.ds,
-    emails_send2.site,
-    emails_send2.email_template
-);  
+  SELECT
+    distinct substr(ds,1,10) as open_date,
+    jest(event_data,'order_id') as order_id,
+    jest(event_data, 'payments[0].method_id') as payment_method_id,
+    jest(event_data,'email_template') as email_id
+  FROM tracks
+  WHERE   
+    ds >= '@param01'
+    AND ds < '@param03'
+    AND jest(event_data,'event_type') = 'open'
+    AND path = '/email/orders' ) AS Open
+ON Sent.order_id = Open.order_id
+AND Sent.email_id = Open.email_id
+AND Sent.payment_method_id = Open.payment_method_id
+GROUP BY Sent.sent_date,
+         Sent.email_id,
+         Sent.site_id,
+         Sent.payment_method_id,
+         Sent.payment_type,
+         Sent.payment_status,
+         Sent.status
+ORDER BY Sent.sent_date
+;
