@@ -5,9 +5,11 @@ import com.ml.melidata.TrackType
 tracks {
 
     propertyDefinitions {
-	    cart_content(required:false, type: PropertyType.Boolean)
+	    cart_content(required:false, type: PropertyType.String)
+        CartContent(required:false, type: PropertyType.String)//solo va a existir por un mes, hasta que hagamos la subida para mobile
 	    status(required:false, type: PropertyType.String)
-        purchases_status(required:false, type: PropertyType.String)
+        purchase_status(required:false, type: PropertyType.String)
+        PurchaseStatus(required:false, type: PropertyType.String)//solo va a existir por un mes, hasta que hagamos la subida para mobile
 
 	    seller(required: false, type:PropertyType.ArrayList, description: "Array of sellers with their data")
 	    //id
@@ -22,7 +24,7 @@ tracks {
     }
 
     propertyGroups {
-        mymlGroup(cart_content, status, purchases_status, seller, buyer)
+        mymlGroup(cart_content, CartContent, status, purchase_status, PurchaseStatus, seller, buyer)
     }
 
 
@@ -65,6 +67,10 @@ tracks {
     "/myml/sales/messages"(platform: "/") {}
 
     "/myml/sales/questions"(platform: "/") {}
+
+    "/myml/sales/buyer"(platform:"/", type: TrackType.View) {}
+
+    "/myml/sales/item"(platform:"/", type: TrackType.View) {}
 
     "/myml/purchases"(platform: "/", isAbstract: true) {
     	mymlGroup
@@ -124,6 +130,9 @@ tracks {
 
     "/myml/purchases/status"(platform:"/", type: TrackType.View) {}
 
+    "/myml/purchases/item"(platform:"/", type: TrackType.View) {}
+
+    "/myml/purchases/seller"(platform:"/", type: TrackType.View) {}
 
     "/myml"(platform: "/", isAbstract: true) {}
     "/myml/listings"(platform: "/web", type: TrackType.View) {
