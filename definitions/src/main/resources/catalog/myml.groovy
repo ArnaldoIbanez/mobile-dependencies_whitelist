@@ -6,8 +6,10 @@ tracks {
 
     propertyDefinitions {
 	    cart_content(required:false, type: PropertyType.Boolean)
+        CartContent(required:false, type: PropertyType.Boolean)//solo va a existir por un mes, hasta que hagamos la subida para mobile
 	    status(required:false, type: PropertyType.String)
         purchases_status(required:false, type: PropertyType.String)
+        PurchaseStatus(required:false, type: PropertyType.String)//solo va a existir por un mes, hasta que hagamos la subida para mobile
 
 	    seller(required: false, type:PropertyType.ArrayList, description: "Array of sellers with their data")
 	    //id
