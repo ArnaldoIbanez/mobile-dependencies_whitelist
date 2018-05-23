@@ -1,4 +1,5 @@
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
+import com.ml.melidata.catalog.PropertyType
 
 tracks {
 
@@ -51,4 +52,20 @@ tracks {
     "/email/fup_feedback"(platform: "/email"){}
 
     "/email/message"(platform: "/email"){}
+
+    "/email/buyingflow"(platform: "/email"){
+        purchase_id(required: true)
+        purchase_status(required:false, type: PropertyType.String, description: "Purchase status based on its payments")
+        shipping_type(required:true, type: PropertyType.String, description: "First purchase's shipping option type.")
+        payments(required: true, type:PropertyType.ArrayList, description: "Array of payments in the purchase with following data")
+//            // id,
+//            // status,
+//            // status_detail,
+//            // type,
+//            // method_id,
+//            // date_created,
+//            // date_approved,
+//            // date_last_modified,
+        buy_equals_pay(required: true, type: PropertyType.Boolean)
+    }
 }
