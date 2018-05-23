@@ -54,7 +54,7 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-0",
+          "value": "DAY-2",
           "format": "yyyy-MM-dd"
         },
         {
@@ -64,7 +64,7 @@
         },
         {
           "name": "param03",
-          "value": "DAY-2",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
       ]
