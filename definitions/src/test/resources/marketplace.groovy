@@ -4351,7 +4351,10 @@ trackTests {
                     [id: "208642594", nickname: "TESTEO_1", loyalty_level: "4"]
             ]
 
-            cartContent = true
+            CartContent = true
+            cart_content = true
+            purchase_status = "Paid"
+            PurchaseStatus = "Paid"
 
         }
 
@@ -4381,11 +4384,17 @@ trackTests {
 
         "/myml/sales/questions"(platform: "/web") {}
 
-        "/myml/sales/shipping" (platform:"/", type: TrackType.View) {}
+        "/myml/sales/shipping" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
 
-        "/myml/sales/buyer"(platform:"/", type: TrackType.View) {}
+        "/myml/sales/buyer"(platform:"/", type: TrackType.View) {
+            dataSet()
+        }
 
-        "/myml/sales/item"(platform:"/", type: TrackType.View) {}
+        "/myml/sales/item"(platform:"/", type: TrackType.View) {
+            dataSet()
+        }
 
         "/myml/purchases/list"(platform: "/web") {}
 
@@ -4415,13 +4424,21 @@ trackTests {
 
         "/myml/purchases/detail/history"(platform:"/") {}
 
-        "/myml/purchases/status" (platform:"/", type: TrackType.View) {}
+        "/myml/purchases/status" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
 
-        "/myml/purchases/item" (platform:"/", type: TrackType.View) {}
+        "/myml/purchases/item" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
 
-        "/myml/purchases/seller" (platform:"/", type: TrackType.View) {}
+        "/myml/purchases/seller" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
 
-        "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {}
+        "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
 
         "/myml/loyal_discounts" (platform: "/", type: TrackType.View) {}
         "/myml/loyal_discounts/add" (platform: "/web", type: TrackType.Event) {
