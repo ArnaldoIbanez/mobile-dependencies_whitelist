@@ -66,7 +66,7 @@ trackTests {
             is_test = true
         }
 
-        "/email/buyingflow"(platform: "/email") {
+        "/email/checkout/on"(platform: "/email") {
             defaultTrackInformation()
             purchase_id = 1000000016961120
             purchase_status = "payment_in_process"

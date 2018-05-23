@@ -53,7 +53,7 @@ tracks {
 
     "/email/message"(platform: "/email"){}
 
-    "/email/buyingflow"(platform: "/email"){
+    "/email/checkout/on"(platform: "/email"){
         purchase_id(required: true)
         purchase_status(required:false, type: PropertyType.String, description: "Purchase status based on its payments")
         shipping_type(required:true, type: PropertyType.String, description: "First purchase's shipping option type.")
