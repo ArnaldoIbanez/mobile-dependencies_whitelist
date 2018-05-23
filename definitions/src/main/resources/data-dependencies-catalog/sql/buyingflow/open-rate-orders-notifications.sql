@@ -23,7 +23,7 @@ FROM (
     jest(event_data,'order_status') as status
   FROM tracks
   WHERE 
-    ds >= '@param02' 
+    ds >= '@param01' 
     AND ds < '@param02'
     AND jest(event_data,'event_type') = 'send'
     AND path = '/email/orders'
