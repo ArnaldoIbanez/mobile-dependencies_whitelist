@@ -35,8 +35,6 @@ tracks {
 
     "/email/question"(platform: "/email"){}
 
-    "/email/checkout"(platform: "/email"){}
-
     "/email/reputation"(platform: "/email"){}
 
     "/email/access"(platform: "/email"){}
@@ -53,9 +51,9 @@ tracks {
 
     "/email/message"(platform: "/email"){}
 
-    "/email/checkout/on"(platform: "/email"){
+    "/email/checkout"(platform: "/email", isAbstract: true){
         purchase_id(required: true)
-        purchase_status(required:false, type: PropertyType.String, description: "Purchase status based on its payments")
+        purchase_status(required:false, type: PropertyType.String, description: "Purchase status based on its payments statuses")
         shipping_type(required:true, type: PropertyType.String, description: "First purchase's shipping option type.")
         payments(required: true, type:PropertyType.ArrayList, description: "Array of payments in the purchase with following data")
 //            // id,
@@ -68,4 +66,22 @@ tracks {
 //            // date_last_modified,
         buy_equals_pay(required: true, type: PropertyType.Boolean)
     }
+
+    // mails for: purchases with all its payments approved or authorized
+    "/email/checkout/ok"(platform: "/email"){}
+
+    // mails for: purchases with some of its payments rejected
+    "/email/checkout/error"(platform: "/email"){}
+
+    // mails for: purchases with some of its payments in process
+    "/email/checkout/in_process"(platform: "/email"){}
+
+    // mails for: purchases with some of its payments pending
+    "/email/checkout/pending"(platform: "/email"){}
+
+    // mails for: purchases with some of its payments cancelled
+    "/email/checkout/cancelled"(platform: "/email"){}
+
+    // mails for: purchases with some of its payments refunded
+    "/email/checkout/refunded"(platform: "/email"){}
 }
