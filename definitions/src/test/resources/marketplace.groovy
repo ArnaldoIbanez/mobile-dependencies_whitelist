@@ -4383,6 +4383,10 @@ trackTests {
 
         "/myml/sales/shipping" (platform:"/", type: TrackType.View) {}
 
+        "/myml/sales/buyer"(platform:"/", type: TrackType.View) {}
+
+        "/myml/sales/item"(platform:"/", type: TrackType.View) {}
+
         "/myml/purchases/list"(platform: "/web") {}
 
         "/myml/purchases/detail"(platform: "/web") {}
@@ -4416,8 +4420,6 @@ trackTests {
         "/myml/purchases/item" (platform:"/", type: TrackType.View) {}
 
         "/myml/purchases/seller" (platform:"/", type: TrackType.View) {}
-
-        "/myml/purchases/status" (platform:"/", type: TrackType.View) {}
 
         "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {}
 
