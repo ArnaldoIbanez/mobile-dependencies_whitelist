@@ -4351,8 +4351,8 @@ trackTests {
                     [id: "208642594", nickname: "TESTEO_1", loyalty_level: "4"]
             ]
 
-            CartContent = true
-            cart_content = true
+            CartContent = "Yes"
+            cart_content = "No"
             purchase_status = "Paid"
             PurchaseStatus = "Paid"
 

@@ -5,8 +5,8 @@ import com.ml.melidata.TrackType
 tracks {
 
     propertyDefinitions {
-	    cart_content(required:false, type: PropertyType.Boolean)
-        CartContent(required:false, type: PropertyType.Boolean)//solo va a existir por un mes, hasta que hagamos la subida para mobile
+	    cart_content(required:false, type: PropertyType.String)
+        CartContent(required:false, type: PropertyType.String)//solo va a existir por un mes, hasta que hagamos la subida para mobile
 	    status(required:false, type: PropertyType.String)
         purchase_status(required:false, type: PropertyType.String)
         PurchaseStatus(required:false, type: PropertyType.String)//solo va a existir por un mes, hasta que hagamos la subida para mobile
