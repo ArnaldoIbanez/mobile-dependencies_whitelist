@@ -1,5 +1,6 @@
 SELECT
-  distinct jest(event_data, 'email_id')             as  email_id,
+  distinct
+  jest(event_data, 'email_id')             as  email_id,
   substr(ds, 1, 10)                        as  fecha,
   path,
   jest(event_data, 'email_template')       as  template,
