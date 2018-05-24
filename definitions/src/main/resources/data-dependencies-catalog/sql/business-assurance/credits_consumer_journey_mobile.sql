@@ -16,4 +16,4 @@ where
          or jest(event_data, 'context') = 'notification_center')
     and (jest(event_data, 'event_type') = 'shown'
          or jest(event_data, 'event_type') = 'open')))
-  and (ds >= '@param01' and ds <= '@param02')
+  and (ds >= '@param01' and ds < '@param02')
