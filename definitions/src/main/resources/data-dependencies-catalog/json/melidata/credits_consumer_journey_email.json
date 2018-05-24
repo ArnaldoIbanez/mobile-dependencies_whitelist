@@ -43,7 +43,7 @@
       }
     ],
     "sql": {
-      "script": "business-assurance/credits_consumer_journey.sql",
+      "script": "business-assurance/credits_consumer_journey_email.sql",
       "parameters": [
         {
           "name": "param01",
