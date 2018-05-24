@@ -5,8 +5,11 @@ import com.ml.melidata.TrackType
 tracks {
 
     propertyDefinitions {
-	    cartContent(required:false, type: PropertyType.Boolean)
+	    cart_content(required:false, type: PropertyType.String)
+        CartContent(required:false, type: PropertyType.String)//solo va a existir por un mes, hasta que hagamos la subida para mobile
 	    status(required:false, type: PropertyType.String)
+        purchase_status(required:false, type: PropertyType.String)
+        PurchaseStatus(required:false, type: PropertyType.String)//solo va a existir por un mes, hasta que hagamos la subida para mobile
 
 	    seller(required: false, type:PropertyType.ArrayList, description: "Array of sellers with their data")
 	    //id
@@ -21,13 +24,19 @@ tracks {
     }
 
     propertyGroups {
-        mymlGroup(cartContent, status, seller, buyer)
+        mymlGroup(cart_content, CartContent, status, purchase_status, PurchaseStatus, seller, buyer)
     }
 
 
     "/myml/sales"(platform: "/", isAbstract: true) {
         mymlGroup
     }
+
+    // Deprecar en Julio
+    "/myml/sales"(platform: "/mobile", isAbstract: true) {
+        dimensions(required: false, description: "Temporal for 1 months")
+    }
+    //
 
     "/myml/sales/list"(platform: "/", type: TrackType.View) {}
 
@@ -51,14 +60,24 @@ tracks {
 
     "/myml/sales/order"(platform: "/") {}
 
+    "/myml/sales/shipping"(platform: "/", type: TrackType.View) {}
+
     "/myml/sales/shipping_detail"(platform: "/") {}
 
     "/myml/sales/messages"(platform: "/") {}
 
     "/myml/sales/questions"(platform: "/") {}
 
+    "/myml/sales/buyer"(platform:"/", type: TrackType.View) {}
+
+    "/myml/sales/item"(platform:"/", type: TrackType.View) {}
+
     "/myml/purchases"(platform: "/", isAbstract: true) {
     	mymlGroup
+    }
+    // Deprecar en Julio
+    "/myml/purchases"(platform: "/mobile", isAbstract: true) {
+        dimensions(required: false, description: "Temporal for 1 months")
     }
 
     "/myml/purchases/list"(platform: "/") {
@@ -78,6 +97,8 @@ tracks {
     "/myml/purchases/print_label"(platform: "/") {}
 
     "/myml/purchases/print_label/show_stores_map"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/purchases/shipping"(platform: "/", type: TrackType.View) {}
 
     "/myml/purchases/shipping_detail"(platform: "/") {}
 
@@ -107,6 +128,11 @@ tracks {
 
     "/myml/purchases/feedback/error"(platform: "/mobile", type: TrackType.View) {}
 
+    "/myml/purchases/status"(platform:"/", type: TrackType.View) {}
+
+    "/myml/purchases/item"(platform:"/", type: TrackType.View) {}
+
+    "/myml/purchases/seller"(platform:"/", type: TrackType.View) {}
 
     "/myml"(platform: "/", isAbstract: true) {}
     "/myml/listings"(platform: "/web", type: TrackType.View) {

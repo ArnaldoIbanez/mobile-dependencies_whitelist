@@ -17,10 +17,10 @@ tracks {
     }
 
     "/register/facebook_permissions"(platform: "/") {
-        login_status(type: PropertyType.String, description: "Success, Cancel, Error")
-        email(type: PropertyType.Boolean, description : "Needed  to access the user main email address.")
-        user_birthday(type: PropertyType.Boolean, description : "Needed  to access date (day and month) of the user birthday.")
-        user_likes(type: PropertyType.Boolean, description : "Needed  to access user liked pages.")
+        login_status(type: PropertyType.String, description: "Success, Cancel, Error", required:true)
+        email(type: PropertyType.Boolean, description : "Needed  to access the user main email address.", required:false)
+        user_birthday(type: PropertyType.Boolean, description : "Needed  to access date (day and month) of the user birthday.", required:false)
+        user_likes(type: PropertyType.Boolean, description : "Needed  to access user liked pages.", required:false)
     }
 
     //REGISTER WEB
@@ -35,6 +35,9 @@ tracks {
 
     "/register/optin"(platform:"/web", type: TrackType.View) {
         app(type: PropertyType.String, description: "Registration app", required:true)
+        source(type: PropertyType.String, description: "Source (on mobile is facebook/email, on web at the moment is only email)", required:true)
+        item_id(type: PropertyType.String, description: "Item", required:false)
+        captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:true)
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:true)
     }
 

@@ -2227,16 +2227,22 @@ trackTests {
 
         "/register/optin"(platform: "/web/desktop") {
             app = "registration"
+            source = "email"
+            captcha_showed = true
             prog_reg_version = 0
         }
 
         "/register/optin/push"(platform: "/web/mobile") {
             app = "registration-optin"
+            source = "email"
+            captcha_showed = true
             prog_reg_version = 0
         }
 
         "/register/optin/skip"(platform: "/web/mobile") {
             app = "registration-optin"
+            source = "email"
+            captcha_showed = true
             prog_reg_version = 0
         }
 
@@ -4351,7 +4357,10 @@ trackTests {
                     [id: "208642594", nickname: "TESTEO_1", loyalty_level: "4"]
             ]
 
-            cartContent = true
+            CartContent = "Yes"
+            cart_content = "No"
+            purchase_status = "Paid"
+            PurchaseStatus = "Paid"
 
         }
 
@@ -4381,6 +4390,18 @@ trackTests {
 
         "/myml/sales/questions"(platform: "/web") {}
 
+        "/myml/sales/shipping" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
+        "/myml/sales/buyer"(platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
+        "/myml/sales/item"(platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
         "/myml/purchases/list"(platform: "/web") {}
 
         "/myml/purchases/detail"(platform: "/web") {}
@@ -4408,6 +4429,22 @@ trackTests {
         "/myml/purchases/order"(platform:"/") {}
 
         "/myml/purchases/detail/history"(platform:"/") {}
+
+        "/myml/purchases/status" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
+        "/myml/purchases/item" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
+        "/myml/purchases/seller" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
+        "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
 
         "/myml/loyal_discounts" (platform: "/", type: TrackType.View) {}
         "/myml/loyal_discounts/add" (platform: "/web", type: TrackType.Event) {
