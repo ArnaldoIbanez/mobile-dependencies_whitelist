@@ -17,21 +17,25 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    //Login conversion
     "/login"(platform: "/", isAbstract: true) {
 	flow(type: PropertyType.String, required: false)
         source(type: PropertyType.String, required: false)
         old_user_id(type: PropertyType.String, required: false)
         old_user_nick(type: PropertyType.String, required: false)
+        user_reg_date(type: PropertyType.String, required: false)
+        user_points(type: PropertyType.Numeric, required: false)
+        otp_section(type: PropertyType.String, required: false)
+        rememberme_enabled(type:PropertyType.Boolean, required: false)
     }
 
     "/login/form"(type: TrackType.View) {
-        has_error(type: PropertyType.Boolean, required: true)
-        challenge(type: PropertyType.String, required: false)
+        challenge(type: PropertyType.String, required: true)
+        source(type: PropertyType.String, required: true)
+        tx(type: PropertyType.String, required: true)
+        operator_id(type: PropertyType.String, required: false)
+        has_error(type: PropertyType.Boolean, required: false)
         recaptcha(type: PropertyType.Boolean, required: false)
-        tx(type: PropertyType.String, required: false)
-        variant(type: PropertyType.String, required: false)
-        operator_id(required: false)
+        push_control_group_user(type: PropertyType.Boolean, required: false)
     }
 
     "/login/recovery"(platform: "/web", type: TrackType.Event) {}
@@ -40,26 +44,59 @@ tracks {
 
     "/login/registration"(platform: "/", type: TrackType.Event) {}
 
-    "/login/auth"(platform: "/", isAbstract: true) {
+    "/login/auth"(platform: "/", isAbstract: true){}
+
+    "/login/auth/success"(platform: "/web", type: TrackType.Event) {
+        source(type: PropertyType.String, required: true)
+        tx(type: PropertyType.String, required: true)
+        is_transaction(type: PropertyType.Boolean, required: true)
         is_otp(type: PropertyType.Boolean, required: true)
         is_admin_otp(type: PropertyType.Boolean, required: true)
+        operator_id(type: PropertyType.String, required: false)
+        push_control_group_user(type:PropertyType.Boolean, required: false)
         rememberme_enabled(type:PropertyType.Boolean, required: false)
-        otp_section(type: PropertyType.String, required: false)
     }
 
-    "/login/auth/success"(platform: "/", type: TrackType.Event) {
-        user_reg_date(type: PropertyType.String, required: true)
-        user_points(type: PropertyType.Numeric, required: true)
-        challenge(type: PropertyType.String, required: false)
-    }
-
-    "/login/auth/failure"(platform: "/", type: TrackType.Event) {
-        reason(type: PropertyType.Map, required: true)
-        challenge(type: PropertyType.String, required: false)
-    }
-
-    "/login/auth/challenge_success"(platform: "/", type: TrackType.View) {
+    "/login/auth/success"(platform: "/mobile", type: TrackType.Event) {
         challenge(type: PropertyType.String, required: true)
+        is_otp(type: PropertyType.Boolean, required: true)
+        is_admin_otp(type: PropertyType.Boolean, required: true)
+    }
+
+    "/login/auth/failure"(platform: "/web", type: TrackType.Event) {
+        challenge(type: PropertyType.String, required: true)
+        source(type: PropertyType.String, required: true)
+        tx(type: PropertyType.String, required: true)
+        reason(type: PropertyType.Map, required: true)
+        operator_id(type: PropertyType.String, required: false)
+    }
+
+    "/login/auth/failure"(platform: "/mobile", type: TrackType.Event) {
+        challenge(type: PropertyType.String, required: true)
+        is_otp(type: PropertyType.Boolean, required: true)
+        is_admin_otp(type: PropertyType.Boolean, required: true)
+        reason(type: PropertyType.Map, required: true)
+    }
+
+    "/login/auth/challenge_success"(platform: "/web", type: TrackType.View) {
+        challenge(type: PropertyType.String, required: true)
+        source(type: PropertyType.String, required: true)
+        tx(type: PropertyType.String, required: true)
+        operator_id(type: PropertyType.String, required: false)
+    }
+
+
+    "/login/auth/challenge_success"(platform: "/mobile", type: TrackType.View) {
+        challenge(type: PropertyType.String, required: true)
+        is_otp(type: PropertyType.Boolean, required: true)
+        is_admin_otp(type: PropertyType.Boolean, required: true)
+    }
+
+    "/login/auth/challenge_decline"(platform: "/", type: TrackType.View) {
+        challenge(type: PropertyType.String, required: true)
+        source(type: PropertyType.String, required: true)
+        tx(type: PropertyType.String, required: true)
+        operator_id(type: PropertyType.String, required: false)
     }
 
     "/logout"(platform: "/", type: TrackType.Event) {
