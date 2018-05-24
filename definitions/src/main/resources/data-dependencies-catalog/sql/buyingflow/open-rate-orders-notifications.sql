@@ -51,5 +51,4 @@ GROUP BY Sent.sent_date,
          Sent.payment_type,
          Sent.payment_status,
          Sent.status
-ORDER BY Sent.sent_date
 ;
