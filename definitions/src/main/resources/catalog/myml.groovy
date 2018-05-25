@@ -403,6 +403,14 @@ tracks {
         serie(required: true, description: "Serie number input and url to redirect")
     }
     "/myml/invoices/company-info/serie/save/response"(platform: "/", type: TrackType.Event) {}
+
+    //export nfe
+    "/myml/invoices/company-info/zip"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/zip/download"(platform: "/", type: TrackType.Event) {
+        pdf(required: true, type: PropertyType.Boolean, description: "Value to indicate if the user is requesting .pdf alongside with your invoice .xml file")
+        month(required: true, type: PropertyType.Numeric, description: "Which month user is requesting your invoice xml file")
+        year(required: true, type: PropertyType.Numeric, description: "Which year user is requesting your invoice xml file")
+    }
     
     //cst
     "/myml/invoices/company-info/cst"(platform: "/") {}
