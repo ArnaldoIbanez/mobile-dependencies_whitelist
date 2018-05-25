@@ -119,14 +119,6 @@ trackTests {
         }
     }
 
-    test("Sales list flow") {
-        "/myml/invoices/sales_list/create_invoice"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/sales_list/zip"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/sales_list/zip/download"(platform: "/", type: TrackType.Event) {
-            pdf = true
-        }
-    }
-
     test("Company info export invoice") {
         "/myml/invoices/company-info/zip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/zip/download"(platform: "/", type: TrackType.Event) {
