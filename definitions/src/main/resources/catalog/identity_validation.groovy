@@ -37,6 +37,10 @@ tracks {
         compression_time(type: PropertyType.Numeric, required: true, description: "The time in second to compress a image.")
     }
 
+    "/identity-validation/image_error"(platform: "/", type: TrackType.Event) {
+        source(type: PropertyType.String, required: true, description: "The image source selected by user.")
+    }
+
     "/identity-validation/phone_code"(platform: "/", type: TrackType.View) {}
     "/identity-validation/phone"(platform: "/", type: TrackType.View) {}
     "/identity-validation/upload_doc"(platform: "/", type: TrackType.View) {}
