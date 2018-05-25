@@ -5,7 +5,7 @@
   "process_name": "consumer_journey_email",
   "cron": "",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
         "name": "email_id",
@@ -47,17 +47,17 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2018-03-01",
-          "format": "yyyy-MM-dd"
-        },
-        {
-          "name": "param02",
           "value": "2018-04-01",
           "format": "yyyy-MM-dd"
         },
         {
+          "name": "param02",
+          "value": "2018-05-01",
+          "format": "yyyy-MM-dd"
+        },
+        {
           "name": "param03",
-          "value": "2018-02-22",
+          "value": "2018-03-25",
           "format": "yyyy-MM-dd"
         }
       ]
