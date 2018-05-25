@@ -188,14 +188,14 @@ trackTests {
     test("Order pages") {
         "/myml/invoices/order/buyer-info"(platform: "/") {}
         "/myml/invoices/order/buyer-info/save/request"(platform: "/", type: TrackType.Event) {
-             receiverAddress = {
+             receiver_address = {
                  isValid = true
              }
-             billingInfo = {
+             billing_info = {
                  stateRegistry = ""
                  name = "Test"
              }
-             orderId = 1709201434
+             order_id = 1709201434
              url = "/invoices/order/1709201434"
         }
         "/myml/invoices/order/buyer-info/save/response"(platform: "/", type: TrackType.Event) {
@@ -210,7 +210,7 @@ trackTests {
                 saved_by_seller = true
                 paid_by = "recipient"
              }
-             orderId = 1709201434
+             order_id = 1709201434
              url = "/invoices/order/1709201434"
         }
         "/myml/invoices/order/carrier/save/response"(platform: "/", type: TrackType.Event) {

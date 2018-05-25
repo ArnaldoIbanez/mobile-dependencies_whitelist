@@ -440,7 +440,7 @@ tracks {
     //:::: Order
     "/myml/invoices/order"(platform: "/", isAbstract: true) {
         error(required: false, type:  PropertyType.String, description: "Error message that pop to user after request")
-        errorValidation(required: false, type:  PropertyType.String, description: "Error message when value is invalid")
+        error_validation(required: false, type:  PropertyType.String, description: "Error message when value is invalid")
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
     }
 
@@ -448,9 +448,9 @@ tracks {
     "/myml/invoices/order/buyer-info"(platform: "/") {}
     "/myml/invoices/order/buyer-info/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/order/buyer-info/save/request"(platform: "/", type: TrackType.Event) {
-      receiverAddress(required: true, description: "Receiver adress info")   
-      billingInfo(required: true, description: "User billing info")
-      orderId(required: true, description: "Order ID of the item")   
+      receiver_address(required: true, description: "Receiver adress info")   
+      billing_info(required: true, description: "User billing info")
+      order_id(required: true, description: "Order ID of the item")   
     }
     "/myml/invoices/order/buyer-info/save/response"(platform: "/", type: TrackType.Event) {}
 
@@ -459,7 +459,7 @@ tracks {
     "/myml/invoices/order/carrier/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/order/carrier/save/request"(platform: "/", type: TrackType.Event) {
       data(required: true, description: "Form values, buyer, transport company, quantiy and value that user inputs")   
-      orderId(required: true, description: "Order ID of the item")   
+      order_id(required: true, description: "Order ID of the item")   
     }
     "/myml/invoices/order/carrier/save/response"(platform: "/", type: TrackType.Event) {}
 }
