@@ -54,6 +54,11 @@
           "name": "param02",
           "value": "2018-06-01",
           "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param03",
+          "value": "2018-03-25",
+          "format": "yyyy-MM-dd"
         }
       ]
     }
