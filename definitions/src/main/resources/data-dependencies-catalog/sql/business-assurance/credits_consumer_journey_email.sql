@@ -15,7 +15,9 @@ where type = 'event'
       and jest(event_data, 'email_template') = 'CONS_COLLECTION'
       and jest(event_data, 'event_type') = 'send'
       and application.site_id = 'MLA'
+
 UNION
+
 SELECT distinct
   jest(event_data, 'email_id')       as        email_id,
   substr(ds, 1, 10)                  as        fecha,
@@ -35,7 +37,7 @@ FROM tracks
    WHERE
      type = 'event'
      and path = '/email/generic'
-     and (ds >= '@param01' and ds < '@param03')
+     and (ds >= '@param03' and ds < '@param02')
      and jest(event_data, 'email_template') = 'CONS_COLLECTION'
      and jest(event_data, 'event_type') = 'send'
      and application.site_id = 'MLA') TRACKDATA
