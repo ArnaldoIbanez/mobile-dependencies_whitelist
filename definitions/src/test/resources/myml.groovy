@@ -193,4 +193,37 @@ trackTests {
         }
         "/myml/invoices/company-info/success"(platform: "/") {}
     }
+
+    test("Order pages") {
+        "/myml/invoices/order/buyer-info"(platform: "/") {}
+        "/myml/invoices/order/buyer-info/save/request"(platform: "/", type: TrackType.Event) {
+             receiver_address = {
+                 isValid = true
+             }
+             billing_info = {
+                 stateRegistry = ""
+                 name = "Test"
+             }
+             order_id = 1709201434
+             url = "/invoices/order/1709201434"
+        }
+        "/myml/invoices/order/buyer-info/save/response"(platform: "/", type: TrackType.Event) {
+            error = "Não conseguimos processar a sua solicitação. Tente Novamente"
+        }
+        "/myml/invoices/order/carrier"(platform: "/") {}
+         "/myml/invoices/order/carrier/save/request"(platform: "/", type: TrackType.Event) {
+            data = {
+                volumes = 1231
+                cost = "123123"
+                name = "Teste"
+                saved_by_seller = true
+                paid_by = "recipient"
+             }
+             order_id = 1709201434
+             url = "/invoices/order/1709201434"
+        }
+        "/myml/invoices/order/carrier/save/response"(platform: "/", type: TrackType.Event) {
+            error = "Não conseguimos processar a sua solicitação. Tente Novamente"
+        }
+    }
 }
