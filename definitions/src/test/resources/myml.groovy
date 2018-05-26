@@ -119,6 +119,15 @@ trackTests {
         }
     }
 
+    test("Company info export invoice") {
+        "/myml/invoices/company-info/zip"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/zip/download"(platform: "/", type: TrackType.Event) {
+            pdf = true
+            month = 5
+            year = 2018
+        }
+    }
+
     test("Optin flow") {
         "/myml/invoices/landing"(platform: "/") {}
         "/myml/invoices/landing/optin"(platform: "/", type: TrackType.Event) {
