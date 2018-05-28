@@ -709,6 +709,10 @@ trackTests {
         "/catalog/discount"(platform: "/mobile", type: TrackType.View) {}
     }
 
+    test("Qr Landing Buyers") {
+        "qr/landing/buyers"(platform: "/", type: TrackType.View){}
+    }
+
     test("QR") {
         "/qr_code/qr_reader"(platform: "/mobile") {
             flow = "/qr_code"

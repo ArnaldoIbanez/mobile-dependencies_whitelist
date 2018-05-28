@@ -243,6 +243,9 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
+    //qr landing buyers
+    "/qr/landing/buyers"(platform:"/", type: TrackType.View) {}
+
     "/qr_code"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
