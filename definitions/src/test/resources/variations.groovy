@@ -21,7 +21,7 @@ trackTests {
                             }]
 		}
 
-        def model = {
+        def model1 = {
             context = "test-context"
             items = [itemModel1(), itemModel2()]
         }
@@ -33,7 +33,7 @@ trackTests {
         }
 
         "/variations/edit"(platform:"/", {
-			model()
+			model1()
         })
 
         "/variations/close"(platform:"/web", {
@@ -41,13 +41,11 @@ trackTests {
         })
 
          "/variations/close"(platform:"/", {
-        	model1
+        	model1()
         })
 
         "/vip/select"(platform:"/", {
-            mandatory()
-            item_id = "MLA533657947"
-            error_message = "any message"
+            model1()
         })    
     }
 }
