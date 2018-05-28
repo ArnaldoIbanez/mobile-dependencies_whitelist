@@ -18,21 +18,21 @@ items Model:
 
 tracks {
 
-    "/variations"(platform: "/" isAbstract: true) {
+    "/variations"(platform: "/", isAbstract: true) {
         items(required: true, type: PropertyType.ArrayList, description: "id; attributes_variations:")
         context(required: true, type: PropertyType.String, description: "Client Info")
     }
 
-    "/variations/edit"(platform: "/" type: TrackType.View) {
+    "/variations/edit"(platform: "/", type: TrackType.View) {
     }
 
-    "/variations/select"(platform: "/" type: TrackType.Event) {
+    "/variations/select"(platform: "/", type: TrackType.Event) {
     }
 
-    "/variations/cancel"(platform: "/" type: TrackType.Event) {
+    "/variations/cancel"(platform: "/", type: TrackType.Event) {
     }
-    
-    "/variations/cancel"(platform: "/web/desktop" type: TrackType.Event) {
+
+    "/variations/cancel"(platform: "/web/desktop", type: TrackType.Event) {
         close_index(required: true, type: PropertyType.Numeric, description: "index of item when picker was closed")
     }
 }
