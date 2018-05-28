@@ -69,6 +69,9 @@ tracks {
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
 
+    // QR Landing > Buyers
+    "/merchant_acquisition/qr/landing/buyers"(platform:"/", type: TrackType.View) {}
+
     // QR Landing > Events
     "/merchant_acquisition/qr/landing/promotions"(platform:"/", type: TrackType.Event) {}
 
@@ -242,10 +245,6 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
-
-    //qr landing buyers
-    "/qr-landing"(platform: "/", isAbstract: true) {}
-    "/qr-landing/buyers"(platform:"/", type: TrackType.View) {}
 
     "/qr_code"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")

@@ -414,6 +414,7 @@ trackTests {
 
     test("MP-MA Landing QR") {
         "/merchant_acquisition/qr/landing" (platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/qr/landing/buyers"(platform: "/", type: TrackType.View){}
         "/merchant_acquisition/qr/landing/promotions"(platform: "/", type: TrackType.Event) {}
     }
 
@@ -710,9 +711,6 @@ trackTests {
     }
 
     test("QR") {
-        "/qr-landing"(platform: "/") {}
-
-        "/qr-landing/buyers"(platform: "/", type: TrackType.View){}
 
         "/qr_code/qr_reader"(platform: "/mobile") {
             flow = "/qr_code"
