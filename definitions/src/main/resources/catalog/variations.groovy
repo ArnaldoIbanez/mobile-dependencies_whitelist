@@ -31,7 +31,8 @@ tracks {
 
     "/variations/cancel"(platform: "/" type: TrackType.Event) {
     }
-    "/variations/cancel"(platform: "/web" type: TrackType.Event) {
+    
+    "/variations/cancel"(platform: "/web/desktop" type: TrackType.Event) {
         close_index(required: true, type: PropertyType.Numeric, description: "index of item when picker was closed")
     }
 }
