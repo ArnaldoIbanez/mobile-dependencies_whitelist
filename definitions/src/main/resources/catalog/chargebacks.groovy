@@ -12,7 +12,7 @@ tracks {
 
     "/chargebacks/payer/viewdetail"(platform: "/", type: TrackType.Event) {
         category_id(required: false, type: PropertyType.String)
-        item_id(required: false, type: PropertyType.String)
+        item_id(required: true, type: PropertyType.String)
         case_id(required: true, type: PropertyType.String)
         payment_id(required: true, type: PropertyType.String)
         payer_id(required: true, type: PropertyType.Numeric)
@@ -20,23 +20,23 @@ tracks {
     
     "/chargebacks/payer/viewdetail_buy"(platform: "/", type: TrackType.Event) {
         category_id(required: false, type: PropertyType.String)
-        item_id(required: false, type: PropertyType.String)
+        item_id(required: true, type: PropertyType.String)
         case_id(required: true, type: PropertyType.String)
         payment_id(required: true, type: PropertyType.String)
         payer_id(required: true, type: PropertyType.Numeric)
     }
 
     "/chargebacks/payer/select-remedy"(platform: "/", type: TrackType.View) {
-        category_id(required: false, type: PropertyType.String, description: "Category id")
-        item_id(required: false, type: PropertyType.String, description: "Item id")
-        case_id(required: false, type: PropertyType.String, description: "CBK case id")
-        payment_id(required: false, type: PropertyType.String, description: "Payment id")
-        used_disable(required: false, type: PropertyType.Boolean, description: "Category id")
+        category_id(required: true, type: PropertyType.String, description: "Category id")
+        item_id(required: true, type: PropertyType.String, description: "Item id")
+        case_id(required: true, type: PropertyType.String, description: "CBK case id")
+        payment_id(required: true, type: PropertyType.String, description: "Payment id")
+        used_disable(required: false, type: PropertyType.Boolean, description: "is user disable")
     }
 
     "/chargebacks/payer/attach"(platform: "/", type: TrackType.Event) {
-        category_id(required: false, type: PropertyType.String)
-        item_id(required: false, type: PropertyType.String)
+        category_id(required: true, type: PropertyType.String)
+        item_id(required: true, type: PropertyType.String)
         case_id(required: true, type: PropertyType.String)
         payment_id(required: true, type: PropertyType.String)
         payer_id(required: true, type: PropertyType.Numeric)
@@ -46,8 +46,8 @@ tracks {
     }
 
     "/chargebacks/payer/send_msj"(platform: "/", type: TrackType.Event) {
-        category_id(required: false, type: PropertyType.String)
-        item_id(required: false, type: PropertyType.String)
+        category_id(required: true, type: PropertyType.String)
+        item_id(required: true, type: PropertyType.String)
         case_id(required: true, type: PropertyType.String)
         payment_id(required: true, type: PropertyType.String)
         payer_id(required: true, type: PropertyType.Numeric)
@@ -58,8 +58,8 @@ tracks {
     }
 
     "/chargebacks/payer/remedy"(platform: "/", type: TrackType.View) {
-        category_id(required: false, type: PropertyType.String, description: "Category id")
-        item_id(required: false, type: PropertyType.String, description: "Item id")
+        category_id(required: true, type: PropertyType.String, description: "Category id")
+        item_id(required: true, type: PropertyType.String, description: "Item id")
         case_id(required: true, type: PropertyType.String, description: "CBK case id")
         payment_id(required: true, type: PropertyType.String, description: "Payment id")
         used_disable(required: true, type: PropertyType.Boolean, description: "Category id")
@@ -67,16 +67,16 @@ tracks {
     }
 
     "/chargebacks/payer/change_reason"(platform: "/", type: TrackType.Event) {
-        category_id(required: false, type: PropertyType.String)
-        item_id(required: false, type: PropertyType.String)
+        category_id(required: true, type: PropertyType.String)
+        item_id(required: true, type: PropertyType.String)
         case_id(required: true, type: PropertyType.String)
         payment_id(required: true, type: PropertyType.String)
         problem_id(required: true, type: PropertyType.String)
     }
 
     "/chargebacks/payer/attach_main"(platform: "/", type: TrackType.Event) {
-        category_id(required: false, type: PropertyType.String)
-        item_id(required: false, type: PropertyType.String)
+        category_id(required: true, type: PropertyType.String)
+        item_id(required: true, type: PropertyType.String)
         case_id(required: true, type: PropertyType.String)
         payer_id(required: true, type: PropertyType.Numeric)
         payment_id(required: true, type: PropertyType.String)
@@ -84,8 +84,8 @@ tracks {
     }
 
     "/chargebacks/payer/send"(platform: "/", type: TrackType.Event) {
-            category_id(required: false, type: PropertyType.String)
-            item_id(required: false, type: PropertyType.String)
+            category_id(required: true, type: PropertyType.String)
+            item_id(required: true, type: PropertyType.String)
             case_id(required: true, type: PropertyType.String)
             payment_id(required: true, type: PropertyType.String)
             payer_id(required: true, type: PropertyType.Numeric)
@@ -93,8 +93,8 @@ tracks {
     }
 
     "/chargebacks/payer/pay"(platform: "/", type: TrackType.Event) {
-            category_id(required: false, type: PropertyType.String)
-            item_id(required: false, type: PropertyType.String)
+            category_id(required: true, type: PropertyType.String)
+            item_id(required: true, type: PropertyType.String)
             case_id(required: true, type: PropertyType.String)
             payment_id(required: true, type: PropertyType.String)
             payer_id(required: true, type: PropertyType.Numeric)
@@ -102,8 +102,8 @@ tracks {
     }
 
     "/chargebacks/payer/confirm"(platform: "/", type: TrackType.Event) {
-            category_id(required: false, type: PropertyType.String)
-            item_id(required: false, type: PropertyType.String)
+            category_id(required: true, type: PropertyType.String)
+            item_id(required: true, type: PropertyType.String)
             case_id(required: true, type: PropertyType.String)
             payment_id(required: true, type: PropertyType.String)
             payer_id(required: true, type: PropertyType.Numeric)
@@ -111,8 +111,8 @@ tracks {
     }
 
     "/chargebacks/payer/resolve"(platform: "/", type: TrackType.View) {
-        category_id(required: false, type: PropertyType.String, description: "Category id")
-        item_id(required: false, type: PropertyType.String, description: "Item id")
+        category_id(required: true, type: PropertyType.String, description: "Category id")
+        item_id(required: true, type: PropertyType.String, description: "Item id")
         case_id(required: true, type: PropertyType.String, description: "CBK case id")
         payment_id(required: true, type: PropertyType.String, description: "Payment id")
         payment_status(required: false, type: PropertyType.String, description: "Payment status")

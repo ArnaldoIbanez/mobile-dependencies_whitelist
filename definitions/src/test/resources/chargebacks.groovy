@@ -20,12 +20,6 @@ trackTests {
 
         "/chargebacks/payer/viewdetail_buy"(platform: "/", type: TrackType.Event) {
             case_id = "987987987004"
-            payer_id = 306162056
-            payment_id = "3536747103"
-        }
-
-        "/chargebacks/payer/viewdetail_buy"(platform: "/", type: TrackType.Event) {
-            case_id = "987987987004"
             category_id = "MLA407408"
             item_id = "MLA673024191"
             payer_id = 306162056
@@ -39,8 +33,6 @@ trackTests {
             payment_id = "3536747103"
             used_disable = false
         }
-
-        "/chargebacks/payer/select-remedy"(platform: "/", type: TrackType.View) {}
 
         "/chargebacks/payer/attach"(platform: "/", type: TrackType.Event) {
             case_id = "987987987004"
@@ -151,6 +143,7 @@ trackTests {
         }
 
         "/chargebacks/payer/viewdetail_buy"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
+            item_id = "MLA673024191"
             case_id = "987987987004"
             payer_id = 306162056
             payment_id = "3536747103"
@@ -171,8 +164,6 @@ trackTests {
             payment_id = "3536747103"
             used_disable = false
         }
-
-        "/chargebacks/payer/select-remedy"(platform: "/", business:"mercadolibre", type: TrackType.View) {}
 
         "/chargebacks/payer/attach"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
             case_id = "987987987004"
