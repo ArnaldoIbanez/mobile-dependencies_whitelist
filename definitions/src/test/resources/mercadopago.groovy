@@ -427,6 +427,7 @@ trackTests {
         "/merchant_acquisition/qr/qr-code/print"(platform:"/", type: TrackType.Event) {}
         "/merchant_acquisition/qr/qr-code/faqs"(platform:"/", type: TrackType.Event) {}
         "/merchant_acquisition/qr/qr-code/help"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/qr/qr-code/rates"(platform:"/", type: TrackType.Event) {}
     }
 
     test("Point Flow Congrats") {
