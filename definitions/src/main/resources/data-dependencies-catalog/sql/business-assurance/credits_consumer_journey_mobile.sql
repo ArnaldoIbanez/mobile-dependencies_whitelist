@@ -12,8 +12,6 @@ where
     and (device.platform = '/mobile/android' or device.platform = '/mobile/ios' or device.platform = '/web/mobile')
     and (path like '/notification/credits_consumer%' or path like '/notification/credits-consumer%' or
          path like '/notification_center/credits_consumer%' or path like '/notification_center/credits-consumer%')
-    and  (jest(event_data, 'context') = 'notification'
-          or jest(event_data, 'context') = 'notification_center' or jest(event_data, 'context') is null )
     and (jest(event_data, 'event_type') = 'shown'
          or jest(event_data, 'event_type') = 'open')))
   and (ds >= '@param01' and ds < '@param02')
