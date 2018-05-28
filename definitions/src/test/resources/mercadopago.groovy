@@ -710,8 +710,8 @@ trackTests {
     }
 
     test("QR") {
-        "/qr-landing"(platform: "/", isAbstract: true) {}
-        
+        "/qr-landing"(platform: "/") {}
+
         "/qr-landing/buyers"(platform: "/", type: TrackType.View){}
 
         "/qr_code/qr_reader"(platform: "/mobile") {

@@ -244,7 +244,8 @@ tracks {
     }
 
     //qr landing buyers
-    "/qr/landing/buyers"(platform:"/", type: TrackType.View) {}
+    "/qr-landing"(platform: "/", isAbstract: true) {}
+    "/qr-landing/buyers"(platform:"/", type: TrackType.View) {}
 
     "/qr_code"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
