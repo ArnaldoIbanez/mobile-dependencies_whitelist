@@ -17,12 +17,12 @@ import com.ml.melidata.TrackType
 */
 
 tracks {
+    
+    "/"(platform: "/", isAbstract: true) {
+    }
 
     "/"(platform: "/mobile", isAbstract: true) {
         sent_again(required: false)
-    }
-
-    "/"(platform: "/web", isAbstract: true) {
     }
 
     "/blog"(platform: "/web", isAbstract: true) {
