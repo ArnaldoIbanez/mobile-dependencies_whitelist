@@ -412,6 +412,4 @@ trackTests {
         "/catalogwidget/welcome/leaders/close"(platform: "/",type: TrackType.Event) {}
     }
 
-
-
 }
