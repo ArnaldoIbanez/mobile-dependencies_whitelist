@@ -660,19 +660,36 @@ trackTests {
             flow_id = "1231313123213"
             method = "swipe"
             currency = "ARS"
-            amount = 10
-            installments = 1
+            amount = "10"
+            installments = "1"
             payment_status = "approved"
             payment_detail = "accredited"
             poi = "BBPOS-01099923701497"
             poi_type = "BBPOS"
             payment_method_id = "debvisa"
             operator_id = "12345678"
+            flow = "/point_payment"
+            error_msg = "an error"
         }
         "/point_payment/error"(platform: "/mobile", type: TrackType.View) {
             from = "/point_catalog"
             error_msg = "No podemos procesar esta tarjeta. Prueba con otra"
         }
+        "/point_payment/new_payment_entry_point"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/send_bill_congrats"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/send_sms"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/error_i_have_an_issue"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/error/generic"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/error/rejected"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/request_bluetooth"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/ftu_preorder_pax"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing_chooser"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/selector"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/send_bill"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/point_ftu_newland"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/idempotency"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/point"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/flow_tracker/pairing"(platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
             level ="error"
@@ -702,6 +719,117 @@ trackTests {
             level ="info"
             data ="{ctr: 2313}"
         }
+        "/point_payment/flow_tracker/card_tokens_result"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/start"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/payment_methods_request"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/payment_methods_response"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/end"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/flow_next_step_after_payment"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/flow_payment_card_tokens_request_put"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/flow_payment_card_tokens_response_put"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/flow_payment_request"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/flow_payment_response"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/flow_pos_sending_online_process"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/flow_notification_request"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/flow_notification_response"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/flow_pos_error_message"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+
+        "/settings/point/costs_calculator"(platform: "/mobile", type: TrackType.View) {
+            flow = "point"
+        }
+        "/settings/point/settings/pricing"(platform: "/mobile", type: TrackType.View) {
+            flow = "point"
+        }
+        "/settings/point/installment_cost"(platform: "/mobile", type: TrackType.View) {
+            flow = "point"
+        }
+        "/settings/point/device_mlb"(platform: "/mobile", type: TrackType.View) {
+            flow = "point"
+        }
+        "/settings/pairing"(platform: "/mobile", type: TrackType.View) {
+            flow = "point"
+        }
+
+        "/shortcuts/point"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/get_member/point"(platform: "/mobile", type: TrackType.View) {
+            flow = "point"
+        }
+
+        "/ftu_release/point_app"(platform: "/mobile", type: TrackType.View) {}
+        "/ftu_release/point_&_mp_app"(platform: "/mobile", type: TrackType.View) {}
+
+        "/company_info/on_boarding"(platform: "/mobile", type: TrackType.View) {}
     }
 
     test("Point Catalog") {
