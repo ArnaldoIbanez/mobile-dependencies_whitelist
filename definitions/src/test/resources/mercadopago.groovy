@@ -1699,17 +1699,21 @@ trackTests {
             source = "LFE"
         }
         "/login/form"(platform: "/", type: TrackType.View) {
+            challenge = "password"
             source = "QUESTION"
-            flow = "internal"
-            has_error = true
-            old_user_id = "123456"
-            old_user_nick = "nick"
+            tx = "tx"
+            operator_id = null
         }
         "/login/form"(platform: "/", type: TrackType.View) {
-            source = "FAVORITE"
-            flow = "internal"
+            challenge = "user"
+            source = "EXPLICIT"
+            tx = "tx"
+            operator_id = "123"
             has_error = false
             recaptcha = false
+            push_control_group_user = false
+            old_user_id = "123456"
+            old_user_nick = "nick"
         }
         "/login/recovery"(platform: "/web", type: TrackType.Event) {
             source = "LFE"
@@ -1717,49 +1721,68 @@ trackTests {
         "/login/recovery"(platform: "/mobile", type: TrackType.View) {
             source = "LFE"
         }
-        "/login/auth"(platform: "/mobile", type: TrackType.View) {
-            source = "LFE"
-            is_otp = false
-            is_admin_otp = false
-        }
-        "/login/auth"(platform: "/web", type: TrackType.Event) {
-            source = "LFE"
-            is_otp = false
-            is_admin_otp = false
-        }
         "/login/registration"(platform: "/", type: TrackType.Event) {
             source = "LFE"
         }
-        "/login/auth/success"(platform: "/", type: TrackType.Event) {
-            source = "LFE"
-            flow = "internal"
+        "/login/auth/success"(platform: "/web", type: TrackType.Event) {
+            source = "DEFAULT"
+            tx = "tx"
+            is_transaction = false
+            is_otp = true
+            is_admin_otp = false
+        }
+        "/login/auth/success"(platform: "/web", type: TrackType.Event) {
+            source = "DEFAULT"
+            tx = "tx"
+            is_transaction = true
             is_otp = false
             is_admin_otp = false
-            user_reg_date = "2002-09-26T00:00:00.000-04:00"
+            operator_id = null
+            push_control_group_user = false
+            rememberme_enabled = true
+        }
+        "/login/auth/success"(platform: "/mobile", type: TrackType.Event) {
+            challenge = "password"
+            is_otp = true
+            is_admin_otp = false
+            user_reg_date = "2018"
             user_points = 100
         }
-        "/login/auth/failure"(platform: "/", type: TrackType.Event) {
-            source = "LFE"
-            reason = [errorId: 'invalid_password']
-            flow = "internal"
-            is_otp = false
-            is_admin_otp = false
-            old_user_id = "123456"
-            old_user_nick = "nick"
+        "/login/auth/failure"(platform: "/web", type: TrackType.Event) {
+            challenge = "user"
+            source = "FAVORITE"
+            tx = "tx"
+            reason = [error: "invalid user"]
+            operator_id = null
         }
-        "/login/auth/challenge_success"(platform: "/", type: TrackType.Event) {
-            source = "MSL_DEFAULT"
+        "/login/auth/failure"(platform: "/mobile", type: TrackType.Event) {
+            challenge = "user"
+            is_otp = false
+            is_admin_otp = true
+            reason = [error: "invalid user"]
+        }
+        "/login/auth/challenge_success"(platform: "/web", type: TrackType.Event) {
+            challenge = "pass"
+            source = "QUESTION"
+            tx = "tx"
+            operator_id = "123"
+        }
+        "/login/auth/challenge_success"(platform: "/mobile", type: TrackType.Event) {
             challenge = "pass"
             is_otp = false
             is_admin_otp = false
+        }
+       "/login/auth/challenge_decline"(platform: "/", type: TrackType.View) {
+            challenge = "pass"
+            source = "QUESTION"
+            tx = "tx"
+            operator_id = null
         }
         "/login/auth/push"(platform: "/", type: TrackType.Event) {
             view = "waiting_view"
             event_type = "click_go_to_password_button"
             challenge = "push_authentication"
             tx = "adHgjskcD01lM6EeLs7zUGgBaA1GiWqF6w_XQUgLJk0QAmdhE"
-            is_otp = false
-            is_admin_otp = false
         }
         "/logout"(platform: "/", type: TrackType.Event) {
             flow = "internal"
