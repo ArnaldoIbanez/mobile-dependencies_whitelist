@@ -17,21 +17,25 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    //Login conversion
     "/login"(platform: "/", isAbstract: true) {
 	flow(type: PropertyType.String, required: false)
-        source(type: PropertyType.String, required: false)
+        source(type: PropertyType.String, required: false, description: "Context on which the login is presented")
         old_user_id(type: PropertyType.String, required: false)
         old_user_nick(type: PropertyType.String, required: false)
+        user_reg_date(type: PropertyType.String, required: false)
+        user_points(type: PropertyType.Numeric, required: false)
+        otp_section(type: PropertyType.String, required: false)
+        rememberme_enabled(type:PropertyType.Boolean, required: false)
     }
 
     "/login/form"(type: TrackType.View) {
-        has_error(type: PropertyType.Boolean, required: true)
-        challenge(type: PropertyType.String, required: false)
-        recaptcha(type: PropertyType.Boolean, required: false)
-        tx(type: PropertyType.String, required: false)
-        variant(type: PropertyType.String, required: false)
-        operator_id(required: false)
+        challenge(type: PropertyType.String, required: true, description: "Login step")
+        source(type: PropertyType.String, required: true, description: "Context on which the login is presented")
+        tx(type: PropertyType.String, required: true)
+        operator_id(type: PropertyType.String, required: false, description: "Indicates the id of the operator when login is carried out by one")
+        has_error(type: PropertyType.Boolean, required: false)
+        recaptcha(type: PropertyType.Boolean, required: false, description: "Indicates whether recaptcha is present or not")
+        push_control_group_user(type: PropertyType.Boolean, required: false)
     }
 
     "/login/recovery"(platform: "/web", type: TrackType.Event) {}
@@ -40,26 +44,59 @@ tracks {
 
     "/login/registration"(platform: "/", type: TrackType.Event) {}
 
-    "/login/auth"(platform: "/", isAbstract: true) {
-        is_otp(type: PropertyType.Boolean, required: true)
-        is_admin_otp(type: PropertyType.Boolean, required: true)
+    "/login/auth"(platform: "/", isAbstract: true){}
+
+    "/login/auth/success"(platform: "/web", type: TrackType.Event) {
+        source(type: PropertyType.String, required: true, description: "Context on which the login is presented")
+        tx(type: PropertyType.String, required: true)
+        is_transaction(type: PropertyType.Boolean, required: true)
+        is_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via a One Time Password")
+        is_admin_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via an Admin One Time Password")
+        operator_id(type: PropertyType.String, required: false, description: "Indicates the id of the operator when login is carried out by one")
+        push_control_group_user(type:PropertyType.Boolean, required: false)
         rememberme_enabled(type:PropertyType.Boolean, required: false)
-        otp_section(type: PropertyType.String, required: false)
     }
 
-    "/login/auth/success"(platform: "/", type: TrackType.Event) {
-        user_reg_date(type: PropertyType.String, required: true)
-        user_points(type: PropertyType.Numeric, required: true)
-        challenge(type: PropertyType.String, required: false)
+    "/login/auth/success"(platform: "/mobile", type: TrackType.Event) {
+        challenge(type: PropertyType.String, required: true, description: "Login step")
+        is_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via a One Time Password")
+        is_admin_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via an Admin One Time Password")
     }
 
-    "/login/auth/failure"(platform: "/", type: TrackType.Event) {
-        reason(type: PropertyType.Map, required: true)
-        challenge(type: PropertyType.String, required: false)
+    "/login/auth/failure"(platform: "/web", type: TrackType.Event) {
+        challenge(type: PropertyType.String, required: true, description: "Login step")
+        source(type: PropertyType.String, required: true, description: "Context on which the login is presented")
+        tx(type: PropertyType.String, required: true)
+        reason(type: PropertyType.Map, required: true, description: "Reason behind the failure of the current login step")
+        operator_id(type: PropertyType.String, required: false, description: "Indicates the id of the operator when login is carried out by one")
     }
 
-    "/login/auth/challenge_success"(platform: "/", type: TrackType.View) {
-        challenge(type: PropertyType.String, required: true)
+    "/login/auth/failure"(platform: "/mobile", type: TrackType.Event) {
+        challenge(type: PropertyType.String, required: true, description: "Login step")
+        is_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via a One Time Password")
+        is_admin_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via an Admin One Time Password")
+        reason(type: PropertyType.Map, required: true, description: "Reason behind the failure of the current login step")
+    }
+
+    "/login/auth/challenge_success"(platform: "/web", type: TrackType.View) {
+        challenge(type: PropertyType.String, required: true, description: "Login step")
+        source(type: PropertyType.String, required: true, description: "Context on which the login is presented")
+        tx(type: PropertyType.String, required: true)
+        operator_id(type: PropertyType.String, required: false, description: "Indicates the id of the operator when login is carried out by one")
+    }
+
+
+    "/login/auth/challenge_success"(platform: "/mobile", type: TrackType.View) {
+        challenge(type: PropertyType.String, required: true, description: "Login step")
+        is_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via a One Time Password")
+        is_admin_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via an Admin One Time Password")
+    }
+
+    "/login/auth/challenge_decline"(platform: "/", type: TrackType.View) {
+        challenge(type: PropertyType.String, required: true, description: "Login step")
+        source(type: PropertyType.String, required: true, description: "Context on which the login is presented")
+        tx(type: PropertyType.String, required: true)
+        operator_id(type: PropertyType.String, required: false, description: "Indicates the id of the operator when login is carried out by one")
     }
 
     "/logout"(platform: "/", type: TrackType.Event) {
@@ -69,7 +106,7 @@ tracks {
     "/login/auth/push"(platform: "/", type: TrackType.Event) {
         view(type: PropertyType.String, required: true)
         event_type(type: PropertyType.String, required: true)
-        challenge(type: PropertyType.String, required: true)
+        challenge(type: PropertyType.String, required: true, description: "Login step")
         tx(type: PropertyType.String, required: true)
     }
 
@@ -104,7 +141,7 @@ tracks {
     "/oauth/authorization"(platform: "/", isAbstract: true) {}
 
     "/oauth/authorization/form"(platform: "/", type: TrackType.View) {
-        source(type: PropertyType.String, required: true)
+        source(type: PropertyType.String, required: true, description: "Context on which the login is presented")
     }
 
     "/oauth/authorization/form/access"(platform: "/", type: TrackType.Event) {
