@@ -38,7 +38,7 @@ tracks {
     }
 
     "/identity-validation/image_error"(platform: "/", type: TrackType.Event) {
-        source(type: PropertyType.String, required: true, description: "The image source selected by user.")
+        source(type: PropertyType.String, required: true, description: "The image source selected by user.", values: ["TAKE_PHOTO","PICK_PHOTO"])
     }
 
     "/identity-validation/phone_code"(platform: "/", type: TrackType.View) {}
