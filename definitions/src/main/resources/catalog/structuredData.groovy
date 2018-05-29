@@ -132,11 +132,11 @@ tracks {
         category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
     }
 
-    "/catalogwidget/welcome"(platform: "/",type: TrackType.Event) {}
+    "/catalogwidget/welcome"(platform: "/",isAbstract: true) {}
 
-    "/catalogwidget/welcome/leaders"(platform: "/",type: TrackType.Event) {}
+    "/catalogwidget/welcome/leaders"(platform: "/",isAbstract: true) {}
 
-    "/catalogwidget/welcome/leaders/show"(platform: "/",type: TrackType.Event) {}
+    "/catalogwidget/welcome/leaders/show"(platform: "/",type: TrackType.View) {}
 
     "/catalogwidget/welcome/leaders/continue"(platform: "/",type: TrackType.Event) {}
 
