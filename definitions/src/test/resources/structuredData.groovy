@@ -388,11 +388,11 @@ trackTests {
         }
     }
 
-    test("catalog_widget show welcome for leaders should be tracked"){
+    test("catalog_widget welcome should be tracked"){
         "/catalogwidget/welcome"(platform: "/",type: TrackType.Event) {}
     }
 
-    test("catalog_widget show welcome for leaders should be tracked"){
+    test("catalog_widget welcome for leaders should be tracked"){
         "/catalogwidget/welcome/leaders"(platform: "/",type: TrackType.Event) {}
     }
 
