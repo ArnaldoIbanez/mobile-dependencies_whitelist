@@ -131,4 +131,13 @@ tracks {
         domain_id(required: true, description: "Domain ID from attribute", PropertyType.String)
         category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
     }
+
+     "/catalogwidget/welcome/leaders/show"(platform: "/",type: TrackType.Event) {}
+     
+     "/catalogwidget/welcome/leaders/continue"(platform: "/",type: TrackType.Event) {}
+
+     "/catalogwidget/welcome/leaders/omit"(platform: "/",type: TrackType.Event) {}
+
+     "/catalogwidget/welcome/leaders/close"(platform: "/",type: TrackType.Event) {}
+     
 }
