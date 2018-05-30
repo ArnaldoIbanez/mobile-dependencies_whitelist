@@ -3,9 +3,9 @@
     "cx-channels@mercadolibre.com"
   ],
   "process_name": "channels-availability-new-profiles",
-  "cron": "00 05 * * *",
+  "cron": " ",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
       {
         "name": "requested_datetime",

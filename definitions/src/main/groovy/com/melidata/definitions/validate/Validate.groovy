@@ -19,10 +19,14 @@ class Validate {
         def cli = buildCli(args)
         def options = cli.parse(args)
 
+        println "Generating Melidata Catalog..."
+
         def pathCatalog = "src/main/resources/catalog/catalog.groovy"
         def catalogScript = TestRunner.getScriptFromFile(pathCatalog)
         com.ml.melidata.catalog.DslUtils.setBaseDir("src/main/resources/catalog/")
         def catalog = TestRunner.runScript(catalogScript)
+
+        println "Done. Will fetch for tracks for validating..."
         
         def result = generateResult(options, catalog)
         if (result.size() > 0) {
