@@ -2,7 +2,7 @@
   "users": [
     "cx-channels@mercadolibre.com"
   ],
-  "process_name": "channels-availability-new-profiles",
+  "process_name": "channels-joint-availability-new-profiles",
   "cron": " ",
   "extract": {
     "operation": "append",
@@ -96,7 +96,7 @@
         },
         {
           "name": "param04",
-          "value": "2018-05-14",
+          "value": "2018-04-14",
           "format": "yyyy-MM-dd"
         }           
       ]
