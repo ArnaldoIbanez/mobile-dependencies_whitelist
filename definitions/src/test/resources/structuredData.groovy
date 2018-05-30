@@ -368,4 +368,21 @@ trackTests {
             value = "Not apply"
         }
     }
+
+    test("catalog_widget show welcome for leaders should be tracked"){
+        "/catalogwidget/welcome/leaders/show"(platform: "/",type: TrackType.View) {}
+    }
+
+    test("catalog_widget continue in welcome for leaders should be tracked"){
+        "/catalogwidget/welcome/leaders/continue"(platform: "/",type: TrackType.Event) {}
+    }
+
+    test("catalog_widget omit in welcome for leaders should be tracked"){
+        "/catalogwidget/welcome/leaders/omit"(platform: "/",type: TrackType.Event) {}
+    }
+
+    test("catalog_widget close in welcome for leaders should be tracked"){
+        "/catalogwidget/welcome/leaders/close"(platform: "/",type: TrackType.Event) {}
+    }
+
 }

@@ -129,4 +129,17 @@ tracks {
         value(required: false, description: "Value submitted on feedback or value for attribute", PropertyType.String)
         domain_id(required: true, description: "Domain ID from attribute", PropertyType.String)
     }
+
+    "/catalogwidget/welcome"(platform: "/",isAbstract: true) {}
+
+    "/catalogwidget/welcome/leaders"(platform: "/",isAbstract: true) {}
+
+    "/catalogwidget/welcome/leaders/show"(platform: "/",type: TrackType.View) {}
+
+    "/catalogwidget/welcome/leaders/continue"(platform: "/",type: TrackType.Event) {}
+
+    "/catalogwidget/welcome/leaders/omit"(platform: "/",type: TrackType.Event) {}
+
+    "/catalogwidget/welcome/leaders/close"(platform: "/",type: TrackType.Event) {}
+
 }
