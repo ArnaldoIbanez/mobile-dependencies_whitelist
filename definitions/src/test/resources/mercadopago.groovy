@@ -2132,6 +2132,22 @@ trackTests {
             compression_time = 10
         }
 
+        "/identity-validation/image_error"(platform: "/mobile/ios") {
+            source = "TAKE_PHOTO"
+        }
+
+        "/identity-validation/image_error"(platform: "/mobile/android") {
+            source = "TAKE_PHOTO"
+        }
+
+        "/identity-validation/image_error"(platform: "/web/mobile") {
+            source = "TAKE_PHOTO"
+        }
+
+        "/identity-validation/image_error"(platform: "/web/desktop") {
+            source = "TAKE_PHOTO"
+        }
+
         "/identity-validation/phone_code"(platform: "/mobile") {}
         "/identity-validation/phone"(platform: "/mobile") {}
         "/identity-validation/upload_doc"(platform: "/mobile") {}
