@@ -12,11 +12,14 @@ trackTests {
         typification = "broken_item"
         action = "selection"
         loyalty_level = 1
-        date_delivered = "date_delivered"
+        ref = "mediations_init"
+        buyer_scoring = "low"
+        seller_scoring = "low"
+        date_delivered = "2018-05-21"
         cart_order = true
-        item_category = "item_category"
-        item_category_l1 = "item_category_l1"
-        returns_refund_account_money=false
+        item_category = "MLB48550"
+        item_category_l1 = "MLB1051"
+        refund_account_money=false
       }
 
       // STEP 02
@@ -24,11 +27,14 @@ trackTests {
         payment = "paymentId"
         action = "selection"
         loyalty_level = 1
-        date_delivered = "date_delivered"
+        ref = "mediations_init"
+        buyer_scoring = "low"
+        seller_scoring = "low"
+        date_delivered = "2018-05-21"
         cart_order = true
-        item_category = "item_category"
-        item_category_l1 = "item_category_l1"
-        returns_refund_account_money=false
+        item_category = "MLB48550"
+        item_category_l1 = "MLB1051"
+        refund_account_money=false
       }
 
       // STEP 03
@@ -36,11 +42,14 @@ trackTests {
         shipping = "pickup"
         action = "selection"
         loyalty_level = 1
-        date_delivered = "date_delivered"
+        ref = "mediations_init"
+        buyer_scoring = "low"
+        seller_scoring = "low"
+        date_delivered = "2018-05-21"
         cart_order = true
-        item_category = "item_category"
-        item_category_l1 = "item_category_l1"
-        returns_refund_account_money=false
+        item_category = "MLB48550"
+        item_category_l1 = "MLB1051"
+        refund_account_money=false
       }
 
       // STEP 04.a
@@ -48,11 +57,14 @@ trackTests {
         pickup_time = "pickupTime"
         action = "selection"
         loyalty_level = 1
-        date_delivered = "date_delivered"
+        ref = "mediations_init"
+        buyer_scoring = "low"
+        seller_scoring = "low"
+        date_delivered = "2018-05-21"
         cart_order = true
-        item_category = "item_category"
-        item_category_l1 = "item_category_l1"
-        returns_refund_account_money=false
+        item_category = "MLB48550"
+        item_category_l1 = "MLB1051"
+        refund_account_money=false
       }
 
       // STEP 04.b
@@ -71,11 +83,14 @@ trackTests {
         shipping = "carrier"
         pickup_time = "pickupTime"
         loyalty_level = 1
-        date_delivered = "date_delivered"
+        ref = "mediations_init"
+        buyer_scoring = "low"
+        seller_scoring = "low"
+        date_delivered = "2018-05-21"
         cart_order = true
-        item_category = "item_category"
-        item_category_l1 = "item_category_l1"
-        returns_refund_account_money=false
+        item_category = "MLB48550"
+        item_category_l1 = "MLB1051"
+        refund_account_money=false
       }
 
       // STEP 05.cta.a
@@ -96,22 +111,16 @@ trackTests {
       "/return/external"(platform: "/") {
         id = "claims"
         loyalty_level = 1
-        date_delivered = "date_delivered"
+        date_delivered = "2018-05-21"
         cart_order = true
-        item_category = "item_category"
-        item_category_l1 = "item_category_l1"
-        returns_refund_account_money=false
+        item_category = "MLB48550"
+        item_category_l1 = "MLB1051"
+        refund_account_money=false
       }
 
       // Error Page
       "/return/error"(platform: "/") {
         previous_step = "delivery"
-        loyalty_level = 1
-        date_delivered = "date_delivered"
-        cart_order = true
-        item_category = "item_category"
-        item_category_l1 = "item_category_l1"
-        returns_refund_account_money=false
       }
     }
 }
