@@ -5,7 +5,7 @@
   "process_name": "channels-availability-new-profiles",
   "cron": " ",
   "extract": {
-    "operation": "destroy",
+    "operation": "append",
     "columns": [
       {
         "name": "requested_datetime",
@@ -37,6 +37,10 @@
       },
       {
         "name": "business",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "segment",
         "type": "UNICODE_STRING"
       },
       {
@@ -77,22 +81,22 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2018-03-02",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "2018-04-15",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param03",
-          "value": "DAY-2",
+          "value": "2018-03-01",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param04",
-          "value": "DAY-1",
+          "value": "2018-05-14",
           "format": "yyyy-MM-dd"
         }           
       ]
