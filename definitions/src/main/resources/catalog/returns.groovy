@@ -14,7 +14,12 @@ tracks {
       cart_order(required: false, type: PropertyType.Boolean)
       item_category(required: false, type: PropertyType.String)
       item_category_l1(required: false, type: PropertyType.String)
-      returns_refund_account_money(required: false, type: PropertyType.Boolean)
+      refund_account_money(required: false, type: PropertyType.Boolean)
+      ref(required: false, type: PropertyType.String)
+      buyer_scoring(required: false, type: PropertyType.String)
+      seller_scoring(required: false, type: PropertyType.String)
+      showed_payment_methods(required: false, type: PropertyType.String)
+      order_id(required: false, type: PropertyType.Numeric)
     }
 
     // STEP 01
