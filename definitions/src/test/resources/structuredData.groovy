@@ -16,6 +16,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
     	}
     }
 
@@ -28,7 +29,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = true
-
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -44,6 +45,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
             inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
@@ -60,6 +62,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
             inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
@@ -76,6 +79,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = true
+            category_path = ["MLA1234", "MLA12345"]
             inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
@@ -92,6 +96,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = true
+            category_path = ["MLA1234", "MLA12345"]
             inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
@@ -107,6 +112,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -121,6 +127,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -135,6 +142,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = true
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -147,6 +155,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -159,6 +168,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -171,6 +181,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -183,6 +194,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -196,6 +208,7 @@ trackTests {
             seller_id = "241616388"
             pi = false
             items_left = 15
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -208,6 +221,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -220,6 +234,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -232,6 +247,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -244,6 +260,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -259,6 +276,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
             inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
@@ -274,7 +292,7 @@ trackTests {
             status_code = "200"
             error = "Null exception"
             pi = false
-
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -289,7 +307,7 @@ trackTests {
             status_code = "200"
             error = "Generic error"
             pi = false
-
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -305,7 +323,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
-
+            category_path = ["MLA1234", "MLA12345"]
             inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
@@ -319,7 +337,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
-
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -332,7 +350,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
-
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -348,7 +366,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             empty_attrs_not_pk = 4
             empty_attrs_pk = 2
-
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -366,6 +384,7 @@ trackTests {
             hierarchy = "PARENT_PK"
             option_selected = "not_possible"
             value = "Not apply"
+            category_path = ["MLA12345", "MLA4356"]
         }
     }
 
