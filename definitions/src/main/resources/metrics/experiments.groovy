@@ -17,22 +17,17 @@ metrics {
         }
     }
 
-	"search/newFiltersWebMobileTwoVariants.classifieds"(description: "extend experiment /search/newFiltersWebMobileTwoVariants for classifieds", parametricName: false) {
-		startWith {
+	"orders.fbm"(description: "orders of fbm items", compute_order: true) {
+        startWith {
+            experiment("search/show_akins")
+        }
+
+		countsOn {
 			condition {
-				and(
-						empty("experiments.search/newFiltersWebMobileTwoVariants", false),
-						or(
-								like('event_data.category_path', '.*M..1743(-|$).*'),
-								like('event_data.category_path', '.*M..1459(-|$).*')
-						)
-				)
-			}
+				path("/orders/ordercreated")
 
-			openBy {
-				"experiments.search/newFiltersWebMobileTwoVariants"(default: "DEFAULT")
+                equals("event_data.items.item.logistic_type", "fulfillment")
 			}
-
 		}
 	}
 
@@ -184,20 +179,6 @@ metrics {
 		}
 	}
 
-	"search/showBetterImagesFixed.retinaScreen"(description: "Better images experiment for retina screens"){
-		startWith{
-			condition {
-				and(
-						empty("experiments.search/showBetterImagesFixed", false),
-						equals('event_data.isRetina', true)
-				)
-			}
-			openBy {
-				"experiments.search/showBetterImagesFixed"(default: "DEFAULT")
-			}
-		}
-	}
-
 	"upgrade_listing"(description: "upgrade listing success for sell experiments") {
 		startWith {
 			experiment("sell/congrats_upgrade_listing_type")
@@ -209,20 +190,4 @@ metrics {
 			}
 		}
 	}
-
-
-	"search/showBetterImagesFixed.notRetinaScreen"(description: "Better images experiment for non retina screens"){
-		startWith{
-			condition {
-				and(
-						empty("experiments.search/showBetterImagesFixed", false),
-						equals('event_data.isRetina', false)
-				)
-			}
-			openBy {
-				"experiments.search/showBetterImagesFixed"(default: "DEFAULT")
-			}
-		}
-	}
-	
 }
