@@ -5,7 +5,7 @@
   "process_name": "channels-availability-new-profiles",
   "cron": " ",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "requested_datetime",
@@ -96,7 +96,7 @@
         },
         {
           "name": "param04",
-          "value": "2018-05-14",
+          "value": "2018-04-14",
           "format": "yyyy-MM-dd"
         }           
       ]
