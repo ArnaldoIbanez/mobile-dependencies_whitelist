@@ -121,7 +121,9 @@ trackTests {
 
     test("Company info export invoice") {
         "/myml/invoices/company-info/zip"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/company-info/zip/download"(platform: "/", type: TrackType.Event) {
+        "/myml/invoices/company-info/zip/download"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/zip/download/response"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/zip/download/request"(platform: "/", type: TrackType.Event) {
             pdf = true
             month = 5
             year = 2018

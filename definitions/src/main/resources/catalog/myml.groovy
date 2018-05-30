@@ -406,7 +406,9 @@ tracks {
 
     //export nfe
     "/myml/invoices/company-info/zip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/company-info/zip/download"(platform: "/", type: TrackType.Event) {
+    "/myml/invoices/company-info/zip/download"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/zip/download/response"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/zip/download/request"(platform: "/", type: TrackType.Event) {
         pdf(required: true, type: PropertyType.Boolean, description: "Value to indicate if the user is requesting .pdf alongside with your invoice .xml file")
         month(required: true, type: PropertyType.Numeric, description: "Which month user is requesting your invoice xml file")
         year(required: true, type: PropertyType.Numeric, description: "Which year user is requesting your invoice xml file")
