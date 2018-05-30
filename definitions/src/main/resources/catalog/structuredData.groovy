@@ -19,12 +19,11 @@ tracks {
         pi(required:false, description: "Item has a Product Identifier")
         inferred_attributes(required: false, description: "Inferred attributes")
         condition(required: false, description: "Item condition")
-        category_path(required: true, description: "Category path for the item", type: PropertyType.ArrayList)
         label(required: false, description: "Tab from listings page", type: PropertyType.String, values: ["paused", "active", "closed","pending"])
     }
 
     propertyGroups {
-        catalogWidgetGroup(category_id, page, item_id, officialstore, domain_id, seller_id, pi, condition, category_path, label)
+        catalogWidgetGroup(category_id, page, item_id, officialstore, domain_id, seller_id, pi, condition, label)
         catalogWidgetCompletenessGroup(completeness_level, items_left, missing_attributes, inferred_attributes)
     }
 
@@ -129,6 +128,5 @@ tracks {
         option_selected(required: true, description: "Radio option selected", values:["completed", "no_data", "not_possible", "other"], PropertyType.String)
         value(required: false, description: "Value submitted on feedback or value for attribute", PropertyType.String)
         domain_id(required: true, description: "Domain ID from attribute", PropertyType.String)
-        category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
     }
 }
