@@ -13,7 +13,7 @@ tracks {
         status(required: false, type: PropertyType.String, values:["unread", "read"])
         event_type(required: false, values: ["open", "pull_to_refresh", "swipe", "action_open"])
         deeplink(required: false, type: PropertyType.String)
-        action_type(required: false, type: PropertyType.String,  values: ["messages", "message", "vop", "picture", "shipping_print_label", "claims", "tracking", "feedback", "changepayment", "reply", "ask", "questions-buy"])
+        action_type(required: false, type: PropertyType.String,  values: ["messages", "message", "vop", "picture", "shipping_print_label", "claims", "tracking", "feedback", "changepayment", "reply", "ask", "questions-buy", "cart"])
         type_layout(required: false, type: PropertyType.String, values: ["bullet_list", "order", "picture", "standard"])
     }
 
@@ -154,7 +154,7 @@ tracks {
                   values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel","purged_token", "swipe"],
           description: "Type of notification event")
           action_type(required: false,
-                  values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback"])
+                  values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"])
           deeplink(required: false, description: "The link were the notification should navigate to, if applies")
 
           //For event_type:autodismiss, indicates why the notification was dismissed
@@ -201,8 +201,6 @@ tracks {
       //Tu producto está en camino
       "/notification/shipping_shipped"(platform: "/") {
           shipment_id(required: true, description: "Id of shipment.")
-          order_id(required: true, type: PropertyType.String, description: "Id of order.")
-          pack_id(required: true, type: PropertyType.Numeric, description: "Id of pack.")
       }
 
       //Retiro en sucursal
@@ -249,7 +247,7 @@ tracks {
 
       //Paquete entregado
       "/notification/shipping_delivered"(platform: "/") {
-          shipment_id(required: true, type: PropertyType.String, description: "Id of shipment.")
+          shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
       }
       "/notification/shipping_reminder_agency_withdrawal"(platform: "/") {
           shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
@@ -275,7 +273,7 @@ tracks {
 
       //Seller questions
       "/notification/questions_new"(platform: "/") {
-          question_id(required: true, type: PropertyType.String)
+          question_id(required: true, type: PropertyType.Numeric)
       }
 
       //Buyer questions
@@ -288,7 +286,7 @@ tracks {
 
       //New Sale
       "/notification/orders_new"(platform: "/") {
-          order_id(required: true, type: PropertyType.String)
+          order_id(required: true, type: PropertyType.Numeric)
       }
 
       //Cancel Order
@@ -308,7 +306,7 @@ tracks {
 
       //Delivered Order
       "/notification/orders_delivered"(platform: "/") {
-          order_id(required: true, type: PropertyType.String)
+          order_id(required: true, type: PropertyType.Numeric)
       }
 
       //Delivered Order
@@ -415,8 +413,9 @@ tracks {
 
       //Mediations
       "/notification/mediations_complainant"(platform: "/") {
-          latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-          latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+          claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
+      }
+      "/notification/mediations_respondent"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
 
@@ -444,7 +443,7 @@ tracks {
       //Payments
       "/notification/payments_pending_reminder"(platform: "/") {
           item_id(required: true, type: PropertyType.String)
-          order_id(required: true, type: PropertyType.String)
+          order_id(required: true, type: PropertyType.Numeric)
       }
       "/notification/payments_approved"(platform: "/") {
           item_id(required: true, type: PropertyType.String)
@@ -548,6 +547,17 @@ tracks {
       "/notification/loyalty_milestone"(platform: "/") {}
       "/notification/loyalty_change_level"(platform: "/") {}
       "/notification/loyalty_freeshipping"(platform: "/") {}
+
+      //Prepaid
+      "/notification/prepaid_card_shipped"(platform: "/") {}
+      "/notification/prepaid_card_waiting_for_withdrawal"(platform: "/") {}
+      "/notification/prepaid_card_delivered"(platform: "/") {}
+
+      //Point
+      "/notification/point_shipping_ready_to_ship"(platform: "/") {}
+      "/notification/point_shipping_shipped"(platform: "/") {}
+      "/notification/point_shipping_not_delivered"(platform: "/") {}
+      "/notification/point_shipping_waiting_for_withdrawal"(platform: "/") {}
 
       //Mshops
       "/notification/mshops_questions"(platform: "/") {}
