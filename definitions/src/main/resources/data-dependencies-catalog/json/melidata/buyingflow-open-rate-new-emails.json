@@ -3,9 +3,9 @@
     "emiliano.somoza@mercadolibre.com"
   ],
   "process_name": "buyingflow-open-rate-new-emails",
-  "cron": "00 07 * * *",
+  "cron": "",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "sent_date",
@@ -54,17 +54,17 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-2",
+          "value": "2018-05-24",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-1",
+          "value": "2018-05-30",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param03",
-          "value": "DAY-0",
+          "value": "2018-05-31",
           "format": "yyyy-MM-dd"
         }
       ]
