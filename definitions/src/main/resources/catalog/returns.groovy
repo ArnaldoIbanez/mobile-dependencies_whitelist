@@ -21,6 +21,7 @@ tracks {
       showed_payment_methods(required: false, type: PropertyType.String)
       order_id(required: false, type: PropertyType.Numeric)
       showed_payment_methods(required: false, type: PropertyType.String)
+      category_path(required: false, type: PropertyType.ArrayList)
     }
 
     // STEP 01
@@ -30,35 +31,42 @@ tracks {
     }
 
     // STEP 02
+    "/return/conditions"(platform: "/", type: TrackType.View) { }
+    "/return/conditions"(platform: "/", type: TrackType.Event) {
+        action(required: false, type: PropertyType.String)
+        selection(required: false, type: PropertyType.String)
+    }
+
+    // STEP 03
     "/return/payments"(platform: "/", type: TrackType.View) { }
     "/return/payments"(platform: "/", type: TrackType.Event) {
       payment(required: false, type: PropertyType.String)
       continueButton(required: false, type: PropertyType.Boolean)
     }
 
-    // STEP 03
+    // STEP 04
     "/return/shipping"(platform: "/", type: TrackType.View) { }
     "/return/shipping"(platform: "/", type: TrackType.Event) {
       shipping(required: false, type: PropertyType.String)
     }
 
-    // STEP 04.a
+    // STEP 05.a
     "/return/pickup"(platform: "/", type: TrackType.View) { }
     "/return/pickup"(platform: "/", type: TrackType.Event) {
       pickup_time(required: false, type: PropertyType.String)
     }
 
-    // STEP 04.b
+    // STEP 05.b
     "/return/delivery"(platform: "/", type: TrackType.View) { }
 
-    // STEP 04.c
+    // STEP 05.c
     "/return/review"(platform: "/", type: TrackType.View) { }
     "/return/review"(platform: "/", type: TrackType.Event) {
       continueButton(required: false, type: PropertyType.Boolean)
       type(required: false, type: PropertyType.String)
     }
 
-    // STEP 05
+    // STEP 06
     "/return/congrats"(platform: "/", type: TrackType.View) {
       typification(required: false, type: PropertyType.String)
       payment(required: false, type: PropertyType.String)
@@ -66,12 +74,12 @@ tracks {
       pickup_time(required: false, type: PropertyType.String)
     }
 
-    // STEP 05.cta.a
+    // STEP 06.cta.a
     "/return/congrats/print_label"(platform: "/", type: TrackType.Event) {
         print_url(required: false, type: PropertyType.String)
     }
 
-    // STEP 05.cta.b
+    // STEP 06.cta.b
     "/return/congrats/remedy_label"(platform: "/", type: TrackType.Event) { }
 
     "/return/modal"(platform: "/", type: TrackType.Event) {
