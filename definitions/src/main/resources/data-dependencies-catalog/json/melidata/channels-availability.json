@@ -3,7 +3,7 @@
     "cx-channels@mercadolibre.com"
   ],
   "process_name": "channels-joint-availability-new-profiles",
-  "cron": "00 16 * * *",
+  "cron": "00 17 * * *",
   "extract": {
     "operation": "overwrite",
     "columns": [
