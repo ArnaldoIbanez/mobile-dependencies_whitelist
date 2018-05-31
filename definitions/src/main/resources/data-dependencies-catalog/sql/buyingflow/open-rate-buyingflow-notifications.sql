@@ -5,6 +5,7 @@ SELECT
   Sent.payment_method_id as payment_method_id,
   Sent.payment_type as payment_type,
   Sent.payment_status as payment_status,
+  Sent.status as status,
   count (Sent.purchase_id) as count_send, 
   sum(if(Open.purchase_id IS NOT NULL, 1, 0)) as count_open,
   if(count (Sent.purchase_id) <> 0,
@@ -49,5 +50,6 @@ GROUP BY Sent.sent_date,
          Sent.site_id,
          Sent.payment_method_id,
          Sent.payment_type,
-         Sent.payment_status
+         Sent.payment_status,
+         Sent.status
 ;
