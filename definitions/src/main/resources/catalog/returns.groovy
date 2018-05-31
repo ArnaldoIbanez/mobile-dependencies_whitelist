@@ -20,30 +20,32 @@ tracks {
       seller_scoring(required: false, type: PropertyType.String)
       showed_payment_methods(required: false, type: PropertyType.String)
       order_id(required: false, type: PropertyType.Numeric)
+      showed_payment_methods(required: false, type: PropertyType.String)
     }
 
     // STEP 01
     "/return/typifications"(platform: "/", type: TrackType.View) { }
     "/return/typifications"(platform: "/", type: TrackType.Event) {
-      typification(required: true, type: PropertyType.String)
+      typification(required: false, type: PropertyType.String)
     }
 
     // STEP 02
     "/return/payments"(platform: "/", type: TrackType.View) { }
     "/return/payments"(platform: "/", type: TrackType.Event) {
-      payment(required: true, type: PropertyType.String)
+      payment(required: false, type: PropertyType.String)
+      continueButton(required: false, type: PropertyType.Boolean)
     }
 
     // STEP 03
     "/return/shipping"(platform: "/", type: TrackType.View) { }
     "/return/shipping"(platform: "/", type: TrackType.Event) {
-      shipping(required: true, type: PropertyType.String)
+      shipping(required: false, type: PropertyType.String)
     }
 
     // STEP 04.a
     "/return/pickup"(platform: "/", type: TrackType.View) { }
     "/return/pickup"(platform: "/", type: TrackType.Event) {
-      pickup_time(required: true, type: PropertyType.String)
+      pickup_time(required: false, type: PropertyType.String)
     }
 
     // STEP 04.b
@@ -66,24 +68,24 @@ tracks {
 
     // STEP 05.cta.a
     "/return/congrats/print_label"(platform: "/", type: TrackType.Event) {
-        print_url(required: true, type: PropertyType.String)
+        print_url(required: false, type: PropertyType.String)
     }
 
     // STEP 05.cta.b
     "/return/congrats/remedy_label"(platform: "/", type: TrackType.Event) { }
 
     "/return/modal"(platform: "/", type: TrackType.Event) {
-      action(required: true, type: PropertyType.String)
-      id(required: true, type: PropertyType.String)
+      action(required: false, type: PropertyType.String)
+      id(required: false, type: PropertyType.String)
       modal_data(required: false, type: PropertyType.Map)
     }
 
     "/return/external"(platform: "/", type: TrackType.Event) {
-      id(required: true, type: PropertyType.String)
+      id(required: false, type: PropertyType.String)
       data(required: false, type: PropertyType.Map)
     }
 
     "/return/error"(platform: "/", type: TrackType.View) {
-      previous_step(required: true, type: PropertyType.String)
+      previous_step(required: false, type: PropertyType.String)
     }
 }

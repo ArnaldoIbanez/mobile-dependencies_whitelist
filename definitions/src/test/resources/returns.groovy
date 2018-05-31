@@ -20,6 +20,7 @@ trackTests {
         item_category = "MLB48550"
         item_category_l1 = "MLB1051"
         refund_account_money=false
+        order_id=1920434799
       }
 
       // STEP 02
@@ -35,6 +36,9 @@ trackTests {
         item_category = "MLB48550"
         item_category_l1 = "MLB1051"
         refund_account_money=false
+        order_id=1920434799
+        showed_payment_methods = "account_money"
+        continueButton = true
       }
 
       // STEP 03
@@ -71,7 +75,18 @@ trackTests {
       "/return/delivery"(platform: "/") { }
 
       // STEP 04.c
-      "/return/review"(platform: "/") { }
+      "/return/review"(platform: "/") {
+        cart_order = false
+        date_delivered = "2018-05-30"
+        item_category = "MLA1915"
+        item_category_l1 = "MLA1051"
+        loyalty_level = 6
+        order_id = 1722099605
+        ref = "myml-listings_primary"
+        refund_account_money = false
+        showed_payment_methods = "account_money"
+        seller_scoring = "low"
+      }
 
       // STEP 05
       "/return/congrats"(platform: "/") {
