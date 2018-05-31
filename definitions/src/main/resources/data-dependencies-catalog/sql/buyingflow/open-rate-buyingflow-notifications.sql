@@ -50,5 +50,6 @@ GROUP BY Sent.sent_date,
          Sent.site_id,
          Sent.payment_method_id,
          Sent.payment_type,
-         Sent.payment_status
+         Sent.payment_status,
+         Sent.status
 ;
