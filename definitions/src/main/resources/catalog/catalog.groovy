@@ -26,6 +26,7 @@ catalog {
 
     def marketplace = [
            "mercadolibre",
+           "mercadoshops",
            "tucarro",
            "tumoto",
            "tulancha",

@@ -548,52 +548,41 @@ tracks {
       "/notification/loyalty_change_level"(platform: "/") {}
       "/notification/loyalty_freeshipping"(platform: "/") {}
 
-      //Prepaid
-      "/notification/prepaid_card_shipped"(platform: "/") {}
-      "/notification/prepaid_card_waiting_for_withdrawal"(platform: "/") {}
-      "/notification/prepaid_card_delivered"(platform: "/") {}
-
-      //Point
-      "/notification/point_shipping_ready_to_ship"(platform: "/") {}
-      "/notification/point_shipping_shipped"(platform: "/") {}
-      "/notification/point_shipping_not_delivered"(platform: "/") {}
-      "/notification/point_shipping_waiting_for_withdrawal"(platform: "/") {}
-
       //Mshops
       "/notification/mshops_questions"(platform: "/") {}
       //Returns
       "/notification/returns_return_cancelled"(platform: "/") {
         order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
-    }
-    "/notification/returns_shipped_seller"(platform: "/") {
-        order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
-    }
-    "/notification/returns_init_return"(platform: "/") {
-        order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
-    }
-    "/notification/returns_init_return_buyer"(platform: "/") {
-        order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
-    }
-    "/notification/returns_refund_payment"(platform: "/") {
-        order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
-    }
-    "/notification/returns_reminder_printed"(platform: "/") {
-        order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
-    }
+      }
+      "/notification/returns_shipped_seller"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+      }
+      "/notification/returns_init_return"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+      }
+      "/notification/returns_init_return_buyer"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+      }
+      "/notification/returns_refund_payment"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+      }
+      "/notification/returns_reminder_printed"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+      }
 
-    //Reviews
-    "/notification/reviews_reminder"(platform: "/") {}
+      //Reviews
+      "/notification/reviews_reminder"(platform: "/") {}
 
-    //Security
-    "/notification/security_enrollment"(platform: "/") {}
-    "/notification/security_phone_confirmation"(platform: "/") {}
-    "/notification/security_event_feedback"(platform: "/") {}
-    "/notification/security_account_validation"(platform: "/") {}
-    "/notification/security_login_auth"(platform: "/") {}
+      //Security
+      "/notification/security_enrollment"(platform: "/") {}
+      "/notification/security_phone_confirmation"(platform: "/") {}
+      "/notification/security_event_feedback"(platform: "/") {}
+      "/notification/security_account_validation"(platform: "/") {}
+      "/notification/security_login_auth"(platform: "/") {}
 
-    //Health Check
-    "/notification/health_check"(platform: "/") {
-        original_news_id( required: false, type: PropertyType.String, description: "Original identifier of the notification generated" )
-    }
+      //Health Check
+      "/notification/health_check"(platform: "/") {
+          original_news_id( required: false, type: PropertyType.String, description: "Original identifier of the notification generated" )
+      }
 
 }
