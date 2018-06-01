@@ -234,7 +234,10 @@ tracks {
     }
 
     "/item/update"(platform: "/", type: TrackType.Event) {
-
+        variations_changed(required: false, type: PropertyType.Boolean, description: "Add new variation, delete a variation or change attribute combination from an existing.")
+        title_changed(required: false, type: PropertyType.Boolean, description: "Change the title.")
+        stock_changed(required: false, type: PropertyType.Boolean, description: "Change the available quantity from the items or variations.")
+        price_changed(required: false, type: PropertyType.Boolean, description: "Change the price.")
     }
 
     "/item/create"(platform: "/", type: TrackType.Event) {

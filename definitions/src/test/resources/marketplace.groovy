@@ -2636,6 +2636,10 @@ trackTests {
         "/item/create"(platform: "/web", dataListItem)
         "/item/update"(platform: "/web"){
             item_id = "MLA12345"
+            variations_changed = true
+            title_changed = true
+            stock_changed = true
+            price_changed = true
         }
         "/item/create"(platform: "/web", dataListItemWithCategorySuggestion)
         "/item/change_listing_type"(platform: "/web", dataChangeListingTypeItemFullInfo)
