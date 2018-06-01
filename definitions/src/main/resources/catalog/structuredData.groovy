@@ -144,4 +144,19 @@ tracks {
 
     "/catalogwidget/welcome/leaders/close"(platform: "/",type: TrackType.Event) {}
 
+
+
+
+    //Tracks for Massive Attribute Editor
+    "/bulk_attributes"(platform: "/",isAbstract: true) {}
+    "/bulk_attributes/incomplete"(platform: "/",isAbstract: true) {}
+
+    "/bulk_attributes/incomplete/save" (platform: "/web",type: TrackType.Event) {
+        campaignId(required: true, description: "Campaign id to know from where the user came")
+        totalItems(required: true, description: "Total of items that the user could update")
+        updatedItems(required: true, description: "Total of updated items in Massive Attribute Editor")
+        badItems(required: true, description:"True if the user has items with few attributes completed.")
+    }
+
+
 }

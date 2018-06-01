@@ -404,4 +404,13 @@ trackTests {
         "/catalogwidget/welcome/leaders/close"(platform: "/",type: TrackType.Event) {}
     }
 
+    test("Updated items in Massive Attribute Editor from SW_MKT"){
+        "/bulk_attributes/incomplete/save" (platform: "/web",type: TrackType.Event) {
+            campaignId = "SW_MKT"
+            totalItems = 6
+            updatedItems = 2
+            badItems = false
+        }
+    }
+
 }
