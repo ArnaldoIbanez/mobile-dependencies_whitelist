@@ -84,6 +84,18 @@ tracks {
         return_available(required: false, type: PropertyType.String, values: ["Yes", "No"], description: "Indicates if there is at least one item that has free return")
     }
 
+    "/myml/purchases/list/returns_action"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Indicates the button that have been clicked",
+                values: ['return_item', 'cancel_return', 'change_return_pickup', 'prepare_package', 'return_agencies', 'print_return_label', 'return_not_delivered', 'return_delivered_problem', 'track_return'])
+    }
+
+    "/myml/purchases/vop"(platform: "/") {}
+
+    "/myml/purchases/vop/returns_action"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Indicates the button that have been clicked",
+                values: ['return_item', 'cancel_return', 'change_return_pickup', 'prepare_package', 'return_agencies', 'print_return_label', 'return_not_delivered', 'return_delivered_problem', 'track_return'])
+    }
+
     "/myml/purchases/detail"(platform: "/") {}
 
     "/myml/purchases/detail/delete_purchase"(platform: "/", type: TrackType.Event) {}
