@@ -3,9 +3,9 @@
     "cx-channels@mercadolibre.com"
   ],
   "process_name": "channels-joint-availability-new-profiles",
-  "cron": "00 17 * * *",
+  "cron": "00 05 * * *",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
         "name": "requested_datetime",
@@ -81,22 +81,22 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2018-03-02",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "2018-05-31",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param03",
-          "value": "2018-03-01",
+          "value": "DAY-2",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param04",
-          "value": "2018-05-30",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         }           
       ]
