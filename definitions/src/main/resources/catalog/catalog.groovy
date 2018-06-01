@@ -26,7 +26,6 @@ catalog {
 
     def marketplace = [
            "mercadolibre",
-           "mercadoshops",
            "tucarro",
            "tumoto",
            "tulancha",
@@ -98,6 +97,7 @@ catalog {
 
     mercadoshops.each { business ->
         include business, "authentication.groovy"
+        include business, "notifications.groovy"
     }
 
 }
