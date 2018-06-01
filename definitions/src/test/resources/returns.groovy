@@ -21,6 +21,7 @@ trackTests {
         item_category_l1 = "MLB1051"
         refund_account_money=false
         order_id=1920434799
+        category_path=[MLA1648, MLA2141, MLA1676, MLA1683, MLA402171, MLA402176]
       }
 
       // STEP 02
@@ -39,6 +40,7 @@ trackTests {
         order_id=1920434799
         showed_payment_methods = "account_money"
         continueButton = true
+        category_path=[MLA1648, MLA2141, MLA1676, MLA1683, MLA402171, MLA402176]
       }
 
       // STEP 03
@@ -54,6 +56,7 @@ trackTests {
         item_category = "MLB48550"
         item_category_l1 = "MLB1051"
         refund_account_money=false
+        category_path=[MLA1648, MLA2141, MLA1676, MLA1683, MLA402171, MLA402176]
       }
 
       // STEP 04.a
@@ -69,6 +72,7 @@ trackTests {
         item_category = "MLB48550"
         item_category_l1 = "MLB1051"
         refund_account_money=false
+        category_path=[MLA1648, MLA2141, MLA1676, MLA1683, MLA402171, MLA402176]
       }
 
       // STEP 04.b
@@ -86,6 +90,7 @@ trackTests {
         refund_account_money = false
         showed_payment_methods = "account_money"
         seller_scoring = "low"
+        category_path=[MLA1648, MLA2141, MLA1676, MLA1683, MLA402171, MLA402176]
       }
 
       // STEP 05
@@ -106,6 +111,7 @@ trackTests {
         item_category = "MLB48550"
         item_category_l1 = "MLB1051"
         refund_account_money=false
+        category_path=[MLA1648, MLA2141, MLA1676, MLA1683, MLA402171, MLA402176]
       }
 
       // STEP 05.cta.a
@@ -131,6 +137,7 @@ trackTests {
         item_category = "MLB48550"
         item_category_l1 = "MLB1051"
         refund_account_money=false
+        category_path=[MLA1648, MLA2141, MLA1676, MLA1683, MLA402171, MLA402176]
       }
 
       // Error Page

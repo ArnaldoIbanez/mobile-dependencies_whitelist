@@ -20,7 +20,7 @@ tracks {
       seller_scoring(required: false, type: PropertyType.String, description: 'seller reputation level')
       showed_payment_methods(required: false, type: PropertyType.String, description: 'origin of the payment method')
       order_id(required: false, type: PropertyType.Numeric, description: 'order identifier')
-      category_path(required: false, type: PropertyType.ArrayList, description: '???')
+      category_path(required: false, type: PropertyType.ArrayList, description: 'list of categories')
     }
 
     // STEP 01
