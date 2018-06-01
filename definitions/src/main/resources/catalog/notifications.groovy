@@ -549,6 +549,7 @@ tracks {
       "/notification/loyalty_freeshipping"(platform: "/") {}
 
       //Mshops
+      "/notification/mshops_orders"(platform: "/") {}
       "/notification/mshops_questions"(platform: "/") {}
       //Returns
       "/notification/returns_return_cancelled"(platform: "/") {

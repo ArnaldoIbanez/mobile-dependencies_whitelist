@@ -1117,6 +1117,11 @@ trackTests {
             event_type = "auto_dismiss"
         }
 
+        "/notification/mshops_orders"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+        }
+
         "/notification/returns_return_cancelled"(platform: "/mobile") {
             news_id = "returns-return_cancelled-1674717959-216070768"
             event_type = "arrived"
