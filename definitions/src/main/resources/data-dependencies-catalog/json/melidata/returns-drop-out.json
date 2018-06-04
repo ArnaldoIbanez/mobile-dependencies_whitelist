@@ -1,11 +1,12 @@
 {
   "users": [
-    "tomas.auchterlonie@mercadolibre.com"
+    "tomas.auchterlonie@mercadolibre.com",
+    "facundo.allemand@mercadolibre.com"
   ],
   "process_name": "returns-drop-out",
-  "cron": "00 11 * * *",
+  "cron": "",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "day",
@@ -26,6 +27,10 @@
       },
       {
         "name": "typifications_went_claims",
+        "type": "INTEGER"
+      },
+      {
+        "name": "conditions",
         "type": "INTEGER"
       },
       {
@@ -89,6 +94,10 @@
         "type": "INTEGER"
       },
       {
+        "name": "conditions_error",
+        "type": "INTEGER"
+      },
+      {
         "name": "payments_error",
         "type": "INTEGER"
       },
@@ -111,12 +120,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2018-01-01 00",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "2018-02-01 00",
           "format": "yyyy-MM-dd"
         }
       ]
