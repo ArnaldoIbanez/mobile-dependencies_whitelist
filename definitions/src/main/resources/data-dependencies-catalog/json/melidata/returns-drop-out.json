@@ -6,7 +6,7 @@
   "process_name": "returns-drop-out",
   "cron": "",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
         "name": "day",
@@ -120,12 +120,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2018-01-01 00",
+          "value": "2018-02-01 00",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "2018-02-01 00",
+          "value": "2018-03-01 00",
           "format": "yyyy-MM-dd"
         }
       ]
