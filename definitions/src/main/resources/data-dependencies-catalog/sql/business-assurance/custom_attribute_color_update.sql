@@ -5,7 +5,7 @@ GET_JSON_OBJECT(tracks.event_data, '$.category_id') as category_id,
 GET_JSON_OBJECT(tracks.event_data, '$.session_id') as session_id,
 GET_JSON_OBJECT(tracks.event_data, '$.is_custom_name') as is_custom_name
 FROM tracks
-WHERE tracks.path LIKE '%sell/update/color_selection/custom_color'
+WHERE tracks.path = '/sell/update/color_selection/custom_color'
 AND ds >= '@param01' AND ds < '@param02'
 AND application.business='mercadolibre'
 AND type='event'

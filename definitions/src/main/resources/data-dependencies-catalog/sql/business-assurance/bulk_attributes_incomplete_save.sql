@@ -5,7 +5,7 @@ GET_JSON_OBJECT(tracks.event_data, '$.totalItems') as totalItems,
 GET_JSON_OBJECT(tracks.event_data, '$.updatedItems') as updatedItems,
 GET_JSON_OBJECT(tracks.event_data, '$.badItems') as badItems
 FROM tracks
-WHERE tracks.path LIKE '%bulk_attributes/incomplete/save'
+WHERE tracks.path = '/bulk_attributes/incomplete/save'
 AND ds >= '@param01' AND ds < '@param02'
 AND application.business='mercadolibre'
 AND type='event'
