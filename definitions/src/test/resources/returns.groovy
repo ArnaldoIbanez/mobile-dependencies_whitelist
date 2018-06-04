@@ -39,7 +39,7 @@ trackTests {
         refund_account_money=false
         order_id=1920434799
         showed_payment_methods = "account_money"
-        continue_button = true
+        continueButton = true
         category_path=[MLA1648, MLA2141, MLA1676, MLA1683, MLA402171, MLA402176]
       }
 
