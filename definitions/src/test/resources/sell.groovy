@@ -267,6 +267,7 @@ trackTests {
         "/sell/list/draft/shipping_flat_cost"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/price_modality"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/location_suggestion"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/free_shipping"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/hub"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/walkthrough"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/hub_old"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
@@ -369,6 +370,7 @@ trackTests {
         "/sell/list/pictures/crop/crop_canceled"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/price_modality"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/shipping_flat_cost"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/free_shipping"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
 
         "/sell/list/drafts"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/drafts/draft_action/draft_deleted"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
@@ -519,6 +521,9 @@ trackTests {
         "/sell/update/technical_specifications"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/variations"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/variations_pi"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/statistics"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/free_shipping"(platform: "/mobile") {item_id = "MLA123456"}
+
     }
 
     test("Modal attributes pseudo obligatory - List"){
