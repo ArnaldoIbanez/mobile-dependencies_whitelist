@@ -457,7 +457,7 @@ trackTests {
             news_id = "12332323"
             event_type = "dismiss"
             deeplink = "meli://seller_question/12221"
-            question_id = "1234"
+            question_id = 1234
         }
 
         "/notification/questions_answered"(platform: "/mobile") {
@@ -475,7 +475,7 @@ trackTests {
         "/notification/orders_new"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
-            order_id = "12132"
+            order_id = 12132
         }
 
         "/notification/orders_cancelled"(platform: "/mobile") {
@@ -496,7 +496,7 @@ trackTests {
         "/notification/orders_delivered"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
-            order_id = "12132"
+            order_id = 12132
         }
         "/notification/orders_timeout_confirmed"(platform: "/mobile") {
             news_id = "12332323"
@@ -616,14 +616,12 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
             shipment_id = 1234
-            order_id = "1234321"
-            pack_id= 2000000032080846
         }
 
         "/notification/shipping_delivered"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
-            shipment_id = "1234"
+            shipment_id = 1234
         }
 
         "/notification/shipping_agency_withdrawal"(platform: "/mobile") {
@@ -826,8 +824,6 @@ trackTests {
             notification_style = "BigTextStyle"
             claim_id = 3123
             action_type = "favorite"
-            latest_news_type ="mediations_complainant"
-            latest_news_id = "mediations_complainant-143816022-MLB1013046714"
         }
 
         "/notification/mediations_complainant"(platform: "/mobile") {
@@ -836,15 +832,20 @@ trackTests {
             notification_style = "BigTextStyle"
             claim_id = 3123
             action_type = "favorite"
-            latest_news_type ="mediations_complainant"
-            latest_news_id = "mediations_complainant-143816022-MLB1013046714"
+        }
+
+        "/notification/mediations_respondent"(platform: "/mobile") {
+            news_id = "mediations-respondent-1013715421-5b0d7ee426e063333fe0c582"
+            event_type = "shown"
+            notification_style = "c"
+            claim_id = 1013715459
         }
 
         "/notification/questions_new"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
             notification_style = "BigTextStyle"
-            question_id = "1234"
+            question_id = 1234
         }
 
         "/notification/questions-buyer"(platform: "/mobile") {
@@ -900,14 +901,14 @@ trackTests {
             news_id = "123"
             event_type = "open"
             item_id = "MLA1234"
-            order_id = "1234321"
+            order_id = 1234321
         }
 
         "/notification/payments_pending_reminder"(platform: "/mobile") {
             news_id = "123"
             event_type = "dismiss"
             item_id = "MLA1234"
-            order_id = "1234321"
+            order_id = 1234321
         }
 
         "/notification/payments_pending_remainder"(platform: "/mobile") {
@@ -921,7 +922,7 @@ trackTests {
             news_id = "123"
             event_type = "auto_dismiss"
             item_id = "MLA1234"
-            order_id = "1234321"
+            order_id = 1234321
         }
 
         "/notification/payments_approved"(platform: "/mobile") {
@@ -1080,7 +1081,7 @@ trackTests {
         }
 
         "/notification/packages_new"(platform: "/mobile") {
-              news_id = "123"
+            news_id = "123"
             event_type = "auto_dismiss"
             purchase_id= 1000000016589794
             pack_id= 2000000032080846
@@ -1112,6 +1113,11 @@ trackTests {
         }
 
         "/notification/mshops_questions"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+        }
+
+        "/notification/mshops_orders"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
         }
