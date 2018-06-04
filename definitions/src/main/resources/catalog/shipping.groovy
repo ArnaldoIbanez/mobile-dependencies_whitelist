@@ -3,7 +3,9 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
-    "/shipping/flex/optin"(platform: "/", type: TrackType.View) {
-        view(required: true, type: PropertyType.String, description: "specific view the user was shown")
+    "/shipping"(platform: "/", isAbstract: true) {}
+    "/shipping/flex"(platform: "/", isAbstract: true) {}
+    "/shipping/flex/optin"(platform: "/", type: TrackType.Event) {
+        view(required: true, type: PropertyType.String, description: "specific view the app returned")
     }
 }
