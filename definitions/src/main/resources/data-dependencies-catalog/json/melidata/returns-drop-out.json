@@ -29,6 +29,10 @@
         "type": "INTEGER"
       },
       {
+        "name": "conditions",
+        "type": "INTEGER"
+      },
+      {
         "name": "payments",
         "type": "INTEGER"
       },
@@ -86,6 +90,10 @@
       },
       {
         "name": "typifications_error",
+        "type": "INTEGER"
+      },
+      {
+        "name": "conditions_error",
         "type": "INTEGER"
       },
       {
