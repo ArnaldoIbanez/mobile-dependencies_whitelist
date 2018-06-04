@@ -90,6 +90,10 @@
         "type": "INTEGER"
       },
       {
+        "name": "orderid_error",
+        "type": "INTEGER"
+      },
+      {
         "name": "typifications_error",
         "type": "INTEGER"
       },
@@ -106,11 +110,15 @@
         "type": "INTEGER"
       },
       {
-        "name": "review_pickup_delivery_error",
+        "name": "review_error",
         "type": "INTEGER"
       },
       {
-        "name": "congrats_error",
+        "name": "pickup_error",
+        "type": "INTEGER"
+      },
+      {
+        "name": "delivery_error",
         "type": "INTEGER"
       }
 
