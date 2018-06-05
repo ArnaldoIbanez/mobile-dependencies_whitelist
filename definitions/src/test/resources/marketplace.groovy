@@ -4447,6 +4447,16 @@ trackTests {
 
         "/myml/purchases/list"(platform: "/web") {}
 
+        "/myml/purchases/list/returns_action"(platform: "/web", type: TrackType.Event) {
+            action = 'print_return_label'
+        }
+
+        "/myml/purchases/vop"(platform: "/web") {}
+
+        "/myml/purchases/vop/returns_action"(platform: "/web", type: TrackType.Event) {
+            action = 'print_return_label'
+        }
+
         "/myml/purchases/detail"(platform: "/web") {}
 
         "/myml/purchases/detail/delete_purchase"(platform: "/web") {}
