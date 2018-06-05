@@ -1,5 +1,5 @@
-SELECT landing.tracking_date,
-        landing.site_id,
+SELECT landing.tracking_date as tracking_date,
+        landing.site_id as site_id,
         COUNT(DISTINCT landing.uid) as visits_quantity,
         COUNT(DISTINCT optin.uid) as optin_quantity,
         COUNT(DISTINCT congrats.uid) as congrats_quantity,
