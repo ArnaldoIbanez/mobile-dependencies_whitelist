@@ -97,6 +97,7 @@ catalog {
 
     mercadoshops.each { business ->
         include business, "authentication.groovy"
+        include business, "notifications.groovy"
     }
 
 }

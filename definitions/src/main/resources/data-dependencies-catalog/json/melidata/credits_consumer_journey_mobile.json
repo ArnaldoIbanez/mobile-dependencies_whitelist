@@ -3,9 +3,9 @@
     "gabriel.neil@mercadolibre.com"
   ],
   "process_name": "consumer_journey_mobile",
-  "cron": "",
+  "cron": "00 05 * * *",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
         "name": "date_sent",

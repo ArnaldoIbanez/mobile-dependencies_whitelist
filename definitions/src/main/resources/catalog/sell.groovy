@@ -146,6 +146,7 @@ tracks {
     "/sell/list/draft/shipping_landing"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/shipping_flat_cost"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/price_modality"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/free_shipping"(platform:"/mobile", type: TrackType.View){}
 
     "/sell/list/hub"(platform: "/", type: TrackType.View) {}
     "/sell/list/walkthrough"(platform: "/mobile", type: TrackType.View) {}
@@ -160,6 +161,7 @@ tracks {
     "/sell/list/pictures/crop/crop_accepted"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/pictures/crop/crop_canceled"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/manufacturing_time"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/free_shipping"(platform:"/mobile", type: TrackType.View){}
 
 
     "/sell/list/sip"(platform: "/mobile", type: TrackType.View) {
@@ -460,6 +462,9 @@ tracks {
     "/sell/update/listing_types"(platform: "/", type: TrackType.View) {}
     "/sell/update/listing_types_upgrade"(platform: "/", type: TrackType.View) {}
     "/sell/update/congrats_upgrade"(platform: "/", type: TrackType.View) {}
+    "/sell/update/free_shipping"(platform: "/", type: TrackType.View) {}
+    "/sell/update/statistics"(platform: "/", type: TrackType.View) {}
+
 
     "/sell/list/pictures_uploader"(platform: "/web/desktop", isAbstract: true){}
     "/sell/list/pictures_uploader/validations"(platform: "/web/desktop", type: TrackType.Event){

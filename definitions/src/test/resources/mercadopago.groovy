@@ -1818,6 +1818,67 @@ trackTests {
                 news_id = "123"
                 event_type = "open"
         }
+
+        "/notification/prepaid_card_shipped"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_waiting_for_withdrawal"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_delivered"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_delayed_p1"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_not_delivered"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/point_shipping_shipped"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/point_shipping_not_delivered"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/point_shipping_waiting_for_withdrawal"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/point_shipping_delayed_p1"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
     }
 
 // END -- MPMOBILE TEST
