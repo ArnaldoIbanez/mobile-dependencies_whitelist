@@ -32,6 +32,7 @@ tracks {
         //Tracks from Search Backend:
         backend_data(required: false)
         catalog_product_id(required: false, description: 'Id of the product, only if the product header is shown')
+        tos_carousel_shown(required: false, description: 'which TOs are in the carousel', PropertyType.ArrayList)
             //ab(required: false, description:'ab testing related. to be deprecated')
             //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
             //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
@@ -129,6 +130,11 @@ tracks {
 
     "/search/change_view/apply"(platform: "/mobile", type: TrackType.Event) {
         list_mode()
+    }
+
+    "/search/to_position"(platform: "/", type: TrackType.Event) {
+        to_name(required: true, description: 'the name of the official store selected', PropertyType.String)
+        to_position(required: true, description: 'the position of the official store in the carousel', PropertyType.Integer)
     }
 
     "/search/input"(platform: "/mobile", parentPropertiesInherited: false) {
