@@ -3,7 +3,7 @@
     "maximiliano.draeger@mercadolibre.com"
   ],
   "process_name": "opt_in_landing",
-  "cron": "",
+  "cron": "00 15 * * *",
   "extract": {
     "operation": "append",
     "columns": [
