@@ -2,13 +2,13 @@
   "users": [
     "maximiliano.draeger@mercadolibre.com"
   ],
-  "process_name": "fbm_opt_in_landing",
-  "cron": "00 11 * * *",
+  "process_name": "opt_in_landing",
+  "cron": "",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
-        "name": "ds",
+        "name": "tracking_date",
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },
@@ -54,7 +54,7 @@
       }
     ],
     "sql": {
-      "script": "fbm/opt_in_landing.sql",
+      "script": "business-assurance/opt_in_landing.sql",
       "parameters": [
         {
           "name": "param01",
@@ -63,7 +63,7 @@
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         }
       ]
