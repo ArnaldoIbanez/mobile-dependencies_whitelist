@@ -148,13 +148,30 @@ tracks {
         payment_amount(required: true)
     }
 
+    // The user tap back arrow (Mobile) or click on browser back (Web)
+    "/checkout_off/v1/back_action"(platform: "/", type: TrackType.Event){}
+
+    // The user expand summary view or any expandible view.
+    "/checkout_off/v1/open_summary_detail"(platform: "/", type: TrackType.Event){
+        installments(required: false)
+        has_discount(required: false, description:"User has applied discount?")
+    }
+
     "/checkout_off/v1/login"(platform: "/", type: TrackType.View){}
 
     "/checkout_off/v1/login/guest"(platform: "/", type: TrackType.View){}
 
     "/checkout_off/v1/login/discount"(platform: "/", type: TrackType.View){}
 
-    "/checkout_off/v1/express"(platform: "/", type: TrackType.View){}
+    "/checkout_off/v1/express"(platform: "/", type: TrackType.View) {
+        payment_method(required: false)
+        payment_type(required: false)
+        purchase_amount(required: false)
+        card_id(required: false)
+        installments(required: false)
+    }
+
+    "/checkout_off/v1/discount_terms_conditions"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/v1/payment_option"(platform: "/", type: TrackType.View){
         options (required: false, type:PropertyType.ArrayList, description: "Payment options offered. Options format: {\"has_esc\":false,\"card_id\":\"\",\"payment_method\":\"visa\",\"payment_type\":\"credit_card\"}")
