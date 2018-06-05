@@ -16,8 +16,10 @@ FROM
         WHERE ds >= '@param01' AND ds < '@param02'
           AND path = '/fbm/landing'
           AND application.site_id = 'MLM'
+          AND usr.user_nick NOT LIKE 'TETE%'
+          AND usr.user_nick NOT LIKE 'TT%'
+          AND usr.user_nick NOT LIKE 'TEST%'
           AND usr.user_nick <> 'MEXICO-SELLER'
-          AND NOT regexp_like(usr.user_nick,'^(TEST|TETE|TT)[0-9]*')
     ) as landing
  LEFT JOIN
     (
@@ -26,8 +28,10 @@ FROM
         WHERE ds >= '@param01' AND ds < '@param02'
           AND path = '/fbm/landing/optin'
           AND application.site_id = 'MLM'
+          AND usr.user_nick NOT LIKE 'TETE%'
+          AND usr.user_nick NOT LIKE 'TT%'
+          AND usr.user_nick NOT LIKE 'TEST%'
           AND usr.user_nick <> 'MEXICO-SELLER'
-          AND NOT regexp_like(usr.user_nick,'^(TEST|TETE|TT)[0-9]*')
     ) as optin
     ON landing.uid = optin.uid
     AND landing.site_id = optin.site_id
@@ -39,8 +43,10 @@ FROM
         WHERE ds >= '@param01' AND ds < '@param02'
           AND path = '/fbm/landing/congrats'
           AND application.site_id = 'MLM'
+          AND usr.user_nick NOT LIKE 'TETE%'
+          AND usr.user_nick NOT LIKE 'TT%'
+          AND usr.user_nick NOT LIKE 'TEST%'
           AND usr.user_nick <> 'MEXICO-SELLER'
-          AND NOT regexp_like(usr.user_nick,'^(TEST|TETE|TT)[0-9]*')
     ) as congrats
     ON optin.uid = congrats.uid
     AND optin.site_id = congrats.site_id
@@ -52,8 +58,10 @@ FROM
         WHERE ds >= '@param01' AND ds < '@param02'
           AND path = '/fbm/landing/cancel_opt_in'
           AND application.site_id = 'MLM'
+          AND usr.user_nick NOT LIKE 'TETE%'
+          AND usr.user_nick NOT LIKE 'TT%'
+          AND usr.user_nick NOT LIKE 'TEST%'
           AND usr.user_nick <> 'MEXICO-SELLER'
-          AND NOT regexp_like(usr.user_nick,'^(TEST|TETE|TT)[0-9]*')
     ) as cancel_optin
     ON optin.uid = cancel_optin.uid
     AND optin.site_id = cancel_optin.site_id
