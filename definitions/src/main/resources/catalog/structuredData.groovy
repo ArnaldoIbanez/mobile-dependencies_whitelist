@@ -155,7 +155,7 @@ tracks {
         campaignId(required: true, description: "Campaign id to know from where the user came")
         totalItems(required: true, description: "Total of items that the user could update")
         updatedItems(required: true, description: "Total of updated items in Massive Attribute Editor")
-        badItems(required: true, description:"True if the user has items with few attributes completed.", PropertyType.Boolean)
+        badItems(required: false, description:"True if the user has items with few attributes completed.", PropertyType.Boolean)
     }
 
 
