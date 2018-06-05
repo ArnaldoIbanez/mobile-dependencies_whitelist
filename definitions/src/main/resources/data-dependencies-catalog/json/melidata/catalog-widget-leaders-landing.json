@@ -2,7 +2,7 @@
   "users": [
     "vespoli.nicolas@mercadolibre.com"
   ],
-  "process_name": "catalog-widget-leaders-swmkt",
+  "process_name": "catalog-widget-leaders-landing",
   "cron": "00 07 * * *",
   "extract": {
     "operation": "append",
@@ -30,7 +30,7 @@
       }
     ],
     "sql": {
-      "script": "catalog-widget-leaders-swmkt.sql",
+      "script": "business-assurance/catalog-widget-leaders-landing.sql",
       "parameters": [
         {
           "name": "param01",
