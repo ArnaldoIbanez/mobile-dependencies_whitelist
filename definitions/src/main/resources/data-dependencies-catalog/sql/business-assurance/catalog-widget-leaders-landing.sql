@@ -8,3 +8,4 @@ FROM tracks
 WHERE tracks.path LIKE '/catalogwidget/welcome/leaders/%'
 AND ds >= '@param01' AND ds < '@param02'
 AND application.business='mercadolibre'
+GROUP BY substr(ds,1,10)
