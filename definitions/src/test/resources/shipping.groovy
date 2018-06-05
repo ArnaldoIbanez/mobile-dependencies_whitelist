@@ -11,7 +11,7 @@ trackTests {
             view = "success_flex"
         }
 
-        "/shipping/flex/optin"(platform:"/", type: TrackType.Event) {
+        "/flex/optin"(platform:"/", type: TrackType.Event) {
             defaultTrackInformation()
         }
 
