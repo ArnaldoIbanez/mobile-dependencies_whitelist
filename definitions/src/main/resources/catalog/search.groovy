@@ -20,7 +20,7 @@ tracks {
         sort_id(required: true, description: "relevance, price_asc or price_desc", values: ["relevance", "price_asc", "price_desc"])
         filters(required: true, description: "filters applied")
         autoselected_filters(required: false, description: "filters not applied by the user (category from canonical or adults)", PropertyType.ArrayList) //todo hablar con laura para ver si se pueden sacar
-        view_mode(required: true, description: "MOSAIC, LIST or GALLERY", values:["LIST","MOSAIC","GALLERY"])
+        view_mode(required: true, description: "MOSAIC, LIST or GALLERY on WM and apps and STACK or GRID on desktop", values:["STACK","GRID","LIST","MOSAIC","GALLERY"])
         results(required: true, description: "item ids from search result", PropertyType.ArrayList)
         billboards(required: true, description: "items ids from billboard results", PropertyType.ArrayList)
         pads(required: true, description: "item_id from the pads returned for listings")
