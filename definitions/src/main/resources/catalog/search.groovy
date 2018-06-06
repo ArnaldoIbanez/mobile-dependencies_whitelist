@@ -132,6 +132,8 @@ tracks {
         list_mode()
     }
 
+    "/search/official_stores_carousel"(platform: "/", isAbstract: true) {}
+
     "/search/official_stores_carousel/click"(platform: "/", type: TrackType.Event) {
         to_name(required: true, description: 'the name of the official store selected', PropertyType.String)
         to_position(required: true, description: 'the position of the official store in the carousel', PropertyType.Numeric)
