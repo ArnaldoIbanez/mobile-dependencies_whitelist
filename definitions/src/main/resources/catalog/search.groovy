@@ -60,6 +60,17 @@ tracks {
     }
 
     "/search"(platform: "/mobile") {
+        //limit y offset parecen ser las unicas que no se cambian
+        //limit(required: true, description: "the max number of items returned", type: PropertyType.Numeric)
+        //offset(required: true, description: "the number of items skipped on the search", type: PropertyType.Numeric)
+        total(required: false, description: "override required property")
+        sort_id(required: false, description: "override required property")
+        filters(required: false, description: "override required property")
+        view_mode(required: false, description: "override required property")
+        results(required: false, description: "override required property")
+        billboards(required: false, description: "override required property")
+        pads(required: false, description: "override required property") //esto estaba solo para web antes
+
         breadcrumb_refined(required: false, description: 'if user used breadcrumb to refine their search',PropertyType.Boolean)
         error_message(required: false, PropertyType.String) // TODO: no podemos remover?
     }
