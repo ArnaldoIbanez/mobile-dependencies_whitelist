@@ -28,20 +28,20 @@ tracks {
 
         //Tracks from Search Backend:
         backend_data(required: false)
-
-        //ab(required: false, description:'ab testing related. to be deprecated')
-        //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
-        //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
-        //ac(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Not Comblinable')
-        //ap(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Combinable with other pages')
-        //fsm(required: false, description:'indicates on each result of paged if its full or soft match')
-        //qas(required: false, PropertyType.ArrayList, description:'auto selected filters')
-        //canonical(required: false, description:'url canonical')
-        //cli_rel_qty_configured(required: false, description:'client relationship')
-        //cli_rel_qty_link_to_category(required: false, description:'client relationship link to category')
-        //corrections(required: false, description:'corrections over query')
-        //processed_query(required: false, description:'processed query by backend')
-        //stems(required: false, description:'stems list which returns backend to stand out in frontend'
+        official_stores_carousel_shown(required: false, description: 'which TOs are in the carousel', PropertyType.ArrayList)
+            //ab(required: false, description:'ab testing related. to be deprecated')
+            //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
+            //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
+            //ac(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Not Comblinable')
+            //ap(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Combinable with other pages')
+            //fsm(required: false, description:'indicates on each result of paged if its full or soft match')
+            //qas(required: false, PropertyType.ArrayList, description:'auto selected filters')
+            //canonical(required: false, description:'url canonical')
+            //cli_rel_qty_configured(required: false, description:'client relationship')
+            //cli_rel_qty_link_to_category(required: false, description:'client relationship link to category')
+            //corrections(required: false, description:'corrections over query')
+            //processed_query(required: false, description:'processed query by backend')
+            //stems(required: false, description:'stems list which returns backend to stand out in frontend'
     }
 
     "/search"(platform: "/web") {
@@ -108,6 +108,13 @@ tracks {
 
     "/search/change_view/apply"(platform: "/mobile", type: TrackType.Event) {
         list_mode()
+    }
+
+    "/search/official_stores_carousel"(platform: "/", isAbstract: true) {}
+
+    "/search/official_stores_carousel/click"(platform: "/", type: TrackType.Event) {
+        to_name(required: true, description: 'the name of the official store selected', PropertyType.String)
+        to_position(required: true, description: 'the position of the official store in the carousel', PropertyType.Numeric)
     }
 
     "/search/input"(platform: "/mobile", parentPropertiesInherited: false) {
