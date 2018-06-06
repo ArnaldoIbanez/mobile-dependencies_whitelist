@@ -34,6 +34,7 @@ tracks {
         status(required: true)
         budget(required: true)
         ad_status(required: true)
+        item_id(required:true)
         previous_ad_status (required: true)
     }
 }

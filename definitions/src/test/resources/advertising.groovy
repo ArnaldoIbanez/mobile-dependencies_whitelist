@@ -34,6 +34,7 @@ trackTests {
             status = "active"
             budget = "22.22"
             ad_status = "active"
+            item_id = "MLA22"
             previous_ad_status = "paused"
         }
     }
