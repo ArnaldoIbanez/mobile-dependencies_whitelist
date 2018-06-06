@@ -129,10 +129,7 @@ tracks {
     }
 
     "/search/input"(platform: "/mobile", parentPropertiesInherited: false) {
-        //TODO. remove this when inhereted from / is solved
-        mode(required: false)
-        sent_again(required: false)
-        from_background(required: false)
+
     }
 
     "/search/input/back"(platform: "/mobile") {}

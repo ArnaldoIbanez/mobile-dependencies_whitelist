@@ -17,17 +17,17 @@ import com.ml.melidata.TrackType
 */
 
 tracks {
+    
+    "/"(platform: "/", isAbstract: true) {
+    }
 
     "/"(platform: "/mobile", isAbstract: true) {
         sent_again(required: false)
     }
 
-    "/"(platform: "/web", isAbstract: true) {
-    }
-
     "/blog"(platform: "/web", isAbstract: true) {
     }
-    
+
     "/blog/home"(platform: "/web") {
     }
 
@@ -37,7 +37,7 @@ tracks {
     // MP Home
     "/landing/home"(platform: "/web"){}
 
-    // MP Sellers 
+    // MP Sellers
     "/landing/sellers"(platform: "/web"){}
 
     // MP Sellers Websites
@@ -68,6 +68,10 @@ tracks {
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
+
+    // QR Landing > Buyers
+    "/merchant_acquisition/qr/landing/buyers"(platform:"/", type: TrackType.View) {}
+
     // QR Landing > Events
     "/merchant_acquisition/qr/landing/promotions"(platform:"/", type: TrackType.Event) {}
 
@@ -76,6 +80,8 @@ tracks {
     "/merchant_acquisition/qr/qr-code"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/qr/pending"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/qr/error"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/qr/settings"(platform:"/", type: TrackType.View) {}
+
     // QR Flow > Events
     "/merchant_acquisition/qr/qr-code/download"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/qr/qr-code/print"(platform:"/", type: TrackType.Event) {}
@@ -91,15 +97,22 @@ tracks {
         discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
     }
+    "/point/home/buy"(platform:"/", type: TrackType.Event) {}
+
+    // Point Flows
+    "/point/flows"(platform: "/", isAbstract: true) {}
+
+    // Point Flows Congrats > Pageviews
+    "/point/flows/congrats"(platform:"/", type: TrackType.View) {}
 
     // MP Mobile Point
     "/point_payment"(platform: "/mobile", type: TrackType.View) {
         flow_id (required: false, type: PropertyType.String, description: "Flow id.")
         from (required: false, type: PropertyType.String, description: "Where the flow start")
-        method (required: false, type: PropertyType.String, description: "Card reading method swipe/dip/tap", values: ["swipe", "dip", "tap"])
+        method (required: false, type: PropertyType.String, description: "Card reading method swipe/dip/tap", values: ["swipe", "dip", "tap", "chip"])
         currency (required: false, type: PropertyType.String, description: "Transaction currency")
-        amount (required: false, type: PropertyType.Numeric, description: "Transaction amount")
-        installments (required: false, type: PropertyType.Numeric, description: "Installments amount")
+        amount (required: false, type: PropertyType.String, description: "Transaction amount")
+        installments (required: false, type: PropertyType.String, description: "Installments amount")
         payment_status (required: false, type: PropertyType.String, description: "Payment result status")
         payment_detail (required: false, type: PropertyType.String, description: "Payment result detail")
         reason (required: false, type: PropertyType.String, description: "Payment reason")
@@ -107,6 +120,8 @@ tracks {
         poi_type (required: false, type: PropertyType.String, description: "Type of device")
         payment_method_id (required: false, type: PropertyType.String, description: "Payment Method used")
         operator_id (required: false, type: PropertyType.String, description: "Operator identification")
+        flow (required: false, type: PropertyType.String, description: "Flow")
+        error_msg (required:false, type: PropertyType.String, description: "Error shown to seller")
     }
 
     "/point_payment/main"(platform: "/mobile", type: TrackType.View) {}
@@ -121,6 +136,21 @@ tracks {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
         error_msg (required:false, type: PropertyType.String, description: "Error shown to seller")
     }
+    "/point_payment/new_payment_entry_point"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/send_bill_congrats"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/send_sms"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/error_i_have_an_issue"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/error/generic"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/error/rejected"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/request_bluetooth"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/ftu_preorder_pax"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/pairing"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/pairing_chooser"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/selector"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/send_bill"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/point_ftu_newland"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/idempotency"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/point"(platform: "/mobile", type: TrackType.View) {}
 
     "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
         flow_id (required: true, type: PropertyType.String, description: "Flow id.")
@@ -135,6 +165,40 @@ tracks {
     "/point_payment/flow_tracker/payment_methods_get"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/payment_methods_response"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/card_token_results"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/start"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/card_tokens_result"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/payment_methods_request"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/payment_methods_response"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/end"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/flow_next_step_after_payment"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/flow_payment_card_tokens_request_put"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/flow_payment_card_tokens_response_put"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/flow_payment_request"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/flow_payment_response"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/flow_pos_sending_online_process"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/flow_notification_request"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/flow_notification_response"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/flow_pos_error_message"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/settings/point"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+    "/settings/point/settings"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+    "/settings/point/costs_calculator"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/point/settings/pricing"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/point/installment_cost"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/point/device_mlb"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/pairing"(platform: "/mobile", type: TrackType.View) {}
+
+    "/shortcuts"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+    "/shortcuts/point"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/get_member/point"(platform: "/mobile", type: TrackType.View) {}
+
+    "/ftu_release"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+    "/ftu_release/point_app"(platform: "/mobile", type: TrackType.View) {}
+    "/ftu_release/point_&_mp_app"(platform: "/mobile", type: TrackType.View) {}
+
+    "/company_info"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+    "/company_info/on_boarding"(platform: "/mobile", type: TrackType.View) {}
 
     // MP Mobile Point Catalog
 
@@ -142,9 +206,11 @@ tracks {
     "/catalog/create_product"(platform: "/mobile", type: TrackType.View) {}
     "/catalog/create_product/picture"(platform: "/mobile", type: TrackType.View) {}
     "/catalog/discount"(platform: "/mobile", type: TrackType.View) {}
-    
+
     // MPMOBILE
-    "/account_summary"(platform: "/mobile") {}
+    "/account_summary"(platform: "/mobile") {
+        from (required:false, type: PropertyType.String, description: "Where the flow start", values:["/deep_link_ml","/deep_link","push"])
+    }
     "/account_summary/filters"(platform: "/mobile") {}
     "/account_summary/filtered_list"(platform: "/mobile") {}
 
@@ -542,7 +608,7 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
-    
+
     /**
      * NOTIFICATIONS
      * disclaimer: when the action_type is set, the event_type should be always 'open'
@@ -553,16 +619,49 @@ tracks {
         description: "Type of notification event")
         news_id(required: false, description: "Identifier of the notification generated")
     }
-    
+
     //Campañas
     "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
-    } 
-    
+    }
+
     //Money
     "/notification/money_transfer_received"(platform: "/mobile") {}
     "/notification/money_transfer_request"(platform: "/mobile") {}
 
+    //Prepaid
+    "/notification/prepaid_card_shipped"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+    "/notification/prepaid_card_waiting_for_withdrawal"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+    "/notification/prepaid_card_delivered"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+    "/notification/prepaid_card_delayed_p1"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+    "/notification/prepaid_card_not_delivered"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+
+    //Point
+    "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+    "/notification/point_shipping_shipped"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+    "/notification/point_shipping_not_delivered"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+    "/notification/point_shipping_waiting_for_withdrawal"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+    "/notification/point_shipping_delayed_p1"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
     //Digital Goods
      "/digital_goods"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")

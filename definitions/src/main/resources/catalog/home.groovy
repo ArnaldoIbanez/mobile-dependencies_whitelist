@@ -10,10 +10,6 @@ tracks {
         retry_after_error(required: false)
     }
 
-    "/home"(platform: "/web", type: TrackType.View) {
-        from(required: false,  description: "Who is redirecting")
-    }
-
     "/home/failure"(platform: "/mobile", type: TrackType.Event) {
           error_message(required: false)
     }
@@ -67,10 +63,31 @@ tracks {
     "/home/carousel"(platform: "/mobile", isAbstract: true) {
     }
 
-    "/home/carousel/firstTO"(platform: "/mobile") {
+    "/home/carousel/firstto"(platform: "/mobile") {
     }
 
     "/home/carousel/lastcard"(platform: "/mobile") {
     }
+
+
+    "/home"(platform: "/", type: TrackType.View) {
+        from(required: false,  description: "Who is redirecting")
+    }
+
+    "/home/category"(platform: "/", type: TrackType.View) {
+        category_id(required: true,  description: "Home's category")
+        category_path(required: true, description: "Category path of this category home")
+    }
+
+    // Real estate page view
+    "/home/category/real-estate"(platform: "/", type: TrackType.View) {
+        filters(required: false, description: "Filter applied in the last search")
+        carousels(required: false, description: "Carousels in the home page to the properties")
+    }
+
+    // Motors page view
+    "/home/category/motors"(platform: "/", type: TrackType.View) {}
+
+    "/home/navigation"(platform: "/web", type: TrackType.View) {}
 
 }  

@@ -16,18 +16,23 @@ tracks {
         category_path(required: true, type: PropertyType.ArrayList , description:  "Category path of the the item")
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
-        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished"],
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
                 description: "Whether the item is new, used or refurbished")
         listing_type_id(required: true, type: PropertyType.String,
                 values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
                 description: "Listing type of the item")
-        item_status(required: true, type: PropertyType.String, values: ["active", "closed", "paused"],
+        item_status(required: true, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"],
                 description: "Whenever the items is active, closed or paused")
         deal_ids(required: true, type: PropertyType.ArrayList, description: "IDs of applied discounts")
 
         // ONLY CORE FIELDS
         quantity( required: false, type: PropertyType.Numeric, description: "Available items quantity show at this vip")
-        item_price(required: false, type: PropertyType.Map, description: "Indicates the item price in different currencies")
+        // TODO, podemos hacerlo required? Hay casos donde un item no tengan price?
+        price(required: false, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
+        original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
+        currency_id(required: false, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+        discount_reasons( required: false, type: PropertyType.ArrayList, description: "The discounts applied to this item original_price, to finally show price (loyalty, deal)")
+
         review_rate(required: false, type: PropertyType.Numeric, inheritable: false,
                 description: "The rating average of the reviews")
         reviews_attributes(required: false, type: PropertyType.ArrayList, inheritable: false,
@@ -69,10 +74,15 @@ tracks {
                 description: "Indicates if the items has free shipping")
         local_pick_up(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has local pick up")
-        logistic_type(required: false, values: ["drop_off", "custom", "cross_docking", "fulfillment"],
+        logistic_type(required: false,
+                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment"],
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
         free_shipping_benefit(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has free shipping for loyalty benefit")
+        shipping_promise(required: false, description: "Array of shippping promise in the order with following data")
+        //afterDispatch: if unknown or unknown_frame (true/false)
+        //min_days: minimum number of days of the promise. (int)
+        //max_days: maximun number of days of the promise. (int or null -If it doesn´t apply-)  
 
         // USER FIELD
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")

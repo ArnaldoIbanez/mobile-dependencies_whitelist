@@ -37,8 +37,9 @@ catalog {
 
     def mercadopago = ["mercadopago"]
 
-    def all = marketplace + mercadopago
+    def mercadoshops = ["mercadoshops"]
 
+    def all = marketplace + mercadopago
 
     all.each { business ->
         include business, "authentication.groovy"
@@ -46,6 +47,7 @@ catalog {
         include business, "melidata_sdk.groovy"
         include business, "registrations.groovy"
         include business, "fiscaldata.groovy"
+        include business, "chargebacks.groovy"
     }
 
     marketplace.each { business ->
@@ -82,7 +84,7 @@ catalog {
         include business, "subscriptions.groovy"
         include business, "vip.groovy"
     }
-
+    
     mercadopago.each { business ->
         include business, "mercadopago.groovy"
         include business, "checkoutOff.groovy"
@@ -91,6 +93,11 @@ catalog {
         include business, "mercadopago_devsite.groovy"
         include business, "cards_prepaid.groovy"
         include business, "cellphone_recharge.groovy"
+    }
+
+    mercadoshops.each { business ->
+        include business, "authentication.groovy"
+        include business, "notifications.groovy"
     }
 
 }

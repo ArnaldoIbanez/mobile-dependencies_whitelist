@@ -639,24 +639,20 @@ tracks {
         //nickname
     }
     //Congrats tracks - shared between Legacy App and new App (Required False to prevent catalog validation failures)
-    "/checkout/congrats"(platform: "/") {}
+    "/checkout/congrats"(platform: "/") {
+        status(required: false, type: PropertyType.String)
+    }
 
     "/checkout/finish#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         action(required: true, description: "Action executed, for ex: call_seller, email_seller, etc")
     }
-    "/checkout/congrats/error"(platform: "/mobile") {}
 
-    "/checkout/congrats/call_for_auth"(platform: "/mobile") {}
+    "/checkout/finish/call_for_auth"(platform:"/", type: TrackType.View, isAbstract: true) {}
+    "/checkout/finish/call_for_auth/instructions"(platform: "/mobile") {}
+    "/checkout/finish/call_for_auth/later"(platform: "/mobile") {}
 
-    "/checkout/congrats/call_for_auth/instructions"(platform: "/mobile") {}
-
-    "/checkout/congrats/call_for_auth/later"(platform: "/mobile") {}
-
-    "/checkout/congrats/invalid_sec_code"(platform: "/mobile") {}
-
-    "/checkout/congrats/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {
-
-    }
+    "/checkout/finish/invalid_sec_code"(platform:"/", type: TrackType.View, isAbstract: true) {}
+    "/checkout/finish/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {}
 
     "/checkout/finish"(platform: "/mobile", isAbstract: true) {
         /** **************************************/
@@ -721,8 +717,6 @@ tracks {
     "/checkout/finish/second_step"(platform: "/mobile", isAbstract: true) {}
 
     "/checkout/finish/second_step/error_details"(platform: "/mobile") {}
-
-    "/checkout/congrats/pending"(platform: "/mobile") {}
 
     "/checkout/error"(platform: "/") {
         order_id(required: false, description: "OrderId")
@@ -877,6 +871,8 @@ tracks {
     "/checkout/payment/select_bank"(platform:"/", type: TrackType.View) {}
 
     "/checkout/payment/view_location"(platform:"/", type: TrackType.View) {}
+    "/checkout/payment/view_location/location"(platform:"/", type: TrackType.Event) {}
+    "/checkout/payment/view_location/preloaded"(platform:"/", type: TrackType.Event) {}
 
     "/checkout/payment/input_card"(platform:"/", type: TrackType.View) {}
 

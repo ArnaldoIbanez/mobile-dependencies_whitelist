@@ -3,10 +3,14 @@
     "gabriel.neil@mercadolibre.com"
   ],
   "process_name": "consumer_journey_checkout",
-  "cron": "",
+  "cron": "0 5 * * *",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
+      {
+        "name": "user_id",
+        "type": "INTEGER"
+      },
       {
         "name": "date_sent",
         "type": "DATE",
@@ -21,8 +25,8 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "user_id",
-        "type": "INTEGER"
+        "name": "reference",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
@@ -30,12 +34,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2018-03-05",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "2018-04-09",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
       ]
