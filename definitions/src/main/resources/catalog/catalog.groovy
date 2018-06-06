@@ -39,6 +39,8 @@ catalog {
 
     def mercadoshops = ["mercadoshops"]
 
+    def mercadoenvios = ["mercadoenvios"]
+
     def all = marketplace + mercadopago
 
     all.each { business ->
@@ -97,6 +99,10 @@ catalog {
 
     mercadoshops.each { business ->
         include business, "authentication.groovy"
+    }
+
+    mercadoenvios.each { business ->
+        include business, "shipping.groovy"
     }
 
 }
