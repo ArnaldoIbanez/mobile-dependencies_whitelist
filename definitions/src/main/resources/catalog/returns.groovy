@@ -5,8 +5,8 @@ import com.ml.melidata.TrackType
 tracks {
 
     "/return"(platform: "/", isAbstract: true) {
-      category_id(required: false, type: PropertyType.String, description: '???')
-      officialstore(required: false, type: PropertyType.String, description: '???')
+      category_id(required: false, type: PropertyType.String, description: 'category identifier')
+      officialstore(required: false, type: PropertyType.String, description: 'official store identifier')
       item_id(required: false, type: PropertyType.String, description: 'item identifier')
       action(required: false, type: PropertyType.String, description: 'action of the event')
       loyalty_level(required: false, type: PropertyType.Numeric, description: 'buyer level loyalty')
@@ -32,15 +32,15 @@ tracks {
     // STEP 02
     "/return/conditions"(platform: "/", type: TrackType.View) { }
     "/return/conditions"(platform: "/", type: TrackType.Event) {
-        action(required: false, type: PropertyType.String, description: 'action of the event')
-        selection(required: false, type: PropertyType.String, description: 'selected option button')
+        action(required: false, values:['selection'], type: PropertyType.String, description: 'action of the event')
+        selection(required: false, values:['accepted', 'rejected'], type: PropertyType.String, description: 'selected option button')
     }
 
     // STEP 03
     "/return/payments"(platform: "/", type: TrackType.View) { }
     "/return/payments"(platform: "/", type: TrackType.Event) {
       payment(required: false, type: PropertyType.String, description: 'origin of payment')
-      continueButton(required: false, type: PropertyType.Boolean, description: 'origin from the continue button')
+      continue_button(required: false, type: PropertyType.Boolean, description: 'origin from the continue button')
     }
 
     // STEP 04
@@ -61,7 +61,7 @@ tracks {
     // STEP 05.c
     "/return/review"(platform: "/", type: TrackType.View) { }
     "/return/review"(platform: "/", type: TrackType.Event) {
-      continueButton(required: false, type: PropertyType.Boolean, description: 'origin from the continue button')
+      continue_button(required: false, type: PropertyType.Boolean, description: 'origin from the continue button')
       type(required: false, type: PropertyType.String, description: 'generate return label')
     }
 
