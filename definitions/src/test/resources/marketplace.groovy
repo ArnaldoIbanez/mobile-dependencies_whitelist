@@ -906,6 +906,9 @@ trackTests {
         "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event) {
         }
 
+        "/checkout/review/confirm_purchase"(platform: "/", type: TrackType.Event) {
+        }
+
         "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
             status = "success"
         }
@@ -4044,7 +4047,8 @@ trackTests {
         "/cart/checkout/review/edit_shipping"(platform:"/", dataSet)
         "/cart/checkout/review/change_installments"(platform:"/", dataSet)
         "/cart/checkout/review/change_shipping"(platform:"/", dataSet)
-        "/cart/checkout/review/change_address"(platform:"/", dataSet)
+        "/cart/checkout/review/change_shipping"(platform:"/", dataSet)
+        "/cart/checkout/review/confirm_purchase"(platform:"/", dataSet)
         "/cart/checkout/review/edit_shipping"(platform:"/", dataSet)
         "/cart/checkout/review/edit_payment_method"(platform:"/", dataSet)
         "/cart/checkout/congrats"(platform:"/"){
