@@ -154,7 +154,7 @@ tracks {
     // The user expand summary view or any expandible view.
     "/checkout_off/v1/open_summary_detail"(platform: "/", type: TrackType.Event){
         installments(required: false, description:"Number of installments")
-        has_discount(required: false, description:"User has applied discount?")
+        has_discount(required: true, description:"User has applied discount?")
     }
 
     "/checkout_off/v1/login"(platform: "/", type: TrackType.View){}
