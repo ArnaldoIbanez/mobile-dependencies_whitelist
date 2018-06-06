@@ -66,6 +66,12 @@ trackTests {
             query="ipod"
             offset=0
         }
+
+        "/search"(platform: "/", {
+            defaultSearchInformation()
+            official_stores_carousel_shown=["224", "234", "255"]
+        })
+
         "/search"(platform: "/web",{
             visual_id="STD"
             config_version= "111"
@@ -168,6 +174,12 @@ trackTests {
         "/search/change_view/apply" (platform: "/mobile", type: TrackType.Event){
             defaultSearchInformation()
             list_mode = "mosaic"
+        }
+        "/search/official_stores_carousel"(platform: "/", defaultSearchInformation)
+        "/search/official_stores_carousel/click"(platform: "/") {
+            defaultSearchInformation()
+            to_name="adidas"
+            to_position=2
         }
         "/search/promoted_items"(platform: "/web", defaultSearchInformation)
         "/search/promoted_items/show"(platform: "/web") {
