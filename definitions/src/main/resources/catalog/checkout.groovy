@@ -355,7 +355,7 @@ tracks {
         contact_name(required: false, type: PropertyType.String)
         contact_phone(required: false, type: PropertyType.String)
     }
-    
+
     //Select address
     "/checkout/shipping/select_address"(platform: "/") {
         //View specific data
@@ -523,7 +523,7 @@ tracks {
     "/checkout/billing/legal_person"(platform: "/mobile") {}
     "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     }
-    
+
     //"/checkout/review" //shared between web and app, already defined in web section.
     "/checkout/review#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         status(required: true, type: PropertyType.String)
@@ -905,6 +905,8 @@ tracks {
     "/checkout/review/change_installments"(platform:"/", type: TrackType.Event) {}
 
     "/checkout/review/change_shipping"(platform:"/", type: TrackType.Event) {}
+
+    "/checkout/review/confirm_purchase"(platform:"/", type: TrackType.Event) {}
 
     "/checkout/review/change_address"(platform:"/", type: TrackType.View) {}
 
