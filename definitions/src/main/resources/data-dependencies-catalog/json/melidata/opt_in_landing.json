@@ -3,7 +3,7 @@
     "maximiliano.draeger@mercadolibre.com"
   ],
   "process_name": "opt_in_landing",
-  "cron": "00 11 * * *",
+  "cron": "00 06 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -58,7 +58,7 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-2",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
