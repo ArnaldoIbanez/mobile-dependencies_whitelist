@@ -5,7 +5,7 @@
   "process_name": "catalog-widget-leaders-landing",
   "cron": "00 07 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "users",
