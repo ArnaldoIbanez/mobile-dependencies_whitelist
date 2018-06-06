@@ -25,6 +25,10 @@
         "type": "INTEGER"
       },
       {
+        "name": "users",
+        "type": "INTEGER"
+      },
+      {
         "name": "badItems",
         "type": "BOOLEAN"
       }
