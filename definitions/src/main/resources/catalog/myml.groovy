@@ -432,8 +432,8 @@ tracks {
     "/myml/invoices/company-info/certificate/a1/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
-        error(required: true, description: "Error type when user uploads an A1 certificate")
-        message(required: true, description: "Description of error when user uploads an A1 certificate")
+        error(required: true, description: "Error type when user uploads an A1 digital certificate")
+        message(required: true, description: "Description of error when user uploads an A1 digital certificate")
     }
     
 
