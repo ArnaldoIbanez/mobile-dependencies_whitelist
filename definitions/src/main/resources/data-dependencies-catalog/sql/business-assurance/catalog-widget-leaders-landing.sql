@@ -1,5 +1,5 @@
 SELECT
-COUNT(distinct usr.uid) as users,
+COUNT(distinct usr.user_id) as users,
 substr(ds,1,10) as fecha,
 COUNT(case when tracks.path = '/catalogwidget/welcome/leaders/show' then 1 end) as show,
 COUNT(case when tracks.path = '/catalogwidget/welcome/leaders/continue' then 1 end) as continue_ema,
