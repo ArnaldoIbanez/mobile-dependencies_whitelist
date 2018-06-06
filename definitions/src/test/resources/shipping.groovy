@@ -3,7 +3,7 @@ import com.ml.melidata.TrackType
 
 trackTests {
 
-    defaultBusiness = "mercadolibre"
+    defaultBusiness = "mercadoenvios"
 
     test("flex optin track returned success view"){
 
