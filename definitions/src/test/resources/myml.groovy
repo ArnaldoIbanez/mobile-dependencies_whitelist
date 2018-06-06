@@ -139,6 +139,11 @@ trackTests {
         "/myml/invoices/company-info/certificate/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
         "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
+            error = "password"
+            message = "Password incorrect!"
+        }
         "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
         "/myml/invoices/company-info/certificate/a3/handshake/request"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a3/handshake/response"(platform: "/", type: TrackType.Event) {
@@ -199,15 +204,17 @@ trackTests {
     test("Order pages") {
         "/myml/invoices/order/buyer-info"(platform: "/") {}
         "/myml/invoices/order/buyer-info/save/request"(platform: "/", type: TrackType.Event) {
-             receiver_address = {
-                 isValid = true
-             }
-             billing_info = {
-                 stateRegistry = ""
-                 name = "Test"
-             }
-             order_id = 1709201434
-             url = "/invoices/order/1709201434"
+            data = {
+                receiver_address = {
+                    isValid = true
+                }
+                billing_info = {
+                    stateRegistry = ""
+                    name = "Test"
+                }
+                order_id = 1709201434
+            }
+            url = "/invoices/order/1709201434"
         }
         "/myml/invoices/order/buyer-info/save/response"(platform: "/", type: TrackType.Event) {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
@@ -221,7 +228,6 @@ trackTests {
                 saved_by_seller = true
                 paid_by = "recipient"
              }
-             order_id = 1709201434
              url = "/invoices/order/1709201434"
         }
         "/myml/invoices/order/carrier/save/response"(platform: "/", type: TrackType.Event) {
