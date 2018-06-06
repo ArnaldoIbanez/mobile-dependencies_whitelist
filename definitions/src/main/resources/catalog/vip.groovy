@@ -185,6 +185,55 @@ tracks {
         show(required: false, inheritable: false, type: PropertyType.String)
     }
 
+    //  QUESTION
+
+    "/vip/question"(platform: "/", type: TrackType.View) {
+        item_id(required: true, type: PropertyType.String,
+                description: "Item ID")
+        category_id(required: false, type: PropertyType.String,
+                description: "Category ID")
+        vertical(required: false, type: PropertyType.String,
+                values: ["motors", "realEstate", "services"],
+                description: "Vertical of the item")
+    }
+
+
+    //TODO chequear con mobile estos tracks
+    //  DESCRIPTION
+
+    "/vip/description"(platform: "/web", type: TrackType.View){
+
+        //  DESCRIPTION/ATTRIBUTES
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Category ID")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"],
+                description: "Vertical of the item")
+
+        //  DESCRIPTION ONLY
+        item_seller_type(required: false, type: PropertyType.String,
+                description: "Seller type: normal, real_estate_user, etc"
+        )
+        listing_type_id(required: false, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        source(required: false, type: PropertyType.String,
+                values: ["htmlView"],
+                description: "Source of the refered"
+        )
+    }
+
+    // ADD TO CART
+
+    "/vip/add_to_cart"(platform: "/web", type: TrackType.Event){
+        cart_content(required: true, type: PropertyType.Boolean,
+                description: "Indicates if the VIP has cart features (only for core items)"
+        )
+        free_shipping_benefit(required: true, type: PropertyType.Boolean,
+                description: "Indicates if the user has free shipping for loyalty benefit"
+        )
+    }
+
     // ADDRESS
 
     "/address"(platform: "/mobile", isAbstract: true) {}
