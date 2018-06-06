@@ -63,13 +63,13 @@ tracks {
         //limit y offset parecen ser las unicas que no se cambian
         //limit(required: true, description: "the max number of items returned", type: PropertyType.Numeric)
         //offset(required: true, description: "the number of items skipped on the search", type: PropertyType.Numeric)
-        total(required: false, description: "override required property")
+        /*total(required: false, description: "override required property")
         sort_id(required: false, description: "override required property")
         filters(required: false, description: "override required property")
         view_mode(required: false, description: "override required property")
         results(required: false, description: "override required property")
         billboards(required: false, description: "override required property")
-        pads(required: false, description: "override required property") //esto estaba solo para web antes
+        pads(required: false, description: "override required property") //esto estaba solo para web antes*/
 
         breadcrumb_refined(required: false, description: 'if user used breadcrumb to refine their search',PropertyType.Boolean)
         error_message(required: false, PropertyType.String) // TODO: no podemos remover?
@@ -119,6 +119,13 @@ tracks {
 
     "/search/change_view/apply"(platform: "/mobile", type: TrackType.Event) {
         list_mode()
+    }
+
+    "/search/official_stores_carousel"(platform: "/", isAbstract: true) {}
+
+    "/search/official_stores_carousel/click"(platform: "/", type: TrackType.Event) {
+        to_name(required: true, description: 'the name of the official store selected', PropertyType.String)
+        to_position(required: true, description: 'the position of the official store in the carousel', PropertyType.Numeric)
     }
 
     "/search/official_stores_carousel"(platform: "/", isAbstract: true) {}

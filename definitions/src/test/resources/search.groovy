@@ -45,6 +45,7 @@ trackTests {
             only_in_type="Seller"
             limit=20
             offset=0
+            official_stores_carousel_shown=["224", "234", "255"]
             click_banner={
                 exhibitors_id='12'
             }
@@ -159,6 +160,13 @@ trackTests {
         "/search/save"(platform: "/") {
             defaultSearchInformation()
         }
+        "/search/official_stores_carousel"(platform: "/", defaultSearchInformation)
+
+        "/search/official_stores_carousel/click"(platform: "/") {
+            defaultSearchInformation()
+            to_name="adidas"
+            to_position=2
+        }
     }
 
     test("Search gallery with 10 items, first page" ) {
@@ -192,6 +200,7 @@ trackTests {
             query="iphone"
         }
     }
+
 
     test("Search carousel next"){
         "/search/carousel"(platform: "/web") {
