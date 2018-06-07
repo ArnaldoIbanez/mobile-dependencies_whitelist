@@ -83,6 +83,7 @@ catalog {
         include business, "structuredData.groovy"
         include business, "subscriptions.groovy"
         include business, "vip.groovy"
+        include business, "advertising.groovy"
     }
     
     mercadopago.each { business ->
