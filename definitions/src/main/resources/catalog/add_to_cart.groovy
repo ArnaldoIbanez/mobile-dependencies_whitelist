@@ -9,7 +9,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    "/add_to_cart"(platform: "/", type: TrackType.Event, isAbstract: true) {
+    "/add_to_cart"(platform: "/", type: TrackType.Event) {
         items( required: true,description: "Item ids that are being added", type: PropertyType.ArrayList )
         //currency_id
         //item
