@@ -29,12 +29,12 @@ trackTests {
             previous_budget = "222.22"
         }
 
-        "/advertising/pads2/manager/update_ads_status"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/manager/update_ad_status"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "active"
             budget = "22.22"
-            ad_status = "active"
             item_id = "MLA22"
+            ad_status = "active"
             previous_ad_status = "paused"
         }
     }
