@@ -81,6 +81,7 @@ tracks {
 
 "/cart/saved_for_later"(platform: "/") {}
 
+// TODO Borrar => Lo estamos standarizando hacía la definición de add_to_cart.groovy
 "/cart/saved_for_later/add_to_cart"(platform: "/", type: TrackType.Event) {
     item_info
 }
