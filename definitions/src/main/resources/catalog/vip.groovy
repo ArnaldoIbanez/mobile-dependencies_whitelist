@@ -139,11 +139,22 @@ tracks {
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
     "/vip/contact_seller"(platform: "/", type: TrackType.Event) {
-        vertical(required: false, description: "Vertical name over show phone event is displayed")
-        listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
-        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
-        source(required: false, description: "Source of the referred")
+        category_id(required: false, type: PropertyType.String,
+                description: "Item's category ID"
+        )
+        item_id(required: true, type: PropertyType.String,
+                description: "Item ID"
+        )
+        from_view(required: false, type: PropertyType.String,
+                values: ["vip", "description", "technicalSpecs", "form", ""],
+                description: "Section where it's coming from"
+        )
+        vertical(required: true, description: "Vertical name over show phone event is displayed")
+        listing_type_id(required: true, description: "Item bucket, ex: premium, gold, etc")
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        source(required: true, description: "Source of the referred")
     }
+
 
     "/vip/call_seller"(platform: "/", type: TrackType.Event) {
         vertical(required: false, description: "Vertical name over show phone event is displayed")
@@ -169,7 +180,12 @@ tracks {
 
     "/vip/payment_method/back"(platform: "/mobile") {}
 
-    "/vip/variations"(platform: "/") {}
+    "/vip/variations"(platform: "/", type: TrackType.View) {
+        item_id(required: true, type: PropertyType.String,
+                description: "Item ID")
+        category_id(required: true, type: PropertyType.String,
+                description: "Item's category ID")
+    }
 
     "/vip/variations/back"(platform: "/mobile") {}
 
@@ -193,7 +209,7 @@ tracks {
         category_id(required: false, type: PropertyType.String,
                 description: "Category ID")
         vertical(required: false, type: PropertyType.String,
-                values: ["motors", "realEstate", "services"],
+                values: ["core", "motors", "realEstate", "services"],
                 description: "Vertical of the item")
     }
 
@@ -284,6 +300,11 @@ tracks {
     }
 
     "/vip/shipping/calculator"(platform: "/", isAbstract: true) {
+        category_id(required: false, type: PropertyType.String, description: "Item's category id")
+        item_id(required: false, type: PropertyType.String, description: "Item ID")
+        vertical(required: false, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"],
+                description: "Vertical of the item")
     }
 
     "/vip/shipping/calculator/calculate"(platform: "/", type: TrackType.Event) {
