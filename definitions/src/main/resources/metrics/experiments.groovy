@@ -58,7 +58,7 @@ metrics {
 			condition {
 				path("/orders/ordercreated")
 				and(
-					empty("event_data.items.item.official_store_id", false)
+					empty("event_data.items.item.official_store_id", false),
 					or(
 						like('event_data.items.item.category_path', '.*MLM(6585|5607|120666|182735|81531|4651|8574|2827|158119|1271|180982|1676|168281|1285|187814|158842|1010|158828|1386|5723|1578|1712|8378),.*'),
 						like('event_data.items.item.category_path', '.*MLB(23332|181294|1248|1002|181294|1676|191839|1286|264721|1580|1386|21168|1456),.*'),

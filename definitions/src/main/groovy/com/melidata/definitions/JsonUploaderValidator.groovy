@@ -55,7 +55,7 @@ class JsonUploaderValidator {
         def metricsOutput
 
         try {
-            metricsOutput =  MetricsFormatter(MetricsFactory.metrics).output
+            metricsOutput =  new MetricsFormatter(MetricsFactory.metrics).output
         }
         catch ( Exception e ){
             println("\033[91m - Error while validating metrics.\033[0m")
