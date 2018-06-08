@@ -242,6 +242,9 @@ tracks {
     // ADD TO CART
 
     "/vip/add_to_cart"(platform: "/web", type: TrackType.Event){
+        item_id(required: true, type: PropertyType.String,
+                description:"Item ID"
+        )
         cart_content(required: true, type: PropertyType.Boolean,
                 description: "Indicates if the VIP has cart features (only for core items)"
         )
@@ -299,7 +302,7 @@ tracks {
     "/vip/shipping"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {
     }
 
-    "/vip/shipping/calculator"(platform: "/", isAbstract: true) {
+    "/vip/shipping/calculator"(platform: "/", isAbstract: true) { //no están required ya que en mobile se manda este track pero sin parámetros
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
         item_id(required: false, type: PropertyType.String, description: "Item ID")
         vertical(required: false, type: PropertyType.String,
@@ -308,7 +311,10 @@ tracks {
     }
 
     "/vip/shipping/calculator/calculate"(platform: "/", type: TrackType.Event) {
-        cp_autocomplete(type: PropertyType.Boolean)
+        cp_autocomplete(required: true, type: PropertyType.String,
+                values: ["yes", "no"],
+                description: "Indicates if the default cp was the one used for the query"
+        )
     }
 
     "/vip/shipping/calculator/i_dont_know_my_code"(platform: "/", type: TrackType.Event) {
