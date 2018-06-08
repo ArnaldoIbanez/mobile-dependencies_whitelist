@@ -313,6 +313,7 @@ trackTests {
             seller_id = 131662738
             power_seller_status = "platinum"
             deal_ids = []
+            billboard_clicked_position = "3"
         }
 
         def trackModals = {
