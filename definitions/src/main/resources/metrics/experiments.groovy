@@ -34,21 +34,134 @@ metrics {
 	// TODO REMOVE WHEN THIS EXPERIMENT IS OVER
 	"orders.InCarrouselCategories"(description: "extend experiment /search/brandCarrousel", parametricName: false, compute_order: true) {
 		startWith {
-			experiment("search/brandCarrousel")
+			experiment("search/officialStoresCarrousel")
 		}
 
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
 				or(
-					like('event_data.items.item.category_path', '.*MLM5607,.*'), //Tenis MLM
-					like('event_data.items.item.category_path', '.*MLM6585,.*'), //Tenis MLM//
-					like('event_data.items.item.category_path', '.*MLM1002,.*'), //Televisores MLML
-					like('event_data.items.item.category_path', '.*MLM158119,.*'), //Refrigeradores MLM
-					like('event_data.items.item.category_path', '.*MLM1271,.*'), //Perfumes MLM
-					like('event_data.items.item.category_path', '.*MLM180982,.*'), //Maquillaje MLM
-					like('event_data.items.item.category_path', '.*MLM120666,.*'), //Ropa deportiva MLM
-					like('event_data.items.item.category_path', '.*MLM182735,.*') //Ropa deportiva MLM
+					like('event_data.items.item.category_path', '.*MLM6585,.*'),
+					like('event_data.items.item.category_path', '.*MLM5607,.*'),
+					like('event_data.items.item.category_path', '.*MLM120666,.*'),
+					like('event_data.items.item.category_path', '.*MLM182735,.*'),
+					like('event_data.items.item.category_path', '.*MLM81531,.*'),
+					like('event_data.items.item.category_path', '.*MLM4651,.*'),
+					like('event_data.items.item.category_path', '.*MLM8574,.*'),
+					like('event_data.items.item.category_path', '.*MLM2827,.*'),
+					like('event_data.items.item.category_path', '.*MLM158119,.*'),
+					like('event_data.items.item.category_path', '.*MLM1271,.*'),
+					like('event_data.items.item.category_path', '.*MLM180982,.*'),
+					like('event_data.items.item.category_path', '.*MLM1676 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM168281 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM1285 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM187814 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM158842 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM1010 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM158828 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM1386 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM5723 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM1578 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM1712 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM8378 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB23332 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB181294 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB1248 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB1002 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB181294 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB1676 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB191839 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB1286 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB264721 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB1580 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB1386 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB21168 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB1456 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA109027 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA1002 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA398582 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA6839 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA1248 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA1676 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA1042 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA1285 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA409558 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA1575 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA409810 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA1618 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA1386 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA6750 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA18353 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA3959 ,.*')
+				)
+			}
+		}
+	}
+
+	"orders.officialStores.InCarrouselCategories"(description: "extend experiment /search/brandCarrousel", parametricName: false, compute_order: true) {
+		startWith {
+			experiment("search/officialStoresCarrousel")
+		}
+
+		countsOn {
+			condition {
+				and(
+					path("/orders/ordercreated")
+					empty("event_data.items.item.official_store_id", false)
+				)
+				or(
+					like('event_data.items.item.category_path', '.*MLM6585,.*'),
+					like('event_data.items.item.category_path', '.*MLM5607,.*'),
+					like('event_data.items.item.category_path', '.*MLM120666,.*'),
+					like('event_data.items.item.category_path', '.*MLM182735,.*'),
+					like('event_data.items.item.category_path', '.*MLM81531,.*'),
+					like('event_data.items.item.category_path', '.*MLM4651,.*'),
+					like('event_data.items.item.category_path', '.*MLM8574,.*'),
+					like('event_data.items.item.category_path', '.*MLM2827,.*'),
+					like('event_data.items.item.category_path', '.*MLM158119,.*'),
+					like('event_data.items.item.category_path', '.*MLM1271,.*'),
+					like('event_data.items.item.category_path', '.*MLM180982,.*'),
+					like('event_data.items.item.category_path', '.*MLM1676 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM168281 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM1285 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM187814 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM158842 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM1010 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM158828 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM1386 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM5723 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM1578 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM1712 ,.*'),
+					like('event_data.items.item.category_path', '.*MLM8378 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB23332 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB181294 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB1248 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB1002 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB181294 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB1676 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB191839 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB1286 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB264721 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB1580 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB1386 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB21168 ,.*'),
+					like('event_data.items.item.category_path', '.*MLB1456 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA109027 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA1002 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA398582 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA6839 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA1248 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA1676 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA1042 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA1285 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA409558 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA1575 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA409810 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA1618 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA1386 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA6750 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA18353 ,.*'),
+					like('event_data.items.item.category_path', '.*MLA3959 ,.*')
 				)
 			}
 		}
