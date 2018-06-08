@@ -98,6 +98,7 @@ tracks {
     }
 
     "/vip"(platform: "/web") {
+        contract_available(required:false, type: PropertyType.Boolean)
         specifications_size(required: false, type: PropertyType.Numeric, description: "Specifications attributes quantity")
         description_type(required: false, description: "Description type: plain text, html, both, none",
                 values: ["plain_text", "html", "both", "none"])
