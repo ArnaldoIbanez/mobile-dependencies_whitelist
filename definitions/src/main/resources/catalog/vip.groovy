@@ -102,6 +102,7 @@ tracks {
         description_type(required: false, description: "Description type: plain text, html, both, none",
                 values: ["plain_text", "html", "both", "none"])
         max_size_gallery(required: false, type: PropertyType.String, description: "Max_size of first picture gallery")
+        contract_available(required: false, type: PropertyType.Boolean)
     }
 
     "/vip"(platform: "/mobile") {
