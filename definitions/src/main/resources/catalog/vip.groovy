@@ -150,10 +150,10 @@ tracks {
                 values: ["vip", "description", "technicalSpecs", "form", ""],
                 description: "Section where it's coming from"
         )
-        vertical(required: true, description: "Vertical name over show phone event is displayed")
+        vertical(required: false, description: "Vertical name over show phone event is displayed")
         listing_type_id(required: true, description: "Item bucket, ex: premium, gold, etc")
         item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
-        source(required: true, description: "Source of the referred")
+        source(required: false, description: "Source of the referred")
     }
 
 
@@ -242,7 +242,7 @@ tracks {
 
     // ADD TO CART
 
-    "/vip/add_to_cart"(platform: "/web", type: TrackType.Event){
+    "/vip/add_to_cart"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false){
         item_id(required: true, type: PropertyType.String,
                 description:"Item ID"
         )

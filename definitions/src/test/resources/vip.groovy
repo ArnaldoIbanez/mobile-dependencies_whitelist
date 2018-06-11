@@ -79,6 +79,7 @@ trackTests {
             empty_description = false
         })
 
+
         "/vip/description/abort"(platform:"/mobile", mandatory)
 
         "/vip/description/back"(platform:"/mobile", mandatory)
@@ -338,12 +339,26 @@ trackTests {
         "/vip/contract_intention"(platform: "/mobile", type: TrackType.Event) {
             defaultTrackInformation()
         }
+
+        "/vip/description"(platform: "/web", type: TrackType.View){
+            defaultTrackInformation()
+        }
+
+        "/vip/question"(platform: "/", type: TrackType.View){
+            defaultTrackInformation()
+        }
+
+        "/vip/add_to_cart"(platform: "/web", type: TrackType.Event){
+            item_id = "MLA213512313"
+            cart_content = true
+            free_shipping_benefit = true
+        }
     }
 
     test("New Shipping calculator"){
 
         "/vip/shipping/calculator/calculate"(platform: "/mobile/ios") {
-            cp_autocomplete = true
+            cp_autocomplete = "yes"
         }
 
         "/vip/shipping/calculator/i_dont_know_my_code"(platform: "/mobile/ios") {
