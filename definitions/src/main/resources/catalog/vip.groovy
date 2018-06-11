@@ -151,8 +151,8 @@ tracks {
                 description: "Section where it's coming from"
         )
         vertical(required: false, description: "Vertical name over show phone event is displayed")
-        listing_type_id(required: true, description: "Item bucket, ex: premium, gold, etc")
-        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
         source(required: false, description: "Source of the referred")
     }
 
@@ -184,7 +184,7 @@ tracks {
     "/vip/variations"(platform: "/", type: TrackType.View) {
         item_id(required: true, type: PropertyType.String,
                 description: "Item ID")
-        category_id(required: true, type: PropertyType.String,
+        category_id(required: false, type: PropertyType.String,
                 description: "Item's category ID")
     }
 
@@ -222,8 +222,8 @@ tracks {
 
         //  DESCRIPTION/ATTRIBUTES
         item_id(required: true, type: PropertyType.String, description: "Item ID")
-        category_id(required: true, type: PropertyType.String, description: "Category ID")
-        vertical(required: true, type: PropertyType.String,
+        category_id(required: false, type: PropertyType.String, description: "Category ID")
+        vertical(required: false, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"],
                 description: "Vertical of the item")
 
@@ -246,10 +246,10 @@ tracks {
         item_id(required: true, type: PropertyType.String,
                 description:"Item ID"
         )
-        cart_content(required: true, type: PropertyType.Boolean,
+        cart_content(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the VIP has cart features (only for core items)"
         )
-        free_shipping_benefit(required: true, type: PropertyType.Boolean,
+        free_shipping_benefit(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has free shipping for loyalty benefit"
         )
     }
