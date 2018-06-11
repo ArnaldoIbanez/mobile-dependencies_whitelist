@@ -303,7 +303,7 @@ tracks {
     "/vip/shipping"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {
     }
 
-    "/vip/shipping/calculator"(platform: "/", isAbstract: true) { //no están required ya que en mobile se manda este track pero sin parámetros
+    "/vip/shipping/calculator"(platform: "/", isAbstract: true, type: TrackType.View) { //no están required ya que en mobile se manda este track pero sin parámetros
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
         item_id(required: false, type: PropertyType.String, description: "Item ID")
         vertical(required: false, type: PropertyType.String,
