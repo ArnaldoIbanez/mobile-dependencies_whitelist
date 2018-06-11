@@ -184,6 +184,8 @@ tracks {
 
     "/checkout_off/v1/additional_info/pse"(platform: "/", type: TrackType.View) {}
 
+    "/checkout_off/v1/additional_info/pec"(platform: "/", type: TrackType.View) {}
+
     "/checkout_off/v1/card"(platform: "/", isAbstract: true) {}
 
     "/checkout_off/v1/card/credit_card"(platform: "/", type: TrackType.View) {}
