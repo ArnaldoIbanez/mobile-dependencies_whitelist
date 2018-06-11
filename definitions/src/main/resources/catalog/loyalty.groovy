@@ -61,6 +61,10 @@ tracks {
         landing_id(required: true, description: "id of landing") 
     }
 
+    "/loyalty/modal"(platform: "/mobile", type: TrackType.View) {
+        event_type(required: true, values: ["SHOW", "delawed", "shown", "close", "dismiss", "received", "open"])
+    }
+
     "/loyalty/notification"(type: TrackType.Event) {
         event_type(required: true,
                 values: ["received", "dismiss", "open", "shown", "delayed"],
