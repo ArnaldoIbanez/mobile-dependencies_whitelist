@@ -34,7 +34,7 @@ metrics {
 	// TODO REMOVE WHEN THIS EXPERIMENT IS OVER
 	"orders.InCarrouselCategories"(description: "extend experiment /search/brandCarrousel", parametricName: false, compute_order: true) {
 		startWith {
-			experiment("search/officialStoresCarrousel")
+			experiment("search/officialStoresCarousel")
 		}
 
 		countsOn {
@@ -51,7 +51,7 @@ metrics {
 
 	"orders.officialStores.InCarrouselCategories"(description: "extend experiment /search/brandCarrousel", parametricName: false, compute_order: true) {
 		startWith {
-			experiment("search/officialStoresCarrousel")
+			experiment("search/officialStoresCarousel")
 		}
 
 		countsOn {
