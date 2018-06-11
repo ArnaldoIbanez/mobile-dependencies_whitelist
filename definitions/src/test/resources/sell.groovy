@@ -405,7 +405,7 @@ trackTests {
             session_id = "290061169-update-32b1d9b3eae8"
             category_domain = "MLA-GLOVES"
             category_id = "MLA61216"
-            is_custom_name = "true"
+            is_custom_name = true
             item_id = "MLA12345"
         }
     }
@@ -415,7 +415,7 @@ trackTests {
             session_id = "290061169-list-32b1d9b3eae8"
             category_domain = "MLA-GLOVES"
             category_id = "MLA61216"
-            is_custom_name = "true"
+            is_custom_name = true
         }
     }
 
