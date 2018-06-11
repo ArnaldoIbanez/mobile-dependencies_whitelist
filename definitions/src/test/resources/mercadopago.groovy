@@ -412,6 +412,14 @@ trackTests {
         "/listing/gateway" (platform: "/web") {}
     }
 
+    test("Mercadopago Activities Detail") {
+        "/activity/detail" (platform: "/web") {}
+    }
+
+    test("Mercadopago Activities Detail Shipping") {
+        "/activity/detail/shipping" (platform: "/web") {}
+    }
+
     test("MP-MA Landing QR") {
         "/merchant_acquisition/qr/landing" (platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/qr/landing/buyers"(platform: "/", type: TrackType.View){}
