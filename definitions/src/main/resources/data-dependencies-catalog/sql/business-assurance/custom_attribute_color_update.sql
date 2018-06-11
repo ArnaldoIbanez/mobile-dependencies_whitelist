@@ -9,4 +9,7 @@ WHERE tracks.path = '/sell/update/color_selection/custom_color'
 AND ds >= '@param01' AND ds < '@param02'
 AND application.business='mercadolibre'
 AND type='event'
+GROUP BY GET_JSON_OBJECT(event_data, '$.session_id'),GET_JSON_OBJECT(event_data, '$.is_custom_name'),
+GET_JSON_OBJECT(event_data, '$.category_id'),GET_JSON_OBJECT(event_data, '$.category_domain'),
+substr(ds, 1, 10)
 

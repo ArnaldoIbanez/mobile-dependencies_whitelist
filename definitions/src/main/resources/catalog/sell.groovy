@@ -241,7 +241,7 @@ tracks {
         session_id(required: true, description: "Session Id of the list flow, that dies when the flow ends", type: PropertyType.String)
         category_domain(required: false, description: "Category Domain", type: PropertyType.String)
         category_id(required: true, description: "Category Id", type: PropertyType.String)
-        is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.Boolean)
+        is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.String)
     }
     "/sell/list/phone_suggestion"(platform:"/mobile", type:TrackType.View){}
     "/sell/list/condition"(platform: "/", type: TrackType.View) {}
@@ -408,7 +408,7 @@ tracks {
         session_id(required: true, description: "Session Id of the update flow, that dies when the flow ends", type: PropertyType.String)
         category_domain(required: false, description: "Category Domain", type: PropertyType.String)
         category_id(required: true, description: "Category Id", type: PropertyType.String)
-        is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.Boolean)
+        is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.String)
     }
     "/sell/update/condition"(platform: "/", type: TrackType.View) {}
     "/sell/update/condition_review"(platform: "/", type: TrackType.View) {}
