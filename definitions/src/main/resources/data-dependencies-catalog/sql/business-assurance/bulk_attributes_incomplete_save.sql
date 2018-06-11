@@ -3,7 +3,7 @@ substr(ds,1,10) as fecha,
 GET_JSON_OBJECT(tracks.event_data, '$.campaignId') as campaignId,
 SUM(GET_JSON_OBJECT(tracks.event_data, '$.totalItems')) as totalItems,
 SUM(GET_JSON_OBJECT(tracks.event_data, '$.updatedItems')) as updatedItems,
-COUNT(1) as users,
+COUNT(distinct usr.user_id) as users,
 GET_JSON_OBJECT(tracks.event_data, '$.badItems') as badItems
 FROM tracks
 WHERE tracks.path = '/bulk_attributes/incomplete/save'
