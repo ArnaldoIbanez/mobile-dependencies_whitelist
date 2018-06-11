@@ -1,6 +1,7 @@
 {
   "users": [
-    "tomas.auchterlonie@mercadolibre.com"
+    "tomas.auchterlonie@mercadolibre.com",
+    "facundo.allemand@mercadolibre.com"
   ],
   "process_name": "returns-drop-out",
   "cron": "00 11 * * *",
@@ -8,7 +9,7 @@
     "operation": "append",
     "columns": [
       {
-        "name": "DAY",
+        "name": "day",
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },
@@ -21,29 +22,106 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "typifications_1",
+        "name": "typifications",
         "type": "INTEGER"
       },
       {
-        "name": "payments_2",
+        "name": "typifications_went_claims",
         "type": "INTEGER"
       },
       {
-        "name": "shipping_3",
+        "name": "conditions",
         "type": "INTEGER"
       },
       {
-        "name": "pickup_delivery_4",
+        "name": "payments",
         "type": "INTEGER"
       },
       {
-        "name": "delivery_review_4",
+        "name": "shipping",
         "type": "INTEGER"
       },
       {
-        "name": "congrats_5",
+        "name": "review_pickup_delivery",
         "type": "INTEGER"
       },
+      {
+        "name": "pickup",
+        "type": "INTEGER"
+      },
+      {
+        "name": "delivery",
+        "type": "INTEGER"
+      },
+      {
+        "name": "review",
+        "type": "INTEGER"
+      },
+      {
+        "name": "congrats",
+        "type": "INTEGER"
+      },
+      {
+        "name": "payments_from_claims",
+        "type": "INTEGER"
+      },
+      {
+        "name": "shipping_from_claims",
+        "type": "INTEGER"
+      },
+      {
+        "name": "review_pickup_delivery_from_claims",
+        "type": "INTEGER"
+      },
+      {
+        "name": "pickup_from_claims",
+        "type": "INTEGER"
+      },
+      {
+        "name": "delivery_from_claims",
+        "type": "INTEGER"
+      },
+      {
+        "name": "review_from_claims",
+        "type": "INTEGER"
+      },
+      {
+        "name": "congrats_from_claims",
+        "type": "INTEGER"
+      },
+      {
+        "name": "orderid_error",
+        "type": "INTEGER"
+      },
+      {
+        "name": "typifications_error",
+        "type": "INTEGER"
+      },
+      {
+        "name": "conditions_error",
+        "type": "INTEGER"
+      },
+      {
+        "name": "payments_error",
+        "type": "INTEGER"
+      },
+      {
+        "name": "shipping_error",
+        "type": "INTEGER"
+      },
+      {
+        "name": "review_error",
+        "type": "INTEGER"
+      },
+      {
+        "name": "pickup_error",
+        "type": "INTEGER"
+      },
+      {
+        "name": "delivery_error",
+        "type": "INTEGER"
+      }
+
     ],
     "sql": {
       "script": "returns/returns-drop-out.sql",
@@ -54,7 +132,7 @@
           "format": "yyyy-MM-dd"
         },
         {
-          "name": "param02", 
+          "name": "param02",
           "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }

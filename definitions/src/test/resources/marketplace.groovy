@@ -7,55 +7,11 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
     test("Root tracking") {
-        "/"(platform: "/mobile") {}
+        "/"(platform: "/mobile") {
+            sent_again=true
+        }
 
         "/"(platform: "/web/desktop") {}
-    }
-
-    test("Home core tracking") {
-        "/home"(platform: "/mobile") {}
-
-        "/home/abort"(platform: "/mobile") {}
-
-        "/home/back"(platform: "/mobile") {}
-
-        "/home/failure"(platform: "/mobile", {
-            error_message = "error loading home"
-        })
-
-        "/home/long_press"(platform: "/mobile") {}
-
-        "/home/contextual_menu"(platform: "/mobile", type: TrackType.Event) {
-            item_id = "MLB681933310"
-        }
-
-        "/home/share"(platform: "/mobile") {}
-
-        "/home/contextual_menu/share"(platform: "/mobile", type: TrackType.Event) {
-            item_id = "MLB681933310"
-        }
-
-        "/home/pulltorefresh"(platform:"/mobile") {}
-
-        "/home/pulltorefresh/failure"(platform:"/mobile") {}
-
-        "/home/pulltorefresh/abort"(platform:"/mobile") {}
-
-        "/home/scroll"(platform: "/mobile") {}
-
-        "/home/scroll/failure"(platform: "/mobile") {}
-
-        "/home/scroll/abort"(platform: "/mobile") {}
-
-        "/home/tap"(platform: "/mobile", {
-            position = 1
-            section = "history"
-            tag_id = "MLB681933310"
-        })
-
-        "/home/carousel/firstTO"(platform: "/mobile") {}
-
-        "/home/carousel/lastcard"(platform: "/mobile") {}
     }
 
     test("Onboarding tracking") {
@@ -110,6 +66,12 @@ trackTests {
             query="ipod"
             offset=0
         }
+
+        "/search"(platform: "/", {
+            defaultSearchInformation()
+            official_stores_carousel_shown=["224", "234", "255"]
+        })
+
         "/search"(platform: "/web",{
             visual_id="STD"
             config_version= "111"
@@ -157,7 +119,8 @@ trackTests {
             geolocation="AR:CABA"
             landing="base"
             layout_forced=true
-
+            promise_items=["232232000"]
+            has_logos:true
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -211,6 +174,12 @@ trackTests {
         "/search/change_view/apply" (platform: "/mobile", type: TrackType.Event){
             defaultSearchInformation()
             list_mode = "mosaic"
+        }
+        "/search/official_stores_carousel"(platform: "/", defaultSearchInformation)
+        "/search/official_stores_carousel/click"(platform: "/") {
+            defaultSearchInformation()
+            to_name="adidas"
+            to_position=2
         }
         "/search/promoted_items"(platform: "/web", defaultSearchInformation)
         "/search/promoted_items/show"(platform: "/web") {
@@ -272,30 +241,30 @@ trackTests {
         }
 
         def vipTrack = {
-          item_id = "MLA631609359"
-          reviews_all_count = 3
-          reviews_negative_count = 0
-          vote_up = {
-            reviews_id = [1,2]
-            count = 2
-          }
-          vote_down = {
-            reviews_id = [3,4]
-            count = 2
-          }
-          reviews_positive_count = 0
-          reviews_shown = [
-            {
-              filter = "all"
-              length = 300
-              position = 2
-              reviewId = "3581337"
-              time = 27364
-              words = 52
+            item_id = "MLA631609359"
+            reviews_all_count = 3
+            reviews_negative_count = 0
+            vote_up = {
+                reviews_id = [1,2]
+                count = 2
             }
-          ]
-          time_ellapsed = 75211
-          type = "detail"
+            vote_down = {
+                reviews_id = [3,4]
+                count = 2
+            }
+            reviews_positive_count = 0
+            reviews_shown = [
+                    {
+                        filter = "all"
+                        length = 300
+                        position = 2
+                        reviewId = "3581337"
+                        time = 27364
+                        words = 52
+                    }
+            ]
+            time_ellapsed = 75211
+            type = "detail"
         }
 
         "/reviews/form"(platform:"/", dataSetForm)
@@ -317,445 +286,8 @@ trackTests {
         "/reviews/show"(platform:"/", vipTrack)
     }
 
-    //VIP FLOW
-    test("Vip min core tracking in android") {
-        def dataSet = {
-            item_id = "MLA533657947"
-        }
 
-        "/vip"(platform:"/mobile", dataSet)
 
-        "/vip"(platform:"/mobile", {
-            dataSet()
-            quotation_available = false
-        })
-
-        "/vip/failure"(platform:"/mobile", {
-            item_id = "MLA533657947"
-            error_message = "any message"
-        })
-
-        "/vip/abort"(platform:"/mobile", dataSet)
-
-        "/vip/back"(platform:"/mobile", dataSet)
-
-        "/vip/color_and_size"(platform:"/mobile", dataSet)
-
-        "/vip/description"(platform:"/mobile", {
-            item_id = "MLA533657947"
-            empty_description = false
-            context="/vip"
-        })
-
-        "/vip/description"(platform:"/mobile", {
-            item_id = "MLA533657947"
-            empty_description = false
-        })
-
-        "/vip/description/abort"(platform:"/mobile", dataSet)
-
-        "/vip/description/back"(platform:"/mobile", dataSet)
-
-        "/vip/description/failure"(platform:"/mobile", dataSet)
-
-        "/vip/contact_seller"(platform:"/mobile", type: TrackType.Event, {
-            item_id = "MLA533657947"
-            category_id = "3323"
-            vertical = "REAL-ESTATE"
-            listing_type_id = "GOLD"
-            item_seller_type = "AB001"
-        })
-
-        "/vip/contact_seller"(platform: "/web/desktop", type: TrackType.Event, {
-            item_id = "MLA533657947"
-            category_id = "3323"
-            vertical = "REAL-ESTATE"
-            listing_type_id = "GOLD"
-            item_seller_type = "AB001"
-        })
-
-        "/vip/contact_seller"(platform: "/web/mobile", type: TrackType.Event, {
-            item_id = "MLA533657947"
-            category_id = "3323"
-            vertical = "REAL-ESTATE"
-            listing_type_id = "GOLD"
-            item_seller_type = "AB001"
-        })
-
-        "/vip/call_seller"(platform:"/mobile", type: TrackType.Event, {
-            item_id = "MLA533657947"
-            category_id = "3323"
-            vertical = "REAL-ESTATE"
-            listing_type_id = "GOLD"
-            item_seller_type = "AB001"
-        })
-
-        "/vip/call_seller"(platform:"/web/desktop", type: TrackType.Event, {
-            item_id = "MLA533657947"
-            category_id = "3323"
-            vertical = "REAL-ESTATE"
-            listing_type_id = "GOLD"
-            item_seller_type = "AB001"
-        })
-
-        "/vip/call_seller"(platform:"/web/mobile", type: TrackType.Event, {
-            item_id = "MLA533657947"
-            category_id = "3323"
-            vertical = "REAL-ESTATE"
-            listing_type_id = "GOLD"
-            item_seller_type = "AB001"
-        })
-
-        "/vip/show_phone"(platform: "/mobile", type: TrackType.Event, {
-            item_id = "MLA533657947"
-            category_id = "3323"
-            vertical = "REAL-ESTATE"
-            listing_type_id = "GOLD"
-            item_seller_type = "AB001"
-        })
-
-        "/vip/show_phone"(platform: "/web/desktop", type: TrackType.Event, {
-            item_id = "MLA533657947"
-            category_id = "3323"
-            vertical = "REAL-ESTATE"
-            listing_type_id = "GOLD"
-            item_seller_type = "AB001"
-        })
-
-        "/vip/show_phone"(platform: "/web/mobile", type: TrackType.Event, {
-            item_id = "MLA533657947"
-            category_id = "3323"
-            vertical = "REAL-ESTATE"
-            listing_type_id = "GOLD"
-            item_seller_type = "AB001"
-        })
-
-        "/vip/show_phone"(platform: "/web/desktop", type: TrackType.Event, {
-            item_id = "MLA533657947"
-            category_id = "3323"
-            vertical = "REAL-ESTATE"
-            listing_type_id = "GOLD"
-            item_seller_type = "AB001"
-        })
-
-        "/vip/show_phone"(platform: "/web/mobile", type: TrackType.Event, {
-            item_id = "MLA533657947"
-            category_id = "3323"
-            vertical = "REAL-ESTATE"
-            listing_type_id = "GOLD"
-            item_seller_type = "AB001"
-        })
-
-        "/vip/description/failure"(platform:"/mobile", dataSet)
-
-        "/vip/item_gallery"(platform:"/mobile") {
-            context = "/vip"
-        }
-
-        "/vip/item_gallery/back"(platform:"/mobile") {}
-
-        "/vip/map"(platform:"/mobile", dataSet)
-
-        "/vip/seller_reputation"(platform:"/mobile", dataSet)
-
-        "/vip/seller_reputation/ratings"(platform:"/mobile", dataSet)
-
-        "/vip/payment_method"(platform: "/mobile", dataSet)
-
-        "/vip/payment_method/back"(platform: "/mobile", dataSet)
-
-        "/vip/variations"(platform: "/mobile", dataSet)
-
-        "/vip/variations/back"(platform: "/mobile", dataSet)
-
-        "/vip/quantity"(platform: "/mobile", dataSet)
-    }
-
-    test("Vip web mobile tracking without reviews") {
-
-        "/vip"(platform:"/web/mobile") {
-            category_id = "MLA1234"
-            item_id="MLA1891239"
-            review_rate=-1
-        }
-    }
-
-
-    test("Vip web mobile with reviews") {
-        "/vip"(platform:"/web/mobile") {
-            category_id = "MLA1234"
-            item_id="MLA1891239"
-            review_rate=3.5
-        }
-    }
-
-    test("Vip web desktop without reviews") {
-        "/vip"(platform:"/web/desktop") {
-            category_id = "MLA1234"
-            item_id="MLA1891239"
-            review_rate=-1
-        }
-    }
-
-    test("Vip web desktop with reviews") {
-        "/vip"(platform:"/web/desktop") {
-            category_id = "MLA1234"
-            item_id="MLA1891239"
-            review_rate=5
-        }
-    }
-
-    test("Vip core tracking in android deprecated") {
-        def dataSet = {
-            item_id = "MLA533657947"
-            buying_mode = "buy_it_now"
-            vertical = "code"
-            category_id = "MLA43718"
-            quantity = 3
-            item_condition = "new"
-            currency_id = "ARS"
-            price = 15.3
-            item_status = "active"
-            official_store_id = "1"
-            seller_id = "131662738"
-            power_seller_status = "platinum"
-            listing_type_id = "gold_special"
-            start_time = "2014-11-17T14:00:50.000Z"
-            stop_time = "2015-01-16T14:00:50.000Z"
-            shipping_mode = "me2"
-            free_shipping = true
-            local_pick_up = false
-            category_path = ["MLA1234","MLA6789"]
-            reputation_level = "green_5"
-            fulfillment = true
-            resolution = "high"
-            cart_content = false
-            search_query = "monitor"
-            page_vertical = "motors"
-        }
-
-        "/vip"(platform:"/mobile", dataSet)
-
-        "/vip/color_and_size"(platform:"/mobile", {
-            item_id = "MLA533657947"
-        })
-
-        "/vip/description"(platform:"/mobile", {
-            item_id = "MLA533657947"
-            buying_mode = "buy_it_now"
-            category_id = "MLA43718"
-            quantity = 3
-            currency_id = "ARS"
-            price = 15.3
-            item_status = "active"
-            seller_id = "131662738"
-            listing_type_id = "gold_special"
-            shipping_mode = "me2"
-            free_shipping = true
-            local_pick_up = false
-            empty_description = false
-        })
-
-        "/vip/description/abort"(platform:"/mobile", dataSet)
-
-        "/vip/description/back"(platform:"/mobile", dataSet)
-    }
-
-    test("Vip tracking in web") {
-        def dataSet = {
-            item_id = "MLA533657947"
-            category_id = "MLA43718"
-            buying_mode = "buy_it_now"
-            official_store_id = "1"
-            deal_ids = ["MLA24"]
-            review_rate=5
-            gallery_pattern = "XXXXX"
-            specifications_size = 1
-        }
-
-        "/vip"(platform:"/web", dataSet)
-    }
-
-    test("Vip protected purchase") {
-        "/vip/protected_purchase/show" (platform:"/web/mobile", type: TrackType.Event) {
-            category_id = "MLA1234"
-            item_id="MLA1891239"
-        }
-
-        "/vip/protected_purchase/close" (platform:"/web/mobile", type: TrackType.Event) {
-            category_id = "MLA1234"
-            item_id="MLA1891239"
-        }
-    }
-
-    test("Bookmark tracking in android") {
-        "/bookmarks/post" (platform:"/mobile", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/delete" (platform:"/mobile", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/action/post" (platform:"/mobile", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            action_location = "maininfo"
-        }
-
-        "/bookmarks/action/delete" (platform:"/mobile", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            action_location = "maininfo"
-        }
-    }
-
-    test("Bookmark tracking in web") {
-        "/bookmarks/action/post" (platform:"/web", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/action/post" (platform:"/web", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/vip"
-        }
-    }
-
-    test("Bookmarks tracking add to cart") {
-        "/bookmarks/add_to_cart" (type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-    }
-
-    test("Bookmarks tracking in all platforms") {
-
-        "/bookmarks/show_bookmarks" (type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/load_more" (type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/refresh" (type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/show_server_error" (type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/retry_after_error" (type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/show_not_logged_in_feedback" (type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/go_to_login" (type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-        "/bookmarks/show_ZRP" (type: TrackType.Event) {
-            item_id = "MLA533657947"
-            context = "/search"
-        }
-
-    }
-
-
-
-    test("Questions tracking in web") {
-        "/questions/ask/post" (platform:"/web", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            failed = false
-        }
-    }
-
-    test("Questions") {
-
-        "/questions/list"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/vip"
-        }
-
-        "/questions/list"(platform: "/mobile") {
-            context = "/seller_questions"
-        }
-
-        "/questions/list"(platform: "/mobile") {
-            context = "/buyer_questions"
-        }
-
-        "/questions/ask"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/vip"
-        }
-
-        "/questions/ask/post"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/vip"
-            failed = false
-        }
-
-        "/questions/answer/post"(platform: "/mobile") {
-            context = "/questions"
-            item_id = "MLA12345"
-            question_id = "12346"
-            attach_id = "MLA12347"
-            failed = false
-        }
-
-        "/questions/ask/back"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/vip"
-        }
-
-        "/questions/answer"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/notifications"
-        }
-
-        "/questions/answer"(platform: "/mobile") {
-            context = "/questions"
-            item_id = "MLA12345"
-            from_deeplink = true
-        }
-
-        "/questions/answer/post"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/notifications"
-            failed = false
-        }
-
-        "/questions/answer/post"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/notifications"
-            failed = true
-        }
-
-        "/questions/answer/back"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/vip"
-        }
-
-
-        "/questions/back"(platform: "/mobile") {
-            item_id = "MLA12345"
-            context = "/vip"
-        }
-
-    }
 
     test("Checkout Basic Flow test. Legacy test for previous mobile versions") {
 
@@ -983,7 +515,7 @@ trackTests {
             location = "34.677755,56.444433"
             geolocation_method = "platform"
         }
-        "/checkout/options"(platform:"/mobile", type:TrackType.Event) {
+        "/checkout/init/options"(platform:"/mobile", type:TrackType.Event) {
             payment_data = "[credit_card:-, ticket:abitab, ticket:redpagos, cash:cash]"
             shipping_data = ["mercadoenvios", "local_pick_up"]
         }
@@ -1023,7 +555,32 @@ trackTests {
         "/checkout/shipping/custom_address/zip_code"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+        "/checkout/shipping/custom_address/zip_code#zip_code"(platform:"/mobile", type: TrackType.Event) {
+            zip_code = "1437"
+        }
+        "/checkout/shipping/custom_address/zip_code#street_name"(platform:"/mobile", type: TrackType.Event) {
+            street_name = "Av. Colonia"
+        }
+        "/checkout/shipping/custom_address/zip_code#street_number"(platform:"/mobile", type: TrackType.Event) {
+            street_number = "170"
+        }
+        "/checkout/shipping/custom_address/zip_code#internal_number"(platform:"/mobile", type: TrackType.Event) {
+            internal_number = "34"
+        }
+        "/checkout/shipping/custom_address/zip_code#between_streets"(platform:"/mobile", type: TrackType.Event) {
+            between_streets = "Patagones y Uspallata"
+        }
+        "/checkout/shipping/custom_address/zip_code#references"(platform:"/mobile", type: TrackType.Event) {
+            references = "Edificio CMD"
+        }
+        "/checkout/shipping/custom_address/zip_code#neighborhood"(platform:"/mobile", type: TrackType.Event) {
+            neighborhood = "Parque Patricios"
+        }
+        "/checkout/shipping/custom_address/zip_code#additional_info"(platform:"/mobile", type: TrackType.Event) {
+            additional_info = "1er piso"
+        }
         "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event) {}
+
         "/checkout/shipping/custom_address/zip_code/query"(platform:"/mobile", type:TrackType.View) {}
         "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event) {
             query_parameters = "Mexico D.F."
@@ -1154,52 +711,52 @@ trackTests {
             agencies = 10
         }
 
-        "/checkout/payments/preload_credit_card"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/preload_credit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/select_method"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/select_method"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_methods = ["visa", "master", "amex", "cash"]
             coupon = true
             coupon_discount = 20
         }
-        "/checkout/payments/select_method#new_payment_method_selected"(platform:"/mobile",  type: TrackType.Event) {
+        "/checkout/payment/select_method#new_payment_method_selected"(platform:"/mobile",  type: TrackType.Event) {
             payment_method_id = "payment_method_id"
             payment_type_id = "payment_type_id"
         }
-        "/checkout/payments/coupon_detail"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/coupon_detail"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/add_debit_card"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/add_debit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/add_debit_card#card_config"(platform:"/mobile", type: TrackType.Event) {
+        "/checkout/payment/add_debit_card#card_config"(platform:"/mobile", type: TrackType.Event) {
             bin = "123456"
             success = true
         }
-        "/checkout/payments/add_debit_card/select_bank"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/add_debit_card/select_bank"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_issuers = ["Visa", "Banamex", "Santander"]
         }
-        "/checkout/payments/add_prepaid_card"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/add_prepaid_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/add_prepaid_card#card_config"(platform:"/mobile", type: TrackType.Event) {
+        "/checkout/payment/add_prepaid_card#card_config"(platform:"/mobile", type: TrackType.Event) {
             bin = "123456"
             success = true
         }
-        "/checkout/payments/add_card"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/add_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/add_card#card_config"(platform:"/mobile", type: TrackType.Event) {
+        "/checkout/payment/add_card#card_config"(platform:"/mobile", type: TrackType.Event) {
             bin = "123456"
             success = true
         }
-        "/checkout/payments/add_card/select_bank"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/add_card/select_bank"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_issuers = ["Visa", "Banamex", "Santander"]
         }
-        "/checkout/payments/add_card/installments"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/add_card/installments"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_installments = [
                     [
@@ -1219,15 +776,15 @@ trackTests {
                     ]
             ]
         }
-        "/checkout/payments/stored_card/select_bank"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/stored_card/select_bank"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_methods = ["industrial", "bancor", "santander"]
         }
-        "/checkout/payments/stored_card/security_code"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/stored_card/security_code"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             user_identification_fields = ["doc_type", "doc_number"]
         }
-        "/checkout/payments/stored_card/installments"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/stored_card/installments"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             credit_card_id = "1234"
             available_installments = [
@@ -1248,43 +805,43 @@ trackTests {
                     ]
             ]
         }
-        "/checkout/payments/stored_card/installments#change_payment_method"(platform:"/mobile", type:TrackType.Event) {
+        "/checkout/payment/stored_card/installments#change_payment_method"(platform:"/mobile", type:TrackType.Event) {
             event_source = "installments_row"
         }
-        "/checkout/payments/account_money/create"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/account_money/create"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/account_money/password"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/account_money/password"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/account_money/password#submit"(platform:"/mobile", type:TrackType.Event) {}
-        "/checkout/payments/select_issuer"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/account_money/password#submit"(platform:"/mobile", type:TrackType.Event) {}
+        "/checkout/payment/select_issuer"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/cash/select_store"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/cash/select_store"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_methods = ["telecomm", "oxxo", "bancomer", "banamex"]
         }
-        "/checkout/payments/cash/select_store/select_address"(platform:"/mobile") {}
-        "/checkout/payments/cash/select_store#request_permissions"(platform:"/mobile", type: TrackType.Event) {
+        "/checkout/payment/cash/select_store/select_address"(platform:"/mobile") {}
+        "/checkout/payment/cash/select_store#request_permissions"(platform:"/mobile", type: TrackType.Event) {
             permissions = "android.permission.ACCESS_FINE_LOCATION"
             extended = true
         }
-        "/checkout/payments/transfer/select_bank"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/transfer/select_bank"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_methods = ["telecomm", "bancomer", "banamex"]
         }
-        "/checkout/payments/billing_info"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/billing_info"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             user_identification_fields: ["doc_type", "doc_number", "name", "las_name"]
         }
-        "/checkout/payments/billing_info#submit"(platform:"/mobile", type:TrackType.Event) {
+        "/checkout/payment/billing_info#submit"(platform:"/mobile", type:TrackType.Event) {
             billing_info_state = "same_billing_info"
         }
-        "/checkout/payments/promotions"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/promotions"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/consumer_credits/installments"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/consumer_credits/installments"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_installments = [
                     [
@@ -1304,41 +861,45 @@ trackTests {
                     ]
             ]
         }
-        "/checkout/payments/payment_combination/debit_card"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/payment_combination/debit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
 
-        "/checkout/payments/payment_combination/payment_method_not_supported"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/payment_combination/payment_method_not_supported"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
 
         // Discount Coupons
-        "/checkout/payments/add_coupon"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/add_coupon"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/coupon_ok"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/coupon_ok"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             coupon = "coupon1,coupon2"
         }
-        "/checkout/payments/add_another_coupon"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/add_another_coupon"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/coupon_error"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/payment/coupon_error"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/payments/invalid_coupon"(platform:"/mobile", type:TrackType.Event) {
+        "/checkout/payment/invalid_coupon"(platform:"/mobile", type:TrackType.Event) {
             checkoutStatus()
         }
-        "/checkout/payments/expired_coupon"(platform:"/mobile", type:TrackType.Event) {
+        "/checkout/payment/expired_coupon"(platform:"/mobile", type:TrackType.Event) {
             checkoutStatus()
         }
-        "/checkout/payments/add_another_coupon/delete_coupon"(platform:"/mobile", type:TrackType.Event) {
+        "/checkout/payment/add_another_coupon/delete_coupon"(platform:"/mobile", type:TrackType.Event) {
             checkoutStatus()
         }
 
-         "/checkout/billing/physical_person"(platform: "/mobile") {
+        "/checkout/payment/select_type"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
-         }
+        }
+
+        "/checkout/billing/physical_person"(platform: "/mobile") {
+            checkoutStatus()
+        }
         "/checkout/billing/legal_person"(platform: "/mobile") {
             checkoutStatus()
         }
@@ -1407,25 +968,13 @@ trackTests {
         "/checkout/additional_info"(platform: "/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/congrats/error"(platform:"/mobile", type:TrackType.View) {
-            checkoutStatus()
-            available_actions = ["retry", "change_payment_method"]
-        }
-        "/checkout/congrats/call_for_auth"(platform:"/mobile", type:TrackType.View) {
-            checkoutStatus()
-            available_actions = ["retry", "change_payment_method"]
-        }
-        "/checkout/congrats/call_for_auth/instructions"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/finish/call_for_auth/instructions"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/congrats/call_for_auth/later"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/finish/call_for_auth/later"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
-        "/checkout/congrats/invalid_sec_code"(platform:"/mobile", type:TrackType.View) {
-            checkoutStatus()
-            available_actions = ["retry", "change_payment_method"]
-        }
-        "/checkout/congrats/invalid_sec_code/input"(platform:"/mobile", type:TrackType.View) {
+        "/checkout/finish/invalid_sec_code/input"(platform:"/mobile", type:TrackType.View) {
         }
 
         "/checkout/finish/choose_action"(platform:"/mobile", type:TrackType.View) {
@@ -1433,10 +982,6 @@ trackTests {
         }
 
         "/checkout/finish/second_step/error_details"(platform:"/mobile", type:TrackType.View) {
-            checkoutStatus()
-        }
-
-        "/checkout/congrats/pending"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
 
@@ -2295,8 +1840,8 @@ trackTests {
     }
 
     test("checkout payment combination switch events") {
-        "/checkout/payments/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
-        "/checkout/payments/2mp#not_use"(platform: "/mobile", type: TrackType.Event) {}
+        "/checkout/payment/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
+        "/checkout/payment/2mp#not_use"(platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("checkout payment combination review") {
@@ -2526,6 +2071,10 @@ trackTests {
         }
     }
 
+    test("Progressive registration") {
+        "/progressive_registration"(platform: "/mobile/android") {}
+    }
+
     test("Register Web") {
         "/register/form"(platform: "/web/desktop") {
             app = "registration"
@@ -2690,16 +2239,22 @@ trackTests {
 
         "/register/optin"(platform: "/web/desktop") {
             app = "registration"
+            source = "email"
+            captcha_showed = true
             prog_reg_version = 0
         }
 
         "/register/optin/push"(platform: "/web/mobile") {
             app = "registration-optin"
+            source = "email"
+            captcha_showed = true
             prog_reg_version = 0
         }
 
         "/register/optin/skip"(platform: "/web/mobile") {
             app = "registration-optin"
+            source = "email"
+            captcha_showed = true
             prog_reg_version = 0
         }
 
@@ -2734,7 +2289,14 @@ trackTests {
             app = "favorite"
             origin = "email"
             item_id = "MLA21233"
+            register_type = "person"
         }
+
+        "/register/form"(platform:"/mobile") {
+            app = "normal"
+            register_type = "company"
+        }
+
         "/register/form/error"(platform:"/mobile") {
             app = "favorite"
             origin = "email"
@@ -2746,7 +2308,20 @@ trackTests {
                             field: 'email'
                     ]
             ]
+            register_type = "person"
         }
+
+        "/register/form/error"(platform:"/mobile") {
+            app = "normal"
+            errors = [
+                    [
+                            code:50,
+                            field: 'doc_number'
+                    ]
+            ]
+            register_type = "company"
+        }
+
         "/register/form/another-email"(platform:"/mobile") {
             app = "favorite"
             origin = "email"
@@ -2773,6 +2348,13 @@ trackTests {
             app = "favorite"
             origin = "email"
             item_id = "MLA21233"
+            register_type = "person"
+        }
+
+        "/register/congrats"(platform:"/mobile") {
+            app = "normal"
+            origin = "email"
+            register_type = "company"
         }
 
         "/register/form/update"(platform:"/mobile") {
@@ -2811,12 +2393,23 @@ trackTests {
             origin = "drawer"
             item_id = "MLM23143"
         }
-    }
 
-    test("Traffic") {
-        "/traffic/inbound/matt"(platform: "/") {
-            tool = 123456
-            word = "campaignName"
+        "/register/form/company-link"(platform: "/mobile"){
+            app = "normal"
+        }
+
+        "/register/form/person-link"(platform: "/mobile"){
+            app = "normal"
+        }
+
+        "/register/congrats/complete-fiscal-data"(platform: "/mobile"){
+            app = "normal"
+            register_type = "company"
+        }
+
+        "/register/congrats/complete-fiscal-data-later"(platform: "/mobile"){
+            app = "normal"
+            register_type = "company"
         }
     }
 
@@ -2824,6 +2417,13 @@ trackTests {
         "/traffic/inbound/matt"(platform: "/") {
             tool = 123456
             word = "campaignName"
+            go = "http://ofertas.mercadolibre.com.mx/hot-sale"
+        }
+    }
+
+    test("Traffic") {
+        "/traffic/inbound/matt"(platform: "/") {
+            tool = 123456
             go = "http://ofertas.mercadolibre.com.mx/hot-sale"
         }
     }
@@ -2900,703 +2500,6 @@ trackTests {
         }
     }
 
-    test("Mobile Notifications"){
-
-        "/notification_center"(platform: "/mobile"){}
-        "/notification_center/abort"(platform: "/mobile"){}
-        "/notification_center/back"(platform: "/mobile"){}
-        "/notification_center/failure"(platform: "/mobile"){}
-
-        "/notification_center"(platform: "/mobile") {
-            newsgroup_id = "12332323"
-            event_type = "open"
-        }
-
-        "/notification_center/questions-buyer"(platform: "/mobile"){
-            newsgroup_id: "question-123412"
-            status: "read"
-            event_type: "open"
-            deeplink: "meli://buyer_questions/MLA1234/ask"
-            type_layout: "bullet_list"
-        }
-        "/notification_center/questions-seller"(platform: "/mobile"){
-            newsgroup_id: "answer-123412"
-            status: "unread"
-            event_type: "swipe"
-            deeplink: "meli://seller_questions/1234"
-            type_layout: "bullet_list"
-        }
-
-        "/notification_center/orders-buyer"(platform: "/mobile"){
-            newsgroup_id: "orders-buyer-1285223441"
-            status: "read"
-            event_type: "open"
-            deeplink: "meli://purchases/1285223441#payment"
-            type_layout: "standard"
-
-        }
-
-        "/notification_center/reputation"(platform: "/mobile"){
-            newsgroup_id: "reputation-free_shipping-1285223441"
-            status: "read"
-            event_type: "open"
-            deeplink: "meli://purchases/1285223441#payment"
-            type_layout: "standard"
-
-        }
-
-        "/notification_center/orders-seller"(platform: "/mobile"){
-            newsgroup_id: "orders-seller-1288279054"
-            action_type: "messages"
-            status: "unread"
-            event_type: "action_open"
-            deeplink: "meli://sales/1288279054/messages/send"
-            type_layout: "bullet_list"
-        }
-
-        "/notification_center/security-enrollment-legacy"(platform: "/mobile"){
-            newsgroup_id: "security-enrollment-142242996"
-            status: "unread"
-            event_type: "open"
-            deeplink: "meli://generic_landing?url=https%3A%2F%2Faccountrecovery.mercadolivre.com.br%2Fenrollment%3Fsection%3DMDP_UPDATED_NOTIF%26nativeMobile%3DANDROID"
-            type_layout: "standard"
-        }
-
-        "/notification_center/mediations-complainant-legacy"(platform: "/mobile"){
-            newsgroup_id: "MEDIATIONS-1287016973"
-            status: "read"
-            event_type: "open"
-            deeplink: "meli://purchases/1287016973/claims/900736064"
-            type_layout: "standard"
-        }
-
-        "/notification_center/purchase-pending-legacy"(platform: "/mobile"){
-            newsgroup_id: "purchase-pending-210167262-MLA646946595"
-            status: "read"
-            event_type: "open"
-            deeplink: "meli://item?id=MLA646946595"
-            type_layout: "standard"
-        }
-
-        "/notification_center/loyalty"(platform: "/mobile"){
-            newsgroup_id: "LOYALTY-48422892"
-            status: "unread"
-            event_type: "open"
-            deeplink: "meli://loyalty/?selectedTab=benefits"
-            type_layout: "standard"
-        }
-
-        "/notification_center/listings"(platform: "/mobile"){
-            newsgroup_id: "listings-MLB829990994"
-            status: "read"
-            event_type: "open"
-            deeplink: "meli://listings/MLB829990994"
-            type_layout: "standard"
-        }
-
-        "/notification_center/campaigns-deals"(platform: "/mobile"){
-            campaign_id: "campaign1"
-            deal_id: "deal1_123"
-            newsgroup_id: "deals-MLU102_07_02_2017-56626993"
-            status: "unread"
-            event_type: "swipe"
-            type_layout: "picture"
-        }
-
-        "/notification_center/campaigns-campaigns"(platform: "/mobile"){
-            campaign_id: "campaign1"
-            newsgroup_id: "deals-MLU102_07_02_2017-56626993"
-            status: "unread"
-            event_type: "swipe"
-            type_layout: "picture"
-        }
-
-        "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/mobile"){
-            newsgroup_id: "campaigns-suggested_discounts_buyer-142593788-MLA645507294"
-            event_type: "open"
-            deeplink: "meli://item?id=MLA645507294"
-            type_layout: "standard"
-        }
-        "/notification_center/campaigns-suggested_discounts_seller"(platform: "/mobile"){
-            newsgroup_id: "campaigns-suggested_discounts_seller-142593788-MLA645507294"
-            event_type: "open"
-            deeplink: "meli://item?id=MLA645507294"
-            type_layout: "standard"
-        }
-        "/notification_center/fraud-identity_validation"(platform: "/mobile"){
-            newsgroup_id: "fraud-identity_validation-142593788"
-            event_type: "open"
-            deeplink: "meli://item?id=MLA645507294"
-            type_layout: "standard"
-        }
-
-
-        "/notification"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "sent"
-        }
-
-
-        "/notification"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "auto_dismiss"
-            source = "logout"
-        }
-
-        "/notification/campaigns_deals"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "received"
-            deeplink ="meli://search?q=sony"
-            campaign_id = "mkt_campaign_co"
-            deal_id = "mla_1234"
-        }
-
-        "/notification/campaigns_campaigns"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "received"
-            deeplink ="meli://search?q=sony"
-            campaign_id = "mkt_campaign_co"
-        }
-
-        "/notification/campaigns_syi_freemium"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "received"
-            deeplink ="meli://search?q=sony"
-            campaign_id = "registered_between_1_and_2_weeks_ago_and_have_not_listed_in_core"
-        }
-
-        "/notification/questions_new"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "dismiss"
-            deeplink ="meli://seller_question/12221"
-            question_id = 1234
-        }
-
-        "/notification/questions_answered"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            deeplink ="meli://buyer_questions"
-            question_id = 1234
-        }
-
-        "/notification/carousel"(platform: "/mobile"){
-            event_type = "carousel"
-            action_carousel = "next"
-        }
-
-        "/notification/orders_new"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            order_id = 12132
-        }
-
-        "/notification/reputation-free_shipping_activation"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-        }
-
-        "/notification"(platform: "/mobile") {
-            event_type = "discarded"
-            discard_reason = "invalid_payload"
-        }
-
-        "/notification"(platform: "/mobile") {
-            event_type = "discarded"
-            discard_reason = "invalid_user"
-        }
-
-        "/notification"(platform: "/mobile") {
-            event_type = "discarded"
-            notification_created_error = "Some exception message"
-        }
-
-        "/notification/reputation-free_shipping_deactivation"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-        }
-
-        "/notification/shipping_shipped"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            order_id = 11222
-            shipment_id = 1234
-        }
-
-        "/notification/shipping_delivered"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            order_id = 11222
-            shipment_id = 1234
-        }
-
-        "/notification/shipping_agency_withdrawal"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "arrived"
-            deeplink = "meli://purchases/sales"
-            shipment_id = 1234
-            order_id = 11222
-            agency_to_agency = true
-        }
-
-        "/notification/shipping_delayed_bonus"(platform: "/mobile"){
-            news_id = "12332323"
-            event_type = "arrived"
-            deeplink = "meli://purchases/sales"
-            order_id = 11222
-            shipment_id = 1234
-        }
-
-        "/notification/shipping_pending"(platform: "/mobile"){
-            news_id = "12332323"
-            event_type = "arrived"
-            deeplink = "meli://sales/11222#shipping"
-            order_id = 11222
-            shipment_id = 1234
-        }
-
-        "/notification/shipping_returning_to_sender"(platform: "/mobile"){
-            news_id = "12332323"
-            event_type = "arrived"
-            deeplink = "meli://purchases/11222/shipments/:shipment_id"
-            order_id = 11222
-            shipment_id = 1234
-        }
-
-        "/notification/shipping_delayed_sender"(platform: "/mobile"){
-            news_id = "12332323"
-            event_type = "arrived"
-            deeplink = "meli://sales/11222#shipping"
-            order_id = 11222
-            shipment_id = 1234
-        }
-
-        "/notification/shipping_delayed_receiver"(platform: "/mobile"){
-            news_id = "12332323"
-            event_type = "arrived"
-            deeplink = "meli://sales/11222#shipping"
-            order_id = 11222
-            shipment_id = 1234
-            delay_reason = "shipping_time"
-        }
-
-        "/notification/shipping_not_delivered_sender"(platform: "/mobile"){
-            news_id = "12332323"
-            event_type = "arrived"
-            deeplink = "meli://sales/11222#shipping"
-            order_id = 11222
-            shipment_id = 1234
-        }
-        "/notification/shipping_not_delivered_receiver"(platform: "/mobile"){
-            news_id = "12332323"
-            event_type = "arrived"
-            deeplink = "meli://sales/11222#shipping"
-            order_id = 11222
-            shipment_id = 1234
-        }
-
-        "/notification/collections_approved"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "dismiss"
-            order_id = 1234
-        }
-
-        "/notification/orders_pending"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            item_id = "MLA122211"
-        }
-
-        //Buy action
-        "/notification/orders_pending"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            item_id = "MLA122211"
-            action_type = "deeplinking"
-            notification_style = "BigTextStyle"
-        }
-
-        "/notification/orders_pending"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            item_id = "MLA122211"
-            action_type = "deeplinking"
-        }
-
-        //Favorite action
-        "/notification/orders_pending"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            item_id = "MLA122211"
-            action_type = "favorite"
-            notification_style = "BigTextStyle"
-        }
-
-        //Notif center tracking
-        "/notification/orders_pending"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            item_id = "MLA122211"
-            action_type = "favorite"
-            notification_style = "BigPictureStyle"
-            status = "unread"
-        }
-
-
-        "/notification/purchase_pending"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            item_id = "MLA122211"
-        }
-
-        //Buy action
-        "/notification/purchase_pending"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            item_id = "MLA122211"
-            action_type = "deeplinking"
-            notification_style = "BigTextStyle"
-        }
-
-        "/notification/purchase_pending"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            item_id = "MLA122211"
-            action_type = "deeplinking"
-        }
-
-        //Favorite action
-        "/notification/purchase_pending"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            item_id = "MLA122211"
-            action_type = "favorite"
-            notification_style = "BigTextStyle"
-        }
-
-        //Notif center tracking
-        "/notification/purchase_pending"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            item_id = "MLA122211"
-            action_type = "favorite"
-            notification_style = "BigPictureStyle"
-            status = "unread"
-        }
-
-        "/notification/mediations_complainant"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            notification_style = "BigTextStyle"
-            order_id = 1234
-            claim_id = 3123
-            action_type = "favorite"
-        }
-
-        "/notification/mediations_complainant"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "auto_dismiss"
-            notification_style = "BigTextStyle"
-            order_id = 1234
-            claim_id = 3123
-            action_type = "favorite"
-        }
-
-        "/notification/questions_new"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            notification_style = "BigTextStyle"
-            question_id = 1234
-        }
-
-        "/notification/questions_new"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-            notification_style = "BigTextStyle"
-            question_id = 1234
-        }
-
-        "/notification/moderations_item_to_patch"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            notification_style = "BigTextStyle"
-            item_id = "MLA1234"
-        }
-
-        "/notification/moderations_item_to_patch"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-            item_id = "MLA1234"
-        }
-
-        "/notification/moderations_item_to_patch"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-            item_id = "MLA1234"
-        }
-
-        "/notification/moderations_item_forbidden"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-            item_id = "MLA1234"
-        }
-
-        "/notification/moderations_item_forbidden"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-            item_id = "MLA1234"
-        }
-
-        "/notification/moderations_item_forbidden"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            item_id = "MLA1234"
-        }
-
-        "/notification/payments_pending_reminder"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-            item_id = "MLA1234"
-            order_id = 1234321
-        }
-
-        "/notification/payments_pending_reminder"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-            item_id = "MLA1234"
-            order_id = 1234321
-        }
-
-        "/notification/payments_pending_reminder"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            item_id = "MLA1234"
-            order_id = 1234321
-        }
-        "/notification/payments_pending_remainder"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            item_id = "MLA1234"
-            order_id = 1234321
-        }
-
-        "/notification/payments_approved"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-            item_id = "MLA1234"
-            order_id = 1234321
-        }
-
-        "/notification/payments_approved"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            item_id = "MLA1234"
-            order_id = 1234321
-        }
-
-        "/notification/payments_approved"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-            item_id = "MLA1234"
-            order_id = 1234321
-        }
-
-        "/notification/payments_rejected"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            item_id = "MLA1234"
-            order_id = 1234321
-        }
-
-        "/notification/payments_rejected"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-            item_id = "MLA1234"
-            order_id = 1234321
-        }
-
-        "/notification/payments_rejected"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-            item_id = "MLA1234"
-            order_id = 1234321
-        }
-
-        "/notification/messages_new"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-        }
-
-        "/notification/messages_new"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-        }
-
-        "/notification/messages_new"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-        }
-
-        "/notification/moderations_item_warning"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-            item_id = "MLA1234"
-        }
-
-        "/notification/moderations_item_warning"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-            item_id = "MLA1234"
-        }
-
-        "/notification/moderations_item_warning"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            item_id = "MLA1234"
-        }
-
-        "/notification/moderations_message_banned"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-        }
-
-        "/notification/moderations_message_banned"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-        }
-
-        "/notification/moderations_message_banned"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-        }
-
-        "/notification/campaigns_suggested_discounts_seller"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-        }
-
-        "/notification/campaigns_suggested_discounts_seller"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-        }
-
-        "/notification/campaigns_suggested_discounts_seller"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-        }
-
-        "/notification/campaigns_suggested_discounts_buyer"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-        }
-
-        "/notification/campaigns_suggested_discounts_buyer"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "dismiss"
-        }
-
-        "/notification/campaigns_suggested_discounts_buyer"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-        }
-
-        "/notification/loyalty_welcome"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-        }
-
-        "/notification/loyalty_milestone"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-        }
-
-        "/notification/loyalty_change_level"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-        }
-
-        "/notification/security_enrollment"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-        }
-
-        "/notification/reviews_reminder"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-        }
-
-        "/notification/fraud_identity_validation"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-        }
-
-    }
-
-    test("orders feed from commons tracker cards"){
-        def defaultOrderinformation = {
-            order_id = 99999999
-            status = "paid"
-            status_detail = ""
-            total_amount = 100
-            total_amount_with_shipping = 120
-            is_carrito = true
-            reservation = true
-            subscription = true
-
-            seller = [[ id: 135201044, nickname: "XXXXXX" ]]
-            buyer = [ id: 75961818, nickname: "YYYYYY" ]
-
-            shipping = [
-                    cost: 20,
-                    id : 21524852258,
-                    shipping_mode : "me2",
-                    shipping_option : [ id : 509341546, name : "Retiro en sucursal OCA", shipping_method_id : 501045]
-            ]
-
-            payments = [
-                    [
-                            id: 5672342343,
-                            method: "rapipago",
-                            type: "ticket",
-                            installments: 1,
-                            paid_amount: 60,
-                            without_fee : true,
-                            status: "approved",
-                            status_detail: "accredited"
-                    ],
-                    [
-                            id: 5672342344,
-                            payment_method: "visa",
-                            paymet_type: "credit_card",
-                            installments: 3,
-                            paid_amount: 60,
-                            installment_amount: 20,
-                            without_fee : true,
-                            status: "approved",
-                            status_detail: "accredited"
-                    ],
-            ]
-
-            items = [
-                    [
-                            currency_id: "BRL",
-                            item:[
-                                    id: "MLB683236263",
-                                    title: "Conector 12 Vias Baquelite - 1,5/6,0mm² - Caixa Com 10",
-                                    variation_attributes: [],
-                                    category_id: "MLB30216",
-                                    variation_id: null ],
-                            quantity: 1,
-                            unit_price: 70
-                    ]
-            ]
-        }
-
-        "/orders/ordercreated" (platform:"/mobile/ios", type: TrackType.View,  ) {defaultOrderinformation()}
-        "/orders/ordercreated" (platform:"/mobile/android", type: TrackType.View) {defaultOrderinformation()}
-        "/orders/ordercreated" (platform:"/web/desktop", type: TrackType.View) {defaultOrderinformation()}
-        "/orders/ordercreated" (platform:"/web/mobile", type: TrackType.View) {defaultOrderinformation()}
-
-    }
 
     test("Mall Tracking") {
         "/official_stores/home"(platform: "/web") {
@@ -3607,11 +2510,7 @@ trackTests {
         "/official_stores/home"(platform: "/web") {}
     }
 
-    test("Home Tracking") {
-        "/home"(platform: "/web") {
-            from="breadcrumb"
-        }
-    }
+
     test("Tracking landing without tooltip") {
         "/official_stores/landing"(platform: "/web") {
             is_tool_tip_present = false
@@ -3651,12 +2550,6 @@ trackTests {
         }
     }
 
-    test("Home Category Tracking") {
-        "/home/category"(platform: "/web") {
-            from="breadcrumb"
-            category_id="MLA1051"
-        }
-    }
 
     test("Permission location dialog") {
         "/permissions/location"(platform: "/mobile") {
@@ -3689,308 +2582,7 @@ trackTests {
         }
     }
 
-    test("Real estate home tracking") {
-        def dataSetViewEmpty = {
-            filters = ''
-            carousels = ''
-            category_id = 'MLA1459'
-        }
 
-        def dataSetView = {
-            category_id = "MLA1459"
-            filters = {
-                cityId: 1
-                cityName: 'Santiago'
-                stateId: 1
-                stateName: 'Santiago'
-                neighborhoodId: 1
-                neighborhoodName: 'La rioja'
-                categories: 11
-                operations: 11
-            }
-            carousels = {
-                premium: [1,2,3]
-                gold: [11,12,13]
-                used: [111,122,133]
-            }
-        }
-
-        "/home/category/real-estate"(platform: "/", dataSetViewEmpty)
-        "/home/category/real-estate"(platform: "/web", dataSetViewEmpty)
-
-        "/home/category/real-estate"(platform: "/", dataSetView)
-        "/home/category/real-estate"(platform: "/web", dataSetView)
-        "/home/category/real-estate"(platform: "/mobile", dataSetView)
-    }
-
-    test("Sell change listing type track view"){
-        def dataSetViewSingle = {
-            source = "email_upgrade_7_days"
-            item_id = "MLB123456"
-            seller_experience = "ADVANCED"
-            vertical = "CORE"
-            listing_type_id = "gold_special"
-            buying_mode = "buy_it_now"
-            condition = "used"
-            price = 123.456
-            view_type = "upgrade_full_screen"
-        }
-
-        def dataSetViewMassive = {
-            source = "my_account_listings"
-            items_amount =  5
-            seller_experience = "NEWBIE"
-            view_type = "single_option"
-        }
-
-        "/sell/change_listing_type/single"(platform: "/web", dataSetViewSingle)
-        "/sell/change_listing_type/massive"(platform: "/web", dataSetViewMassive)
-    }
-
-    test("Relist items"){
-        def itemData = {
-            item_id = "MLA123456"
-            listing_type_id = "gold_special"
-            vertical = "CORE"
-            buying_mode = "buy_it_now"
-            condition = "used"
-            price = 123.456
-            quantity = 8
-        }
-
-        def massiveItemData = {
-            items_amount = 2
-        }
-
-        "/sell/quick_relist/single"  (platform: "/web/desktop", itemData)
-        "/sell/quick_relist/massive" (platform: "/web/desktop", massiveItemData)
-
-        "/sell/modify_and_relist/single/row"   (platform: "/web/desktop", itemData)
-        "/sell/modify_and_relist/single/cards" (platform: "/web/desktop", itemData)
-        "/sell/modify_and_relist/massive/row"  (platform: "/web/desktop", massiveItemData)
-    }
-
-    test("Sell Flow view Pages"){
-        def itemData = {
-            item_id = "MLA123456"
-            listing_type_id = "gold_special"
-            vertical = "CORE"
-            buying_mode = "buy_it_now"
-            condition = "used"
-            price = 123.456
-        }
-
-        "/sell/list/congrats"(platform: "/web/desktop", itemData)
-        "/sell/upgrade_on"(platform: "/web/desktop", itemData)
-    }
-    test("Sell Flow view Pages"){
-        def itemData = {
-            item_id = "MLA123456"
-            listing_type_id = "gold_special"
-            vertical = "MOT"
-            buying_mode = "buy_it_now"
-            condition = "used"
-            price = 123.456
-            referer = "mail_upgrade_classified"
-        }
-        "/sell/upgradeOff"(platform: "/", itemData)
-    }
-    test("Sell landing free_listing"){
-        def data={
-            referer = "1234L"
-        }
-
-        "/sell/landing/free_listing"(platform: "/", data)
-        "/sell/landing/free_listing"(platform: "/"){}
-    }
-
-    test("Native Sell flow steps"){
-        "/sell/list/congrats"(platform: "/mobile") {}
-        "/sell/list/drafts"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/hub"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/walkthrough"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/hub_old"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/sip"(platform: "/mobile" ) {
-            session_id = "214464778-list-d5e5a20b2935"
-            has_selected_pictures = true
-        }
-        "/sell/list/category_sugestion"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/category_navigation"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/color_selection"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/color_selection_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/condition"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/condition_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/description"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/description_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/payment_methods"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/payment_methods_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/listing_types"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/listing_types_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/pictures"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/pictures/gallery"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/pictures/editor"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/pictures/crop"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/pictures_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/pictures_review/gallery"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/pictures_review/editor"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/pictures_review/crop"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/price_core"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/price_core/similar_products"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/price_core_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/price_core_review/similar_products"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/seller_registration"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/seller_registration_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/seller_registration_zip_code"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/size_selection"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/size_selection_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/title_core"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/title_core_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/shipping_options_me"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/shipping_options_me_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/pictures_landing"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/registration_landing"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/registration_zip_code_landing"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/shipping_landing"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/sip_landing"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/sip_price_landing"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/sip_shipping_landing"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/sip_condition_landing"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/sip_condition_lt_landing"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/sip_condition_listing_type_landing"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/title_landing"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/listing_types"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/listing_types_upgrade"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/congrats_upgrade"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-
-        "/sell/list/drafts/draft_action/draft_deleted"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/drafts/draft_action/draft_resumed"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/sip/publish/pictures_fail"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            fail_pictures = 2
-            total_pictures = 6
-            pictures_errors = ["error 1" , "error 2"]
-        }
-        "/sell/list/sip/publish/fail"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            error_message="error"
-        }
-        "/sell/list/sip/publish/abandonment"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/sip/notification/view_item"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/sip/notification/upgrade"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/sip/notification/congrats"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/pictures_uploader/crop/crop_canceled"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/pictures_uploader/crop/crop_acepted"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/price_core/similar_products/similar_item_selected"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/price_core/similar_products/similar_item_shown"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/zip_code/zip_code/search_zip_code"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/listing_types"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/listing_types_upgrade"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/congrats_upgrade"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-    }
-
-    test("validations in pictures_uploader - List"){
-        "/sell/list/pictures_uploader/validations"(platform: "/web") {
-             error_key = "PICTURE_INVALID_QUALITY"
-             session_id = "214464778-list-d5e5a20b2935"
-         }
-    }
-
-    test("Native Sell Modify Steps"){
-        "/sell/update/sip"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/sip/publish/pictures_fail"(platform: "/mobile") {
-            item_id = "MLA123456"
-            fail_pictures = 2
-            total_pictures = 6
-            pictures_errors = ["error 1" , "error 2"]
-        }
-        "/sell/update/sip/publish/fail"(platform: "/mobile") {
-            item_id = "MLA123456"
-            error_message="error"
-        }
-        "/sell/update/sip/publish/abandonment"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/sip/notification/view_item"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/sip/notification/upgrade"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/sip/notification/congrats"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/category_sugestion"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/category_navigation"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/color_selection"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/color_selection_review"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/condition"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/condition_review"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/description"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/description_review"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/payment_methods"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/payment_methods_review"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/updateing_types"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/updateing_types_review"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/pictures"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/pictures/gallery"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/pictures/editor"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/pictures/crop"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/pictures_uploader/crop/crop_canceled"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/pictures_uploader/crop/crop_acepted"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/pictures_review"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/pictures_review/gallery"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/pictures_review/editor"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/pictures_review/crop"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/price_core"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/price_core/similar_products/similar_item_selected"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/price_core/similar_products/similar_item_shown"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/price_core_review"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/price_core_review/similar_products"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/size_selection"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/size_selection_review"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/title_core"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/title_core_review"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/shipping_options_me"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/shipping_options_me_review"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/sip_landing"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/sip_price_landing"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/sip_shipping_landing"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/sip_condition_landing"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/sip_condition_lt_landing"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/sip_condition_listing_type_landing"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/title_landing"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/listing_types"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/listing_types_upgrade"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/congrats_upgrade"(platform: "/mobile") {item_id = "MLA123456"}
-    }
-
-    test("Modal attributes pseudo obligatory - List"){
-        "/sell/list/modal_attributes"(platform: "/web") {
-            session_id = "214464778-list-d5e5a20b2935"
-            empty_attrs_pk = 1
-            empty_attrs_not_pk = 2
-            condition = "new"
-            user_id = "123456"
-        }
-        "/sell/list/modal_attributes/submit"(platform: "/web") {
-            domain_id ="MLA-CAMERAS"
-            session_id = "214464778-list-d5e5a20b2935"
-            attribute_id = "MODEL"
-            condition = "new"
-            option_selected = "no_possible"
-            user_id = "123456"
-        }
-    }
-
-    test("Modal attributes pseudo obligatory - Update"){
-        "/sell/update/modal_attributes"(platform: "/web") {
-            empty_attrs_pk = 1
-            empty_attrs_not_pk = 2
-            condition = "new"
-            user_id = "123456"
-            item_id = "MLA123456"
-        }
-        "/sell/update/modal_attributes/submit"(platform: "/web") {
-            domain_id ="MLA-CAMERAS"
-            attribute_id = "MODEL"
-            condition = "new"
-            user_id = "123456"
-            option_selected = "no_possible"
-            item_id = "MLA123456"
-        }
-    }
 
     test("Item events"){
         def dataListItem = {
@@ -4054,6 +2646,13 @@ trackTests {
         }
 
         "/item/create"(platform: "/web", dataListItem)
+        "/item/update"(platform: "/web"){
+            item_id = "MLA12345"
+            variations_changed = true
+            title_changed = true
+            stock_changed = true
+            price_changed = true
+        }
         "/item/create"(platform: "/web", dataListItemWithCategorySuggestion)
         "/item/change_listing_type"(platform: "/web", dataChangeListingTypeItemFullInfo)
         "/item/change_listing_type"(platform: "/web", dataChangeListingTypeItemMinimumInfo)
@@ -4503,17 +3102,21 @@ trackTests {
             source = "LFE"
         }
         "/login/form"(platform: "/", type: TrackType.View) {
+            challenge = "password"
             source = "QUESTION"
-            has_error = true
-            flow = "internal"
-            old_user_id = "123456"
-            old_user_nick = "nick"
+            tx = "tx"
+            operator_id = null
         }
         "/login/form"(platform: "/", type: TrackType.View) {
-            source = "FAVORITE"
+            challenge = "user"
+            source = "EXPLICIT"
+            tx = "tx"
+            operator_id = "123"
             has_error = false
-            flow = "internal"
-            recaptcha = true
+            recaptcha = false
+            push_control_group_user = false
+            old_user_id = "123456"
+            old_user_nick = "nick"
         }
         "/login/recovery"(platform: "/web", type: TrackType.Event) {
             source = "LFE"
@@ -4521,49 +3124,68 @@ trackTests {
         "/login/recovery"(platform: "/mobile", type: TrackType.View) {
             source = "LFE"
         }
-        "/login/auth"(platform: "/mobile", type: TrackType.View) {
-            source = "LFE"
-            is_otp = false
-            is_admin_otp = false
-        }
-        "/login/auth"(platform: "/web", type: TrackType.Event) {
-            source = "LFE"
-            is_otp = false
-            is_admin_otp = false
-        }
         "/login/registration"(platform: "/", type: TrackType.Event) {
             source = "LFE"
         }
-        "/login/auth/success"(platform: "/", type: TrackType.Event) {
-            source = "LFE"
-            flow = "internal"
+        "/login/auth/success"(platform: "/web", type: TrackType.Event) {
+            source = "DEFAULT"
+            tx = "tx"
+            is_transaction = false
+            is_otp = true
+            is_admin_otp = false
+        }
+        "/login/auth/success"(platform: "/web", type: TrackType.Event) {
+            source = "DEFAULT"
+            tx = "tx"
+            is_transaction = true
             is_otp = false
             is_admin_otp = false
-            user_reg_date = "2002-09-26T00:00:00.000-04:00"
+            operator_id = null
+            push_control_group_user = false
+            rememberme_enabled = true
+        }
+        "/login/auth/success"(platform: "/mobile", type: TrackType.Event) {
+            challenge = "password"
+            is_otp = true
+            is_admin_otp = false
+            user_reg_date = "2018"
             user_points = 100
         }
-        "/login/auth/failure"(platform: "/", type: TrackType.Event) {
-            source = "LFE"
-            reason = [errorId: 'invalid_password']
-            flow = "internal"
-            is_otp = false
-            is_admin_otp = false
-            old_user_id = "123456"
-            old_user_nick = "nick"
+        "/login/auth/failure"(platform: "/web", type: TrackType.Event) {
+            challenge = "user"
+            source = "FAVORITE"
+            tx = "tx"
+            reason = [error: "invalid user"]
+            operator_id = null
         }
-        "/login/auth/challenge_success"(platform: "/", type: TrackType.Event) {
+        "/login/auth/failure"(platform: "/mobile", type: TrackType.Event) {
+            challenge = "user"
+            is_otp = false
+            is_admin_otp = true
+            reason = [error: "invalid user"]
+        }
+        "/login/auth/challenge_success"(platform: "/web", type: TrackType.Event) {
             challenge = "pass"
-            source = "MSL_DEFAULT"
+            source = "QUESTION"
+            tx = "tx"
+            operator_id = "123"
+        }
+        "/login/auth/challenge_success"(platform: "/mobile", type: TrackType.Event) {
+            challenge = "pass"
             is_otp = false
             is_admin_otp = false
+        }
+       "/login/auth/challenge_decline"(platform: "/", type: TrackType.View) {
+            challenge = "pass"
+            source = "QUESTION"
+            tx = "tx"
+            operator_id = null
         }
         "/login/auth/push"(platform: "/", type: TrackType.Event) {
             view = "waiting_view"
             event_type = "click_go_to_password_button"
             challenge = "push_authentication"
             tx = "adHgjskcD01lM6EeLs7zUGgBaA1GiWqF6w_XQUgLJk0QAmdhE"
-            is_otp = false
-            is_admin_otp = false
         }
         "/logout"(platform: "/", type: TrackType.Event) {
             flow = "internal"
@@ -4638,6 +3260,23 @@ trackTests {
         "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
             status = "API_NOT_CONNECTED"
         }
+    }
+
+    test("Abuse Prevention in Identification and Authentication") {
+      "/auth/abuse_prevention"(platform: "/mobile", type: TrackType.Event) {
+        result = "low"
+      }
+      "/auth/abuse_prevention/ban"(platform: "/web", type: TrackType.Event) {
+          result = "low"
+      }
+      "/auth/abuse_prevention/login"(platform: "/web", type: TrackType.Event) {
+        device_id = "1"
+        platform = "web"
+      }
+      "/auth/abuse_prevention/login"(platform: "/mobile", type: TrackType.Event) {
+        device_id = "1"
+        platform = "mobile"
+      }
     }
 
     test("Loyalty user tracking") {
@@ -4773,6 +3412,22 @@ trackTests {
         "/identity-validation/upload_compress"(platform: "/web/desktop") {
             upload_time = 10
             compression_time = 10
+        }
+
+        "/identity-validation/image_error"(platform: "/mobile/ios") {
+            source = "TAKE_PHOTO"
+        }
+
+        "/identity-validation/image_error"(platform: "/mobile/android") {
+            source = "TAKE_PHOTO"
+        }
+
+        "/identity-validation/image_error"(platform: "/web/mobile") {
+            source = "TAKE_PHOTO"
+        }
+
+        "/identity-validation/image_error"(platform: "/web/desktop") {
+            source = "TAKE_PHOTO"
         }
 
         "/identity-validation/phone_code"(platform: "/mobile") {}
@@ -4972,21 +3627,26 @@ trackTests {
         "/buy_intention"(platform:"/mobile/android") {
             buyIntentionDataSet()
             from = "vip"
+            checkout_flow="direct"
         }
 
         "/buy_intention"(platform:"/mobile/ios") {
             buyIntentionDataSet()
             from = "cart"
+            checkout_flow="subscription"
         }
 
         "/buy_intention"(platform:"/web/mobile") {
             buyIntentionDataSet()
             from = "cart_item"
+            checkout_flow="reservation"
         }
 
         "/buy_intention"(platform:"/web/desktop") {
             buyIntentionDataSet()
             from = "saved_for_later"
+            checkout_flow="contract"
+
         }
 
     }
@@ -5106,6 +3766,8 @@ trackTests {
         "/checkout/payment/select_store"(platform:"/web", dataSet)
         "/checkout/payment/select_bank"(platform:"/web", dataSet)
         "/checkout/payment/view_location"(platform:"/web", dataSet)
+        "/checkout/payment/view_location/location"(platform:"/web", dataSet)
+        "/checkout/payment/view_location/preloaded"(platform:"/web", dataSet)
         "/checkout/payment/input_card"(platform:"/web", dataSet)
         "/checkout/payment/input_card/edit_payment"(platform:"/web", dataSet)
         "/checkout/payment/input_card/security_code_tooltip"(platform:"/web", dataSet)
@@ -5358,7 +4020,14 @@ trackTests {
         "/cart/checkout/payment/select_store"(platform:"/", dataSet)
         "/cart/checkout/payment/select_bank"(platform:"/", dataSet)
         "/cart/checkout/payment/view_location"(platform:"/", dataSet)
+        "/cart/checkout/payment/view_location/location"(platform:"/", dataSet)
+        "/cart/checkout/payment/view_location/preloaded"(platform:"/", dataSet)
         "/cart/checkout/payment/input_card"(platform:"/", dataSet)
+        "/cart/checkout/payment/input_card#card_config"(platform:"/") {
+            dataSet()
+            bin = "1234"
+            success = true
+        }
         "/cart/checkout/payment/input_card/edit_payment"(platform:"/", dataSet)
         "/cart/checkout/payment/input_card/security_code_tooltip"(platform:"/", dataSet)
         "/cart/checkout/payment/select_installments"(platform:"/", dataSet)
@@ -5368,6 +4037,7 @@ trackTests {
         "/cart/checkout/payment/create_second_password"(platform:"/", dataSet)
         "/cart/checkout/payment/input_second_password"(platform:"/", dataSet)
         "/cart/checkout/payment/input_second_password/edit_payment"(platform:"/", dataSet)
+        "/cart/checkout/payment/promotions"(platform:"/", dataSet)
         "/cart/checkout/review/edit_payment"(platform:"/", dataSet)
         "/cart/checkout/review/edit_first_payment"(platform:"/", dataSet)
         "/cart/checkout/review/edit_second_payment"(platform:"/", dataSet)
@@ -5427,12 +4097,10 @@ trackTests {
             dataSetCongrats()
         }
         "/cart/checkout/show_ticket"(platform:"/", dataSet)
-        "/cart/checkout/invalid_sec_code"(platform:"/", dataSet)
-        "/cart/checkout/invalid_sec_code/input_code"(platform:"/", dataSet)
-        "/cart/checkout/call_for_auth"(platform:"/", dataSet)
-        "/cart/checkout/call_for_auth/instructions"(platform:"/", dataSet)
-        "/cart/checkout/call_for_auth/call_later"(platform:"/", dataSet)
-        "/cart/checkout/call_for_auth/input_code"(platform:"/", dataSet)
+        "/cart/checkout/finish/invalid_sec_code/input_code"(platform:"/", dataSet)
+        "/cart/checkout/finish/call_for_auth/instructions"(platform:"/", dataSet)
+        "/cart/checkout/finish/call_for_auth/later"(platform:"/", dataSet)
+        "/cart/checkout/finish/call_for_auth/input_code"(platform:"/", dataSet)
         "/cart/checkout/shipping"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/edit_address"(platform:"/mobile", dataSet)
         "/cart/checkout/loading"(platform: "/mobile", dataSet)
@@ -5447,13 +4115,53 @@ trackTests {
         "/cart/checkout/shipping/select_method_ask_geolocation"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_zipcode"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/input_address"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/input_address"(platform:"/mobile") {
+            dataSet()
+            edit_flow = false
+        }
+        "/cart/checkout/shipping/input_address#zip_code"(platform:"/mobile") {
+            dataSet()
+            zip_code = "1430"
+        }
+        "/cart/checkout/shipping/input_address#street_name"(platform:"/mobile") {
+            dataSet()
+            street_name = "Arias"
+        }
+        "/cart/checkout/shipping/input_address#street_number"(platform:"/mobile") {
+            dataSet()
+            street_number = "3751"
+        }
+        "/cart/checkout/shipping/input_address#internal_number"(platform:"/mobile") {
+            dataSet()
+            internal_number = ""
+        }
+        "/cart/checkout/shipping/input_address#between_streets"(platform:"/mobile") {
+            dataSet()
+            between_streets = "Posta y Av. Melian"
+        }
+        "/cart/checkout/shipping/input_address#references"(platform:"/mobile") {
+            dataSet()
+            references = "Edificio Intecons"
+        }
+        "/cart/checkout/shipping/input_address#neighborhood"(platform:"/mobile") {
+            dataSet()
+            neighborhood = "CABA"
+        }
+        "/cart/checkout/shipping/input_address#additional_info"(platform:"/mobile") {
+            dataSet()
+            additional_info = "7mo piso"
+        }
+        "/cart/checkout/shipping/input_address#submit"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address_number"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address_number/whithout_number"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/select_address"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/select_option_detail"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address_apartment"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/select_contact_info"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/select_contact_info"(platform:"/mobile"){
+            dataSet()
+            available_options = 1
+        }
+        "/cart/checkout/shipping/select_contact_info#submit"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/add_contact_info"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_contact_info"(platform:"/mobile", dataSet)
         "/cart/checkout/payment/select_unique_installment"(platform:"/mobile", dataSet)
@@ -5461,6 +4169,7 @@ trackTests {
         "/cart/checkout/payment/select_split_installments/split_detail"(platform:"/mobile", dataSet)
         "/cart/checkout/payment/select_first_installment"(platform:"/mobile", dataSet)
         "/cart/checkout/payment/select_second_installment"(platform:"/mobile", dataSet)
+        "/cart/checkout/payment/transfer/select_bank"(platform:"/mobile", dataSet)
         "/cart/checkout/review/edit_unique_installment"(platform:"/mobile", dataSet)
         "/cart/checkout/review/edit_first_installment"(platform:"/mobile", dataSet)
         "/cart/checkout/review/edit_second_installment"(platform:"/mobile", dataSet)
@@ -5478,34 +4187,34 @@ trackTests {
 
         //2MP
         //Switch
-        "/cart/checkout/payments/2mp#use"(platform: "/mobile", dataSet)
-        "/cart/checkout/payments/2mp#not_use"(platform: "/mobile",dataSet)
-        "/cart/checkout/payments/2mp/split"(platform: "/mobile",dataSet)
+        "/cart/checkout/payment/2mp#use"(platform: "/mobile", dataSet)
+        "/cart/checkout/payment/2mp#not_use"(platform: "/mobile",dataSet)
+        "/cart/checkout/payment/2mp/split"(platform: "/mobile",dataSet)
 
         // Disclaimer combination modal view.
-        "/cart/checkout/payments/payment_combination/payment_method_not_supported"(platform:"/mobile", dataSet)
+        "/cart/checkout/payment/payment_combination/payment_method_not_supported"(platform:"/mobile", dataSet)
 
         // Discount Coupons
-        "/cart/checkout/payments/add_coupon"(platform:"/mobile", type:TrackType.View) {
+        "/cart/checkout/payment/add_coupon"(platform:"/mobile", type:TrackType.View) {
             dataSet()
         }
-        "/cart/checkout/payments/coupon_ok"(platform:"/mobile", type:TrackType.View) {
+        "/cart/checkout/payment/coupon_ok"(platform:"/mobile", type:TrackType.View) {
             dataSet()
             coupon = "coupon1,coupon2"
         }
-        "/cart/checkout/payments/add_another_coupon"(platform:"/mobile", type:TrackType.View) {
+        "/cart/checkout/payment/add_another_coupon"(platform:"/mobile", type:TrackType.View) {
             dataSet()
         }
-        "/cart/checkout/payments/coupon_error"(platform:"/mobile", type:TrackType.View) {
+        "/cart/checkout/payment/coupon_error"(platform:"/mobile", type:TrackType.View) {
             dataSet()
         }
-        "/cart/checkout/payments/invalid_coupon"(platform:"/mobile", type:TrackType.Event) {
+        "/cart/checkout/payment/invalid_coupon"(platform:"/mobile", type:TrackType.Event) {
             dataSet()
         }
-        "/cart/checkout/payments/expired_coupon"(platform:"/mobile", type:TrackType.Event) {
+        "/cart/checkout/payment/expired_coupon"(platform:"/mobile", type:TrackType.Event) {
             dataSet()
         }
-        "/cart/checkout/payments/add_another_coupon/delete_coupon"(platform:"/mobile", type:TrackType.Event) {
+        "/cart/checkout/payment/add_another_coupon/delete_coupon"(platform:"/mobile", type:TrackType.Event) {
             dataSet()
         }
 
@@ -5703,7 +4412,10 @@ trackTests {
                     [id: "208642594", nickname: "TESTEO_1", loyalty_level: "4"]
             ]
 
-            cartContent = true
+            CartContent = "Yes"
+            cart_content = "No"
+            purchase_status = "Paid"
+            PurchaseStatus = "Paid"
 
         }
 
@@ -5733,7 +4445,29 @@ trackTests {
 
         "/myml/sales/questions"(platform: "/web") {}
 
+        "/myml/sales/shipping" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
+        "/myml/sales/buyer"(platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
+        "/myml/sales/item"(platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
         "/myml/purchases/list"(platform: "/web") {}
+
+        "/myml/purchases/list/returns_action"(platform: "/web", type: TrackType.Event) {
+            action = 'print_return_label'
+        }
+
+        "/myml/purchases/vop"(platform: "/web") {}
+
+        "/myml/purchases/vop/returns_action"(platform: "/web", type: TrackType.Event) {
+            action = 'print_return_label'
+        }
 
         "/myml/purchases/detail"(platform: "/web") {}
 
@@ -5761,61 +4495,77 @@ trackTests {
 
         "/myml/purchases/detail/history"(platform:"/") {}
 
+        "/myml/purchases/status" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
+        "/myml/purchases/item" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
+        "/myml/purchases/seller" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
+        "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
         "/myml/loyal_discounts" (platform: "/", type: TrackType.View) {}
         "/myml/loyal_discounts/add" (platform: "/web", type: TrackType.Event) {
             item = {
                 id = 'MLA713079054'
                 price = '300'
                 original_price = '1000'
-                sale_terms = [  
-                  {  
-                     id = "LOYALTY_LEVEL_6"
-                     name = "Precio por nivel 6 de loyalty"
-                     value_id = null
-                     value_name = "25 ARS"
-                     value_struct = {  
-                        number = 25
-                        unit = "ARS"
-                     }
-                  },
-                  {  
-                     id = "LOYALTY_LEVEL_5"
-                     name = "Precio por nivel 5 de loyalty"
-                     value_id = null
-                     value_name = "25 ARS"
-                     value_struct = {  
-                        number = 25
-                        unit = "ARS"
-                     }
-                  },
-                  {  
-                     id = "LOYALTY_LEVEL_4"
-                     name = "Precio por nivel 4 de loyalty"
-                     value_id = null
-                     value_name = "25 ARS"
-                     value_struct = {  
-                        number = 25
-                        unit = "ARS"
-                     }
-                  },
-                  {  
-                     id = "LOYALTY_LEVEL_3"
-                     name = "Precio por nivel 3 de loyalty"
-                     value_id = null
-                     value_name = "25 ARS"
-                     value_struct = {  
-                        number = 25
-                        unit = "ARS"
-                     }
-                  }
-               ]
+                sale_terms = [
+                        {
+                            id = "LOYALTY_LEVEL_6"
+                            name = "Precio por nivel 6 de loyalty"
+                            value_id = null
+                            value_name = "25 ARS"
+                            value_struct = {
+                                number = 25
+                                unit = "ARS"
+                            }
+                        },
+                        {
+                            id = "LOYALTY_LEVEL_5"
+                            name = "Precio por nivel 5 de loyalty"
+                            value_id = null
+                            value_name = "25 ARS"
+                            value_struct = {
+                                number = 25
+                                unit = "ARS"
+                            }
+                        },
+                        {
+                            id = "LOYALTY_LEVEL_4"
+                            name = "Precio por nivel 4 de loyalty"
+                            value_id = null
+                            value_name = "25 ARS"
+                            value_struct = {
+                                number = 25
+                                unit = "ARS"
+                            }
+                        },
+                        {
+                            id = "LOYALTY_LEVEL_3"
+                            name = "Precio por nivel 3 de loyalty"
+                            value_id = null
+                            value_name = "25 ARS"
+                            value_struct = {
+                                number = 25
+                                unit = "ARS"
+                            }
+                        }
+                ]
             }
             percentage = 70
-            type = "loyal"
+            type = "LOW_LOYAL"
         }
         "/myml/loyal_discounts/delete" (platform: "/", type: TrackType.Event) {
             item_id = 'MLA713079054'
-            type = "non-loyal"
+            type = "HIGH_LOYAL"
         }
 
 
@@ -5901,11 +4651,7 @@ trackTests {
             item_id="MLM12345"
             category_id="CAT123"
         }
-        "/subscriptions/detail/modify_frequency"(platform: "/" ,type: TrackType.View) {
-            order_id="1425420000"
-            item_id="MLM12345"
-            category_id="CAT123"
-        }
+        "/subscriptions/detail/modify_frequency"(platform: "/" ,type: TrackType.View) {}
         "/subscriptions/change_frequency" (platform:"/", type: TrackType.View) {
             frequency = "WEEKS_2"
             frequency_before = "WEEKS_1"
@@ -5913,6 +4659,10 @@ trackTests {
             order_id="1425420000"
             item_id="MLM12345"
             category_id="CAT123"
+        }
+        "/subscriptions/address" (platform:"/", type: TrackType.View) {}
+        "/subscriptions/change_address" (platform:"/", type: TrackType.Event) {
+            context = "details/myml"
         }
         "/subscriptions/delivery/cancel"(platform: "/", type: TrackType.View) {
             context = "now"
@@ -5936,7 +4686,7 @@ trackTests {
             item_id="MLM12345"
             category_id="CAT123"
         }
-        
+
         "/subscriptions_landing"(platform: "/", type: TrackType.View) {}
 
         "/subscriptions_landing/select_item_slide"(platform: "/", type: TrackType.Event) {
@@ -6004,4 +4754,38 @@ trackTests {
             status = "sponsored"
         }
     }
+
+    test("Checkout recovery with recos - push notification flow") {
+        "/checkout_recovery" (platform:"/web/mobile", type: TrackType.View) {
+            item_id = "MLU451705243"
+            item_status = "inactive"
+        }
+        "/checkout_recovery/error" (platform:"/web/mobile", type: TrackType.View) {
+            item_id = "MLU451705243"
+            item_status = "inactive"
+        }
+        "/checkout_recovery/notfound" (platform:"/web/mobile", type: TrackType.View) {
+            item_id = "MLU451705243"
+            item_status = "inactive"
+        }
+    }
+
+    test("Bugsnag tracks to use on Canejo ML") {
+        "/mobile/bugsnag"(platform:"/mobile/ios", type:TrackType.Event) {
+            error_type = "signal"
+            error_context = "withdraw"
+            error_severity = "error"
+            url_error = "<none>"
+            error_mach_exception_name = "<none>"
+            error_address = "4402117060"
+            error_message = ""
+            error_Id = "5aa6bcd0c098f300193384fb"
+            error_timestamp = "2018-04-18T14:18:09.301Z"
+            error_exception_class = "SIGTRAP"
+            release_stage = "production"
+            error_signal_name = "SIGTRAP"
+            error_nsexception = "<none>"
+        }
+    }
+
 }

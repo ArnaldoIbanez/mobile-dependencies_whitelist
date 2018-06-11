@@ -32,6 +32,7 @@ tracks {
         //Tracks from Search Backend:
         backend_data(required: false)
         catalog_product_id(required: false, description: 'Id of the product, only if the product header is shown')
+        official_stores_carousel_shown(required: false, description: 'which TOs are in the carousel', PropertyType.ArrayList)
             //ab(required: false, description:'ab testing related. to be deprecated')
             //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
             //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
@@ -69,11 +70,14 @@ tracks {
         //block_store_position
         landing(required:false, description:'indicates landing base, premium, etc')
         pads(required: false, description:'item_id from the pads returned for listings')
+        upper_funnel(required: false, description: 'indicates if advertising query was considered upper funnel')
         layout(required: false, description:'layout of search')
         geolocation(required: false, description:'geolocation')
         landing(required: false, description:'landings: base, premium, etc')
         layout_forced(required: false, description:'true if layout is changed by the user')
         shown_as_product(required: false, description: 'item ids shown with product link')
+        has_logos(required: false, description: 'whether any of the items has a brand logo to show', PropertyType.Boolean)
+        promise_items(required: false, description: 'which of the result items are showing a delivery promise', PropertyType.ArrayList)
     }
 
     "/search"(platform: "/mobile") {
@@ -128,11 +132,15 @@ tracks {
         list_mode()
     }
 
+    "/search/official_stores_carousel"(platform: "/", isAbstract: true) {}
+
+    "/search/official_stores_carousel/click"(platform: "/", type: TrackType.Event) {
+        to_name(required: true, description: 'the name of the official store selected', PropertyType.String)
+        to_position(required: true, description: 'the position of the official store in the carousel', PropertyType.Numeric)
+    }
+
     "/search/input"(platform: "/mobile", parentPropertiesInherited: false) {
-        //TODO. remove this when inhereted from / is solved
-        mode(required: false)
-        sent_again(required: false)
-        from_background(required: false)
+
     }
 
     "/search/input/back"(platform: "/mobile") {}

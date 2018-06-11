@@ -10,8 +10,8 @@ tracks {
     // General Path
     "/prepaid"(platform: "/", isAbstract: true) {
         user_profile(
-            required: false, 
-            type: PropertyType.String, 
+            required: false,
+            type: PropertyType.String,
             values: ["buyers", "sellers"],
             description: "User profiles."
         )
@@ -19,8 +19,8 @@ tracks {
 
     "/prepaid/hotjar"(platform: "/", type: TrackType.Event) {
         hotjar_user_id(
-            required: true, 
-            type: PropertyType.Numeric, 
+            required: true,
+            type: PropertyType.String, 
             description: "Recording id of hotjar."
         )
     }
@@ -30,8 +30,8 @@ tracks {
     "/prepaid/acquisition/registration"(platform: "/", isAbstract: true){}
     "/prepaid/acquisition"(platform: "/", type: TrackType.View) {
         is_point(
-            required: false, 
-            type: PropertyType.Boolean, 
+            required: false,
+            type: PropertyType.Boolean,
             description: "Flag to indicate if is a user of Point."
         )
     }
@@ -98,14 +98,20 @@ tracks {
     // MLA => https://www.mercadopago.com.ar/prepaid/tracking
     "/prepaid/tracking"(platform: "/", type: TrackType.View) {
         status(
-            required: true, 
-            type: PropertyType.String, 
+            required: true,
+            type: PropertyType.String,
             values: ["on_track", "delayed", "to_collect", "not_delivered"],
             description: "Shipment tracking status."
         )
     }
-    
+
     // Inactivate, To Block card
     // MLA => https://www.mercadopago.com.ar/prepaid/block/congrats
     "/prepaid/block" (platform: "/", type: TrackType.View) {}
+
+    // Cobranded
+    "/cobranded" (isAbstract: true, platform: "/web") {}
+    "/cobranded/acquisition" (isAbstract: true) {}
+    "/cobranded/acquisition/landing" () {}
+
 }

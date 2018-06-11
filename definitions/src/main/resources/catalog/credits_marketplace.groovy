@@ -20,6 +20,20 @@ tracks {
     "/credits/consumer/enrollment"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/enrollment/educational"(platform: "/", type: TrackType.View) {}
 
+    //Public Landing consumer
+    "/credits/consumer/public_landing"(platform: "/", type: TrackType.View) {
+        user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
+    }
+    "/credits/consumer/public_landing/click_hero"(platform: "/", type: TrackType.Event) {
+        user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
+    }
+    "/credits/consumer/public_landing/click_activation"(platform: "/", type: TrackType.Event) {
+        user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
+    }
+    "/credits/consumer/public_landing/click_help"(platform: "/", type: TrackType.Event) {
+        user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
+    }
+
     //SMS validation
     "/credits/consumer/enrollment/sms_validation"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/enrollment/sms_validation/cancel"(platform: "/", type: TrackType.Event) {}

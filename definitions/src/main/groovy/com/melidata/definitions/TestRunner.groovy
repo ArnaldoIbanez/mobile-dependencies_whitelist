@@ -14,6 +14,8 @@ class TestRunner {
         def runOk = true
         out.beforeRun(catalog, tests)
         tests?.each { singleTest ->
+            println( "Running test: ${singleTest.name}")
+
             if(singleTest.assertValid(catalog)) {
                 out.success(singleTest)
             } else {
@@ -38,11 +40,15 @@ class TestRunner {
             def testsScript = new ArrayList<Script>()
             pathTests.each { testsScript.add(getScriptFromFile(it)) }
 
+            println("Building catalog....")
             def catalog = runScript(catalogScript)
+            println("Ready")
+
             def tests = new ArrayList<TestDsl>()
             testsScript.each { tests.addAll(runScript(it)) }
 
             return TestRunner.run(catalog, tests, out)
+
         }
         catch (FileNotFoundException x){
             throw x
