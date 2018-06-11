@@ -164,10 +164,11 @@ tracks {
     "/checkout_off/v1/login/discount"(platform: "/", type: TrackType.View){}
 
     // One-tap-pay view. We suggested the best payment_method and payment_type.
+    // The fields are required = false, because this view are using in legacy cho-web (not required) and cho-mobile.
     "/checkout_off/v1/express"(platform: "/", type: TrackType.View) {
-        payment_method(required: true, description:"Payment method ID")
-        payment_type(required: true, description:"Payment type ID")
-        purchase_amount(required: true, type: PropertyType.Numeric, description:"Payment amount")
+        payment_method(required: false, description:"Payment method ID")
+        payment_type(required: false, description:"Payment type ID")
+        purchase_amount(required: false, type: PropertyType.Numeric, description:"Payment amount")
         card_id(required: false, description:"User card ID")
         installments(required: false, type: PropertyType.Numeric, description:"Number of installments")
     }
