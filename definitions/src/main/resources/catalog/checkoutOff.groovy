@@ -153,8 +153,8 @@ tracks {
 
     // The user expand summary view or any expandible view.
     "/checkout_off/v1/open_summary_detail"(platform: "/", type: TrackType.Event){
-        installments(required: false, description:"Number of installments")
-        has_discount(required: true, description:"User has applied discount?")
+        installments(required: false, type: PropertyType.Numeric, description:"Number of installments")
+        has_discount(required: true, type: PropertyType.Boolean, description:"User has applied discount?")
     }
 
     "/checkout_off/v1/login"(platform: "/", type: TrackType.View){}
@@ -167,9 +167,9 @@ tracks {
     "/checkout_off/v1/express"(platform: "/", type: TrackType.View) {
         payment_method(required: true, description:"Payment method ID")
         payment_type(required: true, description:"Payment type ID")
-        purchase_amount(required: true, description:"Payment amount")
+        purchase_amount(required: true, type: PropertyType.Numeric, description:"Payment amount")
         card_id(required: false, description:"User card ID")
-        installments(required: false, description:"Number of installments")
+        installments(required: false, type: PropertyType.Numeric, description:"Number of installments")
     }
 
     "/checkout_off/v1/discount_terms_conditions"(platform: "/", type: TrackType.View) {}

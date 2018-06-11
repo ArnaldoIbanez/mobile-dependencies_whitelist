@@ -2610,7 +2610,7 @@ trackTests {
             environment = "production"
             payment_method = "visa"
             payment_type = "credit_card"
-            purchase_amount = "500"
+            purchase_amount = 500
             card_id = "1234"
             installments = 3
         }
