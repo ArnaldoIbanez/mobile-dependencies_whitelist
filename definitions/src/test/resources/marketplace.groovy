@@ -292,7 +292,6 @@ trackTests {
     test("Checkout Basic Flow test. Legacy test for previous mobile versions") {
 
         def defaultCheckoutInformation = {
-            item_id = "MCO412584037"
             checkout_version = "V2"
         }
 
