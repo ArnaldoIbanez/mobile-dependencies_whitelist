@@ -1015,7 +1015,6 @@ trackTests {
     test("checkout congrats"){
 
         "/checkout/congrats"(platform:"/mobile", type:TrackType.View) {
-            item_id="MLA538444567"
             payments = [
                     [
                             payment_method:"amex",
