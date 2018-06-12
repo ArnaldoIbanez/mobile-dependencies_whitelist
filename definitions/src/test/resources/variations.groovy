@@ -6,7 +6,7 @@ trackTests {
 	test("Track variations edit") {
 
         def model1 = {
-            context = "test-context"
+            context = "cart"
             items = [
                         [
                             label : "talle",
@@ -17,8 +17,19 @@ trackTests {
         }
 
         def model2 = {
-            context = "test-context2"
+            context = "vip_combo"
             close_index = 1
+            items = [
+                        [
+                            label : "talle",
+                            quantity_options  : 5,
+                            custom : true,
+                         ]
+            ]
+        }
+
+        def model3 = {
+            context = "cart_saved_for_later"
             items = [
                         [
                             label : "talle",
@@ -41,7 +52,7 @@ trackTests {
         })
 
         "/variations/select"(platform:"/", {
-            model1()
+            model3()
         })    
     }
 }

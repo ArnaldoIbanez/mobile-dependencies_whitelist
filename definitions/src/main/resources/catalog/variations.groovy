@@ -20,7 +20,7 @@ tracks {
 
     "/variations"(platform: "/", isAbstract: true) {
         items(required: true, type: PropertyType.ArrayList, description: "id; attributes_variations:")
-        context(required: true, type: PropertyType.String, description: "Client Info")
+        context(required: true, type: PropertyType.String, values: ["vip_combo", "cart", "cart_saved_for_later"], description: "Client Info")
     }
 
     "/variations/edit"(platform: "/", type: TrackType.View) {
