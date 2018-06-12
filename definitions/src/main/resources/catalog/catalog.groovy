@@ -82,6 +82,7 @@ catalog {
         include business, "sell.groovy"
         include business, "structuredData.groovy"
         include business, "subscriptions.groovy"
+        include business, "variations.groovy"
         include business, "vip.groovy"
         include business, "advertising.groovy"
     }
