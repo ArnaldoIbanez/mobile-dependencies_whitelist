@@ -292,7 +292,6 @@ trackTests {
     test("Checkout Basic Flow test. Legacy test for previous mobile versions") {
 
         def defaultCheckoutInformation = {
-            item_id = "MCO412584037"
             checkout_version = "V2"
         }
 
@@ -994,7 +993,6 @@ trackTests {
         }
         "/checkout/show_ticket"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
-            payment_method = "oxxo"
         }
         "/checkout/show_ticket#save"(platform:"/mobile", type:TrackType.Event) {}
         "/checkout/show_geolocation_map"(platform:"/mobile", type:TrackType.View) {
@@ -1017,7 +1015,6 @@ trackTests {
     test("checkout congrats"){
 
         "/checkout/congrats"(platform:"/mobile", type:TrackType.View) {
-            item_id="MLA538444567"
             payments = [
                     [
                             payment_method:"amex",
