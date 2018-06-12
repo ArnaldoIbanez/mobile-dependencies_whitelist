@@ -316,7 +316,7 @@ tracks {
 
     //:::: Create Invoice flow items
     "/myml/invoices/items"(platform: "/", isAbstract: true) {
-        error(required: false, type:  PropertyType.String, description: "Error message that pop to user after request")
+        error(required: false, description: "Error message that pop to user after request")
         errorValidation(required: false, type:  PropertyType.String, description: "Error message when value is invalid")
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
     }
