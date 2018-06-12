@@ -434,6 +434,7 @@ tracks {
     "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
         error(required: true, description: "Error type when user uploads an A1 digital certificate")
         message(required: true, description: "Description of error when user uploads an A1 digital certificate")
+        url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
     }
     
 
