@@ -4,7 +4,7 @@
     "facundo.allemand@mercadolibre.com"
   ],
   "process_name": "returns-drop-out",
-  "cron": "00 11 * * *",
+  "cron": "",
   "extract": {
     "operation": "append",
     "columns": [
@@ -128,12 +128,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2018-06-07 00",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "2018-06-11 00",
           "format": "yyyy-MM-dd"
         }
       ]
