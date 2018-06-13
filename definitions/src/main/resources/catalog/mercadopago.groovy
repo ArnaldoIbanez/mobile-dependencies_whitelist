@@ -89,15 +89,16 @@ tracks {
     "/merchant_acquisition/qr/qr-code/help"(platform:"/", type: TrackType.Event) {}
 
     // Merchant Acquisition Point Landings
-    "/point/home"(platform: "/") {
+    "/point/landings"(platform: "/") {
         product (type: PropertyType.String, description: "Name of device, example: 'point-h'")
         currency (type: PropertyType.String, required: false, description: "Currency")
         price (type: PropertyType.Numeric, required: false, description: "Price of device")
-        in_installments (type: PropertyType.Boolean, required: false, description: "If product is selling in installments")
+        has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
+        coupon_code (type: PropertyType.String, required: false, description: "CuponCode")
         discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
     }
-    "/point/home/buy"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/buy"(platform:"/", type: TrackType.Event) {}
 
     // Point Flows
     "/point/flows"(platform: "/", isAbstract: true) {}

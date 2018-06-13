@@ -437,16 +437,17 @@ trackTests {
     }
 
     test("Landing mercadopago point") {
-        "/point/home" (platform: "/") {
+        "/point/landings" (platform: "/") {
             product = "point-h"
             currency = "R\$"
             price = 401
-            in_installments = true
             discount = 0.16
             price_with_discount = 334.8
+            has_coupon = true
+            coupon_code = "Y96XA"
         }
-        "/point/home/buy"(platform:"/", type: TrackType.Event) {
-          product = "point"
+        "/point/landings/buy"(platform:"/", type: TrackType.Event) {
+          product = "bbpos"
         }
     }
 
