@@ -1,0 +1,36 @@
+{
+	"users": [
+		"wesley.nascimento@mercadolivre.com"
+	],
+	"process_name": "openplatform-requests-api-daily",
+	"cron": "00 05 * * *",
+	"extract": {
+		"operation": "overwrite",
+		"columns": [
+			{
+				"name": "data",
+				"type": "DATE",
+				"format": "yyyy-MM-dd"
+			},
+			{
+				"name": "total",
+				"type": "INTEGER"
+			}
+		],
+		"sql": {
+			"script": "openplatform/requests_api_daily.sql",
+			"parameters": [
+				{
+					"name": "param01",
+					"value": "DAY-7",
+					"format": "yyyy-MM-dd"
+				},
+				{
+					"name": "param02",
+					"value": "DAY-0",
+					"format": "yyyy-MM-dd"
+				}
+			]
+		}
+	}
+}
