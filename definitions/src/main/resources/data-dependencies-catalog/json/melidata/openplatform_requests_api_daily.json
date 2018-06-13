@@ -2,7 +2,7 @@
 	"users": [
 		"wesley.nascimento@mercadolivre.com"
 	],
-	"process_name": "openplatform_count_requests_api_daily",
+	"process_name": "openplatform_request_api_daily",
 	"cron": "00 05 * * *",
 	"extract": {
 		"operation": "overwrite",
