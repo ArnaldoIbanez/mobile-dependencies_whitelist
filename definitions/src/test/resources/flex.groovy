@@ -1,0 +1,20 @@
+import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
+import com.ml.melidata.TrackType
+
+trackTests {
+
+    defaultBusiness = "mercadoenvios"
+
+    test("flex optin track returned success view"){
+
+        def defaultTrackInformation = {
+            view = "success_flex"
+        }
+
+        "/flex/optin"(platform:"/", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+
+    }
+
+}
