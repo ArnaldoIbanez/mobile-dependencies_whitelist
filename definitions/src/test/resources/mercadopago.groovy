@@ -2560,6 +2560,24 @@ trackTests {
             payment_status_detail = "accredited"
         }
 
+        "/checkout_off/v1/back_action"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+        }
+
+        "/checkout_off/v1/open_summary_detail"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+            installments = 3
+            has_discount = false
+        }
+
         //Views
         "/checkout_off/v1/login"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
@@ -2586,6 +2604,19 @@ trackTests {
         }
 
         "/checkout_off/v1/express"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+            payment_method = "visa"
+            payment_type = "credit_card"
+            purchase_amount = 500
+            card_id = "1234"
+            installments = 3
+        }
+
+        "/checkout_off/v1/discount_terms_conditions"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
             collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
             collector_nickname = "collector nickname test"
