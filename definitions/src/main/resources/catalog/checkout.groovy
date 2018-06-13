@@ -523,7 +523,7 @@ tracks {
     //"/checkout/review" //shared between web and app, already defined in web section.
     "/checkout/review#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         status(required: true, type: PropertyType.String)
-        credit_card_id(required: false, type: PropertyType.String)
+        checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
     }
     "/checkout/review/quantity#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         old_quantity(required: true, type: PropertyType.Numeric)
