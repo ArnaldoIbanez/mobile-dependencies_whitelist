@@ -123,10 +123,6 @@ tracks {
 
     "/vip/color_and_size"(platform: "/mobile") {}
 
-    "/vip/description"(platform: "/mobile") {
-        empty_description(type: PropertyType.Boolean, required: false, inheritable: false)
-    }
-
     "/vip/description/failure"(platform: "/mobile") {}
 
     "/vip/description/abort"(platform: "/mobile") {}
@@ -158,6 +154,12 @@ tracks {
 
 
     "/vip/call_seller"(platform: "/", type: TrackType.Event) {
+        category_id(required: false, type: PropertyType.String,
+                description: "Item's category ID"
+        )
+        item_id(required: true, type: PropertyType.String,
+                description: "Item ID"
+        )
         vertical(required: false, description: "Vertical name over show phone event is displayed")
         listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
@@ -165,6 +167,12 @@ tracks {
     }
 
     "/vip/show_phone"(platform: "/", type: TrackType.Event) {
+        category_id(required: false, type: PropertyType.String,
+                description: "Item's category ID"
+        )
+        item_id(required: true, type: PropertyType.String,
+                description: "Item ID"
+        )
         vertical(required: false, description: "Vertical name over show phone event is displayed")
         listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
@@ -237,20 +245,6 @@ tracks {
         source(required: false, type: PropertyType.String,
                 values: ["htmlView"],
                 description: "Source of the refered"
-        )
-    }
-
-    // ADD TO CART
-
-    "/vip/add_to_cart"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false){
-        item_id(required: true, type: PropertyType.String,
-                description:"Item ID"
-        )
-        cart_content(required: false, type: PropertyType.Boolean,
-                description: "Indicates if the VIP has cart features (only for core items)"
-        )
-        free_shipping_benefit(required: false, type: PropertyType.Boolean,
-                description: "Indicates if the user has free shipping for loyalty benefit"
         )
     }
 
