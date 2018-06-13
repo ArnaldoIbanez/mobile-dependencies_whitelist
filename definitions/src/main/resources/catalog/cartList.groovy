@@ -44,11 +44,6 @@ tracks {
     //quantity
     //unit_price
 
-    seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data")
-    //id
-    //nickname
-    //mercado_lider
-    //reputation_level
 
 	free_shipping_benefit(required:false, type: PropertyType.Boolean)
     loyalty_level(required:false, type: PropertyType.Numeric)
@@ -91,6 +86,12 @@ tracks {
 
 "/cart/change_address"(platform: "/") {}
 
-"/cart/add_cp"(platform: "/") {}
+"/cart/add_cp"(platform: "/", isAbstract: true, parentPropertiesInherited: true) {}
+
+"/cart/add_cp/confirm_cp"(platform: "/", type: TrackType.Event){}
+
+"/cart/add_cp/dont_know_cp"(platform: "/", type: TrackType.Event){}
+
+
 
 }
