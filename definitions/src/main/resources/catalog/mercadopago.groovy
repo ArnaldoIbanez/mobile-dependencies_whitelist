@@ -59,6 +59,11 @@ tracks {
 
     "/listing/gateway"(platform: "/web"){}
 
+    // MP details
+    "/activity"(platform: "/web", isAbstract: true){}
+    "/activity/detail"(platform: "/web"){}
+    "/activity/detail/shipping"(platform: "/web"){}
+
     "/point"(platform: "/", isAbstract: true) {}
 
     // Merchant Acquisition
