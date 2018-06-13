@@ -226,7 +226,7 @@ tracks {
     //TODO chequear con mobile estos tracks
     //  DESCRIPTION
 
-    "/vip/description"(platform: "/web", type: TrackType.View){
+    "/vip/description"(platform: "/", type: TrackType.View){
 
         //  DESCRIPTION/ATTRIBUTES
         item_id(required: true, type: PropertyType.String, description: "Item ID")
