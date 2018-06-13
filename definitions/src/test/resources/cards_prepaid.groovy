@@ -39,11 +39,13 @@ trackTests {
         "/prepaid/acquisition/review"(platform: "/web/desktop") {}
         "/prepaid/acquisition/review/welcome"(platform: "/web/mobile") {}
         "/prepaid/acquisition/need_fund"(platform: "/web/desktop") {}
+        "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) { }
         "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) { congrats_type = "bapropagos" }
         "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) { congrats_type = "redlink" }
         "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) { congrats_type = "maestro" }
         "/prepaid/acquisition/congrats"(platform: "/web/mobile", type: TrackType.View) { congrats_type = "bolbradesco" }
         "/prepaid/acquisition/congrats"(platform: "/web/mobile", type: TrackType.View) { congrats_type = "rapipago" }
+        "/prepaid/acquisition/error"(platform: "/web/desktop", type: TrackType.View) { }
         "/prepaid/acquisition/error"(platform: "/web/desktop", type: TrackType.View) { error_type = "main_error" }
         "/prepaid/acquisition/error"(platform: "/web/desktop", type: TrackType.View) { error_type = "have_a_card" }
         "/prepaid/acquisition/error"(platform: "/web/mobile", type: TrackType.View) { error_type = "juridical_error" }
@@ -58,6 +60,7 @@ trackTests {
         "/prepaid/activation/last_digits"(platform: "/web/desktop") {}
         "/prepaid/activation/marital_status"(platform: "/web/desktop") {}
         "/prepaid/activation/congrats"(platform: "/web/desktop") {}
+        "/prepaid/activation/error"(platform: "/", type: TrackType.View) { }
         "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "main_error" }
         "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "not_found" }
     }
