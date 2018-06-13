@@ -2,18 +2,18 @@
 	"users": [
 		"wesley.nascimento@mercadolivre.com"
 	],
-	"process_name": "openplatform-requests-api-daily",
+	"process_name": "openplatform_count_requests_api_daily",
 	"cron": "00 05 * * *",
 	"extract": {
 		"operation": "overwrite",
 		"columns": [
 			{
-				"name": "data",
+				"name": "request_date",
 				"type": "DATE",
 				"format": "yyyy-MM-dd"
 			},
 			{
-				"name": "total",
+				"name": "total_requests",
 				"type": "INTEGER"
 			}
 		],
