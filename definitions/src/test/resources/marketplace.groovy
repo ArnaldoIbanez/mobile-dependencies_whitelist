@@ -907,6 +907,7 @@ trackTests {
 
         "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
             status = "success"
+            checkout_flow = "direct"
         }
         "/checkout/review/quantity#submit"(platform:"/mobile", type: TrackType.Event) {
             old_quantity = 4
