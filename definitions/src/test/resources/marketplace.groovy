@@ -4245,11 +4245,6 @@ trackTests {
 
         def dataSet = {
 
-            seller = [
-                    [id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
-                    [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]
-            ]
-
             items = [
                     [
                             currency_id: "ARS",
@@ -4295,9 +4290,6 @@ trackTests {
                     listing_type: "gold_special",
                     international_delivery_mode: "none",
             ]
-            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
-                      [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
-
 
             loyalty_level = 2
             currency_id = "MXN"
@@ -4312,8 +4304,6 @@ trackTests {
                     listing_type: "gold_special",
                     international_delivery_mode: "none",
             ]
-            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
-                      [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
 
 
             loyalty_level = 2
@@ -4329,8 +4319,6 @@ trackTests {
                     listing_type: "gold_special",
                     international_delivery_mode: "none",
             ]
-            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
-                      [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
 
 
             loyalty_level = 2
@@ -4359,8 +4347,6 @@ trackTests {
                     listing_type: "gold_special",
                     international_delivery_mode: "none",
             ]
-            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
-                      [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
 
 
             loyalty_level = 2
@@ -4376,8 +4362,6 @@ trackTests {
                     listing_type: "gold_special",
                     international_delivery_mode: "none",
             ]
-            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
-                      [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
 
 
             loyalty_level = 2
