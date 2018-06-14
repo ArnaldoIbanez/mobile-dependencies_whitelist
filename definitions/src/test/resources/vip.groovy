@@ -68,18 +68,6 @@ trackTests {
 
         "/vip/color_and_size"(platform:"/mobile", mandatory)
 
-        "/vip/description"(platform:"/mobile", {
-            mandatory()
-            empty_description = false
-            context="/vip"
-        })
-
-        "/vip/description"(platform:"/mobile", {
-            mandatory()
-            empty_description = false
-        })
-
-
         "/vip/description/abort"(platform:"/mobile", mandatory)
 
         "/vip/description/back"(platform:"/mobile", mandatory)
@@ -346,12 +334,6 @@ trackTests {
 
         "/vip/question"(platform: "/", type: TrackType.View){
             defaultTrackInformation()
-        }
-
-        "/vip/add_to_cart"(platform: "/web", type: TrackType.Event){
-            item_id = "MLA213512313"
-            cart_content = true
-            free_shipping_benefit = true
         }
     }
 
