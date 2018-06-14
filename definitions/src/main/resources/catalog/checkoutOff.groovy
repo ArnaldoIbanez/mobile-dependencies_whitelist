@@ -110,7 +110,7 @@ tracks {
         environment(required: true, description: "Production or staging tracks")
         screen_name(required: false, description: "A describing name of the screen viewed or where an event occurred")
         mode(required: false, description: "Checkout open mode can be modal, iframe or null")
-        user_id(required: false, description: "Payer id")
+        user_id(required: false, description: "Guest or logged payer id, can be null if there is not email is this step")
     }
 
     // A new checkout flow has been started
