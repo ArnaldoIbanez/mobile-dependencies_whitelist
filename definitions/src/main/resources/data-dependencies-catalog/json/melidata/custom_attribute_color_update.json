@@ -3,7 +3,7 @@
     "nicolas.vespoli@mercadolibre.com",
   ],
   "process_name": "custom_attribute_color_update",
-  "cron": "00 07 * * *",
+  "cron": "",
   "extract": {
     "operation": "overwrite",
     "columns": [
