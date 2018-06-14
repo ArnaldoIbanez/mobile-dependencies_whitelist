@@ -11,6 +11,8 @@ tracks {
         collector_nickname(required: true)
         preference_id(required: false)
         scope(required: false, description: "pool that generates the tracks: mla, mlb, mlm, rola, revamp")
+        mode(required: false, description: "open mode")
+        user_id(required: false, description: "payer id")
     }
 
     "/checkout_off/init"(platform: "/", type: TrackType.View) {}
