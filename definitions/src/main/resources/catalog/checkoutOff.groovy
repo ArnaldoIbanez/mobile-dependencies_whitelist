@@ -11,8 +11,6 @@ tracks {
         collector_nickname(required: true)
         preference_id(required: false)
         scope(required: false, description: "pool that generates the tracks: mla, mlb, mlm, rola, revamp")
-        mode(required: false, description: "open mode")
-        user_id(required: false, description: "payer id")
     }
 
     "/checkout_off/init"(platform: "/", type: TrackType.View) {}
@@ -111,6 +109,8 @@ tracks {
         client_id(required: true, description: "Application's client_id")
         environment(required: true, description: "Production or staging tracks")
         screen_name(required: false, description: "A describing name of the screen viewed or where an event occurred")
+        mode(required: false, description: "Open mode")
+        user_id(required: false, description: "Payer id")
     }
 
     // A new checkout flow has been started
