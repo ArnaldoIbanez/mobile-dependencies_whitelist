@@ -69,7 +69,6 @@ tracks {
     // Merchant Acquisition
     "/merchant_acquisition"(platform: "/", isAbstract: true) {}
     "/merchant_acquisition/qr"(platform: "/", isAbstract: true) {}
-    "/merchant_acquisition/qr/onboarding"(platform: "/", isAbstract: true) {}
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
@@ -92,6 +91,7 @@ tracks {
     "/merchant_acquisition/qr/qr-code/print"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/qr/qr-code/faqs"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/qr/qr-code/help"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/qr/qr-code/rates"(platform:"/", type: TrackType.Event) {}
 
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
