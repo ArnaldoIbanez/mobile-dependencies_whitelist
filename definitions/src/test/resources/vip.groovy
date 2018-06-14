@@ -340,6 +340,10 @@ trackTests {
         "/vip/contract_intention"(platform: "/mobile", type: TrackType.Event) {
             defaultTrackInformation()
         }
+
+        "/vip/freeShippingCartAvailable"(platform: "/web", type:TrackType.Event){
+            defaultTrackInformation()
+        }
     }
 
     test("New Shipping calculator"){
