@@ -270,4 +270,6 @@ tracks {
         shipping_selected(required: true)
         shipping_available_opcion(required: true, type:PropertyType.ArrayList)
     }
+
+    "/vip/freeShippingCartAvailable"(platform: "/web", type: TrackType.Event){}
 }
