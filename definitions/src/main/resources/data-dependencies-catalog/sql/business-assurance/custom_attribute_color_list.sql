@@ -6,7 +6,7 @@ GET_JSON_OBJECT(event_data, '$.session_id') as session_id,
 GET_JSON_OBJECT(event_data, '$.is_custom_name') as is_custom_name
 FROM tracks
 WHERE path = '/sell/list/color_selection/custom_color'
-AND ds >= '@param01' AND ds < '@param02'
+AND ds >= '2018-05-31' AND ds < '2018-06-14'
 AND application.business='mercadolibre'
 AND type='event'
 GROUP BY GET_JSON_OBJECT(event_data, '$.session_id'),GET_JSON_OBJECT(event_data, '$.is_custom_name'),
