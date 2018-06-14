@@ -438,6 +438,7 @@ trackTests {
         "/merchant_acquisition/qr/qr-code/print"(platform:"/", type: TrackType.Event) {}
         "/merchant_acquisition/qr/qr-code/faqs"(platform:"/", type: TrackType.Event) {}
         "/merchant_acquisition/qr/qr-code/help"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/qr/qr-code/rates"(platform:"/", type: TrackType.Event) {}
     }
 
     test("Point Flow Congrats") {
@@ -455,7 +456,14 @@ trackTests {
             coupon_code = "Y96XA"
         }
         "/point/landings/buy"(platform:"/", type: TrackType.Event) {
-          product = "bbpos"
+            product = "bbpos"
+        }
+        // Landing MGM
+        "/point/landings" (platform: "/") {
+            product = "mgm"
+        }
+        "/point/landings/mgm"(platform:"/", type: TrackType.Event) {
+            type = "share"
         }
     }
 

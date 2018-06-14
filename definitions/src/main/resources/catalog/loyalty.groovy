@@ -23,10 +23,7 @@ tracks {
         benefit(required: true, description: "Indicates which benefit was viewed")
     }
 
-    "/loyalty/notification"(type: TrackType.Event) {
-        event_type(required: true,
-                values: ["received", "dismiss", "open", "shown", "delayed"],
-                description: "Type of loyalty notification event")
+    "/loyalty/score/back"(platform: "/mobile", type: TrackType.Event) {
     }
 
     //Loyalty Program User Tracking
@@ -65,6 +62,19 @@ tracks {
 
     "/loyalty/landing"(platform: "/", type: TrackType.Event) {
         landing_id(required: true, description: "id of landing") 
+    }
+
+    "/loyalty/modal"(platform: "/mobile", type: TrackType.View) {
+        event_type(required: true, values: ["SHOW", "delawed", "shown", "close", "dismiss", "received", "open"])
+    }
+
+    "/loyalty/discounts"(platform: "/", type: TrackType.View) {
+    }
+
+    "/loyalty/notification"(type: TrackType.Event) {
+        event_type(required: true,
+                values: ["received", "dismiss", "open", "shown", "delayed"],
+                description: "Type of loyalty notification event")
     }
 
 }

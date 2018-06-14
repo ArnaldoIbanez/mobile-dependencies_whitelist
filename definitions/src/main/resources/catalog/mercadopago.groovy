@@ -69,7 +69,6 @@ tracks {
     // Merchant Acquisition
     "/merchant_acquisition"(platform: "/", isAbstract: true) {}
     "/merchant_acquisition/qr"(platform: "/", isAbstract: true) {}
-    "/merchant_acquisition/qr/onboarding"(platform: "/", isAbstract: true) {}
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
@@ -92,10 +91,11 @@ tracks {
     "/merchant_acquisition/qr/qr-code/print"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/qr/qr-code/faqs"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/qr/qr-code/help"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/qr/qr-code/rates"(platform:"/", type: TrackType.Event) {}
 
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
-        product (type: PropertyType.String, description: "Name of device, example: 'point-h'")
+        product (type: PropertyType.String, required: false, description: "Name of device, example: 'point-h'")
         currency (type: PropertyType.String, required: false, description: "Currency")
         price (type: PropertyType.Numeric, required: false, description: "Price of device")
         has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
@@ -104,6 +104,11 @@ tracks {
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
     }
     "/point/landings/buy"(platform:"/", type: TrackType.Event) {}
+
+    // Merchant Acquisition Point Landings: MGM
+    "/point/landings/mgm"(platform:"/", type: TrackType.Event) {
+      type (type: PropertyType.String, description: "Click event type, possible values: share || ios || android")
+    }
 
     // Point Flows
     "/point/flows"(platform: "/", isAbstract: true) {}

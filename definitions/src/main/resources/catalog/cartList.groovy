@@ -43,12 +43,7 @@ tracks {
         //variation_id
     //quantity
     //unit_price
-
-    seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data")
-    //id
-    //nickname
-    //mercado_lider
-    //reputation_level
+    
 
 	free_shipping_benefit(required:false, type: PropertyType.Boolean)
     loyalty_level(required:false, type: PropertyType.Numeric)
