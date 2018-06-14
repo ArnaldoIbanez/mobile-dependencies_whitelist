@@ -107,7 +107,7 @@ tracks {
 
     // Merchant Acquisition Point Landings: MGM
     "/point/landings/mgm"(platform:"/", type: TrackType.Event) {
-      type (type: PropertyType.String, description: "share || ios || android")
+      type (type: PropertyType.String, description: "Click event type, possible values: share || ios || android")
     }
 
     // Point Flows
