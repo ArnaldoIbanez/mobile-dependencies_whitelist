@@ -30,6 +30,6 @@ trackTests {
     }
 
     test("flex landing view"){
-        "/flex/landing"(platform:"/", type: TrackType.Event) {}
+        "/flex/landing"(platform:"/", type: TrackType.View) {}
     }
 }
