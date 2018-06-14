@@ -17,4 +17,19 @@ trackTests {
 
     }
 
+    test("flex optout track returned form view"){
+
+        def defaultTrackInformation = {
+            view = "form"
+        }
+
+        "/flex/optout"(platform:"/", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+
+    }
+
+    test("flex landing view"){
+        "/flex/landing"(platform:"/", type: TrackType.View) {}
+    }
 }
