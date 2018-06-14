@@ -455,7 +455,14 @@ trackTests {
             coupon_code = "Y96XA"
         }
         "/point/landings/buy"(platform:"/", type: TrackType.Event) {
-          product = "bbpos"
+            product = "bbpos"
+        }
+        // Landing MGM
+        "/point/landings" (platform: "/") {
+            product = "mgm"
+        }
+        "/point/landings/mgm"(platform:"/", type: TrackType.Event) {
+            type = "share"
         }
     }
 

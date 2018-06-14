@@ -95,7 +95,7 @@ tracks {
 
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
-        product (type: PropertyType.String, description: "Name of device, example: 'point-h'")
+        product (type: PropertyType.String, required: false, description: "Name of device, example: 'point-h'")
         currency (type: PropertyType.String, required: false, description: "Currency")
         price (type: PropertyType.Numeric, required: false, description: "Price of device")
         has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
@@ -104,6 +104,11 @@ tracks {
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
     }
     "/point/landings/buy"(platform:"/", type: TrackType.Event) {}
+
+    // Merchant Acquisition Point Landings: MGM
+    "/point/landings/mgm"(platform:"/", type: TrackType.Event) {
+      type (type: PropertyType.String, description: "share || ios || android")
+    }
 
     // Point Flows
     "/point/flows"(platform: "/", isAbstract: true) {}
