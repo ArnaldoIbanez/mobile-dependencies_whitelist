@@ -271,5 +271,5 @@ tracks {
         shipping_available_opcion(required: true, type:PropertyType.ArrayList)
     }
 
-    "/vip/freeShippingCartAvailable"(platform: "/web", type: TrackType.Event){}
+    "/vip/free_shipping_cart_available"(platform: "/web", type: TrackType.Event){}
 }
