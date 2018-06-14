@@ -109,7 +109,7 @@ tracks {
         client_id(required: true, description: "Application's client_id")
         environment(required: true, description: "Production or staging tracks")
         screen_name(required: false, description: "A describing name of the screen viewed or where an event occurred")
-        mode(required: false, description: "Open mode")
+        mode(required: false, description: "Checkout open mode can be modal, iframe or null")
         user_id(required: false, description: "Payer id")
     }
 
