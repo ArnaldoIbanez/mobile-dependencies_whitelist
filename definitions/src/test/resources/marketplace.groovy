@@ -271,14 +271,6 @@ trackTests {
         }
     }
 
-    test("Devices Notification Settings") {
-        "/devices_settings/notifications"(platform:"/mobile") {
-            enable = true
-            registration_id = "1234567890ASDVH7766527892"
-            device_id = "12345678"
-        }
-    }
-
     test("Shipping Mercadoenvios calculate cost") {
         "/shipping/mercadoenvios/shipping_cost"(platform: "/mobile") {
             item_id = "MLA12345"
@@ -400,9 +392,6 @@ trackTests {
         }
     }
 
-
-
-
     test("Mobile Landings") {
         "/landing/generic"(platform: "/mobile"){
             url = "https://www.mercadolibre.com"
@@ -459,40 +448,6 @@ trackTests {
             use_link=false
         }
     }
-
-
-    test("Permission location dialog") {
-        "/permissions/location"(platform: "/mobile") {
-            context="HOME"
-        }
-    }
-
-    test("Custom Permission location dialog accepted") {
-        "/permissions/location/custom/accept"(platform: "/mobile") {
-            context="HOME"
-        }
-    }
-
-    test("Custom Permission location dialog denied") {
-        "/permissions/location/custom/deny"(platform: "/mobile") {
-            context="HOME"
-        }
-    }
-
-    test("Native Permission location dialog accepted") {
-        "/permissions/location/native/accept"(platform: "/mobile") {
-            context="HOME"
-        }
-    }
-
-
-    test("Native Permission location dialog denied") {
-        "/permissions/location/native/deny"(platform: "/mobile") {
-            context="HOME"
-        }
-    }
-
-
 
     test("Item events"){
         def dataListItem = {
@@ -588,12 +543,6 @@ trackTests {
         }
     }
 
-    test("Account Recovery tracking event") {
-
-        "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
-            error_type = "connectionError/invalidOneTimePassword/operatorNotSupported"
-        }
-    }
 
     test("Recommendations tracking on checkout") {
 
@@ -788,33 +737,6 @@ trackTests {
         "/official_stores/search/back"(platform:"/mobile", type: TrackType.Event, officialStoreEvent)
     }
 
-    
-
-    test("Mobile Navigation Menu"){
-        "/navigation"(platform: "/mobile/android"){
-            origin = "/HOME"
-        }
-    }
-
-    test("Mobile Navigation Drawer"){
-        "/navigation/drawer"(platform: "/mobile/android", type: TrackType.Event) {
-            section = "my_account"
-        }
-    }
-
-    test("Mobile Navigation Tabs"){
-        "/navigation/tabs"(platform: "/mobile/ios", type: TrackType.Event) {
-            action = "TAB_SELECTED"
-            tab = "BOOKMARKS"
-        }
-    }
-
-    test("Mobile Navigation to Cart"){
-        "/navigation/cart"(platform: "/mobile/ios", type: TrackType.Event) {
-            action = "CART_SELECTED"
-            origin = "SEARCH"
-        }
-    }
 
     test("recommendations tracking in feedbacks congrats") {
         "/feedback/congrats"(platform: "/web") {
@@ -840,11 +762,6 @@ trackTests {
 
     }
 
-
-
-
-
-
     test("Recommendations") {
         "/recommendations" (platform:"/web/desktop", type: TrackType.View) {
             recommendations = {
@@ -864,29 +781,12 @@ trackTests {
         "/recommendations/print" {}
     }
 
-    test("Application-iOS"){
-        "/application/open" (platform:"/mobile/ios", type: TrackType.Event) {}
-    }
-
-    test("Application-Android"){
-        "/application/open" (platform:"/mobile/android", type: TrackType.Event) {}
-    }
-
-    test("Application-Android"){
-        "/application/workaround/nohistory" (platform:"/mobile/android", type: TrackType.Event) {}
-    }
-
     test("deals landings") {
         "/deals/landing" (platform:"/web/desktop", type: TrackType.View) {
             deal_id = "mla_1234"
         }
     }
 
-
-    test("install_event"){
-        "/application/install_event" (platform: "/mobile", type: TrackType.Event){
-        }
-    }
     test("sso"){
         "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
         "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}
@@ -904,60 +804,5 @@ trackTests {
         "/cx/contact_types/click_on_contact_form" (platform: "/mobile", type: TrackType.Event) {}
     }
 
-    test ("checkout Legacy"){
-        "/checkout/legacy/entry"(platform: "/mobile", type: TrackType.Event){
-            checkout_version = "V1"
-            order_payment_required = "false"
-            payment_pre_selected = "none"
-            shipping_pre_selected = "none"
-            quantity_pre_selected = "1"
-        }
-        "/checkout/legacy/exit"(platform: "/mobile", type: TrackType.Event){
-            checkout_version = "V1"
-            payment_method = "visa"
-            buy_equals_pay = "TRUE"
-            shipping_type = "mercadoenvios"
-        }
-
-    }
-
-    test("free data") {
-
-        "/free_navigation"(platform:"/mobile", type:TrackType.Event) {
-            status = "sponsored"
-        }
-
-        "/free_navigation/dialog"(platform:"/mobile", type:TrackType.View) {
-        }
-
-        "/free_navigation/snackbar"(platform:"/mobile", type:TrackType.View) {
-        }
-
-        "/free_navigation/dialog_dismissed"(platform:"/mobile", type:TrackType.Event) {
-            is_checkbox_checked = true
-        }
-
-        "/free_navigation/purchase"(platform:"/mobile", type:TrackType.Event) {
-            status = "sponsored"
-        }
-    }
-
-    test("Bugsnag tracks to use on Canejo ML") {
-        "/mobile/bugsnag"(platform:"/mobile/ios", type:TrackType.Event) {
-            error_type = "signal"
-            error_context = "withdraw"
-            error_severity = "error"
-            url_error = "<none>"
-            error_mach_exception_name = "<none>"
-            error_address = "4402117060"
-            error_message = ""
-            error_Id = "5aa6bcd0c098f300193384fb"
-            error_timestamp = "2018-04-18T14:18:09.301Z"
-            error_exception_class = "SIGTRAP"
-            release_stage = "production"
-            error_signal_name = "SIGTRAP"
-            error_nsexception = "<none>"
-        }
-    }
 
 }
