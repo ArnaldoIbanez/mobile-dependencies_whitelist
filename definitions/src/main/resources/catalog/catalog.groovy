@@ -45,11 +45,13 @@ catalog {
 
     all.each { business ->
         include business, "authentication.groovy"
+        include business, "bugsnag.groovy"
         include business, "identity_validation.groovy"
         include business, "melidata_sdk.groovy"
         include business, "registrations.groovy"
         include business, "fiscaldata.groovy"
         include business, "chargebacks.groovy"
+        include business, "freeData.groovy"
     }
 
     marketplace.each { business ->
@@ -61,6 +63,7 @@ catalog {
         include business, "cellphone_recharge.groovy"
         include business, "checkout.groovy"
         include business, "credits_marketplace.groovy"
+        include business, "cx.groovy"
         include business, "moderations.groovy"
         include business, "email.groovy"
         include business, "freeData.groovy"
@@ -71,6 +74,7 @@ catalog {
         include business, "marketplace.groovy"
         include business, "mediations.groovy"
         include business, "melidata_sdk.groovy"
+        include business, "mobile.groovy"
         include business, "myml.groovy"
         include business, "notifications.groovy"
         include business, "onboarding.groovy"
