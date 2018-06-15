@@ -237,6 +237,14 @@ tracks {
 
     "/checkout_off/v1/congrats/in_process"(platform: "/", type: TrackType.View) {}
 
+    "/checkout_off/v1/congrats/rejected/call_for_auth"(platform: "/", isAbstract: true) {}
+
+    "/checkout_off/v1/congrats/rejected/call_for_auth/how_to"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/congrats/rejected/call_for_auth/authorize_later"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/congrats/rejected/call_for_auth/security_code"(platform: "/", type: TrackType.View) {}
+
     "/checkout_off/v1/consumer_credit"(platform: "/", isAbstract: true){}
 
     "/checkout_off/v1/consumer_credit/installments"(platform: "/", type: TrackType.View) {}
