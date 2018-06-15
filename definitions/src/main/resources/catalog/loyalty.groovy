@@ -78,13 +78,13 @@ tracks {
     }
 
     "/loyalty/buylevel"(platform: "/",type: TrackType.View){
-
     }
+
     "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
         origin(required: true)
     }
 
-    "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
+    "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.Event){
         action(required: true, values: ["started","success","success_orange","error"], description: "'started' when the CHO starts, success/success_orange/error is when the CHO finish")
         origin(required: true, values: ["landing", "mail","vip"])
         item_id(required: false, description: "If flow starts from vip")
