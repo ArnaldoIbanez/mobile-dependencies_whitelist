@@ -119,7 +119,7 @@ trackTests {
     test("Loyalty Buy Level Payment"){
         "/loyalty/buylevel/payment"(platform: "/",type: TrackType.Event){
             payment_status= "approved"
-            payment_status_detal= "cc_approved_plugin_pm"
+            payment_status_detail= "cc_approved_plugin_pm"
         }
 
         "/loyalty/buylevel/payment"(platform: "/",type: TrackType.Event){
