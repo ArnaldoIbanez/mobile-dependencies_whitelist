@@ -229,6 +229,8 @@ tracks {
         status(required: false)
     }
 
+    "/checkout_off/v1/finish"(platform: "/", isAbstract: true) {}
+
     "/checkout_off/v1/finish/call_for_auth"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/v1/finish/call_for_auth/instructions"(platform: "/", type: TrackType.View) {}
