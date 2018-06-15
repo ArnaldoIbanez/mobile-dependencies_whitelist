@@ -68,17 +68,6 @@ trackTests {
 
         "/vip/color_and_size"(platform:"/mobile", mandatory)
 
-        "/vip/description"(platform:"/mobile", {
-            mandatory()
-            empty_description = false
-            context="/vip"
-        })
-
-        "/vip/description"(platform:"/mobile", {
-            mandatory()
-            empty_description = false
-        })
-
         "/vip/description/abort"(platform:"/mobile", mandatory)
 
         "/vip/description/back"(platform:"/mobile", mandatory)
@@ -340,12 +329,20 @@ trackTests {
         "/vip/contract_intention"(platform: "/mobile", type: TrackType.Event) {
             defaultTrackInformation()
         }
+
+        "/vip/description"(platform: "/web", type: TrackType.View){
+            defaultTrackInformation()
+        }
+
+        "/vip/question"(platform: "/", type: TrackType.View){
+            defaultTrackInformation()
+        }
     }
 
     test("New Shipping calculator"){
 
         "/vip/shipping/calculator/calculate"(platform: "/mobile/ios") {
-            cp_autocomplete = true
+            cp_autocomplete = "yes"
         }
 
         "/vip/shipping/calculator/i_dont_know_my_code"(platform: "/mobile/ios") {

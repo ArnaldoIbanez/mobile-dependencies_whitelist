@@ -59,12 +59,16 @@ tracks {
 
     "/listing/gateway"(platform: "/web"){}
 
+    // MP details
+    "/activity"(platform: "/web", isAbstract: true){}
+    "/activity/detail"(platform: "/web"){}
+    "/activity/detail/shipping"(platform: "/web"){}
+
     "/point"(platform: "/", isAbstract: true) {}
 
     // Merchant Acquisition
     "/merchant_acquisition"(platform: "/", isAbstract: true) {}
     "/merchant_acquisition/qr"(platform: "/", isAbstract: true) {}
-    "/merchant_acquisition/qr/onboarding"(platform: "/", isAbstract: true) {}
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
@@ -87,17 +91,24 @@ tracks {
     "/merchant_acquisition/qr/qr-code/print"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/qr/qr-code/faqs"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/qr/qr-code/help"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/qr/qr-code/rates"(platform:"/", type: TrackType.Event) {}
 
     // Merchant Acquisition Point Landings
-    "/point/home"(platform: "/") {
-        product (type: PropertyType.String, description: "Name of device, example: 'point-h'")
+    "/point/landings"(platform: "/") {
+        product (type: PropertyType.String, required: false, description: "Name of device, example: 'point-h'")
         currency (type: PropertyType.String, required: false, description: "Currency")
         price (type: PropertyType.Numeric, required: false, description: "Price of device")
-        in_installments (type: PropertyType.Boolean, required: false, description: "If product is selling in installments")
+        has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
+        coupon_code (type: PropertyType.String, required: false, description: "CuponCode")
         discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
     }
-    "/point/home/buy"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/buy"(platform:"/", type: TrackType.Event) {}
+
+    // Merchant Acquisition Point Landings: MGM
+    "/point/landings/mgm"(platform:"/", type: TrackType.Event) {
+      type (type: PropertyType.String, description: "Click event type, possible values: share || ios || android")
+    }
 
     // Point Flows
     "/point/flows"(platform: "/", isAbstract: true) {}

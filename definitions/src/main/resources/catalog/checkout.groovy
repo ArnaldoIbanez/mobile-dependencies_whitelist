@@ -23,7 +23,7 @@ tracks {
         //quantity
         //unit_price
         //currency_id
-        payment_method(deprecated: true, required: false)
+
         resolution(required: false)
         precharged_cards(required: false)
         geolocated(required: false)
@@ -79,10 +79,6 @@ tracks {
         recovery_flow(required: false, description: "Is recovery CHO flow")
         register_int(required: false, description: "Integrated registration")
         platform(required: false)
-
-        item_id(deprecated: true, required: false)
-        quantity(deprecated: true, required: false)
-
         available_actions(required: false, type: PropertyType.ArrayList, description: "Action presented on the screen, for ex: call_seller, email_seller, etc.")
 
         //Legacy App Congrats Tracks
@@ -527,7 +523,7 @@ tracks {
     //"/checkout/review" //shared between web and app, already defined in web section.
     "/checkout/review#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         status(required: true, type: PropertyType.String)
-        credit_card_id(required: false, type: PropertyType.String)
+        checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
     }
     "/checkout/review/quantity#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         old_quantity(required: true, type: PropertyType.Numeric)

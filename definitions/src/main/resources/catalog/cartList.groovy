@@ -44,7 +44,6 @@ tracks {
     //quantity
     //unit_price
 
-
 	free_shipping_benefit(required:false, type: PropertyType.Boolean)
     loyalty_level(required:false, type: PropertyType.Numeric)
     is_empty(required:false, type: PropertyType.Boolean)

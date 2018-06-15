@@ -292,7 +292,6 @@ trackTests {
     test("Checkout Basic Flow test. Legacy test for previous mobile versions") {
 
         def defaultCheckoutInformation = {
-            item_id = "MCO412584037"
             checkout_version = "V2"
         }
 
@@ -908,6 +907,7 @@ trackTests {
 
         "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
             status = "success"
+            checkout_flow = "direct"
         }
         "/checkout/review/quantity#submit"(platform:"/mobile", type: TrackType.Event) {
             old_quantity = 4
@@ -994,7 +994,6 @@ trackTests {
         }
         "/checkout/show_ticket"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
-            payment_method = "oxxo"
         }
         "/checkout/show_ticket#save"(platform:"/mobile", type:TrackType.Event) {}
         "/checkout/show_geolocation_map"(platform:"/mobile", type:TrackType.View) {
@@ -1017,7 +1016,6 @@ trackTests {
     test("checkout congrats"){
 
         "/checkout/congrats"(platform:"/mobile", type:TrackType.View) {
-            item_id="MLA538444567"
             payments = [
                     [
                             payment_method:"amex",
@@ -4247,11 +4245,6 @@ trackTests {
 
         def dataSet = {
 
-            seller = [
-                    [id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
-                    [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]
-            ]
-
             items = [
                     [
                             currency_id: "ARS",
@@ -4297,9 +4290,6 @@ trackTests {
                     listing_type: "gold_special",
                     international_delivery_mode: "none",
             ]
-            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
-                      [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
-
 
             loyalty_level = 2
             currency_id = "MXN"
@@ -4314,8 +4304,6 @@ trackTests {
                     listing_type: "gold_special",
                     international_delivery_mode: "none",
             ]
-            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
-                      [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
 
 
             loyalty_level = 2
@@ -4331,8 +4319,6 @@ trackTests {
                     listing_type: "gold_special",
                     international_delivery_mode: "none",
             ]
-            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
-                      [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
 
 
             loyalty_level = 2
@@ -4361,8 +4347,6 @@ trackTests {
                     listing_type: "gold_special",
                     international_delivery_mode: "none",
             ]
-            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
-                      [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
 
 
             loyalty_level = 2
@@ -4378,8 +4362,6 @@ trackTests {
                     listing_type: "gold_special",
                     international_delivery_mode: "none",
             ]
-            seller = [[id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
-                      [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]]
 
 
             loyalty_level = 2
