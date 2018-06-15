@@ -81,7 +81,6 @@ tracks {
     }
 
     "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
-        origin(required: true)
     }
 
     "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.Event){
