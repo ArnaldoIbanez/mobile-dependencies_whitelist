@@ -77,7 +77,7 @@ tracks {
                 description: "Type of loyalty notification event")
     }
 
-    "/loyalty/buylevel"(platform: "/",type: TrackType.View){
+    "/loyalty/buylevel"(platform: "/", isAbstract: true,type: TrackType.View){
     }
 
     "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
@@ -92,7 +92,7 @@ tracks {
 
     "/loyalty/buylevel/payment"(platform: "/",type: TrackType.Event){
         payment_status(required: false, description: "Payment status, like rejected/success/pending/etc...")
-        payment_status_detal(required: false, description: "Payment status detail")
+        payment_status_detail(required: false, description: "Payment status detail")
         our_payment_error(required: false, description: "An error from our (with our endpoint) payment post, is not an error creating the payment")
     }
 }
