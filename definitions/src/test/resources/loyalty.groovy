@@ -89,12 +89,6 @@ trackTests {
 
     test("Loyalty Buy Level Landing"){
         "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
-            origin = "ios"
-        }
-
-
-        "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
-            origin = "android"
         }
     }
 
