@@ -11,6 +11,11 @@ trackTests {
         }
     }
 
+    test("Loyalty score back") {
+        "/loyalty/score/back"(platform: "/mobile/android", type: TrackType.Event) {
+        }
+    }
+
     test("Loyalty notification") {
         "/loyalty/notification"(platform: "/", type: TrackType.Event) {
             event_type = "received"
@@ -65,5 +70,33 @@ trackTests {
         }
     }
 
+    test("Loyalty welcome modal") {
+        "/loyalty/modal"(platform: "/mobile", type: TrackType.View) {
+            event_type = "SHOW"
+        }
+    }
 
+    test("Loyalty discounts landing") {
+        "/loyalty/discounts"(platform: "/", type: TrackType.View) {
+        }
+    }
+
+    test("Loyalty user tracking") {
+        "/loyalty/user"(platform: "/") {
+            in_loyalty_program = true
+        }
+    }
+
+    test("Loyalty tracks") {
+        def loyaltyInfo = {
+            level = 1
+            points = 100
+            percentage = 0.5f
+        }
+        "/loyalty/score"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/score/milestones"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/score/achievements"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/score/benefits"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/notification"(platform: "/", type: TrackType.Event, { event_type = 'shown' })
+    }
 }

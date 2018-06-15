@@ -1,0 +1,1 @@
+select * from bi.BI_INTEGRATO_ADVERTISING where ds  between '@param01'  and '@param02' limit 300
