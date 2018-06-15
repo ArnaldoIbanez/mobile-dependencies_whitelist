@@ -61,7 +61,7 @@ tracks {
     }
 
     "/loyalty/landing"(platform: "/", type: TrackType.Event) {
-        landing_id(required: true, description: "id of landing") 
+        landing_id(required: true, description: "id of landing")
     }
 
     "/loyalty/modal"(platform: "/mobile", type: TrackType.View) {
@@ -77,4 +77,22 @@ tracks {
                 description: "Type of loyalty notification event")
     }
 
+    "/loyalty/buylevel"(platform: "/",type: TrackType.View){
+
+    }
+    "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
+        origin(required: true)
+    }
+
+    "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
+        action(required: true, values: ["started","success","success_orange","error"], description: "'started' when the CHO starts, success/success_orange/error is when the CHO finish")
+        origin(required: true, values: ["landing", "mail","vip"])
+        item_id(required: false, description: "If flow starts from vip")
+    }
+
+    "/loyalty/buylevel/payment"(platform: "/",type: TrackType.Event){
+        payment_status(required: false, description: "Payment status, like rejected/success/pending/etc...")
+        payment_status_detal(required: false, description: "Payment status detail")
+        our_payment_error(required: false, description: "An error from our (with our endpoint) payment post, is not an error creating the payment")
+    }
 }

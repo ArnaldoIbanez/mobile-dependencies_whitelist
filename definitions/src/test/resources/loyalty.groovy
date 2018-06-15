@@ -79,6 +79,52 @@ trackTests {
     test("Loyalty discounts landing") {
         "/loyalty/discounts"(platform: "/", type: TrackType.View) {
         }
-    }   
+    }
+
+
+    test("Loyalty Buy Level"){
+        "/loyalty/buylevel"(platform: "/",type: TrackType.View){
+        }
+    }
+
+    test("Loyalty Buy Level Landing"){
+        "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
+            origin = "ios"
+        }
+
+
+        "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
+            origin = "android"
+        }
+    }
+
+    test("Loyalty Buy Level Checkout"){
+        "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
+            action= "success"
+            origin= "vip"
+            item_id = "MLA000000"
+        }
+
+        "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
+            action= "success_orange"
+            origin= "landing"
+        }
+
+        "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
+            action= "error"
+            origin= "mail"
+        }
+    }
+
+    test("Loyalty Buy Level Payment"){
+        "/loyalty/buylevel/payment"(platform: "/",type: TrackType.Event){
+            payment_status= "approved"
+            payment_status_detal= "cc_approved_plugin_pm"
+        }
+
+        "/loyalty/buylevel/payment"(platform: "/",type: TrackType.Event){
+            our_payment_error="Error msg"
+        }
+    }
 
 }
