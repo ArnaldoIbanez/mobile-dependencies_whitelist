@@ -5886,6 +5886,7 @@ trackTests {
             gender="male"
             link="https://www.mercadolibre.com.ar/link-de-tienda-oficial",
             name="Tienda Oficial"
+            context="landing"
         }
 
         "/apparel/home/official_store" (platform:"/", type: TrackType.Event) {
@@ -5901,11 +5902,6 @@ trackTests {
             image="Tienda Oficial"
         }
 
-        "/apparel/home/stores/official_store" (platform:"/", type: TrackType.Event) {
-            gender="male"
-            link="https://www.mercadolibre.com.ar/link-de-tienda-oficial",
-            name="Tienda Oficial"
-        }
     }
 
     test("install_event"){

@@ -480,7 +480,7 @@ tracks {
 
     // Apparel
     "/apparel/home"(platform: "/", isAbstract: true) {
-        gender(required: true, type: PropertyType.String)
+        gender(required: true, type: PropertyType.String, values: ["male", "female", "boys", "girls", "none"])
     }
 
     "/apparel/home"(platform: "/", type: TrackType.View) {}
@@ -503,7 +503,8 @@ tracks {
 
     "/apparel/home/official_store"(platform: "/", type: TrackType.Event) {
         name(required: true, type: PropertyType.String),
-        link(required: true, type: PropertyType.String)
+        link(required: true, type: PropertyType.String),
+        context(required: true, type: PropertyType.String, values: ["landing", "stores"])
     }
 
     "/apparel/home/items"(platform: "/", type: TrackType.Event) {
@@ -515,11 +516,6 @@ tracks {
     "/apparel/home/images"(platform: "/", type: TrackType.Event) {
         image(required: true, type: PropertyType.String),
         link(required: true, type: PropertyType.String),
-    }
-
-    "/apparel/home/stores/official_store"(platform: "/", type: TrackType.Event) {
-        name(required: true, type: PropertyType.String),
-        link(required: true, type: PropertyType.String)
     }
 
     // Subscriptions
