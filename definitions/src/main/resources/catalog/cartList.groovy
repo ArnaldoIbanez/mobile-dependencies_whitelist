@@ -43,12 +43,7 @@ tracks {
         //variation_id
     //quantity
     //unit_price
-
-    seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data")
-    //id
-    //nickname
-    //mercado_lider
-    //reputation_level
+    
 
 	free_shipping_benefit(required:false, type: PropertyType.Boolean)
     loyalty_level(required:false, type: PropertyType.Numeric)
@@ -81,6 +76,7 @@ tracks {
 
 "/cart/saved_for_later"(platform: "/") {}
 
+// TODO Borrar => Lo estamos standarizando hacía la definición de add_to_cart.groovy
 "/cart/saved_for_later/add_to_cart"(platform: "/", type: TrackType.Event) {
     item_info
 }

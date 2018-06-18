@@ -16,9 +16,14 @@ trackTests {
         "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/error"(platform: "/web/desktop") {}
         "/credits/merchant/administrator"(platform: "/web/desktop") {}
+        "/credits/merchant/admin_on_time"(platform: "/web/desktop") {}
+        "/credits/merchant/admin_late_pay"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {}
         "/credits/merchant/offer"(platform: "/web/desktop") {}
         "/credits/merchant/no_offer"(platform: "/web/desktop") {}
+        "/credits/merchant/public_landing"(platform: "/web/desktop") {
+            user_profile = 'offer'
+        }
 
         //Events
         //Landing merchant
@@ -48,6 +53,7 @@ trackTests {
 
         //Dashboard merchant
         "/credits/merchant/hero_cta"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant/second_offer_cta"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/merchant/help"(platform: "/web/desktop", type: TrackType.Event) {}
     }
 
@@ -55,5 +61,11 @@ trackTests {
         //Views
         "/credits/consumer/administrator"(platform: "/web/desktop") {}
         "/credits/consumer/administrator/detail"(platform: "/web/desktop") {}
+    }
+
+    test("money advance - automatic cash advances"){
+        //Views
+        "/credits/moneyadvance/automatic/offer"(platform: "/web/desktop") {}
+        "/credits/moneyadvance/automatic/congrats"(platform: "/web/desktop") {}
     }
 }

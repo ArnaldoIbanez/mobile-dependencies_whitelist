@@ -3,7 +3,7 @@
     "lucia.blanc@mercadolibre.com"
   ],
   "process_name": "shipping_preference_conversion",
-  "cron": "00 16 * * *",
+  "cron": "30 18 * * *",
   "extract": {
     "operation": "append",
     "columns": [

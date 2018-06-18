@@ -6,7 +6,7 @@ FROM
       FROM tracks 
       WHERE 
         path = '/vip' 
-        AND application.site_id = 'MLM'
+        AND (application.site_id = 'MLB' OR application.site_id = 'MLM')
         AND ds >= '@param01' AND ds < '@param02'
         AND jest(event_data, 'return_available') = 'Yes'
         AND usr.user_id != ''AND usr.user_id != '0' AND usr.user_nick != '' AND usr.user_nick != '0'
@@ -29,7 +29,7 @@ INNER JOIN
     FROM tracks 
     WHERE 
       path = '/vip' 
-      AND application.site_id = 'MLM'
+      AND (application.site_id = 'MLB' OR application.site_id = 'MLM')
       AND ds >= '@param01' AND ds < '@param02'
       AND jest(event_data, 'return_available') = 'No'
       AND usr.user_id != '' AND usr.user_id != '0' AND usr.user_nick != '' AND usr.user_nick != '0'

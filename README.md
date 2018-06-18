@@ -1,12 +1,9 @@
 # Melidata Catalog
+
+This repository contains all the definitions for the information tracked in *melidata* platform. The catalog serves as a central repository to governate our data, know what are we tracking and how.
+
 [![Build Status](http://216.33.196.24/drone/api/badge/github.com/mercadolibre/melidata-catalog/status.svg?branch=master)](http://drone.melicloud.com/github.com/mercadolibre/melidata-catalog)
 
-This repository contains all the definitions for the information tracked thru *melidata* platform
-
-## Testing the catalog
-
-
-If you want to run the tests, you should execute **```make test```**
 
 ## Catalog Definitions
 
@@ -21,3 +18,7 @@ Please check [tracks definitions guidelines](https://github.com/mercadolibre/mel
 ## Cronned Queries Definitions
 
 [Documentation](https://github.com/mercadolibre/melidata-all/wiki/Hive-BI-Integration)
+
+## Testing the catalog
+
+If you want to run the tests, you should execute **```make test```**
