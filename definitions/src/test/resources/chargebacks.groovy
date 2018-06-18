@@ -130,6 +130,15 @@ trackTests {
             status_repayment = "CANCELLED"
         }
 
+        "/chargebacks/payer/click-form-link"(platform: "/", type: TrackType.Event) {
+            case_id = "987987987004"
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            payment_id = "3536747103"
+            problem_id = "TKO_UNRECOGNIZED_MLB"
+            payer_id = 306162056
+        }
+
         /* MercadoLibre*/
 
         "/chargebacks/payer/list"(platform: "/", business:"mercadolibre", type: TrackType.View) {}
@@ -259,6 +268,15 @@ trackTests {
             problem_id = "DUPLICATED_PAYMENT"
             payer_id = 306162056
             status_repayment = "CANCELLED"
+        }
+
+        "/chargebacks/payer/click-form-link"(platform: "/", type: TrackType.Event) {
+            case_id = "987987987004"
+            category_id = "MLA407408"
+            item_id = "MLA673024191"
+            payment_id = "3536747103"
+            problem_id = "TKO_UNRECOGNIZED_MLB"
+            payer_id = 306162056
         }
 
     }
