@@ -802,15 +802,20 @@ trackTests {
 
         "/apparel/home/slider" (platform:"/", type: TrackType.Event) {
             gender="male"
-            link="https://www.mercadolibre.com.mx/exhibitor-link",
+            link="https://www.mercadolibre.com.mx/exhibitor-link"
             title="Campaña"
         }
 
         "/apparel/home/category" (platform:"/", type: TrackType.Event) {
             gender="male"
             category_id="MLA123567"
-            link="https://www.mercadolibre.com.ar/link-de-categoría",
-            name="Categoría"
+            link="https://www.mercadolibre.com.ar/link-de-categoría"
+        }
+
+        "/apparel/home/items" (platform:"/", type: TrackType.Event) {
+            gender="male"
+            item_id="MLA123567"
+            section="Publicaciones destacadas"
         }
 
         "/apparel/home/more_categories" (platform:"/", type: TrackType.Event) {
@@ -819,14 +824,13 @@ trackTests {
 
         "/apparel/home/official_store" (platform:"/", type: TrackType.Event) {
             gender="male"
-            link="https://www.mercadolibre.com.ar/link-de-tienda-oficial",
-            name="Tienda Oficial"
+            link="https://www.mercadolibre.com.ar/link-de-tienda-oficial"
             context="home"
         }
 
         "/apparel/home/images" (platform:"/", type: TrackType.Event) {
             gender="male"
-            link="https://www.mercadolibre.com.ar/link-de-tienda-oficial",
+            link="https://www.mercadolibre.com.ar/link-de-tienda-oficial"
             image="Tienda Oficial"
         }
 

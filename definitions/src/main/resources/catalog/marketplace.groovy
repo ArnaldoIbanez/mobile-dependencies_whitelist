@@ -236,27 +236,26 @@ tracks {
 
     "/apparel/home/category"(platform: "/", type: TrackType.Event) {
         category_id(required: true, type: PropertyType.String)
-        name(required: true, type: PropertyType.String),
+        name(required: true)
         link(required: true, type: PropertyType.String)
     }
 
     "/apparel/home/more_categories"(platform: "/", type: TrackType.Event) {}
 
     "/apparel/home/official_store"(platform: "/", type: TrackType.Event) {
-        name(required: true, type: PropertyType.String),
-        link(required: true, type: PropertyType.String),
+        name(required: true)
+        link(required: true, type: PropertyType.String)
         context(required: true, type: PropertyType.String, values: ["home", "stores"])
     }
 
     "/apparel/home/items"(platform: "/", type: TrackType.Event) {
-        category_id(required: true, type: PropertyType.String),
-        item_id(required: true, type: PropertyType.String),
-        section(required: true, type: PropertyType.String),
+        item_id(required: true, type: PropertyType.String)
+        section(required: true, type: PropertyType.String)
     }
 
     "/apparel/home/images"(platform: "/", type: TrackType.Event) {
-        image(required: true, type: PropertyType.String),
-        link(required: true, type: PropertyType.String),
+        image(required: true, type: PropertyType.String)
+        link(required: true, type: PropertyType.String)
     }
 
     "/sso" (platform: "/mobile", isAbstract: true){}
