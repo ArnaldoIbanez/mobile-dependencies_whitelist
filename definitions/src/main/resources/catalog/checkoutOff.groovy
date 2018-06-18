@@ -239,14 +239,6 @@ tracks {
 
     "/checkout_off/v1/finish/call_for_auth/input_code"(platform: "/", type: TrackType.View) {}
 
-    "/checkout_off/v1/finish/invalid_sec_code"(platform: "/", isAbstract: true) {}
-
-    "/checkout_off/v1/finish/invalid_sec_code/input"(platform: "/", type: TrackType.View) {}
-
-    "/checkout_off/v1/finish/invalid_date"(platform: "/", isAbstract: true) {}
-
-    "/checkout_off/v1/finish/invalid_date/input"(platform: "/", type: TrackType.View) {}
-
     // Deprecated
     "/checkout_off/v1/congrats/approved"(platform: "/", type: TrackType.View){}
 
