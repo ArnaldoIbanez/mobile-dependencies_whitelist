@@ -84,6 +84,11 @@ tracks {
     success(required: false, type: PropertyType.Boolean, description: "Indica que la localizacion del usuario fue exitosa")
     location(required: false, type: PropertyType.String)
     geolocation_method(required: false, type: PropertyType.String)
+
+    billing_info(required:false, description: "Dictionary containing the user selected billing info")
+
+    available_methods(required: false, type: PropertyType.ArrayList, description: "Available payment methods for this flow")
+    available_installments(required: false, description: "Dictionary containing the availble installments the user can choose from a card")
 }
 
 "/cart/checkout/geolocation" (platform: "/", type: TrackType.Event) {
@@ -96,7 +101,10 @@ tracks {
 
 "/cart/checkout/payment"(platform: "/", isAbstract: true) {}
 
-"/cart/checkout/payment/select_method"(platform:"/", type: TrackType.View) {}
+"/cart/checkout/payment/select_method"(platform:"/", type: TrackType.View) {
+    coupon(required: false, type: PropertyType.Boolean, description: "If the user redeemed a coupon code")
+    coupon_discount(required: false, type: PropertyType.Numeric, description: "Total coupon discount")
+}
 
 "/cart/checkout/payment/select_method/edit_payment"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/payment/select_method/show_distances"(platform:"/", type: TrackType.Event) {}
@@ -106,8 +114,15 @@ tracks {
 "/cart/checkout/payment/select_bank"(platform:"/", type: TrackType.View) {}
 
 "/cart/checkout/payment/view_location"(platform:"/", type: TrackType.View) {}
+"/cart/checkout/payment/view_location/location"(platform:"/", type: TrackType.Event) {}
+"/cart/checkout/payment/view_location/preloaded"(platform:"/", type: TrackType.Event) {}
 
 "/cart/checkout/payment/input_card"(platform:"/", type: TrackType.View) {}
+
+"/cart/checkout/payment/input_card#card_config"(platform: "/", type: TrackType.Event) {
+    bin(required: true, type: PropertyType.String)
+    success(required: true, type: PropertyType.Boolean)
+}
 
 "/cart/checkout/payment/input_card/edit_payment"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/payment/input_card/security_code_tooltip"(platform:"/", type: TrackType.Event) {}
@@ -137,6 +152,9 @@ tracks {
 
 "/cart/checkout/payment/input_second_password/edit_payment"(platform:"/", type: TrackType.Event) {}
 
+// payment promotions screen. Eg: bank promos in MLA
+"/cart/checkout/payment/promotions"(platform: "/", type: TrackType.Event) {}
+
 "/cart/checkout/review"(platform:"/", type: TrackType.View) {
 }
 
@@ -155,7 +173,8 @@ tracks {
 
 "/cart/checkout/congrats"(platform:"/", type: TrackType.View) {
     congrats_seq(serverSide: true) // Lo completa Melidata automaticamente
-    first_for_order(serverSide: true) // Lo completa Melidata automaticamente         
+    first_for_order(serverSide: true) // Lo completa Melidata automaticamente
+    status(required: false, type: PropertyType.String)
 }
 
 "/cart/checkout/congrats/keep_buying"(platform:"/", type: TrackType.Event) {}
@@ -171,17 +190,15 @@ tracks {
 
 "/cart/checkout/show_ticket"(platform:"/", type: TrackType.View) {}
 
-"/cart/checkout/invalid_sec_code"(platform:"/", type: TrackType.View) {}
+"/cart/checkout/finish"(platform:"/", type: TrackType.View, isAbstract: true) {}
 
-"/cart/checkout/invalid_sec_code/input_code"(platform:"/", type: TrackType.View) {}
+"/cart/checkout/finish/invalid_sec_code"(platform:"/", type: TrackType.View, isAbstract: true) {}
+"/cart/checkout/finish/invalid_sec_code/input_code"(platform:"/", type: TrackType.View) {}
 
-"/cart/checkout/call_for_auth"(platform:"/", type: TrackType.View) {}
-
-"/cart/checkout/call_for_auth/instructions"(platform:"/", type: TrackType.View) {}
-
-"/cart/checkout/call_for_auth/call_later"(platform:"/", type: TrackType.View) {}
-
-"/cart/checkout/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
+"/cart/checkout/finish/call_for_auth"(platform:"/", type: TrackType.View, isAbstract: true) {}
+"/cart/checkout/finish/call_for_auth/instructions"(platform:"/", type: TrackType.View) {}
+"/cart/checkout/finish/call_for_auth/later"(platform:"/", type: TrackType.View) {}
+"/cart/checkout/finish/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin All platforms
@@ -192,7 +209,8 @@ tracks {
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 "/cart"(platform:"/mobile", type: TrackType.View, isAbstract: true) {
-    geolocated(required:false, type: PropertyType.Boolean, description: "Indica si se geolocalizo al usuario")    
+    geolocated(required:false, type: PropertyType.Boolean, description: "Indica si se geolocalizo al usuario")
+    combination_2mp(required:false, description: "2MP switch state")
 }
 
 "/cart/checkout"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
@@ -223,7 +241,35 @@ tracks {
 "/cart/checkout/shipping/input_zipcode"(platform:"/mobile", type: TrackType.View) {}
 "/cart/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/mobile", type: TrackType.Event) {}
 
-"/cart/checkout/shipping/input_address"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/shipping/input_address"(platform:"/mobile", type: TrackType.View) {
+    edit_flow(required: true, type: PropertyType.Boolean)
+}
+
+"/cart/checkout/shipping/input_address#zip_code"(platform:"/mobile", type: TrackType.Event) {
+    zip_code(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#street_name"(platform:"/mobile", type: TrackType.Event) {
+    street_name(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#street_number"(platform:"/mobile", type: TrackType.Event) {
+    street_number(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#internal_number"(platform:"/mobile", type: TrackType.Event) {
+    internal_number(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#between_streets"(platform:"/mobile", type: TrackType.Event) {
+    between_streets(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#references"(platform:"/mobile", type: TrackType.Event) {
+    references(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#neighborhood"(platform:"/mobile", type: TrackType.Event) {
+    neighborhood(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#additional_info"(platform:"/mobile", type: TrackType.Event) {
+    additional_info(required: false, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address#submit"(platform:"/mobile", type: TrackType.Event) {}
 
 "/cart/checkout/shipping/input_address_number"(platform:"/mobile", type: TrackType.View) {}
 "/cart/checkout/shipping/input_address_number/whithout_number"(platform:"/mobile", type: TrackType.Event) {}
@@ -234,7 +280,11 @@ tracks {
 
 "/cart/checkout/shipping/input_address_apartment"(platform:"/mobile", type: TrackType.View) {}
 
-"/cart/checkout/shipping/select_contact_info"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/shipping/select_contact_info"(platform:"/mobile", type: TrackType.View) {
+    available_options(required: true, type: PropertyType.Numeric, description: "Number of available contacts")
+}
+
+"/cart/checkout/shipping/select_contact_info#submit"(platform:"/mobile", type: TrackType.Event) {}
 
 "/cart/checkout/shipping/add_contact_info"(platform:"/mobile", type: TrackType.View) {}
 
@@ -252,6 +302,10 @@ tracks {
 
 "/cart/checkout/payment/select_second_installment"(platform:"/mobile", type: TrackType.View) {}
 
+"/cart/checkout/payment/transfer"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
+
+"/cart/checkout/payment/transfer/select_bank"(platform:"/mobile", type: TrackType.View) {}
+
 "/cart/checkout/review"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
 
 "/cart/checkout/review/edit_unique_installment"(platform:"/mobile", type: TrackType.View) {}
@@ -263,35 +317,42 @@ tracks {
 "/cart/checkout/show_geolocation_map"(platform:"/mobile", type: TrackType.View) {}
 
 // 2MP
-"/cart/checkout/payments"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
+"/cart/checkout/payment"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
 
 // switch tracks
-"/cart/checkout/payments/2mp"(platform: "/mobile", isAbstract: true) {}
-"/cart/checkout/payments/2mp/split"(platform: "/mobile", type: TrackType.Event) {}
+"/cart/checkout/payment/2mp"(platform: "/mobile", isAbstract: true) {}
+"/cart/checkout/payment/2mp/split"(platform: "/mobile", type: TrackType.Event) {}
 
-"/cart/checkout/payments/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
-"/cart/checkout/payments/2mp#not_use"(platform: "/mobile", type: TrackType.Event) {}
+"/cart/checkout/payment/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
+"/cart/checkout/payment/2mp#not_use"(platform: "/mobile", type: TrackType.Event) {}
 
 
 
 //2MP Disclaimer combination modal view.
-"/cart/checkout/payments/payment_combination"(platform: "/mobile", isAbstract: true) {}
-"/cart/checkout/payments/payment_combination/payment_method_not_supported"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/payment/payment_combination"(platform: "/mobile", isAbstract: true) {}
+"/cart/checkout/payment/payment_combination/payment_method_not_supported"(platform:"/mobile", type: TrackType.View) {}
 
 // Discount coupons
-"/cart/checkout/payments/add_coupon"(platform:"/mobile", type: TrackType.View) {}
-"/cart/checkout/payments/coupon_ok"(platform:"/mobile", type: TrackType.View) {
+"/cart/checkout/payment/add_coupon"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/payment/coupon_ok"(platform:"/mobile", type: TrackType.View) {
     coupon(required: true, type: PropertyType.String)
 }
-"/cart/checkout/payments/add_another_coupon"(platform:"/mobile", type: TrackType.View) {}
-"/cart/checkout/payments/coupon_error"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/payment/add_another_coupon"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/payment/coupon_error"(platform:"/mobile", type: TrackType.View) {}
 
-"/cart/checkout/payments/invalid_coupon"(platform:"/mobile", type: TrackType.Event) {}
-"/cart/checkout/payments/expired_coupon"(platform:"/mobile", type: TrackType.Event) {}
-"/cart/checkout/payments/add_another_coupon/delete_coupon"(platform:"/mobile", type: TrackType.Event) {}
+"/cart/checkout/payment/invalid_coupon"(platform:"/mobile", type: TrackType.Event) {}
+"/cart/checkout/payment/expired_coupon"(platform:"/mobile", type: TrackType.Event) {}
+"/cart/checkout/payment/add_another_coupon/delete_coupon"(platform:"/mobile", type: TrackType.Event) {}
 
 // 2MP Cancelation
 "/cart/checkout/payments_cancelation"(platform: "/mobile", type: TrackType.View) {}
+
+//Billing info
+    "/cart/checkout/billing"(platform: "/mobile", isAbstract: true) {}
+    "/cart/checkout/billing/physical_person"(platform: "/mobile") {}
+    "/cart/checkout/billing/legal_person"(platform: "/mobile") {}
+    "/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    }
 
 // 2MP Inconsistencias
 "/cart/checkout/review/discard_payment_combination"(platform: "/mobile") {}

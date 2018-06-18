@@ -128,6 +128,8 @@ tracks {
         payment_method(required: false)
         payment_type(required: false)
         purchase_amount(required: false)
+        card_id(required: false)
+        installments(required: false)
     }
 
     "/checkout_off/v1/payment_created"(platform: "/", type: TrackType.Event){
@@ -139,21 +141,55 @@ tracks {
         payment_status_detail(required: true)
     }
 
+    "/checkout_off/v1/payment_canceled"(platform: "/", type: TrackType.Event){
+        payment_id(required: true)
+        payment_method(required: true)
+        payment_type(required: true)
+        payment_amount(required: true)
+    }
+
+    // The user tap back arrow (Mobile) or click on browser back (Web)
+    "/checkout_off/v1/back_action"(platform: "/", type: TrackType.Event){}
+
+    // The user expand summary view or any expandible view.
+    "/checkout_off/v1/open_summary_detail"(platform: "/", type: TrackType.Event){
+        installments(required: false, type: PropertyType.Numeric, description:"Number of installments")
+        has_discount(required: true, type: PropertyType.Boolean, description:"User has applied discount?")
+    }
+
     "/checkout_off/v1/login"(platform: "/", type: TrackType.View){}
 
     "/checkout_off/v1/login/guest"(platform: "/", type: TrackType.View){}
 
     "/checkout_off/v1/login/discount"(platform: "/", type: TrackType.View){}
 
-    "/checkout_off/v1/express"(platform: "/", type: TrackType.View){}
+    // One-tap-pay view. We suggested the best payment_method and payment_type.
+    // The fields are required = false, because this view are using in legacy cho-web (not required) and cho-mobile.
+    "/checkout_off/v1/express"(platform: "/", type: TrackType.View) {
+        payment_method(required: false, description:"Payment method ID")
+        payment_type(required: false, description:"Payment type ID")
+        purchase_amount(required: false, type: PropertyType.Numeric, description:"Payment amount")
+        card_id(required: false, description:"User card ID")
+        installments(required: false, type: PropertyType.Numeric, description:"Number of installments")
+    }
 
-    "/checkout_off/v1/payment_option"(platform: "/", type: TrackType.View){}
+    "/checkout_off/v1/discount_terms_conditions"(platform: "/", type: TrackType.View) {}
 
-    "/checkout_off/v1/payment_option/ticket"(platform: "/", type: TrackType.View){}
+    "/checkout_off/v1/payment_option"(platform: "/", type: TrackType.View){
+        options (required: false, type:PropertyType.ArrayList, description: "Payment options offered. Options format: {\"has_esc\":false,\"card_id\":\"\",\"payment_method\":\"visa\",\"payment_type\":\"credit_card\"}")
+    }
 
-    "/checkout_off/v1/payment_option/bank_transfer"(platform: "/", type: TrackType.View){}
+    "/checkout_off/v1/payment_option/ticket"(platform: "/", type: TrackType.View){
+        options (required: false, type:PropertyType.ArrayList, description: "Payment options offered. Options format: {\"has_esc\":false,\"card_id\":\"\",\"payment_method\":\"visa\",\"payment_type\":\"credit_card\"}")
+    }
 
-    "/checkout_off/v1/payment_option/cards"(platform: "/", type: TrackType.View){}
+    "/checkout_off/v1/payment_option/bank_transfer"(platform: "/", type: TrackType.View){
+        options (required: false, type:PropertyType.ArrayList, description: "Payment options offered. Options format: {\"has_esc\":false,\"card_id\":\"\",\"payment_method\":\"visa\",\"payment_type\":\"credit_card\"}")
+    }
+
+    "/checkout_off/v1/payment_option/cards"(platform: "/", type: TrackType.View){
+        options (required: false, type:PropertyType.ArrayList, description: "Payment options offered. Options format: {\"has_esc\":false,\"card_id\":\"\",\"payment_method\":\"visa\",\"payment_type\":\"credit_card\"}")
+    }
 
     "/checkout_off/v1/additional_info"(platform: "/", isAbstract: true) {}
 
@@ -166,6 +202,8 @@ tracks {
     "/checkout_off/v1/additional_info/abitab"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/v1/additional_info/pse"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/additional_info/pec"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/v1/card"(platform: "/", isAbstract: true) {}
 
@@ -198,4 +236,8 @@ tracks {
     "/checkout_off/v1/congrats/rejected"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/v1/congrats/in_process"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/consumer_credit"(platform: "/", isAbstract: true){}
+
+    "/checkout_off/v1/consumer_credit/installments"(platform: "/", type: TrackType.View) {}
 }

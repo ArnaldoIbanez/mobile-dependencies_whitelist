@@ -17,5 +17,4 @@ WHERE ds>='@param01' and
 ds<'@param02' and
 path like '/checkout_off/v1%'
 GROUP BY tracks.path, complete_flows.flow, device.platform, application.site_id, application.version, jest(event_data, 'collector_nickname'), jest(event_data, 'environment'), substr(ds, 1, 10)
-HAVING count(*) > 1
 ORDER BY ocurrences DESC
