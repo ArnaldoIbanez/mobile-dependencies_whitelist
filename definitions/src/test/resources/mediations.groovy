@@ -7,7 +7,17 @@ trackTests {
     test("Claim creation step") {
         "/claims"(platform: "/") { }
         "/claims/create_claim"(platform: "/") { }
-        "/claims/create_claim/allow"(platform: "/", type: TrackType.View)  { }
+
+        "/claims/create_claim/allow"(platform: "/", type: TrackType.View)  {
+            ref="returns"
+            returns_loyalty_level=6
+            returns_date_delivered="2018-03-26"
+            returns_cart_order=false
+            returns_item_category="MLB107481"
+            returns_refund_account_money=false
+            returns_item_category_l1="MLB1574"
+            returns_authorized=true
+        }
         "/claims/create_claim/denied"(platform: "/", type: TrackType.View) {
             reason = 'payment_not_found'
         }
@@ -34,4 +44,31 @@ trackTests {
             status = 'claim_opened'
         }
     }
+
+    test("Claims payment already refunded view") {
+        "/claims/refunded"(platform: "/", type: TrackType.View) {
+            expected_resolution = 'product'
+        }
+    }
+
+    test("Contract Claim") {
+        "/claims/create_claim/form"(platform: "/") { 
+            vertical = 'SERVICES'
+            order_id = 1703206862
+            item_id = 'MLA722247557'
+            seller_id = 282439040
+            reason = 'undelivered'
+            reason_detail = 'undelivered_repentant_buyer'
+        }
+
+        "/claims/create_claim/creation"(platform: "/", type: TrackType.Event)  {
+            vertical = 'SERVICES'
+            order_id = 1703206862
+            item_id = 'MLA722247557'
+            seller_id = 282439040
+            reason = 'undelivered'
+            reason_detail = 'undelivered_repentant_buyer'
+        }
+    }
+
 }

@@ -1,0 +1,51 @@
+{
+  "users":
+  [
+    "carlos.rodrigo@mercadolibre.com"
+  ],
+  "process_name": "recommendations_bundle_coverage",
+  "cron": "00 05 * * *",
+  "extract":
+  {
+    "operation": "append",
+    "columns":
+    [
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "vips_with_bundle",
+        "type": "INTEGER"
+      },
+      {
+        "name": "vips_with_bundle_fvf_value",
+        "type": "INTEGER"
+      },
+      {
+        "name": "total_vips",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "recommendations/bundle-coverage.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

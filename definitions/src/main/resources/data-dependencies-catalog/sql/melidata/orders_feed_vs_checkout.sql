@@ -2,8 +2,7 @@ SELECT date_created,
        platform,
        site,
        SUM(counter) AS totales_segun_feed,
-       SUM(faltantes) AS faltantes_en_tracking_checkout,
-       CAST(SUM(faltantes) AS DOUBLE) / SUM(counter)
+       SUM(faltantes) AS faltantes_en_tracking_checkout
 FROM (SELECT date_created as date_created,
              site as site,
              platform as platform,

@@ -19,10 +19,14 @@ class Validate {
         def cli = buildCli(args)
         def options = cli.parse(args)
 
+        println "Generating Melidata Catalog..."
+
         def pathCatalog = "src/main/resources/catalog/catalog.groovy"
         def catalogScript = TestRunner.getScriptFromFile(pathCatalog)
         com.ml.melidata.catalog.DslUtils.setBaseDir("src/main/resources/catalog/")
         def catalog = TestRunner.runScript(catalogScript)
+
+        println "Done. Will fetch for tracks for validating..."
         
         def result = generateResult(options, catalog)
         if (result.size() > 0) {
@@ -45,7 +49,7 @@ class Validate {
             println "File $filepath generated"
         } else {
             result.each { track ->
-                println "Track [$track.type, $track.business, $track.platform]: $track.event_data"
+                println "Track [Path:$track.path, Type:$track.type, Business:$track.business, Platform:$track.platform]: $track.event_data"
                 println "Status: ${track.status}"
                 println "Messages: ${track.message}"
                 println ""
@@ -161,18 +165,23 @@ class Validate {
         def business = ""
         def platform = ""
         def site = ""
+        def version = ""
+        def pool_name = ""
         def limit = "100"
 
         if (options.path) path = "AND path LIKE '/${options.path}%' \n"
         if (options.business) business = "AND application.business = '${options.business}' \n"
         if (options.platform) platform = "AND device.platform = '${options.platform}' \n"
         if (options.site) site = "AND application.site_id = '${options.site}' \n"
+        if (options.version) version = "AND application.version = '${options.version}' \n"
+        if (options.pool_name) pool_name = "AND application.server_poolname LIKE '%${options.pool_name}%' \n"
         if (options.limit) limit = options.limit
+
 
         return ("SELECT id, type, path, event_data, device, application, platform \n" +
                "FROM tracks \n" +
                "WHERE catalog_data.is_valid = false \n" +
-               "${date}${path}${business}${platform}${site}" +
+               "${date}${path}${business}${platform}${site}${version}${pool_name}" +
                "limit ${limit}").toString()
     }
 
@@ -187,6 +196,9 @@ class Validate {
         cli.to_file(args:1, "to_file")
         cli.from_file(args:1, "from_file")
         cli.summary(args:0, "summary")
+        cli.version(args:1, "version")
+        cli.pool_name(args:1, "pool_name")
+
         return cli
     }
 

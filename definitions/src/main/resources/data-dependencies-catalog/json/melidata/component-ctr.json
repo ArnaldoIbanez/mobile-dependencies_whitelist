@@ -6,7 +6,7 @@
     "juanjose.barrera@mercadolibre.com"
   ],
   "process_name": "component_ctr",
-  "cron": " ",
+  "cron": "00 04 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -14,6 +14,10 @@
         "name": "ds",
         "type": "DATE",
         "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "component",
+        "type": "UNICODE_STRING"
       },
       {
         "name": "device_type",
@@ -24,7 +28,19 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "component",
+        "name": "component_order",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "campaign",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "brand_name",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "category_id",
         "type": "UNICODE_STRING"
       },
       {
@@ -41,22 +57,22 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2018-02-07",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "2018-02-08",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param03",
-          "value": "2018-02-06",
+          "value": "DAY-2",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param04",
-          "value": "2018-02-07",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         }
       ]
