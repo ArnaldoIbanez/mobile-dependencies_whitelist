@@ -87,11 +87,11 @@ tracks {
 
 "/cart/my_cart/change_address"(platform: "/") {}
 
-"/cart/my_cart/add_cp"(platform: "/", isAbstract: true, parentPropertiesInherited: false) {}
+"/cart/my_cart/add_cp"(platform: "/", isAbstract: true, type: TrackType.View) {}
 
 "/cart/my_cart/my_addresses"(platform: "/", type: TrackType.Event){}
 
-"/cart/my_cart/confirm_cp"(platform: "/", type: TrackType.Event)
+"/cart/my_cart/confirm_cp"(platform: "/", type: TrackType.Event){}
 
 "/cart/my_cart/add_cp/confirm_cp"(platform: "/", type: TrackType.Event){}
 
