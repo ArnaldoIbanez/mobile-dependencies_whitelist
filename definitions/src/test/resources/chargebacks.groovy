@@ -270,7 +270,7 @@ trackTests {
             status_repayment = "CANCELLED"
         }
 
-        "/chargebacks/payer/click-form-link"(platform: "/", type: TrackType.Event) {
+        "/chargebacks/payer/click-form-link"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
             case_id = "987987987004"
             category_id = "MLA407408"
             item_id = "MLA673024191"
