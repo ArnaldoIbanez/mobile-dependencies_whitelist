@@ -570,6 +570,12 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
+    //Operators
+    "/collaborators/congrats"(platform: "/", type: TrackType.View) {}
+    "/collaborators/invite"(platform: "/", type: TrackType.View) {}
+    "/collaborators"(platform: "/", type: TrackType.View) {}
+    "/collaborators/roles/create"(platform: "/", type: TrackType.View) {}
+
     "/fund_account"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")

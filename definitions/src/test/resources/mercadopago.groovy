@@ -2888,6 +2888,14 @@ trackTests {
         "/my_business/cost_absorption"(platform: "/web"){}
     }
 
+    //Operators
+    test("Operatotors") {
+        "/collaborators"(platform: "/web", type: TrackType.View){}
+        "/collaborators/congrats"(platform: "/", type: TrackType.View) {}
+        "/collaborators/invite"(platform: "/", type: TrackType.View) {}
+        "/collaborators/roles/create"(platform: "/", type: TrackType.View) {}
+    }
+
     //MP listings
     test("Informes"){
         "/listings/movements"(platform: "/web", type: TrackType.View){}
