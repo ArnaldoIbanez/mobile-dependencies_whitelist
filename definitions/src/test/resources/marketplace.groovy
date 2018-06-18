@@ -821,14 +821,7 @@ trackTests {
             gender="male"
             link="https://www.mercadolibre.com.ar/link-de-tienda-oficial",
             name="Tienda Oficial"
-            context="landing"
-        }
-
-        "/apparel/home/official_store" (platform:"/", type: TrackType.Event) {
-            gender="male"
-            category_id="MLA123567"
-            item_id="MLA123456"
-            section="Publicaciones Destacadas"
+            context="home"
         }
 
         "/apparel/home/images" (platform:"/", type: TrackType.Event) {

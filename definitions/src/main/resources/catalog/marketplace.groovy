@@ -249,7 +249,7 @@ tracks {
     "/apparel/home/official_store"(platform: "/", type: TrackType.Event) {
         name(required: true, type: PropertyType.String),
         link(required: true, type: PropertyType.String),
-        context(required: true, type: PropertyType.String, values: ["landing", "stores"])
+        context(required: true, type: PropertyType.String, values: ["home", "stores"])
     }
 
     "/apparel/home/items"(platform: "/", type: TrackType.Event) {
