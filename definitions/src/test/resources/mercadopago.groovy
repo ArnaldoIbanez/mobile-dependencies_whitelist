@@ -2867,22 +2867,6 @@ trackTests {
             environment = "production"
         }
 
-        "/checkout_off/v1/finish/invalid_sec_code/input"(platform: "/web/mobile") {
-            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
-            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
-            collector_nickname = "collector nickname test"
-            client_id = "1321312"
-            environment = "production"
-        }
-
-        "/checkout_off/v1/finish/invalid_date/input"(platform: "/web/mobile") {
-            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
-            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
-            collector_nickname = "collector nickname test"
-            client_id = "1321312"
-            environment = "production"
-        }
-
         "/checkout_off/v1/congrats/in_process"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
             collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
