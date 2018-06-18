@@ -92,6 +92,7 @@ catalog {
         include business, "variations.groovy"
         include business, "vip.groovy"
         include business, "advertising.groovy"
+        include business, "classifieds_landings.groovy"
     }
     
     mercadopago.each { business ->

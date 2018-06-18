@@ -95,6 +95,7 @@ tracks {
                 description: "The value of the discount when the user subscribes to the item")
         default_tab(required: false, type: PropertyType.String, values: ["buy", "subscription"],
                 description: "Indicates if the 'buy' tab or the 'subscription' tab is shown by default in the short description")
+
     }
 
     "/vip"(platform: "/web") {
@@ -340,5 +341,13 @@ tracks {
         shipping_default(required: false)
         shipping_selected(required: true)
         shipping_available_opcion(required: true, type:PropertyType.ArrayList)
+    }
+
+    "/vip/landing_services"(platform: "/", type: TrackType.Event) {
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"],
+                description: "Vertical of the item")
     }
 }
