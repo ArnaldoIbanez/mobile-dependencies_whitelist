@@ -219,6 +219,10 @@ tracks {
         deal_id(required: false, type: PropertyType.String)
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 818b5a0332dc9596d241c28a91e51872b5907f6f
     // Apparel
     "/apparel/home"(platform: "/", isAbstract: true) {
         gender(required: true, type: PropertyType.String, values: ["male", "female", "boys", "girls", "none"])
