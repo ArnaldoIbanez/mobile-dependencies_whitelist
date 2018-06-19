@@ -403,4 +403,12 @@ trackTests {
         }
     
     }
+
+    test("VIP Web Classifieds services track click on link to landing_services") {
+        "/vip/landing_services"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLA213512313"
+            category_id = "MLA123"
+            vertical = "services"
+        }
+    }
 }

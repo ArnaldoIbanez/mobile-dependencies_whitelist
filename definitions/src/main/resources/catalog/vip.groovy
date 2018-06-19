@@ -343,11 +343,11 @@ tracks {
         shipping_available_opcion(required: true, type:PropertyType.ArrayList)
     }
 
-    "/vip/landing_services"(platform: "/", type: TrackType.Event) {
+    "/vip/landing_services"(platform: "/web", type: TrackType.Event) {
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         vertical(required: true, type: PropertyType.String,
-                values: ["core", "motors", "realEstate", "services"],
+                values: ["services"],
                 description: "Vertical of the item")
     }
 }
