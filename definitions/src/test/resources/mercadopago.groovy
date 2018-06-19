@@ -412,6 +412,14 @@ trackTests {
         "/listing/gateway" (platform: "/web") {}
     }
 
+    test("Mercadopago Activities Detail") {
+        "/activity/detail" (platform: "/web") {}
+    }
+
+    test("Mercadopago Activities Detail Shipping") {
+        "/activity/detail/shipping" (platform: "/web") {}
+    }
+
     test("MP-MA Landing QR") {
         "/merchant_acquisition/qr/landing" (platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/qr/landing/buyers"(platform: "/", type: TrackType.View){}
@@ -430,6 +438,7 @@ trackTests {
         "/merchant_acquisition/qr/qr-code/print"(platform:"/", type: TrackType.Event) {}
         "/merchant_acquisition/qr/qr-code/faqs"(platform:"/", type: TrackType.Event) {}
         "/merchant_acquisition/qr/qr-code/help"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/qr/qr-code/rates"(platform:"/", type: TrackType.Event) {}
     }
 
     test("Point Flow Congrats") {
@@ -437,16 +446,24 @@ trackTests {
     }
 
     test("Landing mercadopago point") {
-        "/point/home" (platform: "/") {
+        "/point/landings" (platform: "/") {
             product = "point-h"
             currency = "R\$"
             price = 401
-            in_installments = true
             discount = 0.16
             price_with_discount = 334.8
+            has_coupon = true
+            coupon_code = "Y96XA"
         }
-        "/point/home/buy"(platform:"/", type: TrackType.Event) {
-          product = "point"
+        "/point/landings/buy"(platform:"/", type: TrackType.Event) {
+            product = "bbpos"
+        }
+        // Landing MGM
+        "/point/landings" (platform: "/") {
+            product = "mgm"
+        }
+        "/point/landings/mgm"(platform:"/", type: TrackType.Event) {
+            type = "share"
         }
     }
 
@@ -2559,6 +2576,24 @@ trackTests {
             payment_status_detail = "accredited"
         }
 
+        "/checkout_off/v1/back_action"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+        }
+
+        "/checkout_off/v1/open_summary_detail"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+            installments = 3
+            has_discount = false
+        }
+
         //Views
         "/checkout_off/v1/login"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
@@ -2585,6 +2620,19 @@ trackTests {
         }
 
         "/checkout_off/v1/express"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+            payment_method = "visa"
+            payment_type = "credit_card"
+            purchase_amount = 500
+            card_id = "1234"
+            installments = 3
+        }
+
+        "/checkout_off/v1/discount_terms_conditions"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
             collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
             collector_nickname = "collector nickname test"
@@ -2659,6 +2707,14 @@ trackTests {
         }
 
         "/checkout_off/v1/additional_info/abitab"(platform: "/web/mobile") {
+            checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
+            collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
+            collector_nickname = "collector nickname test"
+            client_id = "1321312"
+            environment = "production"
+        }
+
+        "/checkout_off/v1/additional_info/pec"(platform: "/web/mobile") {
             checkout_flow_id = "cca9bcd2-421a-11e7-a919-92ebcb67fe33"
             collector_id = "d17ab7e8-421a-11e7-a919-92ebcb67fe33"
             collector_nickname = "collector nickname test"

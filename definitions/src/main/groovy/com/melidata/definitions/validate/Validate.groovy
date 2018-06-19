@@ -49,7 +49,7 @@ class Validate {
             println "File $filepath generated"
         } else {
             result.each { track ->
-                println "Track [$track.type, $track.business, $track.platform]: $track.event_data"
+                println "Track [Path:$track.path, Type:$track.type, Business:$track.business, Platform:$track.platform]: $track.event_data"
                 println "Status: ${track.status}"
                 println "Messages: ${track.message}"
                 println ""
