@@ -316,7 +316,7 @@ tracks {
 
     //:::: Create Invoice flow items
     "/myml/invoices/items"(platform: "/", isAbstract: true) {
-        error(required: false, type:  PropertyType.String, description: "Error message that pop to user after request")
+        error(required: false, description: "Error message that pop to user after request")
         errorValidation(required: false, type:  PropertyType.String, description: "Error message when value is invalid")
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
     }
@@ -429,6 +429,16 @@ tracks {
     
     "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
     "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/certificate/a1/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
+        error(required: true, description: "Error type when user uploads an A1 digital certificate")
+        message(required: true, description: "Description of error when user uploads an A1 digital certificate")
+        url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
+    }
+    
+
+
     "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
     "/myml/invoices/company-info/certificate/a3/handshake"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/certificate/a3/handshake/request"(platform: "/", type: TrackType.Event) {}
@@ -499,9 +509,7 @@ tracks {
     "/myml/invoices/order/buyer-info"(platform: "/") {}
     "/myml/invoices/order/buyer-info/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/order/buyer-info/save/request"(platform: "/", type: TrackType.Event) {
-      receiver_address(required: true, description: "Receiver adress info")   
-      billing_info(required: true, description: "User billing info")
-      order_id(required: true, description: "Order ID of the item")   
+        data(required: true, description: "Form values, receiver adress info, User billing info, order status")
     }
     "/myml/invoices/order/buyer-info/save/response"(platform: "/", type: TrackType.Event) {}
 
@@ -509,8 +517,7 @@ tracks {
     "/myml/invoices/order/carrier"(platform: "/") {}
     "/myml/invoices/order/carrier/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/order/carrier/save/request"(platform: "/", type: TrackType.Event) {
-      data(required: true, description: "Form values, buyer, transport company, quantiy and value that user inputs")   
-      order_id(required: true, description: "Order ID of the item")   
+      data(required: true, description: "Form values, buyer, transport company, quantiy and value that user inputs")      
     }
     "/myml/invoices/order/carrier/save/response"(platform: "/", type: TrackType.Event) {}
 }

@@ -139,6 +139,11 @@ trackTests {
         "/myml/invoices/company-info/certificate/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
         "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
+            error = "password"
+            message = "Password incorrect!"
+        }
         "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
         "/myml/invoices/company-info/certificate/a3/handshake/request"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a3/handshake/response"(platform: "/", type: TrackType.Event) {
@@ -199,15 +204,17 @@ trackTests {
     test("Order pages") {
         "/myml/invoices/order/buyer-info"(platform: "/") {}
         "/myml/invoices/order/buyer-info/save/request"(platform: "/", type: TrackType.Event) {
-             receiver_address = {
-                 isValid = true
-             }
-             billing_info = {
-                 stateRegistry = ""
-                 name = "Test"
-             }
-             order_id = 1709201434
-             url = "/invoices/order/1709201434"
+            data = {
+                receiver_address = {
+                    isValid = true
+                }
+                billing_info = {
+                    stateRegistry = ""
+                    name = "Test"
+                }
+                order_id = 1709201434
+            }
+            url = "/invoices/order/1709201434"
         }
         "/myml/invoices/order/buyer-info/save/response"(platform: "/", type: TrackType.Event) {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
@@ -221,11 +228,313 @@ trackTests {
                 saved_by_seller = true
                 paid_by = "recipient"
              }
-             order_id = 1709201434
              url = "/invoices/order/1709201434"
         }
         "/myml/invoices/order/carrier/save/response"(platform: "/", type: TrackType.Event) {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
     }
+
+
+    test("MyML Cart") {
+
+        def dataSet = {
+
+            seller = [
+                    [id: "208642594", nickname: "TESTEO_1", mercado_lider: "platinum", raputation_level: "5_green"],
+                    [id: "987398333", nickname: "TESTEO_2", mercado_lider: "gold", raputation_level: "4_green"]
+            ]
+
+            buyer = [
+                    [id: "208642594", nickname: "TESTEO_1", loyalty_level: "4"]
+            ]
+
+            CartContent = "Yes"
+            cart_content = "No"
+            purchase_status = "Paid"
+            PurchaseStatus = "Paid"
+
+        }
+
+        "/myml/sales/list"(platform: "/web", type: TrackType.Event) {}
+
+        "/myml/sales/vop"(platform: "/web", type: TrackType.Event) {}
+
+        "/myml/sales/status"(platform: "/web") {}
+
+        "/myml/sales/status/call_to_carrier"(platform: "/web") {}
+
+        "/myml/sales/status/pack_tutorial"(platform: "/web") {}
+
+        "/myml/sales/detail/pack_tutorial"(platform: "/web") {}
+
+        "/myml/sales/detail"(platform: "/web") {}
+
+        "/myml/sales/detail/refund_money"(platform: "/web") {}
+
+        "/myml/sales/detail/print_label"(platform: "/web") {}
+
+        "/myml/sales/order"(platform: "/web") {}
+
+        "/myml/sales/shipping_detail"(platform: "/web") {}
+
+        "/myml/sales/messages"(platform: "/web") {}
+
+        "/myml/sales/questions"(platform: "/web") {}
+
+        "/myml/sales/shipping" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
+        "/myml/sales/buyer"(platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
+        "/myml/sales/item"(platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
+        "/myml/purchases/list"(platform: "/web") {}
+
+        "/myml/purchases/list/returns_action"(platform: "/web", type: TrackType.Event) {
+            action = 'print_return_label'
+        }
+
+        "/myml/purchases/vop"(platform: "/web") {}
+
+        "/myml/purchases/vop/returns_action"(platform: "/web", type: TrackType.Event) {
+            action = 'print_return_label'
+        }
+
+        "/myml/purchases/detail"(platform: "/web") {}
+
+        "/myml/purchases/detail/delete_purchase"(platform: "/web") {}
+
+        "/myml/purchases/detail/what_do_if_i_pay"(platform: "/web") {}
+
+        "/myml/purchases/detail/call_to_carrier"(platform: "/web") {}
+
+        "/myml/purchases/print_label"(platform: "/web") {}
+
+        "/myml/purchases/print_label/show_stores_map"(platform: "/web") {}
+
+        "/myml/purchases/shipping_detail"(platform: "/web") {}
+
+        "/myml/purchases/shipping_detail/refund_details"(platform: "/web") {}
+
+        "/myml/purchases/messages"(platform: "/web") {}
+
+        "/myml/purchases/questions"(platform: "/web") {}
+
+        "/myml/purchases/canceled"(platform:"/") {}
+
+        "/myml/purchases/order"(platform:"/") {}
+
+        "/myml/purchases/detail/history"(platform:"/") {}
+
+        "/myml/purchases/status" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
+        "/myml/purchases/item" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
+        "/myml/purchases/seller" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
+        "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {
+            dataSet()
+        }
+
+        "/myml/loyal_discounts" (platform: "/", type: TrackType.View) {}
+        "/myml/loyal_discounts/add" (platform: "/web", type: TrackType.Event) {
+            item = {
+                id = 'MLA713079054'
+                price = '300'
+                original_price = '1000'
+                sale_terms = [
+                        {
+                            id = "LOYALTY_LEVEL_6"
+                            name = "Precio por nivel 6 de loyalty"
+                            value_id = null
+                            value_name = "25 ARS"
+                            value_struct = {
+                                number = 25
+                                unit = "ARS"
+                            }
+                        },
+                        {
+                            id = "LOYALTY_LEVEL_5"
+                            name = "Precio por nivel 5 de loyalty"
+                            value_id = null
+                            value_name = "25 ARS"
+                            value_struct = {
+                                number = 25
+                                unit = "ARS"
+                            }
+                        },
+                        {
+                            id = "LOYALTY_LEVEL_4"
+                            name = "Precio por nivel 4 de loyalty"
+                            value_id = null
+                            value_name = "25 ARS"
+                            value_struct = {
+                                number = 25
+                                unit = "ARS"
+                            }
+                        },
+                        {
+                            id = "LOYALTY_LEVEL_3"
+                            name = "Precio por nivel 3 de loyalty"
+                            value_id = null
+                            value_name = "25 ARS"
+                            value_struct = {
+                                number = 25
+                                unit = "ARS"
+                            }
+                        }
+                ]
+            }
+            percentage = 70
+            type = "LOW_LOYAL"
+        }
+        "/myml/loyal_discounts/delete" (platform: "/", type: TrackType.Event) {
+            item_id = 'MLA713079054'
+            type = "HIGH_LOYAL"
+        }
+
+
+    }
+
+
+    test("Myml listing active view"){
+        "/myml/listings"(platform: "/web"){
+            label = "active"
+        }
+        "/myml/bookmarks"(platform: "/web"){}
+        "/myml/questions"(platform: "/web"){}
+        "/myml/summary"(platform: "/web"){}
+    }
+
+    test("Myml My Data"){
+        "/myml/profile"(platform: "/mobile"){}
+        "/myml/profile/review_data"(platform: "/mobile"){}
+        "/myml/profile/complete_data"(platform: "/mobile"){}
+        "/myml/profile/update_form"(platform: "/mobile"){
+            has_inferred_data = true
+        }
+        "/myml/profile/update_success"(platform: "/mobile"){}
+        "/myml/profile/review_data/confirm"(platform: "/mobile"){}
+        "/myml/company_profile"(platform: "/mobile"){}
+        "/myml/fiscal_data_edit"(platform: "/mobile"){}
+    }
+
+    test("Myml Suggested Discounts"){
+        "/myml/suggested_discounts/landing"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/landing/about"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/landing/start"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/landing/back"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/landing/abandon"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/about"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/about/skip"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/about/start"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/about/abandon"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/about/back"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/select_discount"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/select_discount/apply"(platform: "/mobile"){
+            item_id = "MLA123456"
+            selected_discount = "1"
+        }
+        "/myml/suggested_discounts/review_discount"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/review_discount/confirm"(platform: "/mobile"){
+            item_id = "MLA123456"
+            selected_discount = "1"
+        }
+        "/myml/suggested_discounts/select_discount/back"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/review_discount/back"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/info"(platform: "/mobile"){
+            item_id = "MLA123456"
+            discount_status = "on_deal"
+        }
+        "/myml/suggested_discounts/info/exit"(platform: "/mobile"){
+            item_id = "MLA123456"
+            discount_status = "on_deal"
+            action = "vip"
+        }
+        "/myml/suggested_discounts/info/back"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/error"(platform: "/mobile"){item_id = "MLA123456"}
+        "/myml/suggested_discounts/error/back"(platform: "/mobile"){item_id = "MLA123456"}
+    }
+
+    test("Myml account balance") {
+        "/myml/account_balance"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/account_balance/withdraw"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+        "/myml/account_balance/send_money"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+        "/myml/account_balance/cellphone_recharge"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+        "/myml/account_balance/bill_payments"(platform: "/mobile", type: TrackType.Event) {
+            mp_installed = true
+        }
+        "/myml/account_balance/generic_error"(platform: "/mobile", type: TrackType.View) {
+            additional_info = {message="Escanear código QR"
+                icon="error"
+                description="Solo puedes pagar usando códigos de Mercado Pago"
+                message="¿Estas seguro que ese código es para pagar?"
+                actions=[{
+                             id="try_again"
+                             link="meli://mp/scan_qr"
+                             label="Intentar nuevamente"
+                             type="link"
+                         }]}
+        }
+        "/myml/account_balance/scan_qr"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("MyMl new reputation flow seller") {
+        "/myml/sales/detail/flow_selector"(platform: "/mobile", type: TrackType.View) {
+            flow_selected = "MPA and not ME"
+        }
+        "/myml/sales/detail/deliver_product"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/sales/detail/deliver_product#submit"(platform: "/mobile", type: TrackType.Event) {
+            action_label = "send_feedback"
+        }
+        "/myml/sales/detail/date_will_receive_product"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/sales/detail/deliver_product/action"(platform: "/mobile", type: TrackType.Event) {
+            action_label = "send_feedback"
+            order_id = "12344"
+            shipping_id = "1234"
+            success = false
+        }
+        "/myml/sales/detail/send_feedback"(platform: "/mobile", type: TrackType.Event) {
+            order_id = "1234"
+            success = true
+        }
+    }
+
+    test("MyMl new reputation flow buyer") {
+        "/myml/purchases/feedback/rating"(platform: "/mobile", type: TrackType.View) {}
+
+        "/myml/purchases/feedback/message"(platform: "/mobile", type: TrackType.View) {}
+
+        "/myml/purchases/feedback/congrats"(platform: "/mobile", type: TrackType.View) {}
+
+        "/myml/purchases/feedback/congrats#action"(platform: "/mobile", type: TrackType.Event) {
+            target = "meli://home"
+        }
+
+        "/myml/purchases/feedback/error"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Myml installation") {
+        "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/account_balance/install/go_to_store"(platform: "/mobile", type: TrackType.Event) {}
+    }
+
 }
