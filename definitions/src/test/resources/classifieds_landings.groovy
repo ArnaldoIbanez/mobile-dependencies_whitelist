@@ -5,12 +5,12 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
-    def defaultTrackInformation = {
-        category_id = "MLA123"
-        vertical = "services"
-    }
-    
     test("Classifieds landing_services tracks test") {
+        def defaultTrackInformation = {
+            category_id = "MLA123"
+            vertical = "services"
+        }
+
         "/classifieds/hirable/sellers"(platform: "/", type: TrackType.View) {
             defaultTrackInformation()
         }
