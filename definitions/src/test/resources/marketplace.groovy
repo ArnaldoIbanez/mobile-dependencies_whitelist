@@ -734,7 +734,9 @@ trackTests {
         def officialStoreEvent = {
             query = "abe"
         }
+
         "/official_stores/search/back"(platform:"/mobile", type: TrackType.Event, officialStoreEvent)
+
     }
 
 

@@ -43,7 +43,6 @@ tracks {
         //variation_id
     //quantity
     //unit_price
-    
 
 	free_shipping_benefit(required:false, type: PropertyType.Boolean)
     loyalty_level(required:false, type: PropertyType.Numeric)
@@ -85,8 +84,20 @@ tracks {
     item_info
 }
 
-"/cart/change_address"(platform: "/") {}
+"/cart/my_cart/confirm_address"(platform: "/", type:TrackType.Event){}
 
-"/cart/add_cp"(platform: "/") {}
+"/cart/my_cart/change_address"(platform: "/") {}
+
+"/cart/my_cart/add_cp"(platform: "/", isAbstract: true, type: TrackType.View) {}
+
+"/cart/my_cart/my_addresses"(platform: "/", type: TrackType.Event){}
+
+"/cart/my_cart/confirm_cp"(platform: "/", type: TrackType.Event){}
+
+"/cart/my_cart/add_cp/confirm_cp"(platform: "/", type: TrackType.Event){}
+
+"/cart/my_cart/add_cp/dont_know_cp"(platform: "/", type: TrackType.Event){}
+
+
 
 }
