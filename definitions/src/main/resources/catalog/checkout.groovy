@@ -100,14 +100,14 @@ tracks {
 
         shipping_pick_up_in_store(required:false, type: PropertyType.String, description: "If the item has puis available")
 
-        accountMoneyInfo(required:false, type: PropertyType.ArrayList, description: "Array with data of the account money of the buyer")
+        account_money_info(required:false, type: PropertyType.ArrayList, description: "Array with data of the account money of the buyer")
         //skipPassword
         //useAccountMoneyWithAnotherPM
         //availableAccountMoney
 
         available_subscription(required:false, description:"If the item is elegible for subscription")
 
-        loyaltyLevel(required:false, description:"The loyalty level of the buyer")
+        loyalty_level(required:false, description:"The loyalty level of the buyer")
 
     }
 
