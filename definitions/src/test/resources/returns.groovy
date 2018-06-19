@@ -49,7 +49,7 @@ trackTests {
         showed_payment_methods = "account_money"
         continue_button = true
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
-        order_delayed_by_seller = false
+        order_delayed_by_seller=false
       }
 
       // STEP 04
