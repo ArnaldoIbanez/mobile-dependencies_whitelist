@@ -347,24 +347,44 @@ trackTests {
 
     test("New Shipping calculator"){
 
-        "/vip/shipping/calculator/calculate"(platform: "/mobile/ios") {
+        def defaultTrackInformation = {
+            item_id = "MLA213512313"
+            category_id = "MLA123"
+            vertical = "core"
+        }
+
+        "/vip/shipping/calculator/calculate"(platform: "/") {
+            defaultTrackInformation()
             cp_autocomplete = "yes"
         }
 
-        "/vip/shipping/calculator/i_dont_know_my_code"(platform: "/mobile/ios") {
+        "/vip/shipping/calculator/i_dont_know_my_code"(platform: "/") {
+            defaultTrackInformation()
         }
 
-        "/vip/shipping/calculator/calculate_error"(platform: "/mobile/ios") {
+        "/vip/shipping/calculator/calculate_error"(platform: "/") {
+            defaultTrackInformation()
             error_type = "error code"
         }
 
-        "/vip/shipping/calculator/agencies/show_agencies_map_for_pickup"(platform: "/mobile/ios") {
+        "/vip/shipping/calculator/agencies/show_agencies_map_for_pickup"(platform: "/") {
+            defaultTrackInformation()
         }
 
-        "/vip/shipping/calculator/choose_state"(platform: "/mobile/ios") {
+        "/vip/shipping/calculator/choose_state"(platform: "/") {
+            defaultTrackInformation()
         }
 
-        "/vip/shipping/calculator/choose_city"(platform: "/mobile/ios") {
+        "/vip/shipping/calculator/choose_city"(platform: "/") {
+            defaultTrackInformation()
+        }
+
+        "/vip/shipping/calculator/preloaded"(platform: "/web/mobile"){
+            defaultTrackInformation()
+        }
+
+        "/vip/shipping/calculator/shipping_options"(platform: "/web/mobile"){
+            defaultTrackInformation()
         }
 
         def defaultShipping = [
@@ -396,7 +416,7 @@ trackTests {
         recommend : false
         ]
 
-        "/vip/shipping/calculator/go_to_vip"(platform: "/mobile/ios") {
+        "/vip/shipping/calculator/go_to_vip"(platform: "/") {
             item_id = "MLA123"
             item_selected_quantity = 1
             item_shipping_quantity = 1
