@@ -9,6 +9,7 @@ catalog {
     /**
      * All available platform
      */
+    
     platforms = [
             "/",
             "/web",
