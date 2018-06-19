@@ -308,6 +308,10 @@ tracks {
                 description: "Vertical of the item")
     }
 
+    "/vip/shipping/calculator/preloaded"(platform: "/web/mobile", type: TrackType.View){}
+
+    "/vip/shipping/calculator/shipping_options"(platform: "/web/mobile", type: TrackType.View){}
+
     "/vip/shipping/calculator/calculate"(platform: "/", type: TrackType.Event) {
         cp_autocomplete(required: true, type: PropertyType.String,
                 values: ["yes", "no"],
@@ -350,4 +354,5 @@ tracks {
                 values: ["services"],
                 description: "Vertical of the item")
     }
+    "/vip/free_shipping_cart_available"(platform: "/web", type: TrackType.Event){}
 }
