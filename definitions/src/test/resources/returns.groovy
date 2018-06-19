@@ -28,6 +28,7 @@ trackTests {
       "/return/conditions"(platform: "/") {
         action = "selection"
         selection = "accepted"
+        order_delayed_by_seller = false
       }
 
       // STEP 03

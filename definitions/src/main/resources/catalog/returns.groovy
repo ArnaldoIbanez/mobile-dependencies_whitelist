@@ -34,6 +34,7 @@ tracks {
     "/return/conditions"(platform: "/", type: TrackType.Event) {
         action(required: false, values:['selection'], type: PropertyType.String, description: 'action of the event')
         selection(required: false, values:['accepted', 'rejected'], type: PropertyType.String, description: 'selected option button')
+        order_delayed_by_seller(required: false, type: PropertyType.Boolean, description: 'order delayed by seller')
     }
 
     // STEP 03
