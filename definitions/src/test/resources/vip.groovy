@@ -435,6 +435,13 @@ trackTests {
             item_id = "MLA213512313"
             category_id = "MLA123"
             vertical = "services"
+            buying_mode = "classified"
+            category_path = ["MLA1234","MLA6789"]
+            item_condition = "new"
+            listing_type_id = "gold_special"
+            item_status = "active"
+            deal_ids = []
+            seller_id = 123456789
         }
     }
 }
