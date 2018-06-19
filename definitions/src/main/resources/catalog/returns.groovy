@@ -41,7 +41,7 @@ tracks {
     "/return/payments"(platform: "/", type: TrackType.View) { }
     "/return/payments"(platform: "/", type: TrackType.Event) {
       payment(required: false, type: PropertyType.String, description: 'origin of payment')
-      continueButton(required: false, type: PropertyType.Boolean, description: 'origin from the continue button')
+      continue_button(required: false, type: PropertyType.Boolean, description: 'origin from the continue button')
     }
 
     // STEP 04
@@ -62,7 +62,7 @@ tracks {
     // STEP 05.c
     "/return/review"(platform: "/", type: TrackType.View) { }
     "/return/review"(platform: "/", type: TrackType.Event) {
-      continueButton(required: false, type: PropertyType.Boolean, description: 'origin from the continue button')
+      continue_button(required: false, type: PropertyType.Boolean, description: 'origin from the continue button')
       type(required: false, type: PropertyType.String, description: 'generate return label')
     }
 
