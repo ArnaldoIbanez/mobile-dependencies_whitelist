@@ -1,4 +1,5 @@
-# Melidata Catalog
+
+# Melidata Catalog
 
 This repository contains all the definitions for the information tracked in *melidata* platform. The catalog serves as a central repository to governate our data, know what are we tracking and how.
 
