@@ -3,6 +3,9 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
+    "/classifieds"(platform: "/", isAbstract: true) {}
+    "/classifieds/hirable"(platform: "/", isAbstract: true) {}
+
     "/classifieds/hirable/sellers"(platform: "/", type: TrackType.View) {
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         vertical(required: true, type: PropertyType.String,
@@ -16,6 +19,7 @@ tracks {
                 description: "Vertical of the item")
     }
 
+    "/classifieds/contract"(platform: "/", isAbstract: true) {}
     "/classifieds/contract/sellers"(platform: "/", type: TrackType.View) {
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         vertical(required: true, type: PropertyType.String,
