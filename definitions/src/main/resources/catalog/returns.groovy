@@ -21,6 +21,7 @@ tracks {
       showed_payment_methods(required: false, type: PropertyType.String, description: 'origin of the payment method')
       order_id(required: false, type: PropertyType.Numeric, description: 'order identifier')
       category_path(required: false, type: PropertyType.ArrayList, description: 'list of categories')
+      order_delayed_by_seller(required: false, type: PropertyType.Boolean, description: 'order delayed by seller')
     }
 
     // STEP 01
