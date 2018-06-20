@@ -107,14 +107,12 @@ tracks {
 
     "/home/category/apparel/category"(platform: "/", type: TrackType.Event) {
         category_id(required: true, type: PropertyType.String)
-        name(required: true)
         link(required: true, type: PropertyType.String)
     }
 
     "/home/category/apparel/more_categories"(platform: "/", type: TrackType.Event) {}
 
     "/home/category/apparel/official_store"(platform: "/", type: TrackType.Event) {
-        name(required: true)
         link(required: true, type: PropertyType.String)
         context(required: true, type: PropertyType.String, values: ["home", "stores"])
     }
