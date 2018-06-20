@@ -90,4 +90,43 @@ tracks {
 
     "/home/navigation"(platform: "/web", type: TrackType.View) {}
 
+    // Apparel
+    "/home/category/apparel"(platform: "/", isAbstract: true) {
+        gender(required: true, type: PropertyType.String, values: ["male", "female", "boys", "girls", "none"])
+    }
+
+    "/home/category/apparel"(platform: "/", type: TrackType.View) {}
+    "/home/category/apparel/stores"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/apparel/tabs"(platform: "/", type: TrackType.Event) {}
+
+    "/home/category/apparel/slider"(platform: "/", type: TrackType.Event) {
+        link(required: true, type: PropertyType.String)
+        title(type: PropertyType.String)
+    }
+
+    "/home/category/apparel/category"(platform: "/", type: TrackType.Event) {
+        category_id(required: true, type: PropertyType.String)
+        name(required: true)
+        link(required: true, type: PropertyType.String)
+    }
+
+    "/home/category/apparel/more_categories"(platform: "/", type: TrackType.Event) {}
+
+    "/home/category/apparel/official_store"(platform: "/", type: TrackType.Event) {
+        name(required: true)
+        link(required: true, type: PropertyType.String)
+        context(required: true, type: PropertyType.String, values: ["home", "stores"])
+    }
+
+    "/home/category/apparel/items"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String)
+        section(required: true, type: PropertyType.String)
+    }
+
+    "/home/category/apparel/images"(platform: "/", type: TrackType.Event) {
+        image(required: true, type: PropertyType.String)
+        link(required: true, type: PropertyType.String)
+    }
+
 }  

@@ -788,47 +788,47 @@ trackTests {
     }
 
     test("apparel") {
-        "/apparel/home" (platform:"/", type: TrackType.View) {
+        "/home/category/apparel" (platform:"/", type: TrackType.View) {
             gender="male"
         }
 
-        "/apparel/home/stores" (platform:"/", type: TrackType.View) {
+        "/home/category/apparel/stores" (platform:"/", type: TrackType.View) {
             gender="male"
         }
 
-        "/apparel/home/tabs" (platform:"/", type: TrackType.Event) {
+        "/home/category/apparel/tabs" (platform:"/", type: TrackType.Event) {
             gender="male"
         }
 
-        "/apparel/home/slider" (platform:"/", type: TrackType.Event) {
+        "/home/category/apparel/slider" (platform:"/", type: TrackType.Event) {
             gender="male"
             link="https://www.mercadolibre.com.mx/exhibitor-link"
             title="Campaña"
         }
 
-        "/apparel/home/category" (platform:"/", type: TrackType.Event) {
+        "/home/category/apparel/category" (platform:"/", type: TrackType.Event) {
             gender="male"
             category_id="MLA123567"
             link="https://www.mercadolibre.com.ar/link-de-categoría"
         }
 
-        "/apparel/home/items" (platform:"/", type: TrackType.Event) {
+        "/home/category/apparel/items" (platform:"/", type: TrackType.Event) {
             gender="male"
             item_id="MLA123567"
             section="Publicaciones destacadas"
         }
 
-        "/apparel/home/more_categories" (platform:"/", type: TrackType.Event) {
+        "/home/category/apparel/more_categories" (platform:"/", type: TrackType.Event) {
             gender="male"
         }
 
-        "/apparel/home/official_store" (platform:"/", type: TrackType.Event) {
+        "/home/category/apparel/official_store" (platform:"/", type: TrackType.Event) {
             gender="male"
             link="https://www.mercadolibre.com.ar/link-de-tienda-oficial"
             context="home"
         }
 
-        "/apparel/home/images" (platform:"/", type: TrackType.Event) {
+        "/home/category/apparel/images" (platform:"/", type: TrackType.Event) {
             gender="male"
             link="https://www.mercadolibre.com.ar/link-de-tienda-oficial"
             image="Tienda Oficial"
