@@ -22,12 +22,14 @@ trackTests {
         refund_account_money=false
         order_id=1920434799
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
+        order_delayed_by_seller = false
       }
 
       // STEP 02
       "/return/conditions"(platform: "/") {
         action = "selection"
         selection = "accepted"
+        order_delayed_by_seller = false
       }
 
       // STEP 03
@@ -47,6 +49,7 @@ trackTests {
         showed_payment_methods = "account_money"
         continue_button = true
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
+        order_delayed_by_seller = false
       }
 
       // STEP 04
@@ -63,6 +66,7 @@ trackTests {
         item_category_l1 = "MLB1051"
         refund_account_money=false
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
+        order_delayed_by_seller = false
       }
 
       // STEP 05.a
@@ -79,6 +83,7 @@ trackTests {
         item_category_l1 = "MLB1051"
         refund_account_money=false
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
+        order_delayed_by_seller = false
       }
 
       // STEP 05.b
@@ -97,6 +102,7 @@ trackTests {
         showed_payment_methods = "account_money"
         seller_scoring = "low"
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
+        order_delayed_by_seller = false
       }
 
       // STEP 06
@@ -118,6 +124,7 @@ trackTests {
         item_category_l1 = "MLB1051"
         refund_account_money=false
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
+        order_delayed_by_seller = false
       }
 
       // STEP 06.cta.a
