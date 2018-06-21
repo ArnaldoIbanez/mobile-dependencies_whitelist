@@ -29,23 +29,20 @@
         },
         "columns": [
           {
-            "name": "referrer",
+            "name": "business",
             "type": "UNICODE_STRING"
           },
           {
-            "name": "url",
+            "name": "site",
             "type": "UNICODE_STRING"
           },
           {
-            "name": "banner_name",
+            "name": "platform",
             "type": "UNICODE_STRING"
           },
+         
           {
-            "name": "deal_id",
-            "type": "UNICODE_STRING"
-          },
-          {
-            "name": "qty",
+            "name": "total",
             "type": "INTEGER"
           }
         ]
