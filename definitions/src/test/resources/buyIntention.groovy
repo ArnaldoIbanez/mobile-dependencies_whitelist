@@ -12,7 +12,6 @@ trackTests {
     test("Buy intention event tests"){
 
         def buyIntentionDataSet = {
-            buy_equal_pay = true
             total_amount=2000
 
             seller = [
