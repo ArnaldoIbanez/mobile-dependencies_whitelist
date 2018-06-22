@@ -16,25 +16,25 @@ tracks {
     "/cobranded/acquisition/landing"(platform: "/", type: TrackType.View){}
 
     // Acquisition Flow
-    "/cobranded/acquisition/maininfo"(platform: "/", type: TrackType.View){}
-    "/cobranded/acquisition/scoreinfo"(platform: "/", type: TrackType.View){}
-    "/cobranded/acquisition/additionalinfo"(platform: "/", type: TrackType.View){}
-    "/cobranded/acquisition/deliverymodeselectio"(platform: "/", type: TrackType.View){}
-    "/cobranded/acquisition/deliveryinfo"(platform: "/", type: TrackType.View){}
-    "/cobranded/acquisition/deliverybranchinfo"(platform: "/", type: TrackType.View){}
-    "/cobranded/acquisition/approvedpremium"(platform: "/", type: TrackType.View){}
-    "/cobranded/acquisition/premiumdetails"(platform: "/", type: TrackType.View){}
-    "/cobranded/acquisition/confirmedpremium"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/main_info"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/score_info"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/additional_info"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/delivery_mode_selection"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/delivery_info"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/delivery_branch_info"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/approved_premium"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/premium_details"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/confirmed_premium"(platform: "/", type: TrackType.View){}
     "/cobranded/acquisition/approved"(platform: "/", type: TrackType.View){}
     
     // Acquisition Error
     "/cobranded/acquisition/error"(platform: "/", type: TrackType.View){}
-    "/cobranded/acquisition/errornojs"(platform: "/", type: TrackType.View){}
-    "/cobranded/acquisition/notallowedaction"(platform: "/", type: TrackType.View){}
-    "/cobranded/acquisition/premiumtimeout"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/error_no_js"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/not_allowed_action"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/premium_timeout"(platform: "/", type: TrackType.View){}
 
     // Old Pages
-    "/cobranded/acquisition/masterinfo"(platform: "/", type: TrackType.View){}
-    "/cobranded/acquisition/masterrejected"(platform: "/", type: TrackType.View){}
-    "/cobranded/acquisition/readyapplicant"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/master_info"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/master_rejected"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/ready_applicant"(platform: "/", type: TrackType.View){}
 }
