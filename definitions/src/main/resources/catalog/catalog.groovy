@@ -113,6 +113,7 @@ catalog {
 
     mercadoenvios.each { business ->
         include business, "flex.groovy"
+        include business, "wms.groovy"
     }
 
 }

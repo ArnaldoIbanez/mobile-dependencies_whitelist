@@ -6,6 +6,8 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
+	defaultBusiness = "mercadoenvios"
+	
     def trackData = {
         warehouse_id = "BRWT01"
         email = "email@mercadolibre.com.ar"
@@ -15,7 +17,7 @@ trackTests {
         feedback_type = "WARNING"
     }
 
-    test("wms app") {
+    test("WMS App") {
 
         //Views
         "/wms/login"(platform: "/mobile/android") {

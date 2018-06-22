@@ -4,7 +4,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    "/wms"(platform: "/mobile/android", isAbstract: true) {
+    "/wms"(platform: "/mobile/android", type: TrackType.View, isAbstract: true) {
         warehouse_id(required: false, type: PropertyType.String,
         	description: "Id of the warehouse to track")
         email(required: false, type: PropertyType.String)
