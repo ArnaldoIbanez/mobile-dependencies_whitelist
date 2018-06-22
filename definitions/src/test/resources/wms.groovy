@@ -7,8 +7,7 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 trackTests {
 
     def trackData = {
-        warehouse_id = "BRWT01"
-        user_id = "12345"
+        warehouse_id = "BRWT01",
         email = "email@mercadolibre.com.ar",
         first_name = "Some first name",
         last_name = "Some last name",

@@ -7,7 +7,6 @@ tracks {
     "/wms"(platform: "/mobile/android", isAbstract: true) {
         warehouse_id(required: false, type: PropertyType.String,
         	description: "Id of the warehouse to track")
-        user_id(required: false, type: PropertyType.String)
         email(required: false, type: PropertyType.String)
         first_name(required: false, type: PropertyType.String)
         last_name(required: false, type: PropertyType.String)
