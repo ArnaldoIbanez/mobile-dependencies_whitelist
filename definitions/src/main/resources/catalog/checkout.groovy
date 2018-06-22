@@ -972,6 +972,7 @@ tracks {
     "/checkout/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
 
     "/checkout/loading"(platform: "/", type: TrackType.View) {}
+    "/checkout/loading/error"(platform: "/", type: TrackType.View) {}
     "/checkout/shipping/edit_address"(platform:"/", type: TrackType.Event) {}
     "/checkout/shipping/input_zipcode"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/", type: TrackType.Event) {}
