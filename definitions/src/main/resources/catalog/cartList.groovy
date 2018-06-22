@@ -46,10 +46,12 @@ tracks {
 
 	free_shipping_benefit(required:false, type: PropertyType.Boolean)
     loyalty_level(required:false, type: PropertyType.Numeric)
-    is_empty(required:false, type: PropertyType.Boolean)
+    is_empty(required:false, type: PropertyType.String)
 }
 
-"/cart/my_cart"(platform: "/") {}
+"/cart/my_cart"(platform: "/") {
+    resolution(required:false, type: PropertyType.String)
+}
 
 "/cart/my_cart/save_for_later"(platform: "/", type: TrackType.Event) {
     item_info
