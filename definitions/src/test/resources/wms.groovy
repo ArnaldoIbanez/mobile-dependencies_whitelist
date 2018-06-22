@@ -19,6 +19,12 @@ trackTests {
     test("wms app") {
 
         //Views
+        "/wms/login"(platform: "/mobile/android", type: TrackType.View) {
+        	trackData()
+        }
+		"/wms/home"(platform: "/mobile/android", type: TrackType.View) {
+			trackData()
+		}
         "/wms/receiving"(platform: "/mobile/android", type: TrackType.View) {
         	trackData()
         }
