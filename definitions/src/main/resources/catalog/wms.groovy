@@ -11,10 +11,14 @@ tracks {
         email(required: false, type: PropertyType.String)
         first_name(required: false, type: PropertyType.String)
         last_name(required: false, type: PropertyType.String)
-        error_type(values: ["SERVER", "NETWORK", "ZRP", "TIMEOUT"],
+        error_type(
+        	required: false,
+        	values: ["SERVER", "NETWORK", "ZRP", "TIMEOUT"],
         	type: PropertyType.String,
             description: "Type of error event")
-        feedback_type(values: ["SUCCESS", "ERROR", "WARNING", "LOCKED"],
+        feedback_type(
+        	required: false,
+        	values: ["SUCCESS", "ERROR", "WARNING", "LOCKED"],
         	type: PropertyType.String,
             description: "Type of feedback event")
     }
