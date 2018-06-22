@@ -19,28 +19,28 @@ trackTests {
     test("wms app") {
 
         //Views
-        "/wms/receiving"(platform: "/mobile", type: TrackType.View) {
+        "/wms/receiving"(platform: "/mobile/android", type: TrackType.View) {
         	trackData()
         }
-		"/wms/put_away"(platform: "/mobile", type: TrackType.View) {
+		"/wms/put_away"(platform: "/mobile/android", type: TrackType.View) {
 			trackData()
 		}
-		"/wms/inbound_audit"(platform: "/mobile", type: TrackType.View) {
+		"/wms/inbound_audit"(platform: "/mobile/android", type: TrackType.View) {
 			trackData()
 		}
-		"/wms/transfer"(platform: "/mobile", type: TrackType.View) {
+		"/wms/transfer"(platform: "/mobile/android", type: TrackType.View) {
 			trackData()
 		}
-		"/wms/found"(platform: "/mobile", type: TrackType.View) {
+		"/wms/found"(platform: "/mobile/android", type: TrackType.View) {
 			trackData()
 		}
-		"/wms/restock"(platform: "/mobile", type: TrackType.View) {
+		"/wms/restock"(platform: "/mobile/android", type: TrackType.View) {
 			trackData()
 		}
-		"/wms/picking"(platform: "/mobile", type: TrackType.View) {
+		"/wms/picking"(platform: "/mobile/android", type: TrackType.View) {
 			trackData()
 		}
-		"/wms/return"(platform: "/mobile", type: TrackType.View) {
+		"/wms/return"(platform: "/mobile/android", type: TrackType.View) {
 			trackData()
 		}
 
