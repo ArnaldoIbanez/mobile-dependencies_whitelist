@@ -26,7 +26,7 @@
       },
       {
         "name": "is_custom_name",
-        "type": "BOOLEAN"
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {

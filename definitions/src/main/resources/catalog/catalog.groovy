@@ -9,6 +9,7 @@ catalog {
     /**
      * All available platform
      */
+    
     platforms = [
             "/",
             "/web",
@@ -39,18 +40,23 @@ catalog {
 
     def mercadoshops = ["mercadoshops"]
 
+    def mercadoenvios = ["mercadoenvios"]
+
     def all = marketplace + mercadopago
 
     all.each { business ->
         include business, "authentication.groovy"
+        include business, "bugsnag.groovy"
         include business, "identity_validation.groovy"
         include business, "melidata_sdk.groovy"
         include business, "registrations.groovy"
         include business, "fiscaldata.groovy"
         include business, "chargebacks.groovy"
+        include business, "freeData.groovy"
     }
 
     marketplace.each { business ->
+        include business, "add_to_cart.groovy"
         include business, "bookmarks.groovy"
         include business, "buyIntention.groovy"
         include business, "cartCheckout.groovy"
@@ -58,7 +64,8 @@ catalog {
         include business, "cellphone_recharge.groovy"
         include business, "checkout.groovy"
         include business, "credits_marketplace.groovy"
-        include business, "denounce.groovy"
+        include business, "cx.groovy"
+        include business, "moderations.groovy"
         include business, "email.groovy"
         include business, "freeData.groovy"
         include business, "fulfillment.groovy"
@@ -68,6 +75,7 @@ catalog {
         include business, "marketplace.groovy"
         include business, "mediations.groovy"
         include business, "melidata_sdk.groovy"
+        include business, "mobile.groovy"
         include business, "myml.groovy"
         include business, "notifications.groovy"
         include business, "onboarding.groovy"
@@ -82,8 +90,10 @@ catalog {
         include business, "sell.groovy"
         include business, "structuredData.groovy"
         include business, "subscriptions.groovy"
+        include business, "variations.groovy"
         include business, "vip.groovy"
         include business, "advertising.groovy"
+        include business, "classifieds_landings.groovy"
     }
     
     mercadopago.each { business ->
@@ -99,6 +109,10 @@ catalog {
     mercadoshops.each { business ->
         include business, "authentication.groovy"
         include business, "notifications.groovy"
+    }
+
+    mercadoenvios.each { business ->
+        include business, "flex.groovy"
     }
 
 }

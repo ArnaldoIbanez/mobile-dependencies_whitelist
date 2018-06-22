@@ -59,12 +59,16 @@ tracks {
 
     "/listing/gateway"(platform: "/web"){}
 
+    // MP details
+    "/activity"(platform: "/web", isAbstract: true){}
+    "/activity/detail"(platform: "/web"){}
+    "/activity/detail/shipping"(platform: "/web"){}
+
     "/point"(platform: "/", isAbstract: true) {}
 
     // Merchant Acquisition
     "/merchant_acquisition"(platform: "/", isAbstract: true) {}
     "/merchant_acquisition/qr"(platform: "/", isAbstract: true) {}
-    "/merchant_acquisition/qr/onboarding"(platform: "/", isAbstract: true) {}
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
@@ -87,6 +91,7 @@ tracks {
     "/merchant_acquisition/qr/qr-code/print"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/qr/qr-code/faqs"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/qr/qr-code/help"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/qr/qr-code/rates"(platform:"/", type: TrackType.Event) {}
 
     // MMC Flow > PageViews
     "/merchant_acquisition/mcc"(platform: "/", isAbstract: true) {}
@@ -95,7 +100,7 @@ tracks {
 
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
-        product (type: PropertyType.String, description: "Name of device, example: 'point-h'")
+        product (type: PropertyType.String, required: false, description: "Name of device, example: 'point-h'")
         currency (type: PropertyType.String, required: false, description: "Currency")
         price (type: PropertyType.Numeric, required: false, description: "Price of device")
         has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
@@ -104,6 +109,11 @@ tracks {
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
     }
     "/point/landings/buy"(platform:"/", type: TrackType.Event) {}
+
+    // Merchant Acquisition Point Landings: MGM
+    "/point/landings/mgm"(platform:"/", type: TrackType.Event) {
+      type (type: PropertyType.String, description: "Click event type, possible values: share || ios || android")
+    }
 
     // Point Flows
     "/point/flows"(platform: "/", isAbstract: true) {}
@@ -763,21 +773,6 @@ tracks {
 
     "/free_navigation/wifi"(platform:"/mobile", type:TrackType.Event) {}
 
-    "/mobile" (platform: "/mobile", isAbstract: true){}
-    "/mobile/bugsnag"(platform: "/mobile", type: TrackType.Event) {
-        error_type               (required:false, type: PropertyType.String, description: "Track of Bugsnag error: error type")
-        error_context            (required:true,  type: PropertyType.String, description: "Bugsnag context, the best important field on Canejo")
-        error_severity           (required:false, type: PropertyType.String, description: "error or warning or info")
-        url_error                (required:false, type: PropertyType.String, description: "url error")
-        error_mach_exception_name(required:false, type: PropertyType.String, description: "error mach exception name")
-        error_address            (required:false, type: PropertyType.String, description: "error address")
-        error_message            (required:false, type: PropertyType.String, description: "error message")
-        error_Id                 (required:false, type: PropertyType.String, description: "error id")
-        error_timestamp          (required:false, type: PropertyType.String, description: "error timestamp")
-        error_exception_class    (required:false, type: PropertyType.String, description: "error exception class")
-        release_stage            (required:false, type: PropertyType.String, description: "error stage, eg. production")
-        error_signal_name        (required:false, type: PropertyType.String, description: "error signal name")
-        error_nsexception        (required:false, type: PropertyType.String, description: "error nsException")
-    }
+
 
 }
