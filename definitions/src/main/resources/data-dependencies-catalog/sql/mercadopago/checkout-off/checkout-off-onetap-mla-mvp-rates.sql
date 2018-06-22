@@ -4,7 +4,7 @@ SELECT COUNT
              device.platform,
              jest
   (event_data, 'environment') AS environment,
-             application.version
+             application.version, substr(ds, 1, 10) as ds_date
 FROM default.tracks
 WHERE path = '/checkout_off/v1/express'
   AND ds >= '@param01'
@@ -14,7 +14,7 @@ WHERE path = '/checkout_off/v1/express'
 GROUP BY jest
   (event_data, 'environment'),
          device.platform,
-         application.version
+         application.version, substr(ds, 1, 10)
 UNION ALL
 SELECT COUNT
   () AS total,
@@ -22,7 +22,7 @@ SELECT COUNT
              device.platform,
              jest
   (event_data, 'environment') AS environment,
-             application.version
+             application.version, substr(ds, 1, 10) as ds_date
 FROM default.tracks
 WHERE path = '/checkout_off/v1/express'
   AND ds >= '@param01'
@@ -42,7 +42,7 @@ WHERE path = '/checkout_off/v1/express'
 GROUP BY jest
   (event_data, 'environment'),
          device.platform,
-         application.version
+         application.version, substr(ds, 1, 10)
 UNION ALL
 SELECT COUNT
   () AS total,
@@ -50,7 +50,7 @@ SELECT COUNT
              device.platform,
              jest
   (event_data, 'environment') AS environment,
-             application.version
+             application.version, substr(ds, 1, 10) as ds_date
 FROM default.tracks
 WHERE path = '/checkout_off/v1/express'
   AND ds >= '@param01'
@@ -70,7 +70,7 @@ WHERE path = '/checkout_off/v1/express'
 GROUP BY jest
   (event_data, 'environment'),
          device.platform,
-         application.version
+         application.version, substr(ds, 1, 10)
 UNION ALL
 SELECT COUNT
   () AS total,
@@ -78,7 +78,7 @@ SELECT COUNT
              device.platform,
              jest
   (event_data, 'environment') AS environment,
-             application.version
+             application.version, substr(ds, 1, 10) as ds_date
 FROM default.tracks
 WHERE path = '/checkout_off/v1/express'
   AND ds >= '@param01'
@@ -100,7 +100,7 @@ WHERE path = '/checkout_off/v1/express'
 GROUP BY jest
   (event_data, 'environment'),
          device.platform,
-         application.version
+         application.version, substr(ds, 1, 10)
 UNION ALL
 SELECT COUNT
   () AS total,
@@ -108,7 +108,7 @@ SELECT COUNT
              device.platform,
              jest
   (event_data, 'environment') AS environment,
-             application.version
+             application.version, substr(ds, 1, 10) as ds_date
 FROM default.tracks
 WHERE path = '/checkout_off/v1/express'
   AND ds >= '@param01'
@@ -128,4 +128,4 @@ WHERE path = '/checkout_off/v1/express'
 GROUP BY jest
   (event_data, 'environment'),
          device.platform,
-         application.version
+         application.version, substr(ds, 1, 10)
