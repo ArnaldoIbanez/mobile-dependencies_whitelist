@@ -19,34 +19,34 @@ trackTests {
     test("wms app") {
 
         //Views
-        "/wms/login"(platform: "/mobile/android", type: TrackType.View) {
+        "/wms/login"(platform: "/mobile/android") {
         	trackData()
         }
-		"/wms/home"(platform: "/mobile/android", type: TrackType.View) {
+		"/wms/home"(platform: "/mobile/android") {
 			trackData()
 		}
-        "/wms/receiving"(platform: "/mobile/android", type: TrackType.View) {
+        "/wms/receiving"(platform: "/mobile/android") {
         	trackData()
         }
-		"/wms/put_away"(platform: "/mobile/android", type: TrackType.View) {
+		"/wms/put_away"(platform: "/mobile/android") {
 			trackData()
 		}
-		"/wms/inbound_audit"(platform: "/mobile/android", type: TrackType.View) {
+		"/wms/inbound_audit"(platform: "/mobile/android") {
 			trackData()
 		}
-		"/wms/transfer"(platform: "/mobile/android", type: TrackType.View) {
+		"/wms/transfer"(platform: "/mobile/android") {
 			trackData()
 		}
-		"/wms/found"(platform: "/mobile/android", type: TrackType.View) {
+		"/wms/found"(platform: "/mobile/android") {
 			trackData()
 		}
-		"/wms/restock"(platform: "/mobile/android", type: TrackType.View) {
+		"/wms/restock"(platform: "/mobile/android") {
 			trackData()
 		}
-		"/wms/picking"(platform: "/mobile/android", type: TrackType.View) {
+		"/wms/picking"(platform: "/mobile/android") {
 			trackData()
 		}
-		"/wms/return"(platform: "/mobile/android", type: TrackType.View) {
+		"/wms/return"(platform: "/mobile/android") {
 			trackData()
 		}
 
