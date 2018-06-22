@@ -432,6 +432,11 @@ trackTests {
         "/merchant_acquisition/qr/qr-code/help"(platform:"/", type: TrackType.Event) {}
     }
 
+    test("MP-MA Flow MCC") {
+        "/merchant_acquisition/mcc/edit"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/mcc/success"(platform:"/", type: TrackType.View) {}
+    }
+
     test("Point Flow Congrats") {
         "/point/flows/congrats"(platform:"/", type: TrackType.View) {}
     }

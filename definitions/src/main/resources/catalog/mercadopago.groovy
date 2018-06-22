@@ -88,13 +88,18 @@ tracks {
     "/merchant_acquisition/qr/qr-code/faqs"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/qr/qr-code/help"(platform:"/", type: TrackType.Event) {}
 
+    // MMC Flow > PageViews
+    "/merchant_acquisition/mcc"(platform: "/", isAbstract: true) {}
+    "/merchant_acquisition/mcc/edit"(platform: "/", type: TrackType.View) {}
+    "/merchant_acquisition/mcc/success"(platform: "/", type: TrackType.View) {}
+
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
         product (type: PropertyType.String, description: "Name of device, example: 'point-h'")
         currency (type: PropertyType.String, required: false, description: "Currency")
         price (type: PropertyType.Numeric, required: false, description: "Price of device")
         has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
-        coupon_code (type: PropertyType.String, required: false, description: "CuponCode")
+        coupon_code (type: PropertyType.String, required: false, description: "MGM CuponCode")
         discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
     }
