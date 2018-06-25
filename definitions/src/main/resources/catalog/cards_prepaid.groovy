@@ -109,9 +109,4 @@ tracks {
     // MLA => https://www.mercadopago.com.ar/prepaid/block/congrats
     "/prepaid/block" (platform: "/", type: TrackType.View) {}
 
-    // Cobranded
-    "/cobranded" (isAbstract: true, platform: "/web") {}
-    "/cobranded/acquisition" (isAbstract: true) {}
-    "/cobranded/acquisition/landing" () {}
-
 }
