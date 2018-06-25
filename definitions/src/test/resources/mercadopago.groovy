@@ -459,6 +459,7 @@ trackTests {
             price_with_discount = 334.8
             has_coupon = true
             coupon_code = "Y96XA"
+            coupon_type = "default"
         }
         "/point/landings/buy"(platform:"/", type: TrackType.Event) {
             product = "bbpos"
