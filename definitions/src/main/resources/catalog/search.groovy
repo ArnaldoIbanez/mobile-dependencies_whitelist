@@ -33,19 +33,19 @@ tracks {
         backend_data(required: false)
         catalog_product_id(required: false, description: 'Id of the product, only if the product header is shown')
         official_stores_carousel_shown(required: false, description: 'which TOs are in the carousel', PropertyType.ArrayList)
-            //ab(required: false, description:'ab testing related. to be deprecated')
-            //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
-            //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
-            //ac(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Not Comblinable')
-            //ap(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Combinable with other pages')
-            //fsm(required: false, description:'indicates on each result of paged if its full or soft match')
-            //qas(required: false, PropertyType.ArrayList, description:'auto selected filters')
-            //canonical(required: false, description:'url canonical')
-            //cli_rel_qty_configured(required: false, description:'client relationship')
-            //cli_rel_qty_link_to_category(required: false, description:'client relationship link to category')
-            //corrections(required: false, description:'corrections over query')
-            //processed_query(required: false, description:'processed query by backend')
-            //stems(required: false, description:'stems list which returns backend to stand out in frontend'
+        //ab(required: false, description:'ab testing related. to be deprecated')
+        //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
+        //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
+        //ac(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Not Comblinable')
+        //ap(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Combinable with other pages')
+        //fsm(required: false, description:'indicates on each result of paged if its full or soft match')
+        //qas(required: false, PropertyType.ArrayList, description:'auto selected filters')
+        //canonical(required: false, description:'url canonical')
+        //cli_rel_qty_configured(required: false, description:'client relationship')
+        //cli_rel_qty_link_to_category(required: false, description:'client relationship link to category')
+        //corrections(required: false, description:'corrections over query')
+        //processed_query(required: false, description:'processed query by backend')
+        //stems(required: false, description:'stems list which returns backend to stand out in frontend'
     }
 
     "/search"(platform: "/web") {
@@ -54,20 +54,11 @@ tracks {
         filters(required: false)
         only_in_type(required: false)
         click_banner(required: false, description:'Indicates that this listing has apppeared after clicking on a banner')
-        // exhibitors_id
         banner(required: false, description:'Banner showed in this listing info, if showed')
-        //deal_id
-        // exhibitors_id
         related_searches(required: false, description:'indicates whether clicked search related')
         related_searches_info(required: false, description: 'Tracks related searches coverage')
         canonical(required: false, description: 'url: canonical URL for the request; no_follow_tag: if the link rel="canonical" has no follow parameter; if the canonical URL has a mirror category configured')
-        //query
-        // position
-        //quantity
         autosuggest(required: false, description:'indicates whether clicked autosuggest')
-        //suggest_position
-        //last_search_position
-        //block_store_position
         landing(required:false, description:'indicates landing base, premium, etc')
         pads(required: false, description:'item_id from the pads returned for listings')
         upper_funnel(required: false, description: 'indicates if advertising query was considered upper funnel')
