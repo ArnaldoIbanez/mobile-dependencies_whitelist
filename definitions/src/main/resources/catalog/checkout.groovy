@@ -23,7 +23,7 @@ tracks {
         //quantity
         //unit_price
         //currency_id
-        payment_method(deprecated: true, required: false)
+
         resolution(required: false)
         precharged_cards(required: false)
         geolocated(required: false)
@@ -79,10 +79,6 @@ tracks {
         recovery_flow(required: false, description: "Is recovery CHO flow")
         register_int(required: false, description: "Integrated registration")
         platform(required: false)
-
-        item_id(deprecated: true, required: false)
-        quantity(deprecated: true, required: false)
-
         available_actions(required: false, type: PropertyType.ArrayList, description: "Action presented on the screen, for ex: call_seller, email_seller, etc.")
 
         //Legacy App Congrats Tracks
@@ -97,6 +93,22 @@ tracks {
 
         //Billing info
         billing_info(required:false, description: "Dictionary containing the user selected billing info")
+
+        vertical(required:false, description: "Vertical of the item to be bought")
+
+        session_id(required:false, description:"Session in which the checkout is being held")
+
+        shipping_pick_up_in_store(required:false, type: PropertyType.String, description: "If the item has puis available")
+
+        account_money_info(required:false, type: PropertyType.ArrayList, description: "Array with data of the account money of the buyer")
+        //skipPassword
+        //useAccountMoneyWithAnotherPM
+        //availableAccountMoney
+
+        available_subscription(required:false, description:"If the item is elegible for subscription")
+
+        loyalty_level(required:false, description:"The loyalty level of the buyer")
+
     }
 
     /*
@@ -150,7 +162,6 @@ tracks {
     //Mobile Checkout Apps
     "/checkout"(platform: "/mobile") {
         combination_2mp(required:false, description: "2MP switch state")
-        vertical(required: false, description: "vertical of transaction")
         reservation_price(required: false, description: "price of a reservation transaction")
     }
 
@@ -216,6 +227,8 @@ tracks {
     "/checkout/init/options"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         shipping_data(required: true, type: PropertyType.ArrayList, description: "Shipping options available for the buyer")
         payment_data(required: true, type: PropertyType.String, description: "Payment options available for the buyer")
+        shipping(required: false)
+        payments(required: false)
     }
 
     "/checkout/payments_cancelation"(platform: "/mobile") {}
@@ -527,7 +540,7 @@ tracks {
     //"/checkout/review" //shared between web and app, already defined in web section.
     "/checkout/review#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         status(required: true, type: PropertyType.String)
-        credit_card_id(required: false, type: PropertyType.String)
+        checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
     }
     "/checkout/review/quantity#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         old_quantity(required: true, type: PropertyType.Numeric)
@@ -639,24 +652,20 @@ tracks {
         //nickname
     }
     //Congrats tracks - shared between Legacy App and new App (Required False to prevent catalog validation failures)
-    "/checkout/congrats"(platform: "/") {}
+    "/checkout/congrats"(platform: "/") {
+        status(required: false, type: PropertyType.String)
+    }
 
     "/checkout/finish#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         action(required: true, description: "Action executed, for ex: call_seller, email_seller, etc")
     }
-    "/checkout/congrats/error"(platform: "/mobile") {}
 
-    "/checkout/congrats/call_for_auth"(platform: "/mobile") {}
+    "/checkout/finish/call_for_auth"(platform:"/", type: TrackType.View, isAbstract: true) {}
+    "/checkout/finish/call_for_auth/instructions"(platform: "/mobile") {}
+    "/checkout/finish/call_for_auth/later"(platform: "/mobile") {}
 
-    "/checkout/congrats/call_for_auth/instructions"(platform: "/mobile") {}
-
-    "/checkout/congrats/call_for_auth/later"(platform: "/mobile") {}
-
-    "/checkout/congrats/invalid_sec_code"(platform: "/mobile") {}
-
-    "/checkout/congrats/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {
-
-    }
+    "/checkout/finish/invalid_sec_code"(platform:"/", type: TrackType.View, isAbstract: true) {}
+    "/checkout/finish/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {}
 
     "/checkout/finish"(platform: "/mobile", isAbstract: true) {
         /** **************************************/
@@ -721,8 +730,6 @@ tracks {
     "/checkout/finish/second_step"(platform: "/mobile", isAbstract: true) {}
 
     "/checkout/finish/second_step/error_details"(platform: "/mobile") {}
-
-    "/checkout/congrats/pending"(platform: "/mobile") {}
 
     "/checkout/error"(platform: "/") {
         order_id(required: false, description: "OrderId")
@@ -877,6 +884,8 @@ tracks {
     "/checkout/payment/select_bank"(platform:"/", type: TrackType.View) {}
 
     "/checkout/payment/view_location"(platform:"/", type: TrackType.View) {}
+    "/checkout/payment/view_location/location"(platform:"/", type: TrackType.Event) {}
+    "/checkout/payment/view_location/preloaded"(platform:"/", type: TrackType.Event) {}
 
     "/checkout/payment/input_card"(platform:"/", type: TrackType.View) {}
 
@@ -963,6 +972,7 @@ tracks {
     "/checkout/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
 
     "/checkout/loading"(platform: "/", type: TrackType.View) {}
+    "/checkout/loading/error"(platform: "/", type: TrackType.View) {}
     "/checkout/shipping/edit_address"(platform:"/", type: TrackType.Event) {}
     "/checkout/shipping/input_zipcode"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/", type: TrackType.Event) {}

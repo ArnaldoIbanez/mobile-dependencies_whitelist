@@ -22,6 +22,7 @@ tracks {
         autoselected_filters(required: false, description: "filters not applied by the user (category from canonical or adults)", PropertyType.ArrayList) //todo hablar con laura para ver si se pueden sacar
         view_mode(required: true, description: "MOSAIC, LIST or GALLERY on WM and apps and STACK or GRID on desktop", values:["STACK","GRID","LIST","MOSAIC","GALLERY"])
         results(required: true, description: "item ids from search result", PropertyType.ArrayList)
+
         billboards(required: false, description: "items ids from billboard results", PropertyType.ArrayList)
         pads(required: false, description: "item_id from the pads returned for listings")
         catalog_product_id(required: false, description: "Id of the product, only if the product header is showna", PropertyType.String)
@@ -59,7 +60,6 @@ tracks {
         shown_as_product(required: false, description: 'item ids shown with product link')
         has_logos(required: false, description: "indicates if there is an item with logos", PropertyType.Boolean)
         promise_items(required: false, description:  "items with shipping promise", PropertyType.ArrayList)
-
     }
 
     "/search"(platform: "/mobile") {

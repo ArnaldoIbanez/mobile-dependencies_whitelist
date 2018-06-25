@@ -16,18 +16,24 @@ tracks {
         category_path(required: true, type: PropertyType.ArrayList , description:  "Category path of the the item")
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
-        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished"],
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
                 description: "Whether the item is new, used or refurbished")
         listing_type_id(required: true, type: PropertyType.String,
                 values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
                 description: "Listing type of the item")
-        item_status(required: true, type: PropertyType.String, values: ["active", "closed", "paused"],
+        item_status(required: true, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"],
                 description: "Whenever the items is active, closed or paused")
         deal_ids(required: true, type: PropertyType.ArrayList, description: "IDs of applied discounts")
+        billboard_clicked_position(required: false, type: PropertyType.String, description: "Clicked billboard index. We use it to track when the user entered to VIP via Billboard")
 
         // ONLY CORE FIELDS
         quantity( required: false, type: PropertyType.Numeric, description: "Available items quantity show at this vip")
-        item_price(required: false, type: PropertyType.Map, description: "Indicates the item price in different currencies")
+        // TODO, podemos hacerlo required? Hay casos donde un item no tengan price?
+        price(required: false, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
+        original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
+        currency_id(required: false, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+        discount_reasons( required: false, type: PropertyType.ArrayList, description: "The discounts applied to this item original_price, to finally show price (loyalty, deal)")
+
         review_rate(required: false, type: PropertyType.Numeric, inheritable: false,
                 description: "The rating average of the reviews")
         reviews_attributes(required: false, type: PropertyType.ArrayList, inheritable: false,
@@ -69,10 +75,15 @@ tracks {
                 description: "Indicates if the items has free shipping")
         local_pick_up(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has local pick up")
-        logistic_type(required: false, values: ["drop_off", "custom", "cross_docking", "fulfillment"],
+        logistic_type(required: false,
+                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment"],
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
         free_shipping_benefit(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has free shipping for loyalty benefit")
+        shipping_promise(required: false, description: "Array of shippping promise in the order with following data")
+        //afterDispatch: if unknown or unknown_frame (true/false)
+        //min_days: minimum number of days of the promise. (int)
+        //max_days: maximun number of days of the promise. (int or null -If it doesn´t apply-)  
 
         // USER FIELD
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
@@ -84,6 +95,7 @@ tracks {
                 description: "The value of the discount when the user subscribes to the item")
         default_tab(required: false, type: PropertyType.String, values: ["buy", "subscription"],
                 description: "Indicates if the 'buy' tab or the 'subscription' tab is shown by default in the short description")
+
     }
 
     "/vip"(platform: "/web") {
@@ -91,6 +103,7 @@ tracks {
         description_type(required: false, description: "Description type: plain text, html, both, none",
                 values: ["plain_text", "html", "both", "none"])
         max_size_gallery(required: false, type: PropertyType.String, description: "Max_size of first picture gallery")
+        contract_available(required: false, type: PropertyType.Boolean)
     }
 
     "/vip"(platform: "/mobile") {
@@ -112,10 +125,6 @@ tracks {
 
     "/vip/color_and_size"(platform: "/mobile") {}
 
-    "/vip/description"(platform: "/mobile") {
-        empty_description(type: PropertyType.Boolean, required: false, inheritable: false)
-    }
-
     "/vip/description/failure"(platform: "/mobile") {}
 
     "/vip/description/abort"(platform: "/mobile") {}
@@ -129,13 +138,30 @@ tracks {
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
     "/vip/contact_seller"(platform: "/", type: TrackType.Event) {
+        category_id(required: false, type: PropertyType.String,
+                description: "Item's category ID"
+        )
+        item_id(required: true, type: PropertyType.String,
+                description: "Item ID"
+        )
+        from_view(required: false, type: PropertyType.String,
+                values: ["vip", "description", "technicalSpecs", "form", ""],
+                description: "Section where it's coming from"
+        )
         vertical(required: false, description: "Vertical name over show phone event is displayed")
         listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
         source(required: false, description: "Source of the referred")
     }
 
+
     "/vip/call_seller"(platform: "/", type: TrackType.Event) {
+        category_id(required: false, type: PropertyType.String,
+                description: "Item's category ID"
+        )
+        item_id(required: true, type: PropertyType.String,
+                description: "Item ID"
+        )
         vertical(required: false, description: "Vertical name over show phone event is displayed")
         listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
@@ -143,10 +169,17 @@ tracks {
     }
 
     "/vip/show_phone"(platform: "/", type: TrackType.Event) {
+        category_id(required: false, type: PropertyType.String,
+                description: "Item's category ID"
+        )
+        item_id(required: true, type: PropertyType.String,
+                description: "Item ID"
+        )
         vertical(required: false, description: "Vertical name over show phone event is displayed")
         listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
         source(required: false, description: "Source of the referred")
+        event_source(required: false, description: "source of the event")
     }
 
     "/vip/coordinate_availability"(platform: "/mobile", type: TrackType.Event) {}
@@ -159,7 +192,12 @@ tracks {
 
     "/vip/payment_method/back"(platform: "/mobile") {}
 
-    "/vip/variations"(platform: "/") {}
+    "/vip/variations"(platform: "/", type: TrackType.View) {
+        item_id(required: true, type: PropertyType.String,
+                description: "Item ID")
+        category_id(required: false, type: PropertyType.String,
+                description: "Item's category ID")
+    }
 
     "/vip/variations/back"(platform: "/mobile") {}
 
@@ -173,6 +211,44 @@ tracks {
 
     "/vip/reviews"(platform: "/", type: TrackType.View) {
         show(required: false, inheritable: false, type: PropertyType.String)
+    }
+
+    //  QUESTION
+
+    "/vip/question"(platform: "/", type: TrackType.View) {
+        item_id(required: true, type: PropertyType.String,
+                description: "Item ID")
+        category_id(required: false, type: PropertyType.String,
+                description: "Category ID")
+        vertical(required: false, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"],
+                description: "Vertical of the item")
+    }
+
+
+    //TODO chequear con mobile estos tracks
+    //  DESCRIPTION
+
+    "/vip/description"(platform: "/", type: TrackType.View){
+
+        //  DESCRIPTION/ATTRIBUTES
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: false, type: PropertyType.String, description: "Category ID")
+        vertical(required: false, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"],
+                description: "Vertical of the item")
+
+        //  DESCRIPTION ONLY
+        item_seller_type(required: false, type: PropertyType.String,
+                description: "Seller type: normal, real_estate_user, etc"
+        )
+        listing_type_id(required: false, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        source(required: false, type: PropertyType.String,
+                values: ["htmlView"],
+                description: "Source of the refered"
+        )
     }
 
     // ADDRESS
@@ -224,11 +300,23 @@ tracks {
     "/vip/shipping"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {
     }
 
-    "/vip/shipping/calculator"(platform: "/", isAbstract: true) {
+    "/vip/shipping/calculator"(platform: "/", isAbstract: true, type: TrackType.View) { //no están required ya que en mobile se manda este track pero sin parámetros
+        category_id(required: false, type: PropertyType.String, description: "Item's category id")
+        item_id(required: false, type: PropertyType.String, description: "Item ID")
+        vertical(required: false, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"],
+                description: "Vertical of the item")
     }
 
+    "/vip/shipping/calculator/preloaded"(platform: "/web/mobile", type: TrackType.View){}
+
+    "/vip/shipping/calculator/shipping_options"(platform: "/web/mobile", type: TrackType.View){}
+
     "/vip/shipping/calculator/calculate"(platform: "/", type: TrackType.Event) {
-        cp_autocomplete(type: PropertyType.Boolean)
+        cp_autocomplete(required: true, type: PropertyType.String,
+                values: ["yes", "no"],
+                description: "Indicates if the default cp was the one used for the query"
+        )
     }
 
     "/vip/shipping/calculator/i_dont_know_my_code"(platform: "/", type: TrackType.Event) {
@@ -258,4 +346,13 @@ tracks {
         shipping_selected(required: true)
         shipping_available_opcion(required: true, type:PropertyType.ArrayList)
     }
+
+    "/vip/landing_services"(platform: "/web", type: TrackType.Event) {
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        vertical(required: true, type: PropertyType.String,
+                values: ["services"],
+                description: "Vertical of the item")
+    }
+    "/vip/free_shipping_cart_available"(platform: "/web", type: TrackType.Event){}
 }

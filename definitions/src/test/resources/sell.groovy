@@ -140,10 +140,36 @@ trackTests {
         "/sell/modify_and_relist/single/row"   (platform: "/web/desktop", itemData)
         "/sell/modify_and_relist/single/cards" (platform: "/web/desktop", itemData)
         "/sell/modify_and_relist/massive/row"  (platform: "/web/desktop", massiveItemData)
-        "/sell/relist/congrats"(platform: "/web"){
+        "/sell/relist/congrats"(platform: "/web/desktop"){
             can_complete_attributes= true
+            item_id = "MLA12345"
+        }
+        "/sell/relist/update_data_landing"(platform: "/mobile"){
+            item_id = "MLA12345"
+        }
+        "/sell/relist/description_included"(platform: "/mobile"){
+            item_id = "MLA12345"
+        }
+        "/sell/relist/description_not_included"(platform: "/mobile"){
+            item_id = "MLA12345"
+        }
+        "/sell/relist/description_additional_information"(platform: "/mobile"){
+            item_id = "MLA12345"
+        }
+        "/sell/relist/csip"(platform: "/mobile"){
+            has_selected_pictures = true
+            item_id = "MLA12345"
+        }
+        "/sell/relist/congrats/payment_pending"(platform: "/mobile"){
+            item_id = "MLA12345"
+        }
+        "/sell/relist/congrats"(platform: "/mobile"){
+            item_id = "MLA12345"
         }
         "/sell/relist/relist_congrats"(platform: "/mobile"){
+            item_id = "MLA12345"
+        }
+        "/sell/relist/listing_types"(platform: "/"){
             item_id = "MLA12345"
         }
     }
@@ -160,6 +186,7 @@ trackTests {
 
         "/sell/list/congrats"(platform: "/web/desktop", itemData)
         "/sell/upgrade_on"(platform: "/web/desktop", itemData)
+
     }
     test("Sell Flow view Pages"){
         def itemData = {
@@ -180,6 +207,26 @@ trackTests {
 
         "/sell/landing/free_listing"(platform: "/", data)
         "/sell/landing/free_listing"(platform: "/"){}
+        "/sell/list/pictures_uploader"(platform: "/web/desktop") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/pictures_uploader/validations"(platform: "/web/desktop") {
+            session_id = "214464778-list-d5e5a20b2935"
+            error_key = "ERROR"
+        }
+    }
+
+    test("Native upgrade flow"){
+        "/sell/upgrade"(platform: "/mobile"){
+            item_id = "MLA12345"
+        }
+        "/sell/upgrade/listing_types"(platform: "/mobile"){
+            item_id = "MLA12345"
+        }
+        "/sell/upgrade/congrats"(platform: "/mobile"){
+            item_id = "MLA12345"
+        }
+        "/sell/upgrade/congrats/payment_pending"(platform: "/mobile"){
+            item_id = "MLA12345"
+        }
     }
 
     test("Native Sell List flow steps"){
@@ -219,6 +266,8 @@ trackTests {
         "/sell/list/draft/shipping_landing"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/shipping_flat_cost"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/price_modality"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/location_suggestion"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/free_shipping"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/hub"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/walkthrough"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/hub_old"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
@@ -226,6 +275,8 @@ trackTests {
             session_id = "214464778-list-d5e5a20b2935"
             has_selected_pictures = true
         }
+        "/sell/list/sip/publish/publish_cancel"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/sip/publish/abandonment"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/sip/publish/back_selected"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/sip/section/disabled"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/sip/update/location"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
@@ -270,6 +321,7 @@ trackTests {
         "/sell/list/pictures_review/gallery"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures_review/editor"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures_review/crop"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/picture_preview_landing"(platform: "/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/price"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/price/similar_products"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/price_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
@@ -297,8 +349,14 @@ trackTests {
         "/sell/list/listing_types"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/listing_types_upgrade"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/congrats_upgrade"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/congrats/payment_pending" (platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
 
         "/sell/list/attribute"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/category/selection/l1"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/category/selection/l2"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/category/selection/l3"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/category/selection/l4"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/category/selection/l5"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/category/selection/confirm_suggested"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/category/selection/wrong_suggested"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/location"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
@@ -312,6 +370,7 @@ trackTests {
         "/sell/list/pictures/crop/crop_canceled"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/price_modality"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/shipping_flat_cost"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/free_shipping"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
 
         "/sell/list/drafts"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/drafts/draft_action/draft_deleted"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
@@ -326,7 +385,6 @@ trackTests {
             session_id = "214464778-list-d5e5a20b2935"
             error_message="error"
         }
-        "/sell/list/sip/publish/publish_cancel"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/sip/notification/view_item"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/sip/notification/upgrade"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/sip/notification/congrats"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
@@ -335,12 +393,18 @@ trackTests {
         "/sell/list/listing_types"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/listing_types_upgrade"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/congrats_upgrade"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/sip/update/extra_description"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/description_additional_information_review"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/description_not_included"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/location_street"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/picture_editor/function/rotate"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
     }
 
     test("Custom color name changed - Update"){
         "/sell/update/color_selection/custom_color"(platform: "/web"){
             session_id = "290061169-update-32b1d9b3eae8"
             category_domain = "MLA-GLOVES"
+            category_id = "MLA61216"
             is_custom_name = true
             item_id = "MLA12345"
         }
@@ -370,9 +434,36 @@ trackTests {
             item_id = "MLA123456"
             error_message="error"
         }
+        "/sell/update/autocomplete/update/suggested_attr_selected"(platform: "/mobile") {
+            item_id = "MLA123456"
+            attribute_id = "brand"
+        }
+        "/sell/update/picture_editor/function/crop"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/description_included"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/description_not_included"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/manufacturing_time"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/sip/section/disabled"(platform: "/mobile") {
+            item_id = "MLA123456"
+            section_id = "section"
+        }
         "/sell/update/sip/notification/view_item"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/notification/upgrade"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/notification/congrats"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/sip/update"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/sip/update/add_stock" (platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/sip/update/condition" (platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/sip/update/description" (platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/sip/update/list_closed_step" (platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/sip/update/list_paused_step" (platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/sip/update/list_activate_step" (platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/sip/update/listing_types" (platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/sip/update/modify_variations" (platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/sip/update/pictures" (platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/sip/update/price" (platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/sip/update/quantity" (platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/sip/update/relist" (platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/sip/update/statistics" (platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/sip/update/technical_specifications" (platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/category_suggestion"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/category_navigation"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/color_selection"(platform: "/mobile") {item_id = "MLA123456"}
@@ -386,6 +477,8 @@ trackTests {
         "/sell/update/updateing_types"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/updateing_types_review"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/pictures/crop/crop_accepted"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/pictures/crop/crop_canceled"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures/gallery"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures/editor"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures/crop"(platform: "/mobile") {item_id = "MLA123456"}
@@ -416,6 +509,21 @@ trackTests {
         "/sell/update/listing_types"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/listing_types_upgrade"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/congrats_upgrade"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/closed_sip/section"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/closed_sip/section/disabled"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/location"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/picture_preview_landing"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/pictures_variations"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/pictures_variations/editor"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/quantity"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/quantity_maximum_free_landing"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/shipping_landing"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/technical_specifications"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/variations"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/variations_pi"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/statistics"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/free_shipping"(platform: "/mobile") {item_id = "MLA123456"}
+
     }
 
     test("Modal attributes pseudo obligatory - List"){
@@ -458,6 +566,11 @@ trackTests {
             hierarchy = "PARENT_PK"
             value = ""
         }
+    }
+
+    test("Landing for donwload app at web mobile"){
+        "/sell/landing_download_app"(platform: "/web/mobile"){}
+        "/sell/landing_download_app/download_intention"(platform: "/web/mobile"){}
     }
 
 }

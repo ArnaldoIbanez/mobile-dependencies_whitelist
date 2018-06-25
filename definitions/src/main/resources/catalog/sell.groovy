@@ -113,6 +113,7 @@ tracks {
         has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
     }
     "/sell/list/draft/congrats"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/location_suggestion"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/sip_landing"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/price_review"(platform:"/mobile", type: TrackType.View){}
@@ -145,11 +146,13 @@ tracks {
     "/sell/list/draft/shipping_landing"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/shipping_flat_cost"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/price_modality"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/free_shipping"(platform:"/mobile", type: TrackType.View){}
 
     "/sell/list/hub"(platform: "/", type: TrackType.View) {}
     "/sell/list/walkthrough"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/hub_old"(platform: "/", type: TrackType.View) {}
     "/sell/list/attribute"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/picture_preview_landing"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/picture_uploader"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/picture_uploader/mode"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/picture_uploader/mode/camera"(platform: "/mobile", type: TrackType.Event) {}
@@ -158,6 +161,7 @@ tracks {
     "/sell/list/pictures/crop/crop_accepted"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/pictures/crop/crop_canceled"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/manufacturing_time"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/free_shipping"(platform:"/mobile", type: TrackType.View){}
 
 
     "/sell/list/sip"(platform: "/mobile", type: TrackType.View) {
@@ -176,6 +180,7 @@ tracks {
     "/sell/list/sip/publish/fail"(platform: "/mobile", type: TrackType.Event) {
         error_message(required: false, description: "Error message", type: PropertyType.String)
     }
+    "/sell/list/sip/publish/abandonment"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/sip/section"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/sip/section/disabled"(platform: "/mobile", type: TrackType.Event) {
         has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
@@ -224,15 +229,17 @@ tracks {
     "/sell/list/sip/notification/view_item"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/sip/notification/upgrade"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/sip/notification/congrats"(platform: "/mobile", type: TrackType.Event) {}
-
+    "/sell/list/congrats/payment_pending"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/location"(platform: "/", type: TrackType.View) {}
     "/sell/list/location_suggestion"(platform: "/", type: TrackType.View) {}
+    "/sell/list/location_street"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/category_suggestion"(platform: "/", type: TrackType.View) {}
     "/sell/list/category_navigation"(platform: "/", type: TrackType.View) {}
     "/sell/list/color_selection"(platform: "/", type: TrackType.View) {}
     "/sell/list/color_selection_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/color_selection/custom_color"(platform: "/web", type: TrackType.Event) {
-        category_domain(required: true, description: "Category Domain", type: PropertyType.String)
+        session_id(required: true, description: "Session Id of the list flow, that dies when the flow ends", type: PropertyType.String)
+        category_domain(required: false, description: "Category Domain", type: PropertyType.String)
         category_id(required: true, description: "Category Id", type: PropertyType.String)
         is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.Boolean)
     }
@@ -241,6 +248,9 @@ tracks {
     "/sell/list/condition_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/description"(platform: "/", type: TrackType.View) {}
     "/sell/list/description_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/description_not_included"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/sip/update/extra_description"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/description_additional_information_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/payment_methods"(platform: "/", type: TrackType.View) {}
     "/sell/list/payment_methods_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/listing_types"(platform: "/", type: TrackType.View) {}
@@ -272,10 +282,16 @@ tracks {
     "/sell/list/picture_editor"(platform: "/mobile",isAbstract:true){}
     "/sell/list/picture_editor/function"(platform: "/mobile",isAbstract:true){}
     "/sell/list/picture_editor/function/crop"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/picture_editor/function/rotate"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/category"(platform: "/mobile", isAbstract:true){}
     "/sell/list/category/selection"(platform: "/mobile", isAbstract:true){}
     "/sell/list/category/selection/confirm_suggested"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/category/selection/wrong_suggested"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/category/selection/l1"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/category/selection/l2"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/category/selection/l3"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/category/selection/l4"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/category/selection/l5"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/price_modality"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/modal"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/modal/close"(platform: "/mobile", isAbstract: true) {}
@@ -326,9 +342,49 @@ tracks {
     "/sell/update" (platform: "/", isAbstract: true){
         item_id(required: true, description: "Item id", type: PropertyType.String)
     }
+    "/sell/update/autocomplete"(platform: "/", isAbstract: true){}
+    "/sell/update/autocomplete/update"(platform: "/", isAbstract: true){}
+    "/sell/update/autocomplete/update/suggested_attr_selected"(platform: "/mobile", type: TrackType.Event) {
+        attribute_id(required: true, "ID from attribute that was suggested", type: PropertyType.String)
+    }
+    "/sell/update/description_included"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/description_not_included"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/manufacturing_time"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/closed_sip"(platform: "/mobile", isAbstract: true){}
+    "/sell/update/closed_sip/section"(platform: "/mobile", isAbstract: true){}
+    "/sell/update/closed_sip/section/disabled"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/update/sip"(platform: "/mobile", type: TrackType.View) {
         has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
     }
+    "/sell/update/sip/section"(platform: "/mobile", isAbstract: true) {}
+    "/sell/update/sip/section/disabled"(platform: "/mobile", type: TrackType.Event) {
+        section_id(required:true, description: "Section of the SIP that is disabled and trigger the event.", type: PropertyType.String)
+    }
+    "/sell/update/sip/update/price"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/sip/update/statistics"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/sip/update/pictures"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/sip/update/list_closed_step"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/sip/update/list_paused_step"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/sip/update/list_activate_step"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/sip/update"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/sip/update/relist"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/sip/update/listing_types"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/sip/update/description"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/sip/update/modify_variations"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/sip/update/quantity"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/sip/update/condition"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/sip/update/technical_specifications"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/sip/update/add_stock"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/sell/update/quantity_maximum_free_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/location"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/picture_preview_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/quantity"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/technical_specifications"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/shipping_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/variations"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/pictures_variations"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/pictures_variations/editor"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/sip/publish"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/sip/publish/pictures_fail"(platform: "/mobile", type: TrackType.Event) {
         total_pictures(required: true, description: "Total pictures", type: PropertyType.Numeric)
@@ -349,8 +405,9 @@ tracks {
     "/sell/update/color_selection"(platform: "/", type: TrackType.View) {}
     "/sell/update/color_selection_review"(platform: "/", type: TrackType.View) {}
     "/sell/update/color_selection/custom_color"(platform: "/web", type: TrackType.Event) {
-        session_id(required: true, description: "Session Id", type: PropertyType.String)
-        category_domain(required: true, description: "Category Domain", type: PropertyType.String)
+        session_id(required: true, description: "Session Id of the update flow, that dies when the flow ends", type: PropertyType.String)
+        category_domain(required: false, description: "Category Domain", type: PropertyType.String)
+        category_id(required: true, description: "Category Id", type: PropertyType.String)
         is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.Boolean)
     }
     "/sell/update/condition"(platform: "/", type: TrackType.View) {}
@@ -365,11 +422,17 @@ tracks {
     "/sell/update/pictures/gallery"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures/editor"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures/crop"(platform: "/", type: TrackType.View) {}
+    "/sell/update/variations_pi"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/pictures/crop/crop_accepted"(platform: "/", type: TrackType.Event) {}
+    "/sell/update/pictures/crop/crop_canceled"(platform: "/", type: TrackType.Event) {}
     "/sell/update/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
         album_name(required: true, description: "Album name", type: PropertyType.String)
     }
+    "/sell/update/picture_editor"(platform: "/mobile", isAbstract: true) {}
+    "/sell/update/picture_editor/function"(platform: "/mobile", isAbstract: true) {}
+    "/sell/update/picture_editor/function/crop"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/update/pictures_uploader"(platform: "/", isAbstract: true) {}
-     "/sell/update/pictures_uploader/crop"(platform: "/", isAbstract: true) {}
+    "/sell/update/pictures_uploader/crop"(platform: "/", isAbstract: true) {}
     "/sell/update/pictures_uploader/crop/crop_canceled"(platform: "/", type: TrackType.Event) {}
     "/sell/update/pictures_uploader/crop/crop_acepted"(platform: "/", type: TrackType.Event) {}
     "/sell/update/pictures_review"(platform: "/", type: TrackType.View) {}
@@ -399,7 +462,14 @@ tracks {
     "/sell/update/listing_types"(platform: "/", type: TrackType.View) {}
     "/sell/update/listing_types_upgrade"(platform: "/", type: TrackType.View) {}
     "/sell/update/congrats_upgrade"(platform: "/", type: TrackType.View) {}
+    "/sell/update/free_shipping"(platform: "/", type: TrackType.View) {}
+    "/sell/update/statistics"(platform: "/", type: TrackType.View) {}
 
+
+    "/sell/list/pictures_uploader"(platform: "/web/desktop", isAbstract: true){}
+    "/sell/list/pictures_uploader/validations"(platform: "/web/desktop", type: TrackType.Event){
+        error_key(required: true, description: "Error raised after picture validation", type: PropertyType.String)
+    }
     "/sell/list/modal_attributes"(platform: "/web", type: TrackType.View) {
         domain_id(required: true, description: "Domain id", type: PropertyType.String)
         condition(required: false, description: "Item condition", type: PropertyType.String)
@@ -438,18 +508,36 @@ tracks {
         hierarchy(required: true, description: "Hierarchy attribute", values:["CHILD_DEPENDENT", "CHILD_PK", "FAMILY", "ITEM", "PARENT_PK", "PRODUCT_IDENTIFIER"], PropertyType.String)
         option_selected(required: true, description: "Radio option selected", values:["completed", "no_data", "not_possible", "other"], PropertyType.String)
         value(required:true, description: "Value for attribute or feedback", type: PropertyType.String)
-
     }
+    "/sell/upgrade/"(platform: "/", isAbstract: true){
+        item_id (required: true, type: PropertyType.String)
+        session_id (required: false, type: PropertyType.String)
+    }
+    "/sell/upgrade/listing_types"(platform: "/mobile", type: TrackType.View){}
+    "/sell/upgrade/congrats"(platform: "/mobile", type: TrackType.View){}
+    "/sell/upgrade/congrats/payment_pending"(platform: "/mobile", type: TrackType.View){}
 
     // Relist flow
-    "/sell/relist"(platform: "/", isAbstract: true) {}
-    "/sell/relist/congrats"(platform: "/web", isAbstract: true) {
-        can_complete_attributes(required: true, description: "Field to identify if link to update was offered.", type: PropertyType.Boolean)
-    }
-    "/sell/relist/relist_congrats"(platform: "/mobile", type: TrackType.View) {
+    "/sell/relist"(platform: "/", isAbstract: true) {
         item_id (required: true, type: PropertyType.String)
     }
+    "/sell/relist/csip"(platform: "/mobile", type: TrackType.View) {
+        has_selected_pictures(required: true, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
+    }
+    "/sell/relist/congrats"(platform: "/web/desktop", type: TrackType.View) {
+        can_complete_attributes(required: true, description: "Field to identify if link to update was offered.", type: PropertyType.Boolean)
+    }
+    "/sell/relist/congrats"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/relist/congrats/payment_pending"(platform: "/", type: TrackType.View) {
+    }
+    "/sell/relist/relist_congrats"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/relist/listing_types"(platform: "/", type: TrackType.View) {}
+    "/sell/relist/description_included"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/relist/description_not_included"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/relist/description_additional_information"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/relist/update_data_landing"(platform: "/mobile", type: TrackType.View) {}
 
+    // QR tracking
     "/sell/qr"(platform: "/", isAbstract: true) {}
     
     "/sell/qr/print_intention"(platform: "/web", type: TrackType.View){
@@ -459,5 +547,9 @@ tracks {
         vertical(required: true)
         referrer(required: true, description: "From where the QR code was opened", values: ["email", "myml"])
     }
+
+    // Tracks for Web mobile removed
+    "/sell/landing_download_app"(platform: "/web/mobile", type: TrackType.View){}
+    "/sell/landing_download_app/download_intention"(platform: "/web/mobile", type: TrackType.Event){}
 
 }

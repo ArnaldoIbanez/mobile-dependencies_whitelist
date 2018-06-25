@@ -18,14 +18,16 @@ trackTests {
             item_status = "active"
             deal_ids = []
             seller_id = 131662738
+
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+            discount_reasons = ["loyalty","deal"]
         }
 
         def optionals = {
             quantity = 3
-            item_price = [
-                price: 15.3,
-                currency_id: "ARS"
-            ]
+
             return_available = false
             cart_content = false
             power_seller_status = "platinum"
@@ -65,17 +67,6 @@ trackTests {
         "/vip/back"(platform:"/mobile", mandatory)
 
         "/vip/color_and_size"(platform:"/mobile", mandatory)
-
-        "/vip/description"(platform:"/mobile", {
-            mandatory()
-            empty_description = false
-            context="/vip"
-        })
-
-        "/vip/description"(platform:"/mobile", {
-            mandatory()
-            empty_description = false
-        })
 
         "/vip/description/abort"(platform:"/mobile", mandatory)
 
@@ -189,6 +180,7 @@ trackTests {
             seller_id = 131662738
             power_seller_status = "platinum"
             deal_ids = ["MLA100"]
+            contract_available = false
         }
     }
 
@@ -207,6 +199,7 @@ trackTests {
             seller_id = 131662738
             power_seller_status = "platinum"
             deal_ids = ["MLA100"]
+            contract_available = false
         }
     }
 
@@ -311,6 +304,7 @@ trackTests {
             seller_id = 131662738
             power_seller_status = "platinum"
             deal_ids = []
+            billboard_clicked_position = "3"
         }
 
         def trackModals = {
@@ -335,28 +329,62 @@ trackTests {
         "/vip/contract_intention"(platform: "/mobile", type: TrackType.Event) {
             defaultTrackInformation()
         }
+
+
+        "/vip/free_shipping_cart_available"(platform: "/web", type:TrackType.Event){
+            defaultTrackInformation()
+        }
+
+        "/vip/description"(platform: "/web", type: TrackType.View){
+            defaultTrackInformation()
+        }
+
+        "/vip/question"(platform: "/", type: TrackType.View){
+
+            defaultTrackInformation()
+        }
     }
 
     test("New Shipping calculator"){
 
-        "/vip/shipping/calculator/calculate"(platform: "/mobile/ios") {
-            cp_autocomplete = true
+        def defaultTrackInformation = {
+            item_id = "MLA213512313"
+            category_id = "MLA123"
+            vertical = "core"
         }
 
-        "/vip/shipping/calculator/i_dont_know_my_code"(platform: "/mobile/ios") {
+        "/vip/shipping/calculator/calculate"(platform: "/") {
+            defaultTrackInformation()
+            cp_autocomplete = "yes"
         }
 
-        "/vip/shipping/calculator/calculate_error"(platform: "/mobile/ios") {
+        "/vip/shipping/calculator/i_dont_know_my_code"(platform: "/") {
+            defaultTrackInformation()
+        }
+
+        "/vip/shipping/calculator/calculate_error"(platform: "/") {
+            defaultTrackInformation()
             error_type = "error code"
         }
 
-        "/vip/shipping/calculator/agencies/show_agencies_map_for_pickup"(platform: "/mobile/ios") {
+        "/vip/shipping/calculator/agencies/show_agencies_map_for_pickup"(platform: "/") {
+            defaultTrackInformation()
         }
 
-        "/vip/shipping/calculator/choose_state"(platform: "/mobile/ios") {
+        "/vip/shipping/calculator/choose_state"(platform: "/") {
+            defaultTrackInformation()
         }
 
-        "/vip/shipping/calculator/choose_city"(platform: "/mobile/ios") {
+        "/vip/shipping/calculator/choose_city"(platform: "/") {
+            defaultTrackInformation()
+        }
+
+        "/vip/shipping/calculator/preloaded"(platform: "/web/mobile"){
+            defaultTrackInformation()
+        }
+
+        "/vip/shipping/calculator/shipping_options"(platform: "/web/mobile"){
+            defaultTrackInformation()
         }
 
         def defaultShipping = [
@@ -388,7 +416,7 @@ trackTests {
         recommend : false
         ]
 
-        "/vip/shipping/calculator/go_to_vip"(platform: "/mobile/ios") {
+        "/vip/shipping/calculator/go_to_vip"(platform: "/") {
             item_id = "MLA123"
             item_selected_quantity = 1
             item_shipping_quantity = 1
@@ -400,5 +428,20 @@ trackTests {
         ]
         }
     
+    }
+
+    test("VIP Web Classifieds services track click on link to landing_services") {
+        "/vip/landing_services"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLA213512313"
+            category_id = "MLA123"
+            vertical = "services"
+            buying_mode = "classified"
+            category_path = ["MLA1234","MLA6789"]
+            item_condition = "new"
+            listing_type_id = "gold_special"
+            item_status = "active"
+            deal_ids = []
+            seller_id = 123456789
+        }
     }
 }
