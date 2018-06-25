@@ -52,7 +52,6 @@ tracks {
     // Acquisition Flow
     // MLA => https://www.mercadopago.com.ar/prepaid/acquisition
     // MLB => https://www.mercadopago.com.br/prepaid/acquisition
-    "/prepaid/acquisition/change_dni"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/confirmation_account"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/registration/congrats"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/juridical_info"(platform: "/", type: TrackType.View) {}
@@ -65,17 +64,17 @@ tracks {
     "/prepaid/acquisition/need_fund"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/congrats"(platform: "/", type: TrackType.View) {
         congrats_type(
-            required: true, 
+            required: false, 
             type: PropertyType.String, 
-            values: ["prepaid","prepaid_delay", "prepaid_point_different_address", "prepaid_point_same_address","bapropagos", "pagofacil", "rapipago", "cobroexpress", "cargavirtual", "redlink", "maestro", "debcabal", "bolbradesco"],
+            values: ["bapropagos", "pagofacil", "rapipago", "cobroexpress", "cargavirtual", "redlink", "maestro", "debcabal", "bolbradesco"],
             description: "Types of congrats pages by payment method ID."
         )
     }
     "/prepaid/acquisition/error"(platform: "/", type: TrackType.View) {
         error_type(
-            required: true, 
+            required: false, 
             type: PropertyType.String, 
-            values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
+            values: ["main_error", "have_a_card", "juridical_error", "personal_error", "deceased_error", "underage_error", "denied_error"],
             description: "Types of error pages in acquisition flow."
         )
     }
@@ -88,9 +87,9 @@ tracks {
     "/prepaid/activation/congrats"(platform: "/", type: TrackType.View) {}
     "/prepaid/activation/error"(platform: "/", type: TrackType.View) {
         error_type(
-            required: true, 
+            required: false, 
             type: PropertyType.String, 
-            values: ["main_error", "max_attempt", "mismatch_dni", "not_found"],
+            values: ["main_error", "not_found"],
             description: "Types of error pages in activitation flow."
         )
     }
