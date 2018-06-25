@@ -22,27 +22,26 @@ tracks {
         autoselected_filters(required: false, description: "filters not applied by the user (category from canonical or adults)", PropertyType.ArrayList) //todo hablar con laura para ver si se pueden sacar
         view_mode(required: true, description: "MOSAIC, LIST or GALLERY on WM and apps and STACK or GRID on desktop", values:["STACK","GRID","LIST","MOSAIC","GALLERY"])
         results(required: true, description: "item ids from search result", PropertyType.ArrayList)
-
-        billboards(required: false, description: "items ids from billboard results", PropertyType.ArrayList)
-        pads(required: false, description: "item_id from the pads returned for listings")
+        billboards(required: true, description: "items ids from billboard results", PropertyType.ArrayList)
+        pads(required: true, description: "item_id from the pads returned for listings")
         catalog_product_id(required: false, description: "Id of the product, only if the product header is showna", PropertyType.String)
 
         //Tracks from Search Backend:
         backend_data(required: false)
         official_stores_carousel_shown(required: false, description: 'which TOs are in the carousel', PropertyType.ArrayList)
-        //ab(required: false, description:'ab testing related. to be deprecated')
-        //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
-        //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
-        //ac(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Not Comblinable')
-        //ap(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Combinable with other pages')
-        //fsm(required: false, description:'indicates on each result of paged if its full or soft match')
-        //qas(required: false, PropertyType.ArrayList, description:'auto selected filters')
-        //canonical(required: false, description:'url canonical')
-        //cli_rel_qty_configured(required: false, description:'client relationship')
-        //cli_rel_qty_link_to_category(required: false, description:'client relationship link to category')
-        //corrections(required: false, description:'corrections over query')
-        //processed_query(required: false, description:'processed query by backend')
-        //stems(required: false, description:'stems list which returns backend to stand out in frontend'
+            //ab(required: false, description:'ab testing related. to be deprecated')
+            //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
+            //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
+            //ac(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Not Comblinable')
+            //ap(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Combinable with other pages')
+            //fsm(required: false, description:'indicates on each result of paged if its full or soft match')
+            //qas(required: false, PropertyType.ArrayList, description:'auto selected filters')
+            //canonical(required: false, description:'url canonical')
+            //cli_rel_qty_configured(required: false, description:'client relationship')
+            //cli_rel_qty_link_to_category(required: false, description:'client relationship link to category')
+            //corrections(required: false, description:'corrections over query')
+            //processed_query(required: false, description:'processed query by backend')
+            //stems(required: false, description:'stems list which returns backend to stand out in frontend'
     }
 
     "/search"(platform: "/web") {
@@ -58,8 +57,6 @@ tracks {
         geolocation(required: false, description:'geolocation')
         layout_forced(required: false, description:'true if layout is changed by the user')
         shown_as_product(required: false, description: 'item ids shown with product link')
-        has_logos(required: false, description: "indicates if there is an item with logos", PropertyType.Boolean)
-        promise_items(required: false, description:  "items with shipping promise", PropertyType.ArrayList)
     }
 
     "/search"(platform: "/mobile") {
