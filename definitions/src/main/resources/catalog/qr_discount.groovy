@@ -7,6 +7,7 @@ tracks {
     /**
     * QR Discount Screen Tracks
     */
+    "/qr_discount"(platform: "/mobile", isAbstract: true) {}
 
     "/qr_discount/couchmark"(platform: "/mobile", type: TrackType.View) {}
     "/qr_discount/how_to"(platform: "/mobile", type: TrackType.View) {}

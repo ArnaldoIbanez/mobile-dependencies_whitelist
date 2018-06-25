@@ -8,6 +8,8 @@ tracks {
     * INSTORES Screen Tracks
     */
 
+    "/instore"(platform: "/mobile", isAbstract: true) {}
+
     "/instore/scan_qr"(platform: "/mobile", type: TrackType.View) {}
     "/instore/manual_price"(platform: "/mobile", type: TrackType.View) {}
     "/instore/generic_error"(platform: "/mobile", type: TrackType.View) {
