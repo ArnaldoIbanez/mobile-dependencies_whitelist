@@ -1784,6 +1784,7 @@ trackTests {
         "/checkout/review/change_address"(platform:"/web", dataSet)
         "/checkout/review/edit_shipping"(platform:"/web", dataSet)
         "/checkout/review/edit_payment_method"(platform:"/web", dataSet)
+        "/checkout/review/confirm_purchase"(platform: "/", dataSet)
         "/checkout/congrats"(platform:"/web"){
             dataSet()
             dataSetCongrats()
