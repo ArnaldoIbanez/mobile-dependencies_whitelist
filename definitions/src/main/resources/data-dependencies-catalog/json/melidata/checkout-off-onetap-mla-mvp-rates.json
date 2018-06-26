@@ -34,7 +34,7 @@
       }
     ],
     "sql": {
-        "script": "mercadopago/checkout-off/checkout-off-onetap-mla-mvp-rates.sql",
+        "script": "mercadopago/checkout-off/checkout-off-onetap-mla.sql",
       "parameters": [
         {
           "name": "param01",
