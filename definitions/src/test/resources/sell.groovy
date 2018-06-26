@@ -573,4 +573,14 @@ trackTests {
         "/sell/landing_download_app/download_intention"(platform: "/web/mobile"){}
     }
 
+    test("Mobile flow - complete technical specifications"){
+        "/sell/complete_technical_specifications/technical_specifications"(platform: "/mobile"){item_id = "MLA123456"}
+        "/sell/complete_technical_specifications/landing_finish_no_complete"(platform: "/mobile"){item_id = "MLA123456"}
+        "/sell/complete_technical_specifications/landing_continue"(platform: "/mobile"){item_id = "MLA123456"}
+        "/sell/complete_technical_specifications/landing_no_items"(platform: "/mobile"){item_id = "MLA123456"}
+        "/sell/complete_technical_specifications/congrats_finish"(platform: "/mobile"){item_id = "MLA123456"}
+        "/sell/complete_technical_specifications/landing_intro"(platform: "/mobile"){item_id = "MLA123456"}
+        "/sell/complete_technical_specifications/congrats_has_more"(platform: "/mobile"){item_id = "MLA123456"}
+    }
+
 }
