@@ -85,7 +85,7 @@ tracks {
 
     "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.Event){
         action(required: true, values: ["started","success","success_orange","rejected","error"], description: "'started' when the CHO starts, success/success_orange/error is when the CHO finish")
-        origin(required: false, values: ["landing", "mail","vip"])
+        origin(required: false, values: ["mail","vip"], description: "Checkout was initiated from alternative flow other than the landing")
         item_id(required: false, description: "If flow starts from vip")
     }
 
