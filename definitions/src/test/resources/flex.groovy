@@ -271,4 +271,133 @@ trackTests {
             defaultLocation
         }
     }
+
+    test("Call buyer action event success"){
+
+        "/flex/package/detail/call_buyer"(platform:"/", type: TrackType.Event) {
+            defaultSinglePack
+            buyer_info = {
+                buyer_id = "34434535"
+            }
+        }
+    }
+
+    test("Call seller action event success"){
+
+        "/flex/package/detail/call_seller"(platform:"/", type: TrackType.Event) {
+            defaultSinglePack
+            seller_info = {
+                seller_id = "34434535"
+            }
+        }
+    }
+
+    test("Signature page success"){
+
+        "/flex/package/detail/receipt"(platform:"/", type: TrackType.View) {
+            defaultSinglePack
+            defaultLocation
+            receiver_info = {
+                name = "Sebastian"
+                surname = "Pérez"
+                doc_number = "33343344"
+            }
+        }
+    }
+
+    test("Other receiver page success"){
+
+        "/flex/package/detail/receipt_other_person"(platform:"/", type: TrackType.View) {
+            defaultPacksInfo
+            defaultLocation
+        }
+    }
+
+    test("Congrats page success"){
+
+        "/flex/package/finish_delivery"(platform:"/", type: TrackType.View) {
+            defaultSinglePack
+            defaultLocation
+            pack_status = "delivered"
+        }
+    }
+
+    test("Camera permission page success"){
+
+        "/flex/package/start/ask_camera"(platform:"/", type: TrackType.View) {
+            defaultLocation
+        }
+    }
+
+    test("Location permission page success"){
+
+        "/flex/package/start/ask_geolocation"(platform:"/", type: TrackType.View) {
+            defaultLocation
+        }
+    }
+
+    test("Can't delete package modal page success"){
+
+        "/flex/package/list/cant_delete"(platform:"/", type: TrackType.View) {
+        }
+    }
+
+    test("Can't add packages modal page success"){
+
+        "/flex/package/scan/cant_add"(platform:"/", type: TrackType.View) {
+            defaultLocation
+            invalid_labels = "11111-22222"
+        }
+    }
+
+    test("Session expired modal page success"){
+
+        "/flex/error/session_expired"(platform:"/", type: TrackType.View) {
+            defaultLocation
+        }
+    }
+
+    test("Full error view page success"){
+
+        "/flex/error"(platform:"/", type: TrackType.View) {
+            defaultLocation
+            error_type = "connection"
+        }
+    }
+
+    test("Snackbar error event success"){
+
+        "/flex/error/snackbar"(platform:"/", type: TrackType.Event) {
+            defaultLocation
+            error_type = "delivery_failed"
+        }
+    }
+
+    test("Scanner onboarding page success"){
+
+        "/flex/onboarding/package/add"(platform:"/", type: TrackType.View) {
+        }
+    }
+
+    test("List onboarding page success"){
+
+        "/flex/onboarding/package/start_trip"(platform:"/", type: TrackType.View) {
+            defaultLocation
+        }
+    }
+
+    test("Detail onboarding page success"){
+
+        "/flex/onboarding/package/confirm_delivery"(platform:"/", type: TrackType.View) {
+            defaultLocation
+        }
+    }
+
+    test("Onboarding action with context success"){
+
+        "/flex/onboarding/got_it"(platform:"/", type: TrackType.Event) {
+            defaultLocation
+            context = "start_trip"
+        }
+    }
 }
