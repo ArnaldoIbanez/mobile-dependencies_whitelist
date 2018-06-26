@@ -143,9 +143,19 @@ trackTests {
             unit_price = 173
         }
 
-        "/cart/change_address"(platform: "/web", dataSet)
+        "/cart/my_cart/change_address"(platform: "/web", dataSet)
 
-        "/cart/add_cp"(platform: "/web", dataSet)
+        "/cart/my_cart/add_cp/"(platform: "/web", dataSet)
+
+        "/cart/my_cart/confirm_address"(platform: "/web", dataSet)
+
+        "/cart/my_cart/my_addresses"(platform: "/web", dataSet)
+
+        "/cart/my_cart/confirm_cp"(platform: "/web", dataSet)
+
+        "/cart/my_cart/add_cp/confirm_cp"(platform: "/web", dataSet)
+
+        "/cart/my_cart/add_cp/dont_know_cp"(platform: "/web", dataSet)
 
     }
 

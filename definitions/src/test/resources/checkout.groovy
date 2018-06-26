@@ -1843,6 +1843,7 @@ trackTests {
         "/checkout/shipping"(platform:"/web", dataSet)
         "/checkout/shipping/edit_address"(platform:"/web", dataSet)
         "/checkout/loading"(platform: "/web", dataSet)
+        "/checkout/loading/error"(platform: "/web", dataSet)
         "/checkout/shipping/select_option"(platform:"/web", dataSet)
         "/checkout/shipping/input_zipcode"(platform:"/web", dataSet)
         "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/web", dataSet)

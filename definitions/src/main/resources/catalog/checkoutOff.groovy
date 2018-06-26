@@ -225,16 +225,33 @@ tracks {
 
     "/checkout_off/v1/review"(platform: "/", type: TrackType.View){}
     
-    "/checkout_off/v1/congrats"(platform: "/", isAbstract: true){}
+    "/checkout_off/v1/congrats"(platform: "/", type: TrackType.View){
+        status(required: false)
+    }
 
+    "/checkout_off/v1/finish"(platform: "/", isAbstract: true) {}
+
+    "/checkout_off/v1/finish/call_for_auth"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/finish/call_for_auth/instructions"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/finish/call_for_auth/later"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/finish/call_for_auth/input_code"(platform: "/", type: TrackType.View) {}
+
+    // Deprecated
     "/checkout_off/v1/congrats/approved"(platform: "/", type: TrackType.View){}
 
+    // Deprecated
     "/checkout_off/v1/congrats/pending"(platform: "/", type: TrackType.View) {}
 
+    // Deprecated
     "/checkout_off/v1/congrats/instructions"(platform: "/", type: TrackType.View) {}
 
+    // Deprecated
     "/checkout_off/v1/congrats/rejected"(platform: "/", type: TrackType.View) {}
 
+    // Deprecated
     "/checkout_off/v1/congrats/in_process"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/v1/consumer_credit"(platform: "/", isAbstract: true){}

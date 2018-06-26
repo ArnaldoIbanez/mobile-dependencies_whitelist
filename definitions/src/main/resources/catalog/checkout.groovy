@@ -93,6 +93,22 @@ tracks {
 
         //Billing info
         billing_info(required:false, description: "Dictionary containing the user selected billing info")
+
+        vertical(required:false, description: "Vertical of the item to be bought")
+
+        session_id(required:false, description:"Session in which the checkout is being held")
+
+        shipping_pick_up_in_store(required:false, type: PropertyType.String, description: "If the item has puis available")
+
+        account_money_info(required:false, type: PropertyType.ArrayList, description: "Array with data of the account money of the buyer")
+        //skipPassword
+        //useAccountMoneyWithAnotherPM
+        //availableAccountMoney
+
+        available_subscription(required:false, description:"If the item is elegible for subscription")
+
+        loyalty_level(required:false, description:"The loyalty level of the buyer")
+
     }
 
     /*
@@ -146,7 +162,6 @@ tracks {
     //Mobile Checkout Apps
     "/checkout"(platform: "/mobile") {
         combination_2mp(required:false, description: "2MP switch state")
-        vertical(required: false, description: "vertical of transaction")
         reservation_price(required: false, description: "price of a reservation transaction")
     }
 
@@ -212,6 +227,8 @@ tracks {
     "/checkout/init/options"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         shipping_data(required: true, type: PropertyType.ArrayList, description: "Shipping options available for the buyer")
         payment_data(required: true, type: PropertyType.String, description: "Payment options available for the buyer")
+        shipping(required: false)
+        payments(required: false)
     }
 
     "/checkout/payments_cancelation"(platform: "/mobile") {}
@@ -955,6 +972,7 @@ tracks {
     "/checkout/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
 
     "/checkout/loading"(platform: "/", type: TrackType.View) {}
+    "/checkout/loading/error"(platform: "/", type: TrackType.View) {}
     "/checkout/shipping/edit_address"(platform:"/", type: TrackType.Event) {}
     "/checkout/shipping/input_zipcode"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/", type: TrackType.Event) {}
