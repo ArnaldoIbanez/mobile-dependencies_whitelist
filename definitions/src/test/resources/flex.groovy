@@ -5,71 +5,6 @@ trackTests {
 
     defaultBusiness = "mercadoenvios"
 
-    def defaultLocation =
-        {
-            latitude = "-36.34443"
-            longitude = "-35.34332"
-        }
-
-    def defaultPacksInfo =
-        {
-            packs_info = [
-                {
-                    shipping_id = "27596585622"
-                    origin_info = {
-                        addresses_info = "Guevara 533"
-                    }
-                    destintation_info = {
-                        addresses_info = "Suipacha 108"
-                        latitude = "-36.434321"
-                        longitude = "-35.56065"
-                    }
-                    status = "shipped"
-                },
-                {
-                    shipping_id = "342994423"
-                    origin_info = {
-                        addresses_info = "San martin 3223"
-                    }
-                    destintation_info = {
-                        addresses_info = "Uruguay 756"
-                    }
-                    status = "not_delivered"
-                },
-                {
-                    shipping_id = "645292393"
-                    origin_info = {
-                        addresses_info = "Navarro 3232"
-                    }
-                    destintation_info = {
-                        addresses_info = "Libertador 250"
-                        latitude = "-36.312234"
-                        longitude = "-33.645333"
-                    }
-                    status = "pending"
-                }
-            ]
-        }
-
-    def defaultSinglePack =
-        {
-            packs_info = [
-                {
-                    shipping_id = "27596585622"
-                    origin_info = {
-                        addresses_info = "Guevara 533"
-                    }
-                    destintation_info = {
-                        addresses_info = "Suipacha 108"
-                        latitude = "-36.434321"
-                        longitude = "-35.56065"
-                    }
-                    status = "shipped"
-                }
-            ]
-        }
-
-
     test("flex optin track returned success view"){
 
         def defaultTrackInformation = {
@@ -98,305 +33,296 @@ trackTests {
         "/flex/landing"(platform:"/", type: TrackType.View) {}
     }
 
-    //FLEX APP TESTS
+    test("Testing flex"){
+        def defaultLocation =
+            {
+                latitude = "-36.34443"
+                longitude = "-35.34332"
+            }
 
-    test("Login view track success"){
+        def defaultPacksInfo =
+            {
+                packs_info = [
+                    {
+                        shipping_id = "27596585622"
+                        origin_info = {
+                            addresses_info = "Guevara 533"
+                        }
+                        destintation_info = {
+                            addresses_info = "Suipacha 108"
+                            latitude = "-36.434321"
+                            longitude = "-35.56065"
+                        }
+                        status = "shipped"
+                    },
+                    {
+                        shipping_id = "342994423"
+                        origin_info = {
+                            addresses_info = "San martin 3223"
+                        }
+                        destintation_info = {
+                            addresses_info = "Uruguay 756"
+                        }
+                        status = "not_delivered"
+                    },
+                    {
+                        shipping_id = "645292393"
+                        origin_info = {
+                            addresses_info = "Navarro 3232"
+                        }
+                        destintation_info = {
+                            addresses_info = "Libertador 250"
+                            latitude = "-36.312234"
+                            longitude = "-33.645333"
+                        }
+                        status = "pending"
+                    }
+                ]
+            }
 
+        def defaultSinglePack =
+            {
+                packs_info = [
+                    {
+                        shipping_id = "27596585622"
+                        origin_info = {
+                            addresses_info = "Guevara 533"
+                        }
+                        destintation_info = {
+                            addresses_info = "Suipacha 108"
+                            latitude = "-36.434321"
+                            longitude = "-35.56065"
+                        }
+                        status = "shipped"
+                    }
+                ]
+            }
+
+        //Login view track success
         "/flex/login/name"(platform:"/", type: TrackType.View) {
             defaultLocation()
         }
-    }
 
-    test("Camera tutorial view track success"){
-
+        //Camera tutorial view track success
         "/flex/package/add"(platform:"/", type: TrackType.View) {
             defaultLocation()
         }
-    }
 
-    test("Scanner view track success"){
-
+        //Scanner view track success
         "/flex/package/add"(platform:"/", type: TrackType.View) {
         }
-    }
 
-    test("QR detected track success"){
-
+        //QR detected track success
         "/flex/package/add/qr_detected"(platform:"/", type: TrackType.Event) {
             status = "ok"
         }
-    }
 
-    test("Start delivery event track success"){
-
+        //Start delivery event track success
         "/flex/package/add/start_delivery"(platform:"/", type: TrackType.Event) {
-            defaultPacksInfo
-            defaultLocation
+            defaultPacksInfo()
+            defaultLocation()
         }
-    }
 
-    test("Scanner list opened event track success"){
-
+        //Scanner list opened event track success
         "/flex/package/add/view_list"(platform:"/", type: TrackType.Event) {
         }
-    }
 
-    test("Scanner list delete package event track success"){
-
+        //Scanner list delete package event track success
         "/flex/package/add/delete_package"(platform:"/", type: TrackType.Event) {
+            defaultPacksInfo()
+            defaultLocation()
         }
-    }
 
-    test("Scanner list closed event track success"){
-
+        //Scanner list closed event track success
         "/flex/package/add/close_list"(platform:"/", type: TrackType.Event) {
-            defaultLocation
+            defaultLocation()
         }
-    }
 
-    test("Loading view track success"){
-
+        //Loading view track success
         "/flex/package/list/loading"(platform:"/", type: TrackType.View) {
-            defaultPacksInfo
-            defaultLocation
+            delivered_packages = "2-10"
+            defaultPacksInfo()
+            defaultLocation()
         }
-    }
 
-    test("Too many packages modal page success"){
-
+        //Too many packages modal page success
         "/flex/package/list/map_too_many_packages"(platform:"/", type: TrackType.View) {
-            defaultPacksInfo
-            defaultLocation
+            defaultPacksInfo()
+            defaultLocation()
+            delivered_packages = "2-10"
         }
-    }
 
-    test("List page success"){
-
+        //List page success
         "/flex/package/list"(platform:"/", type: TrackType.View) {
             delivered_packages = "2-10"
-            defaultPacksInfo
-            defaultLocation
+            defaultPacksInfo()
+            defaultLocation()
         }
-    }
 
-    test("Start trip event on list success"){
-
+        //Start trip event on list success
         "/flex/package/start_trip"(platform:"/", type: TrackType.Event) {
-            defaultPacksInfo
+            defaultPacksInfo()
             context = "list"
         }
-    }
-
-    test("See on google maps event on detail success"){
-
+        //See on google maps event on detail success
         "/flex/package/see_on_google_maps"(platform:"/", type: TrackType.Event) {
-            defaultPacksInfo
-            defaultLocation
+            defaultPacksInfo()
+            defaultLocation()
             context = "detail"
         }
-    }
-
-    test("Add more package to delivery page success"){
-
+        //Add more package to delivery page success
         "/flex/package/add_more_packages"(platform:"/", type: TrackType.View) {
-            defaultLocation
+            defaultLocation()
         }
-    }
 
-    test("QR detected but already registered event in Scanner edition success"){
-
+        //QR detected but already registered event in Scanner edition success
         "/flex/package/add_more_packages/qr_detected"(platform:"/", type: TrackType.Event) {
-            defaultLocation
+            defaultLocation()
             status = "already_registered"
         }
-    }
 
-    test("See on google maps event on detail success"){
-
+        //See on google maps event on detail success
         "/flex/package/add_more_packages/add_packages"(platform:"/", type: TrackType.Event) {
-            defaultLocation
-            defaultPacksInfo
+            defaultLocation()
+            defaultPacksInfo()
         }
-    }
 
-    test("Open packages list event in add more packages view success"){
-
+        //Open packages list event in add more packages view success
         "/flex/package/add_more_packages/view_list"(platform:"/", type: TrackType.Event) {
-            defaultLocation
+            defaultLocation()
         }
-    }
 
-    test("Delete package event in list in add more packages view success"){
-
+        //Delete package event in list in add more packages view success
         "/flex/package/add_more_packages/delete_package"(platform:"/", type: TrackType.Event) {
-            defaultSinglePack
+            defaultSinglePack()
         }
-    }
 
-    test("Close packages list event in add more packages view success"){
-
+        //Close packages list event in add more packages view success
         "/flex/package/add_more_packages/close_list"(platform:"/", type: TrackType.Event) {
         }
-    }
 
-    test("Packages with low accuracy modal view success"){
-
+        //Packages with low accuracy modal view success
         "/flex/package/list/map_missing_addresses"(platform:"/", type: TrackType.View) {
-            defaultLocation
-            defaultPacksInfo
+            defaultLocation()
+            defaultPacksInfo()
+            delivered_packages = "2-10"
         }
-    }
 
-    test("Detail view with status pending success"){
-
+        //Detail view with status pending success
         "/flex/package/detail"(platform:"/", type: TrackType.View) {
-            defaultLocation
+            defaultLocation()
             pack_status = "pending"
         }
-    }
 
-    test("Retry delivery event in detail success"){
-
+        //Retry delivery event in detail success
         "/flex/package/retry_delivery"(platform:"/", type: TrackType.Event) {
-            defaultSinglePack
-            defaultLocation
+            defaultSinglePack()
+            defaultLocation()
             context = "detail"
         }
-    }
 
-    test("End trip action event success"){
-
+        //End trip action event success
         "/flex/package/list/end_trip"(platform:"/", type: TrackType.Event) {
-            defaultPacksInfo
-            defaultLocation
+            defaultPacksInfo()
+            defaultLocation()
+            delivered_packages = "2-10"
         }
-    }
 
-    test("Call buyer action event success"){
-
+        //Call buyer action event success
         "/flex/package/detail/call_buyer"(platform:"/", type: TrackType.Event) {
-            defaultSinglePack
+            defaultSinglePack()
             buyer_info = {
                 buyer_id = "34434535"
             }
         }
-    }
 
-    test("Call seller action event success"){
-
+        //Call seller action event success
         "/flex/package/detail/call_seller"(platform:"/", type: TrackType.Event) {
-            defaultSinglePack
+            defaultSinglePack()
             seller_info = {
                 seller_id = "34434535"
             }
         }
-    }
 
-    test("Signature page success"){
-
+        //Signature page success
         "/flex/package/detail/receipt"(platform:"/", type: TrackType.View) {
-            defaultSinglePack
-            defaultLocation
+            defaultSinglePack()
+            defaultLocation()
             receiver_info = {
                 name = "Sebastian"
                 surname = "Pérez"
                 doc_number = "33343344"
             }
         }
-    }
 
-    test("Other receiver page success"){
-
+        //Other receiver page success
         "/flex/package/detail/receipt_other_person"(platform:"/", type: TrackType.View) {
-            defaultPacksInfo
-            defaultLocation
+            defaultPacksInfo()
+            defaultLocation()
         }
-    }
 
-    test("Congrats page success"){
-
+        //Congrats page success
         "/flex/package/finish_delivery"(platform:"/", type: TrackType.View) {
-            defaultSinglePack
-            defaultLocation
+            defaultSinglePack()
+            defaultLocation()
             pack_status = "delivered"
         }
-    }
-
-    test("Camera permission page success"){
-
+        //Camera permission page success
         "/flex/package/start/ask_camera"(platform:"/", type: TrackType.View) {
-            defaultLocation
+            defaultLocation()
         }
-    }
 
-    test("Location permission page success"){
-
+        //Location permission page success
         "/flex/package/start/ask_geolocation"(platform:"/", type: TrackType.View) {
-            defaultLocation
+            defaultLocation()
         }
-    }
 
-    test("Can't delete package modal page success"){
-
+        //Can't delete package modal page success
         "/flex/package/list/cant_delete"(platform:"/", type: TrackType.View) {
+            delivered_packages = "2-10"
         }
-    }
 
-    test("Can't add packages modal page success"){
-
+        //Can't add packages modal page success
         "/flex/package/scan/cant_add"(platform:"/", type: TrackType.View) {
-            defaultLocation
+            defaultLocation()
             invalid_labels = "11111-22222"
         }
-    }
 
-    test("Session expired modal page success"){
-
+        //Session expired modal page success
         "/flex/error/session_expired"(platform:"/", type: TrackType.View) {
-            defaultLocation
+            defaultLocation()
+
         }
-    }
 
-    test("Full error view page success"){
-
+        //Full error view page success
         "/flex/error"(platform:"/", type: TrackType.View) {
-            defaultLocation
+            defaultLocation()
             error_type = "connection"
         }
-    }
 
-    test("Snackbar error event success"){
-
+        //Snackbar error event success
         "/flex/error/snackbar"(platform:"/", type: TrackType.Event) {
-            defaultLocation
+            defaultLocation()
             error_type = "delivery_failed"
         }
-    }
 
-    test("Scanner onboarding page success"){
-
+        //List onboarding page success
         "/flex/onboarding/package/add"(platform:"/", type: TrackType.View) {
         }
-    }
 
-    test("List onboarding page success"){
-
+        //List onboarding page success
         "/flex/onboarding/package/start_trip"(platform:"/", type: TrackType.View) {
-            defaultLocation
+            defaultLocation()
         }
-    }
 
-    test("Detail onboarding page success"){
-
+        //Detail onboarding page success
         "/flex/onboarding/package/confirm_delivery"(platform:"/", type: TrackType.View) {
-            defaultLocation
+            defaultLocation()
         }
-    }
 
-    test("Onboarding action with context success"){
-
+        //Onboarding action with context success
         "/flex/onboarding/got_it"(platform:"/", type: TrackType.Event) {
-            defaultLocation
+            defaultLocation()
             context = "start_trip"
         }
     }

@@ -5,9 +5,9 @@ import com.ml.melidata.TrackType
 tracks {
 
     propertyDefinitions {
-        packs_info(required: true, type: PropertyType.ArrayList, description: "Array of packages to deliver")
-        latitude(required:false, type: PropertyType.String, description:"The latitude of driver at that point")
-        longitude(required:false, type: PropertyType.String, description:"The longitude of driver at that point")
+        packs_info(required: true, type: PropertyType.ArrayList, description: "Array of packages to deliver", inheritable:false)
+        latitude(required:false, type: PropertyType.String, description:"The latitude of driver at that point", inheritable:false)
+        longitude(required:false, type: PropertyType.String, description:"The longitude of driver at that point", inheritable:false)
     }
 
     propertyGroups {
@@ -122,7 +122,7 @@ tracks {
     "/flex/package/detail"(platform: "/", type: TrackType.View) {
         location
         pack_status(required: true, type: PropertyType.String,  values: ["delivered", "pending", "not_delivered"],
-            description: "The current status of the package")
+            description: "The current status of the package", inheritable:false)
     }
 
     "/flex/package/retry_delivery"(platform: "/", type: TrackType.Event) {
@@ -187,7 +187,7 @@ tracks {
     "/flex/error"(platform: "/", type: TrackType.View) {
         location
         error_type(required: true, type: PropertyType.String,  values: ["generic", "connection"],
-            description: "Specifies what kind of error happened.")
+            description: "Specifies what kind of error happened.",inheritable:false)
     }
 
     "/flex/error/snackbar"(platform: "/", type: TrackType.Event) {
