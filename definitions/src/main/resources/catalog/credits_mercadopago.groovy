@@ -68,6 +68,7 @@ tracks {
 
     //Definitions - Consumer
     "/credits/consumer"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/administrator"(platform: "/", isAbstract: true) {}
     "/credits/consumer/administrator/detail"(platform: "/", isAbstract: true) {}
 
     //Administrator consumer
