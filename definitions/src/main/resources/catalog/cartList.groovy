@@ -100,6 +100,7 @@ tracks {
 
 "/cart/my_cart/add_cp/dont_know_cp"(platform: "/", type: TrackType.Event){}
 
+"/cart/item_add"(platform: "/", type: TrackType.View) {}
 
 
 }
