@@ -33,5 +33,40 @@ trackTests {
         "/credits/consumer/public_landing/click_hero"(platform: "/web/mobile", type: TrackType.Event) { user_profile = 'no_offer' }
         "/credits/consumer/public_landing/click_activation"(platform: "/web/desktop", type: TrackType.Event) { user_profile = 'no_offer' }
         "/credits/consumer/public_landing/click_help"(platform: "/web/mobile", type: TrackType.Event) { user_profile = 'guest' }
+
+        /******************************************
+        *       Start: Consumers Administrator
+        ******************************************/
+        /**
+        Admin Dashboard
+        **/
+        // Views
+        "/credits/consumer/administrator"(platform: "/web/desktop") {}
+        "/credits/consumer/administrator/dashboard"(platform: "/web/desktop") {}
+        "/credits/consumer/administrator/empty_state"(platform: "/web/desktop") {}
+        "/credits/consumer/administrator/on_time"(platform: "/web/desktop") {}
+        "/credits/consumer/administrator/late_pay"(platform: "/web/desktop") {}
+
+        //Events
+        "/credits/consumers/administrator/tooltip"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumers/administrator/pagar"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumers/administrator/detalle"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumers/administrator/ayuda"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumers/administrator/landing_educativa"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumers/administrator/ver_producto"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        /**
+        Admin History (Compras Finalizadas)
+        **/
+        // Views
+        "/credits/consumers/administrator/compras_finalizadas"(platform: "/web/desktop") {}
+
+        //Events
+        "/credits/consumers/administrator/compras_finalizadas/detalle"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumers/administrator/compras_finalizadas/landing_educativa"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        /******************************************
+        *       End: Consumers Administrator
+        ******************************************/
     }
 }

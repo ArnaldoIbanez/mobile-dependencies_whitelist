@@ -34,6 +34,46 @@ tracks {
         user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
     }
 
+    /******************************************
+    *       Start: Consumers Administrator
+    ******************************************/
+    //Definitions
+    "/credits/consumer"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/administrator"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/administrator/history"(platform: "/", isAbstract: true) {}
+
+    /**
+    Admin Dashboard
+    **/
+    // Page views
+    "/credits/consumer/administrator"(platform: "/", type: TrackType.View) {}
+    "/credits/consumers/administrator/dashboard"(platform: "/", type: TrackType.View) {}
+    "/credits/consumers/administrator/empty_state"(platform: "/", type: TrackType.View) {}
+    "/credits/consumers/administrator/on_time"(platform: "/", type: TrackType.View) {}
+    "/credits/consumers/administrator/late_pay"(platform: "/", type: TrackType.View) {}
+    
+    // Events
+    "/credits/consumers/administrator/tooltip"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumers/administrator/pagar"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumers/administrator/detalle"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumers/administrator/ayuda"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumers/administrator/landing_educativa"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumers/administrator/ver_producto"(platform: "/", type: TrackType.Event) {}
+
+    /**
+    Admin History (Compras Finalizadas)
+    **/
+    // Page views
+    "/credits/consumers/administrator/compras_finalizadas"(platform: "/", type: TrackType.View) {}
+
+    // Events
+    "/credits/consumers/administrator/compras_finalizadas/detalle"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumers/administrator/compras_finalizadas/landing_educativa"(platform: "/", type: TrackType.Event) {}
+
+    /******************************************
+    *       End: Consumers Administrator
+    ******************************************/
+
     //SMS validation
     "/credits/consumer/enrollment/sms_validation"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/enrollment/sms_validation/cancel"(platform: "/", type: TrackType.Event) {}
