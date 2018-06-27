@@ -12,10 +12,10 @@ tracks {
             //id
             //listing_type
             //international_delivery_mode
-        currency_id(required:true, description: "Currency_id of the item that is taken in/out of carrito")
-        unit_price(required:true, description: "Unit price of the item added/changed/deleted")
-        quantity(required:true,  description: "Current quantity of the item at carrito")
-        quantity_change(required: false, decription: "Quantity that the item has been increased/decreased")
+        currency_id(required:true, type: PropertyType.String, description: "Currency_id of the item that is taken in/out of carrito")
+        unit_price(required:true, type: PropertyType.Numeric, description: "Unit price of the item added/changed/deleted")
+        quantity(required:true, type: PropertyType.Numeric, description: "Current quantity of the item at carrito")
+        quantity_change(required: false, type: PropertyType.Numeric, decription: "Quantity that the item has been increased/decreased")
     }
 
     propertyGroups {
@@ -44,18 +44,14 @@ tracks {
     //quantity
     //unit_price
 
-    seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data")
-    //id
-    //nickname
-    //mercado_lider
-    //reputation_level
-
 	free_shipping_benefit(required:false, type: PropertyType.Boolean)
     loyalty_level(required:false, type: PropertyType.Numeric)
-    is_empty(required:false, type: PropertyType.Boolean)
+    is_empty(required:false, type: PropertyType.String)
 }
 
-"/cart/my_cart"(platform: "/") {}
+"/cart/my_cart"(platform: "/") {
+    resolution(required:false, type: PropertyType.String)
+}
 
 "/cart/my_cart/save_for_later"(platform: "/", type: TrackType.Event) {
     item_info
@@ -81,6 +77,7 @@ tracks {
 
 "/cart/saved_for_later"(platform: "/") {}
 
+// TODO Borrar => Lo estamos standarizando hacía la definición de add_to_cart.groovy
 "/cart/saved_for_later/add_to_cart"(platform: "/", type: TrackType.Event) {
     item_info
 }
@@ -89,8 +86,23 @@ tracks {
     item_info
 }
 
-"/cart/change_address"(platform: "/") {}
 
-"/cart/add_cp"(platform: "/") {}
+"/cart/saved_for_later/change_quantity"(platform: "/", type: TrackType.Event) {
+    item_info
+}
+
+"/cart/my_cart/confirm_address"(platform: "/", type:TrackType.Event){}
+
+"/cart/my_cart/change_address"(platform: "/") {}
+
+"/cart/my_cart/add_cp"(platform: "/", isAbstract: true, type: TrackType.View) {}
+
+"/cart/my_cart/my_addresses"(platform: "/", type: TrackType.Event){}
+
+"/cart/my_cart/confirm_cp"(platform: "/", type: TrackType.Event){}
+
+"/cart/my_cart/add_cp/confirm_cp"(platform: "/", type: TrackType.Event){}
+
+"/cart/my_cart/add_cp/dont_know_cp"(platform: "/", type: TrackType.Event){}
 
 }

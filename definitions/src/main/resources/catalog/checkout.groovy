@@ -2,19 +2,53 @@ import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
-
 tracks {
 
     //CHECKOUT FLOW
 
-    "/checkout"(platform: "/", isAbstract: true) {
-    }
+    "/checkout"(platform: "/") {
+        order_id(required: false)
+        status(required: false)
+        checkout_version(required: false, description: "Checkout Version")
+        total_amount(required: false, type: PropertyType.Numeric)
+        total_amount_with_shipping(required: false, description: "totalAmount with shipping cost")
+        total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+        order_items(required: false, description: "Array of items in the order. New: optional for old versions of mobile")
+        //item
+        //id
+        //variation_id
+        //buying_mode
+        //category_id
+        //deal_ids
+        //quantity
+        //unit_price
+        //currency_id
 
-    "/checkout/ordercreated"(platform: "/web", type: TrackType.Event) {
-        order_id()
-        status()
-        total_amount()
-        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
+        resolution(required: false)
+        precharged_cards(required: false)
+        geolocated(required: false)
+
+        //shipping(required: false)
+        shipping(required: false, type:PropertyType.ArrayList)
+        // shipping_type,
+        // cost,
+        // shipping_option,
+        // id, -> Solo para CHO Normal (no para cart)
+        // name,
+        // shipping_method_id,
+        // shipping_mode
+        // free_shipping_benefit
+
+        payments(required: false, description: "Array of payment information") //
+        // id
+        // payment_method,
+        // payment_type,
+        // installments,
+        // selected_card
+        // financed_order_cost_for_card
+        // payment_must_call_for_authorize
+
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
         //item
         //id
         //variation_id
@@ -25,20 +59,62 @@ tracks {
         //quantity
         //unit_price
         //currency_id
-        platform()
 
-        buyer()
+        buyer(required: false)
         //id
         //nickname
-        seller(type: PropertyType.ArrayList, description: "Array of sellers with their data")
+
+        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
-        errors()
 
+        errors(required: false)
+        status_detail(required: false)
+        reloaded(required: false)
+        quantity_pre_selected(required: false)
+        order_payment_required(required: false)
+        shipping_pre_selected(required: false)
+
+        buy_equal_pay(required: false, description: "BP flag")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        register_int(required: false, description: "Integrated registration")
+        platform(required: false)
+        available_actions(required: false, type: PropertyType.ArrayList, description: "Action presented on the screen, for ex: call_seller, email_seller, etc.")
+
+        //Legacy App Congrats Tracks
+        duplicated_error(required: false)
         congrats_seq(serverSide: true)
-        first_for_order(serverSide: true)
         total_amount_local(serverSide: true)
         total_amount_usd(serverSide: true)
+        first_for_order(serverSide: true)
+
+        // Checkout flows
+        checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
+
+        //Billing info
+        billing_info(required:false, description: "Dictionary containing the user selected billing info")
+
+        vertical(required:false, description: "Vertical of the item to be bought")
+
+        session_id(required:false, description:"Session in which the checkout is being held")
+
+        shipping_pick_up_in_store(required:false, type: PropertyType.String, description: "If the item has puis available")
+
+        account_money_info(required:false, type: PropertyType.ArrayList, description: "Array with data of the account money of the buyer")
+        //skipPassword
+        //useAccountMoneyWithAnotherPM
+        //availableAccountMoney
+
+        available_subscription(required:false, description:"If the item is elegible for subscription")
+
+        loyalty_level(required:false, description:"The loyalty level of the buyer")
+
+    }
+
+    /*
+    * CHECKOUT V4
+    */
+    "/checkout/ordercreated"(platform: "/web", type: TrackType.Event) {
     }
 
     "/checkout/login"(platform: "/web", isAbstract: true) {
@@ -59,49 +135,12 @@ tracks {
     "/checkout/login/first_purchase_not_authenticated"(platform: "/web") {}
     "/checkout/login/confirm_not_authenticated"(platform: "/web") {}
 
-    "/checkout/payments"(platform: "/web", isAbstract: true) {
-        order_id(required: true, description: "OrderId")
-        status(required: true, description: "status")
-        total_amount(required: true, description: "totalAmount")
-        total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
-        total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
-
-        buy_equal_pay(required: true, description: "BP flag")
-        recovery_flow(required: true, description: "Is recovery CHO flow")
-        register_int(required: false, description: "Integrated registration")
-        platform()
-
-        payments(required: false, description: "Array of payments information")
-        // id
-        // payment_method,
-        // payment_type,
-        // installments,
-        // paid_amount,
-        // installment_amount
-        // without_fee
-
-        shipping(required: false)
-        // shipping_type
-        // cost
-        // shipping_option,
-        // id,
-        // name,
-        // shipping_method_id
-
-        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
-        //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
-        //quantity
-        //unit_price
-        //currency_id
-
-        tracking_referer_page(required: false, description: "tracking referer page from where the request came")
+    "/checkout/payment"(platform: "/", isAbstract: true) {
     }
+
+    "/checkout/payments"(platform: "/", isAbstract: true) {
+    }
+
     "/checkout/payments/select_payment_method"(platform: "/web") {}
     "/checkout/payments/select_payment_type"(platform: "/web") {}
     "/checkout/payments/select_split_payment"(platform: "/web") {}
@@ -117,114 +156,15 @@ tracks {
 
     //Web and Apps track is the same
     "/checkout/review"(platform: "/") {
-        order_id(required: false, description: "OrderId") //Apps might not have an order
-        status(required: false, description: "status") //Apps might not have an order
-        total_amount(required: true, description: "totalAmount")
-        total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
-        total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
-
-        buy_equal_pay(required: true, description: "BP flag")
-        recovery_flow(required: true, description: "Is recovery CHO flow")
-        register_int(required: false, description: "Integrated registration")
-        platform()
-
-        payments(required: false, description: "Array of payments information")
-        // id
-        // payment_method,
-        // payment_type,
-        // installments,
-        // paid_amount,
-        // installment_amount
-        // without_fee
-
-        shipping(required: false)
-        // shipping_type
-        // cost
-        // shipping_option,
-        // id,
-        // name,
-        // shipping_method_id
-
-        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
-        //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
-        //quantity
-        //unit_price
-        //currency_id
-        buyer(required: false)
-        //id
-        //nickname
-
-        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
-        //id
-        //nickname
-    }
-
-    "/checkout/congrats"(platform: "/web") {
-        order_id(required: true, description: "OrderId")
-        status(required: true, description: "status")
-        total_amount(required: true, description: "totalAmount")
-        total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
-        total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
-
-        buy_equal_pay(required: true, description: "BP flag")
-        recovery_flow(required: true, description: "Is recovery CHO flow")
-        register_int(required: false, description: "Integrated registration")
-        platform()
-
-        payments(required: false, description: "Array of payments information")
-        // id
-        // payment_method,
-        // payment_type,
-        // installments,
-        // paid_amount,
-        // installment_amount
-        // without_fee
-        // status
-        // status_detail
-
-        shipping(required: false)
-        // shipping_type
-        // cost
-        // shipping_option,
-        // id,
-        // name,
-        // shipping_method_id
-        // id
-        // shipping_mode
-
-        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
-        //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
-        //quantity
-        //unit_price
-        //currency_id
-
-        buyer(required: true)
-        //id
-        //nickname
-
-        seller(required: true, type: PropertyType.ArrayList, description: "Array of sellers with their data")
-        //id
-        //nickname
-
-        proactive_two_payment(required: false, description: "tracking proactive two payment selection")
-        total_amount_local(serverSide: true)
-        total_amount_usd(serverSide: true)
     }
 
     /** *****************************************************************/
     //Mobile Checkout Apps
+    "/checkout"(platform: "/mobile") {
+        combination_2mp(required:false, description: "2MP switch state")
+        reservation_price(required: false, description: "price of a reservation transaction")
+    }
+
     "/checkout/wrapper"(platform: "/mobile") {} //Melidata experiment
     "/checkout/init"(platform: "/mobile") {
         //Might not have most of status values in case of requestFailure
@@ -283,61 +223,25 @@ tracks {
         location(required: false, type: PropertyType.String)
         geolocation_method(required: false, type: PropertyType.String)
     }
-    "/checkout/geolocation"(platform: "/mobile", type: TrackType.Event) {
+
+    "/checkout/init/options"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        shipping_data(required: true, type: PropertyType.ArrayList, description: "Shipping options available for the buyer")
+        payment_data(required: true, type: PropertyType.String, description: "Payment options available for the buyer")
+        shipping(required: false)
+        payments(required: false)
+    }
+
+    "/checkout/payments_cancelation"(platform: "/mobile") {}
+
+    "/checkout/onboard"(platform: "/mobile") {}
+
+    "/checkout/geolocation"(platform: "/", type: TrackType.Event) {
         geolocation_error(required: true, description: "Why the geo failed")
     }
-    "/checkout/shipping"(platform: "/mobile", isAbstract: true) {
-        order_id(required: false, description: "OrderId")
-        status(required: false, description: "status")
-        total_amount(required: true, description: "totalAmount")
-        total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
-        total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
 
-        buy_equal_pay(required: true, description: "BP flag")
-        recovery_flow(required: true, description: "Is recovery CHO flow")
-        platform(required: true)
-
-        payments(required: true, description: "Array of payments information")
-        // id
-        // payment_method,
-        // payment_type,
-        // installments,
-        // paid_amount,
-        // installment_amount
-        // without_fee
-        // status
-        // status_detail
-
-        shipping(required: true)
-        // shipping_type
-        // cost
-        // shipping_option,
-        // id,
-        // name,
-        // shipping_method_id
-        // id
-        // shipping_mode
-
-        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
-        //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
-        //quantity
-        //unit_price
-        //currency_id
-
-        buyer(required: true)
-        //id
-        //nickname
-
-        seller(required: true, type: PropertyType.ArrayList, description: "Array of sellers with their data")
-        //id
-        //nickname
+    "/checkout/shipping"(platform: "/", type: TrackType.View) {
     }
+
     //Fallback/Custom shipping
     "/checkout/shipping/select_method"(platform: "/mobile") {
         //View specific data
@@ -364,6 +268,30 @@ tracks {
     "/checkout/shipping/custom_address"(platform: "/mobile", isAbstract: true) {}
     //Input zip_code
     "/checkout/shipping/custom_address/zip_code"(platform: "/mobile") {}
+    "/checkout/shipping/custom_address/zip_code#zip_code"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        zip_code(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/custom_address/zip_code#street_name"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        street_name(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/custom_address/zip_code#street_number"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        street_number(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/custom_address/zip_code#internal_number"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        internal_number(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/custom_address/zip_code#between_streets"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        between_streets(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/custom_address/zip_code#references"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        references(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/custom_address/zip_code#neighborhood"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        neighborhood(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/custom_address/zip_code#additional_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        additional_info(required: false, type: PropertyType.String)
+    }
     "/checkout/shipping/custom_address/zip_code#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     }
     //Query zip code
@@ -375,9 +303,9 @@ tracks {
     }
     "/checkout/shipping/custom_address/zip_code/query/back"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     }
-    "/checkout/shipping/select_option"(platform: "/mobile", isAbstract: true) {
+    "/checkout/shipping/select_option"(platform: "/", isAbstract: true) {
         //View specific data
-        shipping_options(required: true, type: PropertyType.ArrayList)
+        shipping_options(required: false, type: PropertyType.ArrayList)
         //shipping_options: [
         //  [
         //    method_name: "Normal",
@@ -440,11 +368,12 @@ tracks {
         contact_name(required: false, type: PropertyType.String)
         contact_phone(required: false, type: PropertyType.String)
     }
+
     //Select address
-    "/checkout/shipping/select_address"(platform: "/mobile") {
+    "/checkout/shipping/select_address"(platform: "/") {
         //View specific data
         //List of available shipping_options
-        shipping_options(required: true, type: PropertyType.ArrayList)
+        shipping_options(required: false, type: PropertyType.ArrayList)
         //shipping_options: [
         //  [
         //    method_name: "Normal",
@@ -454,7 +383,7 @@ tracks {
         //  ]
         //]
     }
-    "/checkout/shipping/select_address/list"(platform: "/mobile") {
+    "/checkout/shipping/select_address/list"(platform: "/") {
         shipping_options(required: false, type: PropertyType.ArrayList)
     }
 
@@ -468,93 +397,42 @@ tracks {
     }
 
     //Select paymentMethod
-    "/checkout/payments/preload_credit_card"(platform: "/mobile", type: TrackType.View) {}//Melidata experiment
-    "/checkout/payments"(platform: "/mobile", isAbstract: true) {
-        order_id(required: false, description: "OrderId")
-        status(required: false, description: "status")
-        total_amount(required: true, description: "totalAmount")
-        total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
-        total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+    "/checkout/payment/preload_credit_card"(platform: "/mobile", type: TrackType.View) {}//Melidata experiment
 
-        buy_equal_pay(required: true, description: "BP flag")
-        recovery_flow(required: true, description: "Is recovery CHO flow")
-        platform(required: true)
-
-        payments(required: true, description: "Array of payments information")
-        // id
-        // payment_method,
-        // payment_type,
-        // installments,
-        // paid_amount,
-        // installment_amount
-        // without_fee
-        // status
-        // status_detail
-
-        shipping(required: true)
-        // shipping_type
-        // cost
-        // shipping_option,
-        // id,
-        // name,
-        // shipping_method_id
-        // id
-        // shipping_mode
-
-        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
-        //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
-        //quantity
-        //unit_price
-        //currency_id
-
-        buyer(required: true)
-        //id
-        //nickname
-
-        seller(required: true, type: PropertyType.ArrayList, description: "Array of sellers with their data")
-        //id
-        //nickname
-    }
-    "/checkout/payments/select_method"(platform: "/mobile") {
+    "/checkout/payment/select_method"(platform: "/mobile") {
         //List of available payment_methods and coupon info
         available_methods(required: true, type: PropertyType.ArrayList)
         coupon(required: false, type: PropertyType.Boolean)
         coupon_discount(required: false, type: PropertyType.Numeric)
     }
-    "/checkout/payments/select_method#new_payment_method_selected"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/payment/select_method#new_payment_method_selected"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         payment_method_id(required: false, type: PropertyType.String)
         payment_type_id(required: false, type: PropertyType.String)
     }
-    "/checkout/payments/coupon_detail"(platform: "/mobile") {}
+    "/checkout/payment/coupon_detail"(platform: "/mobile") {}
     // Add card form
-    "/checkout/payments/add_debit_card"(platform: "/mobile") {}
-    "/checkout/payments/add_debit_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/payment/add_debit_card"(platform: "/mobile") {}
+    "/checkout/payment/add_debit_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         bin(required: true, type: PropertyType.String)
         success(required: true, type: PropertyType.Boolean)
     }
-    "/checkout/payments/add_debit_card/select_bank"(platform: "/mobile") {
+    "/checkout/payment/add_debit_card/select_bank"(platform: "/mobile") {
         available_issuers(required: true, type: PropertyType.ArrayList)
     }
-    "/checkout/payments/add_prepaid_card"(platform: "/mobile") {}
-    "/checkout/payments/add_prepaid_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/payment/add_prepaid_card"(platform: "/mobile") {}
+    "/checkout/payment/add_prepaid_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         bin(required: true, type: PropertyType.String)
         success(required: true, type: PropertyType.Boolean)
     }
-    "/checkout/payments/add_card"(platform: "/mobile") {}
-    "/checkout/payments/add_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/payment/add_card"(platform: "/mobile") {}
+    "/checkout/payment/add_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         bin(required: true, type: PropertyType.String)
         success(required: true, type: PropertyType.Boolean)
     }
-    "/checkout/payments/add_card/select_bank"(platform: "/mobile") {
+    "/checkout/payment/add_card/select_bank"(platform: "/mobile") {
         available_issuers(required: true, type: PropertyType.ArrayList)
     }
-    "/checkout/payments/add_card/installments"(platform: "/mobile") {
+    "/checkout/payment/add_card/installments"(platform: "/mobile") {
         //List of available installments
         available_installments(required: true, type: PropertyType.ArrayList)
         //installments: [
@@ -564,12 +442,16 @@ tracks {
         //      without_fee: true
         //    ]
     }
-    "/checkout/payments/stored_card"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/payments/stored_card/select_bank"(platform: "/mobile") {
+    "/checkout/payment/stored_card"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/payment/stored_card/select_bank"(platform: "/mobile") {
         available_methods(required: true, type: PropertyType.ArrayList, description: "list of available banks")
     }
-    "/checkout/payments/stored_card/security_code"(platform: "/mobile") {}
-    "/checkout/payments/stored_card/installments"(platform: "/mobile") {
+    "/checkout/payment/stored_card/security_code"(platform: "/mobile") {
+        //List of visible fields
+        user_identification_fields(required: false, type: PropertyType.ArrayList)
+        //user_identification_fields: ["doc_type", "doc_number"]
+    }
+    "/checkout/payment/stored_card/installments"(platform: "/mobile") {
         credit_card_id(required: false, type: PropertyType.String)
         //List of available installments
         available_installments(required: true, type: PropertyType.ArrayList)
@@ -580,35 +462,39 @@ tracks {
         //      without_fee: true
         //    ]
     }
-    "/checkout/payments/stored_card/installments#change_payment_method"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/payment/stored_card/installments#change_payment_method"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         event_source(required: true, type: PropertyType.String)
     }
-    "/checkout/payments/account_money"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/payments/account_money/create"(platform: "/mobile") {}
-    "/checkout/payments/account_money/password"(platform: "/mobile") {}
-    "/checkout/payments/account_money/password#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/payment/account_money"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/payment/account_money/create"(platform: "/mobile") {}
+    "/checkout/payment/account_money/password"(platform: "/mobile") {}
+    "/checkout/payment/account_money/password#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     }
-    "/checkout/payments/select_issuer"(platform: "/mobile") {}
+    "/checkout/payment/select_issuer"(platform: "/mobile") {}
     // mlm grouping
-    "/checkout/payments/cash"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/payments/cash/select_store"(platform: "/mobile") {
+    "/checkout/payment/cash"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/payment/cash/select_store"(platform: "/mobile") {
         available_methods(required: true, type: PropertyType.ArrayList)
     }
-    "/checkout/payments/cash/select_store/select_address"(platform: "/mobile", parentPropertiesInherited: false) {}
-    "/checkout/payments/cash/select_store#request_permissions"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/payment/cash/select_store/select_address"(platform: "/mobile", parentPropertiesInherited: false) {}
+    "/checkout/payment/cash/select_store#request_permissions"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         permissions(required: true, type: PropertyType.String)
         extended(required: true, type: PropertyType.Boolean)
     }
-    "/checkout/payments/transfer"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/payments/transfer/select_bank"(platform: "/mobile") {
+    "/checkout/payment/transfer"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/payment/transfer/select_bank"(platform: "/mobile") {
         available_methods(required: true, type: PropertyType.ArrayList)
     }
-    "/checkout/payments/billing_info"(platform: "/mobile") {}
-    "/checkout/payments/billing_info#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/payment/billing_info"(platform: "/mobile") {
+        //List of visible fields
+        user_identification_fields(required: false, type: PropertyType.ArrayList)
+        //user_identification_fields: ["doc_type", "doc_number", "name", "las_name"]
+    }
+    "/checkout/payment/billing_info#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         billing_info_state(required: true, type: PropertyType.String)
     }
-    "/checkout/payments/consumer_credits"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/payments/consumer_credits/installments"(platform: "/mobile") {
+    "/checkout/payment/consumer_credits"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/payment/consumer_credits/installments"(platform: "/mobile") {
         //List of available installments
         available_installments(required: true, type: PropertyType.ArrayList)
         //installments: [
@@ -619,11 +505,46 @@ tracks {
         //    ]
     }
     // payment promotions screen. Eg: bank promos in MLA
-    "/checkout/payments/promotions"(platform: "/mobile") {}
+    "/checkout/payment/promotions"(platform: "/mobile") {}
+
+    "/checkout/payment/select_type"(platform: "/mobile", type: TrackType.View) {
+        available_methods(required: false, type: PropertyType.ArrayList)
+        coupon(required: false, type: PropertyType.Boolean)
+        coupon_discount(required: false, type: PropertyType.Numeric)
+    }
+
+    // 2MP switch tracks
+    "/checkout/payment/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/payment/2mp#not_use"(platform: "/mobile", type: TrackType.Event) {}
+
+    //2MP Disclaimer combination modal view.
+    "/checkout/payment/payment_combination"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/payment/payment_combination/debit_card"(platform: "/mobile") {}
+    "/checkout/payment/payment_combination/payment_method_not_supported"(platform:"/mobile", type: TrackType.View) {}
+
+    // Discount coupons
+    "/checkout/payment/add_coupon"(platform:"/mobile", type: TrackType.View) {}
+    "/checkout/payment/coupon_ok"(platform:"/mobile", type: TrackType.View) {
+        coupon(required: true, type: PropertyType.String)
+    }
+    "/checkout/payment/add_another_coupon"(platform:"/mobile", type: TrackType.View) {}
+    "/checkout/payment/coupon_error"(platform:"/mobile", type: TrackType.View) {}
+
+    "/checkout/payment/invalid_coupon"(platform:"/mobile", type: TrackType.Event) {}
+    "/checkout/payment/expired_coupon"(platform:"/mobile", type: TrackType.Event) {}
+    "/checkout/payment/add_another_coupon/delete_coupon"(platform:"/mobile", type: TrackType.Event) {}
+
+    //Billing info
+    "/checkout/billing"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/billing/physical_person"(platform: "/mobile") {}
+    "/checkout/billing/legal_person"(platform: "/mobile") {}
+    "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    }
+
     //"/checkout/review" //shared between web and app, already defined in web section.
     "/checkout/review#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         status(required: true, type: PropertyType.String)
-        credit_card_id(required: false, type: PropertyType.String)
+        checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
     }
     "/checkout/review/quantity#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         old_quantity(required: true, type: PropertyType.Numeric)
@@ -641,9 +562,9 @@ tracks {
         old_value(required: true, type: PropertyType.String)
         new_value(required: true, type: PropertyType.String)
     }
-    "/checkout/review/edit_shipping"(platform: "/mobile") {
+    "/checkout/review/edit_shipping"(platform: "/") {
         //List of available shipping_options
-        shipping_options(required: true, type: PropertyType.ArrayList)
+        shipping_options(required: false, type: PropertyType.ArrayList)
         //shipping_options: [
         //  [
         //    method_name: "Normal",
@@ -672,6 +593,16 @@ tracks {
         //    ]
     }
     "/checkout/review/terms"(platform: "/mobile") {}
+    "/checkout/review/discard_payment_combination"(platform: "/mobile") {}
+    "/checkout/review/inconsistency/payment_combination"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/review/inconsistency/payment_combination/payment"(platform: "/mobile") {}
+    "/checkout/review/inconsistency/payment_combination/installments"(platform: "/mobile") {}
+    "/checkout/review/inconsistency/payment_combination/shipping"(platform: "/mobile") {}
+
+    //Review summary header payment detail list
+    "/checkout/review/display_detail#displayed"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/review/display_detail#closed"(platform: "/mobile", type: TrackType.Event) {}
+
     "/checkout/additional_info"(platform: "/mobile") {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
@@ -725,88 +656,20 @@ tracks {
         //nickname
     }
     //Congrats tracks - shared between Legacy App and new App (Required False to prevent catalog validation failures)
-    "/checkout/congrats"(platform: "/mobile") {
-        /** **************************************/
-        //Desktop and New CHO congrats tracs
-        //TODO chage to required: true once legacy
-        order_id(required: false, description: "OrderId")
-        status(required: false, description: "status")
-        total_amount(required: false, description: "totalAmount")
-        total_amount_with_shipping(required: false, description: "totalAmount with shipping cost")
-        total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
-
-        buy_equal_pay(required: false, description: "BP flag")
-        recovery_flow(required: false, description: "Is recovery CHO flow")
-        register_int(required: false, description: "Integrated registration")
-        platform(required: false)
-
-        payments(required: false, description: "Array of payments information")
-        // id
-        // payment_method,
-        // payment_type,
-        // installments,
-        // paid_amount,
-        // installment_amount
-        // without_fee
-        // status
-        // status_detail
-
-        shipping(required: false)
-        // shipping_type
-        // cost
-        // shipping_option,
-        // id,
-        // name,
-        // shipping_method_id
-        // id
-        // shipping_mode
-
-        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
-        //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
-        //quantity
-        //unit_price
-        //currency_id
-
-        buyer(required: false)
-        //id
-        //nickname
-
-        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
-        //id
-        //nickname
-        available_actions(required: false, type: PropertyType.ArrayList, description: "Action presented on the screen, for ex: call_seller, email_seller, etc.")
-
-        checkout_version(required: false, type: PropertyType.String)
-        /** **************************************/
-        //Legacy App Congrats Tracks
-        duplicated_error(required: false)
-        congrats_seq(serverSide: true)
-        total_amount_local(serverSide: true)
-        total_amount_usd(serverSide: true)
-        first_for_order(serverSide: true)
+    "/checkout/congrats"(platform: "/") {
+        status(required: false, type: PropertyType.String)
     }
+
     "/checkout/finish#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         action(required: true, description: "Action executed, for ex: call_seller, email_seller, etc")
     }
-    "/checkout/congrats/error"(platform: "/mobile") {}
 
-    "/checkout/congrats/call_for_auth"(platform: "/mobile") {}
+    "/checkout/finish/call_for_auth"(platform:"/", type: TrackType.View, isAbstract: true) {}
+    "/checkout/finish/call_for_auth/instructions"(platform: "/mobile") {}
+    "/checkout/finish/call_for_auth/later"(platform: "/mobile") {}
 
-    "/checkout/congrats/call_for_auth/instructions"(platform: "/mobile") {}
-
-    "/checkout/congrats/call_for_auth/later"(platform: "/mobile") {}
-
-    "/checkout/congrats/invalid_sec_code"(platform: "/mobile") {}
-
-    "/checkout/congrats/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {
-
-    }
+    "/checkout/finish/invalid_sec_code"(platform:"/", type: TrackType.View, isAbstract: true) {}
+    "/checkout/finish/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {}
 
     "/checkout/finish"(platform: "/mobile", isAbstract: true) {
         /** **************************************/
@@ -868,9 +731,11 @@ tracks {
         /* choose from a list of actions what to do. Eg: choose user homebanking */
     }
 
-    "/checkout/congrats/pending"(platform: "/mobile") {}
+    "/checkout/finish/second_step"(platform: "/mobile", isAbstract: true) {}
 
-    "/checkout/error"(platform: "/mobile") {
+    "/checkout/finish/second_step/error_details"(platform: "/mobile") {}
+
+    "/checkout/error"(platform: "/") {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
         total_amount(required: false, description: "totalAmount")
@@ -921,62 +786,11 @@ tracks {
         seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
-        error_code(required: true, type: PropertyType.String)
+        error_code(required: false, type: PropertyType.String)
     }
 
-    "/checkout/show_ticket"(platform: "/mobile") {
-        order_id(required: false, description: "OrderId")
-        status(required: false, description: "status")
-        total_amount(required: true, description: "totalAmount")
-        total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
-        total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+    "/checkout/show_ticket"(platform: "/") {}
 
-        buy_equal_pay(required: true, description: "BP flag")
-        recovery_flow(required: true, description: "Is recovery CHO flow")
-        platform(required: true)
-        payment_method(required: true)
-
-        payments(required: true, description: "Array of payments information")
-        // id
-        // payment_method,
-        // payment_type,
-        // installments,
-        // paid_amount,
-        // installment_amount
-        // without_fee
-        // status
-        // status_detail
-
-        shipping(required: true)
-        // shipping_type
-        // cost
-        // shipping_option,
-        // id,
-        // name,
-        // shipping_method_id
-        // id
-        // shipping_mode
-
-        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
-        //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
-        //quantity
-        //unit_price
-        //currency_id
-
-        buyer(required: true)
-        //id
-        //nickname
-
-        seller(required: true, type: PropertyType.ArrayList, description: "Array of sellers with their data")
-        //id
-        //nickname
-    }
     "/checkout/show_ticket#save"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
     "/checkout/show_geolocation_map"(platform: "/mobile") {
         order_id(required: false, description: "OrderId")
@@ -1043,48 +857,150 @@ tracks {
         payment_method(required: true)
 
     }
+    /*
+    * CHECKOUT V4
+    */
 
-    /** *****************************************************************/
-    //Mobile Checkout Legacy Apps
-    "/checkout"(platform: "/mobile") {
-        order_id(required: false)
-        status(required: false)
-        checkout_version(required: false, description: "Checkout Version")
-        total_amount(required: false, type: PropertyType.Numeric)
-        order_items(required: false, description: "Array of items in the order. New: optional for old versions of mobile")
-        //item
-        //id
-        //variation_id
-        //buying_mode
-        //category_id
-        //deal_ids
-        //quantity
-        //unit_price
-        //currency_id
+    /*
+    * CHECKOUT V5
+    */
 
-        shipping(required: false)
-        //shipping_type
-        //shipping_option
+    "/checkout/shipping/confirm_geolocation"(platform:"/web", type: TrackType.View) {}
 
-        payments(required: false, description: "Array of payment information") //
-        // id
-        // payment_method,
-        // payment_type,
-        // installments,
-        // selected_card
-        // financed_order_cost_for_card
-        // payment_must_call_for_authorize
+    "/checkout/shipping/confirm_geolocation/send_to_cp_located"(platform:"/web", type: TrackType.Event) {}
+    "/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", type: TrackType.Event) {}
 
-        status_detail(required: false)
-        reloaded(required: false)
-        quantity_pre_selected(required: false)
-        order_payment_required(required: false)
-        shipping_pre_selected(required: false)
+    "/checkout/shipping/input_new_address"(platform:"/web", type: TrackType.View) {}
 
-        item_id(deprecated: true, required: false)
-        quantity(deprecated: true, required: false)
-        order_cost(deprecated: true, required: false)
+    "/checkout/shipping/select_option/send_to_my_address/"(platform:"/web", type: TrackType.View) {}
+
+    "/checkout/shipping/select_option/agency_pickup/"(platform:"/web", type: TrackType.View) {}
+
+    "/checkout/items_not_available"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/payment/select_method"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/payment/select_method/edit_payment"(platform:"/", type: TrackType.Event) {}
+    "/checkout/payment/select_method/show_distances"(platform:"/", type: TrackType.Event) {}
+
+    "/checkout/payment/select_store"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/payment/select_bank"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/payment/view_location"(platform:"/", type: TrackType.View) {}
+    "/checkout/payment/view_location/location"(platform:"/", type: TrackType.Event) {}
+    "/checkout/payment/view_location/preloaded"(platform:"/", type: TrackType.Event) {}
+
+    "/checkout/payment/input_card"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/payment/input_card/edit_payment"(platform:"/", type: TrackType.Event) {}
+    "/checkout/payment/input_card/security_code_tooltip"(platform:"/", type: TrackType.Event) {}
+    "/checkout/payment/security_code"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/payment/select_installments"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/payment/select_installments/close_splitter_message"(platform:"/", type: TrackType.Event) {}
+    "/checkout/payment/select_installments/click_payment_detail"(platform:"/", type: TrackType.Event) {}
+    "/checkout/payment/select_installments/click_box_installments"(platform:"/", type: TrackType.Event) {
+        payment_with_click(required:false, type: PropertyType.String, values: ["FirstPayment", "SecondPayment"])
     }
+
+    "/checkout/payment/create_second_password"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/payment/input_second_password"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/payment/input_second_password/edit_payment"(platform:"/", type: TrackType.Event) {}
+
+    "/checkout/review/edit_payment"(platform:"/", type: TrackType.Event) {}
+
+    "/checkout/review/edit_first_payment"(platform:"/", type: TrackType.Event) {}
+
+    "/checkout/review/edit_second_payment"(platform:"/", type: TrackType.Event) {}
+
+    "/checkout/review/edit_shipping"(platform:"/", type: TrackType.Event) {}
+
+    "/checkout/review/change_installments"(platform:"/", type: TrackType.Event) {}
+
+    "/checkout/review/change_shipping"(platform:"/", type: TrackType.Event) {}
+
+    "/checkout/review/confirm_purchase"(platform:"/", type: TrackType.Event) {}
+
+    "/checkout/review/change_address"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/review/edit_payment_method"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/review/insufficient_account_money"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/review/high_amount_error"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/review/low_amount_error"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/review/installments_error"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/shipping/store_selection"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/shipping/agencies_contact_info"(platform:"/", type: TrackType.View) {}
+
+    // Suscripciones
+    "/checkout/review/edit_frequency"(platform:"/", type: TrackType.Event) {
+        frequency(required: true, type: PropertyType.String)
+        frequency_before(required: true, type: PropertyType.String)
+    }
+
+    //Eventos en la "/checkout/congrats"
+    //------------------------------------------------------------------------------------
+    "/checkout/finish"(platform:"/", isAbstract: true) {}
+
+    "/checkout/finish/keep_buying"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/go_to_myml"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/go_to_page_bank"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/view_ticket"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/download_ticket"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/show_map"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/save_data"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/contact_us"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/go_to_mercado_puntos"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/added_points"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/send_message"(platform:"/", type: TrackType.Event) {}
+    "/checkout/finish/call_seller"(platform:"/", type: TrackType.Event) {}
+    //------------------------------------------------------------------------------------
+
+    "/checkout/invalid_sec_code"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/invalid_sec_code/input_code"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/call_for_auth"(platform:"/", isAbstract: true) {}
+
+    "/checkout/call_for_auth/instructions"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/call_for_auth/call_later"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
+
+    "/checkout/loading"(platform: "/", type: TrackType.View) {}
+    "/checkout/loading/error"(platform: "/", type: TrackType.View) {}
+    "/checkout/shipping/edit_address"(platform:"/", type: TrackType.Event) {}
+    "/checkout/shipping/input_zipcode"(platform:"/", type: TrackType.View) {}
+    "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/", type: TrackType.Event) {}
+    "/checkout/shipping/input_address"(platform:"/", type: TrackType.View) {}
+    "/checkout/shipping/input_address_number"(platform:"/", type: TrackType.View) {}
+    "/checkout/shipping/input_address_number/whithout_number"(platform:"/", type: TrackType.Event) {}
+    "/checkout/shipping/select_option_detail"(platform:"/", type: TrackType.View) {}
+    "/checkout/shipping/input_address_apartment"(platform:"/", type: TrackType.View) {}
+    "/checkout/shipping/select_contact_info"(platform:"/", type: TrackType.View) {}
+    "/checkout/shipping/add_contact_info"(platform:"/", type: TrackType.View) {}
+    "/checkout/shipping/input_contact_info"(platform:"/", type: TrackType.View) {}
+    "/checkout/payment/select_unique_installment"(platform:"/", type: TrackType.View) {}
+    "/checkout/payment/select_first_installment"(platform:"/", type: TrackType.View) {}
+    "/checkout/payment/select_second_installment"(platform:"/", type: TrackType.View) {}
+    "/checkout/review/edit_unique_installment"(platform:"/", type: TrackType.View) {}
+    "/checkout/review/edit_first_installment"(platform:"/", type: TrackType.View) {}
+    "/checkout/review/edit_second_installment"(platform:"/", type: TrackType.View) {}
+
+    /*
+    * CHECKOUT V5
+    */
+
 
     "/checkout/abort"(platform: "/mobile", type: TrackType.Event) {}
 

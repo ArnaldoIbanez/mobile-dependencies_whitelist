@@ -42,10 +42,31 @@ metrics {
 		}
 	}
 
+	
+	"checkout.loading"(description: "The checkout V5 first-page after performing a buy_intention ") {
+		countsOn {
+			condition {
+				path("/checkout/loading")
+			}
+		}
+	}
+	
 	"checkout.login"(description: "path: /checkout/login/confirm_authenticated or /checkout/login/first_purchase_not_authenticated or /checkout/login/confirm_not_authenticated") {
 		countsOn {
 			condition {
 				path("/checkout/login/confirm_authenticated", "/checkout/login/first_purchase_not_authenticated", "/checkout/login/confirm_not_authenticated")
+			}
+		}
+	}
+	
+	"publish_congrats"(description: "Selling flow new item published - Does not track congrats view") {	
+		startWith {
+	            experiment(regex("sell/.*"))
+		}
+		
+		countsOn {
+			condition {
+				path("/item/create")
 			}
 		}
 	}
@@ -63,5 +84,27 @@ metrics {
 		}
 	}
 
-
+	"sell_upgrade_intention"(description: "Intention for upgrading - Selling flow") {	
+		startWith {
+	            experiment(regex("sell/.*"))
+		}
+		
+		countsOn {
+			condition {
+				path("/sell/change_listing_type/upgrade_intention")
+			}
+		}
+	}
+	
+	"sell_list_congrats"(description: "Arrival to congrats page - Selling flow") {	
+		startWith {
+	            experiment(regex("sell/.*"))
+		}
+		
+		countsOn {
+			condition {
+				path("/sell/list/congrats")
+			}
+		}
+	}
 }

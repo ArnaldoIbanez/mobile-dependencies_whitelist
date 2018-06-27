@@ -1,6 +1,9 @@
 {
   "users": [
-    "franco.vitali@mercadolibre.com"
+    "franco.vitali@mercadolibre.com",
+    "victoria.perello@mercadolibre.com",
+    "mauro.capolupo@mercadolibre.com",
+    "juanjose.barrera@mercadolibre.com"
   ],
   "process_name": "component_ctr",
   "cron": "00 04 * * *",
@@ -17,6 +20,30 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "device_type",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "component_order",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "campaign",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "brand_name",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "category_id",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "prints",
         "type": "INTEGER"
       },
@@ -30,22 +57,22 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "day-1",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "day-0",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param03",
-          "value": "day-2",
+          "value": "DAY-2",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param04",
-          "value": "day-1",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         }
       ]

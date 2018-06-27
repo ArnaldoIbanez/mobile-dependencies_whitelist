@@ -9,7 +9,7 @@ tracks {
         checkout_flow_id(required: true, description: "checkout flow id")
         collector_id(required: true)
         collector_nickname(required: true)
-        preference_id(required: true)
+        preference_id(required: false)
         scope(required: false, description: "pool that generates the tracks: mla, mlb, mlm, rola, revamp")
     }
 
@@ -103,4 +103,158 @@ tracks {
         exception_message(required: false)
     }
 
+    //-----------------------Unified tracking catalog--------------------
+
+    "/checkout_off/v1"(platform: "/", isAbstract: true){
+        client_id(required: true, description: "Application's client_id")
+        environment(required: true, description: "Production or staging tracks")
+        screen_name(required: false, description: "A describing name of the screen viewed or where an event occurred")
+    }
+
+    // A new checkout flow has been started
+    "/checkout_off/v1/init"(platform: "/", type: TrackType.Event){
+        purchase_amount(required: false)
+    }
+
+    "/checkout_off/v1/payment_method_selected"(platform: "/", type: TrackType.Event){
+        payment_method(required: true)
+        payment_type(required: true)
+        purchase_amount(required: true)
+        automatic_selection(required:true)
+    }
+
+    // The user has completed the checkout and confirmed its intention to pay. This will be used to track conversion, but does not mean that the payment has been processed."
+    "/checkout_off/v1/checkout_confirmed"(platform: "/", type: TrackType.Event){
+        payment_method(required: false)
+        payment_type(required: false)
+        purchase_amount(required: false)
+        card_id(required: false)
+        installments(required: false)
+    }
+
+    "/checkout_off/v1/payment_created"(platform: "/", type: TrackType.Event){
+        payment_id(required: true)
+        payment_amount(required: true)
+        payment_method(required: true)
+        payment_type(required: true)
+        payment_status(required: true)
+        payment_status_detail(required: true)
+    }
+
+    "/checkout_off/v1/payment_canceled"(platform: "/", type: TrackType.Event){
+        payment_id(required: true)
+        payment_method(required: true)
+        payment_type(required: true)
+        payment_amount(required: true)
+    }
+
+    // The user tap back arrow (Mobile) or click on browser back (Web)
+    "/checkout_off/v1/back_action"(platform: "/", type: TrackType.Event){}
+
+    // The user expand summary view or any expandible view.
+    "/checkout_off/v1/open_summary_detail"(platform: "/", type: TrackType.Event){
+        installments(required: false, type: PropertyType.Numeric, description:"Number of installments")
+        has_discount(required: true, type: PropertyType.Boolean, description:"User has applied discount?")
+    }
+
+    "/checkout_off/v1/login"(platform: "/", type: TrackType.View){}
+
+    "/checkout_off/v1/login/guest"(platform: "/", type: TrackType.View){}
+
+    "/checkout_off/v1/login/discount"(platform: "/", type: TrackType.View){}
+
+    // One-tap-pay view. We suggested the best payment_method and payment_type.
+    // The fields are required = false, because this view are using in legacy cho-web (not required) and cho-mobile.
+    "/checkout_off/v1/express"(platform: "/", type: TrackType.View) {
+        payment_method(required: false, description:"Payment method ID")
+        payment_type(required: false, description:"Payment type ID")
+        purchase_amount(required: false, type: PropertyType.Numeric, description:"Payment amount")
+        card_id(required: false, description:"User card ID")
+        installments(required: false, type: PropertyType.Numeric, description:"Number of installments")
+    }
+
+    "/checkout_off/v1/discount_terms_conditions"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/payment_option"(platform: "/", type: TrackType.View){
+        options (required: false, type:PropertyType.ArrayList, description: "Payment options offered. Options format: {\"has_esc\":false,\"card_id\":\"\",\"payment_method\":\"visa\",\"payment_type\":\"credit_card\"}")
+    }
+
+    "/checkout_off/v1/payment_option/ticket"(platform: "/", type: TrackType.View){
+        options (required: false, type:PropertyType.ArrayList, description: "Payment options offered. Options format: {\"has_esc\":false,\"card_id\":\"\",\"payment_method\":\"visa\",\"payment_type\":\"credit_card\"}")
+    }
+
+    "/checkout_off/v1/payment_option/bank_transfer"(platform: "/", type: TrackType.View){
+        options (required: false, type:PropertyType.ArrayList, description: "Payment options offered. Options format: {\"has_esc\":false,\"card_id\":\"\",\"payment_method\":\"visa\",\"payment_type\":\"credit_card\"}")
+    }
+
+    "/checkout_off/v1/payment_option/cards"(platform: "/", type: TrackType.View){
+        options (required: false, type:PropertyType.ArrayList, description: "Payment options offered. Options format: {\"has_esc\":false,\"card_id\":\"\",\"payment_method\":\"visa\",\"payment_type\":\"credit_card\"}")
+    }
+
+    "/checkout_off/v1/additional_info"(platform: "/", isAbstract: true) {}
+
+    "/checkout_off/v1/additional_info/bolbradesco"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/additional_info/khipu"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/additional_info/redpagos"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/additional_info/abitab"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/additional_info/pse"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/additional_info/pec"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/card"(platform: "/", isAbstract: true) {}
+
+    "/checkout_off/v1/card/credit_card"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/card/debit_card"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/card/issuer"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/card/installments"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/identification"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/shipping"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/shipping/address"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/shipping/method"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/review"(platform: "/", type: TrackType.View){}
+    
+    "/checkout_off/v1/congrats"(platform: "/", type: TrackType.View){
+        status(required: false)
+    }
+
+    "/checkout_off/v1/finish"(platform: "/", isAbstract: true) {}
+
+    "/checkout_off/v1/finish/call_for_auth"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/finish/call_for_auth/instructions"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/finish/call_for_auth/later"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/finish/call_for_auth/input_code"(platform: "/", type: TrackType.View) {}
+
+    // Deprecated
+    "/checkout_off/v1/congrats/approved"(platform: "/", type: TrackType.View){}
+
+    // Deprecated
+    "/checkout_off/v1/congrats/pending"(platform: "/", type: TrackType.View) {}
+
+    // Deprecated
+    "/checkout_off/v1/congrats/instructions"(platform: "/", type: TrackType.View) {}
+
+    // Deprecated
+    "/checkout_off/v1/congrats/rejected"(platform: "/", type: TrackType.View) {}
+
+    // Deprecated
+    "/checkout_off/v1/congrats/in_process"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/v1/consumer_credit"(platform: "/", isAbstract: true){}
+
+    "/checkout_off/v1/consumer_credit/installments"(platform: "/", type: TrackType.View) {}
 }

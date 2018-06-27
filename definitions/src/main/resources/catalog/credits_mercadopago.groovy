@@ -14,6 +14,9 @@ tracks {
     "/credits/merchant"(platform: "/", isAbstract: true) {}
     "/credits/merchant/enrollment"(platform: "/", isAbstract: true) {}
     "/credits/merchant/enrollment/load_documents"(platform: "/", isAbstract: true) {}
+    "/credits/merchant/public_landing"(platform: "/", type: TrackType.View) {
+        user_profile(type: PropertyType.String, required: true)
+    }
 
     //Landing merchant
     "/credits/merchant/enrollment"(platform: "/", type: TrackType.View) {}
@@ -54,7 +57,10 @@ tracks {
     "/credits/merchant/administrator/detail"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/offer"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/no_offer"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/admin_on_time"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/admin_late_pay"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/hero_cta"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/second_offer_cta"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant/help"(platform: "/", type: TrackType.Event) {}
 
     //Help merchant
@@ -68,4 +74,12 @@ tracks {
     //Administrator consumer
     "/credits/consumer/administrator"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/administrator/detail"(platform: "/", type: TrackType.View) {}
+
+    //Definitions - Money Advance
+    "/credits/moneyadvance"(platform: "/", isAbstract: true) {}
+
+    //Money Advance - Automatic Cash Advance
+    "/credits/moneyadvance/automatic"(platform: "/", isAbstract: true) {}
+    "/credits/moneyadvance/automatic/offer"(platform: "/", type: TrackType.View) {}
+    "/credits/moneyadvance/automatic/congrats"(platform: "/", type: TrackType.View) {}
 }
