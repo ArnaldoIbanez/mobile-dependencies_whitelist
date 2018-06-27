@@ -113,6 +113,10 @@ trackTests {
 
         "/cart/saved_for_later"(platform: "/web", dataSet)
 
+        "/cart/saved_for_later/open_change_notification"(platform: "/web", dataSet)
+
+        "/cart/saved_for_later/close_change_notification"(platform: "/web", dataSet)
+
         "/cart/saved_for_later/add_to_cart"(platform: "/web"){
             item = [
                     id: "MLA754486062",
