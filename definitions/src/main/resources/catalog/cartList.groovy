@@ -77,6 +77,10 @@ tracks {
 
 "/cart/saved_for_later"(platform: "/") {}
 
+"/cart/saved_for_later/open_change_notification"(platform: "/", type: TrackType.Event) {}
+
+"/cart/saved_for_later/close_change_notification"(platform: "/", type: TrackType.Event) {}
+
 // TODO Borrar => Lo estamos standarizando hacía la definición de add_to_cart.groovy
 "/cart/saved_for_later/add_to_cart"(platform: "/", type: TrackType.Event) {
     item_info
@@ -104,5 +108,7 @@ tracks {
 "/cart/my_cart/add_cp/confirm_cp"(platform: "/", type: TrackType.Event){}
 
 "/cart/my_cart/add_cp/dont_know_cp"(platform: "/", type: TrackType.Event){}
+
+"/cart/item_add"(platform: "/", type: TrackType.View) {}
 
 }

@@ -113,6 +113,10 @@ trackTests {
 
         "/cart/saved_for_later"(platform: "/web", dataSet)
 
+        "/cart/saved_for_later/open_change_notification"(platform: "/web", dataSet)
+
+        "/cart/saved_for_later/close_change_notification"(platform: "/web", dataSet)
+
         "/cart/saved_for_later/add_to_cart"(platform: "/web"){
             item = [
                     id: "MLA754486062",
@@ -172,6 +176,9 @@ trackTests {
         "/cart/my_cart/add_cp/confirm_cp"(platform: "/web", dataSet)
 
         "/cart/my_cart/add_cp/dont_know_cp"(platform: "/web", dataSet)
+
+        "/cart/item_add"(platform: "/web", dataSet)
+
 
     }
 
