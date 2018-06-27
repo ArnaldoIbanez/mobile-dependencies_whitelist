@@ -119,7 +119,7 @@ trackTests {
 
         "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
             action= "success_orange"
-            origin= "landing"
+            origin= "vip"
         }
 
         "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
