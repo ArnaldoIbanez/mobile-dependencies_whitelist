@@ -30,15 +30,14 @@ tracks {
     //item
         //id
         //category_id
-        //shipping_mode
+        //variation_id   
         //review_rate -> Lo completa Melidata automaticamente
         //category_path -> Lo completa Melidata automaticamente
         //deal_id -> Lo completa Melidata automaticamente
         //buying_mode -> Lo completa Melidata automaticamente
-        //official_store
-        //condition (new / used)
-        //listing_type
-        //variation_id   
+        //official_store -> Lo completa Melidata automaticamente
+        //condition (new / used) -> Lo completa Melidata automaticamente
+        //listing_type -> Lo completa Melidata automaticamente
     //quantity
     //unit_price
 
