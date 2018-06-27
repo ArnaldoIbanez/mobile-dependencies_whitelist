@@ -29,12 +29,12 @@ tracks {
     //currency_id
     //item
         //id
-        //review_rate -> Lo completa Melidata automaticamente
+        //category_id -> Lo completa Melidata automaticamente
         //shipping_mode
+        //review_rate -> Lo completa Melidata automaticamente
         //category_path -> Lo completa Melidata automaticamente
         //deal_id -> Lo completa Melidata automaticamente
         //buying_mode -> Lo completa Melidata automaticamente
-        //category_id -> Lo completa Melidata automaticamente
         //official_store
         //condition (new / used)
         //listing_type
