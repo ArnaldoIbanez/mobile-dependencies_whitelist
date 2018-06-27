@@ -20,7 +20,6 @@ tracks {
     def categoryRegex = /(ROOT|[a-zA-Z]{1,3}[0-9]+)/
     def categoryPathRegex = /\[([a-zA-Z]{1,3}[0-9]+(, )?)*\]/
 
-
     "/"(platform: "/", isAbstract: true) {
         //Recommendations data
         recommendations (required: false, description: "Recommendations data map")
@@ -179,17 +178,6 @@ tracks {
         query(required: false, description: "Official store name written in search box")
     }
 
-    "/permissions"(platform: "/mobile", isAbstract: true){}
-    "/permissions/location"(platform: "/mobile", type: TrackType.View){
-        context(required: "true", description: "Where are we requesting the permissions")
-    }
-    "/permissions/location/custom"(platform: "/mobile", isAbstract: true){}
-    "/permissions/location/custom/accept"(platform: "/mobile", type: TrackType.Event){}
-    "/permissions/location/custom/deny"(platform: "/mobile", type: TrackType.Event){}
-    "/permissions/location/native"(platform: "/mobile", isAbstract: true){}
-    "/permissions/location/native/accept"(platform: "/mobile", type: TrackType.Event){}
-    "/permissions/location/native/deny"(platform: "/mobile", type: TrackType.Event){}
-
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
         user_phone_number()
@@ -205,32 +193,11 @@ tracks {
         error_type()
     }
 
-
-    //Navigation
-    "/navigation"(platform: "/mobile/android") {
-        origin(required: false, type: PropertyType.String, description: "Analytic's name of the screen where the menu was opened")
-    }
-
-    "/navigation/drawer"(platform: "/mobile/android", type: TrackType.Event) {
-        section(required: true, type: PropertyType.String, description: "Destination host after click")
-    }
-
-    "/navigation/tabs"(platform: "/mobile/ios", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Kind of navigation action")
-        tab(required: true, type: PropertyType.String, description: "Indicates which tab was selected")
-    }
-
-    "/navigation/cart"(platform: "/mobile/ios", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Kind of navigation action")
-        origin(required: true, type: PropertyType.String, description: "Name of the screen where the Cart button was selected")
-    }
-
     //Logout
     "/logout"(platform: "/", isAbstract: true) {}
     "/logout/modal"(platform: "/mobile") {
         action(required: true, type:PropertyType.String, description: "Indicates whether the logout action was either confirmed or canceled")
     }
-
 
     //Feedback
     "/feedback"(platform: "/", isAbstract: true) {}
@@ -241,17 +208,6 @@ tracks {
     //Recommendations => Should be embebed in host tracks, except for client-side clientes ( i.e. /vip )
     "/recommendations"(platform: "/") {
 
-    }
-
-    "/application"(platform:"/mobile", isAbstract: true) {}
-    "/application/open"(platform:"/mobile", type: TrackType.Event) { }
-
-    "/application/workaround"(platform: "/mobile/android", isAbstract: true) {}
-    "/application/workaround/nohistory"(platform: "/mobile/android", type: TrackType.Event) {}
-
-    "/application/install_event" (platform: "/mobile", type: TrackType.Event){
-        deeplink (required: false, type: PropertyType.String)
-        exception (required: false, type: PropertyType.String)
     }
 
     //Landings Deals
@@ -268,33 +224,8 @@ tracks {
     "/sso/attempt_successful" (platform: "/mobile", type: TrackType.Event){}
     "/sso/attempt_error" (platform: "/mobile", type: TrackType.Event){}
 
-    "/cx" (platform: "/mobile", isAbstract: true){}
-    "/cx/click_on_article" (platform: "/mobile", type: TrackType.Event){
-        article_id(required: true, type: PropertyType.String)
-    }
-    "/cx/click_on_help" (platform: "/mobile", type: TrackType.Event){}
-    "/cx/click_on_error" (platform: "/mobile", type: TrackType.Event){}
-    "/cx/click_on_suggestion" (platform: "/mobile", type: TrackType.Event){}
-    "/cx/contact_types" (platform: "/mobile", isAbstract: true){}
-    "/cx/contact_types/click_on_contact_form" (platform: "/mobile", type: TrackType.Event){}
-
     "/recommendations/print" (platform: "/"){}
 
-    "/mobile" (platform: "/mobile", isAbstract: true){}
-    "/mobile/bugsnag"(platform: "/mobile", type: TrackType.Event) {
-        error_type               (required:false, type: PropertyType.String, description: "Track of Bugsnag error: error type")
-        error_context            (required:true,  type: PropertyType.String, description: "Bugsnag context, the best important field on Canejo")
-        error_severity           (required:false, type: PropertyType.String, description: "error or warning or info")
-        url_error                (required:false, type: PropertyType.String, description: "url error")
-        error_mach_exception_name(required:false, type: PropertyType.String, description: "error mach exception name")
-        error_address            (required:false, type: PropertyType.String, description: "error address")
-        error_message            (required:false, type: PropertyType.String, description: "error message")
-        error_Id                 (required:false, type: PropertyType.String, description: "error id")
-        error_timestamp          (required:false, type: PropertyType.String, description: "error timestamp")
-        error_exception_class    (required:false, type: PropertyType.String, description: "error exception class")
-        release_stage            (required:false, type: PropertyType.String, description: "error stage, eg. production")
-        error_signal_name        (required:false, type: PropertyType.String, description: "error signal name")
-        error_nsexception        (required:false, type: PropertyType.String, description: "error nsException")
-    }
+
 
 }

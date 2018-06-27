@@ -9,6 +9,7 @@ catalog {
     /**
      * All available platform
      */
+    
     platforms = [
             "/",
             "/web",
@@ -45,14 +46,17 @@ catalog {
 
     all.each { business ->
         include business, "authentication.groovy"
+        include business, "bugsnag.groovy"
         include business, "identity_validation.groovy"
         include business, "melidata_sdk.groovy"
         include business, "registrations.groovy"
         include business, "fiscaldata.groovy"
         include business, "chargebacks.groovy"
+        include business, "freeData.groovy"
     }
 
     marketplace.each { business ->
+        include business, "add_to_cart.groovy"
         include business, "bookmarks.groovy"
         include business, "buyIntention.groovy"
         include business, "cartCheckout.groovy"
@@ -60,6 +64,7 @@ catalog {
         include business, "cellphone_recharge.groovy"
         include business, "checkout.groovy"
         include business, "credits_marketplace.groovy"
+        include business, "cx.groovy"
         include business, "moderations.groovy"
         include business, "email.groovy"
         include business, "freeData.groovy"
@@ -70,6 +75,7 @@ catalog {
         include business, "marketplace.groovy"
         include business, "mediations.groovy"
         include business, "melidata_sdk.groovy"
+        include business, "mobile.groovy"
         include business, "myml.groovy"
         include business, "notifications.groovy"
         include business, "onboarding.groovy"
@@ -87,6 +93,9 @@ catalog {
         include business, "variations.groovy"
         include business, "vip.groovy"
         include business, "advertising.groovy"
+        include business, "classifieds_landings.groovy"
+        include business, "instore.groovy"
+        include business, "qr_discount.groovy"
     }
     
     mercadopago.each { business ->
@@ -95,6 +104,7 @@ catalog {
         include business, "credits_mercadopago.groovy"
         include business, "mercadopago_mails.groovy"
         include business, "mercadopago_devsite.groovy"
+        include business, "cards_cobranded.groovy"
         include business, "cards_prepaid.groovy"
         include business, "cellphone_recharge.groovy"
     }
@@ -106,6 +116,7 @@ catalog {
 
     mercadoenvios.each { business ->
         include business, "flex.groovy"
+        include business, "wms.groovy"
     }
 
 }
