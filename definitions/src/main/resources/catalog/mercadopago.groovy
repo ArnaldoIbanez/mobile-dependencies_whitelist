@@ -94,9 +94,9 @@ tracks {
     "/merchant_acquisition/qr/qr-code/rates"(platform:"/", type: TrackType.Event) {}
 
     // MMC Flow > PageViews
-    "/merchant_acquisition/mcc"(platform: "/", isAbstract: true) {}
-    "/merchant_acquisition/mcc/edit"(platform: "/", type: TrackType.View) {}
-    "/merchant_acquisition/mcc/success"(platform: "/", type: TrackType.View) {}
+    "/merchant_acquisition/mydata"(platform: "/", isAbstract: true) {}
+    "/merchant_acquisition/mydata/edit"(platform: "/", type: TrackType.View) {}
+    "/merchant_acquisition/mydata/success"(platform: "/", type: TrackType.View) {}
 
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {

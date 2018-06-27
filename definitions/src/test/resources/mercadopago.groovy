@@ -442,8 +442,8 @@ trackTests {
     }
 
     test("MP-MA Flow MCC") {
-        "/merchant_acquisition/mcc/edit"(platform:"/", type: TrackType.View) {}
-        "/merchant_acquisition/mcc/success"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/mydata/edit"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/mydata/success"(platform:"/", type: TrackType.View) {}
     }
 
     test("Point Flow Congrats") {
