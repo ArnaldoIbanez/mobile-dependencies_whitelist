@@ -94,6 +94,8 @@ catalog {
         include business, "vip.groovy"
         include business, "advertising.groovy"
         include business, "classifieds_landings.groovy"
+        include business, "instore.groovy"
+        include business, "qr_discount.groovy"
     }
     
     mercadopago.each { business ->
@@ -102,6 +104,7 @@ catalog {
         include business, "credits_mercadopago.groovy"
         include business, "mercadopago_mails.groovy"
         include business, "mercadopago_devsite.groovy"
+        include business, "cards_cobranded.groovy"
         include business, "cards_prepaid.groovy"
         include business, "cellphone_recharge.groovy"
     }
@@ -113,6 +116,7 @@ catalog {
 
     mercadoenvios.each { business ->
         include business, "flex.groovy"
+        include business, "wms.groovy"
     }
 
 }

@@ -2,7 +2,7 @@
       "users": [
         "estefania.louzau@mercadolibre.com"
       ],
-      "process_name": "test",
+      "process_name": "test2",
       "extract": {
         "site": "CrossUnits",
         "operation": "append",
