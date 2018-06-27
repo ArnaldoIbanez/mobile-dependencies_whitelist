@@ -29,7 +29,7 @@ tracks {
     //currency_id
     //item
         //id
-        //category_id -> Lo completa Melidata automaticamente
+        //category_id
         //shipping_mode
         //review_rate -> Lo completa Melidata automaticamente
         //category_path -> Lo completa Melidata automaticamente
