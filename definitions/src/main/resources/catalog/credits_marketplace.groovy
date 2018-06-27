@@ -47,28 +47,28 @@ tracks {
     **/
     // Page views
     "/credits/consumer/administrator"(platform: "/", type: TrackType.View) {}
-    "/credits/consumers/administrator/dashboard"(platform: "/", type: TrackType.View) {}
-    "/credits/consumers/administrator/empty_state"(platform: "/", type: TrackType.View) {}
-    "/credits/consumers/administrator/on_time"(platform: "/", type: TrackType.View) {}
-    "/credits/consumers/administrator/late_pay"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/administrator/dashboard"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/administrator/empty_state"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/administrator/on_time"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/administrator/late_pay"(platform: "/", type: TrackType.View) {}
     
     // Events
-    "/credits/consumers/administrator/tooltip"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumers/administrator/pagar"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumers/administrator/detalle"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumers/administrator/ayuda"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumers/administrator/landing_educativa"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumers/administrator/ver_producto"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/tooltip"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/pagar"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/detalle"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/ayuda"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/landing_educativa"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/ver_producto"(platform: "/", type: TrackType.Event) {}
 
     /**
     Admin History (Compras Finalizadas)
     **/
     // Page views
-    "/credits/consumers/administrator/compras_finalizadas"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/administrator/compras_finalizadas"(platform: "/", type: TrackType.View) {}
 
     // Events
-    "/credits/consumers/administrator/compras_finalizadas/detalle"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumers/administrator/compras_finalizadas/landing_educativa"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/compras_finalizadas/detalle"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/compras_finalizadas/landing_educativa"(platform: "/", type: TrackType.Event) {}
 
     /******************************************
     *       End: Consumers Administrator
