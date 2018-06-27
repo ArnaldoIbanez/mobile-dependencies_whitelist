@@ -2,7 +2,7 @@
   "users": [
       "juan.sanzone@mercadolibre.com", "andrea.lata@mercadolibre.com"
   ],
-  "process_name": "checkout-off-onetap-mla-mvp-rates",
+  "process_name": "checkout-off-onetap-mla",
   "cron": "00 06 * * *",
   "extract": {
     "operation": "append",
