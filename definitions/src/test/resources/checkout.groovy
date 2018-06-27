@@ -618,6 +618,9 @@ trackTests {
 
         "/checkout/payment/select_type"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
+            available_methods = ["visa", "master", "amex", "cash"]
+            coupon = true
+            coupon_discount = 20
         }
 
         "/checkout/billing/physical_person"(platform: "/mobile") {
@@ -1784,6 +1787,7 @@ trackTests {
         "/checkout/review/change_address"(platform:"/web", dataSet)
         "/checkout/review/edit_shipping"(platform:"/web", dataSet)
         "/checkout/review/edit_payment_method"(platform:"/web", dataSet)
+        "/checkout/review/confirm_purchase"(platform: "/", dataSet)
         "/checkout/congrats"(platform:"/web"){
             dataSet()
             dataSetCongrats()

@@ -368,7 +368,7 @@ tracks {
         contact_name(required: false, type: PropertyType.String)
         contact_phone(required: false, type: PropertyType.String)
     }
-    
+
     //Select address
     "/checkout/shipping/select_address"(platform: "/") {
         //View specific data
@@ -507,7 +507,11 @@ tracks {
     // payment promotions screen. Eg: bank promos in MLA
     "/checkout/payment/promotions"(platform: "/mobile") {}
 
-    "/checkout/payment/select_type"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/payment/select_type"(platform: "/mobile", type: TrackType.View) {
+        available_methods(required: false, type: PropertyType.ArrayList)
+        coupon(required: false, type: PropertyType.Boolean)
+        coupon_discount(required: false, type: PropertyType.Numeric)
+    }
 
     // 2MP switch tracks
     "/checkout/payment/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
@@ -536,7 +540,7 @@ tracks {
     "/checkout/billing/legal_person"(platform: "/mobile") {}
     "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     }
-    
+
     //"/checkout/review" //shared between web and app, already defined in web section.
     "/checkout/review#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         status(required: true, type: PropertyType.String)
@@ -918,6 +922,8 @@ tracks {
     "/checkout/review/change_installments"(platform:"/", type: TrackType.Event) {}
 
     "/checkout/review/change_shipping"(platform:"/", type: TrackType.Event) {}
+
+    "/checkout/review/confirm_purchase"(platform:"/", type: TrackType.Event) {}
 
     "/checkout/review/change_address"(platform:"/", type: TrackType.View) {}
 
