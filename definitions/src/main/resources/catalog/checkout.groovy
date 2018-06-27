@@ -507,7 +507,11 @@ tracks {
     // payment promotions screen. Eg: bank promos in MLA
     "/checkout/payment/promotions"(platform: "/mobile") {}
 
-    "/checkout/payment/select_type"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/payment/select_type"(platform: "/mobile", type: TrackType.View) {
+        available_methods(required: false, type: PropertyType.ArrayList)
+        coupon(required: false, type: PropertyType.Boolean)
+        coupon_discount(required: false, type: PropertyType.Numeric)
+    }
 
     // 2MP switch tracks
     "/checkout/payment/2mp#use"(platform: "/mobile", type: TrackType.Event) {}

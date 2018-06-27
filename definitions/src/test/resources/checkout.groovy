@@ -618,6 +618,9 @@ trackTests {
 
         "/checkout/payment/select_type"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
+            available_methods = ["visa", "master", "amex", "cash"]
+            coupon = true
+            coupon_discount = 20
         }
 
         "/checkout/billing/physical_person"(platform: "/mobile") {
