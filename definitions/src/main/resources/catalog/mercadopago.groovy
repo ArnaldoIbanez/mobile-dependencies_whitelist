@@ -105,10 +105,13 @@ tracks {
     }
     "/point/landings/buy"(platform:"/", type: TrackType.Event) {}
 
-    // Merchant Acquisition Point Landings: MGM
-    "/point/landings/mgm"(platform:"/", type: TrackType.Event) {
-      type (type: PropertyType.String, description: "Click event type, possible values: share || ios || android")
-    }
+    // Merchant Acquisition Point Landings: MGM > Events
+    "/point/landings/mgm"(platform: "/", isAbstract: true) {}
+    "/point/landings/mgm/share"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/mgm/ios"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/mgm/android"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/mgm/prepago"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/mgm/tyc"(platform:"/", type: TrackType.Event) {}
 
     // Point Flows
     "/point/flows"(platform: "/", isAbstract: true) {}
