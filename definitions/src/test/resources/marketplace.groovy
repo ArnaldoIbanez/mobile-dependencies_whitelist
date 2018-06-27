@@ -4487,7 +4487,9 @@ trackTests {
         "/cart/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", dataSet)
         "/cart/checkout/shipping/input_new_address"(platform:"/web", dataSet)
         "/cart/checkout/payment/security_code"(platform:"/web", dataSet)
-
+        "/cart/checkout/finish#click"(platform: "/mobile", type: TrackType.Event) {
+            action = 'call_seller'
+        }
     }
 
 

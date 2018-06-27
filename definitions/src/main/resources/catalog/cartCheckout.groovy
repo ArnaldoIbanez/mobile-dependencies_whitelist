@@ -247,8 +247,11 @@ tracks {
 
 "/cart/checkout/review/edit_second_installment"(platform:"/mobile", type: TrackType.View) {}
 
-
 "/cart/checkout/show_geolocation_map"(platform:"/mobile", type: TrackType.View) {}
+
+"/cart/checkout/finish#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        action(required: true, description: "Action executed, for ex: call_seller, email_seller, etc")
+}
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin Mobile platform
