@@ -49,7 +49,7 @@ class Validate {
             println "File $filepath generated"
         } else {
             result.each { track ->
-                println "Track [Path:$track.path, Type:$track.type, Business:$track.business, Platform:$track.platform]: $track.event_data"
+                println "Track [Path:$track.path, Type:$track.type, Business:$track.business, Platform:$track.platform, Version:$track.version]: $track.event_data"
                 println "Status: ${track.status}"
                 println "Messages: ${track.message}"
                 println ""
@@ -102,10 +102,11 @@ class Validate {
                     row.path, 
                     com.ml.melidata.TrackAdapterHelper.adaptType(row.type.toUpperCase()), 
                     row.device.platform, 
-                    row.application.business)
+                    row.application.business,
+                    row.application.version)
             track.setEvent_data(new JsonSlurper().parseText(row.event_data))
             TrackValidationResponse response = catalog.validate(track)
-            result << [path: track.path, type: track.type, business: track.business, 
+            result << [path: track.path, type: track.type, business: track.business, version: track.version,
                         platform: track.platform, event_data: track.event_data,
                         status: response.getStatus(), message: response.getMessages() ]
         }

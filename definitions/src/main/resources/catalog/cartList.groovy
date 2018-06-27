@@ -12,10 +12,10 @@ tracks {
             //id
             //listing_type
             //international_delivery_mode
-        currency_id(required:true, description: "Currency_id of the item that is taken in/out of carrito")
-        unit_price(required:true, description: "Unit price of the item added/changed/deleted")
-        quantity(required:true,  description: "Current quantity of the item at carrito")
-        quantity_change(required: false, decription: "Quantity that the item has been increased/decreased")
+        currency_id(required:true, type: PropertyType.String, description: "Currency_id of the item that is taken in/out of carrito")
+        unit_price(required:true, type: PropertyType.Numeric, description: "Unit price of the item added/changed/deleted")
+        quantity(required:true, type: PropertyType.Numeric, description: "Current quantity of the item at carrito")
+        quantity_change(required: false, type: PropertyType.Numeric, decription: "Quantity that the item has been increased/decreased")
     }
 
     propertyGroups {
@@ -86,6 +86,11 @@ tracks {
     item_info
 }
 
+
+"/cart/saved_for_later/change_quantity"(platform: "/", type: TrackType.Event) {
+    item_info
+}
+
 "/cart/my_cart/confirm_address"(platform: "/", type:TrackType.Event){}
 
 "/cart/my_cart/change_address"(platform: "/") {}
@@ -101,6 +106,5 @@ tracks {
 "/cart/my_cart/add_cp/dont_know_cp"(platform: "/", type: TrackType.Event){}
 
 "/cart/item_add"(platform: "/", type: TrackType.View) {}
-
 
 }

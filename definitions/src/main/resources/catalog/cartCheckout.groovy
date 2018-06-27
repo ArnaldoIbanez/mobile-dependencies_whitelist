@@ -15,11 +15,11 @@ tracks {
 
 "/cart"(platform: "/", isAbstract: true) {}
 
-"/cart/checkout"(platform: "/", isAbstract: true) { 
+"/cart/checkout"(platform: "/", isAbstract: true) {
 
     status(required: false, description: "status")
-    purchase_id(required: false, description: "Identifier of the purchase")   
-    
+    purchase_id(required: false, description: "Identifier of the purchase")
+
     seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data")
     //id
     //nickname
@@ -62,7 +62,7 @@ tracks {
         //official_store
         //condition (new / used)
         //listing_type
-        //variation_id   
+        //variation_id
     //quantity
     //unit_price
 
@@ -72,7 +72,7 @@ tracks {
 
     total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
     total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
-    
+
     recovery_flow(required: true, description: "Is recovery CHO flow")
     register_int(required: false, description: "Integrated registration")
 
@@ -164,6 +164,7 @@ tracks {
 "/cart/checkout/review/edit_shipping"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/review/change_installments"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/review/change_shipping"(platform:"/", type: TrackType.Event) {}
+"/cart/checkout/review/confirm_purchase"(platform:"/", type: TrackType.Event) {}
 
 "/cart/checkout/review/change_address"(platform:"/", type: TrackType.View) {}
 

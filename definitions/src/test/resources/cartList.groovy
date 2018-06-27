@@ -143,6 +143,22 @@ trackTests {
             unit_price = 173
         }
 
+        "/cart/saved_for_later/change_quantity"(platform: "/web"){
+            item = [
+                    id: "MLA754486062",
+                    listing_type: "gold_special",
+                    international_delivery_mode: "none",
+            ]
+
+
+            loyalty_level = 2
+            currency_id = "MXN"
+            quantity = 2
+            quantity_change = -1
+            free_shipping_benefit = false
+            unit_price = 173
+        }
+
         "/cart/my_cart/change_address"(platform: "/web", dataSet)
 
         "/cart/my_cart/add_cp/"(platform: "/web", dataSet)

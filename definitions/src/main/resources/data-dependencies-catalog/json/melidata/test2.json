@@ -2,12 +2,7 @@
       "users": [
         "estefania.louzau@mercadolibre.com"
       ],
-      "partition": {
-        "name": "ds",
-        "type": "DATE"
-      },
-
-      "process_name": "test",
+      "process_name": "test2",
       "extract": {
         "site": "CrossUnits",
         "operation": "append",
@@ -25,7 +20,7 @@
             }
 
           ], 
-          "script": "bi/test.sql"
+          "script": "bi/test2.sql"
         },
         "columns": [
           {
@@ -44,7 +39,12 @@
           {
             "name": "total",
             "type": "INTEGER"
-          }
+          },
+        {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+        }
         ]
       }
     }

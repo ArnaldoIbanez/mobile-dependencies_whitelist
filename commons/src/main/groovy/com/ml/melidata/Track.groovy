@@ -12,13 +12,14 @@ class Track {
     def TrackType type = TrackType.View
     def String business
     def String platform = "/"
+    def String version = ""
 
-
-    def Track(String path, type = TrackType.View, platform = "/", String business = null){
+    def Track(String path, type = TrackType.View, platform = "/", String business = null, String version = null){
         this.path = path
         this.type = type
         this.platform = platform
-        this.business = business;
+        this.business = business
+        this.version = version
     }
 
     public Track(Map map) {
