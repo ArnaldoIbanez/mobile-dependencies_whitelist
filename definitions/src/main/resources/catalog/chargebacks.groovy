@@ -129,4 +129,13 @@ tracks {
             problem_id(required: true, type: PropertyType.String)
             status_repayment(required: true, type: PropertyType.String)
     }
+
+    "/chargebacks/payer/click-form-link"(platform: "/", type: TrackType.Event) {
+        category_id(required: false, type: PropertyType.String)
+        item_id(required: false, type: PropertyType.String)
+        case_id(required: true, type: PropertyType.String)
+        payment_id(required: true, type: PropertyType.String)
+        payer_id(required: true, type: PropertyType.Numeric)
+        problem_id(required: true, type: PropertyType.String)
+    }
 }
