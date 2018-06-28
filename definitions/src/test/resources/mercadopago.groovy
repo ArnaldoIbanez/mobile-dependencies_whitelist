@@ -1777,31 +1777,6 @@ trackTests {
         }
     }
 
-    test("Prepaid cards") {
-        "/prepaid_card/action_picker"(platform: "/mobile") {
-            flow = "/prepaid_card"
-            from = "/deep_link"
-        }
-        "/prepaid_card/web_view"(platform: "/mobile") {
-            flow = "/prepaid_card"
-            from = "/deep_link"
-        }
-        "/prepaid_recharge/fill_recharge_data"(platform: "/mobile") {
-            flow = "/prepaid_recharge"
-            from = "/deep_link"
-        }
-        "/prepaid_recharge/recipients"(platform: "/mobile") {
-            flow = "/prepaid_recharge"
-            from = "/deep_link"
-        }
-        "/prepaid_recharge/result"(platform: "/mobile") {
-            flow = "/fund_account"
-            from = "/deep_link"
-            result_status = "rejected"
-            status_detail = "internal_server_error"
-        }
-    }
-
     test("Money Detail") {
         "/money_detail/balance"(platform: "/mobile") {
             flow = "/money_detail"
