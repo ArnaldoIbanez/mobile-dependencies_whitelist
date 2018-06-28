@@ -115,7 +115,7 @@ tracks {
     "/prepaid/block" (platform: "/", type: TrackType.View) {}
 
     //New invalid
-    "/my_cards_webview" (platform: "/", type: TrackType.View) {}
+    "/my_cards_webview" (platform: "/mobile", type: TrackType.View) {}
 
 
 
@@ -133,7 +133,9 @@ tracks {
     "/prepaid_card/web_view"(platform: "/mobile") {}
     
     //New (invalid)
-    "/prepaid_card/result"(platform: "/mobile") {}
+    "/prepaid_card/result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+    }
     "/prepaid_card/pay"(platform: "/mobile") {}
     "/prepaid_card/payment_methods"(platform: "/mobile") {}
     "/prepaid_card/other_payment_methods"(platform: "/mobile") {}

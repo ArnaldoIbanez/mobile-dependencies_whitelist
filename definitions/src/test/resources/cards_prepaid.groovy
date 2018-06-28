@@ -95,7 +95,7 @@ trackTests {
     }
     
     test("My card webview") {
-        "/my_cards_webview" (platform: "/") {}
+        "/my_cards_webview" (platform: "/mobile") {}
     }
 
 
@@ -113,6 +113,7 @@ trackTests {
         "/prepaid_card/result"(platform: "/mobile") {
             flow = "/prepaid_card"
             from = "/deep_link"
+            result_status = "approved"
         }
         "/prepaid_card/pay"(platform: "/mobile") {
             flow = "/prepaid_card"
