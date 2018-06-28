@@ -68,7 +68,7 @@ trackTests {
         "/buy_intention"(platform:"/web/mobile") {
             buyIntentionDataSet()
             context = "cart_item"
-            checkout_flow="reservation"
+            checkout_flow="direct"
         }
 
         "/buy_intention"(platform:"/web/desktop") {
