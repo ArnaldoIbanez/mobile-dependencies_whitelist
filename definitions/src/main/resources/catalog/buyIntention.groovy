@@ -43,6 +43,8 @@ tracks {
 
     total_amount(required: true, type: PropertyType.Numeric, description: "totalAmount")
     context(required:true, description: "Indicates from where the buy_intention was initiated. Where did the user pressed de 'COMPRAR' button", values: ["vip", "saved_for_later", "cart", "cart_item", "item_add", "UNKNOWN"])
+    
+    // checkout flow debiera ser la misma nomeclatura que seguimos en CHO => https://github.com/mercadolibre/melidata-catalog/blob/5246718a3ed30b73dad66066c37f42329d64d0e6/definitions/src/main/resources/catalog/checkout.groovy#L92
     checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
 }
 
