@@ -441,11 +441,6 @@ trackTests {
         "/merchant_acquisition/qr/qr-code/rates"(platform:"/", type: TrackType.Event) {}
     }
 
-    test("MP-MA Flow MCC") {
-        "/merchant_acquisition/mydata/edit"(platform:"/", type: TrackType.View) {}
-        "/merchant_acquisition/mydata/success"(platform:"/", type: TrackType.View) {}
-    }
-
     test("Point Flow Congrats") {
         "/point/flows/congrats"(platform:"/", type: TrackType.View) {}
     }
@@ -459,6 +454,7 @@ trackTests {
             price_with_discount = 334.8
             has_coupon = true
             coupon_code = "Y96XA"
+            coupon_type = "default"
         }
         "/point/landings/buy"(platform:"/", type: TrackType.Event) {
             product = "bbpos"
@@ -467,9 +463,14 @@ trackTests {
         "/point/landings" (platform: "/") {
             product = "mgm"
         }
-        "/point/landings/mgm"(platform:"/", type: TrackType.Event) {
-            type = "share"
-        }
+    }
+
+    test("Landing MercadoPago Point MGM > Events") {
+       "/point/landings/mgm/share"(platform:"/", type: TrackType.Event) {}
+      "/point/landings/mgm/ios"(platform:"/", type: TrackType.Event) {}
+      "/point/landings/mgm/android"(platform:"/", type: TrackType.Event) {}
+      "/point/landings/mgm/prepago"(platform:"/", type: TrackType.Event) {}
+      "/point/landings/mgm/tyc"(platform:"/", type: TrackType.Event) {}
     }
 
     // MPMOBILE TEST
@@ -1779,31 +1780,6 @@ trackTests {
         "/associate_phone/synced_phone"(platform: "/mobile") {
             flow = "/associate_phone"
             from = "/deep_link"
-        }
-    }
-
-    test("Prepaid cards") {
-        "/prepaid_card/action_picker"(platform: "/mobile") {
-            flow = "/prepaid_card"
-            from = "/deep_link"
-        }
-        "/prepaid_card/web_view"(platform: "/mobile") {
-            flow = "/prepaid_card"
-            from = "/deep_link"
-        }
-        "/prepaid_recharge/fill_recharge_data"(platform: "/mobile") {
-            flow = "/prepaid_recharge"
-            from = "/deep_link"
-        }
-        "/prepaid_recharge/recipients"(platform: "/mobile") {
-            flow = "/prepaid_recharge"
-            from = "/deep_link"
-        }
-        "/prepaid_recharge/result"(platform: "/mobile") {
-            flow = "/fund_account"
-            from = "/deep_link"
-            result_status = "rejected"
-            status_detail = "internal_server_error"
         }
     }
 

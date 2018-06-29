@@ -1,5 +1,4 @@
-SELECT COUNT
-  () AS total,
+SELECT count(*) AS total,
              'expressView' AS eventname,
              device.platform,
              jest
@@ -16,8 +15,7 @@ GROUP BY jest
          device.platform,
          application.version, substr(ds, 1, 10)
 UNION ALL
-SELECT COUNT
-  () AS total,
+SELECT count(*) AS total,
              'openSummary' AS eventname,
              device.platform,
              jest
@@ -44,8 +42,7 @@ GROUP BY jest
          device.platform,
          application.version, substr(ds, 1, 10)
 UNION ALL
-SELECT COUNT
-  () AS total,
+SELECT count(*) AS total,
              'backAction' AS eventname,
              device.platform,
              jest
@@ -72,8 +69,7 @@ GROUP BY jest
          device.platform,
          application.version, substr(ds, 1, 10)
 UNION ALL
-SELECT COUNT
-  () AS total,
+SELECT count(*) AS total,
              'checkoutConfirmed' AS eventname,
              device.platform,
              jest
@@ -102,8 +98,7 @@ GROUP BY jest
          device.platform,
          application.version, substr(ds, 1, 10)
 UNION ALL
-SELECT COUNT
-  () AS total,
+SELECT count(*) AS total,
              'changePaymentMethod' AS eventname,
              device.platform,
              jest

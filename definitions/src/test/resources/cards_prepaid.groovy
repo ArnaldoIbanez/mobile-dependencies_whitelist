@@ -93,4 +93,75 @@ trackTests {
     test("Landing Cobranded card") {
         "/cobranded/acquisition/landing" (platform: "/web") {}
     }
+    
+    test("My card webview") {
+        "/my_cards_webview" (platform: "/mobile") {}
+    }
+
+
+    test("Prepaid cards MLM") {
+        
+        "/prepaid_card/action_picker"(platform: "/mobile") {
+            flow = "/prepaid_card"
+            from = "/deep_link"
+        }
+        "/prepaid_card/web_view"(platform: "/mobile") {
+            flow = "/prepaid_card"
+            from = "/deep_link"
+        }
+
+        "/prepaid_card/result"(platform: "/mobile") {
+            flow = "/prepaid_card"
+            from = "/deep_link"
+            result_status = "approved"
+        }
+        "/prepaid_card/pay"(platform: "/mobile") {
+            flow = "/prepaid_card"
+            from = "/deep_link"
+        }
+        "/prepaid_card/payment_methods"(platform: "/mobile") {
+            flow = "/prepaid_card"
+            from = "/deep_link"
+        }
+        "/prepaid_card/other_payment_methods"(platform: "/mobile") {
+            flow = "/prepaid_card"
+            from = "/deep_link"
+        }
+        "/prepaid_card/final_scene"(platform: "/mobile") {
+            flow = "/prepaid_card"
+            from = "/deep_link"
+        }
+        "/prepaid_card/final_scene/prepaid"(platform: "/mobile") {
+            flow = "/prepaid_card"
+            from = "/deep_link"
+        }
+        "/prepaid_card/final_scene/prepaid/success"(platform: "/mobile") {
+            flow = "/prepaid_card"
+            from = "/deep_link"
+        }
+
+
+        "/prepaid_recharge/fill_recharge_data"(platform: "/mobile") {
+            flow = "/prepaid_recharge"
+            from = "/deep_link"
+        }
+        "/prepaid_recharge/recipients"(platform: "/mobile") {
+            flow = "/prepaid_recharge"
+            from = "/deep_link"
+        }
+        "/prepaid_recharge/result"(platform: "/mobile") {
+            flow = "/fund_account"
+            from = "/deep_link"
+            result_status = "rejected"
+            status_detail = "internal_server_error"
+        }
+        "/prepaid_recharge/add_recipient"(platform: "/mobile") {
+            flow = "/prepaid_recharge"
+            from = "/deep_link"
+        }
+        "/prepaid_recharge/recipient"(platform: "/mobile") {
+            flow = "/prepaid_recharge"
+            from = "/deep_link"
+        }
+    }
 }

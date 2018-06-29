@@ -317,6 +317,10 @@ tracks {
 
 "/cart/checkout/show_geolocation_map"(platform:"/mobile", type: TrackType.View) {}
 
+"cart/checkout/finish#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        action(required: true, description: "Action executed, for ex: call_seller, email_seller, etc")
+}
+
 // 2MP
 "/cart/checkout/payment"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
 

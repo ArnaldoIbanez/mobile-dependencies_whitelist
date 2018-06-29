@@ -93,11 +93,6 @@ tracks {
     "/merchant_acquisition/qr/qr-code/help"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/qr/qr-code/rates"(platform:"/", type: TrackType.Event) {}
 
-    // MMC Flow > PageViews
-    "/merchant_acquisition/mydata"(platform: "/", isAbstract: true) {}
-    "/merchant_acquisition/mydata/edit"(platform: "/", type: TrackType.View) {}
-    "/merchant_acquisition/mydata/success"(platform: "/", type: TrackType.View) {}
-
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
         product (type: PropertyType.String, required: false, description: "Name of device, example: 'point-h'")
@@ -105,15 +100,19 @@ tracks {
         price (type: PropertyType.Numeric, required: false, description: "Price of device")
         has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
         coupon_code (type: PropertyType.String, required: false, description: "MGM CuponCode")
+        coupon_type (type: PropertyType.String, required: false, values: ["default", "mgm", "campaign"], description: "Kind of MGM Coupon: default | mgm | campaign")
         discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
     }
     "/point/landings/buy"(platform:"/", type: TrackType.Event) {}
 
-    // Merchant Acquisition Point Landings: MGM
-    "/point/landings/mgm"(platform:"/", type: TrackType.Event) {
-      type (type: PropertyType.String, description: "Click event type, possible values: share || ios || android")
-    }
+    // Merchant Acquisition Point Landings: MGM > Events
+    "/point/landings/mgm"(platform: "/", isAbstract: true) {}
+    "/point/landings/mgm/share"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/mgm/ios"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/mgm/android"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/mgm/prepago"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/mgm/tyc"(platform:"/", type: TrackType.Event) {}
 
     // Point Flows
     "/point/flows"(platform: "/", isAbstract: true) {}
@@ -606,24 +605,6 @@ tracks {
     "/associate_phone/sync_phone"(platform: "/mobile") {}
     "/associate_phone/verify_pin"(platform: "/mobile") {}
     "/associate_phone/synced_phone"(platform: "/mobile") {}
-
-    "/prepaid_card"(platform: "/mobile", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-    "/prepaid_card/action_picker"(platform: "/mobile") {}
-    "/prepaid_card/web_view"(platform: "/mobile") {}
-
-    "/prepaid_recharge"(platform: "/mobile", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-    "/prepaid_recharge/fill_recharge_data"(platform: "/mobile") {}
-    "/prepaid_recharge/recipients"(platform: "/mobile") {}
-    "/prepaid_recharge/result"(platform: "/mobile") {
-        result_status (required:true, type: PropertyType.String, description: "Operation result status")
-        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
-    }
 
     /**
      * NOTIFICATIONS

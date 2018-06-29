@@ -6,6 +6,10 @@ import com.ml.melidata.TrackType
 tracks {
 
     defaultBusiness = "mercadopago"
+    
+    //-----------------
+    // PREPAID MLA/MLB
+    //-----------------
 
     // General Path
     "/prepaid"(platform: "/", isAbstract: true) {
@@ -109,5 +113,50 @@ tracks {
     // Inactivate, To Block card
     // MLA => https://www.mercadopago.com.ar/prepaid/block/congrats
     "/prepaid/block" (platform: "/", type: TrackType.View) {}
+
+    //New invalid
+    "/my_cards_webview" (platform: "/mobile", type: TrackType.View) {}
+
+
+
+
+    //-----------------
+    // PREPAID MLM
+    //-----------------
+
+    // Acquisition Flow
+    "/prepaid_card"(platform: "/mobile", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/prepaid_card/action_picker"(platform: "/mobile") {}
+    "/prepaid_card/web_view"(platform: "/mobile") {}
+    
+    //New (invalid)
+    "/prepaid_card/result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+    }
+    "/prepaid_card/pay"(platform: "/mobile") {}
+    "/prepaid_card/payment_methods"(platform: "/mobile") {}
+    "/prepaid_card/other_payment_methods"(platform: "/mobile") {}
+    "/prepaid_card/final_scene"(platform: "/mobile", isAbstract: true) {}
+    "/prepaid_card/final_scene/prepaid"(platform: "/mobile", isAbstract: true) {}
+    "/prepaid_card/final_scene/prepaid/success"(platform: "/mobile") {}
+    
+    // Acquisition Recharge
+    "/prepaid_recharge"(platform: "/mobile", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/prepaid_recharge/fill_recharge_data"(platform: "/mobile") {}
+    "/prepaid_recharge/recipients"(platform: "/mobile") {}
+    "/prepaid_recharge/result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
+    //New (invalid)
+    "/prepaid_recharge/add_recipient"(platform: "/mobile") {}
+    "/prepaid_recharge/recipient"(platform: "/mobile") {}
 
 }
