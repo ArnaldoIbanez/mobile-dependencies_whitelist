@@ -3,9 +3,9 @@
     "cx-channels@mercadolibre.com"
   ],
   "process_name": "channels-availability-click",
-  "cron": "00 16 * * *",
+  "cron": "00 18 * * *",
   "extract": {
-    "operation": "destroy",
+    "operation": "append",
     "columns": [
       {
         "name": "requested_datetime",
