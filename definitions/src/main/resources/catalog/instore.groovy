@@ -16,7 +16,13 @@ tracks {
         additional_info (required:false, description: "Extra info")
     }
     "/instore/scan_qr/ftu"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/waiting"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/gas_jockey"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/gas_pump"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/gas_clock"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/gastronomy_cashier"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/gastronomy_order"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/generic_cashier"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/generic_ticket"(platform: "/mobile", type: TrackType.View) {}
     "/instore/map"(platform: "/mobile", type: TrackType.View) {}
 
 }
