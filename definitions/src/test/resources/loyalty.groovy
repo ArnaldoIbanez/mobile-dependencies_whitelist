@@ -78,6 +78,17 @@ trackTests {
 
     test("Loyalty discounts landing") {
         "/loyalty/discounts"(platform: "/", type: TrackType.View) {
+            free_shipping = {
+                id = "MLA123123123"
+            }
+            categories = {
+                id = "MLA1574"
+                name = "HOGAR"
+            }
+            official_stores = {
+                id = 234
+                title = "Caliber"
+            }
         }
     }
 
