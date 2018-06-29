@@ -5,7 +5,7 @@
   "process_name": "channels-joint-availability-event",
   "cron": "00 06 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
       {
         "name": "requested_datetime",
