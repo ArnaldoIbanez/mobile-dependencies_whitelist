@@ -446,7 +446,6 @@ trackTests {
         "/merchant_acquisition/mydata/success"(platform:"/", type: TrackType.View) {}
     }
 
-
     test("Point Flow Congrats") {
         "/point/flows/congrats"(platform:"/", type: TrackType.View) {}
     }
