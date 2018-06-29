@@ -93,6 +93,11 @@ tracks {
     "/merchant_acquisition/qr/qr-code/help"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/qr/qr-code/rates"(platform:"/", type: TrackType.Event) {}
 
+    // MMC Flow > PageViews
+    "/merchant_acquisition/mydata"(platform: "/", isAbstract: true) {}
+    "/merchant_acquisition/mydata/edit"(platform: "/", type: TrackType.View) {}
+    "/merchant_acquisition/mydata/success"(platform: "/", type: TrackType.View) {}
+
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
         product (type: PropertyType.String, required: false, description: "Name of device, example: 'point-h'")
