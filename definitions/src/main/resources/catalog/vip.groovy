@@ -313,7 +313,7 @@ tracks {
     "/vip/shipping/calculator/shipping_options"(platform: "/web/mobile", type: TrackType.View){}
 
     "/vip/shipping/calculator/calculate"(platform: "/", type: TrackType.Event) {
-        cp_autocomplete(required: true, type: PropertyType.String,
+        cp_autocomplete(required: false, type: PropertyType.String,
                 values: ["yes", "no"],
                 description: "Indicates if the default cp was the one used for the query"
         )
