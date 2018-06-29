@@ -462,9 +462,14 @@ trackTests {
         "/point/landings" (platform: "/") {
             product = "mgm"
         }
-        "/point/landings/mgm"(platform:"/", type: TrackType.Event) {
-            type = "share"
-        }
+    }
+
+    test("Landing MercadoPago Point MGM > Events") {
+       "/point/landings/mgm/share"(platform:"/", type: TrackType.Event) {}
+      "/point/landings/mgm/ios"(platform:"/", type: TrackType.Event) {}
+      "/point/landings/mgm/android"(platform:"/", type: TrackType.Event) {}
+      "/point/landings/mgm/prepago"(platform:"/", type: TrackType.Event) {}
+      "/point/landings/mgm/tyc"(platform:"/", type: TrackType.Event) {}
     }
 
     // MPMOBILE TEST
