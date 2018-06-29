@@ -2,8 +2,8 @@
   "users": [
     "cx-channels@mercadolibre.com"
   ],
-  "process_name": "channels-joint-availability-event",
-  "cron": "00 06 * * *",
+  "process_name": "channels-availability-click",
+  "cron": "00 16 * * *",
   "extract": {
     "operation": "destroy",
     "columns": [
@@ -24,11 +24,27 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "segment",
+        "name": "ml_seller_profile",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "mp_seller_profile",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "ml_buyer_profile",
         "type": "UNICODE_STRING"
       },
       {
         "name": "business",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "segment",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "source_id",
         "type": "UNICODE_STRING"
       },
       {
@@ -44,6 +60,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "mail_queue_id",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "chat_reason",
         "type": "UNICODE_STRING"
       },
@@ -56,6 +76,26 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "mail_reason",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "mail_click",
+        "type": "INTEGER"
+      },
+      {
+        "name": "c2c_click",
+        "type": "INTEGER"
+      },
+      {
+        "name": "chat_click",
+        "type": "INTEGER"
+      },
+      {
+        "name": "sac_click",
+        "type": "INTEGER"
+      },
+      {
         "name": "unique_quantity",
         "type": "INTEGER"
       },
@@ -65,26 +105,26 @@
       }
     ],
     "sql": {
-      "script": "cx/channels-joint-availability.sql",
+      "script": "cx/channels-availability-new-profiles.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2018-03-02",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "2018-05-31",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param03",
-          "value": "DAY-2",
+          "value": "2018-03-01",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param04",
-          "value": "DAY-1",
+          "value": "2018-05-30",
           "format": "yyyy-MM-dd"
         }           
       ]
