@@ -90,8 +90,10 @@ tracks {
     }
 
     "/loyalty/buylevel/payment"(platform: "/",type: TrackType.Event){
+        payment(required: false, type: PropertyType.Numeric, description: "Payment ID Number")
         payment_status(required: false, description: "Payment status, like rejected/success/pending/etc...")
         payment_status_detail(required: false, description: "Payment status detail")
+        item_id(required: false, description: "If flow starts from vip")
         our_payment_error(required: false, description: "An error from our (with our endpoint) payment post, is not an error creating the payment")
     }
 }

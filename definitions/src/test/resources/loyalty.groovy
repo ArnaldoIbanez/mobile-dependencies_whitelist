@@ -99,8 +99,8 @@ trackTests {
         "/loyalty/score/benefits"(platform: "/", type: TrackType.View, loyaltyInfo)
         "/loyalty/notification"(platform: "/", type: TrackType.Event, { event_type = 'shown' })
     }
-  
-  test("Loyalty Buy Level"){
+
+    test("Loyalty Buy Level"){
         "/loyalty/buylevel"(platform: "/",type: TrackType.View){
         }
     }
@@ -130,11 +130,14 @@ trackTests {
 
     test("Loyalty Buy Level Payment"){
         "/loyalty/buylevel/payment"(platform: "/",type: TrackType.Event){
+            payment = 454353
             payment_status= "approved"
             payment_status_detail= "cc_approved_plugin_pm"
+            item_id = "MLA000000"
         }
 
         "/loyalty/buylevel/payment"(platform: "/",type: TrackType.Event){
+            item_id = "MLA000000"
             our_payment_error="Error msg"
         }
     }
