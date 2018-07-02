@@ -847,6 +847,17 @@ trackTests {
         "/ftu_release/point_&_mp_app"(platform: "/mobile", type: TrackType.View) {}
 
         "/company_info/on_boarding"(platform: "/mobile", type: TrackType.View) {}
+
+        "/dashboard"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("MP Point Standalone") { //BORRAR CUANDO LA APP ESTÉ INHABILITADA
+
+        "/card"(platform: "/mobile", type: TrackType.View) {}
+        "/card_number"(platform: "/mobile", type: TrackType.View) {}
+        "/card_type"(platform: "/mobile", type: TrackType.View) {}
+        "/card_name"(platform: "/mobile", type: TrackType.View) {}
+        "/help_web_view"(platform: "/mobile", type: TrackType.View) {}
     }
 
     test("Point Catalog") {
