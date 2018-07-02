@@ -3,7 +3,7 @@
     "cx-channels@mercadolibre.com"
   ],
   "process_name": "channels-availability-clicks",
-  "cron": "00 12 * * *",
+  "cron": "30 15 * * *",
   "partition": {
           "name": "requested_datetime",
           "type": "UNICODE_STRING"
@@ -12,10 +12,6 @@
     "operation": "append",
     "site": "MeliLake",
     "columns": [
-      {
-        "name": "requested_datetime",
-        "type": "UNICODE_STRING"
-      },
       {
         "name": "site_id",
         "type": "UNICODE_STRING"
