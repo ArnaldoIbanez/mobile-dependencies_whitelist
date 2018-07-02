@@ -1,4 +1,4 @@
-SELECT Substr(tb.requested_datetime_minute, 1, 13) AS requested_datetime,
+SELECT 
        tb.site_id AS site_id,
        tb.problem_type AS problem_type,
        tb.origin AS origin,
@@ -19,9 +19,10 @@ SELECT Substr(tb.requested_datetime_minute, 1, 13) AS requested_datetime,
        tb.mail_click AS mail_click,
        tb.c2c_click AS c2c_click,
        tb.chat_click AS chat_click,
-       tb.sac_click AS sac_click,
+       tb.sac_click AS sac_click,       
        Sum(tb.unique_quantity) AS unique_quantity,
-       Sum(tb.quantity) AS quantity
+       Sum(tb.quantity) AS quantity,
+       Substr(tb.requested_datetime_minute, 1, 13) AS requested_datetime
 FROM
   (SELECT COALESCE(chattable.requested_datetime_minute, c2ctable.requested_datetime_minute, sactable.requested_datetime_minute, mailtable.requested_datetime_minute) AS requested_datetime_minute,
           COALESCE(chattable.site_id, c2ctable.site_id, sactable.site_id, mailtable.site_id) AS site_id,
