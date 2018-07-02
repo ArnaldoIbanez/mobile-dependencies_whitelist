@@ -17,7 +17,7 @@ tracks {
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 "/buy_intention"(platform: "/",type: TrackType.Event) {
-    seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data")
+    seller(required: false, type:PropertyType.ArrayList, description: "Array of sellers with their data. Not every client has this data available")
         //id
         //nickname
         //mercado_lider
