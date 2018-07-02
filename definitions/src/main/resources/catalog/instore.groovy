@@ -1,5 +1,4 @@
 import com.ml.melidata.TrackType
-import com.ml.melidata.catalog.PropertyType
 
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
@@ -20,8 +19,14 @@ tracks {
     "/instore/scan_qr/ftu"(platform: "/mobile", type: TrackType.View) {}
 
     "/instore/waiting"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting"(platform: "/mobile", isAbstract: true) {}
+    "/instore/waiting/gas_jockey"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/gas_jockey"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/gas_pump"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/gas_clock"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/gastronomy_cashier"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/gastronomy_order"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/generic_cashier"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/generic_ticket"(platform: "/mobile", type: TrackType.View) {}
 
-    "/instore/waiting"(platform: "/mobile", type: TrackType.Event) {
-        view (required:true, description: "View type", type: PropertyType.String)
-    }
 }

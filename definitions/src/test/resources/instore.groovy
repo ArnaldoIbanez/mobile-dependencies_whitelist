@@ -16,6 +16,15 @@ trackTests {
         "/instore/scan_qr/ftu"(platform: "/mobile", type: TrackType.View) {}
 
         "/instore/waiting"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/waiting/gas_jockey"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/waiting/gas_jockey"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/waiting/gas_pump"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/waiting/gas_clock"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/waiting/gastronomy_cashier"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/waiting/gastronomy_order"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/waiting/generic_cashier"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/waiting/generic_ticket"(platform: "/mobile", type: TrackType.View) {}
+
 
         "/instore/map"(platform: "/mobile", type: TrackType.View) {}
         "/instore/generic_error"(platform: "/mobile", type: TrackType.View) {
@@ -31,30 +40,4 @@ trackTests {
                          }]}
         }
     }
-
-    test("Instore - events") {
-
-        "/instore/waiting"(platform: "/mobile", type: TrackType.Event) {
-            view = "gas_jockey"
-        }
-        "/instore/waiting"(platform: "/mobile", type: TrackType.Event) {
-            view = "gas_pump"
-        }
-        "/instore/waiting"(platform: "/mobile", type: TrackType.Event) {
-            view = "gas_clock"
-        }
-        "/instore/waiting"(platform: "/mobile", type: TrackType.Event) {
-            view = "gastronomy_cashier"
-        }
-        "/instore/waiting"(platform: "/mobile", type: TrackType.Event) {
-            view = "gastronomy_order"
-        }
-        "/instore/waiting"(platform: "/mobile", type: TrackType.Event) {
-            view = "generic_cashier"
-        }
-        "/instore/waiting"(platform: "/mobile", type: TrackType.Event) {
-            view = "generic_ticket"
-        }
-    }
-
 }
