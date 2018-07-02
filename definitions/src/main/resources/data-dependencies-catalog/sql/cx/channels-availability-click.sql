@@ -303,8 +303,8 @@ SELECT
             tracksidtable.c2c_click,
             tracksidtable.chat_click,
             tracksidtable.sac_click) tb
-GROUP BY substr(tb.requested_datetime_minute, 1, 10) AS requested_datetime_day,
-         substr(tb.requested_datetime_minute, 12, 2) AS requested_datetime_hour,
+GROUP BY substr(tb.requested_datetime_minute, 1, 10),
+         substr(tb.requested_datetime_minute, 12, 2),
          tb.site_id,
          tb.problem_type,
          tb.origin,

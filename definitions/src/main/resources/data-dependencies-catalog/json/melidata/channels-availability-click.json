@@ -3,7 +3,7 @@
     "cx-channels@mercadolibre.com"
   ],
   "process_name": "channels-availability-clicks",
-  "cron": "05 19 * * *",
+  "cron": "40 19 * * *",
   "partition": {
           "name": "requested_datetime_day",
           "type": "UNICODE_STRING"
