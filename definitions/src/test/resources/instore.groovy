@@ -17,6 +17,23 @@ trackTests {
 
         "/instore/waiting"(platform: "/mobile", type: TrackType.View) {}
 
+        "/instore/map"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/generic_error"(platform: "/mobile", type: TrackType.View) {
+            additional_info = {message="Escanear código QR"
+                icon="error"
+                description="Solo puedes pagar usando códigos de Mercado Pago"
+                message="¿Estas seguro que ese código es para pagar?"
+                actions=[{
+                             id="try_again"
+                             link="meli://mp/scan_qr"
+                             label="Intentar nuevamente"
+                             type="link"
+                         }]}
+        }
+    }
+
+    test("Instore - events") {
+
         "/instore/waiting"(platform: "/mobile", type: TrackType.Event) {
             view = "gas_jockey"
         }
@@ -37,20 +54,6 @@ trackTests {
         }
         "/instore/waiting"(platform: "/mobile", type: TrackType.Event) {
             view = "generic_ticket"
-        }
-
-        "/instore/map"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/generic_error"(platform: "/mobile", type: TrackType.View) {
-            additional_info = {message="Escanear código QR"
-                icon="error"
-                description="Solo puedes pagar usando códigos de Mercado Pago"
-                message="¿Estas seguro que ese código es para pagar?"
-                actions=[{
-                             id="try_again"
-                             link="meli://mp/scan_qr"
-                             label="Intentar nuevamente"
-                             type="link"
-                         }]}
         }
     }
 

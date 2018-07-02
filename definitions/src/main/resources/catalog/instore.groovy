@@ -24,5 +24,4 @@ tracks {
     "/instore/waiting"(platform: "/mobile", type: TrackType.Event) {
         view (required:true, description: "View type", type: PropertyType.String)
     }
-
 }
