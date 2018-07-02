@@ -107,7 +107,7 @@ tracks {
     // Modals
 
     "/loyalty/main/modal"(platform: "/", type: TrackType.View) {
-        type(required: true, description: "Indicates what kind of modal was opened", values: ["benefit", "milestone"])
+        type(required: true, description: "Indicates what kind of modal was opened", values: ["benefit", "milestone", "benefits_per_level"])
         benefit_id(required: false, description: "Indicates the id of the benefit that corresponds to the modal")
         milestone_id(required: false, description: "Indicates the id of the milestone that corresponds to the modal")
         family_id(required: false, description: "Indicates the id of the milestone family that corresponds to the modal")

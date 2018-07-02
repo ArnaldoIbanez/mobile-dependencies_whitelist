@@ -135,6 +135,10 @@ trackTests {
             from = 'milestones'
         })
 
+        "/loyalty/main/modal"(platform: "/", type: TrackType.View, {
+            type = "benefits_per_level"
+        })
+
         "/loyalty/main/modal/action"(platform: "/", type: TrackType.View, {
             type = "benefit"
             benefit_id = 'FREE_SHIPPING'
