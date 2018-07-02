@@ -99,8 +99,68 @@ trackTests {
         "/loyalty/score/benefits"(platform: "/", type: TrackType.View, loyaltyInfo)
         "/loyalty/notification"(platform: "/", type: TrackType.Event, { event_type = 'shown' })
     }
-  
-  test("Loyalty Buy Level"){
+
+
+    test("Loyalty Redesign Tracks") {
+        def loyaltyInfo = {
+            level = 1
+            points = 100
+            percentage = 0.5f
+        }
+        "/loyalty/main"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/main/activity"(platform: "/", type: TrackType.View, loyaltyInfo)
+
+        "/loyalty/main/modal"(platform: "/", type: TrackType.View, {
+            type = "benefit"
+            benefit_id = 'FREE_SHIPPING'
+        })
+
+        "/loyalty/main/modal"(platform: "/", type: TrackType.View, {
+            type = "milestone"
+            milestone_id = 'WELCOME_TO_PROGRAM'
+            from = 'main'
+        })
+
+        "/loyalty/main/modal"(platform: "/", type: TrackType.View, {
+            type = "milestone"
+            milestone_id = 'COBRANDED_REQUEST'
+            family_id = 'cobranded'
+            from = 'main'
+        })
+
+        "/loyalty/main/modal"(platform: "/", type: TrackType.View, {
+            type = "milestone"
+            milestone_id = 'COBRANDED_REQUEST'
+            family_id = 'cobranded'
+            from = 'milestones'
+        })
+
+        "/loyalty/main/modal/action"(platform: "/", type: TrackType.View, {
+            type = "benefit"
+            benefit_id = 'FREE_SHIPPING'
+        })
+
+        "/loyalty/main/modal/action"(platform: "/", type: TrackType.View, {
+            type = "milestone"
+            milestone_id = 'VALIDATE_PHONE'
+        })
+
+        "/loyalty/main/modal/action"(platform: "/", type: TrackType.View, {
+            type = "milestone"
+            milestone_id = 'COBRANDED_REQUEST'
+            family_id = 'cobranded'
+        })
+
+        "/loyalty/main/modal/action"(platform: "/", type: TrackType.View, {
+            type = "milestone"
+            milestone_id = 'COBRANDED_REQUEST'
+            family_id = 'cobranded'
+        })
+
+        "/loyalty/milestones"(platform: "/", type: TrackType.View, loyaltyInfo)
+    }
+
+    test("Loyalty Buy Level"){
         "/loyalty/buylevel"(platform: "/",type: TrackType.View){
         }
     }

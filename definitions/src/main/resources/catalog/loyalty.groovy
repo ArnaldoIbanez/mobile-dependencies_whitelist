@@ -94,4 +94,34 @@ tracks {
         payment_status_detail(required: false, description: "Payment status detail")
         our_payment_error(required: false, description: "An error from our (with our endpoint) payment post, is not an error creating the payment")
     }
+
+    /**
+     * Loyalty Redesign Tracks
+     */
+
+    // Main Page
+
+    "/loyalty/main"(platform: "/", type: TrackType.View) {}
+    "/loyalty/main/activity"(platform: "/", type: TrackType.View) {}
+
+    // Modals
+
+    "/loyalty/main/modal"(platform: "/", type: TrackType.View) {
+        type(required: true, description: "Indicates what kind of modal was opened", values: ["benefit", "milestone"])
+        benefit_id(required: false, description: "Indicates the id of the benefit that corresponds to the modal")
+        milestone_id(required: false, description: "Indicates the id of the milestone that corresponds to the modal")
+        family_id(required: false, description: "Indicates the id of the milestone family that corresponds to the modal")
+        from(required: false, description: "Indicates whether the modal was opened from the main page or the milestones page. Only sent for milestone modal", values: ["main", "milestones"])
+    }
+
+    "/loyalty/main/modal/action"(platform: "/", type: TrackType.Event) {
+        type(required: true, description: "Indicates the kind of modal whose action was triggered", values: ["benefit", "milestone"])
+        benefit_id(required: false, description: "Indicates the id of the benefit that corresponds to the modal")
+        milestone_id(required: false, description: "Indicates the id of the milestone that corresponds to the modal")
+    }
+
+    // Milestones Page
+
+    "/loyalty/milestones"(platform: "/", type: TrackType.View) {}
+
 }
