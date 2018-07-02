@@ -2,8 +2,8 @@
   "users": [
     "cx-channels@mercadolibre.com"
   ],
-  "process_name": "channels-availability-clicks",
-  "cron": "40 19 * * *",
+  "process_name": "channels-availability-and-clicks",
+  "cron": "50 20 * * *",
   "partition": {
           "name": "requested_datetime_day",
           "type": "UNICODE_STRING"
