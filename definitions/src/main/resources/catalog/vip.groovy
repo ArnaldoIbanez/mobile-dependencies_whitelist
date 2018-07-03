@@ -358,6 +358,8 @@ tracks {
 
     // FIT ANALYTICS
 
+    "/fitanalytics"(platform: "/", isAbstract: true) {}
+
     "/fitanalytics/view"(platform: "/", type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")

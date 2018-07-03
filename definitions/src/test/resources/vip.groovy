@@ -447,7 +447,7 @@ trackTests {
 
 
    // FIT ANALYTICS
-   
+
     test("VIP Web fitanalytics ") {
         
         "/fitanalytics/view"(platform: "/", type: TrackType.Event) {
@@ -456,7 +456,7 @@ trackTests {
             fit = true
         }
 
-          "/fitanalytics/predict"(platform: "/", type: TrackType.Event) {
+        "/fitanalytics/predict"(platform: "/", type: TrackType.Event) {
             item_id = "MLA213512313"
             category_id = "MLA123"
         }
