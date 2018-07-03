@@ -71,10 +71,10 @@ tracks {
 
     "/flex/package/list"(platform: "/mobile", type: TrackType.View) {
         delivered_packages(required: true, type: PropertyType.String,
-            description: "The number of packages with delivered status")
+            description: "The number of packages with delivered status",inheritable:false)
         packsAndLocation
         delivery_status(required: false, type: PropertyType.String,  values: ["ready_to_end"],
-            description: "This field declares the status of the delivery, depending on each pack status")
+            description: "This field declares the status of the delivery, depending on each pack status",inheritable:false)
     }
 
     "/flex/package/start_trip"(platform: "/mobile", type: TrackType.Event) {
@@ -158,7 +158,7 @@ tracks {
     }
 
     "/flex/package/finish_delivery"(platform: "/mobile", type: TrackType.View) {
-        packsAndLocation
+        location
         pack_status(required: true, type: PropertyType.String,  values: ["delivered", "not_delivered"],
             description: "The status of the congrats page.")
     }
