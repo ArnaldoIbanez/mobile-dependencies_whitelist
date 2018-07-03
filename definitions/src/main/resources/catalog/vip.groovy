@@ -374,7 +374,7 @@ tracks {
     "/fitanalytics/close"(platform: "/", type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        variation(required: true, description: "Current Variation"),
+        variation(required: true, description: "Current Variation")
         size(required: false, type: PropertyType.String, description: "Size of recomendation")
     }
 
