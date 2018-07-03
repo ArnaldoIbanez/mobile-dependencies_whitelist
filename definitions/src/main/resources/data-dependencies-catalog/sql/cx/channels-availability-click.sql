@@ -1,4 +1,6 @@
 SELECT 
+
+       substr(tb.requested_datetime_minute, 12, 2) AS requested_datetime_hour,
        tb.site_id AS site_id,
        tb.problem_type AS problem_type,
        tb.origin AS origin,
@@ -22,7 +24,6 @@ SELECT
        tb.sac_click AS sac_click,       
        Sum(tb.unique_quantity) AS unique_quantity,
        Sum(tb.quantity) AS quantity,
-       substr(tb.requested_datetime_minute, 12, 2) AS requested_datetime_hour,
        substr(tb.requested_datetime_minute, 1, 10) AS requested_datetime_day
        FROM
   (SELECT COALESCE(chattable.requested_datetime_minute, c2ctable.requested_datetime_minute, sactable.requested_datetime_minute, mailtable.requested_datetime_minute) AS requested_datetime_minute,
