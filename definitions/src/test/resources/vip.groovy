@@ -444,4 +444,30 @@ trackTests {
             seller_id = 123456789
         }
     }
+
+
+   // FIT ANALYTICS
+   
+    test("VIP Web fitanalytics ") {
+        
+        "/fitanalytics/view"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA213512313"
+            category_id = "MLA123"
+            fit = true
+        }
+
+          "/fitanalytics/predict"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA213512313"
+            category_id = "MLA123"
+        }
+
+         "/fitanalytics/close"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA213512313"
+            category_id = "MLA123"
+            variation = {}
+            size = "M"
+        }
+
+    }
+
 }
