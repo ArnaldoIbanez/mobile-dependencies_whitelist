@@ -17,11 +17,11 @@ tracks {
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 "/buy_intention"(platform: "/",type: TrackType.Event) {
-    seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data")
-        //id
-        //nickname
-        //mercado_lider
-        //reputation_level
+    seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data. Not every client has this data available")
+        //id (required: true)
+        //nickname (required: false)
+        //mercado_lider (required: false)
+        //reputation_level (required: false)
 
     // Array of items will be sent. The definition is the same across all the checkout-flow.
     // The array is extensible, but can have 1 item or many ( carrito case )
