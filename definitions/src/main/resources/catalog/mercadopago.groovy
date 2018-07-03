@@ -17,7 +17,7 @@ import com.ml.melidata.TrackType
 */
 
 tracks {
-    
+
     "/"(platform: "/", isAbstract: true) {
     }
 
@@ -219,6 +219,16 @@ tracks {
 
     "/company_info"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
     "/company_info/on_boarding"(platform: "/mobile", type: TrackType.View) {}
+
+    "/dashboard"(platform: "/mobile", type: TrackType.View) {}
+
+    // MP Point Standalone (a eliminar cuando inhabilitemos la app de point)
+
+    "/card"(platform: "/mobile", type: TrackType.View) {}
+    "/card_number"(platform: "/mobile", type: TrackType.View) {}
+    "/card_type"(platform: "/mobile", type: TrackType.View) {}
+    "/card_name"(platform: "/mobile", type: TrackType.View) {}
+    "/help_web_view"(platform: "/mobile", type: TrackType.View) {}
 
     // MP Mobile Point Catalog
 
