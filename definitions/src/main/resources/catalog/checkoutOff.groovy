@@ -109,6 +109,7 @@ tracks {
         client_id(required: true, description: "Application's client_id")
         environment(required: true, description: "Production or staging tracks")
         screen_name(required: false, description: "A describing name of the screen viewed or where an event occurred")
+        open_mode(required: false, description: "Checkout open mode. Values: [\"modal\",\"iframe\",\"redirect\"]")
     }
 
     // A new checkout flow has been started
