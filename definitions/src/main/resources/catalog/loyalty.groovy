@@ -69,6 +69,9 @@ tracks {
     }
 
     "/loyalty/discounts"(platform: "/", type: TrackType.View) {
+        free_shipping(required: true, description: "Info about items at free shipping section")
+        categories(required: true, description: "Info about the categories shown")
+        official_stores(required: true, description: "What official stores are being shown")
     }
 
     "/loyalty/notification"(type: TrackType.Event) {
