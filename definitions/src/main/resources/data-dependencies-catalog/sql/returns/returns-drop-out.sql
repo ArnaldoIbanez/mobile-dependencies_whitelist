@@ -1,5 +1,5 @@
 SELECT
-  DAY, SITE, PLATFORM,
+  SITE, PLATFORM,
 
   COUNT(DISTINCT case when TYPE = 'view' and path = '/return/typifications' then USER_ID end) as TYPIFICATIONS,
   COUNT(DISTINCT case when TYPE = 'event_gtc' and path = '/return/typifications' then USER_ID end) as TYPIFICATIONS_WENT_CLAIMS,
@@ -30,6 +30,8 @@ SELECT
   COUNT(DISTINCT case when path = '/return/error' and PREVIOUS_STEP = 'review' then USER_ID end) REVIEW_ERROR,
   COUNT(DISTINCT case when path = '/return/error' and PREVIOUS_STEP = 'pickup' then USER_ID end) PICKUP_ERROR,
   COUNT(DISTINCT case when path = '/return/error' and PREVIOUS_STEP = 'delivery' then USER_ID end) DELIVERY_ERROR
+  
+  DAY
 FROM (
     select
         substr(ds, 1, 10) DAY,
