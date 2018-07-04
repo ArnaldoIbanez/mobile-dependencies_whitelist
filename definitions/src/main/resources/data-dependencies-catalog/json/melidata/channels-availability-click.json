@@ -1,6 +1,7 @@
 {
   "users": [
-    "cx-channels@mercadolibre.com"
+    "cx-channels@mercadolibre.com",
+    "juan.laura@mercadolibre.com"
   ],
   "process_name": "channels-availability-and-clicks",
   "cron": "50 20 * * *",
