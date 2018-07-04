@@ -62,6 +62,14 @@
         "type": "INTEGER"
       },
       {
+        "name": "typifications_from_claims",
+        "type": "INTEGER"
+      },
+      {
+        "name": "conditions_from_claims",
+        "type": "INTEGER"
+      },
+      {
         "name": "payments_from_claims",
         "type": "INTEGER"
       },
