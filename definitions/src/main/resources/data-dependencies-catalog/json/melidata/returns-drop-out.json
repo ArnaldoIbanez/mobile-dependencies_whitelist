@@ -5,14 +5,14 @@
   ],
   "process_name": "returns-drop-out",
   "cron": "00 11 * * *",
+  "partition": {
+    "name": "day",
+    "type": "DATE",
+    "format": "yyyy-MM-dd"
+  },
   "extract": {
     "operation": "append",
     "columns": [
-      {
-        "name": "day",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
       {
         "name": "site",
         "type": "UNICODE_STRING"
