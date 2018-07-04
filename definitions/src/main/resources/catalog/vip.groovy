@@ -302,6 +302,7 @@ tracks {
 
     "/vip/shipping/calculator"(platform: "/", isAbstract: true, type: TrackType.View) { //no están required ya que en mobile se manda este track pero sin parámetros
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         item_id(required: false, type: PropertyType.String, description: "Item ID")
         vertical(required: false, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"],
