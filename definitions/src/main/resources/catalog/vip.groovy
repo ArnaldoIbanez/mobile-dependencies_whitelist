@@ -358,20 +358,18 @@ tracks {
 
     // FIT ANALYTICS
 
-    "/fitanalytics"(platform: "/", isAbstract: true) {}
-
-    "/fitanalytics/view"(platform: "/", type: TrackType.Event) {
+    "/vip/fitanalytics/view"(platform: "/", type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         fit(required: true, description: "Available fit")
     }
 
-    "/fitanalytics/predict"(platform: "/", type: TrackType.Event) {
+    "/vip/fitanalytics/predict"(platform: "/", type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
     }
 
-    "/fitanalytics/close"(platform: "/", type: TrackType.Event) {
+    "/vip/fitanalytics/close"(platform: "/", type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         variation(required: true, description: "Current Variation")
