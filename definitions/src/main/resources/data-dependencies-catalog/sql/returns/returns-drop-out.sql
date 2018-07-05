@@ -29,7 +29,7 @@ SELECT
   COUNT(DISTINCT case when path = '/return/error' and PREVIOUS_STEP = 'shipping' then USER_ID end) SHIPPING_ERROR,
   COUNT(DISTINCT case when path = '/return/error' and PREVIOUS_STEP = 'review' then USER_ID end) REVIEW_ERROR,
   COUNT(DISTINCT case when path = '/return/error' and PREVIOUS_STEP = 'pickup' then USER_ID end) PICKUP_ERROR,
-  COUNT(DISTINCT case when path = '/return/error' and PREVIOUS_STEP = 'delivery' then USER_ID end) DELIVERY_ERROR
+  COUNT(DISTINCT case when path = '/return/error' and PREVIOUS_STEP = 'delivery' then USER_ID end) DELIVERY_ERROR,
   
   DAY
 FROM (
