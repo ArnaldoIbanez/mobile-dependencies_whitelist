@@ -140,7 +140,6 @@ trackTests {
 
         //Loading view track success
         "/flex/package/list/loading"(platform:"/mobile", type: TrackType.View) {
-            delivered_packages = "2-10"
             defaultPacksInfo()
             defaultLocation()
         }
@@ -149,7 +148,6 @@ trackTests {
         "/flex/package/list/map_too_many_packages"(platform:"/mobile", type: TrackType.View) {
             defaultPacksInfo()
             defaultLocation()
-            delivered_packages = "2-10"
         }
 
         //List page success
@@ -211,7 +209,6 @@ trackTests {
         "/flex/package/list/map_missing_addresses"(platform:"/mobile", type: TrackType.View) {
             defaultLocation()
             defaultPacksInfo()
-            delivered_packages = "2-10"
         }
 
         //Detail view with status pending success
@@ -231,7 +228,6 @@ trackTests {
         "/flex/package/list/end_trip"(platform:"/mobile", type: TrackType.Event) {
             defaultPacksInfo()
             defaultLocation()
-            delivered_packages = "2-10"
         }
 
         //Call buyer action event success
@@ -269,7 +265,6 @@ trackTests {
 
         //Congrats page success
         "/flex/package/finish_delivery"(platform:"/mobile", type: TrackType.View) {
-            defaultSinglePack()
             defaultLocation()
             pack_status = "delivered"
         }
@@ -285,7 +280,6 @@ trackTests {
 
         //Can't delete package modal page success
         "/flex/package/list/cant_delete"(platform:"/mobile", type: TrackType.View) {
-            delivered_packages = "2-10"
         }
 
         //Can't add packages modal page success
