@@ -1,4 +1,5 @@
-SELECT atcs.site_id AS site_id, 
+SELECT '@dateFrom' AS ds,
+       atcs.site_id AS site_id,
        prints.certified_prints AS certified_prints,
        atcs.certified_atcs AS certified_atcs, 
        cast(atcs.certified_atcs * 100.00 / prints.certified_prints as double) AS certified_atc_ratio,
