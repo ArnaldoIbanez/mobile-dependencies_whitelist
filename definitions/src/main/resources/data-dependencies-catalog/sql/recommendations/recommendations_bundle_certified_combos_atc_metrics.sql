@@ -20,7 +20,7 @@ FROM
     AND atc.ds < '@dateTo'
     AND jest(atc.event_data, 'client') = 'vip_combo'
     AND jet(atc.event_data, 'items') IS NOT NULL
-    AND json_array_length(jet(atc.event_data, 'items')) > 1
+    AND size(json_to_array(jet(atc.event_data, 'items'))) > 1
     AND print.ds >= '@dateFrom'
     AND print.ds < '@dateTo'
     AND jest(print.event_data, 'recommendations.client') = 'vip_combo'
