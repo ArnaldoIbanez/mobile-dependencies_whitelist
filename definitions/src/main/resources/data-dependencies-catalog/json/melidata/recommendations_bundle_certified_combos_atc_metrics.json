@@ -47,12 +47,12 @@
       "script": "recommendations/recommendations_bundle_certified_combos_atc_metrics.sql",
       "parameters": [
         {
-          "name": "dateFrom",
+          "name": "param01",
           "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
-          "name": "dateTo",
+          "name": "param02",
           "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }

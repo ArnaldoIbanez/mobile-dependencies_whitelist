@@ -1,4 +1,4 @@
-SELECT '@dateFrom' AS ds,
+SELECT '@param01' AS ds,
        atcs.site_id AS site_id,
        prints.certified_prints AS certified_prints,
        atcs.certified_atcs AS certified_atcs, 
@@ -16,13 +16,13 @@ FROM
   FROM tracks atc
   JOIN tracks print ON jest(atc.event_data, 'recommendation_id') = jest(print.event_data, 'recommendations.recommendation_id') 
   WHERE atc.path = '/recommendations/add_to_cart'
-    AND atc.ds >= '@dateFrom'
-    AND atc.ds < '@dateTo'
+    AND atc.ds >= '@param01'
+    AND atc.ds < '@param02'
     AND jest(atc.event_data, 'client') = 'vip_combo'
     AND jet(atc.event_data, 'items') IS NOT NULL
     AND size(json_to_array(jet(atc.event_data, 'items'))) > 1
-    AND print.ds >= '@dateFrom'
-    AND print.ds < '@dateTo'
+    AND print.ds >= '@param01'
+    AND print.ds < '@param02'
     AND jest(print.event_data, 'recommendations.client') = 'vip_combo'
     AND print.path = '/vip'
   GROUP BY atc.application.site_id
@@ -35,8 +35,8 @@ FROM
            AND jest(print.event_data, 'recommendations.track_info.combo_type') <> 'certified_in_fallback', 1, 0)) AS not_certified_prints
   FROM tracks print
   WHERE jest(print.event_data, 'recommendations.client') = 'vip_combo'
-    AND print.ds >= '@dateFrom'
-    AND print.ds < '@dateTo'
+    AND print.ds >= '@param01'
+    AND print.ds < '@param02'
     AND print.path = '/vip'
   GROUP BY print.application.site_id
 ) prints
