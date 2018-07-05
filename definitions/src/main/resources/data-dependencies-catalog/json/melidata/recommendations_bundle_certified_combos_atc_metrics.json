@@ -5,7 +5,7 @@
     "carlos.rodrigo@mercadolibre.com"
   ],
   "process_name": "recommendations_bundle_certified_combos_atc_metrics",
-  "cron": "00 05 * * *",
+  "cron": "",
   "extract": {
     "operation": "append",
     "columns": [
