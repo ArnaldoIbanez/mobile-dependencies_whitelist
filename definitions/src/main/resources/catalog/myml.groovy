@@ -520,4 +520,7 @@ tracks {
       data(required: true, description: "Form values, buyer, transport company, quantiy and value that user inputs")      
     }
     "/myml/invoices/order/carrier/save/response"(platform: "/", type: TrackType.Event) {}
+    "/myml/sales/list/set_user_fiscal_order_action"(platform: "/web", type: TrackType.Event) {
+        option(required: true, type: PropertyType.String, description: "Radio button value to set invoice preferences")
+    }
 }

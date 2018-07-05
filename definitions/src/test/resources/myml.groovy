@@ -536,5 +536,9 @@ trackTests {
         "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
         "/myml/account_balance/install/go_to_store"(platform: "/mobile", type: TrackType.Event) {}
     }
-
+    test("Myml invoices preferences"){
+        "/myml/sales/list/set_user_fiscal_order_action"(platform: "/web", type: TrackType.Event) {
+            option = "add_fiscal_data"
+        }
+    }
 }

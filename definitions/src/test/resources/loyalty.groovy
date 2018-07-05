@@ -78,6 +78,17 @@ trackTests {
 
     test("Loyalty discounts landing") {
         "/loyalty/discounts"(platform: "/", type: TrackType.View) {
+            free_shipping = {
+                id = "MLA123123123"
+            }
+            categories = {
+                id = "MLA1574"
+                name = "HOGAR"
+            }
+            official_stores = {
+                id = 234
+                title = "Caliber"
+            }
         }
     }
 
@@ -99,8 +110,70 @@ trackTests {
         "/loyalty/score/benefits"(platform: "/", type: TrackType.View, loyaltyInfo)
         "/loyalty/notification"(platform: "/", type: TrackType.Event, { event_type = 'shown' })
     }
-  
-  test("Loyalty Buy Level"){
+
+    test("Loyalty Redesign Tracks") {
+        def loyaltyInfo = {
+            level = 1
+            points = 100
+            percentage = 0.5f
+        }
+        "/loyalty/main"(platform: "/", type: TrackType.View, loyaltyInfo)
+        "/loyalty/main/activity"(platform: "/", type: TrackType.View, loyaltyInfo)
+
+        "/loyalty/main/modal"(platform: "/", type: TrackType.View, {
+            type = "benefit"
+            benefit_id = 'FREE_SHIPPING'
+        })
+
+        "/loyalty/main/modal"(platform: "/", type: TrackType.View, {
+            type = "milestone"
+            milestone_id = 'WELCOME_TO_PROGRAM'
+            from = 'main'
+        })
+
+        "/loyalty/main/modal"(platform: "/", type: TrackType.View, {
+            type = "milestone"
+            milestone_id = 'COBRANDED_REQUEST'
+            family_id = 'cobranded'
+            from = 'main'
+        })
+
+        "/loyalty/main/modal"(platform: "/", type: TrackType.View, {
+            type = "milestone"
+            milestone_id = 'COBRANDED_REQUEST'
+            family_id = 'cobranded'
+            from = 'milestones'
+        })
+
+        "/loyalty/main/modal"(platform: "/", type: TrackType.View, {
+            type = "benefits_per_level"
+        })
+
+        "/loyalty/main/modal/action"(platform: "/", type: TrackType.View, {
+            type = "benefit"
+            benefit_id = 'FREE_SHIPPING'
+        })
+
+        "/loyalty/main/modal/action"(platform: "/", type: TrackType.View, {
+            type = "milestone"
+            milestone_id = 'VALIDATE_PHONE'
+        })
+
+        "/loyalty/main/modal/action"(platform: "/", type: TrackType.View, {
+            type = "milestone"
+            milestone_id = 'COBRANDED_REQUEST'
+            family_id = 'cobranded'
+        })
+
+        "/loyalty/main/modal/action"(platform: "/", type: TrackType.View, {
+            type = "milestone"
+            milestone_id = 'COBRANDED_REQUEST'
+            family_id = 'cobranded'
+        })
+
+        "/loyalty/milestones"(platform: "/", type: TrackType.View, loyaltyInfo)
+    }
+    test("Loyalty Buy Level"){
         "/loyalty/buylevel"(platform: "/",type: TrackType.View){
         }
     }
@@ -130,11 +203,14 @@ trackTests {
 
     test("Loyalty Buy Level Payment"){
         "/loyalty/buylevel/payment"(platform: "/",type: TrackType.Event){
+            payment = 454353
             payment_status= "approved"
             payment_status_detail= "cc_approved_plugin_pm"
+            item_id = "MLA000000"
         }
 
         "/loyalty/buylevel/payment"(platform: "/",type: TrackType.Event){
+            item_id = "MLA000000"
             our_payment_error="Error msg"
         }
     }

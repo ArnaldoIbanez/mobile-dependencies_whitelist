@@ -1,5 +1,5 @@
 SELECT
-  DAY, SITE, PLATFORM,
+  SITE, PLATFORM,
 
   COUNT(DISTINCT case when TYPE = 'view' and path = '/return/typifications' then USER_ID end) as TYPIFICATIONS,
   COUNT(DISTINCT case when TYPE = 'event_gtc' and path = '/return/typifications' then USER_ID end) as TYPIFICATIONS_WENT_CLAIMS,
@@ -12,6 +12,8 @@ SELECT
   COUNT(DISTINCT case when path = '/return/review' then USER_ID end) as REVIEW,
   COUNT(DISTINCT case when path = '/return/congrats' then USER_ID end) as CONGRATS,
 
+  COUNT(DISTINCT case when path = '/return/typifications' and REF = 'mediations_init' and TYPE = 'view' then USER_ID end) as TYPIFICATIONS_FROM_CLAIMS,
+  COUNT(DISTINCT case when path = '/return/conditions' and REF = 'mediations_init' then USER_ID end) as CONDITIONS_FROM_CLAIMS,
   COUNT(DISTINCT case when path = '/return/payments' and REF = 'mediations_init' then USER_ID end) as PAYMENTS_FROM_CLAIMS,
   COUNT(DISTINCT case when path = '/return/shipping' and REF = 'mediations_init' then USER_ID end) as SHIPPING_FROM_CLAIMS,
   COUNT(DISTINCT case when path in ('/return/pickup', '/return/delivery', '/return/review') and REF = 'mediations_init' then USER_ID end) as REVIEW_PICKUP_DELIVERY_FROM_CLAIMS,
@@ -28,6 +30,8 @@ SELECT
   COUNT(DISTINCT case when path = '/return/error' and PREVIOUS_STEP = 'review' then USER_ID end) REVIEW_ERROR,
   COUNT(DISTINCT case when path = '/return/error' and PREVIOUS_STEP = 'pickup' then USER_ID end) PICKUP_ERROR,
   COUNT(DISTINCT case when path = '/return/error' and PREVIOUS_STEP = 'delivery' then USER_ID end) DELIVERY_ERROR
+  
+  DAY
 FROM (
     select
         substr(ds, 1, 10) DAY,
