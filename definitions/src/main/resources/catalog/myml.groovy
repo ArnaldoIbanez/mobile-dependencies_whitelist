@@ -586,4 +586,18 @@ tracks {
         success(required: false, type: PropertyType.Boolean, description: "Boolean if request was success")
         message(required: false, type: PropertyType.String, description: "Error message that pops on page")
     }
+
+    "/myml/invoices/sku/product-type"(platform: "/") {}
+    "/myml/invoices/sku/product-type/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/sku/product-type/save/request"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "MLB itemId")
+        code(required: true, type: PropertyType.String, description: "item type code")
+        redirect_to(required: true, type: PropertyType.String, description: "Redirect url value before save")
+        variation_id(required: false, type: PropertyType.String, description: "variationId of item | null")
+    }
+    "/myml/invoices/sku/product-type/save/response"(platform: "/", type: TrackType.Event) {
+        redirect_to(required: false, type: PropertyType.String, description: "Redirect url after save")
+        success(required: false, type: PropertyType.Boolean, description: "Boolean if request was success")
+        message(required: false, type: PropertyType.String, description: "Error message that pops on page")
+    }
 }

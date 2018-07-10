@@ -186,6 +186,19 @@ trackTests {
             success = false
             redirect_to = '/invoices/sku/review/123'
         }
+
+        "/myml/invoices/sku/product-type"(platform: "/") {}
+        "/myml/invoices/sku/product-type/save/request"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB989120833"
+            code = "1"
+            redirect_to = '/invoices/sku/review/123'
+            variation_id = null
+        }
+        "/myml/invoices/sku/product-type/save/response"(platform: "/", type: TrackType.Event) {
+            message = "Não conseguimos processar a sua solicitação. Tente Novamente"
+            success = false
+            redirect_to = '/invoices/sku/review/123'
+        }
     }
 
     test("Optin flow") {
