@@ -135,7 +135,7 @@ trackTests {
         "/myml/invoices/sku/sku/save/request"(platform: "/", type: TrackType.Event) {
             item_id = "MLB989120833"
             kit = false
-            sku = "123"
+            sku = "MLB1064414806"
             redirect_to = '/invoices/sku/review/123'
             variation_id = null
         }
@@ -143,13 +143,13 @@ trackTests {
             message = "Não conseguimos processar a sua solicitação. Tente Novamente"
             success = false
             sku_invalid = true
-            redirect_to = '/invoices/sku/review/123'
+            redirect_to = '/invoices/sku/review/MLB1064414806'
         }
 
         "/myml/invoices/sku/ean"(platform: "/") {}
         "/myml/invoices/sku/ean/save/request"(platform: "/", type: TrackType.Event) {
             item_id = "MLB989120833"
-            ean = "123"
+            ean = "7898357410015"
             redirect_to = '/invoices/sku/review/123'
             variation_id = null
         }
@@ -157,6 +157,19 @@ trackTests {
             message = "Não conseguimos processar a sua solicitação. Tente Novamente"
             success = false
             ean_invalid = true
+            redirect_to = '/invoices/sku/review/123'
+        }
+
+        "/myml/invoices/sku/ncm"(platform: "/") {}
+        "/myml/invoices/sku/ncm/save/request"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB989120833"
+            ncm = "84716052"
+            redirect_to = '/invoices/sku/review/123'
+            variation_id = '123'
+        }
+        "/myml/invoices/sku/ncm/save/response"(platform: "/", type: TrackType.Event) {
+            message = "Não conseguimos processar a sua solicitação. Tente Novamente"
+            success = false
             redirect_to = '/invoices/sku/review/123'
         }
     }
