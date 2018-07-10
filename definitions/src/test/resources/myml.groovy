@@ -130,6 +130,23 @@ trackTests {
         }
     }
 
+    test("V2 sku pages") {
+        "/myml/invoices/sku/sku"(platform: "/") {}
+        "/myml/invoices/sku/sku/save/request"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB989120833"
+            kit = false
+            sku = "123"
+            redirect_to = '/invoices/sku/review/123'
+            variation_id = null
+        }
+        "/myml/invoices/sku/sku/save/response"(platform: "/", type: TrackType.Event) {
+            error = "Não conseguimos processar a sua solicitação. Tente Novamente"
+            success = false
+            sku_invalid = true
+            redirect_to = '/invoices/sku/review/123'
+        }
+    }
+
     test("Optin flow") {
         "/myml/invoices/landing"(platform: "/") {}
         "/myml/invoices/landing/optin"(platform: "/", type: TrackType.Event) {

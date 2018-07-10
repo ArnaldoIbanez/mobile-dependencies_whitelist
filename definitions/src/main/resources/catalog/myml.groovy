@@ -523,4 +523,23 @@ tracks {
     "/myml/sales/list/set_user_fiscal_order_action"(platform: "/web", type: TrackType.Event) {
         option(required: true, type: PropertyType.String, description: "Radio button value to set invoice preferences")
     }
+
+    //V2 sku pages
+    "/myml/invoices/sku"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/sku/sku"(platform: "/") {}
+    "/myml/invoices/sku/sku/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/sku/sku/save/request"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "MLB itemId")
+        kit(required: true, type: PropertyType.Boolean, description: "Boolean if sku is a kit")
+        redirect_to(required: true, type: PropertyType.String, description: "Redirect url value before save")
+        variation_id(required: false, type: PropertyType.String, description: "variationId of item")
+        sku(required: true, type: PropertyType.String, description: "Sku id value")
+    }
+    "/myml/invoices/sku/sku/save/response"(platform: "/", type: TrackType.Event) {
+        redirect_to(required: false, type: PropertyType.String, description: "Redirect url after save")
+        success(required: false, type: PropertyType.Boolean, description: "Boolean if request was success")
+        error(required: false, type: PropertyType.String, description: "Error message that pops on page")
+        sku_invalid(required: false, type: PropertyType.Boolean, description: "Boolean if sku value is invalid")
+    }
 }
