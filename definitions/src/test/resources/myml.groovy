@@ -212,6 +212,20 @@ trackTests {
             success = false
             redirect_to = '/invoices/sku/review/123'
         }
+
+        "/myml/invoices/sku/review"(platform: "/") {}
+        "/myml/invoices/sku/review/confirm/request"(platform: "/", type: TrackType.Event) {
+            order_id = "MLB989120833"
+            comments = "Comments test"
+        }
+        "/myml/invoices/sku/review/confirm/response"(platform: "/", type: TrackType.Event) {
+            message = "Não conseguimos processar a sua solicitação. Tente Novamente"
+            error_type = "message"
+            error = false
+            redirect_to = '/invoices/sku/review/123'
+        }
+
+        "/myml/invoices/sku/status"(platform: "/") {}
     }
 
     test("Optin flow") {

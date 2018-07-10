@@ -614,4 +614,19 @@ tracks {
         success(required: false, type: PropertyType.Boolean, description: "Boolean if request was success")
         message(required: false, type: PropertyType.String, description: "Error message that pops on page")
     }
+
+    "/myml/invoices/sku/review"(platform: "/") {}
+    "/myml/invoices/sku/review/confirm"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/sku/review/confirm/request"(platform: "/", type: TrackType.Event) {
+        order_id(required: true, type: PropertyType.String, description: "MLB orderId")
+        comments(required: true, type: PropertyType.String, description: "Commentaries added on review page")
+    }
+    "/myml/invoices/sku/review/confirm/response"(platform: "/", type: TrackType.Event) {
+        redirect_to(required: false, type: PropertyType.String, description: "Redirect url after save")
+        error_type(required: false, type: PropertyType.String, description: "Type of error")
+        error(required: false, type: PropertyType.Boolean, description: "Boolean if request was error")
+        message(required: false, type: PropertyType.String, description: "Error message that pops on page")
+    }
+
+    "/myml/invoices/sku/status"(platform: "/") {}
 }
