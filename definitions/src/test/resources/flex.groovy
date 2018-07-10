@@ -121,6 +121,7 @@ trackTests {
         "/flex/package/add/start_delivery"(platform:"/mobile", type: TrackType.Event) {
             defaultPacksInfo()
             defaultLocation()
+            delivery_id = 123456
         }
 
         //Scanner list opened event track success
@@ -155,28 +156,28 @@ trackTests {
             delivered_packages = "2-10"
             defaultPacksInfo()
             defaultLocation()
+            delivery_id = 123456
         }
 
         //Start trip event on list success
         "/flex/package/start_trip"(platform:"/mobile", type: TrackType.Event) {
             defaultPacksInfo()
             context = "list"
+            delivery_id = 123456
         }
         //See on google maps event on detail success menu
         "/flex/package/see_on_google_maps"(platform:"/mobile", type: TrackType.Event) {
             defaultPacksInfo()
             defaultLocation()
             context = "detail_menu"
+            delivery_id = 123456
         }
         //See on google maps event on detail success map
         "/flex/package/see_on_google_maps"(platform:"/mobile", type: TrackType.Event) {
             defaultPacksInfo()
             defaultLocation()
             context = "detail_map"
-        }
-        //Add more package to delivery page success
-        "/flex/package/add_more_packages"(platform:"/mobile", type: TrackType.View) {
-            defaultLocation()
+            delivery_id = 123456
         }
 
         //QR detected but already registered event in Scanner edition success
@@ -189,6 +190,7 @@ trackTests {
         "/flex/package/add_more_packages/add_packages"(platform:"/mobile", type: TrackType.Event) {
             defaultLocation()
             defaultPacksInfo()
+            delivery_id = 123456
         }
 
         //Open packages list event in add more packages view success
@@ -215,6 +217,7 @@ trackTests {
         "/flex/package/detail"(platform:"/mobile", type: TrackType.View) {
             defaultLocation()
             pack_status = "pending"
+            delivery_id = 123456
         }
 
         //Retry delivery event in detail success
@@ -222,12 +225,14 @@ trackTests {
             defaultSinglePack()
             defaultLocation()
             context = "detail"
+            delivery_id = 123456
         }
 
         //End trip action event success
         "/flex/package/list/end_trip"(platform:"/mobile", type: TrackType.Event) {
             defaultPacksInfo()
             defaultLocation()
+            delivery_id = 123456
         }
 
         //Call buyer action event success
@@ -236,6 +241,7 @@ trackTests {
             buyer_info = {
                 buyer_id = "34434535"
             }
+            delivery_id = 123456
         }
 
         //Call seller action event success
@@ -244,6 +250,7 @@ trackTests {
             seller_info = {
                 seller_id = "34434535"
             }
+            delivery_id = 123456
         }
 
         //Signature page success
@@ -255,18 +262,21 @@ trackTests {
                 surname = "Pérez"
                 doc_number = "33343344"
             }
+            delivery_id = 123456
         }
 
         //Other receiver page success
         "/flex/package/detail/receipt_other_person"(platform:"/mobile", type: TrackType.View) {
             defaultPacksInfo()
             defaultLocation()
+            delivery_id = 123456
         }
 
         //Congrats page success
         "/flex/package/finish_delivery"(platform:"/mobile", type: TrackType.View) {
             defaultLocation()
             pack_status = "delivered"
+            delivery_id = 123456
         }
         //Camera permission page success
         "/flex/package/start/ask_camera"(platform:"/mobile", type: TrackType.View) {
@@ -286,6 +296,7 @@ trackTests {
         "/flex/package/scan/cant_add"(platform:"/mobile", type: TrackType.View) {
             defaultLocation()
             invalid_labels = "11111-22222"
+            delivery_id = 123456
         }
 
         //Session expired modal page success
