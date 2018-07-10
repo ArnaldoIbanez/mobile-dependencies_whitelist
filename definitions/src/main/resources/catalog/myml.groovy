@@ -539,7 +539,22 @@ tracks {
     "/myml/invoices/sku/sku/save/response"(platform: "/", type: TrackType.Event) {
         redirect_to(required: false, type: PropertyType.String, description: "Redirect url after save")
         success(required: false, type: PropertyType.Boolean, description: "Boolean if request was success")
-        error(required: false, type: PropertyType.String, description: "Error message that pops on page")
+        message(required: false, type: PropertyType.String, description: "Error message that pops on page")
         sku_invalid(required: false, type: PropertyType.Boolean, description: "Boolean if sku value is invalid")
+    }
+
+    "/myml/invoices/sku/ean"(platform: "/") {}
+    "/myml/invoices/sku/ean/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/sku/ean/save/request"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "MLB itemId")
+        redirect_to(required: true, type: PropertyType.String, description: "Redirect url value before save")
+        variation_id(required: false, type: PropertyType.String, description: "variationId of item")
+        ean(required: true, type: PropertyType.String, description: "Ean(europen article code) of item")
+    }
+    "/myml/invoices/sku/ean/save/response"(platform: "/", type: TrackType.Event) {
+        redirect_to(required: false, type: PropertyType.String, description: "Redirect url after save")
+        success(required: false, type: PropertyType.Boolean, description: "Boolean if request was success")
+        message(required: false, type: PropertyType.String, description: "Error message that pops on page")
+        ean_invalid(required: false, type: PropertyType.Boolean, description: "Boolean if ean value is invalid")
     }
 }
