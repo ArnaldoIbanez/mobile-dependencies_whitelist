@@ -207,4 +207,10 @@ trackTests {
             carousel_used="next"
         }
     }
+
+    test("Search go local"){
+        "/search/golocal"(platform: "/web"){
+            limit = 10
+        }
+    }
 }
