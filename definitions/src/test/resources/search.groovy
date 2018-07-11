@@ -211,6 +211,16 @@ trackTests {
     test("Search go local"){
         "/search/golocal"(platform: "/web"){
             limit = 10
+            offset = 0
+            total = 0
+            sort_id = "relevance"
+            filters = []
+            pads=[]
+            view_mode = "LIST"
+            results = []
+            billboards = []
+            category_id="MLA32089"
+            query="iphone"
         }
     }
 }
