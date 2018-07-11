@@ -16,11 +16,6 @@
     "columns":
     [
       {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
-      {
         "name": "site_id",
         "type": "UNICODE_STRING"
       },
