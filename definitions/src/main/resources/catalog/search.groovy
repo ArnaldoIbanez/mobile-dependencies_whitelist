@@ -168,6 +168,8 @@ tracks {
         carousel_used(required: true, values: ["next","prev","select"])
     }
 
+    "/search/golocal"(platform: "/") {}
+
     "/search/save"(platform: "/", type: TrackType.Event) {
     }
 
