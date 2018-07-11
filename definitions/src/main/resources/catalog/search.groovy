@@ -80,6 +80,8 @@ tracks {
         //todo remover estas cosas que son de apps viejas
         sort(required: false)
         sort_id(required: false)
+        view_mode(required: false)
+        layout(required: false)
 
     }
 
