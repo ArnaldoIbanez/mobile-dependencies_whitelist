@@ -1,5 +1,4 @@
 SELECT
-ds,
 application.site_id as site_id,
 COUNT(1) total_vips,
 SUM(CASE WHEN jest(event_data, 'recommendations.track_info.empty_result_cause') = 'EMPTY_MODEL_RESPONSE' THEN 1 ELSE 0 END) EMPTY_MODEL_RESPONSE,
@@ -16,7 +15,8 @@ SUM(CASE WHEN jest(event_data, 'recommendations.track_info.empty_result_cause') 
 SUM(CASE WHEN jest(event_data, 'recommendations.track_info.empty_result_cause') = 'ITEMS_NOT_FIT_ONE_BOX' THEN 1 ELSE 0 END) ITEMS_NOT_FIT_ONE_BOX,
 SUM(CASE WHEN jest(event_data, 'recommendations.track_info.empty_result_cause') = 'ITEMS_FIT_ONE_BOX_NO_FS_NO_SAVING' THEN 1 ELSE 0 END) ITEMS_FIT_ONE_BOX_NO_FS_NO_SAVING,
 SUM(CASE WHEN jest(event_data, 'recommendations.track_info.empty_result_cause') = 'ITEMS_NOT_ELIGIBLE' THEN 1 ELSE 0 END) ITEMS_NOT_ELIGIBLE,
-SUM(CASE WHEN jest(event_data, 'recommendations.track_info.empty_result_cause') = 'NOT_QUALITY_PICTURE' THEN 1 ELSE 0 END) NOT_QUALITY_PICTURE
+SUM(CASE WHEN jest(event_data, 'recommendations.track_info.empty_result_cause') = 'NOT_QUALITY_PICTURE' THEN 1 ELSE 0 END) NOT_QUALITY_PICTURE,
+substr(ds,1,10) AS ds --> partition column needs to be last column
 FROM tracks
 WHERE path = '/vip'
 and ds >= '@param01'
@@ -32,4 +32,4 @@ and jest(event_data, 'recommendations.track_info.has_recommendations') = 'false'
 and application.business = 'mercadolibre'
 and not is_bot(device.user_agent)
 GROUP BY application.site_id, ds
-ORDER BY ds
+ORDER BY substr(ds,1,10)

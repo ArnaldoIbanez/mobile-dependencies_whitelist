@@ -3,11 +3,16 @@
   [
     "carlos.rodrigo@mercadolibre.com"
   ],
-  "process_name": "recommendations_bundle_coverage",
+  "process_name": "recommendations_bundle_coverage_new",
   "cron": "00 02 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
   "extract":
   {
     "operation": "append",
+    "site": "MeliLake",
     "columns":
     [
       {
