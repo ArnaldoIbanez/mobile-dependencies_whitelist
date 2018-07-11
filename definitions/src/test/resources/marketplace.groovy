@@ -29,7 +29,7 @@ trackTests {
 
         "/onboarding/flow"(platform: "/mobile", type: TrackType.View) {}
     }
-  
+
     test("credit cards"){
 
         "/credit_cards"(platform:"/mobile", type: TrackType.View) {
@@ -540,9 +540,7 @@ trackTests {
         def officialStoreEvent = {
             query = "abe"
         }
-
         "/official_stores/search/back"(platform:"/mobile", type: TrackType.Event, officialStoreEvent)
-
     }
 
 

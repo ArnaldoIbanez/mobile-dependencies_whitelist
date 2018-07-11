@@ -11,27 +11,24 @@ tracks {
     //SEARCH FLOW
 
     "/search"(platform: "/") {
-        query(required: false)
-        limit(type: PropertyType.Numeric)
-        offset(type: PropertyType.Numeric)
-        total(description: "amount of search items returned", type: PropertyType.Numeric, required: false)
-        category_id(regex: categoryRegex, required: false)
-        category_path(description: "path from root category", regex: categoryPathRegex, type: PropertyType.ArrayList, required: false)
-        sort_id(required: false)
-        filters(required: false)
-        autoselected_filters(required: false, PropertyType.ArrayList)
-        view_mode(required: false, description: "MOSAIC, LIST or GALLERY")
-        filter_user_applied(deprecated: true, required: false)
-        tienda_oficial(deprecated: true, required: false)
-        official_store_id(deprecated: true, required: false)
-        deal(deprecated: true, required: false)
-        filter_tags(required: false, PropertyType.ArrayList)
-        results(required: false, PropertyType.ArrayList,description:"item ids from search result")
-        billboards(required: false, PropertyType.ArrayList, descriptoion: "items ids from billboard results")
-        isRetina(required: false, description: 'Whether the screen is retina display')
+        query(required: false, description: "the words used to make a search", type: PropertyType.String)
+        limit(required: true, description: "the max number of items returned", type: PropertyType.Numeric)
+        offset(required: true, description: "the number of items skipped on the search", type: PropertyType.Numeric)
+        total(required: true, description: "amount of search items returned", type: PropertyType.Numeric)
+        category_id(required: false, regex: categoryRegex)
+        category_path(required: false, description: "path from root category", regex: categoryPathRegex, type: PropertyType.ArrayList)
+        sort_id(required: true, description: "relevance, price_asc or price_desc", values: ["relevance", "price_asc", "price_desc"])
+        filters(required: true, description: "filters applied")
+        autoselected_filters(required: false, description: "filters not applied by the user (category from canonical or adults)", PropertyType.ArrayList) //todo hablar con laura para ver si se pueden sacar
+        view_mode(required: true, description: "MOSAIC, LIST or GALLERY on WM and apps and STACK or GRID on desktop", values:["STACK","GRID","LIST","MOSAIC","GALLERY"])
+        results(required: true, description: "item ids from search result", PropertyType.ArrayList)
+
+        billboards(required: false, description: "items ids from billboard results", PropertyType.ArrayList)
+        pads(required: false, description: "item_id from the pads returned for listings")
+        catalog_product_id(required: false, description: "Id of the product, only if the product header is showna", PropertyType.String)
+
         //Tracks from Search Backend:
         backend_data(required: false)
-        catalog_product_id(required: false, description: 'Id of the product, only if the product header is shown')
         official_stores_carousel_shown(required: false, description: 'which TOs are in the carousel', PropertyType.ArrayList)
         //ab(required: false, description:'ab testing related. to be deprecated')
         //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
@@ -49,47 +46,51 @@ tracks {
     }
 
     "/search"(platform: "/web") {
-        visual_id(required: false)
-        config_version(required: false)
-        filters(required: false)
         only_in_type(required: false)
         click_banner(required: false, description:'Indicates that this listing has apppeared after clicking on a banner')
         banner(required: false, description:'Banner showed in this listing info, if showed')
-        related_searches(required: false, description:'indicates whether clicked search related')
+        related_searches(required: false, description:'indicates whether clicked search related') // TODO, change to anchor
         related_searches_info(required: false, description: 'Tracks related searches coverage')
-        canonical(required: false, description: 'url: canonical URL for the request; no_follow_tag: if the link rel="canonical" has no follow parameter; if the canonical URL has a mirror category configured')
-        autosuggest(required: false, description:'indicates whether clicked autosuggest')
-        landing(required:false, description:'indicates landing base, premium, etc')
-        pads(required: false, description:'item_id from the pads returned for listings')
+        canonical(required: false, description: 'url: canonical URL for the request; no_follow_tag: if the link rel="canonical" has no follow parameter; if the canonical URL has a mirror category configured') // TODO: Lo mantenemos
+        autosuggest(required: false, description:'indicates whether clicked autosuggest') // TODO, move to anchor
+        landing(required:false, description:'indicates landing base, premium, etc', values: ["base","premium","offical_store","deal"])
         upper_funnel(required: false, description: 'indicates if advertising query was considered upper funnel')
-        layout(required: false, description:'layout of search')
         geolocation(required: false, description:'geolocation')
-        landing(required: false, description:'landings: base, premium, etc')
         layout_forced(required: false, description:'true if layout is changed by the user')
         shown_as_product(required: false, description: 'item ids shown with product link')
-        has_logos(required: false, description: 'whether any of the items has a brand logo to show', PropertyType.Boolean)
-        promise_items(required: false, description: 'which of the result items are showing a delivery promise', PropertyType.ArrayList)
+        has_logos(required: false, description: "indicates if there is an item with logos", PropertyType.Boolean)
+        promise_items(required: false, description:  "items with shipping promise", PropertyType.ArrayList)
     }
 
     "/search"(platform: "/mobile") {
-        filter_user_applied(deprecated: true, required: false)
-        context(required: false)
+        //limit y offset parecen ser las unicas que no se cambian
+        //limit(required: true, description: "the max number of items returned", type: PropertyType.Numeric)
+        //offset(required: true, description: "the number of items skipped on the search", type: PropertyType.Numeric)
+        /*total(required: false, description: "override required property")
+        sort_id(required: false, description: "override required property")
+        filters(required: false, description: "override required property")
+        view_mode(required: false, description: "override required property")
+        results(required: false, description: "override required property")
+        billboards(required: false, description: "override required property")
+        pads(required: false, description: "override required property") //esto estaba solo para web antes*/
+
         breadcrumb_refined(required: false, description: 'if user used breadcrumb to refine their search',PropertyType.Boolean)
-        billboard_shown(required: false, description: 'if billboards where shown in the result',PropertyType.Boolean)
-        error_message(required: false, PropertyType.String)
+        error_message(required: false, PropertyType.String) // TODO: no podemos remover?
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
         error_message()
         limit(required: false, description: "override required property")
         offset(required: false, description: "override required property")
+        filters(required: false, description: "override required property")
+        billboards(required: false, description: "override required property")
     }
 
-    "/search/long_press" (platform: "/mobile", type: TrackType.Event){
+    "/search/long_press" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
         item_id()
     }
 
-    "/search/share" (platform: "/mobile", type: TrackType.Event){
+    "/search/share" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
         item_id()
     }
 
@@ -121,6 +122,13 @@ tracks {
 
     "/search/change_view/apply"(platform: "/mobile", type: TrackType.Event) {
         list_mode()
+    }
+
+    "/search/official_stores_carousel"(platform: "/", isAbstract: true) {}
+
+    "/search/official_stores_carousel/click"(platform: "/", type: TrackType.Event) {
+        to_name(required: true, description: 'the name of the official store selected', PropertyType.String)
+        to_position(required: true, description: 'the position of the official store in the carousel', PropertyType.Numeric)
     }
 
     "/search/official_stores_carousel"(platform: "/", isAbstract: true) {}
