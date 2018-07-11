@@ -1,0 +1,104 @@
+{
+  "users":
+  [
+    "carlos.rodrigo@mercadolibre.com"
+  ],
+  "process_name": "recommendations_bundle_no_bundle_causes",
+  "cron": "00 02 * * *",
+  "extract":
+  {
+    "operation": "append",
+    "columns":
+    [
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "total_vips",
+        "type": "INTEGER"
+      },
+      {
+        "name": "EMPTY_MODEL_RESPONSE",
+        "type": "INTEGER"
+      },
+      {
+        "name": "RECOMMENDATION_SIZE_LOWER_THAN_MINIMUM_REQUIRED",
+        "type": "INTEGER"
+      },
+      {
+        "name": "TIMEOUT",
+        "type": "INTEGER"
+      },
+      {
+        "name": "NO_MATCHING_NGRAMS",
+        "type": "INTEGER"
+      },
+      {
+        "name": "NO_ITEMS_FOUND_BY_SEARCH",
+        "type": "INTEGER"
+      },
+      {
+        "name": "NO_ITEMS_FOUND_FOR_SELLER",
+        "type": "INTEGER"
+      },
+      {
+        "name": "NO_ITEMS_FOUND_FOR_STORE",
+        "type": "INTEGER"
+      },
+      {
+        "name": "UNKNOWN",
+        "type": "INTEGER"
+      },
+      {
+        "name": "TRIGGER_NOT_CART_ELIGIBLE",
+        "type": "INTEGER"
+      },
+      {
+        "name": "TRIGGER_WITH_VARIATION",
+        "type": "INTEGER"
+      },
+      {
+        "name": "ITEMS_NOT_FIT_ONE_BOX",
+        "type": "INTEGER"
+      },
+      {
+        "name": "ITEMS_FIT_ONE_BOX_NO_FS_NO_SAVING",
+        "type": "INTEGER"
+      },
+      {
+        "name": "ITEMS_NOT_ELIGIBLE",
+        "type": "INTEGER"
+      },
+      {
+        "name": "NOT_QUALITY_PICTURE",
+        "type": "INTEGER"
+      },
+      {
+        "name": "NO_RATIO_VALID_COMBO",
+        "type": "INTEGER"
+      }
+
+    ],
+    "sql": {
+      "script": "recommendations/bundle-no-bundle-causes.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
