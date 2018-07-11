@@ -4,7 +4,7 @@
     "carlos.rodrigo@mercadolibre.com"
   ],
   "process_name": "recommendations_bundle_coverage",
-  "cron": "00 05 * * *",
+  "cron": "00 02 * * *",
   "extract":
   {
     "operation": "append",
@@ -21,6 +21,18 @@
       },
       {
         "name": "vips_with_bundle",
+        "type": "INTEGER"
+      },
+      {
+        "name": "vips_with_certified_bundle",
+        "type": "INTEGER"
+      },
+      {
+        "name": "bundle_with_fs",
+        "type": "INTEGER"
+      },
+      {
+        "name": "bundle_with_saving",
         "type": "INTEGER"
       },
       {
