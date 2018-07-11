@@ -11,7 +11,7 @@ SELECT  application.site_id as site_id,
                       )
                       THEN 1 ELSE 0 END) as vips_with_bundle_fvf_value,
         COUNT(1) total_vips,
-        substr(ds,1,10) AS ds --> partition column needs to be last column
+        substr(ds,1,10) AS ds
 FROM tracks
 WHERE path = '/vip'
 and ds >= '@param01'

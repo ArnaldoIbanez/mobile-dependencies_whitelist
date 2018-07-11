@@ -16,7 +16,7 @@ SUM(CASE WHEN jest(event_data, 'recommendations.track_info.empty_result_cause') 
 SUM(CASE WHEN jest(event_data, 'recommendations.track_info.empty_result_cause') = 'ITEMS_FIT_ONE_BOX_NO_FS_NO_SAVING' THEN 1 ELSE 0 END) ITEMS_FIT_ONE_BOX_NO_FS_NO_SAVING,
 SUM(CASE WHEN jest(event_data, 'recommendations.track_info.empty_result_cause') = 'ITEMS_NOT_ELIGIBLE' THEN 1 ELSE 0 END) ITEMS_NOT_ELIGIBLE,
 SUM(CASE WHEN jest(event_data, 'recommendations.track_info.empty_result_cause') = 'NOT_QUALITY_PICTURE' THEN 1 ELSE 0 END) NOT_QUALITY_PICTURE,
-substr(ds,1,10) AS ds --> partition column needs to be last column
+substr(ds,1,10) AS ds
 FROM tracks
 WHERE path = '/vip'
 and ds >= '@param01'
