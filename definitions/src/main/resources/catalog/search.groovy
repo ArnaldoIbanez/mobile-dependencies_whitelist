@@ -76,6 +76,11 @@ tracks {
 
         breadcrumb_refined(required: false, description: 'if user used breadcrumb to refine their search',PropertyType.Boolean)
         error_message(required: false, PropertyType.String) // TODO: no podemos remover?
+
+        //todo remover estas cosas que son de apps viejas
+        sort(required: false)
+        sort_id(required: false)
+
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
