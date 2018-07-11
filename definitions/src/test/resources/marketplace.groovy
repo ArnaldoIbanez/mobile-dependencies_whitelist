@@ -593,6 +593,74 @@ trackTests {
         }
     }
 
+    test("apparel") {
+        "/home/category/apparel" (platform:"/", type: TrackType.View) {
+            gender="male"
+            category_id="MLM1430"
+            category_path="/home/category/apparel"
+        }
+
+        "/home/category/apparel/stores" (platform:"/", type: TrackType.View) {
+            gender="male"
+            category_id="MLM1430"
+            category_path="/home/category/apparel"
+        }
+
+        "/home/category/apparel/tabs" (platform:"/", type: TrackType.Event) {
+            gender="male"
+            category_id="MLM1430"
+            category_path="/home/category/apparel"
+        }
+
+        "/home/category/apparel/slider" (platform:"/", type: TrackType.Event) {
+            gender="male"
+            link="https://www.mercadolibre.com.mx/exhibitor-link"
+            title="Campaña"
+            category_id="MLM1430"
+            category_path="/home/category/apparel"
+        }
+
+        "/home/category/apparel/category" (platform:"/", type: TrackType.Event) {
+            gender="male"
+            category_id="MLA123567"
+            link="https://www.mercadolibre.com.ar/link-de-categoría"
+            category_path="/home/category/apparel"
+            name="Category"
+        }
+
+        "/home/category/apparel/items" (platform:"/", type: TrackType.Event) {
+            gender="male"
+            item_id="MLA123567"
+            section="Publicaciones destacadas"
+            category_id="MLM1430"
+            category_path="/home/category/apparel"
+        }
+
+        "/home/category/apparel/more_categories" (platform:"/", type: TrackType.Event) {
+            gender="male"
+            category_id="MLM1430"
+            category_path="/home/category/apparel"
+        }
+
+        "/home/category/apparel/official_store" (platform:"/", type: TrackType.Event) {
+            gender="male"
+            link="https://www.mercadolibre.com.ar/link-de-tienda-oficial"
+            context="home"
+            category_id="MLM1430"
+            category_path="/home/category/apparel"
+            name="Tienda oficial"
+        }
+
+        "/home/category/apparel/images" (platform:"/", type: TrackType.Event) {
+            gender="male"
+            link="https://www.mercadolibre.com.ar/link-de-tienda-oficial"
+            image="Tienda Oficial"
+            category_id="MLM1430"
+            category_path="/home/category/apparel"
+        }
+
+    }
+
     test("sso"){
         "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
         "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}
