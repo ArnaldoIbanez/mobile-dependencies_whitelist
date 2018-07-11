@@ -13,11 +13,12 @@ trackTests {
             query="iphone"
             category_path=["MLA1051", "MLA1055", "MLA32089"]
             category_id="MLA32089"
-            filter_user_applied=[]
+            filters=[]
+            pads=[]
+            billboards=[]
             offset=0
             sort_id="relevance"
             view_mode="MOSAIC"
-            filter_tags=["locationFromHistory"]
             results=["232232000", "232232001", "232232002"]
             backend_data={
                 sm="sm"
@@ -36,24 +37,15 @@ trackTests {
             catalog_product_id="MLA123"
         }
 
-        def defaultEmptySearchInformation = {
-            limit=20
-            query="ipod"
-            offset=0
-        }
-
-        "/search"(platform: "/", {
-            defaultSearchInformation()
-            official_stores_carousel_shown=["224", "234", "255"]
-        })
-
         "/search"(platform: "/web",{
-            visual_id="STD"
-            config_version= "111"
+            total=0
+            sort_id="relevance"
+            view_mode="MOSAIC"
             filters = { seller_id = "47316577" }
             only_in_type="Seller"
             limit=20
             offset=0
+            official_stores_carousel_shown=["224", "234", "255"]
             click_banner={
                 exhibitors_id='12'
             }
@@ -94,8 +86,8 @@ trackTests {
             geolocation="AR:CABA"
             landing="base"
             layout_forced=true
-            promise_items=["232232000"]
-            has_logos:true
+            pads=[]
+
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -103,12 +95,15 @@ trackTests {
         "/search"(platform: "/mobile", {
             total = 258
             limit = 0
-            context = "deeplinking"
+            view_mode="MOSAIC"
+            results=[]
+            billboards=[]
             category_path = []
             offset = 50.0
             sort_id = "relevance"
             filters = {official_store="140"}
             autoselected_filters = ["official_store"]
+            pads=[]
         })
 
 
@@ -124,14 +119,12 @@ trackTests {
         "/search/filters"(platform: "/mobile", defaultSearchInformation)
         "/search/back"(platform: "/mobile", defaultSearchInformation)
         "/search/long_press"(platform: "/mobile"){
-            defaultEmptySearchInformation()
             item_id = "MLA170232"
         }
         "/search/share"(platform: "/mobile"){
-            defaultEmptySearchInformation()
             item_id = "MLA170232"
         }
-        "/search/abort"(platform: "/mobile", defaultEmptySearchInformation)
+        "/search/abort"(platform: "/mobile", defaultSearchInformation)
         "/search/refine"(platform: "/mobile", defaultSearchInformation)
         "/search/refine/apply"(platform: "/mobile", defaultSearchInformation)
         "/search/refine/back" (platform: "/mobile", defaultSearchInformation)
@@ -150,12 +143,6 @@ trackTests {
             defaultSearchInformation()
             list_mode = "mosaic"
         }
-        "/search/official_stores_carousel"(platform: "/", defaultSearchInformation)
-        "/search/official_stores_carousel/click"(platform: "/") {
-            defaultSearchInformation()
-            to_name="adidas"
-            to_position=2
-        }
         "/search/promoted_items"(platform: "/web", defaultSearchInformation)
         "/search/promoted_items/show"(platform: "/web") {
             defaultSearchInformation()
@@ -173,12 +160,26 @@ trackTests {
         "/search/save"(platform: "/") {
             defaultSearchInformation()
         }
+        "/search/official_stores_carousel"(platform: "/", defaultSearchInformation)
+
+        "/search/official_stores_carousel/click"(platform: "/") {
+            defaultSearchInformation()
+            to_name="adidas"
+            to_position=2
+        }
     }
 
     test("Search gallery with 10 items, first page" ) {
         "/search"(platform: "/mobile") {
             limit = 10
             offset = 0
+            total = 0
+            sort_id = "relevance"
+            filters = []
+            pads=[]
+            view_mode = "LIST"
+            results = []
+            billboards = []
             category_id="MLA32089"
             query="iphone"
         }
@@ -188,14 +189,38 @@ trackTests {
         "/search"(platform: "/mobile") {
             limit = 10
             offset = 0
+            total = 0
+            sort_id = "relevance"
+            filters = []
+            pads=[]
+            view_mode = "LIST"
+            results = []
+            billboards = []
             category_id="ROOT"
             query="iphone"
         }
     }
 
+
     test("Search carousel next"){
         "/search/carousel"(platform: "/web") {
             carousel_used="next"
+        }
+    }
+
+    test("Search go local"){
+        "/search/golocal"(platform: "/web"){
+            limit = 10
+            offset = 0
+            total = 0
+            sort_id = "relevance"
+            filters = []
+            pads=[]
+            view_mode = "LIST"
+            results = []
+            billboards = []
+            category_id="MLA32089"
+            query="iphone"
         }
     }
 }
