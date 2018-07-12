@@ -7,9 +7,9 @@
     "gonzalo.gismero@mercadolibre.com"
   ],
   "process_name": "structured_data_modal_attributes_views",
-  "cron": "00 07 * * *",
+  "cron": "",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "ds",
@@ -55,7 +55,7 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "DAY-90",
           "format": "yyyy-MM-dd"
         },
         {
