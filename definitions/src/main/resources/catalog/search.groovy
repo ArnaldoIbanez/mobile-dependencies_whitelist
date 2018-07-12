@@ -4,8 +4,11 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    def categoryRegex = /(ROOT|[a-zA-Z]{1,3}[0-9]+)/
-    def categoryPathRegex = /\[([a-zA-Z]{1,3}[0-9]+(, )?)*\]/
+    //def categoryRegex = /(ROOT|[a-zA-Z]{1,3}[0-9]+)/
+    //def categoryPathRegex = /\[([a-zA-Z]{1,3}[0-9]+(, )?)*\]/
+    //todo dejar los originales en septiembre
+    def categoryRegex = /(\S*)/
+    def categotyPathRegex = /\[(\S*(, ))\]/
 
 
     //SEARCH FLOW
@@ -19,7 +22,7 @@ tracks {
         category_path(required: false, description: "path from root category", regex: categoryPathRegex, type: PropertyType.ArrayList)
         sort_id(required: true, description: "relevance, price_asc or price_desc", values: ["relevance", "price_asc", "price_desc"])
         filters(required: true, description: "filters applied")
-        autoselected_filters(required: false, description: "filters not applied by the user (category from canonical or adults)", PropertyType.ArrayList) //todo hablar con laura para ver si se pueden sacar
+        autoselected_filters(required: false, description: "filters not applied by the user (category from canonical or adults)", PropertyType.ArrayList)
         view_mode(required: true, description: "MOSAIC, LIST or GALLERY on WM and apps and STACK or GRID on desktop", values:["STACK","GRID","LIST","MOSAIC","GALLERY"])
         results(required: true, description: "item ids from search result", PropertyType.ArrayList)
 
@@ -49,11 +52,11 @@ tracks {
         only_in_type(required: false)
         click_banner(required: false, description:'Indicates that this listing has apppeared after clicking on a banner')
         banner(required: false, description:'Banner showed in this listing info, if showed')
-        related_searches(required: false, description:'indicates whether clicked search related') // TODO, change to anchor
+        related_searches(required: false, description:'indicates whether clicked search related')
         related_searches_info(required: false, description: 'Tracks related searches coverage')
-        canonical(required: false, description: 'url: canonical URL for the request; no_follow_tag: if the link rel="canonical" has no follow parameter; if the canonical URL has a mirror category configured') // TODO: Lo mantenemos
-        autosuggest(required: false, description:'indicates whether clicked autosuggest') // TODO, move to anchor
-        landing(required:false, description:'indicates landing base, premium, etc', values: ["base","premium","offical_store","deal"])
+        canonical(required: false, description: 'url: canonical URL for the request; no_follow_tag: if the link rel="canonical" has no follow parameter; if the canonical URL has a mirror category configured')
+        autosuggest(required: false, description:'indicates whether clicked autosuggest')
+        landing(required:false, description:'indicates landing base, premium, etc', values: ["base","premium","offical_store","deal", ])
         upper_funnel(required: false, description: 'indicates if advertising query was considered upper funnel')
         geolocation(required: false, description:'geolocation')
         layout_forced(required: false, description:'true if layout is changed by the user')
@@ -75,13 +78,17 @@ tracks {
         pads(required: false, description: "override required property") //esto estaba solo para web antes*/
 
         breadcrumb_refined(required: false, description: 'if user used breadcrumb to refine their search',PropertyType.Boolean)
-        error_message(required: false, PropertyType.String) // TODO: no podemos remover?
+        error_message(required: false, PropertyType.String)
 
         //todo remover estas cosas que son de apps viejas
         sort(required: false)
         sort_id(required: false)
         view_mode(required: false)
         layout(required: false)
+        context(required: false)
+        filters(required: false)
+        results(required: false)
+        billboard_shown(required: false)
 
     }
 
