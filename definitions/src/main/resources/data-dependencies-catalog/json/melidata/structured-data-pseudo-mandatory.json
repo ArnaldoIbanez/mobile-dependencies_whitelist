@@ -16,11 +16,6 @@
     "operation": "append",
     "columns": [
       {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
-      {
         "name": "source",
         "type": "UNICODE_STRING"
       },
