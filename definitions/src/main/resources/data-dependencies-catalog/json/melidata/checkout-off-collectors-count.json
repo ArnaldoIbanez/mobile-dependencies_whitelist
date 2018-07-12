@@ -2,7 +2,7 @@
   "users": [
       "horacio.lopez@mercadolibre.com", "mauro.reverter@mercadolibre.com"
   ],
-  "process_name": "checkout-off-payment-status",
+  "process_name": "checkout-off-collectors-count",
   "cron": "00 06 * * *",
   "extract": {
     "operation": "append",
