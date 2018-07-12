@@ -8,7 +8,7 @@ tracks {
     //def categoryPathRegex = /\[([a-zA-Z]{1,3}[0-9]+(, )?)*\]/
     //todo dejar los originales en septiembre
     def categoryRegex = /(\S*)/
-    def categotyPathRegex = /\[(\S*(, ))\]/
+    def categoryPathRegex = /\[(\S*(, )?)*\]/
 
 
     //SEARCH FLOW
