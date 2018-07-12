@@ -2,7 +2,7 @@
   "users": [
       "horacio.lopez@mercadolibre.com", "mauro.reverter@mercadolibre.com"
   ],
-  "process_name": "checkout-off-payment-methods-adopotion",
+  "process_name": "checkout-off-payment-methods-adoption",
   "cron": "00 06 * * *",
   "extract": {
     "operation": "append",
