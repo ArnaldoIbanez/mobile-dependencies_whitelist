@@ -7,9 +7,13 @@
     "gonzalo.gismero@mercadolibre.com"
   ],
   "process_name": "structured_data_modal_attributes_submit",
-  "cron": "",
+  "cron": "00 07 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
         "name": "ds",
@@ -67,7 +71,7 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-90",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
