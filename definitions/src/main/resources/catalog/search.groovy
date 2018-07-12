@@ -56,7 +56,7 @@ tracks {
         related_searches_info(required: false, description: 'Tracks related searches coverage')
         canonical(required: false, description: 'url: canonical URL for the request; no_follow_tag: if the link rel="canonical" has no follow parameter; if the canonical URL has a mirror category configured')
         autosuggest(required: false, description:'indicates whether clicked autosuggest')
-        landing(required:false, description:'indicates landing base, premium, etc', values: ["base","premium","offical_store","deal", ])
+        landing(required:false, description:'indicates landing base, premium, etc', values: ["base","premium","offical_store","deal"])
         upper_funnel(required: false, description: 'indicates if advertising query was considered upper funnel')
         geolocation(required: false, description:'geolocation')
         layout_forced(required: false, description:'true if layout is changed by the user')
