@@ -34,7 +34,7 @@
       }
     ],
     "sql": {
-        "script": "mercadopago/checkout-off/checkout-off-payment-methods-adopotion.sql",
+        "script": "mercadopago/checkout-off/checkout-off-payment-methods-adoption.sql",
       "parameters": [
         {
           "name": "param01",
