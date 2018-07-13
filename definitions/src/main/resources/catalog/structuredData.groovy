@@ -21,11 +21,12 @@ tracks {
         condition(required: false, description: "Item condition")
         category_path(required: true, description: "Category path for the item", type: PropertyType.ArrayList)
         label(required: false, description: "Tab from listings page", type: PropertyType.String, values: ["paused", "active", "closed","pending"])
+        attribute_type(required: false, description:"If its an item_attribute, a variation_attribute or an allow_variation attribute", type:PropertyType.String)
     }
 
     propertyGroups {
         catalogWidgetGroup(category_id, page, item_id, officialstore, domain_id, seller_id, pi, condition, category_path, label)
-        catalogWidgetCompletenessGroup(completeness_level, items_left, missing_attributes, inferred_attributes)
+        catalogWidgetCompletenessGroup(completeness_level, items_left, missing_attributes, inferred_attributes, attribute_type)
     }
 
     "/catalogwidget"(platform: "/", isAbstract: true, type: TrackType.Event) {}
