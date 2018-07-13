@@ -456,4 +456,43 @@ trackTests {
             seller_id = 123456789
         }
     }
+
+
+   // FIT ANALYTICS
+
+    test("VIP Web fitanalytics ") {
+
+         def defaultTrackInformation = {
+             item_id = "MLA213512313"
+             category_id = "MLA123"
+             buying_mode = "classified"
+             category_path = ["MLA1234","MLA6789"]
+             item_condition = "new"
+             item_status = "active"
+             deal_ids = []
+             seller_id = 123456789
+             vertical = "core"
+             listing_type_id = "gold_special"
+        }
+
+        "/vip/fitanalytics"(platform: "/", type: TrackType.Event) {
+           defaultTrackInformation()
+        }
+        
+        "/vip/fitanalytics/view"(platform: "/", type: TrackType.Event) {
+           defaultTrackInformation()
+           fit = true
+        }
+
+        "/vip/fitanalytics/predict"(platform: "/", type: TrackType.Event) {
+           defaultTrackInformation()
+        }
+
+         "/vip/fitanalytics/close"(platform: "/", type: TrackType.Event) {
+           defaultTrackInformation()
+           variation = {}
+        }
+
+    }
+
 }
