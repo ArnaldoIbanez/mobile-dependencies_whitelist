@@ -7,7 +7,7 @@
         "type": "DATE"
       },
 
-      "process_name": "test",
+      "process_name": "test4",
       "extract": {
         "site": "CrossUnits",
         "operation": "append",
