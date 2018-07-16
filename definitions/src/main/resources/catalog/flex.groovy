@@ -121,7 +121,10 @@ tracks {
     }
 
     "/flex/package/list/map_missing_addresses"(platform: "/mobile", type: TrackType.View) {
+        delivered_packages(required: true, type: PropertyType.String,
+                description: "The number of packages with delivered status",inheritable:false)
         packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
     "/flex/package/detail"(platform: "/mobile", type: TrackType.View) {

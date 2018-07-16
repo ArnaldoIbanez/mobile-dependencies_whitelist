@@ -209,8 +209,10 @@ trackTests {
 
         //Packages with low accuracy modal view success
         "/flex/package/list/map_missing_addresses"(platform:"/mobile", type: TrackType.View) {
+            delivered_packages = "2-10"
             defaultLocation()
             defaultPacksInfo()
+            delivery_id = 123456
         }
 
         //Detail view with status pending success
