@@ -382,4 +382,72 @@ tracks {
         size(required: false, type: PropertyType.String, description: "Size of recomendation")
     }
 
+    // RESERVATION
+
+    "/vip/reservation_onboard"(platform: "/web", type: TrackType.View) {
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: true, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        vertical(required: true, type: PropertyType.String,
+                values: ["motors"],
+                description: "Vertical of the item")
+        listing_type_id(required: true, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+    }
+
+    "/vip/reservation_onboard/ok"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/vip/reservation_onboard/close"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/vip/reservation_information"(platform: "/web", parentPropertiesInherited: false, type: TrackType.View) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        vertical(required: true, type: PropertyType.String,
+                values: ["motors"],
+                description: "Vertical of the item")
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        listing_type_id(required: true, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+    }
+
+    "/vip/reservation_payment_options"(platform: "/web", parentPropertiesInherited: false, type: TrackType.View) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        vertical(required: true, type: PropertyType.String,
+                values: ["motors"],
+                description: "Vertical of the item")
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        listing_type_id(required: true, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+    }
+
+    "/vip/reservation_intention"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        vertical(required: true, type: PropertyType.String,
+                values: ["motors"],
+                description: "Vertical of the item")
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        listing_type_id(required: true, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        reservation_price(required: true, description: "Price of the reservation")
+        source(required: true, type: PropertyType.String, description: "Source of the refered")
+    }
+
 }

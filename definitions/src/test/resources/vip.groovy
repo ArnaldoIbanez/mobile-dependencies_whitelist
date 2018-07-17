@@ -495,4 +495,62 @@ trackTests {
 
     }
 
+    // RESERVATION
+
+    test("VIP Web reservation onboard ") {
+
+        def defaultTrackInformation = {
+            item_id = "MLA213512313"
+            category_id = "MLA123"
+            category_path = ["MLA1234","MLA6789"]
+            vertical = "motors"
+            listing_type_id = "gold_premium"
+            item_seller_type = "car_dealer"
+            item_condition = "new"
+
+        }
+
+        def onboardInformation = {
+            item_status = "active"
+            buying_mode = "classified"
+            deal_ids = []
+            seller_id = 123456789
+            contract_available = false
+            comparator_available = true
+            gallery_pattern = "XXXXXXXX"
+            description_type = "plain_text"
+            reputation_level = "5_green"
+        }
+
+        "/vip/reservation_onboard"(platform: "/web", type: TrackType.View) {
+            defaultTrackInformation()
+            onboardInformation()
+        }
+
+        "/vip/reservation_onboard/ok"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+            onboardInformation()
+        }
+
+        "/vip/reservation_onboard/close"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+            onboardInformation()
+        }
+
+        "/vip/reservation_payment_options"(platform: "/web", type: TrackType.View) {
+            defaultTrackInformation()
+        }
+
+        "/vip/reservation_information"(platform: "/web", type: TrackType.View) {
+            defaultTrackInformation()
+        }
+
+        "/vip/reservation_intention"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+            source = 'description'
+            reservation_price = '5000'
+        }
+
+    }
+
 }
