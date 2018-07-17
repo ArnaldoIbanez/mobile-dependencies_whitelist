@@ -131,6 +131,7 @@ tracks {
         value(required: false, description: "Value submitted on feedback or value for attribute", PropertyType.String)
         domain_id(required: true, description: "Domain ID from attribute", PropertyType.String)
         category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
+        attribute_type(required: false, description:"If its an item_attribute, a variation_attribute or an allow_variation attribute", type:PropertyType.String)
     }
 
     "/catalogwidget/welcome"(platform: "/",isAbstract: true) {}
