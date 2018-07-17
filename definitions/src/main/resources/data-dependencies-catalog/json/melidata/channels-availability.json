@@ -1,8 +1,9 @@
 {
   "users": [
-    "cx-channels@mercadolibre.com"
+    "cx-channels@mercadolibre.com", 
+    "juan.laura@mercadolibre.com"
   ],
-  "process_name": "channels-availability-event",
+  "process_name": "channels-joint-availability-new-profiles",
   "cron": "00 05 * * *",
   "extract": {
     "operation": "append",
@@ -20,19 +21,19 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "reason",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "origin",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "is_available",
-        "type": "BOOLEAN"
+        "name": "ml_seller_profile",
+        "type": "UNICODE_STRING"
       },
       {
-        "name": "segment",
+        "name": "mp_seller_profile",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "ml_buyer_profile",
         "type": "UNICODE_STRING"
       },
       {
@@ -40,11 +41,31 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "app_id",
+        "name": "segment",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "queue_id",
+        "name": "chat_queue_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "c2c_queue_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "sac_queue_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "chat_reason",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "c2c_reason",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "sac_reason",
         "type": "UNICODE_STRING"
       },
       {
@@ -57,7 +78,7 @@
       }
     ],
     "sql": {
-      "script": "cx/channels-availability.sql",
+      "script": "cx/channels-availability-new-profiles.sql",
       "parameters": [
         {
           "name": "param01",

@@ -72,6 +72,10 @@
         "type": "INTEGER"
       },
       {
+        "name": "TRIGGER_MIN_PRICE_UNREACHED",
+        "type": "INTEGER"
+      },
+      {
         "name": "ITEMS_NOT_FIT_ONE_BOX",
         "type": "INTEGER"
       },

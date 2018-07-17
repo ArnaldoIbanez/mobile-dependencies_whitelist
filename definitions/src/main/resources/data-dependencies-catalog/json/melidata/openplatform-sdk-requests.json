@@ -1,0 +1,30 @@
+{
+	"users": [
+		"wesley.nascimento@mercadolivre.com"
+	],
+	"process_name": "openplatform_sdk_requests",
+	"cron": "00 * * * *",
+	"extract": {
+		"operation": "append",
+		"columns": [
+			{
+				"name": "http_user_agent",
+				"type": "UNICODE_STRING"
+			},
+			{
+				"name": "total",
+				"type": "INTEGER"
+			}
+		],
+		"sql": {
+			"script": "openplatform/sdk-requests.sql",
+			"parameters": [
+				{
+					"name": "param01",
+					"value": "HOUR-12",
+					"format": "yyyy-MM-ddTHH_mm_ss"
+				}
+			]
+		}
+	}
+}

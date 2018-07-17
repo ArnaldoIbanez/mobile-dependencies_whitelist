@@ -1,5 +1,4 @@
-SELECT substr(ds,1,10) as ds,
-       CASE WHEN path LIKE '%list%' THEN 'LIST'
+SELECT CASE WHEN path LIKE '%list%' THEN 'LIST'
             WHEN path LIKE '%update%' THEN 'UPDATE'
             WHEN path LIKE '%catalogwidget%' THEN 'WIDGET'
         END AS source,
@@ -7,12 +6,13 @@ SELECT substr(ds,1,10) as ds,
        jet(event_data,'category_id') AS categoria,
        jet(event_data,'attribute_id') AS atributo,
        jet(event_data,'option_selected') AS opcion,
-       jet(event_data,'value') AS valor,
+       regexp_replace(jest(event_data, 'value'), '\n', '') AS valor,
        usr.user_id AS seller,
        jet(event_data,'item_id') AS item,
        jet(event_data,'condition') AS condicion,
        jet(event_data,'hierarchy') AS hierarchy,
-       application.site_id AS site
+       application.site_id AS site,
+       substr(ds,1,10) as ds
 FROM tracks
 WHERE ds >= '@param01'
 AND   ds < '@param02'

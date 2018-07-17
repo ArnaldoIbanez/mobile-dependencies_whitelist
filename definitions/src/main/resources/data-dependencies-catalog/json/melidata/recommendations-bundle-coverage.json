@@ -1,0 +1,72 @@
+{
+  "users":
+  [
+    "carlos.rodrigo@mercadolibre.com"
+  ],
+  "process_name": "recommendations_bundle_coverage_new",
+  "cron": "00 02 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
+  "extract":
+  {
+    "operation": "append",
+    "site": "MeliLake",
+    "columns":
+    [
+      {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "total_vips",
+        "type": "INTEGER"
+      }
+  
+      {
+        "name": "client_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "backend_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "vips_with_bundle",
+        "type": "INTEGER"
+      },
+      {
+        "name": "vips_with_certified_bundle",
+        "type": "INTEGER"
+      },
+      {
+        "name": "bundle_with_fs",
+        "type": "INTEGER"
+      },
+      {
+        "name": "bundle_with_saving",
+        "type": "INTEGER"
+      },
+      {
+        "name": "vips_with_bundle_fvf_value",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "recommendations/bundle-coverage.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

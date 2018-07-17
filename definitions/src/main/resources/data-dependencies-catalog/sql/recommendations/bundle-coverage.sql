@@ -23,7 +23,6 @@ and application.site_id IN ('MLM','MLB','MLA')
 and jest(event_data,'cart_content') = 'true'
 and jest(event_data, 'item_status') = 'active'
 and jest(event_data, 'buying_mode') = 'buy_it_now'
-and jest(event_data, 'shipping_mode') = 'me2'
 and application.business = 'mercadolibre'
 and not is_bot(device.user_agent)
 GROUP BY application.site_id, ds, jest(event_data, 'recommendations.client'), jest(event_data, 'recommendations.backend_id')

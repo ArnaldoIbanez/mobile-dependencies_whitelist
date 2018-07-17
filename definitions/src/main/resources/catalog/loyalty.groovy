@@ -23,10 +23,7 @@ tracks {
         benefit(required: true, description: "Indicates which benefit was viewed")
     }
 
-    "/loyalty/notification"(type: TrackType.Event) {
-        event_type(required: true,
-                values: ["received", "dismiss", "open", "shown", "delayed"],
-                description: "Type of loyalty notification event")
+    "/loyalty/score/back"(platform: "/mobile", type: TrackType.Event) {
     }
 
     //Loyalty Program User Tracking
@@ -64,7 +61,72 @@ tracks {
     }
 
     "/loyalty/landing"(platform: "/", type: TrackType.Event) {
-        landing_id(required: true, description: "id of landing") 
+        landing_id(required: true, description: "id of landing")
     }
+
+    "/loyalty/modal"(platform: "/mobile", type: TrackType.View) {
+        event_type(required: true, values: ["SHOW", "delawed", "shown", "close", "dismiss", "received", "open"])
+    }
+
+    "/loyalty/discounts"(platform: "/", type: TrackType.View) {
+        free_shipping(required: true, description: "Info about items at free shipping section")
+        categories(required: true, description: "Info about the categories shown")
+        official_stores(required: true, description: "What official stores are being shown")
+    }
+
+    "/loyalty/notification"(type: TrackType.Event) {
+        event_type(required: true,
+                values: ["received", "dismiss", "open", "shown", "delayed"],
+                description: "Type of loyalty notification event")
+    }
+
+    "/loyalty/buylevel"(platform: "/", isAbstract: true,type: TrackType.View){
+    }
+
+    "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
+    }
+
+    "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.Event){
+        action(required: true, values: ["started","success","success_orange","rejected","error"], description: "'started' when the CHO starts, success/success_orange/error is when the CHO finish")
+        origin(required: false, values: ["mail","vip"], description: "Checkout was initiated from alternative flow other than the landing")
+        item_id(required: false, description: "If flow starts from vip")
+    }
+
+    "/loyalty/buylevel/payment"(platform: "/",type: TrackType.Event){
+        payment(required: false, type: PropertyType.Numeric, description: "Payment ID Number")
+        payment_status(required: false, description: "Payment status, like rejected/success/pending/etc...")
+        payment_status_detail(required: false, description: "Payment status detail")
+        item_id(required: false, description: "If flow starts from vip")
+        our_payment_error(required: false, description: "An error from our (with our endpoint) payment post, is not an error creating the payment")
+    }
+
+    /**
+     * Loyalty Redesign Tracks
+     */
+
+    // Main Page
+
+    "/loyalty/main"(platform: "/", type: TrackType.View) {}
+    "/loyalty/main/activity"(platform: "/", type: TrackType.View) {}
+
+    // Modals
+
+    "/loyalty/main/modal"(platform: "/", type: TrackType.View) {
+        type(required: true, description: "Indicates what kind of modal was opened", values: ["benefit", "milestone", "benefits_per_level"])
+        benefit_id(required: false, description: "Indicates the id of the benefit that corresponds to the modal")
+        milestone_id(required: false, description: "Indicates the id of the milestone that corresponds to the modal")
+        family_id(required: false, description: "Indicates the id of the milestone family that corresponds to the modal")
+        from(required: false, description: "Indicates whether the modal was opened from the main page or the milestones page. Only sent for milestone modal", values: ["main", "milestones"])
+    }
+
+    "/loyalty/main/modal/action"(platform: "/", type: TrackType.Event) {
+        type(required: true, description: "Indicates the kind of modal whose action was triggered", values: ["benefit", "milestone"])
+        benefit_id(required: false, description: "Indicates the id of the benefit that corresponds to the modal")
+        milestone_id(required: false, description: "Indicates the id of the milestone that corresponds to the modal")
+    }
+
+    // Milestones Page
+
+    "/loyalty/milestones"(platform: "/", type: TrackType.View) {}
 
 }

@@ -16,11 +16,12 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
     	}
     }
 
     test("catalog_widget item render should be tracked"){
-        "/catalogwidget/showItem"(platform: "/", type: TrackType.Event){
+        "/catalogwidget/showitem"(platform: "/", type: TrackType.Event){
             category_id = "MLA390784"
             page = "summary"
             item_id = "MLA682118081"
@@ -28,6 +29,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = true
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -43,6 +45,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
             inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
@@ -59,6 +62,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
             inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
@@ -75,6 +79,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = true
+            category_path = ["MLA1234", "MLA12345"]
             inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
@@ -91,6 +96,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = true
+            category_path = ["MLA1234", "MLA12345"]
             inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
@@ -106,6 +112,22 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
+        }
+    }
+
+    test("catalog_widget forced cancel should be tracked"){
+        "/catalogwidget/cancel/forced"(platform: "/", type: TrackType.Event){
+            category_id = "MLA390784"
+            page = "summary"
+            item_id = "MLA682118081"
+            officialstore = false
+            items_left = 8
+            missing_attributes = "GTIN"
+            domain_id = "MLA-FRAGRANCES"
+            seller_id = "241616388"
+            pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -120,6 +142,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = true
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -132,6 +155,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -144,6 +168,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -156,6 +181,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -168,6 +194,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -181,6 +208,7 @@ trackTests {
             seller_id = "241616388"
             pi = false
             items_left = 15
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -193,6 +221,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -205,6 +234,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -217,6 +247,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -229,6 +260,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -244,6 +276,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
             inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
@@ -259,6 +292,7 @@ trackTests {
             status_code = "200"
             error = "Null exception"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -273,6 +307,7 @@ trackTests {
             status_code = "200"
             error = "Generic error"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -288,6 +323,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
             inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
         }
     }
@@ -301,6 +337,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -313,6 +350,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             seller_id = "241616388"
             pi = false
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -328,6 +366,7 @@ trackTests {
             domain_id = "MLA-FRAGRANCES"
             empty_attrs_not_pk = 4
             empty_attrs_pk = 2
+            category_path = ["MLA1234", "MLA12345"]
         }
     }
 
@@ -345,6 +384,33 @@ trackTests {
             hierarchy = "PARENT_PK"
             option_selected = "not_possible"
             value = "Not apply"
+            category_path = ["MLA12345", "MLA4356"]
         }
     }
+
+    test("catalog_widget show welcome for leaders should be tracked"){
+        "/catalogwidget/welcome/leaders/show"(platform: "/",type: TrackType.View) {}
+    }
+
+    test("catalog_widget continue in welcome for leaders should be tracked"){
+        "/catalogwidget/welcome/leaders/continue"(platform: "/",type: TrackType.Event) {}
+    }
+
+    test("catalog_widget omit in welcome for leaders should be tracked"){
+        "/catalogwidget/welcome/leaders/omit"(platform: "/",type: TrackType.Event) {}
+    }
+
+    test("catalog_widget close in welcome for leaders should be tracked"){
+        "/catalogwidget/welcome/leaders/close"(platform: "/",type: TrackType.Event) {}
+    }
+
+    test("Updated items in Massive Attribute Editor from SW_MKT"){
+        "/bulk_attributes/incomplete/save" (platform: "/web",type: TrackType.Event) {
+            campaignId = "SW_MKT"
+            totalItems = 6
+            updatedItems = 2
+            badItems = false
+        }
+    }
+
 }

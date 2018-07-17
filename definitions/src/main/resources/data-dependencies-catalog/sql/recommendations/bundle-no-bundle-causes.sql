@@ -30,7 +30,6 @@ and application.site_id IN ('MLM','MLB','MLA')
 and jest(event_data,'cart_content') = 'true'
 and jest(event_data, 'item_status') = 'active'
 and jest(event_data, 'buying_mode') = 'buy_it_now'
-and jest(event_data, 'shipping_mode') = 'me2'
 and jest(event_data, 'recommendations.track_info.has_recommendations') = 'false'
 and application.business = 'mercadolibre'
 and not is_bot(device.user_agent)
