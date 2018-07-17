@@ -98,8 +98,7 @@
       {
         "name": "BOT_TRAFFIC",
         "type": "INTEGER"
-      }, 
-
+      }
 
     ],
     "sql": {

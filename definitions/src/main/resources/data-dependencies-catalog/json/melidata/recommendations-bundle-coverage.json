@@ -22,8 +22,7 @@
       {
         "name": "total_vips",
         "type": "INTEGER"
-      }
-  
+      },
       {
         "name": "client_id",
         "type": "UNICODE_STRING"
