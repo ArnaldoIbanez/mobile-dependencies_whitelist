@@ -3,7 +3,7 @@
     "ivan.rufino@mercadolibre.com"
   ],
   "process_name": "test-ctr1",
-  "cron": "00 04 * * *",
+  "cron": "30 01 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -13,44 +13,28 @@
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "component",
+        "name": "siteId",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "device_type",
+        "name": "path",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "site_id",
+        "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "component_order",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "campaign",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "brand_name",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "category_id",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "prints",
+        "name": "userId",
         "type": "INTEGER"
       },
       {
-        "name": "clicks",
-        "type": "INTEGER"
+        "name": "itemId",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "melidata/component-ctr.sql",
+      "script": "melidata/suggested-discount-current-buyers-activity.sql",
       "parameters": [
         {
           "name": "param01",
@@ -64,12 +48,12 @@
         },
         {
           "name": "param03",
-          "value": "DAY-2",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param04",
-          "value": "DAY-1",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
       ]
