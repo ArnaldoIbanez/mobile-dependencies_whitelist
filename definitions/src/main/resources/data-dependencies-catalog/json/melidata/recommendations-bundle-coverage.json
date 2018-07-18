@@ -20,6 +20,18 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "total_vips",
+        "type": "INTEGER"
+      },
+      {
+        "name": "client_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "backend_id",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "vips_with_bundle",
         "type": "INTEGER"
       },
@@ -37,10 +49,6 @@
       },
       {
         "name": "vips_with_bundle_fvf_value",
-        "type": "INTEGER"
-      },
-      {
-        "name": "total_vips",
         "type": "INTEGER"
       }
     ],

@@ -1,7 +1,7 @@
 {
   "users":
   [
-    "carlos.rodrigo@mercadolibre.com"
+    "recommendations_fe@mercadolibre.com"
   ],
   "process_name": "recommendations_bundle_no_bundle_causes",
   "cron": "00 02 * * *",
@@ -22,6 +22,14 @@
       {
         "name": "total_vips",
         "type": "INTEGER"
+      },
+      {
+        "name": "client_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "backend_id",
+        "type": "UNICODE_STRING"
       },
       {
         "name": "EMPTY_MODEL_RESPONSE",
@@ -64,6 +72,10 @@
         "type": "INTEGER"
       },
       {
+        "name": "TRIGGER_MIN_PRICE_UNREACHED",
+        "type": "INTEGER"
+      },
+      {
         "name": "ITEMS_NOT_FIT_ONE_BOX",
         "type": "INTEGER"
       },
@@ -81,6 +93,10 @@
       },
       {
         "name": "NO_RATIO_VALID_COMBO",
+        "type": "INTEGER"
+      },
+      {
+        "name": "BOT_TRAFFIC",
         "type": "INTEGER"
       }
 
