@@ -4,7 +4,7 @@
     "juan.laura@mercadolibre.com"
   ],
   "process_name": "channels-availability-and-clicks",
-  "cron": "50 20 * * *",
+  "cron": "00 11 * * *",
   "partition": {
           "name": "requested_datetime_day",
           "type": "UNICODE_STRING"
