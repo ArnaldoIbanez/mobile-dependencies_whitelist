@@ -131,6 +131,6 @@ tracks {
 
     //Partners
     "/loyalty/subscribe"(platform: "/", type: TrackType.Event) {
-        partner_id(required: true, description: "id of partner")
+        partner_id(required: true, description: "id of partner",type: PropertyType.String)
     }
 }
