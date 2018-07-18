@@ -214,4 +214,14 @@ trackTests {
             our_payment_error="Error msg"
         }
     }
+
+    test("partners"){
+        "/loyalty/subscribe"(platform: "/", type: TrackType.Event){
+            partner_id = "megatlon"
+        }
+
+        "/loyalty/subscribe"(platform: "/", type: TrackType.Event){
+            partner_id = "fiter"
+        }
+    }
 }
