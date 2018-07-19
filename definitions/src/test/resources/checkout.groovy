@@ -256,6 +256,12 @@ trackTests {
             inconsistency = "cant_sent_x_units"
             selections = ["shipping_geo", "shipping_other", "local_pick_up"]
         }
+        "/checkout/shipping/accord"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
+        "/checkout/shipping/accord_shipping_and_payment"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
         "/checkout/shipping/select_method/ask_enable_geolocation"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             //List of available shippingMethods
