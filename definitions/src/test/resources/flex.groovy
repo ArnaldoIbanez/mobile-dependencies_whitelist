@@ -211,6 +211,7 @@ trackTests {
         "/flex/package/list/map_missing_addresses"(platform:"/mobile", type: TrackType.View) {
             defaultLocation()
             defaultPacksInfo()
+            delivery_id = 123456
         }
 
         //Detail view with status pending success
@@ -305,6 +306,10 @@ trackTests {
 
         }
 
+        "/flex/error/update_app"(platform:"/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
         //Full error view page success
         "/flex/error"(platform:"/mobile", type: TrackType.View) {
             defaultLocation()
@@ -315,6 +320,10 @@ trackTests {
         "/flex/error/snackbar"(platform:"/mobile", type: TrackType.Event) {
             defaultLocation()
             error_type = "delivery_failed"
+        }
+
+        "/flex/error/update_app/update_app"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
         }
 
         //List onboarding page success
