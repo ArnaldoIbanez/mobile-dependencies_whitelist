@@ -47,6 +47,7 @@ trackTests {
             pi = false
             category_path = ["MLA1234", "MLA12345"]
             inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -64,6 +65,7 @@ trackTests {
             pi = false
             category_path = ["MLA1234", "MLA12345"]
             inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -81,6 +83,7 @@ trackTests {
             pi = true
             category_path = ["MLA1234", "MLA12345"]
             inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -98,6 +101,7 @@ trackTests {
             pi = true
             category_path = ["MLA1234", "MLA12345"]
             inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -113,6 +117,7 @@ trackTests {
             seller_id = "241616388"
             pi = false
             category_path = ["MLA1234", "MLA12345"]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -128,6 +133,7 @@ trackTests {
             seller_id = "241616388"
             pi = false
             category_path = ["MLA1234", "MLA12345"]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -143,6 +149,7 @@ trackTests {
             seller_id = "241616388"
             pi = true
             category_path = ["MLA1234", "MLA12345"]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -278,6 +285,7 @@ trackTests {
             pi = false
             category_path = ["MLA1234", "MLA12345"]
             inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -325,6 +333,7 @@ trackTests {
             pi = false
             category_path = ["MLA1234", "MLA12345"]
             inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -385,6 +394,7 @@ trackTests {
             option_selected = "not_possible"
             value = "Not apply"
             category_path = ["MLA12345", "MLA4356"]
+            attribute_type = "item_attribute"
         }
     }
 
