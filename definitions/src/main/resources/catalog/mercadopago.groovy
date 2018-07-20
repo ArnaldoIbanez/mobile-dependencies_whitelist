@@ -73,9 +73,6 @@ tracks {
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
 
-    // QR Landing > Buyers
-    "/merchant_acquisition/qr/landing/buyers"(platform:"/", type: TrackType.View) {}
-
     // QR Landing > Events
     "/merchant_acquisition/qr/landing/promotions"(platform:"/", type: TrackType.Event) {}
 
