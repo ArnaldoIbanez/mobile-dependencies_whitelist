@@ -43,27 +43,27 @@ trackTests {
         // Views
         "/credits/consumer/administrator"(platform: "/web/desktop") {}
         "/credits/consumer/administrator/dashboard"(platform: "/web/desktop") {}
-        "/credits/consumer/administrator/empty_state"(platform: "/web/desktop") {}
-        "/credits/consumer/administrator/on_time"(platform: "/web/desktop") {}
-        "/credits/consumer/administrator/late_pay"(platform: "/web/desktop") {}
+        "/credits/consumer/administrator/dashboard"(platform: "/web/desktop", type: TrackType.View) { loan_status = 'empty_state' }
+        "/credits/consumer/administrator/dashboard"(platform: "/web/desktop", type: TrackType.View) { loan_status = 'on_time' }
+        "/credits/consumer/administrator/dashboard"(platform: "/web/desktop", type: TrackType.View) { loan_status = 'overdue' }
 
         //Events
         "/credits/consumer/administrator/tooltip"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/consumer/administrator/pagar"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/consumer/administrator/detalle"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/consumer/administrator/ayuda"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/consumer/administrator/landing_educativa"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/consumer/administrator/ver_producto"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/detail"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/help"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/see_product"(platform: "/web/desktop", type: TrackType.Event) {}
 
         /**
         Admin History (Compras Finalizadas)
         **/
         // Views
-        "/credits/consumer/administrator/compras_finalizadas"(platform: "/web/desktop") {}
+        "/credits/consumer/administrator/history"(platform: "/web/desktop") {}
 
         //Events
-        "/credits/consumer/administrator/compras_finalizadas/detalle"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/consumer/administrator/compras_finalizadas/landing_educativa"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/history/detail"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/history/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {}
 
         /******************************************
         *       End: Consumers Administrator

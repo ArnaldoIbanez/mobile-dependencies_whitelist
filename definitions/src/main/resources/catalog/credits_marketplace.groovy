@@ -48,27 +48,27 @@ tracks {
     // Page views
     "/credits/consumer/administrator"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/administrator/dashboard"(platform: "/", type: TrackType.View) {}
-    "/credits/consumer/administrator/empty_state"(platform: "/", type: TrackType.View) {}
-    "/credits/consumer/administrator/on_time"(platform: "/", type: TrackType.View) {}
-    "/credits/consumer/administrator/late_pay"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/administrator/dashboard"(platform: "/", type: TrackType.View) {
+        loan_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
+    }
     
     // Events
     "/credits/consumer/administrator/tooltip"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumer/administrator/pagar"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumer/administrator/detalle"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumer/administrator/ayuda"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumer/administrator/landing_educativa"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumer/administrator/ver_producto"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/payment_intention"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/detail"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/help"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/educational_landing"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/see_product"(platform: "/", type: TrackType.Event) {}
 
     /**
     Admin History (Compras Finalizadas)
     **/
     // Page views
-    "/credits/consumer/administrator/compras_finalizadas"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/administrator/history"(platform: "/", type: TrackType.View) {}
 
     // Events
-    "/credits/consumer/administrator/compras_finalizadas/detalle"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumer/administrator/compras_finalizadas/landing_educativa"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/history/detail"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/history/educational_landing"(platform: "/", type: TrackType.Event) {}
 
     /******************************************
     *       End: Consumers Administrator
