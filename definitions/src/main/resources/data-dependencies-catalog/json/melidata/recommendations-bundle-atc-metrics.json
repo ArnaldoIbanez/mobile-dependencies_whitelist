@@ -4,19 +4,31 @@
     "carlos.rodrigo@mercadolibre.com"
   ],
   "process_name": "recommendations_bundle_atc_metrics",
-  "cron": "00 05 * * *",
+  "cron": "00 02 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
   "extract":
   {
-    "operation": "append",
-    "columns":
+   "operation": "append",
+   "site": "MeliLake",
+   "columns":
     [
-      {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
+     {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
       },
       {
-        "name": "site_id",
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "client",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "backend_id",
         "type": "UNICODE_STRING"
       },
       {

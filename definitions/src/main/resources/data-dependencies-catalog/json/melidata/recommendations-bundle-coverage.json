@@ -20,11 +20,27 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "vips_with_bundle",
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "total_prints",
         "type": "INTEGER"
       },
       {
-        "name": "vips_with_certified_bundle",
+        "name": "client",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "backend_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "prints_with_bundle",
+        "type": "INTEGER"
+      },
+      {
+        "name": "prints_with_certified_bundle",
         "type": "INTEGER"
       },
       {
@@ -36,11 +52,7 @@
         "type": "INTEGER"
       },
       {
-        "name": "vips_with_bundle_fvf_value",
-        "type": "INTEGER"
-      },
-      {
-        "name": "total_vips",
+        "name": "bundles_with_trigger_with_fs",
         "type": "INTEGER"
       }
     ],

@@ -3,10 +3,15 @@
 		"wesley.nascimento@mercadolivre.com"
 	],
 	"process_name": "openplatform_sdk_requests",
-	"cron": "00 * * * *",
+	"cron": "00 04 * * *",
 	"extract": {
 		"operation": "append",
 		"columns": [
+			{
+				"name": "request_date",
+				"type": "DATE",
+				"format": "yyyy-MM-dd"
+			},
 			{
 				"name": "http_user_agent",
 				"type": "UNICODE_STRING"
@@ -21,8 +26,8 @@
 			"parameters": [
 				{
 					"name": "param01",
-					"value": "HOUR-12",
-					"format": "yyyy-MM-ddTHH_mm_ss"
+					"value": "DAY-1",
+					"format": "yyyy-MM-dd"
 				}
 			]
 		}

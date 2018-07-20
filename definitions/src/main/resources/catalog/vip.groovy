@@ -125,12 +125,6 @@ tracks {
 
     "/vip/color_and_size"(platform: "/mobile") {}
 
-    "/vip/description/failure"(platform: "/mobile") {}
-
-    "/vip/description/abort"(platform: "/mobile") {}
-
-    "/vip/description/back"(platform: "/mobile") {}
-
     "/vip/item_gallery"(platform: "/mobile", parentPropertiesInherited: false) {
         context(required: false)
     }
@@ -192,11 +186,12 @@ tracks {
 
     "/vip/payment_method/back"(platform: "/mobile") {}
 
-    "/vip/variations"(platform: "/", type: TrackType.View) {
+    "/vip/variations"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String,
                 description: "Item ID")
         category_id(required: false, type: PropertyType.String,
                 description: "Item's category ID")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
     }
 
     "/vip/variations/back"(platform: "/mobile") {}
@@ -215,11 +210,12 @@ tracks {
 
     //  QUESTION
 
-    "/vip/question"(platform: "/", type: TrackType.View) {
+    "/vip/question"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String,
                 description: "Item ID")
         category_id(required: false, type: PropertyType.String,
                 description: "Category ID")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         vertical(required: false, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"],
                 description: "Vertical of the item")
@@ -229,11 +225,12 @@ tracks {
     //TODO chequear con mobile estos tracks
     //  DESCRIPTION
 
-    "/vip/description"(platform: "/", type: TrackType.View){
+    "/vip/description"(platform: "/", parentPropertiesInherited: false, isAbstract: true, type: TrackType.View){
 
         //  DESCRIPTION/ATTRIBUTES
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         category_id(required: false, type: PropertyType.String, description: "Category ID")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         vertical(required: false, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"],
                 description: "Vertical of the item")
@@ -250,6 +247,12 @@ tracks {
                 description: "Source of the refered"
         )
     }
+
+    "/vip/description/failure"(platform: "/mobile") {}
+
+    "/vip/description/abort"(platform: "/mobile") {}
+
+    "/vip/description/back"(platform: "/mobile") {}
 
     // ADDRESS
 
@@ -356,4 +359,27 @@ tracks {
                 description: "Vertical of the item")
     }
     "/vip/free_shipping_cart_available"(platform: "/web", type: TrackType.Event){}
+
+    // FIT ANALYTICS
+
+    "/vip/fitanalytics"(platform: "/", isAbstract: true) {}
+
+    "/vip/fitanalytics/view"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        fit(required: true, description: "Available fit")
+    }
+
+    "/vip/fitanalytics/predict"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+    }
+
+    "/vip/fitanalytics/close"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        variation(required: true, description: "Current Variation")
+        size(required: false, type: PropertyType.String, description: "Size of recomendation")
+    }
+
 }

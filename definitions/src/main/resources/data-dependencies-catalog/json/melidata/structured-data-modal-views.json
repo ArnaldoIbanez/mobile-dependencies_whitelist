@@ -8,14 +8,13 @@
   ],
   "process_name": "structured_data_modal_attributes_views",
   "cron": "00 07 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
     "columns": [
-      {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
       {
         "name": "source",
         "type": "UNICODE_STRING"

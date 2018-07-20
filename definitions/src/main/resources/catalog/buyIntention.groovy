@@ -45,7 +45,7 @@ tracks {
     context(required:true, description: "Indicates from where the buy_intention was initiated. Where did the user pressed de 'COMPRAR' button", values: ["vip", "saved_for_later", "cart", "cart_item", "item_add", "UNKNOWN"])
     
     // checkout flow debiera ser la misma nomeclatura que seguimos en CHO => https://github.com/mercadolibre/melidata-catalog/blob/5246718a3ed30b73dad66066c37f42329d64d0e6/definitions/src/main/resources/catalog/checkout.groovy#L92
-    checkout_flow(required: true, type: PropertyType.String, values: ["contract", "subscription", "direct","cart"],  description: "The type of CHO that is starting by this buy intention. Reservation CHO's are excluded by the moment")
+    checkout_flow(required: true, type: PropertyType.String, values: ["subscription", "direct","cart"],  description: "The type of CHO that is starting by this buy intention. Reservation/contracts CHO's are excluded by the moment")
 }
 
 }

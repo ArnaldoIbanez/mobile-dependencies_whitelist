@@ -6,7 +6,7 @@
   "process_name": "susc_users_landing",
  "cron": "00 07 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
       {
         "name": "fecha",

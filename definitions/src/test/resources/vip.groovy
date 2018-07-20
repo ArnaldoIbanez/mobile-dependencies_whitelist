@@ -68,11 +68,17 @@ trackTests {
 
         "/vip/color_and_size"(platform:"/mobile", mandatory)
 
-        "/vip/description/abort"(platform:"/mobile", mandatory)
+        "/vip/description/abort"(platform:"/mobile"){
+            item_id = "MLA533657947"
+        }
 
-        "/vip/description/back"(platform:"/mobile", mandatory)
+        "/vip/description/back"(platform:"/mobile"){
+            item_id = "MLA533657947"
+        }
 
-        "/vip/description/failure"(platform:"/mobile", mandatory)
+        "/vip/description/failure"(platform:"/mobile"){
+            item_id = "MLA533657947"
+        }
 
         "/vip/contact_seller"(platform:"/mobile", type: TrackType.Event, {
             mandatory()
@@ -140,7 +146,9 @@ trackTests {
             item_seller_type = "AB001"
         })
 
-        "/vip/description/failure"(platform:"/mobile", mandatory)
+        "/vip/description/failure"(platform:"/mobile"){
+            item_id = "MLA533657947"
+        }
 
         "/vip/item_gallery"(platform:"/mobile") {
             context = "/vip"
@@ -158,9 +166,13 @@ trackTests {
 
         "/vip/payment_method/back"(platform: "/mobile", mandatory)
 
-        "/vip/variations"(platform: "/mobile", mandatory)
+        "/vip/variations"(platform: "/mobile"){
+            item_id = "MLA533657947"
+        }
 
-        "/vip/variations/back"(platform: "/mobile", mandatory)
+        "/vip/variations/back"(platform: "/mobile"){
+            item_id = "MLA533657947"
+        }
 
         "/vip/quantity"(platform: "/mobile", mandatory)
     }
@@ -314,7 +326,7 @@ trackTests {
         }
 
         "/vip/variations"(platform: "/web") {
-            defaultTrackInformation()
+            item_id = "MLA213512313"
         }
 
         "/vip/reviews"(platform: "/", type: TrackType.View) {
@@ -336,12 +348,12 @@ trackTests {
         }
 
         "/vip/description"(platform: "/web", type: TrackType.View){
-            defaultTrackInformation()
+            item_id = "MLA213512313"
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
+            item_id = "MLA213512313"
 
-            defaultTrackInformation()
         }
     }
 
@@ -444,4 +456,43 @@ trackTests {
             seller_id = 123456789
         }
     }
+
+
+   // FIT ANALYTICS
+
+    test("VIP Web fitanalytics ") {
+
+         def defaultTrackInformation = {
+             item_id = "MLA213512313"
+             category_id = "MLA123"
+             buying_mode = "classified"
+             category_path = ["MLA1234","MLA6789"]
+             item_condition = "new"
+             item_status = "active"
+             deal_ids = []
+             seller_id = 123456789
+             vertical = "core"
+             listing_type_id = "gold_special"
+        }
+
+        "/vip/fitanalytics"(platform: "/", type: TrackType.Event) {
+           defaultTrackInformation()
+        }
+        
+        "/vip/fitanalytics/view"(platform: "/", type: TrackType.Event) {
+           defaultTrackInformation()
+           fit = true
+        }
+
+        "/vip/fitanalytics/predict"(platform: "/", type: TrackType.Event) {
+           defaultTrackInformation()
+        }
+
+         "/vip/fitanalytics/close"(platform: "/", type: TrackType.Event) {
+           defaultTrackInformation()
+           variation = {}
+        }
+
+    }
+
 }

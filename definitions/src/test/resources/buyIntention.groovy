@@ -74,7 +74,7 @@ trackTests {
         "/buy_intention"(platform:"/web/desktop") {
             buyIntentionDataSet()
             context = "saved_for_later"
-            checkout_flow="contract"
+            checkout_flow="cart"
 
         }
 
