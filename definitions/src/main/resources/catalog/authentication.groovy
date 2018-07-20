@@ -119,12 +119,12 @@ tracks {
     "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {}
 
     "/login/smartlock/success"(platform: "/mobile", type: TrackType.Event) {
-        attempt_type(type: PropertyType.String, required: false)
+        attempt_type(type: PropertyType.String, required: false, values: ["single_credential","multiple_credentials"])
     }
 
     "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
         error(type: PropertyType.String, required: true)
-        attempt_type(type: PropertyType.String, required: false)
+        attempt_type(type: PropertyType.String, required: false, values: ["single_credential","multiple_credentials"])
     }
 
     "/login/smartlock/save_credentials"(platform: "/mobile", isAbstract: true) {}
