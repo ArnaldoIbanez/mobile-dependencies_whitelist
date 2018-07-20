@@ -20,7 +20,11 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "client_id",
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "client",
         "type": "UNICODE_STRING"
       },
       {
