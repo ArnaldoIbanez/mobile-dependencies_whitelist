@@ -192,8 +192,12 @@ trackTests {
     test("Requesting credentials to Smart Lock for Passwords") {
         "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {}
         "/login/smartlock/success"(platform: "/mobile", type: TrackType.Event) {}
+        "/login/smartlock/success"(platform: "/mobile", type: TrackType.Event) {
+            attempt_type = "multiple_credentials"
+        }
         "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
             error = "RESOLUTION_REQUIRED"
+            attempt_type = "multiple_credentials"
         }
         "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
             error = "CANCELED"
