@@ -200,6 +200,8 @@ tracks {
 "/cart/checkout/finish/call_for_auth/instructions"(platform:"/", type: TrackType.View) {}
 "/cart/checkout/finish/call_for_auth/later"(platform:"/", type: TrackType.View) {}
 "/cart/checkout/finish/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
+"/cart/checkout/finish/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
+"/cart/checkout/finish/choose_action"(platform:"/", type: TrackType.View) {}
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin All platforms
@@ -353,11 +355,10 @@ tracks {
 "/cart/checkout/payments_cancelation"(platform: "/mobile", type: TrackType.View) {}
 
 //Billing info
-    "/cart/checkout/billing"(platform: "/mobile", isAbstract: true) {}
-    "/cart/checkout/billing/physical_person"(platform: "/mobile") {}
-    "/cart/checkout/billing/legal_person"(platform: "/mobile") {}
-    "/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-    }
+"/cart/checkout/billing"(platform: "/mobile", isAbstract: true) {}
+"/cart/checkout/billing/physical_person"(platform: "/mobile") {}
+"/cart/checkout/billing/legal_person"(platform: "/mobile") {}
+"/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
 
 // 2MP Inconsistencias
 "/cart/checkout/review/discard_payment_combination"(platform: "/mobile") {}
