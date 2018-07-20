@@ -200,7 +200,6 @@ tracks {
 "/cart/checkout/finish/call_for_auth/instructions"(platform:"/", type: TrackType.View) {}
 "/cart/checkout/finish/call_for_auth/later"(platform:"/", type: TrackType.View) {}
 "/cart/checkout/finish/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
-"/cart/checkout/finish/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
 "/cart/checkout/finish/choose_action"(platform:"/", type: TrackType.View) {}
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
