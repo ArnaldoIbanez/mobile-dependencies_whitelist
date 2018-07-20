@@ -10,7 +10,7 @@ FROM TRACKS
 LATERAL VIEW json_tuple(event_data, 'items') v as recommended_items 
 WHERE (path = '/recommendations/add_to_cart' or path = '/add_to_cart')
 AND JEST(event_data,'items') is not NULL 
-AND DS >= 'param01' 
-AND DS < 'param02'
+AND DS >= '@param01' 
+AND DS < '@param02'
 GROUP BY application.site_id, device.platform, substr(ds,1,10), jest(event_data, 'client'), jest(event_data, 'backend_id')
 ORDER BY substr(ds,1,10)
