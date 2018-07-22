@@ -15,6 +15,10 @@ tracks {
         sent_date(required: false)
     }
 
+    "/email/generic"(platform: "/email"){
+
+    }
+
     "/email/congrats"(platform: "/email"){
         days(type: PropertyType.Numeric, required: true)
     }
