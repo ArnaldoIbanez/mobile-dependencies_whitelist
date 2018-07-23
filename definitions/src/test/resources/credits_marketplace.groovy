@@ -48,7 +48,14 @@ trackTests {
 
         //Events
         "/credits/consumer/administrator/tooltip"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'on_time'}
+        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'to_expire_soft'}
+        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'to_expire_hard'}
+        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'expired_today'}
+        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'no_charge_period'}
+        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'fixed_charge_period_1'}
+        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'fixed_charge_period_2'}
+        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'daily_charge_period'}
         "/credits/consumer/administrator/detail"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/help"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {}

@@ -53,7 +53,22 @@ tracks {
     
     // Events
     "/credits/consumer/administrator/tooltip"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumer/administrator/payment_intention"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/payment_intention"(platform: "/", type: TrackType.Event) {
+        installment_status(
+            required: true,
+            description: "Current status of clicked pay button",
+            values: [
+                'on_time',
+                'to_expire_soft',
+                'to_expire_hard',
+                'expired_today',
+                'no_charge_period',
+                'fixed_charge_period_1',
+                'fixed_charge_period_2',
+                'daily_charge_period'
+            ]
+        )
+    }
     "/credits/consumer/administrator/detail"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/help"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/educational_landing"(platform: "/", type: TrackType.Event) {}
