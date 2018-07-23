@@ -2025,10 +2025,17 @@ trackTests {
         "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {}
         "/login/smartlock/success"(platform: "/mobile", type: TrackType.Event) {}
         "/login/smartlock/success"(platform: "/mobile", type: TrackType.Event) {
-            attempt_type = "multiple_credentials"
+            attempt_type = "auto_sign_in"
         }
         "/login/smartlock/success"(platform: "/mobile", type: TrackType.Event) {
-            attempt_type = "single_credential"
+            attempt_type = "retrieve_credentials"
+        }
+        "/login/smartlock/success"(platform: "/mobile", type: TrackType.Event) {
+            attempt_type = "multiple_credentials"
+        }
+        "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
+            error = "RESOLUTION_REQUIRED"
+            attempt_type = "retrieve_credentials"
         }
         "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
             error = "RESOLUTION_REQUIRED"
@@ -2036,7 +2043,7 @@ trackTests {
         }
         "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
             error = "CANCELED"
-            attempt_type = "single_credential"
+            attempt_type = "auto_sign_in"
         }
         "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
             error = "VALIDATION_REQUIRED"
