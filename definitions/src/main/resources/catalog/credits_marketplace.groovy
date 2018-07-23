@@ -47,9 +47,8 @@ tracks {
     **/
     // Page views
     "/credits/consumer/administrator"(platform: "/", type: TrackType.View) {}
-    "/credits/consumer/administrator/dashboard"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/administrator/dashboard"(platform: "/", type: TrackType.View) {
-        loan_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
+        dashboard_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
     }
     
     // Events
