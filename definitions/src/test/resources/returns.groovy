@@ -23,6 +23,7 @@ trackTests {
         order_id=1920434799
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
         order_delayed_by_seller = false
+        deferred_payment= "shipped"
       }
 
       // STEP 02
@@ -30,6 +31,7 @@ trackTests {
         action = "selection"
         selection = "accepted"
         order_delayed_by_seller = false
+        deferred_payment= "shipped"
       }
 
       // STEP 03
@@ -50,6 +52,7 @@ trackTests {
         continue_button = true
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
         order_delayed_by_seller = false
+        deferred_payment= "shipped"
       }
 
       // STEP 04
@@ -67,6 +70,7 @@ trackTests {
         refund_account_money=false
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
         order_delayed_by_seller = false
+        deferred_payment= "shipped"
       }
 
       // STEP 05.a
@@ -84,6 +88,7 @@ trackTests {
         refund_account_money=false
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
         order_delayed_by_seller = false
+        deferred_payment= "shipped"
       }
 
       // STEP 05.b
@@ -103,6 +108,7 @@ trackTests {
         seller_scoring = "low"
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
         order_delayed_by_seller = false
+        deferred_payment= "shipped"
       }
 
       // STEP 06
@@ -125,6 +131,7 @@ trackTests {
         refund_account_money=false
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
         order_delayed_by_seller = false
+        deferred_payment= "shipped"
       }
 
       // STEP 06.cta.a

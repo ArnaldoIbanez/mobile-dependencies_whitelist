@@ -22,6 +22,7 @@ tracks {
       order_id(required: false, type: PropertyType.Numeric, description: 'order identifier')
       category_path(required: false, type: PropertyType.ArrayList, description: 'list of categories')
       order_delayed_by_seller(required: false, type: PropertyType.Boolean, description: 'order delayed by seller')
+      deferred_payment(required: false, type: PropertyType.String, description: 'when will the buyer be refunded')
     }
 
     // STEP 01
