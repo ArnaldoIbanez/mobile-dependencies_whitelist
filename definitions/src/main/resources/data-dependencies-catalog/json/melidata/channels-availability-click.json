@@ -10,7 +10,7 @@
           "type": "UNICODE_STRING"
   },
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "site": "MeliLake",
     "columns": [
       {
