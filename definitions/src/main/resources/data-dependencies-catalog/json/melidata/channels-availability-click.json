@@ -4,13 +4,13 @@
     "juan.laura@mercadolibre.com"
   ],
   "process_name": "channels-availability-and-clicks",
-  "cron": "00 07 * * *",
+  "cron": "30 11 * * *",
   "partition": {
           "name": "requested_datetime_day",
           "type": "UNICODE_STRING"
   },
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "site": "MeliLake",
     "columns": [
       {
@@ -123,12 +123,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "2018-03-01",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "2018-03-31",
           "format": "yyyy-MM-dd"
         },
         {
