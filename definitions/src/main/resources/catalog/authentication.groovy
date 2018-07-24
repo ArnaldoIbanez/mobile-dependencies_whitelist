@@ -194,8 +194,6 @@ tracks {
 
     // Push Notification
     "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {
-        empty_user_id(type: PropertyType.Boolean, required: true)
         notified_user(type: PropertyType.String, required: false)
-        logged_user(type: PropertyType.String, required: false)
     }
 }
