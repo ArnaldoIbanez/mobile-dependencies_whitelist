@@ -56,7 +56,7 @@ trackTests {
         "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'fixed_charge_period_1'}
         "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'fixed_charge_period_2'}
         "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'daily_charge_period'}
-        "/credits/consumer/administrator/detail"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/details_button"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/help"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/see_product"(platform: "/web/desktop", type: TrackType.Event) {}
@@ -68,7 +68,7 @@ trackTests {
         "/credits/consumer/administrator/history"(platform: "/web/desktop") {}
 
         //Events
-        "/credits/consumer/administrator/history/detail"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/history/details_button"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/history/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {}
 
         /******************************************

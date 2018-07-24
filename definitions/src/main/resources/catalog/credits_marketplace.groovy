@@ -68,7 +68,7 @@ tracks {
             ]
         )
     }
-    "/credits/consumer/administrator/detail"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/details_button"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/help"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/educational_landing"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/see_product"(platform: "/", type: TrackType.Event) {}
@@ -80,7 +80,7 @@ tracks {
     "/credits/consumer/administrator/history"(platform: "/", type: TrackType.View) {}
 
     // Events
-    "/credits/consumer/administrator/history/detail"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/history/details_button"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/history/educational_landing"(platform: "/", type: TrackType.Event) {}
 
     /******************************************
