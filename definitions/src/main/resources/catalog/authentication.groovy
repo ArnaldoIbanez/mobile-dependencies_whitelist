@@ -169,6 +169,8 @@ tracks {
         status(type: PropertyType.String, required: true)
     }
 
+    "/login/smartlock/multiple_credentials" (platform: "/mobile", isAbstract: true) {}
+
     "/login/smartlock/multiple_credentials/credential_selected"(platform: "/mobile", type: TrackType.Event) {}
 
     "/login/smartlock/multiple_credentials/cancel"(platform: "/mobile", type: TrackType.Event) {}
