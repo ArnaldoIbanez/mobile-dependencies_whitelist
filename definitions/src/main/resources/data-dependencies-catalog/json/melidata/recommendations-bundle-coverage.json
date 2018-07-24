@@ -4,7 +4,7 @@
     "carlos.rodrigo@mercadolibre.com"
   ],
   "process_name": "recommendations_bundle_coverage_new",
-  "cron": "00 02 * * *",
+  "cron": "00 06 * * *",
   "partition": {
     "name": "ds",
     "type": "DATE"
@@ -36,11 +36,15 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "prints_with_bundle",
-        "type": "INTEGER"
+        "name": "combo_type",
+        "type": "UNICODE_STRING"
       },
       {
-        "name": "prints_with_certified_bundle",
+        "name": "combo_free_shipping",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "prints_with_bundle",
         "type": "INTEGER"
       },
       {

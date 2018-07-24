@@ -4,7 +4,7 @@
     "recommendations_fe@mercadolibre.com"
   ],
   "process_name": "recommendations_bundle_no_bundle_causes",
-  "cron": "00 02 * * *",
+  "cron": "00 06 * * *",
   "partition": {
     "name": "ds",
     "type": "DATE"
@@ -33,6 +33,10 @@
       },
       {
         "name": "backend_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "empty_result_cause",
         "type": "UNICODE_STRING"
       },
       {
