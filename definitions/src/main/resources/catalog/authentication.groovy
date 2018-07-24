@@ -99,6 +99,36 @@ tracks {
         operator_id(type: PropertyType.String, required: false, description: "Indicates the id of the operator when login is carried out by one")
     }
 
+    // New Multi Step Login Android
+    "/login/auth/render"(platform: "/mobile", TrackType.View) {
+        challenge(type: PropertyType.String, required: true)
+        tracking_id(type: PropertyType.String, required: true)
+        user(type: PropertyType.Map, required: false)
+    }
+
+    "/login/auth/submit"(platform: "/mobile", TrackType.Event) {
+        challenge(type: PropertyType.String, required: true)
+        tracking_id(type: PropertyType.String, required: true)
+        user(type: PropertyType.Map, required: false)
+    }
+
+    "/login/auth/cancel"(platform: "/mobile", TrackType.Event) {
+        challenge(type: PropertyType.String, required: true)
+        tracking_id(type: PropertyType.String, required: true)
+        user(type: PropertyType.Map, required: false)
+    }
+
+    "/login/auth/error"(platform: "/mobile", TrackType.View) {
+        challenge(type: PropertyType.String, required: true)
+        tracking_id(type: PropertyType.String, required: true)
+        user(type: PropertyType.Map, required: false)
+        errors(type: PropertyType.Array, required: true)
+    }
+
+    "/login/auth/restart"(platform: "/mobile", TrackType.Event) {
+        challenge(type: PropertyType.String, required: true)
+    }
+
     "/logout"(platform: "/", type: TrackType.Event) {
         flow(type: PropertyType.String, required: false)
     }
@@ -138,6 +168,10 @@ tracks {
     "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
         status(type: PropertyType.String, required: true)
     }
+
+    "/login/smartlock/multiple_credentials/credential_selected"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/login/smartlock/multiple_credentials/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
     "/oauth"(platform: "/", isAbstract: true) {}
 
