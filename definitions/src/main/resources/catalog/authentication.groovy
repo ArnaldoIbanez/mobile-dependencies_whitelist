@@ -100,32 +100,32 @@ tracks {
     }
 
     // New Multi Step Login Android
-    "/login/auth/render"(platform: "/mobile", TrackType.Event) {
+    "/login/auth/render"(platform: "/mobile", type: TrackType.Event) {
         challenge(type: PropertyType.String, required: true)
         tracking_id(type: PropertyType.String, required: true)
         user(type: PropertyType.Map, required: false)
     }
 
-    "/login/auth/submit"(platform: "/mobile", TrackType.Event) {
+    "/login/auth/submit"(platform: "/mobile", type: TrackType.Event) {
         challenge(type: PropertyType.String, required: true)
         tracking_id(type: PropertyType.String, required: true)
         user(type: PropertyType.Map, required: false)
     }
 
-    "/login/auth/cancel"(platform: "/mobile", TrackType.Event) {
+    "/login/auth/cancel"(platform: "/mobile", type: TrackType.Event) {
         challenge(type: PropertyType.String, required: true)
         tracking_id(type: PropertyType.String, required: true)
         user(type: PropertyType.Map, required: false)
     }
 
-    "/login/auth/error"(platform: "/mobile", TrackType.Event) {
+    "/login/auth/error"(platform: "/mobile", type: TrackType.Event) {
         challenge(type: PropertyType.String, required: true)
         tracking_id(type: PropertyType.String, required: true)
         user(type: PropertyType.Map, required: false)
         errors(type: PropertyType.Array, required: true)
     }
 
-    "/login/auth/restart"(platform: "/mobile", TrackType.Event) {
+    "/login/auth/restart"(platform: "/mobile", type: TrackType.Event) {
         challenge(type: PropertyType.String, required: true)
     }
 
