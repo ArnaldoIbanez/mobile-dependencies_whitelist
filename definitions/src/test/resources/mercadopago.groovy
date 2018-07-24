@@ -2124,6 +2124,20 @@ trackTests {
         }
     }
 
+    test("Push Notification") {
+        "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {
+            empty_user_id = true
+        }
+        "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {
+            empty_user_id = false
+        }
+        "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {
+            empty_user_id = false
+            notified_user = "123"
+            logged_user = "456"
+        }
+    } 
+
     test("Identity Validation ") {
 
         "/identity-validation/validation_landing"(platform: "/web/mobile") {
