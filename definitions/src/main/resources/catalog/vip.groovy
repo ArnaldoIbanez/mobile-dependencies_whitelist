@@ -382,4 +382,11 @@ tracks {
         size(required: false, type: PropertyType.String, description: "Size of recomendation")
     }
 
+    "/vip/technical_specs"(platform: "/", type: TrackType.View, parentPropertiesInherited: false){
+        item_id(required: false, type: PropertyType.String, description: "Item ID")
+        category_id(required: false, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        vertical(required: false, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+    }
 }

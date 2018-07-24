@@ -351,6 +351,11 @@ trackTests {
             item_id = "MLA213512313"
         }
 
+        "/vip/technical_specs"(platform: "/web", type: TrackType.View){
+            item_id = "MLA213512313"
+            vertical = "core"
+        }
+
         "/vip/question"(platform: "/", type: TrackType.View){
             item_id = "MLA213512313"
 
