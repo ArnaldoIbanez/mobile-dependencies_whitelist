@@ -36,11 +36,11 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "prints_with_bundle",
-        "type": "INTEGER"
+        "name": "combo_type",
+        "type": "UNICODE_STRING"
       },
       {
-        "name": "prints_with_certified_bundle",
+        "name": "prints_with_bundle",
         "type": "INTEGER"
       },
       {
