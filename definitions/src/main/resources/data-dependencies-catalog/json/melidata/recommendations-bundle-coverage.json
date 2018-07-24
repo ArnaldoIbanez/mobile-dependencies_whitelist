@@ -40,6 +40,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "combo_free_shipping",
+        "type": "BOOLEAN"
+      },
+      {
         "name": "prints_with_bundle",
         "type": "INTEGER"
       },
