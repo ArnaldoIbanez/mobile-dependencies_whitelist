@@ -40,7 +40,6 @@ tracks {
     //Definitions
     "/credits/consumer"(platform: "/", isAbstract: true) {}
     "/credits/consumer/administrator"(platform: "/", isAbstract: true) {}
-    "/credits/consumer/administrator/history"(platform: "/", isAbstract: true) {}
 
     /**
     Admin Dashboard
