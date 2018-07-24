@@ -715,6 +715,7 @@ trackTests {
         "/point_payment/point_ftu_newland"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/idempotency"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/point"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/qr_ftu"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/flow_tracker/pairing"(platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
             level ="error"
@@ -823,6 +824,24 @@ trackTests {
             data ="{ctr: 2313}"
         }
         "/point_payment/flow_tracker/flow_pos_error_message"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/select_qr"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/select_point"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/select_link"(platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
             user_id = "123241234413"
             level ="info"
