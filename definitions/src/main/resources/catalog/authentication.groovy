@@ -122,7 +122,7 @@ tracks {
         challenge(type: PropertyType.String, required: true)
         tracking_id(type: PropertyType.String, required: true)
         user(type: PropertyType.Map, required: false)
-        errors(type: PropertyType.Array, required: true)
+        errors(type: PropertyType.ArrayList, required: true)
     }
 
     "/login/auth/restart"(platform: "/mobile", type: TrackType.Event) {
