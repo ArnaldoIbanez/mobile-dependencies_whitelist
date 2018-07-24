@@ -41,7 +41,7 @@
       },
       {
         "name": "combo_free_shipping",
-        "type": "BOOLEAN"
+        "type": "UNICODE_STRING"
       },
       {
         "name": "prints_with_bundle",
