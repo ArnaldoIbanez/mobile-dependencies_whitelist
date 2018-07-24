@@ -72,7 +72,6 @@ tracks {
     "/credits/consumer/administrator/detail"(platform: "/", isAbstract: true) {}
 
     //Administrator consumer
-    "/credits/consumer/administrator"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/administrator/detail"(platform: "/", type: TrackType.View) {}
 
     //Definitions - Money Advance
