@@ -2143,6 +2143,13 @@ trackTests {
         }
     }
 
+    test("Push Notification") {
+        "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {}
+        "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {
+            notified_user = "123"
+        }
+    } 
+
     test("Identity Validation ") {
 
         "/identity-validation/validation_landing"(platform: "/web/mobile") {

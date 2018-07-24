@@ -251,4 +251,11 @@ trackTests {
             flow_sub_type = "LOGIN_NOTIF"
         }
     }
+
+    test("Push Notification") {
+        "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {}
+        "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {
+            notified_user = "123"
+        }
+    } 
 }

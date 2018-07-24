@@ -191,4 +191,9 @@ tracks {
     "/auth/recovery/phone/verified"(platform: "/", type: TrackType.Event) {
         selected_phone_source(type: PropertyType.String, required: true, description: "Source of phone number, could be manual or the name of the suggestion used")
     }
+
+    // Push Notification
+    "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {
+        notified_user(type: PropertyType.String, required: false)
+    }
 }
