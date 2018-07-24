@@ -100,7 +100,7 @@ tracks {
     }
 
     // New Multi Step Login Android
-    "/login/auth/render"(platform: "/mobile", TrackType.View) {
+    "/login/auth/render"(platform: "/mobile", TrackType.Event) {
         challenge(type: PropertyType.String, required: true)
         tracking_id(type: PropertyType.String, required: true)
         user(type: PropertyType.Map, required: false)
@@ -118,7 +118,7 @@ tracks {
         user(type: PropertyType.Map, required: false)
     }
 
-    "/login/auth/error"(platform: "/mobile", TrackType.View) {
+    "/login/auth/error"(platform: "/mobile", TrackType.Event) {
         challenge(type: PropertyType.String, required: true)
         tracking_id(type: PropertyType.String, required: true)
         user(type: PropertyType.Map, required: false)
