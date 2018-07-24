@@ -89,6 +89,23 @@ tracks {
       modal_data(required: false, type: PropertyType.Map, description: 'internal data of the modal')
     }
 
+    // STEP 06.b
+    "/return/congrats_error"(platform: "/", type: TrackType.View) {
+        buyer_scoring(required: false, type: PropertyType.String, description: 'risk level of buyer', values: ["low", "mid", "mid_new", "mid_amount", "mid_med_cant", "mid_cashout", "mid_crosses", "high_crosses", "high_cashout", "high"])
+        seller_scoring(required: false, type: PropertyType.String, description: 'risk level of seller', values: ["low","mid", "mid_new", "mid_amount", "mid_med_cant", "mid_cashout", "mid_crosses", "high_crosses", "high_cashout", "high"])
+        date_delivered(required: false, type: PropertyType.String, description: 'date of order shipment')
+        item_id(required: false, type: PropertyType.String, description: 'item identifier')
+        item_category_l1(required: false, type: PropertyType.String, description: 'main category of item')
+        refund_account_money(required: false, type: PropertyType.Boolean, description: 'refund money in the buyers account')
+        item_category(required: false, type: PropertyType.String, description: 'category of item')
+        category_id(required: false, type: PropertyType.String, description: 'category identifier')
+        cart_order(required: false, type: PropertyType.Boolean, description: 'order created by cart')
+        payment(required: false, type: PropertyType.String, description: 'origin of payment')
+        loyalty_level(required: false, type: PropertyType.Numeric, description: 'buyer level loyalty')
+        order_id(required: false, type: PropertyType.Numeric, description: 'order identifier')
+        typification(required: false, type: PropertyType.String, description: 'reason why the product is returned')
+    }
+
     "/return/external"(platform: "/", type: TrackType.View) {
         id(required: false, type: PropertyType.String, description: 'name of the page to redirect')
         data(required: false, type: PropertyType.Map, description: 'context information to send')
