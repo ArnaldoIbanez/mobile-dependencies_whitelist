@@ -36,6 +36,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "empty_result_cause",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "EMPTY_MODEL_RESPONSE",
         "type": "INTEGER"
       },
