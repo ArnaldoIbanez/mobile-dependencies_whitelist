@@ -210,11 +210,11 @@ tracks {
 
     }
 
-    
+
     // Merchant Acquisition
     "/merchant_acquisition"(platform: "/", isAbstract: true) {}
     "/merchant_acquisition/qr"(platform: "/", isAbstract: true) {}
-    "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/qr/landing"(platform:"/", isAbstract: true) {}
     "/merchant_acquisition/qr/landing/buyers"(platform:"/", type: TrackType.View) {}
 
     //Landings Deals
