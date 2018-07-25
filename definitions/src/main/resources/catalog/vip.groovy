@@ -12,7 +12,7 @@ tracks {
     }
     
     propertyGroups {
-        add_cart_info(add_to_cart_availability, main_action, context)
+        add_cart_info(add_to_cart_availability, main_action)
     }
 
     //VIP FLOW
