@@ -110,7 +110,9 @@ tracks {
 
     "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/login/auth/challenge/restart"(platform: "/mobile", type: TrackType.Event) {}
+    "/login/auth/challenge/decline"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        challenge(type: PropertyType.String, required: true)
+    }
 
     "/login/auth/challenge/error"(platform: "/mobile", type: TrackType.View) {
         errors(type: PropertyType.ArrayList, required: true)
