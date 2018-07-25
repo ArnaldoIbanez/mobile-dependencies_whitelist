@@ -37,5 +37,11 @@ and jest(event_data, 'buying_mode') = 'buy_it_now'
 and jest(event_data, 'recommendations.track_info.has_recommendations') = 'false'
 and application.business = 'mercadolibre'
 and not is_bot(device.user_agent)
-GROUP BY application.site_id, substr(ds,1,10), jest(event_data, 'recommendations.client'), jest(event_data, 'recommendations.backend_id'), device.platform
+GROUP BY 
+application.site_id, 
+substr(ds,1,10), 
+jest(event_data, 'recommendations.client'), 
+jest(event_data, 'recommendations.backend_id'), 
+jest(event_data, 'recommendations.track_info.empty_result_cause'),
+device.platform
 ORDER BY substr(ds,1,10)
