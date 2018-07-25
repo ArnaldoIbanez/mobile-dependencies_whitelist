@@ -4,6 +4,17 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    propertyDefinitions {
+        add_to_cart_availability(required: false, type: PropertyType.String, values: ["yes_default", "yes_discount", "yes_fs", "no_high_ratio", "no_too_many_items", "no_item_price_too_low"], 
+                description: "Indicates which add_to_cart button the VIP is showing (Default, Discount, Free Shipping). In case it doesn't show it, also indicates the reason why it doesn't show it (High Ratio, Item price too low, Too many items in cart)")
+        main_action(required: false, type: PropertyType.String, values: ["buy", "a2c_fs", "a2c_discount", "a2c_default"],
+                description: "Indicates which button the VIP is showing as main_action (ie, shown as blue button). If it is a2c, it then specifies which button type (default, fs, discount)")
+    }
+    
+    propertyGroups {
+        add_cart_info(add_to_cart_availability, main_action)
+    }
+
     //VIP FLOW
 
     "/vip"(platform: "/") {
@@ -42,6 +53,7 @@ tracks {
                 description: "Indicates if the user has free return for the item")
         cart_content(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the VIP has cart features (only for core items)")
+        add_cart_info
 
         //SELLER FIELDS
         seller_id(required: true, type: PropertyType.Numeric)
