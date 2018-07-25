@@ -2156,49 +2156,49 @@ trackTests {
     } 
 
     test("Multi Step Login Android") {
-        "/login/auth/render"(platform: "/mobile", type: TrackType.Event) {
+        "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
             challenge = "nickname_or_email"
             tracking_id = "123"
         }
-        "/login/auth/render"(platform: "/mobile", type: TrackType.Event) {
+        "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
             challenge = "enter_password"
             tracking_id = "123"
         }
-        "/login/auth/render"(platform: "/mobile", type: TrackType.Event) {
+        "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
             challenge = "enter_password"
             tracking_id = "123"
             user = [nickname: "nickname", email:"email@email.com"]
         }
-        "/login/auth/submit"(platform: "/mobile", type: TrackType.Event) {
+        "/login/auth/challenge/submit"(platform: "/mobile", type: TrackType.Event) {
             challenge = "nickname_or_email"
             tracking_id = "123"
         }
-        "/login/auth/submit"(platform: "/mobile", type: TrackType.Event) {
+        "/login/auth/challenge/submit"(platform: "/mobile", type: TrackType.Event) {
             challenge = "enter_password"
             tracking_id = "123"
             user = [nickname: "nickname", email:"email@email.com"]
         }
-        "/login/auth/cancel"(platform: "/mobile", type: TrackType.Event) {
+        "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {
             challenge = "nickname_or_email"
             tracking_id = "123"
         }
-        "/login/auth/cancel"(platform: "/mobile", type: TrackType.Event) {
+        "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {
             challenge = "enter_password"
             tracking_id = "123"
             user = [nickname: "nickname", email:"email@email.com"]
         }
-        "/login/auth/error"(platform: "/mobile", type: TrackType.Event) {
+        "/login/auth/challenge/error"(platform: "/mobile", type: TrackType.View) {
             challenge = "nickname_or_email"
             tracking_id = "123"
             errors = ["user_not_found"]
         }
-        "/login/auth/error"(platform: "/mobile", type: TrackType.Event) {
+        "/login/auth/challenge/error"(platform: "/mobile", type: TrackType.View) {
             challenge = "enter_password"
             tracking_id = "123"
             user = [nickname: "nickname", email:"email@email.com"]
             errors = ["user_not_found"]
         }
-        "/login/auth/restart"(platform: "/mobile", type: TrackType.Event) {
+        "/login/auth/challenge/decline"(platform: "/mobile", type: TrackType.Event) {
             challenge = "enter_password"
         }
     }
