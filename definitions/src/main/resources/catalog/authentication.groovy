@@ -101,9 +101,9 @@ tracks {
 
     // New Multi Step Login Android
     "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
-        challenge(type: PropertyType.String, required: true)
-        tracking_id(type: PropertyType.String, required: true)
-        user(type: PropertyType.Map, required: false)
+        challenge(type: PropertyType.String, required: true, description: "Login Step")
+        tracking_id(type: PropertyType.String, required: true, description: "Indicates the id to track the transaction")
+        user(type: PropertyType.Map, required: false, description: "Available user info")
     }
 
     "/login/auth/challenge/submit"(platform: "/mobile", type: TrackType.Event) {}
@@ -111,11 +111,11 @@ tracks {
     "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
     "/login/auth/challenge/decline"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-        challenge(type: PropertyType.String, required: true)
+        challenge(type: PropertyType.String, required: true, description: "Login Step")
     }
 
     "/login/auth/challenge/error"(platform: "/mobile", type: TrackType.View) {
-        errors(type: PropertyType.ArrayList, required: true)
+        errors(type: PropertyType.ArrayList, required: true, description: "Errors presented")
     }
 
     "/logout"(platform: "/", type: TrackType.Event) {
