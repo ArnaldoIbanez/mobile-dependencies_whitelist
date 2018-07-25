@@ -2201,6 +2201,9 @@ trackTests {
         "/login/auth/challenge/decline"(platform: "/mobile", type: TrackType.Event) {
             challenge = "enter_password"
         }
+        "/login/auth/challenge/restart"(platform: "/mobile", type: TrackType.Event) {
+            challenge = "enter_password"
+        }
     }
 
     test("Identity Validation ") {
