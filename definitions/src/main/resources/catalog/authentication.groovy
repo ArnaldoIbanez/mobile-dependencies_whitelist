@@ -114,6 +114,10 @@ tracks {
         challenge(type: PropertyType.String, required: true, description: "Login Step")
     }
 
+    "/login/auth/challenge/restart"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        challenge(type: PropertyType.String, required: true, description: "Login Step")
+    }
+
     "/login/auth/challenge/error"(platform: "/mobile", type: TrackType.View) {
         errors(type: PropertyType.ArrayList, required: true, description: "Errors presented")
     }
