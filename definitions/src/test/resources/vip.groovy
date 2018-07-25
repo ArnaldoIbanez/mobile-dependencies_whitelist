@@ -32,7 +32,6 @@ trackTests {
             cart_content = false
             add_to_cart_availability = "no_high_ratio"
             main_action = "buy"
-            context = "/vip"
             power_seller_status = "platinum"
             reputation_level = "5_green"
             official_store_id = 1
