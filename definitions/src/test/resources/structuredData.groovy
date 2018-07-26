@@ -17,6 +17,7 @@ trackTests {
             seller_id = "241616388"
             pi = false
             category_path = ["MLA1234", "MLA12345"]
+            attribute_type = "item_attribute"
     	}
     }
 
@@ -30,6 +31,7 @@ trackTests {
             seller_id = "241616388"
             pi = true
             category_path = ["MLA1234", "MLA12345"]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -163,6 +165,7 @@ trackTests {
             seller_id = "241616388"
             pi = false
             category_path = ["MLA1234", "MLA12345"]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -176,6 +179,7 @@ trackTests {
             seller_id = "241616388"
             pi = false
             category_path = ["MLA1234", "MLA12345"]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -189,6 +193,7 @@ trackTests {
             seller_id = "241616388"
             pi = false
             category_path = ["MLA1234", "MLA12345"]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -202,6 +207,7 @@ trackTests {
             seller_id = "241616388"
             pi = false
             category_path = ["MLA1234", "MLA12345"]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -216,6 +222,7 @@ trackTests {
             pi = false
             items_left = 15
             category_path = ["MLA1234", "MLA12345"]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -229,6 +236,7 @@ trackTests {
             seller_id = "241616388"
             pi = false
             category_path = ["MLA1234", "MLA12345"]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -242,6 +250,7 @@ trackTests {
             seller_id = "241616388"
             pi = false
             category_path = ["MLA1234", "MLA12345"]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -255,6 +264,7 @@ trackTests {
             seller_id = "241616388"
             pi = false
             category_path = ["MLA1234", "MLA12345"]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -268,6 +278,7 @@ trackTests {
             seller_id = "241616388"
             pi = false
             category_path = ["MLA1234", "MLA12345"]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -301,6 +312,7 @@ trackTests {
             error = "Null exception"
             pi = false
             category_path = ["MLA1234", "MLA12345"]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -316,6 +328,7 @@ trackTests {
             error = "Generic error"
             pi = false
             category_path = ["MLA1234", "MLA12345"]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -347,6 +360,7 @@ trackTests {
             seller_id = "241616388"
             pi = false
             category_path = ["MLA1234", "MLA12345"]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -360,6 +374,7 @@ trackTests {
             seller_id = "241616388"
             pi = false
             category_path = ["MLA1234", "MLA12345"]
+            attribute_type = "item_attribute"
         }
     }
 
@@ -376,6 +391,7 @@ trackTests {
             empty_attrs_not_pk = 4
             empty_attrs_pk = 2
             category_path = ["MLA1234", "MLA12345"]
+            attribute_type = "item_attribute"
         }
     }
 

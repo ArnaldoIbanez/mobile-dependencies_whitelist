@@ -25,8 +25,8 @@ tracks {
     }
 
     propertyGroups {
-        catalogWidgetGroup(category_id, page, item_id, officialstore, domain_id, seller_id, pi, condition, category_path, label)
-        catalogWidgetCompletenessGroup(completeness_level, items_left, missing_attributes, inferred_attributes, attribute_type)
+        catalogWidgetGroup(category_id, page, item_id, officialstore, domain_id, seller_id, pi, condition, category_path, label,attribute_type)
+        catalogWidgetCompletenessGroup(completeness_level, items_left, missing_attributes, inferred_attributes)
     }
 
     "/catalogwidget"(platform: "/", isAbstract: true, type: TrackType.Event) {}
@@ -131,7 +131,6 @@ tracks {
         value(required: false, description: "Value submitted on feedback or value for attribute", PropertyType.String)
         domain_id(required: true, description: "Domain ID from attribute", PropertyType.String)
         category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
-        attribute_type(required: true, description:"If its an item_attribute, a variation_attribute or an allow_variation_attribute", type:PropertyType.String, values: ["item_attribute","variation_attribute","allow_variation_attribute"])
     }
 
     "/catalogwidget/welcome"(platform: "/",isAbstract: true) {}
