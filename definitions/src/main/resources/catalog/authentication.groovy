@@ -99,6 +99,29 @@ tracks {
         operator_id(type: PropertyType.String, required: false, description: "Indicates the id of the operator when login is carried out by one")
     }
 
+    // New Multi Step Login Android
+    "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
+        challenge(type: PropertyType.String, required: true, description: "Login Step")
+        tracking_id(type: PropertyType.String, required: true, description: "Indicates the id to track the transaction")
+        user(type: PropertyType.Map, required: false, description: "Available user info")
+    }
+
+    "/login/auth/challenge/submit"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/login/auth/challenge/decline"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        challenge(type: PropertyType.String, required: true, description: "Login Step")
+    }
+
+    "/login/auth/challenge/restart"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        challenge(type: PropertyType.String, required: true, description: "Login Step")
+    }
+
+    "/login/auth/challenge/error"(platform: "/mobile", type: TrackType.View) {
+        errors(type: PropertyType.ArrayList, required: true, description: "Errors presented")
+    }
+
     "/logout"(platform: "/", type: TrackType.Event) {
         flow(type: PropertyType.String, required: false)
     }
@@ -138,6 +161,12 @@ tracks {
     "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
         status(type: PropertyType.String, required: true)
     }
+
+    "/login/smartlock/multiple_credentials"(platform: "/mobile", isAbstract: true) {}
+
+    "/login/smartlock/multiple_credentials/credential_selected"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/login/smartlock/multiple_credentials/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
     "/oauth"(platform: "/", isAbstract: true) {}
 
