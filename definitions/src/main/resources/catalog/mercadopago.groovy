@@ -169,6 +169,7 @@ tracks {
     "/point_payment/idempotency"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/point"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/qr_ftu"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/bank_selection"(platform: "/mobile", type: TrackType.View) {}
 
     "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
         flow_id (required: true, type: PropertyType.String, description: "Flow id.")
