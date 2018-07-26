@@ -1,7 +1,7 @@
 {
   "users":
   [
-    "recommendations_fe@mercadolibre.com"
+    "recommendations_fe@mercadolibre.com, carlos.rodrigo@mercadolibre.com"
   ],
   "process_name": "recommendations_bundle_no_bundle_causes",
   "cron": "00 06 * * *",
