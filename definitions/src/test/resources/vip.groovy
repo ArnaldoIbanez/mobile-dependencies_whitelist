@@ -549,6 +549,7 @@ trackTests {
             defaultTrackInformation()
             source = 'description'
             reservation_price = '5000'
+            reservation_currency_id = 'ARS'
         }
 
     }
