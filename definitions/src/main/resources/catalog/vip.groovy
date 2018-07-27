@@ -438,7 +438,9 @@ tracks {
                 description: "Listing type of the item")
         item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
         reservation_price(required: true, description: "Price of the reservation")
-        source(required: true, type: PropertyType.String, description: "Source of the refered")
+        source(required: true, type: PropertyType.String,
+                values: ["MAIN", "description", "technicalSpecs", "PAYMENT_CARD"],
+                description: "Source of the referred")
     }
 
 }
