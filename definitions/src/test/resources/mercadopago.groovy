@@ -2008,7 +2008,7 @@ trackTests {
             flow = "internal"
         }
         "/login/auth/error"(platform: "/mobile", type: TrackType.View) {
-            error = "login_network_exception"
+            error = "network"
         }
     }
     test("App authorization tracks") {

@@ -279,7 +279,7 @@ trackTests {
             user = [nickname: "nickname", email:"email@email.com"]
         }
         "/login/auth/error"(platform: "/mobile", type: TrackType.View) {
-            error = "login_network_exception"
+            error = "network"
         }
         "/login/auth/challenge/submit"(platform: "/mobile", type: TrackType.Event) {
             challenge = "nickname_or_email"
