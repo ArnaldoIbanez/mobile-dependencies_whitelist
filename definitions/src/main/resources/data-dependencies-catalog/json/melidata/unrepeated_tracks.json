@@ -1,0 +1,48 @@
+{
+  "users": [
+    "patricio.benitez@mercadolibre.com"
+  ],
+  "process_name": "unrepeated_tracks",
+  "cron": "50 17 * * *",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "version",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "unrepeated",
+        "type": "INTEGER"
+      },
+      {
+        "name": "total",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "melidata/unrepeated-tracks.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
