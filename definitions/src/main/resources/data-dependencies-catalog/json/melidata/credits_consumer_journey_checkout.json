@@ -8,6 +8,10 @@
     "operation": "append",
     "columns": [
       {
+        "name": "user_id",
+        "type": "INTEGER"
+      },
+      {
         "name": "date_sent",
         "type": "DATE",
         "format": "yyyy-MM-dd"
@@ -19,10 +23,6 @@
       {
         "name": "platform",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "user_id",
-        "type": "INTEGER"
       },
       {
         "name": "reference",

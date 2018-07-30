@@ -3,7 +3,7 @@
     "gabriel.neil@mercadolibre.com"
   ],
   "process_name": "consumer_journey_mobile",
-  "cron": "0 5 * * *",
+  "cron": "00 05 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -18,10 +18,6 @@
       },
       {
         "name": "event_type",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "context",
         "type": "UNICODE_STRING"
       },
       {

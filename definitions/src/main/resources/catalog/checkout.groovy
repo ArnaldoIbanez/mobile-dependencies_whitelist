@@ -23,7 +23,7 @@ tracks {
         //quantity
         //unit_price
         //currency_id
-        payment_method(deprecated: true, required: false)
+
         resolution(required: false)
         precharged_cards(required: false)
         geolocated(required: false)
@@ -79,10 +79,6 @@ tracks {
         recovery_flow(required: false, description: "Is recovery CHO flow")
         register_int(required: false, description: "Integrated registration")
         platform(required: false)
-
-        item_id(deprecated: true, required: false)
-        quantity(deprecated: true, required: false)
-
         available_actions(required: false, type: PropertyType.ArrayList, description: "Action presented on the screen, for ex: call_seller, email_seller, etc.")
 
         //Legacy App Congrats Tracks
@@ -97,6 +93,22 @@ tracks {
 
         //Billing info
         billing_info(required:false, description: "Dictionary containing the user selected billing info")
+
+        vertical(required:false, description: "Vertical of the item to be bought")
+
+        session_id(required:false, description:"Session in which the checkout is being held")
+
+        shipping_pick_up_in_store(required:false, type: PropertyType.String, description: "If the item has puis available")
+
+        account_money_info(required:false, type: PropertyType.ArrayList, description: "Array with data of the account money of the buyer")
+        //skipPassword
+        //useAccountMoneyWithAnotherPM
+        //availableAccountMoney
+
+        available_subscription(required:false, description:"If the item is elegible for subscription")
+
+        loyalty_level(required:false, description:"The loyalty level of the buyer")
+
     }
 
     /*
@@ -150,7 +162,6 @@ tracks {
     //Mobile Checkout Apps
     "/checkout"(platform: "/mobile") {
         combination_2mp(required:false, description: "2MP switch state")
-        vertical(required: false, description: "vertical of transaction")
         reservation_price(required: false, description: "price of a reservation transaction")
     }
 
@@ -216,6 +227,8 @@ tracks {
     "/checkout/init/options"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         shipping_data(required: true, type: PropertyType.ArrayList, description: "Shipping options available for the buyer")
         payment_data(required: true, type: PropertyType.String, description: "Payment options available for the buyer")
+        shipping(required: false)
+        payments(required: false)
     }
 
     "/checkout/payments_cancelation"(platform: "/mobile") {}
@@ -240,6 +253,8 @@ tracks {
         error_code(required: false, type: PropertyType.String)
         inconsistency(required: false, type: PropertyType.String)
     }
+    "/checkout/shipping/accord"(platform: "/mobile") {}
+    "/checkout/shipping/accord_shipping_and_payment"(platform: "/mobile") {}
     //Geolocation on fallback
     "/checkout/shipping/select_method/ask_enable_geolocation"(platform: "/mobile") {}
     "/checkout/shipping/select_method/ask_enable_geolocation#geolocation_permission_ask"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -355,7 +370,7 @@ tracks {
         contact_name(required: false, type: PropertyType.String)
         contact_phone(required: false, type: PropertyType.String)
     }
-    
+
     //Select address
     "/checkout/shipping/select_address"(platform: "/") {
         //View specific data
@@ -494,7 +509,11 @@ tracks {
     // payment promotions screen. Eg: bank promos in MLA
     "/checkout/payment/promotions"(platform: "/mobile") {}
 
-    "/checkout/payment/select_type"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/payment/select_type"(platform: "/mobile", type: TrackType.View) {
+        available_methods(required: false, type: PropertyType.ArrayList)
+        coupon(required: false, type: PropertyType.Boolean)
+        coupon_discount(required: false, type: PropertyType.Numeric)
+    }
 
     // 2MP switch tracks
     "/checkout/payment/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
@@ -523,11 +542,11 @@ tracks {
     "/checkout/billing/legal_person"(platform: "/mobile") {}
     "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     }
-    
+
     //"/checkout/review" //shared between web and app, already defined in web section.
     "/checkout/review#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         status(required: true, type: PropertyType.String)
-        credit_card_id(required: false, type: PropertyType.String)
+        checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
     }
     "/checkout/review/quantity#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         old_quantity(required: true, type: PropertyType.Numeric)
@@ -906,6 +925,8 @@ tracks {
 
     "/checkout/review/change_shipping"(platform:"/", type: TrackType.Event) {}
 
+    "/checkout/review/confirm_purchase"(platform:"/", type: TrackType.Event) {}
+
     "/checkout/review/change_address"(platform:"/", type: TrackType.View) {}
 
     "/checkout/review/edit_payment_method"(platform:"/", type: TrackType.View) {}
@@ -959,6 +980,7 @@ tracks {
     "/checkout/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
 
     "/checkout/loading"(platform: "/", type: TrackType.View) {}
+    "/checkout/loading/error"(platform: "/", type: TrackType.View) {}
     "/checkout/shipping/edit_address"(platform:"/", type: TrackType.Event) {}
     "/checkout/shipping/input_zipcode"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/", type: TrackType.Event) {}

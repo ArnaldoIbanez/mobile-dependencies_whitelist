@@ -15,6 +15,10 @@ trackTests {
             sent_date = new Date().toString()
         }
 
+        "/email/generic"(platform: "/email") {
+            defaultTrackInformation()
+        }
+
         "/email/congrats"(platform: "/email") {
             defaultTrackInformation()
             days = 0

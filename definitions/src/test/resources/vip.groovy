@@ -30,6 +30,8 @@ trackTests {
 
             return_available = false
             cart_content = false
+            add_to_cart_availability = "no_high_ratio"
+            main_action = "buy"
             power_seller_status = "platinum"
             reputation_level = "5_green"
             official_store_id = 1
@@ -68,22 +70,17 @@ trackTests {
 
         "/vip/color_and_size"(platform:"/mobile", mandatory)
 
-        "/vip/description"(platform:"/mobile", {
-            mandatory()
-            empty_description = false
-            context="/vip"
-        })
+        "/vip/description/abort"(platform:"/mobile"){
+            item_id = "MLA533657947"
+        }
 
-        "/vip/description"(platform:"/mobile", {
-            mandatory()
-            empty_description = false
-        })
+        "/vip/description/back"(platform:"/mobile"){
+            item_id = "MLA533657947"
+        }
 
-        "/vip/description/abort"(platform:"/mobile", mandatory)
-
-        "/vip/description/back"(platform:"/mobile", mandatory)
-
-        "/vip/description/failure"(platform:"/mobile", mandatory)
+        "/vip/description/failure"(platform:"/mobile"){
+            item_id = "MLA533657947"
+        }
 
         "/vip/contact_seller"(platform:"/mobile", type: TrackType.Event, {
             mandatory()
@@ -151,7 +148,9 @@ trackTests {
             item_seller_type = "AB001"
         })
 
-        "/vip/description/failure"(platform:"/mobile", mandatory)
+        "/vip/description/failure"(platform:"/mobile"){
+            item_id = "MLA533657947"
+        }
 
         "/vip/item_gallery"(platform:"/mobile") {
             context = "/vip"
@@ -169,9 +168,13 @@ trackTests {
 
         "/vip/payment_method/back"(platform: "/mobile", mandatory)
 
-        "/vip/variations"(platform: "/mobile", mandatory)
+        "/vip/variations"(platform: "/mobile"){
+            item_id = "MLA533657947"
+        }
 
-        "/vip/variations/back"(platform: "/mobile", mandatory)
+        "/vip/variations/back"(platform: "/mobile"){
+            item_id = "MLA533657947"
+        }
 
         "/vip/quantity"(platform: "/mobile", mandatory)
     }
@@ -191,6 +194,7 @@ trackTests {
             seller_id = 131662738
             power_seller_status = "platinum"
             deal_ids = ["MLA100"]
+            contract_available = false
         }
     }
 
@@ -209,6 +213,7 @@ trackTests {
             seller_id = 131662738
             power_seller_status = "platinum"
             deal_ids = ["MLA100"]
+            contract_available = false
         }
     }
 
@@ -313,6 +318,7 @@ trackTests {
             seller_id = 131662738
             power_seller_status = "platinum"
             deal_ids = []
+            billboard_clicked_position = "3"
         }
 
         def trackModals = {
@@ -322,7 +328,7 @@ trackTests {
         }
 
         "/vip/variations"(platform: "/web") {
-            defaultTrackInformation()
+            item_id = "MLA213512313"
         }
 
         "/vip/reviews"(platform: "/", type: TrackType.View) {
@@ -337,28 +343,67 @@ trackTests {
         "/vip/contract_intention"(platform: "/mobile", type: TrackType.Event) {
             defaultTrackInformation()
         }
+
+
+        "/vip/free_shipping_cart_available"(platform: "/web", type:TrackType.Event){
+            defaultTrackInformation()
+        }
+
+        "/vip/description"(platform: "/web", type: TrackType.View){
+            item_id = "MLA213512313"
+        }
+
+        "/vip/technical_specs"(platform: "/web", type: TrackType.View){
+            item_id = "MLA213512313"
+            vertical = "core"
+        }
+
+        "/vip/question"(platform: "/", type: TrackType.View){
+            item_id = "MLA213512313"
+
+        }
     }
 
     test("New Shipping calculator"){
 
-        "/vip/shipping/calculator/calculate"(platform: "/mobile/ios") {
-            cp_autocomplete = true
+        def defaultTrackInformation = {
+            item_id = "MLA213512313"
+            category_id = "MLA123"
+            vertical = "core"
         }
 
-        "/vip/shipping/calculator/i_dont_know_my_code"(platform: "/mobile/ios") {
+        "/vip/shipping/calculator/calculate"(platform: "/") {
+            defaultTrackInformation()
+            cp_autocomplete = "yes"
         }
 
-        "/vip/shipping/calculator/calculate_error"(platform: "/mobile/ios") {
+        "/vip/shipping/calculator/i_dont_know_my_code"(platform: "/") {
+            defaultTrackInformation()
+        }
+
+        "/vip/shipping/calculator/calculate_error"(platform: "/") {
+            defaultTrackInformation()
             error_type = "error code"
         }
 
-        "/vip/shipping/calculator/agencies/show_agencies_map_for_pickup"(platform: "/mobile/ios") {
+        "/vip/shipping/calculator/agencies/show_agencies_map_for_pickup"(platform: "/") {
+            defaultTrackInformation()
         }
 
-        "/vip/shipping/calculator/choose_state"(platform: "/mobile/ios") {
+        "/vip/shipping/calculator/choose_state"(platform: "/") {
+            defaultTrackInformation()
         }
 
-        "/vip/shipping/calculator/choose_city"(platform: "/mobile/ios") {
+        "/vip/shipping/calculator/choose_city"(platform: "/") {
+            defaultTrackInformation()
+        }
+
+        "/vip/shipping/calculator/preloaded"(platform: "/web/mobile"){
+            defaultTrackInformation()
+        }
+
+        "/vip/shipping/calculator/shipping_options"(platform: "/web/mobile"){
+            defaultTrackInformation()
         }
 
         def defaultShipping = [
@@ -390,7 +435,7 @@ trackTests {
         recommend : false
         ]
 
-        "/vip/shipping/calculator/go_to_vip"(platform: "/mobile/ios") {
+        "/vip/shipping/calculator/go_to_vip"(platform: "/") {
             item_id = "MLA123"
             item_selected_quantity = 1
             item_shipping_quantity = 1
@@ -403,4 +448,58 @@ trackTests {
         }
     
     }
+
+    test("VIP Web Classifieds services track click on link to landing_services") {
+        "/vip/landing_services"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLA213512313"
+            category_id = "MLA123"
+            vertical = "services"
+            buying_mode = "classified"
+            category_path = ["MLA1234","MLA6789"]
+            item_condition = "new"
+            listing_type_id = "gold_special"
+            item_status = "active"
+            deal_ids = []
+            seller_id = 123456789
+        }
+    }
+
+
+   // FIT ANALYTICS
+
+    test("VIP Web fitanalytics ") {
+
+         def defaultTrackInformation = {
+             item_id = "MLA213512313"
+             category_id = "MLA123"
+             buying_mode = "classified"
+             category_path = ["MLA1234","MLA6789"]
+             item_condition = "new"
+             item_status = "active"
+             deal_ids = []
+             seller_id = 123456789
+             vertical = "core"
+             listing_type_id = "gold_special"
+        }
+
+        "/vip/fitanalytics"(platform: "/", type: TrackType.Event) {
+           defaultTrackInformation()
+        }
+        
+        "/vip/fitanalytics/view"(platform: "/", type: TrackType.Event) {
+           defaultTrackInformation()
+           fit = true
+        }
+
+        "/vip/fitanalytics/predict"(platform: "/", type: TrackType.Event) {
+           defaultTrackInformation()
+        }
+
+         "/vip/fitanalytics/close"(platform: "/", type: TrackType.Event) {
+           defaultTrackInformation()
+           variation = {}
+        }
+
+    }
+
 }

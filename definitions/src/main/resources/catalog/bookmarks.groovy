@@ -27,7 +27,7 @@ tracks {
     "/bookmarks/action/delete"(platform: "/", type: TrackType.Event) {
     }
 
-    //Bookmark add to Cart
+    // TODO Borrar => Lo estamos standarizando hacía la definición de add_to_cart.groovy
     "/bookmarks/add_to_cart" (platform: "/", type: TrackType.Event) {}
 
     //Bookmark show

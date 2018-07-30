@@ -146,6 +146,7 @@ tracks {
     "/sell/list/draft/shipping_landing"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/shipping_flat_cost"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/price_modality"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/free_shipping"(platform:"/mobile", type: TrackType.View){}
 
     "/sell/list/hub"(platform: "/", type: TrackType.View) {}
     "/sell/list/walkthrough"(platform: "/mobile", type: TrackType.View) {}
@@ -160,6 +161,7 @@ tracks {
     "/sell/list/pictures/crop/crop_accepted"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/pictures/crop/crop_canceled"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/manufacturing_time"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/free_shipping"(platform:"/mobile", type: TrackType.View){}
 
 
     "/sell/list/sip"(platform: "/mobile", type: TrackType.View) {
@@ -460,6 +462,9 @@ tracks {
     "/sell/update/listing_types"(platform: "/", type: TrackType.View) {}
     "/sell/update/listing_types_upgrade"(platform: "/", type: TrackType.View) {}
     "/sell/update/congrats_upgrade"(platform: "/", type: TrackType.View) {}
+    "/sell/update/free_shipping"(platform: "/", type: TrackType.View) {}
+    "/sell/update/statistics"(platform: "/", type: TrackType.View) {}
+
 
     "/sell/list/pictures_uploader"(platform: "/web/desktop", isAbstract: true){}
     "/sell/list/pictures_uploader/validations"(platform: "/web/desktop", type: TrackType.Event){
@@ -546,5 +551,17 @@ tracks {
     // Tracks for Web mobile removed
     "/sell/landing_download_app"(platform: "/web/mobile", type: TrackType.View){}
     "/sell/landing_download_app/download_intention"(platform: "/web/mobile", type: TrackType.Event){}
+
+    // Mobile flow - Push notification complete technical specifications
+    "/sell/complete_technical_specifications"(platform: "/mobile", isAbstract: true) {
+        item_id (required: true, type: PropertyType.String)
+    }
+    "/sell/complete_technical_specifications/technical_specifications"(platform: "/mobile", type: TrackType.View){}
+    "/sell/complete_technical_specifications/landing_finish_no_complete"(platform: "/mobile", type: TrackType.View){}
+    "/sell/complete_technical_specifications/landing_continue"(platform: "/mobile", type: TrackType.View){}
+    "/sell/complete_technical_specifications/landing_no_items"(platform: "/mobile", type: TrackType.View){}
+    "/sell/complete_technical_specifications/congrats_finish"(platform: "/mobile", type: TrackType.View){}
+    "/sell/complete_technical_specifications/landing_intro"(platform: "/mobile", type: TrackType.View){}
+    "/sell/complete_technical_specifications/congrats_has_more"(platform: "/mobile", type: TrackType.View){}
 
 }

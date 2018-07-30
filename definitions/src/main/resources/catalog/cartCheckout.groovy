@@ -15,11 +15,11 @@ tracks {
 
 "/cart"(platform: "/", isAbstract: true) {}
 
-"/cart/checkout"(platform: "/", isAbstract: true) { 
+"/cart/checkout"(platform: "/", isAbstract: true) {
 
     status(required: false, description: "status")
-    purchase_id(required: false, description: "Identifier of the purchase")   
-    
+    purchase_id(required: false, description: "Identifier of the purchase")
+
     seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data")
     //id
     //nickname
@@ -62,7 +62,7 @@ tracks {
         //official_store
         //condition (new / used)
         //listing_type
-        //variation_id   
+        //variation_id
     //quantity
     //unit_price
 
@@ -72,7 +72,7 @@ tracks {
 
     total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
     total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
-    
+
     recovery_flow(required: true, description: "Is recovery CHO flow")
     register_int(required: false, description: "Integrated registration")
 
@@ -164,6 +164,7 @@ tracks {
 "/cart/checkout/review/edit_shipping"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/review/change_installments"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/review/change_shipping"(platform:"/", type: TrackType.Event) {}
+"/cart/checkout/review/confirm_purchase"(platform:"/", type: TrackType.Event) {}
 
 "/cart/checkout/review/change_address"(platform:"/", type: TrackType.View) {}
 
@@ -199,6 +200,7 @@ tracks {
 "/cart/checkout/finish/call_for_auth/instructions"(platform:"/", type: TrackType.View) {}
 "/cart/checkout/finish/call_for_auth/later"(platform:"/", type: TrackType.View) {}
 "/cart/checkout/finish/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
+"/cart/checkout/finish/choose_action"(platform:"/", type: TrackType.View) {}
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin All platforms
@@ -316,6 +318,10 @@ tracks {
 
 "/cart/checkout/show_geolocation_map"(platform:"/mobile", type: TrackType.View) {}
 
+"cart/checkout/finish#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        action(required: true, description: "Action executed, for ex: call_seller, email_seller, etc")
+}
+
 // 2MP
 "/cart/checkout/payment"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
 
@@ -348,11 +354,10 @@ tracks {
 "/cart/checkout/payments_cancelation"(platform: "/mobile", type: TrackType.View) {}
 
 //Billing info
-    "/cart/checkout/billing"(platform: "/mobile", isAbstract: true) {}
-    "/cart/checkout/billing/physical_person"(platform: "/mobile") {}
-    "/cart/checkout/billing/legal_person"(platform: "/mobile") {}
-    "/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-    }
+"/cart/checkout/billing"(platform: "/mobile", isAbstract: true) {}
+"/cart/checkout/billing/physical_person"(platform: "/mobile") {}
+"/cart/checkout/billing/legal_person"(platform: "/mobile") {}
+"/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
 
 // 2MP Inconsistencias
 "/cart/checkout/review/discard_payment_combination"(platform: "/mobile") {}
