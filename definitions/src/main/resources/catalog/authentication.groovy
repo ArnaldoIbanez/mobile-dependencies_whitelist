@@ -106,6 +106,11 @@ tracks {
         user(type: PropertyType.Map, required: false, description: "Available user info")
     }
 
+    "/login/auth/error"(platform: "/mobile", type: TrackType.View) {
+        error(type: PropertyType.String, required: true, values: ["resource_not_found", "conflict", "network", "server"],
+            description: "Indicates the error type shown in error view.")
+    }
+
     "/login/auth/challenge/submit"(platform: "/mobile", type: TrackType.Event) {}
 
     "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {}

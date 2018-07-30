@@ -2007,6 +2007,9 @@ trackTests {
         "/logout"(platform: "/", type: TrackType.Event) {
             flow = "internal"
         }
+        "/login/auth/error"(platform: "/mobile", type: TrackType.View) {
+            error = "network"
+        }
     }
     test("App authorization tracks") {
         "/oauth/authorization/form"(platform: "/", type: TrackType.Event) {
