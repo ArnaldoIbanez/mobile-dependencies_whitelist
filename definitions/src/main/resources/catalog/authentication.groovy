@@ -107,7 +107,8 @@ tracks {
     }
 
     "/login/auth/error"(platform: "/mobile", type: TrackType.View) {
-        error(type: PropertyType.String, required: true, description: "Indicates the error type shown in error view.")
+        error(type: PropertyType.String, required: true, values: ["resource_not_found", "conflict", "network", "server"],
+            description: "Indicates the error type shown in error view.")
     }
 
     "/login/auth/challenge/submit"(platform: "/mobile", type: TrackType.Event) {}
