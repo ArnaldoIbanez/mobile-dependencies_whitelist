@@ -97,7 +97,7 @@ SELECT
       WHERE tj.ds >= '@param01 02'
         AND tj.ds < '@param02 05'
         AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
-        AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') < '@param04 23'        AND v1.path = '/availability/requested'
+        AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') < '@param04 23'
         AND v1.path = '/availability/requested'
         AND v3.environment = 'PRODUCTION'
         AND v2.app_id = 'CHAT') chattable
