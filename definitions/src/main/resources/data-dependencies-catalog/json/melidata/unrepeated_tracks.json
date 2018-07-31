@@ -7,7 +7,7 @@
     "type": "DATE"
   },
   "process_name": "unrepeated_tracks",
-  "cron": "50 17 * * *",
+  "cron": "50 22 * * *",
   "extract": {
     "operation": "append",
     "columns": [
