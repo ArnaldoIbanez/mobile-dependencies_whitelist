@@ -122,6 +122,7 @@ tracks {
 
     "/flex/package/list/map_missing_addresses"(platform: "/mobile", type: TrackType.View) {
         packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
     "/flex/package/detail"(platform: "/mobile", type: TrackType.View) {
@@ -198,6 +199,10 @@ tracks {
         location
     }
 
+    "/flex/error/update_app"(platform: "/mobile", type: TrackType.View) {
+        location
+    }
+
     "/flex/error"(platform: "/mobile", type: TrackType.View) {
         location
         error_type(required: true, type: PropertyType.String,  values: ["generic", "connection"],
@@ -209,6 +214,10 @@ tracks {
         error_type(required: true, type: PropertyType.String,  values: ["generic", "delivery_failed",
                                                                         "not_delivered_failed", "connection"],
             description: "Specifies what kind of error happened.")
+    }
+
+    "/flex/error/update_app/update_app"(platform: "/mobile", type: TrackType.Event) {
+        location
     }
 
     "/flex/onboarding/package/add"(platform: "/mobile", type: TrackType.View) {

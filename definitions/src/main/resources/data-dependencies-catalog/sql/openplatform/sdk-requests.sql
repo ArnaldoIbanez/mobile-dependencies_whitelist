@@ -1,5 +1,5 @@
 SELECT 
-	http_user_agent, total 
+	'@param01' AS request_date, http_user_agent, total 
 FROM (
 	SELECT 
 		a.http_user_agent, COUNT(ds) as total 

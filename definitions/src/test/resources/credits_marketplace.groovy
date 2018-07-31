@@ -33,5 +33,46 @@ trackTests {
         "/credits/consumer/public_landing/click_hero"(platform: "/web/mobile", type: TrackType.Event) { user_profile = 'no_offer' }
         "/credits/consumer/public_landing/click_activation"(platform: "/web/desktop", type: TrackType.Event) { user_profile = 'no_offer' }
         "/credits/consumer/public_landing/click_help"(platform: "/web/mobile", type: TrackType.Event) { user_profile = 'guest' }
+
+        /******************************************
+        *       Start: Consumers Administrator
+        ******************************************/
+        /**
+        Admin Dashboard
+        **/
+        // Views
+        "/credits/consumer/administrator"(platform: "/web/desktop") {}
+        "/credits/consumer/administrator/dashboard"(platform: "/web/desktop", type: TrackType.View) { dashboard_status = 'empty_state' }
+        "/credits/consumer/administrator/dashboard"(platform: "/web/desktop", type: TrackType.View) { dashboard_status = 'on_time' }
+        "/credits/consumer/administrator/dashboard"(platform: "/web/desktop", type: TrackType.View) { dashboard_status = 'overdue' }
+
+        //Events
+        "/credits/consumer/administrator/tooltip"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'on_time'}
+        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'to_expire_soft'}
+        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'to_expire_hard'}
+        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'expired_today'}
+        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'no_charge_period'}
+        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'fixed_charge_period_1'}
+        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'fixed_charge_period_2'}
+        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'daily_charge_period'}
+        "/credits/consumer/administrator/details_button"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/help"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/see_product"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        /**
+        Admin History (Compras Finalizadas)
+        **/
+        // Views
+        "/credits/consumer/administrator/history"(platform: "/web/desktop") {}
+
+        //Events
+        "/credits/consumer/administrator/history/details_button"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/history/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        /******************************************
+        *       End: Consumers Administrator
+        ******************************************/
     }
 }

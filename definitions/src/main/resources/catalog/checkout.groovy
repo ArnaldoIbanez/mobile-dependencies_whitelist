@@ -253,6 +253,8 @@ tracks {
         error_code(required: false, type: PropertyType.String)
         inconsistency(required: false, type: PropertyType.String)
     }
+    "/checkout/shipping/accord"(platform: "/mobile") {}
+    "/checkout/shipping/accord_shipping_and_payment"(platform: "/mobile") {}
     //Geolocation on fallback
     "/checkout/shipping/select_method/ask_enable_geolocation"(platform: "/mobile") {}
     "/checkout/shipping/select_method/ask_enable_geolocation#geolocation_permission_ask"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {

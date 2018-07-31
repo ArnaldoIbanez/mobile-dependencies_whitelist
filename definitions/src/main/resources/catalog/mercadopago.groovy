@@ -73,9 +73,6 @@ tracks {
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
 
-    // QR Landing > Buyers
-    "/merchant_acquisition/qr/landing/buyers"(platform:"/", type: TrackType.View) {}
-
     // QR Landing > Events
     "/merchant_acquisition/qr/landing/promotions"(platform:"/", type: TrackType.Event) {}
 
@@ -171,6 +168,8 @@ tracks {
     "/point_payment/point_ftu_newland"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/idempotency"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/point"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/qr_ftu"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/bank_selection"(platform: "/mobile", type: TrackType.View) {}
 
     "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
         flow_id (required: true, type: PropertyType.String, description: "Flow id.")
@@ -199,6 +198,9 @@ tracks {
     "/point_payment/flow_tracker/flow_notification_request"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/flow_notification_response"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/flow_pos_error_message"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/select_qr"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/select_point"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/select_link"(platform: "/mobile", type: TrackType.Event) {}
 
     "/settings/point"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
     "/settings/point/settings"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}

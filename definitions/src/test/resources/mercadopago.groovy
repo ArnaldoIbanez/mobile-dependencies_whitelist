@@ -422,9 +422,6 @@ trackTests {
 
     test("MP-MA Landing QR") {
         "/merchant_acquisition/qr/landing" (platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/qr/landing/buyers"(platform: "/", type: TrackType.View){}
-        "/merchant_acquisition/qr/landing/buyers"(platform: "/web/desktop", type: TrackType.View){}
-        "/merchant_acquisition/qr/landing/buyers"(platform: "/web/mobile", type: TrackType.View){}
         "/merchant_acquisition/qr/landing/promotions"(platform: "/", type: TrackType.Event) {}
     }
 
@@ -718,6 +715,8 @@ trackTests {
         "/point_payment/point_ftu_newland"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/idempotency"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/point"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/qr_ftu"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/bank_selection"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/flow_tracker/pairing"(platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
             level ="error"
@@ -826,6 +825,24 @@ trackTests {
             data ="{ctr: 2313}"
         }
         "/point_payment/flow_tracker/flow_pos_error_message"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/select_qr"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/select_point"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/select_link"(platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
             user_id = "123241234413"
             level ="info"
@@ -1990,6 +2007,9 @@ trackTests {
         "/logout"(platform: "/", type: TrackType.Event) {
             flow = "internal"
         }
+        "/login/auth/error"(platform: "/mobile", type: TrackType.View) {
+            error = "network"
+        }
     }
     test("App authorization tracks") {
         "/oauth/authorization/form"(platform: "/", type: TrackType.Event) {
@@ -2027,11 +2047,26 @@ trackTests {
     test("Requesting credentials to Smart Lock for Passwords") {
         "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {}
         "/login/smartlock/success"(platform: "/mobile", type: TrackType.Event) {}
+        "/login/smartlock/success"(platform: "/mobile", type: TrackType.Event) {
+            attempt_type = "auto_sign_in"
+        }
+        "/login/smartlock/success"(platform: "/mobile", type: TrackType.Event) {
+            attempt_type = "retrieve_credentials"
+        }
+        "/login/smartlock/success"(platform: "/mobile", type: TrackType.Event) {
+            attempt_type = "multiple_credentials"
+        }
         "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
             error = "RESOLUTION_REQUIRED"
+            attempt_type = "retrieve_credentials"
+        }
+        "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
+            error = "RESOLUTION_REQUIRED"
+            attempt_type = "multiple_credentials"
         }
         "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
             error = "CANCELED"
+            attempt_type = "auto_sign_in"
         }
         "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
             error = "VALIDATION_REQUIRED"
@@ -2059,6 +2094,11 @@ trackTests {
         "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
             status = "API_NOT_CONNECTED"
         }
+    }
+
+    test("Multiple credentials to Smart Lock for Passwords") {
+        "/login/smartlock/multiple_credentials/credential_selected"(platform: "/mobile", type: TrackType.Event) {}
+        "/login/smartlock/multiple_credentials/cancel"(platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("Abuse Prevention in Identification and Authentication") {
@@ -2109,6 +2149,64 @@ trackTests {
             selected_phone_source = "manual"
             flow_type = "sms_enrollment"
             flow_sub_type = "LOGIN_NOTIF"
+        }
+    }
+
+    test("Push Notification") {
+        "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {}
+        "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {
+            notified_user = "123"
+        }
+    } 
+
+    test("Multi Step Login Android") {
+        "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
+            challenge = "nickname_or_email"
+            tracking_id = "123"
+        }
+        "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
+            challenge = "enter_password"
+            tracking_id = "123"
+        }
+        "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
+            challenge = "enter_password"
+            tracking_id = "123"
+            user = [nickname: "nickname", email:"email@email.com"]
+        }
+        "/login/auth/challenge/submit"(platform: "/mobile", type: TrackType.Event) {
+            challenge = "nickname_or_email"
+            tracking_id = "123"
+        }
+        "/login/auth/challenge/submit"(platform: "/mobile", type: TrackType.Event) {
+            challenge = "enter_password"
+            tracking_id = "123"
+            user = [nickname: "nickname", email:"email@email.com"]
+        }
+        "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {
+            challenge = "nickname_or_email"
+            tracking_id = "123"
+        }
+        "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {
+            challenge = "enter_password"
+            tracking_id = "123"
+            user = [nickname: "nickname", email:"email@email.com"]
+        }
+        "/login/auth/challenge/error"(platform: "/mobile", type: TrackType.View) {
+            challenge = "nickname_or_email"
+            tracking_id = "123"
+            errors = ["user_not_found"]
+        }
+        "/login/auth/challenge/error"(platform: "/mobile", type: TrackType.View) {
+            challenge = "enter_password"
+            tracking_id = "123"
+            user = [nickname: "nickname", email:"email@email.com"]
+            errors = ["user_not_found"]
+        }
+        "/login/auth/challenge/decline"(platform: "/mobile", type: TrackType.Event) {
+            challenge = "enter_password"
+        }
+        "/login/auth/challenge/restart"(platform: "/mobile", type: TrackType.Event) {
+            challenge = "enter_password"
         }
     }
 

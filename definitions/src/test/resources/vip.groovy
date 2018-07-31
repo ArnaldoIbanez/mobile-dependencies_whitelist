@@ -30,6 +30,8 @@ trackTests {
 
             return_available = false
             cart_content = false
+            add_to_cart_availability = "no_high_ratio"
+            main_action = "buy"
             power_seller_status = "platinum"
             reputation_level = "5_green"
             official_store_id = 1
@@ -349,6 +351,11 @@ trackTests {
 
         "/vip/description"(platform: "/web", type: TrackType.View){
             item_id = "MLA213512313"
+        }
+
+        "/vip/technical_specs"(platform: "/web", type: TrackType.View){
+            item_id = "MLA213512313"
+            vertical = "core"
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){

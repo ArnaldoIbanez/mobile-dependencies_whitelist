@@ -16,6 +16,10 @@
     "operation": "append",
     "columns": [
       {
+        "name": "quantity",
+        "type": "INTEGER"
+      },
+      {
         "name": "source",
         "type": "UNICODE_STRING"
       },
@@ -24,31 +28,15 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "categoria",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "atributo",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "opcion",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "valor",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "seller",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "item",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "condicion",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "opcion",
         "type": "UNICODE_STRING"
       },
       {

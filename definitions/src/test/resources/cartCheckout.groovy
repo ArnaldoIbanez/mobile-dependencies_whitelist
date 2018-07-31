@@ -352,6 +352,8 @@ trackTests {
         "cart/checkout/finish#click"(platform: "/mobile", type: TrackType.Event) {
             action = 'call_seller'
         }
+
+        "/cart/checkout/finish/choose_action"(platform: "/", dataSet)
     }
 
 

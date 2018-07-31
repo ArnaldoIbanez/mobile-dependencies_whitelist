@@ -8,6 +8,11 @@
 		"operation": "append",
 		"columns": [
 			{
+				"name": "request_date",
+				"type": "DATE",
+				"format": "yyyy-MM-dd"
+			},
+			{
 				"name": "http_user_agent",
 				"type": "UNICODE_STRING"
 			},

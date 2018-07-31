@@ -130,6 +130,104 @@ trackTests {
         }
     }
 
+    test("V2 sku pages") {
+        "/myml/invoices/sku/sku"(platform: "/") {}
+        "/myml/invoices/sku/sku/save/request"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB989120833"
+            kit = false
+            sku = "MLB1064414806"
+            redirect_to = '/invoices/sku/review/123'
+            variation_id = null
+        }
+        "/myml/invoices/sku/sku/save/response"(platform: "/", type: TrackType.Event) {
+            message = "Não conseguimos processar a sua solicitação. Tente Novamente"
+            success = false
+            sku_invalid = true
+            redirect_to = '/invoices/sku/review/MLB1064414806'
+        }
+
+        "/myml/invoices/sku/ean"(platform: "/") {}
+        "/myml/invoices/sku/ean/save/request"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB989120833"
+            ean = "7898357410015"
+            redirect_to = '/invoices/sku/review/123'
+            variation_id = null
+        }
+        "/myml/invoices/sku/ean/save/response"(platform: "/", type: TrackType.Event) {
+            message = "Não conseguimos processar a sua solicitação. Tente Novamente"
+            success = false
+            ean_invalid = true
+            redirect_to = '/invoices/sku/review/123'
+        }
+
+        "/myml/invoices/sku/ncm"(platform: "/") {}
+        "/myml/invoices/sku/ncm/save/request"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB989120833"
+            ncm = "84716052"
+            redirect_to = '/invoices/sku/review/123'
+            variation_id = '123'
+        }
+        "/myml/invoices/sku/ncm/save/response"(platform: "/", type: TrackType.Event) {
+            message = "Não conseguimos processar a sua solicitação. Tente Novamente"
+            success = false
+            redirect_to = '/invoices/sku/review/123'
+        }
+
+        "/myml/invoices/sku/product-origin"(platform: "/") {}
+        "/myml/invoices/sku/product-origin/save/request"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB989120833"
+            code = "1"
+            origin_discrimination = "NATIONAL"
+            redirect_to = '/invoices/sku/review/123'
+            variation_id = null
+        }
+        "/myml/invoices/sku/product-origin/save/response"(platform: "/", type: TrackType.Event) {
+            message = "Não conseguimos processar a sua solicitação. Tente Novamente"
+            success = false
+            redirect_to = '/invoices/sku/review/123'
+        }
+
+        "/myml/invoices/sku/product-type"(platform: "/") {}
+        "/myml/invoices/sku/product-type/save/request"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB989120833"
+            code = "1"
+            redirect_to = '/invoices/sku/review/123'
+            variation_id = null
+        }
+        "/myml/invoices/sku/product-type/save/response"(platform: "/", type: TrackType.Event) {
+            message = "Não conseguimos processar a sua solicitação. Tente Novamente"
+            success = false
+            redirect_to = '/invoices/sku/review/123'
+        }
+
+        "/myml/invoices/sku/csosn"(platform: "/") {}
+        "/myml/invoices/sku/csosn/save/request"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB989120833"
+            csosn = "5"
+            redirect_to = '/invoices/sku/review/123'
+            variation_id = null
+        }
+        "/myml/invoices/sku/csosn/save/response"(platform: "/", type: TrackType.Event) {
+            message = "Não conseguimos processar a sua solicitação. Tente Novamente"
+            success = false
+            redirect_to = '/invoices/sku/review/123'
+        }
+
+        "/myml/invoices/sku/review"(platform: "/") {}
+        "/myml/invoices/sku/review/confirm/request"(platform: "/", type: TrackType.Event) {
+            order_id = "MLB989120833"
+            comments = "Comments test"
+        }
+        "/myml/invoices/sku/review/confirm/response"(platform: "/", type: TrackType.Event) {
+            message = "Não conseguimos processar a sua solicitação. Tente Novamente"
+            error_type = "message"
+            error = false
+            redirect_to = '/invoices/sku/review/123'
+        }
+
+        "/myml/invoices/sku/status"(platform: "/") {}
+    }
+
     test("Optin flow") {
         "/myml/invoices/landing"(platform: "/") {}
         "/myml/invoices/landing/optin"(platform: "/", type: TrackType.Event) {

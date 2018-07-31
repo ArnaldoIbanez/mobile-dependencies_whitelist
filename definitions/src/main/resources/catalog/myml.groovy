@@ -523,4 +523,110 @@ tracks {
     "/myml/sales/list/set_user_fiscal_order_action"(platform: "/web", type: TrackType.Event) {
         option(required: true, type: PropertyType.String, description: "Radio button value to set invoice preferences")
     }
+
+    //V2 sku pages
+    "/myml/invoices/sku"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/sku/sku"(platform: "/") {}
+    "/myml/invoices/sku/sku/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/sku/sku/save/request"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "MLB itemId")
+        kit(required: true, type: PropertyType.Boolean, description: "Boolean if sku is a kit")
+        redirect_to(required: true, type: PropertyType.String, description: "Redirect url value before save")
+        variation_id(required: false, type: PropertyType.String, description: "variationId of item | null")
+        sku(required: true, type: PropertyType.String, description: "Sku id value")
+    }
+    "/myml/invoices/sku/sku/save/response"(platform: "/", type: TrackType.Event) {
+        redirect_to(required: false, type: PropertyType.String, description: "Redirect url after save")
+        success(required: false, type: PropertyType.Boolean, description: "Boolean if request was success")
+        message(required: false, type: PropertyType.String, description: "Error message that pops on page")
+        sku_invalid(required: false, type: PropertyType.Boolean, description: "Boolean if sku value is invalid")
+    }
+
+    "/myml/invoices/sku/ean"(platform: "/") {}
+    "/myml/invoices/sku/ean/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/sku/ean/save/request"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "MLB itemId")
+        redirect_to(required: true, type: PropertyType.String, description: "Redirect url value before save")
+        variation_id(required: false, type: PropertyType.String, description: "variationId of item | null")
+        ean(required: true, type: PropertyType.String, description: "Ean(europen article code) of item")
+    }
+    "/myml/invoices/sku/ean/save/response"(platform: "/", type: TrackType.Event) {
+        redirect_to(required: false, type: PropertyType.String, description: "Redirect url after save")
+        success(required: false, type: PropertyType.Boolean, description: "Boolean if request was success")
+        message(required: false, type: PropertyType.String, description: "Error message that pops on page")
+        ean_invalid(required: false, type: PropertyType.Boolean, description: "Boolean if ean value is invalid")
+    }
+
+    "/myml/invoices/sku/ncm"(platform: "/") {}
+    "/myml/invoices/sku/ncm/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/sku/ncm/save/request"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "MLB itemId")
+        redirect_to(required: true, type: PropertyType.String, description: "Redirect url value before save")
+        variation_id(required: false, type: PropertyType.String, description: "variationId of item | null")
+        ncm(required: true, type: PropertyType.String, description: "Ncm (tax information) of item")
+    }
+    "/myml/invoices/sku/ncm/save/response"(platform: "/", type: TrackType.Event) {
+        redirect_to(required: false, type: PropertyType.String, description: "Redirect url after save")
+        success(required: false, type: PropertyType.Boolean, description: "Boolean if request was success")
+        message(required: false, type: PropertyType.String, description: "Error message that pops on page")
+    }
+
+    "/myml/invoices/sku/product-origin"(platform: "/") {}
+    "/myml/invoices/sku/product-origin/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/sku/product-origin/save/request"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "MLB itemId")
+        code(required: true, type: PropertyType.String, description: "item origin code")
+        redirect_to(required: true, type: PropertyType.String, description: "Redirect url value before save")
+        origin_discrimination(required: true, type: PropertyType.String, description: "item origin code description")
+        variation_id(required: false, type: PropertyType.String, description: "variationId of item | null")
+    }
+    "/myml/invoices/sku/product-origin/save/response"(platform: "/", type: TrackType.Event) {
+        redirect_to(required: false, type: PropertyType.String, description: "Redirect url after save")
+        success(required: false, type: PropertyType.Boolean, description: "Boolean if request was success")
+        message(required: false, type: PropertyType.String, description: "Error message that pops on page")
+    }
+
+    "/myml/invoices/sku/product-type"(platform: "/") {}
+    "/myml/invoices/sku/product-type/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/sku/product-type/save/request"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "MLB itemId")
+        code(required: true, type: PropertyType.String, description: "item type code")
+        redirect_to(required: true, type: PropertyType.String, description: "Redirect url value before save")
+        variation_id(required: false, type: PropertyType.String, description: "variationId of item | null")
+    }
+    "/myml/invoices/sku/product-type/save/response"(platform: "/", type: TrackType.Event) {
+        redirect_to(required: false, type: PropertyType.String, description: "Redirect url after save")
+        success(required: false, type: PropertyType.Boolean, description: "Boolean if request was success")
+        message(required: false, type: PropertyType.String, description: "Error message that pops on page")
+    }
+
+    "/myml/invoices/sku/csosn"(platform: "/") {}
+    "/myml/invoices/sku/csosn/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/sku/csosn/save/request"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "MLB itemId")
+        csosn(required: true, type: PropertyType.String, description: "item tax information code")
+        redirect_to(required: true, type: PropertyType.String, description: "Redirect url value before save")
+        variation_id(required: false, type: PropertyType.String, description: "variationId of item | null")
+    }
+    "/myml/invoices/sku/csosn/save/response"(platform: "/", type: TrackType.Event) {
+        redirect_to(required: false, type: PropertyType.String, description: "Redirect url after save")
+        success(required: false, type: PropertyType.Boolean, description: "Boolean if request was success")
+        message(required: false, type: PropertyType.String, description: "Error message that pops on page")
+    }
+
+    "/myml/invoices/sku/review"(platform: "/") {}
+    "/myml/invoices/sku/review/confirm"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/sku/review/confirm/request"(platform: "/", type: TrackType.Event) {
+        order_id(required: true, type: PropertyType.String, description: "MLB orderId")
+        comments(required: true, type: PropertyType.String, description: "Commentaries added on review page")
+    }
+    "/myml/invoices/sku/review/confirm/response"(platform: "/", type: TrackType.Event) {
+        redirect_to(required: false, type: PropertyType.String, description: "Redirect url after save")
+        error_type(required: false, type: PropertyType.String, description: "Type of error")
+        error(required: false, type: PropertyType.Boolean, description: "Boolean if request was error")
+        message(required: false, type: PropertyType.String, description: "Error message that pops on page")
+    }
+
+    "/myml/invoices/sku/status"(platform: "/") {}
 }
