@@ -56,7 +56,7 @@ SELECT
    FROM
      (SELECT v1.id AS id,
              From_unixtime(Unix_timestamp(Regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH:mm') AS requested_datetime_minute,
-             v2.site_id AS site_id,
+             v3.site_id AS site_id,
              v3.problem_type AS problem_type,
              v3.reason AS reason,
              v3.origin AS origin,
@@ -78,9 +78,9 @@ SELECT
                                             user_timestamp,
                                             anuser,
                                             id,
-                                            path LATERAL VIEW json_tuple(v1.application, 'app_id', 'business', 'site_id') v2 AS app_id,
-                                                              business,
-                                                              site_id LATERAL VIEW json_tuple(v1.event_data, 'problem_type', 'reason', 'origin', 'is_available', 'ml_seller_profile', 'mp_seller_profile', 'ml_buyer_profile', 'experience_profile', 'process_id', 'queue_id', 'environment', 'track_id', 'segment', 'source_id') v3 AS problem_type,
+                                            path LATERAL VIEW json_tuple(v1.application, 'app_id', 'business') v2 AS app_id,
+                                                              business
+                                                              LATERAL VIEW json_tuple(v1.event_data, 'problem_type', 'reason', 'origin', 'is_available', 'ml_seller_profile', 'mp_seller_profile', 'ml_buyer_profile', 'experience_profile', 'process_id', 'queue_id', 'environment', 'track_id', 'segment', 'source_id', 'custom_site_id') v3 AS problem_type,
                                                                                    reason,
                                                                                    origin,
                                                                                    is_available,
@@ -93,7 +93,8 @@ SELECT
                                                                                    environment,
                                                                                    track_id,
                                                                                    segment,
-                                                                                   source_id LATERAL VIEW json_tuple(v1.anuser, 'user_id') v4 AS user_id
+                                                                                   source_id,
+                                                                                   site_id LATERAL VIEW json_tuple(v1.anuser, 'user_id') v4 AS user_id
       WHERE tj.ds >= '@param01 02'
         AND tj.ds < '@param02 05'
         AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
@@ -104,7 +105,7 @@ SELECT
    FULL OUTER JOIN
      (SELECT v1.id AS id,
              From_unixtime(Unix_timestamp(Regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH:mm') AS requested_datetime_minute,
-             v2.site_id AS site_id,
+             v3.site_id AS site_id,
              v3.problem_type AS problem_type,
              v3.reason AS reason,
              v3.origin AS origin,
@@ -126,9 +127,9 @@ SELECT
                                             user_timestamp,
                                             anuser,
                                             id,
-                                            path LATERAL VIEW json_tuple(v1.application, 'app_id', 'business', 'site_id') v2 AS app_id,
-                                                              business,
-                                                              site_id LATERAL VIEW json_tuple(v1.event_data, 'problem_type', 'reason', 'origin', 'is_available', 'ml_seller_profile', 'mp_seller_profile', 'ml_buyer_profile', 'experience_profile', 'process_id', 'queue_id', 'environment', 'track_id', 'segment', 'source_id') v3 AS problem_type,
+                                            path LATERAL VIEW json_tuple(v1.application, 'app_id', 'business') v2 AS app_id,
+                                                              business
+                                                              LATERAL VIEW json_tuple(v1.event_data, 'problem_type', 'reason', 'origin', 'is_available', 'ml_seller_profile', 'mp_seller_profile', 'ml_buyer_profile', 'experience_profile', 'process_id', 'queue_id', 'environment', 'track_id', 'segment', 'source_id', 'custom_site_id') v3 AS problem_type,
                                                                                    reason,
                                                                                    origin,
                                                                                    is_available,
@@ -141,7 +142,8 @@ SELECT
                                                                                    environment,
                                                                                    track_id,
                                                                                    segment,
-                                                                                   source_id LATERAL VIEW json_tuple(v1.anuser, 'user_id') v4 AS user_id
+                                                                                   source_id,
+                                                                                   site_id LATERAL VIEW json_tuple(v1.anuser, 'user_id') v4 AS user_id
       WHERE tj.ds >= '@param01 02'
         AND tj.ds < '@param02 05'
         AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
@@ -152,7 +154,7 @@ SELECT
    FULL OUTER JOIN
      (SELECT v1.id AS id,
              From_unixtime(Unix_timestamp(Regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH:mm') AS requested_datetime_minute,
-             v2.site_id AS site_id,
+             v3.site_id AS site_id,
              v3.problem_type AS problem_type,
              v3.reason AS reason,
              v3.origin AS origin,
@@ -174,9 +176,9 @@ SELECT
                                             user_timestamp,
                                             anuser,
                                             id,
-                                            path LATERAL VIEW json_tuple(v1.application, 'app_id', 'business', 'site_id') v2 AS app_id,
-                                                              business,
-                                                              site_id LATERAL VIEW json_tuple(v1.event_data, 'problem_type', 'reason', 'origin', 'is_available', 'ml_seller_profile', 'mp_seller_profile', 'ml_buyer_profile', 'experience_profile', 'process_id', 'queue_id', 'environment', 'track_id', 'segment', 'source_id') v3 AS problem_type,
+                                            path LATERAL VIEW json_tuple(v1.application, 'app_id', 'business') v2 AS app_id,
+                                                              business
+                                                              LATERAL VIEW json_tuple(v1.event_data, 'problem_type', 'reason', 'origin', 'is_available', 'ml_seller_profile', 'mp_seller_profile', 'ml_buyer_profile', 'experience_profile', 'process_id', 'queue_id', 'environment', 'track_id', 'segment', 'source_id', 'custom_site_id') v3 AS problem_type,
                                                                                    reason,
                                                                                    origin,
                                                                                    is_available,
@@ -189,7 +191,8 @@ SELECT
                                                                                    environment,
                                                                                    track_id,
                                                                                    segment,
-                                                                                   source_id LATERAL VIEW json_tuple(v1.anuser, 'user_id') v4 AS user_id
+                                                                                   source_id,
+                                                                                   site_id LATERAL VIEW json_tuple(v1.anuser, 'user_id') v4 AS user_id
       WHERE tj.ds >= '@param01 02'
         AND tj.ds < '@param02 05'
         AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
@@ -200,7 +203,7 @@ SELECT
    FULL OUTER JOIN
      (SELECT v1.id AS id,
              From_unixtime(Unix_timestamp(Regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH:mm') AS requested_datetime_minute,
-             v2.site_id AS site_id,
+             v3.site_id AS site_id,
              v3.problem_type AS problem_type,
              v3.reason AS reason,
              v3.origin AS origin,
@@ -222,9 +225,9 @@ SELECT
                                             user_timestamp,
                                             anuser,
                                             id,
-                                            path LATERAL VIEW json_tuple(v1.application, 'app_id', 'business', 'site_id') v2 AS app_id,
-                                                              business,
-                                                              site_id LATERAL VIEW json_tuple(v1.event_data, 'problem_type', 'reason', 'origin', 'is_available', 'ml_seller_profile', 'mp_seller_profile', 'ml_buyer_profile', 'experience_profile', 'process_id', 'queue_id', 'environment', 'track_id', 'segment', 'source_id') v3 AS problem_type,
+                                            path LATERAL VIEW json_tuple(v1.application, 'app_id', 'business') v2 AS app_id,
+                                                              business
+                                                              LATERAL VIEW json_tuple(v1.event_data, 'problem_type', 'reason', 'origin', 'is_available', 'ml_seller_profile', 'mp_seller_profile', 'ml_buyer_profile', 'experience_profile', 'process_id', 'queue_id', 'environment', 'track_id', 'segment', 'source_id', 'custom_site_id') v3 AS problem_type,
                                                                                    reason,
                                                                                    origin,
                                                                                    is_available,
@@ -237,7 +240,8 @@ SELECT
                                                                                    environment,
                                                                                    track_id,
                                                                                    segment,
-                                                                                   source_id LATERAL VIEW json_tuple(v1.anuser, 'user_id') v4 AS user_id
+                                                                                   source_id,
+                                                                                   site_id LATERAL VIEW json_tuple(v1.anuser, 'user_id') v4 AS user_id
       WHERE tj.ds >= '@param01 02'
         AND tj.ds < '@param02 05'
         AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
