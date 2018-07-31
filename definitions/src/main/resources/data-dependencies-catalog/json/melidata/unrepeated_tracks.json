@@ -9,7 +9,7 @@
   "process_name": "unrepeated_tracks",
   "cron": "50 17 * * *",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
         "name": "platform",
