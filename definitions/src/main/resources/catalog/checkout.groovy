@@ -1137,4 +1137,9 @@ tracks {
         buy_equals_pay(required: true, PropertyType.String)
         shipping_type(required: true, PropertyType.String)
     }
+
+    "/checkout/user_contact_information"(platform: "/", type: TrackType.Event) {
+
+    }
+
 }
