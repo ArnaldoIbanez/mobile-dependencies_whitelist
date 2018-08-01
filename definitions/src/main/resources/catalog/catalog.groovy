@@ -107,6 +107,7 @@ catalog {
         include business, "cards_cobranded.groovy"
         include business, "cards_prepaid.groovy"
         include business, "cellphone_recharge.groovy"
+        include business, "collaborators.groovy"
     }
 
     mercadoshops.each { business ->
