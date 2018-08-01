@@ -18,21 +18,21 @@ import com.ml.melidata.TrackType
 
 tracks {
     "/collaborators_admin"(platform:"/web", type: TrackType.View) {
-        from(required: false, values: ['unknown', 'mail', 'banner'], description: 'Indicates from which CTA was redirected. Unknown means that it did not come from any CTA.')
-        source(required: false, type: PropertyType.String, description: 'Indicates the type of origin')
-        have_operators(required: false, type: PropertyType.Boolean, description: 'Indicates if you have operators in the new version')
-        segmentation(required: false, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
+        from(required: true, values: ['unknown', 'mail', 'banner'], description: 'Indicates from which CTA was redirected. Unknown means that it did not come from any CTA.')
+        source(required: true, type: PropertyType.String, description: 'Indicates the type of origin')
+        have_operators(required: true, type: PropertyType.Boolean, description: 'Indicates if you have operators in the new version')
+        segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
-    "/collaborators_admin/invite"(platform:"/web", type: TrackType.View) {}
+    "/collaborators_admin/invite"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {}
 
-    "/collaborators_admin/roles/"(platform:"/web", isAbstract: true) {}
+    "/collaborators_admin/roles/"(platform:"/web", isAbstract: true, parentPropertiesInherited: false) {}
 
-    "/collaborators_admin/roles/create"(platform:"/web", type: TrackType.View) {
+    "/collaborators_admin/roles/create"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {
         email(required: true, type: PropertyType.String, description: 'Email of the new operator.')
     }
 
-    "/collaborators_admin/congrats"(platform:"/web", type: TrackType.View) {
+    "/collaborators_admin/congrats"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {
         type(required: true, type: PropertyType.String, description: 'Indicates the result of the creation of the operator.')
     }
 
