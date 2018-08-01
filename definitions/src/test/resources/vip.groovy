@@ -552,13 +552,6 @@ trackTests {
             defaultTrackInformation()
         }
 
-        "/vip/reservation_intention"(platform: "/web", type: TrackType.Event) {
-            defaultTrackInformation()
-            source = 'description'
-            reservation_price = '5000'
-            reservation_currency_id = 'ARS'
-        }
-
     }
 
 }
