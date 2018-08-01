@@ -166,6 +166,9 @@ trackTests {
         "/checkout/" (platform: "/mobile"){}
 
         "/checkout/" (platform: "/mobile"){}
+
+        "/checkout/user_contact_information"(platform:"/", type:TrackType.Event) {}
+
     }
 
     //Checkout Apps
