@@ -39,10 +39,13 @@ trackTests {
         "/wms/receiving"(platform: "/mobile/android") {
         	trackData()
         }
-		"/wms/put_away"(platform: "/mobile/android") {
-			trackPutAwayData()
-		}
-		"/wms/put_away/scan_cart"(platform: "/mobile/android") {
+        "/wms/put_away"(platform: "/mobile/android") {
+            trackPutAwayData()
+        }
+        "/wms/put_away/confirmation"(platform: "/mobile/android") {
+            trackPutAwayData()
+        }
+        "/wms/put_away/scan_cart"(platform: "/mobile/android") {
             trackPutAwayData()
         }
         "/wms/put_away/scan_inventory"(platform: "/mobile/android") {
