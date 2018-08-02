@@ -142,6 +142,23 @@ trackTests {
       // STEP 06.cta.b
       "/return/congrats/remedy_label"(platform: "/") { }
 
+      // STEP 06.b
+      "/return/congrats_error"(platform: "/") {
+        buyer_scoring: "high"
+        date_delivered: "2018-07-20"
+        item_id: "MLB945849683"
+        item_category_l1: "MLB1648"
+        refund_account_money: true
+        item_category: "MLB14332"
+        category_id: "MLB14332"
+        cart_order: false
+        payment: "amex"
+        loyalty_level: 6
+        order_id: 1762882937
+        typification: "repentant_buyer"
+        seller_scoring: "low"
+      }
+
       // Modal
       "/return/modal"(platform: "/") {
         action = "modal_action"
