@@ -29,7 +29,7 @@ tracks {
 	"/wms/put_away"(platform: "/mobile/android", type: TrackType.View) {
 		put_away_id(required: false, type: PropertyType.String, description: "Put away id")
 		check_in_id(required: false, type: PropertyType.String, description: "Check in id")
-		cart(required: false, type: PropertyType.String, description: "Cart used for put away")
+		cart_address(required: false, type: PropertyType.String, description: "Cart used for put away")
 	}
 	"/wms/put_away/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
 	"/wms/put_away/scan_cart"(platform: "/mobile/android", type: TrackType.View) {}

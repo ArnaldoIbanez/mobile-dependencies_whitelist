@@ -24,7 +24,7 @@ trackTests {
         feedback_type = "WARNING"
         put_away_id = "1234"
         check_in_id = "4567"
-        cart = "CA-0-001-000-00-00"
+        cart_address = "CA-0-001-000-00-00"
     }
 
     test("WMS App") {
