@@ -22,7 +22,7 @@ WITH
       element_at(split_to_map(substr(platform.http.http_referer, position('utm_source=' IN platform.http.http_referer), length(platform.http.http_referer)), '&','='), 'utm_medium')
   )
 SELECT
-  t1.site_id, t1.platform, t1.utm_source, count(*) AS total, t1.date_sent
+  t1.site_id, t1.platform, t1.utm_source AS reference, count(*) AS total, t1.date_sent
 FROM
   t1
 GROUP BY
