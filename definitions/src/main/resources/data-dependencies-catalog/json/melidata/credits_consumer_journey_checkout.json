@@ -22,7 +22,7 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "utm_source",
+        "name": "reference",
         "type": "UNICODE_STRING"
       },
       {
