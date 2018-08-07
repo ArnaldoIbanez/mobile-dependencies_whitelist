@@ -24,6 +24,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "buy_intentions_from_combo",
+        "type": "INTEGER"
+      },
+      {
         "name": "total_buy_intentions",
         "type": "INTEGER"
       }
