@@ -39,31 +39,31 @@ tracks {
     }
 
 //    Generic landing
-    "/advertising/pads2/generic_landing"(platform: "/", type: TrackType.View) {
+    "/advertising/pads2/generic_landing"(platform: "/web", type: TrackType.View) {
 
     }
 
-    "/advertising/pads2/generic_landing/main_action"(platform: "/", type: TrackType.Event) {
+    "/advertising/pads2/generic_landing/main_action"(platform: "/web", type: TrackType.Event) {
         button(required: true, description: "Button that redirects to confirm page")
     }
 
-    "/advertising/pads2/generic_landing/change_budget"(platform: "/", type: TrackType.Event) {
+    "/advertising/pads2/generic_landing/change_budget"(platform: "/web", type: TrackType.Event) {
 
     }
 
-    "/advertising/pads2/generic_landing/contract_confirmation"(platform: "/", type: TrackType.View) {
+    "/advertising/pads2/generic_landing/contract_confirmation"(platform: "/web", type: TrackType.View) {
 
     }
 
-    "/advertising/pads2/generic_landing/contract_confirmation/change_budget"(platform: "/", type: TrackType.Event) {
+    "/advertising/pads2/generic_landing/contract_confirmation/change_budget"(platform: "/web", type: TrackType.Event) {
 
     }
 
-    "/advertising/pads2/generic_landing/contract_confirmation/change_budget/confirm"(platform: "/", type: TrackType.Event) {
+    "/advertising/pads2/generic_landing/contract_confirmation/change_budget/confirm"(platform: "/web", type: TrackType.Event) {
         budget(required: true, description: "Budget defined before hiring, it's related to the campaign")
     }
 
-    "/advertising/pads2/generic_landing/contract_confirmation/confirm"(platform: "/", type: TrackType.Event) {
+    "/advertising/pads2/generic_landing/contract_confirmation/confirm"(platform: "/web", type: TrackType.Event) {
         budget(required: true, description: "Budget related to the campaign")
     }
 }
