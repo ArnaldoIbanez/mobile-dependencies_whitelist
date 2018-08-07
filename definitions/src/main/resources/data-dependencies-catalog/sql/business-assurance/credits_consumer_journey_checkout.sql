@@ -9,7 +9,7 @@ WITH
       STR_TO_MAP(substring(platform.http.http_referer, LOCATE('utm_content=', platform.http.http_referer), LENGTH(platform.http.http_referer)), '&','=')["utm_content"] AS utm_content,
       STR_TO_MAP(substring(platform.http.http_referer, LOCATE('utm_medium=', platform.http.http_referer), LENGTH(platform.http.http_referer)), '&','=')["utm_medium"]  AS utm_medium
     FROM tracks
-    WHERE (ds >= '2018-04-04' AND ds < '2018-04-05')
+    WHERE (ds >= ''@param01'' and ds < ''@param02'')
       AND path = '/landing/promotions'
       AND platform.http.http_referer LIKE '%Journey_Cobranza%'
     GROUP BY
