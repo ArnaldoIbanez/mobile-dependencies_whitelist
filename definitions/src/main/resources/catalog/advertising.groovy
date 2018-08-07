@@ -37,4 +37,33 @@ tracks {
         ad_status(required: true, description: "Current status related to the ad", values: ['active', 'paused'])
         previous_ad_status (required: true, description: "Previous status related to the ad", values: ['active', 'paused'])
     }
+
+//    Generic landing
+    "/advertising/pads2/generic_landing"(platform: "/", type: TrackType.View) {
+
+    }
+
+    "/advertising/pads2/generic_landing/main_action"(platform: "/", type: TrackType.Event) {
+        button(required: true, description: "Button that redirects to confirm page")
+    }
+
+    "/advertising/pads2/generic_landing/change_budget"(platform: "/", type: TrackType.Event) {
+
+    }
+
+    "/advertising/pads2/generic_landing/contract_confirmation"(platform: "/", type: TrackType.View) {
+
+    }
+
+    "/advertising/pads2/generic_landing/contract_confirmation/change_budget"(platform: "/", type: TrackType.Event) {
+
+    }
+
+    "/advertising/pads2/generic_landing/contract_confirmation/change_budget/confirm"(platform: "/", type: TrackType.Event) {
+        budget(required: true, description: "Budget defined before hiring, it's related to the campaign")
+    }
+
+    "/advertising/pads2/generic_landing/contract_confirmation/confirm"(platform: "/", type: TrackType.Event) {
+        budget(required: true, description: "Budget related to the campaign")
+    }
 }
