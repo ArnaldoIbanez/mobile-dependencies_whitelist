@@ -205,4 +205,72 @@ metrics {
 			}
 		}
 	}
+
+//	Advertising experiments
+	"advertising.contract_confirm"(description: "Track user contracts advertising as success") {
+		startWith {
+			experiment("advertising/pads2/contractFlow")
+		}
+
+		countsOn {
+			condition {
+				path("/advertising/pads2/generic_landing/contract_confirmation/confirm")
+			}
+		}
+	}
+
+	"advertising.landing_change_budget"(description: "Track budget changes  as success") {
+		startWith {
+			experiment("advertising/pads2/contractFlow")
+		}
+
+		countsOn {
+			condition {
+				path("/advertising/pads2/generic_landing/contract_confirmation/change_budget/confirm")
+			}
+		}
+	}
+
+	"advertising.landing_change_budget_intention"(description: "Track user interaction with change budget as success") {
+		startWith {
+			experiment("advertising/pads2/contractFlow")
+		}
+
+		countsOn {
+			condition {
+				path("/advertising/pads2/generic_landing/contract_confirmation/change_budget")
+			}
+		}
+	}
+
+	"advertising.contract_intention.button_top"(description: "Track user interaction with main action as success") {
+		startWith {
+			experiment("advertising/pads2/contractFlow")
+		}
+
+		countsOn {
+			condition {
+				path("/advertising/pads2/generic_landing/main_action")
+				and(
+						equals("event_data.button", "top")
+				)
+			}
+		}
+	}
+
+	"advertising.contract_intention.button_bottom"(description: "Track user interaction with main action  as success") {
+		startWith {
+			experiment("advertising/pads2/contractFlow")
+		}
+
+		countsOn {
+			condition {
+				path("/advertising/pads2/generic_landing/main_action")
+				and(
+						equals("event_data.button", "bottom")
+				)
+			}
+		}
+	}
+
 }
