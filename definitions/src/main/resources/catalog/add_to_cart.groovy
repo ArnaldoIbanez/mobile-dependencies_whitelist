@@ -34,7 +34,13 @@ tracks {
     }
 
     "/add_cart_intention"(platform: "/", type: TrackType.Event) {
-        /*TO DO: add items. Waiting for vip-backend */
+        items(required: true, description: "Item ids that are being added", type: PropertyType.ArrayList)
+         //currency_id
+         //item
+             //id
+             //category_id
+         //quantity
+         //unit_price
         add_cart_info
     }
 

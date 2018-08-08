@@ -85,24 +85,28 @@ trackTests {
             add_to_cart_availability = "no_high_ratio"
             main_action = "buy"
             context = "/vip"
+            items = ["MLB754486062", "MLB754486062"]
         }
 
         "/add_cart_intention"(platform: "/mobile/ios", type: TrackType.Event) {
             add_to_cart_availability = "no_high_ratio"
             main_action = "buy"
             context = "/vip"
+            items = ["MLB754486062", "MLB754486062"]
         }
 
         "/add_cart_intention"(platform: "/mobile/android", type: TrackType.Event) {
             add_to_cart_availability = "no_high_ratio"
             main_action = "buy"
             context = "/vip"
+            items = ["MLB754486062", "MLB754486062"]
         }
 
         "/add_cart_intention"(platform: "/web/mobile", type: TrackType.Event) {
             add_to_cart_availability = "no_high_ratio"
             main_action = "buy"
             context = "/vip"
+            items = ["MLB754486062", "MLB754486062"]
         }
     }
 }
