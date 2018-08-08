@@ -207,29 +207,7 @@ metrics {
 	}
 
 //	Advertising experiments
-	"advertising.landing_interest"(description: "Track user interest on advertising as success") {
-		startWith {
-			experiment("advertising/pads2/contractFlow")
-		}
 
-		countsOn {
-			condition {
-				path("/advertising/pads2/generic_landing")
-			}
-		}
-	}
-
-	"advertising.contract_confirm_intention"(description: "Track user intention to contract advertising as success") {
-		startWith {
-			experiment("advertising/pads2/contractFlow")
-		}
-
-		countsOn {
-			condition {
-				path("/advertising/pads2/generic_landing/contract_confirmation")
-			}
-		}
-	}
 
 	"advertising.contract_confirm"(description: "Track user contracts advertising as success") {
 		startWith {
