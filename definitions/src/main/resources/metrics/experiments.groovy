@@ -207,6 +207,30 @@ metrics {
 	}
 
 //	Advertising experiments
+	"advertising.landing_interest"(description: "Track user interest on advertising as success") {
+		startWith {
+			experiment("advertising/pads2/contractFlow")
+		}
+
+		countsOn {
+			condition {
+				path("/advertising/pads2/generic_landing")
+			}
+		}
+	}
+
+	"advertising.contract_confirm_intention"(description: "Track user intention to contract advertising as success") {
+		startWith {
+			experiment("advertising/pads2/contractFlow")
+		}
+
+		countsOn {
+			condition {
+				path("/advertising/pads2/generic_landing/contract_confirmation")
+			}
+		}
+	}
+
 	"advertising.contract_confirm"(description: "Track user contracts advertising as success") {
 		startWith {
 			experiment("advertising/pads2/contractFlow")
@@ -219,7 +243,7 @@ metrics {
 		}
 	}
 
-	"advertising.landing_change_budget"(description: "Track budget changes  as success") {
+	"advertising.landing_change_budget"(description: "Track budget changes as success") {
 		startWith {
 			experiment("advertising/pads2/contractFlow")
 		}
@@ -231,7 +255,19 @@ metrics {
 		}
 	}
 
-	"advertising.landing_change_budget_intention"(description: "Track user interaction with change budget as success") {
+	"advertising.landing_change_budget_intention"(description: "Track user interaction with change budget button from principal landing as success") {
+		startWith {
+			experiment("advertising/pads2/contractFlow")
+		}
+
+		countsOn {
+			condition {
+				path("/advertising/pads2/generic_landing/change_budget")
+			}
+		}
+	}
+
+	"advertising.landing_change_budget_intention"(description: "Track user interaction with change budget button from confirm page as success") {
 		startWith {
 			experiment("advertising/pads2/contractFlow")
 		}
@@ -243,7 +279,7 @@ metrics {
 		}
 	}
 
-	"advertising.contract_intention.button_top"(description: "Track user interaction with main action as success") {
+	"advertising.contract_intention.button_top"(description: "Track user interaction with main action top button as success") {
 		startWith {
 			experiment("advertising/pads2/contractFlow")
 		}
@@ -258,7 +294,7 @@ metrics {
 		}
 	}
 
-	"advertising.contract_intention.button_bottom"(description: "Track user interaction with main action  as success") {
+	"advertising.contract_intention.button_bottom"(description: "Track user interaction with main action bottom button as success") {
 		startWith {
 			experiment("advertising/pads2/contractFlow")
 		}
