@@ -211,60 +211,60 @@ metrics {
 
 	"advertising.contract_confirm"(description: "Track user contracts advertising as success") {
 		startWith {
-			experiment("advertising/pads2/contractFlow")
+			experiment("mclics/landingpads2")
 		}
 
 		countsOn {
 			condition {
-				path("/advertising/pads2/generic_landing/contract_confirmation/confirm")
+				path("/advertising/pads2/landing/contract_confirmation/confirm")
 			}
 		}
 	}
 
 	"advertising.landing_change_budget"(description: "Track budget changes as success") {
 		startWith {
-			experiment("advertising/pads2/contractFlow")
+			experiment("mclics/landingpads2")
 		}
 
 		countsOn {
 			condition {
-				path("/advertising/pads2/generic_landing/contract_confirmation/change_budget/confirm")
+				path("/advertising/pads2/landing/contract_confirmation/change_budget/confirm")
 			}
 		}
 	}
 
 	"advertising.landing_change_budget_intention"(description: "Track user interaction with change budget button from principal landing as success") {
 		startWith {
-			experiment("advertising/pads2/contractFlow")
+			experiment("mclics/landingpads2")
 		}
 
 		countsOn {
 			condition {
-				path("/advertising/pads2/generic_landing/change_budget")
+				path("/advertising/pads2/landing/change_budget")
 			}
 		}
 	}
 
 	"advertising.landing_change_budget_intention"(description: "Track user interaction with change budget button from confirm page as success") {
 		startWith {
-			experiment("advertising/pads2/contractFlow")
+			experiment("mclics/landingpads2")
 		}
 
 		countsOn {
 			condition {
-				path("/advertising/pads2/generic_landing/contract_confirmation/change_budget")
+				path("/advertising/pads2/landing/contract_confirmation/change_budget")
 			}
 		}
 	}
 
 	"advertising.contract_intention.button_top"(description: "Track user interaction with main action top button as success") {
 		startWith {
-			experiment("advertising/pads2/contractFlow")
+			experiment("mclics/landingpads2")
 		}
 
 		countsOn {
 			condition {
-				path("/advertising/pads2/generic_landing/main_action")
+				path("/advertising/pads2/landing/main_action")
 				and(
 						equals("event_data.button", "top")
 				)
@@ -274,12 +274,12 @@ metrics {
 
 	"advertising.contract_intention.button_bottom"(description: "Track user interaction with main action bottom button as success") {
 		startWith {
-			experiment("advertising/pads2/contractFlow")
+			experiment("mclics/landingpads2")
 		}
 
 		countsOn {
 			condition {
-				path("/advertising/pads2/generic_landing/main_action")
+				path("/advertising/pads2/landing/main_action")
 				and(
 						equals("event_data.button", "bottom")
 				)

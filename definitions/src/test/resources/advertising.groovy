@@ -40,23 +40,23 @@ trackTests {
     }
 
     test("Advertising generic landing") {
-        "/advertising/pads2/generic_landing"(platform: "/web", type: TrackType.View) {}
+        "/advertising/pads2/landing"(platform: "/web", type: TrackType.View) {}
 
-        "/advertising/pads2/generic_landing/main_action"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/landing/main_action"(platform: "/web", type: TrackType.Event) {
             button = "top"
         }
 
-        "/advertising/pads2/generic_landing/change_budget"(platform: "/web", type: TrackType.Event) {}
+        "/advertising/pads2/landing/change_budget"(platform: "/web", type: TrackType.Event) {}
 
-        "/advertising/pads2/generic_landing/contract_confirmation"(platform: "/web", type: TrackType.View) {}
+        "/advertising/pads2/landing/contract_confirmation"(platform: "/web", type: TrackType.View) {}
 
-        "/advertising/pads2/generic_landing/contract_confirmation/change_budget"(platform: "/web", type: TrackType.Event) {}
+        "/advertising/pads2/landing/contract_confirmation/change_budget"(platform: "/web", type: TrackType.Event) {}
 
-        "/advertising/pads2/generic_landing/contract_confirmation/change_budget/confirm"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/landing/contract_confirmation/change_budget/confirm"(platform: "/web", type: TrackType.Event) {
             budget = "22.22"
         }
 
-        "/advertising/pads2/generic_landing/contract_confirmation/confirm"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/web", type: TrackType.Event) {
             budget = "22.22"
         }
     }
