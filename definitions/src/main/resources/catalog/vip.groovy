@@ -45,10 +45,8 @@ tracks {
         currency_id(required: false, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
         discount_reasons( required: false, type: PropertyType.ArrayList, description: "The discounts applied to this item original_price, to finally show price (loyalty, deal)")
 
-        review_rate(required: false, type: PropertyType.Numeric, inheritable: false,
-                description: "The rating average of the reviews")
-        reviews_attributes(required: false, type: PropertyType.ArrayList, inheritable: false,
-                description: "Reviewable catalog attribute names")
+        review_rate(required: false, type: PropertyType.Numeric, description: "The rating average of the reviews")
+        reviews_attributes(required: false, type: PropertyType.ArrayList, description: "Reviewable catalog attribute names")
         return_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has free return for the item")
         cart_content(required: false, type: PropertyType.Boolean,
