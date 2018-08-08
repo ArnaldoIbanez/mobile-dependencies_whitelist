@@ -59,7 +59,6 @@ trackTests {
         })
 
         "/vip/failure"(platform:"/mobile", {
-            mandatory()
             item_id = "MLA533657947"
             error_message = "any message"
         })
@@ -160,13 +159,13 @@ trackTests {
 
         "/vip/map"(platform:"/mobile", mandatory)
 
-        "/vip/seller_reputation"(platform:"/mobile", mandatory)
+        "/vip/seller_reputation"(platform:"/mobile")
 
         "/vip/seller_reputation/ratings"(platform:"/mobile", mandatory)
 
-        "/vip/payment_method"(platform: "/mobile", mandatory)
+        "/vip/payment_method"(platform: "/mobile")
 
-        "/vip/payment_method/back"(platform: "/mobile", mandatory)
+        "/vip/payment_method/back"(platform: "/mobile")
 
         "/vip/variations"(platform: "/mobile"){
             item_id = "MLA533657947"
