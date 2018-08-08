@@ -210,6 +210,8 @@ tracks {
         view(type: PropertyType.String, required: true, description: "Current Feedback step name where the action is taking place")
         event_type(type: PropertyType.String, required: true, description: "Describes user action in current step")
         view_type(type: PropertyType.String, required: false, description: "Feedback step flavor, dependent on user answer")
+        notification_id(type: PropertyType.String, required: false, description: "Current notification id, when it applies")
+        phone_status(type: PropertyType.String, required: false, description: "Whether the user has phone or not, dependent on step")
     }
 
     //SMS Enrollment
