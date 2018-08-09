@@ -207,9 +207,9 @@ metrics {
 	}
 
 //	Advertising experiments
+//  dpto.page.action.scope
 
-
-	"advertising.confirmation.contract_confirm"(description: "Track user contracts advertising as success over views") {
+	"advertising.confirmation.contract_confirm.all_users"(description: "Track user contracts advertising as success ") {
 		startWith {
 			experiment("mclics/landingpads2")
 			condition {
@@ -230,7 +230,7 @@ metrics {
 		}
 	}
 
-	"advertising.confirmation.change_budget"(description: "Track budget changes as success over views") {
+	"advertising.confirmation.contract_confirm.free_trial"(description: "Track user contracts advertising with free trial as success ") {
 		startWith {
 			experiment("mclics/landingpads2")
 			condition {
@@ -238,7 +238,7 @@ metrics {
 				and(
 						equals("type", "view"),
 						or(
-								path("/advertising/pads2/landing/contract_confirmation/change_budget/confirm")
+								path("/advertising/pads2/landing/contract_confirmation/confirm")
 						)
 				)
 			}
@@ -246,33 +246,15 @@ metrics {
 
 		countsOn {
 			condition {
-				path("/advertising/pads2/landing/contract_confirmation/change_budget/confirm")
-			}
-		}
-	}
-
-	"advertising.landing.change_budget_intention"(description: "Track user interaction with change budget button from principal landing as success over views") {
-		startWith {
-			experiment("mclics/landingpads2")
-			condition {
-				equals("event_data.page", "landing")
+				path("/advertising/pads2/landing/contract_confirmation/confirm")
 				and(
-						equals("type", "view"),
-						or(
-								path("/advertising/pads2/landing/change_budget")
-						)
+						equals("event_data.free_trial_ad", true)
 				)
-			}
-		}
-
-		countsOn {
-			condition {
-				path("/advertising/pads2/landing/change_budget")
 			}
 		}
 	}
 
-	"advertising.confirmation.change_budget_intention"(description: "Track user interaction with change budget button from confirm page as success over views") {
+	"advertising.confirmation.contract_confirm.no_free_trial"(description: "Track user contracts advertising without free trial as success ") {
 		startWith {
 			experiment("mclics/landingpads2")
 			condition {
@@ -280,7 +262,7 @@ metrics {
 				and(
 						equals("type", "view"),
 						or(
-								path("/advertising/pads2/landing/contract_confirmation/change_budget")
+								path("/advertising/pads2/landing/contract_confirmation/confirm")
 						)
 				)
 			}
@@ -288,12 +270,15 @@ metrics {
 
 		countsOn {
 			condition {
-				path("/advertising/pads2/landing/contract_confirmation/change_budget")
+				path("/advertising/pads2/landing/contract_confirmation/confirm")
+				and(
+						equals("event_data.free_trial_ad", false)
+				)
 			}
 		}
 	}
 
-	"advertising.landing.contract_intention.button_top"(description: "Track user interaction with main action top button as success over views") {
+	"advertising.landing.contract_intention.button_top"(description: "Track user interaction with main action top button as success") {
 		startWith {
 			experiment("mclics/landingpads2")
 			condition {
@@ -320,7 +305,7 @@ metrics {
 		}
 	}
 
-	"advertising.landing.contract_intention.button_bottom"(description: "Track user interaction with main action bottom button as success over views") {
+	"advertising.landing.contract_intention.button_bottom"(description: "Track user interaction with main action bottom button as success") {
 		startWith {
 			experiment("mclics/landingpads2")
 			condition {
@@ -347,4 +332,108 @@ metrics {
 		}
 	}
 
+	"advertising.landing.contract_intention.free_trial"(description: "Track user interaction with main action bottom button when he has free trial as success") {
+		startWith {
+			experiment("mclics/landingpads2")
+			condition {
+				equals("event_data.page", "landing")
+				and(
+						equals("type", "view"),
+						or(
+								path("/advertising/pads2/landing/main_action")
+						)
+				)
+			}
+		}
+
+		countsOn {
+			condition {
+				path("/advertising/pads2/landing/main_action")
+				and(
+						equals("event_data.free_trial_ad", true)
+				)
+			}
+		}
+	}
+
+	"advertising.landing.contract_intention.no_free_trial"(description: "Track user interaction with main action bottom button when he doesnt have free trial as success") {
+		startWith {
+			experiment("mclics/landingpads2")
+			condition {
+				equals("event_data.page", "landing")
+				and(
+						equals("type", "view"),
+						or(
+								path("/advertising/pads2/landing/main_action")
+						)
+				)
+			}
+		}
+
+		countsOn {
+			condition {
+				path("/advertising/pads2/landing/main_action")
+				and(
+						equals("event_data.free_trial_ad", false)
+				)
+			}
+		}
+	}
+
+	"advertising.confirmation.change_budget_intention"(description: "Track user interaction with change budget button from confirmation page as success") {
+		startWith {
+			experiment("mclics/landingpads2")
+			condition {
+				equals("event_data.page", "landing")
+				and(
+						equals("type", "view"),
+						or(
+								path("/advertising/pads2/landing/contract_confirmation/change_budget")
+						)
+				)
+			}
+		}
+
+		countsOn {
+			condition {
+				path("/advertising/pads2/landing/contract_confirmation/change_budget")
+			}
+		}
+	}
+
+	"advertising.landing.change_budget_intention"(description: "Track user interaction with change budget button from principal landing as success") {
+		startWith {
+			experiment("mclics/landingpads2")
+			condition {
+				equals("event_data.page", "landing")
+				and(
+						equals("type", "view"),
+						or(
+								path("/advertising/pads2/landing/change_budget")
+						)
+				)
+			}
+		}
+
+		countsOn {
+			condition {
+				path("/advertising/pads2/landing/change_budget")
+			}
+		}
+	}
+
+	"advertising.confirmation.change_budget"(description: "Track budget changes as success ") {
+		startWith {
+			experiment("mclics/landingpads2")
+			condition {
+				path("/advertising/pads2/landing/contract_confirmation/change_budget/confirm", "/advertising/pads2/landing/change_budget", "/advertising/pads2/landing/contract_confirmation/change_budget")
+			}
+		}
+
+		countsOn {
+			condition {
+				path("/advertising/pads2/landing/contract_confirmation/change_budget/confirm")
+			}
+		}
+	}
 }
