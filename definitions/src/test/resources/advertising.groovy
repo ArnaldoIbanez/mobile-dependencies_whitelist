@@ -42,6 +42,7 @@ trackTests {
     test("Advertising landing") {
         "/advertising/pads2/landing"(platform: "/web", type: TrackType.View) {
             page = "landing"
+            free_trial_ad = true
         }
 
         "/advertising/pads2/landing/main_action"(platform: "/web", type: TrackType.Event) {
@@ -50,27 +51,30 @@ trackTests {
             free_trial_ad = true
         }
 
-        "/advertising/pads2/landing/change_budget"(platform: "/web", type: TrackType.Event) {
-            page = "landing"
-        }
-
         "/advertising/pads2/landing/contract_confirmation"(platform: "/web", type: TrackType.View) {
             page = "landing"
+            free_trial_ad = true
+        }
+        "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/web", type: TrackType.Event) {
+            page = "landing"
+            budget = "22.22"
+            free_trial_ad = true
         }
 
         "/advertising/pads2/landing/contract_confirmation/change_budget"(platform: "/web", type: TrackType.Event) {
             page = "landing"
+            free_trial_ad = false
+        }
+
+        "/advertising/pads2/landing/change_budget"(platform: "/web", type: TrackType.Event) {
+            page = "landing"
+            free_trial_ad = false
         }
 
         "/advertising/pads2/landing/contract_confirmation/change_budget/confirm"(platform: "/web", type: TrackType.Event) {
             page = "landing"
             budget = "22.22"
-        }
-
-        "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/web", type: TrackType.Event) {
-            page = "landing"
-            budget = "22.22"
-            free_trial_ad = true
+            free_trial_ad = false
         }
     }
 }
