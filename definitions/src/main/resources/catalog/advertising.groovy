@@ -41,34 +41,39 @@ tracks {
 //    Generic landing
     "/advertising/pads2/landing"(platform: "/web", type: TrackType.View) {
         page(required: true, description: "Indicates what type of page are we tracking")
+        free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
     }
 
     "/advertising/pads2/landing/main_action"(platform: "/web", type: TrackType.Event) {
         page(required: true, description: "Indicates what type of page are we tracking")
         button(required: true, description: "Button that redirects to confirm page")
-        free_trial_ad(required: true, description: "Indicates if user is suitable for free trial", values: [true, false])
+        free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
     }
 
     "/advertising/pads2/landing/contract_confirmation"(platform: "/web", type: TrackType.View) {
         page(required: true, description: "Indicates what type of page are we tracking")
+        free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
     }
 
     "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/web", type: TrackType.Event) {
         page(required: true, description: "Indicates what type of page are we tracking")
         budget(required: true, description: "Budget related to the campaign")
-        free_trial_ad(required: true, description: "Indicates if user is suitable for free trial", values: [true, false])
+        free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
     }
 
     "/advertising/pads2/landing/change_budget"(platform: "/web", type: TrackType.Event) {
         page(required: true, description: "Indicates what type of page are we tracking")
+        free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
     }
 
     "/advertising/pads2/landing/contract_confirmation/change_budget"(platform: "/web", type: TrackType.Event) {
         page(required: true, description: "Indicates what type of page are we tracking")
+        free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
     }
 
     "/advertising/pads2/landing/contract_confirmation/change_budget/confirm"(platform: "/web", type: TrackType.Event) {
         page(required: true, description: "Indicates what type of page are we tracking")
         budget(required: true, description: "Budget defined before hiring, it's related to the campaign")
+        free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
     }
 }
