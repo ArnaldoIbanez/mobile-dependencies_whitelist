@@ -52,6 +52,8 @@ tracks {
         cart_content(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the VIP has cart features (only for core items)")
         add_cart_info
+        has_credit_available(required: false, type: PropertyType.Boolean,
+                           description: "Indicates if the user has a credit available for the current item")
 
         //SELLER FIELDS
         seller_id(required: true, type: PropertyType.Numeric)
