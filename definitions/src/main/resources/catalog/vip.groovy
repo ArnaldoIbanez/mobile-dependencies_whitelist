@@ -52,6 +52,8 @@ tracks {
         cart_content(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the VIP has cart features (only for core items)")
         add_cart_info
+        has_credit_available(required: false, type: PropertyType.Boolean,
+                           description: "Indicates if the user has a credit available for the current item")
 
         //SELLER FIELDS
         seller_id(required: true, type: PropertyType.Numeric)
@@ -105,7 +107,10 @@ tracks {
                 description: "The value of the discount when the user subscribes to the item")
         default_tab(required: false, type: PropertyType.String, values: ["buy", "subscription"],
                 description: "Indicates if the 'buy' tab or the 'subscription' tab is shown by default in the short description")
-
+        
+        // TOOLTIPS
+        shown_tooltip(required: false, type: PropertyType.String,
+                      description: "Indicates which tooltip is shown in the VIP at the time, if any. In case it does not show anything, it should be 'none'. E.g: 'credits', 'subscription', 'cart_benefit_free_shipping', etc.")
     }
 
     "/vip"(platform: "/web") {
