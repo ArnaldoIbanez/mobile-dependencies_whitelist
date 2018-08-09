@@ -105,7 +105,10 @@ tracks {
                 description: "The value of the discount when the user subscribes to the item")
         default_tab(required: false, type: PropertyType.String, values: ["buy", "subscription"],
                 description: "Indicates if the 'buy' tab or the 'subscription' tab is shown by default in the short description")
-
+        
+        // TOOLTIPS
+        shown_tooltip(required: false, type: PropertyType.String,
+                      description: "Indicates which tooltip is shown in the VIP at the time, if any. In case it does not show anything, it should be 'none'")
     }
 
     "/vip"(platform: "/web") {
