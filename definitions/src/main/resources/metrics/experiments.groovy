@@ -209,7 +209,7 @@ metrics {
 //	Advertising experiments
 
 
-	"advertising.confirmation.contract_confirm"(description: "Track user contracts advertising as success") {
+	"advertising.confirmation.contract_confirm"(description: "Track user contracts advertising as success over views") {
 		startWith {
 			experiment("mclics/landingpads2")
 			condition {
@@ -230,7 +230,7 @@ metrics {
 		}
 	}
 
-	"advertising.confirmation.change_budget"(description: "Track budget changes as success") {
+	"advertising.confirmation.change_budget"(description: "Track budget changes as success over views") {
 		startWith {
 			experiment("mclics/landingpads2")
 			condition {
@@ -251,7 +251,7 @@ metrics {
 		}
 	}
 
-	"advertising.landing.change_budget_intention"(description: "Track user interaction with change budget button from principal landing as success") {
+	"advertising.landing.change_budget_intention"(description: "Track user interaction with change budget button from principal landing as success over views") {
 		startWith {
 			experiment("mclics/landingpads2")
 			condition {
@@ -272,7 +272,7 @@ metrics {
 		}
 	}
 
-	"advertising.confirmation.change_budget_intention"(description: "Track user interaction with change budget button from confirm page as success") {
+	"advertising.confirmation.change_budget_intention"(description: "Track user interaction with change budget button from confirm page as success over views") {
 		startWith {
 			experiment("mclics/landingpads2")
 			condition {
@@ -293,7 +293,7 @@ metrics {
 		}
 	}
 
-	"advertising.landing.contract_intention.button_top"(description: "Track user interaction with main action top button as success") {
+	"advertising.landing.contract_intention.button_top"(description: "Track user interaction with main action top button as success over views") {
 		startWith {
 			experiment("mclics/landingpads2")
 			condition {
@@ -320,7 +320,7 @@ metrics {
 		}
 	}
 
-	"advertising.landing.contract_intention.button_bottom"(description: "Track user interaction with main action bottom button as success") {
+	"advertising.landing.contract_intention.button_bottom"(description: "Track user interaction with main action bottom button as success over views") {
 		startWith {
 			experiment("mclics/landingpads2")
 			condition {
