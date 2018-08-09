@@ -22,6 +22,9 @@ trackTests {
 
     test("seller central listing filters") {
         "/seller_central/listings/filters"(platform: "/", type: TrackType.Event) {}
+        "/seller_central/listings/action"(platform: "/", type: TrackType.Event) {
+            action_id = "MODIFY"
+        }
     }
 
 }
