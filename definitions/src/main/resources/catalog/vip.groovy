@@ -108,7 +108,7 @@ tracks {
         
         // TOOLTIPS
         shown_tooltip(required: false, type: PropertyType.String,
-                      description: "Indicates which tooltip is shown in the VIP at the time, if any. In case it does not show anything, it should be 'none'")
+                      description: "Indicates which tooltip is shown in the VIP at the time, if any. In case it does not show anything, it should be 'none'. E.g: 'credits', 'subscription', 'cart_benefit_free_shipping', etc.")
     }
 
     "/vip"(platform: "/web") {
