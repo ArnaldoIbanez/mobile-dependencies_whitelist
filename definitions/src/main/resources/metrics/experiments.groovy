@@ -209,9 +209,18 @@ metrics {
 //	Advertising experiments
 
 
-	"advertising.contract_confirm"(description: "Track user contracts advertising as success") {
+	"advertising.confirmation.contract_confirm"(description: "Track user contracts advertising as success") {
 		startWith {
 			experiment("mclics/landingpads2")
+			condition {
+				equals("event_data.page", "confirmation")
+				and(
+						equals("type", "view"),
+						or(
+								path("/advertising/pads2/landing/contract_confirmation/confirm")
+						)
+				)
+			}
 		}
 
 		countsOn {
@@ -221,9 +230,18 @@ metrics {
 		}
 	}
 
-	"advertising.landing_change_budget"(description: "Track budget changes as success") {
+	"advertising.confirmation.change_budget"(description: "Track budget changes as success") {
 		startWith {
 			experiment("mclics/landingpads2")
+			condition {
+				equals("event_data.page", "confirmation")
+				and(
+						equals("type", "view"),
+						or(
+								path("/advertising/pads2/landing/contract_confirmation/change_budget/confirm")
+						)
+				)
+			}
 		}
 
 		countsOn {
@@ -233,9 +251,18 @@ metrics {
 		}
 	}
 
-	"advertising.landing_change_budget_intention"(description: "Track user interaction with change budget button from principal landing as success") {
+	"advertising.landing.change_budget_intention"(description: "Track user interaction with change budget button from principal landing as success") {
 		startWith {
 			experiment("mclics/landingpads2")
+			condition {
+				equals("event_data.page", "landing")
+				and(
+						equals("type", "view"),
+						or(
+								path("/advertising/pads2/landing/change_budget")
+						)
+				)
+			}
 		}
 
 		countsOn {
@@ -245,9 +272,18 @@ metrics {
 		}
 	}
 
-	"advertising.landing_change_budget_intention"(description: "Track user interaction with change budget button from confirm page as success") {
+	"advertising.confirmation.change_budget_intention"(description: "Track user interaction with change budget button from confirm page as success") {
 		startWith {
 			experiment("mclics/landingpads2")
+			condition {
+				equals("event_data.page", "confirmation")
+				and(
+						equals("type", "view"),
+						or(
+								path("/advertising/pads2/landing/contract_confirmation/change_budget")
+						)
+				)
+			}
 		}
 
 		countsOn {
@@ -257,9 +293,21 @@ metrics {
 		}
 	}
 
-	"advertising.contract_intention.button_top"(description: "Track user interaction with main action top button as success") {
+	"advertising.landing.contract_intention.button_top"(description: "Track user interaction with main action top button as success") {
 		startWith {
 			experiment("mclics/landingpads2")
+			condition {
+				equals("event_data.page", "landing")
+				and(
+						equals("type", "view"),
+						or(
+								path("/advertising/pads2/landing/main_action"),
+								and(
+										equals("event_data.button", "top")
+								)
+						)
+				)
+			}
 		}
 
 		countsOn {
@@ -272,9 +320,21 @@ metrics {
 		}
 	}
 
-	"advertising.contract_intention.button_bottom"(description: "Track user interaction with main action bottom button as success") {
+	"advertising.landing.contract_intention.button_bottom"(description: "Track user interaction with main action bottom button as success") {
 		startWith {
 			experiment("mclics/landingpads2")
+			condition {
+				equals("event_data.page", "landing")
+				and(
+						equals("type", "view"),
+						or(
+								path("/advertising/pads2/landing/main_action"),
+								and(
+										equals("event_data.button", "bottom")
+								)
+						)
+				)
+			}
 		}
 
 		countsOn {
