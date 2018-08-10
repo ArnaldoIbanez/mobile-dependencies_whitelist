@@ -128,13 +128,26 @@ tracks {
 
     "/vip/abort"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/vip/failure"(platform: "/mobile", type: TrackType.Event) {
+    "/vip/failure"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String,
+                description: "Item ID")
         error_message()
     }
 
-    "/vip/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/vip/back"(platform: "/mobile", type: TrackType.Event) {
+        category_id(required: false, type: PropertyType.String, description: "Item's category id")
+        buying_mode(required: false, type: PropertyType.String, description: "Indicates if it's an auction, buy_it_now or classified")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        vertical(required: false, type: PropertyType.String, description: "Vertical of the item")
+        item_condition(required: false, type: PropertyType.String, description: "Whether the item is new, used or refurbished")
+        listing_type_id(required: false, type: PropertyType.String, description: "Listing type of the item")
+        item_status(required: false, type: PropertyType.String, description: "Whenever the items is active, closed or paused")
+        deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
+        billboard_clicked_position(required: false, type: PropertyType.String, description: "Clicked billboard index. We use it to track when the user entered to VIP via Billboard")
+        seller_id(required: false, type: PropertyType.Numeric)
+    }
 
-    "/vip/seller_reputation"(platform: "/mobile") {}
+    "/vip/seller_reputation"(platform: "/mobile", parentPropertiesInherited: false) {}
 
     "/vip/seller_reputation/ratings"(platform: "/mobile") {}
 
@@ -197,9 +210,9 @@ tracks {
 
     "/vip/map/"(platform: "/mobile") {}
 
-    "/vip/payment_method"(platform: "/mobile") {}
+    "/vip/payment_method"(platform: "/mobile", parentPropertiesInherited: false) {}
 
-    "/vip/payment_method/back"(platform: "/mobile") {}
+    "/vip/payment_method/back"(platform: "/mobile", parentPropertiesInherited: false) {}
 
     "/vip/variations"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String,
@@ -217,7 +230,9 @@ tracks {
 
     "/vip/protected_purchase/close"(platform: "/web/mobile", type: TrackType.Event) {}
 
-    "/vip/quantity"(platform: "/mobile") {}
+    "/vip/quantity"(platform: "/mobile") {
+         item_id(required: true, type: PropertyType.String, description: "Item ID")
+    }
 
     "/vip/reviews"(platform: "/", type: TrackType.View) {
         show(required: false, inheritable: false, type: PropertyType.String)
