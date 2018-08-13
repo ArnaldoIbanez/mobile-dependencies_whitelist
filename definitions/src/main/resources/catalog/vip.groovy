@@ -232,7 +232,7 @@ tracks {
 
     "/vip/protected_purchase/close"(platform: "/web/mobile", type: TrackType.Event) {}
 
-    "/vip/quantity"(platform: "/mobile") {
+    "/vip/quantity"(platform: "/mobile", parentPropertiesInherited: false) {
          item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 
