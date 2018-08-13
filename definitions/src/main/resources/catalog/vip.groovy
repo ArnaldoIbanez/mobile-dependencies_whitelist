@@ -145,6 +145,8 @@ tracks {
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         billboard_clicked_position(required: false, type: PropertyType.String, description: "Clicked billboard index. We use it to track when the user entered to VIP via Billboard")
         seller_id(required: false, type: PropertyType.Numeric)
+        review_rate(required: false, type: PropertyType.Numeric, description: "The rating average of the reviews")
+        reviews_attributes(required: false, type: PropertyType.ArrayList, description: "Reviewable catalog attribute names")
     }
 
     "/vip/seller_reputation"(platform: "/mobile", parentPropertiesInherited: false) {}
@@ -175,7 +177,6 @@ tracks {
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
         source(required: false, description: "Source of the referred")
     }
-
 
     "/vip/call_seller"(platform: "/", type: TrackType.Event) {
         category_id(required: false, type: PropertyType.String,
@@ -230,7 +231,7 @@ tracks {
 
     "/vip/protected_purchase/close"(platform: "/web/mobile", type: TrackType.Event) {}
 
-    "/vip/quantity"(platform: "/mobile") {
+    "/vip/quantity"(platform: "/mobile", parentPropertiesInherited: false) {
          item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 

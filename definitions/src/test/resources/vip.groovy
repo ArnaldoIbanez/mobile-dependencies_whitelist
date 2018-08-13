@@ -175,7 +175,9 @@ trackTests {
             item_id = "MLA533657947"
         }
 
-        "/vip/quantity"(platform: "/mobile", mandatory)
+        "/vip/quantity"(platform: "/mobile") {
+            item_id = "MLA533657947"
+        }
     }
 
     test("Vip web mobile tracking without reviews") {
