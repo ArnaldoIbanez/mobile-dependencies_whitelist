@@ -178,7 +178,6 @@ tracks {
         source(required: false, description: "Source of the referred")
     }
 
-
     "/vip/call_seller"(platform: "/", type: TrackType.Event) {
         category_id(required: false, type: PropertyType.String,
                 description: "Item's category ID"
