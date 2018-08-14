@@ -37,7 +37,10 @@ tracks {
 	"/wms/put_away/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {}
 	"/wms/put_away/scan_inventory/end_put_away"(platform: "/mobile/android", type: TrackType.Event) {}
 	"/wms/put_away/scan_inventory/cancel_put_away"(platform: "/mobile/android", type: TrackType.Event) {}
-	"/wms/put_away/item"(platform: "/mobile/android", type: TrackType.View) {}
+	"/wms/put_away/item"(platform: "/mobile/android", type: TrackType.View) {
+		inventory_id(required: true, type: PropertyType.String, description: "Inventory id")
+		quantity(required: true, type: PropertyType.Numeric, description: "Quantity")
+	}
 
 	"/wms/inbound_audit"(platform: "/mobile/android", type: TrackType.View) {}
 	"/wms/transfer"(platform: "/mobile/android", type: TrackType.View) {}
