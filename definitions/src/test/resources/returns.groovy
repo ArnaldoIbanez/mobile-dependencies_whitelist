@@ -153,9 +153,19 @@ trackTests {
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
       }
 
-      // Error Page
-      "/return/error"(platform: "/") {
+      // Warning Page for return created (view)
+      "/return/warning"(platform: "/") {
         previous_step = "delivery"
+        type = "return_created"
+        order_id = 1722099605
+        loyalty_level = 1
+        item_category = "MLA123123"
+        item_category_l1 = "MLA123"
+      }
+
+      // Warning Page for claim created (event)
+      "/return/warning/selection"(platform: "/") {
+        selection = "view_details"
       }
     }
 }

@@ -14,7 +14,7 @@ tracks {
       cart_order(required: false, type: PropertyType.Boolean, description: 'order created by cart')
       item_category(required: false, type: PropertyType.String, description: 'category of item')
       item_category_l1(required: false, type: PropertyType.String, description: 'main category of item')
-      refund_account_money(required: false, type: PropertyType.Boolean, description: 'refound money in the buyers account')
+      refund_account_money(required: false, type: PropertyType.Boolean, description: 'refund money in the buyers account')
       ref(required: false, type: PropertyType.String, description: 'reference of the beginning of the flow')
       buyer_scoring(required: false, type: PropertyType.String, description: 'buyer reputation level')
       seller_scoring(required: false, type: PropertyType.String, description: 'seller reputation level')
@@ -97,7 +97,11 @@ tracks {
         data(required: false, type: PropertyType.Map, description: 'context information to send')
     }
 
-    "/return/error"(platform: "/", type: TrackType.View) {
+    "/return/warning"(platform: "/", type: TrackType.View) {
       previous_step(required: false, type: PropertyType.String, description: 'step before the error')
+      type(required: false, type: PropertyType.String, description: 'if this order had a return or a claim', values: ['return_created', 'claim_created'])
+    }
+    "/return/warning/selection"(platform: "/", type: TrackType.Event) {
+        selection(required: true, type: PropertyType.String, description: 'button selected by the user', values: ['go_to_purchases', 'view_details'])
     }
 }
