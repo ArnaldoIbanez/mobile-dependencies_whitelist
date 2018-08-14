@@ -423,6 +423,10 @@ trackTests {
     test("MP-MA Landing QR") {
         "/merchant_acquisition/qr/landing" (platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/qr/landing/promotions"(platform: "/", type: TrackType.Event) {}
+        "/merchant_acquisition/qr/landing/video" (platform: "/", type: TrackType.Event) {
+            value = "hero"
+            trigger = "click_qr_video"
+        }
     }
 
     test("MP-MA Flow QR") {
