@@ -39,4 +39,35 @@ trackTests {
         }
     }
 
+    test("Advertising landing") {
+        "/advertising/pads2/landing"(platform: "/web", type: TrackType.View) {
+            free_trial_ad = true
+        }
+
+        "/advertising/pads2/landing/main_action"(platform: "/web", type: TrackType.Event) {
+            button = "top"
+            free_trial_ad = true
+        }
+
+        "/advertising/pads2/landing/contract_confirmation"(platform: "/web", type: TrackType.View) {
+            free_trial_ad = true
+        }
+        "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/web", type: TrackType.Event) {
+            budget = "22.22"
+            free_trial_ad = true
+        }
+
+        "/advertising/pads2/landing/contract_confirmation/change_budget"(platform: "/web", type: TrackType.Event) {
+            free_trial_ad = false
+        }
+
+        "/advertising/pads2/landing/change_budget"(platform: "/web", type: TrackType.Event) {
+            free_trial_ad = false
+        }
+
+        "/advertising/pads2/landing/contract_confirmation/change_budget/confirm"(platform: "/web", type: TrackType.Event) {
+            budget = "22.22"
+            free_trial_ad = false
+        }
+    }
 }

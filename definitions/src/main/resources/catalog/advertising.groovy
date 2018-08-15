@@ -37,4 +37,30 @@ tracks {
         ad_status(required: true, description: "Current status related to the ad", values: ['active', 'paused'])
         previous_ad_status (required: true, description: "Previous status related to the ad", values: ['active', 'paused'])
     }
+
+//    Generic landing
+    "/advertising/pads2/landing"(platform: "/web", type: TrackType.View) {
+        free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
+    }
+
+    "/advertising/pads2/landing/main_action"(platform: "/web", type: TrackType.Event) {
+        button(required: true, description: "Button that redirects to confirm page")
+    }
+
+    "/advertising/pads2/landing/contract_confirmation"(platform: "/web", type: TrackType.View) {
+    }
+
+    "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/web", type: TrackType.Event) {
+        budget(required: true, description: "Budget related to the campaign")
+    }
+
+    "/advertising/pads2/landing/change_budget"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/advertising/pads2/landing/contract_confirmation/change_budget"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/advertising/pads2/landing/contract_confirmation/change_budget/confirm"(platform: "/web", type: TrackType.Event) {
+        budget(required: true, description: "Budget defined before hiring, it's related to the campaign")
+    }
 }
