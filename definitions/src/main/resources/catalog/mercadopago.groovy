@@ -808,5 +808,9 @@ tracks {
     "/asset_management/result_investing"(platform: "/mobile", type: TrackType.View) {}
     //Faqs
     "/asset_management/faqs"(platform: "/mobile", type: TrackType.View) {}
+    //Splitter
+    "/asset_management/splitter"(platform: "/mobile", type: TrackType.View) {
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
 
 }

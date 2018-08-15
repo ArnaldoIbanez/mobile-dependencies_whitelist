@@ -3177,6 +3177,11 @@ trackTests {
         "/asset_management/faqs"(platform: "/mobile") {
             flow = "/asset_management"
         }
+        //Splitter
+        "/asset_management/splitter"(platform: "/mobile") {
+            flow = "/asset_management"
+            from = "/deep_link"
+        }
     }
 
 }
