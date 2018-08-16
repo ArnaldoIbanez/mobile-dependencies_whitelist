@@ -133,4 +133,13 @@ tracks {
     "/loyalty/subscribe"(platform: "/", type: TrackType.Event) {
         partner_id(required: true, description: "id of partner",type: PropertyType.String)
     }
+
+    //Campaigns
+    "/loyalty/campaign"(platform: "/", isAbstract: true,type: TrackType.Event){
+    }
+
+    "/loyalty/campaign/email"(platform: "/", type: TrackType.Event) {
+        action(required: true, description: "Action that we are tracking", type: PropertyType.String)
+        mail_origin(required: false, description: "Level group that received the email", type: PropertyType.String)
+    }
 }
