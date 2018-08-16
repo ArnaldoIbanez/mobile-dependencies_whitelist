@@ -84,6 +84,7 @@ tracks {
     }
 
     "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
+        source(required: false, values: ["mail"], description: "Landing was opened from...")
     }
 
     "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.Event){
@@ -132,5 +133,13 @@ tracks {
     //Partners
     "/loyalty/subscribe"(platform: "/", type: TrackType.Event) {
         partner_id(required: true, description: "id of partner",type: PropertyType.String)
+    }
+
+    //Campaigns
+    "/loyalty/campaign"(platform: "/", isAbstract: true,type: TrackType.Event){
+    }
+
+    "/loyalty/campaign/email"(platform: "/", type: TrackType.Event) {
+        action(required: true, description: "Action that we are tracking", type: PropertyType.String)
     }
 }

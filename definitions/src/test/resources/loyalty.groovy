@@ -181,6 +181,10 @@ trackTests {
     test("Loyalty Buy Level Landing"){
         "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
         }
+
+        "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
+            source="mail"
+        }
     }
 
     test("Loyalty Buy Level Checkout"){
@@ -222,6 +226,12 @@ trackTests {
 
         "/loyalty/subscribe"(platform: "/", type: TrackType.Event){
             partner_id = "fiter"
+        }
+    }
+
+    test("campaign"){
+        "/loyalty/campaign/email"(platform: "/", type: TrackType.Event) {
+            action = "open"
         }
     }
 }
