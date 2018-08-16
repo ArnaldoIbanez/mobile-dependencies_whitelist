@@ -119,6 +119,12 @@ trackTests {
         }
     }
 
+    test("Message") {
+        "/myml/invoices/message"(platform: "/") {
+            error = "not_right_tax_regime"
+        }
+    }
+
     test("Company info export invoice") {
         "/myml/invoices/company-info/zip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/zip/download"(platform: "/", type: TrackType.Event) {}

@@ -628,5 +628,9 @@ tracks {
         message(required: false, type: PropertyType.String, description: "Error message that pops on page")
     }
 
+    "/myml/invoices/message"(platform: "/") {
+        error(required: true, type: PropertyType.String, description: "Error code")
+    }
+
     "/myml/invoices/sku/status"(platform: "/") {}
 }
