@@ -9,10 +9,11 @@ tracks {
                 description: "Indicates which add_to_cart button the VIP is showing (Default, Discount, Free Shipping). In case it doesn't show it, also indicates the reason why it doesn't show it (High Ratio, Item price too low, Too many items in cart)")
         main_action(required: false, type: PropertyType.String, values: ["buy", "a2c_fs", "a2c_discount", "a2c_default"],
                 description: "Indicates which button the VIP is showing as main_action (ie, shown as blue button). If it is a2c, it then specifies which button type (default, fs, discount)")
+        items(required: false, description: "Item ids that will be added", type: PropertyType.ArrayList)
     }
     
     propertyGroups {
-        add_cart_info(add_to_cart_availability, main_action)
+        add_cart_info(add_to_cart_availability, main_action, items)
     }
 
     //VIP FLOW
