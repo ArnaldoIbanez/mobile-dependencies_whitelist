@@ -84,7 +84,6 @@ tracks {
     }
 
     "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
-        source(required: false, values: ["mail"], description: "Landing was opened from...")
     }
 
     "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.Event){
@@ -141,5 +140,6 @@ tracks {
 
     "/loyalty/campaign/email"(platform: "/", type: TrackType.Event) {
         action(required: true, description: "Action that we are tracking", type: PropertyType.String)
+        mail_origin(required: false, description: "Level group that received the email", type: PropertyType.String)
     }
 }

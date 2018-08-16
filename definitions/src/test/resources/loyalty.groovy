@@ -181,10 +181,6 @@ trackTests {
     test("Loyalty Buy Level Landing"){
         "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
         }
-
-        "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
-            source="mail"
-        }
     }
 
     test("Loyalty Buy Level Checkout"){
@@ -232,6 +228,12 @@ trackTests {
     test("campaign"){
         "/loyalty/campaign/email"(platform: "/", type: TrackType.Event) {
             action = "open"
+            mail_origin = "level_1_2"
+        }
+
+        "/loyalty/campaign/email"(platform: "/", type: TrackType.Event) {
+            action = "open"
+            mail_origin = "level_3_4_5_6"
         }
     }
 }
