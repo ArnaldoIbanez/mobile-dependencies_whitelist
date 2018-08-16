@@ -268,7 +268,6 @@ trackTests {
 
         //Other receiver page success
         "/flex/package/detail/receipt_other_person"(platform:"/mobile", type: TrackType.View) {
-            defaultPacksInfo()
             defaultLocation()
             delivery_id = 123456
         }
@@ -344,6 +343,29 @@ trackTests {
         "/flex/onboarding/got_it"(platform:"/mobile", type: TrackType.Event) {
             defaultLocation()
             context = "start_trip"
+        }
+        //Onboarding action with context success
+        "/flex/package/detail/receipt/save"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            receiver_info = {
+                name = "TestName"
+                surname = "TestSurname"
+                doc_number = "31723886"
+            }
+            delivery_id = 123456
+        }
+        //Onboarding action with context success
+        "/flex/notification/open_near_pack_destination"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+        }
+        //Onboarding action with context success
+        "/flex/notification/view_near_pack_destination"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
         }
     }
 }

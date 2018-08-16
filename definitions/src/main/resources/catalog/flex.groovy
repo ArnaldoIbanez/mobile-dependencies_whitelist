@@ -166,7 +166,7 @@ tracks {
     }
 
     "/flex/package/detail/receipt_other_person"(platform: "/mobile", type: TrackType.View) {
-        packsAndLocation
+        location
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
@@ -174,6 +174,8 @@ tracks {
         location
         pack_status(required: true, type: PropertyType.String,  values: ["delivered", "not_delivered"],
             description: "The status of the congrats page.")
+        delivery_status(required: false, type: PropertyType.String,  values: ["pending","finished","finished_incomplete"],
+                description: "This field declares the status of the delivery, depending on each pack status", inheritable:false)
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
@@ -236,5 +238,21 @@ tracks {
 
     "/flex/onboarding/package/confirm_delivery"(platform: "/mobile", type: TrackType.View) {
         location
+    }
+
+    "/flex/package/detail/receipt/save"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        receiver_info(required: true, description: "The receiver data")
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+    "/flex/notification/open_near_pack_destination"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+    "/flex/notification/view_near_pack_destination"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 }
