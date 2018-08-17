@@ -224,4 +224,16 @@ trackTests {
             partner_id = "fiter"
         }
     }
+
+    test("campaign"){
+        "/loyalty/campaign/email"(platform: "/", type: TrackType.Event) {
+            action = "open"
+            mail_origin = "level_1_2"
+        }
+
+        "/loyalty/campaign/email"(platform: "/", type: TrackType.Event) {
+            action = "open"
+            mail_origin = "level_3_4_5_6"
+        }
+    }
 }
