@@ -1,0 +1,40 @@
+{
+  "users": [
+    "pablo.fernandezosorio@mercadolibre.com"
+  ],
+  "process_name": "fbm_operators_scan_errors",
+  "cron": "0 6 * * *",
+  "extract": {
+    "operation": "overwrite",
+    "site": "Shipping",
+    "columns": [
+      {
+        "name": "nombre",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "apellido",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "cantidad",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "shipping/fbm_operators_scan_errors.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-7",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
