@@ -120,7 +120,7 @@ trackTests {
     }
 
     test("Message") {
-        "/myml/invoices/message"(platform: "/") {
+        "/myml/invoices/error"(platform: "/") {
             error = "not_right_tax_regime"
         }
     }
