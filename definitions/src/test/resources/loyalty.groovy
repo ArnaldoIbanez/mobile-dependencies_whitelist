@@ -229,11 +229,13 @@ trackTests {
         "/loyalty/campaign/email"(platform: "/", type: TrackType.Event) {
             action = "open"
             mail_origin = "level_1_2"
+            campaign_id = "mlb_campaign_buyers_test"
         }
 
         "/loyalty/campaign/email"(platform: "/", type: TrackType.Event) {
             action = "open"
             mail_origin = "level_3_4_5_6"
+            campaign_id = "mlb_campaign_buyers_test"
         }
     }
 }
