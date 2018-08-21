@@ -618,6 +618,14 @@ trackTests {
 
     test("Price Parity Massive Editor") {
         "/myml/market_prices_editor"(platform: "/", type: TrackType.View) {}
+
+        "/myml/market_prices_editor/save"(platform: "/", type: TrackType.Event) {
+            total_items = 10
+        }
+
+        "/myml/market_prices_editor/get_suggested_price"(platform: "/", type: TrackType.Event) {
+            total_items = 10
+        }
     }
 
     test("MyMl new reputation flow buyer") {

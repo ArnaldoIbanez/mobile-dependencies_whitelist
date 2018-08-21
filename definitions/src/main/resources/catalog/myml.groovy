@@ -241,6 +241,14 @@ tracks {
     // Price parity massive items editor
     "/myml/market_prices_editor"(platform: "/", type: TrackType.View) {}
 
+    "/myml/market_prices_editor/save"(platform: "/", type: TrackType.Event) {
+        total_items(required: true, type: PropertyType.Numeric, description: "Quantity of items selected to be massively modified.")
+    }
+
+    "/myml/market_prices_editor/get_suggested_price"(platform: "/", type: TrackType.Event) {
+        total_items(required: true, type: PropertyType.Numeric, description: "Quantity of items selected to retrieve their suggested price.")
+    }
+
     // Eventos relacionados al item
     "/item"(platform: "/", isAbstract: true) {
         item_id(required: true, description: "Item id")
