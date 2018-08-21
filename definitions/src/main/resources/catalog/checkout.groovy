@@ -109,7 +109,7 @@ tracks {
 
         loyalty_level(required:false, description:"The loyalty level of the buyer")
 
-        investor(required:false)
+        investor(required:true, type: PropertyType.String, values:["YES", "NO"], description:"If the user is an investor")
     }
 
     /*
