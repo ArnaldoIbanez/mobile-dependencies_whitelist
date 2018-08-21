@@ -636,6 +636,18 @@ tracks {
         error(required: false, type: PropertyType.Boolean, description: "Boolean if request was error")
         message(required: false, type: PropertyType.String, description: "Error message that pops on page")
     }
+    
+    "/myml/invoices/error"(platform: "/") {
+        error(required: true, type: PropertyType.String, values:[
+            "not_legal_entity", 
+            "not_valid_address", 
+            "not_tax_regime_allowed",
+            "not_right_tax_regime",
+            "not_cnpj_user",
+            "not_order_owner",
+            "is_not_admin",
+        ], description: "Error code")
+    }
 
     "/myml/invoices/sku/status"(platform: "/") {}
 }
