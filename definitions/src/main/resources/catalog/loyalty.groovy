@@ -141,5 +141,6 @@ tracks {
     "/loyalty/campaign/email"(platform: "/", type: TrackType.Event) {
         action(required: true, description: "Action that we are tracking", type: PropertyType.String)
         mail_origin(required: false, description: "Level group that received the email", type: PropertyType.String)
+        campaign_id(required: true, description: "Campaign id (number/string)", type: PropertyType.String)
     }
 }
