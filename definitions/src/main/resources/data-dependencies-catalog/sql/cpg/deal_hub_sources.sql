@@ -1,4 +1,5 @@
-WITH a AS ( SELECT others['deal_id'] AS deal_id,
+SELECT deal_id, source, placement, platform, device_type, device_vendor, track_date, count(*) as total
+FROM ( SELECT others['deal_id'] AS deal_id,
     CASE WHEN others['fragment'] RLIKE '.*EI:\d+.*' THEN 'search'
          WHEN jest(others['fragment'], 'c_id') RLIKE '.*/home/.*' THEN 'home'
          WHEN jest(others['fragment'], 'menu') RLIKE 'categories|notifications' THEN 'menu'
@@ -20,7 +21,5 @@ WITH a AS ( SELECT others['deal_id'] AS deal_id,
   WHERE path LIKE '/deals/landing'
     AND ds>='@param01' AND ds<'@param02'
     AND others['deal_id'] is not null
-)
-SELECT deal_id, source, placement, platform, device_type, device_vendor, track_date, count(*) as total
-FROM a
+) a
 GROUP BY deal_id, source, placement, platform, device_type, device_vendor, track_date;
