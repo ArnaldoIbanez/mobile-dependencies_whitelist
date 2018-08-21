@@ -238,7 +238,8 @@ tracks {
         success(required: true, type: PropertyType.Boolean)
     }
 
-
+    // Price parity massive items editor
+    "/myml/market_prices_editor"(platform: "/", type: TrackType.View) {}
 
     // Eventos relacionados al item
     "/item"(platform: "/", isAbstract: true) {

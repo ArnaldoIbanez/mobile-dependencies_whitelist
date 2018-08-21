@@ -616,6 +616,10 @@ trackTests {
         }
     }
 
+    test("Price Parity Massive Editor") {
+        "/myml/market_prices_editor"(platform: "/", type: TrackType.View) {}
+    }
+
     test("MyMl new reputation flow buyer") {
         "/myml/purchases/feedback/rating"(platform: "/mobile", type: TrackType.View) {}
 
