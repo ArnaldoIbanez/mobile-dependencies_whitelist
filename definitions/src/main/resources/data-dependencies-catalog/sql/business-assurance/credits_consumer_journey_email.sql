@@ -1,5 +1,5 @@
 SELECT
-  t1.event_type, t1.date_sent, milestone, bucket, COUNT(*) AS total
+  COUNT(*) AS total, t1.event_type, milestone, bucket, t1.date_sent
 FROM
  (
     SELECT
