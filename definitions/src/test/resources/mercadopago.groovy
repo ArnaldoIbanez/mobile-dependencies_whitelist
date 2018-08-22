@@ -427,6 +427,7 @@ trackTests {
             value = "hero"
             trigger = "click_qr_video"
         }
+        "/merchant_acquisition/qr/landing/landing-get-qr-code"(platform: "/", type: TrackType.Event) {}
     }
 
     test("MP-MA Flow QR") {
