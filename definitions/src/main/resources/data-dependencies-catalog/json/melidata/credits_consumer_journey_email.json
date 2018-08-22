@@ -14,6 +14,10 @@
     "site": "MeliLake",
     "columns": [
       {
+        "name": "total",
+        "type": "INTEGER"
+      },
+      {
         "name": "event_type",
         "type": "UNICODE_STRING"
       },
@@ -24,10 +28,6 @@
       {
         "name": "bucket",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "total",
-        "type": "INTEGER"
       }
     ],
     "sql": {
