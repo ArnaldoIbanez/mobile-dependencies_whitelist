@@ -79,6 +79,7 @@ tracks {
         value (values: ["hero", "afterhero"], type: PropertyType.String, required: true, description: "Section where the trigger it is placed. Could be hero/afterHero")
         trigger (type: PropertyType.String, required: true, description: "button that triggers the qr video")
     }
+    "/merchant_acquisition/qr/landing/landing-get-qr-code"(platform:"/", type: TrackType.Event) {}
 
     // QR Flow > Pageviews
     "/merchant_acquisition/qr/onboarding"(platform:"/", type: TrackType.View) {}
