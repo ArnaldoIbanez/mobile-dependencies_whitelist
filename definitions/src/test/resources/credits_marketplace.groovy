@@ -44,6 +44,7 @@ trackTests {
         "/credits/consumer/administrator/dashboard"(platform: "/web/desktop", type: TrackType.View) { dashboard_status = 'empty_state' }
         "/credits/consumer/administrator/dashboard"(platform: "/web/desktop", type: TrackType.View) { dashboard_status = 'on_time' }
         "/credits/consumer/administrator/dashboard"(platform: "/web/desktop", type: TrackType.View) { dashboard_status = 'overdue' }
+        "/credits/consumer/administrator/detail"(platform: "/web/desktop") {}
 
         //Events
         "/credits/consumer/administrator/tooltip"(platform: "/web/desktop", type: TrackType.Event) {}

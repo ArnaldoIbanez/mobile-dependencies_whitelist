@@ -66,14 +66,6 @@ tracks {
     //Help merchant
     "/credits/merchant/enrollment/ask_us"(platform: "/", type: TrackType.Event) {}
 
-    //Definitions - Consumer
-    "/credits/consumer"(platform: "/", isAbstract: true) {}
-    "/credits/consumer/administrator"(platform: "/", isAbstract: true) {}
-    "/credits/consumer/administrator/detail"(platform: "/", isAbstract: true) {}
-
-    //Administrator consumer
-    "/credits/consumer/administrator/detail"(platform: "/", type: TrackType.View) {}
-
     //Definitions - Money Advance
     "/credits/moneyadvance"(platform: "/", isAbstract: true) {}
 

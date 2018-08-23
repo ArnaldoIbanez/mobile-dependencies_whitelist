@@ -15,6 +15,8 @@ tracks {
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
     "/credits/consumer/enrollment"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/administrator"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/administrator/detail"(platform: "/", isAbstract: true) {}
 
     //Landing consumer
     "/credits/consumer/enrollment"(platform: "/", type: TrackType.View) {}
@@ -49,6 +51,7 @@ tracks {
     "/credits/consumer/administrator/dashboard"(platform: "/", type: TrackType.View) {
         dashboard_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
     }
+    "/credits/consumer/administrator/detail"(platform: "/", type: TrackType.View) {}
     
     // Events
     "/credits/consumer/administrator/tooltip"(platform: "/", type: TrackType.Event) {}

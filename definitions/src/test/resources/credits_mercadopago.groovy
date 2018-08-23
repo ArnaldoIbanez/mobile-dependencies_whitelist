@@ -57,11 +57,6 @@ trackTests {
         "/credits/merchant/help"(platform: "/web/desktop", type: TrackType.Event) {}
     }
 
-    test("consumer credits"){
-        //Views
-        "/credits/consumer/administrator/detail"(platform: "/web/desktop") {}
-    }
-
     test("money advance - automatic cash advances"){
         //Views
         "/credits/moneyadvance/automatic/offer"(platform: "/web/desktop") {}
