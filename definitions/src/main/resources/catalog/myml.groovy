@@ -503,8 +503,15 @@ tracks {
     //confirm
     "/myml/invoices/company-info/confirm"(platform: "/") {}
     "/myml/invoices/company-info/confirm/save"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/company-info/confirm/save/response"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
+        enabled_for_fulfillment(required: true, type:  PropertyType.Boolean, description: "Boolean if seller profile is fulfillment")
+        tax_payer_type(required: true, type:  PropertyType.String, description: "Tax payer type seller info")
+        certificate_type(required: true, type:  PropertyType.String, description: "Certificate type that seller is using on optin")
+    }
+    "/myml/invoices/company-info/confirm/save/response"(platform: "/", type: TrackType.Event) {
+        error(required: false, type:  PropertyType.String, description: "Error message that pop to user after request")
+        url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
+    }
     "/myml/invoices/company-info/success"(platform: "/") {}
 
     //:::: Order

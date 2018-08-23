@@ -298,7 +298,12 @@ trackTests {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/company-info/confirm"(platform: "/") {}
-        "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
+            enabled_for_fulfillment = true
+            tax_payer_type = "Regime Normal"
+            certificate_type = "A1"
+
+        }
         "/myml/invoices/company-info/confirm/save/response"(platform: "/", type: TrackType.Event) {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
