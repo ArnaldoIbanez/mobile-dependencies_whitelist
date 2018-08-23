@@ -49,8 +49,8 @@ tracks {
 
     //Error merchant
     "/credits/merchant/enrollment/error"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/enrollment/try_it_again"(platform: "/", type: TrackType.Event) {}
-    "/credits/merchant/enrollment/contact_us"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/enrollment/error/try_it_again"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/enrollment/error/contact_us"(platform: "/", type: TrackType.Event) {}
 
     //Dashboard merchant
     "/credits/merchant/administrator"(platform: "/", type: TrackType.View) {}

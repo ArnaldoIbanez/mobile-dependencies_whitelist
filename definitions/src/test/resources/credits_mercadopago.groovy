@@ -45,8 +45,8 @@ trackTests {
         "/credits/merchant/enrollment/load_documents/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
 
         //Error merchant
-        "/credits/merchant/enrollment/try_it_again"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant/enrollment/contact_us"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant/enrollment/error/try_it_again"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant/enrollment/error/contact_us"(platform: "/web/desktop", type: TrackType.Event) {}
 
         //Congrats merchant
         "/credits/merchant/enrollment/withdrawal"(platform: "/web/desktop", type: TrackType.Event) {}
