@@ -307,6 +307,16 @@ trackTests {
         "/myml/invoices/company-info/confirm/save/response"(platform: "/", type: TrackType.Event) {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
+        "/myml/invoices/company-info/include-freight"(platform: "/") {}
+        "/myml/invoices/company-info/include-freight/save/request"(platform: "/", type: TrackType.Event) {
+            code = true
+            redirect_to = "/invoices/company-info/confirm"
+
+        }
+        "/myml/invoices/company-info/include-freight/save/response"(platform: "/", type: TrackType.Event) {
+            success = true
+            message = "Não conseguimos processar a sua solicitação. Tente Novamente"
+        }
         "/myml/invoices/company-info/success"(platform: "/") {}
     }
 

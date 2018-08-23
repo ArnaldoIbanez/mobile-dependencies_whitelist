@@ -514,6 +514,21 @@ tracks {
     }
     "/myml/invoices/company-info/success"(platform: "/") {}
 
+
+    //freight
+    "/myml/invoices/company-info/include-freight"(platform: "/") {}
+    "/myml/invoices/company-info/include-freight/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/company-info/include-freight/save/request"(platform: "/", type: TrackType.Event) {
+        code(required: true, type:  PropertyType.Boolean, description: "Boolean with user preference to include freight")
+        redirect_to(required: true, type: PropertyType.String, description: "Redirect url value before save")
+    }
+    "/myml/invoices/company-info/include-freight/save/response"(platform: "/", type: TrackType.Event) {
+        redirect_to(required: false, type: PropertyType.String, description: "Redirect url after save on success")
+        success(required: false, type: PropertyType.Boolean, description: "Boolean if request was success or not ")
+        message(required: false, type: PropertyType.String, description: "Error message that pops on page on error")
+    }
+    "/myml/invoices/company-info/success"(platform: "/") {}
+
     //:::: Order
     "/myml/invoices/order"(platform: "/", isAbstract: true) {
         error(required: false, type:  PropertyType.String, description: "Error message that pop to user after request")
