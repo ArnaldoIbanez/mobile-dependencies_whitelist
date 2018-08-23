@@ -101,7 +101,7 @@ tracks {
 
     //Landing Push Native
     "/credits/consumer/payinstallment"(platform: "/", type: TrackType.View) {
-        status(type: PropertyType.String, required: true, values: ["payed", "late_pay", "on_time"])
+        status(type: PropertyType.String, required: false)
     }
 
     "/credits/consumer/payinstallment/on_time_pay"(platform: "/", type: TrackType.Event) {}
