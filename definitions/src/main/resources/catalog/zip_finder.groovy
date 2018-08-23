@@ -3,7 +3,7 @@ import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
 
 tracks {
-    "/zip_finder"(platform: "/", type: TrackType.View) {}
+    "/zip_finder"(platform: "/", isAbstract: true) {}
     "/zip_finder/search"(platform: "/", type: TrackType.View) {}
     "/zip_finder/finish"(platform: "/", type: TrackType.View) {}
     "/zip_finder/list"(platform: "/", type: TrackType.View) {}

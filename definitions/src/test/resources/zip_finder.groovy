@@ -4,10 +4,6 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 trackTests {
     defaultBusiness = "mercadolibre"
 
-    test("Test base path") {
-        "/zip_finder"(platform: "/", type: TrackType.View) {}
-    }
-
     test("zip finder search page") {
         "/zip_finder/search"(platform: "/", type: TrackType.View) {}
     }
