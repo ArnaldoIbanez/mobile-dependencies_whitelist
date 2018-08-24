@@ -56,7 +56,9 @@ tracks {
     // MP Activities
     "/listing"(platform: "/web", isAbstract: true){}
 
-    "/listing/activities"(platform: "/web"){}
+    "/listing/activities"(platform: "/web"){
+        shown_modal_id(required: true, type: PropertyType.String, description: 'Indicates the id of the modal shown.')
+    }
 
     "/listing/gateway"(platform: "/web"){}
 
