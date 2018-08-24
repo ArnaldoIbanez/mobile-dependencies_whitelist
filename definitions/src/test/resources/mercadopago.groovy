@@ -405,7 +405,9 @@ trackTests {
     }
 
     test("Mercadopago Activities List") {
-        "/listing/activities" (platform: "/web") {}
+        "/listing/activities" (platform: "/web") {
+            shown_modal_id = '45daysMigration'
+        }
     }
 
     test("Mercadopago Gateway List") {

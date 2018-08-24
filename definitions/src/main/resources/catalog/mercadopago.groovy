@@ -3,6 +3,7 @@ import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
+
 /**
 *
 * The events means actions that happens without launch a View,
@@ -55,7 +56,9 @@ tracks {
     // MP Activities
     "/listing"(platform: "/web", isAbstract: true){}
 
-    "/listing/activities"(platform: "/web"){}
+    "/listing/activities"(platform: "/web"){
+        shown_modal_id(required: true, type: PropertyType.String, description: 'Indicates the id of the modal shown.')
+    }
 
     "/listing/gateway"(platform: "/web"){}
 
