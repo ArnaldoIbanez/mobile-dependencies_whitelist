@@ -9,6 +9,7 @@ catalog {
     /**
      * All available platform
      */
+    
     platforms = [
             "/",
             "/web",
@@ -76,6 +77,7 @@ catalog {
         include business, "melidata_sdk.groovy"
         include business, "mobile.groovy"
         include business, "myml.groovy"
+        include business, "seller_central.groovy"
         include business, "notifications.groovy"
         include business, "onboarding.groovy"
         include business, "orders_feed.groovy"
@@ -92,6 +94,10 @@ catalog {
         include business, "variations.groovy"
         include business, "vip.groovy"
         include business, "advertising.groovy"
+        include business, "classifieds_landings.groovy"
+        include business, "instore.groovy"
+        include business, "qr_discount.groovy"
+        include business, "zip_finder.groovy"
     }
     
     mercadopago.each { business ->
@@ -100,8 +106,10 @@ catalog {
         include business, "credits_mercadopago.groovy"
         include business, "mercadopago_mails.groovy"
         include business, "mercadopago_devsite.groovy"
+        include business, "cards_cobranded.groovy"
         include business, "cards_prepaid.groovy"
         include business, "cellphone_recharge.groovy"
+        include business, "collaborators.groovy"
     }
 
     mercadoshops.each { business ->
@@ -111,6 +119,8 @@ catalog {
 
     mercadoenvios.each { business ->
         include business, "flex.groovy"
+        include business, "full.groovy"
+        include business, "wms.groovy"
     }
 
 }

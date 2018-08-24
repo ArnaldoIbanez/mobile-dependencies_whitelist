@@ -22,12 +22,16 @@ trackTests {
         refund_account_money=false
         order_id=1920434799
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
+        order_delayed_by_seller = false
+        deferred_payment= "shipped"
       }
 
       // STEP 02
       "/return/conditions"(platform: "/") {
         action = "selection"
         selection = "accepted"
+        order_delayed_by_seller = false
+        deferred_payment= "shipped"
       }
 
       // STEP 03
@@ -47,6 +51,8 @@ trackTests {
         showed_payment_methods = "account_money"
         continue_button = true
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
+        order_delayed_by_seller = false
+        deferred_payment= "shipped"
       }
 
       // STEP 04
@@ -63,6 +69,8 @@ trackTests {
         item_category_l1 = "MLB1051"
         refund_account_money=false
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
+        order_delayed_by_seller = false
+        deferred_payment= "shipped"
       }
 
       // STEP 05.a
@@ -79,6 +87,8 @@ trackTests {
         item_category_l1 = "MLB1051"
         refund_account_money=false
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
+        order_delayed_by_seller = false
+        deferred_payment= "shipped"
       }
 
       // STEP 05.b
@@ -97,6 +107,8 @@ trackTests {
         showed_payment_methods = "account_money"
         seller_scoring = "low"
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
+        order_delayed_by_seller = false
+        deferred_payment= "shipped"
       }
 
       // STEP 06
@@ -118,6 +130,8 @@ trackTests {
         item_category_l1 = "MLB1051"
         refund_account_money=false
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
+        order_delayed_by_seller = false
+        deferred_payment= "shipped"
       }
 
       // STEP 06.cta.a
@@ -127,6 +141,23 @@ trackTests {
 
       // STEP 06.cta.b
       "/return/congrats/remedy_label"(platform: "/") { }
+
+      // STEP 06.b
+      "/return/congrats_error"(platform: "/") {
+        buyer_scoring: "high"
+        date_delivered: "2018-07-20"
+        item_id: "MLB945849683"
+        item_category_l1: "MLB1648"
+        refund_account_money: true
+        item_category: "MLB14332"
+        category_id: "MLB14332"
+        cart_order: false
+        payment: "amex"
+        loyalty_level: 6
+        order_id: 1762882937
+        typification: "repentant_buyer"
+        seller_scoring: "low"
+      }
 
       // Modal
       "/return/modal"(platform: "/") {
@@ -146,9 +177,19 @@ trackTests {
         category_path=["MLA1648", "MLA2141", "MLA1676", "MLA1683", "MLA402171", "MLA402176"]
       }
 
-      // Error Page
-      "/return/error"(platform: "/") {
+      // Warning Page for return created (view)
+      "/return/warning"(platform: "/") {
         previous_step = "delivery"
+        type = "return_created"
+        order_id = 1722099605
+        loyalty_level = 1
+        item_category = "MLA123123"
+        item_category_l1 = "MLA123"
+      }
+
+      // Warning Page for claim created (event)
+      "/return/warning/selection"(platform: "/") {
+        selection = "view_details"
       }
     }
 }

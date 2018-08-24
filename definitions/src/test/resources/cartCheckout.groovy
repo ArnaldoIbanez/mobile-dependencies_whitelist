@@ -157,6 +157,7 @@ trackTests {
         "/cart/checkout/review/change_address"(platform:"/", dataSet)
         "/cart/checkout/review/edit_shipping"(platform:"/", dataSet)
         "/cart/checkout/review/edit_payment_method"(platform:"/", dataSet)
+        "/cart/checkout/review/confirm_purchase"(platform:"/", dataSet)
         "/cart/checkout/congrats"(platform:"/"){
             dataSet()
             dataSetCongrats()
@@ -347,6 +348,12 @@ trackTests {
         "/cart/checkout/review/inconsistency/payment_combination/installments"(platform: "/mobile", dataSet)
         "/cart/checkout/review/inconsistency/payment_combination/shipping"(platform: "/mobile", dataSet)
         "/cart/checkout/review/inconsistency/payment_combination/new_split"(platform: "/mobile", dataSet)
+    
+        "cart/checkout/finish#click"(platform: "/mobile", type: TrackType.Event) {
+            action = 'call_seller'
+        }
+
+        "/cart/checkout/finish/choose_action"(platform: "/", dataSet)
     }
 
 

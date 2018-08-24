@@ -55,13 +55,13 @@ class DefinitionTest {
         def definition = new TrackDefinition("/search")
 
         // Act
-        definition.addProperty(name:"layout", values:["stack", "gallery", "mosaic"], description: "platform", required: true)
+        definition.addProperty(name:"view_mode", values:["LIST","MOSAIC","GALLERY"], description: "platform", required: true)
 
         // Assert
-        assertTrue(definition.getDefinitionProperty("layout").values.size() == 3)
-        assertTrue(definition.getDefinitionProperty("layout").hasValue("stack"))
-        assertTrue(definition.getDefinitionProperty("layout").hasValue("gallery"))
-        assertTrue(definition.getDefinitionProperty("layout").hasValue("mosaic"))
+        assertTrue(definition.getDefinitionProperty("view_mode").values.size() == 3)
+        assertTrue(definition.getDefinitionProperty("view_mode").hasValue("LIST"))
+        assertTrue(definition.getDefinitionProperty("view_mode").hasValue("MOSAIC"))
+        assertTrue(definition.getDefinitionProperty("view_mode").hasValue("GALLERY"))
     }
 
     @Test void shouldEnableAddPropertiesRequired() {
@@ -106,10 +106,10 @@ class DefinitionTest {
 
         // Arrange
         def definition = new TrackDefinition("/search")
-                .addProperty(name: "layout", values:["stack", "gallery", "mosaic"], description: "client layout")
+                .addProperty(name: "view_mode", values:["LIST","MOSAIC","GALLERY"], description: "client layout")
 
         // Act
-        def result = definition.validate(new Track(path: "/search", event_data: ["layout":"galeria"]))
+        def result = definition.validate(new Track(path: "/search", event_data: ["view_mode":"GALLERY"]))
 
         // Assert
         assertEquals(result.status, false)

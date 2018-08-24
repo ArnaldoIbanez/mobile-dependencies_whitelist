@@ -20,7 +20,6 @@ tracks {
     def categoryRegex = /(ROOT|[a-zA-Z]{1,3}[0-9]+)/
     def categoryPathRegex = /\[([a-zA-Z]{1,3}[0-9]+(, )?)*\]/
 
-
     "/"(platform: "/", isAbstract: true) {
         //Recommendations data
         recommendations (required: false, description: "Recommendations data map")
@@ -210,6 +209,13 @@ tracks {
     "/recommendations"(platform: "/") {
 
     }
+
+
+    // Merchant Acquisition
+    "/merchant_acquisition"(platform: "/", isAbstract: true) {}
+    "/merchant_acquisition/qr"(platform: "/", isAbstract: true) {}
+    "/merchant_acquisition/qr/landing"(platform:"/", isAbstract: true) {}
+    "/merchant_acquisition/qr/landing/buyers"(platform:"/", type: TrackType.View) {}
 
     //Landings Deals
 

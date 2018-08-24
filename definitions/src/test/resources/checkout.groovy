@@ -166,6 +166,9 @@ trackTests {
         "/checkout/" (platform: "/mobile"){}
 
         "/checkout/" (platform: "/mobile"){}
+
+        "/checkout/user_contact_information"(platform:"/", type:TrackType.Event) {}
+
     }
 
     //Checkout Apps
@@ -255,6 +258,12 @@ trackTests {
             error_code = "cant_buy_quantity"
             inconsistency = "cant_sent_x_units"
             selections = ["shipping_geo", "shipping_other", "local_pick_up"]
+        }
+        "/checkout/shipping/accord"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
+        "/checkout/shipping/accord_shipping_and_payment"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
         }
         "/checkout/shipping/select_method/ask_enable_geolocation"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -618,6 +627,9 @@ trackTests {
 
         "/checkout/payment/select_type"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
+            available_methods = ["visa", "master", "amex", "cash"]
+            coupon = true
+            coupon_discount = 20
         }
 
         "/checkout/billing/physical_person"(platform: "/mobile") {
@@ -1784,6 +1796,7 @@ trackTests {
         "/checkout/review/change_address"(platform:"/web", dataSet)
         "/checkout/review/edit_shipping"(platform:"/web", dataSet)
         "/checkout/review/edit_payment_method"(platform:"/web", dataSet)
+        "/checkout/review/confirm_purchase"(platform: "/", dataSet)
         "/checkout/congrats"(platform:"/web"){
             dataSet()
             dataSetCongrats()
@@ -1843,6 +1856,7 @@ trackTests {
         "/checkout/shipping"(platform:"/web", dataSet)
         "/checkout/shipping/edit_address"(platform:"/web", dataSet)
         "/checkout/loading"(platform: "/web", dataSet)
+        "/checkout/loading/error"(platform: "/web", dataSet)
         "/checkout/shipping/select_option"(platform:"/web", dataSet)
         "/checkout/shipping/input_zipcode"(platform:"/web", dataSet)
         "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/web", dataSet)

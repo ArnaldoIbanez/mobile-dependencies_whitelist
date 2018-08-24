@@ -49,7 +49,7 @@ class Validate {
             println "File $filepath generated"
         } else {
             result.each { track ->
-                println "Track [Path:$track.path, Type:$track.type, Business:$track.business, Platform:$track.platform]: $track.event_data"
+                println "Track [Path:$track.path, Type:$track.type, Business:$track.business, Platform:$track.platform, Version:$track.version]: $track.event_data"
                 println "Status: ${track.status}"
                 println "Messages: ${track.message}"
                 println ""
@@ -102,10 +102,11 @@ class Validate {
                     row.path, 
                     com.ml.melidata.TrackAdapterHelper.adaptType(row.type.toUpperCase()), 
                     row.device.platform, 
-                    row.application.business)
+                    row.application.business,
+                    row.application.version)
             track.setEvent_data(new JsonSlurper().parseText(row.event_data))
             TrackValidationResponse response = catalog.validate(track)
-            result << [path: track.path, type: track.type, business: track.business, 
+            result << [path: track.path, type: track.type, business: track.business, version: track.version,
                         platform: track.platform, event_data: track.event_data,
                         status: response.getStatus(), message: response.getMessages() ]
         }
@@ -162,6 +163,7 @@ class Validate {
         def to = getToDate(options)
         def date = "AND ds >= '${from}' AND ds < '${to}' \n"
         def path = ""
+        def exact_path = ""
         def business = ""
         def platform = ""
         def site = ""
@@ -169,6 +171,7 @@ class Validate {
         def pool_name = ""
         def limit = "100"
 
+        if (options.exact_path) exact_path = "AND path = '/${options.exact_path}' \n"
         if (options.path) path = "AND path LIKE '/${options.path}%' \n"
         if (options.business) business = "AND application.business = '${options.business}' \n"
         if (options.platform) platform = "AND device.platform = '${options.platform}' \n"
@@ -181,13 +184,14 @@ class Validate {
         return ("SELECT id, type, path, event_data, device, application, platform \n" +
                "FROM tracks \n" +
                "WHERE catalog_data.is_valid = false \n" +
-               "${date}${path}${business}${platform}${site}${version}${pool_name}" +
+               "${date}${path}${exact_path}${business}${platform}${site}${version}${pool_name}" +
                "limit ${limit}").toString()
     }
 
     private static CliBuilder buildCli(String[] args) {
         def cli = new CliBuilder()
         cli.date(args:1, "date")
+        cli.exact_path(args:1, "exact_path")
         cli.path(args:1, "path")
         cli.business(args:1, "business")
         cli.platform(args:1, "site")

@@ -59,7 +59,6 @@ trackTests {
 
     test("consumer credits"){
         //Views
-        "/credits/consumer/administrator"(platform: "/web/desktop") {}
         "/credits/consumer/administrator/detail"(platform: "/web/desktop") {}
     }
 

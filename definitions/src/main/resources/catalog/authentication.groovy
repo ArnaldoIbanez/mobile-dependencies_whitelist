@@ -99,6 +99,34 @@ tracks {
         operator_id(type: PropertyType.String, required: false, description: "Indicates the id of the operator when login is carried out by one")
     }
 
+    // New Multi Step Login Android
+    "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
+        challenge(type: PropertyType.String, required: true, description: "Login Step")
+        tracking_id(type: PropertyType.String, required: true, description: "Indicates the id to track the transaction")
+        user(type: PropertyType.Map, required: false, description: "Available user info")
+    }
+
+    "/login/auth/error"(platform: "/mobile", type: TrackType.View) {
+        error(type: PropertyType.String, required: true, values: ["resource_not_found", "conflict", "network", "server"],
+            description: "Indicates the error type shown in error view.")
+    }
+
+    "/login/auth/challenge/submit"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/login/auth/challenge/decline"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        challenge(type: PropertyType.String, required: true, description: "Login Step")
+    }
+
+    "/login/auth/challenge/restart"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        challenge(type: PropertyType.String, required: true, description: "Login Step")
+    }
+
+    "/login/auth/challenge/error"(platform: "/mobile", type: TrackType.View) {
+        errors(type: PropertyType.ArrayList, required: true, description: "Errors presented")
+    }
+
     "/logout"(platform: "/", type: TrackType.Event) {
         flow(type: PropertyType.String, required: false)
     }
@@ -118,10 +146,13 @@ tracks {
 
     "/login/smartlock"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/login/smartlock/success"(platform: "/mobile", type: TrackType.Event) {}
+    "/login/smartlock/success"(platform: "/mobile", type: TrackType.Event) {
+        attempt_type(type: PropertyType.String, required: false, values: ["auto_sign_in", "retrieve_credentials","multiple_credentials"])
+    }
 
     "/login/smartlock/failure"(platform: "/mobile", type: TrackType.Event) {
         error(type: PropertyType.String, required: true)
+        attempt_type(type: PropertyType.String, required: false, values: ["auto_sign_in", "retrieve_credentials","multiple_credentials"])
     }
 
     "/login/smartlock/save_credentials"(platform: "/mobile", isAbstract: true) {}
@@ -135,6 +166,12 @@ tracks {
     "/login/smartlock/save_credentials/failure"(platform: "/mobile", type: TrackType.Event) {
         status(type: PropertyType.String, required: true)
     }
+
+    "/login/smartlock/multiple_credentials"(platform: "/mobile", isAbstract: true) {}
+
+    "/login/smartlock/multiple_credentials/credential_selected"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/login/smartlock/multiple_credentials/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
     "/oauth"(platform: "/", isAbstract: true) {}
 
@@ -161,4 +198,36 @@ tracks {
       result(type: PropertyType.String, required: true)
     }
 
+    //Security Feedback
+    "/login/auth/feedback"(platform: "/", type: TrackType.Event) {
+        view(type: PropertyType.String, required: true, description: "Current Feedback step name where the action is taking place")
+        event_type(type: PropertyType.String, required: true, description: "Describes user action in current step")
+        view_type(type: PropertyType.String, required: false, description: "Feedback step flavor, dependent on user answer")
+    }
+
+    //SMS Enrollment
+    "/auth/recovery"(platform: "/", isAbstract: true) {}
+
+    "/auth/recovery/phone"(platform: "/", isAbstract: true) {
+        redirect_url(type: PropertyType.String, required: true, description: "Go to Url after enrollment")
+        flow_type(type: PropertyType.String, required: true, description: "Current enrollment flow type")
+        flow_sub_type(type: PropertyType.String, required: false, description: "Name that represents previous flow")
+    }
+
+    "/auth/recovery/phone/registration"(platform: "/", type: TrackType.Event) {}
+
+    "/auth/recovery/phone/save"(platform: "/", type: TrackType.Event) {
+        selected_phone_source(type: PropertyType.String, required: true, description: "Source of phone number, could be manual or the name of the suggestion used")
+        verified(type: PropertyType.String, required: true, description: "Is selected phone already verified")
+        visual_validation_allowed(type: PropertyType.Boolean, required: true, description: "Is phone available for visual validation")
+    }
+
+    "/auth/recovery/phone/verified"(platform: "/", type: TrackType.Event) {
+        selected_phone_source(type: PropertyType.String, required: true, description: "Source of phone number, could be manual or the name of the suggestion used")
+    }
+
+    // Push Notification
+    "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {
+        notified_user(type: PropertyType.String, required: false)
+    }
 }

@@ -12,7 +12,6 @@ trackTests {
     test("Buy intention event tests"){
 
         def buyIntentionDataSet = {
-            buy_equal_pay = true
             total_amount=2000
 
             seller = [
@@ -56,26 +55,26 @@ trackTests {
 
         "/buy_intention"(platform:"/mobile/android") {
             buyIntentionDataSet()
-            from = "vip"
+            context = "vip"
             checkout_flow="direct"
         }
 
         "/buy_intention"(platform:"/mobile/ios") {
             buyIntentionDataSet()
-            from = "cart"
+            context = "cart"
             checkout_flow="subscription"
         }
 
         "/buy_intention"(platform:"/web/mobile") {
             buyIntentionDataSet()
-            from = "cart_item"
-            checkout_flow="reservation"
+            context = "cart_item"
+            checkout_flow="direct"
         }
 
         "/buy_intention"(platform:"/web/desktop") {
             buyIntentionDataSet()
-            from = "saved_for_later"
-            checkout_flow="contract"
+            context = "saved_for_later"
+            checkout_flow="cart"
 
         }
 

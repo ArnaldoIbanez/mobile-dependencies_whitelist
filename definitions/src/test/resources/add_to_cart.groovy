@@ -80,7 +80,92 @@ trackTests {
         }
     }
 
+     test("Add to cart intention tracks") {
+        "/add_cart_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            add_to_cart_availability = "no_high_ratio"
+            main_action = "buy"
+            context = "/vip"
+            items = []
+        }
 
+        "/add_cart_intention"(platform: "/mobile/ios", type: TrackType.Event) {
+            add_to_cart_availability = "no_high_ratio"
+            main_action = "buy"
+            context = "/vip"
+            items = [
+                [
+                        unit_price : 100,
+                        quantity   : 1,
+                        item       : [
+                                category_id: "MLB63385",
+                                id         : "MLB754486062"
+                        ],
+                        currency_id: "BRL"
+                ],
+                [
+                        unit_price : 50,
+                        quantity   : 3,
+                        item       : [
+                                category_id: "MLB512315",
+                                id         : "MLB512313"
+                        ],
+                        currency_id: "BRL"
+                ]
+            ]
+        }
+
+        "/add_cart_intention"(platform: "/mobile/android", type: TrackType.Event) {
+            add_to_cart_availability = "no_high_ratio"
+            main_action = "buy"
+            context = "/vip"
+            items = [
+                [
+                        unit_price : 100,
+                        quantity   : 1,
+                        item       : [
+                                category_id: "MLB63385",
+                                id         : "MLB754486062"
+                        ],
+                        currency_id: "BRL"
+                ],
+                [
+                        unit_price : 50,
+                        quantity   : 3,
+                        item       : [
+                                category_id: "MLB512315",
+                                id         : "MLB512313"
+                        ],
+                        currency_id: "BRL"
+                ]
+            ]
+        }
+
+        "/add_cart_intention"(platform: "/web/mobile", type: TrackType.Event) {
+            add_to_cart_availability = "no_high_ratio"
+            main_action = "buy"
+            context = "/vip"
+            items = [
+                [
+                        unit_price : 100,
+                        quantity   : 1,
+                        item       : [
+                                category_id: "MLB63385",
+                                id         : "MLB754486062"
+                        ],
+                        currency_id: "BRL"
+                ],
+                [
+                        unit_price : 50,
+                        quantity   : 3,
+                        item       : [
+                                category_id: "MLB512315",
+                                id         : "MLB512313"
+                        ],
+                        currency_id: "BRL"
+                ]
+            ]
+        }
+    }
 }
 
 

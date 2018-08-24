@@ -1,16 +1,23 @@
 {
   "users": [
-    "melidata_dev@mercadolibre.com"
+    "patricio.benitez@mercadolibre.com"
   ],
-  "process_name": "unrepeated_tracks_count",
-  "cron": "30 06 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
+  "process_name": "unrepeated_tracks",
+  "cron": "00 09 * * *",
   "extract": {
     "operation": "append",
     "columns": [
       {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "version",
+        "type": "UNICODE_STRING"
       },
       {
         "name": "unrepeated",
@@ -22,7 +29,7 @@
       }
     ],
     "sql": {
-      "script": "melidata/unrepeated-tracks-count.sql",
+      "script": "melidata/unrepeated-tracks.sql",
       "parameters": [
         {
           "name": "param01",

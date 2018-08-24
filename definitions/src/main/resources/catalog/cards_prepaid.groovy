@@ -6,6 +6,10 @@ import com.ml.melidata.TrackType
 tracks {
 
     defaultBusiness = "mercadopago"
+    
+    //-----------------
+    // PREPAID MLA/MLB
+    //-----------------
 
     // General Path
     "/prepaid"(platform: "/", isAbstract: true) {
@@ -52,6 +56,7 @@ tracks {
     // Acquisition Flow
     // MLA => https://www.mercadopago.com.ar/prepaid/acquisition
     // MLB => https://www.mercadopago.com.br/prepaid/acquisition
+    "/prepaid/acquisition/change_dni"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/confirmation_account"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/registration/congrats"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/juridical_info"(platform: "/", type: TrackType.View) {}
@@ -64,17 +69,17 @@ tracks {
     "/prepaid/acquisition/need_fund"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/congrats"(platform: "/", type: TrackType.View) {
         congrats_type(
-            required: false, 
+            required: true, 
             type: PropertyType.String, 
-            values: ["bapropagos", "pagofacil", "rapipago", "cobroexpress", "cargavirtual", "redlink", "maestro", "debcabal", "bolbradesco"],
+            values: ["prepaid","prepaid_delay", "prepaid_point_different_address", "prepaid_point_same_address","bapropagos", "pagofacil", "rapipago", "cobroexpress", "cargavirtual", "redlink", "maestro", "debcabal", "bolbradesco"],
             description: "Types of congrats pages by payment method ID."
         )
     }
     "/prepaid/acquisition/error"(platform: "/", type: TrackType.View) {
         error_type(
-            required: false, 
+            required: true, 
             type: PropertyType.String, 
-            values: ["main_error", "have_a_card", "juridical_error", "personal_error", "deceased_error", "underage_error", "denied_error"],
+            values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
             description: "Types of error pages in acquisition flow."
         )
     }
@@ -87,9 +92,9 @@ tracks {
     "/prepaid/activation/congrats"(platform: "/", type: TrackType.View) {}
     "/prepaid/activation/error"(platform: "/", type: TrackType.View) {
         error_type(
-            required: false, 
+            required: true, 
             type: PropertyType.String, 
-            values: ["main_error", "not_found"],
+            values: ["main_error", "max_attempt", "mismatch_dni", "not_found"],
             description: "Types of error pages in activitation flow."
         )
     }
@@ -109,9 +114,49 @@ tracks {
     // MLA => https://www.mercadopago.com.ar/prepaid/block/congrats
     "/prepaid/block" (platform: "/", type: TrackType.View) {}
 
-    // Cobranded
-    "/cobranded" (isAbstract: true, platform: "/web") {}
-    "/cobranded/acquisition" (isAbstract: true) {}
-    "/cobranded/acquisition/landing" () {}
+    //New invalid
+    "/my_cards_webview" (platform: "/mobile", type: TrackType.View) {}
+
+
+
+
+    //-----------------
+    // PREPAID MLM
+    //-----------------
+
+    // Acquisition Flow
+    "/prepaid_card"(platform: "/mobile", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/prepaid_card/action_picker"(platform: "/mobile") {}
+    "/prepaid_card/web_view"(platform: "/mobile") {}
+    
+    //New (invalid)
+    "/prepaid_card/result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+    }
+    "/prepaid_card/pay"(platform: "/mobile") {}
+    "/prepaid_card/payment_methods"(platform: "/mobile") {}
+    "/prepaid_card/other_payment_methods"(platform: "/mobile") {}
+    "/prepaid_card/final_scene"(platform: "/mobile", isAbstract: true) {}
+    "/prepaid_card/final_scene/prepaid"(platform: "/mobile", isAbstract: true) {}
+    "/prepaid_card/final_scene/prepaid/success"(platform: "/mobile") {}
+    
+    // Acquisition Recharge
+    "/prepaid_recharge"(platform: "/mobile", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/prepaid_recharge/fill_recharge_data"(platform: "/mobile") {}
+    "/prepaid_recharge/recipients"(platform: "/mobile") {}
+    "/prepaid_recharge/result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
+    //New (invalid)
+    "/prepaid_recharge/add_recipient"(platform: "/mobile") {}
+    "/prepaid_recharge/recipient"(platform: "/mobile") {}
 
 }

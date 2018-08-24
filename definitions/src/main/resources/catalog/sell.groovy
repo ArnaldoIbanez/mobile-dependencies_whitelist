@@ -552,4 +552,16 @@ tracks {
     "/sell/landing_download_app"(platform: "/web/mobile", type: TrackType.View){}
     "/sell/landing_download_app/download_intention"(platform: "/web/mobile", type: TrackType.Event){}
 
+    // Mobile flow - Push notification complete technical specifications
+    "/sell/complete_technical_specifications"(platform: "/mobile", isAbstract: true) {
+        item_id (required: true, type: PropertyType.String)
+    }
+    "/sell/complete_technical_specifications/technical_specifications"(platform: "/mobile", type: TrackType.View){}
+    "/sell/complete_technical_specifications/landing_finish_no_complete"(platform: "/mobile", type: TrackType.View){}
+    "/sell/complete_technical_specifications/landing_continue"(platform: "/mobile", type: TrackType.View){}
+    "/sell/complete_technical_specifications/landing_no_items"(platform: "/mobile", type: TrackType.View){}
+    "/sell/complete_technical_specifications/congrats_finish"(platform: "/mobile", type: TrackType.View){}
+    "/sell/complete_technical_specifications/landing_intro"(platform: "/mobile", type: TrackType.View){}
+    "/sell/complete_technical_specifications/congrats_has_more"(platform: "/mobile", type: TrackType.View){}
+
 }

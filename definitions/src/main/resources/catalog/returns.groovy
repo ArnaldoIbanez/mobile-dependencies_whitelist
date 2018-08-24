@@ -14,13 +14,15 @@ tracks {
       cart_order(required: false, type: PropertyType.Boolean, description: 'order created by cart')
       item_category(required: false, type: PropertyType.String, description: 'category of item')
       item_category_l1(required: false, type: PropertyType.String, description: 'main category of item')
-      refund_account_money(required: false, type: PropertyType.Boolean, description: 'refound money in the buyers account')
+      refund_account_money(required: false, type: PropertyType.Boolean, description: 'refund money in the buyers account')
       ref(required: false, type: PropertyType.String, description: 'reference of the beginning of the flow')
       buyer_scoring(required: false, type: PropertyType.String, description: 'buyer reputation level')
       seller_scoring(required: false, type: PropertyType.String, description: 'seller reputation level')
       showed_payment_methods(required: false, type: PropertyType.String, description: 'origin of the payment method')
       order_id(required: false, type: PropertyType.Numeric, description: 'order identifier')
       category_path(required: false, type: PropertyType.ArrayList, description: 'list of categories')
+      order_delayed_by_seller(required: false, type: PropertyType.Boolean, description: 'order delayed by seller')
+      deferred_payment(required: false, type: PropertyType.String, description: 'when will the buyer be refunded', values: ["shipped", "delivered"])
     }
 
     // STEP 01
@@ -87,6 +89,23 @@ tracks {
       modal_data(required: false, type: PropertyType.Map, description: 'internal data of the modal')
     }
 
+    // STEP 06.b
+    "/return/congrats_error"(platform: "/", type: TrackType.View) {
+        buyer_scoring(required: false, type: PropertyType.String, description: 'risk level of buyer', values: ["low", "mid", "mid_new", "mid_amount", "mid_med_cant", "mid_cashout", "mid_crosses", "high_crosses", "high_cashout", "high"])
+        seller_scoring(required: false, type: PropertyType.String, description: 'risk level of seller', values: ["low","mid", "mid_new", "mid_amount", "mid_med_cant", "mid_cashout", "mid_crosses", "high_crosses", "high_cashout", "high"])
+        date_delivered(required: false, type: PropertyType.String, description: 'date of order shipment')
+        item_id(required: false, type: PropertyType.String, description: 'item identifier')
+        item_category_l1(required: false, type: PropertyType.String, description: 'main category of item')
+        refund_account_money(required: false, type: PropertyType.Boolean, description: 'refund money in the buyers account')
+        item_category(required: false, type: PropertyType.String, description: 'category of item')
+        category_id(required: false, type: PropertyType.String, description: 'category identifier')
+        cart_order(required: false, type: PropertyType.Boolean, description: 'order created by cart')
+        payment(required: false, type: PropertyType.String, description: 'origin of payment')
+        loyalty_level(required: false, type: PropertyType.Numeric, description: 'buyer level loyalty')
+        order_id(required: false, type: PropertyType.Numeric, description: 'order identifier')
+        typification(required: false, type: PropertyType.String, description: 'reason why the product is returned')
+    }
+
     "/return/external"(platform: "/", type: TrackType.View) {
         id(required: false, type: PropertyType.String, description: 'name of the page to redirect')
         data(required: false, type: PropertyType.Map, description: 'context information to send')
@@ -96,7 +115,11 @@ tracks {
         data(required: false, type: PropertyType.Map, description: 'context information to send')
     }
 
-    "/return/error"(platform: "/", type: TrackType.View) {
+    "/return/warning"(platform: "/", type: TrackType.View) {
       previous_step(required: false, type: PropertyType.String, description: 'step before the error')
+      type(required: false, type: PropertyType.String, description: 'if this order had a return or a claim', values: ['return_created', 'claim_created'])
+    }
+    "/return/warning/selection"(platform: "/", type: TrackType.Event) {
+        selection(required: true, type: PropertyType.String, description: 'button selected by the user', values: ['go_to_purchases', 'view_details'])
     }
 }
