@@ -600,6 +600,7 @@ tracks {
     }
 
     //Operators
+    "/collaborators/roles"(platform: "/", isAbstract: true) {}
     "/collaborators/congrats"(platform: "/", type: TrackType.View) {}
     "/collaborators/invite"(platform: "/", type: TrackType.View) {}
     "/collaborators"(platform: "/", type: TrackType.View) {}
