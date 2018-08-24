@@ -4,12 +4,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    //def categoryRegex = /(ROOT|[a-zA-Z]{1,3}[0-9]+)/
-    //def categoryPathRegex = /\[([a-zA-Z]{1,3}[0-9]+(, )?)*\]/
-    //todo dejar los originales en septiembre
-    def categoryRegex = /(\S*)/
-    def categoryPathRegex = /\[(\S*(, )?)*\]/
-
+    def categoryRegex = /(ROOT|[a-zA-Z]{1,3}[0-9]+)/
+    def categoryPathRegex = /\[([a-zA-Z]{1,3}[0-9]+(, )?)*\]/
 
     //SEARCH FLOW
 
@@ -29,10 +25,10 @@ tracks {
         billboards(required: false, description: "items ids from billboard results", PropertyType.ArrayList)
         pads(required: false, description: "item_id from the pads returned for listings")
         catalog_product_id(required: false, description: "Id of the product, only if the product header is showna", PropertyType.String)
+        official_stores_carousel_shown(required: false, description: 'which TOs are in the carousel', PropertyType.ArrayList)
 
         //Tracks from Search Backend:
         backend_data(required: false)
-        official_stores_carousel_shown(required: false, description: 'which TOs are in the carousel', PropertyType.ArrayList)
         //ab(required: false, description:'ab testing related. to be deprecated')
         //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
         //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
@@ -66,30 +62,8 @@ tracks {
     }
 
     "/search"(platform: "/mobile") {
-        //limit y offset parecen ser las unicas que no se cambian
-        //limit(required: true, description: "the max number of items returned", type: PropertyType.Numeric)
-        //offset(required: true, description: "the number of items skipped on the search", type: PropertyType.Numeric)
-        /*total(required: false, description: "override required property")
-        sort_id(required: false, description: "override required property")
-        filters(required: false, description: "override required property")
-        view_mode(required: false, description: "override required property")
-        results(required: false, description: "override required property")
-        billboards(required: false, description: "override required property")
-        pads(required: false, description: "override required property") //esto estaba solo para web antes*/
-
         breadcrumb_refined(required: false, description: 'if user used breadcrumb to refine their search',PropertyType.Boolean)
         error_message(required: false, PropertyType.String)
-
-        //todo remover estas cosas que son de apps viejas
-        sort(required: false)
-        sort_id(required: false)
-        view_mode(required: false)
-        layout(required: false)
-        context(required: false)
-        filters(required: false)
-        results(required: false)
-        billboard_shown(required: false)
-
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
