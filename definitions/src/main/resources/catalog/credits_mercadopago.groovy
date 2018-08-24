@@ -14,8 +14,6 @@ tracks {
      ******************************************/
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/merchant"(platform: "/", isAbstract: true) {}
-    "/credits/money_advance"(platform: "/", isAbstract: true) {}
-    "/credits/money_advance/automatic"(platform: "/", isAbstract: true) {}
 
     /******************************************
      *       Start: Merchants Public Landings
@@ -99,16 +97,5 @@ tracks {
 
     /******************************************
      *       End: Merchants Administrator
-     ******************************************/
-
-    /******************************************
-     *       Start: Money Advance
-     ******************************************/
-    //Money Advance - Automatic Cash Advance
-    "/credits/money_advance/automatic/offer"(platform: "/", type: TrackType.View) {}
-    "/credits/money_advance/automatic/congrats"(platform: "/", type: TrackType.View) {}
-
-    /******************************************
-     *       End: Money Advance
      ******************************************/
 }
