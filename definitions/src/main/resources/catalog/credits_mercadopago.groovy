@@ -28,6 +28,31 @@ tracks {
      ******************************************/
 
     /******************************************
+     *       Start: Merchants Administrator
+     ******************************************/
+
+    //Dashboard merchants
+    //Page Views
+    "/credits/merchant/administrator/dashboard"(platform: "/", type: TrackType.View) {
+        status(type: PropertyType.String, required: true, values: ['offer', 'no_offer', 'on_time', 'late_pay'])
+    }
+    "/credits/merchant/administrator"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/offer"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/no_offer"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/admin_on_time"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/admin_late_pay"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/administrator/detail"(platform: "/", type: TrackType.View) {}
+
+    //Events
+    "/credits/merchant/hero_cta"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/second_offer_cta"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/help"(platform: "/", type: TrackType.Event) {}
+
+    /******************************************
+     *       End: Merchants Administrator
+     ******************************************/
+
+    /******************************************
      *       Start: Merchants Enrollment
      ******************************************/
 
@@ -72,30 +97,5 @@ tracks {
     "/credits/merchant/enrollment/ask_us"(platform: "/", type: TrackType.Event) {}
     /******************************************
      *       End: Merchants Enrollment
-     ******************************************/
-
-    /******************************************
-     *       Start: Merchants Administrator
-     ******************************************/
-
-    //Dashboard merchants
-    //Page Views
-    "/credits/merchant/administrator/dashboard"(platform: "/", type: TrackType.View) {
-        status(type: PropertyType.String, required: true, values: ['offer', 'no_offer', 'on_time', 'late_pay'])
-    }
-    "/credits/merchant/administrator"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/offer"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/no_offer"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/admin_on_time"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/admin_late_pay"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/administrator/detail"(platform: "/", type: TrackType.View) {}
-
-    //Events
-    "/credits/merchant/hero_cta"(platform: "/", type: TrackType.Event) {}
-    "/credits/merchant/second_offer_cta"(platform: "/", type: TrackType.Event) {}
-    "/credits/merchant/help"(platform: "/", type: TrackType.Event) {}
-
-    /******************************************
-     *       End: Merchants Administrator
      ******************************************/
 }
