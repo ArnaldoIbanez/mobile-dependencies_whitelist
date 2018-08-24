@@ -16,6 +16,9 @@ trackTests {
         "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/error"(platform: "/web/desktop") {}
         "/credits/merchant/administrator"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/dashboard"(platform: "/") {
+            status = 'offer'
+        }
         "/credits/merchant/admin_on_time"(platform: "/web/desktop") {}
         "/credits/merchant/admin_late_pay"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {}

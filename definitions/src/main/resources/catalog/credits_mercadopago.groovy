@@ -54,6 +54,9 @@ tracks {
 
     //Dashboard merchant
     "/credits/merchant/administrator"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/administrator/dashboard"(platform: "/", type: TrackType.View) {
+        status(type: PropertyType.String, required: true, values: ['offer', 'no_offer', 'on_time', 'late_pay'])
+    }
     "/credits/merchant/administrator/detail"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/offer"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/no_offer"(platform: "/", type: TrackType.View) {}
