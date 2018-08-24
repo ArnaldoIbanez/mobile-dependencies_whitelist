@@ -24,14 +24,14 @@ tracks {
     /******************************************
      *       Start: Consumers Public Landings
      ******************************************/
-    //Public Landing consumer
+    //Public Landing
 
-    // Page views
+    //Page views
     "/credits/consumer/public_landing"(platform: "/", type: TrackType.View) {
         user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
     }
 
-    // Events
+    //Events
     "/credits/consumer/public_landing/click_hero"(platform: "/", type: TrackType.Event) {
         user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
     }
@@ -51,14 +51,14 @@ tracks {
     ******************************************/
     //Admin Dashboard
 
-    // Page views
+    //Page Views
     "/credits/consumer/administrator"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/administrator/dashboard"(platform: "/", type: TrackType.View) {
         dashboard_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
     }
     "/credits/consumer/administrator/detail"(platform: "/", type: TrackType.View) {}
     
-    // Events
+    //Events
     "/credits/consumer/administrator/tooltip"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/payment_intention"(platform: "/", type: TrackType.Event) {
         installment_status(
@@ -82,13 +82,12 @@ tracks {
     "/credits/consumer/administrator/educational_landing"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/see_product"(platform: "/", type: TrackType.Event) {}
 
-
     //Admin History (Compras Finalizadas)
 
-    // Page views
+    //Page views
     "/credits/consumer/administrator/history"(platform: "/", type: TrackType.View) {}
 
-    // Events
+    //Events
     "/credits/consumer/administrator/history/details_button"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/history/educational_landing"(platform: "/", type: TrackType.Event) {}
 
@@ -114,8 +113,13 @@ tracks {
     //Congrats
     "/credits/consumer/enrollment/congrats"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/enrollment/congrats/buy"(platform: "/", type: TrackType.Event) {}
+
     /******************************************
-     *       Start: Consumers Administrator
+     *       End: Consumers Enrollment
+     ******************************************/
+
+    /******************************************
+     *       Start: Consumers Push
      ******************************************/
 
     //Landing Push Native
@@ -129,4 +133,8 @@ tracks {
 
     //Delayed payment
     "/credits/consumer/payinstallment/late_pay"(platform: "/", type: TrackType.Event) {}
+
+    /******************************************
+     *       End: Consumers Push
+     ******************************************/
 }
