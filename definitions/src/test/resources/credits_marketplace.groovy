@@ -42,20 +42,14 @@ trackTests {
         // Views
         "/credits/consumer/administrator"(platform: "/web/desktop") {}
         "/credits/consumer/administrator/dashboard"(platform: "/web/desktop", type: TrackType.View) { dashboard_status = 'empty_state' }
-        "/credits/consumer/administrator/dashboard"(platform: "/web/desktop", type: TrackType.View) { dashboard_status = 'on_time' }
-        "/credits/consumer/administrator/dashboard"(platform: "/web/desktop", type: TrackType.View) { dashboard_status = 'overdue' }
         "/credits/consumer/administrator/detail"(platform: "/web/desktop") {}
 
         //Events
         "/credits/consumer/administrator/tooltip"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'on_time'}
-        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'to_expire_soft'}
-        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'to_expire_hard'}
-        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'expired_today'}
-        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'no_charge_period'}
-        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'fixed_charge_period_1'}
-        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'fixed_charge_period_2'}
-        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) { installment_status= 'daily_charge_period'}
+        "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            installment_status= 'on_time'
+            payment_intention= 'cho'
+        }
         "/credits/consumer/administrator/details_button"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/help"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {}
