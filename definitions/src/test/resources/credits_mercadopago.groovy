@@ -62,7 +62,7 @@ trackTests {
 
     test("money advance - automatic cash advances"){
         //Views
-        "/credits/moneyadvance/automatic/offer"(platform: "/web/desktop") {}
-        "/credits/moneyadvance/automatic/congrats"(platform: "/web/desktop") {}
+        "/credits/money_advance/automatic/offer"(platform: "/web/desktop") {}
+        "/credits/money_advance/automatic/congrats"(platform: "/web/desktop") {}
     }
 }

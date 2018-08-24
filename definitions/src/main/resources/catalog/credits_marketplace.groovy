@@ -16,10 +16,6 @@ tracks {
      ******************************************/
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
-    "/credits/consumer/enrollment"(platform: "/", isAbstract: true) {}
-    "/credits/consumer/administrator"(platform: "/", isAbstract: true) {}
-    "/credits/consumer/administrator/detail"(platform: "/", isAbstract: true) {}
-
 
     /******************************************
      *       Start: Consumers Public Landings

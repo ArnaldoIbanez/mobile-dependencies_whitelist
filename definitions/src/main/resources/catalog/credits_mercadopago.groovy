@@ -9,19 +9,37 @@ tracks {
     "/"(platform: "/web", isAbstract: true) {
     }
 
-    //Definitions - Merchant
+    /******************************************
+     *       Abstract definitions
+     ******************************************/
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/merchant"(platform: "/", isAbstract: true) {}
-    "/credits/merchant/enrollment"(platform: "/", isAbstract: true) {}
-    "/credits/merchant/enrollment/load_documents"(platform: "/", isAbstract: true) {}
+    "/credits/money_advance"(platform: "/", isAbstract: true) {}
+    "/credits/money_advance/automatic"(platform: "/", isAbstract: true) {}
+
+    /******************************************
+     *       Start: Merchants Public Landings
+     ******************************************/
+    //Public landing
     "/credits/merchant/public_landing"(platform: "/", type: TrackType.View) {
         user_profile(type: PropertyType.String, required: true)
     }
 
-    //Landing merchant
+    /******************************************
+     *       End: Merchants Public Landings
+     ******************************************/
+
+    /******************************************
+     *       Start: Merchants Enrollment
+     ******************************************/
+
+    //Enrollment
+    //Page Views
     "/credits/merchant/enrollment"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/enrollment/credits_conditions"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/enrollment/not_interested"(platform: "/", type: TrackType.View) {}
+
+    //Events
     "/credits/merchant/enrollment/choose_amount"(platform: "/", type: TrackType.Event) {
         amount(type: PropertyType.Numeric, required: true)
     }
@@ -52,28 +70,45 @@ tracks {
     "/credits/merchant/enrollment/error/try_it_again"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant/enrollment/error/contact_us"(platform: "/", type: TrackType.Event) {}
 
-    //Dashboard merchant
-    "/credits/merchant/administrator"(platform: "/", type: TrackType.View) {}
+    //Help merchant
+    "/credits/merchant/enrollment/ask_us"(platform: "/", type: TrackType.Event) {}
+    /******************************************
+     *       End: Merchants Enrollment
+     ******************************************/
+
+    /******************************************
+     *       Start: Merchants Administrator
+     ******************************************/
+
+    //Dashboard merchants
+    //Page Views
     "/credits/merchant/administrator/dashboard"(platform: "/", type: TrackType.View) {
         status(type: PropertyType.String, required: true, values: ['offer', 'no_offer', 'on_time', 'late_pay'])
     }
-    "/credits/merchant/administrator/detail"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/administrator"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/offer"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/no_offer"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/admin_on_time"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/admin_late_pay"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/administrator/detail"(platform: "/", type: TrackType.View) {}
+
+    //Events
     "/credits/merchant/hero_cta"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant/second_offer_cta"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant/help"(platform: "/", type: TrackType.Event) {}
 
-    //Help merchant
-    "/credits/merchant/enrollment/ask_us"(platform: "/", type: TrackType.Event) {}
+    /******************************************
+     *       End: Merchants Administrator
+     ******************************************/
 
-    //Definitions - Money Advance
-    "/credits/moneyadvance"(platform: "/", isAbstract: true) {}
-
+    /******************************************
+     *       Start: Money Advance
+     ******************************************/
     //Money Advance - Automatic Cash Advance
-    "/credits/moneyadvance/automatic"(platform: "/", isAbstract: true) {}
-    "/credits/moneyadvance/automatic/offer"(platform: "/", type: TrackType.View) {}
-    "/credits/moneyadvance/automatic/congrats"(platform: "/", type: TrackType.View) {}
+    "/credits/money_advance/automatic/offer"(platform: "/", type: TrackType.View) {}
+    "/credits/money_advance/automatic/congrats"(platform: "/", type: TrackType.View) {}
+
+    /******************************************
+     *       End: Money Advance
+     ******************************************/
 }
