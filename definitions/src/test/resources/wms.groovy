@@ -16,6 +16,23 @@ trackTests {
         feedback_message = "Some feedback message"
     }
 
+    def trackDataForAudit = {
+    	warehouse_id = "BRWT01"
+        email = "email@mercadolibre.com.ar"
+        first_name = "Some first name"
+        last_name = "Some last name"
+        error_type = "SERVER"
+        feedback_type = "WARNING"
+        feedback_message = "Some feedback message"
+        audit_id = 1234
+        inbound_id = 5678
+        inventory_id = 'AAAA00001'
+        address_id = 'RS-0-001-000-00-00'
+        damaged_quantity = 1
+        quantity = 1
+        from_count_around = 'false'
+    }
+
     test("WMS App") {
 
         //Views
@@ -61,10 +78,28 @@ trackTests {
             quantity = 123
         }
         "/wms/inbound_audit"(platform: "/mobile/android") {
-            trackData()
+            trackDataForAudit()
+        }
+        "/wms/inbound_audit/confirmation"(platform: "/mobile/android") {
+            trackDataForAudit()
+        }
+        "/wms/inbound_audit/scan_shelf"(platform: "/mobile/android") {
+            trackDataForAudit()
+        }
+        "/wms/inbound_audit/item"(platform: "/mobile/android") {
+            trackDataForAudit()
+        }
+        "/wms/inbound_audit/damaged_item"(platform: "/mobile/android") {
+            trackDataForAudit()
+        }
+        "/wms/inbound_audit/count_around"(platform: "/mobile/android") {
+            trackDataForAudit()
+        }
+        "/wms/inbound_audit/congrats"(platform: "/mobile/android") {
+            trackDataForAudit()
         }
         "/wms/transfer"(platform: "/mobile/android") {
-            trackData()
+            trackDataForAudit()
         }
         "/wms/found"(platform: "/mobile/android") {
             trackData()
