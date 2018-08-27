@@ -108,5 +108,19 @@ trackTests {
         /******************************************
          *       End: Consumers Push
          ******************************************/
+
+        /******************************************
+         *       Start: Consumers Recurring Campaign
+         ******************************************/
+        //Page Views
+        "/credits/consumer/recurring_landing_test"(platform: "/web/desktop", type: TrackType.View) {}
+        "/credits/consumer/recurring_congrats_test"(platform: "/web/desktop", type: TrackType.View) {}
+
+        //Events
+        "/credits/consumer/like_recurring"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/dislike_recurring"(platform: "/web/desktop", type: TrackType.Event) {}
+        /******************************************
+         *       End: Consumers Recurring Campaign
+         ******************************************/
     }
 }
