@@ -26,11 +26,11 @@ trackTests {
         feedback_message = "Some feedback message"
         audit_id = 1234
         inbound_id = 5678
-        inventory_id = 'AAAA00001'
-        address_id = 'RS-0-001-000-00-00'
+        inventory_id = "AAAA00001"
+        address_id = "RS-0-001-000-00-00"
         damaged_quantity = 1
         quantity = 1
-        from_count_around = 'false'
+        from_count_around = "false"
     }
 
     test("WMS App") {

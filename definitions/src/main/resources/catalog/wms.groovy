@@ -51,7 +51,10 @@ tracks {
         address_id(required: false, type: PropertyType.String, description: "Address id")
         damaged_quantity(required: false, type: PropertyType.Numeric, description: "Damaged quantity")
         quantity(required: false, type: PropertyType.Numeric, description: "Item quantity")
-        from_count_around(required: false, type: PropertyType.String, description: "From count around")
+        from_count_around(required: false, 
+            type: PropertyType.String, 
+            values: ["true", "false"], 
+            description: "From count around")
     }
     "/wms/inbound_audit/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/inbound_audit/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
