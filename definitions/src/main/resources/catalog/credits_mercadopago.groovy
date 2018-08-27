@@ -76,8 +76,8 @@ tracks {
 
     //Upload Files merchant
     "/credits/merchant/enrollment/load_documents"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/enrollment/user_type"(platform: "/", type: TrackType.Event) {
-        type(type: PropertyType.String, required: true)
+    "/credits/merchant/enrollment/load_documents/user_type"(platform: "/", type: TrackType.Event) {
+        type(type: PropertyType.String, required: true, values: ['physical', 'moral'])
     }
     "/credits/merchant/enrollment/load_documents/cancel"(platform: "/", type: TrackType.Event) {}
 
