@@ -1,28 +1,21 @@
 {
   "users": [
-    "gabriel.neil@mercadolibre.com"
+    "gabriel.neil@mercadolibre.com",
+    "valentin.orfila@mercadolibre.com"
   ],
   "process_name": "consumer_journey_email",
   "cron": "0 5 * * *",
+  "partition": {
+    "name": "date_sent",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
+    "site": "MeliLake",
     "columns": [
       {
-        "name": "email_id",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "fecha",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
-      {
-        "name": "path",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "template",
-        "type": "UNICODE_STRING"
+        "name": "total",
+        "type": "INTEGER"
       },
       {
         "name": "event_type",
@@ -35,11 +28,6 @@
       {
         "name": "bucket",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "sent_date",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
       }
     ],
     "sql": {

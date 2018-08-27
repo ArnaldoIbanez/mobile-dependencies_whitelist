@@ -238,7 +238,16 @@ tracks {
         success(required: true, type: PropertyType.Boolean)
     }
 
+    // Price parity massive items editor
+    "/myml/market_prices_editor"(platform: "/", type: TrackType.View) {}
 
+    "/myml/market_prices_editor/save"(platform: "/", type: TrackType.Event) {
+        total_items(required: true, type: PropertyType.Numeric, description: "Quantity of items selected to be massively modified.")
+    }
+
+    "/myml/market_prices_editor/get_suggested_price"(platform: "/", type: TrackType.Event) {
+        total_items(required: true, type: PropertyType.Numeric, description: "Quantity of items selected to retrieve their suggested price.")
+    }
 
     // Eventos relacionados al item
     "/item"(platform: "/", isAbstract: true) {
@@ -626,6 +635,18 @@ tracks {
         error_type(required: false, type: PropertyType.String, description: "Type of error")
         error(required: false, type: PropertyType.Boolean, description: "Boolean if request was error")
         message(required: false, type: PropertyType.String, description: "Error message that pops on page")
+    }
+    
+    "/myml/invoices/error"(platform: "/") {
+        error(required: true, type: PropertyType.String, values:[
+            "not_legal_entity", 
+            "not_valid_address", 
+            "not_tax_regime_allowed",
+            "not_right_tax_regime",
+            "not_cnpj_user",
+            "not_order_owner",
+            "is_not_admin",
+        ], description: "Error code")
     }
 
     "/myml/invoices/sku/status"(platform: "/") {}

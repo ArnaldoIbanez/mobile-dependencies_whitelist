@@ -1,13 +1,11 @@
 package src.test.resources
 
-import com.ml.melidata.TrackType
-
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
-	defaultBusiness = "mercadoenvios"
-	
+    defaultBusiness = "mercadoenvios"
+
     def trackData = {
         warehouse_id = "BRWT01"
         email = "email@mercadolibre.com.ar"
@@ -22,35 +20,83 @@ trackTests {
 
         //Views
         "/wms/login"(platform: "/mobile/android") {
-        	trackData()
+            trackData()
         }
-		"/wms/home"(platform: "/mobile/android") {
-			trackData()
-		}
+        "/wms/home"(platform: "/mobile/android") {
+            trackData()
+        }
         "/wms/receiving"(platform: "/mobile/android") {
-        	trackData()
+            trackData()
         }
-		"/wms/put_away"(platform: "/mobile/android") {
-			trackData()
-		}
-		"/wms/inbound_audit"(platform: "/mobile/android") {
-			trackData()
-		}
-		"/wms/transfer"(platform: "/mobile/android") {
-			trackData()
-		}
-		"/wms/found"(platform: "/mobile/android") {
-			trackData()
-		}
-		"/wms/restock"(platform: "/mobile/android") {
-			trackData()
-		}
-		"/wms/picking"(platform: "/mobile/android") {
-			trackData()
-		}
-		"/wms/return"(platform: "/mobile/android") {
-			trackData()
-		}
+        "/wms/put_away"(platform: "/mobile/android") {
+            trackData()
+            put_away_id = "1234"
+            check_in_id = "4567"
+            cart_address = "CA-0-001-000-00-00"
+        }
+        "/wms/put_away/confirmation"(platform: "/mobile/android") {
+            trackData()
+            put_away_id = "1234"
+            check_in_id = "4567"
+            cart_address = "CA-0-001-000-00-00"
+        }
+        "/wms/put_away/scan_cart"(platform: "/mobile/android") {
+            trackData()
+            put_away_id = "1234"
+            check_in_id = "4567"
+            cart_address = "CA-0-001-000-00-00"
+        }
+        "/wms/put_away/scan_inventory"(platform: "/mobile/android") {
+            trackData()
+            put_away_id = "1234"
+            check_in_id = "4567"
+            cart_address = "CA-0-001-000-00-00"
+        }
+        "/wms/put_away/item"(platform: "/mobile/android") {
+            trackData()
+            put_away_id = "1234"
+            check_in_id = "4567"
+            cart_address = "CA-0-001-000-00-00"
+            inventory_id = "AAAA00001"
+            quantity = 123
+        }
+        "/wms/inbound_audit"(platform: "/mobile/android") {
+            trackData()
+        }
+        "/wms/transfer"(platform: "/mobile/android") {
+            trackData()
+        }
+        "/wms/found"(platform: "/mobile/android") {
+            trackData()
+        }
+        "/wms/restock"(platform: "/mobile/android") {
+            trackData()
+        }
+        "/wms/picking"(platform: "/mobile/android") {
+            trackData()
+        }
+        "/wms/return"(platform: "/mobile/android") {
+            trackData()
+        }
 
+        //Events
+        "/wms/put_away/scan_cart/start_put_away"(platform: "/mobile/android") {
+            trackData()
+            put_away_id = "1234"
+            check_in_id = "4567"
+            cart_address = "CA-0-001-000-00-00"
+        }
+        "/wms/put_away/scan_inventory/cancel_put_away"(platform: "/mobile/android") {
+            trackData()
+            put_away_id = "1234"
+            check_in_id = "4567"
+            cart_address = "CA-0-001-000-00-00"
+        }
+        "/wms/put_away/scan_inventory/end_put_away"(platform: "/mobile/android") {
+            trackData()
+            put_away_id = "1234"
+            check_in_id = "4567"
+            cart_address = "CA-0-001-000-00-00"
+        }
     }
 }
