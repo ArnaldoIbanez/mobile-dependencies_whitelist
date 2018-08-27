@@ -35,7 +35,7 @@ tracks {
     }
     
     propertyGroups {
-        add_cart_info(add_to_cart_availability, main_action)
+        add_cart_info(cart_content, add_to_cart_availability, main_action)
         shipping_info(shipping_preference, shipping_mode, free_shipping, local_pick_up, 
                 logistic_type, free_shipping_benefit, shipping_promise)
     }
