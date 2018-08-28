@@ -37,7 +37,7 @@ and   ds <  '@param2'
 and path = '/orders/ordercreated'
 group by substr(user_timestamp,1,10),
 substr(banner.last_click_date,1,10),
-CAST(date_diff('day', CAST(substr(user_timestamp,1,10) as date), CAST(substr(banner.last_click_date,1,10) as date)) as integer),
+CAST(datediff(CAST(substr(user_timestamp,1,10) as date), CAST(substr(banner.last_click_date,1,10) as date)) as integer),
 application.site_id,
 device.platform, 
 usr.uid,
