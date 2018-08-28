@@ -5,14 +5,39 @@ import com.ml.melidata.TrackType
 tracks {
 
     propertyDefinitions {
+        cart_content(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the VIP has cart features (only for core items)")
         add_to_cart_availability(required: false, type: PropertyType.String, values: ["yes_default", "yes_discount", "yes_fs", "no_high_ratio", "no_too_many_items", "no_item_price_too_low"], 
                 description: "Indicates which add_to_cart button the VIP is showing (Default, Discount, Free Shipping). In case it doesn't show it, also indicates the reason why it doesn't show it (High Ratio, Item price too low, Too many items in cart)")
         main_action(required: false, type: PropertyType.String, values: ["buy", "a2c_fs", "a2c_discount", "a2c_default"],
                 description: "Indicates which button the VIP is showing as main_action (ie, shown as blue button). If it is a2c, it then specifies which button type (default, fs, discount)")
+
+        // SHIPPING_FIELDS (NOT PRESENT IN CLASI)
+        shipping_preference(required: false, type: PropertyType.String,
+                description: "Shipping method's name shown when the user has zipcode/location preloaded")
+        shipping_mode(required: false, type: PropertyType.String, values: ["not_specified", "custom", "me1", "me2"],
+                description: "Mercado Envios mode")
+        free_shipping(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the items has free shipping")
+        local_pick_up(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item has local pick up")
+        logistic_type(required: false,
+                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment"],
+                type: PropertyType.String, description: "Indicates the logistic type of the item")
+        free_shipping_benefit(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the user has free shipping for loyalty benefit")
+        shipping_promise(required: false, description: "Array of shippping promise in the order with following data")
+        //afterDispatch: if unknown or unknown_frame (true/false)
+        //min_days: minimum number of days of the promise. (int)
+        //max_days: maximun number of days of the promise. (int or null -If it doesn´t apply-)
+        //price: {amount, currency_id, is_loyalty_discount}
+        //destination: zipcode | city/state
     }
     
     propertyGroups {
-        add_cart_info(add_to_cart_availability, main_action)
+        add_cart_info(cart_content, add_to_cart_availability, main_action)
+        shipping_info(shipping_preference, shipping_mode, free_shipping, local_pick_up, 
+                logistic_type, free_shipping_benefit, shipping_promise)
     }
 
     //VIP FLOW
@@ -49,9 +74,10 @@ tracks {
         reviews_attributes(required: false, type: PropertyType.ArrayList, inheritable: false, description: "Reviewable catalog attribute names")
         return_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has free return for the item")
-        cart_content(required: false, type: PropertyType.Boolean,
-                description: "Indicates if the VIP has cart features (only for core items)")
+        
+        // CART
         add_cart_info
+
         has_credit_available(required: false, type: PropertyType.Boolean,
                            description: "Indicates if the user has a credit available for the current item")
 
@@ -78,24 +104,8 @@ tracks {
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
         store_type(required: false, type: PropertyType.String, values: ["normal", "brand"], description: "Indicates store type")
 
-        // SHIPPING ( NOT PRESENT IN CLASI )
-        shipping_preference(required: false, type: PropertyType.String,
-                description: "Shipping method's name shown when the user has zipcode/location preloaded")
-        shipping_mode(required: false, type: PropertyType.String, values: ["not_specified", "custom", "me1", "me2"],
-                description: "Mercado Envios mode")
-        free_shipping(required: false, type: PropertyType.Boolean,
-                description: "Indicates if the items has free shipping")
-        local_pick_up(required: false, type: PropertyType.Boolean,
-                description: "Indicates if the item has local pick up")
-        logistic_type(required: false,
-                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment"],
-                type: PropertyType.String, description: "Indicates the logistic type of the item")
-        free_shipping_benefit(required: false, type: PropertyType.Boolean,
-                description: "Indicates if the user has free shipping for loyalty benefit")
-        shipping_promise(required: false, description: "Array of shippping promise in the order with following data")
-        //afterDispatch: if unknown or unknown_frame (true/false)
-        //min_days: minimum number of days of the promise. (int)
-        //max_days: maximun number of days of the promise. (int or null -If it doesn´t apply-)  
+        // SHIPPING
+        shipping_info 
 
         // USER FIELD
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
@@ -147,6 +157,18 @@ tracks {
         seller_id(required: false, type: PropertyType.Numeric)
         review_rate(required: false, type: PropertyType.Numeric, description: "The rating average of the reviews")
         reviews_attributes(required: false, type: PropertyType.ArrayList, description: "Reviewable catalog attribute names")
+    }
+    
+    "/vip/buy_action"(platform: "/", parentPropertiesInherited: false) {
+        item_id(required: false, type: PropertyType.String, description: "Item ID")
+        add_cart_info
+        shipping_info
+    }
+
+    "/vip/add_cart_action"(platform: "/", parentPropertiesInherited: false) {
+        item_id(required: false, type: PropertyType.String, description: "Item ID")
+        add_cart_info
+        shipping_info
     }
 
     "/vip/seller_reputation"(platform: "/mobile", parentPropertiesInherited: false) {}
