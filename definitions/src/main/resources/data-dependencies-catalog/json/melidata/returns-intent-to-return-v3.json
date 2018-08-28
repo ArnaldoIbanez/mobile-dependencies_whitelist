@@ -8,11 +8,6 @@
     "operation": "append",
     "columns": [
       {
-        "name": "fecha",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
-      {
         "name": "platform",
         "type": "UNICODE_STRING"
       },
@@ -46,15 +41,20 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2018-04-27",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "2018-05-07",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
       ]
     }
+  },
+  "partition": {
+    "name": "fecha",
+    "type": "DATE",
+    "format": "yyyy-MM-dd"
   }
 }
