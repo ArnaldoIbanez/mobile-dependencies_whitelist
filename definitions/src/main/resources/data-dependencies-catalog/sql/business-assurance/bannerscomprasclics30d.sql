@@ -27,13 +27,13 @@ INNER JOIN (
   	usr.uid as uid,
   	max(user_timestamp) as last_click_date
   	from tracks
-  	where ds >= '2018-08-26'
-  	and ds < '2018-08-28'
+  	where ds >= '@param3'
+  	and ds < '@param2'
   	and others['fragment'] like '%banner_name%'
   	group by application.site_id, device.platform, jest(others['fragment'], 'size'), jest(others['fragment'], 'banner_name'), jest(others['fragment'], 'sellerid'), usr.uid
   ) banner ON (jest(event_data, 'seller[0].id') = banner.SellerID and usr.uid = banner.uid)
-where ds >= '2018-08-27'
-and   ds <  '2018-08-28'
+where ds >= '@param1'
+and   ds <  '@param2'
 and path = '/orders/ordercreated'
 group by substr(user_timestamp,1,10),
 substr(banner.last_click_date,1,10),
