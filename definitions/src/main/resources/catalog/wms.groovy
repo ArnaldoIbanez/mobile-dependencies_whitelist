@@ -20,6 +20,10 @@ tracks {
         	values: ["SUCCESS", "ERROR", "WARNING", "LOCKED"],
         	type: PropertyType.String,
             description: "Type of feedback event")
+        feedback_message(
+            required: false,
+            type: PropertyType.String,
+            description: "Message of feedback screen.")
     }
 
 	"/wms/login"(platform: "/mobile/android", type: TrackType.View) {}

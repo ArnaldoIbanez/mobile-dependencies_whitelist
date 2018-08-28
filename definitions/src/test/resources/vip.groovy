@@ -555,4 +555,49 @@ trackTests {
 
     }
 
+    test("VIP Actions") {
+
+        def defaultTrackInformation = {
+            item_id = "MLA213512313"
+        }
+
+        def cartInformation = {
+            cart_content = false
+            add_to_cart_availability = "yes_default"
+            main_action = "buy"
+        }
+
+        def shippingInformation = {
+            shipping_preference = "Normal a Domicilio"
+            shipping_mode = "me1"
+            free_shipping = false
+            local_pick_up = false
+            logistic_type = "default"
+            free_shipping_benefit = false
+            shipping_promise = {
+                afterDispatch = true
+                min_days = 2
+                max_days = 12
+                price = {
+                    amount = 10000
+                    currency_id = "ARS"
+                    is_loyalty_discount = false
+                }
+                destination = "1429"
+            }
+        }
+
+        "/vip/buy_action"(platform: "/", type: TrackType.View) {
+            defaultTrackInformation()
+            cartInformation()
+            shippingInformation()
+        }
+
+         "/vip/add_cart_action"(platform: "/", type: TrackType.View) {
+            defaultTrackInformation()
+            cartInformation()
+            shippingInformation()
+        }
+    }
+
 }
