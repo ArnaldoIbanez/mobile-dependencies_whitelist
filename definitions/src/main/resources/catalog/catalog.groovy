@@ -97,6 +97,7 @@ catalog {
         include business, "classifieds_landings.groovy"
         include business, "instore.groovy"
         include business, "qr_discount.groovy"
+        include business, "zip_finder.groovy"
     }
     
     mercadopago.each { business ->

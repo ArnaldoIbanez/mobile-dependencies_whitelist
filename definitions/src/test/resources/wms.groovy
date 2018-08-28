@@ -13,6 +13,7 @@ trackTests {
         last_name = "Some last name"
         error_type = "SERVER"
         feedback_type = "WARNING"
+        feedback_message = "Some feedback message"
     }
 
     test("WMS App") {

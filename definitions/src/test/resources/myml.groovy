@@ -119,6 +119,12 @@ trackTests {
         }
     }
 
+    test("Message") {
+        "/myml/invoices/error"(platform: "/") {
+            error = "not_right_tax_regime"
+        }
+    }
+
     test("Company info export invoice") {
         "/myml/invoices/company-info/zip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/zip/download"(platform: "/", type: TrackType.Event) {}
@@ -613,6 +619,18 @@ trackTests {
         "/myml/sales/detail/send_feedback"(platform: "/mobile", type: TrackType.Event) {
             order_id = "1234"
             success = true
+        }
+    }
+
+    test("Price Parity Massive Editor") {
+        "/myml/market_prices_editor"(platform: "/", type: TrackType.View) {}
+
+        "/myml/market_prices_editor/save"(platform: "/", type: TrackType.Event) {
+            total_items = 10
+        }
+
+        "/myml/market_prices_editor/get_suggested_price"(platform: "/", type: TrackType.Event) {
+            total_items = 10
         }
     }
 
