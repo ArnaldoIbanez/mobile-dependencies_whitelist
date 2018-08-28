@@ -600,4 +600,11 @@ trackTests {
         }
     }
 
+    test("VIP zipcode") {
+
+        "/vip/input_zip_code"(platform: "/", type: TrackType.View) {}
+
+         "/vip/input_zip_code/dont_know_my_zip_code"(platform: "/", type: TrackType.Event) {}
+    }
+
 }
