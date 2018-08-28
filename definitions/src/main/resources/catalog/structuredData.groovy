@@ -22,11 +22,13 @@ tracks {
         category_path(required: true, description: "Category path for the item", type: PropertyType.ArrayList)
         label(required: false, description: "Tab from listings page", type: PropertyType.String, values: ["paused", "active", "closed","pending"])
         attribute_type(required: true, description:"If its an item_attribute, a variation_attribute or an allow_variation_attribute", type:PropertyType.String, values: ["item_attribute","variation_attribute","allow_variation_attribute"])
+        attributes_showed(required: false, description:"Number of attributes showed", type: PropertyType.String)
+        attributes_submited(required: false, description:"Number of attributes submited", type: PropertyType.String)
     }
 
     propertyGroups {
-        catalogWidgetGroup(category_id, page, item_id, officialstore, domain_id, seller_id, pi, condition, category_path, label,attribute_type)
-        catalogWidgetCompletenessGroup(completeness_level, items_left, missing_attributes, inferred_attributes)
+        catalogWidgetGroup(category_id, page, item_id, officialstore, domain_id, seller_id, pi, condition, category_path, label,attribute_type, attributes_showed)
+        catalogWidgetCompletenessGroup(completeness_level, attributes_submited, items_left, missing_attributes, inferred_attributes)
     }
 
     "/catalogwidget"(platform: "/", isAbstract: true, type: TrackType.Event) {}
