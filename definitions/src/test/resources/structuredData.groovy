@@ -51,7 +51,7 @@ trackTests {
             category_path = ["MLA1234", "MLA12345"]
             inferred_attributes= [[id: "BRAND", old_value: "Inferred", new_value: "Inferred", sucess: true ], [id: "BRAND", old_value: "Inferred", new_value: "New", sucess: false]]
             attribute_type = "item_attribute"
-            attributes_submited = "2"
+            attributes_submitted = "2"
         }
     }
 
