@@ -14,6 +14,8 @@ tracks {
      ******************************************/
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/merchant"(platform: "/", isAbstract: true) {}
+    "/credits/consumer"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/administrator"(platform: "/", isAbstract: true) {}
 
     /******************************************
      *       Start: Merchants Public Landings
@@ -97,5 +99,16 @@ tracks {
     "/credits/merchant/enrollment/ask_us"(platform: "/", type: TrackType.Event) {}
     /******************************************
      *       End: Merchants Enrollment
+     ******************************************/
+
+
+    /******************************************
+     *       Start: Consumers Admin Detail (still in MP)
+     ******************************************/
+
+    "/credits/consumer/administrator/detail"(platform: "/", type: TrackType.View) {}
+
+    /******************************************
+     *       Start: Consumers Admin Detail
      ******************************************/
 }
