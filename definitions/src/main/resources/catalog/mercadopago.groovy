@@ -149,7 +149,9 @@ tracks {
         error_msg (required:false, type: PropertyType.String, description: "Error shown to seller")
     }
 
-    "/point_payment/main"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/main"(platform: "/mobile", type: TrackType.View) {
+        flow_origin (required: false, type: PropertyType.String, description: "origin")
+    }
     "/point_payment/card"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/installments"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/card_type"(platform: "/mobile", type: TrackType.View) {}
@@ -178,6 +180,10 @@ tracks {
     "/point_payment/point"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/qr_ftu"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/bank_selection"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/waiting_card"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/select_connected_device"(platform: "/mobile", type: TrackType.View) {
+         devices (required:false, type: PropertyType.String, description: "paired devices")
+    }
 
     "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
         flow_id (required: true, type: PropertyType.String, description: "Flow id.")
@@ -192,7 +198,11 @@ tracks {
     "/point_payment/flow_tracker/payment_methods_get"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/payment_methods_response"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/card_token_results"(platform: "/mobile", type: TrackType.Event) {}
-    "/point_payment/flow_tracker/start"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/start"(platform: "/mobile", type: TrackType.Event) {
+        description (required: false, type: PropertyType.String, description: "payment description.")
+        amount (required: false, type: PropertyType.String, description: "payment amount.")
+        discount (required: false, type: PropertyType.String, description: "payment discount")
+    }
     "/point_payment/flow_tracker/card_tokens_result"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/payment_methods_request"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/payment_methods_response"(platform: "/mobile", type: TrackType.Event) {}
@@ -209,6 +219,11 @@ tracks {
     "/point_payment/flow_tracker/select_qr"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/select_point"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/select_link"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/select_connected_device"(platform: "/mobile", type: TrackType.Event) {
+         devices (required:false, type: PropertyType.String, description: "paired devices")
+    }
+    "/point_payment/flow_tracker/cancel_qr_charge"(platform: "/mobile", type: TrackType.Event) {}
+    
 
     "/settings/point"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
     "/settings/point/settings"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
