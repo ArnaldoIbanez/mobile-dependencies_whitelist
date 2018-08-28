@@ -724,7 +724,6 @@ trackTests {
         "/point_payment/point"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/qr_ftu"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/bank_selection"(platform: "/mobile", type: TrackType.View) {}
-        "/point_payment/waiting_card"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/select_connected_device"(platform: "/mobile", type: TrackType.View) {}
 
         "/point_payment/flow_tracker/pairing"(platform: "/mobile", type: TrackType.Event) {
@@ -853,6 +852,12 @@ trackTests {
             data ="{ctr: 2313}"
         }
         "/point_payment/flow_tracker/select_link"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/waiting_card"(platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
             user_id = "123241234413"
             level ="info"

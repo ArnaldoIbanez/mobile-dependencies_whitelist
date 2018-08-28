@@ -180,7 +180,6 @@ tracks {
     "/point_payment/point"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/qr_ftu"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/bank_selection"(platform: "/mobile", type: TrackType.View) {}
-    "/point_payment/waiting_card"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/select_connected_device"(platform: "/mobile", type: TrackType.View) {
          devices (required:false, type: PropertyType.String, description: "paired devices")
     }
@@ -219,6 +218,7 @@ tracks {
     "/point_payment/flow_tracker/select_qr"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/select_point"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/select_link"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/waiting_card"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/select_connected_device"(platform: "/mobile", type: TrackType.Event) {
          devices (required:false, type: PropertyType.String, description: "paired devices")
     }
