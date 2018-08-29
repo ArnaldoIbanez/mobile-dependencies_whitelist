@@ -39,12 +39,10 @@ trackTests {
         "/credits/consumer/enrollment/code_verification"(platform: "/web/desktop") {}
         "/credits/consumer/enrollment/congrats"(platform: "/web/desktop") {}
         "/credits/consumer/payinstallment"(platform: "/web/mobile") {
-            status = 'late_pay'
+            status = 'overdue'
         }
 
         //Events
-        "/credits/consumer/payinstallment/on_time_pay"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/consumer/payinstallment/late_pay"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/enrollment/sms_validation/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/enrollment/code_verification/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/enrollment/congrats/buy"(platform: "/web/desktop", type: TrackType.Event) {}
@@ -62,7 +60,7 @@ trackTests {
         //Views
         "/credits/consumer/administrator"(platform: "/web/desktop") {}
         "/credits/consumer/administrator/dashboard"(platform: "/web/desktop", type: TrackType.View) { dashboard_status = 'empty_state' }
-        "/credits/consumer/administrator/detail"(platform: "/web/desktop") {}
+        
 
         //Events
         "/credits/consumer/administrator/tooltip"(platform: "/web/desktop", type: TrackType.Event) {}
@@ -103,10 +101,24 @@ trackTests {
         "/credits/consumer/payinstallment/on_time_pay"(platform: "/", type: TrackType.Event) {}
 
         //Delayed payment
-        "/credits/consumer/payinstallment/late_pay"(platform: "/", type: TrackType.Event) {}
+        "/credits/consumer/payinstallment/overdue_pay"(platform: "/", type: TrackType.Event) {}
 
         /******************************************
          *       End: Consumers Push
+         ******************************************/
+
+        /******************************************
+         *       Start: Consumers Recurring Campaign
+         ******************************************/
+        //Page Views
+        "/credits/consumer/recurring_landing_test"(platform: "/web/desktop", type: TrackType.View) {}
+        "/credits/consumer/recurring_congrats_test"(platform: "/web/desktop", type: TrackType.View) {}
+
+        //Events
+        "/credits/consumer/like_recurring"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/dislike_recurring"(platform: "/web/desktop", type: TrackType.Event) {}
+        /******************************************
+         *       End: Consumers Recurring Campaign
          ******************************************/
     }
 }

@@ -42,7 +42,7 @@ trackTests {
         "/credits/merchant/enrollment/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
 
         //Upload Files merchant
-        "/credits/merchant/enrollment/user_type"(platform: "/web/desktop", type: TrackType.Event) {
+        "/credits/merchant/enrollment/load_documents/user_type"(platform: "/web/desktop", type: TrackType.Event) {
             type = 'moral'
         }
         "/credits/merchant/enrollment/load_documents/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
@@ -58,5 +58,9 @@ trackTests {
         "/credits/merchant/hero_cta"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/merchant/second_offer_cta"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/merchant/help"(platform: "/web/desktop", type: TrackType.Event) {}
+    }
+
+    test("consumer credits admin detail"){
+        "/credits/consumer/administrator/detail"(platform: "/web/desktop") {}
     }
 }

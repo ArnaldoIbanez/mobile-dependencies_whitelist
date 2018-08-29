@@ -171,6 +171,10 @@ tracks {
         shipping_info
     }
 
+    "/vip/input_zip_code"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
+
+    "/vip/input_zip_code/dont_know_my_zip_code"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {}
+
     "/vip/seller_reputation"(platform: "/mobile", parentPropertiesInherited: false) {}
 
     "/vip/seller_reputation/ratings"(platform: "/mobile") {}
