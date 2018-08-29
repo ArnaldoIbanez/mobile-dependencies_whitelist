@@ -127,7 +127,7 @@ tracks {
     "/credits/consumer/payinstallment/on_time_pay"(platform: "/", type: TrackType.Event) {}
 
     //Delayed payment
-    "/credits/consumer/payinstallment/late_pay"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/payinstallment/overdue_pay"(platform: "/", type: TrackType.Event) {}
 
     /******************************************
      *       End: Consumers Push

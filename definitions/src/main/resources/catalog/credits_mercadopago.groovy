@@ -36,7 +36,8 @@ tracks {
     //Dashboard merchants
     //Page Views
     "/credits/merchant/administrator/dashboard"(platform: "/", type: TrackType.View) {
-        status(type: PropertyType.String, required: true, values: ['offer', 'no_offer', 'on_time', 'late_pay'])
+        status(type: PropertyType.String, required: true, values: ['offer', 'no_offer', 'on_time', 'overdue',
+                                                                   'on_time_with_offer', 'overdue_with_offer'])
     }
     "/credits/merchant/administrator"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/offer"(platform: "/", type: TrackType.View) {}
