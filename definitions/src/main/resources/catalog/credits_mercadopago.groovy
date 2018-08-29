@@ -14,6 +14,8 @@ tracks {
      ******************************************/
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/merchant"(platform: "/", isAbstract: true) {}
+    "/credits/consumer"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/administrator"(platform: "/", isAbstract: true) {}
 
     /******************************************
      *       Start: Merchants Public Landings
@@ -34,7 +36,8 @@ tracks {
     //Dashboard merchants
     //Page Views
     "/credits/merchant/administrator/dashboard"(platform: "/", type: TrackType.View) {
-        status(type: PropertyType.String, required: true, values: ['offer', 'no_offer', 'on_time', 'late_pay'])
+        status(type: PropertyType.String, required: true, values: ['offer', 'no_offer', 'on_time', 'overdue',
+                                                                   'on_time_with_offer', 'overdue_with_offer'])
     }
     "/credits/merchant/administrator"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/offer"(platform: "/", type: TrackType.View) {}
@@ -76,8 +79,8 @@ tracks {
 
     //Upload Files merchant
     "/credits/merchant/enrollment/load_documents"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/enrollment/user_type"(platform: "/", type: TrackType.Event) {
-        type(type: PropertyType.String, required: true)
+    "/credits/merchant/enrollment/load_documents/user_type"(platform: "/", type: TrackType.Event) {
+        type(type: PropertyType.String, required: true, values: ['physical', 'moral'])
     }
     "/credits/merchant/enrollment/load_documents/cancel"(platform: "/", type: TrackType.Event) {}
 
@@ -97,5 +100,16 @@ tracks {
     "/credits/merchant/enrollment/ask_us"(platform: "/", type: TrackType.Event) {}
     /******************************************
      *       End: Merchants Enrollment
+     ******************************************/
+
+
+    /******************************************
+     *       Start: Consumers Admin Detail (still in MP)
+     ******************************************/
+
+    "/credits/consumer/administrator/detail"(platform: "/", type: TrackType.View) {}
+
+    /******************************************
+     *       Start: Consumers Admin Detail
      ******************************************/
 }
