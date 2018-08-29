@@ -6,7 +6,7 @@ tracks {
     "/email"(platform: "/email", isAbstract: true) {
         email_template(required: true)
         event_type(required: true,
-                values: ["send", "open", "cancel"],
+                values: ["send", "open", "cancel", "cancel_old_emails"],
                 description: "Type of email event")
         email_id(required: false)
         subject(required: false)
@@ -20,6 +20,17 @@ tracks {
         seller_id(required: true)
         is_risk_user(required: false)
         total_amount(required: true)
+        payments(required: true, type:PropertyType.ArrayList, description: "Array of payments in the purchase with following data")
+             // id
+             // status
+             // status_detail
+             // type
+             // method_id
+             // date_approved
+             // date_created
+             // date_last_modified
+        shipping_type(required: false)
+        buy_equals_pay(required: false)
     }
 
     "/email/shipping_backoffice"(platform: "/email") {
@@ -64,7 +75,7 @@ tracks {
 //            // date_created,
 //            // date_approved,
 //            // date_last_modified,
-        buy_equals_pay(required: true, type: PropertyType.Boolean)
+        buy_equals_pay(required: false, type: PropertyType.Boolean)
     }
 
     // mails for: purchases with all its payments approved or authorized
