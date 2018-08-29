@@ -6,6 +6,7 @@ SELECT Substr(tb.requested_datetime_minute, 1, 13) AS requested_datetime,
        tb.mp_seller_profile AS mp_seller_profile,
        tb.ml_buyer_profile AS ml_buyer_profile,
        tb.business AS business,
+       tb.segment AS segment,
        tb.chat_queue_id AS chat_queue_id,
        tb.c2c_queue_id AS c2c_queue_id,
        tb.sac_queue_id AS sac_queue_id,
@@ -23,6 +24,7 @@ FROM
           COALESCE(chattable.mp_seller_profile, c2ctable.mp_seller_profile, sactable.mp_seller_profile) AS mp_seller_profile,
           COALESCE(chattable.ml_buyer_profile, c2ctable.ml_buyer_profile, sactable.ml_buyer_profile) AS ml_buyer_profile,
           COALESCE(chattable.business, c2ctable.business, sactable.business) AS business,
+          COALESCE(chattable.segment, c2ctable.segment, sactable.segment) AS segment,
           chattable.queue_id AS chat_queue_id,
           c2ctable.queue_id AS c2c_queue_id,
           sactable.queue_id AS sac_queue_id,
@@ -43,6 +45,7 @@ FROM
              v3.mp_seller_profile AS mp_seller_profile,
              v3.ml_buyer_profile AS ml_buyer_profile,
              v2.business AS business,
+             v3.segment AS segment,
              v2.app_id AS app_id,
              v3.queue_id AS queue_id,
              v4.user_id AS user_id,
@@ -54,7 +57,7 @@ FROM
                                             id,
                                             path LATERAL VIEW json_tuple(v1.application, 'app_id', 'business', 'site_id') v2 AS app_id,
                                                               business,
-                                                              site_id LATERAL VIEW json_tuple(v1.event_data, 'problem_type', 'reason', 'origin', 'is_available', 'ml_seller_profile', 'mp_seller_profile', 'ml_buyer_profile', 'queue_id', 'environment', 'track_id') v3 AS problem_type,
+                                                              site_id LATERAL VIEW json_tuple(v1.event_data, 'problem_type', 'reason', 'origin', 'is_available', 'ml_seller_profile', 'mp_seller_profile', 'ml_buyer_profile', 'queue_id', 'environment', 'track_id', 'segment') v3 AS problem_type,
                                                                                    reason,
                                                                                    origin,
                                                                                    is_available,
@@ -63,7 +66,8 @@ FROM
                                                                                    ml_buyer_profile,
                                                                                    queue_id,
                                                                                    environment,
-                                                                                   track_id LATERAL VIEW json_tuple(v1.anuser, 'user_id') v4 AS user_id
+                                                                                   track_id,
+                                                                                   segment LATERAL VIEW json_tuple(v1.anuser, 'user_id') v4 AS user_id
       WHERE tj.ds >= '@param01 02'
         AND tj.ds < '@param02 05'
         AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
@@ -83,6 +87,7 @@ FROM
              v3.mp_seller_profile AS mp_seller_profile,
              v3.ml_buyer_profile AS ml_buyer_profile,
              v2.business AS business,
+             v3.segment AS segment,
              v2.app_id AS app_id,
              v3.queue_id AS queue_id,
              v4.user_id AS user_id,
@@ -94,17 +99,17 @@ FROM
                                             id,
                                             path LATERAL VIEW json_tuple(v1.application, 'app_id', 'business', 'site_id') v2 AS app_id,
                                                               business,
-                                                              site_id LATERAL VIEW json_tuple(v1.event_data, 'problem_type', 'reason', 'origin', 'is_available', 'ml_seller_profile', 'mp_seller_profile', 'ml_buyer_profile', 'queue_id', 'environment', 'track_id') v3 AS problem_type,
+                                                              site_id LATERAL VIEW json_tuple(v1.event_data, 'problem_type', 'reason', 'origin', 'is_available', 'ml_seller_profile', 'mp_seller_profile', 'ml_buyer_profile', 'queue_id', 'environment', 'track_id', 'segment') v3 AS problem_type,
                                                                                    reason,
                                                                                    origin,
                                                                                    is_available,
-
                                                                                    ml_seller_profile,
                                                                                    mp_seller_profile,
                                                                                    ml_buyer_profile,
                                                                                    queue_id,
                                                                                    environment,
-                                                                                   track_id LATERAL VIEW json_tuple(v1.anuser, 'user_id') v4 AS user_id
+                                                                                   track_id,
+                                                                                   segment LATERAL VIEW json_tuple(v1.anuser, 'user_id') v4 AS user_id
       WHERE tj.ds >= '@param01 02'
         AND tj.ds < '@param02 05'
         AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
@@ -124,6 +129,7 @@ FROM
              v3.mp_seller_profile AS mp_seller_profile,
              v3.ml_buyer_profile AS ml_buyer_profile,
              v2.business AS business,
+             v3.segment AS segment,
              v2.app_id AS app_id,
              v3.queue_id AS queue_id,
              v4.user_id AS user_id,
@@ -135,7 +141,7 @@ FROM
                                             id,
                                             path LATERAL VIEW json_tuple(v1.application, 'app_id', 'business', 'site_id') v2 AS app_id,
                                                               business,
-                                                              site_id LATERAL VIEW json_tuple(v1.event_data, 'problem_type', 'reason', 'origin', 'is_available','ml_seller_profile', 'mp_seller_profile', 'ml_buyer_profile', 'queue_id', 'environment', 'track_id') v3 AS problem_type,
+                                                              site_id LATERAL VIEW json_tuple(v1.event_data, 'problem_type', 'reason', 'origin', 'is_available','ml_seller_profile', 'mp_seller_profile', 'ml_buyer_profile', 'queue_id', 'environment', 'track_id', 'segment') v3 AS problem_type,
                                                                                    reason,
                                                                                    origin,
                                                                                    is_available,
@@ -144,7 +150,8 @@ FROM
                                                                                    ml_buyer_profile,
                                                                                    queue_id,
                                                                                    environment,
-                                                                                   track_id LATERAL VIEW json_tuple(v1.anuser, 'user_id') v4 AS user_id
+                                                                                   track_id,
+                                                                                   segment LATERAL VIEW json_tuple(v1.anuser, 'user_id') v4 AS user_id
       WHERE tj.ds >= '@param01 02'
         AND tj.ds < '@param02 05'
         AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
@@ -160,6 +167,7 @@ FROM
             COALESCE(chattable.mp_seller_profile, c2ctable.mp_seller_profile, sactable.mp_seller_profile),
             COALESCE(chattable.ml_buyer_profile, c2ctable.ml_buyer_profile, sactable.ml_buyer_profile),
             COALESCE(chattable.business, c2ctable.business, sactable.business),
+            COALESCE(chattable.segment, c2ctable.segment, sactable.segment),
             chattable.queue_id,
             c2ctable.queue_id,
             sactable.queue_id,
@@ -174,6 +182,7 @@ GROUP BY substr(tb.requested_datetime_minute, 1, 13),
          tb.mp_seller_profile,
          tb.ml_buyer_profile,
          tb.business,
+         tb.segment,
          tb.chat_queue_id,
          tb.c2c_queue_id,
          tb.sac_queue_id,

@@ -1,49 +1,40 @@
 {
   "users": [
-    "gabriel.neil@mercadolibre.com"
+    "ivan.rufino@mercadolibre.com"
   ],
-  "process_name": "consumer_journey",
-  "cron": "0 5 * * *",
+  "process_name": "test-ctr2",
+  "cron": "30 01 * * *",
   "extract": {
     "operation": "append",
     "columns": [
       {
-        "name": "email_id",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "fecha",
+        "name": "ds",
         "type": "DATE",
         "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "siteId",
+        "type": "UNICODE_STRING"
       },
       {
         "name": "path",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "template",
+        "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "event_type",
-        "type": "UNICODE_STRING"
+        "name": "userId",
+        "type": "INTEGER"
       },
       {
-        "name": "milestone",
+        "name": "itemId",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "bucket",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "sent_date",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
       }
     ],
     "sql": {
-      "script": "business-assurance/credits_consumer_journey.sql",
+      "script": "melidata/suggested-discount-current-buyers-activity.sql",
       "parameters": [
         {
           "name": "param01",
@@ -52,6 +43,16 @@
         },
         {
           "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param03",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param04",
           "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }

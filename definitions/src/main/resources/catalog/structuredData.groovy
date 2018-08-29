@@ -21,11 +21,14 @@ tracks {
         condition(required: false, description: "Item condition")
         category_path(required: true, description: "Category path for the item", type: PropertyType.ArrayList)
         label(required: false, description: "Tab from listings page", type: PropertyType.String, values: ["paused", "active", "closed","pending"])
+        attribute_type(required: true, description:"If its an item_attribute, a variation_attribute or an allow_variation_attribute", type:PropertyType.String, values: ["item_attribute","variation_attribute","allow_variation_attribute"])
+        attributes_showed(required: false, description:"Number of attributes showed", type: PropertyType.String)
+        attributes_submitted(required: false, description:"Number of attributes submitted", type: PropertyType.String)
     }
 
     propertyGroups {
-        catalogWidgetGroup(category_id, page, item_id, officialstore, domain_id, seller_id, pi, condition, category_path, label)
-        catalogWidgetCompletenessGroup(completeness_level, items_left, missing_attributes, inferred_attributes)
+        catalogWidgetGroup(category_id, page, item_id, officialstore, domain_id, seller_id, pi, condition, category_path, label,attribute_type, attributes_showed)
+        catalogWidgetCompletenessGroup(completeness_level, attributes_submitted, items_left, missing_attributes, inferred_attributes)
     }
 
     "/catalogwidget"(platform: "/", isAbstract: true, type: TrackType.Event) {}
@@ -131,4 +134,32 @@ tracks {
         domain_id(required: true, description: "Domain ID from attribute", PropertyType.String)
         category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
     }
+
+    "/catalogwidget/welcome"(platform: "/",isAbstract: true) {}
+
+    "/catalogwidget/welcome/leaders"(platform: "/",isAbstract: true) {}
+
+    "/catalogwidget/welcome/leaders/show"(platform: "/",type: TrackType.View) {}
+
+    "/catalogwidget/welcome/leaders/continue"(platform: "/",type: TrackType.Event) {}
+
+    "/catalogwidget/welcome/leaders/omit"(platform: "/",type: TrackType.Event) {}
+
+    "/catalogwidget/welcome/leaders/close"(platform: "/",type: TrackType.Event) {}
+
+
+
+
+    //Tracks for Massive Attribute Editor
+    "/bulk_attributes"(platform: "/",isAbstract: true) {}
+    "/bulk_attributes/incomplete"(platform: "/",isAbstract: true) {}
+
+    "/bulk_attributes/incomplete/save" (platform: "/web",type: TrackType.Event) {
+        campaignId(required: true, description: "Campaign id to know from where the user came")
+        totalItems(required: true, description: "Total of items that the user could update")
+        updatedItems(required: true, description: "Total of updated items in Massive Attribute Editor")
+        badItems(required: false, description:"True if the user has items with few attributes completed.", PropertyType.Boolean)
+    }
+
+
 }

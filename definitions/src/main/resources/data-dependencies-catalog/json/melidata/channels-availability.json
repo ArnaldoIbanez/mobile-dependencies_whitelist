@@ -1,8 +1,9 @@
 {
   "users": [
-    "cx-channels@mercadolibre.com"
+    "cx-channels@mercadolibre.com", 
+    "juan.laura@mercadolibre.com"
   ],
-  "process_name": "channels-availability-new-profiles",
+  "process_name": "channels-joint-availability-new-profiles",
   "cron": "00 05 * * *",
   "extract": {
     "operation": "append",
@@ -37,6 +38,10 @@
       },
       {
         "name": "business",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "segment",
         "type": "UNICODE_STRING"
       },
       {

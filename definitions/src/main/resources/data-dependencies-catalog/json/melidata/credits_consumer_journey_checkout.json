@@ -1,17 +1,18 @@
 {
   "users": [
-    "gabriel.neil@mercadolibre.com"
+    "gabriel.neil@mercadolibre.com",
+    "valentin.orfila@mercadolibre.com"
   ],
   "process_name": "consumer_journey_checkout",
   "cron": "0 5 * * *",
+  "partition": {
+    "name": "date_sent",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
+    "site": "MeliLake",
     "columns": [
-      {
-        "name": "date_sent",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
       {
         "name": "site_id",
         "type": "UNICODE_STRING"
@@ -21,12 +22,12 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "user_id",
-        "type": "INTEGER"
-      },
-      {
         "name": "reference",
         "type": "UNICODE_STRING"
+      },
+      {
+        "name": "total",
+        "type": "INTEGER"
       }
     ],
     "sql": {

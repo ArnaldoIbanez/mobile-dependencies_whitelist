@@ -1,28 +1,40 @@
 {
   "users": [
-    "melidata_dev@mercadolibre.com"
+    "vespoli.nicolas@mercadolibre.com"
   ],
-  "process_name": "unrepeated_tracks_count",
-  "cron": "30 06 * * *",
+  "process_name": "catalog-widget-leaders-landing",
+  "cron": "00 07 * * *",
   "extract": {
     "operation": "append",
     "columns": [
       {
-        "name": "ds",
+        "name": "users",
+        "type": "INTEGER"
+      },
+      {
+        "name": "fecha",
         "type": "DATE",
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "unrepeated",
+        "name": "show",
+        "type": "INTEGER",
+      },
+      {
+        "name": "continue_ema",
         "type": "INTEGER"
       },
       {
-        "name": "total",
+        "name": "omit",
+        "type": "INTEGER"
+      },
+      {
+        "name": "close_swmkt",
         "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "melidata/unrepeated-tracks-count.sql",
+      "script": "business-assurance/catalog-widget-leaders-landing.sql",
       "parameters": [
         {
           "name": "param01",

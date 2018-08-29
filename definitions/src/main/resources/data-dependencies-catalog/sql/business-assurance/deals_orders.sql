@@ -10,7 +10,7 @@ select
 count(1) as clics_totales, 
 count(distinct(uid_deal)) as clics_unicos, 
 count(uid_order) as orders, 
-sum(cast(sum_dol_amount as double)) as gmv
+sum(distinct cast(sum_dol_amount as double)) as gmv
 from (
 		 (
 			select substr(ds,1,10) as fecha_clic, 
