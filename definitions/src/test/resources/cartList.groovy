@@ -163,6 +163,14 @@ trackTests {
             unit_price = 173
         }
 
+        def cannotAddModalDataSet ={
+            cant_add_motive = "ratio"
+        }
+
+        "/cart/saved_for_later/cant_add_to_cart"(platform: "/web", cannotAddModalDataSet)
+
+        "/cart/saved_for_later/cant_add_to_cart/buy_now"(platform: "/web", cannotAddModalDataSet)
+
         "/cart/my_cart/change_address"(platform: "/web", dataSet)
 
         "/cart/my_cart/add_cp/"(platform: "/web", dataSet)
