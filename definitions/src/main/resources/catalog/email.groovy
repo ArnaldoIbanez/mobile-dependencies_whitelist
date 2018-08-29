@@ -29,8 +29,8 @@ tracks {
              // date_approved
              // date_created
              // date_last_modified
-        shipping_type(required: false)   // tipo de shipping por ejemplo: custom_shipping
-        buy_equals_pay(required: false)  // indica si la compra es B=P
+        shipping_type(required: false, description: "tipo de shipping por ejemplo: custom_shipping")
+        buy_equals_pay(required: false, description: "Indica si la compra es B=P")
     }
 
     "/email/shipping_backoffice"(platform: "/email") {
