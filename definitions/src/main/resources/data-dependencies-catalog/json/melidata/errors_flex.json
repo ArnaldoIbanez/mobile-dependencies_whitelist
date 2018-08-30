@@ -39,7 +39,7 @@
       }
     ],
     "sql": {
-      "script": "business-assurance/packs_flex.sql",
+      "script": "business-assurance/errors_flex.sql",
       "parameters": [
         {
           "name": "param01",
