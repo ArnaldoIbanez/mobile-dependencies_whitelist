@@ -97,12 +97,10 @@ tracks {
 }
 
 "/cart/saved_for_later/cant_add_to_cart"(platform: "/", type: TrackType.Event){
-    cant_add_motive(required: false, type: PropertyType.String, values: ["ratio", "zip_code", "low_price"])
+    cant_add_motive(required: true, type: PropertyType.String, values: ["ratio", "zip_code", "low_price"])
 }
 
-"/cart/saved_for_later/cant_add_to_cart/buy_now"(platform: "/", type: TrackType.Event){
-    cant_add_motive(required: false, type: PropertyType.String, values: ["ratio", "zip_code", "low_price"])
-}
+"/cart/saved_for_later/cant_add_to_cart/buy_now"(platform: "/", type: TrackType.Event){}
 
 "/cart/my_cart/confirm_address"(platform: "/", type:TrackType.Event){}
 
