@@ -399,6 +399,41 @@ tracks {
         longitude(required: false, description: "the longitude at which we are requesting agencies")
     }
 
+    // -- Map v2 -- //
+    "/checkout/shipping/puis_store_selection"(platform: "/mobile") {}
+    "/checkout/shipping/store_selection"(platform: "/mobile") {}
+
+    // Back
+    "/checkout/shipping/puis_store_selection/back"(platform: "/mobile") {}
+    "/checkout/shipping/store_selection/back"(platform: "/mobile") {}
+
+     // Event for Defaults
+     "/checkout/shipping/puis_store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
+        default(required: true)
+        lat(required: false, description: "the latitude at which we are requesting agencies")
+        long(required: false, description: "the longitude at which we are requesting agencies")
+        last_action(type: PropertyType.String, required: false)
+        distance(required: false, description: "")
+     }
+
+     "/checkout/shipping/store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
+        default(required: true)
+        lat(required: false, description: "the latitude at which we are requesting agencies")
+        long(required: false, description: "the longitude at which we are requesting agencies")
+        last_action(type: PropertyType.String, required: false)
+        distance(required: false, description: "")
+     }
+
+    // No agencies
+    "/checkout/shipping/puis_store_selection/store_not_found"(platform: "/mobile",type: TrackType.Event) {
+        lat(required: false, description: "the latitude at which we are requesting agencies")
+        long(required: false, description: "the longitude at which we are requesting agencies")
+    }
+    "/checkout/shipping/store_selection/store_not_found"(platform: "/mobile",type: TrackType.Event) {
+        lat(required: false, description: "the latitude at which we are requesting agencies")
+        long(required: false, description: "the longitude at which we are requesting agencies")
+    }
+    
     //Select paymentMethod
     "/checkout/payment/preload_credit_card"(platform: "/mobile", type: TrackType.View) {}//Melidata experiment
 
