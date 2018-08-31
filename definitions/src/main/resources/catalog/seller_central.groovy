@@ -10,20 +10,20 @@ tracks {
     }
 
     "/seller_central/listings/onboarding"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Id of the action ")
+        action(required: true, type: PropertyType.String, description: "Id of the action", values:["close", "rollback", "dismiss"])
         page(required: false, type: PropertyType.Numeric, description: "Page number")
 
     }
 
     "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
         action(required: false, type: PropertyType.String, description: "Id of the action ")
-        id(required: true, type: PropertyType.String, description: "Id of the communication, news or task")
+        id(required: true, type: PropertyType.String, description: "Id of the communication", values:["task", "news"])
     }
 
     "/seller_central/listings/editor"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/listings/filters"(platform: "/", isAbstract: true) {
-        action(required: true, type: PropertyType.String, description: "Id of the action ")
+        action(required: true, type: PropertyType.String, description: "Id of the action", values:["apply", "clear"])
     }
 
     "/seller_central/listings/action"(platform: "/", type: TrackType.Event) {
@@ -31,7 +31,7 @@ tracks {
     }
 
     "/seller_central/listings/preferences"(platform: "/", type: TrackType.Event) {
-        id(required: true, type: PropertyType.String, description: "Preference id")
+        id(required: true, type: PropertyType.String, description: "Preference id", values:["shipping", "advertising"])
     }
 
 
@@ -39,7 +39,7 @@ tracks {
     "/seller_central/bulk/list"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Id of the action ")
+        action(required: true, type: PropertyType.String, description: "Id of the action", values:["close", "rollback", "dismiss"])
     }
 
     "/seller_central/bulk/domain"(platform: "/", type: TrackType.Event) {
@@ -47,11 +47,11 @@ tracks {
     }
 
     "/seller_central/bulk/offline"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Id of the action ")
+        action(required: true, type: PropertyType.String, description: "Id of the action", values:["download", "upload"])
     }
 
     "/seller_central/bulk/filters"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Id of the action ")
+        action(required: true, type: PropertyType.String, description: "Id of the action", values:["apply", "clear"])
 
     }
     "/seller_central/bulk/search"(platform: "/", type: TrackType.Event) {}
