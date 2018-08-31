@@ -148,9 +148,9 @@ tracks {
         flow (required: false, type: PropertyType.String, description: "Flow")
         error_msg (required:false, type: PropertyType.String, description: "Error shown to seller")
     }
-
+    //TODO: The flow_origin field must be changed to mandatory, when all the productive versions send this information
     "/point_payment/main"(platform: "/mobile", type: TrackType.View) {
-        flow_origin (required: false, type: PropertyType.String, description: "origin")
+        flow_origin (required: false, type: PropertyType.String, values: ["point", "qr", "chooser","share_social"])
     }
     "/point_payment/card"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/installments"(platform: "/mobile", type: TrackType.View) {}

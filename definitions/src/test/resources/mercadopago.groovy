@@ -681,7 +681,9 @@ trackTests {
     test("Point Payment") {
 
         "/point_payment"(platform: "/mobile", type: TrackType.View) {}
-        "/point_payment/main"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/main"(platform: "/mobile", type: TrackType.View) {
+            flow_origin = 'point'
+        }
         "/point_payment/card"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/installments"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/card_type"(platform: "/mobile", type: TrackType.View) {}
