@@ -1,4 +1,4 @@
-SELECT deal_id, source, placement, platform, device_type, device_vendor, track_date, count(*) as total
+SELECT deal_id, source, placement, platform, device_type, device_vendor, count(*) as total, track_date
 FROM (
  SELECT others['deal_id'] AS deal_id,
     CASE WHEN others['fragment'] RLIKE 'EI:[0-9]+' THEN 'search'
