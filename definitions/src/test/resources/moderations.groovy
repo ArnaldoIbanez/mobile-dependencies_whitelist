@@ -17,6 +17,8 @@ trackTests {
 
     test("PPPI tracking") {
 
+        // Notice
+
         "/pppi/notice/summary"(platform: "/") {}
 
         "/pppi/notice/form"(platform: "/") {}
@@ -24,6 +26,19 @@ trackTests {
         "/pppi/notice/form/error"(platform: "/") {}
 
         "/pppi/notice/error"(platform: "/") {}
+
+        // Rights
+
+        "/pppi/rights/enroll/"(platform: "/") {}
+        "/pppi/rights/enroll/properties"(platform: "/") {}
+        "/pppi/rights/enroll/success"(platform: "/") {}
+        "/pppi/rights/enroll/error"(platform: "/") {}
+
+        "/pppi/rights/member/properties"(platform: "/") {}
+        "/pppi/rights/member/success"(platform: "/") {}
+        "/pppi/rights/member/error"(platform: "/") {}
+
+        "/pppi/rights/error"(platform: "/") {}
 
     }
 
