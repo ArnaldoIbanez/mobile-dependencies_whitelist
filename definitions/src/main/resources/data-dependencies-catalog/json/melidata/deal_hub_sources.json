@@ -6,6 +6,11 @@
   ],
   "process_name": "deal_hub_sources",
   "cron": "00 07 * * *",
+  "partition": {
+        "name": "track_date",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+  },
   "extract": {
     "operation": "append",
     "site": "Sales",
@@ -35,14 +40,9 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "track_date",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
-      {
         "name": "total",
         "type": "INTEGER"
-      } 
+      }
     ],
     "sql": {
       "script": "cpg/deal_hub_sources.sql",
