@@ -466,7 +466,7 @@ trackTests {
             longitude = -58.929484
         }
         "/checkout/shipping/puis_store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
-            info_default = {
+            default_location_info = {
                 type: "address_id"
                 suggested : true
             }
@@ -476,7 +476,7 @@ trackTests {
             distance = 345
         }
         "/checkout/shipping/store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
-            info_default = {
+            default_location_info = {
                 type: "address_id"
                 suggested : true
             }

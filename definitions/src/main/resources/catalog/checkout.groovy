@@ -409,7 +409,7 @@ tracks {
 
      // Event for Defaults
     "/checkout/shipping/puis_store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
-        info_default(required: true, description: "that indicate the type of default")
+        default_location_info(required: true, description: "that indicate the type of default")
         latitude(type: PropertyType.Numeric, required: true, description: "the latitude at which we are requesting agencies")
         longitude(type: PropertyType.Numeric, required: true, description: "the longitude at which we are requesting agencies")
         last_action(type: PropertyType.String, required: true, description: "That indicate the last action the user on the map")
@@ -417,7 +417,7 @@ tracks {
     }
 
     "/checkout/shipping/store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
-        info_default(required: true, description: "that indicate the type of default")
+        default_location_info(required: true, description: "that indicate the type of default")
         latitude(type: PropertyType.Numeric, required: true, description: "the latitude at which we are requesting agencies")
         longitude(type: PropertyType.Numeric, required: true, description: "the longitude at which we are requesting agencies")
         last_action(type: PropertyType.String, required: true, description: "That indicate the last action the user on the map")
