@@ -409,29 +409,29 @@ tracks {
 
      // Event for Defaults
     "/checkout/shipping/puis_store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
-        info_default(required: false, description: "that indicate the type of default")
-        latitude(required: false, description: "the latitude at which we are requesting agencies")
-        longitude(required: false, description: "the longitude at which we are requesting agencies")
+        info_default(required: true, description: "that indicate the type of default")
+        latitude(type: PropertyType.Numeric, required: true, description: "the latitude at which we are requesting agencies")
+        longitude(type: PropertyType.Numeric, required: true, description: "the longitude at which we are requesting agencies")
         last_action(type: PropertyType.String, required: false, description: "That indicate the last action the user on the map")
-        distance(required: false, description: "indicate the distance of the agencie selected to the default center point")
+        distance(type: PropertyType.Numeric, required: false, description: "indicate the distance of the agencie selected to the default center point")
     }
 
     "/checkout/shipping/store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
-        info_default(required: true)
-        latitude(required: false, description: "the latitude at which we are requesting agencies")
-        longitude(required: false, description: "the longitude at which we are requesting agencies")
+        info_default(required: true, description: "that indicate the type of default")
+        latitude(type: PropertyType.Numeric, required: true, description: "the latitude at which we are requesting agencies")
+        longitude(type: PropertyType.Numeric, required: true, description: "the longitude at which we are requesting agencies")
         last_action(type: PropertyType.String, required: false, description: "That indicate the last action the user on the map")
-        distance(required: false, description: "indicate the distance of the agencie selected to the default center point")
+        distance(type: PropertyType.Numeric, required: false, description: "indicate the distance of the agencie selected to the default center point")
     }
 
     // No agencies
     "/checkout/shipping/puis_store_selection/store_not_found"(platform: "/mobile",type: TrackType.Event) {
-        latitude(required: false, description: "the latitude at which we are requesting agencies")
-        longitude(required: false, description: "the longitude at which we are requesting agencies")
+        latitude(type: PropertyType.Numeric,required: false, description: "the latitude at which we are requesting agencies")
+        longitude(type: PropertyType.Numeric,required: false, description: "the longitude at which we are requesting agencies")
     }
     "/checkout/shipping/store_selection/store_not_found"(platform: "/mobile",type: TrackType.Event) {
-        latitude(required: false, description: "the latitude at which we are requesting agencies")
-        longitude(required: false, description: "the longitude at which we are requesting agencies")
+        latitude(type: PropertyType.Numeric,required: false, description: "the latitude at which we are requesting agencies")
+        longitude(type: PropertyType.Numeric,required: false, description: "the longitude at which we are requesting agencies")
     }
 
     //Select paymentMethod
