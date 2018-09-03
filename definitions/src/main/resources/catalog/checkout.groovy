@@ -412,7 +412,7 @@ tracks {
         info_default(required: true, description: "that indicate the type of default")
         latitude(type: PropertyType.Numeric, required: true, description: "the latitude at which we are requesting agencies")
         longitude(type: PropertyType.Numeric, required: true, description: "the longitude at which we are requesting agencies")
-        last_action(type: PropertyType.String, required: false, description: "That indicate the last action the user on the map")
+        last_action(type: PropertyType.String, required: true, description: "That indicate the last action the user on the map")
         distance(type: PropertyType.Numeric, required: false, description: "indicate the distance of the agencie selected to the default center point")
     }
 
@@ -420,7 +420,7 @@ tracks {
         info_default(required: true, description: "that indicate the type of default")
         latitude(type: PropertyType.Numeric, required: true, description: "the latitude at which we are requesting agencies")
         longitude(type: PropertyType.Numeric, required: true, description: "the longitude at which we are requesting agencies")
-        last_action(type: PropertyType.String, required: false, description: "That indicate the last action the user on the map")
+        last_action(type: PropertyType.String, required: true, description: "That indicate the last action the user on the map")
         distance(type: PropertyType.Numeric, required: false, description: "indicate the distance of the agencie selected to the default center point")
     }
 
