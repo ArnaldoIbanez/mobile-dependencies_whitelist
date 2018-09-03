@@ -1743,6 +1743,23 @@ trackTests {
         }
     }
 
+    test("Account Fund") {
+        "/account_fund/select_method"(platform: "/mobile") {}
+        "/account_fund/amount"(platform: "/mobile") {}
+        "/account_fund/agencies_map"(platform: "/mobile") {}
+        "/account_fund/ftu"(platform: "/mobile") {}
+        "/account_fund/unique_code"(platform: "/mobile") {}
+        "/account_fund/unique_code/help"(platform: "/mobile") {}
+        "/account_fund/px/card_vault"(platform: "/mobile") {}
+        "/account_fund/px/card_number"(platform: "/mobile") {}
+        "/account_fund/px/card_holder_name"(platform: "/mobile") {}
+        "/account_fund/px/card_expiry_date"(platform: "/mobile") {}
+        "/account_fund/px/card_security_code"(platform: "/mobile") {}
+        "/account_fund/px/identification_number"(platform: "/mobile") {}
+        "/account_fund/px/review_and_confirm"(platform: "/mobile") {}
+        "/account_fund/px/result"(platform: "/mobile") {}
+    }
+
     test("new-withdraw") {
         "/new-withdraw"(platform: "/", type: TrackType.View){}
         "/new-withdraw/confirm"(platform: "/", type: TrackType.View){
