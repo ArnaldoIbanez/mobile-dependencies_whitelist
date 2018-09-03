@@ -443,6 +443,50 @@ trackTests {
             agencies = 10
         }
 
+        // Map v2 
+        "/checkout/shipping/puis_store_selection"(platform: "/mobile") {
+            checkoutStatus()
+        }
+        "/checkout/shipping/store_selection"(platform: "/mobile") {
+            checkoutStatus() 
+        }
+
+        "/checkout/shipping/puis_store_selection/back"(platform: "/mobile", type: TrackType.Event) {
+            checkoutStatus() 
+        }
+        "/checkout/shipping/store_selection/back"(platform: "/mobile", type: TrackType.Event) {
+            checkoutStatus()   
+        }
+        "/checkout/shipping/puis_store_selection/store_not_found"(platform: "/mobile",type: TrackType.Event) {
+            latitude = "-33,312313"
+            longitude = "-58,929484"
+        }
+        "/checkout/shipping/store_selection/store_not_found"(platform: "/mobile",type: TrackType.Event) {
+            latitude = "-33,312313"
+            longitude = "-58,929484"
+        }
+        "/checkout/shipping/puis_store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
+            info_default = {
+                type: "address_id"
+                suggested : true
+            }
+            latitude = "-33,312313"
+            longitude = "-58,929484"
+            last_action = "geolocation"
+            distance = 345
+        }
+        "/checkout/shipping/store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
+            info_default = {
+                type: "address_id"
+                suggested : true
+            }
+            latitude = "-33,312313"
+            longitude = "-58,929484"
+            last_action = "geolocation"
+            distance = 345
+        }
+        //
+
         "/checkout/payment/preload_credit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
