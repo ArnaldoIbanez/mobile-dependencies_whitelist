@@ -22,8 +22,8 @@ tracks {
         category_path(required: true, description: "Category path for the item", type: PropertyType.ArrayList)
         label(required: false, description: "Tab from listings page", type: PropertyType.String, values: ["paused", "active", "closed","pending"])
         attribute_type(required: true, description:"If its an item_attribute, a variation_attribute or an allow_variation_attribute", type:PropertyType.String, values: ["item_attribute","variation_attribute","allow_variation_attribute"])
-        attributes_showed(required: false, description:"Number of attributes showed", type: PropertyType.String)
-        attributes_submitted(required: false, description:"Number of attributes submitted", type: PropertyType.String)
+        attributes_showed(required: false, description:"Number of attributes showed", type: PropertyType.Numeric)
+        attributes_submitted(required: false, description:"Number of attributes submitted", type: PropertyType.Numeric)
     }
 
     propertyGroups {
