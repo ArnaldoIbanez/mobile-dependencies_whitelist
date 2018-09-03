@@ -323,94 +323,6 @@ tracks {
     //:::: MYML - INVOICES
     "/myml/invoices"(platform: "/", isAbstract: true) {}
 
-    //:::: Create Invoice flow items
-    "/myml/invoices/items"(platform: "/", isAbstract: true) {
-        error(required: false, description: "Error message that pop to user after request")
-        errorValidation(required: false, type:  PropertyType.String, description: "Error message when value is invalid")
-        url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
-    }
-
-    //review
-    "/myml/invoices/review"(platform: "/") {}
-    "/myml/invoices/review/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/review/create_invoice"(platform: "/", type: TrackType.Event) {}
-    
-    "/myml/invoices/items/review"(platform: "/") {}
-    "/myml/invoices/items/review/save"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/items/review/save/request"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/review/save/response"(platform: "/", type: TrackType.Event) {}
-    
-    //origin
-    "/myml/invoices/items/origin"(platform: "/") {}
-    "/myml/invoices/items/origin/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/origin/save"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/items/origin/save/request"(platform: "/", type: TrackType.Event) {
-        data(required: true, description: "Product Origin type and aditional infos")
-        item_id(required: true, type: PropertyType.String, description: "itemId of product")
-        variationId(required: false, type: PropertyType.String, description: "variationId of product")
-    }
-    "/myml/invoices/items/origin/save/response"(platform: "/", type: TrackType.Event) {}
-
-    //sku
-    "/myml/invoices/items/sku"(platform: "/") {}
-    "/myml/invoices/items/sku/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/sku/save"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/items/sku/save/request"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "itemId of product")
-        variationId(required: false, type: PropertyType.String, description: "variationId of product")
-        sku(required: true, type: PropertyType.String, description: "Sku id input")
-    }
-    "/myml/invoices/items/sku/save/response"(platform: "/", type: TrackType.Event) {}
-
-    //csosn
-    "/myml/invoices/items/csosn"(platform: "/") {}
-    "/myml/invoices/items/csosn/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/csosn/save"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/items/csosn/save/request"(platform: "/", type: TrackType.Event) {
-        data(required: true, description: "Product tax information and aditional infos")
-    }
-    "/myml/invoices/items/csosn/save/response"(platform: "/", type: TrackType.Event) {}
-
-    //ean
-    "/myml/invoices/items/ean"(platform: "/") {}
-    "/myml/invoices/items/ean/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/ean/save"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/items/ean/save/request"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "itemId of product")
-        data(required: true, description: "Ean(europen article code) and aditional infos")
-    }
-    "/myml/invoices/items/ean/save/response"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/ean/validate"(platform: "/", type: TrackType.Event) {
-        ean(required: true, type: PropertyType.String, description: "Ean(europen article code) id input value")
-    }
-
-    //product-type
-    "/myml/invoices/items/product-type"(platform: "/") {}
-    "/myml/invoices/items/product-type/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/product-type/save"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/items/product-type/save/request"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "itemId of product")
-        variationId(required: false, type: PropertyType.String, description: "variationId of product")
-        data(required: true, description: "Product type selected and aditional infos")
-    }
-    "/myml/invoices/items/product-type/save/response"(platform: "/", type: TrackType.Event) {}
-
-    //ncm
-    "/myml/invoices/items/ncm"(platform: "/") {}
-    "/myml/invoices/items/ncm/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/ncm/save"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/items/ncm/save/request"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "itemId of product")
-        data(required: true, description: "Ncm (tax information)")
-        variationId(required: false, type: PropertyType.String, description: "variationId of product")
-    }
-    "/myml/invoices/items/ncm/save/response"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/ncm/search"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/items/ncm/search/request"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/items/ncm/search/response"(platform: "/", type: TrackType.Event) {
-        data(required: true, description: "Search ncm info when user input code")
-    }
-
     //:::: Sales list
     "/myml/invoices/sales_list"(platform: "/", isAbstract: true) {}
     "/myml/invoices/sales_list/create_invoice"(platform: "/", type: TrackType.Event) {}
@@ -446,8 +358,6 @@ tracks {
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
     }
     
-
-
     "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
     "/myml/invoices/company-info/certificate/a3/handshake"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/certificate/a3/handshake/request"(platform: "/", type: TrackType.Event) {}
@@ -514,17 +424,16 @@ tracks {
     }
     "/myml/invoices/company-info/success"(platform: "/") {}
 
-
     //freight
     "/myml/invoices/company-info/include-freight"(platform: "/") {}
     "/myml/invoices/company-info/include-freight/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/include-freight/save/request"(platform: "/", type: TrackType.Event) {
         code(required: true, type:  PropertyType.Boolean, description: "Boolean with user preference to include freight")
-        redirect_to(required: true, type: PropertyType.String, description: "Redirect url value before save")
+        url(required: true, type: PropertyType.String, description: "Redirect url value before save")
     }
     "/myml/invoices/company-info/include-freight/save/response"(platform: "/", type: TrackType.Event) {
-        redirect_to(required: false, type: PropertyType.String, description: "Redirect url after save on success")
-        success(required: false, type: PropertyType.Boolean, description: "Boolean if request was success or not ")
+        url(required: false, type: PropertyType.String, description: "Redirect url after save on success")
+        success(required: true, type: PropertyType.Boolean, description: "Boolean if request was success or not ")
         message(required: false, type: PropertyType.String, description: "Error message that pops on page on error")
     }
     "/myml/invoices/company-info/success"(platform: "/") {}
