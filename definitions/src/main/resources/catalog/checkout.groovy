@@ -110,6 +110,8 @@ tracks {
         loyalty_level(required:false, description:"The loyalty level of the buyer")
 
         investor(required:false, type: PropertyType.String, values:["YES", "NO"], description:"If the user is an investor")
+
+        available_consumer_credit(required:false, type: PropertyType.String, values:["YES", "NO"], description:"If the user has active consumer credits")
     }
 
     /*

@@ -51,6 +51,7 @@ tracks {
 
 "/cart/my_cart"(platform: "/") {
     resolution(required:false, type: PropertyType.String)
+    disclaimer_moved_items(required: false, type: PropertyType.String,  values: ["yes", "no"])
 }
 
 "/cart/my_cart/save_for_later"(platform: "/", type: TrackType.Event) {
@@ -94,6 +95,12 @@ tracks {
 "/cart/saved_for_later/change_quantity"(platform: "/", type: TrackType.Event) {
     item_info
 }
+
+"/cart/saved_for_later/cant_add_to_cart"(platform: "/", type: TrackType.Event){
+    cant_add_motive(required: true, type: PropertyType.String, values: ["ratio", "zip_code", "low_price"])
+}
+
+"/cart/saved_for_later/cant_add_to_cart/buy_now"(platform: "/", type: TrackType.Event){}
 
 "/cart/my_cart/confirm_address"(platform: "/", type:TrackType.Event){}
 
