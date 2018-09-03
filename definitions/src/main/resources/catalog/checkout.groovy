@@ -401,6 +401,41 @@ tracks {
         longitude(required: false, description: "the longitude at which we are requesting agencies")
     }
 
+    // --- Map v2 --- //
+    "/checkout/shipping/puis_store_selection"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/shipping/store_selection"(platform: "/mobile", type: TrackType.View) {}
+
+    // Event Back
+    "/checkout/shipping/puis_store_selection/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/shipping/store_selection/back"(platform: "/mobile", type: TrackType.Event) {}
+
+     // Event for Defaults
+    "/checkout/shipping/puis_store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
+        default_location_info(required: true, description: "that indicate the type of default")
+        latitude(type: PropertyType.Numeric, required: true, description: "the latitude at which we are requesting agencies")
+        longitude(type: PropertyType.Numeric, required: true, description: "the longitude at which we are requesting agencies")
+        last_action(type: PropertyType.String, required: true, description: "That indicate the last action the user on the map")
+        distance(type: PropertyType.Numeric, required: false, description: "indicate the distance of the agencie selected to the default center point")
+    }
+
+    "/checkout/shipping/store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
+        default_location_info(required: true, description: "that indicate the type of default")
+        latitude(type: PropertyType.Numeric, required: true, description: "the latitude at which we are requesting agencies")
+        longitude(type: PropertyType.Numeric, required: true, description: "the longitude at which we are requesting agencies")
+        last_action(type: PropertyType.String, required: true, description: "That indicate the last action the user on the map")
+        distance(type: PropertyType.Numeric, required: false, description: "indicate the distance of the agencie selected to the default center point")
+    }
+
+    // No agencies
+    "/checkout/shipping/puis_store_selection/store_not_found"(platform: "/mobile",type: TrackType.Event) {
+        latitude(type: PropertyType.Numeric,required: false, description: "the latitude at which we are requesting agencies")
+        longitude(type: PropertyType.Numeric,required: false, description: "the longitude at which we are requesting agencies")
+    }
+    "/checkout/shipping/store_selection/store_not_found"(platform: "/mobile",type: TrackType.Event) {
+        latitude(type: PropertyType.Numeric,required: false, description: "the latitude at which we are requesting agencies")
+        longitude(type: PropertyType.Numeric,required: false, description: "the longitude at which we are requesting agencies")
+    }
+
     //Select paymentMethod
     "/checkout/payment/preload_credit_card"(platform: "/mobile", type: TrackType.View) {}//Melidata experiment
 
