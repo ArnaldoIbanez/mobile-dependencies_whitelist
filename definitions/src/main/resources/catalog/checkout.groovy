@@ -400,29 +400,29 @@ tracks {
     }
 
     // --- Map v2 --- //
-    "/checkout/shipping/puis_store_selection"(platform: "/mobile") {}
-    "/checkout/shipping/store_selection"(platform: "/mobile") {}
+    "/checkout/shipping/puis_store_selection"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/shipping/store_selection"(platform: "/mobile", type: TrackType.View) {}
 
     // Event Back
     "/checkout/shipping/puis_store_selection/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/shipping/store_selection/back"(platform: "/mobile", type: TrackType.Event) {}
 
      // Event for Defaults
-     "/checkout/shipping/puis_store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
+    "/checkout/shipping/puis_store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
         info_default(required: false, description: "that indicate the type of default")
         latitude(required: false, description: "the latitude at which we are requesting agencies")
         longitude(required: false, description: "the longitude at which we are requesting agencies")
         last_action(type: PropertyType.String, required: false, description: "That indicate the last action the user on the map")
         distance(required: false, description: "indicate the distance of the agencie selected to the default center point")
-     }
+    }
 
-     "/checkout/shipping/store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
+    "/checkout/shipping/store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
         info_default(required: true)
         latitude(required: false, description: "the latitude at which we are requesting agencies")
         longitude(required: false, description: "the longitude at which we are requesting agencies")
         last_action(type: PropertyType.String, required: false, description: "That indicate the last action the user on the map")
         distance(required: false, description: "indicate the distance of the agencie selected to the default center point")
-     }
+    }
 
     // No agencies
     "/checkout/shipping/puis_store_selection/store_not_found"(platform: "/mobile",type: TrackType.Event) {
