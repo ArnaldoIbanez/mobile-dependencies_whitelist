@@ -11,7 +11,7 @@ tracks {
     "/notification_center"(platform: "/", type: TrackType.Event) {
         newsgroup_id(required: false, type: PropertyType.String)
         status(required: false, type: PropertyType.String, values:["unread", "read"])
-        event_type(required: false, values: ["open", "pull_to_refresh", "swipe", "action_open", "created", "updated"])
+        event_type(required: false, values: ["open", "pull_to_refresh", "swipe", "action_open", "create", "update"])
         deeplink(required: false, type: PropertyType.String)
         action_type(required: false, type: PropertyType.String,  values: ["messages", "message", "vop", "picture", "shipping_print_label", "claims", "tracking", "feedback", "changepayment", "reply", "ask", "questions-buy", "cart"])
         type_layout(required: false, type: PropertyType.String, values: ["bullet_list", "order", "picture", "standard"])
