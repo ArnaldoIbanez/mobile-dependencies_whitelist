@@ -84,6 +84,7 @@ catalog {
         include business, "pushNotifications.groovy"
         include business, "quotation.groovy"
         include business, "questions.groovy"
+        include business, "recommendations.groovy"
         include business, "referralprogram.groovy"
         include business, "reviews.groovy"
         include business, "returns.groovy"
@@ -97,9 +98,11 @@ catalog {
         include business, "classifieds_landings.groovy"
         include business, "instore.groovy"
         include business, "qr_discount.groovy"
+        include business, "zip_finder.groovy"
     }
     
     mercadopago.each { business ->
+        include business, "account_fund.groovy"
         include business, "mercadopago.groovy"
         include business, "checkoutOff.groovy"
         include business, "credits_mercadopago.groovy"

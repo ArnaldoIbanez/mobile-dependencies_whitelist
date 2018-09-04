@@ -1,7 +1,7 @@
-
 import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
+
 
 /**
 *
@@ -55,7 +55,9 @@ tracks {
     // MP Activities
     "/listing"(platform: "/web", isAbstract: true){}
 
-    "/listing/activities"(platform: "/web"){}
+    "/listing/activities"(platform: "/web"){
+        shown_modal_id(required: true, type: PropertyType.String, description: 'Indicates the id of the modal shown.')
+    }
 
     "/listing/gateway"(platform: "/web"){}
 
@@ -79,6 +81,7 @@ tracks {
         value (values: ["hero", "afterhero"], type: PropertyType.String, required: true, description: "Section where the trigger it is placed. Could be hero/afterHero")
         trigger (type: PropertyType.String, required: true, description: "button that triggers the qr video")
     }
+    "/merchant_acquisition/qr/landing/landing-get-qr-code"(platform:"/", type: TrackType.Event) {}
 
     // QR Flow > Pageviews
     "/merchant_acquisition/qr/onboarding"(platform:"/", type: TrackType.View) {}
@@ -144,8 +147,10 @@ tracks {
         flow (required: false, type: PropertyType.String, description: "Flow")
         error_msg (required:false, type: PropertyType.String, description: "Error shown to seller")
     }
-
-    "/point_payment/main"(platform: "/mobile", type: TrackType.View) {}
+    //TODO: The flow_origin field must be changed to mandatory, when all the productive versions send this information
+    "/point_payment/main"(platform: "/mobile", type: TrackType.View) {
+        flow_origin (required: false, type: PropertyType.String, values: ["point", "qr", "chooser","share_social"])
+    }
     "/point_payment/card"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/installments"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/card_type"(platform: "/mobile", type: TrackType.View) {}
@@ -174,6 +179,9 @@ tracks {
     "/point_payment/point"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/qr_ftu"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/bank_selection"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/select_connected_device"(platform: "/mobile", type: TrackType.View) {
+         devices (required:false, type: PropertyType.String, description: "paired devices")
+    }
 
     "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
         flow_id (required: true, type: PropertyType.String, description: "Flow id.")
@@ -188,7 +196,11 @@ tracks {
     "/point_payment/flow_tracker/payment_methods_get"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/payment_methods_response"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/card_token_results"(platform: "/mobile", type: TrackType.Event) {}
-    "/point_payment/flow_tracker/start"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/start"(platform: "/mobile", type: TrackType.Event) {
+        description (required: false, type: PropertyType.String, description: "payment description.")
+        amount (required: false, type: PropertyType.String, description: "payment amount.")
+        discount (required: false, type: PropertyType.String, description: "payment discount")
+    }
     "/point_payment/flow_tracker/card_tokens_result"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/payment_methods_request"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/payment_methods_response"(platform: "/mobile", type: TrackType.Event) {}
@@ -205,6 +217,12 @@ tracks {
     "/point_payment/flow_tracker/select_qr"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/select_point"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/select_link"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/waiting_card"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/select_connected_device"(platform: "/mobile", type: TrackType.Event) {
+         devices (required:false, type: PropertyType.String, description: "paired devices")
+    }
+    "/point_payment/flow_tracker/cancel_qr_charge"(platform: "/mobile", type: TrackType.Event) {}
+    
 
     "/settings/point"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
     "/settings/point/settings"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
@@ -775,6 +793,46 @@ tracks {
 
     "/free_navigation/wifi"(platform:"/mobile", type:TrackType.Event) {}
 
-
+     //MP Asset management
+    //-------------------
+    "/asset_management"(platform: "/", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+    }
+    //Onboarding
+    "/asset_management/onboarding"(platform: "/mobile", type: TrackType.View) {
+        from (required:false, type: PropertyType.String, description: "Where the flow start")   
+    }
+    //Challenges
+    "/asset_management/challenge_pep"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_fatca"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_regulated_entity"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_manual_input_dob"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_manual_input_document"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_mismatch"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_cx_pending"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_number_of_attempts_exceeded"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_identity_validation"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_identification_bad_quality"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_country_of_birth"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_review_and_confirm"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_document_type"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_gender"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
+    //Opt-out
+    "/asset_management/opt_out"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/result_stop_investing"(platform: "/mobile", type: TrackType.View) {}
+    //Detail
+    "/asset_management/investment_detail"(platform: "/mobile", type: TrackType.View) {
+        from (required:false, type: PropertyType.String, description: "Where the flow start")   
+    }
+    "/asset_management/movements_detail"(platform: "/mobile", type: TrackType.View) {}
+    //Congrats
+    "/asset_management/result_investing"(platform: "/mobile", type: TrackType.View) {}
+    //Faqs
+    "/asset_management/faqs"(platform: "/mobile", type: TrackType.View) {}
+    //Splitter
+    "/asset_management/splitter"(platform: "/mobile", type: TrackType.View) {
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
 
 }

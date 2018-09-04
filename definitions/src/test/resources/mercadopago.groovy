@@ -405,7 +405,9 @@ trackTests {
     }
 
     test("Mercadopago Activities List") {
-        "/listing/activities" (platform: "/web") {}
+        "/listing/activities" (platform: "/web") {
+            shown_modal_id = '45daysMigration'
+        }
     }
 
     test("Mercadopago Gateway List") {
@@ -427,6 +429,7 @@ trackTests {
             value = "hero"
             trigger = "click_qr_video"
         }
+        "/merchant_acquisition/qr/landing/landing-get-qr-code"(platform: "/", type: TrackType.Event) {}
     }
 
     test("MP-MA Flow QR") {
@@ -678,7 +681,9 @@ trackTests {
     test("Point Payment") {
 
         "/point_payment"(platform: "/mobile", type: TrackType.View) {}
-        "/point_payment/main"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/main"(platform: "/mobile", type: TrackType.View) {
+            flow_origin = 'point'
+        }
         "/point_payment/card"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/installments"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/card_type"(platform: "/mobile", type: TrackType.View) {}
@@ -721,6 +726,8 @@ trackTests {
         "/point_payment/point"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/qr_ftu"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/bank_selection"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/select_connected_device"(platform: "/mobile", type: TrackType.View) {}
+
         "/point_payment/flow_tracker/pairing"(platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
             level ="error"
@@ -852,6 +859,26 @@ trackTests {
             level ="info"
             data ="{ctr: 2313}"
         }
+        "/point_payment/flow_tracker/waiting_card"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/select_connected_device"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+            devices = "{m_device:{m_address:B0:F1:EC:72:37:2E},name:PAX-77770610}"
+        }
+        "/point_payment/flow_tracker/cancel_qr_charge"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+    
 
         "/settings/point/costs_calculator"(platform: "/mobile", type: TrackType.View) {
             flow = "point"
@@ -3103,6 +3130,88 @@ trackTests {
             release_stage = "production"
             error_signal_name = "SIGTRAP"
             error_nsexception = "<none>"
+        }
+    }
+
+    test("Asset management") {
+        //Onboarding
+        "/asset_management/onboarding"(platform: "/mobile") {
+            flow = "/asset_management"
+            from = "/deep_link"
+        }
+        //Challenges
+        "/asset_management/challenge_pep"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        "/asset_management/challenge_fatca"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        "/asset_management/challenge_regulated_entity"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        "/asset_management/challenge_manual_input_dob"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        "/asset_management/challenge_manual_input_document"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        "/asset_management/challenge_mismatch"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        "/asset_management/challenge_cx_pending"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        "/asset_management/challenge_number_of_attempts_exceeded"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        "/asset_management/challenge_identity_validation"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        "/asset_management/challenge_identification_bad_quality"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        "/asset_management/challenge_country_of_birth"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        "/asset_management/challenge_review_and_confirm"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        "/asset_management/challenge_document_type"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        "/asset_management/challenge_gender"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        "/asset_management/terms_and_conditions"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        //Opt-out
+        "/asset_management/opt_out"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        "/asset_management/result_stop_investing"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        //Detail
+        "/asset_management/investment_detail"(platform: "/mobile") {
+            flow = "/asset_management"
+            from = "/deep_link"
+        }
+        "/asset_management/movements_detail"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        //Congrats
+        "/asset_management/result_investing"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        //Faqs
+        "/asset_management/faqs"(platform: "/mobile") {
+            flow = "/asset_management"
+        }
+        //Splitter
+        "/asset_management/splitter"(platform: "/mobile") {
+            flow = "/asset_management"
+            from = "/deep_link"
         }
     }
 
