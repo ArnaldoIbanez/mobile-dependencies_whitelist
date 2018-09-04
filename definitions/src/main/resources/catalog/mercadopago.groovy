@@ -624,12 +624,14 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
+    "/account_fund"(platform: "/", isAbstract: true) {}
     "/account_fund/select_method"(platform: "/mobile") {}
     "/account_fund/amount"(platform: "/mobile") {}
     "/account_fund/agencies_map"(platform: "/mobile") {}
     "/account_fund/ftu"(platform: "/mobile") {}
     "/account_fund/unique_code"(platform: "/mobile") {}
     "/account_fund/unique_code/help"(platform: "/mobile") {}
+    "/account_fund/px"(platform: "/", isAbstract: true) {}
     "/account_fund/px/card_vault"(platform: "/mobile") {}
     "/account_fund/px/card_number"(platform: "/mobile") {}
     "/account_fund/px/card_holder_name"(platform: "/mobile") {}
