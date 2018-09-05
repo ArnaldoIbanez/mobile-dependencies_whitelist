@@ -183,7 +183,6 @@ tracks {
     }
     "/notification_center/sc_editor_off"(platform: "/", type: TrackType.Event) {}
     "/notification_center/security_account_validation"(platform: "/", type: TrackType.Event) {}
-    "/notification_center/security_enrollment"(platform: "/", type: TrackType.Event) {}
     "/notification_center/collections_approved"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.Numeric)
     }
