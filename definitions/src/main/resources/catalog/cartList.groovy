@@ -116,6 +116,13 @@ tracks {
 
 "/cart/my_cart/add_cp/dont_know_cp"(platform: "/", type: TrackType.Event){}
 
-"/cart/item_add"(platform: "/", type: TrackType.View) {}
+"/cart/item_add"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+    items(required: true, type:PropertyType.ArrayList, description: "Array of items that are being added")
+    context(required: false)
+}
+
+"/cart/item_add/error"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+    error_type(required: true, type: PropertyType.String)
+}
 
 }
