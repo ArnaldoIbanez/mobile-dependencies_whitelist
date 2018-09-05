@@ -14,32 +14,51 @@ trackTests {
         "/seller_central/listings/list"(platform: "/", type: TrackType.View) {}
     }
 
-
-    test("seller central listing filters") {
-        "/seller_central/listings/filters"(platform: "/", type: TrackType.Event) {
-            action = "apply"
-        }
+    test("seller central listing action") {
         "/seller_central/listings/action"(platform: "/", type: TrackType.Event) {
             action_id = "MODIFY"
         }
     }
 
-    test("seller central listing onboarding paths") {
-        "/seller_central/listings/onboarding"(platform: "/", type: TrackType.Event) {
+    test("seller central listing filters view") {
+        "/seller_central/listings/filters"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("seller central listing filters actions") {
+        "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
+            action = "apply"
+        }
+        "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
+            action = "clear"
+        }
+    }
+
+    test("seller central listing onboarding view") {
+        "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("seller central listing onboarding actions") {
+        "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
             action = "close"
         }
-    }
-
-    test("seller central listing task") {
-        "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
-            action = "MODIFY"
-            id = "task"
+        "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
+            action = "dismiss"
+        }
+        "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
+            action = "start"
         }
     }
 
-    test("seller central listing news") {
+    test("seller central listing communications") {
         "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
-            id = "news"
+            type = "news"
+        }
+        "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
+            type = "task"
+            id = "MODIFY"
+        }
+        "/seller_central/listings/communication/more_info"(platform: "/mobile", type: TrackType.Event) {
+            type = "news"
         }
     }
 
@@ -47,20 +66,11 @@ trackTests {
         "/seller_central/listings/editor"(platform: "/", type: TrackType.Event) {}
     }
 
-    test("seller central listing filters") {
-        "/seller_central/listings/filters"(platform: "/", type: TrackType.Event) {
-            action = "clear"
-        }
-    }
-
     test("seller central listing preferences") {
         "/seller_central/listings/preferences"(platform: "/", type: TrackType.Event) {
             id = "shipping"
         }
     }
-
-
-
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central Bulk
@@ -97,8 +107,6 @@ trackTests {
     test("seller central bulk filters and search") {
         "/seller_central/bulk/undo_changes"(platform: "/", type: TrackType.Event) {}
         "/seller_central/bulk/search"(platform: "/", type: TrackType.Event) {}
-
     }
-
 
 }
