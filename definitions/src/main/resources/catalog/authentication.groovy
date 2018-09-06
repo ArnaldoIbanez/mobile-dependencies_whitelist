@@ -63,7 +63,7 @@ tracks {
     }    
 
     "/logout"(platform: "/", type: TrackType.Event) {
-        flow(type: PropertyType.String, required: false)
+        source(type: PropertyType.String, required: true)
     }
 
     "/login/auth/push"(platform: "/", type: TrackType.Event) {
