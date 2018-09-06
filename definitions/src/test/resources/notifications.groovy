@@ -80,22 +80,12 @@ trackTests {
             deeplink= "meli://item?id=MLA646946595"
             type_layout= "standard"
         }
-        "/notification_center/listings"(platform: "/mobile"){
-            newsgroup_id= "listings-MLB829990994"
-            status= "read"
-            event_type= "open"
-            deeplink= "meli://listings/MLB829990994"
-            type_layout= "standard"
-        }
         "/notification_center/reviews_reminder"(platform: "/mobile"){
-            vertical= ""
+            vertical= "services"
         }
         "/notification_center/fiscal_data_business_registration"(platform: "/mobile"){}
         "/notification_center/fraud_postpayment"(platform: "/mobile"){}
-        "/notification_center/fraud_identity_validation"(platform: "/mobile",){
-            latest_news_type= "fraud-identity_validation-186785675"
-            latest_news_id= "fraud-identity_validation-186785675"
-        }
+
         "/notification_center/instore_activities"(platform: "/mobile"){}
         "/notification_center/invoices"(platform: "/mobile"){}
         "/notification_center/listings"(platform: "/mobile"){}
@@ -247,6 +237,9 @@ trackTests {
             order_id= 1692352012
             latest_news_type= "returns-init_return"
             latest_news_id= "returns-init_return-1692352012-88594841"
+        }
+        "/notification_center/mediations"(platform: "/", type: TrackType.Event) {
+            claim_id= 443103451
         }
         "/notification_center/orders_buyer"(platform: "/mobile"){
             newsgroup_id= "orders-buyer-1285223441"
