@@ -18,6 +18,7 @@ FROM
    WHERE (ds >= '@param01' and ds < '@param02')
      AND (path like '/notification_center/credits-consumer%' or path like '/notification/credits_consumer%')
      AND (jest(event_data, 'event_type') = 'shown' or jest(event_data, 'event_type') = 'open')
+     AND (application.site_id = 'MLA' or application.site_id = 'MLB' or application.site_id = 'MLM')
    GROUP BY
      usr.user_id,
      SUBSTR(ds, 1, 10),
