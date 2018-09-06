@@ -100,10 +100,14 @@ tracks {
     }
 
     // New Multi Step Login Android
-    "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
+    "/login/auth/challenge"(platform: "/", type: TrackType.View) {
         challenge(type: PropertyType.String, required: true, description: "Login Step")
         tracking_id(type: PropertyType.String, required: true, description: "Indicates the id to track the transaction")
         user(type: PropertyType.Map, required: false, description: "Available user info")
+        source(type: PropertyType.String, required: false, description: "Context on which the login is presented")
+        has_error(type: PropertyType.Boolean, required: false)
+        recaptcha(type: PropertyType.Boolean, required: false, description: "Indicates whether recaptcha is present or not")
+        push_control_group_user(type: PropertyType.Boolean, required: false)
     }
 
     "/login/auth/error"(platform: "/mobile", type: TrackType.View) {
