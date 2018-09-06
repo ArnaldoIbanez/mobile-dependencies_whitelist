@@ -1,0 +1,167 @@
+import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
+import com.ml.melidata.TrackType;
+
+trackTests {
+
+    defaultBusiness = "mercadopago"
+
+    test("cards prepaid landing") {
+
+        // View
+        "/prepaid/"(platform: "/", type: TrackType.View) {}
+        "/prepaid/"(platform: "/", type: TrackType.View) { user_profile = "buyers" }
+        "/prepaid/hotjar"(platform: "/", type: TrackType.Event) { hotjar_user_id = "9PW342" }
+        "/prepaid/acquisition"(platform: "/web/desktop") {}
+        "/prepaid/acquisition"(platform: "/web/desktop") { is_point = true }
+        "/prepaid/acquisition"(platform: "/web/desktop") { is_point = false }
+        "/prepaid/acquisition/landing/card_request"(platform: "/web/desktop") {}
+        "/prepaid/acquisition/landing/card_request"(platform: "/", type: TrackType.View) { user_profile = "sellers" }
+        "/prepaid/acquisition/landing/on_delivery_card"(platform: "/web/desktop") {}
+        "/prepaid/acquisition/landing/delivered_card"(platform: "/web/desktop") {}
+        "/prepaid/acquisition/landing/inactive/user_request"(platform: "/web/desktop") {}
+        "/prepaid/acquisition/landing/inactive/not_delivered_stolen_card"(platform: "/web/desktop") {}
+        "/prepaid/acquisition/landing/inactive/not_delivered_card"(platform: "/web/desktop") {}
+        "/prepaid/acquisition/landing/need_fund"(platform: "/web/desktop") {}
+        "/prepaid/acquisition/landing/active_card"(platform: "/web/desktop") {}
+    }
+
+
+    test("cards prepaid acquisition flow") {
+
+        // View
+        "/prepaid/acquisition/change_dni"(platform: "/web/desktop") {}
+        "/prepaid/acquisition/confirmation_account"(platform: "/web/desktop") {}
+        "/prepaid/acquisition/registration/congrats"(platform: "/web/desktop") {}
+        "/prepaid/acquisition/juridical_info"(platform: "/web/desktop") {}
+        "/prepaid/acquisition/personal_info"(platform: "/web/desktop") {}
+        "/prepaid/acquisition/personal_info/identity"(platform: "/web/mobile") {}
+        "/prepaid/acquisition/personal_info/gender"(platform: "/web/mobile") {}
+        "/prepaid/acquisition/personal_info/activity"(platform: "/web/mobile") {}
+        "/prepaid/acquisition/review"(platform: "/web/desktop") {}
+        "/prepaid/acquisition/review/welcome"(platform: "/web/mobile") {}
+        "/prepaid/acquisition/need_fund"(platform: "/web/desktop") {}
+
+        "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) {congrats_type = "prepaid" }
+        "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) {congrats_type = "prepaid_delay" }
+        "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) {congrats_type = "prepaid_point_different_address" }
+        "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) {congrats_type = "prepaid_point_same_address" }
+        "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) { congrats_type = "bapropagos" }
+        "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) { congrats_type = "pagofacil" }
+        "/prepaid/acquisition/congrats"(platform: "/web/mobile", type: TrackType.View) { congrats_type = "rapipago" }
+        "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) { congrats_type = "redlink" }
+        "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) { congrats_type = "maestro" }
+        "/prepaid/acquisition/congrats"(platform: "/web/mobile", type: TrackType.View) { congrats_type = "bolbradesco" }
+
+        "/prepaid/acquisition/error"(platform: "/web/desktop", type: TrackType.View) { error_type = "main_error" }
+        "/prepaid/acquisition/error"(platform: "/web/desktop", type: TrackType.View) { error_type = "hasprepaid" }
+        "/prepaid/acquisition/error"(platform: "/web/mobile", type: TrackType.View) { error_type = "juridical" }
+        "/prepaid/acquisition/error"(platform: "/web/mobile", type: TrackType.View) { error_type = "identification" }
+        "/prepaid/acquisition/error"(platform: "/web/mobile", type: TrackType.View) { error_type = "denied" }
+    }
+
+
+    test("cards prepaid activation flow") {
+
+        // View
+        "/prepaid/activation"(platform: "/web/desktop") {}
+        "/prepaid/activation/last_digits"(platform: "/web/desktop") {}
+        "/prepaid/activation/marital_status"(platform: "/web/desktop") {}
+        "/prepaid/activation/congrats"(platform: "/web/desktop") {}
+        "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "main_error" }
+        "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "not_found" }
+        "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "max_attempt" }
+        "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "mismatch_dni" }
+    }
+
+
+    test("cards prepaid shipment tracking") {
+
+        // View
+        "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "on_track" }
+        "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "delayed" }
+        "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "to_collect" }
+        "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "not_delivered" }
+    }
+
+
+    test("cards prepaid block") {
+
+        // View
+        "/prepaid/block"(platform: "/web/desktop") {}
+    }
+
+    test("Landing Cobranded card") {
+        "/cobranded/acquisition/landing" (platform: "/web") {}
+    }
+    
+    test("My card webview") {
+        "/my_cards_webview" (platform: "/mobile") {}
+    }
+
+
+    test("Prepaid cards MLM") {
+        
+        "/prepaid_card/action_picker"(platform: "/mobile") {
+            flow = "/prepaid_card"
+            from = "/deep_link"
+        }
+        "/prepaid_card/web_view"(platform: "/mobile") {
+            flow = "/prepaid_card"
+            from = "/deep_link"
+        }
+
+        "/prepaid_card/result"(platform: "/mobile") {
+            flow = "/prepaid_card"
+            from = "/deep_link"
+            result_status = "approved"
+        }
+        "/prepaid_card/pay"(platform: "/mobile") {
+            flow = "/prepaid_card"
+            from = "/deep_link"
+        }
+        "/prepaid_card/payment_methods"(platform: "/mobile") {
+            flow = "/prepaid_card"
+            from = "/deep_link"
+        }
+        "/prepaid_card/other_payment_methods"(platform: "/mobile") {
+            flow = "/prepaid_card"
+            from = "/deep_link"
+        }
+        "/prepaid_card/final_scene"(platform: "/mobile") {
+            flow = "/prepaid_card"
+            from = "/deep_link"
+        }
+        "/prepaid_card/final_scene/prepaid"(platform: "/mobile") {
+            flow = "/prepaid_card"
+            from = "/deep_link"
+        }
+        "/prepaid_card/final_scene/prepaid/success"(platform: "/mobile") {
+            flow = "/prepaid_card"
+            from = "/deep_link"
+        }
+
+
+        "/prepaid_recharge/fill_recharge_data"(platform: "/mobile") {
+            flow = "/prepaid_recharge"
+            from = "/deep_link"
+        }
+        "/prepaid_recharge/recipients"(platform: "/mobile") {
+            flow = "/prepaid_recharge"
+            from = "/deep_link"
+        }
+        "/prepaid_recharge/result"(platform: "/mobile") {
+            flow = "/fund_account"
+            from = "/deep_link"
+            result_status = "rejected"
+            status_detail = "internal_server_error"
+        }
+        "/prepaid_recharge/add_recipient"(platform: "/mobile") {
+            flow = "/prepaid_recharge"
+            from = "/deep_link"
+        }
+        "/prepaid_recharge/recipient"(platform: "/mobile") {
+            flow = "/prepaid_recharge"
+            from = "/deep_link"
+        }
+    }
+}

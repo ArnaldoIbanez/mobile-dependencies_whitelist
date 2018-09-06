@@ -1,9 +1,9 @@
 {
   "users": [
-    "melidata_dev@mercadolibre.com"
+    "alejandro.torres@mercadolibre.com"
   ],
-  "process_name": "unrepeated_tracks_count",
-  "cron": "30 06 * * *",
+  "process_name": "mediations-stale_flow",
+  "cron": "00 07 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -13,16 +13,32 @@
         "format": "yyyy-MM-dd"
       },
       {
-        "name": "unrepeated",
-        "type": "INTEGER"
+        "name": "site",
+        "type": "UNICODE_STRING"
       },
       {
         "name": "total",
         "type": "INTEGER"
+      },
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "business",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "reason",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "expected_resolution",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "melidata/unrepeated-tracks-count.sql",
+      "script": "mediations/stale-flow.sql",
       "parameters": [
         {
           "name": "param01",

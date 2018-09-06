@@ -1,0 +1,169 @@
+{
+  "users": [
+    "fernando.keuroglian@mercadolibre.com",
+     "ba-analytics@mercadolibre.com"
+  ],
+  "process_name": "catalog-widget",
+  "cron": "00 07 * * *",
+  "extract": {
+    "operation": "destroy",
+    "columns": [
+      {
+        "name": "fecha",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "site",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+        {
+        "name": "Path",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Page",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Seller_Id",
+        "type": "INTEGER"
+      },
+      {
+        "name": "Item_Id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Domain_Id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Category_Id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Official_Store",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Items_left",
+        "type": "INTEGER"
+      },
+      {
+        "name": "Completeness_level",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Motive",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "PI_Field",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Attr_Id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Hierarchy",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Option_Selected",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Value",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Show_Item",
+        "type": "INTEGER"
+      },
+      {
+        "name": "Minimize",
+        "type": "INTEGER"
+      },
+      {
+        "name": "Maximize",
+        "type": "INTEGER"
+      },
+      {
+        "name": "Cancel",
+        "type": "INTEGER"
+      },
+      {
+        "name": "Save",
+        "type": "INTEGER"
+      },
+      {
+        "name": "Final_Congrats",
+        "type": "INTEGER"
+      },
+      {
+        "name": "Omit",
+        "type": "INTEGER"
+      },
+      {
+        "name": "Omit_Save",
+        "type": "INTEGER"
+      },
+      {
+        "name": "PI",
+        "type": "INTEGER"
+      },
+      {
+        "name": "Next",
+        "type": "INTEGER"
+      },
+      {
+        "name": "ReDo",
+        "type": "INTEGER"
+      },
+      {
+        "name": "PI_Save",
+        "type": "INTEGER"
+      },
+      {
+        "name": "PI_Cancel",
+        "type": "INTEGER"
+      },
+      {
+        "name": "Discover",
+        "type": "INTEGER"
+      },
+      {
+        "name": "Save_Again",
+        "type": "INTEGER"
+      },
+      {
+        "name": "CoachMark",
+        "type": "INTEGER"
+      },
+      {
+        "name": "Omit_Atrr_Submit",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "business-assurance/catalog-widget.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-6",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

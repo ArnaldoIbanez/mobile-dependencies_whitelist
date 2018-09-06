@@ -16,6 +16,11 @@ trackTests {
         "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/error"(platform: "/web/desktop") {}
         "/credits/merchant/administrator"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/dashboard"(platform: "/") {
+            status = 'offer'
+        }
+        "/credits/merchant/admin_on_time"(platform: "/web/desktop") {}
+        "/credits/merchant/admin_late_pay"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {}
         "/credits/merchant/offer"(platform: "/web/desktop") {}
         "/credits/merchant/no_offer"(platform: "/web/desktop") {}
@@ -37,26 +42,25 @@ trackTests {
         "/credits/merchant/enrollment/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
 
         //Upload Files merchant
-        "/credits/merchant/enrollment/user_type"(platform: "/web/desktop", type: TrackType.Event) {
+        "/credits/merchant/enrollment/load_documents/user_type"(platform: "/web/desktop", type: TrackType.Event) {
             type = 'moral'
         }
         "/credits/merchant/enrollment/load_documents/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
 
         //Error merchant
-        "/credits/merchant/enrollment/try_it_again"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant/enrollment/contact_us"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant/enrollment/error/try_it_again"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant/enrollment/error/contact_us"(platform: "/web/desktop", type: TrackType.Event) {}
 
         //Congrats merchant
         "/credits/merchant/enrollment/withdrawal"(platform: "/web/desktop", type: TrackType.Event) {}
 
         //Dashboard merchant
         "/credits/merchant/hero_cta"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant/second_offer_cta"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/merchant/help"(platform: "/web/desktop", type: TrackType.Event) {}
     }
 
-    test("consumer credits"){
-        //Views
-        "/credits/consumer/administrator"(platform: "/web/desktop") {}
+    test("consumer credits admin detail"){
         "/credits/consumer/administrator/detail"(platform: "/web/desktop") {}
     }
 }

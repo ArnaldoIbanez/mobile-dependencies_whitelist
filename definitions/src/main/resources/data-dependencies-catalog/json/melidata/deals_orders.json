@@ -1,6 +1,7 @@
 {
   "users": [
-    "fernando.keuroglian@mercadolibre.com"
+    "fernando.keuroglian@mercadolibre.com",
+     "ba-analytics@mercadolibre.com"
   ],
   "process_name": "clic_deals",
  "cron": "00 07 * * *",

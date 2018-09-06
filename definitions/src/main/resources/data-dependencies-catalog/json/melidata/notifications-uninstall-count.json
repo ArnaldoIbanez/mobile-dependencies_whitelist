@@ -14,9 +14,6 @@
       "type": "INTEGER",
       "format": "yyyy-MM-dd"
     }, {
-      "name": "notification_type_purge",
-      "type": "UNICODE_STRING"
-    }, {
       "name": "notification_type",
       "type": "UNICODE_STRING"
     }, {
