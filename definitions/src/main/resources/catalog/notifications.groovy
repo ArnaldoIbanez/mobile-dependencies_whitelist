@@ -46,8 +46,8 @@ tracks {
         vertical(required: true, type: PropertyType.String, description: "vertical.")
     }
     "/notification_center/credits_consumer"(platform: "/", type: TrackType.Event) {
-        installment_id(required: true, description: "Id of installment.")
-        loan_id(required: true, description: "Id of loan.")
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+        loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
