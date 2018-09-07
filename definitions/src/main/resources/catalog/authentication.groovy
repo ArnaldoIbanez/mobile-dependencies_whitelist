@@ -110,7 +110,7 @@ tracks {
         push_control_group_user(type: PropertyType.Boolean, required: false)
     }
 
-    "/login/auth/error"(platform: "/mobile", type: TrackType.View) {
+    "/login/auth/error"(platform: "/", type: TrackType.View) {
         error(type: PropertyType.String, required: true, values: ["resource_not_found", "conflict", "network", "server"],
             description: "Indicates the error type shown in error view.")
     }
