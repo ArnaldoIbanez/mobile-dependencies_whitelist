@@ -43,7 +43,7 @@ tracks {
     "/seller_central/bulk/list"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Id of the action", values:["close", "rollback", "dismiss"])
+        action(required: true, type: PropertyType.String, description: "Id of the action", values:["start","close", "rollback", "dismiss"])
     }
 
     "/seller_central/bulk/domain"(platform: "/", type: TrackType.Event) {

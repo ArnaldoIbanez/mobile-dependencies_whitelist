@@ -88,6 +88,15 @@ trackTests {
         "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
             action = "close"
         }
+        "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
+            action = "start"
+        }
+        "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
+            action = "dismiss"
+        }
+        "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
+            action = "rollback"
+        }
     }
 
     test("seller central bulk view") {
