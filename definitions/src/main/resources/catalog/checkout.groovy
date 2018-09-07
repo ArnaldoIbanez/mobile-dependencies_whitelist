@@ -112,6 +112,8 @@ tracks {
         investor(required:false, type: PropertyType.String, values:["YES", "NO"], description:"If the user is an investor")
 
         available_consumer_credit(required:false, type: PropertyType.String, values:["YES", "NO"], description:"If the user has active consumer credits")
+
+        context(required: false, type: PropertyType.String, description: "Reference to the context that started checkout flow")
     }
 
     /*
