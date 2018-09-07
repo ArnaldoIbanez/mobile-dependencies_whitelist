@@ -115,24 +115,27 @@ tracks {
             description: "Indicates the error type shown in error view.")
     }
 
-    "/login/auth/challenge/submit"(platform: "/mobile", type: TrackType.Event) {}
+    "/login/auth/challenge/submit"(platform: "/", type: TrackType.Event) {
+        challenge(type: PropertyType.String, required: false, description: "Login Step")
+    }
 
     "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/login/auth/challenge/decline"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/login/auth/challenge/decline"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         challenge(type: PropertyType.String, required: true, description: "Login Step")
     }
 
-    "/login/auth/challenge/restart"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/login/auth/challenge/restart"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         challenge(type: PropertyType.String, required: true, description: "Login Step")
     }
 
-    "/login/auth/challenge/error"(platform: "/mobile", type: TrackType.View) {
+    "/login/auth/challenge/error"(platform: "/", type: TrackType.View) {
         errors(type: PropertyType.ArrayList, required: true, description: "Errors presented")
     }
 
     "/logout"(platform: "/", type: TrackType.Event) {
-        source(type: PropertyType.String, required: true)
+        source(type: PropertyType.String, required: false)
+        action(type: PropertyType.String, required: false)
     }
 
     "/login/auth/push"(platform: "/", type: TrackType.Event) {
