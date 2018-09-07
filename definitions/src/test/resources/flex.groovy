@@ -117,6 +117,12 @@ trackTests {
             status = "ok"
         }
 
+        //QR detected track invalid
+        "/flex/package/add/qr_detected"(platform:"/mobile", type: TrackType.Event) {
+            status = "invalid_format"
+            json_data = "{ www.google.com }"
+        }
+
         //Start delivery event track success
         "/flex/package/add/start_delivery"(platform:"/mobile", type: TrackType.Event) {
             defaultPacksInfo()
