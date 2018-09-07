@@ -24,14 +24,18 @@ trackTests {
         "/seller_central/listings/filters"(platform: "/mobile", type: TrackType.View) {}
     }
 
-    test("seller central listing filters actions") {
+    test("seller central listing filters actions and search") {
         "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
             action = "apply"
         }
         "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
             action = "clear"
         }
+
+        "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {}
     }
+
+
 
     test("seller central listing onboarding view") {
         "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}

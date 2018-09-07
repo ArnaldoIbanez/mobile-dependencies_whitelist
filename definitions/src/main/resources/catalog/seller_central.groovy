@@ -29,6 +29,8 @@ tracks {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["apply", "clear"])
     }
 
+    "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {}
+
     "/seller_central/listings/action"(platform: "/", type: TrackType.Event) {
         action_id(required: true, type: PropertyType.String, description: "Action id")
     }
