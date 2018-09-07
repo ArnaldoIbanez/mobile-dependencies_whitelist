@@ -105,9 +105,9 @@ tracks {
         tracking_id(type: PropertyType.String, required: true, description: "Indicates the id to track the transaction")
         user(type: PropertyType.Map, required: false, description: "Available user info")
         source(type: PropertyType.String, required: false, description: "Context on which the login is presented")
-        has_error(type: PropertyType.Boolean, required: false)
+        has_error(type: PropertyType.Boolean, required: false, description: "Indicates if there's an error shown in screen")
         recaptcha(type: PropertyType.Boolean, required: false, description: "Indicates whether recaptcha is present or not")
-        push_control_group_user(type: PropertyType.Boolean, required: false)
+        push_control_group_user(type: PropertyType.Boolean, required: false, description: "Indicates if user enter in push experiment control group")
     }
 
     "/login/auth/error"(platform: "/", type: TrackType.View) {
@@ -134,8 +134,8 @@ tracks {
     }
 
     "/logout"(platform: "/", type: TrackType.Event) {
-        source(type: PropertyType.String, required: false)
-        action(type: PropertyType.String, required: false)
+        source(type: PropertyType.String, required: false, values: ["LFE", "MSL"], description: "difference Legacy login and MSL")
+        action(type: PropertyType.String, required: false, description: "Mobile only, action perceived")
     }
 
     "/login/auth/push"(platform: "/", type: TrackType.Event) {
