@@ -559,6 +559,7 @@ trackTests {
 
         def defaultTrackInformation = {
             item_id = "MLA213512313"
+            quantity = 1
         }
 
         def cartInformation = {
@@ -598,6 +599,13 @@ trackTests {
             cartInformation()
             shippingInformation()
         }
+    }
+
+    test("VIP zipcode") {
+
+        "/vip/input_zip_code"(platform: "/", type: TrackType.View) {}
+
+         "/vip/input_zip_code/dont_know_my_zip_code"(platform: "/", type: TrackType.Event) {}
     }
 
 }

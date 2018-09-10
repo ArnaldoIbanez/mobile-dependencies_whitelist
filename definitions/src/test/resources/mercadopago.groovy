@@ -681,7 +681,9 @@ trackTests {
     test("Point Payment") {
 
         "/point_payment"(platform: "/mobile", type: TrackType.View) {}
-        "/point_payment/main"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/main"(platform: "/mobile", type: TrackType.View) {
+            flow_origin = 'point'
+        }
         "/point_payment/card"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/installments"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/card_type"(platform: "/mobile", type: TrackType.View) {}
@@ -724,6 +726,8 @@ trackTests {
         "/point_payment/point"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/qr_ftu"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/bank_selection"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/select_connected_device"(platform: "/mobile", type: TrackType.View) {}
+
         "/point_payment/flow_tracker/pairing"(platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
             level ="error"
@@ -855,6 +859,26 @@ trackTests {
             level ="info"
             data ="{ctr: 2313}"
         }
+        "/point_payment/flow_tracker/waiting_card"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/select_connected_device"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+            devices = "{m_device:{m_address:B0:F1:EC:72:37:2E},name:PAX-77770610}"
+        }
+        "/point_payment/flow_tracker/cancel_qr_charge"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+    
 
         "/settings/point/costs_calculator"(platform: "/mobile", type: TrackType.View) {
             flow = "point"

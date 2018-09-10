@@ -52,8 +52,7 @@ tracks {
     "/credits/consumer/administrator/dashboard"(platform: "/", type: TrackType.View) {
         dashboard_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
     }
-    "/credits/consumer/administrator/detail"(platform: "/", type: TrackType.View) {}
-    
+
     //Events
     "/credits/consumer/administrator/tooltip"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/payment_intention"(platform: "/", type: TrackType.Event) {
@@ -119,18 +118,32 @@ tracks {
      ******************************************/
 
     //Landing Push Native
-    // Page views
+    //Page views
     "/credits/consumer/payinstallment"(platform: "/", type: TrackType.View) {
         status(type: PropertyType.String, required: false)
     }
 
-    // Events views
+    //Events
     "/credits/consumer/payinstallment/on_time_pay"(platform: "/", type: TrackType.Event) {}
 
     //Delayed payment
-    "/credits/consumer/payinstallment/late_pay"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/payinstallment/overdue_pay"(platform: "/", type: TrackType.Event) {}
 
     /******************************************
      *       End: Consumers Push
+     ******************************************/
+
+    /******************************************
+     *       Start: Consumers Recurring Campaign
+     ******************************************/
+    //Page Views
+    "/credits/consumer/recurring_landing_test"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/recurring_congrats_test"(platform: "/", type: TrackType.View) {}
+
+    //Event Views
+    "/credits/consumer/like_recurring"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/dislike_recurring"(platform: "/", type: TrackType.Event) {}
+    /******************************************
+     *       End: Consumers Recurring Campaign
      ******************************************/
 }

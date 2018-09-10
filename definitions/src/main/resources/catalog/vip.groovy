@@ -161,15 +161,21 @@ tracks {
     
     "/vip/buy_action"(platform: "/", parentPropertiesInherited: false) {
         item_id(required: false, type: PropertyType.String, description: "Item ID")
+        quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to buy")
         add_cart_info
         shipping_info
     }
 
     "/vip/add_cart_action"(platform: "/", parentPropertiesInherited: false) {
         item_id(required: false, type: PropertyType.String, description: "Item ID")
+        quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to a2c")
         add_cart_info
         shipping_info
     }
+
+    "/vip/input_zip_code"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
+
+    "/vip/input_zip_code/dont_know_my_zip_code"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {}
 
     "/vip/seller_reputation"(platform: "/mobile", parentPropertiesInherited: false) {}
 
