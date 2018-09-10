@@ -104,6 +104,7 @@ tracks {
         challenge(type: PropertyType.String, required: true, description: "Login Step")
         tracking_id(type: PropertyType.String, required: true, description: "Indicates the id to track the transaction")
         user(type: PropertyType.Map, required: false, description: "Available user info")
+        operator_id(type: PropertyType.String, required: false, description: "Indicates the id of the operator when login is carried out by one")
         source(type: PropertyType.String, required: false, description: "Context on which the login is presented")
         has_error(type: PropertyType.Boolean, required: false, description: "Indicates if there's an error shown in screen")
         recaptcha(type: PropertyType.Boolean, required: false, description: "Indicates whether recaptcha is present or not")
@@ -115,9 +116,7 @@ tracks {
             description: "Indicates the error type shown in error view.")
     }
 
-    "/login/auth/challenge/submit"(platform: "/", type: TrackType.Event) {
-        challenge(type: PropertyType.String, required: false, description: "Login Step")
-    }
+    "/login/auth/challenge/submit"(platform: "/", type: TrackType.Event) {}
 
     "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
