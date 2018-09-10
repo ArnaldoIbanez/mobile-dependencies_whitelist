@@ -43,6 +43,7 @@ tracks {
         status(required: true, type: PropertyType.String,  values: ["ok", "already_registered", "invalid_format"],
             description: "The feedback of the scan for an specific QR.")
         location
+        json_data(required: false , type: PropertyType.String, description: "The data of qr when it is invalid.")
     }
 
     "/flex/package/add/start_delivery"(platform: "/mobile", type: TrackType.Event) {

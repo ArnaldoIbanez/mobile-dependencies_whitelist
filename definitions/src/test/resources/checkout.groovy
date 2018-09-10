@@ -232,6 +232,7 @@ trackTests {
             total_paid_amount = 0.0
             reservation_price = 50
             vertical = "MOTORS"
+            context = "vip"
         }
 
         "/checkout/wrapper"(platform:"/mobile", type:TrackType.View) {}
@@ -442,6 +443,50 @@ trackTests {
             item_id = "MLA12341"
             agencies = 10
         }
+
+        // Map v2 
+        "/checkout/shipping/puis_store_selection"(platform: "/mobile") {
+            checkoutStatus()
+        }
+        "/checkout/shipping/store_selection"(platform: "/mobile") {
+            checkoutStatus() 
+        }
+
+        "/checkout/shipping/puis_store_selection/back"(platform: "/mobile", type: TrackType.Event) {
+            checkoutStatus() 
+        }
+        "/checkout/shipping/store_selection/back"(platform: "/mobile", type: TrackType.Event) {
+            checkoutStatus()   
+        }
+        "/checkout/shipping/puis_store_selection/store_not_found"(platform: "/mobile",type: TrackType.Event) {
+            latitude = -33.312313
+            longitude = -58.929484
+        }
+        "/checkout/shipping/store_selection/store_not_found"(platform: "/mobile",type: TrackType.Event) {
+            latitude = -33.312313
+            longitude = -58.929484
+        }
+        "/checkout/shipping/puis_store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
+            default_location_info = {
+                type: "address_id"
+                suggested : true
+            }
+            latitude = -33.312313
+            longitude = -58.929484
+            last_action = "geolocation"
+            distance = 345
+        }
+        "/checkout/shipping/store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
+            default_location_info = {
+                type: "address_id"
+                suggested : true
+            }
+            latitude = -33.312313
+            longitude = -58.929484
+            last_action = "geolocation"
+            distance = 345
+        }
+        //
 
         "/checkout/payment/preload_credit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()

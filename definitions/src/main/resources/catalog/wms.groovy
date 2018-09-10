@@ -26,10 +26,7 @@ tracks {
             description: "Message of feedback screen.")
     }
 
-	"/wms/login"(platform: "/mobile/android", type: TrackType.View) {}
-	"/wms/home"(platform: "/mobile/android", type: TrackType.View) {}
-	"/wms/receiving"(platform: "/mobile/android", type: TrackType.View) {}
-
+    /* Put away tracks */
 	"/wms/put_away"(platform: "/mobile/android", type: TrackType.View) {
 		put_away_id(required: false, type: PropertyType.String, description: "Put away id")
 		check_in_id(required: false, type: PropertyType.String, description: "Check in id")
@@ -46,11 +43,41 @@ tracks {
 		quantity(required: true, type: PropertyType.Numeric, description: "Quantity")
 	}
 
-	"/wms/inbound_audit"(platform: "/mobile/android", type: TrackType.View) {}
-	"/wms/transfer"(platform: "/mobile/android", type: TrackType.View) {}
-	"/wms/found"(platform: "/mobile/android", type: TrackType.View) {}
-	"/wms/restock"(platform: "/mobile/android", type: TrackType.View) {}
+    /* Inbound Audit tracks */
+    "/wms/inbound_audit"(platform: "/mobile/android", type: TrackType.View) {
+        audit_id(required: false, type: PropertyType.Numeric, description: "Audit id")
+        inbound_id(required: false, type: PropertyType.Numeric, description: "Inbound id")
+        inventory_id(required: false, type: PropertyType.String, description: "Inventory id")
+        address_id(required: false, type: PropertyType.String, description: "Address id")
+        damaged_quantity(required: false, type: PropertyType.Numeric, description: "Damaged quantity")
+        quantity(required: false, type: PropertyType.Numeric, description: "Item quantity")
+        from_count_around(required: false, 
+            type: PropertyType.String, 
+            values: ["true", "false"], 
+            description: "From count around")
+    }
+    "/wms/inbound_audit/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/inbound_audit/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/inbound_audit/item"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/inbound_audit/damaged_item"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/inbound_audit/count_around"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/inbound_audit/congrats"(platform: "/mobile/android", type: TrackType.View) {}
+
+    "/wms/inbound_audit/start_audit"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/reset_audit"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/finish_checkpoint"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/item_not_found"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/damaged_item_confirmation"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/start_count_around"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/skip_count_around"(platform: "/mobile/android", type: TrackType.Event) {}
+
 	"/wms/picking"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/login"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/home"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/receiving"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/transfer"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/found"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/restock"(platform: "/mobile/android", type: TrackType.View) {}
 	"/wms/return"(platform: "/mobile/android", type: TrackType.View) {}
 
 }

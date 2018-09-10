@@ -112,6 +112,7 @@ trackTests {
                             ]
                     ]
             ]
+            context = "vip_combo"
         }
 
         "/cart/checkout/geolocation"(platform:"/", type: TrackType.Event) {

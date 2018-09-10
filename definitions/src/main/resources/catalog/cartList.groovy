@@ -51,6 +51,7 @@ tracks {
 
 "/cart/my_cart"(platform: "/") {
     resolution(required:false, type: PropertyType.String)
+    disclaimer_moved_items(required: false, type: PropertyType.String,  values: ["yes", "no"])
 }
 
 "/cart/my_cart/save_for_later"(platform: "/", type: TrackType.Event) {
@@ -95,6 +96,12 @@ tracks {
     item_info
 }
 
+"/cart/saved_for_later/cant_add_to_cart"(platform: "/", type: TrackType.Event){
+    cant_add_motive(required: true, type: PropertyType.String, values: ["ratio", "zip_code", "low_price"])
+}
+
+"/cart/saved_for_later/cant_add_to_cart/buy_now"(platform: "/", type: TrackType.Event){}
+
 "/cart/my_cart/confirm_address"(platform: "/", type:TrackType.Event){}
 
 "/cart/my_cart/change_address"(platform: "/") {}
@@ -109,6 +116,13 @@ tracks {
 
 "/cart/my_cart/add_cp/dont_know_cp"(platform: "/", type: TrackType.Event){}
 
-"/cart/item_add"(platform: "/", type: TrackType.View) {}
+"/cart/item_add"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+    items(required: true, type:PropertyType.ArrayList, description: "Array of items that are being added")
+    context(required: false)
+}
+
+"/cart/item_add/error"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+    error_type(required: true, type: PropertyType.String)
+}
 
 }
