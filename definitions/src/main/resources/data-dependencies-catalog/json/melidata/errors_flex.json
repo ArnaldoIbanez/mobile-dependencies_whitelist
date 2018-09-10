@@ -3,7 +3,7 @@
     "mathias.miranda@mercadolibre.com"
   ],
   "process_name": "errors_flex",
-  "cron": "00 01 * * *",
+  "cron": " ",
   "extract": {
     "operation": "append",
     "columns": [
@@ -39,7 +39,7 @@
       }
     ],
     "sql": {
-      "script": "business-assurance/packs_flex.sql",
+      "script": "business-assurance/errors_flex.sql",
       "parameters": [
         {
           "name": "param01",

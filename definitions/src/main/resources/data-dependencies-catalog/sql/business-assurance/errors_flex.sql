@@ -10,7 +10,7 @@ select
             if (path = '/flex/error/snackbar', 'Error_SnackBar','Otro')))) as tipo_error,
   jest(event_data, 'error_type') as error_type
 from tracks 
-where  ds>='2018-07-23' AND ds<'2018-09-11'
+where  ds>='2018-07-23' AND ds<'2018-09-10'
   and application.business='mercadoenvios'
   and path in('/flex/error','/flex/error/session_expired','/flex/package/list/map_too_many_packages','/flex/error/snackbar')
   
