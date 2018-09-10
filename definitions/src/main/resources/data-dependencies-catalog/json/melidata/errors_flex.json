@@ -3,9 +3,10 @@
     "mathias.miranda@mercadolibre.com"
   ],
   "process_name": "errors_flex",
-  "cron": " ",
+  "cron": "00 01 * * *",
   "extract": {
     "operation": "append",
+    "site": "MeliLake",
     "columns": [
       {
         "name": "fecha",
@@ -43,12 +44,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-0",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-1",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
       ]
