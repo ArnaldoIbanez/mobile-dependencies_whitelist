@@ -1978,14 +1978,12 @@ trackTests {
         "/login/auth/success"(platform: "/web", type: TrackType.Event) {
             source = "DEFAULT"
             tx = "tx"
-            is_transaction = false
             is_otp = true
             is_admin_otp = false
         }
         "/login/auth/success"(platform: "/web", type: TrackType.Event) {
             source = "DEFAULT"
             tx = "tx"
-            is_transaction = true
             is_otp = false
             is_admin_otp = false
             operator_id = null
@@ -2036,7 +2034,7 @@ trackTests {
             tx = "adHgjskcD01lM6EeLs7zUGgBaA1GiWqF6w_XQUgLJk0QAmdhE"
         }
         "/logout"(platform: "/", type: TrackType.Event) {
-            flow = "internal"
+            source = "MSL"
         }
         "/login/auth/error"(platform: "/mobile", type: TrackType.View) {
             error = "network"
