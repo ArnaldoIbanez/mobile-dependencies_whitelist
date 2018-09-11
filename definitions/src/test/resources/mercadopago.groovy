@@ -1984,7 +1984,7 @@ trackTests {
         "/login/auth/success"(platform: "/web", type: TrackType.Event) {
             source = "DEFAULT"
             tracking_id = "123"
-            is_otp = false
+            is_otp = true
             is_admin_otp = false
             operator_id = null
             push_control_group_user = false

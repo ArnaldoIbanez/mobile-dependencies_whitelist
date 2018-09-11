@@ -148,6 +148,21 @@ trackTests {
             tx = "tx"
             operator_id = null
         }
+        "/login/auth/challenge/submit"(platform: "/web", type: TrackType.Event) {
+            challenge = "pass"
+            source = "QUESTION"
+            tracking_id = "123"
+            operator_id = "123"
+        }
+        "/login/auth/challenge/submit"(platform: "/mobile", type: TrackType.Event) {
+            challenge = "pass"
+            tracking_id = "123"
+        }
+        "/login/auth/challenge/decline"(platform: "/web", type: TrackType.View) {
+            challenge = "pass"
+            source = "QUESTION"
+            tracking_id = "123"
+        }
         "/login/auth/push"(platform: "/", type: TrackType.Event) {
             view = "waiting_view"
             event_type = "click_go_to_password_button"
