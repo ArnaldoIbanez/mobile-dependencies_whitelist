@@ -7,6 +7,7 @@ tracks {
     // REGISTER
 
     "/register"(platform: "/", isAbstract: true) {}
+    "/registration_company"(platform: "/", isAbstract: true) {}
 
     "/register/success"(platform: "/") {
         source()
@@ -157,6 +158,17 @@ tracks {
     "/register/form/person-link"(platform: "/mobile", type: TrackType.Event){}
 
     // Company Registration
+
+    "/registration_company/form"(platform: "/web/mobile", type: TrackType.View){}
+    "/registration_company/congrats"(platform: "/web/mobile", type: TrackType.View){}
+    "/registration_company/form/error"(platform: "/web/mobile", type: TrackType.Event){
+        errors(type: PropertyType.ArrayList, description: "Errores en el formulario", required: true)
+    }
+    "/registration_company/form"(platform: "/web/desktop", type: TrackType.View){}
+    "/registration_company/congrats"(platform: "/web/desktop", type: TrackType.View){}
+    "/registration_company/form/error"(platform: "/web/desktop", type: TrackType.Event){
+        errors(type: PropertyType.ArrayList, description: "Errores en el formulario", required: true)
+    }
 
     "/register/congrats/complete-fiscal-data"(platform: "/mobile", type: TrackType.Event){}
     "/register/congrats/complete-fiscal-data-later"(platform: "/mobile", type: TrackType.Event){}
