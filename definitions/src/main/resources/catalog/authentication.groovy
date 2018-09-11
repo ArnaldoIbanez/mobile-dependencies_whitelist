@@ -48,8 +48,7 @@ tracks {
 
     "/login/auth/success"(platform: "/web", type: TrackType.Event) {
         source(type: PropertyType.String, required: true, description: "Context on which the login is presented")
-        tx(type: PropertyType.String, required: true)
-        is_transaction(type: PropertyType.Boolean, required: true)
+        tracking_id(type: PropertyType.String, required: true, description: "tracking id for the transaction started")
         is_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via a One Time Password")
         is_admin_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via an Admin One Time Password")
         operator_id(type: PropertyType.String, required: false, description: "Indicates the id of the operator when login is carried out by one")
@@ -100,35 +99,43 @@ tracks {
     }
 
     // New Multi Step Login Android
-    "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
+    "/login/auth/challenge"(platform: "/", type: TrackType.View) {
         challenge(type: PropertyType.String, required: true, description: "Login Step")
         tracking_id(type: PropertyType.String, required: true, description: "Indicates the id to track the transaction")
         user(type: PropertyType.Map, required: false, description: "Available user info")
+        operator_id(type: PropertyType.String, required: false, description: "Indicates the id of the operator when login is carried out by one")
+        source(type: PropertyType.String, required: false, description: "Context on which the login is presented")
+        has_error(type: PropertyType.Boolean, required: false, description: "Indicates if there's an error shown in screen")
+        recaptcha(type: PropertyType.Boolean, required: false, description: "Indicates whether recaptcha is present or not")
+        push_control_group_user(type: PropertyType.Boolean, required: false, description: "Indicates if user enter in push experiment control group")
     }
 
-    "/login/auth/error"(platform: "/mobile", type: TrackType.View) {
+    "/login/auth/error"(platform: "/", type: TrackType.View) {
         error(type: PropertyType.String, required: true, values: ["resource_not_found", "conflict", "network", "server"],
             description: "Indicates the error type shown in error view.")
     }
 
-    "/login/auth/challenge/submit"(platform: "/mobile", type: TrackType.Event) {}
+    "/login/auth/challenge/submit"(platform: "/", type: TrackType.Event) {}
 
     "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/login/auth/challenge/decline"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/login/auth/challenge/decline"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        challenge(type: PropertyType.String, required: true, description: "Login Step")
+        tracking_id(type: PropertyType.String, required: false, description: "Indicates the id to track the transaction")
+        source(type: PropertyType.String, required: false, description: "Context on which the login is presented")
+    }
+
+    "/login/auth/challenge/restart"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         challenge(type: PropertyType.String, required: true, description: "Login Step")
     }
 
-    "/login/auth/challenge/restart"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-        challenge(type: PropertyType.String, required: true, description: "Login Step")
-    }
-
-    "/login/auth/challenge/error"(platform: "/mobile", type: TrackType.View) {
+    "/login/auth/challenge/error"(platform: "/", type: TrackType.View) {
         errors(type: PropertyType.ArrayList, required: true, description: "Errors presented")
     }
 
     "/logout"(platform: "/", type: TrackType.Event) {
-        flow(type: PropertyType.String, required: false)
+        source(type: PropertyType.String, required: false, values: ["LFE", "MSL"], description: "difference Legacy login and MSL")
+        action(type: PropertyType.String, required: false, description: "Mobile only, action perceived")
     }
 
     "/login/auth/push"(platform: "/", type: TrackType.Event) {
