@@ -48,7 +48,7 @@ tracks {
 
     "/login/auth/success"(platform: "/web", type: TrackType.Event) {
         source(type: PropertyType.String, required: true, description: "Context on which the login is presented")
-        tx(type: PropertyType.String, required: true)
+        tracking_id(type: PropertyType.String, required: true, description: "tracking id for the transaction started")
         is_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via a One Time Password")
         is_admin_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via an Admin One Time Password")
         operator_id(type: PropertyType.String, required: false, description: "Indicates the id of the operator when login is carried out by one")
