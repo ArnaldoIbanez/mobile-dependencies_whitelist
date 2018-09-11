@@ -98,7 +98,7 @@ trackTests {
         }
         "/login/auth/success"(platform: "/web", type: TrackType.Event) {
             source = "DEFAULT"
-            tx = "tx"
+            tracking_id = "123"
             is_otp = true
             is_admin_otp = false
         }
