@@ -232,6 +232,7 @@ trackTests {
             total_paid_amount = 0.0
             reservation_price = 50
             vertical = "MOTORS"
+            context = "vip"
         }
 
         "/checkout/wrapper"(platform:"/mobile", type:TrackType.View) {}

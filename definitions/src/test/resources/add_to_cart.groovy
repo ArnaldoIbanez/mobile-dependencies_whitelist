@@ -29,7 +29,7 @@ trackTests {
                             currency_id: "BRL"
                     ]
             ]
-            context = '/myml'
+            context = 'myml'
         }
 
         "/add_to_cart"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -44,7 +44,7 @@ trackTests {
                             currency_id: "BRL"
                     ]
             ]
-            context = '/vip'
+            context = 'vip'
         }
 
         "/add_to_cart"(platform: "/mobile/android", type: TrackType.Event) {
@@ -60,7 +60,7 @@ trackTests {
                     ]
             ]
 
-            context = '/search'
+            context = 'search'
         }
 
         "/add_to_cart"(platform: "/web/mobile", type: TrackType.Event) {
@@ -76,7 +76,7 @@ trackTests {
                     ]
             ]
 
-            context = '/recommendations'
+            context = 'recommendations'
         }
     }
 
@@ -84,14 +84,14 @@ trackTests {
         "/add_cart_intention"(platform: "/web/desktop", type: TrackType.Event) {
             add_to_cart_availability = "no_high_ratio"
             main_action = "buy"
-            context = "/vip"
+            context = "vip"
             items = []
         }
 
         "/add_cart_intention"(platform: "/mobile/ios", type: TrackType.Event) {
             add_to_cart_availability = "no_high_ratio"
             main_action = "buy"
-            context = "/vip"
+            context = "vip"
             items = [
                 [
                         unit_price : 100,
@@ -117,7 +117,7 @@ trackTests {
         "/add_cart_intention"(platform: "/mobile/android", type: TrackType.Event) {
             add_to_cart_availability = "no_high_ratio"
             main_action = "buy"
-            context = "/vip"
+            context = "vip"
             items = [
                 [
                         unit_price : 100,
@@ -143,7 +143,7 @@ trackTests {
         "/add_cart_intention"(platform: "/web/mobile", type: TrackType.Event) {
             add_to_cart_availability = "no_high_ratio"
             main_action = "buy"
-            context = "/vip"
+            context = "vip"
             items = [
                 [
                         unit_price : 100,
