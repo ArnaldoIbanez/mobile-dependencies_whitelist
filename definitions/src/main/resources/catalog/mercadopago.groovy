@@ -637,6 +637,13 @@ tracks {
     "/settings/set_pin_code"(platform: "/mobile") {}
     "/settings/about"(platform: "/mobile") {}
 
+    "/settings/pricing"(platform: "/mobile", type: TrackType.Event) {
+        channel (required: true, type: PropertyType.String, description: "The channel that was modified")
+        payment_method (required: true, type: PropertyType.String, description: "The payment method that was modified")
+        old_release_days (required: true, type: PropertyType.Numeric, description: "The old release day configuration")
+        new_release_days (required: true, type: PropertyType.Numeric, description: "The new release day configuration")
+    }
+
     "/associate_phone"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
