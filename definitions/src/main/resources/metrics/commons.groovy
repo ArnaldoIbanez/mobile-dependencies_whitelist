@@ -114,11 +114,7 @@ metrics {
 		}
 		countsOn {
 			condition {
-				path("/login/auth/challenge_success")
-
-				and(
-					equals("event_data.challenge", "pass"),
-				)
+				path("/login/auth/success")
 			}
 		}
 	}
