@@ -258,8 +258,17 @@ tracks {
         error_code(required: false, type: PropertyType.String)
         inconsistency(required: false, type: PropertyType.String)
     }
-    "/checkout/shipping/accord"(platform: "/mobile") {}
-    "/checkout/shipping/accord_shipping_and_payment"(platform: "/mobile") {}
+    "/checkout/shipping/accord"(platform: "/mobile") {
+        //View specific data
+        selections(required: true, type: PropertyType.ArrayList)
+        error_code(required: false, type: PropertyType.String)
+        inconsistency(required: false, type: PropertyType.String)}
+    "/checkout/shipping/accord_shipping_and_payment"(platform: "/mobile") {
+        //View specific data
+        selections(required: true, type: PropertyType.ArrayList)
+        error_code(required: false, type: PropertyType.String)
+        inconsistency(required: false, type: PropertyType.String)
+    }
     //Geolocation on fallback
     "/checkout/shipping/select_method/ask_enable_geolocation"(platform: "/mobile") {}
     "/checkout/shipping/select_method/ask_enable_geolocation#geolocation_permission_ask"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -708,6 +717,10 @@ tracks {
 
     "/checkout/finish/call_for_auth"(platform:"/", type: TrackType.View, isAbstract: true) {}
     "/checkout/finish/call_for_auth/instructions"(platform: "/mobile") {}
+    "/checkout/finish/call_for_auth/instructions#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        status(required: true, type: PropertyType.String)
+        checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
+    }
     "/checkout/finish/call_for_auth/later"(platform: "/mobile") {}
 
     "/checkout/finish/invalid_sec_code"(platform:"/", type: TrackType.View, isAbstract: true) {}

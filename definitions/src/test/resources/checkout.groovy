@@ -262,9 +262,13 @@ trackTests {
         }
         "/checkout/shipping/accord"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
+            inconsistency = "only_to_agree"
+            selections = ["to_agree"]
         }
         "/checkout/shipping/accord_shipping_and_payment"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
+            inconsistency = "agree_agree"
+            selections = ["to_agree"]
         }
         "/checkout/shipping/select_method/ask_enable_geolocation"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -751,6 +755,10 @@ trackTests {
         }
         "/checkout/finish/call_for_auth/instructions"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
+        }
+        "/checkout/finish/call_for_auth/instructions#submit"(platform:"/mobile", type:TrackType.Event) {
+            status = "success"
+            checkout_flow = "direct"
         }
         "/checkout/finish/call_for_auth/later"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()

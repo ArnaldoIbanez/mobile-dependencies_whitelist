@@ -93,6 +93,7 @@ tracks {
     available_consumer_credit(required:false, type: PropertyType.String, values:["YES", "NO"], description:"If the user has active consumer credits")
     
     context(required: false, type: PropertyType.String, description: "Reference to the context that started cart flow")
+    checkout_flow(required: false, type: PropertyType.String, values: ["cart"], description: "The type of checkout flow. Cart only for these tracks for now")
 }
 
 "/cart/checkout/geolocation" (platform: "/", type: TrackType.Event) {
