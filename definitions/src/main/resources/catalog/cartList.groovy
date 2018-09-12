@@ -96,11 +96,6 @@ tracks {
     item_info
 }
 
-"/cart/saved_for_later/cant_add_to_cart"(platform: "/", type: TrackType.Event){
-    cant_add_motive(required: true, type: PropertyType.String, values: ["ratio", "zip_code", "low_price"])
-}
-
-"/cart/saved_for_later/cant_add_to_cart/buy_now"(platform: "/", type: TrackType.Event){}
 
 "/cart/my_cart/confirm_address"(platform: "/", type:TrackType.Event){}
 
@@ -124,5 +119,25 @@ tracks {
 "/cart/item_add/error"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
     error_type(required: true, type: PropertyType.String)
 }
+
+
+//modals on saved_for_later
+"/cart/saved_for_later/cant_add_to_cart"(platform: "/", type: TrackType.Event){
+    cant_add_motive(required: true, type: PropertyType.String, values: ["ratio", "zip_code", "low_price"])
+}
+
+"/cart/saved_for_later/cant_add_to_cart/buy_now"(platform: "/", type: TrackType.Event){}
+
+//modals on active items
+"/cart/my_cart/free_shipping_lost_warning"(platform: "/", type: TrackType.Event){
+    cant_update_motive(required: true, type: PropertyType.String, values:  ["delete", "zip_code", "quantity_up",
+                           "quantity_down", "saved_for_later", "variation_quantity", "unknown"])
+    cart_ratio(required: true, type: PropertyType.String, values: ["applies", "not_applies"])
+}
+
+"/cart/my_cart/free_shipping_lost_warning/dismiss"(platform: "/", type: TrackType.Event){}
+
+"/cart/my_cart/free_shipping_lost_warning/confirm"(platform: "/", type: TrackType.Event){}
+
 
 }

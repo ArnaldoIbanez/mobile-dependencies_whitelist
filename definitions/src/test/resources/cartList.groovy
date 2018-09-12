@@ -193,6 +193,17 @@ trackTests {
 
         "/cart/item_add/error"(platform: "/web", itemAddErrorDataSet)
 
+        def errorsForModal = {
+            cart_ratio = "applies"
+            cant_update_motive = "quantity_up"
+        }
+
+        "/cart/my_cart/free_shipping_lost_warning"(platform: "/web", errorsForModal)
+
+        "/cart/my_cart/free_shipping_lost_warning/dismiss"(platform: "/web", errorsForModal)
+
+        "/cart/my_cart/free_shipping_lost_warning/confirm"(platform: "/web", errorsForModal)
+
     }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
