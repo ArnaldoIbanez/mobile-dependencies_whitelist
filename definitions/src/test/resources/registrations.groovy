@@ -245,6 +245,11 @@ trackTests {
             item_id = "MLA21233"
             register_type = "person"
         }
+        "/register/form/email-suggest"(platform:"/mobile") {
+            app = "favorite"
+            origin = "email"
+            register_type = "person"
+        }
 
         "/register/form"(platform:"/mobile") {
             app = "normal"
@@ -309,6 +314,16 @@ trackTests {
             app = "normal"
             origin = "email"
             register_type = "company"
+        }
+
+        "/register/success"(platform:"/mobile") {
+            app = "normal"
+            origin = "email"
+            register_type = "person"
+        }
+
+        "/register/success"(platform:"/mobile") {
+            source = "email"
         }
 
         "/register/form/update"(platform:"/mobile") {
