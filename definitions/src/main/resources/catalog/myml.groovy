@@ -322,32 +322,32 @@ tracks {
 
     //:::: MYML - FISCAL INFORMATION
 
-    "/myml/fiscal-information"(platform: "/", isAbstract: true) {}
-    "/myml/fiscal-information/message"(platform: "/") {}
-    "/myml/fiscal-information/mobile"(platform: "/") {}
-    "/myml/fiscal-information/not-found"(platform: "/") {}
-    "/myml/fiscal-information/success"(platform: "/") {}
-    "/myml/fiscal-information/success/btn-sales"(platform: "/", type: TrackType.Event) {}
+    "/myml/fiscal_information"(platform: "/", isAbstract: true) {}
+    "/myml/fiscal_information/message"(platform: "/") {}
+    "/myml/fiscal_information/mobile"(platform: "/") {}
+    "/myml/fiscal_information/not-found"(platform: "/") {}
+    "/myml/fiscal_information/success"(platform: "/") {}
+    "/myml/fiscal_information/success/btn-sales"(platform: "/", type: TrackType.Event) {}
 
-    "/myml/fiscal-information/type"(platform: "/") {
+    "/myml/fiscal_information/type"(platform: "/") {
         item_id(required: false, type: PropertyType.String, description: "Item id - page variation")
         order_id(required: false, type: PropertyType.String, description: "Order id - page variation")
     }
 
-    "/myml/fiscal-information/type/continue"(platform: "/", type: TrackType.Event) {
+    "/myml/fiscal_information/type/continue"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, values:[
         "single", 
         "bundle",
         ], description: "Fiscal data type")
     }
 
-    "/myml/fiscal-information/tax-information"(platform: "/") {
+    "/myml/fiscal_information/tax_information"(platform: "/") {
          item_id(required: false, type: PropertyType.String, description: "Item id - page variation")
          order_id(required: false, type: PropertyType.String, description: "Order id - page variation")
     }
 
-    "/myml/fiscal-information/modal-price"(platform: "/", isAbstract: true) {}
-    "/myml/fiscal-information/modal-price/close"(platform: "/", type: TrackType.Event) {}
+    "/myml/fiscal_information/modal_price"(platform: "/", isAbstract: true) {}
+    "/myml/fiscal_information/modal_price/close"(platform: "/", type: TrackType.Event) {}
 
     //:::: MYML - INVOICES
     "/myml/invoices"(platform: "/", isAbstract: true) {}
