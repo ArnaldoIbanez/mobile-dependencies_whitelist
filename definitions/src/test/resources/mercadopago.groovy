@@ -896,12 +896,14 @@ trackTests {
             flow = "point"
         }
         "/settings/pricing"(platform: "/mobile", type: TrackType.Event) {
+            flow = "settings"
             channel = "point"
             payment_method = "credit"
             old_release_days = 0
             new_release_days = 14
         }
         "/settings/pricing"(platform: "/mobile", type: TrackType.Event) {
+            flow = "settings"
             channel = "qr"
             payment_method = "credit"
             old_release_days = 0
