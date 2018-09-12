@@ -1,0 +1,97 @@
+{
+  "users": [
+    "mathias.miranda@mercadolibre.com"
+  ],
+  "process_name": "packs_flex",
+  "cron": "00 01 * * *",
+  "partition": {
+        "name": "ds",
+        "type": "DATE"
+  },
+  "extract": {
+    "operation": "append",
+    "site": "MeliLake",
+    "columns": [
+      {
+        "name": "site",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "delivery_id",
+        "type": "INTEGER"
+      },
+      {
+        "name": "shipping_id",
+        "type": "INTEGER"
+      },
+      {
+        "name": "seller_id",
+        "type": "INTEGER"
+      },
+      {
+        "name": "longitude",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "latitude",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "pack_status",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "hora",
+        "type": "INTEGER"
+      },
+      {
+        "name": "rescanned",
+        "type": "INTEGER"
+      },
+      {
+        "name": "event_detail",
+        "type": "UNICODE_STRING"
+      },    
+      {
+        "name": "num_event",
+        "type": "INTEGER"
+      },
+      {
+        "name": "num_add_more",
+        "type": "INTEGER"
+      },
+      {
+        "name": "num_missing_addresses",
+        "type": "INTEGER"
+      },
+      {
+        "name": "cant_retry",
+        "type": "INTEGER"
+      },
+      {
+        "name": "delivery_status",
+        "type": "UNICODE_STRING"
+      }
+    ],
+    "sql": {
+      "script": "business-assurance/packs_flex.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-2",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param03",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
