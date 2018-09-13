@@ -15,6 +15,7 @@ trackTests {
         seller_scoring = "low"
         category_id = "MLB48550"
         category_l1_id = "MLB48551"
+        category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
         ref = "mediations_init"
       }
 
@@ -30,6 +31,7 @@ trackTests {
         seller_scoring = "low"
         category_id = "MLB48550"
         category_l1_id = "MLB48551"
+        category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
         ref = "mediations_init"
       }
 
@@ -45,6 +47,7 @@ trackTests {
         seller_scoring = "low"
         category_id = "MLB48550"
         category_l1_id = "MLB48551"
+        category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
         ref = "mediations_init"
         showed_payment_methods = "credit_card"
       }
@@ -61,6 +64,7 @@ trackTests {
         seller_scoring = "low"
         category_id = "MLB48550"
         category_l1_id = "MLB48551"
+        category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
       }
 
       "/return/shipping/selection"(platform: "/", type: TrackType.Event) {
@@ -75,6 +79,7 @@ trackTests {
         seller_scoring = "low"
         category_id = "MLB48550"
         category_l1_id = "MLB48551"
+        category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
       }
 
       "/return/pickup/selection"(platform: "/", type: TrackType.Event) {
@@ -89,6 +94,7 @@ trackTests {
         seller_scoring = "low"
         category_id = "MLB48550"
         category_l1_id = "MLB48551"
+        category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
       }
 
       // STEP 05.c
@@ -99,6 +105,7 @@ trackTests {
         seller_scoring = "low"
         category_id = "MLB48550"
         category_l1_id = "MLB48551"
+        category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
       }
 
       "/return/review/selection"(platform: "/", type: TrackType.Event) {
@@ -113,6 +120,7 @@ trackTests {
         seller_scoring = "low"
         category_id = "MLB48550"
         category_l1_id = "MLB48551"
+        category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
         typification = "broken_item"
         payment_refund_method = "credit_card"
         shipment_type = "delivery"
@@ -134,6 +142,7 @@ trackTests {
         seller_scoring = "low"
         category_id = "MLB48550"
         category_l1_id = "MLB48551"
+        category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
         typification = "broken_item"
         payment_refund_method = "credit_card"
         shipment_type = "delivery"
@@ -156,6 +165,7 @@ trackTests {
         seller_scoring = "low"
         category_id = "MLB48550"
         category_l1_id = "MLB48551"
+        category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
       }
 
       // Warning Page for return created (view)
@@ -167,6 +177,7 @@ trackTests {
         seller_scoring = "low"
         category_id = "MLB48550"
         category_l1_id = "MLB48551"
+        category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
       }
 
       // Warning Page for claim created (event)
@@ -182,6 +193,7 @@ trackTests {
         seller_scoring = "low"
         category_id = "MLB48550"
         category_l1_id = "MLB48551"
+        category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
       }
     }
 }
