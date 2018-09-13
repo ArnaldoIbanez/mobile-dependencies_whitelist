@@ -4,6 +4,18 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    propertyDefinitions {
+
+        // For shipping inconsistencies
+        selections(required: true, type: PropertyType.ArrayList)
+        error_code(required: false, type: PropertyType.String)
+        inconsistency(required: false, type: PropertyType.String)
+    }
+
+    propertyGroups {
+        shipping_inconsistency(selections, error_code, inconsistency)
+    }
+
     //CHECKOUT FLOW
 
     "/checkout"(platform: "/") {
@@ -254,20 +266,13 @@ tracks {
     }
     //Fallback/inconsistency
     "/checkout/shipping/select_method/inconsistency"(platform: "/mobile") {
-        //View specific data
-        error_code(required: false, type: PropertyType.String)
-        inconsistency(required: false, type: PropertyType.String)
+       shipping_inconsistency
     }
     "/checkout/shipping/accord"(platform: "/mobile") {
-        //View specific data
-        selections(required: true, type: PropertyType.ArrayList)
-        error_code(required: false, type: PropertyType.String)
-        inconsistency(required: false, type: PropertyType.String)}
+        shipping_inconsistency
+    }
     "/checkout/shipping/accord_shipping_and_payment"(platform: "/mobile") {
-        //View specific data
-        selections(required: true, type: PropertyType.ArrayList)
-        error_code(required: false, type: PropertyType.String)
-        inconsistency(required: false, type: PropertyType.String)
+        shipping_inconsistency
     }
     //Geolocation on fallback
     "/checkout/shipping/select_method/ask_enable_geolocation"(platform: "/mobile") {}
