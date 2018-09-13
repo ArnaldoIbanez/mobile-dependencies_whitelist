@@ -9,8 +9,9 @@ tracks {
       order_id(required: true, type: PropertyType.Numeric, description: 'order identifier')
       buyer_scoring(required: false, type: PropertyType.String, description: 'buyer reputation level')
       seller_scoring(required: false, type: PropertyType.String, description: 'seller reputation level')
-      category_id(required: true, type: PropertyType.String, description: 'category identifier')
-      category_l1_id(required: true, type: PropertyType.String, description: 'main category of item')
+      category_id(required: false, type: PropertyType.String, description: 'category identifier')
+      category_l1_id(required: false, type: PropertyType.String, description: 'main category of item')
+      category_path(required: false, type: PropertyType.ArrayList, description: 'the path of the category')
     }
 
     // STEP 01
