@@ -55,7 +55,6 @@ tracks {
     "/notification_center/fraud-postpayment"(platform: "/", type: TrackType.Event) {}
     "/notification_center/instore-activities"(platform: "/", type: TrackType.Event) {}
     "/notification_center/invoices"(platform: "/", type: TrackType.Event) {}
-    "/notification_center/listings"(platform: "/", type: TrackType.Event) {}
     "/notification_center/campaigns-deals"(platform: "/", type: TrackType.Event) {
         campaign_id(required: false, type: PropertyType.String, description: "Id of the campaign related to the mkt notification sent.")
         deal_id(required: true, description: "Id of the deal related to the mkt notification sent.")
