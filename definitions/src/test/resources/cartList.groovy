@@ -204,6 +204,16 @@ trackTests {
 
         "/cart/my_cart/free_shipping_lost_warning/confirm"(platform: "/web", errorsForModal)
 
+        def changeProgressModel = {
+            motive = "saved_for_later"
+            cart_ratio = "applies"
+            from = 50
+            to = 60
+            free_shipping_benefit = false
+        }
+
+        "/cart/my_cart/change_free_shipping_progress_status"(platform: "/web", changeProgressModel)
+
     }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
