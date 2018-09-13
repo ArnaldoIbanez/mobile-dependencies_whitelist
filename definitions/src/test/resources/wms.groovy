@@ -17,7 +17,7 @@ trackTests {
     }
 
     def trackDataForAudit = {
-    	warehouse_id = "BRWT01"
+        warehouse_id = "BRWT01"
         email = "email@mercadolibre.com.ar"
         first_name = "Some first name"
         last_name = "Some last name"
@@ -113,6 +113,26 @@ trackTests {
         "/wms/return"(platform: "/mobile/android") {
             trackData()
         }
+        "/wms/cycle_count/confirmation"(platform: "/mobile/android") {
+            trackData()
+        }
+        "/wms/cycle_count/scan_shelf"(platform: "/mobile/android") {
+            trackData()
+            cycle_count_id = 123
+            address_id = "RS-0-001-001-00-00"
+        }
+        "/wms/cycle_count/scan_inventory"(platform: "/mobile/android") {
+            trackData()
+            cycle_count_id = 123
+            address_id = "RS-0-001-001-00-00"
+        }
+        "/wms/cycle_count/item"(platform: "/mobile/android") {
+            trackData()
+            cycle_count_id = 123
+            address_id = "RS-0-001-001-00-00"
+            inventory_id = "AAAA11111"
+            quantity = 1
+        }
 
         //Events
         "/wms/put_away/scan_cart/start_put_away"(platform: "/mobile/android") {
@@ -132,6 +152,40 @@ trackTests {
             put_away_id = "1234"
             check_in_id = "4567"
             cart_address = "CA-0-001-000-00-00"
+        }
+        "/wms/cycle_count/confirmation/start_cycle_count"(platform: "/mobile/android") {
+            trackData()
+        }
+        "/wms/cycle_count/scan_inventory/finish_address"(platform: "/mobile/android") {
+            trackData()
+            cycle_count_id = 123
+            address_id = "RS-0-001-001-00-00"
+        }
+        "/wms/cycle_count/scan_inventory/finish_cycle_count"(platform: "/mobile/android") {
+            trackData()
+            cycle_count_id = 123
+            address_id = "RS-0-001-001-00-00"
+        }
+        "/wms/cycle_count/item/finish_address"(platform: "/mobile/android") {
+            trackData()
+            cycle_count_id = 123
+            address_id = "RS-0-001-001-00-00"
+            inventory_id = "AAAA11111"
+            quantity = 1
+        }
+        "/wms/cycle_count/item/reset_address"(platform: "/mobile/android") {
+            trackData()
+            cycle_count_id = 123
+            address_id = "RS-0-001-001-00-00"
+            inventory_id = "AAAA11111"
+            quantity = 1
+        }
+        "/wms/cycle_count/item/finish_cycle_count"(platform: "/mobile/android") {
+            trackData()
+            cycle_count_id = 123
+            address_id = "RS-0-001-001-00-00"
+            inventory_id = "AAAA11111"
+            quantity = 1
         }
     }
 }
