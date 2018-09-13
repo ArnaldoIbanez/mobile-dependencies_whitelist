@@ -2171,6 +2171,16 @@ trackTests {
             view = "unrecognized"
             event_type = "click_go_home_button"
         }
+        "/login/auth/feedback"(platform: "/web", type: TrackType.Event) {
+            view = "review_login"
+            event_type = "click_recongnized_button"
+            notification_id = "a6bcc09b-ccef-4277-ad94"
+        }
+        "/login/auth/feedback"(platform: "/web", type: TrackType.Event) {
+            view = "recognized"
+            event_type = "render"
+            phone_status = "hasPhone"
+        }
     }
 
     test("Phone Enrollment flow") {
