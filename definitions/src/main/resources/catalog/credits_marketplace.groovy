@@ -70,7 +70,7 @@ tracks {
                 'daily_charge_period'
             ]
         )
-        payment_intention(type: PropertyType.String, required: true, values: ['cho','ticket'])
+        payment_intention(type: PropertyType.String, required: false, values: ['cho','ticket'])
     }
     "/credits/consumer/administrator/details_button"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/help"(platform: "/", type: TrackType.Event) {}
@@ -89,6 +89,16 @@ tracks {
     /******************************************
     *       End: Consumers Administrator
     ******************************************/
+
+    /******************************************
+     *       Start: Consumers Admin Detail (mobile in ML)
+     ******************************************/
+
+    "/credits/consumer/administrator/detail"(platform: "/mobile/android", type: TrackType.View) {}
+
+    /******************************************
+     *       Start: Consumers Admin Detail
+     ******************************************/
 
     /******************************************
      *       Start: Consumers Enrollment
