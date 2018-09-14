@@ -167,6 +167,20 @@ trackTests {
             item_id= "MLV515515631"
             experiment= false
         }
+        "/notification_center/campaigns-cho_cart_recovery"(platform: "/mobile"){
+            campaign_id= "campaign1"
+            newsgroup_id= "campaigns-checkout_recovery-320010629"
+            event_type= "open"
+            deeplink= "meli://item?id=MLA645507294"
+            type_layout= "standard"
+            test_notification= false
+            sent_date= "20180508"
+            batch_id= "MLB_PACK_20180508_2"
+            latest_news_type= "campaigns-checkout_recovery"
+            latest_news_id= "campaigns-checkout_recovery-143816022-MLB1013046714"
+            item_id= "MLV515515631"
+            experiment= false
+        }
         "/notification_center/campaigns-deal_alert"(platform: "/mobile"){
             campaign_id= "DEAL_ALERT_MLB_20180508"
             newsgroup_id= "campaigns-deal_alert-152329972"
