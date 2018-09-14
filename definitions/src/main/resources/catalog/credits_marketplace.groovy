@@ -70,7 +70,7 @@ tracks {
                 'daily_charge_period'
             ]
         )
-        payment_intention(type: PropertyType.String, required: true, values: ['cho','ticket'])
+        payment_intention(type: PropertyType.String, required: false, values: ['cho','ticket'])
     }
     "/credits/consumer/administrator/details_button"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/help"(platform: "/", type: TrackType.Event) {}
