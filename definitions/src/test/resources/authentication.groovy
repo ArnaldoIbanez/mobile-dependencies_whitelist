@@ -343,6 +343,7 @@ trackTests {
             call_option = true
             push_option = false
             option_selected = "sms"
+            authenticator = "phoneValidation"
         }
         "/auth/authentication_factors/primary_email"(platform: "/web", type: TrackType.Event) {
             event = "start_validation"
@@ -351,7 +352,7 @@ trackTests {
             option_selected = "primary_email"
             primary_email_option = true
             domain = "gmail"
-            user_name = "test@gmail.com"
+            authenticator = "emailValidation"
         }
         "/auth/authentication_factors/social_connect"(platform: "/web", type: TrackType.Event) {
             event = "close_validation"
@@ -360,9 +361,8 @@ trackTests {
             option_selected = "microsoft_connect"
             google_connect_option = true
             domain = "gmail"
-            user_name = "test@gmail.com"
             is_google_account_of_different_user = "false"
-            authenticator = "email_validation"
+            authenticator = "emailValidation"
         }
     }
 

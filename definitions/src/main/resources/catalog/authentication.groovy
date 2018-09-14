@@ -246,10 +246,9 @@ tracks {
     "/auth/authentication_factors"(platform: "/", isAbstract: true) {
         event(type: PropertyType.String, required: true, description: "Describes which step is user doing in authentication flow")
         flow_type(type: PropertyType.String, required: true, description: "Current enrollment flow type")
-        authenticator(type: PropertyType.String, required: false, description: "Authenticator name")
+        authenticator(type: PropertyType.String, required: false, description: "Authenticator name", values: ["phoneValidation", "emailValidation", "notVerifiedPhoneValidation"])
         risk_context(type: PropertyType.Boolean, required: false, description: "Is a risky context")
-        option_selected(type: PropertyType.String, required: false, description: "Describes authentication option selected by user")
-        user_name(type: PropertyType.String, required: false, description: "Describes user name")
+        option_selected(type: PropertyType.String, required: false, description: "Describes authentication option selected by user", values: ["primary_email", "google_connect", "microsoft_connect", "sms", "call", "push"])
         domain(type: PropertyType.String, required: false, description: "Describes email domain")
     }
 
