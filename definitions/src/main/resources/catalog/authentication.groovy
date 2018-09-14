@@ -265,8 +265,8 @@ tracks {
     }
 
     "/auth/authentication_factors/social_connect"(platform: "/", type: TrackType.Event) {
-        microsoft_connect_option(type: PropertyType.Boolean, required: false, description: "Is google connect available to authenticate user")
-        google_connect_option(type: PropertyType.Boolean, required: false, description: "Is microsoft connect available to authenticate user")
+        microsoft_connect_option(type: PropertyType.Boolean, required: false, description: "Is microsoft connect available to authenticate user")
+        google_connect_option(type: PropertyType.Boolean, required: false, description: "Is google connect available to authenticate user")
         is_google_account_of_different_user(type: PropertyType.String, required: false, description: "Differs between user emails")
         is_microsoft_account_of_different_user(type: PropertyType.String, required: false, description: "Differs between user emails")
     }
