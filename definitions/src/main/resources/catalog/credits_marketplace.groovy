@@ -91,6 +91,16 @@ tracks {
     ******************************************/
 
     /******************************************
+     *       Start: Consumers Admin Detail (mobile in ML)
+     ******************************************/
+
+    "/credits/consumer/administrator/detail"(platform: "/mobile/android", type: TrackType.View) {}
+
+    /******************************************
+     *       Start: Consumers Admin Detail
+     ******************************************/
+
+    /******************************************
      *       Start: Consumers Enrollment
      ******************************************/
     //Landing consumer
