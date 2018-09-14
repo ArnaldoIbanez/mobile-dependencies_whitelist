@@ -103,6 +103,7 @@ trackTests {
             sort_id = "relevance"
             filters = {official_store="140"}
             autoselected_filters = ["official_store"]
+            geo_search = "false"
             pads=[]
         })
 

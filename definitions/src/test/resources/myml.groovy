@@ -253,6 +253,22 @@ trackTests {
         }
     }
 
+    test("Fiscal data pages") {
+        "/myml/fiscal_information/message"(platform: "/") {}
+        "/myml/fiscal_information/mobile"(platform: "/") {}
+        "/myml/fiscal_information/not-found"(platform: "/") {}
+        "/myml/fiscal_information/success"(platform: "/") {}
+        "/myml/fiscal_information/success/btn-sales"(platform: "/", type: TrackType.Event) {}
+        
+        "/myml/fiscal_information/type"(platform: "/") {}
+        "/myml/fiscal_information/type/continue"(platform: "/", type: TrackType.Event) {
+            type = "single"
+        }
+
+        "/myml/fiscal_information/tax_information"(platform: "/") {}
+        "/myml/fiscal_information/modal_price/close"(platform: "/", type: TrackType.Event) {}
+    }
+
 
     test("MyML Cart") {
 
