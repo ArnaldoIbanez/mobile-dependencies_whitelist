@@ -30,7 +30,7 @@ tracks {
     }
     "/notification_center/security-enrollment-legacy"(platform: "/", type: TrackType.Event) {}
     "/notification_center/loyalty"(platform: "/", type: TrackType.Event) {
-        milestone_id(required: false, type: PropertyType.Numeric, description:"Id of claim.")
+        milestone_id(required: false, type: PropertyType.String, description:"Id of milestone.")
         latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
