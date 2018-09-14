@@ -178,7 +178,7 @@ trackTests {
             batch_id= "MLB_PACK_20180508_2"
             latest_news_type= "campaigns-checkout_recovery"
             latest_news_id= "campaigns-checkout_recovery-143816022-MLB1013046714"
-            item_id= "MLV515515631"
+            items= "MLV515515631,MLV515515632,MLV515515633"
             experiment= false
         }
         "/notification_center/campaigns-deal_alert"(platform: "/mobile"){
@@ -366,6 +366,17 @@ trackTests {
             batch_id = "MLB_PACK_20180508_2"
             item_id = "MLV515515631"
             experiment = false
+        }
+
+        "/notification/campaigns_cho_cart_recovery"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "received"
+            deeplink ="meli://search?q=sony"
+            campaign_id = "mkt_campaign_co"
+            test_notification = false
+            sent_date = "20180508"
+            batch_id = "MLB_PACK_20180508_2"
+            items = "MLV515515631,MLV515515632,MLV515515633"
         }
 
         "/notification/campaigns_deal_alert"(platform: "/mobile") {
