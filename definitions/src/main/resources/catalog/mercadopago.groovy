@@ -273,7 +273,8 @@ tracks {
     "/social_detail"(platform: "/mobile") { }
     "/event_detail"(platform: "/mobile") { }
 
-    "/shopping"(platform: "/mobile") { }
+    "/shopping"(platform: "/mobile") {
+        from (required:false, type: PropertyType.String, description: "Where the flow start") }
     "/crop_image"(platform: "/mobile") { }
 
     "/login"(platform: "/mobile", isAbstract: true) {
@@ -285,24 +286,34 @@ tracks {
     "/login/sign_up"(platform: "/mobile", type: TrackType.View) {}
     "/login/identification"(platform: "/mobile") {}
 
-    "/sign_in"(platform: "/mobile", isAbstract: true) {}
+    "/sign_in"(platform: "/mobile", isAbstract: true) {
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
     "/sign_in/sso"(platform: "/mobile", type: TrackType.Event) {
         label (required:true, type: PropertyType.String, description: "Status")
     }
     "/sign_in/smart_lock"(platform: "/mobile", type: TrackType.Event) {
         label (required:true, type: PropertyType.String, description: "Status")
+        description (required:false, type: PropertyType.String, description: "Status description")
+    }
+    "/sign_in/recovery_account_button"(platform: "/mobile", type: TrackType.Event) {
+        label (required:fase, type: PropertyType.String, description: "Status")
     }
     "/sign_in/facebook"(platform: "/mobile", type: TrackType.Event) {
         label (required:true, type: PropertyType.String, description: "Status")
+        description (required:false, type: PropertyType.String, description: "Status description")
     }
     "/sign_in/google"(platform: "/mobile", type: TrackType.Event) {
         label (required:true, type: PropertyType.String, description: "Status")
+        description (required:false, type: PropertyType.String, description: "Status description")
     }
     "/sign_in/mail"(platform: "/mobile", type: TrackType.Event) {
         label (required:true, type: PropertyType.String, description: "Status")
         description (required:false, type: PropertyType.String, description: "Status description")
     }
-    "/sign_up"(platform: "/mobile", isAbstract: true) {}
+    "/sign_up"(platform: "/mobile", isAbstract: true) {
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
     "/sign_up/facebook"(platform: "/mobile", type: TrackType.Event) {
         label (required:true, type: PropertyType.String, description: "Status")
     }
