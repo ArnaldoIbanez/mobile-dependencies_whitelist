@@ -297,7 +297,7 @@ tracks {
         description (required:false, type: PropertyType.String, description: "Status description")
     }
     "/sign_in/recovery_account_button"(platform: "/mobile", type: TrackType.Event) {
-        label (required:fase, type: PropertyType.String, description: "Status")
+        label (required:false, type: PropertyType.String, description: "Status")
     }
     "/sign_in/facebook"(platform: "/mobile", type: TrackType.Event) {
         label (required:true, type: PropertyType.String, description: "Status")
