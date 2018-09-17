@@ -2192,7 +2192,7 @@ trackTests {
         "/auth/recovery/phone/save"(platform: "/web", type: TrackType.Event) {
             redirect_url = "www.mercadopago.com"
             selected_phone_source = "manual"
-            verified = "false"
+            verified = false
             flow_type = "sms_enrollment"
             flow_sub_type = "LOGIN"
             visual_validation_allowed = true
@@ -2202,6 +2202,50 @@ trackTests {
             selected_phone_source = "manual"
             flow_type = "sms_enrollment"
             flow_sub_type = "LOGIN_NOTIF"
+        }
+        "/auth/phone_confirmation"(platform: "/", type: TrackType.Event) {
+            event = "confirm"
+        }
+    }
+
+    test("Authenticators") {
+        "/auth/authentication_factors/sms"(platform: "/web", type: TrackType.Event) {
+            event = "method_selector"
+            flow_type = 'sms_enrollment'
+            risk_context = false
+            sms_option = true
+            call_option = true
+            push_option = false
+            option_selected = "sms"
+        }
+        "/auth/authentication_factors/primary_email"(platform: "/web", type: TrackType.Event) {
+            event = "start_validation"
+            flow_type = 'sms_enrollment'
+            risk_context = true
+            option_selected = "primary_email"
+            primary_email_option = true
+            domain = "gmail"
+        }
+        "/auth/authentication_factors/social_connect"(platform: "/web", type: TrackType.Event) {
+            event = "close_validation"
+            flow_type = 'sms_enrollment'
+            risk_context = true
+            option_selected = "microsoft_connect"
+            google_connect_option = true
+            domain = "gmail"
+            is_google_account_of_different_user = "false"
+            authenticator = "emailValidation"
+        }
+    }
+
+    test("Change Password") {
+        "/auth/authentication_methods/password/change_form"(platform: "/", type: TrackType.Event) {
+            redirect_url = "https://accountrecovery.mercadolibre.com.ar/collect/userInfo"
+        }
+
+        "/auth/authentication_methods/password/change"(platform: "/", type: TrackType.Event) {
+            redirect_url = "https://accountrecovery.mercadolibre.com.ar/collect/userInfo"
+            device_profile_id = "abc-123-def-456"
         }
     }
 
