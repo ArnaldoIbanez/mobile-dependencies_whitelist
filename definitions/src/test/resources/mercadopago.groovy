@@ -517,6 +517,9 @@ trackTests {
     }
 
     test("Sign In") {
+        "/sign_in"(platform: "/mobile") {
+            from = "/deep_link"
+        }
         "/sign_in/facebook"(platform: "/mobile") {
             label = "success"
             from = "/deep_link"

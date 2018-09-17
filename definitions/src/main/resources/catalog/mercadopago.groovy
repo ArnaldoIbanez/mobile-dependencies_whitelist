@@ -286,7 +286,7 @@ tracks {
     "/login/sign_up"(platform: "/mobile", type: TrackType.View) {}
     "/login/identification"(platform: "/mobile") {}
 
-    "/sign_in"(platform: "/mobile", isAbstract: true) {
+    "/sign_in"(platform: "/mobile", type: TrackType.View) {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
     "/sign_in/sso"(platform: "/mobile", type: TrackType.Event) {
