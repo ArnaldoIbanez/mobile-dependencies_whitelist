@@ -80,4 +80,23 @@ tracks {
     "/wms/restock"(platform: "/mobile/android", type: TrackType.View) {}
 	"/wms/return"(platform: "/mobile/android", type: TrackType.View) {}
 
+    /* Cycle count tracks */
+    "/wms/cycle_count"(platform: "/mobile/android", type: TrackType.View, isAbstract: true) {
+        cycle_count_id(required: false, type: PropertyType.Numeric, description: "Cycle count id")
+        address_id(required: false, type: PropertyType.String, description: "Address id")
+    }
+    "/wms/cycle_count/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/cycle_count/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/cycle_count/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/cycle_count/item"(platform: "/mobile/android", type: TrackType.View) {
+        inventory_id(required: true, type: PropertyType.String, description: "Inventory id")
+        quantity(required: true, type: PropertyType.Numeric, description: "Item quantity")
+    }
+
+    "/wms/cycle_count/confirmation/start_cycle_count"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/cycle_count/scan_inventory/finish_cycle_count"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/cycle_count/item/finish_cycle_count"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/cycle_count/scan_inventory/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/cycle_count/item/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/cycle_count/item/reset_address"(platform: "/mobile/android", type: TrackType.Event) {}
 }
