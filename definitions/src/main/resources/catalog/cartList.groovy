@@ -114,6 +114,7 @@ tracks {
 "/cart/item_add"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
     items(required: true, type:PropertyType.ArrayList, description: "Array of items that are being added")
     context(required: false)
+    free_shipping_benefit(required: false, type: PropertyType.Boolean)
 }
 
 "/cart/item_add/error"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
