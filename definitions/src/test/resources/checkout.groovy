@@ -449,28 +449,28 @@ trackTests {
         }
 
         // Map v2 
-        "/checkout/shipping/puis_store_selection"(platform: "/mobile") {
+        "/checkout/shipping/puis/select_store"(platform: "/mobile") {
             checkoutStatus()
         }
-        "/checkout/shipping/store_selection"(platform: "/mobile") {
+        "/checkout/shipping/select_store"(platform: "/mobile") {
             checkoutStatus() 
         }
 
-        "/checkout/shipping/puis_store_selection/back"(platform: "/mobile", type: TrackType.Event) {
+        "/checkout/shipping/puis/select_store/back"(platform: "/mobile", type: TrackType.Event) {
             checkoutStatus() 
         }
-        "/checkout/shipping/store_selection/back"(platform: "/mobile", type: TrackType.Event) {
+        "/checkout/shipping/select_store/back"(platform: "/mobile", type: TrackType.Event) {
             checkoutStatus()   
         }
-        "/checkout/shipping/puis_store_selection/store_not_found"(platform: "/mobile",type: TrackType.Event) {
+        "/checkout/shipping/puis/select_store/store_not_found"(platform: "/mobile",type: TrackType.Event) {
             latitude = -33.312313
             longitude = -58.929484
         }
-        "/checkout/shipping/store_selection/store_not_found"(platform: "/mobile",type: TrackType.Event) {
+        "/checkout/shipping/select_store/store_not_found"(platform: "/mobile",type: TrackType.Event) {
             latitude = -33.312313
             longitude = -58.929484
         }
-        "/checkout/shipping/puis_store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
+        "/checkout/shipping/puis/select_store/selected_store"(platform: "/mobile", type: TrackType.Event) {
             default_location_info = {
                 type: "address_id"
                 suggested : true
@@ -480,7 +480,7 @@ trackTests {
             last_action = "geolocation"
             distance = 345
         }
-        "/checkout/shipping/store_selection/selected_store"(platform: "/mobile", type: TrackType.Event) {
+        "/checkout/shipping/select_store/selected_store"(platform: "/mobile", type: TrackType.Event) {
             default_location_info = {
                 type: "address_id"
                 suggested : true
