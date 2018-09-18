@@ -334,6 +334,12 @@ trackTests {
         // Cancelarion
         "/cart/checkout/payments_cancelation"(platform:"/mobile", dataSet)
 
+        // ESC: Enter the Sec Code to generate an Encrypted Security Code
+        "/cart/checkout/payment/encrypted_security_code_add"(platform: "/mobile") {
+            dataSet()
+        }
+
+        // Billing info
         "/cart/checkout/billing/physical_person"(platform: "/mobile") {
             dataSet()
         }
@@ -343,7 +349,7 @@ trackTests {
         "/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event) {
         }
 
-        //Inconsistencias
+        // Inconsistencias
         "/cart/checkout/review/discard_payment_combination"(platform:"/mobile", dataSet)
         "/cart/checkout/review/inconsistency/payment_combination"(platform:"/mobile", dataSet)
         "/cart/checkout/review/inconsistency/payment_combination/payment"(platform:"/mobile", dataSet)
