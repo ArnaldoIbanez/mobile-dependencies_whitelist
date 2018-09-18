@@ -227,7 +227,7 @@ tracks {
 
     "/auth/recovery/phone/save"(platform: "/", type: TrackType.Event) {
         selected_phone_source(type: PropertyType.String, required: true, description: "Source of phone number, could be manual or the name of the suggestion used")
-        verified(type: PropertyType.String, required: true, description: "Is selected phone already verified")
+        verified(type: PropertyType.Boolean, required: true, description: "Is selected phone already verified")
         visual_validation_allowed(type: PropertyType.Boolean, required: true, description: "Is phone available for visual validation")
     }
 
@@ -235,8 +235,53 @@ tracks {
         selected_phone_source(type: PropertyType.String, required: true, description: "Source of phone number, could be manual or the name of the suggestion used")
     }
 
+    "/auth/phone_confirmation"(platform: "/", type: TrackType.Event) {
+        event(type: PropertyType.String, required: true, description: "Describes which step is user doing in phone confirmation flow")
+    }
+
     // Push Notification
     "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {
         notified_user(type: PropertyType.String, required: false)
     }
+
+    // Authenticators
+    "/auth/authentication_factors"(platform: "/", isAbstract: true) {
+        event(type: PropertyType.String, required: true, description: "Describes which step is user doing in authentication flow")
+        flow_type(type: PropertyType.String, required: true, description: "Current enrollment flow type")
+        authenticator(type: PropertyType.String, required: false, description: "Authenticator name", values: ["phoneValidation", "emailValidation", "notVerifiedPhoneValidation"])
+        risk_context(type: PropertyType.Boolean, required: false, description: "Is a risky context")
+        option_selected(type: PropertyType.String, required: false, description: "Describes authentication option selected by user", values: ["primary_email", "google_connect", "microsoft_connect", "sms", "call", "push"])
+        domain(type: PropertyType.String, required: false, description: "Describes email domain")
+    }
+
+    "/auth/authentication_factors/sms"(platform: "/", type: TrackType.Event) {
+        sms_option(type: PropertyType.Boolean, required: true, description: "Is SMS available to authenticate user")
+        call_option(type: PropertyType.Boolean, required: true, description: "Is CALL available to authenticate user")
+        push_option(type: PropertyType.Boolean, required: true, description: "Is PUSH available to authenticate user")
+    }
+
+    "/auth/authentication_factors/primary_email"(platform: "/", type: TrackType.Event) {
+        primary_email_option(type: PropertyType.Boolean, required: true, description: "Is email available to authenticate user")
+    }
+
+    "/auth/authentication_factors/social_connect"(platform: "/", type: TrackType.Event) {
+        microsoft_connect_option(type: PropertyType.Boolean, required: false, description: "Is microsoft connect available to authenticate user")
+        google_connect_option(type: PropertyType.Boolean, required: false, description: "Is google connect available to authenticate user")
+        is_google_account_of_different_user(type: PropertyType.String, required: false, description: "Differs between user emails")
+        is_microsoft_account_of_different_user(type: PropertyType.String, required: false, description: "Differs between user emails")
+    }
+
+    // Change password
+    "/auth/authentication_methods"(platform: "/", isAbstract: true) {}
+
+    "/auth/authentication_methods/password"(platform: "/", isAbstract: true) {
+        redirect_url(type: PropertyType.String, required: true, description: "Describes flow redirect url")
+    }
+
+    "/auth/authentication_methods/password/change_form"(platform: "/", type: TrackType.Event) {}
+
+    "/auth/authentication_methods/password/change"(platform: "/", type: TrackType.Event) {
+        device_profile_id(type: PropertyType.String, required: true, description: "Describes user device profile id")
+    }
+
 }
