@@ -496,7 +496,9 @@ trackTests {
     }
 
     test("shopping") {
-        "/shopping"(platform: "/mobile") {}
+        "/shopping"(platform: "/mobile") {
+            from = "/deep_link"
+        }
     }
 
     test("Login") {
@@ -515,20 +517,26 @@ trackTests {
     }
 
     test("Sign In") {
-        "/sign_in/facebook"(platform: "/mobile") {
-            label = "success"
+        "/sign_in"(platform: "/mobile") {
+            from = "/deep_link"
         }
         "/sign_in/facebook"(platform: "/mobile") {
-            label = "cenceled"
+            label = "success"
+            from = "/deep_link"
+        }
+        "/sign_in/facebook"(platform: "/mobile") {
+            label = "canceled"
         }
         "/sign_in/facebook"(platform: "/mobile") {
             label = "failure"
+            description = "invalid password"
         }
         "/sign_in/google"(platform: "/mobile") {
             label = "success"
         }
         "/sign_in/google"(platform: "/mobile") {
             label = "failure"
+            description = "invalid password"
         }
         "/sign_in/sso"(platform: "/mobile") {
             label = "success"
@@ -541,6 +549,7 @@ trackTests {
         }
         "/sign_in/smart_lock"(platform: "/mobile") {
             label = "failure"
+            description = "invalid password"
         }
         "/sign_in/mail"(platform: "/mobile") {
             label = "success"
@@ -548,6 +557,9 @@ trackTests {
         "/sign_in/mail"(platform: "/mobile") {
             label = "failure"
             description = "already_exists"
+        }
+        "/sign_in/recovery_account_button"(platform: "/mobile") {
+            label = "failure"
         }
     }
 
