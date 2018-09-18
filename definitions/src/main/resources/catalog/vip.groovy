@@ -191,7 +191,7 @@ tracks {
          item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 
-    "/vip/sizechart/tutorial"(platform: "/", parentPropertiesInherited: false) {
+    "/vip/sizechart/tutorial"(platform: "/mobile", parentPropertiesInherited: false) {
          item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 

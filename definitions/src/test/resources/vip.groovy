@@ -277,7 +277,7 @@ trackTests {
             item_id = "MLA533657947"
         }
 
-        "/vip/sizechart/tutorial"(platform: "/") {
+        "/vip/sizechart/tutorial"(platform: "/mobile") {
             item_id = "MLA533657947"
         }
     }
