@@ -272,6 +272,14 @@ trackTests {
         }
 
         "/vip"(platform:"/web", dataSet)
+
+        "/vip/sizechart"(platform: "/") {
+            item_id = "MLA533657947"
+        }
+
+        "/vip/sizechart/tutorial"(platform: "/") {
+            item_id = "MLA533657947"
+        }
     }
 
     test("Vip protected purchase") {
