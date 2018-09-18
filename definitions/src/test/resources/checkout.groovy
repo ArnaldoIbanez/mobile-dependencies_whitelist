@@ -462,15 +462,15 @@ trackTests {
         "/checkout/shipping/select_store/back"(platform: "/mobile", type: TrackType.Event) {
             checkoutStatus()
         }
-        "/checkout/shipping/puis/select_store/store_not_found"(platform: "/",type: TrackType.Event) {
+        "/checkout/shipping/puis/select_store/store_not_found"(platform: "/mobile",type: TrackType.Event) {
             latitude = -33.312313
             longitude = -58.929484
         }
-        "/checkout/shipping/select_store/store_not_found"(platform: "/",type: TrackType.Event) {
+        "/checkout/shipping/select_store/store_not_found"(platform: "/mobile",type: TrackType.Event) {
             latitude = -33.312313
             longitude = -58.929484
         }
-        "/checkout/shipping/puis/select_store/selected_store"(platform: "/", type: TrackType.Event) {
+        "/checkout/shipping/puis/select_store/selected_store"(platform: "/mobile", type: TrackType.Event) {
             default_location_info = {
                 type: "address_id"
                 suggested : true
@@ -480,7 +480,7 @@ trackTests {
             last_action = "geolocation"
             distance = 345
         }
-        "/checkout/shipping/select_store/selected_store"(platform: "/", type: TrackType.Event) {
+        "/checkout/shipping/select_store/selected_store"(platform: "/mobile", type: TrackType.Event) {
             default_location_info = {
                 type: "address_id"
                 suggested : true
@@ -1948,6 +1948,36 @@ trackTests {
         "/checkout/shipping/select_option/agency_pickup"(platform:"/web", dataSet)
         "/checkout/shipping/select_option/send_to_my_address"(platform:"/web", dataSet)
         "/checkout/shipping/store_selection"(platform:"/web", dataSet)
+
+        //Map v2
+        "/checkout/shipping/puis/select_store/store_not_found"(platform: "/web",type: TrackType.Event) {
+            latitude = -33.312313
+            longitude = -58.929484
+        }
+        "/checkout/shipping/select_store/store_not_found"(platform: "/web",type: TrackType.Event) {
+            latitude = -33.312313
+            longitude = -58.929484
+        }
+        "/checkout/shipping/puis/select_store/selected_store"(platform: "/web", type: TrackType.Event) {
+            default_location_info = {
+                type: "address_id"
+                suggested : true
+            }
+            latitude = -33.312313
+            longitude = -58.929484
+            last_action = "geolocation"
+            distance = 345
+        }
+        "/checkout/shipping/select_store/selected_store"(platform: "/web", type: TrackType.Event) {
+            default_location_info = {
+                type: "address_id"
+                suggested : true
+            }
+            latitude = -33.312313
+            longitude = -58.929484
+            last_action = "geolocation"
+            distance = 345
+        }
 
         // Suscripciones
         "/checkout/shipping"(platform:"/web") {
