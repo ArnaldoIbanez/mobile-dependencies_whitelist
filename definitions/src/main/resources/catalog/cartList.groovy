@@ -144,8 +144,8 @@ tracks {
     motive(required: true, type: PropertyType.String, values: ["delete", "quantity_up", "quantity_down",
            "saved_for_later", "variation_quantity", "unknown"])
     cart_ratio(required: true, type: PropertyType.String, values: ["applies", "not_applies"])
-    from(required: true, type: PropertyType.Numeric)
-    to(required: true, type: PropertyType.Numeric)
+    previous_free_shipping_progress(required: true, type: PropertyType.Numeric)
+    actual_free_shipping_progress(required: true, type: PropertyType.Numeric)
 }
 
 }

@@ -207,8 +207,8 @@ trackTests {
         def changeProgressModel = {
             motive = "saved_for_later"
             cart_ratio = "applies"
-            from = 50
-            to = 60
+            previous_free_shipping_progress = 50
+            actual_free_shipping_progress = 60
             free_shipping_benefit = false
         }
 
