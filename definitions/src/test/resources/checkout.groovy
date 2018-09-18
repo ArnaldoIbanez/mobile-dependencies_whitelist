@@ -681,6 +681,13 @@ trackTests {
             coupon_discount = 20
         }
 
+        // ESC: Enter the Sec Code to generate an Encrypted Security Code
+        "/checkout/payment/encrypted_security_code_add"(platform:"/mobile") {
+            checkoutStatus()
+        }
+
+
+        // Billing Info
         "/checkout/billing/physical_person"(platform: "/mobile") {
             checkoutStatus()
         }

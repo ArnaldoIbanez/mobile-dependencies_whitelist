@@ -592,6 +592,9 @@ tracks {
     "/checkout/payment/expired_coupon"(platform:"/mobile", type: TrackType.Event) {}
     "/checkout/payment/add_another_coupon/delete_coupon"(platform:"/mobile", type: TrackType.Event) {}
 
+    // ESC: Enter the Sec Code to generate an Encrypted Security Code
+    "/checkout/payment/encrypted_security_code_add"(platform:"/mobile") {}
+
     //Billing info
     "/checkout/billing"(platform: "/mobile", isAbstract: true) {}
     "/checkout/billing/physical_person"(platform: "/mobile") {}

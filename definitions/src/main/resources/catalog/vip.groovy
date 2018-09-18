@@ -187,6 +187,14 @@ tracks {
         context(required: false)
     }
 
+    "/vip/sizechart"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+         item_id(required: true, type: PropertyType.String, description: "Item ID")
+    }
+
+    "/vip/sizechart/tutorial"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
+         item_id(required: true, type: PropertyType.String, description: "Item ID")
+    }
+
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
     "/vip/contact_seller"(platform: "/", type: TrackType.Event) {

@@ -358,6 +358,9 @@ tracks {
 // 2MP Cancelation
 "/cart/checkout/payments_cancelation"(platform: "/mobile", type: TrackType.View) {}
 
+// ESC: Enter the Sec Code to generate an Encrypted Security Code
+"/cart/checkout/payment/encrypted_security_code_add"(platform:"/mobile", type: TrackType.View) {}
+
 //Billing info
 "/cart/checkout/billing"(platform: "/mobile", isAbstract: true) {}
 "/cart/checkout/billing/physical_person"(platform: "/mobile") {}
