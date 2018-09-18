@@ -462,7 +462,7 @@ trackTests {
         "/checkout/shipping/select_store/back"(platform: "/mobile", type: TrackType.Event) {
             checkoutStatus()
         }
-        "/checkout/shipping/puis/select_store/store_not_found"(platform: "mobile/",type: TrackType.Event) {
+        "/checkout/shipping/puis/select_store/store_not_found"(platform: "/mobile",type: TrackType.Event) {
             latitude = -33.312313
             longitude = -58.929484
         }
