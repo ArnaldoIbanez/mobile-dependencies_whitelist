@@ -187,11 +187,11 @@ tracks {
         context(required: false)
     }
 
-    "/vip/sizechart"(platform: "/", parentPropertiesInherited: false) {
+    "/vip/sizechart"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
          item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 
-    "/vip/sizechart/tutorial"(platform: "/mobile", parentPropertiesInherited: false) {
+    "/vip/sizechart/tutorial"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
          item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 
