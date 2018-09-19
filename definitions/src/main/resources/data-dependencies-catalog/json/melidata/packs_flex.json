@@ -30,11 +30,11 @@
       },
       {
         "name": "longitude",
-        "type": "UNICODE_STRING"
+        "type": "DOUBLE"
       },
       {
         "name": "latitude",
-        "type": "UNICODE_STRING"
+        "type": "DOUBLE"
       },
       {
         "name": "pack_status",
