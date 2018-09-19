@@ -165,7 +165,7 @@ tracks {
 
 
     "/sell/list/sip"(platform: "/mobile", type: TrackType.View) {
-        has_selected_pictures(required: true, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
+        has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
     }
     "/sell/list/sip/publish"(platform: "/mobile", isAbstract: true) {
         has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
@@ -522,7 +522,7 @@ tracks {
         item_id (required: true, type: PropertyType.String)
     }
     "/sell/relist/csip"(platform: "/mobile", type: TrackType.View) {
-        has_selected_pictures(required: true, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
+        has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
     }
     "/sell/relist/congrats"(platform: "/web/desktop", type: TrackType.View) {
         can_complete_attributes(required: true, description: "Field to identify if link to update was offered.", type: PropertyType.Boolean)
