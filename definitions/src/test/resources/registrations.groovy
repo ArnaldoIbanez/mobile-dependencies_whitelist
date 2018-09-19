@@ -382,6 +382,21 @@ trackTests {
         }
     }
 
+    test("Company Registration Desktop") {
+        "/register/company/form"(platform: "/web", type: TrackType.View) {
+        }
+        "/register/company/congrats"(platform: "/web", type: TrackType.View) {
+        }
+        "/register/company/form/error"(platform: "/web", type: TrackType.Event) {
+            errors = [
+                    ["field": "cuit", "code": 1],
+                    ["field": "socialReason", "code": 1],
+                    ["field": "email", "code": 1],
+                    ["field": "pass", "code": 1]
+            ]
+        }
+    }
+
     test("Account Recovery tracking event") {
 
         "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {

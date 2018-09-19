@@ -7,6 +7,7 @@ tracks {
     // REGISTER
 
     "/register"(platform: "/", isAbstract: true) {}
+    "/register/company"(platform: "/", isAbstract: true) {}
 
     "/register/success"(platform: "/") {
         origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
@@ -168,6 +169,12 @@ tracks {
     "/register/form/person-link"(platform: "/mobile", type: TrackType.Event){}
 
     // Company Registration
+
+    "/register/company/form"(platform: "/web", type: TrackType.View){}
+    "/register/company/congrats"(platform: "/web", type: TrackType.View){}
+    "/register/company/form/error"(platform: "/web", type: TrackType.Event){
+        errors(type: PropertyType.ArrayList, description: "Errores en el formulario", required: true)
+    }
 
     "/register/congrats/complete-fiscal-data"(platform: "/mobile", type: TrackType.Event){}
     "/register/congrats/complete-fiscal-data-later"(platform: "/mobile", type: TrackType.Event){}
