@@ -26,7 +26,7 @@ tracks {
     "/account_fund/px/identification_number"(platform: "/", type: TrackType.View) {}
     "/account_fund/px/review_and_confirm"(platform: "/", type: TrackType.View) {}
     "/account_fund/px/result"(platform: "/", type: TrackType.View) {
-        result_status (required:true, description: "Operation result status")
+        result_status (required:false, description: "Operation result status") // Change in the future with required true
         result_type (required:false, description: "Operation result type")
     }
 }
