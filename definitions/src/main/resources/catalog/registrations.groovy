@@ -7,7 +7,7 @@ tracks {
     // REGISTER
 
     "/register"(platform: "/", isAbstract: true) {}
-    "/registration_company"(platform: "/", isAbstract: true) {}
+    "/register/company"(platform: "/", isAbstract: true) {}
 
     "/register/success"(platform: "/") {
         source()
@@ -159,14 +159,14 @@ tracks {
 
     // Company Registration
 
-    "/registration_company/form"(platform: "/web/mobile", type: TrackType.View){}
-    "/registration_company/congrats"(platform: "/web/mobile", type: TrackType.View){}
-    "/registration_company/form/error"(platform: "/web/mobile", type: TrackType.Event){
+    "/register/company/form"(platform: "/web", type: TrackType.View){}
+    "/register/company/congrats"(platform: "/web", type: TrackType.View){}
+    "/register/company/form/error"(platform: "/web", type: TrackType.Event){
         errors(type: PropertyType.ArrayList, description: "Errores en el formulario", required: true)
     }
-    "/registration_company/form"(platform: "/web/desktop", type: TrackType.View){}
-    "/registration_company/congrats"(platform: "/web/desktop", type: TrackType.View){}
-    "/registration_company/form/error"(platform: "/web/desktop", type: TrackType.Event){
+    "/register/company/form"(platform: "/web", type: TrackType.View){}
+    "/register/company/congrats"(platform: "/web", type: TrackType.View){}
+    "/register/company/form/error"(platform: "/web", type: TrackType.Event){
         errors(type: PropertyType.ArrayList, description: "Errores en el formulario", required: true)
     }
 

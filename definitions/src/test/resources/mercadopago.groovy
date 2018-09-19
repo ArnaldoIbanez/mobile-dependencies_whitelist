@@ -374,26 +374,11 @@ trackTests {
     }
 
     test("Company Registration Desktop") {
-        "/registration_company/form"(platform: "/web/desktop", type: TrackType.View) {
+        "/register/company/form"(platform: "/web", type: TrackType.View) {
         }
-        "/registration_company/congrats"(platform: "/web/desktop", type: TrackType.View) {
+        "/register/company/congrats"(platform: "/web", type: TrackType.View) {
         }
-        "/registration_company/form/error"(platform: "/web/desktop", type: TrackType.Event) {
-            errors = [
-                    ["field": "cuit", "code": 1],
-                    ["field": "socialReason", "code": 1],
-                    ["field": "email", "code": 1],
-                    ["field": "pass", "code": 1]
-            ]
-        }
-    }
-
-    test("Company Registration Mobile") {
-        "/registration_company/form"(platform: "/web/mobile", type: TrackType.View) {
-        }
-        "/registration_company/congrats"(platform: "/web/mobile", type: TrackType.View) {
-        }
-        "/registration_company/form/error"(platform: "/web/mobile", type: TrackType.Event) {
+        "/register/company/form/error"(platform: "/web", type: TrackType.Event) {
             errors = [
                     ["field": "cuit", "code": 1],
                     ["field": "socialReason", "code": 1],
