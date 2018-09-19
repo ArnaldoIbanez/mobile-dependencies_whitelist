@@ -3,8 +3,8 @@ select
 	  hoy.delivery_id as delivery_id,
   	hoy.shipping_id as shipping_id,
   	hoy.seller_id as seller_id,
-  	hoy.longitude as longitude,
-  	hoy.latitude as latitude,
+  	CAST(hoy.longitude as DOUBLE) as longitude,
+    CAST(hoy.latitude as DOUBLE) as latitude,
   	if(lower(delivered.status)='delivered','Delivered','Not_Delivered') as pack_status,
   	delivered.hora as hora,
   	coalesce(ayer.rescanned,0) as rescanned,
@@ -43,8 +43,8 @@ from (
   		jest(packs_data,'shipping_id') as shipping_id,
   		jest(event_data, 'delivery_id') as delivery_id,
   		jest(packs_data, 'seller_id') as seller_id,
-  		replace(jest(packs_data,'destintation_info.longitude'),'.',',') as longitude,
-  		replace(jest(packs_data,'destintation_info.latitude'),'.',',') as latitude
+  		jest(packs_data,'destintation_info.longitude') as longitude,
+  		jest(packs_data,'destintation_info.latitude') as latitude
 	from tracks
 	LATERAL VIEW explode(json_to_array(jest(event_data,'packs_info'))) tf as packs_data
 	where ds >='@param02' and ds < '@param03'
