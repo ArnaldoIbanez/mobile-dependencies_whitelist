@@ -141,7 +141,7 @@ tracks {
 "/cart/my_cart/free_shipping_lost_warning/confirm"(platform: "/", type: TrackType.Event){}
 
 "/cart/my_cart/change_free_shipping_progress_status"(platform: "/", type: TrackType.Event){
-    motive(required: true, type: PropertyType.String, values: ["delete", "quantity_up", "quantity_down",
+    motive(required: true, type: PropertyType.String, values: ["delete", "quantity",
            "saved_for_later", "variation_quantity", "unknown"])
     cart_ratio(required: true, type: PropertyType.String, values: ["applies", "not_applies"])
     previous_free_shipping_progress(required: true, type: PropertyType.Numeric)
