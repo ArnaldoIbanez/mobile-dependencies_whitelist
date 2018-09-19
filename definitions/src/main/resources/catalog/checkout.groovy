@@ -419,16 +419,16 @@ tracks {
 
     // --- Map v2 --- //
 
-    "/checkout/shipping/puis"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/shipping/puis/select_store"(platform: "/mobile", type: TrackType.View) {}
-    "/checkout/shipping/select_store"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/shipping/puis"(platform: "/", isAbstract: true) {}
+    "/checkout/shipping/puis/select_store"(platform: "/", type: TrackType.View) {}
+    "/checkout/shipping/select_store"(platform: "/", type: TrackType.View) {}
 
     // Event Back
     "/checkout/shipping/puis/select_store/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/shipping/select_store/back"(platform: "/mobile", type: TrackType.Event) {}
 
      // Event for Defaults
-    "/checkout/shipping/puis/select_store/selected_store"(platform: "/mobile", type: TrackType.Event) {
+    "/checkout/shipping/puis/select_store/selected_store"(platform: "/", type: TrackType.Event) {
         default_location_info(required: true, description: "that indicate the type of default")
         latitude(type: PropertyType.Numeric, required: true, description: "the latitude at which we are requesting agencies")
         longitude(type: PropertyType.Numeric, required: true, description: "the longitude at which we are requesting agencies")
@@ -436,7 +436,7 @@ tracks {
         distance(type: PropertyType.Numeric, required: false, description: "indicate the distance of the agencie selected to the default center point")
     }
 
-    "/checkout/shipping/select_store/selected_store"(platform: "/mobile", type: TrackType.Event) {
+    "/checkout/shipping/select_store/selected_store"(platform: "/", type: TrackType.Event) {
         default_location_info(required: true, description: "that indicate the type of default")
         latitude(type: PropertyType.Numeric, required: true, description: "the latitude at which we are requesting agencies")
         longitude(type: PropertyType.Numeric, required: true, description: "the longitude at which we are requesting agencies")
@@ -445,11 +445,11 @@ tracks {
     }
 
     // No agencies
-    "/checkout/shipping/puis/select_store/store_not_found"(platform: "/mobile",type: TrackType.Event) {
+    "/checkout/shipping/puis/select_store/store_not_found"(platform: "/",type: TrackType.Event) {
         latitude(type: PropertyType.Numeric,required: false, description: "the latitude at which we are requesting agencies")
         longitude(type: PropertyType.Numeric,required: false, description: "the longitude at which we are requesting agencies")
     }
-    "/checkout/shipping/select_store/store_not_found"(platform: "/mobile",type: TrackType.Event) {
+    "/checkout/shipping/select_store/store_not_found"(platform: "/",type: TrackType.Event) {
         latitude(type: PropertyType.Numeric,required: false, description: "the latitude at which we are requesting agencies")
         longitude(type: PropertyType.Numeric,required: false, description: "the longitude at which we are requesting agencies")
     }
