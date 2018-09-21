@@ -158,8 +158,8 @@ tracks {
     "/checkout/payments"(platform: "/", isAbstract: true) {
     }
 
+    "/checkout/payment/select_type"(platform: "/web") {}
     "/checkout/payments/select_payment_method"(platform: "/web") {}
-    "/checkout/payments/select_type"(platform: "/web") {}
     "/checkout/payments/select_payment_type"(platform: "/web") {}
     "/checkout/payments/select_split_payment"(platform: "/web") {}
     "/checkout/payments/input_proactive_payment_amount"(platform: "/web") {}
