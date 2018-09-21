@@ -1829,6 +1829,7 @@ trackTests {
         }
         "/checkout/items_not_available"(platform:"/web", dataSet)
         "/checkout/error"(platform:"/web", dataSet)
+        "/checkout/payment/select_type"(platform:"/web", dataSet)
         "/checkout/payment/select_method"(platform:"/web", dataSet)
         "/checkout/payment/select_method/edit_payment"(platform:"/web", dataSet)
         "/checkout/payment/select_method/show_distances"(platform:"/web", dataSet)
