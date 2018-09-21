@@ -3,6 +3,22 @@ import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
 
 tracks {
+
+    propertyDefinitions {
+        categoryId(required: true, type: PropertyType.String, description: "Id for category item")
+        itemId(required: true, type: PropertyType.String, description: "Id of item used to")
+        siteId(required: false, type: PropertyType.String, description: "Id of the site")
+        sellerId(required: false, type: PropertyType.Numeric, description: "Seller id")
+        sellerProfile(required: true, type: PropertyType.String, description: "Type of seller")
+        sessionId(required: true, type: PropertyType.String, description: "Id for user session")
+        categoryDomain(required: false, type: PropertyType.String, description: "Item category domain")
+        categoryPath(required: false, type: PropertyType.ArrayList, description: "Path of category")
+    }
+
+    propertyGroups {
+        sellerCentralModifyGroup(categoryId, siteId, sellerId, sellerProfile, itemId, sessionId, categoryDomain, categoryPath)
+    }
+
     "/seller_central"(platform: "/", isAbstract: true) {}
     "/seller_central/listings"(platform: "/", isAbstract: true) {}
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {}
@@ -61,4 +77,20 @@ tracks {
     "/seller_central/bulk/search"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/bulk/undo_changes"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify"(platform: "/", type: TrackType.View) {
+        sellerCentralModifyGroup
+    }
+
+    "/seller_central/modify/variations"(platform: "/", type: TrackType.View) {
+        sellerCentralModifyGroup
+    }
+
+    "/seller_central/modify/variations_custom"(platform: "/", type: TrackType.View) {
+        sellerCentralModifyGroup
+    }
+
+    "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View) {
+        sellerCentralModifyGroup
+    }
 }
