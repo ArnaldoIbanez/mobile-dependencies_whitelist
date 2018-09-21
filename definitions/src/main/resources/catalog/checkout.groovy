@@ -158,7 +158,7 @@ tracks {
     "/checkout/payments"(platform: "/", isAbstract: true) {
     }
 
-    "/checkout/payment/select_type"(platform: "/web") {}
+    "/checkout/payment/select_type"(platform: "/web", type: TrackType.View) {}
     "/checkout/payments/select_payment_method"(platform: "/web") {}
     "/checkout/payments/select_payment_type"(platform: "/web") {}
     "/checkout/payments/select_split_payment"(platform: "/web") {}
