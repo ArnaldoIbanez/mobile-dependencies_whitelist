@@ -6,6 +6,7 @@ trackTests {
 
     test("Mobile Notifications"){
 
+        "/notification_center/screen"(platform: "/", type: TrackType.View){}
         "/notification_center"(platform: "/mobile"){}
         "/notification_center/abort"(platform: "/mobile"){}
         "/notification_center/addresses-update"(platform: "/mobile") {}
