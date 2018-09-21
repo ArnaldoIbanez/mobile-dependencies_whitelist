@@ -106,6 +106,8 @@ tracks {
 
 "/cart/checkout/payment"(platform: "/", isAbstract: true) {}
 
+"/cart/checkout/payment/select_type"(platform:"/", type: TrackType.View) {}
+
 "/cart/checkout/payment/select_method"(platform:"/", type: TrackType.View) {
     coupon(required: false, type: PropertyType.Boolean, description: "If the user redeemed a coupon code")
     coupon_discount(required: false, type: PropertyType.Numeric, description: "Total coupon discount")

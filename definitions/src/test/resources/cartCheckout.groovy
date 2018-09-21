@@ -126,6 +126,7 @@ trackTests {
             dataSet()
             user_identification_fields: ["doc_type", "doc_number", "name", "las_name"]
         }
+        "/cart/checkout/payment/select_type"(platform:"/", dataSet)
         "/cart/checkout/payment/select_method"(platform:"/", dataSet)
         "/cart/checkout/payment/select_method/edit_payment"(platform:"/", dataSet)
         "/cart/checkout/payment/select_method/show_distances"(platform:"/", dataSet)
