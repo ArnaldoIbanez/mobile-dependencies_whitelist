@@ -126,6 +126,11 @@ tracks {
         available_consumer_credit(required:false, type: PropertyType.String, values:["YES", "NO"], description:"If the user has active consumer credits")
 
         context(required: false, type: PropertyType.String, description: "Reference to the context that started checkout flow")
+
+        operation_status(required: false, description: "status")
+        user_identification(required: false, description: "User identification data")
+        available_methods(required: false, type: PropertyType.ArrayList, description: "Available payment methods for this flow")
+        nearest_store_distance(required: false, description: "Distance to the nearest store")
     }
 
     /*
