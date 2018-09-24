@@ -25,8 +25,6 @@ trackTests {
         "/pppi/notice/form/success"(platform: "/") {}
         "/pppi/notice/form/error"(platform: "/") {}
 
-        "/pppi/notice/error"(platform: "/") {}
-
         // Rights
 
         "/pppi/rights/enroll"(platform: "/") {}
@@ -34,11 +32,11 @@ trackTests {
         "/pppi/rights/enroll/success"(platform: "/") {}
         "/pppi/rights/enroll/error"(platform: "/") {}
 
-        "/pppi/rights/member/properties"(platform: "/") {}
+        "/pppi/rights/member"(platform: "/") {}
         "/pppi/rights/member/success"(platform: "/") {}
         "/pppi/rights/member/error"(platform: "/") {}
 
-        "/pppi/rights/error"(platform: "/") {}
+        "/pppi/error"(platform: "/") {}
 
     }
 
