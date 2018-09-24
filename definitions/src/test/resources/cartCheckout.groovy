@@ -114,6 +114,11 @@ trackTests {
             ]
             context = "vip_combo"
             checkout_flow = "cart"
+
+            operation_status = "ok"
+            user_identification = ["doc_type", "doc_number"]
+            available_methods = ["visa", "master", "amex"]
+            nearest_store_distance = 250000
         }
 
         "/cart/checkout/geolocation"(platform:"/", type: TrackType.Event) {

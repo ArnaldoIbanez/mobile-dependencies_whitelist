@@ -94,6 +94,10 @@ tracks {
     
     context(required: false, type: PropertyType.String, description: "Reference to the context that started cart flow")
     checkout_flow(required: false, type: PropertyType.String, values: ["cart"], description: "The type of checkout flow. Cart only for these tracks for now")
+
+    operation_status(required: false, description: "status")
+    user_identification(required: false, description: "User identification data")
+    nearest_store_distance(required: false, description: "Distance to the nearest store")
 }
 
 "/cart/checkout/geolocation" (platform: "/", type: TrackType.Event) {
