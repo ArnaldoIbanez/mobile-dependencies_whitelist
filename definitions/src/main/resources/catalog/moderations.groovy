@@ -32,8 +32,6 @@ tracks {
     "/pppi/notice/form/success"(platform: "/", type: TrackType.View) {}
     "/pppi/notice/form/error"(platform: "/", type: TrackType.View) {}
 
-    "/pppi/notice/error"(platform: "/", type: TrackType.View) {}
-
     // Rights
 
     "/pppi/rights"(platform: "/", isAbstract: true) {}
@@ -43,12 +41,9 @@ tracks {
     "/pppi/rights/enroll/success"(platform: "/", type: TrackType.View) {}
     "/pppi/rights/enroll/error"(platform: "/", type: TrackType.View) {}
 
-    "/pppi/rights/member"(platform: "/", isAbstract: true) {}
-
-    "/pppi/rights/member/properties"(platform: "/", type: TrackType.View) {}
+    "/pppi/rights/member"(platform: "/", type: TrackType.View) {}
     "/pppi/rights/member/success"(platform: "/", type: TrackType.View) {}
     "/pppi/rights/member/error"(platform: "/", type: TrackType.View) {}
 
-    "/pppi/rights/error"(platform: "/", type: TrackType.View) {}
-
+    "/pppi/error"(platform: "/", type: TrackType.View) {}
 }
