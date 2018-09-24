@@ -1823,11 +1823,8 @@ trackTests {
             ]
 
             operation_status = "ok"
-
             user_identification = ["doc_type", "doc_number"]
-
             available_methods = ["visa", "master", "amex"]
-
             nearest_store_distance = 250000
         }
 
