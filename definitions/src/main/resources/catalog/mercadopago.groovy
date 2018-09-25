@@ -818,7 +818,8 @@ tracks {
      //MP Asset management
     //-------------------
     "/asset_management"(platform: "/", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        label (required: false, type: PropertyType.String, description: "The label attached to the current event")
+        category (required: false, type: PropertyType.String, description: "The category of the current event")
     }
     //Onboarding
     "/asset_management/onboarding"(platform: "/mobile", type: TrackType.View) {

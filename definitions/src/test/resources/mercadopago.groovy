@@ -3229,81 +3229,38 @@ trackTests {
     test("Asset management") {
         //Onboarding
         "/asset_management/onboarding"(platform: "/mobile") {
-            flow = "/asset_management"
             from = "/deep_link"
         }
         //Challenges
-        "/asset_management/challenge_pep"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_fatca"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_regulated_entity"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_manual_input_dob"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_manual_input_document"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_mismatch"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_cx_pending"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_number_of_attempts_exceeded"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_identity_validation"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_identification_bad_quality"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_country_of_birth"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_review_and_confirm"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_document_type"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_gender"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/terms_and_conditions"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
+        "/asset_management/challenge_pep"(platform: "/mobile") {}
+        "/asset_management/challenge_fatca"(platform: "/mobile") {}
+        "/asset_management/challenge_regulated_entity"(platform: "/mobile") {}
+        "/asset_management/challenge_manual_input_dob"(platform: "/mobile") {}
+        "/asset_management/challenge_manual_input_document"(platform: "/mobile") {}
+        "/asset_management/challenge_mismatch"(platform: "/mobile") {}
+        "/asset_management/challenge_cx_pending"(platform: "/mobile") {}
+        "/asset_management/challenge_number_of_attempts_exceeded"(platform: "/mobile") {}
+        "/asset_management/challenge_identity_validation"(platform: "/mobile") {}
+        "/asset_management/challenge_identification_bad_quality"(platform: "/mobile") {}
+        "/asset_management/challenge_country_of_birth"(platform: "/mobile") {}
+        "/asset_management/challenge_review_and_confirm"(platform: "/mobile") {}
+        "/asset_management/challenge_document_type"(platform: "/mobile") {}
+        "/asset_management/challenge_gender"(platform: "/mobile") {}
+        "/asset_management/terms_and_conditions"(platform: "/mobile") {}
         //Opt-out
-        "/asset_management/opt_out"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/result_stop_investing"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
+        "/asset_management/opt_out"(platform: "/mobile") {}
+        "/asset_management/result_stop_investing"(platform: "/mobile") {}
         //Detail
         "/asset_management/investment_detail"(platform: "/mobile") {
-            flow = "/asset_management"
             from = "/deep_link"
         }
-        "/asset_management/movements_detail"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
+        "/asset_management/movements_detail"(platform: "/mobile") {}
         //Congrats
-        "/asset_management/result_investing"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
+        "/asset_management/result_investing"(platform: "/mobile") {}
         //Faqs
-        "/asset_management/faqs"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
+        "/asset_management/faqs"(platform: "/mobile") {}
         //Splitter
         "/asset_management/splitter"(platform: "/mobile") {
-            flow = "/asset_management"
             from = "/deep_link"
         }
     }
