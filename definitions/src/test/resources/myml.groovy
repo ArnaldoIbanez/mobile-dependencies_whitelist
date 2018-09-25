@@ -253,20 +253,170 @@ trackTests {
         }
     }
 
-    test("Fiscal data pages") {
-        "/myml/fiscal_information/message"(platform: "/") {}
-        "/myml/fiscal_information/mobile"(platform: "/") {}
-        "/myml/fiscal_information/not-found"(platform: "/") {}
-        "/myml/fiscal_information/success"(platform: "/") {}
-        "/myml/fiscal_information/success/btn-sales"(platform: "/", type: TrackType.Event) {}
-        
-        "/myml/fiscal_information/type"(platform: "/") {}
-        "/myml/fiscal_information/type/continue"(platform: "/", type: TrackType.Event) {
-            type = "single"
+    test("Fiscal Information pages") {
+        "/myml/fiscal_information/mobile"(platform: "/", type: TrackType.View) {}
+        "/myml/fiscal_information/not_found"(platform: "/", type: TrackType.View) {}
+
+        "/myml/fiscal_information/message"(platform: "/", type: TrackType.View) {
+            code = "permission"
         }
 
-        "/myml/fiscal_information/tax_information"(platform: "/") {}
-        "/myml/fiscal_information/modal_price/close"(platform: "/", type: TrackType.Event) {}
+        "/myml/fiscal_information/tax_information"(platform: "/", type: TrackType.View) {
+            url = "/fiscal-information/item/MLB1234/tax-information"
+            item_id = "MLB1234"
+            order_id = ""
+            query_type = "single"
+            query_data = ""
+        }
+
+        "/myml/fiscal_information/tax_information/form/save/request"(platform: "/", type: TrackType.Event) {
+            url = "/fiscal-information/item/MLB1234/tax-information"
+            item_id = "MLB1234"
+            data = {
+                products = [
+                    {
+                        name = "Tests"
+                        sku = "1234"
+                    }
+                ]
+            }
+        }
+
+        "/myml/fiscal_information/tax_information/form/save/response"(platform: "/", type: TrackType.Event) {
+            url = "/fiscal-information/item/MLB1234/tax-information"
+            item_id = "MLB1234"
+            callback_url = '/fiscal-information/item/MLB1234/success'
+            error = false
+            data = {
+                products = [
+                    {
+                        name = "Tests"
+                        sku = "1234"
+                    }
+                ]
+            }
+        }
+
+        "/myml/fiscal_information/tax_information/modal_price"(platform: "/", type: TrackType.Event) {
+            url = "/fiscal-information/item/MLB1234/tax-information"
+            item_id = "MLB1234"
+            price = 100
+            form_percentages = [100, 100]
+            rounded_percentages = [50, 50]
+        }
+
+        "/myml/fiscal_information/tax_information/modal_price/cancel"(platform: "/", type: TrackType.Event) {
+            url = "/fiscal-information/item/MLB1234/tax-information"
+            item_id = "MLB1234"
+            price = 100
+            form_percentages = [100, 100]
+            rounded_percentages = [50, 50]
+        }
+
+        "/myml/fiscal_information/tax_information/modal_price/confirm"(platform: "/", type: TrackType.Event) {
+            url = "/fiscal-information/item/MLB1234/tax-information"
+            item_id = "MLB1234"
+            query_type = "single"
+            user_edited = false
+            user_rounded = false
+            price = 100
+            form_percentages = [100, 100]
+            rounded_percentages = [50, 50]
+        }
+
+        "/myml/fiscal_information/tax_information/difference"(platform: "/", type: TrackType.View) {
+            url = "/fiscal-information/item/MLB1234/tax-information/difference"
+            item_id = "MLB1234"
+            order_id = ""
+            query_data = ""
+        }
+
+        "/myml/fiscal_information/tax_information/difference/form/save/request"(platform: "/", type: TrackType.Event) {
+            url = "/fiscal-information/item/MLB1234/tax-information/difference"
+            item_id = "MLB1234"
+            data = {
+                products = [
+                    {
+                        name = "Tests"
+                        sku = "1234"
+                    }
+                ]
+            }
+        }
+
+        "/myml/fiscal_information/tax_information/difference/form/save/response"(platform: "/", type: TrackType.Event) {
+            url = "/fiscal-information/item/MLB1234/tax-information/difference"
+            item_id = "MLB1234"
+            callback_url = '/fiscal-information/item/MLB1234/success'
+            error = false
+            data = {
+                products = [
+                    {
+                        name = "Tests"
+                        sku = "1234"
+                    }
+                ]
+            }
+        }
+
+        "/myml/fiscal_information/tax_information/rejection"(platform: "/", type: TrackType.View) {
+            url = "/fiscal-information/item/MLB1234/tax-information/rejection"
+            item_id = "MLB1234"
+            order_id = ""
+            query_data = ""
+        }
+
+        "/myml/fiscal_information/tax_information/rejection/form/save/request"(platform: "/", type: TrackType.Event) {
+            url = "/fiscal-information/item/MLB1234/tax-information/rejection"
+            item_id = "MLB1234"
+            data = {
+                products = [
+                    {
+                        name = "Tests"
+                        sku = "1234"
+                    }
+                ]
+            }
+        }
+
+        "/myml/fiscal_information/tax_information/rejection/form/save/response"(platform: "/", type: TrackType.Event) {
+            url = "/fiscal-information/item/MLB1234/tax-information/rejection"
+            item_id = "MLB1234"
+            callback_url = '/fiscal-information/item/MLB1234/success'
+            error = false
+            data = {
+                products = [
+                    {
+                        name = "Tests"
+                        sku = "1234"
+                    }
+                ]
+            }
+        }
+
+        "/myml/fiscal_information/tax_information/success"(platform: "/", type: TrackType.View) {
+            url = "/fiscal-information/item/MLB1234/tax-information/success"
+            item_id = "MLB1234"
+        }
+
+        "/myml/fiscal_information/tax_information/success/btn/listings"(platform: "/", type: TrackType.Event) {
+            url = "/fiscal-information/item/MLB1234/tax-information/success"
+            item_id = "MLB1234"
+        }
+
+        "/myml/fiscal_information/type"(platform: "/", type: TrackType.View) {
+            url = "/fiscal-information/item/MLB1234/type"
+            item_id = "MLB1234"
+            order_id = ""
+            query_data = ""
+        }
+
+        "/myml/fiscal_information/type/selection"(platform: "/", type: TrackType.Event) {
+            url = "/fiscal-information/item/MLB1234/type"
+            item_id = "MLB1234"
+            order_id = ""
+            type = "single"
+        }
     }
 
 

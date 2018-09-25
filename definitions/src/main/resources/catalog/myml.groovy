@@ -321,33 +321,101 @@ tracks {
     }
 
     //:::: MYML - FISCAL INFORMATION
-
     "/myml/fiscal_information"(platform: "/", isAbstract: true) {}
-    "/myml/fiscal_information/message"(platform: "/") {}
-    "/myml/fiscal_information/mobile"(platform: "/") {}
-    "/myml/fiscal_information/not-found"(platform: "/") {}
-    "/myml/fiscal_information/success"(platform: "/") {}
-    "/myml/fiscal_information/success/btn-sales"(platform: "/", type: TrackType.Event) {}
+    "/myml/fiscal_information/mobile"(platform: "/", type: TrackType.View) {}
+    "/myml/fiscal_information/not_found"(platform: "/", type: TrackType.View) {}
 
-    "/myml/fiscal_information/type"(platform: "/") {
-        item_id(required: false, type: PropertyType.String, description: "Item id - page variation")
-        order_id(required: false, type: PropertyType.String, description: "Order id - page variation")
+    // Message page
+    "/myml/fiscal_information/message"(platform: "/", type: TrackType.View) {
+        code(required: false, type: PropertyType.String, description: "Message code to display")
     }
 
-    "/myml/fiscal_information/type/continue"(platform: "/", type: TrackType.Event) {
-        type(required: true, type: PropertyType.String, values:[
-        "single", 
-        "bundle",
-        ], description: "Fiscal data type")
+    // Tax information form page
+    "/myml/fiscal_information/tax_information"(platform: "/", type: TrackType.View) {
+        url(required: true, type: PropertyType.String, description: "Page url")
+        item_id(required: true, type: PropertyType.String, description: "Meli item id")
+        order_id(required: false, type: PropertyType.String, description: "Meli order id")
+        query_type(required: false, type: PropertyType.String, values: ["single", "bundle"], description: "Type of fiscal information")
+        query_data(required: false, type: PropertyType.String, description: "Base64 code with order informations")
     }
 
-    "/myml/fiscal_information/tax_information"(platform: "/") {
-         item_id(required: false, type: PropertyType.String, description: "Item id - page variation")
-         order_id(required: false, type: PropertyType.String, description: "Order id - page variation")
+    "/myml/fiscal_information/tax_information/form"(platform: "/", isAbstract: true) {}
+    "/myml/fiscal_information/tax_information/form/save"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_information/tax_information/form/save/request"(platform: "/", type: TrackType.Event) {
+        data(required: true, description: "Fiscal information to sending to api")
     }
 
-    "/myml/fiscal_information/modal_price"(platform: "/", isAbstract: true) {}
-    "/myml/fiscal_information/modal_price/close"(platform: "/", type: TrackType.Event) {}
+    "/myml/fiscal_information/tax_information/form/save/response"(platform: "/", type: TrackType.Event) {
+        callback_url(required: true, type: PropertyType.String, description: "Url to redirect")
+        error(required: true, type: PropertyType.Boolean, description: "Has error on api?")
+        data(required: true, description: "Fiscal information received from api")
+    }
+
+    // Tax information form page, modal price
+    "/myml/fiscal_information/tax_information/modal_price"(platform: "/", type: TrackType.Event) {
+        price(required: true, type: PropertyType.Numeric, description: "Item/Order price")
+        form_percentages(required: true, type: PropertyType.ArrayList, description: "List products percentage on form")
+        rounded_percentages(required: true, type: PropertyType.ArrayList, description: "List products percentage on rounded")
+    }
+
+    "/myml/fiscal_information/tax_information/modal_price/cancel"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_information/tax_information/modal_price/confirm"(platform: "/", type: TrackType.Event) {
+        user_edited(required: true, type: PropertyType.Boolean, description: "User has edited prices?")
+        user_rounded(required: true, type: PropertyType.Boolean, description: "User has rounded after change prices?")
+    }
+
+    // Tax information difference form page
+    "/myml/fiscal_information/tax_information/difference"(platform: "/", type: TrackType.View) {}
+
+    "/myml/fiscal_information/tax_information/difference/form"(platform: "/", isAbstract: true) {}
+    "/myml/fiscal_information/tax_information/difference/form/save"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_information/tax_information/difference/form/save/request"(platform: "/", type: TrackType.Event) {
+        data(required: true, description: "Fiscal information to sending to api")
+    }
+
+    "/myml/fiscal_information/tax_information/difference/form/save/response"(platform: "/", type: TrackType.Event) {
+        callback_url(required: true, type: PropertyType.String, description: "Url to redirect")
+        error(required: true, type: PropertyType.Boolean, description: "Has error on api?")
+        data(required: true, description: "Fiscal information received from api")
+    }
+
+    // Tax information rejection form page
+    "/myml/fiscal_information/tax_information/rejection"(platform: "/", type: TrackType.View) {}
+
+    "/myml/fiscal_information/tax_information/rejection/form"(platform: "/", isAbstract: true) {}
+    "/myml/fiscal_information/tax_information/rejection/form/save"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_information/tax_information/rejection/form/save/request"(platform: "/", type: TrackType.Event) {
+        data(required: true, description: "Fiscal information to sending to api")
+    }
+
+    "/myml/fiscal_information/tax_information/rejection/form/save/response"(platform: "/", type: TrackType.Event) {
+        callback_url(required: true, type: PropertyType.String, description: "Url to redirect")
+        error(required: true, type: PropertyType.Boolean, description: "Has error on api?")
+        data(required: true, description: "Fiscal information received from api")
+    }
+
+    // Tax information success page
+    "/myml/fiscal_information/tax_information/success"(platform: "/", type: TrackType.View) {}
+
+    "/myml/fiscal_information/tax_information/success/btn"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_information/tax_information/success/btn/listings"(platform: "/", type: TrackType.Event) {}
+
+    // Type page
+    "/myml/fiscal_information/type"(platform: "/", type: TrackType.View) {
+        url(required: true, type: PropertyType.String, description: "Page url")
+        item_id(required: true, type: PropertyType.String, description: "Meli item id")
+        order_id(required: false, type: PropertyType.String, description: "Meli order id")
+        query_data(required: false, type: PropertyType.String, description: "Base64 code with order informations")
+    }
+
+    "/myml/fiscal_information/type/selection"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, values: ["single", "bundle"], description: "Type of fiscal information")
+    }
 
     //:::: MYML - INVOICES
     "/myml/invoices"(platform: "/", isAbstract: true) {}
