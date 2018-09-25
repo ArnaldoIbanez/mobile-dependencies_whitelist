@@ -1827,6 +1827,7 @@ trackTests {
             available_methods = ["visa", "master", "amex"]
             nearest_store_distance = 250000
             checkout_flow = "direct"
+            flow_type = "buy_it_now"
         }
 
         "/checkout/geolocation"(platform:"/web", type: TrackType.Event) {
@@ -1869,11 +1870,15 @@ trackTests {
         "/checkout/congrats"(platform:"/web"){
             dataSet()
             dataSetCongrats()
+            purchase_status = "paid"
+            purchase_id = 11111
         }
         "/checkout/congrats"(platform:"/web") {
             dataSet()
             dataSetCongrats()
             geolocated = true
+            purchase_status = "paid"
+            purchase_id = 11111
         }
         "/checkout/finish/keep_buying"(platform:"/web"){
             dataSet()
