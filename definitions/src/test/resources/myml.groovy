@@ -271,6 +271,7 @@ trackTests {
 
         "/myml/fiscal_information/tax_information/form/save/request"(platform: "/", type: TrackType.Event) {
             url = "/fiscal-information/item/MLB1234/tax-information"
+            item_id = "MLB1234"
             data = {
                 products = [
                     {
@@ -283,6 +284,7 @@ trackTests {
 
         "/myml/fiscal_information/tax_information/form/save/response"(platform: "/", type: TrackType.Event) {
             url = "/fiscal-information/item/MLB1234/tax-information"
+            item_id = "MLB1234"
             callback_url = '/fiscal-information/item/MLB1234/success'
             error = false
             data = {
@@ -297,6 +299,7 @@ trackTests {
 
         "/myml/fiscal_information/tax_information/modal_price"(platform: "/", type: TrackType.Event) {
             url = "/fiscal-information/item/MLB1234/tax-information"
+            item_id = "MLB1234"
             price = 100
             form_percentages = [100, 100]
             rounded_percentages = [50, 50]
@@ -304,6 +307,7 @@ trackTests {
 
         "/myml/fiscal_information/tax_information/modal_price/cancel"(platform: "/", type: TrackType.Event) {
             url = "/fiscal-information/item/MLB1234/tax-information"
+            item_id = "MLB1234"
             price = 100
             form_percentages = [100, 100]
             rounded_percentages = [50, 50]
@@ -311,6 +315,7 @@ trackTests {
 
         "/myml/fiscal_information/tax_information/modal_price/confirm"(platform: "/", type: TrackType.Event) {
             url = "/fiscal-information/item/MLB1234/tax-information"
+            item_id = "MLB1234"
             query_type = "single"
             user_edited = false
             user_rounded = false
