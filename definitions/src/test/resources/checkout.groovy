@@ -1826,6 +1826,7 @@ trackTests {
             user_identification = ["doc_type", "doc_number"]
             available_methods = ["visa", "master", "amex"]
             nearest_store_distance = 250000
+            checkout_flow = "direct"
         }
 
         "/checkout/geolocation"(platform:"/web", type: TrackType.Event) {

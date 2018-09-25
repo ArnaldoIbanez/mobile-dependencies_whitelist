@@ -101,7 +101,7 @@ tracks {
         first_for_order(serverSide: true)
 
         // Checkout flows
-        checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
+        checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct", "purchase"])
 
         //Billing info
         billing_info(required:false, description: "Dictionary containing the user selected billing info")
