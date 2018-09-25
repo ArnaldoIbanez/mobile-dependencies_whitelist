@@ -23,7 +23,7 @@ where
 t.ds >= '@param01 23'
 and t.ds < '@param02 23'
 and 
-(t.path LIKE '/support/widget/faq%' OR t.path LIKE '/support/widget/problem%' OR t.path LIKE '/support/widget/form%')
+(t.path LIKE '/support/widget/faq%' OR t.path LIKE '/support/widget/problem%' OR t.path LIKE '/support/widget/form%' OR t.path LIKE '/support/widget/folder%')
 GROUP BY
 t.path,
 v2.portal_source_id, 
