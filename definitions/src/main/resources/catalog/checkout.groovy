@@ -131,7 +131,7 @@ tracks {
         user_identification(required: false, description: "User identification data")
         available_methods(required: false, type: PropertyType.ArrayList, description: "Available payment methods for this flow")
         nearest_store_distance(required: false, description: "Distance to the nearest store")
-        flow_type(required: false, description: "Type of operation")
+        flow_type(required: false, type: PropertyType.String, description: "Type of operation")
     }
 
     /*
@@ -725,10 +725,9 @@ tracks {
     }
     //Congrats tracks - shared between Legacy App and new App (Required False to prevent catalog validation failures)
     "/checkout/congrats"(platform: "/") {
-        status(required: false, type: PropertyType.String)
-
-        purchase_status(required: false)
-        purchase_id(required: false, type: PropertyType.Numeric)
+        status(required: false, type: PropertyType.String)    
+        purchase_status(required: false, type: PropertyType.String, values: ["payment_required", "payment_in_process", "partially_paid", "paid", "pending_cancel", "cancelled", "confirmed"], description: "Status of the purchase")
+        purchase_id(required: false, type: PropertyType.Numeric, description: "Id of the purchase")
     }
 
     "/checkout/finish#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {

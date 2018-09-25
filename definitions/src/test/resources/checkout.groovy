@@ -1870,14 +1870,14 @@ trackTests {
         "/checkout/congrats"(platform:"/web"){
             dataSet()
             dataSetCongrats()
-            purchase_status = "ok"
+            purchase_status = "paid"
             purchase_id = 11111
         }
         "/checkout/congrats"(platform:"/web") {
             dataSet()
             dataSetCongrats()
             geolocated = true
-            purchase_status = "ok"
+            purchase_status = "paid"
             purchase_id = 11111
         }
         "/checkout/finish/keep_buying"(platform:"/web"){
