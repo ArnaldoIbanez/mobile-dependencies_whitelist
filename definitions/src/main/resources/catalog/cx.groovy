@@ -26,10 +26,18 @@ tracks {
                 description: "Indicates the problem ID for the current page (only in widget)")
         portal_has_channels_configured(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the current content has any channels configured")
+        portal_form_id(required: false, type: PropertyType.Numeric, 
+                description: "Indicates the id of the form shown")
     }
 
     propertyGroups {
-        portal_default(portal_contact, portal_content_id, portal_source_id, portal_problem_id, portal_has_channels_configured)
+        portal_default(portal_contact,portal_content_id, portal_form_id, portal_has_channels_configured, portal_problem_id, portal_source_id)
+        portal_source_id(portal_source_id)
+        portal_contact(portal_contact)
+        portal_content_id(portal_content_id)
+        portal_problem_id(portal_problem_id)
+        portal_has_channels_configured(portal_has_channels_configured)
+        portal_form_id(portal_form_id)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -39,11 +47,11 @@ tracks {
     }
     "/portal/hub"(platform: "/", type: TrackType.View) {
         portal_default
-        portal_form_id(required: true, type: PropertyType.Numeric, description: "Indicates the id of the form shown")
+        portal_form_id    
     }
     "/portal/form"(platform: "/", type: TrackType.View) {
         portal_default
-        portal_form_id(required: true, type: PropertyType.Numeric, description: "Indicates the id of the form shown")
+        portal_form_id
     }
     "/portal/folder"(platform: "/", type: TrackType.View) {
         portal_default
@@ -55,15 +63,26 @@ tracks {
     "/support"(platform: "/", isAbstract:  true) {}
     "/support/widget"(platform: "/", isAbstract:  true) {}
 
-    "/support/widget/faq"(platform: "/", type: TrackType.View) {
-        portal_default
-    }
-    "/support/widget/problem"(platform: "/", type: TrackType.View) {
-        portal_default
-    }
-    "/support/widget/form"(platform: "/", type: TrackType.View) {
-        portal_default
-        portal_form_id(required: true, type: PropertyType.Numeric, description: "Indicates the id of the form shown")
+    "/support/widget/folder"(platform: "/", type: TrackType.View) {
+        portal_source_id
     }
 
+    "/support/widget/faq"(platform: "/", type: TrackType.View) {
+        portal_content_id
+        portal_source_id
+        portal_has_channels_configured
+    }
+
+    "/support/widget/problem"(platform: "/", type: TrackType.View) {
+        portal_content_id
+        portal_source_id
+        portal_problem_id
+    }
+
+    "/support/widget/form"(platform: "/", type: TrackType.View) {
+        portal_content_id
+        portal_source_id
+        portal_form_id
+        portal_problem_id
+    }
 }

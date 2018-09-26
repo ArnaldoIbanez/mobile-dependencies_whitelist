@@ -48,24 +48,23 @@ trackTests {
 
 
     test("Support Widget") {
+        "/support/widget/folder"(platform: "/", type: TrackType.View) {
+            portal_source_id = 999
+        }
         "/support/widget/faq"(platform: "/", type: TrackType.View) {
             portal_content_id = 987
             portal_source_id = 123
             portal_has_channels_configured = true
-            portal_problem_id = 456
         }
         "/support/widget/problem"(platform: "/", type: TrackType.View) {
             portal_content_id = 987
             portal_source_id = 123
-            portal_has_channels_configured = true
-            portal_contact = "{form: \"true\", c2c: \"api_timeout\", chat: \"api_timeout\"}"
             portal_problem_id = 456
         }
         "/support/widget/form"(platform: "/", type: TrackType.View) {
             portal_form_id = 56
             portal_source_id = 123
-            portal_has_channels_configured = true
-            portal_contact = "{form: \"true\", c2c: \"api_timeout\", chat: \"api_timeout\"}"
+            portal_content_id = 987
             portal_problem_id = 456
         }
     }
