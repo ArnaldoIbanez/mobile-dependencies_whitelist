@@ -16,7 +16,8 @@ trackTests {
     }
 
     def defaultPortalInfo = {
-        portal_title = "/home"
+        portal_content_id = 987
+        portal_form_id = 54
         portal_source_id = 123
         portal_has_channels_configured = true
         portal_contact = "{form: \"true\", c2c: \"api_timeout\", chat: \"api_timeout\"}"
@@ -24,34 +25,47 @@ trackTests {
 
     test("Portal") {
         "/portal/faq"(platform: "/", type: TrackType.View) {
-            defaultPortalInfo()
+            portal_content_id = 987
+            portal_source_id = 123
+            portal_has_channels_configured = true
         }
         "/portal/hub"(platform: "/", type: TrackType.View) {
-            defaultPortalInfo()
+            portal_form_id = 54
+            portal_source_id = 123
+            portal_contact = "{form: \"true\", c2c: \"api_timeout\", chat: \"api_timeout\"}"
         }
         "/portal/form"(platform: "/", type: TrackType.View) {
-            defaultPortalInfo()
+            portal_form_id = 54
+            portal_source_id = 123
         }
         "/portal/folder"(platform: "/", type: TrackType.View) {
-            defaultPortalInfo()
+            portal_content_id = 987
+            portal_source_id = 123
+            portal_has_channels_configured = true
         }
-        "/portal/create_case"(platform: "/", type: TrackType.View) {
-            defaultPortalInfo()
-        }
+        "/portal/create_case"(platform: "/", type: TrackType.View) {}
     }
 
 
     test("Support Widget") {
         "/support/widget/faq"(platform: "/", type: TrackType.View) {
-            defaultPortalInfo()
+            portal_content_id = 987
+            portal_source_id = 123
+            portal_has_channels_configured = true
             portal_problem_id = 456
         }
         "/support/widget/problem"(platform: "/", type: TrackType.View) {
-            defaultPortalInfo()
+            portal_content_id = 987
+            portal_source_id = 123
+            portal_has_channels_configured = true
+            portal_contact = "{form: \"true\", c2c: \"api_timeout\", chat: \"api_timeout\"}"
             portal_problem_id = 456
         }
         "/support/widget/form"(platform: "/", type: TrackType.View) {
-            defaultPortalInfo()
+            portal_form_id = 56
+            portal_source_id = 123
+            portal_has_channels_configured = true
+            portal_contact = "{form: \"true\", c2c: \"api_timeout\", chat: \"api_timeout\"}"
             portal_problem_id = 456
         }
     }

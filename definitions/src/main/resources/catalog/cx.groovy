@@ -18,8 +18,8 @@ tracks {
     propertyDefinitions {
         portal_contact(required: false, type: PropertyType.String,
                 description: "Indicates if the current hub has channels enabled and why it hasn't")
-        portal_title(required: false, type: PropertyType.String,
-                description: "Indicates the title shown to the user on the url of the current page")
+        portal_content_id(required: false, type: PropertyType.Numeric,
+                description: "Indicates the id of the content shown on the page")
         portal_source_id(required: false, type: PropertyType.Numeric,
                 description: "Indicates the source ID for the current page")
         portal_problem_id(required: false, type: PropertyType.Numeric,
@@ -29,7 +29,7 @@ tracks {
     }
 
     propertyGroups {
-        portal_default(portal_contact, portal_title, portal_source_id, portal_problem_id, portal_has_channels_configured)
+        portal_default(portal_contact, portal_content_id, portal_source_id, portal_problem_id, portal_has_channels_configured)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -39,9 +39,11 @@ tracks {
     }
     "/portal/hub"(platform: "/", type: TrackType.View) {
         portal_default
+        portal_form_id(required: true, type: PropertyType.Numeric, description: "Indicates the id of the form shown")
     }
     "/portal/form"(platform: "/", type: TrackType.View) {
         portal_default
+        portal_form_id(required: true, type: PropertyType.Numeric, description: "Indicates the id of the form shown")
     }
     "/portal/folder"(platform: "/", type: TrackType.View) {
         portal_default
@@ -61,6 +63,7 @@ tracks {
     }
     "/support/widget/form"(platform: "/", type: TrackType.View) {
         portal_default
+        portal_form_id(required: true, type: PropertyType.Numeric, description: "Indicates the id of the form shown")
     }
 
 }
