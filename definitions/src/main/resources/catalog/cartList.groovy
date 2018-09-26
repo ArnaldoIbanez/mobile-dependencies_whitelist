@@ -52,6 +52,7 @@ tracks {
 
 "/cart/my_cart"(platform: "/") {
     resolution(required:false, type: PropertyType.String)
+    cart_ratio(required: false, type: PropertyType.String, values: ["applies", "not_applies"])
 }
 
 "/cart/my_cart/save_for_later"(platform: "/", type: TrackType.Event) {
@@ -115,6 +116,7 @@ tracks {
     items(required: true, type:PropertyType.ArrayList, description: "Array of items that are being added")
     context(required: false)
     free_shipping_benefit(required: false, type: PropertyType.Boolean)
+    cart_ratio(required: false, type: PropertyType.String, values: ["applies", "not_applies"])
 }
 
 "/cart/item_add/error"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
