@@ -5,7 +5,7 @@
   "process_name": "sj-emails-open-rate",
   "cron": "0 1,21 * * *",
   "partition": {
-    "name": "ds",
+    "name": "sent_date",
     "type": "DATE"
   },
   "extract": {

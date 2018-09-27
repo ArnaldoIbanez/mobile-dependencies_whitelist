@@ -1,5 +1,6 @@
-SELECT COALESCE(Sent.sent_date, Open.sent_date) AS sent_date, COALESCE(Sent.Template,Open.Template) as template, COALESCE(Sent.Path,'/email/generic') as path,
-       COALESCE(Sent.Count_send,CAST(0 AS BIGINT)) as count_send, COALESCE(Open.Count_open,CAST(0 AS BIGINT)) as count_open
+SELECT COALESCE(Sent.Template,Open.Template) as template, COALESCE(Sent.Path,'/email/generic') as path,
+       COALESCE(Sent.Count_send,CAST(0 AS BIGINT)) as count_send, COALESCE(Open.Count_open,CAST(0 AS BIGINT)) as count_open,
+       COALESCE(Sent.sent_date, Open.sent_date) AS sent_date
 FROM (
   SELECT substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) AS sent_date,
          get_json_object(tracks.event_data,'$.email_template') AS Template,
