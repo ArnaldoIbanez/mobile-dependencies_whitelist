@@ -59,6 +59,7 @@ tracks {
     "/portal/create_case"(platform: "/", type: TrackType.View) {
         portal_default
     }
+    "/portal/search"(platform: "/", isAbstract:  true) {}
     "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
     "/portal/search/empty"(platform: "/", type: TrackType.View) {}
     "/portal/search/result"(platform: "/", type: TrackType.View) {}
