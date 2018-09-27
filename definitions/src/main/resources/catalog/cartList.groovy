@@ -111,9 +111,10 @@ tracks {
 
 "/cart/my_cart/add_cp/dont_know_cp"(platform: "/", type: TrackType.Event){}
 
-"/cart/item_add"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+"/cart/item_add"(platform: "/", type: TrackType.View) {
     items(required: true, type:PropertyType.ArrayList, description: "Array of items that are being added")
-    context(required: false)
+    context(required: false, values: ["search","myml","cart","recommendations","bookmarks","bookmarks_widget","vip","loyalty","cart/saved_for_later","item_add","UNKNOWN"],
+            description: "The page or section where the add_cart_intention action is taking place")
     free_shipping_benefit(required: false, type: PropertyType.Boolean)
 }
 
