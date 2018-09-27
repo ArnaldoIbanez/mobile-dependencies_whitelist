@@ -16,17 +16,17 @@ tracks {
     "/cx/contact_types/click_on_contact_form" (platform: "/mobile", type: TrackType.Event){}
 
     propertyDefinitions {
-        portal_contact(required: false, type: PropertyType.String,
+        portal_contact(required: true, type: PropertyType.String,
                 description: "Indicates if the current hub has channels enabled and why it hasn't")
-        portal_content_id(required: false, type: PropertyType.Numeric,
+        portal_content_id(required: true, type: PropertyType.Numeric,
                 description: "Indicates the id of the content shown on the page")
-        portal_source_id(required: false, type: PropertyType.Numeric,
+        portal_source_id(required: true, type: PropertyType.Numeric,
                 description: "Indicates the source ID for the current page")
         portal_problem_id(required: false, type: PropertyType.Numeric,
                 description: "Indicates the problem ID for the current page (only in widget)")
-        portal_has_channels_configured(required: false, type: PropertyType.Boolean,
+        portal_has_channels_configured(required: true, type: PropertyType.Boolean,
                 description: "Indicates if the current content has any channels configured")
-        portal_form_id(required: false, type: PropertyType.Numeric, 
+        portal_form_id(required: true, type: PropertyType.Numeric, 
                 description: "Indicates the id of the form shown")
     }
 
@@ -59,6 +59,9 @@ tracks {
     "/portal/create_case"(platform: "/", type: TrackType.View) {
         portal_default
     }
+    "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
+    "/portal/search/empty"(platform: "/", type: TrackType.View) {}
+    "/portal/search/result"(platform: "/", type: TrackType.View) {}
 
     "/support"(platform: "/", isAbstract:  true) {}
     "/support/widget"(platform: "/", isAbstract:  true) {}
