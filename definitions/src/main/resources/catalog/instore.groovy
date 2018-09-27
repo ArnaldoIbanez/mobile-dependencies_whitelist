@@ -29,4 +29,8 @@ tracks {
     "/instore/waiting/generic_cashier"(platform: "/mobile", type: TrackType.View) {}
     "/instore/waiting/generic_ticket"(platform: "/mobile", type: TrackType.View) {}
 
+
+    "/instore/required_action"(platform: "/mobile", isAbstract: true) {}
+    "/instore/required_action/data_required"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/required_action/bluetooth_on"(platform: "/mobile", type: TrackType.View) {}
 }
