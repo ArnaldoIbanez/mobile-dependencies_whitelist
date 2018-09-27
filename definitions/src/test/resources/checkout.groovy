@@ -1840,6 +1840,7 @@ trackTests {
             dataSet()
         }
         "/checkout/payment/select_method"(platform:"/web", dataSet)
+        "/checkout/payment/input_sec_code"(platform:"/web", dataSet)
         "/checkout/payment/select_method/edit_payment"(platform:"/web", dataSet)
         "/checkout/payment/select_method/show_distances"(platform:"/web", dataSet)
         "/checkout/payment/select_store"(platform:"/web", dataSet)
@@ -1922,6 +1923,7 @@ trackTests {
         }
         "/checkout/show_ticket"(platform:"/web", dataSet)
         "/checkout/invalid_sec_code"(platform:"/web", dataSet)
+        "/checkout/payment/select_split_installments/select_installment"(platform:"/web", dataSet)
         "/checkout/invalid_sec_code/input_code"(platform:"/web", dataSet)
         "/checkout/call_for_auth"(platform:"/web", dataSet)
         "/checkout/call_for_auth/instructions"(platform:"/web", dataSet)

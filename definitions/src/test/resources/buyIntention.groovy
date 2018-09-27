@@ -12,6 +12,9 @@ trackTests {
     test("Buy intention event tests"){
 
         def buyIntentionDataSet = {
+            session_id=1234
+            vertical="core"
+            loyalty_level=3
             total_amount=2000
 
             seller = [

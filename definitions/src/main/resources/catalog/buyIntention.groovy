@@ -42,10 +42,64 @@ tracks {
     //unit_price
 
     total_amount(required: true, type: PropertyType.Numeric, description: "totalAmount")
-    context(required:true, description: "Indicates from where the buy_intention was initiated. Where did the user pressed de 'COMPRAR' button", values: ["vip", "saved_for_later", "cart", "cart_item", "item_add", "UNKNOWN"])
-    
-    // checkout flow debiera ser la misma nomeclatura que seguimos en CHO => https://github.com/mercadolibre/melidata-catalog/blob/5246718a3ed30b73dad66066c37f42329d64d0e6/definitions/src/main/resources/catalog/checkout.groovy#L92
-    checkout_flow(required: true, type: PropertyType.String, values: ["subscription", "direct","cart"],  description: "The type of CHO that is starting by this buy intention. Reservation/contracts CHO's are excluded by the moment")
+    context(required:true, description: "Indicates from where the buy_intention was initiated. Where did the user pressed de 'COMPRAR' button", values: ["vip", "saved_for_later", "cart", "cart_item", "vip_combo", "item_add", "UNKNOWN"])
+    checkout_flow(required: true, type: PropertyType.String, values: ["subscription", "direct","cart", "contract", "reservation", "subscription", "direct"],  description: "The type of CHO that is starting by this buy intention. Reservation/contracts CHO's are excluded by the moment")
+
+    //tracks específicos del flujo de checkout. TODO CHECK si hace sentido que lo mandemos o podemos dejar un track más limpio
+    total_amount_with_shipping(required: false, description: "totalAmount with shipping cost")
+
+    payments(required: false, description: "Array of payment information") //
+        // id
+        // payment_method,
+        // payment_type,
+        // installments,
+        // selected_card
+        // financed_order_cost_for_card
+        // payment_must_call_for_authorize
+
+    session_id(required:true, description:"Session in which the checkout is being held")
+
+    vertical(required:true, description: "Vertical of the item to be bought")
+
+    resolution(required:false, type: PropertyType.String, description: "resolution of the device")
+
+    available_methods(required: false, type: PropertyType.ArrayList, description: "Available payment methods for this flow")
+
+    buy_equal_pay(required: false, description: "BP flag")
+
+    shipping_pick_up_in_store(required:false, type: PropertyType.String, description: "If the item has puis available")
+
+    shipping(required: false, type:PropertyType.ArrayList)
+        // shipping_type
+        // cost
+        // shipping_option,
+        // id,
+        // name,
+        // shipping_method_id
+        // id
+        // shipping_mode
+
+    operation_status(required: false, description: "status")
+
+    loyalty_level(required:true, description:"The loyalty level of the buyer")
+
+    recovery_flow(required: false, description: "Is recovery CHO flow")
+
+    available_consumer_credit(required:false, type: PropertyType.String, values:["YES", "NO"], description:"If the user has active consumer credits")
+
+    account_money_info(required:false, type: PropertyType.ArrayList, description: "Array with data of the account money of the buyer")
+        //skipPassword
+        //useAccountMoneyWithAnotherPM
+        //availableAccountMoney
+
+    nearest_store_distance(required: false, description: "Distance to the nearest store")
+
+    available_subscription(required:false, description:"If the item is elegible for subscription")
+
+    order_id(required: false, type: PropertyType.Numeric, description: "order_id")
+
+    applies_cart_ratio(required: false, type: PropertyType.String, description: "appliesCartRatio")
+
 }
 
 }
