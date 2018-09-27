@@ -25,6 +25,8 @@ trackTests {
         "/instore/waiting/generic_cashier"(platform: "/mobile", type: TrackType.View) {}
         "/instore/waiting/generic_ticket"(platform: "/mobile", type: TrackType.View) {}
 
+        "/instore/required_action/data_required"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/required_action/bluetooth_on"(platform: "/mobile", type: TrackType.View) {}
 
         "/instore/map"(platform: "/mobile", type: TrackType.View) {}
         "/instore/generic_error"(platform: "/mobile", type: TrackType.View) {
