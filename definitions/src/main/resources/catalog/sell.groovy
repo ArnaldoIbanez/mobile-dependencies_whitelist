@@ -242,6 +242,7 @@ tracks {
         category_domain(required: false, description: "Category Domain", type: PropertyType.String)
         category_id(required: true, description: "Category Id", type: PropertyType.String)
         is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.Boolean)
+        category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
     }
     "/sell/list/phone_suggestion"(platform:"/mobile", type:TrackType.View){}
     "/sell/list/condition"(platform: "/", type: TrackType.View) {}
@@ -409,6 +410,7 @@ tracks {
         category_domain(required: false, description: "Category Domain", type: PropertyType.String)
         category_id(required: true, description: "Category Id", type: PropertyType.String)
         is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.Boolean)
+        category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
     }
     "/sell/update/condition"(platform: "/", type: TrackType.View) {}
     "/sell/update/condition_review"(platform: "/", type: TrackType.View) {}
