@@ -33,6 +33,27 @@ trackTests {
         from_count_around = "false"
     }
 
+    def trackDataForPickingDefault = {
+        warehouse_id = "BRWT01"
+        email = "email@mercadolibre.com.ar"
+        first_name = "Some first name"
+        last_name = "Some last name"
+        pickup_id = 1
+        checkpoint_id = 1
+    }
+
+    def trackDataForPickingForItemAndDestination = {
+        warehouse_id = "BRWT01"
+        email = "email@mercadolibre.com.ar"
+        first_name = "Some first name"
+        last_name = "Some last name"
+        pickup_id = 1
+        checkpoint_id = 1
+        inventory_id = 'AAAA00001'
+        destination_address = 'CA-0-001-000-00-00'
+        checkpoint_status = 'picked_up'
+    }
+
     test("WMS App") {
 
         //Views
@@ -108,7 +129,37 @@ trackTests {
             trackData()
         }
         "/wms/picking"(platform: "/mobile/android") {
-            trackData()
+            trackDataForPickingDefault()
+        }
+        "/wms/picking/confirmation"(platform: "/mobile/android") {
+            trackDataForPickingDefault()
+        }
+        "/wms/picking/scan_closest_address"(platform: "/mobile/android") {
+            trackDataForPickingDefault()
+        }
+        "/wms/picking/floor_selection"(platform: "/mobile/android") {
+            trackDataForPickingDefault()
+        }
+        "/wms/picking/scan_container"(platform: "/mobile/android") {
+            trackDataForPickingDefault()
+        }
+        "/wms/picking/scan_shelf"(platform: "/mobile/android") {
+            trackDataForPickingDefault()
+        }
+        "/wms/picking/item"(platform: "/mobile/android") {
+            trackDataForPickingForItemAndDestination()
+        }
+        "/wms/picking/scan_destination"(platform: "/mobile/android") {
+            trackDataForPickingForItemAndDestination()
+        }
+        "/wms/picking/change_floor_confirmation"(platform: "/mobile/android") {
+            trackDataForPickingDefault()
+        }
+        "/wms/picking/change_floor_scan"(platform: "/mobile/android") {
+            trackDataForPickingDefault()
+        }
+        "/wms/picking/congrats"(platform: "/mobile/android") {
+            trackDataForPickingDefault()
         }
         "/wms/return"(platform: "/mobile/android") {
             trackData()
@@ -186,6 +237,21 @@ trackTests {
             address_id = "RS-0-001-001-00-00"
             inventory_id = "AAAA11111"
             quantity = 1
+        }
+        "/wms/picking/confirmation/start_pickup"(platform: "/mobile/android") {
+            trackDataForPickingDefault()
+        }
+        "/wms/picking/item/item_not_found"(platform: "/mobile/android") {
+            trackDataForPickingForItemAndDestination()
+        }
+        "/wms/picking/item/finish_checkpoint"(platform: "/mobile/android") {
+            trackDataForPickingForItemAndDestination()
+        }
+        "/wms/picking/scan_destination/finish_checkpoint"(platform: "/mobile/android") {
+            trackDataForPickingForItemAndDestination()
+        }
+        "/wms/picking/congrats/finish_pickup"(platform: "/mobile/android") {
+            trackDataForPickingDefault()
         }
     }
 }
