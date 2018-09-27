@@ -731,6 +731,8 @@ tracks {
         purchase_id(required: false, type: PropertyType.Numeric, description: "Id of the purchase")
     }
 
+    "/checkout/congrats/recommendations"(platform: "/", type: TrackType.View) {}
+
     "/checkout/finish#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         action(required: true, description: "Action executed, for ex: call_seller, email_seller, etc")
     }
@@ -985,6 +987,8 @@ tracks {
     "/checkout/payment/input_second_password"(platform:"/", type: TrackType.View) {}
 
     "/checkout/payment/input_second_password/edit_payment"(platform:"/", type: TrackType.Event) {}
+
+    "/checkout/payment/billing_information"(platform:"/web", type: TrackType.View) {}
 
     "/checkout/review/edit_payment"(platform:"/", type: TrackType.Event) {}
 
