@@ -431,6 +431,8 @@ tracks {
     "/sell/update/picture_editor"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/picture_editor/function"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/picture_editor/function/crop"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/picture_editor/function/delete"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/picture_editor/function/rotate"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/update/pictures_uploader"(platform: "/", isAbstract: true) {}
     "/sell/update/pictures_uploader/crop"(platform: "/", isAbstract: true) {}
     "/sell/update/pictures_uploader/crop/crop_canceled"(platform: "/", type: TrackType.Event) {}

@@ -439,6 +439,8 @@ trackTests {
             attribute_id = "brand"
         }
         "/sell/update/picture_editor/function/crop"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/picture_editor/function/delete"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/picture_editor/function/rotate"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/description_included"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/description_not_included"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/manufacturing_time"(platform: "/mobile") {item_id = "MLA123456"}
