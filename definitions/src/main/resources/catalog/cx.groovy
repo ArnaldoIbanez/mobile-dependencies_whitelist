@@ -43,22 +43,26 @@ tracks {
     "/portal"(platform: "/", isAbstract:  true) {}
 
     "/portal/faq"(platform: "/", type: TrackType.View) {
-        portal_default
+        portal_content_id
+        portal_has_channels_configured
+        portal_source_id
     }
     "/portal/hub"(platform: "/", type: TrackType.View) {
-        portal_default
-        portal_form_id    
+        portal_contact
+        portal_form_id
+        portal_contact   
+        portal_source_id 
     }
     "/portal/form"(platform: "/", type: TrackType.View) {
-        portal_default
         portal_form_id
+        portal_source_id
     }
     "/portal/folder"(platform: "/", type: TrackType.View) {
-        portal_default
+        portal_content_id
+        portal_source_id
+        portal_contact
     }
-    "/portal/create_case"(platform: "/", type: TrackType.View) {
-        portal_default
-    }
+    "/portal/create_case"(platform: "/", type: TrackType.View) {}
     "/portal/search"(platform: "/", isAbstract:  true) {}
     "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
     "/portal/search/empty"(platform: "/", type: TrackType.View) {}

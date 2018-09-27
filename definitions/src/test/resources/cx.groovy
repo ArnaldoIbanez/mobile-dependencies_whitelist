@@ -41,9 +41,12 @@ trackTests {
         "/portal/folder"(platform: "/", type: TrackType.View) {
             portal_content_id = 987
             portal_source_id = 123
-            portal_has_channels_configured = true
+            portal_contact = "{form: \"true\", c2c: \"api_timeout\", chat: \"api_timeout\"}"
         }
         "/portal/create_case"(platform: "/", type: TrackType.View) {}
+        "/portal/search/result"(platform: "/", type: TrackType.View) {}
+        "/portal/search/empty"(platform: "/", type: TrackType.View) {}
+        "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
     }
 
 
