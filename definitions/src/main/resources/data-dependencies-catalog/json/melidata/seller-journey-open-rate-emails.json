@@ -2,8 +2,12 @@
   "users": [
     "seller-journey-test@googlegroups.com"
   ],
-  "process_name": "sj-emails_open_rate",
+  "process_name": "sj-emails-open-rate",
   "cron": "0 1,21 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
     "site": "Catalogo",
