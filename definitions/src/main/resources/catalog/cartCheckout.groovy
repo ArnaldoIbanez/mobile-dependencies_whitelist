@@ -97,7 +97,7 @@ tracks {
 
     session_id(required:false, description:"Session in which the checkout is being held")
     vertical(required:false, description: "Vertical of the item to be bought")
-    appliesCartRatio(required: false, type: PropertyType.String, description: "appliesCartRatio")
+    applies_cart_ratio(required: false, type: PropertyType.String, description: "appliesCartRatio")
     recovery_flow(required: false, description: "Is recovery CHO flow")
     purchase_status(required: false, description: "status of the purchase")
 
