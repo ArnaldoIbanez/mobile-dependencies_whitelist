@@ -407,6 +407,7 @@ trackTests {
             category_id = "MLA61216"
             is_custom_name = true
             item_id = "MLA12345"
+            category_path = ["MLA12345", "MLA61216"]
         }
     }
 
@@ -416,6 +417,7 @@ trackTests {
             category_domain = "MLA-GLOVES"
             category_id = "MLA61216"
             is_custom_name = true
+            category_path = ["MLA12345", "MLA61216"]
         }
     }
 
