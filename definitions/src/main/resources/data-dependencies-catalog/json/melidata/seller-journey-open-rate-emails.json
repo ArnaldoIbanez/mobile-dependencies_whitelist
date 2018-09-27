@@ -13,11 +13,6 @@
     "site": "Catalogo",
     "columns": [
       {
-        "name": "sent_date",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
-      {
         "name": "Template",
         "type": "UNICODE_STRING"
       },
