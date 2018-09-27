@@ -35,7 +35,7 @@
       }
     ],
     "sql": {
-      "script": "dataadoption/emails-open-rate.sql",
+      "script": "dataadoption/sj-emails-open-rate.sql",
       "parameters": [
         {
           "name": "param01",
