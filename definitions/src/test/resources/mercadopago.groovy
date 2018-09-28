@@ -736,6 +736,39 @@ trackTests {
         "/point_payment/qr_ftu"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/bank_selection"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/select_connected_device"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/link_share"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/link"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/qr"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/device_selection"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/qr_show_code"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/request_location"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/user_identification"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/ftu_preorder_bbpos"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/ftu_preorder_newland"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing_pax_turn_on"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing_bbposbt_device_selection"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing_bbposbt_turn_on"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/cart"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/permission_screen"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/deals"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing_newland_device_selection"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing_newland_turn_on"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/error/ownership"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/error/low_battery"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/web_view"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing/problem"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing/problem/help"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/bbpos_connectivity_help_web_view"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/qr_congrats"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/qr_congrats_nofee"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/bank_detail"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing_ftu"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/deals"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/deals/finantial_costs"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/buyer_email"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/discount"(platform: "/mobile", type: TrackType.View) {}
 
         "/point_payment/flow_tracker/pairing"(platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
