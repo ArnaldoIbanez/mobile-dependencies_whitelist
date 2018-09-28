@@ -5,7 +5,7 @@ import com.ml.melidata.TrackType
 tracks {
     "/asset_management"(platform: "/", isAbstract: true) {
         label (required: false, type: PropertyType.String, description: "The label attached to the current event")
-        category (required: false, type: PropertyType.String, description: "The category of the current event")
+        category (required: false, type: PropertyType.String, description: "The category of the current event") // for backwards compatibility with old tracks
     }
 
     //Onboarding
