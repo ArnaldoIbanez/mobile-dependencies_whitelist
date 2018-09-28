@@ -122,55 +122,59 @@ trackTests {
         "/seller_central/bulk/search"(platform: "/", type: TrackType.Event) {}
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller central Modify
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
     test("seller central render detail"){
         "/seller_central/modify"(platform: "/", type: TrackType.View){
-            categoryId = "MLA390784"
-            itemId = "MLA682118081"
-            sessionId = "123-update-abc123"
-            categoryDomain = "MLA-FRAGRANCES"
-            categoryPath = ["MLA1234", "MLA12345"]
-            sellerId = 12345467
-            sellerProfile = "ADVANCED"
-            siteId = "MLA"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            category_domain = "MLA-FRAGRANCES"
+            category_path = ["MLA1234", "MLA12345"]
+            seller_id = 12345467
+            seller_profile = "ADVANCED"
+            site_id = "MLA"
         }
     }
 
     test("seller central render variations"){
         "/seller_central/modify/variations"(platform: "/", type: TrackType.View){
-            categoryId = "MLA390784"
-            itemId = "MLA682118081"
-            sessionId = "123-update-abc123"
-            categoryDomain = "MLA-FRAGRANCES"
-            categoryPath = ["MLA1234", "MLA12345"]
-            sellerId = 12345467
-            sellerProfile = "ADVANCED"
-            siteId = "MLA"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            category_domain = "MLA-FRAGRANCES"
+            category_path = ["MLA1234", "MLA12345"]
+            seller_id = 12345467
+            seller_profile = "ADVANCED"
+            site_id = "MLA"
         }
     }
 
     test("seller central render custom variations"){
         "/seller_central/modify/variations_custom"(platform: "/", type: TrackType.View){
-            categoryId = "MLA390784"
-            itemId = "MLA682118081"
-            sessionId = "123-update-abc123"
-            categoryDomain = "MLA-FRAGRANCES"
-            categoryPath = ["MLA1234", "MLA12345"]
-            sellerId = 12345467
-            sellerProfile = "ADVANCED"
-            siteId = "MLA"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            category_domain = "MLA-FRAGRANCES"
+            category_path = ["MLA1234", "MLA12345"]
+            seller_id = 12345467
+            seller_profile = "ADVANCED"
+            site_id = "MLA"
         }
     }
 
     test("seller central render listing_type"){
         "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View){
-            categoryId = "MLA390784"
-            itemId = "MLA682118081"
-            sessionId = "123-update-abc123"
-            categoryDomain = "MLA-FRAGRANCES"
-            categoryPath = ["MLA1234", "MLA12345"]
-            sellerId = 12345467
-            sellerProfile = "ADVANCED"
-            siteId = "MLA"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            category_domain = "MLA-FRAGRANCES"
+            category_path = ["MLA1234", "MLA12345"]
+            seller_id = 12345467
+            seller_profile = "ADVANCED"
+            site_id = "MLA"
         }
     }
 
