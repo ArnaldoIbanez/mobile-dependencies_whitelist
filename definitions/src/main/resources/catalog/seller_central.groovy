@@ -7,8 +7,8 @@ tracks {
     propertyDefinitions {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
-        site_id(required: false, type: PropertyType.String, description: "Id of the site")
-        seller_id(required: false, type: PropertyType.Numeric, description: "Seller id")
+        site_id(required: true, type: PropertyType.String, description: "Id of the site")
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller id")
         seller_profile(required: true, type: PropertyType.String, description: "Type of seller")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         category_domain(required: false, type: PropertyType.String, description: "Item category domain")
