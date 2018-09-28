@@ -52,20 +52,6 @@ tracks {
     // MP Promotions
     "/landing/promotions"(platform: "/web"){}
 
-    // MP Activities
-    "/listing"(platform: "/web", isAbstract: true){}
-
-    "/listing/activities"(platform: "/web"){
-        shown_modal_id(required: true, type: PropertyType.String, description: 'Indicates the id of the modal shown.')
-    }
-
-    "/listing/gateway"(platform: "/web"){}
-
-    // MP details
-    "/activity"(platform: "/web", isAbstract: true){}
-    "/activity/detail"(platform: "/web"){}
-    "/activity/detail/shipping"(platform: "/web"){}
-
     "/point"(platform: "/", isAbstract: true) {}
 
     // Merchant Acquisition
