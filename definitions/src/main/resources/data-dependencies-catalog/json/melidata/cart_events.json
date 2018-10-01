@@ -4,20 +4,16 @@
   ],
   "process_name": "cart-events",
   "cron": "00 06 * * *",
-  "partition": {
-    "name": "sent_date",
-    "type": "DATE"
-  },
   "extract": {
     "operation": "append",
-    "site": "IT",
+    "site": "Desarrollo-IT",
     "columns": [
       {
         "name": "site",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "ds",
+        "name": "sent_date",
         "format": "yyyy-MM-dd",
         "type": "DATE"
       },
