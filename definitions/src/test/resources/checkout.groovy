@@ -1925,7 +1925,6 @@ trackTests {
         }
         "/checkout/show_ticket"(platform:"/web", dataSet)
         "/checkout/invalid_sec_code"(platform:"/web", dataSet)
-        "/checkout/payment/select_split_installments/select_installment"(platform:"/web", dataSet)
         "/checkout/invalid_sec_code/input_code"(platform:"/web", dataSet)
         "/checkout/call_for_auth"(platform:"/web", dataSet)
         "/checkout/call_for_auth/instructions"(platform:"/web", dataSet)
