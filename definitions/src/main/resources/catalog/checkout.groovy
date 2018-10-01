@@ -1070,6 +1070,8 @@ tracks {
     "/checkout/shipping/add_contact_info"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/input_contact_info"(platform:"/", type: TrackType.View) {}
     "/checkout/payment/select_unique_installment"(platform:"/", type: TrackType.View) {}
+    "/checkout/payment/select_unique_installment/select_installment"(platform: "/", type: TrackType.Event) {}
+    "/checkout/payment/select_unique_installment/edit_installment_options"(platform: "/", type: TrackType.Event) {}
     "/checkout/payment/select_first_installment"(platform:"/", type: TrackType.View) {}
     "/checkout/payment/select_second_installment"(platform:"/", type: TrackType.View) {}
     "/checkout/review/edit_unique_installment"(platform:"/", type: TrackType.View) {}
@@ -1220,5 +1222,7 @@ tracks {
     "/checkout/user_contact_information"(platform: "/", type: TrackType.Event) {
 
     }
+
+    "/checkout/payment/select_unique_installment/select_installment"(platform: "/web", type: TrackType.Event) {}
 
 }

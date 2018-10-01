@@ -311,9 +311,19 @@ tracks {
 
 "/cart/checkout/payment"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
 
-"/cart/checkout/payment/select_unique_installment"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/payment/select_unique_installment"(platform:"/", type: TrackType.View) {}
 
-"/cart/checkout/payment/select_split_installments"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/payment/select_split_installments"(platform:"/", type: TrackType.View) {}
+
+"/cart/checkout/payment/select_split_installments/select_installment"(platform: "/", type: TrackType.Event) {}
+
+"/cart/checkout/payment/select_split_installments/edit_installment_options"(platform: "/", type: TrackType.Event) {}
+
+"/cart/checkout/payment/select_split_installments/close_split_message"(platform: "/", type: TrackType.Event) {}
+
+"/cart/checkout/payment/select_unique_installment/select_installment"(platform: "/", type: TrackType.Event) {}
+
+"/cart/checkout/payment/select_unique_installment/edit_installment_options"(platform: "/", type: TrackType.Event) {}
 
 "/cart/checkout/payment/select_split_installments/split_detail"(platform:"/mobile", type: TrackType.View) {}
 
