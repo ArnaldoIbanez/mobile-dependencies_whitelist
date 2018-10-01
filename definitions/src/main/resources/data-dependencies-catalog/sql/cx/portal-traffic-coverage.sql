@@ -14,7 +14,7 @@ where
 t.ds >= '@param01 23'
 AND t.ds < '@param02 23'
 AND 
-(t.path LIKE '/support/widget/faq%' OR t.path LIKE '/support/widget/problem%' OR t.path LIKE '/support/widget/form%' OR t.path LIKE '/support/widget/folder%')
+(t.path LIKE '/support/widget/faq%' OR t.path LIKE '/support/widget/faq%')
 GROUP BY
 v2.portal_source_id, 
 v2.portal_has_channels_configured,  
