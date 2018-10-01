@@ -1,8 +1,8 @@
 SELECT application.site_id as site,
-       substr(ds, 1 , 10) AS sent_date,
-       device.platform AS device,
-       path as path,
-       COUNT(DISTINCT(usr.user_id)) AS cant_event
+device.platform AS device,
+path as path,
+COUNT(DISTINCT(usr.user_id)) AS cant_event,
+substr(ds, 1 , 10) AS sent_date
 FROM tracks
 WHERE ds >= '@param01'
   AND ds < '@param02'
@@ -31,4 +31,3 @@ WHERE ds >= '@param01'
      '/cart/my_cart/free_shipping_lost_warning/confirm',
      '/cart/saved_for_later/cant_add_to_cart')
 GROUP BY 1,2,3,4
-ORDER BY 1,2,3,4
