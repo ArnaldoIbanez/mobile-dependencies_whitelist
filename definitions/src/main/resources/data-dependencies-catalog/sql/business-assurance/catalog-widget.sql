@@ -9,9 +9,9 @@ count(*) as Cantidad,
 count(jest(event_data, 'attributes_submitted')) as Cantidad_Attr_Submited,
 count(jest(event_data, 'attributes_showed')) as Cantidad_Attr_Showed
 FROM tracks 
-where path IN ('/catalogwidget/showitem','/catalogwidget/cancel', '/catalogwidget/save', '/catalogwidget/pi','/catalogwidget/pi_save','/catalogwidget/pi_cancel') AND jest(event_data, 'page') not like '%unknown%' and jest(event_data, 'page') not like '%deals%' 
-and application.business='mercadolibre' and type='event' 
-and substr(ds,1,10) >= '@param01' AND substr(ds,1,10)< '@param02'  
+where substr(ds,1,10) >= '@param01' AND substr(ds,1,10)< '@param02' 
+and path IN ('/catalogwidget/showitem','/catalogwidget/cancel', '/catalogwidget/save', '/catalogwidget/pi','/catalogwidget/pi_save','/catalogwidget/pi_cancel') AND jest(event_data, 'page') not like '%unknown%' and jest(event_data, 'page') not like '%deals%' 
+and application.business='mercadolibre' and type='event'  
 group by 
 substr(ds,1,10), 
 application.site_id, 
