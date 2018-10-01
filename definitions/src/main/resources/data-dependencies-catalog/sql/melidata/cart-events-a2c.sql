@@ -1,8 +1,8 @@
-SELECT application.site_id,
-       substr(ds, 1 , 10) AS date,
+SELECT application.site_id as site,
+       substr(ds, 1 , 10) AS sent_date,
        device.platform AS device,
-       path,
-       COUNT(DISTINCT(usr.user_id)) AS cant
+       path as path,
+       COUNT(DISTINCT(usr.user_id)) AS cant_event
 FROM tracks
 WHERE ds >= '@param01'
   AND ds < '@param02'
