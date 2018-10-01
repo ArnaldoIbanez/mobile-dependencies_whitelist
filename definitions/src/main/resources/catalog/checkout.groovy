@@ -161,8 +161,6 @@ tracks {
     "/checkout/payment"(platform: "/", isAbstract: true) {
     }
     "/checkout/payment/input_sec_code"(platform: "/web", type: TrackType.View) {}
-    "/checkout/payment/select_split_installments"(platform: "/", isAbstract: true) {}
-    "/checkout/payment/select_split_installments/select_installment"(platform: "/web", type: TrackType.Event) {}
     "/checkout/payments"(platform: "/", isAbstract: true) {
     }
 
