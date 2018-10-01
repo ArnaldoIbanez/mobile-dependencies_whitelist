@@ -100,8 +100,9 @@ catalog {
         include business, "qr_discount.groovy"
         include business, "zip_finder.groovy"
     }
-    
+
     mercadopago.each { business ->
+        include business, "activities.groovy"
         include business, "account_fund.groovy"
         include business, "mercadopago.groovy"
         include business, "checkoutOff.groovy"

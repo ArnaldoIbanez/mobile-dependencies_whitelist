@@ -419,24 +419,6 @@ trackTests {
         "/landing/promotions" (platform: "/web") {}
     }
 
-    test("Mercadopago Activities List") {
-        "/listing/activities" (platform: "/web") {
-            shown_modal_id = '45daysMigration'
-        }
-    }
-
-    test("Mercadopago Gateway List") {
-        "/listing/gateway" (platform: "/web") {}
-    }
-
-    test("Mercadopago Activities Detail") {
-        "/activity/detail" (platform: "/web") {}
-    }
-
-    test("Mercadopago Activities Detail Shipping") {
-        "/activity/detail/shipping" (platform: "/web") {}
-    }
-
     test("MP-MA Landing QR") {
         "/merchant_acquisition/qr/landing" (platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/qr/landing/promotions"(platform: "/", type: TrackType.Event) {}
@@ -3308,4 +3290,14 @@ trackTests {
         }
     }
 
+
+    test("Device settings") {
+        "/device_settings"(platform: "/", type:TrackType.Event) {}
+
+        "/device_settings/notifications"(platform: "/mobile/android", type:TrackType.Event) {
+            device_id = "ee6f7bd224c2d6"
+            enable = false
+            registration_id = "dH2soSpvhwM:APA91bFwZmJy-wXP7DRLm_458FqPF9n8zbm7uVjixKUOHOS8FQ7QN-qSbWS_DrKYDiXyLzGE2giqzVf90fwyjNy4dkgi6hR_W_fv6JvnQo6B5AQ4BOX21g8wx0cLSrcJswrof5U3f"
+        }
+    }
 }

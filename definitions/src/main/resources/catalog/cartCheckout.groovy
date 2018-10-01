@@ -95,6 +95,12 @@ tracks {
     context(required: false, type: PropertyType.String, description: "Reference to the context that started cart flow")
     checkout_flow(required: false, type: PropertyType.String, values: ["cart"], description: "The type of checkout flow. Cart only for these tracks for now")
 
+    session_id(required:false, description:"Session in which the checkout is being held")
+    vertical(required:false, description: "Vertical of the item to be bought")
+    applies_cart_ratio(required: false, type: PropertyType.String, description: "appliesCartRatio")
+    recovery_flow(required: false, description: "Is recovery CHO flow")
+    purchase_status(required: false, description: "status of the purchase")
+
     operation_status(required: false, description: "status")
     user_identification(required: false, description: "User identification data")
     nearest_store_distance(required: false, description: "Distance to the nearest store")
@@ -123,7 +129,7 @@ tracks {
 "/cart/checkout/payment/select_store"(platform:"/", type: TrackType.View) {}
 
 "/cart/checkout/payment/select_bank"(platform:"/", type: TrackType.View) {}
-
+"/cart/checkout/payment/input_sec_code"(platform: "/", type: TrackType.View) {}
 "/cart/checkout/payment/view_location"(platform:"/", type: TrackType.View) {}
 "/cart/checkout/payment/view_location/location"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/payment/view_location/preloaded"(platform:"/", type: TrackType.Event) {}

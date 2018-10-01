@@ -160,7 +160,9 @@ tracks {
 
     "/checkout/payment"(platform: "/", isAbstract: true) {
     }
-
+    "/checkout/payment/input_sec_code"(platform: "/web", type: TrackType.View) {}
+    "/checkout/payment/select_split_installments"(platform: "/", isAbstract: true) {}
+    "/checkout/payment/select_split_installments/select_installment"(platform: "/web", type: TrackType.Event) {}
     "/checkout/payments"(platform: "/", isAbstract: true) {
     }
 
@@ -169,7 +171,6 @@ tracks {
     "/checkout/payments/select_payment_type"(platform: "/web") {}
     "/checkout/payments/select_split_payment"(platform: "/web") {}
     "/checkout/payments/input_proactive_payment_amount"(platform: "/web") {}
-
     "/checkout/payments/installments#submit"(platform: "/web", type: TrackType.Event) {
         pay_pref_id(required: true, description: "payment preference Id")
         total_price(required: true, description: "Total price")

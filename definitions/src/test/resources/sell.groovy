@@ -407,6 +407,7 @@ trackTests {
             category_id = "MLA61216"
             is_custom_name = true
             item_id = "MLA12345"
+            category_path = ["MLA12345", "MLA61216"]
         }
     }
 
@@ -416,6 +417,7 @@ trackTests {
             category_domain = "MLA-GLOVES"
             category_id = "MLA61216"
             is_custom_name = true
+            category_path = ["MLA12345", "MLA61216"]
         }
     }
 
@@ -439,6 +441,8 @@ trackTests {
             attribute_id = "brand"
         }
         "/sell/update/picture_editor/function/crop"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/picture_editor/function/delete"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/picture_editor/function/rotate"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/description_included"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/description_not_included"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/manufacturing_time"(platform: "/mobile") {item_id = "MLA123456"}

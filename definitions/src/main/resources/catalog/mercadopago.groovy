@@ -52,20 +52,6 @@ tracks {
     // MP Promotions
     "/landing/promotions"(platform: "/web"){}
 
-    // MP Activities
-    "/listing"(platform: "/web", isAbstract: true){}
-
-    "/listing/activities"(platform: "/web"){
-        shown_modal_id(required: true, type: PropertyType.String, description: 'Indicates the id of the modal shown.')
-    }
-
-    "/listing/gateway"(platform: "/web"){}
-
-    // MP details
-    "/activity"(platform: "/web", isAbstract: true){}
-    "/activity/detail"(platform: "/web"){}
-    "/activity/detail/shipping"(platform: "/web"){}
-
     "/point"(platform: "/", isAbstract: true) {}
 
     // Merchant Acquisition
@@ -672,6 +658,10 @@ tracks {
                 values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown"],
         description: "Type of notification event")
         news_id(required: false, description: "Identifier of the notification generated")
+
+        notification_created_error(required: false, description: "The notification created error", type: PropertyType.String)
+        
+        device_id(required: false, description: "The real device_id, may differ from device field")
     }
 
     //Campañas
@@ -851,6 +841,14 @@ tracks {
     //Splitter
     "/asset_management/splitter"(platform: "/mobile", type: TrackType.View) {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+
+    "/device_settings/"(platform: "/", isAbstract: true){}
+
+    "/device_settings/notifications"(platform: "/mobile/android", type:TrackType.Event) {
+        device_id(required: true, description: "The real device_id, may differ from device field")
+        enable(required:true, type:PropertyType.Boolean, description: "Indicates if settings are enabled")
+        registration_id(required: false, description: "The registration id", type: PropertyType.String)
     }
 
 }
