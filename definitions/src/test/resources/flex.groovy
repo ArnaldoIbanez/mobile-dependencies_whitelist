@@ -228,7 +228,7 @@ trackTests {
         }
 
         //Retry delivery event in detail success
-        "/flex/package/retry_delivery"(platform:"/mobile", type: TrackType.Event) {
+        "/flex/package/retry_pack"(platform:"/mobile", type: TrackType.Event) {
             defaultSinglePack()
             defaultLocation()
             context = "detail"
