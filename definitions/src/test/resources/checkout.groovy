@@ -1858,6 +1858,7 @@ trackTests {
         "/checkout/payment/create_second_password"(platform:"/web", dataSet)
         "/checkout/payment/input_second_password"(platform:"/web", dataSet)
         "/checkout/payment/input_second_password/edit_payment"(platform:"/web", dataSet)
+        "/checkout/payment/billing_information"(platform:"/web", dataSet)
         "/checkout/review/edit_payment"(platform:"/web", dataSet)
         "/checkout/review/edit_first_payment"(platform:"/web", dataSet)
         "/checkout/review/edit_second_payment"(platform:"/web", dataSet)
@@ -1881,6 +1882,7 @@ trackTests {
             purchase_status = "paid"
             purchase_id = 11111
         }
+        "/checkout/congrats/recommendations"(platform: "/", dataSet)
         "/checkout/finish/keep_buying"(platform:"/web"){
             dataSet()
             dataSetCongrats()
