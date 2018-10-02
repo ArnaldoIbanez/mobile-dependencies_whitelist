@@ -66,10 +66,6 @@ tracks {
         id(required: true, type: PropertyType.String, description: "Id of the domaing group")
     }
 
-    "/seller_central/bulk/offline"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Id of the action", values:["download", "upload"])
-    }
-
     "/seller_central/bulk/filters"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Id of the action", values:["apply", "clear"])
 
@@ -77,6 +73,32 @@ tracks {
     "/seller_central/bulk/search"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/bulk/undo_changes"(platform: "/", type: TrackType.Event) {}
+
+
+    "/seller_central/bulk/columns"(platform: "/", type: TrackType.Event){
+        columns(required: true, type: PropertyType.ArrayList, description: "List of the available columns and his order")
+    }
+
+    "/seller_central/bulk/offline"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/download"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/download/congrats"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/upload"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/upload/congrats"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/download/user_selection"(platform: "/", type: TrackType.Event){
+        columns(required: true, type: PropertyType.ArrayList, description: "List of the selected columns")
+        domains(required: true, type: PropertyType.ArrayList, description: "List of the selected domains")
+    }
+
+    "/seller_central/bulk/offline/download/error"(platform: "/", type: TrackType.Event){}
+
+    "/seller_central/bulk/offline/download/warning"(platform: "/", type: TrackType.Event){}
+
+
 
     "/seller_central/modify"(platform: "/", type: TrackType.View) {
         sellerCentralModifyGroup
