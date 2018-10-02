@@ -102,14 +102,4 @@ tracks {
      *       End: Merchants Enrollment
      ******************************************/
 
-
-    /******************************************
-     *       Start: Consumers Admin Detail (still in MP)
-     ******************************************/
-
-    "/credits/consumer/administrator/detail"(platform: "/", type: TrackType.View) {}
-
-    /******************************************
-     *       Start: Consumers Admin Detail
-     ******************************************/
 }
