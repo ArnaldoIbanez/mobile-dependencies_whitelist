@@ -469,6 +469,15 @@ trackTests {
         "/point/landings" (platform: "/") {
             product = "mgm"
         }
+
+        // Landing Devices
+        "/point/landings" (platform: "/") {
+            product = "devices"
+        }
+    }
+
+    test("MP MLA/MLB/MLM Landing Devices Point") {
+        "/point/landings/landing-devices-buy"(platform: "/", type: TrackType.Event) {}
     }
 
     test("Landing MercadoPago Point MGM > Events") {

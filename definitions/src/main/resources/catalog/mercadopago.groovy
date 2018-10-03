@@ -115,6 +115,9 @@ tracks {
     // Point Flows Congrats > Pageviews
     "/point/flows/congrats"(platform:"/", type: TrackType.View) {}
 
+    //Point Devices
+    "/point/landings/landing-devices-buy"(platform:"/", type: TrackType.Event) {}
+
     // MP Mobile Point
     "/point_payment"(platform: "/mobile", type: TrackType.View) {
         flow_id (required: false, type: PropertyType.String, description: "Flow id.")
