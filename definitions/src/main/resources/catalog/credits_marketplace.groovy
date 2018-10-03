@@ -96,9 +96,17 @@ tracks {
 
     //Page Views
     "/credits/consumer/administrator/detail"(platform: "/", type: TrackType.View) {
-        loan_id(type: PropertyType.Numeric, required: false)
-        next_installment_status(type: PropertyType.String, required: false,
+        loan_id(
+                type: PropertyType.Numeric,
+                description: "The id of the current loan",
+                required: true,
+                inheritable: false
+        )
+        next_installment_status(
+                type: PropertyType.String,
                 description: "Status of the closest to expire installment",
+                required: true,
+                inheritable: false,
                 values: [
                         'on_time',
                         'to_expire_soft',
@@ -137,7 +145,12 @@ tracks {
                         'daily_charge_period'
                 ]
         )
-        payment_intention(type: PropertyType.String, required: true, values: ['cho', 'ticket'])
+        payment_intention(
+                type: PropertyType.String,
+                description: "Current selected 'path' to payment",
+                required: true,
+                values: ['cho', 'ticket']
+        )
     }
     "/credits/consumer/administrator/detail/payment_intention_list"(platform: "/", type: TrackType.Event) {
         installment_status(
@@ -155,7 +168,12 @@ tracks {
                         'daily_charge_period'
                 ]
         )
-        payment_intention(type: PropertyType.String, required: true, values: ['cho', 'ticket'])
+        payment_intention(
+                type: PropertyType.String,
+                description: "Current selected 'path' to payment",
+                required: true,
+                values: ['cho', 'ticket']
+        )
     }
 
     /******************************************
