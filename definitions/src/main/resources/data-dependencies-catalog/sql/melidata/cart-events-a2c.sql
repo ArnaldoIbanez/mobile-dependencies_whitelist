@@ -30,4 +30,4 @@ WHERE ds >= '@param01'
      '/cart/my_cart/free_shipping_lost_warning/dismiss',
      '/cart/my_cart/free_shipping_lost_warning/confirm',
      '/cart/saved_for_later/cant_add_to_cart')
-GROUP BY 1,2,3,4
+GROUP BY application.site_id, device.platform, path, substr(ds, 1, 10)
