@@ -128,7 +128,7 @@ trackTests {
         showed_payment_methods = "credit_card"
         refund_account_money = true
         cart_order = false
-        payment_refund_at = "delivered_3"
+        payment_refund_at = "delivered"
       }
 
       "/return/congrats/selection"(platform: "/", type: TrackType.Event) {
