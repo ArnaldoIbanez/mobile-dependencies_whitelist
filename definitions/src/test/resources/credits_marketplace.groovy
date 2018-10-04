@@ -60,7 +60,6 @@ trackTests {
         //Views
         "/credits/consumer/administrator"(platform: "/web/desktop") {}
         "/credits/consumer/administrator/dashboard"(platform: "/web/desktop", type: TrackType.View) { dashboard_status = 'empty_state' }
-        
 
         //Events
         "/credits/consumer/administrator/tooltip"(platform: "/web/desktop", type: TrackType.Event) {}
@@ -87,10 +86,32 @@ trackTests {
         ******************************************/
 
         /******************************************
-         *       Start: Consumers Admin Detail (mobile in ML)
+         *       Start: Consumers Admin Detail
          ******************************************/
 
-        "/credits/consumer/administrator/detail"(platform: "/mobile/android", type: TrackType.View) {}
+        //Views
+        "/credits/consumer/administrator/detail"(platform: "/web/desktop", type: TrackType.View) {
+            loan_id = 123456
+            next_installment_status = "on_time"
+        }
+
+        //Events
+        "/credits/consumer/administrator/detail/see_loan_conditions"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/detail/see_tac"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/detail/see_voucher"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/detail/see_ccb"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/detail/download_plan"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/detail/get_help"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/detail/purchase_detail"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/detail/back_to_dashboard"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/detail/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            installment_status = 'on_time'
+            payment_intention = 'cho'
+        }
+        "/credits/consumer/administrator/detail/payment_intention_list"(platform: "/web/desktop", type: TrackType.Event) {
+            installment_status = 'on_time'
+            payment_intention = 'cho'
+        }
 
         /******************************************
          *       Start: Consumers Admin Detail
@@ -130,5 +151,31 @@ trackTests {
         /******************************************
          *       End: Consumers Recurring Campaign
          ******************************************/
+
+         /******************************************
+          *       Start: Consumers Recurring Campaign
+          ******************************************/
+         //Page Views
+         "/vip/credits/pursue/overdue_modal"(platform: "/web/desktop", type: TrackType.View) {
+           status = "PAYMENT_INTENTION_PRE_RESTRICTION"
+           milestone = 20
+         }
+         "/vip/credits/pursue/overdue_modal"(platform: "/web/desktop", type: TrackType.View) {
+           status = "PAYMENT_INTENTION_POST_RESTRICTION"
+           milestone = 28
+         }
+
+         //Events
+         "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+           status = "PAYMENT_INTENTION_PRE_RESTRICTION"
+           milestone = 20
+         }
+         "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+           status = "PAYMENT_INTENTION_POST_RESTRICTION"
+           milestone = 28
+         }
+         /******************************************
+          *       End: Consumers Recurring Campaign
+          ******************************************/
     }
 }

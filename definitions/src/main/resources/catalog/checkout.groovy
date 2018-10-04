@@ -161,8 +161,6 @@ tracks {
     "/checkout/payment"(platform: "/", isAbstract: true) {
     }
     "/checkout/payment/input_sec_code"(platform: "/web", type: TrackType.View) {}
-    "/checkout/payment/select_split_installments"(platform: "/", isAbstract: true) {}
-    "/checkout/payment/select_split_installments/select_installment"(platform: "/web", type: TrackType.Event) {}
     "/checkout/payments"(platform: "/", isAbstract: true) {
     }
 
@@ -250,6 +248,7 @@ tracks {
     }
 
     "/checkout/init/options"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         shipping_data(required: true, type: PropertyType.ArrayList, description: "Shipping options available for the buyer")
         payment_data(required: true, type: PropertyType.String, description: "Payment options available for the buyer")
         shipping(required: false)
@@ -285,12 +284,15 @@ tracks {
     //Geolocation on fallback
     "/checkout/shipping/select_method/ask_enable_geolocation"(platform: "/mobile") {}
     "/checkout/shipping/select_method/ask_enable_geolocation#geolocation_permission_ask"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         granted(required: true, type: PropertyType.String)
     }
     "/checkout/shipping/select_method/ask_enable_geolocation#geolocation_enabled"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         status(required: true, type: PropertyType.String)
     }
     "/checkout/shipping/select_method/ask_enable_geolocation#unable_to_use_location_services"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     //Geolocation
     "/checkout/shipping/select_method/geolocated"(platform: "/mobile") {}
@@ -298,39 +300,50 @@ tracks {
     //Input zip_code
     "/checkout/shipping/custom_address/zip_code"(platform: "/mobile") {}
     "/checkout/shipping/custom_address/zip_code#zip_code"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         zip_code(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/custom_address/zip_code#street_name"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         street_name(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/custom_address/zip_code#street_number"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         street_number(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/custom_address/zip_code#internal_number"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         internal_number(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/custom_address/zip_code#between_streets"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         between_streets(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/custom_address/zip_code#references"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         references(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/custom_address/zip_code#neighborhood"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         neighborhood(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/custom_address/zip_code#additional_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         additional_info(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/custom_address/zip_code#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     //Query zip code
     "/checkout/shipping/custom_address/zip_code/query"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
     }
     "/checkout/shipping/custom_address/zip_code/query#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         query_parameters(required: false, type: PropertyType.String)
         failing_url(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/custom_address/zip_code/query/back"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/checkout/shipping/select_option"(platform: "/", isAbstract: true) {
         //View specific data
@@ -350,29 +363,37 @@ tracks {
     "/checkout/shipping/select_option/custom"(platform: "/mobile") {}
     //Input address flow
     "/checkout/shipping/select_contact"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         is_from_preload_address(required: true, type: PropertyType.Boolean)
     }
 
     "/checkout/shipping/location"(platform: "/mobile", isAbstract: true) {}
     "/checkout/shipping/location/address#street_name"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         street_name(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/location/address#street_number"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         street_number(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/location/address#additional_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         additional_info(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/location/address#internal_number"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         internal_number(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/location/address#between_streets"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         between_streets(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/location/address#references"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         references(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/location/address#neighborhood"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         neighborhood(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/location/address"(platform: "/mobile") {
@@ -383,6 +404,7 @@ tracks {
     "/checkout/shipping/location/select_city"(platform: "/mobile") {}
     "/checkout/shipping/location/select_city/invalid_destination"(platform: "/mobile") {}
     "/checkout/shipping/location/select_contact#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         success(required: true, type: PropertyType.Boolean)
         error_codes(required: false, type: PropertyType.ArrayList)
     }
@@ -419,6 +441,7 @@ tracks {
     // Store map
     "/checkout/shipping/select_store_map"(platform: "/mobile") {}
     "/checkout/shipping/select_store_map#agencies_request"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         agencies(required: true, description: "the number of agencies returned by the request")
         item_id(required: true, description: "the item id for which we are requesting agencies")
         latitude(required: false, description: "the latitude at which we are requesting agencies")
@@ -472,6 +495,7 @@ tracks {
         coupon_discount(required: false, type: PropertyType.Numeric)
     }
     "/checkout/payment/select_method#new_payment_method_selected"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         payment_method_id(required: false, type: PropertyType.String)
         payment_type_id(required: false, type: PropertyType.String)
     }
@@ -479,6 +503,7 @@ tracks {
     // Add card form
     "/checkout/payment/add_debit_card"(platform: "/mobile") {}
     "/checkout/payment/add_debit_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         bin(required: true, type: PropertyType.String)
         success(required: true, type: PropertyType.Boolean)
     }
@@ -487,11 +512,13 @@ tracks {
     }
     "/checkout/payment/add_prepaid_card"(platform: "/mobile") {}
     "/checkout/payment/add_prepaid_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         bin(required: true, type: PropertyType.String)
         success(required: true, type: PropertyType.Boolean)
     }
     "/checkout/payment/add_card"(platform: "/mobile") {}
     "/checkout/payment/add_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         bin(required: true, type: PropertyType.String)
         success(required: true, type: PropertyType.Boolean)
     }
@@ -529,12 +556,14 @@ tracks {
         //    ]
     }
     "/checkout/payment/stored_card/installments#change_payment_method"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         event_source(required: true, type: PropertyType.String)
     }
     "/checkout/payment/account_money"(platform: "/mobile", isAbstract: true) {}
     "/checkout/payment/account_money/create"(platform: "/mobile") {}
     "/checkout/payment/account_money/password"(platform: "/mobile") {}
     "/checkout/payment/account_money/password#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/checkout/payment/select_issuer"(platform: "/mobile") {}
     // mlm grouping
@@ -544,6 +573,7 @@ tracks {
     }
     "/checkout/payment/cash/select_store/select_address"(platform: "/mobile", parentPropertiesInherited: false) {}
     "/checkout/payment/cash/select_store#request_permissions"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         permissions(required: true, type: PropertyType.String)
         extended(required: true, type: PropertyType.Boolean)
     }
@@ -557,6 +587,7 @@ tracks {
         //user_identification_fields: ["doc_type", "doc_number", "name", "las_name"]
     }
     "/checkout/payment/billing_info#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         billing_info_state(required: true, type: PropertyType.String)
     }
     "/checkout/payment/consumer_credits"(platform: "/mobile", isAbstract: true) {}
@@ -608,14 +639,17 @@ tracks {
     "/checkout/billing/physical_person"(platform: "/mobile") {}
     "/checkout/billing/legal_person"(platform: "/mobile") {}
     "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
     //"/checkout/review" //shared between web and app, already defined in web section.
     "/checkout/review#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         status(required: true, type: PropertyType.String)
         checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
     }
     "/checkout/review/quantity#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         old_quantity(required: true, type: PropertyType.Numeric)
         selected_quantity(required: true, type: PropertyType.Numeric)
     }
@@ -627,6 +661,7 @@ tracks {
     }
     "/checkout/review/inconsistency/price_changed"(platform: "/mobile") {}
     "/checkout/review/edit_shipping#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         //old_value, new_value
         old_value(required: true, type: PropertyType.String)
         new_value(required: true, type: PropertyType.String)
@@ -647,6 +682,7 @@ tracks {
         error_code(required: true, type: PropertyType.String)
     }
     "/checkout/review/edit_installments#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         //old_value, new_value
         old_value(required: true, type: PropertyType.Numeric)
         new_value(required: true, type: PropertyType.Numeric)
@@ -726,18 +762,22 @@ tracks {
     }
     //Congrats tracks - shared between Legacy App and new App (Required False to prevent catalog validation failures)
     "/checkout/congrats"(platform: "/") {
-        status(required: false, type: PropertyType.String)    
+        status(required: false, type: PropertyType.String)
         purchase_status(required: false, type: PropertyType.String, values: ["payment_required", "payment_in_process", "partially_paid", "paid", "pending_cancel", "cancelled", "confirmed"], description: "Status of the purchase")
         purchase_id(required: false, type: PropertyType.Numeric, description: "Id of the purchase")
     }
 
+    "/checkout/congrats/recommendations"(platform: "/", type: TrackType.View) {}
+
     "/checkout/finish#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         action(required: true, description: "Action executed, for ex: call_seller, email_seller, etc")
     }
 
     "/checkout/finish/call_for_auth"(platform:"/", type: TrackType.View, isAbstract: true) {}
     "/checkout/finish/call_for_auth/instructions"(platform: "/mobile") {}
     "/checkout/finish/call_for_auth/instructions#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         status(required: true, type: PropertyType.String)
         checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
     }
@@ -866,7 +906,8 @@ tracks {
 
     "/checkout/show_ticket"(platform: "/") {}
 
-    "/checkout/show_ticket#save"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/checkout/show_ticket#save"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")}
     "/checkout/show_geolocation_map"(platform: "/mobile") {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
@@ -922,12 +963,16 @@ tracks {
     }
     "/checkout/show_geolocation_map/search"(platform: "/mobile") {}
     "/checkout/show_geolocation_map/search#location"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/checkout/show_geolocation_map/search#preloaded"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/checkout/show_geolocation_map/search#select"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/checkout/show_geolocation_map#agencies_request"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         agencies(required: true)
         payment_method(required: true)
 
@@ -985,6 +1030,8 @@ tracks {
     "/checkout/payment/input_second_password"(platform:"/", type: TrackType.View) {}
 
     "/checkout/payment/input_second_password/edit_payment"(platform:"/", type: TrackType.Event) {}
+
+    "/checkout/payment/billing_information"(platform:"/web", type: TrackType.View) {}
 
     "/checkout/review/edit_payment"(platform:"/", type: TrackType.Event) {}
 
@@ -1066,6 +1113,8 @@ tracks {
     "/checkout/shipping/add_contact_info"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/input_contact_info"(platform:"/", type: TrackType.View) {}
     "/checkout/payment/select_unique_installment"(platform:"/", type: TrackType.View) {}
+    "/checkout/payment/select_unique_installment/select_installment"(platform: "/", type: TrackType.Event) {}
+    "/checkout/payment/select_unique_installment/edit_installment_options"(platform: "/", type: TrackType.Event) {}
     "/checkout/payment/select_first_installment"(platform:"/", type: TrackType.View) {}
     "/checkout/payment/select_second_installment"(platform:"/", type: TrackType.View) {}
     "/checkout/review/edit_unique_installment"(platform:"/", type: TrackType.View) {}
@@ -1216,5 +1265,7 @@ tracks {
     "/checkout/user_contact_information"(platform: "/", type: TrackType.Event) {
 
     }
+
+    "/checkout/payment/select_unique_installment/select_installment"(platform: "/web", type: TrackType.Event) {}
 
 }

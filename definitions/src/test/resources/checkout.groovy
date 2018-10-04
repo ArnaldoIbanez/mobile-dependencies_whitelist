@@ -1858,6 +1858,7 @@ trackTests {
         "/checkout/payment/create_second_password"(platform:"/web", dataSet)
         "/checkout/payment/input_second_password"(platform:"/web", dataSet)
         "/checkout/payment/input_second_password/edit_payment"(platform:"/web", dataSet)
+        "/checkout/payment/billing_information"(platform:"/web", dataSet)
         "/checkout/review/edit_payment"(platform:"/web", dataSet)
         "/checkout/review/edit_first_payment"(platform:"/web", dataSet)
         "/checkout/review/edit_second_payment"(platform:"/web", dataSet)
@@ -1881,6 +1882,7 @@ trackTests {
             purchase_status = "paid"
             purchase_id = 11111
         }
+        "/checkout/congrats/recommendations"(platform: "/", dataSet)
         "/checkout/finish/keep_buying"(platform:"/web"){
             dataSet()
             dataSetCongrats()
@@ -1923,7 +1925,6 @@ trackTests {
         }
         "/checkout/show_ticket"(platform:"/web", dataSet)
         "/checkout/invalid_sec_code"(platform:"/web", dataSet)
-        "/checkout/payment/select_split_installments/select_installment"(platform:"/web", dataSet)
         "/checkout/invalid_sec_code/input_code"(platform:"/web", dataSet)
         "/checkout/call_for_auth"(platform:"/web", dataSet)
         "/checkout/call_for_auth/instructions"(platform:"/web", dataSet)
@@ -1945,7 +1946,9 @@ trackTests {
         "/checkout/shipping/select_contact_info"(platform:"/web", dataSet)
         "/checkout/shipping/add_contact_info"(platform:"/web", dataSet)
         "/checkout/shipping/input_contact_info"(platform:"/web", dataSet)
-        "/checkout/payment/select_unique_installment"(platform:"/web", dataSet)
+        "/checkout/payment/select_unique_installment"(platform:"/", dataSet)
+        "/checkout/payment/select_unique_installment/select_installment"(platform: "/", dataSet)
+        "/checkout/payment/select_unique_installment/edit_installment_options"(platform: "/", dataSet)
         "/checkout/payment/select_first_installment"(platform:"/web", dataSet)
         "/checkout/payment/select_second_installment"(platform:"/web", dataSet)
         "/checkout/review/edit_unique_installment"(platform:"/web", dataSet)

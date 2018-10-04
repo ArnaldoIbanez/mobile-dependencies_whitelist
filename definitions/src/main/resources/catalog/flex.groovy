@@ -133,7 +133,7 @@ tracks {
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
-    "/flex/package/retry_delivery"(platform: "/mobile", type: TrackType.Event) {
+    "/flex/package/retry_pack"(platform: "/mobile", type: TrackType.Event) {
         packsAndLocation
         context(required: true, type: PropertyType.String,  values: ["list", "detail"],
             description: "Indicates whether retry action was executed in the list or detail of packages")

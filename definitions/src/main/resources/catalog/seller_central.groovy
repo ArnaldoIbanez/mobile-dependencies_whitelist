@@ -5,18 +5,18 @@ import com.ml.melidata.catalog.PropertyType
 tracks {
 
     propertyDefinitions {
-        categoryId(required: true, type: PropertyType.String, description: "Id for category item")
-        itemId(required: true, type: PropertyType.String, description: "Id of item used to")
-        siteId(required: false, type: PropertyType.String, description: "Id of the site")
-        sellerId(required: false, type: PropertyType.Numeric, description: "Seller id")
-        sellerProfile(required: true, type: PropertyType.String, description: "Type of seller")
-        sessionId(required: true, type: PropertyType.String, description: "Id for user session")
-        categoryDomain(required: false, type: PropertyType.String, description: "Item category domain")
-        categoryPath(required: false, type: PropertyType.ArrayList, description: "Path of category")
+        category_id(required: true, type: PropertyType.String, description: "Id for category item")
+        item_id(required: true, type: PropertyType.String, description: "Id of item used to")
+        site_id(required: true, type: PropertyType.String, description: "Id of the site")
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller id")
+        seller_profile(required: true, type: PropertyType.String, description: "Type of seller")
+        session_id(required: true, type: PropertyType.String, description: "Id for user session")
+        category_domain(required: false, type: PropertyType.String, description: "Item category domain")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Path of category")
     }
 
     propertyGroups {
-        sellerCentralModifyGroup(categoryId, siteId, sellerId, sellerProfile, itemId, sessionId, categoryDomain, categoryPath)
+        sellerCentralModifyGroup(category_id, site_id, seller_id, seller_profile, item_id, session_id, category_domain, category_path)
     }
 
     "/seller_central"(platform: "/", isAbstract: true) {}
@@ -66,10 +66,6 @@ tracks {
         id(required: true, type: PropertyType.String, description: "Id of the domaing group")
     }
 
-    "/seller_central/bulk/offline"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Id of the action", values:["download", "upload"])
-    }
-
     "/seller_central/bulk/filters"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Id of the action", values:["apply", "clear"])
 
@@ -77,6 +73,32 @@ tracks {
     "/seller_central/bulk/search"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/bulk/undo_changes"(platform: "/", type: TrackType.Event) {}
+
+
+    "/seller_central/bulk/columns"(platform: "/", type: TrackType.Event){
+        columns(required: true, type: PropertyType.ArrayList, description: "List of the available columns and his order")
+    }
+
+    "/seller_central/bulk/offline"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/download"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/download/congrats"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/upload"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/upload/congrats"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/download/user_selection"(platform: "/", type: TrackType.Event){
+        columns(required: true, type: PropertyType.ArrayList, description: "List of the selected columns")
+        domains(required: true, type: PropertyType.ArrayList, description: "List of the selected domains")
+    }
+
+    "/seller_central/bulk/offline/download/error"(platform: "/", type: TrackType.Event){}
+
+    "/seller_central/bulk/offline/download/warning"(platform: "/", type: TrackType.Event){}
+
+
 
     "/seller_central/modify"(platform: "/", type: TrackType.View) {
         sellerCentralModifyGroup

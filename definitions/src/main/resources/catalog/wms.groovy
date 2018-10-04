@@ -98,5 +98,7 @@ tracks {
     "/wms/cycle_count/item/finish_cycle_count"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/cycle_count/scan_inventory/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/cycle_count/item/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/cycle_count/item/reset_address"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/cycle_count/item/reset_address"(platform: "/mobile/android", type: TrackType.Event) {
+        navigate_to_home(required: true, type: PropertyType.Boolean, description: "Whether or not the reset event is triggered by the user navigating to the home screen.")
+    }
 }
