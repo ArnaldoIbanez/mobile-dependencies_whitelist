@@ -7,23 +7,23 @@ tracks {
     // MP Activities
     "/listing"(platform: "/web", isAbstract: true){}
 
-    "/listing/activities"(platform: "/web"){
+    "/listing/activities"(platform: "/web", type: TrackType.View){
         shown_modal_id(required: true, type: PropertyType.String, description: 'Indicates the id of the modal shown.')
     }
 
-    "/listing/gateway"(platform: "/web"){}
+    "/listing/gateway"(platform: "/web", type: TrackType.View){}
 
     // MP details
     "/activity"(platform: "/web", isAbstract: true){}
-    "/activity/detail"(platform: "/web"){}
-    "/activity/detail/shipping"(platform: "/web"){}
+    "/activity/detail"(platform: "/web", type: TrackType.View){}
+    "/activity/detail/shipping"(platform: "/web", type: TrackType.View){}
 
     // MP Balance/Advances
     "/activities"(platform: "/web", isAbstract: true){}
-    "/activities/balance"(platform: "/web"){}
-    "/activities/balance/advances"(platform: "/web"){}
-    "/activities/balance/advances/congrats"(platform: "/web"){}
+    "/activities/balance"(platform: "/web", type: TrackType.View){}
+    "/activities/balance/advances"(platform: "/web", type: TrackType.View){}
+    "/activities/balance/advances/congrats"(platform: "/web", type: TrackType.View){}
 
     // MP Activities Export
-    "/activities/export"(platform: "/web"){}
+    "/activities/export"(platform: "/web", type: TrackType.View){}
 }
