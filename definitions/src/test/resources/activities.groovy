@@ -33,4 +33,8 @@ trackTests {
     test("Mercadopago Activities PNF Adelantos Congrats") {
         "/activities/balance/advances/congrats" (platform: "/web") {}
     }
+
+    test("Mercadopago Activities Export") {
+        "/activities/export" (platform: "/web") {}
+    }
 }

@@ -23,4 +23,7 @@ tracks {
     "/activities/balance"(platform: "/web"){}
     "/activities/balance/advances"(platform: "/web"){}
     "/activities/balance/advances/congrats"(platform: "/web"){}
+
+    // MP Activities Export
+    "/activities/export"(platform: "/web"){}
 }
