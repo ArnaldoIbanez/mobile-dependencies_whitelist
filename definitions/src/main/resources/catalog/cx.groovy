@@ -85,6 +85,7 @@ tracks {
         portal_content_id
         portal_source_id
         portal_problem_id
+        portal_contact
     }
 
     "/support/widget/form"(platform: "/", type: TrackType.View) {
