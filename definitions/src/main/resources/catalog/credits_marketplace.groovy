@@ -16,6 +16,9 @@ tracks {
      ******************************************/
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
+    "/vip"(platform: "/", isAbstract: true) {}
+    "/vip/credits"(platform: "/", isAbstract: true) {}
+    "/vip/credits/pursue"(platform: "/", isAbstract: true) {}
 
     /******************************************
      *       Start: Consumers Public Landings
@@ -236,4 +239,27 @@ tracks {
     /******************************************
      *       End: Consumers Recurring Campaign
      ******************************************/
+
+     /******************************************
+      *       Start: Consumers Persue Campaign
+      ******************************************/
+     //Page Views
+
+     "/vip/credits/pursue/overdue_modal"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+       status(type: PropertyType.String, required: true,
+         values: ["PAYMENT_INTENTION_PRE_RESTRICTION", "PAYMENT_INTENTION_POST_RESTRICTION"])
+       milestone(type: PropertyType.Numeric , required: true)
+     }
+
+     //Event Views
+     "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+       status(type: PropertyType.String, required: true,
+         values: ["PAYMENT_INTENTION_PRE_RESTRICTION", "PAYMENT_INTENTION_POST_RESTRICTION"])
+       milestone(type: PropertyType.Numeric , required: true)
+     }
+     /******************************************
+      *       End: Consumers Persue Campaign
+      ******************************************/
+
+
 }

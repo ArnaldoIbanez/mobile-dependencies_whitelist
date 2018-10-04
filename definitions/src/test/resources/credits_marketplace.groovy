@@ -151,5 +151,31 @@ trackTests {
         /******************************************
          *       End: Consumers Recurring Campaign
          ******************************************/
+
+         /******************************************
+          *       Start: Consumers Recurring Campaign
+          ******************************************/
+         //Page Views
+         "/vip/credits/pursue/overdue_modal"(platform: "/web/desktop", type: TrackType.View) {
+           status = "PAYMENT_INTENTION_PRE_RESTRICTION"
+           milestone = 20
+         }
+         "/vip/credits/pursue/overdue_modal"(platform: "/web/desktop", type: TrackType.View) {
+           status = "PAYMENT_INTENTION_POST_RESTRICTION"
+           milestone = 28
+         }
+
+         //Events
+         "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+           status = "PAYMENT_INTENTION_PRE_RESTRICTION"
+           milestone = 20
+         }
+         "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+           status = "PAYMENT_INTENTION_POST_RESTRICTION"
+           milestone = 28
+         }
+         /******************************************
+          *       End: Consumers Recurring Campaign
+          ******************************************/
     }
 }
