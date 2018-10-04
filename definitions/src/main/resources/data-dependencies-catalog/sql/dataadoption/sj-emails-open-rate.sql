@@ -10,7 +10,7 @@ FROM (
   FROM tracks
   WHERE (ds >= '@param01'
         AND ds < '@param02'
-        AND substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) >= '2018-08-15'
+        AND substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) >= '@param03'
         AND substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) < '@param02'
         AND get_json_object(tracks.event_data,'$.event_type') = 'send'
         AND get_json_object(tracks.event_data,'$.email_template') = 'TEMP_LOW_1_SJ')
@@ -29,7 +29,7 @@ FROM (
   FROM tracks
   WHERE (ds >= '@param01'
         AND ds < '@param02'
-        AND substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) >= '2018-08-15'
+        AND substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) >= '@param03'
         AND substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) < '@param02'
         AND get_json_object(tracks.event_data,'$.event_type') = 'open'
         AND get_json_object(tracks.event_data,'$.email_template') = 'TEMP_LOW_1_SJ')
