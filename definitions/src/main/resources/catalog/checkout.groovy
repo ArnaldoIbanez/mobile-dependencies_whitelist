@@ -555,6 +555,7 @@ tracks {
         //      without_fee: true
         //    ]
     }
+    "/checkout/payment/stored_card/installments/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/payment/stored_card/installments#change_payment_method"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
   session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         event_source(required: true, type: PropertyType.String)
