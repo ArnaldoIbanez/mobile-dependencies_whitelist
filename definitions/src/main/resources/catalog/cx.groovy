@@ -79,6 +79,8 @@ tracks {
         portal_content_id
         portal_source_id
         portal_has_channels_configured
+        portal_contact(required: false, type: PropertyType.String,
+                description: "Indicates if the current hub has channels enabled and why it hasn't")
     }
 
     "/support/widget/problem"(platform: "/", type: TrackType.View) {
@@ -86,6 +88,8 @@ tracks {
         portal_source_id
         portal_problem_id
         portal_contact
+        portal_has_channels_configured(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the current content has any channels configured")
     }
 
     "/support/widget/form"(platform: "/", type: TrackType.View) {
