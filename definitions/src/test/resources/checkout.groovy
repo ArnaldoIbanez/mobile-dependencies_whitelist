@@ -586,6 +586,27 @@ trackTests {
                     ]
             ]
         }
+
+        "/checkout/payment/stored_card/installments/back" (platform:"/mobile", type:TrackType.Event){
+            available_installments = [
+                    [
+                            installment: 1,
+                            amount: 20.6,
+                            without_fee: true
+                    ],
+                    [
+                            installment: 3,
+                            amount: 7.2,
+                            without_fee: true
+                    ],
+                    [
+                            installment: 6,
+                            amount: 3.2,
+                            without_fee: true
+                    ]
+            ]
+        }
+
         "/checkout/payment/stored_card/installments#change_payment_method"(platform:"/mobile", type:TrackType.Event) {
             event_source = "installments_row"
         }
