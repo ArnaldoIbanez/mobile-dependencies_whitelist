@@ -241,7 +241,7 @@ tracks {
          devices (required:false, type: PropertyType.String, description: "paired devices")
     }
     "/point_payment/flow_tracker/cancel_qr_charge"(platform: "/mobile", type: TrackType.Event) {}
-    
+
 
     "/settings/point"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
     "/settings/point/settings"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
@@ -693,7 +693,7 @@ tracks {
         news_id(required: false, description: "Identifier of the notification generated")
 
         notification_created_error(required: false, description: "The notification created error", type: PropertyType.String)
-        
+
         device_id(required: false, description: "The real device_id, may differ from device field")
     }
 
@@ -841,7 +841,7 @@ tracks {
     }
     //Onboarding
     "/asset_management/onboarding"(platform: "/mobile", type: TrackType.View) {
-        from (required:false, type: PropertyType.String, description: "Where the flow start")   
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
     //Challenges
     "/asset_management/challenge_pep"(platform: "/mobile", type: TrackType.View) {}
@@ -864,7 +864,7 @@ tracks {
     "/asset_management/result_stop_investing"(platform: "/mobile", type: TrackType.View) {}
     //Detail
     "/asset_management/investment_detail"(platform: "/mobile", type: TrackType.View) {
-        from (required:false, type: PropertyType.String, description: "Where the flow start")   
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
     "/asset_management/movements_detail"(platform: "/mobile", type: TrackType.View) {}
     //Congrats
@@ -884,4 +884,15 @@ tracks {
         registration_id(required: false, description: "The registration id", type: PropertyType.String)
     }
 
+    // Single Player Frontend Views
+    "/single_player"(platform: "/", isAbstract: true) {}
+    "/single_player/entertainment"(platform: "/web", type: TrackType.View) {}
+    "/single_player/services"(platform: "/web", type: TrackType.View) {}
+    "/single_player/sube"(platform: "/web", type: TrackType.View) {}
+    "/single_player/transport"(platform: "/web", type: TrackType.View) {}
+
+    // Single Player Frontend Events
+    "/single_player/send_sms"(platform:"/web", type: TrackType.Event) {
+        activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "Activity type when send sms")
+    }
 }
