@@ -41,7 +41,13 @@
           "name": "param02",
           "value": "DAY-1",
           "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param03",
+          "value": "DAY-30",
+          "format": "yyyy-MM-dd"
         }
+
       ]
     }
   }

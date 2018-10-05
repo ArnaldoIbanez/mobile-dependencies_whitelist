@@ -179,6 +179,7 @@ trackTests {
             address_id = "RS-0-001-001-00-00"
             inventory_id = "AAAA11111"
             quantity = 1
+            navigate_to_home = true
         }
         "/wms/cycle_count/item/finish_cycle_count"(platform: "/mobile/android") {
             trackData()

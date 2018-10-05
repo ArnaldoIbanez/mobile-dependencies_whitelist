@@ -91,7 +91,7 @@ tracks {
     available_installments(required: false, description: "Dictionary containing the availble installments the user can choose from a card")
     investor(required:false, type: PropertyType.String, values:["YES", "NO"], description:"If the user is an investor")
     available_consumer_credit(required:false, type: PropertyType.String, values:["YES", "NO"], description:"If the user has active consumer credits")
-    
+
     context(required: false, type: PropertyType.String, description: "Reference to the context that started cart flow")
     checkout_flow(required: false, type: PropertyType.String, values: ["cart"], description: "The type of checkout flow. Cart only for these tracks for now")
 
@@ -311,9 +311,19 @@ tracks {
 
 "/cart/checkout/payment"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
 
-"/cart/checkout/payment/select_unique_installment"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/payment/select_unique_installment"(platform:"/", type: TrackType.View) {}
 
-"/cart/checkout/payment/select_split_installments"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/payment/select_split_installments"(platform:"/", type: TrackType.View) {}
+
+"/cart/checkout/payment/select_split_installments/select_installment"(platform: "/", type: TrackType.Event) {}
+
+"/cart/checkout/payment/select_split_installments/edit_installment_options"(platform: "/", type: TrackType.Event) {}
+
+"/cart/checkout/payment/select_split_installments/close_split_message"(platform: "/", type: TrackType.Event) {}
+
+"/cart/checkout/payment/select_unique_installment/select_installment"(platform: "/", type: TrackType.Event) {}
+
+"/cart/checkout/payment/select_unique_installment/edit_installment_options"(platform: "/", type: TrackType.Event) {}
 
 "/cart/checkout/payment/select_split_installments/split_detail"(platform:"/mobile", type: TrackType.View) {}
 
@@ -377,7 +387,9 @@ tracks {
 "/cart/checkout/billing"(platform: "/mobile", isAbstract: true) {}
 "/cart/checkout/billing/physical_person"(platform: "/mobile") {}
 "/cart/checkout/billing/legal_person"(platform: "/mobile") {}
-"/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+"/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
 
 // 2MP Inconsistencias
 "/cart/checkout/review/discard_payment_combination"(platform: "/mobile") {}

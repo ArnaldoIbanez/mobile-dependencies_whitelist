@@ -419,24 +419,6 @@ trackTests {
         "/landing/promotions" (platform: "/web") {}
     }
 
-    test("Mercadopago Activities List") {
-        "/listing/activities" (platform: "/web") {
-            shown_modal_id = '45daysMigration'
-        }
-    }
-
-    test("Mercadopago Gateway List") {
-        "/listing/gateway" (platform: "/web") {}
-    }
-
-    test("Mercadopago Activities Detail") {
-        "/activity/detail" (platform: "/web") {}
-    }
-
-    test("Mercadopago Activities Detail Shipping") {
-        "/activity/detail/shipping" (platform: "/web") {}
-    }
-
     test("MP-MA Landing QR") {
         "/merchant_acquisition/qr/landing" (platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/qr/landing/promotions"(platform: "/", type: TrackType.Event) {}
@@ -754,6 +736,39 @@ trackTests {
         "/point_payment/qr_ftu"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/bank_selection"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/select_connected_device"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/link_share"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/link"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/qr"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/device_selection"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/qr_show_code"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/request_location"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/user_identification"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/ftu_preorder_bbpos"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/ftu_preorder_newland"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing_pax_turn_on"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing_bbposbt_device_selection"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing_bbposbt_turn_on"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/cart"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/permission_screen"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/deals"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing_newland_device_selection"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing_newland_turn_on"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/error/ownership"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/error/low_battery"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/web_view"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing/problem"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing/problem/help"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/bbpos_connectivity_help_web_view"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/qr_congrats"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/qr_congrats_nofee"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/bank_detail"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/pairing_ftu"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/deals"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/deals/finantial_costs"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/buyer_email"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/discount"(platform: "/mobile", type: TrackType.View) {}
 
         "/point_payment/flow_tracker/pairing"(platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
@@ -905,7 +920,7 @@ trackTests {
             level ="info"
             data ="{ctr: 2313}"
         }
-    
+
 
         "/settings/point/costs_calculator"(platform: "/mobile", type: TrackType.View) {
             flow = "point"
@@ -2281,7 +2296,7 @@ trackTests {
         "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {
             notified_user = "123"
         }
-    } 
+    }
 
     test("Multi Step Login Android") {
         "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
@@ -3233,6 +3248,25 @@ trackTests {
             device_id = "ee6f7bd224c2d6"
             enable = false
             registration_id = "dH2soSpvhwM:APA91bFwZmJy-wXP7DRLm_458FqPF9n8zbm7uVjixKUOHOS8FQ7QN-qSbWS_DrKYDiXyLzGE2giqzVf90fwyjNy4dkgi6hR_W_fv6JvnQo6B5AQ4BOX21g8wx0cLSrcJswrof5U3f"
+        }
+    }
+
+    test("Single Player Frontend") {
+        "/single_player/entertainment"(platform: "/web", type: TrackType.View) {}
+        "/single_player/services"(platform: "/web", type: TrackType.View) {}
+        "/single_player/sube"(platform: "/web", type: TrackType.View) {}
+        "/single_player/transport"(platform: "/web", type: TrackType.View) {}
+        "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
+            activity = "entertainment"
+        }
+        "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
+            activity = "services"
+        }
+        "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
+            activity = "sube"
+        }
+        "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
+            activity = "transport"
         }
     }
 }
