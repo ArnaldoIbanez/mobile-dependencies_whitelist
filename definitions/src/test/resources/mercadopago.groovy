@@ -3339,6 +3339,17 @@ trackTests {
         "/single_player/services"(platform: "/web", type: TrackType.View) {}
         "/single_player/sube"(platform: "/web", type: TrackType.View) {}
         "/single_player/transport"(platform: "/web", type: TrackType.View) {}
-        "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {}
+        "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
+            activity = "entertainment"
+        }
+        "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
+            activity = "services"
+        }
+        "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
+            activity = "sube"
+        }
+        "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
+            activity = "transport"
+        }
     }
 }

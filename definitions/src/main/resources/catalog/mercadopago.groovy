@@ -892,5 +892,7 @@ tracks {
     "/single_player/transport"(platform: "/web", type: TrackType.View) {}
 
     // Single Player Frontend Events
-    "/single_player/send_sms"(platform:"/web", type: TrackType.Event) {}
+    "/single_player/send_sms"(platform:"/web", type: TrackType.Event) {
+        activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "Activity type when send sms")
+    }
 }
