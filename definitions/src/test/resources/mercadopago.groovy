@@ -920,7 +920,7 @@ trackTests {
             level ="info"
             data ="{ctr: 2313}"
         }
-    
+
 
         "/settings/point/costs_calculator"(platform: "/mobile", type: TrackType.View) {
             flow = "point"
@@ -2296,7 +2296,7 @@ trackTests {
         "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {
             notified_user = "123"
         }
-    } 
+    }
 
     test("Multi Step Login Android") {
         "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
@@ -3332,5 +3332,13 @@ trackTests {
             enable = false
             registration_id = "dH2soSpvhwM:APA91bFwZmJy-wXP7DRLm_458FqPF9n8zbm7uVjixKUOHOS8FQ7QN-qSbWS_DrKYDiXyLzGE2giqzVf90fwyjNy4dkgi6hR_W_fv6JvnQo6B5AQ4BOX21g8wx0cLSrcJswrof5U3f"
         }
+    }
+
+    test("Single Player Frontend") {
+        "/single_player/entertainment"(platform: "/web", type: TrackType.View) {}
+        "/single_player/services"(platform: "/web", type: TrackType.View) {}
+        "/single_player/sube"(platform: "/web", type: TrackType.View) {}
+        "/single_player/transport"(platform: "/web", type: TrackType.View) {}
+        "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {}
     }
 }
