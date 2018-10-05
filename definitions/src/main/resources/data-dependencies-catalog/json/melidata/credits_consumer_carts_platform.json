@@ -4,6 +4,10 @@
   ],
   "process_name": "credits_consumer_carts_platform",
   "cron": "00 05 * * *",
+  "partition": {
+    "name": "Date",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
     "site": "MeliLake",
@@ -11,11 +15,6 @@
       {
         "name": "Count",
         "type": "INTEGER"
-      },
-      {
-        "name": "Date",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
       },
       {
         "name": "Path",

@@ -1,8 +1,8 @@
 SELECT count(*) AS Count,
-substring(ds, 1, 10) AS Date,
 path AS Path,
 device.platform AS Platform,
-application.site_id AS Site
+application.site_id AS Site,
+substring(ds, 1, 10) AS Date
 FROM tracks
 WHERE path IN ('/checkout/congrats','/cart/checkout/congrats') AND jest(event_data, 'payments[0].payment_method') = 'consumer_credits'
       AND (ds >= '@param01' AND ds < '@param02')
