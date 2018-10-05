@@ -5,7 +5,7 @@
   "process_name": "credits_consumer_carts_platform",
   "cron": "00 05 * * *",
   "partition": {
-    "name": "Date",
+    "name": "Fecha",
     "type": "DATE"
   },
   "extract": {
