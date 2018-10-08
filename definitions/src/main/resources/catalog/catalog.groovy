@@ -113,6 +113,7 @@ catalog {
         include business, "cards_prepaid.groovy"
         include business, "cellphone_recharge.groovy"
         include business, "collaborators.groovy"
+        include business, "asset_management.groovy"
     }
 
     mercadoshops.each { business ->
