@@ -3351,5 +3351,17 @@ trackTests {
         "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
             activity = "transport"
         }
+        "single_player/open_deep_link"(platform: "/web", type: TrackType.Event) {
+            activity = "entertainment"
+        }
+        "single_player/open_deep_link"(platform: "/web", type: TrackType.Event) {
+            activity = "services"
+        }
+        "single_player/open_deep_link"(platform: "/web", type: TrackType.Event) {
+            activity = "sube"
+        }
+        "single_player/open_deep_link"(platform: "/web", type: TrackType.Event) {
+            activity = "transport"
+        }
     }
 }
