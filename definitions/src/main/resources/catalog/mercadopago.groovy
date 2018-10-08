@@ -90,7 +90,7 @@ tracks {
 
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
-        product (type: PropertyType.String, required: false, description: "Name of device, example: 'point-h'")
+        product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
         currency (type: PropertyType.String, required: false, description: "Currency")
         price (type: PropertyType.Numeric, required: false, description: "Price of device")
         has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
@@ -116,7 +116,9 @@ tracks {
     "/point/flows/congrats"(platform:"/", type: TrackType.View) {}
 
     //Point Devices
-    "/point/landings/landing-devices-buy"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/landing_bundles_buy"(platform:"/", type: TrackType.Event) {
+        quantity (required:true, type: PropertyType.Numeric, description: "bundle quantity")
+    }
 
     // MP Mobile Point
     "/point_payment"(platform: "/mobile", type: TrackType.View) {
