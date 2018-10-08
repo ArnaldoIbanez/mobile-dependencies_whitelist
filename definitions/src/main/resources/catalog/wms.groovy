@@ -5,11 +5,11 @@ import com.ml.melidata.TrackType
 tracks {
 
     "/wms"(platform: "/mobile/android", type: TrackType.View, isAbstract: true) {
-        warehouse_id(required: false, type: PropertyType.String,
+        warehouse_id(required: true, type: PropertyType.String,
         	description: "Id of the warehouse to track")
         email(required: false, type: PropertyType.String)
-        first_name(required: false, type: PropertyType.String)
-        last_name(required: false, type: PropertyType.String)
+        first_name(required: true, type: PropertyType.String)
+        last_name(required: true, type: PropertyType.String)
         error_type(
         	required: false,
         	values: ["SERVER", "NETWORK", "ZRP", "TIMEOUT"],
@@ -71,8 +71,50 @@ tracks {
     "/wms/inbound_audit/start_count_around"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/inbound_audit/skip_count_around"(platform: "/mobile/android", type: TrackType.Event) {}
 
-	"/wms/picking"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/login"(platform: "/mobile/android", type: TrackType.View) {}
+    /* Picking tracks */
+    "/wms/picking"(platform: "/mobile/android", type: TrackType.View) {
+        pickup_id(required: true, type: PropertyType.String, description: "Id of the Pickup")
+        checkpoint_id(required: false, type: PropertyType.String, description: "Id of the Checkpoint")
+    }
+    "/wms/picking/confirmation"(platform: "/mobile/android", type: TrackType.View) {
+        pickup_id(required: false, type: PropertyType.String, description: "Id of the Pickup")
+    }
+    "/wms/picking/scan_closest_address"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/picking/floor_selection"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/picking/scan_container"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/picking/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/picking/item"(platform: "/mobile/android", type: TrackType.View) {
+        inventory_id(required: false, type: PropertyType.String, 
+            description: "Id of the picked up item")
+        destination_address(required: false, type: PropertyType.String, 
+            description: "Address to where the item is picked up")
+        checkpoint_status(required: false, type: PropertyType.String, 
+            description: "Status of the current checkpoint")
+    }
+    "/wms/picking/scan_destination"(platform: "/mobile/android", type: TrackType.View) {
+        inventory_id(required: false, type: PropertyType.String, 
+            description: "Id of the picked up item")
+        destination_address(required: false, type: PropertyType.String, 
+            description: "Address to where the item is picked up")
+        checkpoint_status(required: false, type: PropertyType.String, 
+            description: "Status of the current checkpoint")
+    }
+    "/wms/picking/change_floor_confirmation"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/picking/change_floor_scan"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/picking/congrats"(platform: "/mobile/android", type: TrackType.View) {}
+
+    "/wms/picking/confirmation/start_pickup"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/picking/item/item_not_found"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/picking/item/finish_checkpoint"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/picking/scan_destination/finish_checkpoint"(platform: "/mobile/android", type: TrackType.Event) {}
+	"/wms/picking/congrats/finish_pickup"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/wms/login"(platform: "/mobile/android", type: TrackType.View) {
+        warehouse_id(required: false, type: PropertyType.String,
+            description: "Id of the warehouse to track")
+        first_name(required: false, type: PropertyType.String)
+        last_name(required: false, type: PropertyType.String)
+    }
     "/wms/home"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/receiving"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/transfer"(platform: "/mobile/android", type: TrackType.View) {}
