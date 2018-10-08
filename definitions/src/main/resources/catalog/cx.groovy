@@ -79,6 +79,7 @@ tracks {
         portal_content_id
         portal_source_id
         portal_has_channels_configured
+        portal_problem_id
         portal_contact(required: false, type: PropertyType.Map,
                 description: "Indicates if the current hub has channels enabled and why it hasn't")
     }
