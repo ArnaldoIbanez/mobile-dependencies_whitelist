@@ -479,15 +479,26 @@ trackTests {
     test("MP MLA/MLB/MLM Landing Bundles Point") {
         "/point/landings/landing_bundles_buy"(platform: "/", type: TrackType.Event) {
             quantity = 5
+            product = "bundle_point_mini"
         }
     }
 
     test("Landing MercadoPago Point MGM > Events") {
-       "/point/landings/mgm/share"(platform:"/", type: TrackType.Event) {}
-      "/point/landings/mgm/ios"(platform:"/", type: TrackType.Event) {}
-      "/point/landings/mgm/android"(platform:"/", type: TrackType.Event) {}
-      "/point/landings/mgm/prepago"(platform:"/", type: TrackType.Event) {}
-      "/point/landings/mgm/tyc"(platform:"/", type: TrackType.Event) {}
+      "/point/landings/mgm/share"(platform:"/", type: TrackType.Event) {
+           product = "mgm"
+       }
+      "/point/landings/mgm/ios"(platform:"/", type: TrackType.Event) {
+          product = "mgm"
+      }
+      "/point/landings/mgm/android"(platform:"/", type: TrackType.Event) {
+          product = "mgm"
+      }
+      "/point/landings/mgm/prepago"(platform:"/", type: TrackType.Event) {
+          product = "mgm"
+      }
+      "/point/landings/mgm/tyc"(platform:"/", type: TrackType.Event) {
+          product = "mgm"
+      }
     }
 
     // MPMOBILE TEST
