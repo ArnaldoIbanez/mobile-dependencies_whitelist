@@ -896,7 +896,7 @@ tracks {
         activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "Activity type when send sms")
     }
 
-    "/single_player/open_deep_link"(platform:"/web", type: TrackType.Event) {
+    "/single_player/open_deep_link"(platform:"/web/mobile", type: TrackType.Event) {
         activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "where open link from sms")
     }
 }
