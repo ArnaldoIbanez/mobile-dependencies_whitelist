@@ -5,7 +5,7 @@ v2.portal_has_channels_configured as has_channels,
 application.business as business,  
 application.site_id as site_id,
 device.platform as platform,
-count(t.id),
+count(t.id) as quantity,
 substr(t.ds, 12, 2) AS requested_datetime_hour,
 substr(t.ds, 1, 10) AS requested_datetime_day
 FROM tracks t 
