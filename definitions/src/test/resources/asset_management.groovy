@@ -8,9 +8,7 @@ trackTests {
     test("Asset management") {
 
         //Onboarding
-        "/asset_management/onboarding"(platform: "/mobile") {
-            from = "/deep_link"
-        }
+        "/asset_management/onboarding"(platform: "/mobile") {}
 
         //Challenges
         "/asset_management/challenge_pep"(platform: "/mobile") {}
@@ -34,9 +32,7 @@ trackTests {
         "/asset_management/result_stop_investing"(platform: "/mobile") {}
 
         //Detail
-        "/asset_management/investment_detail"(platform: "/mobile") {
-            from = "/deep_link"
-        }
+        "/asset_management/investment_detail"(platform: "/mobile") {}
         "/asset_management/movements_detail"(platform: "/mobile") {}
 
         //Congrats
@@ -46,9 +42,7 @@ trackTests {
         "/asset_management/faqs"(platform: "/mobile") {}
 
         //Splitter
-        "/asset_management/splitter"(platform: "/mobile") {
-            from = "/deep_link"
-        }
+        "/asset_management/splitter"(platform: "/mobile") {}
         "/asset_management/profile"(platform: "/mobile") {}
         "/asset_management/stop_investing"(platform: "/mobile") {}
         "/asset_management/swipe"(platform: "/mobile") {

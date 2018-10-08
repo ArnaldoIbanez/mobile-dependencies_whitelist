@@ -9,9 +9,7 @@ tracks {
     }
 
     //Onboarding
-    "/asset_management/onboarding"(platform: "/mobile", type: TrackType.View) {
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
+    "/asset_management/onboarding"(platform: "/mobile", type: TrackType.View) {}
 
     //Challenges
     "/asset_management/challenge_pep"(platform: "/mobile", type: TrackType.View) {}
@@ -35,9 +33,7 @@ tracks {
     "/asset_management/result_stop_investing"(platform: "/mobile", type: TrackType.View) {}
 
     //Detail
-    "/asset_management/investment_detail"(platform: "/mobile", type: TrackType.View) {
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
+    "/asset_management/investment_detail"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/movements_detail"(platform: "/mobile", type: TrackType.View) {}
 
     //Congrats
@@ -47,9 +43,7 @@ tracks {
     "/asset_management/faqs"(platform: "/mobile", type: TrackType.View) {}
 
     //Splitter
-    "/asset_management/splitter"(platform: "/mobile", type: TrackType.View) {
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
+    "/asset_management/splitter"(platform: "/mobile", type: TrackType.View) {}
 
     //Errors
     "/asset_management/error"(platform: "/mobile", type: TrackType.Event) {}
