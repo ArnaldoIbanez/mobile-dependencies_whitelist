@@ -16,7 +16,7 @@ tracks {
     "/cx/contact_types/click_on_contact_form" (platform: "/mobile", type: TrackType.Event){}
 
     propertyDefinitions {
-        portal_contact(required: true, type: PropertyType.String,
+        portal_contact(required: true, type: PropertyType.Map,
                 description: "Indicates if the current hub has channels enabled and why it hasn't")
         portal_content_id(required: true, type: PropertyType.Numeric,
                 description: "Indicates the id of the content shown on the page")
@@ -79,7 +79,7 @@ tracks {
         portal_content_id
         portal_source_id
         portal_has_channels_configured
-        portal_contact(required: false, type: PropertyType.String,
+        portal_contact(required: false, type: PropertyType.Map,
                 description: "Indicates if the current hub has channels enabled and why it hasn't")
     }
 
