@@ -19,7 +19,15 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "content_id",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "has_channels",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "business",
         "type": "UNICODE_STRING"
       },
       {
@@ -27,7 +35,7 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "business",
+        "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
