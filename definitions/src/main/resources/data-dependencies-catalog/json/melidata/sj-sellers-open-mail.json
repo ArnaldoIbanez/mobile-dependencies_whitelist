@@ -17,15 +17,11 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Path",
-        "type": "UNICODE_STRING"
+        "name": "open_date",
+        "type": "DATE"
       },
       {
-        "name": "Count_Send",
-        "type": "INTEGER"
-      },
-      {
-        "name": "Count_Open",
+        "name": "seller_id",
         "type": "INTEGER"
       }
     ],
