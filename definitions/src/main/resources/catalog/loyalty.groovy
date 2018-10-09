@@ -84,12 +84,13 @@ tracks {
     }
 
     "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
+        origin(required: false, values: ["marketplace","loyalty_frontend","push"],description: "Where the user came from.")
     }
 
     "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.Event){
         action(required: true, values: ["started","success","success_orange","rejected","error"], description: "'started' when the CHO starts, success/success_orange/error is when the CHO finish")
-        origin(required: false, description: "Checkout was initiated from alternative flow other than the landing")
-        item_id(required: false, description: "If flow starts from vip")
+        origin(required: false, values: ["mail","vip","marketplace","loyalty_frontend","new_vip","landing"],description: "Where was the checkout was initiated from.")
+        item_id(required: false, description: "If flow starts from vip || new_vip")     
     }
 
     "/loyalty/buylevel/payment"(platform: "/",type: TrackType.Event){
