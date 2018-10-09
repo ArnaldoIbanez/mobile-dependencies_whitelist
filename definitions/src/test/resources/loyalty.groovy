@@ -180,6 +180,15 @@ trackTests {
 
     test("Loyalty Buy Level Landing"){
         "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
+                        origin= "loyalty_frontend"
+        }
+        "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
+                        origin= "push"
+        }
+        "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
+                        origin= "marketplace"
+        }
+        "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
         }
     }
 
@@ -198,6 +207,32 @@ trackTests {
         "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
             action= "error"
             origin= "mail"
+        }
+
+       "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
+            action= "started"
+            origin= "marketplace"
+        }
+
+       "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
+            action= "started"
+            origin= "new_vip"
+        }
+       "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
+            action= "started"
+            origin= "loyalty_frontend"
+        }
+       "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
+            action= "started"
+            origin= "vip"
+        }
+       "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
+            action= "started"
+            origin= "mail"
+        }
+       "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
+            action= "started"
+            origin= "landing"
         }
     }
 
