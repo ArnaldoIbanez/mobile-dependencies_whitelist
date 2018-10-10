@@ -211,7 +211,7 @@ trackTests {
     }
 
     test("seller central listing type value updated"){
-        "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.View){
+        "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event){
             category_id = "MLA390784"
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
