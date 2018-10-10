@@ -2,10 +2,10 @@
   "users": [
     "seller-journey-test@googlegroups.com"
   ],
-  "process_name": "sj-emails-open-rate",
+  "process_name": "sj-sellers-open-mail",
   "cron": "0 1,21 * * *",
   "partition": {
-    "name": "sent_date",
+    "name": "open_date",
     "type": "DATE"
   },
   "extract": {
@@ -26,7 +26,7 @@
       }
     ],
     "sql": {
-      "script": "dataadoption/sj-emails-open-rate.sql",
+      "script": "dataadoption/sj-sellers-open-mail.sql",
       "parameters": [
         {
           "name": "param01",
