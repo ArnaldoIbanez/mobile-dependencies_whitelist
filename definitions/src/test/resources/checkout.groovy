@@ -465,12 +465,10 @@ trackTests {
         "/checkout/shipping/puis/select_store/store_not_found"(platform: "/mobile",type: TrackType.Event) {
             latitude = -33.312313
             longitude = -58.929484
-            selected_filters = []
         }
         "/checkout/shipping/select_store/store_not_found"(platform: "/mobile",type: TrackType.Event) {
             latitude = -33.312313
             longitude = -58.929484
-            selected_filters = ["next_day","open_weekends"]
         }
         "/checkout/shipping/puis/select_store/selected_store"(platform: "/mobile", type: TrackType.Event) {
             default_location_info = {
@@ -2001,12 +1999,10 @@ trackTests {
         "/checkout/shipping/puis/select_store/store_not_found"(platform: "/web", type: TrackType.Event) {
             latitude = -33.312313
             longitude = -58.929484
-            selected_filters = ["tomorrow"]
         }
         "/checkout/shipping/select_store/store_not_found"(platform: "/web", type: TrackType.Event) {
             latitude = -33.312313
             longitude = -58.929484
-            selected_filters = []
         }
         "/checkout/shipping/puis/select_store/selected_store"(platform: "/web", type: TrackType.Event) {
             default_location_info = {

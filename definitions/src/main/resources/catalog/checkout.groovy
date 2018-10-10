@@ -481,12 +481,10 @@ tracks {
     "/checkout/shipping/puis/select_store/store_not_found"(platform: "/",type: TrackType.Event) {
         latitude(type: PropertyType.Numeric,required: false, description: "the latitude at which we are requesting agencies")
         longitude(type: PropertyType.Numeric,required: false, description: "the longitude at which we are requesting agencies")
-        selected_filters(type: PropertyType.ArrayList, required: true, description: "indicates the selected filters when an agency is selected")
     }
     "/checkout/shipping/select_store/store_not_found"(platform: "/",type: TrackType.Event) {
         latitude(type: PropertyType.Numeric,required: false, description: "the latitude at which we are requesting agencies")
         longitude(type: PropertyType.Numeric,required: false, description: "the longitude at which we are requesting agencies")
-        selected_filters(type: PropertyType.ArrayList, required: true, description: "indicates the selected filters when an agency is selected")
     }
 
     //Select paymentMethod
