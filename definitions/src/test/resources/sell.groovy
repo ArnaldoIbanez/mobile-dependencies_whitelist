@@ -440,6 +440,11 @@ trackTests {
             item_id = "MLA123456"
             attribute_id = "brand"
         }
+        "/sell/update/technical_specification/update/suggested_attr_selected"(platform: "/mobile") {
+            item_id = "MLA123456"
+            attribute_id = "brand"
+        }
+        "/sell/update/goals"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/picture_editor/function/crop"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/picture_editor/function/delete"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/picture_editor/function/rotate"(platform: "/mobile") {item_id = "MLA123456"}
@@ -462,12 +467,14 @@ trackTests {
         "/sell/update/sip/update/list_activate_step" (platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/update/listing_types" (platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/update/modify_variations" (platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/sip/update/technical_specifications" (platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/picture_uploader/delete"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/picture_uploader/rotate"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/update/pictures" (platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/update/price" (platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/update/quantity" (platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/update/relist" (platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/update/statistics" (platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/sip/update/technical_specifications" (platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/category_suggestion"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/category_navigation"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/color_selection"(platform: "/mobile") {item_id = "MLA123456"}

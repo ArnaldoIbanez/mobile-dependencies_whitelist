@@ -348,6 +348,19 @@ tracks {
     "/sell/update/autocomplete/update/suggested_attr_selected"(platform: "/mobile", type: TrackType.Event) {
         attribute_id(required: true, "ID from attribute that was suggested", type: PropertyType.String)
     }
+    "/sell/update/technical_specification"(platform: "/", isAbstract: true){}
+    "/sell/update/technical_specification/update"(platform: "/", isAbstract: true){}
+    "/sell/update/technical_specification/update/suggested_attr_selected"(platform: "/mobile", type: TrackType.Event) {
+        attribute_id(required: true, "ID from attribute that was suggested", type: PropertyType.String)
+    }
+    "/sell/update/picture_uploader"(platform: "/", isAbstract: true){}
+    "/sell/update/picture_uploader/delete"(platform: "/mobile", type: TrackType.Event){
+        item_id(required: true, description: "Item id", type: PropertyType.String)
+    }
+    "/sell/update/picture_uploader/rotate"(platform: "/mobile", type: TrackType.Event){
+        item_id(required: true, description: "Item id", type: PropertyType.String)
+    }
+    "/sell/update/goals"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/description_included"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/description_not_included"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/manufacturing_time"(platform: "/mobile", type: TrackType.View) {}
