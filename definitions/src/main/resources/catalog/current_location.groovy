@@ -31,5 +31,7 @@ tracks {
     }
     "/current_location/hub/create_address"(platform: "/", type: TrackType.Event) {}
     "/current_location/hub/zipcode_finder"(platform: "/", type: TrackType.Event) {}
+    "/current_location/hub/error"(platform: "/", type: TrackType.View) {}
+    "/current_location/hub/notfound"(platform: "/", type: TrackType.View) {}
 
 }

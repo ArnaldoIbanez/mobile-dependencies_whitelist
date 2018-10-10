@@ -39,4 +39,12 @@ trackTests {
             action = "zipcode"
         }
     }
+
+    test("current location hub error view") {
+        "/current_location/hub/error"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("current location hub not found view") {
+        "/current_location/hub/notfound"(platform: "/", type: TrackType.View) {}
+    }
 }
