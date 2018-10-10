@@ -210,4 +210,17 @@ trackTests {
         }
     }
 
+    test("seller central listing type value updated"){
+        "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.View){
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_id = 12345467
+            seller_profile = "ADVANCED"
+            site_id = "MLA"
+            from = "gold_special"
+            to = "gold_pro"
+        }
+    }
+
 }
