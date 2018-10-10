@@ -465,6 +465,7 @@ tracks {
         longitude(type: PropertyType.Numeric, required: true, description: "the longitude at which we are requesting agencies")
         last_action(type: PropertyType.String, required: true, description: "That indicate the last action the user on the map")
         distance(type: PropertyType.Numeric, required: false, description: "indicate the distance of the agencie selected to the default center point")
+        selected_filters(type: PropertyType.ArrayList, required: true, description: "indicates the selected filters when an agency is selected")
     }
 
     "/checkout/shipping/select_store/selected_store"(platform: "/", type: TrackType.Event) {
@@ -473,16 +474,19 @@ tracks {
         longitude(type: PropertyType.Numeric, required: true, description: "the longitude at which we are requesting agencies")
         last_action(type: PropertyType.String, required: true, description: "That indicate the last action the user on the map")
         distance(type: PropertyType.Numeric, required: false, description: "indicate the distance of the agencie selected to the default center point")
+        selected_filters(type: PropertyType.ArrayList, required: true, description: "indicates the selected filters when an agency is selected")
     }
 
     // No agencies
     "/checkout/shipping/puis/select_store/store_not_found"(platform: "/",type: TrackType.Event) {
         latitude(type: PropertyType.Numeric,required: false, description: "the latitude at which we are requesting agencies")
         longitude(type: PropertyType.Numeric,required: false, description: "the longitude at which we are requesting agencies")
+        selected_filters(type: PropertyType.ArrayList, required: true, description: "indicates the selected filters when an agency is selected")
     }
     "/checkout/shipping/select_store/store_not_found"(platform: "/",type: TrackType.Event) {
         latitude(type: PropertyType.Numeric,required: false, description: "the latitude at which we are requesting agencies")
         longitude(type: PropertyType.Numeric,required: false, description: "the longitude at which we are requesting agencies")
+        selected_filters(type: PropertyType.ArrayList, required: true, description: "indicates the selected filters when an agency is selected")
     }
 
     //Select paymentMethod
