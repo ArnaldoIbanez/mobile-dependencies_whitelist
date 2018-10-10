@@ -12,6 +12,10 @@ trackTests {
         "/current_location/navigation/pick"(platform: "/", type: TrackType.Event) {}
     }
 
+    test("current location navigation close modal") {
+        "/current_location/navigation/close"(platform: "/", type: TrackType.Event) {}
+    }
+
     test("current location hub pick error") {
         "/current_location/hub/pick/error"(platform: "/", type: TrackType.Event) {
             action = "address"
