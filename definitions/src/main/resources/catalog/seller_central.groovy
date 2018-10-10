@@ -115,4 +115,10 @@ tracks {
     "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View) {
         sellerCentralModifyGroup
     }
+
+    "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyGroup
+        from(required: true, type: PropertyType.String, description: "Current listing type value")
+        to(required: true, type: PropertyType.String, description: "Updated listing type value")
+    }
 }
