@@ -282,6 +282,34 @@ trackTests {
             inventory_id = "AAAA11111"
             quantity = 1
         }
+        "/wms/removal"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            first_name = "Some first name"
+            last_name = "Some last name"
+            removal_id = "1"
+        }
+        "/wms/removal/authorization"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            first_name = "Some first name"
+            last_name = "Some last name"
+        }
+        "/wms/removal/scan_shelf"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            first_name = "Some first name"
+            last_name = "Some last name"
+            removal_id = "1"
+            address_id = "RO-0-001-001-00-00"
+        }
+        "/wms/removal/confirmation"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            first_name = "Some first name"
+            last_name = "Some last name"
+            removal_id = "1"
+        }
 
         //Events
         "/wms/put_away/scan_cart/start_put_away"(platform: "/mobile/android") {
@@ -398,6 +426,20 @@ trackTests {
             first_name = "Some first name"
             last_name = "Some last name"
             pickup_id = "1"
+        }
+        "/wms/removal/authorization/start_removal"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            first_name = "Some first name"
+            last_name = "Some last name"
+            removal_id = "1"
+        }
+        "/wms/removal/confirmation/finish_removal"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            first_name = "Some first name"
+            last_name = "Some last name"
+            removal_id = "1"
         }
     }
 }

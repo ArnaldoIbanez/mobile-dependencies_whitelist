@@ -143,4 +143,18 @@ tracks {
     "/wms/cycle_count/item/reset_address"(platform: "/mobile/android", type: TrackType.Event) {
         navigate_to_home(required: true, type: PropertyType.Boolean, description: "Whether or not the reset event is triggered by the user navigating to the home screen.")
     }
+
+    /* Removal tracks */
+    "/wms/removal"(platform: "/mobile/android", type: TrackType.View) {
+        removal_id(required: true, type: PropertyType.String, description: "Removal id")
+    }
+    "/wms/removal/authorization"(platform: "/mobile/android", type: TrackType.View) {
+        removal_id(required: false, type: PropertyType.String, description: "Removal id")
+    }
+    "/wms/removal/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {
+        address_id(required: true, type: PropertyType.String, description: "Address id")
+    }
+    "/wms/removal/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/removal/authorization/start_removal"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/removal/confirmation/finish_removal"(platform: "/mobile/android", type: TrackType.Event) {}
 }
