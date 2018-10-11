@@ -79,7 +79,9 @@ tracks {
         columns(required: true, type: PropertyType.ArrayList, description: "List of the available columns and his order")
     }
 
-    "/seller_central/bulk/offline"(platform: "/", type: TrackType.View) {}
+    "/seller_central/bulk/offline"(platform: "/", isAbstract: true) {}
+
+    "/seller_central/bulk/offline/home"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/bulk/offline/download"(platform: "/", type: TrackType.View) {}
 
