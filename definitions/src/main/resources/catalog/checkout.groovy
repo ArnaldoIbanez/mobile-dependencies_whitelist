@@ -990,6 +990,8 @@ tracks {
 
     "/checkout/shipping/confirm_geolocation"(platform:"/web", type: TrackType.View) {}
 
+    "/checkout/shipping/select_method_ask_geolocation"(platform:"/web", type: TrackType.View) {}
+
     "/checkout/shipping/confirm_geolocation/send_to_cp_located"(platform:"/web", type: TrackType.Event) {}
     "/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", type: TrackType.Event) {}
 

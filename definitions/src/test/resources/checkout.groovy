@@ -1979,6 +1979,7 @@ trackTests {
         "/checkout/review/edit_second_installment"(platform:"/web", dataSet)
         "/checkout/shipping"(platform:"/web", dataSet)
         "/checkout/shipping/confirm_geolocation"(platform:"/web", dataSet)
+        "/checkout/shipping/select_method_ask_geolocation"(platform:"/web", dataSet)
         "/checkout/shipping/confirm_geolocation/send_to_cp_located"(platform:"/web", dataSet)
         "/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", dataSet)
         "/checkout/shipping/input_new_address"(platform:"/web", dataSet)
