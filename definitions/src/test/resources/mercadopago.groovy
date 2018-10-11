@@ -3280,15 +3280,19 @@ trackTests {
         "/single_player/transport"(platform: "/web", type: TrackType.View) {}
         "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
             activity = "entertainment"
+            status = 'OK'
         }
         "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
             activity = "services"
+            status = 'ERROR'
         }
         "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
             activity = "sube"
+            status = 'OK'
         }
         "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
             activity = "transport"
+            status = 'OK'
         }
         "/single_player/open_deep_link"(platform: "/web/mobile", type: TrackType.Event) {
             activity = "entertainment"
