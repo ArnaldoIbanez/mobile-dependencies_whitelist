@@ -894,6 +894,7 @@ tracks {
     // Single Player Frontend Events
     "/single_player/send_sms"(platform:"/web", type: TrackType.Event) {
         activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "Activity type when send sms")
+        status (type: PropertyType.String, required: true, values: ["OK", "ERROR"], description: "Indicate if SMS was send")
     }
 
     "/single_player/open_deep_link"(platform:"/web/mobile", type: TrackType.Event) {
