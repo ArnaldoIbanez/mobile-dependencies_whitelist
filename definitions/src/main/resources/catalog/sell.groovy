@@ -309,6 +309,7 @@ tracks {
     "/sell/list/registration_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/registration_zip_code_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/shipping_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/shipping_mandatory_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/sip_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/sip_price_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/sip_shipping_landing"(platform: "/", type: TrackType.View) {}
@@ -396,6 +397,7 @@ tracks {
     "/sell/update/quantity"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/technical_specifications"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/shipping_mandatory_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/variations"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/pictures_variations"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/pictures_variations/editor"(platform: "/mobile", type: TrackType.View) {}
