@@ -127,7 +127,7 @@ trackTests {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     test("seller central offline view") {
-        "/seller_central/bulk/offline"(platform: "/", type: TrackType.View) {}
+        "/seller_central/bulk/offline/home"(platform: "/", type: TrackType.View) {}
     }
 
     test("seller central offline download views") {
