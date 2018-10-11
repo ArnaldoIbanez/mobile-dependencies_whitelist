@@ -17,10 +17,6 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "open_date",
-        "type": "DATE"
-      },
-      {
         "name": "seller_id",
         "type": "INTEGER"
       }
