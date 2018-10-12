@@ -1983,6 +1983,7 @@ trackTests {
         "/checkout/shipping/confirm_geolocation/send_to_cp_located"(platform:"/web", dataSet)
         "/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", dataSet)
         "/checkout/shipping/input_new_address"(platform:"/web", dataSet)
+        "/checkout/shipping/accord"(platform:"/web", dataSet)
         "/checkout/payment/security_code"(platform:"/web", dataSet)
         "/checkout/finish/call_seller"(platform:"/web", dataSet)
         "/checkout/finish/send_message"(platform:"/web", dataSet)
