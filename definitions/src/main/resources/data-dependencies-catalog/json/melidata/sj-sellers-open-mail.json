@@ -6,7 +6,8 @@
   "cron": "0 1,21 * * *",
   "partition": {
     "name": "open_date",
-    "type": "DATE"
+    "type": "DATE",
+    "format": "yyyy-MM-dd"
   },
   "extract": {
     "operation": "append",
