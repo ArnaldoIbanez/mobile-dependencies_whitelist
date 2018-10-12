@@ -157,4 +157,27 @@ tracks {
     "/wms/removal/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/removal/authorization/start_removal"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/removal/confirmation/finish_removal"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    /* Withdrawal tracks */
+    "/wms/withdrawal"(platform: "/mobile/android", type: TrackType.View) {
+        pickup_id(required: true, type: PropertyType.String, description: "Id of the pickup for the withdrawal flow")
+    }
+    "/wms/withdrawal/confirmation"(platform: "/mobile/android", type: TrackType.View) {
+        pickup_id(required: false, type: PropertyType.String, description: "Id of the pickup for the withdrawal flow")
+    }
+    "/wms/withdrawal/scan_container"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/withdrawal/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/withdrawal/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {
+        inventory_id(required: true, type: PropertyType.String, description: "Id of item")
+        checkpoint_id(required: true, type: PropertyType.String, description: "Id of checkpoint for the pickup")
+    }
+    "/wms/withdrawal/scan_destination"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/withdrawal/congrats"(platform: "/mobile/android", type: TrackType.View) {}
+
+    "/wms/withdrawal/confirmation/start_withdrawal"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/withdrawal/scan_inventory/update_checkpoint"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/withdrawal/scan_inventory/item_not_found"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/withdrawal/scan_inventory/unload_cart"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/withdrawal/congrats/finish_withdrawal"(platform: "/mobile/android", type: TrackType.Event) {}
+
 }
