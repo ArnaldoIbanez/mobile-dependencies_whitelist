@@ -1001,6 +1001,8 @@ tracks {
 
     "/checkout/shipping/select_option/agency_pickup/"(platform:"/web", type: TrackType.View) {}
 
+    "/checkout/shipping/accord"(platform:"/web", type: TrackType.View) {}
+
     "/checkout/items_not_available"(platform:"/", type: TrackType.View) {}
 
     "/checkout/payment/select_method"(platform:"/", type: TrackType.View) {}
