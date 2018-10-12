@@ -3,7 +3,7 @@
     "seller-journey-test@googlegroups.com"
   ],
   "process_name": "sj-sellers-open-mail",
-  "cron": "0 1,21 * * *",
+  "cron": "0 6 * * *",
   "partition": {
     "name": "open_date",
     "type": "DATE",
@@ -16,7 +16,6 @@
       {
         "name": "seller_id",
         "type": "INTEGER"
-
       },
       {
         "name": "Template",
