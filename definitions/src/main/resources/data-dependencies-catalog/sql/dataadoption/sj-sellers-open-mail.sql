@@ -1,4 +1,5 @@
-SELECT tracks.usr.user_id as seller_id, get_json_object(tracks.event_data,'$.email_template') as Template, ds as open_date
+SELECT ds as open_date, tracks.usr.user_id as seller_id, get_json_object(tracks.event_data,'$.email_template') as Template,
+          substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) as sent_date
 FROM tracks
 WHERE (ds >= '@param01'
         AND ds < '@param02'

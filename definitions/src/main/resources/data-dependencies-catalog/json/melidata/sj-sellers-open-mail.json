@@ -13,12 +13,18 @@
     "site": "Catalogo",
     "columns": [
       {
+        "name": "seller_id",
+        "type": "INTEGER"
+
+      },
+      {
         "name": "Template",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "seller_id",
-        "type": "INTEGER"
+        "name": "sent_date",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
       }
     ],
     "sql": {
