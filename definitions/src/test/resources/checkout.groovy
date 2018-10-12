@@ -242,6 +242,9 @@ trackTests {
             location = "34.677755,56.444433"
             geolocation_method = "platform"
         }
+        "/checkout/init/back"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+        }
         "/checkout/init/options"(platform:"/mobile", type:TrackType.Event) {
             payment_data = "[credit_card:-, ticket:abitab, ticket:redpagos, cash:cash]"
             shipping_data = ["mercadoenvios", "local_pick_up"]
@@ -261,6 +264,11 @@ trackTests {
             selections = ["shipping_geo", "shipping_other", "local_pick_up"]
         }
         "/checkout/shipping/accord"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            inconsistency = "only_to_agree"
+            selections = ["to_agree"]
+        }
+        "/checkout/shipping/accord/back"(platform:"/mobile", type:TrackType.Event) {
             checkoutStatus()
             inconsistency = "only_to_agree"
             selections = ["to_agree"]
@@ -436,6 +444,7 @@ trackTests {
         "/checkout/shipping/select_store_map"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+        "/checkout/shipping/select_store_map/back"(platform:"/mobile", type:TrackType.Event) {}
         "/checkout/shipping/select_store_map#agencies_request"(platform:"/mobile", type:TrackType.Event) {
             item_id = "MLA12341"
             latitude = "-33,312313"
@@ -531,6 +540,7 @@ trackTests {
         "/checkout/payment/add_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+        "/checkout/payment/add_card/back"(platform:"/mobile", type:TrackType.Event) {}
         "/checkout/payment/add_card#card_config"(platform:"/mobile", type: TrackType.Event) {
             bin = "123456"
             success = true
@@ -624,6 +634,9 @@ trackTests {
         }
         "/checkout/payment/cash/select_store"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
+            available_methods = ["telecomm", "oxxo", "bancomer", "banamex"]
+        }
+        "/checkout/payment/cash/select_store/back"(platform:"/mobile", type:TrackType.Event) {
             available_methods = ["telecomm", "oxxo", "bancomer", "banamex"]
         }
         "/checkout/payment/cash/select_store/select_address"(platform:"/mobile") {}

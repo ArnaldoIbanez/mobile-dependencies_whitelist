@@ -247,6 +247,10 @@ tracks {
         geolocation_method(required: false, type: PropertyType.String)
     }
 
+    "/checkout/init/back"(platform: "/mobile", type: TrackType.Event) {
+        success(required: falses, type: PropertyType.Boolean)
+    }
+
     "/checkout/init/options"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
   session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         shipping_data(required: true, type: PropertyType.ArrayList, description: "Shipping options available for the buyer")
@@ -278,6 +282,7 @@ tracks {
     "/checkout/shipping/accord"(platform: "/mobile") {
         shipping_inconsistency
     }
+    "/checkout/shipping/accord/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/shipping/accord_shipping_and_payment"(platform: "/mobile") {
         shipping_inconsistency
     }
@@ -440,6 +445,7 @@ tracks {
 
     // Store map
     "/checkout/shipping/select_store_map"(platform: "/mobile") {}
+    "/checkout/shipping/select_store_map/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/shipping/select_store_map#agencies_request"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
   session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         agencies(required: true, description: "the number of agencies returned by the request")
@@ -519,6 +525,7 @@ tracks {
         success(required: true, type: PropertyType.Boolean)
     }
     "/checkout/payment/add_card"(platform: "/mobile") {}
+    "/checkout/payment/add_card/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/payment/add_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
   session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         bin(required: true, type: PropertyType.String)
@@ -574,6 +581,7 @@ tracks {
     "/checkout/payment/cash/select_store"(platform: "/mobile") {
         available_methods(required: true, type: PropertyType.ArrayList)
     }
+    "/checkout/payment/cash/select_store/back"(platform: "/mobile", type:TrackType.Event) {}
     "/checkout/payment/cash/select_store/select_address"(platform: "/mobile", parentPropertiesInherited: false) {}
     "/checkout/payment/cash/select_store#request_permissions"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
   session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
