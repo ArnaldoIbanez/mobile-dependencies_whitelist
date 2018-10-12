@@ -168,7 +168,7 @@ tracks {
     "/wms/withdrawal/scan_container"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/withdrawal/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/withdrawal/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {
-        inventory_id(required: true, type: PropertyType.String, description: "Id of item")
+        inventory_id(required: true, type: PropertyType.String, description: "Id of the item")
         checkpoint_id(required: true, type: PropertyType.String, description: "Id of checkpoint for the pickup")
     }
     "/wms/withdrawal/scan_destination"(platform: "/mobile/android", type: TrackType.View) {}
