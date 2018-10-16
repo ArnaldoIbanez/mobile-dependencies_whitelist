@@ -37,10 +37,10 @@ trackTests {
             ad_status = "active"
             previous_ad_status = "paused"
         }
-        "/advertising/pads2/manager/onboarding/steps/show"(platform: "/web", type: TrackType.Event)
-        "/advertising/pads2/manager/onboarding/steps/finish"(platform: "/web", type: TrackType.Event)
-        "/advertising/pads2/manager/onboarding/modal/show"(platform: "/web", type: TrackType.Event)
-        "/advertising/pads2/manager/onboarding/modal/close"(platform: "/web", type: TrackType.Event)
+        "/advertising/pads2/manager/onboarding/steps/show"(platform: "/web", type: TrackType.Event) {}
+        "/advertising/pads2/manager/onboarding/steps/finish"(platform: "/web", type: TrackType.Event) {}
+        "/advertising/pads2/manager/onboarding/modal/show"(platform: "/web", type: TrackType.Event) {}
+        "/advertising/pads2/manager/onboarding/modal/close"(platform: "/web", type: TrackType.Event) {}
     }
 
     test("Advertising landing") {
