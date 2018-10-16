@@ -37,9 +37,18 @@ tracks {
         ad_status(required: true, description: "Current status related to the ad", values: ['active', 'paused'])
         previous_ad_status (required: true, description: "Previous status related to the ad", values: ['active', 'paused'])
     }
+    "/advertising/pads2/manager/onboarding"(platform: "/", isAbstract: true) {}
+
+    "/advertising/pads2/manager/onboarding/modal"(platform: "/", isAbstract: true) {}
+
+    "/advertising/pads2/manager/onboarding/steps"(platform: "/", isAbstract: true) {}
+
     "/advertising/pads2/manager/onboarding/steps/show"(platform: "/web", type: TrackType.Event) {}
+
     "/advertising/pads2/manager/onboarding/steps/finish"(platform: "/web", type: TrackType.Event) {}
+
     "/advertising/pads2/manager/onboarding/modal/show"(platform: "/web", type: TrackType.Event) {}
+
     "/advertising/pads2/manager/onboarding/modal/close"(platform: "/web", type: TrackType.Event) {}
 
 //    Generic landing

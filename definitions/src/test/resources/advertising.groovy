@@ -37,21 +37,6 @@ trackTests {
             ad_status = "active"
             previous_ad_status = "paused"
         }
-        "/advertising/pads2/manager/onboarding"(platform: "/web", type: TrackType.Event) {
-            campaign_id = "2222222"
-            status = "active"
-            budget = "22.22"
-        }
-        "/advertising/pads2/manager/onboarding/modal"(platform: "/web", type: TrackType.Event) {
-            campaign_id = "2222222"
-            status = "active"
-            budget = "22.22"
-        }
-        "/advertising/pads2/manager/onboarding/steps"(platform: "/web", type: TrackType.Event) {
-            campaign_id = "2222222"
-            status = "active"
-            budget = "22.22"
-        }
         "/advertising/pads2/manager/onboarding/steps/show"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "active"
