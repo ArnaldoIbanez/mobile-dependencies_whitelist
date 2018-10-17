@@ -224,20 +224,4 @@ trackTests {
             query="iphone"
         }
     }
-
-    test("Search Cpg Remove From Cart"){
-        "/search/remove_from_cart"(platform: "/"){
-            items = [
-                [
-                    currency_id: "MXN",
-                    item: [
-                        id: "MLA1234",
-                        category_id: "MLM123456"
-                    ],
-                    quantity: 2,
-                    unit_price: 100
-                ]
-            ]
-        }
-    }
 }

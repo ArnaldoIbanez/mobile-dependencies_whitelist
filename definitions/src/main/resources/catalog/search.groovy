@@ -181,23 +181,4 @@ tracks {
 
     "/search/save"(platform: "/", type: TrackType.Event) {
     }
-
-    "/search/remove_from_cart"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
-        /** Track example:
-         {
-             “items: [
-                {
-                     “currency_id” : “MXN”,
-                     “item”: {
-                         “id”: “MLA1234”,
-                         “category_id”: “MLM123456”
-                     },
-                     “remaining_quantity”: 2,
-                     “unit_price”: 100,
-                }
-             ]
-         }
-         */
-        items(required: true, type: PropertyType.ArrayList, description: "The list of items removed from cart")
-    }
 }
