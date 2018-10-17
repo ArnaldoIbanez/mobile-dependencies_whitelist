@@ -44,4 +44,24 @@ tracks {
         add_cart_info
     }
 
+    "/remove_from_cart"(platform: "/", type: TrackType.Event){
+        /** Track example:
+         {
+            "context": "search",
+            “items: [
+                {
+                    “currency_id” : “MXN”,
+                    “item”: {
+                        “id”: “MLA1234”,
+                        “category_id”: “MLM123456”
+                    },
+                    “remaining_quantity”: 2,
+                    “unit_price”: 100,
+                }
+            ]
+         }
+         */
+        context(required: true, values: ["search", "cart", "UNKNOWN"])
+        items(required: true, type: PropertyType.ArrayList, description: "The list of items removed from cart")
+    }
 }
