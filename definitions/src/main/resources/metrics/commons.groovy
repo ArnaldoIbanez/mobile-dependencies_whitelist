@@ -124,7 +124,7 @@ metrics {
 		
 		countsOn {
 			condition {
-				path(regex("(\/point.*)|(\/checkout_off.*)congrats.*")
+				path(regex("(\/point.*)|(\/checkout_off.*)congrats.*"))
 			}
 		}
 	}
