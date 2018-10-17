@@ -44,7 +44,7 @@ tracks {
         add_cart_info
     }
 
-    "/remove_from_cart"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+    "/remove_from_cart"(platform: "/", type: TrackType.Event){
         /** Track example:
          {
             "context": "search",
@@ -61,7 +61,7 @@ tracks {
             ]
          }
          */
-        context(required: true, values: ["search","myml","cart","recommendations","bookmarks","bookmarks_widget","vip","loyalty","cart/saved_for_later","item_add","UNKNOWN"])
+        context(required: true, values: ["search", "cart", "UNKNOWN"])
         items(required: true, type: PropertyType.ArrayList, description: "The list of items removed from cart")
     }
 }
