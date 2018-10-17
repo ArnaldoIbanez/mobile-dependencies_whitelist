@@ -517,7 +517,7 @@ trackTests {
             inventory_id = "AAAA11111"
             checkpoint_id = "2"
         }
-        "/wms/withdrawal/scan_inventory/unload_cart"(platform: "/mobile/android") {
+        "/wms/withdrawal/scan_inventory/start_unload_cart"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
             first_name = "Some first name"
@@ -525,6 +525,13 @@ trackTests {
             pickup_id = "1"  
             inventory_id = "AAAA11111"
             checkpoint_id = "2"
+        }
+        "/wms/withdrawal/congrats/finish_unload_cart"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            first_name = "Some first name"
+            last_name = "Some last name"
+            pickup_id = "1"
         }
         "/wms/withdrawal/congrats/finish_withdrawal"(platform: "/mobile/android") {
             trackData()

@@ -177,7 +177,8 @@ tracks {
     "/wms/withdrawal/confirmation/start_withdrawal"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/withdrawal/scan_inventory/update_checkpoint"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/withdrawal/scan_inventory/item_not_found"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/withdrawal/scan_inventory/unload_cart"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/withdrawal/scan_inventory/start_unload_cart"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/withdrawal/congrats/finish_unload_cart"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/withdrawal/congrats/finish_withdrawal"(platform: "/mobile/android", type: TrackType.Event) {}
 
 }
