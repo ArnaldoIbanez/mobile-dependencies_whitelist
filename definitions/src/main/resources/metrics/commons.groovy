@@ -117,7 +117,7 @@ metrics {
 		}
 	}
 
-  "point_buying_flow"(description: "Point buying flow from landing to congrats page.") {
+  "point"(description: "Arrival to congrats page from Point landings") {
 		startWith {
 			experiment(regex("mpos/.*"))
 		}
