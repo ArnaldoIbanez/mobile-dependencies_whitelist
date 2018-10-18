@@ -37,7 +37,6 @@ tracks {
     "/pppi/rights"(platform: "/", isAbstract: true) {}
 
     "/pppi/rights/enroll"(platform: "/", type: TrackType.View) {}
-    "/pppi/rights/enroll/properties"(platform: "/", type: TrackType.View) {}
     "/pppi/rights/enroll/success"(platform: "/", type: TrackType.View) {}
     "/pppi/rights/enroll/error"(platform: "/", type: TrackType.View) {}
 
