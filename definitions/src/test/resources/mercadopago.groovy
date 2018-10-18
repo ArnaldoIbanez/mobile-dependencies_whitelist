@@ -256,6 +256,66 @@ trackTests {
             register_type = "company"
         }
 
+        "/register/form/challenge/require" (platform: "/mobile") {
+            app = "normal"
+        }
+
+        "/register/form/challenge/require" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+        }
+
+        "/register/form/challenge/require" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+            register_type = "person"
+        }
+
+        "/register/form/challenge/show" (platform: "/mobile") {
+            app = "normal"
+        }
+
+        "/register/form/challenge/show" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+        }
+
+        "/register/form/challenge/show" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+            register_type = "person"
+        }
+
+        "/register/form/challenge/cancel" (platform: "/mobile") {
+            app = "normal"
+        }
+
+        "/register/form/challenge/cancel" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+        }
+
+        "/register/form/challenge/cancel" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+            register_type = "person"
+        }
+
+        "/register/form/challenge/solve" (platform: "/mobile") {
+            app = "normal"
+        }
+
+        "/register/form/challenge/solve" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+        }
+
+        "/register/form/challenge/solve" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+            register_type = "person"
+        }
+
         "/register/form/error"(platform:"/mobile") {
             app = "favorite"
             origin = "email"

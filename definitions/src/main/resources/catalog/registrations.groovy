@@ -109,6 +109,12 @@ tracks {
     }
     "/register/form/email-suggest"(platform: "/mobile", type: TrackType.Event){}
 
+    "/register/form/challenge"(platform: "/mobile", isAbstract: true){}
+    "/register/form/challenge/require"(platform: "/mobile", type: TrackType.Event){}
+    "/register/form/challenge/show"(platform: "/mobile", type: TrackType.Event){}
+    "/register/form/challenge/cancel"(platform: "/mobile", type: TrackType.Event){}
+    "/register/form/challenge/solve"(platform: "/mobile", type: TrackType.Event){}
+
     "/register/success"(platform: "/mobile", type: TrackType.Event){
         source(type: PropertyType.String, description: "Source (on mobile is facebook/email, on web at the moment is only email)", required:false)
         app(type: PropertyType.String, required:false, description: "Current Flow")
