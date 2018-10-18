@@ -119,12 +119,12 @@ metrics {
 
   "point_buying_flow"(description: "Point buying flow from landing to congrats page.") {
 		startWith {
-	    path("/point/landings")
+			experiment(regex("mpos/.*"))
 		}
 		
 		countsOn {
 			condition {
-				path(regex("(\/point.*)|(\/checkout_off.*)congrats.*"))
+				path("/point/flows/congrats", "/checkout_off/v1/congrats/pending", "/checkout_off/v1/congrats/rejected")
 			}
 		}
 	}
