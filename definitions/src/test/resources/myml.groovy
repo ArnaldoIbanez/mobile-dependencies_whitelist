@@ -217,9 +217,9 @@ trackTests {
         }
         "/myml/invoices/company-info/include-freight/save/request"(platform: "/", type: TrackType.Event) {
             id = "1918"
-            name = "Experiment B"
-            code = true
+            code = "true"
             url = "/invoices/company-info/confirm"
+            callback = ""
 
         }
         "/myml/invoices/company-info/include-freight/save/response"(platform: "/", type: TrackType.Event) {

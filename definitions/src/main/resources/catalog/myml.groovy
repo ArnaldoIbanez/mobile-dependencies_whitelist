@@ -532,12 +532,13 @@ tracks {
     }
     "/myml/invoices/company-info/include-freight/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/include-freight/save/request"(platform: "/", type: TrackType.Event) {
-        code(required: true, type:  PropertyType.Boolean, description: "Boolean with user preference to include freight")
+        code(required: true, type:  PropertyType.String, description: "Boolean with user preference to include freight")
         id(required: true, type:  PropertyType.String, description: "Experiment Id")
         url(required: true, type: PropertyType.String, description: "Redirect url value before save")
+        callback(required: true, type: PropertyType.String, description: "Redirect url after save")
     }
     "/myml/invoices/company-info/include-freight/save/response"(platform: "/", type: TrackType.Event) {
-        url(required: false, type: PropertyType.String, description: "Redirect url after save on success")
+        redirect_url(required: false, type: PropertyType.String, description: "Redirect url after save on success")
         success(required: true, type: PropertyType.Boolean, description: "Boolean if request was success or not ")
         message(required: false, type: PropertyType.String, description: "Error message that pops on page on error")
     }
