@@ -519,13 +519,21 @@ tracks {
         error(required: false, type:  PropertyType.String, description: "Error message that pop to user after request")
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
     }
+    "/myml/invoices/company-info/confirm/help_tooltip"(platform: "/", isAbstract: true) {}
+     "/myml/invoices/company-info/confirm/help_tooltip/freight"(platform: "/", type: TrackType.Event) {
+        id(required: true, type:  PropertyType.String, description: "Experiment Id")
+    }
+
     "/myml/invoices/company-info/success"(platform: "/") {}
 
-    //freight
     "/myml/invoices/company-info/include-freight"(platform: "/") {}
+    "/myml/invoices/company-info/include-freight/help_tooltip"(platform: "/", type: TrackType.Event) {
+        id(required: true, type:  PropertyType.String, description: "Experiment Id")
+    }
     "/myml/invoices/company-info/include-freight/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/include-freight/save/request"(platform: "/", type: TrackType.Event) {
         code(required: true, type:  PropertyType.Boolean, description: "Boolean with user preference to include freight")
+        id(required: true, type:  PropertyType.String, description: "Experiment Id")
         url(required: true, type: PropertyType.String, description: "Redirect url value before save")
     }
     "/myml/invoices/company-info/include-freight/save/response"(platform: "/", type: TrackType.Event) {
@@ -654,6 +662,7 @@ tracks {
 
     "/myml/invoices/sku/review"(platform: "/") {}
     "/myml/invoices/sku/review/confirm"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/sku/review/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/sku/review/confirm/request"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.String, description: "MLB orderId")
         comments(required: true, type: PropertyType.String, description: "Commentaries added on review page")
