@@ -241,38 +241,6 @@ trackTests {
             dataSet()
             edit_flow = false
         }
-        "/cart/checkout/shipping/input_address#zip_code"(platform:"/mobile") {
-            dataSet()
-            zip_code = "1430"
-        }
-        "/cart/checkout/shipping/input_address#street_name"(platform:"/mobile") {
-            dataSet()
-            street_name = "Arias"
-        }
-        "/cart/checkout/shipping/input_address#street_number"(platform:"/mobile") {
-            dataSet()
-            street_number = "3751"
-        }
-        "/cart/checkout/shipping/input_address#internal_number"(platform:"/mobile") {
-            dataSet()
-            internal_number = ""
-        }
-        "/cart/checkout/shipping/input_address#between_streets"(platform:"/mobile") {
-            dataSet()
-            between_streets = "Posta y Av. Melian"
-        }
-        "/cart/checkout/shipping/input_address#references"(platform:"/mobile") {
-            dataSet()
-            references = "Edificio Intecons"
-        }
-        "/cart/checkout/shipping/input_address#neighborhood"(platform:"/mobile") {
-            dataSet()
-            neighborhood = "CABA"
-        }
-        "/cart/checkout/shipping/input_address#additional_info"(platform:"/mobile") {
-            dataSet()
-            additional_info = "7mo piso"
-        }
         "/cart/checkout/shipping/input_address#submit"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address_number"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address_number/whithout_number"(platform:"/mobile", dataSet)

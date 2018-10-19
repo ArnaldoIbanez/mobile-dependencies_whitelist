@@ -373,34 +373,6 @@ tracks {
     }
 
     "/checkout/shipping/location"(platform: "/mobile", isAbstract: true) {}
-    "/checkout/shipping/location/address#street_name"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
-        street_name(required: false, type: PropertyType.String)
-    }
-    "/checkout/shipping/location/address#street_number"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
-        street_number(required: false, type: PropertyType.String)
-    }
-    "/checkout/shipping/location/address#additional_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
-        additional_info(required: false, type: PropertyType.String)
-    }
-    "/checkout/shipping/location/address#internal_number"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
-        internal_number(required: false, type: PropertyType.String)
-    }
-    "/checkout/shipping/location/address#between_streets"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
-        between_streets(required: false, type: PropertyType.String)
-    }
-    "/checkout/shipping/location/address#references"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
-        references(required: false, type: PropertyType.String)
-    }
-    "/checkout/shipping/location/address#neighborhood"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
-        neighborhood(required: false, type: PropertyType.String)
-    }
     "/checkout/shipping/location/address"(platform: "/mobile") {
         //View specific data
         edit_flow(required: true, type: PropertyType.Boolean)

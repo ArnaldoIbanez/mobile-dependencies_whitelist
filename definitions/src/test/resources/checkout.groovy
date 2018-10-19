@@ -389,27 +389,6 @@ trackTests {
             checkoutStatus()
             edit_flow = true
         }
-        "/checkout/shipping/location/address#street_name"(platform: "/mobile", type: TrackType.Event) {
-            street_name = "streetName"
-        }
-        "/checkout/shipping/location/address#street_number"(platform: "/mobile", type: TrackType.Event) {
-            street_number = "streetNumber"
-        }
-        "/checkout/shipping/location/address#additional_info"(platform: "/mobile", type: TrackType.Event) {
-            additional_info = "additionalInfo"
-        }
-        "/checkout/shipping/location/address#internal_number"(platform: "/mobile", type: TrackType.Event) {
-            internal_number = "internalNumber"
-        }
-        "/checkout/shipping/location/address#between_streets"(platform: "/mobile", type: TrackType.Event) {
-            between_streets = "betweenStreets"
-        }
-        "/checkout/shipping/location/address#references"(platform: "/mobile", type: TrackType.Event) {
-            references = "references"
-        }
-        "/checkout/shipping/location/address#neighborhood"(platform: "/mobile", type: TrackType.Event) {
-            neighborhood = "neighborhood"
-        }
         "/checkout/shipping/location/select_contact#submit"(platform:"/mobile", type: TrackType.Event) {
             success = true
             error_codes = ["street_name_error"]
