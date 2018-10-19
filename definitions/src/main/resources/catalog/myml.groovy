@@ -512,6 +512,7 @@ tracks {
     "/myml/invoices/company-info/confirm/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
         enabled_for_fulfillment(required: true, type:  PropertyType.Boolean, description: "Boolean if seller profile is fulfillment")
+        id(required: true, type:  PropertyType.String, description: "Experiment Id")
         tax_payer_type(required: true, type:  PropertyType.String, description: "Tax payer type seller info")
         certificate_type(required: true, type:  PropertyType.String, description: "Certificate type that seller is using on optin")
     }

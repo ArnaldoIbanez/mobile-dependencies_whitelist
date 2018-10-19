@@ -199,6 +199,7 @@ trackTests {
         }
         "/myml/invoices/company-info/confirm"(platform: "/") {}
         "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
+            id = "1918"
             enabled_for_fulfillment = true
             tax_payer_type = "Regime Normal"
             certificate_type = "A1"
