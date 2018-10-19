@@ -124,7 +124,14 @@ metrics {
 		
 		countsOn {
 			condition {
-				path("/point/flows/congrats", "/checkout_off/v1/congrats/pending", "/checkout_off/v1/congrats/rejected")
+        and(
+				  path("/checkout_off/v1/checkout_confirmed"),
+          or(
+            equals("event_data.collector_id", "228415881"),
+            equals("event_data.collector_id", "179504451"),
+            equals("event_data.collector_id", "“193054976")
+					)
+        )
 			}
 		}
 	}
