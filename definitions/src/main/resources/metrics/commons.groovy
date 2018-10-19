@@ -117,21 +117,19 @@ metrics {
 		}
 	}
 
-  "point"(description: "Arrival to congrats page from Point landings") {
+  "point_congrats"(description: "Arrival to congrats page from Point landings") {
 		startWith {
 			experiment(regex("mpos/.*"))
 		}
 		
 		countsOn {
 			condition {
-        and(
-				  path("/checkout_off/v1/checkout_confirmed"),
-          or(
-            equals("event_data.collector_id", "228415881"),
-            equals("event_data.collector_id", "179504451"),
-            equals("event_data.collector_id", "193054976")
-					)
-        )
+			  	path("/checkout_off/v1/checkout_confirmed")
+          		or(
+				equals("event_data.collector_id", "228415881"),
+				equals("event_data.collector_id", "179504451"),
+				equals("event_data.collector_id", "193054976")
+			)
 			}
 		}
 	}
