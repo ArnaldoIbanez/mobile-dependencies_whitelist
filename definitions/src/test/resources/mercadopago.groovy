@@ -3367,4 +3367,8 @@ trackTests {
             activity = "transport"
         }
     }
+    
+    test("Wallet") {
+        "/wallet_error"(platform: "/mobile", type: TrackType.View) {}
+    }
 }

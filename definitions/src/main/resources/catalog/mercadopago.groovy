@@ -863,4 +863,7 @@ tracks {
     "/single_player/open_deep_link"(platform:"/web/mobile", type: TrackType.Event) {
         activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "where open link from sms")
     }
+
+    // Wallet error view
+    "/wallet_error"(platform: "/mobile", type: TrackType.View) {}
 }
