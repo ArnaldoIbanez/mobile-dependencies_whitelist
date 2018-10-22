@@ -1,0 +1,44 @@
+{
+  "users": [
+    "ezequiel.perez@mercadolibre.com"
+  ],
+  "process_name": "seller_central_filters",
+  "cron": "00 19 * * *",
+  "partition": {
+    "name": "sc",
+    "type": "DATE"
+  },
+  "extract": {
+    "operation": "append",
+    "site": "QA",
+    "columns": [
+      {
+        "name": "type",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "path",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "event_data",
+        "type": "UNICODE_STRING"
+      }
+    ],
+    "sql": {
+      "script": "seller_central/seller_central_filters.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
