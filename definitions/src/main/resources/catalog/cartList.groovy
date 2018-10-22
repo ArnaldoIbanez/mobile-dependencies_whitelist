@@ -120,6 +120,7 @@ tracks {
             description: "The page or section where the add_cart_intention action is taking place")
     free_shipping_benefit(required: false, type: PropertyType.Boolean)
     cart_ratio(required: false, type: PropertyType.String, values: ["applies", "not_applies"])
+    error_type(required: false, type: PropertyType.String)
 }
 
 "/cart/item_add/error"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
