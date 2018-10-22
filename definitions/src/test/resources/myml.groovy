@@ -199,7 +199,6 @@ trackTests {
         }
         "/myml/invoices/company-info/confirm"(platform: "/") {}
         "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
-            id = "1918"
             enabled_for_fulfillment = true
             tax_payer_type = "Regime Normal"
             certificate_type = "A1"
@@ -208,16 +207,11 @@ trackTests {
         "/myml/invoices/company-info/confirm/save/response"(platform: "/", type: TrackType.Event) {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
-        "/myml/invoices/company-info/confirm/help_tooltip/freight"(platform: "/", type: TrackType.Event) {
-            id = "1918"
-        }
+        "/myml/invoices/company-info/confirm/help_tooltip/freight"(platform: "/", type: TrackType.Event) {}
 
         "/myml/invoices/company-info/include-freight"(platform: "/") {}
-        "/myml/invoices/company-info/include-freight/help_tooltip"(platform: "/", type: TrackType.Event) {
-            id = "1918"
-        }
+        "/myml/invoices/company-info/include-freight/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/include-freight/save/request"(platform: "/", type: TrackType.Event) {
-            id = "1918"
             code = "true"
             url = "/invoices/company-info/confirm"
             callback = ""

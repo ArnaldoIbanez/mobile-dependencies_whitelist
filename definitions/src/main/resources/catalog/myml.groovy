@@ -512,7 +512,6 @@ tracks {
     "/myml/invoices/company-info/confirm/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
         enabled_for_fulfillment(required: true, type:  PropertyType.Boolean, description: "Boolean if seller profile is fulfillment")
-        id(required: true, type:  PropertyType.String, description: "Experiment Id")
         tax_payer_type(required: true, type:  PropertyType.String, description: "Tax payer type seller info")
         certificate_type(required: true, type:  PropertyType.String, description: "Certificate type that seller is using on optin")
     }
@@ -521,20 +520,15 @@ tracks {
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
     }
     "/myml/invoices/company-info/confirm/help_tooltip"(platform: "/", isAbstract: true) {}
-     "/myml/invoices/company-info/confirm/help_tooltip/freight"(platform: "/", type: TrackType.Event) {
-        id(required: true, type:  PropertyType.String, description: "Experiment Id")
-    }
+     "/myml/invoices/company-info/confirm/help_tooltip/freight"(platform: "/", type: TrackType.Event) {}
 
     "/myml/invoices/company-info/success"(platform: "/") {}
 
     "/myml/invoices/company-info/include-freight"(platform: "/") {}
-    "/myml/invoices/company-info/include-freight/help_tooltip"(platform: "/", type: TrackType.Event) {
-        id(required: true, type:  PropertyType.String, description: "Experiment Id")
-    }
+    "/myml/invoices/company-info/include-freight/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/include-freight/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/include-freight/save/request"(platform: "/", type: TrackType.Event) {
         code(required: true, type:  PropertyType.String, description: "Boolean with user preference to include freight")
-        id(required: true, type:  PropertyType.String, description: "Experiment Id")
         url(required: true, type: PropertyType.String, description: "Redirect url value before save")
         callback(required: true, type: PropertyType.String, description: "Redirect url after save")
     }
