@@ -1,5 +1,6 @@
-import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 import com.ml.melidata.TrackType
+
+import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
@@ -369,6 +370,36 @@ trackTests {
         }
         //Onboarding action with context success
         "/flex/notification/view_near_pack_destination"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+        }
+
+        //Not delivered event
+        "/flex/package/not_delivered_reason/selection"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+            reason_type = "TestReasonType"
+        }
+
+        //Not delivered view
+        "/flex/package/not_delivered_reason"(platform:"/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+        }
+
+        //Not delivered form event
+        "/flex/package/not_delivered_reason/form/other_reason"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+            reason = "TestReason"
+        }
+
+        //Not delivered form view
+        "/flex/package/not_delivered_reason/form"(platform:"/mobile", type: TrackType.View) {
             defaultLocation()
             defaultPacksInfo()
             delivery_id = 123456

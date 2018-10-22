@@ -1,6 +1,7 @@
-import com.ml.melidata.catalog.PropertyType
-import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
+
+import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
@@ -253,6 +254,28 @@ tracks {
     }
 
     "/flex/notification/view_near_pack_destination"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+    "/flex/package/not_delivered_reason/selection"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+        reason_type(required: true, type: PropertyType.String, description: "The reason why the pack wasn't delivered", inheritable:false)
+    }
+
+    "/flex/package/not_delivered_reason"(platform: "/mobile", type: TrackType.View) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+    "/flex/package/not_delivered_reason/form/other_reason"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+        reason(required: true, type: PropertyType.String, description: "The driver's reason why the pack wasn't delivered", inheritable:false)
+    }
+
+    "/flex/package/not_delivered_reason/form"(platform: "/mobile", type: TrackType.View) {
         packsAndLocation
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }

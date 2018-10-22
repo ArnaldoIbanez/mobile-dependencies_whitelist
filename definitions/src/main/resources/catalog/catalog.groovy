@@ -99,6 +99,7 @@ catalog {
         include business, "instore.groovy"
         include business, "qr_discount.groovy"
         include business, "zip_finder.groovy"
+        include business, "current_location.groovy"
     }
 
     mercadopago.each { business ->

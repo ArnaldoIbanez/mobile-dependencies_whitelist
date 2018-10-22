@@ -181,5 +181,4 @@ tracks {
 
     "/search/save"(platform: "/", type: TrackType.Event) {
     }
-
 }

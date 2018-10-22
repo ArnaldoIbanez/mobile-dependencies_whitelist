@@ -256,6 +256,66 @@ trackTests {
             register_type = "company"
         }
 
+        "/register/form/challenge/require" (platform: "/mobile") {
+            app = "normal"
+        }
+
+        "/register/form/challenge/require" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+        }
+
+        "/register/form/challenge/require" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+            register_type = "person"
+        }
+
+        "/register/form/challenge/show" (platform: "/mobile") {
+            app = "normal"
+        }
+
+        "/register/form/challenge/show" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+        }
+
+        "/register/form/challenge/show" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+            register_type = "person"
+        }
+
+        "/register/form/challenge/cancel" (platform: "/mobile") {
+            app = "normal"
+        }
+
+        "/register/form/challenge/cancel" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+        }
+
+        "/register/form/challenge/cancel" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+            register_type = "person"
+        }
+
+        "/register/form/challenge/solve" (platform: "/mobile") {
+            app = "normal"
+        }
+
+        "/register/form/challenge/solve" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+        }
+
+        "/register/form/challenge/solve" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+            register_type = "person"
+        }
+
         "/register/form/error"(platform:"/mobile") {
             app = "favorite"
             origin = "email"
@@ -3280,15 +3340,19 @@ trackTests {
         "/single_player/transport"(platform: "/web", type: TrackType.View) {}
         "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
             activity = "entertainment"
+            status = 'OK'
         }
         "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
             activity = "services"
+            status = 'ERROR'
         }
         "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
             activity = "sube"
+            status = 'OK'
         }
         "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
             activity = "transport"
+            status = 'OK'
         }
         "/single_player/open_deep_link"(platform: "/web/mobile", type: TrackType.Event) {
             activity = "entertainment"

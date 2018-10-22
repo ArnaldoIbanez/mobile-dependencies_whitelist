@@ -28,7 +28,6 @@ trackTests {
         // Rights
 
         "/pppi/rights/enroll"(platform: "/") {}
-        "/pppi/rights/enroll/properties"(platform: "/") {}
         "/pppi/rights/enroll/success"(platform: "/") {}
         "/pppi/rights/enroll/error"(platform: "/") {}
 
