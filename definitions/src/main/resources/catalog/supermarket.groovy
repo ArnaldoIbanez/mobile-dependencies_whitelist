@@ -5,12 +5,12 @@ import com.ml.melidata.TrackType
 tracks {
     // Supermarket
     "/supermarket"(platform: "/", isAbstract: true) {}
-    "/supermarket/header"(platform: "/", type: TrackType.Event) {
+    "/supermarket/header"(platform: "/", type: TrackType.PageView) {
         client_id(type: PropertyType.String)
         selected_department(required: false, type: PropertyType.String)
         departments(type: PropertyType.ArrayList)
     }
-    "/supermarket/discovery"(platform: "/", type: TrackType.Event) {
+    "/supermarket/discovery"(platform: "/", type: TrackType.PageView) {
         client_id(type: PropertyType.String)
         selected_department(required: false, type: PropertyType.String)
         departments(type: PropertyType.ArrayList)
