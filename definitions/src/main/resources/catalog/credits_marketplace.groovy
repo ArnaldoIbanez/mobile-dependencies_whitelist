@@ -16,6 +16,8 @@ tracks {
      ******************************************/
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
+    "/credits/pursue"(platform: "/", isAbstract: true) {}
+
     "/vip"(platform: "/", isAbstract: true) {}
     "/vip/credits"(platform: "/", isAbstract: true) {}
     "/vip/credits/pursue"(platform: "/", isAbstract: true) {}
@@ -243,23 +245,43 @@ tracks {
      /******************************************
       *       Start: Consumers Persue Campaign
       ******************************************/
-     //Page Views
+
+    propertyDefinitions {
+        status(required: true, type: PropertyType.String, values: ["no_charge_period", "fixed_charge_period_1", "fixed_charge_period_2", "daily_charge_period"],
+                description: "Indicates user status")
+        milestone(type: PropertyType.Numeric, required: true)
+        context(required: true, values: ["search", "vip", "home"],
+                description: "The page or section where the nav action is taking place")
+    }
+
+    propertyGroups {
+        pursue_nav_properties(status, milestone, context)
+    }
+
+    //Page Views
 
      "/vip/credits/pursue/overdue_modal"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
        status(type: PropertyType.String, required: true,
-         values: ["PAYMENT_INTENTION_PRE_RESTRICTION", "PAYMENT_INTENTION_POST_RESTRICTION"])
+         values: ["payment_intention_pre_restriction", "payment_intention_post_restriction"])
        milestone(type: PropertyType.Numeric , required: true)
      }
 
      //Event Views
      "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
        status(type: PropertyType.String, required: true,
-         values: ["PAYMENT_INTENTION_PRE_RESTRICTION", "PAYMENT_INTENTION_POST_RESTRICTION"])
+         values: ["payment_intention_pre_restriction", "payment_intention_post_restriction"])
        milestone(type: PropertyType.Numeric , required: true)
      }
+
+    "/credits/pursue/overdue_nav"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+        pursue_nav_properties
+    }
+
+    "/credits/pursue/overdue_nav/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+        pursue_nav_properties
+    }
      /******************************************
       *       End: Consumers Persue Campaign
       ******************************************/
-
 
 }

@@ -18,14 +18,19 @@ tracks {
 
     "/flex"(platform: "/mobile", isAbstract: true) {}
 
-    "/flex/landing"(platform: "/mobile", type: TrackType.View) {}
+    "/flex/landing"(platform: "/", type: TrackType.View) {}
 
-    "/flex/optin"(platform: "/mobile", type: TrackType.Event) {
+    "/flex/optin"(platform: "/", type: TrackType.View) {}
+
+    "/flex/optin/congrats"(platform: "/", type: TrackType.Event) {
         view(required: true, type: PropertyType.String, description: "specific view the app returned")
     }
 
-    "/flex/optout"(platform: "/mobile", type: TrackType.Event) {
+    "/flex/optout"(platform: "/", type: TrackType.View) {}
+
+    "/flex/optout/congrats"(platform: "/", type: TrackType.Event) {
         view(required: true, type: PropertyType.String, description: "specific view the app returned")
+        message(required: false, type: PropertyType.String, description: "user feedback")
     }
 
     "/flex/login/name"(platform: "/mobile", type: TrackType.View) {

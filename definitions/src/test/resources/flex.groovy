@@ -8,30 +8,43 @@ trackTests {
 
     test("flex optin track returned success view"){
 
+        "/flex/optin"(platform:"/", type: TrackType.View) {}
+
+    }
+
+    test("flex optin congrats event"){
+
         def defaultTrackInformation = {
             view = "success_flex"
         }
 
-        "/flex/optin"(platform:"/mobile", type: TrackType.Event) {
+        "/flex/optin/congrats"(platform:"/", type: TrackType.Event) {
             defaultTrackInformation()
         }
 
     }
 
-    test("flex optout track returned form view"){
+    test("flex optout track returned success view"){
+
+        "/flex/optout"(platform:"/", type: TrackType.View) {}
+
+    }
+
+    test("flex optout congrats event"){
 
         def defaultTrackInformation = {
-            view = "form"
+            view = "success_optout"
+            message = "Feedback"
         }
 
-        "/flex/optout"(platform:"/mobile", type: TrackType.Event) {
+        "/flex/optout/congrats"(platform:"/", type: TrackType.Event) {
             defaultTrackInformation()
         }
 
     }
 
     test("flex landing view"){
-        "/flex/landing"(platform:"/mobile", type: TrackType.View) {}
+        "/flex/landing"(platform:"/", type: TrackType.View) {}
     }
 
     test("Testing flex"){
