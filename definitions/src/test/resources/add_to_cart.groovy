@@ -29,7 +29,7 @@ trackTests {
                             currency_id: "BRL"
                     ]
             ]
-            context = 'myml'
+            context = 'recommendations'
         }
 
         "/add_to_cart"(platform: "/mobile/ios", type: TrackType.Event) {
