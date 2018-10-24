@@ -152,30 +152,35 @@ trackTests {
          *       End: Consumers Recurring Campaign
          ******************************************/
 
-         /******************************************
-          *       Start: Consumers Recurring Campaign
-          ******************************************/
-         //Page Views
-         "/vip/credits/pursue/overdue_modal"(platform: "/web/desktop", type: TrackType.View) {
-           status = "PAYMENT_INTENTION_PRE_RESTRICTION"
-           milestone = 20
-         }
-         "/vip/credits/pursue/overdue_modal"(platform: "/web/desktop", type: TrackType.View) {
-           status = "PAYMENT_INTENTION_POST_RESTRICTION"
-           milestone = 28
-         }
+        /******************************************
+         *       Start: Consumers Pursue Campaign
+         ******************************************/
+        //Page Views
+        "/vip/credits/pursue/overdue_modal"(platform: "/web/desktop", type: TrackType.View) {
+            status = "payment_intention_pre_restriction"
+            milestone = 20
+        }
 
-         //Events
-         "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
-           status = "PAYMENT_INTENTION_PRE_RESTRICTION"
-           milestone = 20
-         }
-         "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
-           status = "PAYMENT_INTENTION_POST_RESTRICTION"
-           milestone = 28
-         }
-         /******************************************
-          *       End: Consumers Recurring Campaign
-          ******************************************/
+        "/credits/pursue/overdue_nav"(platform: "/web/desktop", type: TrackType.View) {
+            status = "fixed_charge_period_1"
+            milestone = 4
+            context = "vip"
+        }
+
+        //Events
+        //Vip
+        "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            status = "payment_intention_post_restriction"
+            milestone = 28
+        }
+
+        "/credits/pursue/overdue_nav/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            status = "fixed_charge_period_1"
+            milestone = 4
+            context = "vip"
+        }
+        /******************************************
+         *       End: Consumers Pursue Campaign
+         ******************************************/
     }
 }
