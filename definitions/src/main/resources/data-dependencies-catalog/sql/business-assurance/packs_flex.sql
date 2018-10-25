@@ -3,8 +3,8 @@ select
 	  hoy.delivery_id as delivery_id,
   	hoy.shipping_id as shipping_id,
   	hoy.seller_id as seller_id,
-  	CAST(hoy.longitude as DOUBLE) as longitude,
-    CAST(hoy.latitude as DOUBLE) as latitude,
+  	CAST(coalesce(delivered.longitude, hoy.longitude) as DOUBLE) as longitude,
+    CAST(coalesce(delivered.latitude, hoy.latitude) as DOUBLE) as latitude,
   	if(lower(delivered.status)='delivered','Delivered','Not_Delivered') as pack_status,
   	delivered.hora as hora,
   	coalesce(ayer.rescanned,0) as rescanned,
@@ -13,7 +13,7 @@ select
   	coalesce(add_more.num_add_more,0) as num_add_more,
   	coalesce(m_address.num_missing_addresses,0) as num_missing_addresses,
   	coalesce(retry.cant_retry,0) as cant_retry,
-  	delivery.delivery_status as delivery_status,
+  	coalesce(delivery.delivery_status, 'pending') as delivery_status,
     hoy.ds as ds
 from (
 	select
@@ -51,21 +51,43 @@ from (
      	and application.business='mercadoenvios'
  		and path = '/flex/package/list' 
  	) packs on packs.delivery_id = list.delivery_id and packs.site_id = list.site_id and packs.user_local_timestamp = list.user_local_timestamp 
-
 ) hoy	
-left join 
-(
-	select 
-		substr(ds,1,10) as ds,
-  		application.site_id as site_id,
-  		jest(packs_data,'shipping_id') as shipping_id,
-  		if(jest(packs_data, 'status')='shipped' or jest(packs_data, 'status')='ready_to_ship','Delivered',jest(packs_data, 'status')) as status,
-  		substr(ds,11,3) as Hora
-  	from tracks
-	LATERAL VIEW explode(json_to_array(jest(event_data,'packs_info'))) tf as packs_data
-	where ds >='@param02' and ds < '@param03'
-     	and application.business='mercadoenvios'
- 		and path = '/flex/package/detail/receipt/save' 
+left join (
+  select
+      last_save.ds as ds,
+      last_save.site_id as site_id,
+      last_save.shipping_id as shipping_id,
+      save.status as status,
+      save.Hora as Hora,
+      save.longitude as longitude,
+      save.latitude as latitude
+  from(
+  select 
+          substr(ds,1,10) as ds, 
+          application.site_id as site_id,
+          jest(event_data,'packs_info[0].shipping_id') as shipping_id,
+          Max(user_local_timestamp)  as user_local_timestamp -- Ultimo track de list por delivery
+  from tracks
+  where ds >='@param02' and ds < '@param03'
+        and application.business='mercadoenvios'
+        and path = '/flex/package/detail/receipt/save' 
+    GROUP BY substr(ds,1,10), application.site_id, jest(event_data,'packs_info[0].shipping_id')
+  ) last_save
+  inner join (
+  select 
+    substr(ds,1,10) as ds,
+    user_local_timestamp,
+      application.site_id as site_id,
+      jest(event_data,'packs_info[0].shipping_id') as shipping_id,
+      if(jest(event_data, 'packs_info[0].status')='shipped' or jest(event_data,'packs_info[0].status')='ready_to_ship','Delivered',jest(event_data,'packs_info[0].status')) as status,
+      substr(ds,11,3) as Hora,
+      jest(event_data,'longitude') as longitude,
+      jest(event_data,'latitude') as latitude
+    from tracks
+   where ds >='@param02' and ds < '@param03'
+       and application.business='mercadoenvios'
+       and path = '/flex/package/detail/receipt/save'
+    ) save on save.user_local_timestamp = last_save.user_local_timestamp and save.shipping_id = last_save.shipping_id and save.site_id = last_save.site_id
 ) delivered on delivered.ds = hoy.ds and delivered.site_id = hoy.site_id and delivered.shipping_id = hoy.shipping_id
 Left join(
 	select distinct
