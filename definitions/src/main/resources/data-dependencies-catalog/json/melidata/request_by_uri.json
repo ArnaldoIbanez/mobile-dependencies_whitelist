@@ -3,7 +3,7 @@
         "adriana.martin@mercadolibre.com"
     ],
     "process_name": "request_by_uri",
-    "cron": "",
+    "cron": "00 05 * * *",
     "partition":
     {
         "name": "ds",
