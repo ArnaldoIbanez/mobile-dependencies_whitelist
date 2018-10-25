@@ -372,7 +372,7 @@ trackTests {
             check_in_id = "4567"
             cart_address = "CA-0-001-000-00-00"
         }
-        "/wms/put_away/scan_cart/post_item"(platform: "/mobile/android") {
+        "/wms/put_away/scan_inventory/post_item"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
             first_name = "Some first name"
