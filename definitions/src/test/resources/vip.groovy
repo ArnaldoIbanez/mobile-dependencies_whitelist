@@ -616,4 +616,18 @@ trackTests {
          "/vip/input_zip_code/dont_know_my_zip_code"(platform: "/", type: TrackType.Event) {}
     }
 
+    test("VIP fulfillment modal") {
+
+        "/vip/show_fulfillment_popup"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA533657947"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            item_condition = "new"
+            seller_id = 131662738
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+        }
+    }
+
 }
