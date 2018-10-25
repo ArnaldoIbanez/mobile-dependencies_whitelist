@@ -372,6 +372,18 @@ trackTests {
             check_in_id = "4567"
             cart_address = "CA-0-001-000-00-00"
         }
+        "/wms/put_away/scan_cart/post_item"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            first_name = "Some first name"
+            last_name = "Some last name"
+            put_away_id = "1234"
+            check_in_id = "4567"
+            cart_address = "CA-0-001-000-00-00"
+            is_retry = true
+            idempotency_key = "AbCdFgHi"
+        }
+    
         "/wms/put_away/scan_inventory/cancel_put_away"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"

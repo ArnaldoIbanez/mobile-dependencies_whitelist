@@ -36,6 +36,10 @@ tracks {
 	"/wms/put_away/scan_cart"(platform: "/mobile/android", type: TrackType.View) {}
 	"/wms/put_away/scan_cart/start_put_away"(platform: "/mobile/android", type: TrackType.Event) {}
 	"/wms/put_away/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/put_away/scan_inventory/post_item"(platform: "/mobile/android", type: TrackType.Event) {
+        is_retry(required: true, type: PropertyType.Boolean, description: "If the request is a retry or not")
+        idempotency_key(required: true, type: PropertyType.String, description: "Idempotency key of request")
+    }
 	"/wms/put_away/scan_inventory/end_put_away"(platform: "/mobile/android", type: TrackType.Event) {}
 	"/wms/put_away/scan_inventory/cancel_put_away"(platform: "/mobile/android", type: TrackType.Event) {}
 	"/wms/put_away/item"(platform: "/mobile/android", type: TrackType.View) {
