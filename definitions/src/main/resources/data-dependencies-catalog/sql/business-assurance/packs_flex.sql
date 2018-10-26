@@ -66,7 +66,7 @@ left join (
           substr(ds,1,10) as ds, 
           application.site_id as site_id,
           jest(event_data,'packs_info[0].shipping_id') as shipping_id,
-          Max(user_local_timestamp)  as user_local_timestamp -- Ultimo track de list por delivery
+          Max(user_local_timestamp)  as user_local_timestamp
   from tracks
   where ds >='@param02' and ds < '@param03'
         and application.business='mercadoenvios'
