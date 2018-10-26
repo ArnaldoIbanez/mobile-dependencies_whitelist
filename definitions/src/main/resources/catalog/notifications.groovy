@@ -227,16 +227,59 @@ tracks {
       }
 
       "/notification/credits_consumer_about_to_expire_n_loans_first_notice"(platform: "/") {}
+      "/notification/account_fund_approved_ml"(platform: "/") {}
+      "/notification/account_fund_approved_mp"(platform: "/") {}
       "/notification/credits_consumer_expired_n_loans_first_notice"(platform: "/") {}
-      "/notification/credits_consumer_about_to_expire_second_notice"(platform: "/") {}
+      "/notification/credits_consumer_about_to_expire_second_notice"(platform: "/") {
+          loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
+          installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+      }
       "/notification/credits_consumer_expired_first_notice"(platform: "/") {
           loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
+          installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+      }
+      "/notification/credits_consumer_expired_fourth_notice"(platform: "/") {
+          loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
+          installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+      }
+      "/notification/credits_consumer_expired_second_notice"(platform: "/") {
+          loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
+          installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+      }
+      "/notification/credits_consumer_expired_third_notice"(platform: "/") {
+          loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
+          installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+      }
+      "/notification/credits_consumer_first_time_use_notice"(platform: "/") {
+          loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
+          installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+      }
+      "/notification/credits_consumer"(platform: "/") {
+          loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
+          installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+      }
+      "/notification/credits_consumer_expired_n_loans_fourth_notice"(platform: "/") {}
+      "/notification/credits_consumer_expired_n_loans_second_notice"(platform: "/") {}
+      "/notification/credits_consumer_expired_third_notice"(platform: "/") {}
+
+      "/notification/credits_merchants_about_to_expire_notice"(platform: "/") {
+          installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+      }
+      "/notification/credits_merchants_expired_first_notice"(platform: "/") {
+          installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+      }
+      "/notification/credits_merchants_expired_second_notice"(platform: "/") {
+          installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+      }
+      "/notification/credits_merchants_expired_third_notice"(platform: "/") {
           installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
       }
 
       "/notification/instore_discover_activities"(platform: "/") {}
 
       "/notification/messages_new"(platform: "/") {}
+
+      "/notification/invite_gift"(platform: "/") {}
 
       "/notification/moderations_item_to_patch"(platform: "/") {
           item_id(required: true, type: PropertyType.String, description: "Id of item.")
@@ -361,8 +404,13 @@ tracks {
           order_id(required: true, type: PropertyType.Numeric)
       }
 
-      //Delivered Order
+      //Timeout Confirmed Order
       "/notification/orders_timeout_confirmed"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+      }
+
+      //Orders Deliver Confirmation
+      "/notification/orders_deliver_confirmation"(platform: "/") {
           order_id(required: true, type: PropertyType.Numeric)
       }
 
@@ -428,6 +476,7 @@ tracks {
           test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+          item_id(required: true, type: PropertyType.String)
       }
       "/notification/campaigns_download_app"(platform: "/", type: TrackType.Event) {}
       //Freemium SYI
@@ -448,20 +497,21 @@ tracks {
           item_id(required: true, type: PropertyType.String)
       }
 
-      //Payment aproved
+      //Payment approved
       "/notification/purchases_payments_approved"(platform: "/") {
-          purchase_id(required: true, type: PropertyType.Numeric)
+          order_id(required: true, type: PropertyType.Numeric)
+          item_id(required: true, type: PropertyType.String)
       }
 
       //Payment rejected
       "/notification/purchases_payments_rejected"(platform: "/") {
-          purchase_id(required: true, type: PropertyType.Numeric)
+          order_id(required: true, type: PropertyType.Numeric)
+          item_id(required: true, type: PropertyType.String)
       }
 
       //Qrviral
       "/notification/qrviral_onboard"(platform: "/") {}
       "/notification/qrviral_reminder"(platform: "/") {}
-
 
       //Listings
       "/notification/listings"(platform: "/") {}
@@ -474,7 +524,14 @@ tracks {
           vertical(required: true, type: PropertyType.String, description: "vertical.")
       }
 
+      //Me Flex
+      "/notification/me_flex_optin_activation"(platform: "/") {}
+      "/notification/me_flex_optin_reminder"(platform: "/") {}
+
       //Mediations
+      "/notification/mediations"(platform: "/") {
+          claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
+      }
       "/notification/mediations_complainant"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
@@ -493,6 +550,12 @@ tracks {
 
       "/notification/moderations_item_warning"(platform: "/") {
           item_id(required: true, type: PropertyType.String, description: "Id of item.")
+      }
+
+      //Mpcampaigns
+      "/notification/mpcampaigns_campaigns"(platform: "/") {
+          campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+          batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
       }
 
       "/notification/moderations_message_banned"(platform: "/") {
