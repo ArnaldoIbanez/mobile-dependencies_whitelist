@@ -59,8 +59,4 @@ trackTests {
         "/credits/merchant/second_offer_cta"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/merchant/help"(platform: "/web/desktop", type: TrackType.Event) {}
     }
-
-    test("consumer credits admin detail"){
-        "/credits/consumer/administrator/detail"(platform: "/web/desktop") {}
-    }
 }

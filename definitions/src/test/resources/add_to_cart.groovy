@@ -29,7 +29,7 @@ trackTests {
                             currency_id: "BRL"
                     ]
             ]
-            context = 'myml'
+            context = 'recommendations'
         }
 
         "/add_to_cart"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -162,6 +162,23 @@ trackTests {
                                 id         : "MLB512313"
                         ],
                         currency_id: "BRL"
+                ]
+            ]
+        }
+    }
+
+    test("Remove From Cart"){
+        "/remove_from_cart"(platform: "/"){
+            context = "search"
+            items = [
+                [
+                    currency_id: "MXN",
+                    item: [
+                        id: "MLA1234",
+                        category_id: "MLM123456"
+                    ],
+                    quantity: 2,
+                    unit_price: 100
                 ]
             ]
         }

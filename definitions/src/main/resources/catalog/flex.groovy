@@ -1,6 +1,7 @@
-import com.ml.melidata.catalog.PropertyType
-import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
+
+import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
@@ -17,14 +18,19 @@ tracks {
 
     "/flex"(platform: "/mobile", isAbstract: true) {}
 
-    "/flex/landing"(platform: "/mobile", type: TrackType.View) {}
+    "/flex/landing"(platform: "/", type: TrackType.View) {}
 
-    "/flex/optin"(platform: "/mobile", type: TrackType.Event) {
+    "/flex/optin"(platform: "/", type: TrackType.View) {}
+
+    "/flex/optin/congrats"(platform: "/", type: TrackType.Event) {
         view(required: true, type: PropertyType.String, description: "specific view the app returned")
     }
 
-    "/flex/optout"(platform: "/mobile", type: TrackType.Event) {
+    "/flex/optout"(platform: "/", type: TrackType.View) {}
+
+    "/flex/optout/congrats"(platform: "/", type: TrackType.Event) {
         view(required: true, type: PropertyType.String, description: "specific view the app returned")
+        message(required: false, type: PropertyType.String, description: "user feedback")
     }
 
     "/flex/login/name"(platform: "/mobile", type: TrackType.View) {
@@ -133,7 +139,7 @@ tracks {
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
-    "/flex/package/retry_delivery"(platform: "/mobile", type: TrackType.Event) {
+    "/flex/package/retry_pack"(platform: "/mobile", type: TrackType.Event) {
         packsAndLocation
         context(required: true, type: PropertyType.String,  values: ["list", "detail"],
             description: "Indicates whether retry action was executed in the list or detail of packages")
@@ -253,6 +259,28 @@ tracks {
     }
 
     "/flex/notification/view_near_pack_destination"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+    "/flex/package/not_delivered_reason/selection"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+        reason_type(required: true, type: PropertyType.String, description: "The reason why the pack wasn't delivered", inheritable:false)
+    }
+
+    "/flex/package/not_delivered_reason"(platform: "/mobile", type: TrackType.View) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+    "/flex/package/not_delivered_reason/form/other_reason"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+        reason(required: true, type: PropertyType.String, description: "The driver's reason why the pack wasn't delivered", inheritable:false)
+    }
+
+    "/flex/package/not_delivered_reason/form"(platform: "/mobile", type: TrackType.View) {
         packsAndLocation
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }

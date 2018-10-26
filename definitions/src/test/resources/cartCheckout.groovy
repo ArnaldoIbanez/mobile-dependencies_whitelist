@@ -158,6 +158,7 @@ trackTests {
         "/cart/checkout/payment/input_second_password"(platform:"/", dataSet)
         "/cart/checkout/payment/input_second_password/edit_payment"(platform:"/", dataSet)
         "/cart/checkout/payment/promotions"(platform:"/", dataSet)
+        "/cart/checkout/payment/input_sec_code"(platform:"/", dataSet)
         "/cart/checkout/review/edit_payment"(platform:"/", dataSet)
         "/cart/checkout/review/edit_first_payment"(platform:"/", dataSet)
         "/cart/checkout/review/edit_second_payment"(platform:"/", dataSet)
@@ -240,38 +241,6 @@ trackTests {
             dataSet()
             edit_flow = false
         }
-        "/cart/checkout/shipping/input_address#zip_code"(platform:"/mobile") {
-            dataSet()
-            zip_code = "1430"
-        }
-        "/cart/checkout/shipping/input_address#street_name"(platform:"/mobile") {
-            dataSet()
-            street_name = "Arias"
-        }
-        "/cart/checkout/shipping/input_address#street_number"(platform:"/mobile") {
-            dataSet()
-            street_number = "3751"
-        }
-        "/cart/checkout/shipping/input_address#internal_number"(platform:"/mobile") {
-            dataSet()
-            internal_number = ""
-        }
-        "/cart/checkout/shipping/input_address#between_streets"(platform:"/mobile") {
-            dataSet()
-            between_streets = "Posta y Av. Melian"
-        }
-        "/cart/checkout/shipping/input_address#references"(platform:"/mobile") {
-            dataSet()
-            references = "Edificio Intecons"
-        }
-        "/cart/checkout/shipping/input_address#neighborhood"(platform:"/mobile") {
-            dataSet()
-            neighborhood = "CABA"
-        }
-        "/cart/checkout/shipping/input_address#additional_info"(platform:"/mobile") {
-            dataSet()
-            additional_info = "7mo piso"
-        }
         "/cart/checkout/shipping/input_address#submit"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address_number"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address_number/whithout_number"(platform:"/mobile", dataSet)
@@ -285,8 +254,14 @@ trackTests {
         "/cart/checkout/shipping/select_contact_info#submit"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/add_contact_info"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_contact_info"(platform:"/mobile", dataSet)
-        "/cart/checkout/payment/select_unique_installment"(platform:"/mobile", dataSet)
-        "/cart/checkout/payment/select_split_installments"(platform:"/mobile", dataSet)
+        "/cart/checkout/payment/select_unique_installment"(platform:"/", dataSet)
+        "/cart/checkout/payment/select_unique_installment/edit_installment_options"(platform:"/", dataSet)
+        "/cart/checkout/payment/select_unique_installment/select_installment"(platform: "/", dataSet)
+        "/cart/checkout/payment/select_split_installments"(platform:"/", dataSet)
+        "/cart/checkout/payment/select_split_installments/close_split_message"(platform:"/", dataSet)
+        "/cart/checkout/payment/select_split_installments/edit_installment_options"(platform:"/", dataSet)
+        "/cart/checkout/payment/select_split_installments/select_installment"(platform: "/", dataSet)
+        "/cart/checkout/payment/select_split_installments"(platform:"/", dataSet)
         "/cart/checkout/payment/select_split_installments/split_detail"(platform:"/mobile", dataSet)
         "/cart/checkout/payment/select_first_installment"(platform:"/mobile", dataSet)
         "/cart/checkout/payment/select_second_installment"(platform:"/mobile", dataSet)

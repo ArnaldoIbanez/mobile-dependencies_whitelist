@@ -16,6 +16,11 @@ tracks {
      ******************************************/
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
+    "/credits/pursue"(platform: "/", isAbstract: true) {}
+
+    "/vip"(platform: "/", isAbstract: true) {}
+    "/vip/credits"(platform: "/", isAbstract: true) {}
+    "/vip/credits/pursue"(platform: "/", isAbstract: true) {}
 
     /******************************************
      *       Start: Consumers Public Landings
@@ -41,10 +46,9 @@ tracks {
      *       End: Consumers Public Landings
      ******************************************/
 
-
     /******************************************
-    *       Start: Consumers Administrator
-    ******************************************/
+     *       Start: Consumers Administrator
+     ******************************************/
     //Admin Dashboard
 
     //Page Views
@@ -57,20 +61,21 @@ tracks {
     "/credits/consumer/administrator/tooltip"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/payment_intention"(platform: "/", type: TrackType.Event) {
         installment_status(
-            required: true,
-            description: "Current status of clicked pay button",
-            values: [
-                'on_time',
-                'to_expire_soft',
-                'to_expire_hard',
-                'expired_today',
-                'no_charge_period',
-                'fixed_charge_period_1',
-                'fixed_charge_period_2',
-                'daily_charge_period'
-            ]
+                type: PropertyType.String,
+                required: true,
+                description: "Current status of clicked pay button",
+                values: [
+                        'on_time',
+                        'to_expire_soft',
+                        'to_expire_hard',
+                        'expired_today',
+                        'no_charge_period',
+                        'fixed_charge_period_1',
+                        'fixed_charge_period_2',
+                        'daily_charge_period'
+                ]
         )
-        payment_intention(type: PropertyType.String, required: false, values: ['cho','ticket'])
+        payment_intention(type: PropertyType.String, required: true, values: ['cho', 'ticket'])
     }
     "/credits/consumer/administrator/details_button"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/help"(platform: "/", type: TrackType.Event) {}
@@ -87,14 +92,94 @@ tracks {
     "/credits/consumer/administrator/history/educational_landing"(platform: "/", type: TrackType.Event) {}
 
     /******************************************
-    *       End: Consumers Administrator
-    ******************************************/
-
-    /******************************************
-     *       Start: Consumers Admin Detail (mobile in ML)
+     *       End: Consumers Administrator
      ******************************************/
 
-    "/credits/consumer/administrator/detail"(platform: "/mobile/android", type: TrackType.View) {}
+    /******************************************
+     *       Start: Consumers Admin Detail
+     ******************************************/
+
+    //Page Views
+    "/credits/consumer/administrator/detail"(platform: "/", type: TrackType.View) {
+        loan_id(
+                type: PropertyType.Numeric,
+                description: "The id of the current loan",
+                required: true,
+                inheritable: false
+        )
+        next_installment_status(
+                type: PropertyType.String,
+                description: "Status of the closest to expire installment",
+                required: true,
+                inheritable: false,
+                values: [
+                        'on_time',
+                        'to_expire_soft',
+                        'to_expire_hard',
+                        'expired_today',
+                        'no_charge_period',
+                        'fixed_charge_period_1',
+                        'fixed_charge_period_2',
+                        'daily_charge_period',
+                        'paid'
+                ])
+    }
+
+    //Events
+    "/credits/consumer/administrator/detail/see_loan_conditions"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/detail/see_tac"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/detail/see_voucher"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/detail/see_ccb"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/detail/download_plan"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/detail/get_help"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/detail/purchase_detail"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/detail/back_to_dashboard"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/detail/payment_intention"(platform: "/", type: TrackType.Event) {
+        installment_status(
+                type: PropertyType.String,
+                required: true,
+                description: "Current status of clicked pay button",
+                values: [
+                        'on_time',
+                        'to_expire_soft',
+                        'to_expire_hard',
+                        'expired_today',
+                        'no_charge_period',
+                        'fixed_charge_period_1',
+                        'fixed_charge_period_2',
+                        'daily_charge_period'
+                ]
+        )
+        payment_intention(
+                type: PropertyType.String,
+                description: "Current selected 'path' to payment",
+                required: true,
+                values: ['cho', 'ticket']
+        )
+    }
+    "/credits/consumer/administrator/detail/payment_intention_list"(platform: "/", type: TrackType.Event) {
+        installment_status(
+                type: PropertyType.String,
+                required: true,
+                description: "Current status of clicked pay button in the installments table",
+                values: [
+                        'on_time',
+                        'to_expire_soft',
+                        'to_expire_hard',
+                        'expired_today',
+                        'no_charge_period',
+                        'fixed_charge_period_1',
+                        'fixed_charge_period_2',
+                        'daily_charge_period'
+                ]
+        )
+        payment_intention(
+                type: PropertyType.String,
+                description: "Current selected 'path' to payment",
+                required: true,
+                values: ['cho', 'ticket']
+        )
+    }
 
     /******************************************
      *       Start: Consumers Admin Detail
@@ -156,4 +241,47 @@ tracks {
     /******************************************
      *       End: Consumers Recurring Campaign
      ******************************************/
+
+     /******************************************
+      *       Start: Consumers Persue Campaign
+      ******************************************/
+
+    propertyDefinitions {
+        status(required: true, type: PropertyType.String, values: ["no_charge_period", "fixed_charge_period_1", "fixed_charge_period_2", "daily_charge_period"],
+                description: "Indicates user status")
+        milestone(type: PropertyType.Numeric, required: true)
+        context(required: true, values: ["search", "vip", "home"],
+                description: "The page or section where the nav action is taking place")
+    }
+
+    propertyGroups {
+        pursue_nav_properties(status, milestone, context)
+    }
+
+    //Page Views
+
+     "/vip/credits/pursue/overdue_modal"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+       status(type: PropertyType.String, required: true,
+         values: ["payment_intention_pre_restriction", "payment_intention_post_restriction"])
+       milestone(type: PropertyType.Numeric , required: true)
+     }
+
+     //Event Views
+     "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+       status(type: PropertyType.String, required: true,
+         values: ["payment_intention_pre_restriction", "payment_intention_post_restriction"])
+       milestone(type: PropertyType.Numeric , required: true)
+     }
+
+    "/credits/pursue/overdue_nav"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+        pursue_nav_properties
+    }
+
+    "/credits/pursue/overdue_nav/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+        pursue_nav_properties
+    }
+     /******************************************
+      *       End: Consumers Persue Campaign
+      ******************************************/
+
 }

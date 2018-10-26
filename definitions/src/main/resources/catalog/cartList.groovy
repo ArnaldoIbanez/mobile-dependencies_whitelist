@@ -52,6 +52,7 @@ tracks {
 
 "/cart/my_cart"(platform: "/") {
     resolution(required:false, type: PropertyType.String)
+    cart_ratio(required: false, type: PropertyType.String, values: ["applies", "not_applies"])
 }
 
 "/cart/my_cart/save_for_later"(platform: "/", type: TrackType.Event) {
@@ -76,7 +77,9 @@ tracks {
 
 "/cart/my_cart/close_change_notification"(platform: "/", type: TrackType.Event) {}
 
-"/cart/saved_for_later"(platform: "/") {}
+"/cart/saved_for_later"(platform: "/") {
+    cart_ratio(required: false, type: PropertyType.String, values: ["applies", "not_applies"])
+}
 
 "/cart/saved_for_later/open_change_notification"(platform: "/", type: TrackType.Event) {}
 
@@ -111,10 +114,13 @@ tracks {
 
 "/cart/my_cart/add_cp/dont_know_cp"(platform: "/", type: TrackType.Event){}
 
-"/cart/item_add"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+"/cart/item_add"(platform: "/", type: TrackType.View) {
     items(required: true, type:PropertyType.ArrayList, description: "Array of items that are being added")
-    context(required: false)
+    context(required: false, values: ["search","myml","cart","recommendations","bookmarks","bookmarks_widget","vip","loyalty","cart/saved_for_later","item_add","UNKNOWN"],
+            description: "The page or section where the add_cart_intention action is taking place")
     free_shipping_benefit(required: false, type: PropertyType.Boolean)
+    cart_ratio(required: false, type: PropertyType.String, values: ["applies", "not_applies"])
+    error_type(required: false, type: PropertyType.String)
 }
 
 "/cart/item_add/error"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {

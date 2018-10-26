@@ -91,9 +91,15 @@ tracks {
     available_installments(required: false, description: "Dictionary containing the availble installments the user can choose from a card")
     investor(required:false, type: PropertyType.String, values:["YES", "NO"], description:"If the user is an investor")
     available_consumer_credit(required:false, type: PropertyType.String, values:["YES", "NO"], description:"If the user has active consumer credits")
-    
+
     context(required: false, type: PropertyType.String, description: "Reference to the context that started cart flow")
     checkout_flow(required: false, type: PropertyType.String, values: ["cart"], description: "The type of checkout flow. Cart only for these tracks for now")
+
+    session_id(required:false, description:"Session in which the checkout is being held")
+    vertical(required:false, description: "Vertical of the item to be bought")
+    applies_cart_ratio(required: false, type: PropertyType.String, description: "appliesCartRatio")
+    recovery_flow(required: false, description: "Is recovery CHO flow")
+    purchase_status(required: false, description: "status of the purchase")
 
     operation_status(required: false, description: "status")
     user_identification(required: false, description: "User identification data")
@@ -123,7 +129,7 @@ tracks {
 "/cart/checkout/payment/select_store"(platform:"/", type: TrackType.View) {}
 
 "/cart/checkout/payment/select_bank"(platform:"/", type: TrackType.View) {}
-
+"/cart/checkout/payment/input_sec_code"(platform: "/", type: TrackType.View) {}
 "/cart/checkout/payment/view_location"(platform:"/", type: TrackType.View) {}
 "/cart/checkout/payment/view_location/location"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/payment/view_location/preloaded"(platform:"/", type: TrackType.Event) {}
@@ -258,30 +264,6 @@ tracks {
     edit_flow(required: true, type: PropertyType.Boolean)
 }
 
-"/cart/checkout/shipping/input_address#zip_code"(platform:"/mobile", type: TrackType.Event) {
-    zip_code(required: false, type: PropertyType.String)
-}
-"/cart/checkout/shipping/input_address#street_name"(platform:"/mobile", type: TrackType.Event) {
-    street_name(required: false, type: PropertyType.String)
-}
-"/cart/checkout/shipping/input_address#street_number"(platform:"/mobile", type: TrackType.Event) {
-    street_number(required: false, type: PropertyType.String)
-}
-"/cart/checkout/shipping/input_address#internal_number"(platform:"/mobile", type: TrackType.Event) {
-    internal_number(required: false, type: PropertyType.String)
-}
-"/cart/checkout/shipping/input_address#between_streets"(platform:"/mobile", type: TrackType.Event) {
-    between_streets(required: false, type: PropertyType.String)
-}
-"/cart/checkout/shipping/input_address#references"(platform:"/mobile", type: TrackType.Event) {
-    references(required: false, type: PropertyType.String)
-}
-"/cart/checkout/shipping/input_address#neighborhood"(platform:"/mobile", type: TrackType.Event) {
-    neighborhood(required: false, type: PropertyType.String)
-}
-"/cart/checkout/shipping/input_address#additional_info"(platform:"/mobile", type: TrackType.Event) {
-    additional_info(required: false, type: PropertyType.String)
-}
 "/cart/checkout/shipping/input_address#submit"(platform:"/mobile", type: TrackType.Event) {}
 
 "/cart/checkout/shipping/input_address_number"(platform:"/mobile", type: TrackType.View) {}
@@ -305,9 +287,19 @@ tracks {
 
 "/cart/checkout/payment"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
 
-"/cart/checkout/payment/select_unique_installment"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/payment/select_unique_installment"(platform:"/", type: TrackType.View) {}
 
-"/cart/checkout/payment/select_split_installments"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/payment/select_split_installments"(platform:"/", type: TrackType.View) {}
+
+"/cart/checkout/payment/select_split_installments/select_installment"(platform: "/", type: TrackType.Event) {}
+
+"/cart/checkout/payment/select_split_installments/edit_installment_options"(platform: "/", type: TrackType.Event) {}
+
+"/cart/checkout/payment/select_split_installments/close_split_message"(platform: "/", type: TrackType.Event) {}
+
+"/cart/checkout/payment/select_unique_installment/select_installment"(platform: "/", type: TrackType.Event) {}
+
+"/cart/checkout/payment/select_unique_installment/edit_installment_options"(platform: "/", type: TrackType.Event) {}
 
 "/cart/checkout/payment/select_split_installments/split_detail"(platform:"/mobile", type: TrackType.View) {}
 
@@ -371,7 +363,9 @@ tracks {
 "/cart/checkout/billing"(platform: "/mobile", isAbstract: true) {}
 "/cart/checkout/billing/physical_person"(platform: "/mobile") {}
 "/cart/checkout/billing/legal_person"(platform: "/mobile") {}
-"/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+"/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
 
 // 2MP Inconsistencias
 "/cart/checkout/review/discard_payment_combination"(platform: "/mobile") {}

@@ -1,5 +1,6 @@
-import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 import com.ml.melidata.TrackType
+
+import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
@@ -7,30 +8,43 @@ trackTests {
 
     test("flex optin track returned success view"){
 
+        "/flex/optin"(platform:"/", type: TrackType.View) {}
+
+    }
+
+    test("flex optin congrats event"){
+
         def defaultTrackInformation = {
             view = "success_flex"
         }
 
-        "/flex/optin"(platform:"/mobile", type: TrackType.Event) {
+        "/flex/optin/congrats"(platform:"/", type: TrackType.Event) {
             defaultTrackInformation()
         }
 
     }
 
-    test("flex optout track returned form view"){
+    test("flex optout track returned success view"){
+
+        "/flex/optout"(platform:"/", type: TrackType.View) {}
+
+    }
+
+    test("flex optout congrats event"){
 
         def defaultTrackInformation = {
-            view = "form"
+            view = "success_optout"
+            message = "Feedback"
         }
 
-        "/flex/optout"(platform:"/mobile", type: TrackType.Event) {
+        "/flex/optout/congrats"(platform:"/", type: TrackType.Event) {
             defaultTrackInformation()
         }
 
     }
 
     test("flex landing view"){
-        "/flex/landing"(platform:"/mobile", type: TrackType.View) {}
+        "/flex/landing"(platform:"/", type: TrackType.View) {}
     }
 
     test("Testing flex"){
@@ -228,7 +242,7 @@ trackTests {
         }
 
         //Retry delivery event in detail success
-        "/flex/package/retry_delivery"(platform:"/mobile", type: TrackType.Event) {
+        "/flex/package/retry_pack"(platform:"/mobile", type: TrackType.Event) {
             defaultSinglePack()
             defaultLocation()
             context = "detail"
@@ -369,6 +383,36 @@ trackTests {
         }
         //Onboarding action with context success
         "/flex/notification/view_near_pack_destination"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+        }
+
+        //Not delivered event
+        "/flex/package/not_delivered_reason/selection"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+            reason_type = "TestReasonType"
+        }
+
+        //Not delivered view
+        "/flex/package/not_delivered_reason"(platform:"/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+        }
+
+        //Not delivered form event
+        "/flex/package/not_delivered_reason/form/other_reason"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+            reason = "TestReason"
+        }
+
+        //Not delivered form view
+        "/flex/package/not_delivered_reason/form"(platform:"/mobile", type: TrackType.View) {
             defaultLocation()
             defaultPacksInfo()
             delivery_id = 123456

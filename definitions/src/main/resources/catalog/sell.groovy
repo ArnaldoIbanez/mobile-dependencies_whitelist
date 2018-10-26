@@ -242,6 +242,7 @@ tracks {
         category_domain(required: false, description: "Category Domain", type: PropertyType.String)
         category_id(required: true, description: "Category Id", type: PropertyType.String)
         is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.Boolean)
+        category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
     }
     "/sell/list/phone_suggestion"(platform:"/mobile", type:TrackType.View){}
     "/sell/list/condition"(platform: "/", type: TrackType.View) {}
@@ -308,6 +309,7 @@ tracks {
     "/sell/list/registration_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/registration_zip_code_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/shipping_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/shipping_mandatory_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/sip_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/sip_price_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/sip_shipping_landing"(platform: "/", type: TrackType.View) {}
@@ -347,6 +349,19 @@ tracks {
     "/sell/update/autocomplete/update/suggested_attr_selected"(platform: "/mobile", type: TrackType.Event) {
         attribute_id(required: true, "ID from attribute that was suggested", type: PropertyType.String)
     }
+    "/sell/update/technical_specification"(platform: "/", isAbstract: true){}
+    "/sell/update/technical_specification/update"(platform: "/", isAbstract: true){}
+    "/sell/update/technical_specification/update/suggested_attr_selected"(platform: "/mobile", type: TrackType.Event) {
+        attribute_id(required: true, "ID from attribute that was suggested", type: PropertyType.String)
+    }
+    "/sell/update/picture_uploader"(platform: "/", isAbstract: true){}
+    "/sell/update/picture_uploader/delete"(platform: "/mobile", type: TrackType.Event){
+        item_id(required: true, description: "Item id", type: PropertyType.String)
+    }
+    "/sell/update/picture_uploader/rotate"(platform: "/mobile", type: TrackType.Event){
+        item_id(required: true, description: "Item id", type: PropertyType.String)
+    }
+    "/sell/update/goals"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/description_included"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/description_not_included"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/manufacturing_time"(platform: "/mobile", type: TrackType.View) {}
@@ -382,6 +397,7 @@ tracks {
     "/sell/update/quantity"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/technical_specifications"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/shipping_mandatory_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/variations"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/pictures_variations"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/pictures_variations/editor"(platform: "/mobile", type: TrackType.View) {}
@@ -409,6 +425,7 @@ tracks {
         category_domain(required: false, description: "Category Domain", type: PropertyType.String)
         category_id(required: true, description: "Category Id", type: PropertyType.String)
         is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.Boolean)
+        category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
     }
     "/sell/update/condition"(platform: "/", type: TrackType.View) {}
     "/sell/update/condition_review"(platform: "/", type: TrackType.View) {}
@@ -431,6 +448,8 @@ tracks {
     "/sell/update/picture_editor"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/picture_editor/function"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/picture_editor/function/crop"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/picture_editor/function/delete"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/picture_editor/function/rotate"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/update/pictures_uploader"(platform: "/", isAbstract: true) {}
     "/sell/update/pictures_uploader/crop"(platform: "/", isAbstract: true) {}
     "/sell/update/pictures_uploader/crop/crop_canceled"(platform: "/", type: TrackType.Event) {}
