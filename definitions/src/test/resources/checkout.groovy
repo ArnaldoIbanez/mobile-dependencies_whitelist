@@ -324,8 +324,9 @@ trackTests {
         "/checkout/shipping/custom_address/zip_code#additional_info"(platform:"/mobile", type: TrackType.Event) {
             additional_info = "1er piso"
         }
-        "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event) {}
-
+        "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event) {
+            success = true
+        }
         "/checkout/shipping/custom_address/zip_code/query"(platform:"/mobile", type:TrackType.View) {}
         "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event) {
             query_parameters = "Mexico D.F."
