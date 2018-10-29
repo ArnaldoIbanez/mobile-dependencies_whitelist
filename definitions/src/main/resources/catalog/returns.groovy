@@ -70,7 +70,7 @@ tracks {
       refund_account_money(required: true, type: PropertyType.Boolean, description: 'refund money in the buyers account')
       ref(required: false, type: PropertyType.String, description: 'reference of the beginning of the flow')
       cart_order(required: true, type: PropertyType.Boolean, description: 'order created by cart')
-      payment_refund_at(required: true, type: PropertyType.String, description: 'when will the buyer be refunded', values:['shipped', 'delivered_3'])
+      payment_refund_at(required: true, type: PropertyType.String, description: 'when will the buyer be refunded', values:['shipped', 'delivered'])
     }
 
     "/return/congrats/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {

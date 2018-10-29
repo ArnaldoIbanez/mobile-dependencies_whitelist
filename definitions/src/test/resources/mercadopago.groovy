@@ -256,6 +256,66 @@ trackTests {
             register_type = "company"
         }
 
+        "/register/form/challenge/require" (platform: "/mobile") {
+            app = "normal"
+        }
+
+        "/register/form/challenge/require" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+        }
+
+        "/register/form/challenge/require" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+            register_type = "person"
+        }
+
+        "/register/form/challenge/show" (platform: "/mobile") {
+            app = "normal"
+        }
+
+        "/register/form/challenge/show" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+        }
+
+        "/register/form/challenge/show" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+            register_type = "person"
+        }
+
+        "/register/form/challenge/cancel" (platform: "/mobile") {
+            app = "normal"
+        }
+
+        "/register/form/challenge/cancel" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+        }
+
+        "/register/form/challenge/cancel" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+            register_type = "person"
+        }
+
+        "/register/form/challenge/solve" (platform: "/mobile") {
+            app = "normal"
+        }
+
+        "/register/form/challenge/solve" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+        }
+
+        "/register/form/challenge/solve" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
+            register_type = "person"
+        }
+
         "/register/form/error"(platform:"/mobile") {
             app = "favorite"
             origin = "email"
@@ -469,14 +529,36 @@ trackTests {
         "/point/landings" (platform: "/") {
             product = "mgm"
         }
+
+        // Landing Bundles - bundle_point_* Depends on site.
+        "/point/landings" (platform: "/") {
+            product = "bundle_point_mini"
+        }
+    }
+
+    test("MP MLA/MLB/MLM Landing Bundles Point") {
+        "/point/landings/landing_bundles_buy"(platform: "/", type: TrackType.Event) {
+            quantity = 5
+            product = "bundle_point_mini"
+        }
     }
 
     test("Landing MercadoPago Point MGM > Events") {
-       "/point/landings/mgm/share"(platform:"/", type: TrackType.Event) {}
-      "/point/landings/mgm/ios"(platform:"/", type: TrackType.Event) {}
-      "/point/landings/mgm/android"(platform:"/", type: TrackType.Event) {}
-      "/point/landings/mgm/prepago"(platform:"/", type: TrackType.Event) {}
-      "/point/landings/mgm/tyc"(platform:"/", type: TrackType.Event) {}
+      "/point/landings/mgm/share"(platform:"/", type: TrackType.Event) {
+           product = "mgm"
+       }
+      "/point/landings/mgm/ios"(platform:"/", type: TrackType.Event) {
+          product = "mgm"
+      }
+      "/point/landings/mgm/android"(platform:"/", type: TrackType.Event) {
+          product = "mgm"
+      }
+      "/point/landings/mgm/prepago"(platform:"/", type: TrackType.Event) {
+          product = "mgm"
+      }
+      "/point/landings/mgm/tyc"(platform:"/", type: TrackType.Event) {
+          product = "mgm"
+      }
     }
 
     // MPMOBILE TEST
@@ -920,7 +1002,7 @@ trackTests {
             level ="info"
             data ="{ctr: 2313}"
         }
-    
+
 
         "/settings/point/costs_calculator"(platform: "/mobile", type: TrackType.View) {
             flow = "point"
@@ -2296,7 +2378,7 @@ trackTests {
         "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {
             notified_user = "123"
         }
-    } 
+    }
 
     test("Multi Step Login Android") {
         "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
@@ -3241,89 +3323,6 @@ trackTests {
         }
     }
 
-    test("Asset management") {
-        //Onboarding
-        "/asset_management/onboarding"(platform: "/mobile") {
-            flow = "/asset_management"
-            from = "/deep_link"
-        }
-        //Challenges
-        "/asset_management/challenge_pep"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_fatca"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_regulated_entity"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_manual_input_dob"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_manual_input_document"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_mismatch"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_cx_pending"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_number_of_attempts_exceeded"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_identity_validation"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_identification_bad_quality"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_country_of_birth"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_review_and_confirm"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_document_type"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/challenge_gender"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/terms_and_conditions"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        //Opt-out
-        "/asset_management/opt_out"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        "/asset_management/result_stop_investing"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        //Detail
-        "/asset_management/investment_detail"(platform: "/mobile") {
-            flow = "/asset_management"
-            from = "/deep_link"
-        }
-        "/asset_management/movements_detail"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        //Congrats
-        "/asset_management/result_investing"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        //Faqs
-        "/asset_management/faqs"(platform: "/mobile") {
-            flow = "/asset_management"
-        }
-        //Splitter
-        "/asset_management/splitter"(platform: "/mobile") {
-            flow = "/asset_management"
-            from = "/deep_link"
-        }
-    }
-
-
     test("Device settings") {
         "/device_settings"(platform: "/", type:TrackType.Event) {}
 
@@ -3332,5 +3331,44 @@ trackTests {
             enable = false
             registration_id = "dH2soSpvhwM:APA91bFwZmJy-wXP7DRLm_458FqPF9n8zbm7uVjixKUOHOS8FQ7QN-qSbWS_DrKYDiXyLzGE2giqzVf90fwyjNy4dkgi6hR_W_fv6JvnQo6B5AQ4BOX21g8wx0cLSrcJswrof5U3f"
         }
+    }
+
+    test("Single Player Frontend") {
+        "/single_player/entertainment"(platform: "/web", type: TrackType.View) {}
+        "/single_player/services"(platform: "/web", type: TrackType.View) {}
+        "/single_player/sube"(platform: "/web", type: TrackType.View) {}
+        "/single_player/transport"(platform: "/web", type: TrackType.View) {}
+        "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
+            activity = "entertainment"
+            status = 'OK'
+        }
+        "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
+            activity = "services"
+            status = 'ERROR'
+        }
+        "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
+            activity = "sube"
+            status = 'OK'
+        }
+        "/single_player/send_sms"(platform: "/web", type: TrackType.Event) {
+            activity = "transport"
+            status = 'OK'
+        }
+        "/single_player/open_deep_link"(platform: "/web/mobile", type: TrackType.Event) {
+            activity = "entertainment"
+        }
+        "/single_player/open_deep_link"(platform: "/web/mobile", type: TrackType.Event) {
+            activity = "services"
+        }
+        "/single_player/open_deep_link"(platform: "/web/mobile", type: TrackType.Event) {
+            activity = "sube"
+        }
+        "/single_player/open_deep_link"(platform: "/web/mobile", type: TrackType.Event) {
+            activity = "transport"
+        }
+    }
+    
+    test("Wallet") {
+        "/wallet_error"(platform: "/mobile", type: TrackType.View) {}
     }
 }

@@ -242,6 +242,9 @@ trackTests {
             location = "34.677755,56.444433"
             geolocation_method = "platform"
         }
+        "/checkout/init/back"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+        }
         "/checkout/init/options"(platform:"/mobile", type:TrackType.Event) {
             payment_data = "[credit_card:-, ticket:abitab, ticket:redpagos, cash:cash]"
             shipping_data = ["mercadoenvios", "local_pick_up"]
@@ -261,6 +264,11 @@ trackTests {
             selections = ["shipping_geo", "shipping_other", "local_pick_up"]
         }
         "/checkout/shipping/accord"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            inconsistency = "only_to_agree"
+            selections = ["to_agree"]
+        }
+        "/checkout/shipping/accord/back"(platform:"/mobile", type:TrackType.Event) {
             checkoutStatus()
             inconsistency = "only_to_agree"
             selections = ["to_agree"]
@@ -316,8 +324,9 @@ trackTests {
         "/checkout/shipping/custom_address/zip_code#additional_info"(platform:"/mobile", type: TrackType.Event) {
             additional_info = "1er piso"
         }
-        "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event) {}
-
+        "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event) {
+            success = true
+        }
         "/checkout/shipping/custom_address/zip_code/query"(platform:"/mobile", type:TrackType.View) {}
         "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event) {
             query_parameters = "Mexico D.F."
@@ -381,27 +390,6 @@ trackTests {
             checkoutStatus()
             edit_flow = true
         }
-        "/checkout/shipping/location/address#street_name"(platform: "/mobile", type: TrackType.Event) {
-            street_name = "streetName"
-        }
-        "/checkout/shipping/location/address#street_number"(platform: "/mobile", type: TrackType.Event) {
-            street_number = "streetNumber"
-        }
-        "/checkout/shipping/location/address#additional_info"(platform: "/mobile", type: TrackType.Event) {
-            additional_info = "additionalInfo"
-        }
-        "/checkout/shipping/location/address#internal_number"(platform: "/mobile", type: TrackType.Event) {
-            internal_number = "internalNumber"
-        }
-        "/checkout/shipping/location/address#between_streets"(platform: "/mobile", type: TrackType.Event) {
-            between_streets = "betweenStreets"
-        }
-        "/checkout/shipping/location/address#references"(platform: "/mobile", type: TrackType.Event) {
-            references = "references"
-        }
-        "/checkout/shipping/location/address#neighborhood"(platform: "/mobile", type: TrackType.Event) {
-            neighborhood = "neighborhood"
-        }
         "/checkout/shipping/location/select_contact#submit"(platform:"/mobile", type: TrackType.Event) {
             success = true
             error_codes = ["street_name_error"]
@@ -436,6 +424,7 @@ trackTests {
         "/checkout/shipping/select_store_map"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+        "/checkout/shipping/select_store_map/back"(platform:"/mobile", type:TrackType.Event) {}
         "/checkout/shipping/select_store_map#agencies_request"(platform:"/mobile", type:TrackType.Event) {
             item_id = "MLA12341"
             latitude = "-33,312313"
@@ -479,6 +468,7 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
+            selected_filters = ["tomorrow"]
         }
         "/checkout/shipping/select_store/selected_store"(platform: "/mobile", type: TrackType.Event) {
             default_location_info = {
@@ -489,6 +479,7 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
+            selected_filters = ["next_day","open_weekends"]
         }
         //
 
@@ -529,6 +520,7 @@ trackTests {
         "/checkout/payment/add_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+        "/checkout/payment/add_card/back"(platform:"/mobile", type:TrackType.Event) {}
         "/checkout/payment/add_card#card_config"(platform:"/mobile", type: TrackType.Event) {
             bin = "123456"
             success = true
@@ -586,6 +578,27 @@ trackTests {
                     ]
             ]
         }
+
+        "/checkout/payment/stored_card/installments/back" (platform:"/mobile", type:TrackType.Event){
+            available_installments = [
+                    [
+                            installment: 1,
+                            amount: 20.6,
+                            without_fee: true
+                    ],
+                    [
+                            installment: 3,
+                            amount: 7.2,
+                            without_fee: true
+                    ],
+                    [
+                            installment: 6,
+                            amount: 3.2,
+                            without_fee: true
+                    ]
+            ]
+        }
+
         "/checkout/payment/stored_card/installments#change_payment_method"(platform:"/mobile", type:TrackType.Event) {
             event_source = "installments_row"
         }
@@ -601,6 +614,9 @@ trackTests {
         }
         "/checkout/payment/cash/select_store"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
+            available_methods = ["telecomm", "oxxo", "bancomer", "banamex"]
+        }
+        "/checkout/payment/cash/select_store/back"(platform:"/mobile", type:TrackType.Event) {
             available_methods = ["telecomm", "oxxo", "bancomer", "banamex"]
         }
         "/checkout/payment/cash/select_store/select_address"(platform:"/mobile") {}
@@ -1956,9 +1972,11 @@ trackTests {
         "/checkout/review/edit_second_installment"(platform:"/web", dataSet)
         "/checkout/shipping"(platform:"/web", dataSet)
         "/checkout/shipping/confirm_geolocation"(platform:"/web", dataSet)
+        "/checkout/shipping/select_method_ask_geolocation"(platform:"/web", dataSet)
         "/checkout/shipping/confirm_geolocation/send_to_cp_located"(platform:"/web", dataSet)
         "/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", dataSet)
         "/checkout/shipping/input_new_address"(platform:"/web", dataSet)
+        "/checkout/shipping/accord"(platform:"/web", dataSet)
         "/checkout/payment/security_code"(platform:"/web", dataSet)
         "/checkout/finish/call_seller"(platform:"/web", dataSet)
         "/checkout/finish/send_message"(platform:"/web", dataSet)
@@ -1990,6 +2008,7 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
+            selected_filters = ["tomorrow"]
         }
         "/checkout/shipping/select_store/selected_store"(platform: "/web", type: TrackType.Event) {
             default_location_info = {
@@ -2000,6 +2019,7 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
+            selected_filters = ["next_day","open_weekends"]
         }
 
         // Suscripciones

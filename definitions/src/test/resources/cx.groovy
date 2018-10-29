@@ -20,7 +20,7 @@ trackTests {
         portal_form_id = 54
         portal_source_id = 123
         portal_has_channels_configured = true
-        portal_contact = "{form: \"true\", c2c: \"api_timeout\", chat: \"api_timeout\"}"
+        portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
     }
 
     test("Portal") {
@@ -32,7 +32,7 @@ trackTests {
         "/portal/hub"(platform: "/", type: TrackType.View) {
             portal_form_id = 54
             portal_source_id = 123
-            portal_contact = "{form: \"true\", c2c: \"api_timeout\", chat: \"api_timeout\"}"
+            portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
         }
         "/portal/form"(platform: "/", type: TrackType.View) {
             portal_form_id = 54
@@ -41,7 +41,7 @@ trackTests {
         "/portal/folder"(platform: "/", type: TrackType.View) {
             portal_content_id = 987
             portal_source_id = 123
-            portal_contact = "{form: \"true\", c2c: \"api_timeout\", chat: \"api_timeout\"}"
+            portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
         }
         "/portal/create_case"(platform: "/", type: TrackType.View) {}
         "/portal/search/result"(platform: "/", type: TrackType.View) {}
@@ -63,6 +63,7 @@ trackTests {
             portal_content_id = 987
             portal_source_id = 123
             portal_problem_id = 456
+            portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
         }
         "/support/widget/form"(platform: "/", type: TrackType.View) {
             portal_form_id = 56

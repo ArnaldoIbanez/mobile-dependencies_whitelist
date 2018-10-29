@@ -1,36 +1,36 @@
 {
   "users": [
-    "natalia.soria@mercadolibre.com"
+    "lucas.pecchio@mercadolibre.com"
   ],
-  "process_name": "cart-events",
-  "cron": "00 06 * * *",
+  "process_name": "credits_consumer_carts_platform",
+  "cron": "00 05 * * *",
   "partition": {
-  "name": "sent_date",
-  "type": "DATE"
-   },
+    "name": "Fecha",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
-    "site": "Desarrollo-IT",
+    "site": "Credits",
     "columns": [
       {
-        "name": "site",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "device",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "path",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "cant_event",
+        "name": "Count",
         "type": "INTEGER"
+      },
+      {
+        "name": "Path",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Site",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "melidata/cart-events-a2c.sql",
+      "script": "credits/credits_consumer_carts_platform.sql",
       "parameters": [
         {
           "name": "param01",
@@ -45,4 +45,4 @@
       ]
     }
   }
-} 
+}

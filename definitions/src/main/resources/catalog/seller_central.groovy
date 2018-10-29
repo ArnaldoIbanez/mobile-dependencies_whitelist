@@ -60,6 +60,7 @@ tracks {
 
     "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Id of the action", values:["start","close", "rollback", "dismiss"])
+        page(required: false, type: PropertyType.Numeric, description: "Page number")
     }
 
     "/seller_central/bulk/domain"(platform: "/", type: TrackType.Event) {
@@ -79,7 +80,9 @@ tracks {
         columns(required: true, type: PropertyType.ArrayList, description: "List of the available columns and his order")
     }
 
-    "/seller_central/bulk/offline"(platform: "/", type: TrackType.View) {}
+    "/seller_central/bulk/offline"(platform: "/", isAbstract: true) {}
+
+    "/seller_central/bulk/offline/home"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/bulk/offline/download"(platform: "/", type: TrackType.View) {}
 
@@ -114,5 +117,11 @@ tracks {
 
     "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View) {
         sellerCentralModifyGroup
+    }
+
+    "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyGroup
+        from(required: true, type: PropertyType.String, description: "Current listing type value")
+        to(required: true, type: PropertyType.String, description: "Updated listing type value")
     }
 }

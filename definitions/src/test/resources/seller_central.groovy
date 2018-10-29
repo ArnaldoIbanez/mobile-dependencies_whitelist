@@ -93,6 +93,7 @@ trackTests {
         }
         "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
             action = "dismiss"
+            page = 2
         }
         "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
             action = "rollback"
@@ -127,7 +128,7 @@ trackTests {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     test("seller central offline view") {
-        "/seller_central/bulk/offline"(platform: "/", type: TrackType.View) {}
+        "/seller_central/bulk/offline/home"(platform: "/", type: TrackType.View) {}
     }
 
     test("seller central offline download views") {
@@ -207,6 +208,19 @@ trackTests {
             seller_id = 12345467
             seller_profile = "ADVANCED"
             site_id = "MLA"
+        }
+    }
+
+    test("seller central listing type value updated"){
+        "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event){
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_id = 12345467
+            seller_profile = "ADVANCED"
+            site_id = "MLA"
+            from = "gold_special"
+            to = "gold_pro"
         }
     }
 

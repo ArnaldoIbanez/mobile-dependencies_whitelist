@@ -14,7 +14,7 @@ tracks {
                 description: "Indicates which add_to_cart button the VIP is showing (Default, Discount, Free Shipping). In case it doesn't show it, also indicates the reason why it doesn't show it (High Ratio, Item price too low, Too many items in cart)")
         main_action(required: false, type: PropertyType.String, values: ["buy", "a2c_fs", "a2c_discount", "a2c_default"],
                 description: "Indicates which button the VIP is showing as main_action (ie, shown as blue button). If it is a2c, it then specifies which button type (default, fs, discount)")   
-        context(required: true, values: ["search","myml","cart","recommendations","bookmarks","bookmarks_widget","vip","loyalty","cart/saved_for_later","item_add","UNKNOWN"],
+        context(required: true, values: ["search","cart","recommendations","bookmarks_widget","vip","cart/saved_for_later","UNKNOWN"],
                 description: "The page or section where the add_cart_intention action is taking place")
     }
     
@@ -44,4 +44,24 @@ tracks {
         add_cart_info
     }
 
+    "/remove_from_cart"(platform: "/", type: TrackType.Event){
+        /** Track example:
+         {
+            "context": "search",
+            “items: [
+                {
+                    “currency_id” : “MXN”,
+                    “item”: {
+                        “id”: “MLA1234”,
+                        “category_id”: “MLM123456”
+                    },
+                    “remaining_quantity”: 2,
+                    “unit_price”: 100,
+                }
+            ]
+         }
+         */
+        context(required: true, values: ["search", "cart", "UNKNOWN"])
+        items(required: true, type: PropertyType.ArrayList, description: "The list of items removed from cart")
+    }
 }

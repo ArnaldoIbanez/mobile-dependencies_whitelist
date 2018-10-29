@@ -67,6 +67,13 @@ trackTests {
             installment_status= 'on_time'
             payment_intention= 'cho'
         }
+        "/credits/consumer/installment_payment"(platform: "/mobile", type: TrackType.Event) {
+            payment_id= '123456'
+            payment_method= 'visa debito'
+            payment_type='debit'
+            payment_result='pending'
+            payment_result_detail='pending_waiting_payment'
+        }
         "/credits/consumer/administrator/details_button"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/help"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {}
@@ -152,86 +159,89 @@ trackTests {
          *       End: Consumers Recurring Campaign
          ******************************************/
 
+        /******************************************
+         *       Start: Consumers Pursue Campaign
+         ******************************************/
+        //Page Views
+        "/vip/credits/pursue/overdue_modal"(platform: "/web/desktop", type: TrackType.View) {
+            status = "payment_intention_pre_restriction"
+            milestone = 20
+        }
+
+        "/credits/pursue/overdue_nav"(platform: "/web/desktop", type: TrackType.View) {
+            status = "fixed_charge_period_1"
+            milestone = 4
+            context = "vip"
+        }
+
+        //Events
+        //Vip
+        "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            status = "payment_intention_post_restriction"
+            milestone = 28
+        }
+
+        "/credits/pursue/overdue_nav/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            status = "fixed_charge_period_1"
+            milestone = 4
+            context = "vip"
+        }
+        /******************************************
+         *       End: Consumers Pursue Campaign
+         ******************************************/
+
          /******************************************
-          *       Start: Consumers Pursue Campaign
-          ******************************************/
-         //Page Views
-         "/vip/credits/pursue/overdue_modal"(platform: "/web/desktop", type: TrackType.View) {
-           status = "PAYMENT_INTENTION_PRE_RESTRICTION"
-           milestone = 20
-         }
-         "/vip/credits/pursue/overdue_modal"(platform: "/web/desktop", type: TrackType.View) {
-           status = "PAYMENT_INTENTION_POST_RESTRICTION"
-           milestone = 28
+         *   Start: Consumers Unified Payment Hack
+         ******************************************/
+
+         "/credits/consumer/unified_payment_hack/intermediate_landing"(platform:"/", type: TrackType.View) {
+           loans_installments_status: "to_expire_soft"
+           installments_count: 3
+           days_apart: 10
+           money_account_status: "enough_money"
          }
 
-         //Events
-         "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
-           status = "PAYMENT_INTENTION_PRE_RESTRICTION"
-           milestone = 20
+         "/credits/consumer/unified_payment_hack/intermediate_landing"(platform:"/", type: TrackType.View) {
+           loans_installments_status: "to_expire_soft"
+           installments_count: 3
+           days_apart: 5
+           money_account_status: "not_enough_money"
          }
-         "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
-           status = "PAYMENT_INTENTION_POST_RESTRICTION"
-           milestone = 28
+
+         "/credits/consumer/unified_payment_hack/intermediate_landing"(platform:"/", type: TrackType.View) {
+           loans_installments_status: "to_expire_hard"
+           installments_count: 3
+           days_apart: 1
+           money_account_status: "without_money"
          }
+
+         "/credits/consumer/unified_payment_hack/intermediate_landing"(platform:"/", type: TrackType.View) {
+           loans_installments_status: "no_charge_period"
+           installments_count: 3
+           days_apart: 2
+           money_account_status: "without_money"
+         }
+
+         "/credits/consumer/unified_payment_hack/intermediate_landing/insert_money_and_payment_intention"(platform:"/", type: TrackType.Event) {
+           loans_installments_status: "to_expire_soft"
+           installments_count: 2
+           money_account_status: "enough_money"
+         }
+
+         "/credits/consumer/unified_payment_hack/intermediate_landing/insert_money_and_payment_intention"(platform:"/", type: TrackType.Event) {
+           loans_installments_status: "no_charge_period"
+           installments_count: 4
+           money_account_status: "not_enough_money"
+         }
+
+         "/credits/consumer/unified_payment_hack/intermediate_landing/insert_money_and_payment_intention"(platform:"/", type: TrackType.Event) {
+           loans_installments_status: "to_expire_hard"
+           installments_count: 5
+           money_account_status: "without_money"
+         }
+
          /******************************************
-          *       End: Consumers Pursue Campaign
-          ******************************************/
-
-
-          /******************************************
-          *   Start: Consumers Unified Payment Hack
-          ******************************************/
-
-          "/credits/consumer/unified_payment_hack/intermediate_landing"(platform:"/", type: TrackType.View) {
-            loans_installments_status: "to_expire_soft"
-            installments_count: 3
-            days_apart: 10
-            money_account_status: "enough_money"
-          }
-
-          "/credits/consumer/unified_payment_hack/intermediate_landing"(platform:"/", type: TrackType.View) {
-            loans_installments_status: "to_expire_soft"
-            installments_count: 3
-            days_apart: 5
-            money_account_status: "not_enough_money"
-          }
-
-          "/credits/consumer/unified_payment_hack/intermediate_landing"(platform:"/", type: TrackType.View) {
-            loans_installments_status: "to_expire_hard"
-            installments_count: 3
-            days_apart: 1
-            money_account_status: "without_money"
-          }
-
-          "/credits/consumer/unified_payment_hack/intermediate_landing"(platform:"/", type: TrackType.View) {
-            loans_installments_status: "no_charge_period"
-            installments_count: 3
-            days_apart: 2
-            money_account_status: "without_money"
-          }
-
-          "/credits/consumer/unified_payment_hack/intermediate_landing/insert_money_and_payment_intention"(platform:"/", type: TrackType.Event) {
-            loans_installments_status: "to_expire_soft"
-            installments_count: 2
-            money_account_status: "enough_money"
-          }
-
-          "/credits/consumer/unified_payment_hack/intermediate_landing/insert_money_and_payment_intention"(platform:"/", type: TrackType.Event) {
-            loans_installments_status: "no_charge_period"
-            installments_count: 4
-            money_account_status: "not_enough_money"
-          }
-
-          "/credits/consumer/unified_payment_hack/intermediate_landing/insert_money_and_payment_intention"(platform:"/", type: TrackType.Event) {
-            loans_installments_status: "to_expire_hard"
-            installments_count: 5
-            money_account_status: "without_money"
-          }
-
-          /******************************************
-           *      End: Consumers Unified Payment Hack
-          ******************************************/
-
+          *      End: Consumers Unified Payment Hack
+         ******************************************/
     }
 }
