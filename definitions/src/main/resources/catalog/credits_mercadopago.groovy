@@ -63,7 +63,18 @@ tracks {
     //Page Views
     "/credits/merchant/enrollment"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/enrollment/credits_conditions"(platform: "/", type: TrackType.View) {}
+
+
+    //Feedback new
+    "/credits/merchant/enrollment/feedback"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/enrollment/feedback/interested"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/enrollment/feedback/not_interested"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/enrollment/feedback/success"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/enrollment/feedback/error"(platform: "/", type: TrackType.View) {}
+
+    //Feedback old => to be removed
     "/credits/merchant/enrollment/not_interested"(platform: "/", type: TrackType.View) {}
+
 
     //Events
     "/credits/merchant/enrollment/choose_amount"(platform: "/", type: TrackType.Event) {
@@ -92,6 +103,7 @@ tracks {
     "/credits/merchant/enrollment/withdrawal"(platform: "/", type: TrackType.Event) {}
 
     //Error merchant
+    "/credits/merchant/enrollment/error/accept"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/enrollment/error"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/enrollment/error/try_it_again"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant/enrollment/error/contact_us"(platform: "/", type: TrackType.Event) {}
