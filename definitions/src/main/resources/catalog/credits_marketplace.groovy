@@ -16,6 +16,8 @@ tracks {
      ******************************************/
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/unified_payment_hack"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/unified_payment_hack/intermediate_landing"(platform: "/", isAbstract: true) {}
     "/vip"(platform: "/", isAbstract: true) {}
     "/vip/credits"(platform: "/", isAbstract: true) {}
     "/vip/credits/pursue"(platform: "/", isAbstract: true) {}
@@ -182,5 +184,53 @@ tracks {
       *       End: Consumers Persue Campaign
       ******************************************/
 
+      /******************************************
+      *   Start: Consumers Unified Payment Hack
+      ******************************************/
+
+      "/credits/consumer/unified_payment_hack/intermediate_landing"(platform:"/", type: TrackType.View) {
+        loans_installments_status(
+          description: "installment status to be considered when paying debt",
+          required: true,
+          values: ["to_expire_soft", "to_expire_hard", "no_charge_period"]
+        )
+        installments_count(
+          description: "installments count to pay",
+          type: PropertyType.Numeric,
+          required: true,
+        )
+        money_account_status(
+          description: "user account status related to the total debt",
+          required: true,
+          values: ["enough_money", "not_enough_money", "without_money"]
+        )
+        days_apart(
+          description: "positive number indicanting the difference of days between now and the installments' due date",
+          type: PropertyType.Numeric,
+          required: true,
+        )
+      }
+
+      "/credits/consumer/unified_payment_hack/intermediate_landing/insert_money_and_payment_intention"(platform:"/", type: TrackType.Event) {
+        loans_installments_status(
+          description: "installment status to be considered when paying debt",
+          required: true,
+          values: ["to_expire_soft", "to_expire_hard", "no_charge_period"]
+        )
+        installments_count(
+          description: "installments count to pay",
+          type: PropertyType.Numeric,
+          required: true,
+        )
+        money_account_status(
+          description: "user account status related to the total debt",
+          required: true,
+          values: ["enough_money", "not_enough_money", "without_money"]
+        )
+      }
+
+      /******************************************
+      *   End: Consumers Unified Payment Hack
+      ******************************************/
 
 }
