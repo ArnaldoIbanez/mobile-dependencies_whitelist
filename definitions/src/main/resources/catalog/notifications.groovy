@@ -268,7 +268,11 @@ tracks {
       }
       "/notification/credits_consumer_expired_n_loans_fourth_notice"(platform: "/") {}
       "/notification/credits_consumer_expired_n_loans_second_notice"(platform: "/") {}
-      "/notification/credits_consumer_expired_third_notice"(platform: "/") {}
+      "/notification/credits_consumer_expired_n_loans_third_notice"(platform: "/") {}
+      "/notification/credits_consumer_closing_date_notice"(platform: "/") {
+          loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
+          installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+      }
 
       "/notification/credits_merchants_about_to_expire_notice"(platform: "/") {
           installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
@@ -280,6 +284,9 @@ tracks {
           installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
       }
       "/notification/credits_merchants_expired_third_notice"(platform: "/") {
+          installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+      }
+      "/notification/credits_merchants_about_to_expire_first_notice"(platform: "/") {
           installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
       }
 
@@ -520,6 +527,7 @@ tracks {
       //Qrviral
       "/notification/qrviral_onboard"(platform: "/") {}
       "/notification/qrviral_reminder"(platform: "/") {}
+      "/notification/qrviral_extension"(platform: "/") {}
 
       //Listings
       "/notification/listings"(platform: "/") {}
@@ -566,8 +574,7 @@ tracks {
           batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
       }
 
-      "/notification/moderations_message_banned"(platform: "/") {
-      }
+      "/notification/moderations_message_banned"(platform: "/") {}
 
       //Carousel
       "/notification/carousel"(platform: "/") {
@@ -587,6 +594,28 @@ tracks {
       "/notification/payments_rejected"(platform: "/") {
           item_id(required: true, type: PropertyType.String)
           order_id(required: true, type: PropertyType.String)
+      }
+
+      //Point Shipping
+      "/notification/point_shipping_delayed_p4_p8"(platform: "/") {}
+      "/notification/point_shipping_ready_to_ship_delayed"(platform: "/") {}
+
+      //Point Shipping
+      "/notification/prepaid_card_third_activation_reminder"(platform: "/") {}
+      "/notification/prepaid_card_second_activation_reminder"(platform: "/") {}
+
+      //Puis
+      "/notification/puis_agency_withdrawal"(platform: "/") {
+          pickup_id(required: true, type: PropertyType.Numeric)
+      }
+      "/notification/puis_confirmation"(platform: "/") {
+          pickup_id(required: true, type: PropertyType.Numeric)
+      }
+      "/notification/puis_picked_up"(platform: "/") {
+          pickup_id(required: true, type: PropertyType.Numeric)
+      }
+      "/notification/puis_reschedule"(platform: "/") {
+          pickup_id(required: true, type: PropertyType.Numeric)
       }
 
       //Deprecated - typo
@@ -638,6 +667,9 @@ tracks {
           order_id(required: true, type: PropertyType.Numeric)
       }
       "/notification/reservations_buyer_confirm_delivery_reminder"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+      }
+      "/notification/reservations_buyer_cancel"(platform: "/") {
           order_id(required: true, type: PropertyType.Numeric)
       }
 
@@ -705,6 +737,15 @@ tracks {
       "/notification/returns_reminder_printed"(platform: "/") {
           order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
       }
+      "/notification/returns_no_refund_payment"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+      }
+      "/notification/returns_pickup_expired"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+      }
+      "/notification/returns_reminder_not_printed"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+      }
 
       //Security
       "/notification/security_enrollment"(platform: "/") {}
@@ -712,6 +753,13 @@ tracks {
       "/notification/security_event_feedback"(platform: "/") {}
       "/notification/security_account_validation"(platform: "/") {}
       "/notification/security_login_auth"(platform: "/") {}
+
+      //Wallet Integrator
+      "/notification/wallet_integrator_insufficient_amount"(platform: "/") {}
+      "/notification/withdraw_approved_contingency"(platform: "/") {}
+
+      //Withdraw
+      "/notification/withdraw_approved_contingency"(platform: "/") {}
 
       //Health Check
       "/notification/health_check"(platform: "/") {
