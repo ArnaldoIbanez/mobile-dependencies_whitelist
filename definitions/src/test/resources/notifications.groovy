@@ -261,6 +261,9 @@ trackTests {
             latest_news_type= "returns-init_return"
             latest_news_id= "returns-init_return-1692352012-88594841"
         }
+        "/notification_center/mediations"(platform: "/", type: TrackType.Event) {
+            claim_id= 443103451
+        }
         "/notification_center/orders-buyer"(platform: "/mobile"){
             newsgroup_id= "orders-buyer-1285223441"
             status= "read"
@@ -406,58 +409,82 @@ trackTests {
         }
 
         "/notification/credits_consumer_about_to_expire_second_notice"(platform: "/mobile") {
-            installment_id= 717743
-            loan_id= 107849
+            news_id = "credits-consumer_about_to_expire_second_notice-186785675-20180409"
+            event_type = "shown"
+            installment_id: 9876
+            loan_id: 12345433
         }
 
         "/notification/credits_consumer_expired_fourth_notice"(platform: "/mobile") {
-            installment_id= 717743
-            loan_id= 107849
+            news_id = "credits-consumer_expired_fourth_notice-186785675-20180409"
+            event_type = "shown"
+            installment_id: 9876
+            loan_id: 12345433
         }
 
         "/notification/credits_consumer_expired_second_notice"(platform: "/mobile") {
-            installment_id= 717743
-            loan_id= 107849
+            news_id = "credits-consumer_expired_second_notice-186785675-20180409"
+            event_type = "shown"
+            installment_id: 9876
+            loan_id: 12345433
         }
 
         "/notification/credits_consumer_expired_third_notice"(platform: "/mobile") {
-            installment_id= 717743
-            loan_id= 107849
+            news_id = "credits-consumer_expired_third_notice-186785675-20180409"
+            event_type = "shown"
+            installment_id: 9876
+            loan_id: 12345433
         }
 
         "/notification/credits_consumer_first_time_use_notice"(platform: "/mobile") {
-            installment_id= 717743
-            loan_id= 107849
+            news_id = "credits-consumer_first_time_use_notice-186785675-20180409"
+            event_type = "shown"
+            installment_id: 9876
+            loan_id: 12345433
         }
 
         "/notification/credits_consumer"(platform: "/mobile") {
-            installment_id= 717743
-            loan_id= 107849
+            news_id = "credits-consumer_186785675-20180409"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
         }
 
         "/notification/credits_consumer_closing_date_notice"(platform: "/mobile") {
-            installment_id= 717743
-            loan_id= 107849
+            news_id = "credits-consumer_closing_date_notice-186785675-20180409"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
         }
 
         "/notification/credits_merchants_about_to_expire_notice"(platform: "/mobile") {
-            installment_id= 717743
+            news_id = "credits-merchants_about_to_expire_first_notice-9876"
+            event_type = "shown"
+            installment_id= 9876
         }
 
         "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
-            installment_id= 717743
+            news_id = "credits-merchants_expired_first_notice-9876"
+            event_type = "shown"
+            installment_id= 9876
         }
 
         "/notification/credits_merchants_expired_second_notice"(platform: "/mobile") {
-            installment_id= 717743
+            news_id = "credits-merchants_expired_second_notice-9876"
+            event_type = "shown"
+            installment_id= 9876
         }
 
         "/notification/credits_merchants_expired_third_notice"(platform: "/mobile") {
-            installment_id= 717743
+            news_id = "credits-merchants_expired_third_notice-9876"
+            event_type = "shown"
+            installment_id= 9876
         }
 
         "/notification/credits_merchants_about_to_expire_first_notice"(platform: "/mobile") {
-            installment_id= 717743
+            news_id = "credits-merchants_about_to_expire_first_notice-9876"
+            event_type = "shown"
+            installment_id= 9876
         }
 
         "/notification/credits_consumer_expired_first_notice"(platform: "/mobile") {
@@ -906,14 +933,6 @@ trackTests {
             status = "unread"
         }
 
-        "/notification/mediations"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "open"
-            notification_style = "BigTextStyle"
-            claim_id = 3123
-            action_type = "favorite"
-        }
-
         "/notification/mediations_complainant"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
@@ -1214,6 +1233,7 @@ trackTests {
         "/notification/loyalty_freeshipping"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
+            event_type = "auto_dismiss"
         }
 
         "/notification/mshops_questions"(platform: "/mobile") {
@@ -1228,25 +1248,25 @@ trackTests {
 
         "/notification/puis_agency_withdrawal"(platform: "/mobile") {
             news_id = "puis-agency_withdrawal-21409256437"
-            event_type = "puis-agency_withdrawal"
+            event_type = "sent"
             pickup_id = 1234
         }
 
         "/notification/puis_confirmation"(platform: "/mobile") {
             news_id = "puis-confirmation-21409256437"
-            event_type = "puis-confirmation"
+            event_type = "sent"
             pickup_id = 1234
         }
 
         "/notification/puis_picked_up"(platform: "/mobile") {
             news_id = "puis-picked_up-21409256437"
-            event_type = "puis-picked_up"
+            event_type = "sent"
             pickup_id = 1234
         }
 
         "/notification/puis_reschedule"(platform: "/mobile") {
             news_id = "puis-reschedule-21409256437"
-            event_type = "deep_linking"
+            event_type = "sent"
             pickup_id = 1234
         }
 

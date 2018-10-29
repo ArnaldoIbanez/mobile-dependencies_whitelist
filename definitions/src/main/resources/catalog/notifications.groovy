@@ -171,6 +171,13 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/mediations"(platform: "/", type: TrackType.Event) {
+        claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
+        latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        pack_id(required: false, type: PropertyType.Numeric, description: "Id of batch.")
+        claim_id(required: false, type: PropertyType.Numeric, description:"Id of claim.")
+    }
     "/notification_center/orders-buyer"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.Numeric)
     }
@@ -538,9 +545,6 @@ tracks {
       "/notification/me_flex_optin_reminder"(platform: "/") {}
 
       //Mediations
-      "/notification/mediations"(platform: "/") {
-          claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
-      }
       "/notification/mediations_complainant"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
