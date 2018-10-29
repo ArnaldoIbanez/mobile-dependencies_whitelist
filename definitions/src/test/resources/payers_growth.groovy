@@ -1,0 +1,37 @@
+import com.ml.melidata.TrackType
+
+import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
+
+trackTests {
+
+    defaultBusiness = "mercadolibre"
+    
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS PayersGrowth
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("PayersGrowth track") {
+
+    	// Shake It Screens
+	    "/payers_growth/shake_it/onboarding"(platform: "/mobile", type: TrackType.View) {}
+	    "/payers_growth/shake_it/begin_game"(platform: "/mobile", type: TrackType.View) {}
+	    "/payers_growth/shake_it/game_result/win"(platform: "/mobile", type: TrackType.View) {}
+	    "/payers_growth/shake_it/game_result/loose"(platform: "/mobile", type: TrackType.View) {}
+	    "/payers_growth/shake_it/how_to"(platform: "/mobile", type: TrackType.View) {}
+	    "/payers_growth/shake_it/pending"(platform: "/mobile", type: TrackType.View) {
+	    	status = "pending_extend"
+	    }
+	    "/payers_growth/shake_it/rejected"(platform: "/mobile", type: TrackType.View) {
+	    	status = "rejected_expired"
+	    }
+	    "/payers_growth/shake_it/router"(platform: "/mobile", type: TrackType.View) {}
+	    "/payers_growth/shake_it/couchmark"(platform: "/mobile", type: TrackType.View) {}
+
+	    // Shake It Events
+	    "/payers_growth/shake_it/terms"(platform: "/mobile", type: TrackType.Event) {}
+	    "/payers_growth/shake_it/router"(platform: "/mobile", type: TrackType.Event) {
+	    	status = "onboarding"
+	    }
+	    "/payers_growth/shake_it/shake"(platform: "/mobile", type: TrackType.Event) {}
+    }
+}
