@@ -32,5 +32,6 @@ tracks {
 
     "/instore/required_action"(platform: "/mobile", isAbstract: true) {}
     "/instore/required_action/data_required"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/required_action/data_required/dni"(platform: "/mobile", type: TrackType.View) {}
     "/instore/required_action/bluetooth_on"(platform: "/mobile", type: TrackType.View) {}
 }
