@@ -60,6 +60,7 @@ tracks {
 
     "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Id of the action", values:["start","close", "rollback", "dismiss"])
+        page(required: false, type: PropertyType.Numeric, description: "Page number")
     }
 
     "/seller_central/bulk/domain"(platform: "/", type: TrackType.Event) {
