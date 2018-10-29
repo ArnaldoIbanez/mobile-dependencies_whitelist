@@ -33,5 +33,11 @@ trackTests {
 	    	status = "onboarding"
 	    }
 	    "/payers_growth/shake_it/shake"(platform: "/mobile", type: TrackType.Event) {}
+
+
+	    //Modal Events
+    	"/payers_growth/modal/cta"(platform: "/mobile", type: TrackType.Event) {}
+    	"/payers_growth/modal/show"(platform: "/mobile", type: TrackType.Event) {}
+    	"/payers_growth/modal/dismiss"(platform: "/mobile", type: TrackType.Event) {}
     }
 }
