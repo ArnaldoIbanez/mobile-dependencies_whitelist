@@ -629,14 +629,12 @@ trackTests {
         "/notification/purchases_payments_approved"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
-            order_id = 12132
-            item_id = "MLA122211"
+            purchase_id = 12132
         }
         "/notification/purchases_payments_rejected"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
-            order_id = 12132
-            item_id = "MLA122211"
+            purchase_id = 12132
         }
         "/notification/qrviral_onboard"(platform: "/mobile") {
             news_id = "12332323"
@@ -1231,7 +1229,6 @@ trackTests {
 
         "/notification/loyalty_freeshipping"(platform: "/mobile") {
             news_id = "123"
-            event_type = "auto_dismiss"
             event_type = "auto_dismiss"
         }
 

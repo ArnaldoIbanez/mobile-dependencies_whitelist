@@ -514,14 +514,12 @@ tracks {
 
       //Payment approved
       "/notification/purchases_payments_approved"(platform: "/") {
-          order_id(required: true, type: PropertyType.Numeric)
-          item_id(required: true, type: PropertyType.String)
+          purchase_id(required: true, type: PropertyType.Numeric)
       }
 
       //Payment rejected
       "/notification/purchases_payments_rejected"(platform: "/") {
-          order_id(required: true, type: PropertyType.Numeric)
-          item_id(required: true, type: PropertyType.String)
+          purchase_id(required: true, type: PropertyType.Numeric)
       }
 
       //Qrviral
