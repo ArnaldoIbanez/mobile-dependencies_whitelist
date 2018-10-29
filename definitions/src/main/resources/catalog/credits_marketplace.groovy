@@ -297,45 +297,40 @@ tracks {
       *   Start: Consumers Unified Payment Hack
       ******************************************/
 
-      "/credits/consumer/unified_payment_hack/intermediate_landing"(platform:"/", type: TrackType.View) {
+      propertyDefinitions {
         loans_installments_status(
-          description: "installment status to be considered when paying debt",
+          description: "Installment status to be considered when paying debt",
           required: true,
           values: ["to_expire_soft", "to_expire_hard", "no_charge_period"]
         )
         installments_count(
-          description: "installments count to pay",
+          description: "Installments count to pay",
           type: PropertyType.Numeric,
           required: true,
         )
         money_account_status(
-        description: "user account status related to the total debt",
-        required: true,
-        values: ["enough_money", "not_enough_money", "without_money"]
-      )
-      days_apart(
-        description: "positive number indicanting the difference of days between now and the installments' due date",
-        type: PropertyType.Numeric,
-        required: true,
-      )
-
-
-      "/credits/consumer/unified_payment_hack/intermediate_landing/insert_money_and_payment_intention"(platform:"/", type: TrackType.Event) {
-        loans_installments_status(
-          description: "installment status to be considered when paying debt",
-          required: true,
-          values: ["to_expire_soft", "to_expire_hard", "no_charge_period"]
-        )
-        installments_count(
-          description: "installments count to pay",
-          type: PropertyType.Numeric,
-          required: true,
-        )
-        money_account_status(
-          description: "user account status related to the total debt",
+          description: "User account status related to the total debt",
           required: true,
           values: ["enough_money", "not_enough_money", "without_money"]
         )
+      }
+
+      propertyGroups {
+          unified_payment_hack_properties(loans_installments_status, installments_count, money_account_status)
+      }
+
+      "/credits/consumer/unified_payment_hack/intermediate_landing"(platform:"/", type: TrackType.View) {
+        unified_payment_hack_properties
+        days_apart(
+          description: "Positive number indicanting the difference of days between now and the installments' due date",
+          type: PropertyType.Numeric,
+          required: true,
+        )
+      }
+
+
+      "/credits/consumer/unified_payment_hack/intermediate_landing/insert_money_and_payment_intention"(platform:"/", parentPropertiesInherited: false, type: TrackType.Event) {
+        unified_payment_hack_properties
       }
 
       /******************************************
