@@ -67,6 +67,13 @@ trackTests {
             installment_status= 'on_time'
             payment_intention= 'cho'
         }
+        "/credits/consumer/installment_payment"(platform: "/mobile", type: TrackType.Event) {
+            payment_id= '123456'
+            payment_method= 'visa debito'
+            payment_type='debit'
+            payment_result='pending'
+            payment_result_detail='pending_waiting_payment'
+        }
         "/credits/consumer/administrator/details_button"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/help"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {}

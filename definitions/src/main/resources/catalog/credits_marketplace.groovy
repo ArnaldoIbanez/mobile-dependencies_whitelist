@@ -77,6 +77,13 @@ tracks {
         )
         payment_intention(type: PropertyType.String, required: true, values: ['cho', 'ticket'])
     }
+    "/credits/consumer/installment_payment"(platform: "/", type: TrackType.Event) {
+        payment_id(type: PropertyType.String, required: true, description: "ID of payment")
+        payment_method(type: PropertyType.String, required: true, description: "Payment method")
+        payment_type(type: PropertyType.String, required: true, description: "Payment type")
+        payment_result(type: PropertyType.String, required: true, description: "Result of the payment")
+        payment_result_detail(type: PropertyType.String, required: false, description: "Detail of a rejected payment")
+    }
     "/credits/consumer/administrator/details_button"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/help"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/educational_landing"(platform: "/", type: TrackType.Event) {}
