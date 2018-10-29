@@ -396,6 +396,7 @@ trackTests {
             test_notification = false
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
+            item_id = "MLB1234"
         }
 
         "/notification/credits_consumer_about_to_expire_n_loans_first_notice"(platform: "/mobile") {
@@ -411,36 +412,36 @@ trackTests {
         "/notification/credits_consumer_about_to_expire_second_notice"(platform: "/mobile") {
             news_id = "credits-consumer_about_to_expire_second_notice-186785675-20180409"
             event_type = "shown"
-            installment_id: 9876
-            loan_id: 12345433
+            installment_id = 9876
+            loan_id = 12345433
         }
 
         "/notification/credits_consumer_expired_fourth_notice"(platform: "/mobile") {
             news_id = "credits-consumer_expired_fourth_notice-186785675-20180409"
             event_type = "shown"
-            installment_id: 9876
-            loan_id: 12345433
+            installment_id = 9876
+            loan_id = 12345433
         }
 
         "/notification/credits_consumer_expired_second_notice"(platform: "/mobile") {
             news_id = "credits-consumer_expired_second_notice-186785675-20180409"
             event_type = "shown"
-            installment_id: 9876
-            loan_id: 12345433
+            installment_id = 9876
+            loan_id = 12345433
         }
 
         "/notification/credits_consumer_expired_third_notice"(platform: "/mobile") {
             news_id = "credits-consumer_expired_third_notice-186785675-20180409"
             event_type = "shown"
-            installment_id: 9876
-            loan_id: 12345433
+            installment_id = 9876
+            loan_id = 12345433
         }
 
         "/notification/credits_consumer_first_time_use_notice"(platform: "/mobile") {
             news_id = "credits-consumer_first_time_use_notice-186785675-20180409"
             event_type = "shown"
-            installment_id: 9876
-            loan_id: 12345433
+            installment_id = 9876
+            loan_id = 12345433
         }
 
         "/notification/credits_consumer"(platform: "/mobile") {
@@ -619,7 +620,6 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
             type= "orders-buyer"
-            item_id = "MLA122211"
         }
         "/notification/orders_seller"(platform: "/mobile") {
             news_id = "orders-seller-1712072317"
@@ -1017,7 +1017,6 @@ trackTests {
             event_type = "open"
             campaign_id = "mkt_campaign_co"
             batch_id = "MLB_PACK_20180508_2"
-            item_id = "MLV515515631"
         }
 
         "/notification/payments_pending_reminder"(platform: "/mobile") {
