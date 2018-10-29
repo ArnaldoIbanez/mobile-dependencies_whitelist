@@ -171,13 +171,6 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
-    "/notification_center/mediations"(platform: "/", type: TrackType.Event) {
-        claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
-        latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-        pack_id(required: false, type: PropertyType.Numeric, description: "Id of batch.")
-        claim_id(required: false, type: PropertyType.Numeric, description:"Id of claim.")
-    }
     "/notification_center/orders-buyer"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.Numeric)
     }
@@ -600,7 +593,7 @@ tracks {
       "/notification/point_shipping_delayed_p4_p8"(platform: "/") {}
       "/notification/point_shipping_ready_to_ship_delayed"(platform: "/") {}
 
-      //Point Shipping
+      //Prepaid Card
       "/notification/prepaid_card_third_activation_reminder"(platform: "/") {}
       "/notification/prepaid_card_second_activation_reminder"(platform: "/") {}
 
@@ -756,7 +749,6 @@ tracks {
 
       //Wallet Integrator
       "/notification/wallet_integrator_insufficient_amount"(platform: "/") {}
-      "/notification/withdraw_approved_contingency"(platform: "/") {}
 
       //Withdraw
       "/notification/withdraw_approved_contingency"(platform: "/") {}

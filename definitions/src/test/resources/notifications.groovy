@@ -261,9 +261,6 @@ trackTests {
             latest_news_type= "returns-init_return"
             latest_news_id= "returns-init_return-1692352012-88594841"
         }
-        "/notification_center/mediations"(platform: "/", type: TrackType.Event) {
-            claim_id= 443103451
-        }
         "/notification_center/orders-buyer"(platform: "/mobile"){
             newsgroup_id= "orders-buyer-1285223441"
             status= "read"
@@ -409,8 +406,58 @@ trackTests {
         }
 
         "/notification/credits_consumer_about_to_expire_second_notice"(platform: "/mobile") {
-            news_id = "credits-consumer_about_to_expire_second_notice-1660879"
-            event_type = "sent"
+            installment_id= 717743
+            loan_id= 107849
+        }
+
+        "/notification/credits_consumer_expired_fourth_notice"(platform: "/mobile") {
+            installment_id= 717743
+            loan_id= 107849
+        }
+
+        "/notification/credits_consumer_expired_second_notice"(platform: "/mobile") {
+            installment_id= 717743
+            loan_id= 107849
+        }
+
+        "/notification/credits_consumer_expired_third_notice"(platform: "/mobile") {
+            installment_id= 717743
+            loan_id= 107849
+        }
+
+        "/notification/credits_consumer_first_time_use_notice"(platform: "/mobile") {
+            installment_id= 717743
+            loan_id= 107849
+        }
+
+        "/notification/credits_consumer"(platform: "/mobile") {
+            installment_id= 717743
+            loan_id= 107849
+        }
+
+        "/notification/credits_consumer_closing_date_notice"(platform: "/mobile") {
+            installment_id= 717743
+            loan_id= 107849
+        }
+
+        "/notification/credits_merchants_about_to_expire_notice"(platform: "/mobile") {
+            installment_id= 717743
+        }
+
+        "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
+            installment_id= 717743
+        }
+
+        "/notification/credits_merchants_expired_second_notice"(platform: "/mobile") {
+            installment_id= 717743
+        }
+
+        "/notification/credits_merchants_expired_third_notice"(platform: "/mobile") {
+            installment_id= 717743
+        }
+
+        "/notification/credits_merchants_about_to_expire_first_notice"(platform: "/mobile") {
+            installment_id= 717743
         }
 
         "/notification/credits_consumer_expired_first_notice"(platform: "/mobile") {
@@ -526,6 +573,11 @@ trackTests {
             event_type = "open"
             order_id = 12132
         }
+        "/notification/orders_deliver_confirmation"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            order_id = 12132
+        }
         "/notification/orders_delivered"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
@@ -540,6 +592,7 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
             type= "orders-buyer"
+            item_id = "MLA122211"
         }
         "/notification/orders_seller"(platform: "/mobile") {
             news_id = "orders-seller-1712072317"
@@ -549,12 +602,14 @@ trackTests {
         "/notification/purchases_payments_approved"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
-            purchase_id = 12132
+            order_id = 12132
+            item_id = "MLA122211"
         }
         "/notification/purchases_payments_rejected"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
-            purchase_id = 12132
+            order_id = 12132
+            item_id = "MLA122211"
         }
         "/notification/qrviral_onboard"(platform: "/mobile") {
             news_id = "12332323"
@@ -851,6 +906,14 @@ trackTests {
             status = "unread"
         }
 
+        "/notification/mediations"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            notification_style = "BigTextStyle"
+            claim_id = 3123
+            action_type = "favorite"
+        }
+
         "/notification/mediations_complainant"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
@@ -928,6 +991,14 @@ trackTests {
             news_id = "123"
             event_type = "auto_dismiss"
             item_id = "MLA1234"
+        }
+
+        "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+            campaign_id = "mkt_campaign_co"
+            batch_id = "MLB_PACK_20180508_2"
+            item_id = "MLV515515631"
         }
 
         "/notification/payments_pending_reminder"(platform: "/mobile") {
@@ -1155,40 +1226,88 @@ trackTests {
             event_type = "auto_dismiss"
         }
 
+        "/notification/puis_agency_withdrawal"(platform: "/mobile") {
+            news_id = "puis-agency_withdrawal-21409256437"
+            event_type = "puis-agency_withdrawal"
+            pickup_id = 1234
+        }
+
+        "/notification/puis_confirmation"(platform: "/mobile") {
+            news_id = "puis-confirmation-21409256437"
+            event_type = "puis-confirmation"
+            pickup_id = 1234
+        }
+
+        "/notification/puis_picked_up"(platform: "/mobile") {
+            news_id = "puis-picked_up-21409256437"
+            event_type = "puis-picked_up"
+            pickup_id = 1234
+        }
+
+        "/notification/puis_reschedule"(platform: "/mobile") {
+            news_id = "puis-reschedule-21409256437"
+            event_type = "deep_linking"
+            pickup_id = 1234
+        }
+
+        "/notification/reservations_buyer_cancel"(platform: "/mobile") {
+            news_id = "reservations-buyer_cancel-1004906131"
+            event_type = "open"
+            order_id = 1004906131
+        }
+
         "/notification/returns_return_cancelled"(platform: "/mobile") {
             news_id = "returns-return_cancelled-1674717959-216070768"
             event_type = "arrived"
-            order_id= 1703754979
+            order_id = 1703754979
         }
 
         "/notification/returns_shipped_seller"(platform: "/mobile") {
             news_id = "returns-shipped_seller-1703067817-269729837"
             event_type = "sent"
-            order_id= 1703067817
+            order_id = 1703067817
         }
 
         "/notification/returns_init_return"(platform: "/mobile") {
             news_id = "returns-shipped_seller-1703067817-269729837"
             event_type = "sent"
-            order_id= 1703067817
+            order_id = 1703067817
         }
 
         "/notification/returns_init_return_buyer"(platform: "/mobile") {
             news_id = "returns-shipped_seller-1703067817-269729837"
             event_type = "sent"
-            order_id= 1703067817
+            order_id = 1703067817
         }
 
         "/notification/returns_refund_payment"(platform: "/mobile") {
             news_id = "returns-shipped_seller-1703067817-269729837"
             event_type = "sent"
-            order_id= 1703067817
+            order_id = 1703067817
         }
 
         "/notification/returns_reminder_printed"(platform: "/mobile") {
             news_id = "returns-shipped_seller-1703067817-269729837"
             event_type = "sent"
-            order_id= 1703067817
+            order_id = 1703067817
+        }
+
+        "/notification/returns_no_refund_payment"(platform: "/mobile") {
+            news_id = "returns-shipped_seller-1703067817-269729837"
+            event_type = "sent"
+            order_id = 1703067817
+        }
+
+        "/notification/returns_pickup_expired"(platform: "/mobile") {
+            news_id = "returns-shipped_seller-1703067817-269729837"
+            event_type = "sent"
+            order_id = 1703067817
+        }
+
+        "/notification/returns_reminder_not_printed"(platform: "/mobile") {
+            news_id = "returns-shipped_seller-1703067817-269729837"
+            event_type = "sent"
+            order_id = 1703067817
         }
 
         "/notification/security_enrollment"(platform: "/mobile") {
