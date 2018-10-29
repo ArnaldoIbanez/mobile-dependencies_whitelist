@@ -189,5 +189,77 @@ trackTests {
         /******************************************
          *       End: Consumers Pursue Campaign
          ******************************************/
+
+         /******************************************
+         *   Start: Consumers Unified Payment Hack
+         ******************************************/
+
+        "/credits/consumer/administrator/unified_payment_hack/payment_intention"(platform:"/", type: TrackType.Event) {
+          loans_installments_status = "to_expire_soft"
+          installments_count = 3
+          days_apart = 10
+        }
+
+        "/credits/consumer/administrator/unified_payment_hack/payment_intention"(platform:"/", type: TrackType.Event) {
+          loans_installments_status = "to_expire_hard"
+          installments_count = 2
+          days_apart = 1
+        }
+
+        "/credits/consumer/administrator/unified_payment_hack/payment_intention"(platform:"/", type: TrackType.Event) {
+          loans_installments_status = "no_charge_period"
+          installments_count = 8
+          days_apart = 1
+        }
+
+         "/credits/consumer/unified_payment_hack/intermediate_landing"(platform:"/", type: TrackType.View) {
+           loans_installments_status = "to_expire_soft"
+           installments_count = 3
+           days_apart = 10
+           money_account_status = "enough_money"
+         }
+
+         "/credits/consumer/unified_payment_hack/intermediate_landing"(platform:"/", type: TrackType.View) {
+           loans_installments_status = "to_expire_soft"
+           installments_count = 3
+           days_apart = 5
+           money_account_status = "not_enough_money"
+         }
+
+         "/credits/consumer/unified_payment_hack/intermediate_landing"(platform:"/", type: TrackType.View) {
+           loans_installments_status = "to_expire_hard"
+           installments_count = 3
+           days_apart = 1
+           money_account_status = "without_money"
+         }
+
+         "/credits/consumer/unified_payment_hack/intermediate_landing"(platform:"/", type: TrackType.View) {
+           loans_installments_status = "no_charge_period"
+           installments_count = 3
+           days_apart = 2
+           money_account_status = "without_money"
+         }
+
+         "/credits/consumer/unified_payment_hack/intermediate_landing/insert_money_and_payment_intention"(platform:"/", type: TrackType.Event) {
+           loans_installments_status = "to_expire_soft"
+           installments_count = 2
+           money_account_status = "enough_money"
+         }
+
+         "/credits/consumer/unified_payment_hack/intermediate_landing/insert_money_and_payment_intention"(platform:"/", type: TrackType.Event) {
+           loans_installments_status = "no_charge_period"
+           installments_count = 4
+           money_account_status = "not_enough_money"
+         }
+
+        "/credits/consumer/unified_payment_hack/intermediate_landing/insert_money_and_payment_intention"(platform:"/", type: TrackType.Event) {
+           loans_installments_status = "to_expire_hard"
+           installments_count = 5
+           money_account_status = "without_money"
+         }
+
+         /******************************************
+          *      End: Consumers Unified Payment Hack
+         ******************************************/
     }
 }

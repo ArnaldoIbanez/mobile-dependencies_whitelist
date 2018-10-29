@@ -291,4 +291,64 @@ tracks {
       *       End: Consumers Persue Campaign
       ******************************************/
 
+      /******************************************
+      *   Start: Consumers Unified Payment Hack
+      ******************************************/
+
+      "/credits/consumer/unified_payment_hack"(platform: "/", isAbstract: true) {}
+      "/credits/consumer/unified_payment_hack/intermediate_landing"(platform: "/", isAbstract: true) {}
+      "/credits/consumer/administrator/unified_payment_hack"(platform: "/", isAbstract: true) {}
+
+      propertyDefinitions {
+        loans_installments_status(
+          description: "Installment status to be considered when paying debt",
+          required: true,
+          values: ["to_expire_soft", "to_expire_hard", "no_charge_period"]
+        )
+        installments_count(
+          description: "Installments count to pay",
+          type: PropertyType.Numeric,
+          required: true,
+        )
+      }
+
+      propertyGroups {
+          unified_payment_hack_properties(loans_installments_status, installments_count)
+      }
+
+      "/credits/consumer/administrator/unified_payment_hack/payment_intention"(platform:"/", type: TrackType.Event) {
+        unified_payment_hack_properties
+        days_apart(
+          description: "Positive number indicanting the difference of days between now and the installments' due date",
+          type: PropertyType.Numeric,
+          required: true,
+        )
+      }
+
+      "/credits/consumer/unified_payment_hack/intermediate_landing"(platform:"/", type: TrackType.View) {
+        unified_payment_hack_properties
+        money_account_status(
+          description: "User account status related to the total debt",
+          required: true,
+          values: ["enough_money", "not_enough_money", "without_money"]
+        )
+        days_apart(
+          description: "Positive number indicanting the difference of days between now and the installments' due date",
+          type: PropertyType.Numeric,
+          required: true,
+        )
+      }
+
+      "/credits/consumer/unified_payment_hack/intermediate_landing/insert_money_and_payment_intention"(platform:"/", parentPropertiesInherited: false, type: TrackType.Event) {
+        unified_payment_hack_properties
+        money_account_status(
+          description: "User account status related to the total debt",
+          required: true,
+          values: ["enough_money", "not_enough_money", "without_money"]
+        )
+      }
+
+      /******************************************
+      *   End: Consumers Unified Payment Hack
+      ******************************************/
 }
