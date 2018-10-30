@@ -12,7 +12,7 @@
   },
   "extract": {
     "operation": "append",
-    "site": "Customer",
+    "site": "MeliLake",
     "columns": [
       {
         "name": "source_id",
