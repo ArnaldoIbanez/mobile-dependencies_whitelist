@@ -165,7 +165,6 @@ tracks {
 
     "/flex/package/detail/receipt"(platform: "/mobile", type: TrackType.View) {
         packsAndLocation
-        receiver_info(required: true, description: "The receiver data")
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
         //Name
         //Surname
@@ -249,7 +248,6 @@ tracks {
 
     "/flex/package/detail/receipt/save"(platform: "/mobile", type: TrackType.Event) {
         packsAndLocation
-        receiver_info(required: true, description: "The receiver data")
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
@@ -281,6 +279,16 @@ tracks {
     }
 
     "/flex/package/not_delivered_reason/form"(platform: "/mobile", type: TrackType.View) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+    "/flex/package/detail/receipt/go_back"(platform: "/mobile", type: TrackType.View) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+    "/flex/package/detail/receipt/back"(platform: "/mobile", type: TrackType.Event) {
         packsAndLocation
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
