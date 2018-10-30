@@ -15,8 +15,9 @@ trackTests {
     	// Shake It Screens
 	    "/payers_growth/shake_it/onboarding"(platform: "/mobile", type: TrackType.View) {}
 	    "/payers_growth/shake_it/begin_game"(platform: "/mobile", type: TrackType.View) {}
-	    "/payers_growth/shake_it/game_result/win"(platform: "/mobile", type: TrackType.View) {}
-	    "/payers_growth/shake_it/game_result/loose"(platform: "/mobile", type: TrackType.View) {}
+	    "/payers_growth/shake_it/game_result"(platform: "/mobile", type: TrackType.View) {
+	    	status = "win"
+	    }
 	    "/payers_growth/shake_it/how_to"(platform: "/mobile", type: TrackType.View) {}
 	    "/payers_growth/shake_it/pending"(platform: "/mobile", type: TrackType.View) {
 	    	status = "pending_extend"
