@@ -30,7 +30,7 @@ trackTests {
 
 	    // Shake It Events
 	    "/payers_growth/shake_it/terms"(platform: "/mobile", type: TrackType.Event) {}
-	    "/payers_growth/shake_it/router"(platform: "/mobile", type: TrackType.Event) {
+	    "/payers_growth/shake_it/route"(platform: "/mobile", type: TrackType.Event) {
 	    	status = "onboarding"
 	    }
 	    "/payers_growth/shake_it/shake"(platform: "/mobile", type: TrackType.Event) {}
