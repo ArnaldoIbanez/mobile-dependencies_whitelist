@@ -334,13 +334,8 @@ trackTests {
             source = "logout"
         }
 
-        "/notification/account_fund_approved_ml"(platform: "/mobile") {
+        "/notification/account_fund_approved"(platform: "/mobile") {
             news_id = "account_fund-account_fund-approved_ml-12345678"
-            event_type = "shown"
-        }
-
-        "/notification/account_fund_approved_mp"(platform: "/mobile") {
-            news_id = "account_fund-account_fund-approved_mp-12345678"
             event_type = "shown"
         }
 

@@ -235,8 +235,7 @@ tracks {
       }
 
       "/notification/credits_consumer_about_to_expire_n_loans_first_notice"(platform: "/") {}
-      "/notification/account_fund_approved_ml"(platform: "/") {}
-      "/notification/account_fund_approved_mp"(platform: "/") {}
+      "/notification/account_fund_approved"(platform: "/") {}
       "/notification/credits_consumer_expired_n_loans_first_notice"(platform: "/") {}
       "/notification/credits_consumer_about_to_expire_second_notice"(platform: "/") {
           loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
