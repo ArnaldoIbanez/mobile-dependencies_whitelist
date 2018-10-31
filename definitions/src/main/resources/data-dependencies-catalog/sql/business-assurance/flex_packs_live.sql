@@ -23,7 +23,7 @@ from (
       		jest(event_data,'delivery_id') as delivery_id, 
       		Max(user_local_timestamp)  as user_local_timestamp 
   		from tracks
-		where ds >'@param01' and ds <= '@param02'
+		where ds >='@param01' 
 		    and application.business='mercadoenvios'
         	and type = 'view' and path = '/flex/package/list'
     GROUP BY substr(ds,1,10), application.site_id, jest(event_data,'delivery_id')
@@ -39,7 +39,7 @@ from (
   		jest(packs_data,'destintation_info.latitude') as latitude
 	from tracks
 	LATERAL VIEW explode(json_to_array(jest(event_data,'packs_info'))) tf as packs_data
-	where ds >'@param01' and ds <= '@param02'
+	where ds >='@param01' 
      	and application.business='mercadoenvios'
       and type = 'view' and path = '/flex/package/list'
  	) packs on packs.delivery_id = list.delivery_id and packs.site_id = list.site_id and packs.user_local_timestamp = list.user_local_timestamp 
@@ -61,7 +61,7 @@ left join (
           jest(event_data,'packs_info[0].shipping_id') as shipping_id,
           Min(user_local_timestamp)  as user_local_timestamp 
   from tracks
-  where ds >'@param01' and ds <= '@param02'
+  where ds >='@param01' 
         and application.business='mercadoenvios'
         and path = '/flex/package/detail/receipt/save' 
     GROUP BY substr(ds,1,10), application.site_id, jest(event_data,'packs_info[0].shipping_id')
@@ -77,7 +77,7 @@ left join (
       jest(event_data,'longitude') as longitude,
       jest(event_data,'latitude') as latitude
   	from tracks
-	 where ds > '@param01' and ds <= '@param02'
+	 where ds >='@param01' 
      	 and application.business='mercadoenvios'
  		   and path = '/flex/package/detail/receipt/save'
     ) save on save.user_local_timestamp = last_save.user_local_timestamp and save.shipping_id = last_save.shipping_id and save.site_id = last_save.site_id
@@ -96,7 +96,7 @@ left join
          jest(event_data,'delivery_id') as Delivery_id,
          Max(user_timestamp) as Delivery_Time
       from tracks 
-      where ds> '@param01' AND ds <= '@param02'
+      where ds >='@param01' 
           and path ='/flex/package/finish_delivery'
           and application.business='mercadoenvios'
           and not isnull(jest(event_data,'delivery_id'))
@@ -110,7 +110,7 @@ left join
           jest(event_data,'delivery_status') as DeliveryStatus,
           user_timestamp as Delivery_Time
         from tracks
-        where ds> '@param01' AND ds <='@param02'
+        where ds >='@param01' 
           and path ='/flex/package/finish_delivery'
           and application.business='mercadoenvios'
           and not isnull(jest(event_data,'delivery_id'))

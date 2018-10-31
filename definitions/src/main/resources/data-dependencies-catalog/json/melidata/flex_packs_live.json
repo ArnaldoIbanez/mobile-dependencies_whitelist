@@ -3,7 +3,7 @@
     "mathias.miranda@mercadolibre.com"
   ],
   "process_name": "flex_packs_live",
-  "cron": "0 */01 * * *",
+  "cron": "0 */03 * * *",
   "partition": {
         "name": "ds",
         "type": "DATE"
@@ -50,11 +50,6 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
-          "format": "yyyy-MM-dd"
-        },
-        {
-          "name": "param02",
           "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
