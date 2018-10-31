@@ -595,6 +595,12 @@ trackTests {
         }
     }
 
+    test("Camera") {
+        "/camera"(platform: "/mobile") {
+        }
+        
+    }
+
     test("Sign In") {
         "/sign_in"(platform: "/mobile") {
             from = "/deep_link"
