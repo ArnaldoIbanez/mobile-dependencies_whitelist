@@ -133,6 +133,10 @@ tracks {
     }
 
     //STRUCTURED DATA
+
+    "/seller_central/technical_specifications"(platform: "/", isAbstract: true) {}
+    "/seller_central/technical_specifications/hints"(platform: "/", isAbstract: true) {}
+
     "/seller_central/technical_specifications/hints/available"(platform: "/", type: TrackType.Event) {
         hintsGroup
         category_domain(required: true, type: PropertyType.String, description: "Item category domain")
