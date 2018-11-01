@@ -596,7 +596,7 @@ trackTests {
     }
 
     test("Camera") {
-        "/camera"(platform: "/mobile") {
+        "/camera"(platform: "/mobile/android") {
         }
         
     }
