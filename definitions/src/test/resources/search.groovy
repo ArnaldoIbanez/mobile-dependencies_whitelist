@@ -277,4 +277,17 @@ trackTests {
             query="iphone"
         }
     }
+
+    test("Search Recommendations "){
+        "/search/category_recommendations"(platform: "/web"){
+            item_id = "MLM1234"
+            category_id = "MLM123456"
+            category_path = ["MLM1234", "MLM12345", "MLM123456"]
+            recommended_categories = [
+                    "MLM4321",
+                    "MLM54321"
+            ]
+
+        }
+    }
 }
