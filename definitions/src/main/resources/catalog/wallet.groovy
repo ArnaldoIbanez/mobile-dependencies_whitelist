@@ -19,7 +19,7 @@ tracks {
     "/wallet/cards/empty/abort"(platform: "/mobile", type: TrackType.Event) {}
     
     // Show Results State
-    "/wallet/cards/result"(platform: "/mobile", type: TrackType.View) {}
-    "/wallet/cards/result/add_card"(platform: "/mobile", type: TrackType.Event) {}
-    "/wallet/cards/result/abort"(platform: "/mobile", type: TrackType.Event) {}
+    "/wallet/cards/list"(platform: "/mobile", type: TrackType.View) {}
+    "/wallet/cards/list/add_card"(platform: "/mobile", type: TrackType.Event) {}
+    "/wallet/cards/list/abort"(platform: "/mobile", type: TrackType.Event) {}
 }
