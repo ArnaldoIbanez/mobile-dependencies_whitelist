@@ -3,7 +3,7 @@
     "emiliano.gonzalez@mercadolibre.com"
   ],
   "process_name": "point_path_conversion",
-  "cron": "",
+  "cron": "00 06 * * *",
   "partition": {
     "name": "ds",
     "type": "DATE"
