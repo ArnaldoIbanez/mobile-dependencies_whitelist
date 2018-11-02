@@ -1,7 +1,7 @@
-SELECT path AS path,
+SELECT path AS track,
        application.version AS version,
        count(*) AS count_tracks,
-       count(DISTINCT usr) AS count_usr,
+       count(DISTINCT usr) AS count_unique_users,
        count(DISTINCT jest(event_data,'flow_id')) AS count_flow_id,
        substr(ds,1,10) AS ds
 FROM tracks
