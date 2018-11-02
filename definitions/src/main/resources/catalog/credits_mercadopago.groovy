@@ -51,6 +51,14 @@ tracks {
     "/credits/merchant/second_offer_cta"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant/help"(platform: "/", type: TrackType.Event) {}
 
+    //Voluntary Payment
+    "/credits/merchant/administrator/loans"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/administrator/loans/next_installment_payment"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/administrator/loans/next_installment_payment/congrats"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/administrator/loans/next_installment_payment/error/insufficient_money"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/administrator/loans/next_installment_payment/error/lender_cannot_collect"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/administrator/loans/next_installment_payment/error"(platform: "/", type: TrackType.View) {}
+
     /******************************************
      *       End: Merchants Administrator
      ******************************************/
