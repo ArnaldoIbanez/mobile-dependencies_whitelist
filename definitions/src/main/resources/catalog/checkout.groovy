@@ -304,7 +304,9 @@ tracks {
     "/checkout/shipping/select_method/geolocated"(platform: "/mobile") {}
     "/checkout/shipping/custom_address"(platform: "/mobile", isAbstract: true) {}
     //Input zip_code
-    "/checkout/shipping/custom_address/zip_code"(platform: "/mobile") {}
+    "/checkout/shipping/custom_address/zip_code"(platform: "/mobile") {
+        edit_flow(required = false, type: PropertyType.Boolean, description: "Represents the state of user editing address flow")
+    }
     "/checkout/shipping/custom_address/zip_code#zip_code"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
   session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         zip_code(required: false, type: PropertyType.String)
