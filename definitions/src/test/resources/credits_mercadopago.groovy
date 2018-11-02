@@ -19,7 +19,7 @@ trackTests {
         "/credits/merchant/enrollment/feedback"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/feedback/interested"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/feedback/not_interested"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/feedback/success"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment/feedback/success"(platform: "/web/desktop")  {}
         "/credits/merchant/enrollment/feedback/error"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/error/accept"(platform: "/web/desktop") {}
 
