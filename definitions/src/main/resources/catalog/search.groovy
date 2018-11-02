@@ -181,4 +181,11 @@ tracks {
 
     "/search/save"(platform: "/", type: TrackType.Event) {
     }
+
+    "/search/category_recommendations"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+        item_id(required: true, description: "the item for which the recommendations are shown", type: PropertyType.String)
+        category_id(required: true, description: "the item category_id", type: PropertyType.String)
+        category_path(required: true, description: "the path from root of the category_ud", type: PropertyType.ArrayList)
+        recommended_categories(required: true, description: "the recommended categories for the item", type: PropertyType.ArrayList)
+    }
 }

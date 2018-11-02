@@ -349,6 +349,10 @@ tracks {
         description (required:false, type: PropertyType.String, description: "Status description")
     }
 
+    "/camera"(platform: "/mobile/android", type: TrackType.View) {
+        from (required:false, type: PropertyType.String, description: "Where the Camera start in picture profile or person validataion in android")
+    }
+
     "/send_money"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
@@ -702,10 +706,37 @@ tracks {
         device_id(required: false, description: "The real device_id, may differ from device field")
     }
 
+    //Acount
+    "/notification/account_fund_approved_ml"(platform: "/mobile") {}
+    "/notification/account_fund_approved_mp"(platform: "/mobile") {}
+
     //Campañas
     "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
     }
+
+    //Credits Merchants
+    "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_expired_second_notice"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_expired_third_notice"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_about_to_expire_first_notice"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+
+    //Health Check
+    "/notification/health_check"(platform: "/mobile") {
+        original_news_id( required: false, type: PropertyType.String, description: "Original identifier of the notification generated" )
+    }
+
+    //Inivite Gift
+    "/notification/invite_gift"(platform: "/mobile") {}
 
     //Money
     "/notification/money_transfer_received"(platform: "/mobile") {}
@@ -727,6 +758,12 @@ tracks {
     "/notification/prepaid_card_not_delivered"(platform: "/mobile") {
         notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
     }
+    "/notification/prepaid_card_third_activation_reminder"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+    "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
 
     //Point
     "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {
@@ -744,6 +781,19 @@ tracks {
     "/notification/point_shipping_delayed_p1"(platform: "/mobile") {
         notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
     }
+    "/notification/point_shipping_delayed_p4_p8"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+    "/notification/point_shipping_ready_to_ship_delayed"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+
+    //Wallet
+    "/notification/wallet_integrator_insufficient_amount"(platform: "/mobile") {}
+
+    //Withdraw
+    "/notification/withdraw_approved_contingency"(platform: "/mobile") {}
+
     //Digital Goods
      "/digital_goods"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")

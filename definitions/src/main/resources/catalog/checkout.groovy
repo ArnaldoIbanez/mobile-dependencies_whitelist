@@ -50,6 +50,7 @@ tracks {
         // shipping_method_id,
         // shipping_mode
         // free_shipping_benefit
+        // fulfillment
 
         payments(required: false, description: "Array of payment information") //
         // id
