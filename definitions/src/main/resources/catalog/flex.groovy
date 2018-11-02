@@ -18,14 +18,19 @@ tracks {
 
     "/flex"(platform: "/mobile", isAbstract: true) {}
 
-    "/flex/landing"(platform: "/mobile", type: TrackType.View) {}
+    "/flex/landing"(platform: "/", type: TrackType.View) {}
 
-    "/flex/optin"(platform: "/mobile", type: TrackType.Event) {
+    "/flex/optin"(platform: "/", type: TrackType.View) {}
+
+    "/flex/optin/congrats"(platform: "/", type: TrackType.Event) {
         view(required: true, type: PropertyType.String, description: "specific view the app returned")
     }
 
-    "/flex/optout"(platform: "/mobile", type: TrackType.Event) {
+    "/flex/optout"(platform: "/", type: TrackType.View) {}
+
+    "/flex/optout/congrats"(platform: "/", type: TrackType.Event) {
         view(required: true, type: PropertyType.String, description: "specific view the app returned")
+        message(required: false, type: PropertyType.String, description: "user feedback")
     }
 
     "/flex/login/name"(platform: "/mobile", type: TrackType.View) {
@@ -160,7 +165,6 @@ tracks {
 
     "/flex/package/detail/receipt"(platform: "/mobile", type: TrackType.View) {
         packsAndLocation
-        receiver_info(required: true, description: "The receiver data")
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
         //Name
         //Surname
@@ -244,7 +248,6 @@ tracks {
 
     "/flex/package/detail/receipt/save"(platform: "/mobile", type: TrackType.Event) {
         packsAndLocation
-        receiver_info(required: true, description: "The receiver data")
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
@@ -276,6 +279,16 @@ tracks {
     }
 
     "/flex/package/not_delivered_reason/form"(platform: "/mobile", type: TrackType.View) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+    "/flex/package/detail/receipt/go_back"(platform: "/mobile", type: TrackType.View) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+    "/flex/package/detail/receipt/back"(platform: "/mobile", type: TrackType.Event) {
         packsAndLocation
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
