@@ -4,6 +4,10 @@
   ],
   "process_name": "point_path_conversion",
   "cron": "",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
     "columns": [
