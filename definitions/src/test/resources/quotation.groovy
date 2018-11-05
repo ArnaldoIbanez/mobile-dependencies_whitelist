@@ -21,7 +21,7 @@ trackTests {
             category_id = "MLM170531"
             vertical = "REAL_ESTATE"
             error_type = ""
-            model_id = 23544349337
+            model_id = "102B"
             unit_id = 23544349337
         }
 
@@ -29,7 +29,7 @@ trackTests {
             item_id = "MLM2222222"
             seller_id = 123456789
             vertical = "REAL_ESTATE"
-            model_id = 23544349337
+            model_id = "102B"
             unit_id = 23544349337
         }
     }
@@ -42,7 +42,7 @@ trackTests {
 
         "/quotation/models"(platform: "/mobile") {
             item_id = "MLM2222222"
-            model_id = "MLM170531"
+            model_id = "102B"
         }
     }
 
@@ -75,7 +75,7 @@ trackTests {
 
         "/quotation/quote_intention"(platform: "/mobile") {
             item_id = "MLM2222222"
-            model_id = "MLM170531"
+            model_id = "102B"
             unit_id = "54321"
         }
     }
@@ -99,7 +99,7 @@ trackTests {
             category_id = "MLM170531"
             seller_id = 123456789
             vertical = "REAL_ESTATE"
-            model_id = 12345
+            model_id = "102B"
             unit_id = 54321
             error_type = ""
         }
@@ -116,7 +116,7 @@ trackTests {
             seller_id = 123456789
             vertical = "REAL_ESTATE"
             item_id = "MLM2222222"
-            model_id = "12345"
+            model_id = "102B"
             unit_id = 54321
         }
     }

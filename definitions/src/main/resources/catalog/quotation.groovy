@@ -20,13 +20,13 @@ tracks {
         category_id(required: false, type:PropertyType.String, description: "Item category id")
         vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
         error_type(required: false, type:PropertyType.String)
-        model_id(required: false, type:PropertyType.Numeric, "Model Id" )
+        model_id(required: false, type:PropertyType.String, "Model Id" )
         unit_id(required: false, type:PropertyType.Numeric, description: "Unit Id")
     }
 
     "/quotation/details"(platform: "/mobile") {
         vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
-        model_id(required: false, type:PropertyType.Numeric, "Model Id" )
+        model_id(required: false, type:PropertyType.String, "Model Id" )
         unit_id(required: false, type:PropertyType.Numeric, description: "Unit Id")
     }
 
@@ -71,7 +71,7 @@ tracks {
 
     "/quotation/congrats"(platform: "/web") {
         seller_id(required: true, type:PropertyType.Numeric)
-        model_id(required: true, type:PropertyType.Numeric, description: "Model id" )
+        model_id(required: true, type:PropertyType.String, description: "Model id" )
         category_id(required: false, type:PropertyType.String, description: "Item category id")
         vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
         error_type(required: false, type:PropertyType.String)
