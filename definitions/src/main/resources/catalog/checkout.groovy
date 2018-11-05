@@ -676,9 +676,11 @@ tracks {
         old_value(required: true, type: PropertyType.Numeric)
         new_value(required: true, type: PropertyType.Numeric)
     }
-    "/checkout/review/edit_installments"(platform: "/mobile") {
+    "/checkout/review/edit_installments"(platform: "/") {
+        // TODO: Include this tracking in we version => https://mercadolibre.atlassian.net/browse/CHKON-6166 
+        
         //List of available installments
-        available_installments(required: true, type: PropertyType.ArrayList)
+        available_installments(required: false, type: PropertyType.ArrayList)
         //installments: [
         //    [
         //      installment: 1,
