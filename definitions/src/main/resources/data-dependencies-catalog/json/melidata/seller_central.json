@@ -1,9 +1,10 @@
 {
   "users": [
-    "ezequiel.perez@mercadolibre.com"
+    "ezequiel.perez@mercadolibre.com",
+    "sebastian.schmukliar@mercadolibre.com"
   ],
   "process_name": "seller_central_columns",
-  "cron": "00 19 * * *",
+  "cron": "00 08 * * *",
   "partition": {
     "name": "sc",
     "type": "DATE"
@@ -13,20 +14,28 @@
     "site": "QA",
     "columns": [
       {
-        "name": "type",
+        "name": "quantity",
+        "type": "INTEGER"
+      },
+      {
+        "name": "source",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "path",
+        "name": "accion",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "event_data",
+        "name": "columnas",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "ds",
         "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "seller_central/seller_central_columns.sql",
+      "script": "seller_central/seller_central.sql",
       "parameters": [
         {
           "name": "param01",
