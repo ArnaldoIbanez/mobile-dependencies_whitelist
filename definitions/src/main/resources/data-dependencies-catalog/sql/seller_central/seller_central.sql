@@ -18,6 +18,7 @@ AND path IN ('/seller_central/bulk/offline/download/error',
 GROUP BY CASE WHEN path LIKE '%download%' THEN 'DOWNLOAD'
             WHEN path LIKE '%onboarding%' THEN 'ONBOARDING'
             WHEN path LIKE '%filters%' THEN 'FILTERS'
+            WHEN path LIKE '%columns%' THEN 'COLUMNS'
         END,
         jet(event_data,'action'),
         jet(event_data,'columns'),
