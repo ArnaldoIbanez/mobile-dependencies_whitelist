@@ -99,10 +99,8 @@ trackTests {
         }
     }
 
-    test("seller central bulk view") {
-        "/seller_central/bulk/domain"(platform: "/", type: TrackType.Event) {
-            id = "technical_specification"
-        }
+    test("seller central bulk technical specification") {
+        "/seller_central/bulk/technical_specification"(platform: "/", type: TrackType.Event) {}
     }
 
     test("seller central bulk filters and search") {

@@ -62,9 +62,7 @@ tracks {
         action(required: true, type: PropertyType.String, description: "Id of the action", values:["start","close", "rollback", "dismiss"])
     }
 
-    "/seller_central/bulk/domain"(platform: "/", type: TrackType.Event) {
-        id(required: true, type: PropertyType.String, description: "Id of the domaing group")
-    }
+    "/seller_central/bulk/technical_specification"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/bulk/filters"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Id of the action", values:["apply", "clear"])
