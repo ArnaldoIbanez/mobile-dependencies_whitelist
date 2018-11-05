@@ -334,8 +334,13 @@ trackTests {
             source = "logout"
         }
 
-        "/notification/account_fund_approved"(platform: "/mobile") {
+        "/notification/account_fund_approved_ml"(platform: "/mobile") {
             news_id = "account_fund-account_fund-approved_ml-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_approved_mp"(platform: "/mobile") {
+            news_id = "account_fund-account_fund-approved_mp-12345678"
             event_type = "shown"
         }
 
@@ -478,46 +483,11 @@ trackTests {
             loan_id= 12345433
         }
 
-        "/notification/credits_merchants_about_to_expire_notice"(platform: "/mobile") {
-            news_id = "credits-merchants_about_to_expire_first_notice-9876"
-            event_type = "shown"
-            installment_id= 9876
-        }
-
-        "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
-            news_id = "credits-merchants_expired_first_notice-9876"
-            event_type = "shown"
-            installment_id= 9876
-        }
-
-        "/notification/credits_merchants_expired_second_notice"(platform: "/mobile") {
-            news_id = "credits-merchants_expired_second_notice-9876"
-            event_type = "shown"
-            installment_id= 9876
-        }
-
-        "/notification/credits_merchants_expired_third_notice"(platform: "/mobile") {
-            news_id = "credits-merchants_expired_third_notice-9876"
-            event_type = "shown"
-            installment_id= 9876
-        }
-
-        "/notification/credits_merchants_about_to_expire_first_notice"(platform: "/mobile") {
-            news_id = "credits-merchants_about_to_expire_first_notice-9876"
-            event_type = "shown"
-            installment_id= 9876
-        }
-
         "/notification/credits_consumer_expired_first_notice"(platform: "/mobile") {
             news_id = "credits-consumer_expired_first_notice-1329452"
             event_type = "dismiss"
             installment_id= 717743
             loan_id= 107849
-        }
-
-        "/notification/invite_gift"(platform: "/mobile"){
-            news_id = "invite-gift-12345"
-            event_type = "sent"
         }
 
         "/notification/instore_discover_activities"(platform: "/mobile"){
@@ -665,22 +635,6 @@ trackTests {
             news_id = "orders-seller-1712072317"
             event_type = "action_open"
             type= "orders-seller"
-        }
-        "/notification/point_shipping_delayed_p4_p8"(platform: "/mobile") {
-            news_id = "point_shipping-delayed_p4_p8-186785675"
-            event_type = "open"
-        }
-        "/notification/point_shipping_ready_to_ship_delayed"(platform: "/mobile") {
-            news_id = "point_shipping-ready_to_ship_delayed-186785675"
-            event_type = "open"
-        }
-        "/notification/prepaid_card_third_activation_reminder"(platform: "/mobile") {
-            news_id = "prepaid_card-third_activation_reminder-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "open"
-        }
-        "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {
-            news_id = "prepaid_card-second_activation_reminder-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "open"
         }
         "/notification/purchases_payments_approved"(platform: "/mobile") {
             news_id = "12332323"
@@ -1070,13 +1024,6 @@ trackTests {
             item_id = "MLA1234"
         }
 
-        "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "open"
-            campaign_id = "mkt_campaign_co"
-            batch_id = "MLB_PACK_20180508_2"
-        }
-
         "/notification/payments_pending_reminder"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -1424,15 +1371,6 @@ trackTests {
             event_type = "arrived"
         }
 
-        "/notification/wallet_integrator_insufficient_amount"(platform: "/mobile") {
-            news_id = "wallet_integrator-insufficient_amount-186785675"
-            event_type = "open"
-        }
-
-        "/notification/withdraw_approved_contingency"(platform: "/mobile") {
-            news_id = "withdraw-approved_contingency-186785675"
-            event_type = "open"
-        }
     }
 
 }
