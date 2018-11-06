@@ -13,16 +13,12 @@ tracks {
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         category_domain(required: false, type: PropertyType.String, description: "Item category domain")
         category_path(required: false, type: PropertyType.ArrayList, description: "Path of category")
-        type(required: true, type: PropertyType.String, description: "Type of hint", values: ["info", "actionable"])
-        attribute(required: true, type: PropertyType.String, description: "Id of the attribute")
     }
 
     propertyGroups {
         sellerCentralModifyGroup(category_id, site_id, seller_id, seller_profile, item_id, session_id, category_domain, category_path)
-        hintsGroup(type, attribute, item_id)
     }
 
-    //LISTING SECTION
     "/seller_central"(platform: "/", isAbstract: true) {}
     "/seller_central/listings"(platform: "/", isAbstract: true) {}
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {}
@@ -59,17 +55,16 @@ tracks {
         id(required: true, type: PropertyType.String, description: "Preference id", values:["shipping", "advertising"])
     }
 
-    //BULK SECTION
-
     "/seller_central/bulk"(platform: "/", isAbstract: true) {}
     "/seller_central/bulk/list"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Id of the action", values:["start","close", "rollback", "dismiss"])
-        page(required: false, type: PropertyType.Numeric, description: "Page number")
     }
 
-    "/seller_central/bulk/technical_specification"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/bulk/domain"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Id of the domaing group")
+    }
 
     "/seller_central/bulk/filters"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Id of the action", values:["apply", "clear"])
@@ -106,7 +101,6 @@ tracks {
     "/seller_central/bulk/offline/download/warning"(platform: "/", type: TrackType.Event){}
 
 
-    //ITEM DETAIL SECTION
 
     "/seller_central/modify"(platform: "/", type: TrackType.View) {
         sellerCentralModifyGroup
@@ -128,26 +122,5 @@ tracks {
         sellerCentralModifyGroup
         from(required: true, type: PropertyType.String, description: "Current listing type value")
         to(required: true, type: PropertyType.String, description: "Updated listing type value")
-    }
-
-    //STRUCTURED DATA
-
-    "/seller_central/technical_specifications"(platform: "/", isAbstract: true) {}
-    "/seller_central/technical_specifications/hints"(platform: "/", isAbstract: true) {}
-
-    "/seller_central/technical_specifications/hints/available"(platform: "/", type: TrackType.Event) {
-        hintsGroup
-        category_domain(required: true, type: PropertyType.String, description: "Item category domain")
-    }
-
-    "/seller_central/technical_specifications/hints/showed"(platform: "/", type: TrackType.Event) {
-        hintsGroup
-        category_domain(required: true, type: PropertyType.String, description: "Item category domain")
-    }
-
-    "/seller_central/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event) {
-        hintsGroup
-        category_domain(required: true, type: PropertyType.String, description: "Item category domain")
-        user_action(required: true, type: PropertyType.String, description: "Type of user action", values: ["click", "write"])
     }
 }
