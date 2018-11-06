@@ -633,8 +633,10 @@ trackTests {
     test("VIP Shipping Calculator"){
 
         def model = {
-            type = "zip_code"
-            value = "1234"
+            location = {
+                type = "zip_code"
+                value = "1234"
+            }
             shipping_methods = [{
                 cost = 50
                 promoted_amount = 12

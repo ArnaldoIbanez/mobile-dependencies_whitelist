@@ -512,7 +512,7 @@ tracks {
         
     }
 
-    "/vip/shipping_calculator"(platform: "/", type: TrackType.View){
+    "/vip/shipping_calculator"(platform: "/", type: TrackType.View, parentPropertiesInherited: false){
         location(required: true, description: "User Location")
         //Location
             //type: [address | zip_code]
@@ -530,7 +530,7 @@ tracks {
     }
 
     "/vip/shipping_calculator/select"(platform: "/", type: TrackType.Event){
-        selected_method(required: true,  type: PropertyType.ArrayList,description: "Shipping Methods")
+        selected(required: true,  type: PropertyType.ArrayList,description: "Shipping Methods")
     }
 
     "/vip/shipping_calculator/cancel"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
