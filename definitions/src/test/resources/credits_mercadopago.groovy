@@ -36,12 +36,20 @@ trackTests {
             user_profile = 'offer'
         }
 
-        "/credits/merchant/administrator/loans"(platform: "/web/desktop") {}
-        "/credits/merchant/administrator/loans/next_installment_payment"(platform: "/web/desktop") {}
-        "/credits/merchant/administrator/loans/next_installment_payment/congrats"(platform: "/web/desktop") {}
-        "/credits/merchant/administrator/loans/next_installment_payment/error/insufficient_money"(platform: "/web/desktop") {}
-        "/credits/merchant/administrator/loans/next_installment_payment/error/lender_cannot_collect"(platform: "/web/desktop") {}
-        "/credits/merchant/administrator/loans/next_installment_payment/error"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/next_installment_payment"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/congrats"(platform: "/web/desktop") {
+            flow = 'voluntary_payment'
+        }
+        "/credits/merchant/administrator/error"(platform: "/web/desktop") {
+            reason = 'insufficient_account_money'
+        }
+        "/credits/merchant/administrator/error"(platform: "/web/desktop") {
+            reason = 'lender_cannot_collect_installments'
+        }
+        "/credits/merchant/administrator/error"(platform: "/web/desktop") {
+            reason = 'default'
+        }
+
 
         //Events
         //Landing merchant

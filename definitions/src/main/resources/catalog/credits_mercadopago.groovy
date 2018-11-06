@@ -33,6 +33,16 @@ tracks {
      *       Start: Merchants Administrator
      ******************************************/
 
+    //Transactional
+    "/credits/merchant/administrator/congrats"(platform: "/", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, values: ['voluntary_payment'])
+    }
+    "/credits/merchant/administrator/error"(platform: "/", type: TrackType.View) {
+        reason(type: PropertyType.String, required: true, values: ['insufficient_account_money',
+                                                                   'lender_cannot_collect_installments',
+                                                                   'default'])
+    }
+
     //Dashboard merchants
     //Page Views
     "/credits/merchant/administrator/dashboard"(platform: "/", type: TrackType.View) {
@@ -52,12 +62,7 @@ tracks {
     "/credits/merchant/help"(platform: "/", type: TrackType.Event) {}
 
     //Voluntary Payment
-    "/credits/merchant/administrator/loans"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/administrator/loans/next_installment_payment"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/administrator/loans/next_installment_payment/congrats"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/administrator/loans/next_installment_payment/error/insufficient_money"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/administrator/loans/next_installment_payment/error/lender_cannot_collect"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/administrator/loans/next_installment_payment/error"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/administrator/next_installment_payment"(platform: "/", type: TrackType.View) {}
 
     /******************************************
      *       End: Merchants Administrator
