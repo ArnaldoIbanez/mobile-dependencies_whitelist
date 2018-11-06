@@ -387,7 +387,20 @@ tracks {
 // Inicio Web platform
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-"/cart/checkout/shipping"(platform:"/web", type: TrackType.View) {}
+"/cart/checkout/shipping"(platform:"/web", type: TrackType.View) {
+    
+    account_money_info(required:false, type: PropertyType.Map, description: "Map with data of the account money of the buyer")
+    
+    seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
+
+    purchase_status(required: false, type: PropertyType.String, values: ["PAYMENT_REQUIRED", "PAYMENT_IN_PROCESS", "PARTIALLY_PAID", "PAID", "PENDING_CANCEL", "CANCELLED", "CONFIRMED"], description: "Status of the purchase")
+
+    loyalty_level(required:false, description:"The loyalty level of the buyer")
+
+    shipping(required: false, type:PropertyType.ArrayList)
+
+    total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+}
 
 "/cart/checkout/shipping/confirm_geolocation"(platform:"/web", type: TrackType.View) {}
 "/cart/checkout/shipping/confirm_geolocation/send_to_cp_located"(platform:"/web", type: TrackType.Event) {}
