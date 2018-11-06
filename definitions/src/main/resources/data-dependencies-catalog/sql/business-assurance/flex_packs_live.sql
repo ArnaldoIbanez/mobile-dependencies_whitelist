@@ -1,7 +1,8 @@
 select
-	  hoy.site_id as site,
-	  hoy.delivery_id as delivery_id,
+	hoy.site_id as site,
+	hoy.delivery_id as delivery_id,
   	hoy.shipping_id as shipping_id,
+  	hoy.list_timestamp as list_timestamp,
   	CAST(coalesce(delivered.longitude, hoy.longitude) as DOUBLE) as longitude,
   	CAST(coalesce(delivered.latitude, hoy.latitude) as DOUBLE) as latitude,
   	if(lower(delivered.status)='delivered','Delivered','Pending') as pack_status,
@@ -12,6 +13,7 @@ from (
   select
 		list.ds as ds,
 		list.site_id as site_id,
+		substr(list.user_local_timestamp,1,19) as list_timestamp,
 		list.delivery_id as delivery_id,
 		packs.shipping_id as shipping_id,
 		packs.longitude as longitude,
