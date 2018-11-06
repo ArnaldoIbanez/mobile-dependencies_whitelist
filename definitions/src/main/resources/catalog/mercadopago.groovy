@@ -764,6 +764,9 @@ tracks {
     "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {
         notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
     }
+    "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
 
     //Point
     "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {

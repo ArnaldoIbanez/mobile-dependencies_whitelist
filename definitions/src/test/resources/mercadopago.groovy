@@ -598,7 +598,7 @@ trackTests {
     test("Camera") {
         "/camera"(platform: "/mobile/android") {
         }
-        
+
     }
 
     test("Sign In") {
@@ -2106,8 +2106,15 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+
         "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {
             news_id = "prepaid_card-second_activation_reminder-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_activation_reminder-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "open"
             notification_type= "deep_linking"
         }
