@@ -140,18 +140,17 @@ tracks {
     "/seller_central/modify/technical_specifications"(platform: "/web/desktop", isAbstract: true) {}
     "/seller_central/modify/technical_specifications/hints"(platform: "/web/desktop", isAbstract: true) {
         hintsGroup
+        category_domain(required: true, type: PropertyType.String, description: "Item category domain")
     }
 
     "/seller_central/modify/technical_specifications/hints/available"(platform: "/web/desktop", type: TrackType.Event) {
-        category_domain(required: true, type: PropertyType.String, description: "Item category domain")
+
     }
 
     "/seller_central/modify/technical_specifications/hints/showed"(platform: "/web/desktop", type: TrackType.Event) {
-        category_domain(required: true, type: PropertyType.String, description: "Item category domain")
     }
 
     "/seller_central/modify/technical_specifications/hints/completed"(platform: "/web/desktop", type: TrackType.Event) {
-        category_domain(required: true, type: PropertyType.String, description: "Item category domain")
         user_action(required: false, type: PropertyType.String, description: "Type of user action", values: ["click", "write"])
     }
 
@@ -159,21 +158,17 @@ tracks {
     "/seller_central/bulk/technical_specifications"(platform: "/", isAbstract: true) {}
     "/seller_central/bulk/technical_specifications/hints"(platform: "/", isAbstract: true) {
         hintsGroup
+        category_domain(required: true, type: PropertyType.String, description: "Item category domain")
+        item_id(required: true, type: PropertyType.String, description: "Id of item used to")
     }
 
     "/seller_central/bulk/technical_specifications/hints/available"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Id of item used to")
-        category_domain(required: true, type: PropertyType.String, description: "Item category domain")
     }
 
     "/seller_central/bulk/technical_specifications/hints/showed"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Id of item used to")
-        category_domain(required: true, type: PropertyType.String, description: "Item category domain")
     }
 
     "/seller_central/bulk/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Id of item used to")
-        category_domain(required: true, type: PropertyType.String, description: "Item category domain")
         user_action(required: false, type: PropertyType.String, description: "Type of user action", values: ["click", "write"])
     }
 }
