@@ -50,6 +50,7 @@ tracks {
         // shipping_method_id,
         // shipping_mode
         // free_shipping_benefit
+        // fulfillment
 
         payments(required: false, description: "Array of payment information") //
         // id
@@ -303,7 +304,9 @@ tracks {
     "/checkout/shipping/select_method/geolocated"(platform: "/mobile") {}
     "/checkout/shipping/custom_address"(platform: "/mobile", isAbstract: true) {}
     //Input zip_code
-    "/checkout/shipping/custom_address/zip_code"(platform: "/mobile") {}
+    "/checkout/shipping/custom_address/zip_code"(platform: "/mobile") {
+        edit_flow(required = false, type: PropertyType.Boolean, description: "Represents the state of user editing address flow")
+    }
     "/checkout/shipping/custom_address/zip_code#zip_code"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
   session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         zip_code(required: false, type: PropertyType.String)
@@ -338,6 +341,9 @@ tracks {
     }
     "/checkout/shipping/custom_address/zip_code#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
   session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/checkout/shipping/custom_address/zip_code#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+  success(required: false, type: PropertyType.Boolean, description: "API Call when success on loading shipping options")
     }
     //Query zip code
     "/checkout/shipping/custom_address/zip_code/query"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
@@ -443,7 +449,7 @@ tracks {
         longitude(type: PropertyType.Numeric, required: true, description: "the longitude at which we are requesting agencies")
         last_action(type: PropertyType.String, required: true, description: "That indicate the last action the user on the map")
         distance(type: PropertyType.Numeric, required: false, description: "indicate the distance of the agencie selected to the default center point")
-        selected_filters(type: PropertyType.ArrayList, required: true, description: "indicates the selected filters when an agency is selected")
+        selected_filters(type: PropertyType.ArrayList, required: false, description: "indicates the selected filters when an agency is selected")
     }
 
     "/checkout/shipping/select_store/selected_store"(platform: "/", type: TrackType.Event) {
@@ -452,7 +458,7 @@ tracks {
         longitude(type: PropertyType.Numeric, required: true, description: "the longitude at which we are requesting agencies")
         last_action(type: PropertyType.String, required: true, description: "That indicate the last action the user on the map")
         distance(type: PropertyType.Numeric, required: false, description: "indicate the distance of the agencie selected to the default center point")
-        selected_filters(type: PropertyType.ArrayList, required: true, description: "indicates the selected filters when an agency is selected")
+        selected_filters(type: PropertyType.ArrayList, required: false, description: "indicates the selected filters when an agency is selected")
     }
 
     // No agencies
@@ -670,9 +676,11 @@ tracks {
         old_value(required: true, type: PropertyType.Numeric)
         new_value(required: true, type: PropertyType.Numeric)
     }
-    "/checkout/review/edit_installments"(platform: "/mobile") {
+    "/checkout/review/edit_installments"(platform: "/") {
+        // TODO: Include this tracking in we version => https://mercadolibre.atlassian.net/browse/CHKON-6166 
+        
         //List of available installments
-        available_installments(required: true, type: PropertyType.ArrayList)
+        available_installments(required: false, type: PropertyType.ArrayList)
         //installments: [
         //    [
         //      installment: 1,

@@ -56,7 +56,7 @@ tracks {
         related_searches_info(required: false, description: 'Tracks related searches coverage')
         canonical(required: false, description: 'url: canonical URL for the request; no_follow_tag: if the link rel="canonical" has no follow parameter; if the canonical URL has a mirror category configured')
         autosuggest(required: false, description:'indicates whether clicked autosuggest')
-        landing(required:false, description:'indicates landing base, premium, etc', values: ["base","premium","offical_store","deal"])
+        landing(required:false, description:'indicates landing base, premium, etc', values: ["base","premium","offical_store","deal", "cpg","officialStore"])
         upper_funnel(required: false, description: 'indicates if advertising query was considered upper funnel')
         geolocation(required: false, description:'geolocation')
         layout_forced(required: false, description:'true if layout is changed by the user')
@@ -180,5 +180,12 @@ tracks {
     "/search/golocal"(platform: "/") {}
 
     "/search/save"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/search/category_recommendations"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+        item_id(required: true, description: "the item for which the recommendations are shown", type: PropertyType.String)
+        category_id(required: true, description: "the item category_id", type: PropertyType.String)
+        category_path(required: true, description: "the path from root of the category_ud", type: PropertyType.ArrayList)
+        recommended_categories(required: true, description: "the recommended categories for the item", type: PropertyType.ArrayList)
     }
 }

@@ -100,6 +100,9 @@ catalog {
         include business, "qr_discount.groovy"
         include business, "zip_finder.groovy"
         include business, "current_location.groovy"
+        include business, "px.groovy"
+        include business, "supermarket.groovy"
+        include business, "payers_growth.groovy"
     }
 
     mercadopago.each { business ->
@@ -115,6 +118,7 @@ catalog {
         include business, "cellphone_recharge.groovy"
         include business, "collaborators.groovy"
         include business, "asset_management.groovy"
+        include business, "single_player.groovy"
     }
 
     mercadoshops.each { business ->
