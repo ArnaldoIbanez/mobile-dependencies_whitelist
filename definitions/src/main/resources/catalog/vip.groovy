@@ -530,7 +530,7 @@ tracks {
     }
 
     "/vip/shipping_calculator/select"(platform: "/", type: TrackType.Event){
-        selected(required: true,  type: PropertyType.ArrayList,description: "Shipping Methods")
+        selected_method(required: true, description: "Shipping Methods")
     }
 
     "/vip/shipping_calculator/cancel"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
