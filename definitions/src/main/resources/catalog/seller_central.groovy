@@ -7,8 +7,6 @@ tracks {
     propertyDefinitions {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
-        site_id(required: true, type: PropertyType.String, description: "Id of the site")
-        seller_id(required: true, type: PropertyType.Numeric, description: "Seller id")
         seller_profile(required: true, type: PropertyType.String, description: "Type of seller")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         category_domain(required: false, type: PropertyType.String, description: "Item category domain")
@@ -18,8 +16,8 @@ tracks {
     }
 
     propertyGroups {
-        sellerCentralModifyGroup(category_id, site_id, seller_id, seller_profile, item_id, session_id, category_domain, category_path)
-        hintsGroup(type, attribute, item_id)
+        sellerCentralModifyGroup(category_id, seller_profile, category_domain, category_path)
+        hintsGroup(type, attribute)
     }
 
     //LISTING SECTION
@@ -110,23 +108,28 @@ tracks {
 
     //ITEM DETAIL SECTION
 
-    "/seller_central/modify"(platform: "/", type: TrackType.View) {
+    "/seller_central/modify"(platform: "/web/desktop", isAbstract: true) {
+        item_id
+        session_id
+    }
+
+    "/seller_central/modify/detail"(platform: "/web/desktop", type: TrackType.View) {
         sellerCentralModifyGroup
     }
 
-    "/seller_central/modify/variations"(platform: "/", type: TrackType.View) {
+    "/seller_central/modify/variations"(platform: "/web/desktop", type: TrackType.View) {
         sellerCentralModifyGroup
     }
 
-    "/seller_central/modify/variations_custom"(platform: "/", type: TrackType.View) {
+    "/seller_central/modify/variations_custom"(platform: "/web/desktop", type: TrackType.View) {
         sellerCentralModifyGroup
     }
 
-    "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View) {
+    "/seller_central/modify/listing_type"(platform: "/web/desktop", type: TrackType.View) {
         sellerCentralModifyGroup
     }
 
-    "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event) {
+    "/seller_central/modify/update_listing_types"(platform: "/web/desktop", type: TrackType.Event) {
         sellerCentralModifyGroup
         from(required: true, type: PropertyType.String, description: "Current listing type value")
         to(required: true, type: PropertyType.String, description: "Updated listing type value")
