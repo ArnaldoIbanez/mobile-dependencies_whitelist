@@ -19,7 +19,7 @@ trackTests {
         "/credits/merchant/enrollment/feedback"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/feedback/interested"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/feedback/not_interested"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/feedback/success"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment/feedback/success"(platform: "/web/desktop")  {}
         "/credits/merchant/enrollment/feedback/error"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/error/accept"(platform: "/web/desktop") {}
 
@@ -35,6 +35,21 @@ trackTests {
         "/credits/merchant/public_landing"(platform: "/web/desktop") {
             user_profile = 'offer'
         }
+
+        "/credits/merchant/administrator/next_installment_payment"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/congrats"(platform: "/web/desktop") {
+            flow = 'voluntary_payment'
+        }
+        "/credits/merchant/administrator/error"(platform: "/web/desktop") {
+            reason = 'insufficient_account_money'
+        }
+        "/credits/merchant/administrator/error"(platform: "/web/desktop") {
+            reason = 'lender_cannot_collect_installments'
+        }
+        "/credits/merchant/administrator/error"(platform: "/web/desktop") {
+            reason = 'default'
+        }
+
 
         //Events
         //Landing merchant
