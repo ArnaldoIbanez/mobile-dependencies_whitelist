@@ -650,7 +650,7 @@ trackTests {
         }
 
         def shipping_method = {
-            seleted = {
+            selected = {
                 cost = 50
                 promoted_amount = 12
                 delivery_type = "seller_agreement"
