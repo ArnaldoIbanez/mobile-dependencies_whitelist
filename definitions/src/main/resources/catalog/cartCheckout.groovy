@@ -397,7 +397,7 @@ tracks {
 
     loyalty_level(required:false, description:"The loyalty level of the buyer")
 
-    shipping(required: false, type:PropertyType.ArrayList)
+    shipping(required: true, type:PropertyType.ArrayList)
 
     total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
 }
