@@ -160,7 +160,7 @@ trackTests {
 
 
     test("seller central render detail"){
-        "/seller_central/modify/detail"(platform: "/web/desktop", type: TrackType.View){
+        "/seller_central/modify/detail"(platform: "/", type: TrackType.View){
             category_id = "MLA390784"
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
@@ -171,7 +171,7 @@ trackTests {
     }
 
     test("seller central render variations"){
-        "/seller_central/modify/variations"(platform: "/web/desktop", type: TrackType.View){
+        "/seller_central/modify/variations"(platform: "/", type: TrackType.View){
             category_id = "MLA390784"
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
@@ -182,7 +182,7 @@ trackTests {
     }
 
     test("seller central render custom variations"){
-        "/seller_central/modify/variations_custom"(platform: "/web/desktop", type: TrackType.View){
+        "/seller_central/modify/variations_custom"(platform: "/", type: TrackType.View){
             category_id = "MLA390784"
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
@@ -193,7 +193,7 @@ trackTests {
     }
 
     test("seller central render listing_type"){
-        "/seller_central/modify/listing_type"(platform: "/web/desktop", type: TrackType.View){
+        "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View){
             category_id = "MLA390784"
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
@@ -204,7 +204,7 @@ trackTests {
     }
 
     test("seller central listing type value updated"){
-        "/seller_central/modify/update_listing_types"(platform: "/web/desktop", type: TrackType.Event){
+        "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event){
             category_id = "MLA390784"
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
@@ -219,7 +219,7 @@ trackTests {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     test("structured data hint available"){
-        "/seller_central/modify/technical_specifications/hints/available"(platform: "/web/desktop", type: TrackType.Event){
+        "/seller_central/modify/technical_specifications/hints/available"(platform: "/", type: TrackType.Event){
             type = "actionable"
             attribute = "BRAND"
             category_domain= "MLA-CAMERAS"
@@ -229,7 +229,7 @@ trackTests {
     }
 
     test("structured data hint showed"){
-        "/seller_central/modify/technical_specifications/hints/showed"(platform: "/web/desktop", type: TrackType.Event){
+        "/seller_central/modify/technical_specifications/hints/showed"(platform: "/", type: TrackType.Event){
             type = "info"
             attribute = "BRAND"
             category_domain= "MLA-CAMERAS"
@@ -239,7 +239,7 @@ trackTests {
     }
 
     test("structured data hint completed"){
-        "/seller_central/modify/technical_specifications/hints/completed"(platform: "/web/desktop", type: TrackType.Event){
+        "/seller_central/modify/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event){
             type = "actionable"
             user_action = "click"
             attribute = "BRAND"

@@ -109,27 +109,27 @@ tracks {
 
     //ITEM DETAIL SECTION
 
-    "/seller_central/modify"(platform: "/web/desktop", isAbstract: true) {
+    "/seller_central/modify"(platform: "/", isAbstract: true) {
         sellerCentralModifyGroup
     }
 
-    "/seller_central/modify/detail"(platform: "/web/desktop", type: TrackType.View) {
+    "/seller_central/modify/detail"(platform: "/", type: TrackType.View) {
         sellerCentralModifyCardsGroup
     }
 
-    "/seller_central/modify/variations"(platform: "/web/desktop", type: TrackType.View) {
+    "/seller_central/modify/variations"(platform: "/", type: TrackType.View) {
         sellerCentralModifyCardsGroup
     }
 
-    "/seller_central/modify/variations_custom"(platform: "/web/desktop", type: TrackType.View) {
+    "/seller_central/modify/variations_custom"(platform: "/", type: TrackType.View) {
         sellerCentralModifyCardsGroup
     }
 
-    "/seller_central/modify/listing_type"(platform: "/web/desktop", type: TrackType.View) {
+    "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View) {
         sellerCentralModifyCardsGroup
     }
 
-    "/seller_central/modify/update_listing_types"(platform: "/web/desktop", type: TrackType.Event) {
+    "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         from(required: true, type: PropertyType.String, description: "Current listing type value")
         to(required: true, type: PropertyType.String, description: "Updated listing type value")
@@ -137,20 +137,20 @@ tracks {
 
     //STRUCTURED DATA
 
-    "/seller_central/modify/technical_specifications"(platform: "/web/desktop", isAbstract: true) {}
-    "/seller_central/modify/technical_specifications/hints"(platform: "/web/desktop", isAbstract: true) {
+    "/seller_central/modify/technical_specifications"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/technical_specifications/hints"(platform: "/", isAbstract: true) {
         hintsGroup
         category_domain(required: true, type: PropertyType.String, description: "Item category domain")
     }
 
-    "/seller_central/modify/technical_specifications/hints/available"(platform: "/web/desktop", type: TrackType.Event) {
+    "/seller_central/modify/technical_specifications/hints/available"(platform: "/", type: TrackType.Event) {
 
     }
 
-    "/seller_central/modify/technical_specifications/hints/showed"(platform: "/web/desktop", type: TrackType.Event) {
+    "/seller_central/modify/technical_specifications/hints/showed"(platform: "/", type: TrackType.Event) {
     }
 
-    "/seller_central/modify/technical_specifications/hints/completed"(platform: "/web/desktop", type: TrackType.Event) {
+    "/seller_central/modify/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event) {
         user_action(required: false, type: PropertyType.String, description: "Type of user action", values: ["click", "write"])
     }
 
