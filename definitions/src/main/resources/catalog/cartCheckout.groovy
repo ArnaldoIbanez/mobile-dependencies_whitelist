@@ -105,8 +105,8 @@ tracks {
     user_identification(required: false, description: "User identification data")
     nearest_store_distance(required: false, description: "Distance to the nearest store")
 
-    account_money_info(required:false, type: PropertyType.Map, description: "Map with data of the account money of the buyer")
-    loyalty_level(required:false, description:"The loyalty level of the buyer") 
+    account_money_info(required:true, type: PropertyType.Map, description: "Map with data of the account money of the buyer")
+    loyalty_level(required:true, description:"The loyalty level of the buyer") 
 }
 
 "/cart/checkout/geolocation" (platform: "/", type: TrackType.Event) {
