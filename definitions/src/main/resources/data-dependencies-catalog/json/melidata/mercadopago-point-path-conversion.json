@@ -1,0 +1,51 @@
+{
+  "users": [
+    "emiliano.gonzalez@mercadolibre.com"
+  ],
+  "process_name": "point_path_conversion",
+  "cron": "00 06 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "path",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "version",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "count_tracks",
+        "type": "INTEGER"
+      },
+      {
+        "name": "count_unique_users",
+        "type": "INTEGER"
+      },
+      {
+        "name": "count_flow_id",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "mercadopago/point/mercadopago-point-path-conversion.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

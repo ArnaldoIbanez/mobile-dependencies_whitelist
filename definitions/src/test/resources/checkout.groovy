@@ -298,6 +298,7 @@ trackTests {
             selections = ["shipping_geo", "shipping_other", "local_pick_up"]
         }
         "/checkout/shipping/custom_address/zip_code"(platform:"/mobile", type:TrackType.View) {
+            edit_flow = true
             checkoutStatus()
         }
         "/checkout/shipping/custom_address/zip_code#zip_code"(platform:"/mobile", type: TrackType.Event) {

@@ -234,9 +234,8 @@ tracks {
           context(required: false, type: PropertyType.String)
       }
 
-      "/notification/credits_consumer_about_to_expire_n_loans_first_notice"(platform: "/") {}
-      "/notification/account_fund_approved"(platform: "/") {}
-      "/notification/credits_consumer_expired_n_loans_first_notice"(platform: "/") {}
+      "/notification/account_fund_approved_mp"(platform: "/") {}
+      "/notification/account_fund_approved_ml"(platform: "/") {}
       "/notification/credits_consumer_about_to_expire_second_notice"(platform: "/") {
           loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
           installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
@@ -265,35 +264,19 @@ tracks {
           loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
           installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
       }
-      "/notification/credits_consumer_expired_n_loans_fourth_notice"(platform: "/") {}
-      "/notification/credits_consumer_expired_n_loans_second_notice"(platform: "/") {}
-      "/notification/credits_consumer_expired_n_loans_third_notice"(platform: "/") {}
       "/notification/credits_consumer_closing_date_notice"(platform: "/") {
           loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
           installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
       }
-
-      "/notification/credits_merchants_about_to_expire_notice"(platform: "/") {
-          installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
-      }
-      "/notification/credits_merchants_expired_first_notice"(platform: "/") {
-          installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
-      }
-      "/notification/credits_merchants_expired_second_notice"(platform: "/") {
-          installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
-      }
-      "/notification/credits_merchants_expired_third_notice"(platform: "/") {
-          installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
-      }
-      "/notification/credits_merchants_about_to_expire_first_notice"(platform: "/") {
-          installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
-      }
+      "/notification/credits_consumer_expired_n_loans_first_notice"(platform: "/") {}
+      "/notification/credits_consumer_about_to_expire_n_loans_first_notice"(platform: "/") {}
+      "/notification/credits_consumer_expired_n_loans_fourth_notice"(platform: "/") {}
+      "/notification/credits_consumer_expired_n_loans_second_notice"(platform: "/") {}
+      "/notification/credits_consumer_expired_n_loans_third_notice"(platform: "/") {}
 
       "/notification/instore_discover_activities"(platform: "/") {}
 
       "/notification/messages_new"(platform: "/") {}
-
-      "/notification/invite_gift"(platform: "/") {}
 
       "/notification/moderations_item_to_patch"(platform: "/") {
           item_id(required: true, type: PropertyType.String, description: "Id of item.")
@@ -562,12 +545,6 @@ tracks {
           item_id(required: true, type: PropertyType.String, description: "Id of item.")
       }
 
-      //Mpcampaigns
-      "/notification/mpcampaigns_campaigns"(platform: "/") {
-          campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
-          batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
-      }
-
       "/notification/moderations_message_banned"(platform: "/") {}
 
       //Carousel
@@ -589,14 +566,6 @@ tracks {
           item_id(required: true, type: PropertyType.String)
           order_id(required: true, type: PropertyType.String)
       }
-
-      //Point Shipping
-      "/notification/point_shipping_delayed_p4_p8"(platform: "/") {}
-      "/notification/point_shipping_ready_to_ship_delayed"(platform: "/") {}
-
-      //Prepaid Card
-      "/notification/prepaid_card_third_activation_reminder"(platform: "/") {}
-      "/notification/prepaid_card_second_activation_reminder"(platform: "/") {}
 
       //Puis
       "/notification/puis_agency_withdrawal"(platform: "/") {
@@ -747,12 +716,6 @@ tracks {
       "/notification/security_event_feedback"(platform: "/") {}
       "/notification/security_account_validation"(platform: "/") {}
       "/notification/security_login_auth"(platform: "/") {}
-
-      //Wallet Integrator
-      "/notification/wallet_integrator_insufficient_amount"(platform: "/") {}
-
-      //Withdraw
-      "/notification/withdraw_approved_contingency"(platform: "/") {}
 
       //Health Check
       "/notification/health_check"(platform: "/") {

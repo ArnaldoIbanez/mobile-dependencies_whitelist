@@ -238,7 +238,7 @@ trackTests {
         }
     }
 
-    test("structured data hint showed"){
+    test("structured data hint completed"){
         "/seller_central/modify/technical_specifications/hints/completed"(platform: "/web/desktop", type: TrackType.Event){
             type = "actionable"
             user_action = "click"
@@ -267,7 +267,7 @@ trackTests {
         }
     }
 
-    test("structured data hint showed"){
+    test("structured data hint completed"){
         "/seller_central/bulk/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event){
             type = "actionable"
             user_action = "click"
