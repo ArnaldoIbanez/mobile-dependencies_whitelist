@@ -630,4 +630,46 @@ trackTests {
         }
     }
 
+    test("VIP Shipping Calculator"){
+
+        def location = {
+            type = "zip_code"
+            value = "1234"
+        }
+
+        def shipping_method = {
+            cost = 50
+            promoted_amount = 12
+            delivery_type = "seller_agreement"
+            selected = false
+            promise = {
+                to = 4
+                from = 5
+                deferred = true
+            }
+        }
+
+        def shipping_methods = [
+            shipping_method()
+        ]
+
+        "/vip/shipping_calculator"(platform: "/", type: TrackType.View) {
+            location()
+            shipping_methods()
+        }
+
+         "/vip/shipping_calculator/select"(platform: "/", type: TrackType.Event) {
+            location()
+            shipping_methods()
+            shipping_method()
+        }
+
+        "/vip/shipping_calculator/cancel"(platform: "/", type: TrackType.Event) {}
+        
+        "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {}
+        
+        "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {}
+
+    }
+
 }

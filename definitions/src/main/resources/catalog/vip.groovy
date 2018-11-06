@@ -511,4 +511,34 @@ tracks {
         currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
         
     }
+
+    "/vip/shipping_calculator"(platform: "/", type: TrackType.View){
+        location(required: true, description: "User Location")
+        //Location
+            //type: [address | zip_code]
+            //value: String
+        shipping_methods(required: true,  type: PropertyType.ArrayList,description: "Shipping Methods")
+    //Shipping Method
+        //promise 
+        //  from: Integer
+        //  to: Integer
+        //  deferred: Bool 
+        //cost: Integer
+        //promoted_amount: Integer
+        //delivery_type: [seller_agreement|puis|delivery|post_office]
+        //selected: BOOL
+    }
+
+    "/vip/shipping_calculator/select"(platform: "/", type: TrackType.Event){
+        selected_method(required: true,  type: PropertyType.ArrayList,description: "Shipping Methods")
+    }
+
+    "/vip/shipping_calculator/cancel"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+    }
+
+    "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+    }
+
+    "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+    }
 }
