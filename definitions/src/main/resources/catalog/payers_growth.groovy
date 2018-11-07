@@ -36,7 +36,13 @@ tracks {
 
     //Modal Events
     "/payers_growth/modal"(platform: "/mobile", isAbstract: true) {}
-    "/payers_growth/modal/cta"(platform: "/mobile", type: TrackType.Event) {}
-    "/payers_growth/modal/show"(platform: "/mobile", type: TrackType.Event) {}
-    "/payers_growth/modal/dismiss"(platform: "/mobile", type: TrackType.Event) {}
+    "/payers_growth/modal/cta"(platform: "/mobile", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Modal ID")
+    }
+    "/payers_growth/modal/show"(platform: "/mobile", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Modal ID")
+    }
+    "/payers_growth/modal/dismiss"(platform: "/mobile", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Modal ID")
+    }
 }
