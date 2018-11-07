@@ -102,6 +102,7 @@ catalog {
         include business, "current_location.groovy"
         include business, "px.groovy"
         include business, "supermarket.groovy"
+        include business, "payers_growth.groovy"
     }
 
     mercadopago.each { business ->

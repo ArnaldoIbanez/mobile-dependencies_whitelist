@@ -278,11 +278,6 @@ trackTests {
         "/flex/package/detail/receipt"(platform:"/mobile", type: TrackType.View) {
             defaultSinglePack()
             defaultLocation()
-            receiver_info = {
-                name = "Sebastian"
-                surname = "Pérez"
-                doc_number = "33343344"
-            }
             delivery_id = 123456
         }
 
@@ -368,11 +363,6 @@ trackTests {
         "/flex/package/detail/receipt/save"(platform:"/mobile", type: TrackType.Event) {
             defaultLocation()
             defaultPacksInfo()
-            receiver_info = {
-                name = "TestName"
-                surname = "TestSurname"
-                doc_number = "31723886"
-            }
             delivery_id = 123456
         }
         //Onboarding action with context success
@@ -413,6 +403,20 @@ trackTests {
 
         //Not delivered form view
         "/flex/package/not_delivered_reason/form"(platform:"/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+        }
+
+        //Signature Back Modal View
+        "/flex/package/detail/receipt/go_back"(platform:"/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+        }
+
+        //Signature Back Modal Event
+        "/flex/package/detail/receipt/back"(platform:"/mobile", type: TrackType.Event) {
             defaultLocation()
             defaultPacksInfo()
             delivery_id = 123456
