@@ -270,7 +270,11 @@ trackTests {
         "/cart/checkout/review/edit_first_installment"(platform:"/mobile", dataSet)
         "/cart/checkout/review/edit_second_installment"(platform:"/mobile", dataSet)
         "/cart/checkout/show_geolocation_map"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping"(platform:"/web", dataSet)
+        
+        "/cart/checkout/shipping"(platform:"/web", type:TrackType.View) {
+            dataSet()
+        }
+        
         "/cart/checkout/shipping/confirm_geolocation"(platform:"/web", dataSet)
         "/cart/checkout/shipping/confirm_geolocation/send_to_cp_located"(platform:"/web", dataSet)
         "/cart/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", dataSet)
