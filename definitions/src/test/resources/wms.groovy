@@ -401,6 +401,48 @@ trackTests {
             put_away_id = "1234"
             check_in_id = "4567"
             cart_address = "CA-0-001-000-00-00"
+        }  
+        "/wms/inbound_audit/confirmation/start_audit"(platform: "/mobile/android") {
+            trackDataForAudit()
+            warehouse_id = "BRWT01"
+            first_name = "Some first name"
+            last_name = "Some last name"
+        }
+        "/wms/inbound_audit/item/reset_audit"(platform: "/mobile/android") {
+            trackDataForAudit()
+            warehouse_id = "BRWT01"
+            first_name = "Some first name"
+            last_name = "Some last name"
+        }
+        "/wms/inbound_audit/item/finish_checkpoint"(platform: "/mobile/android") {
+            trackDataForAudit()
+            warehouse_id = "BRWT01"
+            first_name = "Some first name"
+            last_name = "Some last name"
+        }
+        "/wms/inbound_audit/item/item_not_found"(platform: "/mobile/android") {
+            trackDataForAudit()
+            warehouse_id = "BRWT01"
+            first_name = "Some first name"
+            last_name = "Some last name"
+        }
+        "/wms/inbound_audit/item/damaged_item_confirmation"(platform: "/mobile/android") {
+            trackDataForAudit()
+            warehouse_id = "BRWT01"
+            first_name = "Some first name"
+            last_name = "Some last name"
+        }
+        "/wms/inbound_audit/count_around/start_count_around"(platform: "/mobile/android") {
+            trackDataForAudit()
+            warehouse_id = "BRWT01"
+            first_name = "Some first name"
+            last_name = "Some last name"
+        }
+        "/wms/inbound_audit/count_around/skip_count_around"(platform: "/mobile/android") {
+            trackDataForAudit()
+            warehouse_id = "BRWT01"
+            first_name = "Some first name"
+            last_name = "Some last name"
         }
         "/wms/cycle_count/confirmation/start_cycle_count"(platform: "/mobile/android") {
             trackData()
