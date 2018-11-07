@@ -791,6 +791,24 @@ tracks {
         notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
     }
 
+    //Recurring Recharge
+    "/notification/recurring_recharge_insufficient_balance_error"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+
+    //Security
+    "/notification/security_event_feedback"(platform: "/mobile") {}
+
+    //Seller Questions
+    "/notification/questions_new"(platform: "/mobile") {
+        question_id(required: true, type: PropertyType.Numeric)
+    }
+
+    //Orders New
+    "/notification/orders_new"(platform: "/mobile") {
+        order_id(required: true, type: PropertyType.Numeric)
+    }
+
     //Wallet
     "/notification/wallet_integrator_insufficient_amount"(platform: "/mobile") {}
 
