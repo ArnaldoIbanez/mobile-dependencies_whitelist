@@ -72,7 +72,7 @@ tracks {
 
     total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
     total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
-
+    
     recovery_flow(required: true, description: "Is recovery CHO flow")
     register_int(required: false, description: "Integrated registration")
 
@@ -222,6 +222,16 @@ tracks {
 "/cart/checkout/finish/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
 "/cart/checkout/finish/choose_action"(platform:"/", type: TrackType.View) {}
 
+"/cart/checkout/loading"(platform: "/", type: TrackType.View) {
+    items(required: false, type:PropertyType.ArrayList, description: "Array of items in the cart with following data")
+    seller(required: false, type:PropertyType.ArrayList, description: "Array of sellers with their data")
+    total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+    total_amount_with_shipping(required: false, description: "totalAmount with shipping cost")
+    buy_equal_pay(required: false, description: "BP flag")
+    combination_2mp(required:false, description: "2MP switch state")
+    total_amount(required: false, description: "totalAmount")
+}
+
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin All platforms
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -240,8 +250,6 @@ tracks {
 "/cart/checkout/shipping"(platform:"/mobile", type: TrackType.View) {}
 
 "/cart/checkout/shipping/edit_address"(platform:"/mobile", type: TrackType.Event) {}
-
-"/cart/checkout/loading"(platform: "/mobile", type: TrackType.View) {}
 
 "/cart/checkout/shipping/geolocation_permissions"(platform:"/mobile", type: TrackType.View) {}
 
