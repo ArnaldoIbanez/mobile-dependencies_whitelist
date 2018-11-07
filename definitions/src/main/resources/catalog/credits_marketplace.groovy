@@ -303,7 +303,7 @@ tracks {
         loans_installments_status(
           description: "Installment status to be considered when paying debt",
           required: true,
-          values: ["to_expire_soft", "to_expire_hard", "no_charge_period"]
+          values: ["on_time", "to_expire_soft", "to_expire_hard", "expired_today", "no_charge_period"]
         )
         installments_count(
           description: "Installments count to pay",

@@ -73,6 +73,9 @@ tracks {
     total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
     total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
 
+    //TO-DO: Eliminar cuando /mobile/ios deje de mandar platform
+    platform(required: false, deprecated:true)
+  
     recovery_flow(required: true, description: "Is recovery CHO flow")
     register_int(required: false, description: "Integrated registration")
 
@@ -104,6 +107,9 @@ tracks {
     operation_status(required: false, description: "status")
     user_identification(required: false, description: "User identification data")
     nearest_store_distance(required: false, description: "Distance to the nearest store")
+
+    account_money_info(required:false, type: PropertyType.Map, description: "Map with data of the account money of the buyer")
+    loyalty_level(required:false, description:"The loyalty level of the buyer") 
 }
 
 "/cart/checkout/geolocation" (platform: "/", type: TrackType.Event) {
@@ -219,6 +225,16 @@ tracks {
 "/cart/checkout/finish/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
 "/cart/checkout/finish/choose_action"(platform:"/", type: TrackType.View) {}
 
+"/cart/checkout/loading"(platform: "/", type: TrackType.View) {
+    items(required: false, type:PropertyType.ArrayList, description: "Array of items in the cart with following data")
+    seller(required: false, type:PropertyType.ArrayList, description: "Array of sellers with their data")
+    total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+    total_amount_with_shipping(required: false, description: "totalAmount with shipping cost")
+    buy_equal_pay(required: false, description: "BP flag")
+    combination_2mp(required:false, description: "2MP switch state")
+    total_amount(required: false, description: "totalAmount")
+}
+
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin All platforms
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -237,8 +253,6 @@ tracks {
 "/cart/checkout/shipping"(platform:"/mobile", type: TrackType.View) {}
 
 "/cart/checkout/shipping/edit_address"(platform:"/mobile", type: TrackType.Event) {}
-
-"/cart/checkout/loading"(platform: "/mobile", type: TrackType.View) {}
 
 "/cart/checkout/shipping/geolocation_permissions"(platform:"/mobile", type: TrackType.View) {}
 
@@ -387,7 +401,9 @@ tracks {
 // Inicio Web platform
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-"/cart/checkout/shipping"(platform:"/web", type: TrackType.View) {}
+"/cart/checkout/shipping"(platform:"/web", type: TrackType.View) {
+    total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+}
 
 "/cart/checkout/shipping/confirm_geolocation"(platform:"/web", type: TrackType.View) {}
 "/cart/checkout/shipping/confirm_geolocation/send_to_cp_located"(platform:"/web", type: TrackType.Event) {}
