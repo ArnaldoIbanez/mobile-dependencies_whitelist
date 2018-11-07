@@ -252,36 +252,47 @@ tracks {
 
 "/cart/checkout/shipping"(platform:"/mobile", type: TrackType.View) {}
 
-"/cart/checkout/shipping/edit_address"(platform:"/mobile", type: TrackType.Event) {}
+"/cart/checkout/shipping/edit_address"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
 
 "/cart/checkout/shipping/geolocation_permissions"(platform:"/mobile", type: TrackType.View) {}
 
 "/cart/checkout/shipping/geolocation_permissions/allow_geolocation"(platform:"/mobile", type: TrackType.Event, isAbstract: true) {}
-"/cart/checkout/shipping/geolocation_permissions/allow_geolocation/Yes"(platform:"/mobile", type: TrackType.Event) {}
-"/cart/checkout/shipping/geolocation_permissions/allow_geolocation/No"(platform:"/mobile", type: TrackType.Event) {}
+"/cart/checkout/shipping/geolocation_permissions/allow_geolocation/Yes"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
+"/cart/checkout/shipping/geolocation_permissions/allow_geolocation/No"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
 
 "/cart/checkout/shipping/geolocation_error"(platform:"/mobile", type: TrackType.View) {}
 
 "/cart/checkout/shipping/select_method_geolocated"(platform:"/mobile", type: TrackType.View) {}
 
-"/cart/checkout/shipping/select_method_geolocated/send_to_cp_located"(platform:"/mobile", type: TrackType.Event) {}
-"/cart/checkout/shipping/select_method_geolocated/send_to_another_location"(platform:"/mobile", type: TrackType.Event) {}
+"/cart/checkout/shipping/select_method_geolocated/send_to_cp_located"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
+"/cart/checkout/shipping/select_method_geolocated/send_to_another_location"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
 
 "/cart/checkout/shipping/select_option"(platform:"/mobile", type: TrackType.View) {}
 
 "/cart/checkout/shipping/select_method_ask_geolocation"(platform:"/mobile", type: TrackType.View) {}
 
 "/cart/checkout/shipping/input_zipcode"(platform:"/mobile", type: TrackType.View) {}
-"/cart/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/mobile", type: TrackType.Event) {}
+"/cart/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
 
 "/cart/checkout/shipping/input_address"(platform:"/mobile", type: TrackType.View) {
     edit_flow(required: true, type: PropertyType.Boolean)
 }
 
-"/cart/checkout/shipping/input_address#submit"(platform:"/mobile", type: TrackType.Event) {}
-
-"/cart/checkout/shipping/input_address_number"(platform:"/mobile", type: TrackType.View) {}
-"/cart/checkout/shipping/input_address_number/whithout_number"(platform:"/mobile", type: TrackType.Event) {}
+"/cart/checkout/shipping/input_address#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
 
 "/cart/checkout/shipping/select_address"(platform:"/mobile", type: TrackType.View) {}
 
@@ -293,7 +304,9 @@ tracks {
     available_options(required: true, type: PropertyType.Numeric, description: "Number of available contacts")
 }
 
-"/cart/checkout/shipping/select_contact_info#submit"(platform:"/mobile", type: TrackType.Event) {}
+"/cart/checkout/shipping/select_contact_info#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
 
 "/cart/checkout/shipping/add_contact_info"(platform:"/mobile", type: TrackType.View) {}
 
@@ -305,15 +318,25 @@ tracks {
 
 "/cart/checkout/payment/select_split_installments"(platform:"/", type: TrackType.View) {}
 
-"/cart/checkout/payment/select_split_installments/select_installment"(platform: "/", type: TrackType.Event) {}
+"/cart/checkout/payment/select_split_installments/select_installment"(platform: "/", type: TrackType.Event) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
 
-"/cart/checkout/payment/select_split_installments/edit_installment_options"(platform: "/", type: TrackType.Event) {}
+"/cart/checkout/payment/select_split_installments/edit_installment_options"(platform: "/", type: TrackType.Event) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
 
-"/cart/checkout/payment/select_split_installments/close_split_message"(platform: "/", type: TrackType.Event) {}
+"/cart/checkout/payment/select_split_installments/close_split_message"(platform: "/", type: TrackType.Event) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
 
-"/cart/checkout/payment/select_unique_installment/select_installment"(platform: "/", type: TrackType.Event) {}
+"/cart/checkout/payment/select_unique_installment/select_installment"(platform: "/", type: TrackType.Event) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
 
-"/cart/checkout/payment/select_unique_installment/edit_installment_options"(platform: "/", type: TrackType.Event) {}
+"/cart/checkout/payment/select_unique_installment/edit_installment_options"(platform: "/", type: TrackType.Event) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
 
 "/cart/checkout/payment/select_split_installments/split_detail"(platform:"/mobile", type: TrackType.View) {}
 
@@ -336,7 +359,8 @@ tracks {
 "/cart/checkout/show_geolocation_map"(platform:"/mobile", type: TrackType.View) {}
 
 "cart/checkout/finish#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-        action(required: true, description: "Action executed, for ex: call_seller, email_seller, etc")
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    action(required: true, type: PropertyType.String, description: "Action executed, for ex: call_seller, email_seller, etc")
 }
 
 // 2MP
@@ -344,12 +368,16 @@ tracks {
 
 // switch tracks
 "/cart/checkout/payment/2mp"(platform: "/mobile", isAbstract: true) {}
-"/cart/checkout/payment/2mp/split"(platform: "/mobile", type: TrackType.Event) {}
+"/cart/checkout/payment/2mp/split"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
 
-"/cart/checkout/payment/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
-"/cart/checkout/payment/2mp#not_use"(platform: "/mobile", type: TrackType.Event) {}
-
-
+"/cart/checkout/payment/2mp#use"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
+"/cart/checkout/payment/2mp#not_use"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
 
 //2MP Disclaimer combination modal view.
 "/cart/checkout/payment/payment_combination"(platform: "/mobile", isAbstract: true) {}
@@ -363,9 +391,15 @@ tracks {
 "/cart/checkout/payment/add_another_coupon"(platform:"/mobile", type: TrackType.View) {}
 "/cart/checkout/payment/coupon_error"(platform:"/mobile", type: TrackType.View) {}
 
-"/cart/checkout/payment/invalid_coupon"(platform:"/mobile", type: TrackType.Event) {}
-"/cart/checkout/payment/expired_coupon"(platform:"/mobile", type: TrackType.Event) {}
-"/cart/checkout/payment/add_another_coupon/delete_coupon"(platform:"/mobile", type: TrackType.Event) {}
+"/cart/checkout/payment/invalid_coupon"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
+"/cart/checkout/payment/expired_coupon"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
+"/cart/checkout/payment/add_another_coupon/delete_coupon"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
 
 // 2MP Cancelation
 "/cart/checkout/payments_cancelation"(platform: "/mobile", type: TrackType.View) {}

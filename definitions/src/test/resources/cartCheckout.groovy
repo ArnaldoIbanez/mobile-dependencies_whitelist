@@ -225,25 +225,37 @@ trackTests {
         "/cart/checkout/finish/call_for_auth/input_code"(platform:"/", dataSet)
         "/cart/checkout/loading"(platform: "/", dataSet)
         "/cart/checkout/shipping"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/edit_address"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/edit_address"(platform:"/mobile", type:TrackType.Event) {
+            session_id = "98f8v98au0af9af0af"
+        }
         "/cart/checkout/shipping/geolocation_permissions"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/geolocation_permissions/allow_geolocation/Yes"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/geolocation_permissions/allow_geolocation/No"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/geolocation_permissions/allow_geolocation/Yes"(platform:"/mobile", type:TrackType.Event) {
+            session_id = "98f8v98au0af9af0af"
+        }
+        "/cart/checkout/shipping/geolocation_permissions/allow_geolocation/No"(platform:"/mobile", type:TrackType.Event) {
+            session_id = "98f8v98au0af9af0af"
+        }
         "/cart/checkout/shipping/geolocation_error"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/select_method_geolocated"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/select_method_geolocated/send_to_cp_located"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/select_method_geolocated/send_to_another_location"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/select_method_geolocated/send_to_cp_located"(platform:"/mobile", type:TrackType.Event) {
+            session_id = "98f8v98au0af9af0af"
+        }
+        "/cart/checkout/shipping/select_method_geolocated/send_to_another_location"(platform:"/mobile", type:TrackType.Event) {
+            session_id = "98f8v98au0af9af0af"
+        }
         "/cart/checkout/shipping/select_option"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/select_method_ask_geolocation"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_zipcode"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/mobile", type:TrackType.Event) {
+            session_id = "98f8v98au0af9af0af"
+        }
         "/cart/checkout/shipping/input_address"(platform:"/mobile") {
             dataSet()
             edit_flow = false
         }
-        "/cart/checkout/shipping/input_address#submit"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/input_address_number"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/input_address_number/whithout_number"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/input_address#submit"(platform:"/mobile", type:TrackType.Event) {
+            session_id = "98f8v98au0af9af0af"
+        }
         "/cart/checkout/shipping/select_address"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/select_option_detail"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_address_apartment"(platform:"/mobile", dataSet)
@@ -251,7 +263,9 @@ trackTests {
             dataSet()
             available_options = 1
         }
-        "/cart/checkout/shipping/select_contact_info#submit"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/select_contact_info#submit"(platform:"/mobile", type:TrackType.Event) {
+            session_id = "98f8v98au0af9af0af"
+        }
         "/cart/checkout/shipping/add_contact_info"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_contact_info"(platform:"/mobile", dataSet)
         "/cart/checkout/payment/select_unique_installment"(platform:"/", dataSet)
@@ -287,9 +301,15 @@ trackTests {
 
         //2MP
         //Switch
-        "/cart/checkout/payment/2mp#use"(platform: "/mobile", dataSet)
-        "/cart/checkout/payment/2mp#not_use"(platform: "/mobile",dataSet)
-        "/cart/checkout/payment/2mp/split"(platform: "/mobile",dataSet)
+        "/cart/checkout/payment/2mp#use"(platform: "/mobile", type:TrackType.Event) {
+            session_id = "98f8v98au0af9af0af"
+        }
+        "/cart/checkout/payment/2mp#not_use"(platform: "/mobile", type:TrackType.Event) {
+            session_id = "98f8v98au0af9af0af"
+        }
+        "/cart/checkout/payment/2mp/split"(platform: "/mobile", type:TrackType.Event) {
+            session_id = "98f8v98au0af9af0af"
+        }
 
         // Disclaimer combination modal view.
         "/cart/checkout/payment/payment_combination/payment_method_not_supported"(platform:"/mobile", dataSet)
@@ -309,13 +329,13 @@ trackTests {
             dataSet()
         }
         "/cart/checkout/payment/invalid_coupon"(platform:"/mobile", type:TrackType.Event) {
-            dataSet()
+            session_id = "98f8v98au0af9af0af"
         }
         "/cart/checkout/payment/expired_coupon"(platform:"/mobile", type:TrackType.Event) {
-            dataSet()
+            session_id = "98f8v98au0af9af0af"
         }
         "/cart/checkout/payment/add_another_coupon/delete_coupon"(platform:"/mobile", type:TrackType.Event) {
-            dataSet()
+            session_id = "98f8v98au0af9af0af"
         }
 
         // Cancelarion
@@ -334,6 +354,7 @@ trackTests {
             dataSet()
         }
         "/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "98f8v98au0af9af0af"
         }
 
         // Inconsistencias
@@ -346,6 +367,7 @@ trackTests {
     
         "cart/checkout/finish#click"(platform: "/mobile", type: TrackType.Event) {
             action = 'call_seller'
+            session_id = "asda98sad98ad89ad8"
         }
 
         "/cart/checkout/finish/choose_action"(platform: "/", dataSet)
