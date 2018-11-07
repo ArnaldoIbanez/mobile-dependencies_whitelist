@@ -2175,7 +2175,6 @@ trackTests {
         "/notification/questions_new"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "dismiss"
-            deeplink = "meli://seller_question/12221"
             question_id = 1234
         }
 
