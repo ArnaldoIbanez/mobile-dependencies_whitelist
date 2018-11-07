@@ -72,7 +72,10 @@ tracks {
 
     total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
     total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
-    
+
+    //TO-DO: Eliminar cuando /mobile/ios deje de mandar platform
+    platform(required: false, deprecated:true)
+  
     recovery_flow(required: true, description: "Is recovery CHO flow")
     register_int(required: false, description: "Integrated registration")
 
