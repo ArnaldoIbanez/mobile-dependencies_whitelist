@@ -2161,6 +2161,29 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/recurring_recharge_insufficient_balance_error"(platform: "/mobile") {
+            news_id = "recurring_recharge_insufficient_balance_error-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/security_event_feedback"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/questions_new"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "dismiss"
+            question_id = 1234
+        }
+
+        "/notification/orders_new"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            order_id = 12132
+        }
+
         "/notification/wallet_integrator_insufficient_amount"(platform: "/mobile") {
             news_id = "wallet_integrator-insufficient_amount-186785675"
             event_type = "open"
