@@ -223,9 +223,9 @@ trackTests {
         "/cart/checkout/finish/call_for_auth/instructions"(platform:"/", dataSet)
         "/cart/checkout/finish/call_for_auth/later"(platform:"/", dataSet)
         "/cart/checkout/finish/call_for_auth/input_code"(platform:"/", dataSet)
+        "/cart/checkout/loading"(platform: "/", dataSet)
         "/cart/checkout/shipping"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/edit_address"(platform:"/mobile", dataSet)
-        "/cart/checkout/loading"(platform: "/mobile", dataSet)
         "/cart/checkout/shipping/geolocation_permissions"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/geolocation_permissions/allow_geolocation/Yes"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/geolocation_permissions/allow_geolocation/No"(platform:"/mobile", dataSet)
@@ -270,7 +270,11 @@ trackTests {
         "/cart/checkout/review/edit_first_installment"(platform:"/mobile", dataSet)
         "/cart/checkout/review/edit_second_installment"(platform:"/mobile", dataSet)
         "/cart/checkout/show_geolocation_map"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping"(platform:"/web", dataSet)
+        
+        "/cart/checkout/shipping"(platform:"/web", type:TrackType.View) {
+            dataSet()
+        }
+        
         "/cart/checkout/shipping/confirm_geolocation"(platform:"/web", dataSet)
         "/cart/checkout/shipping/confirm_geolocation/send_to_cp_located"(platform:"/web", dataSet)
         "/cart/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", dataSet)
