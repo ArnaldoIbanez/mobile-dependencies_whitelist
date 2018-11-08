@@ -18,6 +18,11 @@ trackTests {
             flow = "ms_hard_validation"
         }
 
+        "/identity-validation/skip_flow"(platform: "/web/mobile") {
+            flow = "ms_hard_validation"
+            step = "documentation"
+        }
+
         "/identity-validation/finish_challenge"(platform: "/web/mobile") {
             type = "documentation"
             success = true
@@ -39,6 +44,11 @@ trackTests {
 
         "/identity-validation/start_validation"(platform: "/web/desktop") {
             flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/skip_flow"(platform: "/web/desktop") {
+            flow = "ms_hard_validation"
+            step = "documentation"
         }
 
         "/identity-validation/finish_challenge"(platform: "/web/desktop") {
@@ -69,6 +79,11 @@ trackTests {
             flow = "ms_hard_validation"
         }
 
+        "/identity-validation/skip_flow"(platform: "/mobile/android") {
+            flow = "ms_hard_validation"
+            step = "documentation"
+        }
+
         "/identity-validation/finish_challenge"(platform: "/mobile/android") {
             type = "documentation"
             success = true
@@ -95,6 +110,11 @@ trackTests {
 
         "/identity-validation/start_validation"(platform: "/mobile/ios") {
             flow = "ms_hard_validation"
+        }
+
+        "/identity-validation/skip_flow"(platform: "/mobile/ios") {
+            flow = "ms_hard_validation"
+            step = "documentation"
         }
 
         "/identity-validation/finish_challenge"(platform: "/mobile/ios") {
