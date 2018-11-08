@@ -7,7 +7,7 @@ metrics {
 	"mclics/ads-from-search-backend-native-mla2"(description: "Experiment testing for adv") {
 		startWith {
 			condition {
-				empty("mclics/ads-from-search-backend-native-mla", false),
+				empty("experiments.mclics/ads-from-search-backend-native-mla", false),
 			}
 			openBy {
 				"experiment.mclics/ads-from-search-backend-native-mla"(default: "DEFAULT")
