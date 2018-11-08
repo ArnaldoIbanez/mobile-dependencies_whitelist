@@ -16,6 +16,14 @@ trackTests {
         "/current_location/navigation/close"(platform: "/", type: TrackType.Event) {}
     }
 
+    test("current location navigation pick by the onboarding") {
+        "/current_location/navigation/pick_onboarding"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("current location navigation close onboarding tooltip") {
+        "/current_location/navigation/close_onboarding"(platform: "/", type: TrackType.Event) {}
+    }
+
     test("current location hub create address") {
         "/current_location/hub/create_address"(platform: "/", type: TrackType.Event) {}
     }
