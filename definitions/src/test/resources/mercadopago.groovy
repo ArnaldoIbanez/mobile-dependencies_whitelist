@@ -3483,7 +3483,20 @@ trackTests {
         }
     }
 
-    test("Wallet") {
-        "/wallet_error"(platform: "/mobile", type: TrackType.View) {}
+    test("Generic error") {
+
+        "/friction"(platform: "/mobile", type: TrackType.Event) {
+            path = "/px_checkout/generic_error"
+            style = "screen"
+            id = "px_generic_error"
+            message = "Hubo un error"
+            extra_info = {
+                api_status_code = "code"
+                api_error_message =  "message"
+                api_url = "get_preference"
+                retry_available = true
+            }
+            attributable_to = "mercadopago"
+        }
     }
 }
