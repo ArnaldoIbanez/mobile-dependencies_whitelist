@@ -791,6 +791,24 @@ tracks {
         notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
     }
 
+    //Recurring Recharge
+    "/notification/recurring_recharge_insufficient_balance_error"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+
+    //Security
+    "/notification/security_event_feedback"(platform: "/mobile") {}
+
+    //Seller Questions
+    "/notification/questions_new"(platform: "/mobile") {
+        question_id(required: true, type: PropertyType.Numeric)
+    }
+
+    //Orders New
+    "/notification/orders_new"(platform: "/mobile") {
+        order_id(required: true, type: PropertyType.Numeric)
+    }
+
     //Wallet
     "/notification/wallet_integrator_insufficient_amount"(platform: "/mobile") {}
 
@@ -917,6 +935,13 @@ tracks {
         activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "where open link from sms")
     }
 
-    // Wallet error view
-    "/wallet_error"(platform: "/mobile", type: TrackType.View) {}
+    // Generic error
+    "/friction"(platform: "/mobile", type: TrackType.Event) {
+        path(required: true, type: PropertyType.String , description: "Error path")
+        style(required: true, type: PropertyType.String , description: "Error style")
+        id(required: true, type: PropertyType.String , description: "Error id")
+        message(required: true, type: PropertyType.String , description: "Error message")
+        attributable_to(required: true, type: PropertyType.String , description: "Responsable for error", values: ["mercadopago" , "merchant", "user"])
+        extra_info(required: true, description: "Extra error info")
+    }
 }

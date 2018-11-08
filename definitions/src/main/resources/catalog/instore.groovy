@@ -1,4 +1,5 @@
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
 
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
@@ -23,6 +24,10 @@ tracks {
     // Scan qr
     "/instore/scan_qr"(platform: "/mobile", type: TrackType.View) {}
     "/instore/qr_first_time_use"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/scan_qr"(platform: "/mobile", isAbstract: true) {}
+    "/instore/scan_qr/read"(platform: "/mobile", type: TrackType.Event) {
+        data(required:true, type: PropertyType.String)
+    }
 
     // Amount
     "/instore/amount"(platform: "/mobile", isAbstract: true) {}

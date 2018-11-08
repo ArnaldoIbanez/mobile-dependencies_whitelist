@@ -119,6 +119,8 @@ catalog {
         include business, "collaborators.groovy"
         include business, "asset_management.groovy"
         include business, "single_player.groovy"
+        include business, "px.groovy"
+        include business, "instore.groovy"
     }
 
     mercadoshops.each { business ->
