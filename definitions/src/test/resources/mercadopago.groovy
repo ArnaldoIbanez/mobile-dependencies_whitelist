@@ -2178,6 +2178,11 @@ trackTests {
             question_id = 1234
         }
 
+        "/notification/seller_qr_payment_received"(platform: "/mobile") {
+            news_id = "seller_qr_payment_received-186785675"
+            event_type = "open"
+        }
+
         "/notification/orders_new"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"

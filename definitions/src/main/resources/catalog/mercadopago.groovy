@@ -799,10 +799,13 @@ tracks {
     //Security
     "/notification/security_event_feedback"(platform: "/mobile") {}
 
-    //Seller Questions
+    //Questions
     "/notification/questions_new"(platform: "/mobile") {
         question_id(required: true, type: PropertyType.Numeric)
     }
+
+    //Seller QR
+    "/notification/seller_qr_payment_received"(platform: "/mobile") {}
 
     //Orders New
     "/notification/orders_new"(platform: "/mobile") {
