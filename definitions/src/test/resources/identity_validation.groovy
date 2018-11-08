@@ -196,7 +196,12 @@ trackTests {
         "/identity-validation/congrats"(platform: "/web/mobile") {}
         "/identity-validation/landing_doc"(platform: "/web/mobile") {}
         "/identity-validation/doc_number"(platform: "/web/mobile") {}
-    }
 
+        // skip_flow mp
+        "/identity-validation/skip_flow"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            flow = "ms_hard_validation"
+            step = "documentation"
+        }
+    }
 
 }
