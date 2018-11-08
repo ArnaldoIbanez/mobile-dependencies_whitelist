@@ -1,12 +1,16 @@
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
 
 
 tracks {
 
     // Views:
 
-    "/px_checkout"(platform: "/mobile", isAbstract: true){}
+    "/px_checkout"(platform: "/mobile", isAbstract: true){
+        flow_detail(required: false, description: "External info")
+        flow(required: false, type: PropertyType.String, description: "External flow name")
+    }
 
     // Payment Selection views
     "/px_checkout/payments"(platform: "/mobile", isAbstract: true){}
@@ -82,7 +86,46 @@ tracks {
     "/px_checkout/review/traditional/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
 
     // One tap view
-    "/px_checkout/review/one_tap"(platform: "/mobile", type: TrackType.View) {}
+    "/px_checkout/review/one_tap"(platform: "/mobile", type: TrackType.View) {
+        total_amount(required: true, type: PropertyType.Numeric , description: "Total amount")
+        currency_id(required: true, type: PropertyType.String , description: "Currency id")
+        available_methods(required: true, type: PropertyType.ArrayList , description: "Array of available payment methods to pay")
+        discount(required: false, description: "Discount if available")
+        items(required: true, type: PropertyType.ArrayList , description: "Array of items to pay")
+
+        / * Estructura del item:
+        
+        items = [
+                {
+                    item = {
+                        id = "1234"
+                        description = "Item de testeo"
+                        price = 200
+                    }
+                    quantity = 3
+                    currency_id = "ARS"
+                }
+        ] */
+    }
+
+    // One tap installments view
+    "/px_checkout/review/one_tap/installments"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
+        payment_method_id(required: true, type: PropertyType.String, description: "Payment method id")
+        payment_method_type(required: true, type: PropertyType.String, description: "Payment method type id")
+        issuer_id(required: true, type: PropertyType.Numeric , description: "Issuer id")
+        card_id(required: true, type: PropertyType.String , description: "Card id")
+        total_amount(required: true, type: PropertyType.Numeric , description: "Total amount")
+        currency_id(required: true, type: PropertyType.String , description: "Currency id")
+        available_installments(required: true, type: PropertyType.ArrayList , description: "Array of available installments")
+        flow_detail(required: false, description: "External info")
+        flow(required: false, type: PropertyType.String, description: "External flow name")
+    }
+
+    // One tap discount view
+    "/px_checkout/review/one_tap/applied_discount"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
+        flow_detail(required: false, description: "External info")
+        flow(required: false, type: PropertyType.String, description: "External flow name")
+    }
 
     // Payment result views
     "/px_checkout/result"(platform: "/mobile", isAbstract: true){}
@@ -90,4 +133,26 @@ tracks {
     "/px_checkout/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {}
     "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {}
 
+
+    // Events:
+
+    // One Tap:
+    "/px_checkout/review/one_tap/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        flow_detail(required: false, description: "External info")
+        flow(required: false, type: PropertyType.String, description: "External flow name")
+    }
+    "/px_checkout/review/one_tap/swipe"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        flow_detail(required: false, description: "External info")
+        flow(required: false, type: PropertyType.String, description: "External flow name")
+    }
+
+    // Review:
+    "/px_checkout/review/confirm"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        payment_method_id(required: true, type: PropertyType.String, description: "Payment method id")
+        payment_method_type(required: true, type: PropertyType.String, description: "Payment method type id")
+        review_type(required: true, type: PropertyType.String, description: "Review screen type", values: ["one_tap" , "traditional"])
+        extra_info(required: false, description: "Extra payment method info")
+        flow_detail(required: false, description: "External info")
+        flow(required: false, type: PropertyType.String, description: "External flow name")
+    }
 }
