@@ -268,10 +268,12 @@ tracks {
         condition(required: true, description: "Item condition: used/new/not_specified")
         price(required: true, description: "Item price")
         category_id(required: true, description: "Item category_id")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
 
         // Category sugestion
         suggested_category_id(required: false, description: "Category id suggested")
         suggested_category_is_leaf(required: false, type: PropertyType.Boolean, description: "The category suggested is leaf")
+        suggested_category_path(required: false, type: PropertyType.ArrayList, description: "Item's suggested category tree")
     }
 
     "/item/change_listing_type"(platform: "/", type: TrackType.Event) {
@@ -295,6 +297,7 @@ tracks {
         parent_listing_type_id(required: false, description: "Parent item listing type id")
         change_listing_type(required: false, description: "If the listing type changed compare to its parent. Values: upgrade/no_change/downgrade")
         source(required: false, description: "Relist flow that was used to relist the item")
+        quantity(required: false, description: "Item quantity")
     }
 
     "/myml/profile"(platform: "/mobile", type: TrackType.View) {}

@@ -274,8 +274,10 @@ trackTests {
             condition = "used"
             price = 123.456
             category_id = "MLA3530"
+            category_path = ["MLA1459", "MLA3530"]
             suggested_category_id = "MLA1915"
             suggested_category_is_leaf = false
+            suggested_category_path = ["MLA1459", "MLA3530"]
         }
 
         def dataChangeListingTypeItemFullInfo = {
@@ -302,6 +304,7 @@ trackTests {
             buying_mode = "buy_it_now"
             condition = "used"
             price = 123.456
+            quantity = 1
         }
 
         def dataRelistItemWithParentInformation = {
