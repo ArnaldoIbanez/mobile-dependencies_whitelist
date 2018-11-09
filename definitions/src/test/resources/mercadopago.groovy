@@ -2061,14 +2061,24 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/messages_new"(platform: "/mobile") {
+            news_id = "messages_new_123"
+            event_type = "open"
+        }
+
         "/notification/money_transfer_received"(platform: "/mobile") {
-                news_id = "123"
-                event_type = "open"
+            news_id = "123"
+            event_type = "open"
         }
 
         "/notification/money_transfer_request"(platform: "/mobile") {
-                news_id = "123"
-                event_type = "open"
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/loyalty_milestone"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
         }
 
         "/notification/prepaid_card_shipped"(platform: "/mobile") {
@@ -2180,6 +2190,16 @@ trackTests {
 
         "/notification/seller_qr_payment_received"(platform: "/mobile") {
             news_id = "seller_qr_payment_received-186785675"
+            event_type = "open"
+        }
+
+        "/notification/seller_integrations_new_payment"(platform: "/mobile") {
+            news_id = "seller_integrations_new_payment-186785675"
+            event_type = "open"
+        }
+
+        "/notification/seller_integrations_erase_name"(platform: "/mobile") {
+            news_id = "seller_integrations_erase_name-186785675"
             event_type = "open"
         }
 
