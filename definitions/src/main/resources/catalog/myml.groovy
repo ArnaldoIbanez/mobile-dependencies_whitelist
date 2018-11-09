@@ -151,6 +151,24 @@ tracks {
         label(required: true, description: "Selected label: active/closed/paused/...")
     }
 
+    "/myml/listings/show"(platform: "/web", type: TrackType.View) {
+        placement(required: true, description: "Place where track was dispatched")
+        adv_segmentation(required: true, description: "Adevrtasement segmentation ")
+        reputationLevel(required: true, description: "Reputation for Pads")
+    }
+
+    "/myml/listings/hide"(platform: "/web", type: TrackType.View) {
+        placement(required: true, description: "Place where track was dispatched")
+        adv_segmentation(required: true, description: "Adevrtasement segmentation ")
+        reputationLevel(required: true, description: "Reputation for Pads")
+    }
+
+    "/myml/listings/go"(platform: "/web", type: TrackType.View) {
+        placement(required: true, description: "Place where track was dispatched")
+        adv_segmentation(required: true, description: "Adevrtasement segmentation ")
+        reputationLevel(required: true, description: "Reputation for Pads")
+    }
+
     "/myml/bookmarks"(platform: "/web", type: TrackType.View) {}
     "/myml/questions"(platform: "/web", type: TrackType.View) {}
 
