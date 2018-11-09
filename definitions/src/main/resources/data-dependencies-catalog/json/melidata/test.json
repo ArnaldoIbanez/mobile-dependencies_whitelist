@@ -7,7 +7,7 @@
         "type": "DATE"
       },
 
-      "process_name": "test_soy_nuevo_enserio",
+      "process_name": "test_refresh",
       "extract": {
         "operation": "append",
         "sql": {
