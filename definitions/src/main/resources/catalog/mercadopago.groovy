@@ -738,9 +738,15 @@ tracks {
     //Inivite Gift
     "/notification/invite_gift"(platform: "/mobile") {}
 
+    //Messages New
+    "/notification/messages_new"(platform: "/mobile") {}
+
     //Money
     "/notification/money_transfer_received"(platform: "/mobile") {}
     "/notification/money_transfer_request"(platform: "/mobile") {}
+
+    //Loyalty
+    "/notification/loyalty_milestone"(platform: "/mobile") {}
 
     //Prepaid
     "/notification/prepaid_card_shipped"(platform: "/mobile") {
@@ -799,10 +805,15 @@ tracks {
     //Security
     "/notification/security_event_feedback"(platform: "/mobile") {}
 
-    //Seller Questions
+    //Questions
     "/notification/questions_new"(platform: "/mobile") {
         question_id(required: true, type: PropertyType.Numeric)
     }
+
+    //Seller QR
+    "/notification/seller_qr_payment_received"(platform: "/mobile") {}
+    "/notification/seller_integrations_new_payment"(platform: "/mobile") {}
+    "/notification/seller_integrations_erase_name"(platform: "/mobile") {}
 
     //Orders New
     "/notification/orders_new"(platform: "/mobile") {
