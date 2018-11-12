@@ -63,6 +63,7 @@ tracks {
         shown_as_product(required: false, description: 'item ids shown with product link')
         has_logos(required: false, description: "indicates if there is an item with logos", PropertyType.Boolean)
         promise_items(required: false, description:  "items with shipping promise", PropertyType.ArrayList)
+        geo_search(required: false, description: "search with geolocation", type: PropertyType.Boolean)
     }
 
     "/search"(platform: "/mobile") {
