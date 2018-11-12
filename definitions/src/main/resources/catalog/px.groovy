@@ -133,6 +133,10 @@ tracks {
     "/px_checkout/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {}
     "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {}
 
+    // Card association result views
+    "/px_checkout/card_association_result"(platform: "/mobile", isAbstract: true){}
+    "/px_checkout/card_association_result/success"(platform: "/mobile", type: TrackType.View) {}
+    "/px_checkout/card_association_result/error"(platform: "/mobile", type: TrackType.View) {}
 
     // Events:
 
@@ -155,4 +159,5 @@ tracks {
         flow_detail(required: false, description: "External info")
         flow(required: false, type: PropertyType.String, description: "External flow name")
     }
+
 }

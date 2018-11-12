@@ -53,6 +53,7 @@ catalog {
         include business, "fiscaldata.groovy"
         include business, "chargebacks.groovy"
         include business, "freeData.groovy"
+        include business, "wallet.groovy"
     }
 
     marketplace.each { business ->

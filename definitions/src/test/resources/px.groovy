@@ -449,6 +449,9 @@ trackTests {
         "/px_checkout/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {}
         "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {}
 
+        "/px_checkout/card_association_result/success"(platform: "/mobile", type: TrackType.View) {}
+        "/px_checkout/card_association_result/error"(platform: "/mobile", type: TrackType.View) {}
+
     }
 
     test("PX - Events") {
