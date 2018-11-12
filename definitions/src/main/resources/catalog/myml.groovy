@@ -268,7 +268,7 @@ tracks {
         condition(required: true, description: "Item condition: used/new/not_specified")
         price(required: true, description: "Item price")
         category_id(required: true, description: "Item category_id")
-        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
+        category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree")
 
         // Category sugestion
         suggested_category_id(required: false, description: "Category id suggested")
