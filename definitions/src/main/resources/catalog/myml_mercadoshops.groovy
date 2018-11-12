@@ -31,8 +31,8 @@ tracks {
     }
 
     "/myml/mercadoshops/admin/sidebar/colors"(platform: "/", type: TrackType.Event){
-        presetName(required: false, type: PropertyType.String)
-        colors(required: false, type: PropertyType.ArrayList)
+        presetName(required: false, type: PropertyType.String, description: "Selected preset name")
+        colors(required: false, type: PropertyType.ArrayList, description: "Array of colors in hex notation")
     }
 
     "/myml/mercadoshops/admin/sidebar/logo"(platform: "/", type: TrackType.Event){
