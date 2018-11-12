@@ -424,6 +424,48 @@ trackTests {
         }
     }
 
+    test("Invoices Documents pages") {
+        "/myml/invoices/documents/mobile"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/documents/not_found"(platform: "/", type: TrackType.View) {}
+
+        "/myml/invoices/documents/message"(platform: "/", type: TrackType.View) {
+            code = "permission"
+        }
+
+        "/myml/invoices/documents/type"(platform: "/", type: TrackType.View) {}
+
+        "/myml/invoices/documents/type/selection"(platform: "/", type: TrackType.Event) {
+            type = "nfe"
+        }
+
+        "/myml/invoices/documents/gnre"(platform: "/", type: TrackType.View) {
+            url = "/invoices/documents/gnre"
+            start = '20181112'
+            end = '20181112'
+            printed = true
+        }
+
+        "/myml/invoices/documents/gnre/btn/export"(platform: "/", type: TrackType.Event) {
+            url = "/invoices/documents/gnre"
+            start = '20181112'
+            end = '20181112'
+            printed = true
+        }
+
+        "/myml/invoices/documents/success"(platform: "/", type: TrackType.View) {
+            url = "/invoices/documents/gnre/success"
+            query_data = ""
+        }
+
+        "/myml/invoices/documents/success/btn/listings"(platform: "/", type: TrackType.Event) {
+            url = "/invoices/documents/gnre/success"
+        }
+        
+        "/myml/invoices/documents/success/btn/download"(platform: "/", type: TrackType.Event) {
+            url = "/invoices/documents/gnre/success"
+        }
+    }
+
 
     test("MyML Cart") {
 
