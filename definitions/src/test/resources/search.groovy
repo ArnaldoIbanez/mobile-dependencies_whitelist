@@ -140,6 +140,7 @@ trackTests {
             landing="cpg"
             layout_forced=true
             pads=[]
+            geo_search = false
 
         })
 
