@@ -30,7 +30,10 @@ trackTests {
             imageId = "784348-MLA28624404159_112018"
             alignment = "center"
         }
-        "/myml/mercadoshops/admin/sidebar/colors"(platform: "/", type: TrackType.Event) {}
+        "/myml/mercadoshops/admin/sidebar/colors"(platform: "/", type: TrackType.Event) {
+            presetName = "dummy preset"
+            colors = ["#000", "#fff"]
+        }
         "/myml/mercadoshops/admin/sidebar/logo"(platform: "/", type: TrackType.Event) {
             imageId = "784348-MLA28624404159_112018"
         }

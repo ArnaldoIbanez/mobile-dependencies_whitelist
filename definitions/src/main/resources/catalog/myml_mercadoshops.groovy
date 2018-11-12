@@ -30,7 +30,10 @@ tracks {
         alignment(required: false, type: PropertyType.String, values:['top', 'center', 'bottom'])
     }
 
-    "/myml/mercadoshops/admin/sidebar/colors"(platform: "/", type: TrackType.Event){}
+    "/myml/mercadoshops/admin/sidebar/colors"(platform: "/", type: TrackType.Event){
+        presetName(required: false, type: PropertyType.String)
+        colors(required: false, type: PropertyType.ArrayList)
+    }
 
     "/myml/mercadoshops/admin/sidebar/shop_name"(platform: "/", type: TrackType.Event){
         shopName(required: false, type: PropertyType.String)
