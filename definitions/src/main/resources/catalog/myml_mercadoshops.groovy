@@ -35,15 +35,15 @@ tracks {
         colors(required: false, type: PropertyType.ArrayList)
     }
 
+    "/myml/mercadoshops/admin/sidebar/logo"(platform: "/", type: TrackType.Event){
+        imageId(required: false, type: PropertyType.String)
+    }
+
     "/myml/mercadoshops/admin/sidebar/shop_name"(platform: "/", type: TrackType.Event){
         shopName(required: false, type: PropertyType.String)
     }
 
     "/myml/mercadoshops/admin/sidebar/subdomain"(platform: "/", type: TrackType.Event){
         subdomain(required: false, type: PropertyType.String)
-    }
-
-    "/myml/mercadoshops/admin/sidebar/logo"(platform: "/", type: TrackType.Event){
-        imageId(required: false, type: PropertyType.String)
     }
 }
