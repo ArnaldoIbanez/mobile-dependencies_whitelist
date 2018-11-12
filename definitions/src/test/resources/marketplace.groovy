@@ -264,6 +264,7 @@ trackTests {
             condition = "used"
             price = 123.456
             category_id = "MLA3530"
+            category_path = ["MLA1459", "MLA3530"]
         }
 
         def dataListItemWithCategorySuggestion = {
