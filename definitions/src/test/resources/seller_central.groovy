@@ -255,6 +255,7 @@ trackTests {
             attribute = "BRAND"
             category_domain= "MLA-CAMERAS"
             item_id= "MLA682118081"
+            session_id = "123-update-abc123"
         }
     }
 
@@ -264,6 +265,7 @@ trackTests {
             attribute = "BRAND"
             category_domain= "MLA-CAMERAS"
             item_id= "MLA682118081"
+            session_id = "123-update-abc123"
         }
     }
 
@@ -274,6 +276,7 @@ trackTests {
             attribute = "BRAND"
             category_domain= "MLA-CAMERAS"
             item_id= "MLA682118081"
+            session_id = "123-update-abc123"
         }
     }
 }
