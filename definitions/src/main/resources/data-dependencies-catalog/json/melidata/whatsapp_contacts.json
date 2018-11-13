@@ -1,11 +1,16 @@
 {
   "users": [
-    "jorge.vidaurre@mercadolibre.cl"
+      "jorge.vidaurre@mercadolibre.cl"
   ],
   "process_name": "whatsapp_contacts",
-  "cron": "00 13 * * *",
+  "cron": "00 07 * * *",
+  "partition": {
+        "name": "ds",
+        "type": "DATE"
+   },
   "extract": {
     "operation": "append",
+    "site": "MeliLake",
     "columns": [
       {
         "name": "ds",
@@ -46,7 +51,7 @@
       }
     ],
     "sql": {
-      "script": "business-assurance/whatsapp_contacts.sql",
+        "script": "business-assurance/whatsapp_contacts.sql",
       "parameters": [
         {
           "name": "param01",
