@@ -607,6 +607,28 @@ trackTests {
         "/myml/summary"(platform: "/web"){}
     }
 
+
+    test("Myml listing pads"){
+        "/myml/listings/show"(platform: "/web"){
+            label = "active"
+            placement = "publicidad-banner"
+            adv_segmentation = "winback"
+            reputationLevel="yellow"
+        }
+        "/myml/listings/hide"(platform: "/web"){
+            label = "active"
+            placement = "publicidad-banner"
+            adv_segmentation = "winback"
+            reputationLevel="yellow"
+        }
+        "/myml/listings/go"(platform: "/web"){
+            label = "active"
+            placement = "publicidad-banner"
+            adv_segmentation = "winback"
+            reputationLevel="yellow"
+        }
+    }
+
     test("Myml My Data"){
         "/myml/profile"(platform: "/mobile"){}
         "/myml/profile/review_data"(platform: "/mobile"){}
