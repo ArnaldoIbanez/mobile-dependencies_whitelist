@@ -158,6 +158,7 @@ trackTests {
             filters = {official_store="140"}
             autoselected_filters = ["official_store"]
             geo_search = "false"
+            filter_tags = "locationFromHistory"
             pads=[]
         })
 

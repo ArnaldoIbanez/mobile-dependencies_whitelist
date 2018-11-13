@@ -78,6 +78,7 @@ tracks {
         billboards(required: false, description: "override required property")
         pads(required: false, description: "override required property") //esto estaba solo para web antes*/
         geo_search(required: false, description: "search with geolocation", type: PropertyType.String)
+        filter_tags(required: false, description: "these are tags that aren't very important", type: PropertyType.String)
         breadcrumb_refined(required: false, description: 'if user used breadcrumb to refine their search',PropertyType.Boolean)
         error_message(required: false, PropertyType.String)
 
