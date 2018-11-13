@@ -4,6 +4,7 @@ import com.ml.melidata.TrackType
 
 tracks {
     propertyDefinitions {
+        shop_id(required: false, type: PropertyType.Numeric)
         shop_domain(required: false, type: PropertyType.String)
         shop_name(required: false, type: PropertyType.String)
     }
