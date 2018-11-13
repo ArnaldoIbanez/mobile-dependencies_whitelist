@@ -12,7 +12,6 @@ trackTests {
 
         "/quotation/details"(platform: "/") {
             item_id = "MLM2222222"
-            seller_id = 123456789
         }
 
         "/quotation/details"(platform: "/web") {
@@ -27,7 +26,6 @@ trackTests {
 
         "/quotation/details"(platform: "/mobile") {
             item_id = "MLM2222222"
-            seller_id = 123456789
             vertical = "REAL_ESTATE"
             model_id = "102B"
             unit_id = 23544349337
@@ -91,7 +89,6 @@ trackTests {
     test("Quotation :: Show congrats tracking") {
         "/quotation/congrats"(platform: "/") {
             item_id = "MLM2222222"
-            unit_id = 54321
         }
 
         "/quotation/congrats"(platform: "/web") {
@@ -103,6 +100,11 @@ trackTests {
             unit_id = 54321
             error_type = ""
         }
+
+        "/quotation/congrats"(platform: "/mobile") {
+            item_id = "MLM2222222"
+            unit_id = "54321"
+        }
     }
 
     test("Quotation :: Show price tracking") {
@@ -113,6 +115,16 @@ trackTests {
         }
 
         "/quotation/show_price"(platform: "/web") {
+            seller_id = 123456789
+            vertical = "REAL_ESTATE"
+            item_id = "MLM2222222"
+            model_id = "102B"
+            unit_id = 54321
+        }
+    }
+
+    test("Quotation :: Modal Model") {
+        "/quotation/modal-model"(platform: "/") {
             seller_id = 123456789
             vertical = "REAL_ESTATE"
             item_id = "MLM2222222"

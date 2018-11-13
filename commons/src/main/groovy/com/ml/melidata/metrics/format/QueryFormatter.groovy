@@ -14,6 +14,8 @@ import com.ml.melidata.catalog.exceptions.CatalogException
 class QueryFormatter {
 
     public static void main(String[] args) {
+        println("\nCompiling queries to jsonmelidata.json...")
+
         String output = args.length > 1 ? args[1] : "/tmp/jsonmelidata.json"
         String json = new QueryFormatter().buildJson()
         new File(output).write(json)

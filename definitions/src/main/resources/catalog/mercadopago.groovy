@@ -738,9 +738,15 @@ tracks {
     //Inivite Gift
     "/notification/invite_gift"(platform: "/mobile") {}
 
+    //Messages New
+    "/notification/messages_new"(platform: "/mobile") {}
+
     //Money
     "/notification/money_transfer_received"(platform: "/mobile") {}
     "/notification/money_transfer_request"(platform: "/mobile") {}
+
+    //Loyalty
+    "/notification/loyalty_milestone"(platform: "/mobile") {}
 
     //Prepaid
     "/notification/prepaid_card_shipped"(platform: "/mobile") {
@@ -762,6 +768,9 @@ tracks {
         notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
     }
     "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+    "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {
         notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
     }
 
@@ -786,6 +795,29 @@ tracks {
     }
     "/notification/point_shipping_ready_to_ship_delayed"(platform: "/mobile") {
         notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+
+    //Recurring Recharge
+    "/notification/recurring_recharge_insufficient_balance_error"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+
+    //Security
+    "/notification/security_event_feedback"(platform: "/mobile") {}
+
+    //Questions
+    "/notification/questions_new"(platform: "/mobile") {
+        question_id(required: true, type: PropertyType.Numeric)
+    }
+
+    //Seller QR
+    "/notification/seller_qr_payment_received"(platform: "/mobile") {}
+    "/notification/seller_integrations_new_payment"(platform: "/mobile") {}
+    "/notification/seller_integrations_erase_name"(platform: "/mobile") {}
+
+    //Orders New
+    "/notification/orders_new"(platform: "/mobile") {
+        order_id(required: true, type: PropertyType.Numeric)
     }
 
     //Wallet
@@ -914,6 +946,13 @@ tracks {
         activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "where open link from sms")
     }
 
-    // Wallet error view
-    "/wallet_error"(platform: "/mobile", type: TrackType.View) {}
+    // Generic error
+    "/friction"(platform: "/mobile", type: TrackType.Event) {
+        path(required: true, type: PropertyType.String , description: "Error path")
+        style(required: true, type: PropertyType.String , description: "Error style")
+        id(required: true, type: PropertyType.String , description: "Error id")
+        message(required: true, type: PropertyType.String , description: "Error message")
+        attributable_to(required: true, type: PropertyType.String , description: "Responsable for error", values: ["mercadopago" , "merchant", "user"])
+        extra_info(required: true, description: "Extra error info")
+    }
 }
