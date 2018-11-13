@@ -439,31 +439,23 @@ trackTests {
         }
 
         "/myml/invoices/documents/gnre"(platform: "/", type: TrackType.View) {
-            url = "/invoices/documents/gnre"
             start = '20181112'
             end = '20181112'
             printed = true
         }
 
         "/myml/invoices/documents/gnre/btn/export"(platform: "/", type: TrackType.Event) {
-            url = "/invoices/documents/gnre"
             start = '20181112'
             end = '20181112'
             printed = true
         }
 
         "/myml/invoices/documents/success"(platform: "/", type: TrackType.View) {
-            url = "/invoices/documents/gnre/success"
             query_data = ""
         }
 
-        "/myml/invoices/documents/success/btn/listings"(platform: "/", type: TrackType.Event) {
-            url = "/invoices/documents/gnre/success"
-        }
-        
-        "/myml/invoices/documents/success/btn/download"(platform: "/", type: TrackType.Event) {
-            url = "/invoices/documents/gnre/success"
-        }
+        "/myml/invoices/documents/success/btn/listings"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/documents/success/btn/download"(platform: "/", type: TrackType.Event) {}
     }
 
 

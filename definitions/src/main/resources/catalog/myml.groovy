@@ -439,7 +439,6 @@ tracks {
 
     // Success page
     "/myml/invoices/documents/success"(platform: "/", type: TrackType.View) {
-        url(required: true, type: PropertyType.String, description: "Page url")
         query_data(required: false, type: PropertyType.String, description: "Base64 code with zip informations")
     }
 
@@ -449,7 +448,6 @@ tracks {
 
     // GNRE page
     "/myml/invoices/documents/gnre"(platform: "/", type: TrackType.View) {
-        url(required: true, type: PropertyType.String, description: "Page url")
         start(required: false, type: PropertyType.String, description: "Date start")
         end(required: false, type: PropertyType.String, description: "Date end")
         printed(required: false, type: PropertyType.Boolean, description: "With last printed")
