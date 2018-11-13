@@ -361,7 +361,7 @@ trackTests {
             last_name = "Some last name"
             pickup_id = "1"  
         }
-        "/wms/problem_solver/sub_flow"(platform: "/mobile/android") {
+        "/wms/problem_solver/sub_flow_selection"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
             first_name = "Some first name"
@@ -616,7 +616,7 @@ trackTests {
             last_name = "Some last name"
             pickup_id = "1"
         }
-        "/wms/problem_solver/sub_flow/start_take"(platform: "/mobile/android") {
+        "/wms/problem_solver/sub_flow_selection/start_take"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
             first_name = "Some first name"
