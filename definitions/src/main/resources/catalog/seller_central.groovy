@@ -160,6 +160,7 @@ tracks {
         hintsGroup
         category_domain(required: true, type: PropertyType.String, description: "Item category domain")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
+        session_id(required: true, type: PropertyType.String, description: "Id for user session")
     }
 
     "/seller_central/bulk/technical_specifications/hints/available"(platform: "/", type: TrackType.Event) {
