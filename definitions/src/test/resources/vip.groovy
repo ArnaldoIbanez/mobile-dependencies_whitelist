@@ -353,6 +353,10 @@ trackTests {
             defaultTrackInformation()
         }
 
+        "/vip/similar_vehicles"(platform: "/mobile", type: TrackType.Event) {
+            defaultTrackInformation()
+        }        
+
 
         "/vip/free_shipping_cart_available"(platform: "/web", type:TrackType.Event){
             defaultTrackInformation()
