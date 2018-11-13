@@ -4,6 +4,7 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 trackTests {
 
     defaultBusiness = "mercadolibre"
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central Listing
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -91,10 +92,10 @@ trackTests {
         }
         "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
             action = "dismiss"
+            page = 2
         }
         "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
             action = "rollback"
-            page = 2
         }
     }
 
