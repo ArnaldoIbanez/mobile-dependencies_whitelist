@@ -67,13 +67,13 @@ tracks {
     "/wms/inbound_audit/count_around"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/inbound_audit/congrats"(platform: "/mobile/android", type: TrackType.View) {}
 
-    "/wms/inbound_audit/start_audit"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/inbound_audit/reset_audit"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/inbound_audit/finish_checkpoint"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/inbound_audit/item_not_found"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/inbound_audit/damaged_item_confirmation"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/inbound_audit/start_count_around"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/inbound_audit/skip_count_around"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/confirmation/start_audit"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/item/reset_audit"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/item/finish_checkpoint"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/item/item_not_found"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/item/damaged_item_confirmation"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/count_around/start_count_around"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/count_around/skip_count_around"(platform: "/mobile/android", type: TrackType.Event) {}
 
     /* Picking tracks */
     "/wms/picking"(platform: "/mobile/android", type: TrackType.View) {

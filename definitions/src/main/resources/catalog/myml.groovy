@@ -151,6 +151,24 @@ tracks {
         label(required: true, description: "Selected label: active/closed/paused/...")
     }
 
+    "/myml/listings/show"(platform: "/web", type: TrackType.View) {
+        placement(required: true, description: "Place where track was dispatched")
+        adv_segmentation(required: true, description: "Adevrtasement segmentation ")
+        reputationLevel(required: true, description: "Reputation for Pads")
+    }
+
+    "/myml/listings/hide"(platform: "/web", type: TrackType.View) {
+        placement(required: true, description: "Place where track was dispatched")
+        adv_segmentation(required: true, description: "Adevrtasement segmentation ")
+        reputationLevel(required: true, description: "Reputation for Pads")
+    }
+
+    "/myml/listings/go"(platform: "/web", type: TrackType.View) {
+        placement(required: true, description: "Place where track was dispatched")
+        adv_segmentation(required: true, description: "Adevrtasement segmentation ")
+        reputationLevel(required: true, description: "Reputation for Pads")
+    }
+
     "/myml/bookmarks"(platform: "/web", type: TrackType.View) {}
     "/myml/questions"(platform: "/web", type: TrackType.View) {}
 
@@ -268,10 +286,12 @@ tracks {
         condition(required: true, description: "Item condition: used/new/not_specified")
         price(required: true, description: "Item price")
         category_id(required: true, description: "Item category_id")
+        category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree")
 
         // Category sugestion
         suggested_category_id(required: false, description: "Category id suggested")
         suggested_category_is_leaf(required: false, type: PropertyType.Boolean, description: "The category suggested is leaf")
+        suggested_category_path(required: false, type: PropertyType.ArrayList, description: "Item's suggested category tree")
     }
 
     "/item/change_listing_type"(platform: "/", type: TrackType.Event) {
@@ -295,6 +315,7 @@ tracks {
         parent_listing_type_id(required: false, description: "Parent item listing type id")
         change_listing_type(required: false, description: "If the listing type changed compare to its parent. Values: upgrade/no_change/downgrade")
         source(required: false, description: "Relist flow that was used to relist the item")
+        quantity(required: false, description: "Item quantity")
     }
 
     "/myml/profile"(platform: "/mobile", type: TrackType.View) {}
@@ -419,6 +440,46 @@ tracks {
 
     //:::: MYML - INVOICES
     "/myml/invoices"(platform: "/", isAbstract: true) {}
+
+    //:::: MYML - Invoices Documents
+    "/myml/invoices/documents"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/documents/mobile"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/documents/not_found"(platform: "/", type: TrackType.View) {}
+
+    // Message page
+    "/myml/invoices/documents/message"(platform: "/", type: TrackType.View) {
+        code(required: false, type: PropertyType.String, description: "Message code to display")
+    }
+
+    // Type page
+    "/myml/invoices/documents/type"(platform: "/", type: TrackType.View) {}
+
+    "/myml/invoices/documents/type/selection"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, values: ["nfe", "gnre"], description: "Type of download page")
+    }
+
+    // Success page
+    "/myml/invoices/documents/success"(platform: "/", type: TrackType.View) {
+        query_data(required: false, type: PropertyType.String, description: "Base64 code with zip informations")
+    }
+
+    "/myml/invoices/documents/success/btn"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/documents/success/btn/listings"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/documents/success/btn/download"(platform: "/", type: TrackType.Event) {}
+
+    // GNRE page
+    "/myml/invoices/documents/gnre"(platform: "/", type: TrackType.View) {
+        start(required: false, type: PropertyType.String, description: "Date start")
+        end(required: false, type: PropertyType.String, description: "Date end")
+        printed(required: false, type: PropertyType.Boolean, description: "With last printed")
+    }
+
+    "/myml/invoices/documents/gnre/btn"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/documents/gnre/btn/export"(platform: "/", type: TrackType.Event) {
+        start(required: true, type: PropertyType.String, description: "Date start")
+        end(required: true, type: PropertyType.String, description: "Date end")
+        printed(required: true, type: PropertyType.Boolean, description: "With last printed")
+    }
 
     //:::: Sales list
     "/myml/invoices/sales_list"(platform: "/", isAbstract: true) {}

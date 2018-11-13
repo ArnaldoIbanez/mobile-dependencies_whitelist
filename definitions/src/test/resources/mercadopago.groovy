@@ -598,7 +598,7 @@ trackTests {
     test("Camera") {
         "/camera"(platform: "/mobile/android") {
         }
-        
+
     }
 
     test("Sign In") {
@@ -2061,14 +2061,24 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/messages_new"(platform: "/mobile") {
+            news_id = "messages_new_123"
+            event_type = "open"
+        }
+
         "/notification/money_transfer_received"(platform: "/mobile") {
-                news_id = "123"
-                event_type = "open"
+            news_id = "123"
+            event_type = "open"
         }
 
         "/notification/money_transfer_request"(platform: "/mobile") {
-                news_id = "123"
-                event_type = "open"
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/loyalty_milestone"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
         }
 
         "/notification/prepaid_card_shipped"(platform: "/mobile") {
@@ -2106,8 +2116,15 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+
         "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {
             news_id = "prepaid_card-second_activation_reminder-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_activation_reminder-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -2152,6 +2169,44 @@ trackTests {
             news_id = "point_shipping-ready_to_ship_delayed-186785675"
             event_type = "open"
             notification_type= "deep_linking"
+        }
+
+        "/notification/recurring_recharge_insufficient_balance_error"(platform: "/mobile") {
+            news_id = "recurring_recharge_insufficient_balance_error-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/security_event_feedback"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/questions_new"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "dismiss"
+            question_id = 1234
+        }
+
+        "/notification/seller_qr_payment_received"(platform: "/mobile") {
+            news_id = "seller_qr_payment_received-186785675"
+            event_type = "open"
+        }
+
+        "/notification/seller_integrations_new_payment"(platform: "/mobile") {
+            news_id = "seller_integrations_new_payment-186785675"
+            event_type = "open"
+        }
+
+        "/notification/seller_integrations_erase_name"(platform: "/mobile") {
+            news_id = "seller_integrations_erase_name-186785675"
+            event_type = "open"
+        }
+
+        "/notification/orders_new"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            order_id = 12132
         }
 
         "/notification/wallet_integrator_insufficient_amount"(platform: "/mobile") {
@@ -3453,7 +3508,20 @@ trackTests {
         }
     }
 
-    test("Wallet") {
-        "/wallet_error"(platform: "/mobile", type: TrackType.View) {}
+    test("Generic error") {
+
+        "/friction"(platform: "/mobile", type: TrackType.Event) {
+            path = "/px_checkout/generic_error"
+            style = "screen"
+            id = "px_generic_error"
+            message = "Hubo un error"
+            extra_info = {
+                api_status_code = "code"
+                api_error_message =  "message"
+                api_url = "get_preference"
+                retry_available = true
+            }
+            attributable_to = "mercadopago"
+        }
     }
 }

@@ -75,7 +75,7 @@ left join (
   		application.site_id as site_id,
   		jest(event_data,'packs_info[0].shipping_id') as shipping_id,
   		if(jest(event_data, 'packs_info[0].status')='shipped' or jest(event_data,'packs_info[0].status')='ready_to_ship','Delivered',jest(event_data,'packs_info[0].status')) as status,
-  		substr(ds,11,3) as Hora,
+  		substr(user_local_timestamp,12,2) as Hora,
       jest(event_data,'longitude') as longitude,
       jest(event_data,'latitude') as latitude
   	from tracks

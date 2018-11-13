@@ -307,6 +307,9 @@ tracks {
     "/checkout/shipping/custom_address/zip_code"(platform: "/mobile") {
         edit_flow(required = false, type: PropertyType.Boolean, description: "Represents the state of user editing address flow")
     }
+    "/checkout/shipping/custom_address/zip_code/back"(platform: "/mobile", type: TrackType.Event) {
+       edit_flow(required = false, type: PropertyType.Boolean, description: "Represents the state of user editing address flow")
+    }
     "/checkout/shipping/custom_address/zip_code#zip_code"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
   session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         zip_code(required: false, type: PropertyType.String)
@@ -340,22 +343,20 @@ tracks {
         additional_info(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/custom_address/zip_code#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
-    }
-    "/checkout/shipping/custom_address/zip_code#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  success(required: false, type: PropertyType.Boolean, description: "API Call when success on loading shipping options")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        success(required: false, type: PropertyType.Boolean, description: "API Call when success on loading shipping options")
     }
     //Query zip code
     "/checkout/shipping/custom_address/zip_code/query"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
     }
+    "/checkout/shipping/custom_address/zip_code/query/back"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    }
     "/checkout/shipping/custom_address/zip_code/query#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         query_parameters(required: false, type: PropertyType.String)
         failing_url(required: false, type: PropertyType.String)
     }
-    "/checkout/shipping/custom_address/zip_code/query/back"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
-    }
+
     "/checkout/shipping/select_option"(platform: "/", isAbstract: true) {
         //View specific data
         shipping_options(required: false, type: PropertyType.ArrayList)
@@ -374,7 +375,7 @@ tracks {
     "/checkout/shipping/select_option/custom"(platform: "/mobile") {}
     //Input address flow
     "/checkout/shipping/select_contact"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         is_from_preload_address(required: true, type: PropertyType.Boolean)
     }
 
@@ -387,7 +388,7 @@ tracks {
     "/checkout/shipping/location/select_city"(platform: "/mobile") {}
     "/checkout/shipping/location/select_city/invalid_destination"(platform: "/mobile") {}
     "/checkout/shipping/location/select_contact#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         success(required: true, type: PropertyType.Boolean)
         error_codes(required: false, type: PropertyType.ArrayList)
     }
@@ -401,6 +402,11 @@ tracks {
         //Contact name/phone
         contact_name(required: false, type: PropertyType.String)
         contact_phone(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/location/new_contact#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        success(required: false, type: PropertyType.Boolean)
+        error_codes(required: false, type: PropertyType.ArrayList)
     }
 
     //Select address
