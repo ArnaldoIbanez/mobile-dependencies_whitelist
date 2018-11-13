@@ -28,6 +28,7 @@ tracks {
 
         billboards(required: false, description: "items ids from billboard results", PropertyType.ArrayList)
         pads(required: false, description: "item_id from the pads returned for listings")
+        pads_info(required: false, description: "Info from the pads returned for listings")
         catalog_product_id(required: false, description: "Id of the product, only if the product header is showna", PropertyType.String)
 
         //Tracks from Search Backend:
