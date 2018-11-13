@@ -10,22 +10,29 @@ import java.util.concurrent.TimeUnit
  */
 class CatalogManager implements Runnable {
 
-	private CatalogHandler catalogHandler
+	private MeliDataCatalogHandler meliDatacatalogHandler
+	private ShippingCatalogHandler shippingCatalogHandler
 
 	public CatalogManager() {
-		catalogHandler = new CatalogHandler();
+		meliDatacatalogHandler = new MeliDataCatalogHandler()
+		shippingCatalogHandler = new ShippingCatalogHandler()
 	}
 
 	public void init() {
-		catalogHandler.reload()
+		meliDatacatalogHandler.reload()
+		shippingCatalogHandler.reload()
 		Executors.newScheduledThreadPool(1).scheduleAtFixedRate(this, 0, 5, TimeUnit.MINUTES);
 	}
 
 	@Override
 	public void run() {
 		try {
-			if ( catalogHandler.reload() ) {
-				log.info(String.format("New catalog [version: %s] has been loaded", catalogHandler.getVersion()))
+			if ( meliDatacatalogHandler.reload() ) {
+				log.info(String.format("New meli data catalog [version: %s] has been loaded", meliDatacatalogHandler.getVersion()))
+				//log.info(String.format("New catalog [version: %s] [etag: %s] has been loaded", catalogHandler.getVersion(), catalogHandler.getLastEtag()));
+			}
+			if ( shippingCatalogHandler.reload() ) {
+				log.info(String.format("New shipping catalog [version: %s] has been loaded", shippingCatalogHandler.getVersion()))
 				//log.info(String.format("New catalog [version: %s] [etag: %s] has been loaded", catalogHandler.getVersion(), catalogHandler.getLastEtag()));
 			}
 			//updateVersionInDynamo();
@@ -39,11 +46,19 @@ class CatalogManager implements Runnable {
 	public void close() throws IOException {
 	}
 
-	public Catalog getCatalog() {
-		return catalogHandler.getCatalog()
+	public Catalog getMeliDataCatalog() { ////razon para la cual hacer varios catalogs manager
+		return meliDatacatalogHandler.getCatalog()
 	}
 
-	public int getVersion() {
-		return catalogHandler.getVersion()
+	public Catalog getShippingCatalog() { ////razon para la cual hacer varios catalogs manager
+		return shippingCatalogHandler.getCatalog()
+	}
+
+	public int getMeliDataVersion() { ////razon para la cual hacer varios catalogs manager
+		return meliDatacatalogHandler.getVersion()
+	}
+
+	public int getShippingVersion() { ////razon para la cual hacer varios catalogs manager
+		return shippingCatalogHandler.getVersion()
 	}
 }

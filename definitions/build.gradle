@@ -64,9 +64,14 @@ task tests (dependsOn: 'classes', type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 }
 
-task uploadCatalog(type:JavaExec) {
-   main = 'com.melidata.definitions.manager.CatalogUploader'
+task uploadMeliDataCatalog(type:JavaExec) {
+   main = 'com.melidata.definitions.manager.MeliDataCatalogUploader'
    classpath = sourceSets.main.runtimeClasspath
+}
+
+task uploadShippingCatalog(type:JavaExec) {
+    main = 'com.melidata.definitions.manager.ShippingCatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
 }
 
 task uploadMetrics(type:JavaExec) {

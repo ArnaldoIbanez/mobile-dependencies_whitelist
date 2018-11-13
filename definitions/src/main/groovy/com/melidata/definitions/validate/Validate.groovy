@@ -19,11 +19,12 @@ class Validate {
         def cli = buildCli(args)
         def options = cli.parse(args)
 
-        println "Generating Melidata Catalog..."
+        println "Generating Catalog..."
 
-        def pathCatalog = "src/main/resources/catalog/catalog.groovy"
+        def pathCatalog = "src/main/resources/catalog/melidata_catalog.groovy"
+        if (options.catalog_name) pathCatalog = "src/main/resources/catalog'/${options.catalog_name}'.groovy"
         def catalogScript = TestRunner.getScriptFromFile(pathCatalog)
-        com.ml.melidata.catalog.DslUtils.setBaseDir("src/main/resources/catalog/")
+        com.ml.melidata.catalog.DslUtils.setBaseDir("src/main/resources/catalog/") //misma pregunta que con handler
         def catalog = TestRunner.runScript(catalogScript)
 
         println "Done. Will fetch for tracks for validating..."
@@ -190,6 +191,7 @@ class Validate {
 
     private static CliBuilder buildCli(String[] args) {
         def cli = new CliBuilder()
+        cli.catalog_name(args:1, "catalog_name")
         cli.date(args:1, "date")
         cli.exact_path(args:1, "exact_path")
         cli.path(args:1, "path")

@@ -15,21 +15,27 @@ class CatalogHandler {
 	private static final String AWS_KEY = 'AKIAIRJ4DFA72UDCX7QA'//'AKIAI2AFLMRLNMSP3IJA'
 	private static final String AWS_SECRET = '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'//'BZUVcUw7CfLgoJVr06w15sJ308Tnxv+c42Hhul6G'
 
-	public static String LAST_VERSION_OBJECT = "lastVersion"
-	public static String LAST_VERSION_FILE_NAME = "last"
-
-	public static String LOCAL_FOLDER = "/data/catalog/";
-	public static String S3_CONTAINER = LAST_VERSION_FILE_NAME + ".dsl/";
-	public static String S3_CATALOG_FILE = "catalog.groovy";
 	public static String BUCKET = "melidata-catalog-versions"
-	public static String CSV_FILE_NAME = "last.csv/catalog.csv"
+	public static String LAST_VERSION_OBJECT
+
+	public static String LAST_VERSION_FILE_NAME
+	public static String LOCAL_FOLDER
+	public static String S3_CONTAINER
+	public static String S3_CATALOG_FILE
+	public static String CSV_FILE_NAME
 
 	private S3Controller cli
 	private Map<String, String> lastEtag = [:]
 	private Catalog catalog
 	private int version
 
-	def CatalogHandler() {
+	def CatalogHandler(String lastVersionObject, String lastVersionFileName, String localFolder, String s3Container, String s3CatalogFile, String csvFileName) {
+		LAST_VERSION_OBJECT = lastVersionObject
+		LAST_VERSION_FILE_NAME = lastVersionFileName
+		LOCAL_FOLDER = localFolder
+		S3_CONTAINER = s3Container
+		S3_CATALOG_FILE = s3CatalogFile
+		CSV_FILE_NAME = csvFileName
 		cli = new S3Controller(BUCKET, AWS_KEY, AWS_SECRET)
 	}
 
@@ -71,7 +77,7 @@ class CatalogHandler {
 	private reloadCatalog(S3Object object, List<S3ObjectSummary> objectSummaries) {
 		Integer newVersion = Integer.parseInt(object.getObjectMetadata().getUserMetaDataOf("catalog-version"));
 		if (catalog == null || !newVersion.equals(version)) {
-			DslUtils.setBaseDir(LOCAL_FOLDER);
+			DslUtils.setBaseDir(LOCAL_FOLDER); //ESTO ASUME UN UNICO CATALOGO!? O ESTE DSL ESTÁ ATADO AL CATALOGO DE MELIDATA/SHIPPING?
 			this.catalog = DslUtils.parseCatalog(new File(LOCAL_FOLDER, S3_CATALOG_FILE));
 			this.version = newVersion
 			this.lastEtag.clear()
