@@ -22,3 +22,4 @@ Please check [tracks definitions guidelines](https://github.com/mercadolibre/mel
 ## Testing the catalog
 
 If you want to run the tests, you should execute **```make test```**
+
