@@ -4,13 +4,13 @@ import com.ml.melidata.TrackType
 
 tracks {
     propertyDefinitions {
-        shop_id(required: false, type: PropertyType.Numeric)
-        shop_domain(required: false, type: PropertyType.String)
-        shop_name(required: false, type: PropertyType.String)
+        shop_id(required: true, type: PropertyType.Numeric)
+        shop_domain(required: true, type: PropertyType.String)
+        shop_name(required: true, type: PropertyType.String)
     }
 
     propertyGroups {
-        mshopsGroup(shop_domain, shop_name)
+        mshopsGroup(shop_id, shop_domain, shop_name)
     }
 
     "/myml/mercadoshops"(platform: "/", isAbstract: true) {
@@ -51,6 +51,6 @@ tracks {
     }
 
     "/myml/mercadoshops/admin/sidebar/subdomain"(platform: "/", type: TrackType.Event){
-        subdomain(required: false, type: PropertyType.String)
+        subdomain(required: true, type: PropertyType.String)
     }
 }
