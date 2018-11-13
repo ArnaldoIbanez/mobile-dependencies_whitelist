@@ -441,6 +441,46 @@ tracks {
     //:::: MYML - INVOICES
     "/myml/invoices"(platform: "/", isAbstract: true) {}
 
+    //:::: MYML - Invoices Documents
+    "/myml/invoices/documents"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/documents/mobile"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/documents/not_found"(platform: "/", type: TrackType.View) {}
+
+    // Message page
+    "/myml/invoices/documents/message"(platform: "/", type: TrackType.View) {
+        code(required: false, type: PropertyType.String, description: "Message code to display")
+    }
+
+    // Type page
+    "/myml/invoices/documents/type"(platform: "/", type: TrackType.View) {}
+
+    "/myml/invoices/documents/type/selection"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, values: ["nfe", "gnre"], description: "Type of download page")
+    }
+
+    // Success page
+    "/myml/invoices/documents/success"(platform: "/", type: TrackType.View) {
+        query_data(required: false, type: PropertyType.String, description: "Base64 code with zip informations")
+    }
+
+    "/myml/invoices/documents/success/btn"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/documents/success/btn/listings"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/documents/success/btn/download"(platform: "/", type: TrackType.Event) {}
+
+    // GNRE page
+    "/myml/invoices/documents/gnre"(platform: "/", type: TrackType.View) {
+        start(required: false, type: PropertyType.String, description: "Date start")
+        end(required: false, type: PropertyType.String, description: "Date end")
+        printed(required: false, type: PropertyType.Boolean, description: "With last printed")
+    }
+
+    "/myml/invoices/documents/gnre/btn"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/documents/gnre/btn/export"(platform: "/", type: TrackType.Event) {
+        start(required: true, type: PropertyType.String, description: "Date start")
+        end(required: true, type: PropertyType.String, description: "Date end")
+        printed(required: true, type: PropertyType.Boolean, description: "With last printed")
+    }
+
     //:::: Sales list
     "/myml/invoices/sales_list"(platform: "/", isAbstract: true) {}
     "/myml/invoices/sales_list/create_invoice"(platform: "/", type: TrackType.Event) {}
