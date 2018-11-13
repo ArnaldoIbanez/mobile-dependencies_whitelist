@@ -15,6 +15,11 @@ trackTests {
             category_id="MLA32089"
             filters=[]
             pads=[]
+            pads_info={
+                ids=[]
+                printed_positions=[]
+                printed_positions_size=0
+            }
             billboards=[]
             offset=0
             sort_id="relevance"
@@ -87,6 +92,11 @@ trackTests {
             landing="base"
             layout_forced=true
             pads=[]
+            pads_info={
+                ids=[]
+                printed_positions=[]
+                printed_positions_size=0
+            }
 
         })
 
@@ -140,6 +150,11 @@ trackTests {
             landing="cpg"
             layout_forced=true
             pads=[]
+            pads_info={
+                ids=[]
+                printed_positions=[]
+                printed_positions_size=0
+            }
 
         })
 
@@ -158,6 +173,11 @@ trackTests {
             autoselected_filters = ["official_store"]
             geo_search = "false"
             pads=[]
+            pads_info={
+                ids=[]
+                printed_positions=[]
+                printed_positions_size=0
+            }
         })
 
 
@@ -231,6 +251,11 @@ trackTests {
             sort_id = "relevance"
             filters = []
             pads=[]
+            pads_info={
+                ids=[]
+                printed_positions=[]
+                printed_positions_size=0
+            }
             view_mode = "LIST"
             results = []
             billboards = []
@@ -247,6 +272,11 @@ trackTests {
             sort_id = "relevance"
             filters = []
             pads=[]
+            pads_info={
+                ids=[]
+                printed_positions=[]
+                printed_positions_size=0
+            }
             view_mode = "LIST"
             results = []
             billboards = []
@@ -270,6 +300,11 @@ trackTests {
             sort_id = "relevance"
             filters = []
             pads=[]
+            pads_info={
+                ids=[]
+                printed_positions=[]
+                printed_positions_size=0
+            }
             view_mode = "LIST"
             results = []
             billboards = []
