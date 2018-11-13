@@ -11,6 +11,8 @@ tracks {
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         category_domain(required: false, type: PropertyType.String, description: "Item category domain")
         category_path(required: false, type: PropertyType.ArrayList, description: "Path of category")
+        type(required: true, type: PropertyType.String, description: "Type of hint", values: ["info", "actionable"])
+        attribute(required: true, type: PropertyType.String, description: "Id of the attribute")
     }
 
     propertyGroups {
@@ -19,6 +21,7 @@ tracks {
         hintsGroup(type, attribute)
     }
 
+    //LISTING SECTION
     "/seller_central"(platform: "/", isAbstract: true) {}
     "/seller_central/listings"(platform: "/", isAbstract: true) {}
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {}
@@ -55,11 +58,14 @@ tracks {
         id(required: true, type: PropertyType.String, description: "Preference id", values:["shipping", "advertising"])
     }
 
+    //BULK SECTION
+
     "/seller_central/bulk"(platform: "/", isAbstract: true) {}
     "/seller_central/bulk/list"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Id of the action", values:["start","close", "rollback", "dismiss"])
+        page(required: false, type: PropertyType.Numeric, description: "Page number")
     }
 
     "/seller_central/bulk/domain"(platform: "/", type: TrackType.Event) {
@@ -101,6 +107,7 @@ tracks {
     "/seller_central/bulk/offline/download/warning"(platform: "/", type: TrackType.Event){}
 
 
+    //ITEM DETAIL SECTION
 
     "/seller_central/modify"(platform: "/", isAbstract: true) {
         sellerCentralModifyGroup
