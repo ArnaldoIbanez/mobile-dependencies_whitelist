@@ -20,7 +20,11 @@ tracks {
     "/myml/mercadoshops/admin"(platform: "/", type: TrackType.View){}
 
     "/myml/mercadoshops/admin/sidebar"(platform: "/", type: TrackType.Event){
-        sidebarName(required: false, type: PropertyType.String)
+        sidebarName(
+                required: false,
+                type: PropertyType.String,
+                values: ['AFIP', 'BANNER', 'COLORS', 'LOGO', 'SHOP_NAME', 'SLIDER', 'SUBDOMAIN']
+        )
     }
 
     "/myml/mercadoshops/admin/sidebar/afip"(platform: "/", type: TrackType.Event){}
@@ -41,6 +45,11 @@ tracks {
 
     "/myml/mercadoshops/admin/sidebar/shop_name"(platform: "/", type: TrackType.Event){
         shopName(required: false, type: PropertyType.String)
+    }
+
+    "/myml/mercadoshops/admin/sidebar/slider"(platform: "/", type: TrackType.Event){
+        imageList(required: false, type: PropertyType.ArrayList, description: "Array of image ids")
+        sliderSize(required: false, type: PropertyType.String, values: ['small', 'medium', 'large'])
     }
 
     "/myml/mercadoshops/admin/sidebar/subdomain"(platform: "/", type: TrackType.Event){

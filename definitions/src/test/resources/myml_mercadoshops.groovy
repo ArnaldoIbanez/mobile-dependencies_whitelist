@@ -20,11 +20,11 @@ trackTests {
 
     test("Mercadoshops Admin Sidebars") {
         "/myml/mercadoshops/admin/sidebar"(platform: "/", type: TrackType.Event) {
-            sidebarName = "afip"
+            sidebarName = "SHOP_NAME"
         }
     }
 
-    test("Mercadoshops Admin Sidebars") {
+    test("Mercadoshops Admin Sidebars Configuration Events") {
         "/myml/mercadoshops/admin/sidebar/afip"(platform: "/", type: TrackType.Event) {}
         "/myml/mercadoshops/admin/sidebar/banner"(platform: "/", type: TrackType.Event) {
             imageId = "784348-MLA28624404159_112018"
@@ -39,6 +39,10 @@ trackTests {
         }
         "/myml/mercadoshops/admin/sidebar/shop_name"(platform: "/", type: TrackType.Event) {
             shopName = "Test Shop"
+        }
+        "/myml/mercadoshops/admin/sidebar/slider"(platform: "/", type: TrackType.Event) {
+            imageList = ["784348-MLA28624404159_112018", "784348-MLA28624404159_112019", "784348-MLA28624404159_112020"]
+            sliderSize = 'medium'
         }
         "/myml/mercadoshops/admin/sidebar/subdomain"(platform: "/", type: TrackType.Event) {
             subdomain = "test-shop"
