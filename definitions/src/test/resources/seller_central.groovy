@@ -269,6 +269,7 @@ trackTests {
         }
     }
 
+
     test("structured data hint completed"){
         "/seller_central/bulk/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event){
             type = "actionable"
