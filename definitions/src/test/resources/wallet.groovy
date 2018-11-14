@@ -25,6 +25,8 @@ trackTests {
 
         "/wallet/cards/back"(platform:"/mobile", {})
 
+        "/wallet/cards/add_card_header"(platform: "/mobile", {})
+
     }
 
     defaultBusiness = "mercadopago"
@@ -49,6 +51,9 @@ trackTests {
         "/wallet/cards/add_card"(platform:"/mobile", {})
 
         "/wallet/cards/back"(platform:"/mobile", {})
+
+        "/wallet/cards/add_card_header"(platform: "/mobile", {})
+
 
     }
 
