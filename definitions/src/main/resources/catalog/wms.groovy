@@ -185,4 +185,24 @@ tracks {
     "/wms/withdrawal/congrats/finish_unload_cart"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/withdrawal/congrats/finish_withdrawal"(platform: "/mobile/android", type: TrackType.Event) {}
 
+    /* Problem solver tracks */
+    "/wms/problem_solver"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/problem_solver/sub_flow_selection"(platform: "/mobile/android", type: TrackType.View) {}
+
+    /* Take sub flow */
+    "/wms/problem_solver/sub_flow_selection/start_take"(platform: "/mobile/android", type: TrackType.Event) {
+        sub_flow(required: true, values: ["take", "returns"], 
+            type: PropertyType.String, description: "Problem solver sub flow")
+    }
+    "/wms/problem_solver/scan_inbound_shipment"(platform: "/mobile/android", type: TrackType.View) {
+        sub_flow(required: true, values: ["take", "returns"], 
+            type: PropertyType.String, description: "Problem solver sub flow")
+    }
+    "/wms/problem_solver/scan_destination"(platform: "/mobile/android", type: TrackType.View) {
+        sub_flow(required: true, values: ["take", "returns"], 
+            type: PropertyType.String, description: "Problem solver sub flow")
+        inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
+        destination_address(required: false, type: PropertyType.String, 
+            description: "Address to put the items. Is sent after the scan action")
+    }
 }
