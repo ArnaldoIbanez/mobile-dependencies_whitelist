@@ -7,9 +7,6 @@ tracks {
     "/wms"(platform: "/mobile/android", type: TrackType.View, isAbstract: true) {
         warehouse_id(required: true, type: PropertyType.String,
         	description: "Id of the warehouse to track")
-        email(required: false, type: PropertyType.String)
-        first_name(required: true, type: PropertyType.String)
-        last_name(required: true, type: PropertyType.String)
         error_type(
         	required: false,
         	values: ["SERVER", "NETWORK", "ZRP", "TIMEOUT"],
