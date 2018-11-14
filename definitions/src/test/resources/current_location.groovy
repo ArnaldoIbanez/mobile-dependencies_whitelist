@@ -33,10 +33,7 @@ trackTests {
     }
 
     test("current location hub zipcode finder") {
-        "/current_location/hub/find_zipcode"(platform: "/", type: TrackType.Event) {
-            has_errors=true
-            zipcode="8999"
-        }
+        "/current_location/hub/find_zipcode"(platform: "/", type: TrackType.Event) {}
     }
 
     test("current location hub address selected") {
@@ -44,6 +41,9 @@ trackTests {
     }
 
     test("current location hub added zipcode") {
-        "/current_location/hub/add_zipcode"(platform: "/", type: TrackType.Event) {}
+        "/current_location/hub/add_zipcode"(platform: "/", type: TrackType.Event) {
+            has_errors=true
+            zipcode="8999"
+        }
     }
 }

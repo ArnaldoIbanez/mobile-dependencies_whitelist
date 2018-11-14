@@ -14,11 +14,11 @@ tracks {
         has_errors(required: true, type: PropertyType.Boolean,  description: "Indicates if the form submited has errors with zipcode")
         zipcode(required: true, type: PropertyType.String,  description: "Zipcode added by the user")
     }
-    "/current_location/hub/select_address"(platform: "/", type: TrackType.Event) {}
-    "/current_location/hub/add_zipcode"(platform: "/", type: TrackType.Event) {        
+    "/current_location/hub/select_address"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/current_location/hub/add_zipcode"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {        
         has_errors(required: true, type: PropertyType.Boolean,  description: "Indicates if the zipcode added has errors")
         zipcode(required: true, type: PropertyType.String,  description: "Zipcode added by the user")
     }
-    "/current_location/hub/create_address"(platform: "/", type: TrackType.Event) {}
-    "/current_location/hub/find_zipcode"(platform: "/", type: TrackType.Event) {}    
+    "/current_location/hub/create_address"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/current_location/hub/find_zipcode"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}    
 }
