@@ -113,8 +113,6 @@ tracks {
     "/wms/login"(platform: "/mobile/android", type: TrackType.View) {
         warehouse_id(required: false, type: PropertyType.String,
             description: "Id of the warehouse to track")
-        first_name(required: false, type: PropertyType.String)
-        last_name(required: false, type: PropertyType.String)
     }
     "/wms/home"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/receiving"(platform: "/mobile/android", type: TrackType.View) {}
