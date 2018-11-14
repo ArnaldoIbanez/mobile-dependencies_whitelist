@@ -54,6 +54,8 @@ catalog {
         include business, "chargebacks.groovy"
         include business, "freeData.groovy"
         include business, "wallet.groovy"
+        include business, "px.groovy"
+        include business, "mobile_commons.groovy"
     }
 
     marketplace.each { business ->
@@ -101,7 +103,6 @@ catalog {
         include business, "qr_discount.groovy"
         include business, "zip_finder.groovy"
         include business, "current_location.groovy"
-        include business, "px.groovy"
         include business, "supermarket.groovy"
         include business, "payers_growth.groovy"
     }
@@ -120,7 +121,6 @@ catalog {
         include business, "collaborators.groovy"
         include business, "asset_management.groovy"
         include business, "single_player.groovy"
-        include business, "px.groovy"
         include business, "instore.groovy"
     }
 
