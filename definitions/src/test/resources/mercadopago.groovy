@@ -490,19 +490,19 @@ trackTests {
     }
 
     test("MP-MA Flow QR Assignment") {
-        "/merchant_acquisition/flows/associar-qr"(platform:"/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/associar-qr/success"(platform:"/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/associar-qr/error"(platform:"/", type: TrackType.View) {
+        "/merchant_acquisition/flows/qr-assignment"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-assignment/success"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
             status = 'invalidAccess'
         }
-        "/merchant_acquisition/flows/associar-qr/error"(platform:"/", type: TrackType.View) {
+        "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
             status = 'invalidUser'
         }
-        "/merchant_acquisition/flows/associar-qr/error"(platform:"/", type: TrackType.View) {
+        "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
             status = 'error'
         }
-        "/merchant_acquisition/flows/associar-qr/validate_email"(platform:"/", type: TrackType.Event) {}
-        "/merchant_acquisition/flows/associar-qr/qr_scan"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/flows/qr-assignment/validate_email"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/flows/qr-assignment/qr_scan"(platform:"/", type: TrackType.Event) {}
     }
 
     test("MP-MA Flow QR") {
