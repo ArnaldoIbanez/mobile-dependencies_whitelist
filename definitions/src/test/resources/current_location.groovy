@@ -5,7 +5,11 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
     test("current location hub page view") {
-        "/current_location/hub"(platform: "/", type: TrackType.View) {}
+        "/current_location/hub"(platform: "/", type: TrackType.View) {
+            has_errors=true
+            addresses_quantity=2
+            zipcode="8999"
+        }
     }
 
     test("current location navigation pick") {
@@ -29,7 +33,10 @@ trackTests {
     }
 
     test("current location hub zipcode finder") {
-        "/current_location/hub/find_zipcode"(platform: "/", type: TrackType.Event) {}
+        "/current_location/hub/find_zipcode"(platform: "/", type: TrackType.Event) {
+            has_errors=true
+            zipcode="8999"
+        }
     }
 
     test("current location hub address selected") {
