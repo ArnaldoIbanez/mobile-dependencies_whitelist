@@ -489,6 +489,22 @@ trackTests {
         "/merchant_acquisition/qr/landing/landing-get-qr-code"(platform: "/", type: TrackType.Event) {}
     }
 
+    test("MP-MA Flow QR Assignment") {
+        "/merchant_acquisition/flows/associar-qr"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/associar-qr/success"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/associar-qr/error"(platform:"/", type: TrackType.View) {
+            status = 'invalidAccess'
+        }
+        "/merchant_acquisition/flows/associar-qr/error"(platform:"/", type: TrackType.View) {
+            status = 'invalidUser'
+        }
+        "/merchant_acquisition/flows/associar-qr/error"(platform:"/", type: TrackType.View) {
+            status = 'error'
+        }
+        "/merchant_acquisition/flows/associar-qr/validate_email"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/flows/associar-qr/qr_scan"(platform:"/", type: TrackType.Event) {}
+    }
+
     test("MP-MA Flow QR") {
         "/merchant_acquisition/qr/onboarding"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/qr-code"(platform:"/", type: TrackType.View) {}
