@@ -421,5 +421,9 @@ trackTests {
             defaultPacksInfo()
             delivery_id = 123456
         }
+
+        //Country selection View
+        "/flex/login/select_country"(platform:"/mobile", type: TrackType.View) {
+        }
     }
 }

@@ -41,6 +41,11 @@ tracks {
         source(type: PropertyType.String, required: true, description: "The image source selected by user.", values: ["TAKE_PHOTO","PICK_PHOTO"])
     }
 
+    "/identity-validation/skip_flow"(platform: "/", type: TrackType.Event) {
+        flow(type: PropertyType.String, required: true, description: "The flow the user skipped. Ej. ms_hard_validation")
+        step(type: PropertyType.String, required: true, description: "The challenge the user skipped. Ej. documentation")
+    }
+
     "/identity-validation/phone_code"(platform: "/", type: TrackType.View) {}
     "/identity-validation/phone"(platform: "/", type: TrackType.View) {}
     "/identity-validation/upload_doc"(platform: "/", type: TrackType.View) {}

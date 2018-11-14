@@ -8,8 +8,8 @@ SELECT count(1) as quantity,
         jet(event_data,'columns') as columnas,
         substr(ds,1,10) as ds
 FROM tracks
-WHERE ds >= '@param01 02'
-AND ds < '@param02 02'
+WHERE ds >= '@param01'
+AND ds < '@param02'
 AND path IN ('/seller_central/bulk/offline/download/error',
   '/seller_central/listings/onboarding/action',
   '/seller_central/listings/filters/action',

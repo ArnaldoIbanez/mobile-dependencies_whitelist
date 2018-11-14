@@ -121,6 +121,10 @@ trackTests {
             nearest_store_distance = 250000
         }
 
+        "/cart/checkout/review/edit_installments"(platform:"/", type: TrackType.Event) {
+            dataSet()
+        }
+
         "/cart/checkout/geolocation"(platform:"/", type: TrackType.Event) {
             dataSet()
             geolocation_error = "TIMEOUT"
