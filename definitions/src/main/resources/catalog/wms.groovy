@@ -203,6 +203,6 @@ tracks {
             type: PropertyType.String, description: "Problem solver sub flow")
         inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
         destination_address(required: false, type: PropertyType.String, 
-            description: "Address to put the items. Is sent after the scan action.")
+            description: "Address to put the items. Is sent after the scan action")
     }
 }
