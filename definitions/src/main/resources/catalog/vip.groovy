@@ -162,6 +162,8 @@ tracks {
     "/vip/buy_action"(platform: "/", parentPropertiesInherited: false) {
         item_id(required: false, type: PropertyType.String, description: "Item ID")
         quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to buy")
+        category_id(required: false, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         add_cart_info
         shipping_info
     }
@@ -169,6 +171,8 @@ tracks {
     "/vip/add_cart_action"(platform: "/", parentPropertiesInherited: false) {
         item_id(required: false, type: PropertyType.String, description: "Item ID")
         quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to a2c")
+        category_id(required: false, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         add_cart_info
         shipping_info
     }
