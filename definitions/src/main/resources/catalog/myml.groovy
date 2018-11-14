@@ -157,13 +157,13 @@ tracks {
         reputationLevel(required: true, description: "Reputation for Pads")
     }
 
-    "/myml/listings/hide"(platform: "/web", type: TrackType.View) {
+    "/myml/listings/hide"(platform: "/web", type: TrackType.Event) {
         placement(required: true, description: "Place where track was dispatched")
         adv_segmentation(required: true, description: "Adevrtasement segmentation ")
         reputationLevel(required: true, description: "Reputation for Pads")
     }
 
-    "/myml/listings/go"(platform: "/web", type: TrackType.View) {
+    "/myml/listings/go"(platform: "/web", type: TrackType.Event) {
         placement(required: true, description: "Place where track was dispatched")
         adv_segmentation(required: true, description: "Adevrtasement segmentation ")
         reputationLevel(required: true, description: "Reputation for Pads")
@@ -173,6 +173,24 @@ tracks {
     "/myml/questions"(platform: "/web", type: TrackType.View) {}
 
     "/myml/summary"(platform: "/web", type: TrackType.View) {}
+
+    "/myml/summary/show"(platform: "/web", type: TrackType.View) {
+        placement(required: true, description: "Place where track was dispatched")
+        adv_segmentation(required: true, description: "Adevrtasement segmentation ")
+        reputationLevel(required: true, description: "Reputation for Pads")
+    }
+
+    "/myml/summary/hide"(platform: "/web", type: TrackType.Event) {
+        placement(required: true, description: "Place where track was dispatched")
+        adv_segmentation(required: true, description: "Adevrtasement segmentation ")
+        reputationLevel(required: true, description: "Reputation for Pads")
+    }
+
+    "/myml/summary/go"(platform: "/web", type: TrackType.Event) {
+        placement(required: true, description: "Place where track was dispatched")
+        adv_segmentation(required: true, description: "Adevrtasement segmentation ")
+        reputationLevel(required: true, description: "Reputation for Pads")
+    }
 
     // Myml - Suggested Discounts
     "/myml/suggested_discounts"(platform: "/mobile", isAbstract: true){
