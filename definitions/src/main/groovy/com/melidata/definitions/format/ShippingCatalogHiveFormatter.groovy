@@ -1,7 +1,6 @@
 package com.melidata.definitions.format
 
-import com.melidata.definitions.manager.CatalogUploader
-import com.melidata.definitions.manager.ShippingCatalogHandler
+import com.melidata.definitions.manager.ShippingCatalogUploader
 
 class ShippingCatalogHiveFormatter extends HiveFormatter {
 
@@ -11,9 +10,9 @@ class ShippingCatalogHiveFormatter extends HiveFormatter {
     }
 
     static void main(String[] args) {
-        String catalogDir = CatalogUploader.CATALOG_DIR
-        String s3CatalogFile = ShippingCatalogHandler.S3_CATALOG_FILE
-        String csvFileName = ShippingCatalogHandler.CSV_FILE_NAME
+        String catalogDir = ShippingCatalogUploader.CATALOG_DIR
+        String s3CatalogFile = ShippingCatalogUploader.S3_CATALOG_FILE
+        String csvFileName = ShippingCatalogUploader.CSV_FILE_NAME
         def file = new File(csvFileName) //antes: catalog.csv - para que esta el del handler?
         file.delete()
 

@@ -15,27 +15,16 @@ class CatalogUploader {
     private static final String ACCESS_KEY = "AKIAIRJ4DFA72UDCX7QA"
     private static final String SECRET_KEY = "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"
 
-    public static String LAST_VERSION_OBJECT
-    public static String LAST_VERSION_FILE_NAME
-    public static String S3_CATALOG_FILE
-    public static String CSV_FILE_NAME
-
-    def static CATALOG_DIR = "src/main/resources/catalog"
-
     def S3Controller s3Controller
 
-    def CatalogUploader(String s3CatalogFile, String lastVersionObject, String lastVersionFileName, String csvFileName) {
-        S3_CATALOG_FILE = s3CatalogFile
-        LAST_VERSION_OBJECT = lastVersionObject
-        LAST_VERSION_FILE_NAME = lastVersionFileName
-        CSV_FILE_NAME = csvFileName
+    def CatalogUploader(String catalogDir, String s3CatalogFile, String lastVersionObject, String lastVersionFileName, String csvFileName) {
         s3Controller = new S3Controller(S3BUCKET, ACCESS_KEY, SECRET_KEY)
-        upload() //o directamente acá pasar por parametro a s3catalogfile,... en vez de usar public static -> DIFERENCIA???!!
+        upload(catalogDir, s3CatalogFile, lastVersionObject, lastVersionFileName, csvFileName)
     }
 
-    def upload() {
+    def upload(String catalogDir, String s3CatalogFile, String lastVersionObject, String lastVersionFileName, String csvFileName) {
         println("Starting uploader")
-        def catalogFile = new File(CATALOG_DIR, S3_CATALOG_FILE)
+        def catalogFile = new File(catalogDir, s3CatalogFile)
         println("Reading [${catalogFile}]")
         def dsl = IOUtils.toString(new FileInputStream(catalogFile))
         println("DSL loaded")
@@ -47,7 +36,7 @@ class CatalogUploader {
         def json = new CatalogJsonOutput().toJson(catalog)
         println("JSON ready")
         println("Getting last catalog version")
-        Integer lastVersion = s3Controller.getLastVersion(LAST_VERSION_OBJECT)
+        Integer lastVersion = s3Controller.getLastVersion(lastVersionObject)
         lastVersion++
         println("New version: ${lastVersion}")
         println("Uploading ${lastVersion}.dsl")
@@ -56,14 +45,14 @@ class CatalogUploader {
         s3Controller.saveCatalogVersion(json,lastVersion.toString(),lastVersion)
 
         println("Uploading last.dsl")
-        s3Controller.saveCatalogVersion(catalog,LAST_VERSION_FILE_NAME,lastVersion)
+        s3Controller.saveCatalogVersion(catalog,lastVersionFileName,lastVersion)
         println("Uploading last.dsl")
-        s3Controller.saveCatalogVersion(json,LAST_VERSION_FILE_NAME,lastVersion)
+        s3Controller.saveCatalogVersion(json,lastVersionFileName,lastVersion)
         println("Setting last version")
-        s3Controller.setLastServersion(LAST_VERSION_OBJECT, lastVersion)
+        s3Controller.setLastServersion(lastVersionFileName, lastVersion)
         println("Upload catalog.csv hive format")
-        def csv = new HiveFormatter(CATALOG_DIR, S3_CATALOG_FILE).output
-        s3Controller.saveFile(CSV_FILE_NAME, csv);
+        def csv = new HiveFormatter(catalogDir, s3CatalogFile).output
+        s3Controller.saveFile(csvFileName, csv);
     }
 
 

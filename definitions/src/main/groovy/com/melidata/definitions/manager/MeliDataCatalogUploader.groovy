@@ -2,16 +2,18 @@ package com.melidata.definitions.manager
 
 class MeliDataCatalogUploader extends CatalogUploader {
 
-    def MeliDataCatalogUploader(String s3CatalogFile, String lastVersionObject, String lastVersionFileName, String csvFileName) {
-        super(s3CatalogFile, lastVersionObject, lastVersionFileName, csvFileName)
+    public static String CATALOG_DIR = "src/main/resources/catalog"
+    public static String LAST_VERSION_OBJECT = "lastMeliDataVersion"
+    public static String LAST_VERSION_FILE_NAME = "lastMeliData"
+    public static String S3_CATALOG_FILE = "catalog2.groovy"
+    public static String CSV_FILE_NAME = "melidata_last.csv/melidata_catalog.csv"
+
+    def MeliDataCatalogUploader() {
+        super(CATALOG_DIR, S3_CATALOG_FILE, LAST_VERSION_OBJECT, LAST_VERSION_FILE_NAME, CSV_FILE_NAME)
     }
 
     def static void main(String[] args) {
-        String s3CatalogFile = MeliDataCatalogHandler.S3_CATALOG_FILE
-        String lastVersionObject = MeliDataCatalogHandler.LAST_VERSION_OBJECT
-        String lastVersionFileName = MeliDataCatalogHandler.LAST_VERSION_FILE_NAME
-        String csvFileName = MeliDataCatalogHandler.CSV_FILE_NAME
-        new MeliDataCatalogUploader(s3CatalogFile, lastVersionObject, lastVersionFileName, csvFileName)
+        new MeliDataCatalogUploader()
     }
 
 }

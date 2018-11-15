@@ -16,7 +16,7 @@ catalog {
 
     def shipping = ["shipping"]
 
-    mercadoenvios.each { business ->
+    shipping.each { business ->
         include business, "labels.groovy"
         include business, "tracking.groovy"
     }

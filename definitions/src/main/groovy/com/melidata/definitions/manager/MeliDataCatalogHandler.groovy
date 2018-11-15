@@ -6,7 +6,7 @@ package com.melidata.definitions.manager
 class MeliDataCatalogHandler extends CatalogHandler {
 
     def MeliDataCatalogHandler() {
-        super("lastMeliDataVersion", "lastMeliData", "/data/catalog/", ".dsl/", "melidata_catalog.groovy", "melidata_last.csv/melidata_catalog.csv") //leerlos de una config
+        super("lastMeliDataVersion", "lastMeliData", "/data/catalog/", ".dsl/", "catalog2.groovy", "melidata_last.csv/melidata_catalog.csv") //leerlos de una config
     }
 
 }

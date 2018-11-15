@@ -1,7 +1,8 @@
 package com.melidata.definitions.format
 
-import com.melidata.definitions.manager.CatalogUploader
-import com.melidata.definitions.manager.MeliDataCatalogHandler
+
+import com.melidata.definitions.manager.MeliDataCatalogUploader
+
 
 class MeliDataCatalogHiveFormatter extends HiveFormatter {
 
@@ -11,9 +12,9 @@ class MeliDataCatalogHiveFormatter extends HiveFormatter {
     }
 
     static void main(String[] args) {
-        String catalogDir = CatalogUploader.CATALOG_DIR
-        String s3CatalogFile = MeliDataCatalogHandler.S3_CATALOG_FILE
-        String csvFileName = MeliDataCatalogHandler.CSV_FILE_NAME
+        String catalogDir = MeliDataCatalogUploader.CATALOG_DIR
+        String s3CatalogFile = MeliDataCatalogUploader.S3_CATALOG_FILE
+        String csvFileName = MeliDataCatalogUploader.CSV_FILE_NAME
         def file = new File(csvFileName) //antes: catalog.csv - para que esta el del handler?
         file.delete()
 
