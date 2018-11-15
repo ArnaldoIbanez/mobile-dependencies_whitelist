@@ -410,9 +410,9 @@ tracks {
 "/cart/checkout/payment/encrypted_security_code_add"(platform:"/mobile", type: TrackType.View) {}
 
 //Billing info
-"/cart/checkout/billing"(platform: "/mobile", isAbstract: true) {}
-"/cart/checkout/billing/physical_person"(platform: "/mobile") {}
-"/cart/checkout/billing/legal_person"(platform: "/mobile") {}
+"/cart/checkout/billing"(platform: "/", isAbstract: true) {}
+"/cart/checkout/billing/physical_person"(platform: "/") {}
+"/cart/checkout/billing/legal_person"(platform: "/") {}
 "/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
   session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
 }

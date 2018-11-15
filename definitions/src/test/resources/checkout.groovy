@@ -1884,6 +1884,8 @@ trackTests {
         "/checkout/payment/input_second_password"(platform:"/web", dataSet)
         "/checkout/payment/input_second_password/edit_payment"(platform:"/web", dataSet)
         "/checkout/payment/billing_information"(platform:"/web", dataSet)
+        "/checkout/billing/physical_person"(platform:"/web", dataSet)
+        "/checkout/billing/legal_person"(platform:"/web", dataSet)
         "/checkout/review/edit_payment"(platform:"/web", dataSet)
         "/checkout/review/edit_first_payment"(platform:"/web", dataSet)
         "/checkout/review/edit_second_payment"(platform:"/web", dataSet)
