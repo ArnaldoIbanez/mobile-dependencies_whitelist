@@ -1034,6 +1034,10 @@ tracks {
 
     "/checkout/payment/billing_information"(platform:"/web", type: TrackType.View) {}
 
+    "/checkout/billing"(platform: "/web", isAbstract: true) {}
+    "/checkout/billing/physical_person"(platform:"/web", type: TrackType.View) {}
+    "/checkout/billing/legal_person"(platform:"/web", type: TrackType.View) {}
+
     "/checkout/review/edit_payment"(platform:"/", type: TrackType.Event) {}
 
     "/checkout/review/edit_first_payment"(platform:"/", type: TrackType.Event) {}

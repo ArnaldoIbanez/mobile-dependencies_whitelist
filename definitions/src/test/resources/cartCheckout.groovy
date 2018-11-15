@@ -351,10 +351,10 @@ trackTests {
         }
 
         // Billing info
-        "/cart/checkout/billing/physical_person"(platform: "/mobile") {
+        "/cart/checkout/billing/physical_person"(platform: "/") {
             dataSet()
         }
-        "/cart/checkout/billing/legal_person"(platform: "/mobile") {
+        "/cart/checkout/billing/legal_person"(platform: "/") {
             dataSet()
         }
         "/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event) {
