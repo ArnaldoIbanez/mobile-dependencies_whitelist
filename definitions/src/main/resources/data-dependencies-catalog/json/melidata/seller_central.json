@@ -3,7 +3,7 @@
     "ezequiel.perez@mercadolibre.com",
     "sebastian.schmukliar@mercadolibre.com"
   ],
-  "process_name": "seller_central_columns",
+  "process_name": "seller_central_actions",
   "cron": "00 08 * * *",
   "partition": {
     "name": "ds",
