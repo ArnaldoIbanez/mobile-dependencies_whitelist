@@ -353,6 +353,10 @@ trackTests {
             defaultTrackInformation()
         }
 
+        "/vip/similar_vehicles"(platform: "/mobile", type: TrackType.Event) {
+            defaultTrackInformation()
+        }        
+
 
         "/vip/free_shipping_cart_available"(platform: "/web", type:TrackType.Event){
             defaultTrackInformation()
@@ -630,4 +634,52 @@ trackTests {
         }
     }
 
+    test("VIP Shipping Calculator"){
+
+        def model = {
+            location = {
+                type = "zip_code"
+                value = "1234"
+            }
+            shipping_methods = [{
+                cost = 50
+                promoted_amount = 12
+                delivery_type = "seller_agreement"
+                selected = false
+                promise = {
+                    to = 4
+                    from = 5
+                    deferred = true
+                }}]
+        }
+
+        def shipping_method = {
+            selected_method = {
+                cost = 50
+                promoted_amount = 12
+                delivery_type = "seller_agreement"
+                selected = false
+                promise = {
+                    to = 4
+                    from = 5
+                    deferred = true
+                }
+            }
+        }
+
+        "/vip/shipping_calculator"(platform: "/", type: TrackType.View) {
+            model()
+        }
+
+         "/vip/shipping_calculator/select"(platform: "/", type: TrackType.Event) {
+            model()
+            shipping_method()
+        }
+
+        "/vip/shipping_calculator/cancel"(platform: "/", type: TrackType.Event) {}
+        
+        "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {}
+        
+        "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {}
+    }
 }

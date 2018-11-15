@@ -14,14 +14,30 @@ trackTests {
         "/classifieds/hirable/sellers"(platform: "/", type: TrackType.View) {
             defaultTrackInformation()
         }
+        "/classifieds/hirable/sellers"(platform: "/", type: TrackType.View) {
+            defaultTrackInformation()
+            category_path = ["MLA123", "MLA123"]
+        }
         "/classifieds/hirable/buyers"(platform: "/", type: TrackType.View) {
             defaultTrackInformation()
+        }
+        "/classifieds/hirable/buyers"(platform: "/", type: TrackType.View) {
+            defaultTrackInformation()
+            category_path = ["MLA123", "MLA123"]
         }
         "/classifieds/contract/sellers"(platform: "/", type: TrackType.View) {
             defaultTrackInformation()
         }
+        "/classifieds/contract/sellers"(platform: "/", type: TrackType.View) {
+            defaultTrackInformation()
+            category_path = ["MLA123", "MLA123"]
+        }
         "/classifieds/contract/buyers"(platform: "/", type: TrackType.View) {
             defaultTrackInformation()
+        }
+        "/classifieds/contract/buyers"(platform: "/", type: TrackType.View) {
+            defaultTrackInformation()
+            category_path = ["MLA123", "MLA123"]
         }
     }
 }

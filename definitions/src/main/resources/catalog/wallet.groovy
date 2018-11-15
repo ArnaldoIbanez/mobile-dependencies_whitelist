@@ -1,4 +1,5 @@
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
 
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
@@ -9,17 +10,21 @@ tracks {
     */
 
     "/wallet"(platform: "/mobile", isAbstract: true) {}
-
-    // Cards screen
-    "/wallet/cards"(platform: "/mobile", isAbstract: true) {}
-
-    // Empty State
-    "/wallet/cards/empty"(platform: "/mobile", type: TrackType.View) {}
-    "/wallet/cards/empty/add_card"(platform: "/mobile", type: TrackType.Event) {}
-    "/wallet/cards/empty/abort"(platform: "/mobile", type: TrackType.Event) {}
     
-    // Show Results State
-    "/wallet/cards/list"(platform: "/mobile", type: TrackType.View) {}
-    "/wallet/cards/list/add_card"(platform: "/mobile", type: TrackType.Event) {}
-    "/wallet/cards/list/abort"(platform: "/mobile", type: TrackType.Event) {}
+    "/wallet/cards"(platform: "/mobile", type: TrackType.View) {
+        cards_quantity(required: true, type: PropertyType.Numeric, description: "Amount of cards the user has associated")
+        saved_cards(required: true, type: PropertyType.ArrayList , description:  "Cards info")
+        //card_id
+        //payment_method_name
+        //last_four_digits
+    }
+    
+    // Add card button
+    "/wallet/cards/add_card"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
+
+    // Add card button
+    "/wallet/cards/add_card_header"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
+
+    // Back button
+    "/wallet/cards/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
 }

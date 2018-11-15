@@ -155,7 +155,7 @@ trackTests {
                 printed_positions=[]
                 printed_positions_size=0
             }
-
+            geo_search = false
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -172,6 +172,7 @@ trackTests {
             filters = {official_store="140"}
             autoselected_filters = ["official_store"]
             geo_search = "false"
+            filter_tags = "locationFromHistory"
             pads=[]
             pads_info={
                 ids=[]

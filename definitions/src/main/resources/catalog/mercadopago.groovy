@@ -57,6 +57,16 @@ tracks {
     // Merchant Acquisition
     "/merchant_acquisition"(platform: "/", isAbstract: true) {}
     "/merchant_acquisition/qr"(platform: "/", isAbstract: true) {}
+    "/merchant_acquisition/flows"(platform: "/", isAbstract: true) {}
+
+    // QR Assignment
+    "/merchant_acquisition/flows/qr-assignment"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/qr-assignment/success"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
+       status (type: PropertyType.String, required: true, description: "Error Status, ex: invalidAccess, invalidUser, error")
+    }
+    "/merchant_acquisition/flows/qr-assignment/validate_email"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/qr-assignment/qr_scan"(platform:"/", type: TrackType.Event) {}
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
@@ -738,9 +748,15 @@ tracks {
     //Inivite Gift
     "/notification/invite_gift"(platform: "/mobile") {}
 
+    //Messages New
+    "/notification/messages_new"(platform: "/mobile") {}
+
     //Money
     "/notification/money_transfer_received"(platform: "/mobile") {}
     "/notification/money_transfer_request"(platform: "/mobile") {}
+
+    //Loyalty
+    "/notification/loyalty_milestone"(platform: "/mobile") {}
 
     //Prepaid
     "/notification/prepaid_card_shipped"(platform: "/mobile") {
@@ -789,6 +805,29 @@ tracks {
     }
     "/notification/point_shipping_ready_to_ship_delayed"(platform: "/mobile") {
         notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+
+    //Recurring Recharge
+    "/notification/recurring_recharge_insufficient_balance_error"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+
+    //Security
+    "/notification/security_event_feedback"(platform: "/mobile") {}
+
+    //Questions
+    "/notification/questions_new"(platform: "/mobile") {
+        question_id(required: true, type: PropertyType.Numeric)
+    }
+
+    //Seller QR
+    "/notification/seller_qr_payment_received"(platform: "/mobile") {}
+    "/notification/seller_integrations_new_payment"(platform: "/mobile") {}
+    "/notification/seller_integrations_erase_name"(platform: "/mobile") {}
+
+    //Orders New
+    "/notification/orders_new"(platform: "/mobile") {
+        order_id(required: true, type: PropertyType.Numeric)
     }
 
     //Wallet
@@ -917,6 +956,4 @@ tracks {
         activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "where open link from sms")
     }
 
-    // Wallet error view
-    "/wallet_error"(platform: "/mobile", type: TrackType.View) {}
 }

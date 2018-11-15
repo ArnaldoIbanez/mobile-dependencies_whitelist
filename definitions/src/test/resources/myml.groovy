@@ -424,6 +424,40 @@ trackTests {
         }
     }
 
+    test("Invoices Documents pages") {
+        "/myml/invoices/documents/mobile"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/documents/not_found"(platform: "/", type: TrackType.View) {}
+
+        "/myml/invoices/documents/message"(platform: "/", type: TrackType.View) {
+            code = "permission"
+        }
+
+        "/myml/invoices/documents/type"(platform: "/", type: TrackType.View) {}
+
+        "/myml/invoices/documents/type/selection"(platform: "/", type: TrackType.Event) {
+            type = "nfe"
+        }
+
+        "/myml/invoices/documents/gnre"(platform: "/", type: TrackType.View) {
+            start = '20181112'
+            end = '20181112'
+            printed = true
+        }
+
+        "/myml/invoices/documents/gnre/btn/export"(platform: "/", type: TrackType.Event) {
+            start = '20181112'
+            end = '20181112'
+            printed = true
+        }
+
+        "/myml/invoices/documents/success"(platform: "/", type: TrackType.View) {
+            query_data = ""
+        }
+
+        "/myml/invoices/documents/success/btn/listings"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/documents/success/btn/download"(platform: "/", type: TrackType.Event) {}
+    }
+
 
     test("MyML Cart") {
 
@@ -605,6 +639,46 @@ trackTests {
         "/myml/bookmarks"(platform: "/web"){}
         "/myml/questions"(platform: "/web"){}
         "/myml/summary"(platform: "/web"){}
+    }
+
+
+    test("Myml listing pads"){
+        "/myml/listings/show"(platform: "/web"){
+            label = "active"
+            placement = "publicidad-banner"
+            adv_segmentation = "winback"
+            reputationLevel="yellow"
+        }
+        "/myml/listings/hide"(platform: "/web"){
+            label = "active"
+            placement = "publicidad-banner"
+            adv_segmentation = "winback"
+            reputationLevel="yellow"
+        }
+        "/myml/listings/go"(platform: "/web"){
+            label = "active"
+            placement = "publicidad-banner"
+            adv_segmentation = "winback"
+            reputationLevel="yellow"
+        }
+    }
+
+    test("Myml summary pads"){
+        "/myml/summary/show"(platform: "/web"){
+            placement = "publicidad-banner"
+            adv_segmentation = "winback"
+            reputationLevel="yellow"
+        }
+        "/myml/summary/hide"(platform: "/web"){
+            placement = "publicidad-banner"
+            adv_segmentation = "winback"
+            reputationLevel="yellow"
+        }
+        "/myml/summary/go"(platform: "/web"){
+            placement = "publicidad-banner"
+            adv_segmentation = "winback"
+            reputationLevel="yellow"
+        }
     }
 
     test("Myml My Data"){

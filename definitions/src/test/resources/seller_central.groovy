@@ -1,4 +1,3 @@
-
 import com.ml.melidata.TrackType
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
@@ -108,7 +107,7 @@ trackTests {
 
     test("seller central bulk filters and search") {
         "/seller_central/bulk/filters"(platform: "/", type: TrackType.Event) {
-            action = "clear";
+            filters = ["active", "inactive"]
         }
     }
 
@@ -160,15 +159,13 @@ trackTests {
 
 
     test("seller central render detail"){
-        "/seller_central/modify"(platform: "/", type: TrackType.View){
+        "/seller_central/modify/detail"(platform: "/", type: TrackType.View){
             category_id = "MLA390784"
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
             category_domain = "MLA-FRAGRANCES"
             category_path = ["MLA1234", "MLA12345"]
-            seller_id = 12345467
             seller_profile = "ADVANCED"
-            site_id = "MLA"
         }
     }
 
@@ -179,9 +176,7 @@ trackTests {
             session_id = "123-update-abc123"
             category_domain = "MLA-FRAGRANCES"
             category_path = ["MLA1234", "MLA12345"]
-            seller_id = 12345467
             seller_profile = "ADVANCED"
-            site_id = "MLA"
         }
     }
 
@@ -192,9 +187,7 @@ trackTests {
             session_id = "123-update-abc123"
             category_domain = "MLA-FRAGRANCES"
             category_path = ["MLA1234", "MLA12345"]
-            seller_id = 12345467
             seller_profile = "ADVANCED"
-            site_id = "MLA"
         }
     }
 
@@ -205,9 +198,7 @@ trackTests {
             session_id = "123-update-abc123"
             category_domain = "MLA-FRAGRANCES"
             category_path = ["MLA1234", "MLA12345"]
-            seller_id = 12345467
             seller_profile = "ADVANCED"
-            site_id = "MLA"
         }
     }
 
@@ -216,9 +207,7 @@ trackTests {
             category_id = "MLA390784"
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
-            seller_id = 12345467
             seller_profile = "ADVANCED"
-            site_id = "MLA"
             from = "gold_special"
             to = "gold_pro"
         }
@@ -229,30 +218,65 @@ trackTests {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     test("structured data hint available"){
-        "/seller_central/technical_specifications/hints/available"(platform: "/", type: TrackType.Event){
+        "/seller_central/modify/technical_specifications/hints/available"(platform: "/", type: TrackType.Event){
             type = "actionable"
             attribute = "BRAND"
             category_domain= "MLA-CAMERAS"
             item_id= "MLA682118081"
+            session_id = "123-update-abc123"
         }
     }
 
     test("structured data hint showed"){
-        "/seller_central/technical_specifications/hints/showed"(platform: "/", type: TrackType.Event){
+        "/seller_central/modify/technical_specifications/hints/showed"(platform: "/", type: TrackType.Event){
             type = "info"
             attribute = "BRAND"
             category_domain= "MLA-CAMERAS"
             item_id= "MLA682118081"
+            session_id = "123-update-abc123"
         }
     }
 
-    test("structured data hint showed"){
-        "/seller_central/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event){
+    test("structured data hint completed"){
+        "/seller_central/modify/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event){
             type = "actionable"
             user_action = "click"
             attribute = "BRAND"
             category_domain= "MLA-CAMERAS"
             item_id= "MLA682118081"
+            session_id = "123-update-abc123"
+        }
+    }
+
+    test("structured data hint available"){
+        "/seller_central/bulk/technical_specifications/hints/available"(platform: "/", type: TrackType.Event){
+            type = "actionable"
+            attribute = "BRAND"
+            category_domain= "MLA-CAMERAS"
+            item_id= "MLA682118081"
+            session_id = "123-update-abc123"
+        }
+    }
+
+    test("structured data hint showed"){
+        "/seller_central/bulk/technical_specifications/hints/showed"(platform: "/", type: TrackType.Event){
+            type = "info"
+            attribute = "BRAND"
+            category_domain= "MLA-CAMERAS"
+            item_id= "MLA682118081"
+            session_id = "123-update-abc123"
+        }
+    }
+
+
+    test("structured data hint completed"){
+        "/seller_central/bulk/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event){
+            type = "actionable"
+            user_action = "click"
+            attribute = "BRAND"
+            category_domain= "MLA-CAMERAS"
+            item_id= "MLA682118081"
+            session_id = "123-update-abc123"
         }
     }
 }

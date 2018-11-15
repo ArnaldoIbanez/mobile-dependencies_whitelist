@@ -1,45 +1,51 @@
 {
   "users": [
-    "ezequiel.perez@mercadolibre.com",
-    "sebastian.schmukliar@mercadolibre.com"
+    "gabriel.neil@mercadolibre.com",
+    "valentin.orfila@mercadolibre.com",
+    "ignacio.guri@mercadolibre.com"
   ],
-  "process_name": "seller_central_actions",
-  "cron": "00 08 * * *",
+  "process_name": "consumer_journey_email_v2",
+  "cron": "0 5 * * *",
   "partition": {
-    "name": "ds",
+    "name": "date_sent",
     "type": "DATE"
   },
   "extract": {
     "operation": "append",
-    "site": "QA",
+    "site": "MeliLake",
     "columns": [
       {
-        "name": "quantity",
+        "name": "total",
         "type": "INTEGER"
       },
       {
-        "name": "source",
+        "name": "event_type",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "accion",
+        "name": "milestone",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "columnas",
+        "name": "bucket",
         "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "seller_central/seller_central.sql",
+      "script": "business-assurance/credits_consumer_journey_email_v2.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "DAY-8",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
+          "value": "DAY-7",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param03",
           "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
