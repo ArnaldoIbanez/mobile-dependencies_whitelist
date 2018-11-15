@@ -107,7 +107,7 @@ trackTests {
 
     test("seller central bulk filters and search") {
         "/seller_central/bulk/filters"(platform: "/", type: TrackType.Event) {
-            action = "clear";
+            filters = ["active", "inactive"]
         }
     }
 

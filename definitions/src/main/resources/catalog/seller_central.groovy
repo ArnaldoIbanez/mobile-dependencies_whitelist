@@ -73,9 +73,9 @@ tracks {
     }
 
     "/seller_central/bulk/filters"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Id of the action", values:["apply", "clear"])
-
+        filters(required: true, type: PropertyType.ArrayList, description: "List of selected filters")
     }
+
     "/seller_central/bulk/search"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/bulk/undo_changes"(platform: "/", type: TrackType.Event) {}
