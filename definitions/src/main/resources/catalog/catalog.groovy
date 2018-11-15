@@ -80,6 +80,7 @@ catalog {
         include business, "melidata_sdk.groovy"
         include business, "mobile.groovy"
         include business, "myml.groovy"
+        include business, "myml_mercadoshops.groovy"
         include business, "seller_central.groovy"
         include business, "notifications.groovy"
         include business, "onboarding.groovy"
