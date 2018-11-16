@@ -62,6 +62,7 @@ tracks {
     "/wms/inbound_audit/item"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/inbound_audit/damaged_item"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/inbound_audit/count_around"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/inbound_audit/count_around/congrats"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/inbound_audit/congrats"(platform: "/mobile/android", type: TrackType.View) {}
 
     "/wms/inbound_audit/confirmation/start_audit"(platform: "/mobile/android", type: TrackType.Event) {}
