@@ -206,6 +206,12 @@ trackTests {
             cycle_count_id = 123
             address_id = "RS-0-001-001-00-00"
         }
+        "/wms/cycle_count/scan_inventory/finish_cycle_count"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            cycle_count_id = 123
+            address_id = "RS-0-001-001-00-00"
+        }
         "/wms/cycle_count/item"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
