@@ -4,6 +4,10 @@
   ],
   "process_name": "fbm_wms_tracks_count",
   "cron": "0 6 * * *",
+  "partition": {
+    "name": "fecha",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
     "site": "Shipping",

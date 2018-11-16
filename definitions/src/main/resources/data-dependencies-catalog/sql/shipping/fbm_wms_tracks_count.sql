@@ -1,10 +1,10 @@
 select
 jest(event_data, 'warehouse_id') as warehouse,
 path,
-count(*) as cantidad
+count(*) as cantidad,
+substr(ds,1,10) as fecha
 from tracks
 where path like '/wms/%'
 and ds >= '@param01'
 and ds < '@param02'
-group by jest(event_data, 'warehouse_id'), path
-order by cantidad desc
+group by substr(ds,1,10), jest(event_data, 'warehouse_id'), path
