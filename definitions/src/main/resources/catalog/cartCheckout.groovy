@@ -112,10 +112,6 @@ tracks {
     loyalty_level(required:false, description:"The loyalty level of the buyer") 
 }
 
-"/cart/checkout/geolocation" (platform: "/", type: TrackType.Event) {
-        geolocation_error(required: true, description: "Why the geo failed")
-}
-
 "/cart/checkout/items_not_available"(platform:"/", type: TrackType.View) {}
 
 "/cart/checkout/error"(platform:"/", type: TrackType.View) {}
@@ -249,6 +245,10 @@ tracks {
 }
 
 "/cart/checkout"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
+
+"/cart/checkout/geolocation"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        geolocation_error(required: true, description: "Why the geo failed")
+}
 
 "/cart/checkout/shipping"(platform:"/mobile", type: TrackType.View) {}
 
@@ -446,6 +446,10 @@ tracks {
 "/cart/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", type: TrackType.Event) {}
 
 "/cart/checkout/shipping/input_new_address"(platform:"/web", type: TrackType.View) {}
+
+"/cart/checkout/geolocation" (platform: "/web", type: TrackType.Event) {
+        geolocation_error(required: true, description: "Why the geo failed")
+}
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin Web platform
