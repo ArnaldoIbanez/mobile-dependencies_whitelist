@@ -131,8 +131,8 @@ tracks {
     "/wms/cycle_count/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/cycle_count/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/cycle_count/item"(platform: "/mobile/android", type: TrackType.View) {
-        inventory_id(required: true, type: PropertyType.String, description: "Inventory id")
-        quantity(required: true, type: PropertyType.Numeric, description: "Item quantity")
+        inventory_id(required: false, type: PropertyType.String, description: "Inventory id")
+        quantity(required: false, type: PropertyType.Numeric, description: "Item quantity")
     }
 
     "/wms/cycle_count/confirmation/start_cycle_count"(platform: "/mobile/android", type: TrackType.Event) {}
