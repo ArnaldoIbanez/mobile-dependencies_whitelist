@@ -80,8 +80,6 @@ tracks {
     "/wms/picking/confirmation"(platform: "/mobile/android", type: TrackType.View) {
         pickup_id(required: false, type: PropertyType.String, description: "Id of the Pickup")
     }
-    "/wms/picking/scan_closest_address"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/picking/floor_selection"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/picking/scan_container"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/picking/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/picking/item"(platform: "/mobile/android", type: TrackType.View) {
@@ -105,6 +103,8 @@ tracks {
     "/wms/picking/congrats"(platform: "/mobile/android", type: TrackType.View) {}
 
     "/wms/picking/confirmation/start_pickup"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/picking/confirmation/scan_closest_address"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/picking/confirmation/floor_selection"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/picking/item/item_not_found"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/picking/item/finish_checkpoint"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/picking/scan_destination/finish_checkpoint"(platform: "/mobile/android", type: TrackType.Event) {}

@@ -137,12 +137,12 @@ trackTests {
             trackDataForPickingDefault()
             warehouse_id = "BRWT01"
         }
-        "/wms/picking/scan_closest_address"(platform: "/mobile/android") {
+        "/wms/picking/confirmation/scan_closest_address"(platform: "/mobile/android") {
             trackDataForPickingDefault()
             warehouse_id = "BRWT01"
             pickup_id = "1"
         }
-        "/wms/picking/floor_selection"(platform: "/mobile/android") {
+        "/wms/picking/confirmation/floor_selection"(platform: "/mobile/android") {
             trackDataForPickingDefault()
             warehouse_id = "BRWT01"
             pickup_id = "1"
