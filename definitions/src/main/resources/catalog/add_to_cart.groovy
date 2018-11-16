@@ -22,6 +22,7 @@ tracks {
         add_cart_info(add_to_cart_availability, main_action, context)
     }
 
+    // THE IMPORTANT TRACK. Is tracked automatically by page X. If you don't redirect to page X, you are repsonsible for tracking it 
     "/add_to_cart"(platform: "/", type: TrackType.Event) {
         items( required: true,description: "Item ids that are being added", type: PropertyType.ArrayList )
         //currency_id
@@ -33,6 +34,7 @@ tracks {
         add_cart_info
     }
 
+    // Optional indicating you may want to try to add things to a carrito
     "/add_cart_intention"(platform: "/", type: TrackType.Event) {
         items(required: true, description: "Item ids that are being added", type: PropertyType.ArrayList)
          //currency_id

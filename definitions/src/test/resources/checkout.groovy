@@ -301,6 +301,10 @@ trackTests {
             edit_flow = true
             checkoutStatus()
         }
+        "/checkout/shipping/custom_address/zip_code/back"(platform:"/mobile", type:TrackType.Event) {
+            edit_flow = true
+            checkoutStatus()
+        }
         "/checkout/shipping/custom_address/zip_code#zip_code"(platform:"/mobile", type: TrackType.Event) {
             zip_code = "1437"
         }
@@ -406,6 +410,10 @@ trackTests {
             checkoutStatus()
             contact_name = "Juan"
             contact_phone = "555-5555"
+        }
+       "/checkout/shipping/location/new_contact#submit"(platform:"/mobile", type:TrackType.Event) {
+            success = true
+            session_id = "1241n1kj2nk14141nl12nl"
         }
         "/checkout/shipping/select_address"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -1876,6 +1884,8 @@ trackTests {
         "/checkout/payment/input_second_password"(platform:"/web", dataSet)
         "/checkout/payment/input_second_password/edit_payment"(platform:"/web", dataSet)
         "/checkout/payment/billing_information"(platform:"/web", dataSet)
+        "/checkout/billing/physical_person"(platform:"/web", dataSet)
+        "/checkout/billing/legal_person"(platform:"/web", dataSet)
         "/checkout/review/edit_payment"(platform:"/web", dataSet)
         "/checkout/review/edit_first_payment"(platform:"/web", dataSet)
         "/checkout/review/edit_second_payment"(platform:"/web", dataSet)

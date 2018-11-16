@@ -275,7 +275,7 @@ tracks {
     "/flex/package/not_delivered_reason/form/other_reason"(platform: "/mobile", type: TrackType.Event) {
         packsAndLocation
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
-        reason(required: true, type: PropertyType.String, description: "The driver's reason why the pack wasn't delivered", inheritable:false)
+        reason(required: false, type: PropertyType.String, description: "The driver's reason why the pack wasn't delivered", inheritable:false)
     }
 
     "/flex/package/not_delivered_reason/form"(platform: "/mobile", type: TrackType.View) {
@@ -291,5 +291,8 @@ tracks {
     "/flex/package/detail/receipt/back"(platform: "/mobile", type: TrackType.Event) {
         packsAndLocation
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+    "/flex/login/select_country"(platform: "/mobile", type: TrackType.View) {
     }
 }

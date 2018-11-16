@@ -489,6 +489,22 @@ trackTests {
         "/merchant_acquisition/qr/landing/landing-get-qr-code"(platform: "/", type: TrackType.Event) {}
     }
 
+    test("MP-MA Flow QR Assignment") {
+        "/merchant_acquisition/flows/qr-assignment"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-assignment/success"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
+            status = 'invalidAccess'
+        }
+        "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
+            status = 'invalidUser'
+        }
+        "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
+            status = 'error'
+        }
+        "/merchant_acquisition/flows/qr-assignment/validate_email"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/flows/qr-assignment/qr_scan"(platform:"/", type: TrackType.Event) {}
+    }
+
     test("MP-MA Flow QR") {
         "/merchant_acquisition/qr/onboarding"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/qr-code"(platform:"/", type: TrackType.View) {}
@@ -598,7 +614,7 @@ trackTests {
     test("Camera") {
         "/camera"(platform: "/mobile/android") {
         }
-        
+
     }
 
     test("Sign In") {
@@ -2061,14 +2077,24 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/messages_new"(platform: "/mobile") {
+            news_id = "messages_new_123"
+            event_type = "open"
+        }
+
         "/notification/money_transfer_received"(platform: "/mobile") {
-                news_id = "123"
-                event_type = "open"
+            news_id = "123"
+            event_type = "open"
         }
 
         "/notification/money_transfer_request"(platform: "/mobile") {
-                news_id = "123"
-                event_type = "open"
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/loyalty_milestone"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
         }
 
         "/notification/prepaid_card_shipped"(platform: "/mobile") {
@@ -2106,8 +2132,15 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+
         "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {
             news_id = "prepaid_card-second_activation_reminder-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_activation_reminder-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -2152,6 +2185,44 @@ trackTests {
             news_id = "point_shipping-ready_to_ship_delayed-186785675"
             event_type = "open"
             notification_type= "deep_linking"
+        }
+
+        "/notification/recurring_recharge_insufficient_balance_error"(platform: "/mobile") {
+            news_id = "recurring_recharge_insufficient_balance_error-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/security_event_feedback"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/questions_new"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "dismiss"
+            question_id = 1234
+        }
+
+        "/notification/seller_qr_payment_received"(platform: "/mobile") {
+            news_id = "seller_qr_payment_received-186785675"
+            event_type = "open"
+        }
+
+        "/notification/seller_integrations_new_payment"(platform: "/mobile") {
+            news_id = "seller_integrations_new_payment-186785675"
+            event_type = "open"
+        }
+
+        "/notification/seller_integrations_erase_name"(platform: "/mobile") {
+            news_id = "seller_integrations_erase_name-186785675"
+            event_type = "open"
+        }
+
+        "/notification/orders_new"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            order_id = 12132
         }
 
         "/notification/wallet_integrator_insufficient_amount"(platform: "/mobile") {
@@ -3389,6 +3460,35 @@ trackTests {
         "/free_navigation/wifi"(platform:"/mobile", type:TrackType.Event) {}
     }
 
+    test("MPConnect Lib") {
+         "/google_connect/init_flow"(platform:"/mobile", type: TrackType.Event) {
+             type = "no_params"
+         }
+
+         "/google_connect/init_flow"(platform:"/mobile", type: TrackType.Event) {
+             type = "normal"
+             withToken = false
+             withAuthRequest = false
+         }
+
+         "/google_connect/init_flow"(platform:"/mobile", type: TrackType.Event) {
+             type = "normal"
+             withAuthRequest = true
+         }
+
+         "/google_connect/init_flow"(platform:"/mobile", type: TrackType.Event) {
+             type = "reauthentication"
+             withToken = true
+             withAuthRequest = false
+         }
+
+         "/google_connect/end_flow"(platform:"/mobile", type: TrackType.Event) {
+             status = "approved"
+         }
+         "/google_connect/end_flow"(platform:"/mobile", type: TrackType.Event) {
+             status = "canceled"
+         }
+     }
 
     test("Bugsnag tracks to use on Canejo MP") {
         "/mobile/bugsnag"(platform:"/mobile/android", type:TrackType.Event) {
@@ -3453,7 +3553,4 @@ trackTests {
         }
     }
 
-    test("Wallet") {
-        "/wallet_error"(platform: "/mobile", type: TrackType.View) {}
-    }
 }

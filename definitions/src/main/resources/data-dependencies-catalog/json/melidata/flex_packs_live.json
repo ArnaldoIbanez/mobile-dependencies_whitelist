@@ -25,6 +25,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "list_timestamp",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "longitude",
         "type": "DOUBLE"
       },

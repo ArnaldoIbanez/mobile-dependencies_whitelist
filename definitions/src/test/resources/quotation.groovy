@@ -12,7 +12,6 @@ trackTests {
 
         "/quotation/details"(platform: "/") {
             item_id = "MLM2222222"
-            seller_id = 123456789
         }
 
         "/quotation/details"(platform: "/web") {
@@ -21,15 +20,14 @@ trackTests {
             category_id = "MLM170531"
             vertical = "REAL_ESTATE"
             error_type = ""
-            model_id = 23544349337
+            model_id = "102B"
             unit_id = 23544349337
         }
 
         "/quotation/details"(platform: "/mobile") {
             item_id = "MLM2222222"
-            seller_id = 123456789
             vertical = "REAL_ESTATE"
-            model_id = 23544349337
+            model_id = "102B"
             unit_id = 23544349337
         }
     }
@@ -42,7 +40,7 @@ trackTests {
 
         "/quotation/models"(platform: "/mobile") {
             item_id = "MLM2222222"
-            model_id = "MLM170531"
+            model_id = "102B"
         }
     }
 
@@ -75,7 +73,7 @@ trackTests {
 
         "/quotation/quote_intention"(platform: "/mobile") {
             item_id = "MLM2222222"
-            model_id = "MLM170531"
+            model_id = "102B"
             unit_id = "54321"
         }
     }
@@ -91,7 +89,6 @@ trackTests {
     test("Quotation :: Show congrats tracking") {
         "/quotation/congrats"(platform: "/") {
             item_id = "MLM2222222"
-            unit_id = 54321
         }
 
         "/quotation/congrats"(platform: "/web") {
@@ -99,9 +96,14 @@ trackTests {
             category_id = "MLM170531"
             seller_id = 123456789
             vertical = "REAL_ESTATE"
-            model_id = 12345
+            model_id = "102B"
             unit_id = 54321
             error_type = ""
+        }
+
+        "/quotation/congrats"(platform: "/mobile") {
+            item_id = "MLM2222222"
+            unit_id = "54321"
         }
     }
 
@@ -116,7 +118,17 @@ trackTests {
             seller_id = 123456789
             vertical = "REAL_ESTATE"
             item_id = "MLM2222222"
-            model_id = "12345"
+            model_id = "102B"
+            unit_id = 54321
+        }
+    }
+
+    test("Quotation :: Modal Model") {
+        "/quotation/modal-model"(platform: "/") {
+            seller_id = 123456789
+            vertical = "REAL_ESTATE"
+            item_id = "MLM2222222"
+            model_id = "102B"
             unit_id = 54321
         }
     }

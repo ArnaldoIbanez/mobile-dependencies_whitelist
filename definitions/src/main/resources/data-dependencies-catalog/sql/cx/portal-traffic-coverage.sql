@@ -6,8 +6,8 @@ application.business as business,
 application.site_id as site_id,
 device.platform as platform,
 count(t.id) as quantity,
-substr(t.ds, 12, 2) AS requested_datetime_hour,
-substr(t.ds, 1, 10) AS requested_datetime_day
+substr(from_unixtime(unix_timestamp(t.ds, 'yyyy-MM-dd HH')+3600), 1, 10) AS requested_datetime_day,
+substr(from_unixtime(unix_timestamp(t.ds, 'yyyy-MM-dd HH')+3600), 12, 2) AS requested_datetime_hour
 FROM tracks t 
 LATERAL VIEW json_tuple(t.event_data, 
               'portal_source_id', 
@@ -25,5 +25,5 @@ v2.portal_has_channels_configured,
 application.business,  
 application.site_id,
 device.platform,
-substr(t.ds, 12, 2),
-substr(t.ds, 1, 10)
+substr(from_unixtime(unix_timestamp(t.ds, 'yyyy-MM-dd HH')+3600), 1, 10),
+substr(from_unixtime(unix_timestamp(t.ds, 'yyyy-MM-dd HH')+3600), 12, 2)

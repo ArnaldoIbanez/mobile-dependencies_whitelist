@@ -28,6 +28,7 @@ tracks {
 
         billboards(required: false, description: "items ids from billboard results", PropertyType.ArrayList)
         pads(required: false, description: "item_id from the pads returned for listings")
+        pads_info(required: false, description: "Info from the pads returned for listings")
         catalog_product_id(required: false, description: "Id of the product, only if the product header is showna", PropertyType.String)
 
         //Tracks from Search Backend:
@@ -56,13 +57,14 @@ tracks {
         related_searches_info(required: false, description: 'Tracks related searches coverage')
         canonical(required: false, description: 'url: canonical URL for the request; no_follow_tag: if the link rel="canonical" has no follow parameter; if the canonical URL has a mirror category configured')
         autosuggest(required: false, description:'indicates whether clicked autosuggest')
-        landing(required:false, description:'indicates landing base, premium, etc', values: ["base","premium","offical_store","deal", "cpg"])
+        landing(required:false, description:'indicates landing base, premium, etc', values: ["base","premium","offical_store","deal", "cpg","officialStore","marketplace"])
         upper_funnel(required: false, description: 'indicates if advertising query was considered upper funnel')
         geolocation(required: false, description:'geolocation')
         layout_forced(required: false, description:'true if layout is changed by the user')
         shown_as_product(required: false, description: 'item ids shown with product link')
         has_logos(required: false, description: "indicates if there is an item with logos", PropertyType.Boolean)
         promise_items(required: false, description:  "items with shipping promise", PropertyType.ArrayList)
+        geo_search(required: false, description: "search with geolocation", type: PropertyType.Boolean)
     }
 
     "/search"(platform: "/mobile") {
@@ -77,6 +79,7 @@ tracks {
         billboards(required: false, description: "override required property")
         pads(required: false, description: "override required property") //esto estaba solo para web antes*/
         geo_search(required: false, description: "search with geolocation", type: PropertyType.String)
+        filter_tags(required: false, description: "these are tags that aren't very important", type: PropertyType.String)
         breadcrumb_refined(required: false, description: 'if user used breadcrumb to refine their search',PropertyType.Boolean)
         error_message(required: false, PropertyType.String)
 

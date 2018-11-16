@@ -33,6 +33,16 @@ tracks {
      *       Start: Merchants Administrator
      ******************************************/
 
+    //Transactional
+    "/credits/merchant/administrator/congrats"(platform: "/", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, values: ['voluntary_payment'])
+    }
+    "/credits/merchant/administrator/error"(platform: "/", type: TrackType.View) {
+        reason(type: PropertyType.String, required: true, values: ['insufficient_account_money',
+                                                                   'lender_cannot_collect_installments',
+                                                                   'default'])
+    }
+
     //Dashboard merchants
     //Page Views
     "/credits/merchant/administrator/dashboard"(platform: "/", type: TrackType.View) {
@@ -50,6 +60,9 @@ tracks {
     "/credits/merchant/hero_cta"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant/second_offer_cta"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant/help"(platform: "/", type: TrackType.Event) {}
+
+    //Voluntary Payment
+    "/credits/merchant/administrator/next_installment_payment"(platform: "/", type: TrackType.View) {}
 
     /******************************************
      *       End: Merchants Administrator

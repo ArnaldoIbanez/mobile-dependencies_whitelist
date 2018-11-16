@@ -162,6 +162,8 @@ tracks {
     "/vip/buy_action"(platform: "/", parentPropertiesInherited: false) {
         item_id(required: false, type: PropertyType.String, description: "Item ID")
         quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to buy")
+        category_id(required: false, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         add_cart_info
         shipping_info
     }
@@ -169,6 +171,8 @@ tracks {
     "/vip/add_cart_action"(platform: "/", parentPropertiesInherited: false) {
         item_id(required: false, type: PropertyType.String, description: "Item ID")
         quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to a2c")
+        category_id(required: false, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         add_cart_info
         shipping_info
     }
@@ -244,6 +248,8 @@ tracks {
     "/vip/coordinate_availability"(platform: "/mobile", type: TrackType.Event) {}
 
     "/vip/contract_intention"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/vip/similar_vehicles"(platform: "/mobile", type: TrackType.Event) {}
 
     "/vip/map/"(platform: "/mobile") {}
 
@@ -510,5 +516,35 @@ tracks {
         original_price(required: true, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
         currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
         
+    }
+
+    "/vip/shipping_calculator"(platform: "/", type: TrackType.View, parentPropertiesInherited: false){
+        location(required: true, description: "User Location")
+        //Location
+            //type: [address | zip_code]
+            //value: String
+        shipping_methods(required: true,  type: PropertyType.ArrayList,description: "Shipping Methods")
+    //Shipping Method
+        //promise 
+        //  from: Integer
+        //  to: Integer
+        //  deferred: Bool 
+        //cost: Integer
+        //promoted_amount: Integer
+        //delivery_type: [seller_agreement|puis|delivery|post_office]
+        //selected: BOOL
+    }
+
+    "/vip/shipping_calculator/select"(platform: "/", type: TrackType.Event){
+        selected_method(required: true, description: "Shipping Methods")
+    }
+
+    "/vip/shipping_calculator/cancel"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+    }
+
+    "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+    }
+
+    "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
     }
 }

@@ -7,8 +7,6 @@ tracks {
     propertyDefinitions {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
-        site_id(required: true, type: PropertyType.String, description: "Id of the site")
-        seller_id(required: true, type: PropertyType.Numeric, description: "Seller id")
         seller_profile(required: true, type: PropertyType.String, description: "Type of seller")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         category_domain(required: false, type: PropertyType.String, description: "Item category domain")
@@ -18,8 +16,9 @@ tracks {
     }
 
     propertyGroups {
-        sellerCentralModifyGroup(category_id, site_id, seller_id, seller_profile, item_id, session_id, category_domain, category_path)
-        hintsGroup(type, attribute, item_id)
+        sellerCentralModifyGroup(item_id, session_id)
+        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path)
+        hintsGroup(type, attribute)
     }
 
     //LISTING SECTION
@@ -74,9 +73,9 @@ tracks {
     }
 
     "/seller_central/bulk/filters"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Id of the action", values:["apply", "clear"])
-
+        filters(required: true, type: PropertyType.ArrayList, description: "List of selected filters")
     }
+
     "/seller_central/bulk/search"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/bulk/undo_changes"(platform: "/", type: TrackType.Event) {}
@@ -110,46 +109,67 @@ tracks {
 
     //ITEM DETAIL SECTION
 
-    "/seller_central/modify"(platform: "/", type: TrackType.View) {
+    "/seller_central/modify"(platform: "/", isAbstract: true) {
         sellerCentralModifyGroup
+    }
+
+    "/seller_central/modify/detail"(platform: "/", type: TrackType.View) {
+        sellerCentralModifyCardsGroup
     }
 
     "/seller_central/modify/variations"(platform: "/", type: TrackType.View) {
-        sellerCentralModifyGroup
+        sellerCentralModifyCardsGroup
     }
 
     "/seller_central/modify/variations_custom"(platform: "/", type: TrackType.View) {
-        sellerCentralModifyGroup
+        sellerCentralModifyCardsGroup
     }
 
     "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View) {
-        sellerCentralModifyGroup
+        sellerCentralModifyCardsGroup
     }
 
     "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event) {
-        sellerCentralModifyGroup
+        sellerCentralModifyCardsGroup
         from(required: true, type: PropertyType.String, description: "Current listing type value")
         to(required: true, type: PropertyType.String, description: "Updated listing type value")
     }
 
     //STRUCTURED DATA
 
-    "/seller_central/technical_specifications"(platform: "/", isAbstract: true) {}
-    "/seller_central/technical_specifications/hints"(platform: "/", isAbstract: true) {}
-
-    "/seller_central/technical_specifications/hints/available"(platform: "/", type: TrackType.Event) {
+    "/seller_central/modify/technical_specifications"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/technical_specifications/hints"(platform: "/", isAbstract: true) {
         hintsGroup
         category_domain(required: true, type: PropertyType.String, description: "Item category domain")
     }
 
-    "/seller_central/technical_specifications/hints/showed"(platform: "/", type: TrackType.Event) {
-        hintsGroup
-        category_domain(required: true, type: PropertyType.String, description: "Item category domain")
+    "/seller_central/modify/technical_specifications/hints/available"(platform: "/", type: TrackType.Event) {
+
     }
 
-    "/seller_central/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event) {
+    "/seller_central/modify/technical_specifications/hints/showed"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/seller_central/modify/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event) {
+        user_action(required: false, type: PropertyType.String, description: "Type of user action", values: ["click", "write"])
+    }
+
+
+    "/seller_central/bulk/technical_specifications"(platform: "/", isAbstract: true) {}
+    "/seller_central/bulk/technical_specifications/hints"(platform: "/", isAbstract: true) {
         hintsGroup
         category_domain(required: true, type: PropertyType.String, description: "Item category domain")
-        user_action(required: true, type: PropertyType.String, description: "Type of user action", values: ["click", "write"])
+        item_id(required: true, type: PropertyType.String, description: "Id of item used to")
+        session_id(required: true, type: PropertyType.String, description: "Id for user session")
+    }
+
+    "/seller_central/bulk/technical_specifications/hints/available"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/seller_central/bulk/technical_specifications/hints/showed"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/seller_central/bulk/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event) {
+        user_action(required: false, type: PropertyType.String, description: "Type of user action", values: ["click", "write"])
     }
 }
