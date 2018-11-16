@@ -112,10 +112,6 @@ trackTests {
             trackDataForAudit()
             warehouse_id = "BRWT01"
         }
-        "/wms/inbound_audit/count_around/congrats"(platform: "/mobile/android") {
-            trackDataForAudit()
-            warehouse_id = "BRWT01"
-        }
         "/wms/inbound_audit/congrats"(platform: "/mobile/android") {
             trackDataForAudit()
             warehouse_id = "BRWT01"
