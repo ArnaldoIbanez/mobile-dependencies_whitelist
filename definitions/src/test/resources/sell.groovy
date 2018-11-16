@@ -72,13 +72,13 @@ trackTests {
             ]
         }
     }
-    
+
     test("track qr barcode printing intention"){
         "/sell/qr/print_intention"(platform: "/web", type: TrackType.View){
             item_id = "MLA705994967"
             user_type = "normal"
             listing_type_id = "gold"
-            vertical = "MOTOR" 
+            vertical = "MOTOR"
             referrer = "email"
         }
     }
@@ -352,6 +352,8 @@ trackTests {
         "/sell/list/congrats_upgrade"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/congrats/payment_pending" (platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
 
+        "/sell/list/technical_specifications"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/product_identifier"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/attribute"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/category/selection/l1"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/category/selection/l2"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
