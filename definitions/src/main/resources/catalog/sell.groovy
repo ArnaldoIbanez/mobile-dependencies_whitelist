@@ -248,6 +248,8 @@ tracks {
         is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.Boolean)
         category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
     }
+    "/sell/list/technical_specifications"(platform: "/", type: TrackType.View) {}
+    "/sell/list/product_identifier"(platform: "/", type: TrackType.View) {}
     "/sell/list/phone_suggestion"(platform:"/mobile", type:TrackType.View){}
     "/sell/list/condition"(platform: "/", type: TrackType.View) {}
     "/sell/list/condition_review"(platform: "/", type: TrackType.View) {}
@@ -562,7 +564,7 @@ tracks {
 
     // QR tracking
     "/sell/qr"(platform: "/", isAbstract: true) {}
-    
+
     "/sell/qr/print_intention"(platform: "/web", type: TrackType.View){
         item_id(required: true)
         user_type(required: true, description: "The type of User that opened the QR code", values: ["car_dealer", "normal", "unknown"])
