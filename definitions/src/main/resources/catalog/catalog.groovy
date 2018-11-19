@@ -86,6 +86,7 @@ catalog {
         include business, "orders_feed.groovy"
         include business, "pushNotifications.groovy"
         include business, "quotation.groovy"
+        include business, "quote.groovy"
         include business, "questions.groovy"
         include business, "recommendations.groovy"
         include business, "referralprogram.groovy"
