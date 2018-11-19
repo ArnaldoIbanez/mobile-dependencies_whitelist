@@ -13,11 +13,6 @@
     "site": "MeliLake",
     "columns": [
       {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
-      {
         "name": "site",
         "type": "UNICODE_STRING"
       },
