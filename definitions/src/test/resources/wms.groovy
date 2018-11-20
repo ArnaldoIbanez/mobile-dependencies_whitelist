@@ -137,12 +137,12 @@ trackTests {
             trackDataForPickingDefault()
             warehouse_id = "BRWT01"
         }
-        "/wms/picking/scan_closest_address"(platform: "/mobile/android") {
+        "/wms/picking/confirmation/scan_closest_address"(platform: "/mobile/android") {
             trackDataForPickingDefault()
             warehouse_id = "BRWT01"
             pickup_id = "1"
         }
-        "/wms/picking/floor_selection"(platform: "/mobile/android") {
+        "/wms/picking/confirmation/floor_selection"(platform: "/mobile/android") {
             trackDataForPickingDefault()
             warehouse_id = "BRWT01"
             pickup_id = "1"
@@ -197,6 +197,12 @@ trackTests {
             address_id = "RS-0-001-001-00-00"
         }
         "/wms/cycle_count/scan_inventory"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            cycle_count_id = 123
+            address_id = "RS-0-001-001-00-00"
+        }
+        "/wms/cycle_count/scan_inventory/finish_cycle_count"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
             cycle_count_id = 123

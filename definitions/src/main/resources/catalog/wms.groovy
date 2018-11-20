@@ -80,8 +80,6 @@ tracks {
     "/wms/picking/confirmation"(platform: "/mobile/android", type: TrackType.View) {
         pickup_id(required: false, type: PropertyType.String, description: "Id of the Pickup")
     }
-    "/wms/picking/scan_closest_address"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/picking/floor_selection"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/picking/scan_container"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/picking/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/picking/item"(platform: "/mobile/android", type: TrackType.View) {
@@ -105,6 +103,8 @@ tracks {
     "/wms/picking/congrats"(platform: "/mobile/android", type: TrackType.View) {}
 
     "/wms/picking/confirmation/start_pickup"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/picking/confirmation/scan_closest_address"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/picking/confirmation/floor_selection"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/picking/item/item_not_found"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/picking/item/finish_checkpoint"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/picking/scan_destination/finish_checkpoint"(platform: "/mobile/android", type: TrackType.Event) {}
@@ -130,14 +130,15 @@ tracks {
     "/wms/cycle_count/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/cycle_count/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/cycle_count/item"(platform: "/mobile/android", type: TrackType.View) {
-        inventory_id(required: true, type: PropertyType.String, description: "Inventory id")
-        quantity(required: true, type: PropertyType.Numeric, description: "Item quantity")
+        inventory_id(required: false, type: PropertyType.String, description: "Inventory id")
+        quantity(required: false, type: PropertyType.Numeric, description: "Item quantity")
     }
 
     "/wms/cycle_count/confirmation/start_cycle_count"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/cycle_count/scan_inventory/finish_cycle_count"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/cycle_count/item/finish_cycle_count"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/cycle_count/scan_inventory/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/cycle_count/scan_inventory/finish_cycle_count"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/cycle_count/item/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/cycle_count/item/reset_address"(platform: "/mobile/android", type: TrackType.Event) {
         navigate_to_home(required: true, type: PropertyType.Boolean, description: "Whether or not the reset event is triggered by the user navigating to the home screen.")
