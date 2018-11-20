@@ -11,13 +11,13 @@ trackTests {
     test("Quote :: Show listing seller tracking") {
         //Quote Seller Tracks
         "/quote/seller"(platform: "/") {
-           vertical = "SERVICE"
+           vertical = "services"
            seller_id = 33624088
         }
 
         //Quote Seller :: Listing - Query String
         "/quote/seller/listing"(platform: "/web",type: TrackType.Event) {
-            vertical = "SERVICE"
+            vertical = "services"
             seller_id = 33624088
             querystring = "url=?page=2&&filter=32"
         }
@@ -105,7 +105,7 @@ trackTests {
             vertical = "services"
             price = 15.3
             currency_id = "ARS"
-            action = "modal_messages"
+            action = "show_modal_messages"
         }
     }
 
@@ -156,7 +156,7 @@ trackTests {
             vertical = "services"
             price = 15.3
             currency_id = "ARS"
-            action = "modal_messages"
+            action = "show_modal_messages"
         }
     }
 
@@ -172,7 +172,7 @@ trackTests {
             quote_status = "active"
             seller_id = 33624088
             buyer_id = 64567088
-            vertical = "SERVICES"
+            vertical = "services"
         }
 
         //quote seller :: Quote Create - steps
@@ -186,7 +186,7 @@ trackTests {
             quote_status = "active"
             seller_id = 33624088
             buyer_id = 64567088
-            vertical = "SERVICES"
+            vertical = "services"
             action = "step"
         }
         //quote seller :: Quote Create - submit
@@ -200,7 +200,7 @@ trackTests {
             quote_status = "active"
             seller_id = 33624088
             buyer_id = 64567088
-            vertical = "SERVICES"
+            vertical = "services"
             action = "submit"
         }
         //quote seller :: Quote Create - modal messages
@@ -214,8 +214,8 @@ trackTests {
             quote_status = "active"
             seller_id = 33624088
             buyer_id = 64567088
-            vertical = "SERVICES"
-            action = "modal_messages"
+            vertical = "services"
+            action = "show_modal_messages"
         }
     }
 
@@ -229,7 +229,7 @@ trackTests {
             quote_demand_status = "active"
             buyer_id = 64567088
             seller_id = 33624088
-            vertical = "SERVICES"
+            vertical = "services"
         }
         //quote seller :: Quote Create - confirmation
         "/quote/seller/create/confirmation"(platform: "/web",type: TrackType.Event) {
@@ -240,7 +240,7 @@ trackTests {
             buyer_id = 64567088
             category_id = "MLA43718"
             category_path = ["MLA1234","MLA6789"]
-            vertical = "SERVICES"
+            vertical = "services"
             action = "send_quote"
         }
 
@@ -255,7 +255,7 @@ trackTests {
             buyer_id = 64567088
             category_id = "MLA43718"
             category_path = ["MLA1234","MLA6789"]
-            vertical = "SERVICES"
+            vertical = "services"
         }
         //quote seller :: Quote Edit - confirmation
         "/quote/seller/create/edit"(platform: "/web",type: TrackType.Event) {
@@ -265,7 +265,7 @@ trackTests {
             buyer_id = 64567088
             category_id = "MLA43718"
             category_path = ["MLA1234","MLA6789"]
-            vertical = "SERVICES"
+            vertical = "services"
             action = "confirmation_edit"
         }
     }
@@ -282,7 +282,7 @@ trackTests {
             buyer_id = 64567088
             category_id = "MLA43718"
             category_path = ["MLA1234", "MLA6789"]
-            vertical = "SERVICES"
+            vertical = "services"
             price = 15.3
             currency_id = "ARS"
         }
@@ -297,7 +297,7 @@ trackTests {
             buyer_id = 64567088
             category_id = "MLA43718"
             category_path = ["MLA1234","MLA6789"]
-            vertical = "SERVICES"
+            vertical = "services"
             price = 15.3
             currency_id = "ARS"
             action = "go_listing"
@@ -307,8 +307,6 @@ trackTests {
     test("Quote :: Show buyer tracking") {
         //Quote Seller Tracks
         "/quote/buyer"(platform: "/") {
-            vertical = "SERVICE"
-            buyer_id = 33624088
         }
     }
 }

@@ -5,7 +5,7 @@ import com.ml.melidata.TrackType
 
 tracks {
     propertyDefinitions {
-        vertical(required: true, type:PropertyType.String, description: "Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
+        vertical(required: true, type:PropertyType.String, values: ["services"] ,description: "Vertical services")
         seller_id(required: true, type:PropertyType.Numeric, description: "Seller ID")
     }
     propertyGroups {
@@ -21,16 +21,12 @@ tracks {
     }
 
     //Quote Seller :: Listing
-    "/quote/seller/listing"(platform: "/web") {
+    "/quote/seller/listing"(platform: "/web", type: TrackType.View) {
     }
 
-    //quote seller :: Listing - Query String
+    //Quote seller :: Listing - Query String - rows
     "/quote/seller/listing"(platform: "/web", type: TrackType.Event) {
         querystring(required: false, type:PropertyType.String, description: "QueryString user by interactions")
-    }
-
-    //quote seller :: Listing - row
-    "/quote/seller/listing"(platform: "/web", type: TrackType.Event) {
         action(required: false, type:PropertyType.String, description: "rows actions (go_messages, go_quote)")
     }
 
@@ -41,7 +37,7 @@ tracks {
 
     //quote seller :: Listing - filters
     "/quote/seller/listing/filters"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type:PropertyType.String, description: "filter_intention, search_submit, search_reset")
+        action(required: true, type:PropertyType.String, values: ["filter_intention","search_submit","search_reset"], description: "action click on filters)")
     }
 
     //quote seller :: Listing - menu
@@ -51,11 +47,11 @@ tracks {
 
     //quote seller :: Listing - modal
     "/quote/seller/listing/filters/modal"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type:PropertyType.String, description: "filter modal actions (reset,submit_filter)")
+        action(required: true, type:PropertyType.String,  values: ["reset","submit_filter"], description: "filter modal actions (reset,submit_filter)")
     }
 
     //quote seller :: Quote Detail
-    "/quote/seller/detail"(platform: "/web") {
+    "/quote/seller/detail"(platform: "/web", type: TrackType.View) {
         item_id(required: true, type:PropertyType.String, description: "Item id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
@@ -75,11 +71,11 @@ tracks {
 
     //quote seller :: Quote Detail - modal
     "/quote/seller/detail/messages"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type:PropertyType.String, description: "show modal messages")
+        action(required: true, type:PropertyType.String, values: ["show_modal_messages"], description: "show modal messages")
     }
 
     //quote seller :: Quote Messages
-    "/quote/seller/messages"(platform: "/web") {
+    "/quote/seller/messages"(platform: "/web", type: TrackType.View) {
         item_id(required: true, type:PropertyType.String, description: "Item id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
@@ -103,7 +99,7 @@ tracks {
     }
 
     //quote seller :: Quote Create
-    "/quote/seller/create"(platform: "/web") {
+    "/quote/seller/create"(platform: "/web", type: TrackType.View) {
         item_id(required: true, type:PropertyType.String, description: "Item id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
@@ -116,21 +112,16 @@ tracks {
 
     //quote seller :: Quote Create - steps
     "/quote/seller/create/new"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type:PropertyType.String, description: "steps action clicks (steps)")
-    }
-
-    //quote seller :: Quote Create - submit
-    "/quote/seller/create/new"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type:PropertyType.String, description: "create action click (submit)")
+        action(required: true, type:PropertyType.String, values: ["step", "submit"], description: "steps action clicks")
     }
 
     //quote seller :: Quote Create - modal messages
     "/quote/seller/create/messages"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type:PropertyType.String, description: "show modal messages action (modal_messages)")
+        action(required: true, type:PropertyType.String, values: ["show_modal_messages"], description: "show modal messages action")
     }
 
     //quote seller :: Quote confirmation
-    "/quote/seller/create/confirmation"(platform: "/web") {
+    "/quote/seller/create/confirmation"(platform: "/web", type: TrackType.View) {
         quote_demand_id(required: true, type:PropertyType.Numeric, description: "Quote Demand id")
         quote_demand_status(required: true, type: PropertyType.String, description: "the status quote demand")
         buyer_id(required: true, type:PropertyType.Numeric, description: "Buyer id")
@@ -142,7 +133,7 @@ tracks {
     }
 
     //quote seller :: Quote Edit
-    "/quote/seller/create/edit"(platform: "/web") {
+    "/quote/seller/create/edit"(platform: "/web", type: TrackType.View) {
         quote_demand_id(required: true, type:PropertyType.Numeric, description: "Quote Demand id")
         quote_demand_status(required: true, type: PropertyType.String, description: "Quote demand status")
         buyer_id(required: true, type:PropertyType.Numeric, description: "Buyer id")
@@ -154,7 +145,7 @@ tracks {
     }
 
     //quote seller :: Quote Congrats
-    "/quote/seller/create/congrats"(platform: "/web") {
+    "/quote/seller/create/congrats"(platform: "/web", type: TrackType.View) {
         quote_demand_id(required: true, type:PropertyType.Numeric, description: "Quote Demand id")
         quote_demand_status(required: true, type: PropertyType.String, description: "the status quote demand")
         quote_id(required: true, type:PropertyType.Numeric, description: "Quote id")
@@ -171,7 +162,5 @@ tracks {
 
     //Quote Buyer Tracks
     "/quote/buyer/"(platform: "/", isAbstract: true) {
-        vertical(required: true, type:PropertyType.String, description: "Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
-        buyer_id(required: true, type:PropertyType.Numeric, description: "buyer id")
     }
 }
