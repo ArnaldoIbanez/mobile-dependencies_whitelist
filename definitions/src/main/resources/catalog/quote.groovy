@@ -24,9 +24,8 @@ tracks {
     "/quote/seller/listing"(platform: "/web", type: TrackType.View) {
     }
 
-    //Quote seller :: Listing - Query String - rows
+    //Quote seller :: Listing - rows
     "/quote/seller/listing"(platform: "/web", type: TrackType.Event) {
-        querystring(required: false, type:PropertyType.String, description: "QueryString user by interactions")
         action(required: false, type:PropertyType.String, description: "rows actions (go_messages, go_quote)")
     }
 
