@@ -2,6 +2,8 @@ select
 from_unixtime(CAST(substr(jest(data,'timestamp'),1,10) as BIGINT), 'yyyy-MM-dd HH') as FechaCompleta
 ,from_unixtime(CAST(substr(jest(data,'timestamp'),1,10) as BIGINT), 'HH')-3 as Hora
 ,jest(data,'eventType') as eventType
+,jest(data,'countryCode') as countryCode
+,jest(data,'city') as city
 ,jest(data,'appName') as appName
 ,jest(data,'applicationId') as applicationId
 ,jest(data,'browserTransactionName') as browserTransactionName
@@ -26,6 +28,8 @@ from_unixtime(CAST(substr(jest(data,'timestamp'),1,10) as BIGINT), 'yyyy-MM-dd H
 ,from_unixtime(CAST(substr(jest(data,'timestamp'),1,10) as BIGINT), 'yyyy-MM-dd') 
 ,from_unixtime(CAST(substr(jest(data,'timestamp'),1,10) as BIGINT), 'HH')-3
 ,jest(data,'eventType') 
+,jest(data,'countryCode')
+,jest(data,'city')
 ,jest(data,'appName')
 ,jest(data,'applicationId')
 ,jest(data,'browserTransactionName') 

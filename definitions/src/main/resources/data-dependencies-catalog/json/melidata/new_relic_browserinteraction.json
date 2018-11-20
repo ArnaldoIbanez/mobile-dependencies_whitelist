@@ -3,7 +3,7 @@
     "fernando.keuroglian@mercadolibre.com",
      "ba-analytics@mercadolibre.com"
   ],
-  "process_name": "new_relic_pageview",
+  "process_name": "new_relic_browserinteraction",
   "cron": "00 19 * * *",
   "partition": {
         "name": "Fecha",
@@ -20,36 +20,16 @@
         "name": "Hora",
         "type": "INTEGER"
       },
-       {
+        {
         "name": "eventType",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "countryCode",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "city",
-        "type": "UNICODE_STRING"
-      },
-        {
         "name": "appName",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "applicationId",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "browserTransactionName",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "userAgentName",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "userAgentOS",
+        "name": "country",
         "type": "UNICODE_STRING"
       },
       {
@@ -57,44 +37,56 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "userAgentVersion",
+        "name": "BrowserInteractionName",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Cant_Sesiones",
-        "type": "INTEGER"
-      },
-      {
-        "name": "AVG_dns",
+        "name": "timeToConnectStart",
         "type": "DOUBLE"
       },
       {
-        "name": "AVG_Duration",
+        "name": "timeToConnectEnd",
         "type": "DOUBLE"
       },
       {
-        "name": "AVG_DOM",
+        "name": "timeToDomComplete",
         "type": "DOUBLE"
       },
       {
-        "name": "AVG_BACKEND",
+        "name": "timeToDomInteractive",
         "type": "DOUBLE"
       },
       {
-        "name": "AVG_PAGERENDERINGDURATION",
+        "name": "timeToDomLoading",
         "type": "DOUBLE"
       },
       {
-        "name": "AVG_WEBAPP",
+        "name": "timeToDomainLookupStart",
         "type": "DOUBLE"
       },
       {
-        "name": "AVG_NETWORK",
+        "name": "timeToDomainLookupEnd",
+        "type": "DOUBLE"
+      },
+      {
+        "name": "timeToLoadEventStart",
+        "type": "DOUBLE"
+      },
+      {
+        "name": "timeToLoadEventEnd",
+        "type": "DOUBLE"
+      },
+      {
+        "name": "timeToRequestStart",
+        "type": "DOUBLE"
+      },
+      {
+        "name": "timeToResponseEnd",
         "type": "DOUBLE"
       }
     ],
     "sql": {
-      "script": "business-assurance/new_relic_pageview.sql",
+      "script": "business-assurance/new_relic_browserinteraction.sql",
       "parameters": [
         {
           "name": "param01",

@@ -3,7 +3,7 @@
     "fernando.keuroglian@mercadolibre.com",
      "ba-analytics@mercadolibre.com"
   ],
-  "process_name": "new_relic_pageview",
+  "process_name": "new_relic_javascripterror",
   "cron": "00 19 * * *",
   "partition": {
         "name": "Fecha",
@@ -20,20 +20,8 @@
         "name": "Hora",
         "type": "INTEGER"
       },
-       {
-        "name": "eventType",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "countryCode",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "city",
-        "type": "UNICODE_STRING"
-      },
         {
-        "name": "appName",
+        "name": "eventType",
         "type": "UNICODE_STRING"
       },
       {
@@ -41,7 +29,19 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "browserTransactionName",
+        "name": "appName",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "deviceType",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "errorClass",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "requestUri",
         "type": "UNICODE_STRING"
       },
       {
@@ -53,48 +53,16 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "deviceType",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "userAgentVersion",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Cant_Sesiones",
-        "type": "INTEGER"
-      },
-      {
-        "name": "AVG_dns",
-        "type": "DOUBLE"
-      },
-      {
-        "name": "AVG_Duration",
-        "type": "DOUBLE"
-      },
-      {
-        "name": "AVG_DOM",
-        "type": "DOUBLE"
-      },
-      {
-        "name": "AVG_BACKEND",
-        "type": "DOUBLE"
-      },
-      {
-        "name": "AVG_PAGERENDERINGDURATION",
-        "type": "DOUBLE"
-      },
-      {
-        "name": "AVG_WEBAPP",
-        "type": "DOUBLE"
-      },
-      {
-        "name": "AVG_NETWORK",
-        "type": "DOUBLE"
+        "name": "transactionName",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "business-assurance/new_relic_pageview.sql",
+      "script": "business-assurance/new_relic_javascripterror.sql",
       "parameters": [
         {
           "name": "param01",
