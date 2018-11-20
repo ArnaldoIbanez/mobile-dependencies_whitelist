@@ -10,38 +10,38 @@ tracks {
     // Acquisition
     // MLM => https://www.mercadolibre.com.mx/tarjeta-credito
     // General Path
-    "/tarjeta_credito"(platform: "/", isAbstract: true) {}
-    "/tarjeta_credito/error"(platform: "/", type: TrackType.View){}
+    "/cobranded"(platform: "/", isAbstract: true) {}
+    "/cobranded/error"(platform: "/", type: TrackType.View){}
     
     // Landing
-    "/tarjeta_credito/landing"(platform: "/", isAbstract: true) {}
-    "/tarjeta_credito/landing/card_request"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/landing/pending_card"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/landing/approved_card"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/landing/rejected_card"(platform: "/", type: TrackType.View){}
+    "/cobranded/landing"(platform: "/", isAbstract: true) {}
+    "/cobranded/landing/card_request"(platform: "/", type: TrackType.View){}
+    "/cobranded/landing/pending_card"(platform: "/", type: TrackType.View){}
+    "/cobranded/landing/approved_card"(platform: "/", type: TrackType.View){}
+    "/cobranded/landing/rejected_card"(platform: "/", type: TrackType.View){}
 
     // Acquisition
-    "/tarjeta_credito/acquisition"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/acquisition/welcome"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/acquisition/personal_info"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/acquisition/cards"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/acquisition/last_digits"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/acquisition/welcome_address"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/acquisition/address"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/acquisition/additional_info"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/acquisition/welcome_phone"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/acquisition/phone"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/acquisition/review"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition"(platform: "/", isAbstract: true) {}
+    "/cobranded/acquisition/welcome"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/personal_info"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/cards"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/last_digits"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/welcome_address"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/address"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/additional_info"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/welcome_phone"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/phone"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/review"(platform: "/", type: TrackType.View){}
     
-    "/tarjeta_credito/acquisition/congrats"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/acquisition/congrats/approved"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/acquisition/congrats/pending"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/acquisition/congrats/rejected"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/congrats"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/congrats/approved"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/congrats/pending"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/congrats/rejected"(platform: "/", type: TrackType.View){}
     
-    "/tarjeta_credito/acquisition/error"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/acquisition/error/has_card"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/acquisition/error/corporation"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/acquisition/error/operator"(platform: "/", type: TrackType.View){}
-    "/tarjeta_credito/acquisition/error/without_credit_card"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/error"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/error/has_card"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/error/corporation"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/error/operator"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/error/without_credit_card"(platform: "/", type: TrackType.View){}
     
 }
