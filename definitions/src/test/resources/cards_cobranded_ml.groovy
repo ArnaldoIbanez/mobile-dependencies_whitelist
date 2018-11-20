@@ -24,7 +24,7 @@ trackTests {
     test("cards tarjeta-credito acquisition") {
 
         // View desktop
-        "/tarjeta_credito/acquisition/"(platform: "/web/desktop", type: TrackType.View){}
+        "/tarjeta_credito/acquisition"(platform: "/web/desktop", type: TrackType.View){}
         "/tarjeta_credito/acquisition/welcome"(platform: "/web/desktop", type: TrackType.View){}
         "/tarjeta_credito/acquisition/personal_info"(platform: "/web/desktop", type: TrackType.View){}
         "/tarjeta_credito/acquisition/cards"(platform: "/web/desktop", type: TrackType.View){}
@@ -46,7 +46,7 @@ trackTests {
         "/tarjeta_credito/acquisition/error/without_credit_card"(platform: "/web/desktop", type: TrackType.View){}
 
         // View mobile
-        "/tarjeta_credito/acquisition/"(platform: "/web/mobile", type: TrackType.View){}
+        "/tarjeta_credito/acquisition"(platform: "/web/mobile", type: TrackType.View){}
         "/tarjeta_credito/acquisition/welcome"(platform: "/web/mobile", type: TrackType.View){}
         "/tarjeta_credito/acquisition/personal_info"(platform: "/web/mobile", type: TrackType.View){}
         "/tarjeta_credito/acquisition/cards"(platform: "/web/mobile", type: TrackType.View){}

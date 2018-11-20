@@ -14,14 +14,14 @@ tracks {
     "/tarjeta_credito/error"(platform: "/", type: TrackType.View){}
     
     // Landing
-    "/tarjeta_credito/landing/"(platform: "/", isAbstract: true) {}
+    "/tarjeta_credito/landing"(platform: "/", isAbstract: true) {}
     "/tarjeta_credito/landing/card_request"(platform: "/", type: TrackType.View){}
     "/tarjeta_credito/landing/pending_card"(platform: "/", type: TrackType.View){}
     "/tarjeta_credito/landing/approved_card"(platform: "/", type: TrackType.View){}
     "/tarjeta_credito/landing/rejected_card"(platform: "/", type: TrackType.View){}
 
     // Acquisition
-    "/tarjeta_credito/acquisition/"(platform: "/", type: TrackType.View){}
+    "/tarjeta_credito/acquisition"(platform: "/", type: TrackType.View){}
     "/tarjeta_credito/acquisition/welcome"(platform: "/", type: TrackType.View){}
     "/tarjeta_credito/acquisition/personal_info"(platform: "/", type: TrackType.View){}
     "/tarjeta_credito/acquisition/cards"(platform: "/", type: TrackType.View){}
