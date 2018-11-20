@@ -15,13 +15,6 @@ trackTests {
            seller_id = 33624088
         }
 
-        //Quote Seller :: Listing - Query String
-        "/quote/seller/listing"(platform: "/web",type: TrackType.Event) {
-            vertical = "services"
-            seller_id = 33624088
-            querystring = "url=?page=2&&filter=32"
-        }
-
         //quote seller :: Listing - news
         "/quote/seller/listing/news"(platform: "/web",type: TrackType.Event) {
             vertical = "services"
