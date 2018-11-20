@@ -3,7 +3,7 @@
     "fernando.keuroglian@mercadolibre.com",
      "ba-analytics@mercadolibre.com"
   ],
-  "process_name": "new_relic_browserinteraction",
+  "process_name": "new_relic_javascripterror",
   "cron": "00 19 * * *",
   "partition": {
         "name": "Fecha",
