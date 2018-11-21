@@ -29,11 +29,13 @@ trackTests {
         }
 
         // Scan QR
-        "/instore/scan_qr"(platform: "/mobile", type: TrackType.View) {}
         "/instore/qr_first_time_use"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/scan_qr/read"(platform: "/mobile", type: TrackType.Event) {
-            data = "Any scanned data"
+        "/instore/scan_qr"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/scan_qr/qr_discovery"(platform: "/mobile", type: TrackType.Event) {
+            qr_data = "Any scanned data"
+            camera_flash = true
         }
+
 
         // Permissions
         "/instore/camera_permission"(platform: "/mobile", type: TrackType.View) {}
@@ -65,7 +67,10 @@ trackTests {
         "/instore/required_action/data_required/dni"(platform: "/mobile", type: TrackType.View) {}
         "/instore/required_action/bluetooth_permission"(platform: "/mobile", type: TrackType.View) {}
 
-        // Deprecated
+        //Deprecated
+        "/instore/scan_qr/read"(platform: "/mobile", type: TrackType.Event) {
+            data = "Any scanned data"
+        }
         "/instore/map"(platform: "/mobile", type: TrackType.View) {}
         "/instore/required_action/bluetooth_on"(platform: "/mobile", type: TrackType.View) {}
         "/instore/map"(platform: "/mobile", type: TrackType.View) {}
