@@ -7,10 +7,10 @@ trackTests {
 
     test("Asset management") {
 
-        //Onboarding
+        // Onboarding
         "/asset_management/onboarding"(platform: "/mobile") {}
 
-        //Challenges
+        // Challenges
         "/asset_management/challenge_pep"(platform: "/mobile") {}
         "/asset_management/challenge_fatca"(platform: "/mobile") {}
         "/asset_management/challenge_regulated_entity"(platform: "/mobile") {}
@@ -27,21 +27,21 @@ trackTests {
         "/asset_management/challenge_gender"(platform: "/mobile") {}
         "/asset_management/terms_and_conditions"(platform: "/mobile") {}
 
-        //Opt-out
+        // Opt-out
         "/asset_management/opt_out"(platform: "/mobile") {}
         "/asset_management/result_stop_investing"(platform: "/mobile") {}
 
-        //Detail
+        // Detail
         "/asset_management/investment_detail"(platform: "/mobile") {}
         "/asset_management/movements_detail"(platform: "/mobile") {}
 
-        //Congrats
+        // Congrats
         "/asset_management/result_investing"(platform: "/mobile") {}
 
-        //Faqs
+        // Faqs
         "/asset_management/faqs"(platform: "/mobile") {}
 
-        //Splitter
+        // Splitter
         "/asset_management/splitter"(platform: "/mobile") {}
         "/asset_management/profile"(platform: "/mobile") {}
         "/asset_management/stop_investing"(platform: "/mobile") {}
@@ -55,7 +55,7 @@ trackTests {
             label = "third"
         }
 
-        //Error
+        // Error
         "/asset_management/error"(platform: "/mobile") {
             label = "service_error_generic"
         }
@@ -70,6 +70,19 @@ trackTests {
         }
         "/asset_management/error"(platform: "/mobile") {
             label = "date_validation_invalid"
+        }
+
+        // Identity handler
+        "/asset_management/identity_handler"(platform: "/mobile") {
+            remedyId = "49cdb9b5-9585-42f3-a680-9d44548c8888"
+        }
+        "/asset_management/identity_handler"(platform: "/mobile") {
+            remedyId = "49cdb9b5-9585-42f3-a680-9d44548c9822"
+            status = "mismatch"
+        }
+        "/asset_management/identity_handler"(platform: "/mobile") {
+            remedyId = "49cdb9b5-9585-42f3-a680-9d44548c9822"
+            status = "number_of_attempts_exceeded"
         }
     }
 }
