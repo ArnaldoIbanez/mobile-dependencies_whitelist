@@ -273,19 +273,17 @@ trackTests {
             warehouse_id = "BRWT01"
             pickup_id = "1"  
         }
-        "/wms/problem_solver/sub_flow_selection"(platform: "/mobile/android") {
+        "/wms/problem_solver"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
         }
-        "/wms/problem_solver/scan_inbound_shipment"(platform: "/mobile/android") {
+        "/wms/problem_solver/take/scan_inbound_shipment"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
-            sub_flow = "take"
         }
-        "/wms/problem_solver/scan_destination"(platform: "/mobile/android") {
+        "/wms/problem_solver/take/scan_destination"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
-            sub_flow = "take"
             inbound_id = "1234"
             destination_address = "destination_address"
         }
@@ -462,10 +460,9 @@ trackTests {
             warehouse_id = "BRWT01"
             pickup_id = "1"
         }
-        "/wms/problem_solver/sub_flow_selection/start_take"(platform: "/mobile/android") {
+        "/wms/problem_solver/take"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
-            sub_flow = "take"
         }
     }
 }
