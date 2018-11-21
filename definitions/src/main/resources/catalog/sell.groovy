@@ -147,6 +147,8 @@ tracks {
     "/sell/list/draft/shipping_flat_cost"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/price_modality"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/free_shipping"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/technical_specifications"(platform: "/", type: TrackType.View) {}
+    "/sell/list/draft/product_identifier"(platform: "/", type: TrackType.View) {}
 
     "/sell/list/hub"(platform: "/", type: TrackType.View) {}
     "/sell/list/walkthrough"(platform: "/mobile", type: TrackType.View) {}
@@ -217,6 +219,11 @@ tracks {
     "/sell/list/sip/update/condition" (platform: "/mobile", type: TrackType.Event){
         has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
     }
+    "/sell/list/sip/update/product_identifier_review"(platform: "/mobile", type: TrackType.Event){}
+    "/sell/list/sip/update/product_identifier"(platform: "/mobile", type: TrackType.Event){}
+    "/sell/list/sip/update/technical_specifications"(platform: "/mobile", type: TrackType.Event){}
+    "/sell/list/sip/update/technical_specifications_review"(platform: "/mobile", type: TrackType.Event){}
+
     "/sell/list/sip/update/include_description" (platform: "/mobile", type: TrackType.Event){}
     "/sell/list/sip/update/manufacturing_time_review" (platform: "/mobile", type: TrackType.Event){}
     "/sell/list/sip/update/manufacturing_time" (platform: "/mobile", type: TrackType.Event){}

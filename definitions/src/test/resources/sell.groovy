@@ -268,6 +268,8 @@ trackTests {
         "/sell/list/draft/price_modality"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/location_suggestion"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/free_shipping"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/technical_specifications"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/product_identifier"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/hub"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/walkthrough"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/hub_old"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
@@ -285,6 +287,11 @@ trackTests {
         "/sell/list/sip/update/color_selection_review"(platform:"/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/sip/update/condition"(platform:"/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/sip/update/condition_review"(platform:"/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+
+        "/sell/list/sip/update/product_identifier_review"(platform: "/mobile"){session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/sip/update/product_identifier"(platform: "/mobile"){session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/sip/update/technical_specifications_review"(platform: "/mobile"){session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/sip/update/technical_specifications"(platform: "/mobile"){session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/sip/update/description"(platform:"/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/sip/update/description_review"(platform:"/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/sip/update/include_description"(platform:"/mobile") {session_id = "214464778-list-d5e5a20b2935"}
