@@ -40,5 +40,5 @@ LEFT JOIN
   ) as clicks
   GROUP BY clicks.ds, clicks.platform, clicks.recommendation_category
 ) as sub_clicks
-ON sub_prints.recommendation_category = sub_clicks.recommendation_category
+ON sub_prints.recommendation_category = sub_clicks.recommendation_category AND sub_prints.platform = sub_clicks.platform
 ORDER BY recommendation_category 
