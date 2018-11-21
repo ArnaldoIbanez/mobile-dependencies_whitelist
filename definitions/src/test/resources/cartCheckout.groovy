@@ -241,6 +241,7 @@ trackTests {
         }
         "/cart/checkout/geolocation"(platform:"/mobile", type: TrackType.Event) {
             geolocation_error = "NO_LOCATION_PERMISSION"
+            session_id = "98f8v98au0af9af0af"
         }
         "/cart/checkout/shipping/geolocation_error"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/select_method_geolocated"(platform:"/mobile", dataSet)
