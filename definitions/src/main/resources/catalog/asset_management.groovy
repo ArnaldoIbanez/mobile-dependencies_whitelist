@@ -54,7 +54,7 @@ tracks {
     // Other events
     "/asset_management/swipe"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/identity_handler"(platform: "/mobile", type: TrackType.Event) {
-        remedyId (required: true, type: PropertyType.String, description: "The remedy that was resolved by IV")
+        remedy_id (required: true, type: PropertyType.String, description: "The remedy that was resolved by IV")
         status (required: false, type: PropertyType.String, description: "On failure, this represents why the flow failed")
     }
 }

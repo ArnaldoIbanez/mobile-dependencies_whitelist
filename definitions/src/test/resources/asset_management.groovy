@@ -74,14 +74,14 @@ trackTests {
 
         // Identity handler
         "/asset_management/identity_handler"(platform: "/mobile") {
-            remedyId = "49cdb9b5-9585-42f3-a680-9d44548c8888"
+            remedy_id = "49cdb9b5-9585-42f3-a680-9d44548c8888"
         }
         "/asset_management/identity_handler"(platform: "/mobile") {
-            remedyId = "49cdb9b5-9585-42f3-a680-9d44548c9822"
+            remedy_id = "49cdb9b5-9585-42f3-a680-9d44548c9822"
             status = "mismatch"
         }
         "/asset_management/identity_handler"(platform: "/mobile") {
-            remedyId = "49cdb9b5-9585-42f3-a680-9d44548c9822"
+            remedy_id = "49cdb9b5-9585-42f3-a680-9d44548c9822"
             status = "number_of_attempts_exceeded"
         }
     }
