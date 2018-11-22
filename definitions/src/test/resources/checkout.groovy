@@ -558,6 +558,7 @@ trackTests {
                     ]
             ]
         }
+        "/checkout/payment/add_card/installments/back"(platform: "/mobile", type: TrackType.Event) {}
         "/checkout/payment/stored_card/select_bank"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_methods = ["industrial", "bancor", "santander"]
