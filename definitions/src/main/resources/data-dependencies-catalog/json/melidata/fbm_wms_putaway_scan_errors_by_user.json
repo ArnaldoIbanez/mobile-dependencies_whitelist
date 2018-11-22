@@ -1,28 +1,36 @@
 {
   "users": [
-    "pablo.fernandezosorio@mercadolibre.com"
+    "wms-android@mercadolibre.com"
   ],
-  "process_name": "fbm_operators_scan_errors",
-  "cron": "0 6 * * *",
+  "process_name": "fbm_wms_putaway_scan_errors_by_user",
+  "cron": "0 22 * * 0",
   "extract": {
     "operation": "overwrite",
     "site": "Shipping",
     "columns": [
       {
-        "name": "nombre",
+        "name": "user_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "apellido",
+        "name": "nickname",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "cantidad",
+        "name": "warehouse",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "errores_totales",
+        "type": "INTEGER"
+      },
+      {
+        "name": "scans_totales",
         "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "shipping/fbm_operators_scan_errors.sql",
+      "script": "shipping/fbm_wms_putaway_scan_errors.sql",
       "parameters": [
         {
           "name": "param01",
