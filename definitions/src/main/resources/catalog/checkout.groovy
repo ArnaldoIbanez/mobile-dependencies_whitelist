@@ -632,9 +632,9 @@ tracks {
     //Billing info
     "/checkout/billing"(platform: "/mobile", isAbstract: true) {}
     "/checkout/billing/physical_person"(platform: "/mobile") {}
-    "/checkout/billing/physical_person/back"(platform: "/mobile") {}
+    "/checkout/billing/physical_person/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/billing/legal_person"(platform: "/mobile") {}
-    "/checkout/billing/legal_person/back"(platform: "/mobile") {}
+    "/checkout/billing/legal_person/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
