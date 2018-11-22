@@ -748,6 +748,25 @@ trackTests {
         "/send_money/confirm"(platform: "/web"){
             flow = "/send_money"
         }
+
+        "/send_money/bacen"(platform: "/mobile", type: TrackType.View) {
+            flow = "/send_money"
+        }
+        "/send_money/bacen_ok"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/send_money"
+        }
+        "/send_money/bacen_cancel"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/send_money"
+        }
+        "/send_money/bacen_error"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/send_money"
+        }
+        "/send_money/bacen_open"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/send_money"
+        }
+        "/send_money/bacen_close"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/send_money"
+        }
     }
 
     test("Checkout") {
@@ -1937,6 +1956,30 @@ trackTests {
             from = "/deep_link"
             result_status = "rejected"
             status_detail = "internal_server_error"
+        }
+        "/withdraw/bacen"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
+        "/withdraw/bacen_ok"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
+        "/withdraw/bacen_cancel"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
+        "/withdraw/bacen_error"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
+        "/withdraw/bacen_open"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
+        "/withdraw/bacen_close"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
         }
     }
 
@@ -3552,5 +3595,6 @@ trackTests {
             activity = "transport"
         }
     }
+
 
 }
