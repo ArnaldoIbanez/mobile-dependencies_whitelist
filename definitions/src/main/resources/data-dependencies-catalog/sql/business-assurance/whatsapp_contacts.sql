@@ -1,5 +1,6 @@
 SELECT views.site,
        views.business,
+       views.vertical,
        views.platform,
        views.seller_id,
        views.item_id,
@@ -13,6 +14,7 @@ FROM (SELECT application.site_id AS site,
              device.platform,
              jest(event_data,'seller_id') AS seller_id,
              jest(event_data,'item_id') AS item_id,
+             jest(event_data,'vertical') AS vertical,
              jest(event_data,'listing_type_id') AS listing_type_id,
              jest(event_data,'item_condition') AS item_condition,
              COUNT(1) AS vips_whit_whatsapp,
@@ -24,7 +26,8 @@ FROM (SELECT application.site_id AS site,
       AND   application.site_id IN ('MLA')
       AND   device.platform IN ('/web/mobile','/web/mobile/static')
       AND   jest(event_data,'whatsapp_available') = 'true'
-      GROUP BY (substr (ds,1,10),application.site_id,application.business,device.platform,jest (event_data,'seller_id'),jest (event_data,'listing_type_id'),jest (event_data,'item_id'),jest (event_data,'item_condition'))) views
+      GROUP BY 
+      substr (ds,1,10),application.site_id,application.business,jest(event_data,'vertical'),device.platform,jest (event_data,'seller_id'),jest (event_data,'listing_type_id'),jest (event_data,'item_id'),jest (event_data,'item_condition')) views
   LEFT JOIN (SELECT substr(ds,1,10) AS ds,
                     jest(event_data,'item_id') AS item_id,
                     COUNT(1) AS whatsapp_contact
@@ -39,3 +42,4 @@ FROM (SELECT application.site_id AS site,
                       substr(ds,1,10)) contacts
          ON views.ds = contacts.ds
         AND views.item_id = contacts.item_id
+
