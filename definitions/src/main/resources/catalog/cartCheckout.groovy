@@ -246,10 +246,6 @@ tracks {
 
 "/cart/checkout"(platform:"/mobile", type: TrackType.View, isAbstract: true) {}
 
-"/cart/checkout"(platform:"/mobile", type: TrackType.Event, isAbstract: true, parentPropertiesInherited:false) {
-   session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
-}
-
 "/cart/checkout/geolocation"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         geolocation_error(required: true, description: "Why the geo failed")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
