@@ -528,6 +528,7 @@ tracks {
         //      without_fee: true
         //    ]
     }
+    "/checkout/payment/add_card/installments/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/payment/stored_card"(platform: "/mobile", isAbstract: true) {}
     "/checkout/payment/stored_card/select_bank"(platform: "/mobile") {
         available_methods(required: true, type: PropertyType.ArrayList, description: "list of available banks")

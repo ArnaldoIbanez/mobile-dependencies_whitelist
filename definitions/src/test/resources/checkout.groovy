@@ -558,6 +558,26 @@ trackTests {
                     ]
             ]
         }
+        "/checkout/payment/add_card/installments/back"(platform: "/mobile", type: TrackType.Event) {
+            checkoutStatus()
+            available_installments = [
+                    [
+                            installment: 1,
+                            amount: 20.6,
+                            without_fee: true
+                    ],
+                    [
+                            installment: 3,
+                            amount: 7.2,
+                            without_fee: true
+                    ],
+                    [
+                            installment: 6,
+                            amount: 3.2,
+                            without_fee: true
+                    ]
+            ]
+        }
         "/checkout/payment/stored_card/select_bank"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             available_methods = ["industrial", "bancor", "santander"]
