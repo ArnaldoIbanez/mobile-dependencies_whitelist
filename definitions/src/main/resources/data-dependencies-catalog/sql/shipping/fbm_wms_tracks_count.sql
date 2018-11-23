@@ -7,4 +7,4 @@ from tracks
 where path like '/wms/%'
 and ds >= '@param01'
 and ds < '@param02'
-group by substr(ds,1,10), jest(event_data, 'warehouse_id'), path
+group by path, jest(event_data, 'warehouse_id'), substr(ds,1,10)
