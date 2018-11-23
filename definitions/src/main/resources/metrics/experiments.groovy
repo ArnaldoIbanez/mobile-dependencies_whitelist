@@ -124,6 +124,18 @@ metrics {
 		}
 	}
 
+	"user_vip_interaction_mobile"(description: "track vip user interaction as success for classifieds mobile") {
+		startWith {
+			experiment(regex(classiExperiments))
+		}
+
+		countsOn {
+			condition {
+				path("/vip/call_seller", "/questions/ask/post")
+			}
+		}
+	}
+
 	"call_seller"(description: "track vip call seller as success for classifieds") {
 		startWith {
 			experiment(regex(classiExperiments))
