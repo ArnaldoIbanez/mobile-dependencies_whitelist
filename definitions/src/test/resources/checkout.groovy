@@ -716,7 +716,13 @@ trackTests {
         "/checkout/billing/physical_person"(platform: "/mobile") {
             checkoutStatus()
         }
+        "/checkout/billing/physical_person/back"(platform: "/mobile", type: TrackType.Event) {
+            checkoutStatus()
+        }
         "/checkout/billing/legal_person"(platform: "/mobile") {
+            checkoutStatus()
+        }
+        "/checkout/billing/legal_person/back"(platform: "/mobile", type: TrackType.Event) {
             checkoutStatus()
         }
         "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event) {
