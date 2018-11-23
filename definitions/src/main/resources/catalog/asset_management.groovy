@@ -3,15 +3,16 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
+    // Root
     "/asset_management"(platform: "/", isAbstract: true) {
         label (required: false, type: PropertyType.String, description: "The label attached to the current event")
         category (required: false, type: PropertyType.String, description: "The category of the current event") // for backwards compatibility with old tracks
     }
 
-    //Onboarding
+    // Onboarding
     "/asset_management/onboarding"(platform: "/mobile", type: TrackType.View) {}
 
-    //Challenges
+    // Challenges
     "/asset_management/challenge_pep"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_fatca"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_regulated_entity"(platform: "/mobile", type: TrackType.View) {}
@@ -28,26 +29,32 @@ tracks {
     "/asset_management/challenge_gender"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
 
-    //Opt-out
+    // Opt-out
     "/asset_management/opt_out"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_stop_investing"(platform: "/mobile", type: TrackType.View) {}
 
-    //Detail
+    // Detail
     "/asset_management/investment_detail"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/movements_detail"(platform: "/mobile", type: TrackType.View) {}
 
-    //Congrats
+    // Congrats
     "/asset_management/result_investing"(platform: "/mobile", type: TrackType.View) {}
 
-    //Faqs
+    // Faqs
     "/asset_management/faqs"(platform: "/mobile", type: TrackType.View) {}
 
-    //Splitter
+    // Splitter
     "/asset_management/splitter"(platform: "/mobile", type: TrackType.View) {}
 
-    //Errors
+    // Errors
     "/asset_management/error"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/stop_investing"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/profile"(platform: "/mobile", type: TrackType.Event) {}
+
+    // Other events
     "/asset_management/swipe"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/identity_handler"(platform: "/mobile", type: TrackType.Event) {
+        remedy_id (required: true, type: PropertyType.String, description: "The remedy that was resolved by IV")
+        status (required: false, type: PropertyType.String, description: "On failure, this represents why the flow failed")
+    }
 }
