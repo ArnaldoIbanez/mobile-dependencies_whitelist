@@ -30,7 +30,7 @@
       }
     ],
     "sql": {
-      "script": "shipping/fbm_wms_putaway_scan_errors.sql",
+      "script": "shipping/fbm_wms_putaway_scan_errors_by_user.sql",
       "parameters": [
         {
           "name": "param01",
