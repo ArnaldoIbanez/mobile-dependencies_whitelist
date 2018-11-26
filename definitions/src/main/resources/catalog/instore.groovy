@@ -32,7 +32,7 @@ tracks {
         brand_name(required: false, PropertyType.String)
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
-        succes(required: false, PropertyType.Boolean)
+        success(required: false, PropertyType.Boolean)
         next_step_deeplink(required: false, PropertyType.String)
     }
     "/instore/scan_qr/flash"(platform: "/mobile", type: TrackType.Event) {
