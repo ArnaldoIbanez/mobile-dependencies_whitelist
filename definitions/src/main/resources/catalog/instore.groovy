@@ -529,13 +529,6 @@ tracks {
         description(required: false, PropertyType.String)
         transaction_details(required: false, description: "transaction information details")
         client_id(required: false, PropertyType.String)
-        currency_id(required: false, PropertyType.String)
-        collector_id(required: false, PropertyType.Numeric)
-        status(required: false, PropertyType.String)
-        payment_method_id(required: false, PropertyType.String)
-        site_id(required: false, PropertyType.String)
-        status_detail(required: false, PropertyType.String)
-        operation_type(required: false, PropertyType.String)
         binary_mode(required: false, PropertyType.Boolean)
         transaction_id(required: false, PropertyType.String)
         installments(required: false, PropertyType.Numeric)
@@ -550,7 +543,7 @@ tracks {
         payment_info_tag(required: false, "Execute post payment")
     }
 
-    // Deprecated
+    // Deprecated. Only for old versions in IOS!
     "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
         raw(required: false, description: "Raw with post payment information")
     }
