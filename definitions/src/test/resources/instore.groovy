@@ -48,7 +48,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
-            succes = true
+            success = true
             next_step_deeplink = "Any deeplink"
         }
         "/instore/scan_qr/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -585,7 +585,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
-            succes = true
+            success = true
             next_step_deeplink = "Any deeplink"
         }
         "/instore/scan_qr/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {

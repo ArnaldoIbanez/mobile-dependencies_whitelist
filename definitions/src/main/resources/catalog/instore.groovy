@@ -15,6 +15,8 @@ tracks {
     "/instore/scan_qr"(platform: "/mobile", type: TrackType.View) {
         camera_permissions(required: false, PropertyType.Boolean)
         location_permissions(required: false, PropertyType.Boolean)
+        notification_permissions(required: false, PropertyType.Boolean)
+        // Deprecated. Typo on Android
         notifications_permissions(required: false, PropertyType.Boolean)
     }
     "/instore/scan_qr"(platform: "/mobile", isAbstract: true) {}
