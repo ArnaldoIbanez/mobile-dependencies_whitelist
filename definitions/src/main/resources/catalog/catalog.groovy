@@ -136,5 +136,4 @@ catalog {
         include business, "full.groovy"
         include business, "wms.groovy"
     }
-
 }
