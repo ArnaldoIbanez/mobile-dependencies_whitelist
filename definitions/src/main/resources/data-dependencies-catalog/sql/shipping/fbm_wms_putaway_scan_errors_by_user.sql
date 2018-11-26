@@ -10,15 +10,15 @@ from(
   select
   usr.user_id as user_id, 
   usr.user_nick as nickname,
-  jest(event_data, '$.warehouse_id') as warehouse,
+  jest(event_data, 'warehouse_id') as warehouse,
   count(*) as counted,
   substr(ds,1,10) as fecha
   from tracks
   where path like '/wms/put_away%'
   and ds >= '@param01'
   and ds < '@param02'
-  and jest(event_data, '$.feedback_type') = 'ERROR'
-  group by usr.user_id, usr.user_nick, jest(event_data, '$.warehouse_id'), substr(ds,1,10))
+  and jest(event_data, 'feedback_type') = 'ERROR'
+  group by usr.user_id, usr.user_nick, jest(event_data, 'warehouse_id'), substr(ds,1,10))
   as errores
 
   full join
@@ -32,29 +32,29 @@ from(
   from(
     select usr.user_id as user_id,
     usr.user_nick as nickname,
-    jest(event_data, '$.warehouse_id') as warehouse,
+    jest(event_data, 'warehouse_id') as warehouse,
     count(*) as counted,
     substr(ds,1,10) as fecha
     from tracks
     where path = '/wms/put_away/item'
     and ds >= '@param01'
     and ds < '@param02'
-    group by usr.user_id, usr.user_nick, jest(event_data, '$.warehouse_id'), substr(ds,1,10))
+    group by usr.user_id, usr.user_nick, jest(event_data, 'warehouse_id'), substr(ds,1,10))
     as items
     
     full join 
   
     (select usr.user_id as user_id, 
     usr.user_nick as nickname,
-    jest(event_data, '$.warehouse_id') as warehouse,
+    jest(event_data, 'warehouse_id') as warehouse,
     count(*) as counted,
     substr(ds,1,10) as fecha
     from tracks
     where path like '/wms/put_away%'
     and ds >= '@param01'
     and ds < '@param02'
-    and jest(event_data, '$.feedback_type') is not null
-    group by usr.user_id, usr.user_nick, jest(event_data, '$.warehouse_id'), substr(ds,1,10))
+    and jest(event_data, 'feedback_type') is not null
+    group by usr.user_id, usr.user_nick, jest(event_data, 'warehouse_id'), substr(ds,1,10))
     as feedbacks
   
   on items.user_id = feedbacks.user_id) 
