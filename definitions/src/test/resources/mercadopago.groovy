@@ -2066,6 +2066,11 @@ trackTests {
             installment_id= 9876
         }
 
+        "/notification/fraud_cash_release_iv"(platform: "/mobile") {
+            news_id = "fraud_cash_release_iv-12345678"
+            event_type = "shown"
+        }
+
         "/notification/health_check"(platform: "/mobile/android") {
             news_id = "COXwPxDrigQYBw==-1eb9ff37e01d45b0"
             original_news_id = "messages-new-1688986927-60f251a8ee0a4b748b6c1b59bc1e267a"
