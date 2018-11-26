@@ -138,11 +138,4 @@ tracks {
         payer_id(required: true, type: PropertyType.Numeric)
         problem_id(required: true, type: PropertyType.String)
     }
-
-    "/chargebacks/mail"(platform: "/", type: TrackType.Event) {
-        template(required: true, type: PropertyType.String)
-        case_id(required: true, type: PropertyType.String)
-        step(required: true, type: PropertyType.String)
-        receiver_id(required: true, type: PropertyType.Numeric)
-    }
 }
