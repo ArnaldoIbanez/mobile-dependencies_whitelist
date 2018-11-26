@@ -172,6 +172,18 @@ metrics {
 		}
 	}
 
+	"contact_seller_mobile"(description: "track vip contact seller as success for classifieds mobile") {
+		startWith {
+			experiment(regex(classiExperiments))
+		}
+
+		countsOn {
+			condition {
+				path("/questions/ask/post")
+			}
+		}
+	}
+
 	"quotations"(description: "track quotation as success for classifieds") {
 		countsOn {
 			condition {
