@@ -154,19 +154,19 @@ tracks {
     "/myml/listings/show"(platform: "/web", type: TrackType.View) {
         placement(required: true, description: "Place where track was dispatched")
         adv_segmentation(required: true, description: "Adevrtasement segmentation ")
-        reputationLevel(required: true, description: "Reputation for Pads")
+        reputation_level(required: true, description: "Reputation for Pads")
     }
 
     "/myml/listings/hide"(platform: "/web", type: TrackType.Event) {
         placement(required: true, description: "Place where track was dispatched")
         adv_segmentation(required: true, description: "Adevrtasement segmentation ")
-        reputationLevel(required: true, description: "Reputation for Pads")
+        reputation_level(required: true, description: "Reputation for Pads")
     }
 
     "/myml/listings/go"(platform: "/web", type: TrackType.Event) {
         placement(required: true, description: "Place where track was dispatched")
         adv_segmentation(required: true, description: "Adevrtasement segmentation ")
-        reputationLevel(required: true, description: "Reputation for Pads")
+        reputation_level(required: true, description: "Reputation for Pads")
     }
 
     "/myml/bookmarks"(platform: "/web", type: TrackType.View) {}
@@ -177,19 +177,19 @@ tracks {
     "/myml/summary/show"(platform: "/web", type: TrackType.View) {
         placement(required: true, description: "Place where track was dispatched")
         adv_segmentation(required: true, description: "Adevrtasement segmentation ")
-        reputationLevel(required: true, description: "Reputation for Pads")
+        reputation_level(required: true, description: "Reputation for Pads")
     }
 
     "/myml/summary/hide"(platform: "/web", type: TrackType.Event) {
         placement(required: true, description: "Place where track was dispatched")
         adv_segmentation(required: true, description: "Adevrtasement segmentation ")
-        reputationLevel(required: true, description: "Reputation for Pads")
+        reputation_level(required: true, description: "Reputation for Pads")
     }
 
     "/myml/summary/go"(platform: "/web", type: TrackType.Event) {
         placement(required: true, description: "Place where track was dispatched")
         adv_segmentation(required: true, description: "Adevrtasement segmentation ")
-        reputationLevel(required: true, description: "Reputation for Pads")
+        reputation_level(required: true, description: "Reputation for Pads")
     }
 
     // Myml - Suggested Discounts
