@@ -494,6 +494,7 @@ tracks {
     }
 
     "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
+        // Possible fields for Android & IOS
         currency_id(required: false, PropertyType.String)
         statement_descriptor(required: false, PropertyType.String)
         collector_id(required: false, PropertyType.Numeric)
@@ -512,6 +513,37 @@ tracks {
         transaction_amount(required: false, PropertyType.Numeric)
         coupon_amount(required: false, PropertyType.Numeric)
         marketplace(required: false, PropertyType.String)
+
+        // Possible fields only for IOS
+        shipping_amount(required: false, PropertyType.Numeric)
+        coupon_id(required: false, PropertyType.Numeric)
+        captured(required: false, PropertyType.Boolean)
+        fee_details(required: false, description: "Free details information")
+        date_created(required: false, PropertyType.String)
+        date_last_updated(required: false, PropertyType.String)
+        api_version(required: false, PropertyType.String)
+        id(required: false, PropertyType.Numeric)
+        money_release_days(required: false, PropertyType.Numeric)
+        order(required: false, description: "order information")
+        external_reference(required: false, PropertyType.String)
+        description(required: false, PropertyType.String)
+        transaction_details(required: false, description: "transaction information details")
+        client_id(required: false, PropertyType.String)
+        currency_id(required: false, PropertyType.String)
+        collector_id(required: false, PropertyType.Numeric)
+        status(required: false, PropertyType.String)
+        payment_method_id(required: false, PropertyType.String)
+        site_id(required: false, PropertyType.String)
+        status_detail(required: false, PropertyType.String)
+        operation_type(required: false, PropertyType.String)
+        binary_mode(required: false, PropertyType.Boolean)
+        transaction_id(required: false, PropertyType.String)
+        installments(required: false, PropertyType.Numeric)
+        money_release_date(required: false, PropertyType.String)
+        internal_metadata(required: false, description: "transaction information details")
+        transaction_amount_refunded(required: false, PropertyType.Numeric)
+        payment_type_id (required: false, PropertyType.String)
+
 
     }
     "/instore/payment_info"(platform: "/mobile", type: TrackType.Event) {
