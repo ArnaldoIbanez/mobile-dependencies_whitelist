@@ -112,7 +112,7 @@ trackTests {
             defaultCheckoutTrackInformation()
         }
 
-        "/chargebacks/mail"(platform: "/email") {
+        "/email/chargebacks"(platform: "/email") {
             defaultTrackInformation()
             case_id = "987987987004"
             receiver_id = 306162056
