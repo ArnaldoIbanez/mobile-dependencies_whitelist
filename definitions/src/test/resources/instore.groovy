@@ -29,7 +29,11 @@ trackTests {
         }
 
         // Scan QR
-        "/instore/scan_qr"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/scan_qr"(platform: "/mobile", type: TrackType.View) {
+            camera_permissions = true
+            location_permissions = true
+            notifications_permissions = true
+        }
         "/instore/scan_qr/qr_discovery"(platform: "/mobile", type: TrackType.Event) {
             qr_data = "Any scanned data"
             qr_discovery_time_in_millis = "323223"
@@ -55,7 +59,9 @@ trackTests {
             view_time_in_millis = "125638"
             camera_flash = false
         }
-
+        "/instore/scan_qr/flash"(platform: "/mobile", type: TrackType.Event) {
+            camera_flash = false
+        }
         // Permissions
         "/ask_device_permission/bluetooth"(platform: "/mobile", type: TrackType.View) {
             context = "/instore"
@@ -263,21 +269,17 @@ trackTests {
         // FTU
         "/instore/qr_first_time_use"(platform: "/mobile", type: TrackType.View) {}
         "/instore/qr_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {
-            context = "/instore"
-            qr_server_time_in_millis = "134231"
+            view_time_in_millis = "134231"
         }
         "/instore/qr_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
-            context = "/instore"
-            qr_server_time_in_millis = "134231"
+            view_time_in_millis = "134231"
         }
         "/instore/shell_first_time_use"(platform: "/mobile", type: TrackType.View) {}
         "/instore/shell_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {
-            context = "/instore"
-            qr_server_time_in_millis = "134231"
+            view_time_in_millis = "134231"
         }
         "/instore/shell_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
-            context = "/instore"
-            qr_server_time_in_millis = "134231"
+            view_time_in_millis = "134231"
         }
 
         // Shell
@@ -366,12 +368,6 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
         }
-        "/instore/waiting/gastronomy_order/next"(platform: "/mobile", type: TrackType.Event) {
-            collector_id = "12356"
-            brand_name = "YPF"
-            store_id = "76840"
-            pos_id = "65763"
-        }
         "/instore/waiting/gastronomy_order/back"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
@@ -397,12 +393,6 @@ trackTests {
             pos_id = "65763"
         }
         "/instore/waiting/generic_ticket"(platform: "/mobile", type: TrackType.View) {
-            collector_id = "12356"
-            brand_name = "YPF"
-            store_id = "76840"
-            pos_id = "65763"
-        }
-        "/instore/waiting/generic_ticket/next"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
@@ -475,7 +465,38 @@ trackTests {
             response_payment = "Payment response"
         }
 
-        "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {}
+        "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
+            currency_id = "ARS"
+            statement_descriptor = "WWW.MERCADOPAGO.COM"
+            collector_id = 244110353
+            status = "approved"
+            payment_method_id = "visa"
+            site_id = "MLA"
+            date_created = "2018-11-25T00:10:26.000-0300"
+            status_detail = "accredited"
+            operation_type = "regular_payment"
+            installments = 1
+            id = 4315937273
+            payer_id = 79063514
+            collector = {
+                id = 244110353
+                identification = {
+                    number = "34214555"
+                    type : "DNI"
+                }
+            }
+            issuer_id = 310
+            payer = {
+                id = 79063514
+                identification = {
+                    number = "30114956"
+                    type = "DNI"
+                }
+            }
+            transaction_amount = 130
+            coupon_amount = 0
+            marketplace = "NONE"
+        }
         "/instore/payment_info"(platform: "/mobile", type: TrackType.Event) {
             payment_info_tag = "Execute post payment"
         }
@@ -521,7 +542,10 @@ trackTests {
         "/instore/waiting/generic_ticket"(platform: "/mobile", type: TrackType.View) {}
         "/instore/gas_station_shell"(platform: "/mobile", type: TrackType.View) {}
         "/instore/shell_first_time_use"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/price_picker"(platform: "/mobile", type: TrackType.View) {}
         // Deprecated PX
+        "/instore/checkout/card/installments"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/checkout/security_code_card"(platform: "/mobile", type: TrackType.View) {}
         "/instore/checkout/congrats/business"(platform: "/mobile", type: TrackType.View) {}
         "/instore/checkout/congrats/rejected"(platform: "/mobile", type: TrackType.View) {}
         "/instore/checkout/card/credit_card/security_code"(platform: "/mobile", type: TrackType.View) {}
@@ -539,7 +563,6 @@ trackTests {
         "/instore/checkout/result"(platform: "/mobile", type: TrackType.View) {}
         "/instore/checkout/review"(platform: "/mobile", type: TrackType.View) {}
         "/instore/checkout/review_and_confirm"(platform: "/mobile", type: TrackType.View) {}
-
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Mercado Pago
@@ -573,7 +596,9 @@ trackTests {
             view_time_in_millis = "125638"
             camera_flash = false
         }
-
+        "/instore/scan_qr/flash"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            camera_flash = false
+        }
         // Permissions
         "/ask_device_permission/bluetooth"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             context = "/instore"
@@ -662,14 +687,16 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
-            data_key = "Any scanned data"
+            data_key = "Any data key"
+            qr_data = "Any scanned data"
         }
         "/instore/data_required/identification_number/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
-            data_key = "Any scanned data"
+            data_key = "Any data key"
+            qr_data = "Any scanned data"
         }
 
         // Error
@@ -789,21 +816,17 @@ trackTests {
         // FTU
         "/instore/qr_first_time_use"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/qr_first_time_use/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
-            context = "/instore"
-            qr_server_time_in_millis = "134231"
+            view_time_in_millis = "134231"
         }
         "/instore/qr_first_time_use/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
-            context = "/instore"
-            qr_server_time_in_millis = "134231"
+            view_time_in_millis = "134231"
         }
         "/instore/shell_first_time_use"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/shell_first_time_use/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
-            context = "/instore"
-            qr_server_time_in_millis = "134231"
+            view_time_in_millis = "134231"
         }
         "/instore/shell_first_time_use/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
-            context = "/instore"
-            qr_server_time_in_millis = "134231"
+            view_time_in_millis = "134231"
         }
 
         // Shell
@@ -952,12 +975,6 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
         }
-        "/instore/waiting/gastronomy_order/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
-            collector_id = "12356"
-            brand_name = "YPF"
-            store_id = "76840"
-            pos_id = "65763"
-        }
         "/instore/waiting/gastronomy_order/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
@@ -988,12 +1005,6 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
         }
-        "/instore/waiting/generic_ticket/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
-            collector_id = "12356"
-            brand_name = "YPF"
-            store_id = "76840"
-            pos_id = "65763"
-        }
         "/instore/waiting/generic_ticket/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
@@ -1001,7 +1012,119 @@ trackTests {
             pos_id = "65763"
         }
 
-        "/instore/post_payment"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {}
+        "/instore/post_payment"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+                currency_id = "ARS"
+                statement_descriptor = "WWW.MERCADOPAGO.COM"
+                collector_id = 244110353
+                status = "approved"
+                payment_method_id = "visa"
+                site_id = "MLA"
+                date_created = "2018-11-25T00:10:26.000-0300"
+                status_detail = "accredited"
+                operation_type = "regular_payment"
+                installments = 1
+                id = 4315937273
+                payer_id = 79063514
+                collector = {
+                    id = 244110353
+                    identification = {
+                        number = "34214555"
+                        type : "DNI"
+                    }
+                }
+                issuer_id = 310
+                payer = {
+                    id = 79063514
+                    identification = {
+                        number = "30114956"
+                        type = "DNI"
+                    }
+                }
+                transaction_amount = 130
+                coupon_amount = 0
+                marketplace = "NONE"
+        }
+
+        "/instore/post_payment"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            raw = {
+                statement_descriptor = "WWW.MERCADOPAGO.COM"
+                shipping_amount = 0
+                coupon_id = 43427906
+                captured = true
+                fee_details = [
+                        {
+                            amount = 40.6
+                            fee_payer = "collector"
+                            type = "mercadopago_fee"
+                        }
+                ]
+                date_created = "2018-11-24T21:00:13.000-04:00"
+                date_last_updated = "2018-11-24T21:00:16.000-04:00"
+                api_version = "2"
+                id = 4315374212
+                collector = {
+                    id = 350075398
+                    phone = {
+                        area_code = "011"
+                        number = "47842600"
+                    }
+                    identification = {
+                        number = "30716032384"
+                        type = "Otro"
+                    }
+                }
+                payer_id = 89648396
+                issuer_id = 338
+                money_release_days = 0
+                order = {
+                    id = 909650158
+                    type = mercadopago
+                }
+                external_reference = "nicaragua2"
+                transaction_amount = 560
+                description = "Producto de Williamsburg"
+                transaction_details = {
+                    total_paid_amount = 460
+                    payable_deferral_period = 0
+                    installment_amount = 460
+                    overpaid_amount = 0
+                }
+                coupon_amount = 100
+                client_id = "1945000207238192"
+                marketplace = "NONE"
+                currency_id = "ARS"
+                collector_id = 350075398
+                status = "approved"
+                payment_method_id = "visa"
+                site_id = "MLA"
+                status_detail = "accredited"
+                operation_type = "regular_payment"
+                binary_mode = true
+                transaction_id = "8652928979_777b7f7e776373697b3c"
+                installments = 1
+                money_release_date = "2018-11-24T21:00:16.000-04:00"
+                internal_metadata = {
+                    subtype = "store"
+                    app_version = "2.50.0.4"
+                    pos_id = "nicaragua2"
+                    type = "qr"
+                }
+                payer = {
+                    id : 89648396
+                    phone = {
+                        area_code = "011"
+                        number = "47842600"
+                    }
+                    identification = {
+                        number = "27258766"
+                        type = "DNI"
+                    }
+                }
+                transaction_amount_refunded = 0
+                payment_type_id = "credit_card"
+            }
+        }
+
         "/instore/payment_info"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             payment_info_tag = "Execute post payment"
         }
@@ -1046,7 +1169,10 @@ trackTests {
         "/instore/required_action/data_required"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/required_action/data_required/dni"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/required_action/bluetooth_permission"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/price_picker"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         // Deprecated PX
+        "/instore/checkout/card/installments"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/checkout/security_code_card"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/checkout/congrats/business"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/checkout/congrats/rejected"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/checkout/card/credit_card/security_code"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}

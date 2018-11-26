@@ -12,7 +12,11 @@ tracks {
     "/instore"(platform: "/mobile", isAbstract: true) {}
 
     // Scan QR
-    "/instore/scan_qr"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/scan_qr"(platform: "/mobile", type: TrackType.View) {
+        camera_permissions(required: false, PropertyType.Boolean)
+        location_permissions(required: false, PropertyType.Boolean)
+        notifications_permissions(required: false, PropertyType.Boolean)
+    }
     "/instore/scan_qr"(platform: "/mobile", isAbstract: true) {}
     "/instore/scan_qr/qr_discovery"(platform: "/mobile", type: TrackType.Event) {
         qr_data(required: false, PropertyType.String)
@@ -28,8 +32,11 @@ tracks {
         brand_name(required: false, PropertyType.String)
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
-        succes(required: false, PropertyType.String)
+        succes(required: false, PropertyType.Boolean)
         next_step_deeplink(required: false, PropertyType.String)
+    }
+    "/instore/scan_qr/flash"(platform: "/mobile", type: TrackType.Event) {
+        camera_flash(required: false, PropertyType.Boolean)
     }
     "/instore/scan_qr/abort"(platform: "/mobile", type: TrackType.Event) {
         view_time_in_millis(required: false, PropertyType.String)
@@ -256,22 +263,18 @@ tracks {
     "/instore/qr_first_time_use"(platform: "/mobile", type: TrackType.View) {}
     "/instore/qr_first_time_use"(platform: "/mobile", isAbstract: true) {}
     "/instore/qr_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {
-        context(required: true, PropertyType.String)
-        qr_server_time_in_millis(required: false, PropertyType.String)
+        view_time_in_millis(required: false, PropertyType.String)
     }
     "/instore/qr_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
-        context(required: true, PropertyType.String)
-        qr_server_time_in_millis(required: false, PropertyType.String)
+        view_time_in_millis(required: false, PropertyType.String)
     }
     "/instore/shell_first_time_use"(platform: "/mobile", type: TrackType.View) {}
     "/instore/shell_first_time_use"(platform: "/mobile", isAbstract: true) {}
     "/instore/shell_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {
-        context(required: true, PropertyType.String)
-        qr_server_time_in_millis(required: false, PropertyType.String)
+        view_time_in_millis(required: false, PropertyType.String)
     }
     "/instore/shell_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
-        context(required: true, PropertyType.String)
-        qr_server_time_in_millis(required: false, PropertyType.String)
+        view_time_in_millis(required: false, PropertyType.String)
     }
 
     // Waiting
@@ -353,12 +356,6 @@ tracks {
         pos_id(required: false, PropertyType.String)
     }
     "/instore/waiting/gastronomy_order"(platform: "/mobile", isAbstract: true) {}
-    "/instore/waiting/gastronomy_order/next"(platform: "/mobile", type: TrackType.Event) {
-        collector_id(required: false, PropertyType.String)
-        brand_name(required: false, PropertyType.String)
-        store_id(required: false, PropertyType.String)
-        pos_id(required: false, PropertyType.String)
-    }
     "/instore/waiting/gastronomy_order/back"(platform: "/mobile", type: TrackType.Event) {
         collector_id(required: false, PropertyType.String)
         brand_name(required: false, PropertyType.String)
@@ -391,12 +388,6 @@ tracks {
         pos_id(required: false, PropertyType.String)
     }
     "/instore/waiting/generic_ticket"(platform: "/mobile", isAbstract: true) {}
-    "/instore/waiting/generic_ticket/next"(platform: "/mobile", type: TrackType.Event) {
-        collector_id(required: false, PropertyType.String)
-        brand_name(required: false, PropertyType.String)
-        store_id(required: false, PropertyType.String)
-        pos_id(required: false, PropertyType.String)
-    }
     "/instore/waiting/generic_ticket/back"(platform: "/mobile", type: TrackType.Event) {
         collector_id(required: false, PropertyType.String)
         brand_name(required: false, PropertyType.String)
@@ -426,6 +417,7 @@ tracks {
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
         data_key(required: false, PropertyType.String)
+        qr_data(required: false, PropertyType.String)
     }
     "/instore/data_required/identification_number/back"(platform: "/mobile", type: TrackType.Event) {
         collector_id(required: false, PropertyType.String)
@@ -433,6 +425,7 @@ tracks {
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
         data_key(required: false, PropertyType.String)
+        qr_data(required: false, PropertyType.String)
     }
 
     // Vending
@@ -498,12 +491,35 @@ tracks {
         response_payment(required: false, description: "Payment response")
     }
 
-    "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
+        currency_id(required: false, PropertyType.String)
+        statement_descriptor(required: false, PropertyType.String)
+        collector_id(required: false, PropertyType.Numeric)
+        status(required: false, PropertyType.String)
+        payment_method_id(required: false, PropertyType.String)
+        site_id(required: false, PropertyType.String)
+        date_created(required: false, PropertyType.String)
+        status_detail(required: false, PropertyType.String)
+        operation_type(required: false, PropertyType.String)
+        installments(required: false, PropertyType.Numeric)
+        id(required: false, PropertyType.Numeric)
+        payer_id(required: false, PropertyType.Numeric)
+        collector(required: false, description: "collector information")
+        issuer_id(required: false, PropertyType.Numeric)
+        payer(required: false, description: "payer information")
+        transaction_amount(required: false, PropertyType.Numeric)
+        coupon_amount(required: false, PropertyType.Numeric)
+        marketplace(required: false, PropertyType.String)
+
+    }
     "/instore/payment_info"(platform: "/mobile", type: TrackType.Event) {
         payment_info_tag(required: false, "Execute post payment")
     }
 
     // Deprecated
+    "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
+        raw(required: false, description: "Raw with post payment information")
+    }
     "/instore/vending/select_product"(platform: "/mobile", type: TrackType.View) {}
     "/instore/required_action"(platform: "/mobile", isAbstract: true) {}
     "/instore/required_action/data_required"(platform: "/mobile", type: TrackType.View) {}
@@ -526,13 +542,13 @@ tracks {
     "/instore/manual_price"(platform: "/mobile", type: TrackType.View) {}
     "/instore/activity"(platform: "/mobile", isAbstract: true) {}
     "/instore/activity/list"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/price_picker"(platform: "/mobile", type: TrackType.View) {}
     // Deprecated PX
     "/instore/checkout"(platform: "/mobile", isAbstract: true) {}
     "/instore/checkout/payment_method_search"(platform: "/mobile", type: TrackType.View) {}
     "/instore/checkout/review_and_confirm"(platform: "/mobile", type: TrackType.View) {}
     "/instore/checkout/result"(platform: "/mobile", type: TrackType.View) {}
     "/instore/checkout/payment_option"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/review"(platform: "/mobile", type: TrackType.View) {}
     "/instore/checkout/review"(platform: "/mobile", type: TrackType.View) {}
     "/instore/checkout/card_installments"(platform: "/mobile", type: TrackType.View) {}
     "/instore/checkout/card_number"(platform: "/mobile", type: TrackType.View) {}
@@ -542,6 +558,8 @@ tracks {
     "/instore/checkout/card_security_code"(platform: "/mobile", type: TrackType.View) {}
     "/instore/checkout/identification_number"(platform: "/mobile", type: TrackType.View) {}
     "/instore/checkout/installments"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/card/installments"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/security_code_card"(platform: "/mobile", type: TrackType.View) {}
     "/instore/checkout/card"(platform: "/mobile", isAbstract: true) {}
     "/instore/checkout/card/credit_card"(platform: "/mobile", isAbstract: true) {}
     "/instore/checkout/card/credit_card/security_code"(platform: "/mobile", type: TrackType.View) {}
