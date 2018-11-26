@@ -6,7 +6,6 @@ trackTests {
 
     test("melidata emails track") {
 
-
         def defaultTrackInformation = {
             email_id = 123456
             subject = "Test"
