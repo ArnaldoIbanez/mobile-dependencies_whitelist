@@ -280,5 +280,21 @@ trackTests {
         }
 
     }
+
+    test("Chargebacks mails") {
+        "/chargebacks/mail"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
+            case_id = "987987987004"
+            receiver_id = 306162056
+            template = "init-collector"
+            step = "sent"
+        }
+
+        "/chargebacks/mail"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
+            case_id = "987987987004"
+            receiver_id = 306162056
+            template = "init-collector"
+            step = "open"
+        }
+    }
 }
 
