@@ -124,7 +124,7 @@ metrics {
 		}
 	}
 
-	"user_vip_interaction_mobile"(description: "track vip user interaction as success for classifieds mobile") {
+	"clasiffieds_user_contact_mobile"(description: "track vip user interaction as success for classifieds mobile") {
 		startWith {
 			experiment(regex(classiExperiments))
 		}
