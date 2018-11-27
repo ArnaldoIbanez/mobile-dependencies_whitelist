@@ -6,6 +6,10 @@ jest(tracks.event_data, 'item_id') item,
 jest(tracks.event_data, 'category_domain') domain, 
 jest(tracks.event_data, 'attribute') attribute, 
 jest(tracks.event_data, 'type') hintType, 
+CASE   
+WHEN tracks.path LIKE '/seller_central/bulk/technical_specifications/hints/%' THEN 'bulk'  
+WHEN tracks.path LIKE '/seller_central/modify/technical_specifications/hints/%' THEN 'modify'  
+END AS source,
 application.site_id AS site,
 usr.user_id AS user,
 substr(ds,1,10) AS date
