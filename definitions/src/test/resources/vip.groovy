@@ -680,7 +680,9 @@ trackTests {
             model()
         }
         
-        "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {}
+        "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {
+            model()
+        }
         
         "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {}
         
@@ -699,7 +701,9 @@ trackTests {
             model()
         }
         
-        "/vip/shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) {}
+        "/vip/shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) {
+            model()
+        }
         
         "/vip/shipping_calculator/show_map"(platform: "/mobile/ios", type: TrackType.Event) {}
     }
