@@ -1,0 +1,68 @@
+{
+  "users": [
+    "emanuel.lopez@mercadolibre.com"
+  ],
+  "process_name": "technical_specifications_hints",
+  "cron": "00 07 * * *",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "path",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "action",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "session",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "item",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "domain",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "attribute",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "hintType",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "site",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "user",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "date",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      }
+    ],
+    "sql": {
+      "script": "business-assurance/technical_specifications_hints",
+      "parameters": [
+        {
+          "name": "from",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "to",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
