@@ -164,6 +164,8 @@ tracks {
         quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to buy")
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        is_valid_variation(required: false, type: PropertyType.Boolean, description: "Is the selected variation valid")
+        loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
         add_cart_info
         shipping_info
     }
@@ -173,6 +175,8 @@ tracks {
         quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to a2c")
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        is_valid_variation(required: false, type: PropertyType.Boolean, description: "Is the selected variation valid")
+        loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
         add_cart_info
         shipping_info
     }
