@@ -731,6 +731,11 @@ trackTests {
             checkoutStatus()
         }
 
+        "/checkout/payment/encrypted_security_code_add#submit"(platform:"/mobile") {
+            status = "success"
+            checkout_flow = "direct"
+            session_id = "asodas98a9sd8a"
+        }
 
         // Billing Info
         "/checkout/billing/physical_person"(platform: "/mobile") {
@@ -822,6 +827,7 @@ trackTests {
             checkoutStatus()
         }
         "/checkout/finish/invalid_sec_code/input"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
         }
 
         "/checkout/finish/choose_action"(platform:"/mobile", type:TrackType.View) {
