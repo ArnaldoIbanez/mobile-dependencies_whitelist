@@ -5,7 +5,7 @@ import groovy.json.JsonOutput
 
 class JSONFormatter extends CatalogFormatter {
 
-    JSONFormatter (String catalogDir, String s3CatalogFile) {
+    JSONFormatter(String catalogDir, String s3CatalogFile) {
         super(catalogDir, s3CatalogFile)
     }
 
@@ -30,15 +30,4 @@ class JSONFormatter extends CatalogFormatter {
     def formatOutput(def data) {
         JsonOutput.toJson(data)
     }
-
-    static void main(String[] args) {
-        String catalogDir = args[0]
-        String s3CatalogFile = args[1]
-        String jsonFileName = args[2]
-        def file = new File(jsonFileName) //antes catalog.json - donde se usa esto?
-        file.delete()
-
-        file << new JSONFormatter(catalogDir, s3CatalogFile).output
-    }
-
 }

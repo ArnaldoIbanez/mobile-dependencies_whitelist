@@ -12,12 +12,12 @@ import com.ml.melidata.catalog.DslUtils
  */
 class CatalogHandler {
 
-	private static final String AWS_KEY = 'AKIAIRJ4DFA72UDCX7QA'//'AKIAI2AFLMRLNMSP3IJA'
-	private static final String AWS_SECRET = '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'//'BZUVcUw7CfLgoJVr06w15sJ308Tnxv+c42Hhul6G'
+	private static final String AWS_ACCESS_KEY = 'AKIAIRJ4DFA72UDCX7QA'//'AKIAI2AFLMRLNMSP3IJA'
+	private static final String AWS_SECRET_KEY = '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'//'BZUVcUw7CfLgoJVr06w15sJ308Tnxv+c42Hhul6G'
 
-	public static String BUCKET = "melidata-catalog-versions"
+	public static String S3BUCKET = "melidata-catalog-versions"
+
 	public static String LAST_VERSION_OBJECT
-
 	public static String LAST_VERSION_FILE_NAME
 	public static String LOCAL_FOLDER
 	public static String S3_CONTAINER
@@ -29,25 +29,25 @@ class CatalogHandler {
 	private Catalog catalog
 	private int version
 
-	def CatalogHandler(String lastVersionObject, String lastVersionFileName, String localFolder, String s3Container, String s3CatalogFile, String csvFileName) {
+	CatalogHandler(String lastVersionObject, String lastVersionFileName, String localFolder, String s3Container, String s3CatalogFile, String csvFileName) {
 		LAST_VERSION_OBJECT = lastVersionObject
 		LAST_VERSION_FILE_NAME = lastVersionFileName
 		LOCAL_FOLDER = localFolder
 		S3_CONTAINER = s3Container
 		S3_CATALOG_FILE = s3CatalogFile
 		CSV_FILE_NAME = csvFileName
-		cli = new S3Controller(BUCKET, AWS_KEY, AWS_SECRET)
+		cli = new S3Controller(S3BUCKET, AWS_ACCESS_KEY, AWS_SECRET_KEY)
 	}
 
-	def boolean reload() {
+	boolean reload() {
 		//check if some file of BUCKET/S3_CONTAINER has changed (etag)
-		List<S3ObjectSummary> objectSummaries = cli.listObjects(new ListObjectsRequest().withBucketName(BUCKET).withPrefix(S3_CONTAINER)).getObjectSummaries();
+		List<S3ObjectSummary> objectSummaries = cli.listObjects(new ListObjectsRequest().withBucketName(S3BUCKET).withPrefix(S3_CONTAINER)).getObjectSummaries()
 
 		boolean reload = false
 		for ( S3ObjectSummary obj : objectSummaries ) {
 			if ( !lastEtag[obj.getKey()] || lastEtag[obj.getKey()] != obj.getETag() ){
-				reload = true;
-				break;
+				reload = true
+				break
 			}
 		}
 
@@ -66,55 +66,55 @@ class CatalogHandler {
 		return false
 	}
 
-	def Catalog getCatalog() {
+	Catalog getCatalog() {
 		return catalog
 	}
 
-	def int getVersion() {
+	int getVersion() {
 		version
 	}
 
 	private reloadCatalog(S3Object object, List<S3ObjectSummary> objectSummaries) {
-		Integer newVersion = Integer.parseInt(object.getObjectMetadata().getUserMetaDataOf("catalog-version"));
+		Integer newVersion = Integer.parseInt(object.getObjectMetadata().getUserMetaDataOf("catalog-version"))
 		if (catalog == null || !newVersion.equals(version)) {
-			DslUtils.setBaseDir(LOCAL_FOLDER); //ESTO ASUME UN UNICO CATALOGO!? O ESTE DSL ESTÁ ATADO AL CATALOGO DE MELIDATA/SHIPPING?
-			this.catalog = DslUtils.parseCatalog(new File(LOCAL_FOLDER, S3_CATALOG_FILE));
+			DslUtils.setBaseDir(LOCAL_FOLDER)
+			this.catalog = DslUtils.parseCatalog(new File(LOCAL_FOLDER, S3_CATALOG_FILE))
 			this.version = newVersion
 			this.lastEtag.clear()
 			for ( S3ObjectSummary obj : objectSummaries ) {
-				this.lastEtag[obj.getKey()] = obj.getETag();
+				this.lastEtag[obj.getKey()] = obj.getETag()
 			}
 		}
 	}
 
 	private S3Object downloadCatalog(List<S3ObjectSummary> objectSummaries) throws IOException {
-		S3Object object = null;
+		S3Object object = null
 		for ( S3ObjectSummary obj : objectSummaries ) {
-			S3Object s3Object = cli.getObject(obj.getKey());
-			S3ObjectInputStream objectContent = s3Object.getObjectContent();
+			S3Object s3Object = cli.getObject(obj.getKey())
+			S3ObjectInputStream objectContent = s3Object.getObjectContent()
 
-			BufferedWriter writer = null;
-			BufferedReader reader = null;
+			BufferedWriter writer = null
+			BufferedReader reader = null
 			try {
 				def output = new File(LOCAL_FOLDER, obj.getKey().replace(S3_CONTAINER, ""))
 				output.getParentFile().mkdirs()
-				writer = new BufferedWriter(new FileWriter(output));
-				reader = new BufferedReader(new InputStreamReader(objectContent));
-				String line;
+				writer = new BufferedWriter(new FileWriter(output))
+				reader = new BufferedReader(new InputStreamReader(objectContent))
+				String line
 				while ((line = reader.readLine()) != null) {
-					writer.write(line + "\n");
+					writer.write(line + "\n")
 				}
 			} finally {
 				if ( reader != null )
-					reader.close();
+					reader.close()
 				if ( writer != null )
-					writer.close();
+					writer.close()
 			}
 
-			if ( isMainFile(obj.getKey()) ) object =  s3Object;
+			if ( isMainFile(obj.getKey()) ) object =  s3Object
 		}
 
-		return object;
+		return object
 
 	}
 

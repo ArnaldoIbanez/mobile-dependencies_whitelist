@@ -11,14 +11,14 @@ import org.apache.commons.io.IOUtils
  */
 class CatalogUploader {
 
-    private static final String S3BUCKET = "melidata-catalog-versions"
-    private static final String ACCESS_KEY = "AKIAIRJ4DFA72UDCX7QA"
-    private static final String SECRET_KEY = "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"
+    private static final String AWS_ACCESS_KEY = "AKIAIRJ4DFA72UDCX7QA"
+    private static final String AWS_SECRET_KEY = "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"
+    private static String S3BUCKET = "melidata-catalog-versions"
 
-    def S3Controller s3Controller
+    S3Controller s3Controller
 
-    def CatalogUploader(String catalogDir, String s3CatalogFile, String lastVersionObject, String lastVersionFileName, String csvFileName) {
-        s3Controller = new S3Controller(S3BUCKET, ACCESS_KEY, SECRET_KEY)
+    CatalogUploader(String catalogDir, String s3CatalogFile, String lastVersionObject, String lastVersionFileName, String csvFileName) {
+        s3Controller = new S3Controller(S3BUCKET, AWS_ACCESS_KEY, AWS_SECRET_KEY)
         upload(catalogDir, s3CatalogFile, lastVersionObject, lastVersionFileName, csvFileName)
     }
 
@@ -43,27 +43,26 @@ class CatalogUploader {
         s3Controller.saveCatalogVersion(catalog,lastVersion.toString(),lastVersion)
         println("Uploading ${lastVersion}.json")
         s3Controller.saveCatalogVersion(json,lastVersion.toString(),lastVersion)
-
-        println("Uploading last.dsl")
+        println("Uploading last dsl")
         s3Controller.saveCatalogVersion(catalog,lastVersionFileName,lastVersion)
-        println("Uploading last.dsl")
+        println("Uploading last json")
         s3Controller.saveCatalogVersion(json,lastVersionFileName,lastVersion)
         println("Setting last version")
         s3Controller.setLastServersion(lastVersionFileName, lastVersion)
-        println("Upload catalog.csv hive format")
+        println("Upload catalog csv hive format")
         def csv = new HiveFormatter(catalogDir, s3CatalogFile).output
-        s3Controller.saveFile(csvFileName, csv);
+        s3Controller.saveFile(csvFileName, csv)
     }
 
 
-    def Catalog parseCatalogFromDsl(dslStr) {
-        GroovyShell shell = new GroovyShell();
+    Catalog parseCatalogFromDsl(dslStr) {
+        GroovyShell shell = new GroovyShell()
         try {
-            def catalog = shell.parse(dslStr).run();
+            def catalog = shell.parse(dslStr).run()
             if(!(catalog instanceof Catalog)) {
                 throw new CatalogException("Script doesn't generate a catalog object")
             }
-            return catalog;
+            return catalog
         } catch(CatalogException e) {
             throw e
         } catch (Throwable e) {

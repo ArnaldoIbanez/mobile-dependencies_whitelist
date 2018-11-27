@@ -2,12 +2,13 @@ package com.melidata.definitions.validate
 
 import com.melidata.definitions.TestRunner
 import com.melidata.definitions.outs.StdOut
+import com.ml.melidata.catalog.DslUtils
+import com.ml.melidata.catalog.tree.TrackValidationResponse
 import com.ml.melidata.Track
 import com.ml.melidata.TrackAdapterHelper
-import com.ml.melidata.catalog.tree.TrackValidationResponse
 import groovy.json.*
 import groovy.util.CliBuilder
-import groovy.sql.Sql;
+import groovy.sql.Sql
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -15,16 +16,23 @@ import java.util.Date
 
 class Validate {
 
-    def static void main(String[] args) {
+    public static String CATALOG_DIR = "src/main/resources/catalog/"
+    public static String DEFAULT_CATALOG = "melidata_catalog.groovy"
+
+    static void main(String[] args) {
         def cli = buildCli(args)
         def options = cli.parse(args)
 
         println "Generating Catalog..."
 
-        def pathCatalog = "src/main/resources/catalog/melidata_catalog.groovy"
-        if (options.catalog_name) pathCatalog = "src/main/resources/catalog'/${options.catalog_name}'.groovy"
+        String pathCatalog
+        if (options.catalog_name) {
+            pathCatalog = CATALOG_DIR + options.catalog_name.toString() + ".groovy"
+        } else {
+            pathCatalog = CATALOG_DIR + DEFAULT_CATALOG
+        }
         def catalogScript = TestRunner.getScriptFromFile(pathCatalog)
-        com.ml.melidata.catalog.DslUtils.setBaseDir("src/main/resources/catalog/") //misma pregunta que con handler
+        DslUtils.setBaseDir(CATALOG_DIR)
         def catalog = TestRunner.runScript(catalogScript)
 
         println "Done. Will fetch for tracks for validating..."
@@ -115,7 +123,7 @@ class Validate {
         return result
     }
 
-    private static List generateResultsFromFile(options, catalog) {
+    private static List generateResultFromFile(options, catalog) {
         def result = []
         def slurper = new JsonSlurper()
         def reader = new BufferedReader(new FileReader(options.from_file.toString()))

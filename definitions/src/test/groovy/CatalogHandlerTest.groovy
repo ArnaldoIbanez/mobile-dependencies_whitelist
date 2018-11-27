@@ -86,17 +86,17 @@ import static org.junit.Assert.assertTrue
 /**
  * Created by mtencer on 22/03/16.
  */
-class CatalogHanderTest {
+class CatalogHandlerTest {
 
     //TODO testMultiFileCatalog and CatalogManager
 
     @Test void testSingleFileCatalog(){
 
-        CatalogHandler handler = new CatalogHandler();
+        CatalogHandler handler = new CatalogHandler("lastMeliDataVersion","lastMeliData","src/main/resources/catalog/","lastMeliData.dsl/","melidata_catalog.groovy","melidata_last.csv/melidata_catalog.csv")
 
         //mock cli
         def catalogObj = new S3ObjectSummary();
-        catalogObj.setKey(CatalogHandler.S3_CATALOG_FILE)
+        catalogObj.setKey("melidata_catalog.groovy")
         catalogObj.setETag("XXX")
         def list = new ObjectListing()
         list.objectSummaries = [catalogObj]

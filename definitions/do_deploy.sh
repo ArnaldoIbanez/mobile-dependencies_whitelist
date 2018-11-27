@@ -10,7 +10,7 @@ if [[ $DRONE_BRANCH == "master" && $DRONE_BUILD_DIR != "" ]]; then
   ./gradlew uploadMeliDataCatalog
 
   echo "Starting upload shipping catalog"
-    ./gradlew uploadShippingCatalog
+  ./gradlew uploadShippingCatalog
 
   echo "Starting upload metrics"
   ./gradlew uploadMetrics
