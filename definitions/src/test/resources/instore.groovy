@@ -585,25 +585,82 @@ trackTests {
         "/instore/shell_first_time_use"(platform: "/mobile", type: TrackType.View) {}
         "/instore/price_picker"(platform: "/mobile", type: TrackType.View) {}
         // Deprecated PX
-        "/instore/checkout/card/installments"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/security_code_card"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/checkout/card/number"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/checkout/card/installments"(platform: "/mobile", type: TrackType.View) {
+            payment_method = "amex"
+        }
+        "/instore/checkout/security_code_card"(platform: "/mobile", type: TrackType.View) {
+            security_code_view_reason = "saved_card"
+        }
         "/instore/checkout/congrats/business"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/congrats/rejected"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/card/credit_card/security_code"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/card/debit_card/security_code"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/checkout/congrats/rejected"(platform: "/mobile", type: TrackType.View) {
+            issuer ="24"
+            payment_id  = "4318458695"
+            is_express = "false"
+            payment_method = "master"
+            payment_status = "rejected"
+            payment_status_detail = "cc_rejected_high_risk"
+        }
+        "/instore/checkout/card/credit_card/security_code"(platform: "/mobile", type: TrackType.View) {
+            security_code_view_reason = "saved_card"
+        }
+        "/instore/checkout/card/debit_card/security_code"(platform: "/mobile", type: TrackType.View) {
+            security_code_view_reason = "saved_card"
+        }
         "/instore/checkout/card_expiry_date"(platform: "/mobile", type: TrackType.View) {}
         "/instore/checkout/card_holder_name"(platform: "/mobile", type: TrackType.View) {}
         "/instore/checkout/card_installments"(platform: "/mobile", type: TrackType.View) {}
         "/instore/checkout/card_number"(platform: "/mobile", type: TrackType.View) {}
         "/instore/checkout/card_security_code"(platform: "/mobile", type: TrackType.View) {}
         "/instore/checkout/card_vault credit_card"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/identification_number"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/checkout/card_vault debit_card"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/checkout/identification_number"(platform: "/mobile", type: TrackType.View) {
+            payment_method =  "visa"
+            payment_type = "credit_card"
+        }
         "/instore/checkout/installments"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/payment_method_search"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/payment_option"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/result"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/checkout/payment_method_search"(platform: "/mobile", type: TrackType.View) {
+            options = "visa:credit_card|master:credit_card|amex:credit_card|mercadopago_cc:credit_card" +
+                    "|naranja:credit_card|nativa:credit_card|cabal:credit_card|tarshop:credit_card" +
+                    "|cencosud:credit_card|diners:credit_card|argencard:credit_card|maestro:debit_card" +
+                    "|debmaster:debit_card|debcabal:debit_card|debvisa:debit_card|cordial:credit_card" +
+                    "|cordobesa:credit_card|cmr:credit_card|debvisa:debit_card:7775245748:ESC" +
+                    "|visa:credit_card:8237344527"
+        }
+        "/instore/checkout/payment_option"(platform: "/mobile", type: TrackType.View) {
+            options = "visa:credit_card|master:credit_card|amex:credit_card|mercadopago_cc:credit_card" +
+                    "|naranja:credit_card|nativa:credit_card|cabal:credit_card|tarshop:credit_card" +
+                    "|cencosud:credit_card|diners:credit_card|argencard:credit_card|maestro:debit_card" +
+                    "|debmaster:debit_card|debcabal:debit_card|debvisa:debit_card|cordial:credit_card" +
+                    "|cordobesa:credit_card|cmr:credit_card|debvisa:debit_card:7775245748:ESC" +
+                    "|visa:credit_card:8237344527"
+        }
+        "/instore/checkout/result"(platform: "/mobile", type: TrackType.View) {
+            issuer = "24"
+            payment_id = "4319318405"
+            is_express = "false"
+            payment_method = "master"
+            payment_type = "credit_card"
+            payment_status_detail = "cc_rejected_plugin_pm"
+            payment_status = "rejected"
+        }
         "/instore/checkout/review"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/review_and_confirm"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/checkout/review_and_confirm"(platform: "/mobile", type: TrackType.View) {
+            issuer = "0"
+            has_shipping = "false"
+            payment_method = "account_money"
+            payment_type = "payment_method_plugin"
+        }
+        "/instore/checkout/payment_option/cards"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/checkout/error_view"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/checkout/card/debit_card/number"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/checkout/card/credit_card/number"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/checkout/card/credit_card/name"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/checkout/card/credit_card/expiration"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/checkout/card/credit_card/cvv"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/checkout/card/debit_card/name"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/checkout/card/debit_card/expiration"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/checkout/card/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {}
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Mercado Pago
@@ -1253,25 +1310,82 @@ trackTests {
         "/instore/required_action/bluetooth_permission"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/price_picker"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         // Deprecated PX
-        "/instore/checkout/card/installments"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/security_code_card"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/checkout/card/installments"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            payment_method = "amex"
+        }
+        "/instore/checkout/security_code_card"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            security_code_view_reason = "saved_card"
+        }
         "/instore/checkout/congrats/business"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/congrats/rejected"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/card/credit_card/security_code"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/card/debit_card/security_code"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/checkout/congrats/rejected"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            issuer ="24"
+            payment_id  = "4318458695"
+            is_express = "false"
+            payment_method = "master"
+            payment_status = "rejected"
+            payment_status_detail = "cc_rejected_high_risk"
+        }
+        "/instore/checkout/card/credit_card/security_code"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            security_code_view_reason = "saved_card"
+        }
+        "/instore/checkout/card/debit_card/security_code"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            security_code_view_reason = "saved_card"
+        }
         "/instore/checkout/card_expiry_date"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/checkout/card_holder_name"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/checkout/card_installments"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/checkout/card_number"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/checkout/card_security_code"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/checkout/card_vault credit_card"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/identification_number"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/checkout/card_vault debit_card"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/checkout/identification_number"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            payment_method =  "visa"
+            payment_type = "credit_card"
+        }
         "/instore/checkout/installments"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/payment_method_search"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/payment_option"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/result"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/checkout/payment_method_search"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            options = "visa:credit_card|master:credit_card|amex:credit_card|mercadopago_cc:credit_card" +
+                    "|naranja:credit_card|nativa:credit_card|cabal:credit_card|tarshop:credit_card" +
+                    "|cencosud:credit_card|diners:credit_card|argencard:credit_card|maestro:debit_card" +
+                    "|debmaster:debit_card|debcabal:debit_card|debvisa:debit_card|cordial:credit_card" +
+                    "|cordobesa:credit_card|cmr:credit_card|debvisa:debit_card:7775245748:ESC" +
+                    "|visa:credit_card:8237344527"
+        }
+        "/instore/checkout/payment_option"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            options = "visa:credit_card|master:credit_card|amex:credit_card|mercadopago_cc:credit_card" +
+                    "|naranja:credit_card|nativa:credit_card|cabal:credit_card|tarshop:credit_card" +
+                    "|cencosud:credit_card|diners:credit_card|argencard:credit_card|maestro:debit_card" +
+                    "|debmaster:debit_card|debcabal:debit_card|debvisa:debit_card|cordial:credit_card" +
+                    "|cordobesa:credit_card|cmr:credit_card|debvisa:debit_card:7775245748:ESC" +
+                    "|visa:credit_card:8237344527"
+        }
+        "/instore/checkout/result"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            issuer = "24"
+            payment_id = "4319318405"
+            is_express = "false"
+            payment_method = "master"
+            payment_type = "credit_card"
+            payment_status_detail = "cc_rejected_plugin_pm"
+            payment_status = "rejected"
+        }
+        "/instore/checkout/card/number"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/checkout/review"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/review_and_confirm"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/checkout/review_and_confirm"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            issuer = "0"
+            has_shipping = "false"
+            payment_method = "account_money"
+            payment_type = "payment_method_plugin"
+        }
+        "/instore/checkout/payment_option/cards"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/checkout/error_view"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/checkout/card/debit_card/number"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/checkout/card/credit_card/number"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/checkout/card/credit_card/name"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/checkout/card/credit_card/expiration"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/checkout/card/credit_card/cvv"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/checkout/card/debit_card/name"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/checkout/card/debit_card/expiration"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/checkout/card/debit_card/cvv"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
     }
 
 }
