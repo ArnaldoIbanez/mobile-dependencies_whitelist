@@ -456,6 +456,8 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             response_end_transaction = "Transaction response"
+            business_result = ["show_payment_method":true, "top_custom_view":[], "title":"¡Listo! Ya le pagaste a FEED", "bottom_custom_view":[], "status":"approved"]
+            success = true
         }
         "/instore/vending/response_payment"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -463,6 +465,11 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             response_payment = "Payment response"
+            screens_info = "screen info"
+            raw = ["coupon_amount":31.5, "operation_type":"regular_payment"]
+            business_result = ["show_payment_method":true, "top_custom_view":[], "title":"¡Listo! Ya le pagaste a FEED", "bottom_custom_view":[], "status":"approved"]
+            vending_operation_context = ["transaction_id":732941543339532, "vending_code":"GOtm10Y=", "service_uuid":"455a0001-0000-4000-4541-5a59434f494e", "connection_id":"EZ_50000131", "vending_id":"50000131", "mac":"00:1E:C0:27:77:25"]
+            dispatching_time = 1000
         }
 
         "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
@@ -991,6 +998,8 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             response_end_transaction = "Transaction response"
+            business_result = ["show_payment_method":true, "top_custom_view":[], "title":"¡Listo! Ya le pagaste a FEED", "bottom_custom_view":[], "status":"approved"]
+            success = true
         }
         "/instore/vending/response_payment"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -998,6 +1007,11 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             response_payment = "Payment response"
+            screens_info = "screen info"
+            raw = ["coupon_amount":31.5, "operation_type":"regular_payment"]
+            business_result = ["show_payment_method":true, "top_custom_view":[], "title":"¡Listo! Ya le pagaste a FEED", "bottom_custom_view":[], "status":"approved"]
+            vending_operation_context = ["transaction_id":732941543339532, "vending_code":"GOtm10Y=", "service_uuid":"455a0001-0000-4000-4541-5a59434f494e", "connection_id":"EZ_50000131", "vending_id":"50000131", "mac":"00:1E:C0:27:77:25"]
+            dispatching_time = 1000
         }
 
         // Waiting

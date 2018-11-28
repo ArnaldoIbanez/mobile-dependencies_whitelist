@@ -484,6 +484,8 @@ tracks {
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
         response_end_transaction(required: false, description: "Transaction response")
+        business_result(required: false, PropertyType.ArrayList)
+        success(required: false, PropertyType.Boolean)
     }
     "/instore/vending/response_payment"(platform: "/mobile", type: TrackType.Event) {
         collector_id(required: false, PropertyType.String)
@@ -491,6 +493,11 @@ tracks {
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
         response_payment(required: false, description: "Payment response")
+        screens_info(required: false, PropertyType.String)
+        raw(required: false, PropertyType.ArrayList)
+        business_result(required: false, PropertyType.ArrayList)
+        vending_operation_context(required: false, PropertyType.ArrayList)
+        dispatching_time(required: false, PropertyType.Numeric)
     }
 
     "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
