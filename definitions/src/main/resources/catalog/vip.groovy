@@ -542,9 +542,9 @@ tracks {
     "/vip/shipping_calculator/cancel"(platform: "/", type: TrackType.Event){
     }
 
-    "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event){
+     "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event){
     }
 
-    "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+    "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
     }
 }
