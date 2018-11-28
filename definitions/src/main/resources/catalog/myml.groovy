@@ -168,7 +168,6 @@ tracks {
         adv_segmentation(required: true, description: "Adevrtasement segmentation ")
         reputation_level(required: true, description: "Reputation for Pads")
     }
-
     "/myml/bookmarks"(platform: "/web", type: TrackType.View) {}
     "/myml/questions"(platform: "/web", type: TrackType.View) {}
 
