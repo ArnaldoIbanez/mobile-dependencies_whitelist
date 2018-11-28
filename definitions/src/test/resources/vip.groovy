@@ -676,10 +676,35 @@ trackTests {
             shipping_method()
         }
 
-        "/vip/shipping_calculator/cancel"(platform: "/", type: TrackType.Event) {}
+        "/vip/shipping_calculator/cancel"(platform: "/", type: TrackType.Event) {
+            model()
+        }
         
-        "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {}
+        "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {
+            model()
+        }
         
         "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {}
+        
+        
+        //Apps
+        "/vip/shipping_calculator"(platform: "/mobile/ios", type: TrackType.View) {
+            model()
+        }
+
+         "/vip/shipping_calculator/select"(platform: "/mobile/ios", type: TrackType.Event) {
+            model()
+            shipping_method()
+        }
+
+        "/vip/shipping_calculator/cancel"(platform: "/mobile/ios", type: TrackType.Event) {
+            model()
+        }
+        
+        "/vip/shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) {
+            model()
+        }
+        
+        "/vip/shipping_calculator/show_map"(platform: "/mobile/ios", type: TrackType.Event) {}
     }
 }
