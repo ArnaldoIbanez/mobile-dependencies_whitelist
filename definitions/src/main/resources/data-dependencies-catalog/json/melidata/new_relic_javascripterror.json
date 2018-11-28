@@ -20,7 +20,7 @@
         "name": "Hora",
         "type": "INTEGER"
       },
-        {
+      {
         "name": "eventType",
         "type": "UNICODE_STRING"
       },
@@ -47,7 +47,7 @@
       {
         "name": "transactionName",
         "type": "UNICODE_STRING"
-      }
+      },
       {
         "name": "userAgentName",
         "type": "UNICODE_STRING"
