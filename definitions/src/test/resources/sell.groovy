@@ -450,7 +450,15 @@ trackTests {
             item_id = "MLA123456"
             attribute_id = "brand"
         }
+        "/sell/update/autocomplete/update/custom_attr_selected"(platform: "/mobile") {
+            item_id = "MLA123456"
+            attribute_id = "brand"
+        }
         "/sell/update/technical_specification/update/suggested_attr_selected"(platform: "/mobile") {
+            item_id = "MLA123456"
+            attribute_id = "brand"
+        }
+        "/sell/update/technical_specification/update/custom_attr_selected"(platform: "/mobile") {
             item_id = "MLA123456"
             attribute_id = "brand"
         }
@@ -478,6 +486,7 @@ trackTests {
         "/sell/update/sip/update/listing_types" (platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/update/modify_variations" (platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/update/technical_specifications" (platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/sip/update/product_identifier" (platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/picture_uploader/delete"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/picture_uploader/rotate"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/update/pictures" (platform: "/mobile") {item_id = "MLA123456"}
@@ -541,6 +550,7 @@ trackTests {
         "/sell/update/shipping_landing"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/shipping_mandatory_landing"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/technical_specifications"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/product_identifier"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/variations"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/variations_pi"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/statistics"(platform: "/mobile") {item_id = "MLA123456"}
