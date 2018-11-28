@@ -20,8 +20,8 @@ FROM (SELECT application.site_id AS site,
              COUNT(1) AS vips_whit_whatsapp,
              substr(ds,1,10) AS ds
       FROM tracks
-      WHERE ds >= 'param01'
-      AND   ds < 'param02'
+      WHERE ds >= '@param01'
+      AND   ds < '@param02'
       AND   path IN ('/vip')
       AND   application.site_id IN ('MLA')
       AND   device.platform IN ('/web/mobile','/web/mobile/static')
@@ -32,8 +32,8 @@ FROM (SELECT application.site_id AS site,
                     jest(event_data,'item_id') AS item_id,
                     COUNT(1) AS whatsapp_contact
              FROM tracks
-             WHERE ds >= 'param01'
-             AND   ds < 'param02'
+             WHERE ds >= '@param01'
+             AND   ds < '@param02'
              AND   path IN ('/vip/contact_whatsapp')
              AND   application.site_id IN ('MLA')
              AND   device.platform IN ('/web/mobile','/web/mobile/static')

@@ -17,7 +17,7 @@
 
 ## Generating queries output
 
-    ./gradlew uploadCatalog [--debug-jvm]
+    ./gradlew exportCronQueries [--debug-jvm]
     
 
 ## Uploading the catalog ( Destination: s3://melidata-jobs )

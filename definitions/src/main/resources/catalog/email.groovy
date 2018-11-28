@@ -95,4 +95,9 @@ tracks {
 
     // mails for: purchases with some of its payments refunded
     "/email/checkout/refunded"(platform: "/email"){}
+
+    "/email/chargebacks"(platform: "/email") {
+        case_id(required: true, type: PropertyType.String)
+        receiver_id(required: true, type: PropertyType.Numeric)
+    }
 }
