@@ -171,8 +171,11 @@ trackTests {
         "/cart/checkout/review/change_shipping"(platform:"/", dataSet)
         "/cart/checkout/review/change_address"(platform:"/", dataSet)
         "/cart/checkout/review/edit_shipping"(platform:"/", dataSet)
-        "/cart/checkout/review/edit_payment_method"(platform:"/", dataSet)
-        "/cart/checkout/review/confirm_purchase"(platform:"/", dataSet)
+        "/cart/checkout/review/edit_payment_method"(platform:"/", dataSet)  
+        "/cart/checkout/review/confirm_purchase"(platform:"/web", dataSet)        
+        "/cart/checkout/review/confirm_purchase"(platform:"/mobile", type:TrackType.Event) {
+            session_id = "98f8v98au0af9af0af"
+        }
         "/cart/checkout/congrats"(platform:"/"){
             dataSet()
             dataSetCongrats()
