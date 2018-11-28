@@ -45,6 +45,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "transactionName",
+        "type": "UNICODE_STRING"
+      }
+      {
         "name": "userAgentName",
         "type": "UNICODE_STRING"
       },
@@ -54,10 +58,6 @@
       },
       {
         "name": "userAgentVersion",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "transactionName",
         "type": "UNICODE_STRING"
       }
     ],
