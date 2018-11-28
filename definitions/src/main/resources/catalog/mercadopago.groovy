@@ -353,6 +353,10 @@ tracks {
         from (required:false, type: PropertyType.String, description: "Where the Camera start in picture profile or person validataion in android")
     }
 
+    "/login_success"(platform: "/mobile/ios", type: TrackType.View) {
+        from (required:false, type: PropertyType.String, description: "When user login success in ios")
+    }
+
     "/send_money"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
