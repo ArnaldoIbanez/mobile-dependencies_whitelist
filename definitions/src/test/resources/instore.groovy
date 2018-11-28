@@ -544,9 +544,96 @@ trackTests {
             }
             transaction_amount_refunded = 0
             payment_type_id = "credit_card"
+            notification_url = "http://181.30.31.180:23080/gap-backend/notificaciones/notificar"
+            sponsor_id = 1234567
         }
+
+        "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
+            raw = {
+                statement_descriptor = "WWW.MERCADOPAGO.COM"
+                shipping_amount = 0
+                coupon_id = 43427906
+                captured = true
+                fee_details = [
+                        {
+                            amount = 40.6
+                            fee_payer = "collector"
+                            type = "mercadopago_fee"
+                        }
+                ]
+                date_created = "2018-11-24T21:00:13.000-04:00"
+                date_last_updated = "2018-11-24T21:00:16.000-04:00"
+                api_version = "2"
+                id = 4315374212
+                collector = {
+                    id = 350075398
+                    phone = {
+                        area_code = "011"
+                        number = "47842600"
+                    }
+                    identification = {
+                        number = "30716032384"
+                        type = "Otro"
+                    }
+                }
+                payer_id = 89648396
+                issuer_id = 338
+                money_release_days = 0
+                order = {
+                    id = 909650158
+                    type = mercadopago
+                }
+                external_reference = "nicaragua2"
+                transaction_amount = 560
+                description = "Producto de Williamsburg"
+                transaction_details = {
+                    total_paid_amount = 460
+                    payable_deferral_period = 0
+                    installment_amount = 460
+                    overpaid_amount = 0
+                }
+                coupon_amount = 100
+                client_id = "1945000207238192"
+                marketplace = "NONE"
+                currency_id = "ARS"
+                collector_id = 350075398
+                status = "approved"
+                payment_method_id = "visa"
+                site_id = "MLA"
+                status_detail = "accredited"
+                operation_type = "regular_payment"
+                binary_mode = true
+                transaction_id = "8652928979_777b7f7e776373697b3c"
+                installments = 1
+                money_release_date = "2018-11-24T21:00:16.000-04:00"
+                internal_metadata = {
+                    subtype = "store"
+                    app_version = "2.50.0.4"
+                    pos_id = "nicaragua2"
+                    type = "qr"
+                }
+                payer = {
+                    id : 89648396
+                    phone = {
+                        area_code = "011"
+                        number = "47842600"
+                    }
+                    identification = {
+                        number = "27258766"
+                        type = "DNI"
+                    }
+                }
+                transaction_amount_refunded = 0
+                payment_type_id = "credit_card"
+                notification_url = "http://181.30.31.180:23080/gap-backend/notificaciones/notificar"
+                sponsor_id = 1234567
+            }
+        }
+
+
         "/instore/payment_info"(platform: "/mobile", type: TrackType.Event) {
             payment_info_tag = "Execute post payment"
+            remaining_attempts = 2
         }
 
         //Deprecated
@@ -1196,6 +1283,8 @@ trackTests {
                 }
                 transaction_amount_refunded = 0
                 payment_type_id = "credit_card"
+                notification_url = "http://181.30.31.180:23080/gap-backend/notificaciones/notificar"
+                sponsor_id = 1234567
         }
 
         "/instore/post_payment"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
@@ -1275,11 +1364,14 @@ trackTests {
                 }
                 transaction_amount_refunded = 0
                 payment_type_id = "credit_card"
+                notification_url = "http://181.30.31.180:23080/gap-backend/notificaciones/notificar"
+                sponsor_id = 1234567
             }
         }
 
         "/instore/payment_info"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             payment_info_tag = "Execute post payment"
+            remaining_attempts = 2
         }
 
         // Deprecated

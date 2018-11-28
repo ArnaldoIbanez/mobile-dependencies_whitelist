@@ -543,11 +543,13 @@ tracks {
         internal_metadata(required: false, description: "transaction information details")
         transaction_amount_refunded(required: false, PropertyType.Numeric)
         payment_type_id (required: false, PropertyType.String)
-
+        notification_url(required: false, PropertyType.String)
+        sponsor_id(required: false, PropertyType.Numeric)
 
     }
     "/instore/payment_info"(platform: "/mobile", type: TrackType.Event) {
         payment_info_tag(required: false, "Execute post payment")
+        remaining_attempts(required: false, PropertyType.Numeric)
     }
 
     // Deprecated. Only for old versions in IOS!
