@@ -289,6 +289,12 @@ trackTests {
         }
 
         //Events
+        "/wms/scan"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            context = "/wms/picking/scan_container"
+            input_data = "CA-0-001-000-00-00"
+            source = "scanner"
+        }
         "/wms/put_away/scan_cart/start_put_away"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
