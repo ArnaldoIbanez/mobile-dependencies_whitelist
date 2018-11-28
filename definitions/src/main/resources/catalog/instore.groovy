@@ -12,7 +12,13 @@ tracks {
     "/instore"(platform: "/mobile", isAbstract: true) {}
 
     // Scan QR
-    "/instore/scan_qr"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/scan_qr"(platform: "/mobile", type: TrackType.View) {
+        camera_permissions(required: false, PropertyType.Boolean)
+        location_permissions(required: false, PropertyType.Boolean)
+        notification_permissions(required: false, PropertyType.Boolean)
+        // Deprecated. Typo on Android
+        notifications_permissions(required: false, PropertyType.Boolean)
+    }
     "/instore/scan_qr"(platform: "/mobile", isAbstract: true) {}
     "/instore/scan_qr/qr_discovery"(platform: "/mobile", type: TrackType.Event) {
         qr_data(required: false, PropertyType.String)
@@ -28,8 +34,11 @@ tracks {
         brand_name(required: false, PropertyType.String)
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
-        succes(required: false, PropertyType.String)
+        success(required: false, PropertyType.Boolean)
         next_step_deeplink(required: false, PropertyType.String)
+    }
+    "/instore/scan_qr/flash"(platform: "/mobile", type: TrackType.Event) {
+        camera_flash(required: false, PropertyType.Boolean)
     }
     "/instore/scan_qr/abort"(platform: "/mobile", type: TrackType.Event) {
         view_time_in_millis(required: false, PropertyType.String)
@@ -256,22 +265,18 @@ tracks {
     "/instore/qr_first_time_use"(platform: "/mobile", type: TrackType.View) {}
     "/instore/qr_first_time_use"(platform: "/mobile", isAbstract: true) {}
     "/instore/qr_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {
-        context(required: true, PropertyType.String)
-        qr_server_time_in_millis(required: false, PropertyType.String)
+        view_time_in_millis(required: false, PropertyType.String)
     }
     "/instore/qr_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
-        context(required: true, PropertyType.String)
-        qr_server_time_in_millis(required: false, PropertyType.String)
+        view_time_in_millis(required: false, PropertyType.String)
     }
     "/instore/shell_first_time_use"(platform: "/mobile", type: TrackType.View) {}
     "/instore/shell_first_time_use"(platform: "/mobile", isAbstract: true) {}
     "/instore/shell_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {
-        context(required: true, PropertyType.String)
-        qr_server_time_in_millis(required: false, PropertyType.String)
+        view_time_in_millis(required: false, PropertyType.String)
     }
     "/instore/shell_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
-        context(required: true, PropertyType.String)
-        qr_server_time_in_millis(required: false, PropertyType.String)
+        view_time_in_millis(required: false, PropertyType.String)
     }
 
     // Waiting
@@ -353,12 +358,6 @@ tracks {
         pos_id(required: false, PropertyType.String)
     }
     "/instore/waiting/gastronomy_order"(platform: "/mobile", isAbstract: true) {}
-    "/instore/waiting/gastronomy_order/next"(platform: "/mobile", type: TrackType.Event) {
-        collector_id(required: false, PropertyType.String)
-        brand_name(required: false, PropertyType.String)
-        store_id(required: false, PropertyType.String)
-        pos_id(required: false, PropertyType.String)
-    }
     "/instore/waiting/gastronomy_order/back"(platform: "/mobile", type: TrackType.Event) {
         collector_id(required: false, PropertyType.String)
         brand_name(required: false, PropertyType.String)
@@ -391,12 +390,6 @@ tracks {
         pos_id(required: false, PropertyType.String)
     }
     "/instore/waiting/generic_ticket"(platform: "/mobile", isAbstract: true) {}
-    "/instore/waiting/generic_ticket/next"(platform: "/mobile", type: TrackType.Event) {
-        collector_id(required: false, PropertyType.String)
-        brand_name(required: false, PropertyType.String)
-        store_id(required: false, PropertyType.String)
-        pos_id(required: false, PropertyType.String)
-    }
     "/instore/waiting/generic_ticket/back"(platform: "/mobile", type: TrackType.Event) {
         collector_id(required: false, PropertyType.String)
         brand_name(required: false, PropertyType.String)
@@ -426,6 +419,7 @@ tracks {
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
         data_key(required: false, PropertyType.String)
+        qr_data(required: false, PropertyType.String)
     }
     "/instore/data_required/identification_number/back"(platform: "/mobile", type: TrackType.Event) {
         collector_id(required: false, PropertyType.String)
@@ -433,6 +427,7 @@ tracks {
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
         data_key(required: false, PropertyType.String)
+        qr_data(required: false, PropertyType.String)
     }
 
     // Vending
@@ -489,6 +484,8 @@ tracks {
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
         response_end_transaction(required: false, description: "Transaction response")
+        business_result(required: false, PropertyType.ArrayList)
+        success(required: false, PropertyType.Boolean)
     }
     "/instore/vending/response_payment"(platform: "/mobile", type: TrackType.Event) {
         collector_id(required: false, PropertyType.String)
@@ -496,14 +493,69 @@ tracks {
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
         response_payment(required: false, description: "Payment response")
+        screens_info(required: false, PropertyType.String)
+        raw(required: false, PropertyType.ArrayList)
+        business_result(required: false, PropertyType.ArrayList)
+        vending_operation_context(required: false, PropertyType.ArrayList)
+        dispatching_time(required: false, PropertyType.Numeric)
     }
 
-    "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
+        // Possible fields for Android & IOS
+        currency_id(required: false, PropertyType.String)
+        statement_descriptor(required: false, PropertyType.String)
+        collector_id(required: false, PropertyType.Numeric)
+        status(required: false, PropertyType.String)
+        payment_method_id(required: false, PropertyType.String)
+        site_id(required: false, PropertyType.String)
+        date_created(required: false, PropertyType.String)
+        status_detail(required: false, PropertyType.String)
+        operation_type(required: false, PropertyType.String)
+        installments(required: false, PropertyType.Numeric)
+        id(required: false, PropertyType.Numeric)
+        payer_id(required: false, PropertyType.Numeric)
+        collector(required: false, description: "collector information")
+        issuer_id(required: false, PropertyType.Numeric)
+        payer(required: false, description: "payer information")
+        transaction_amount(required: false, PropertyType.Numeric)
+        coupon_amount(required: false, PropertyType.Numeric)
+        marketplace(required: false, PropertyType.String)
+
+        // Possible fields only for IOS
+        shipping_amount(required: false, PropertyType.Numeric)
+        coupon_id(required: false, PropertyType.Numeric)
+        captured(required: false, PropertyType.Boolean)
+        fee_details(required: false, description: "Free details information")
+        date_created(required: false, PropertyType.String)
+        date_last_updated(required: false, PropertyType.String)
+        api_version(required: false, PropertyType.String)
+        id(required: false, PropertyType.Numeric)
+        money_release_days(required: false, PropertyType.Numeric)
+        order(required: false, description: "order information")
+        external_reference(required: false, PropertyType.String)
+        description(required: false, PropertyType.String)
+        transaction_details(required: false, description: "transaction information details")
+        client_id(required: false, PropertyType.String)
+        binary_mode(required: false, PropertyType.Boolean)
+        transaction_id(required: false, PropertyType.String)
+        installments(required: false, PropertyType.Numeric)
+        money_release_date(required: false, PropertyType.String)
+        internal_metadata(required: false, description: "transaction information details")
+        transaction_amount_refunded(required: false, PropertyType.Numeric)
+        payment_type_id (required: false, PropertyType.String)
+        notification_url(required: false, PropertyType.String)
+        sponsor_id(required: false, PropertyType.Numeric)
+
+    }
     "/instore/payment_info"(platform: "/mobile", type: TrackType.Event) {
         payment_info_tag(required: false, "Execute post payment")
+        remaining_attempts(required: false, PropertyType.Numeric)
     }
 
-    // Deprecated
+    // Deprecated. Only for old versions in IOS!
+    "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
+        raw(required: false, description: "Raw with post payment information")
+    }
     "/instore/vending/select_product"(platform: "/mobile", type: TrackType.View) {}
     "/instore/required_action"(platform: "/mobile", isAbstract: true) {}
     "/instore/required_action/data_required"(platform: "/mobile", type: TrackType.View) {}
@@ -526,28 +578,83 @@ tracks {
     "/instore/manual_price"(platform: "/mobile", type: TrackType.View) {}
     "/instore/activity"(platform: "/mobile", isAbstract: true) {}
     "/instore/activity/list"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/price_picker"(platform: "/mobile", type: TrackType.View) {}
     // Deprecated PX
     "/instore/checkout"(platform: "/mobile", isAbstract: true) {}
-    "/instore/checkout/payment_method_search"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/review_and_confirm"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/result"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/payment_option"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/payment_method_search"(platform: "/mobile", type: TrackType.View) {
+        options(required: false, PropertyType.String)
+    }
+    "/instore/checkout/review_and_confirm"(platform: "/mobile", type: TrackType.View) {
+        issuer(required: false, PropertyType.String)
+        has_shipping (required: false, PropertyType.String)
+        payment_method(required: false, PropertyType.String)
+        payment_type(required: false, PropertyType.String)
+    }
+    "/instore/checkout/result"(platform: "/mobile", type: TrackType.View) {
+        issuer(required: false, PropertyType.String)
+        payment_id(required: false, PropertyType.String)
+        is_express(required: false, PropertyType.String)
+        payment_method(required: false, PropertyType.String)
+        payment_type(required: false, PropertyType.String)
+        payment_status_detail(required: false, PropertyType.String)
+        payment_status(required: false, PropertyType.String)
+    }
+    "/instore/checkout/payment_option"(platform: "/mobile", type: TrackType.View) {
+        options(required: false, PropertyType.String)
+    }
     "/instore/checkout/review"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/review"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/card_installments"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/card_installments"(platform: "/mobile", type: TrackType.View) {
+        payment_method(required: false, PropertyType.String)
+    }
     "/instore/checkout/card_number"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/card_vault"(platform: "/mobile", isAbstract: true) {}
     "/instore/checkout/card_vault credit_card"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/card_vault debit_card"(platform: "/mobile", type: TrackType.View) {}
     "/instore/checkout/card_holder_name"(platform: "/mobile", type: TrackType.View) {}
     "/instore/checkout/card_expiry_date"(platform: "/mobile", type: TrackType.View) {}
     "/instore/checkout/card_security_code"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/identification_number"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/identification_number"(platform: "/mobile", type: TrackType.View) {
+        payment_method(required: false, PropertyType.String)
+        payment_type(required: false, PropertyType.String)
+    }
     "/instore/checkout/installments"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/card/installments"(platform: "/mobile", type: TrackType.View) {
+        payment_method(required: false, PropertyType.String)
+    }
+    "/instore/checkout/security_code_card"(platform: "/mobile", type: TrackType.View) {
+        security_code_view_reason(required: false, PropertyType.String)
+    }
     "/instore/checkout/card"(platform: "/mobile", isAbstract: true) {}
     "/instore/checkout/card/credit_card"(platform: "/mobile", isAbstract: true) {}
-    "/instore/checkout/card/credit_card/security_code"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/card/credit_card/security_code"(platform: "/mobile", type: TrackType.View) {
+        security_code_view_reason(required: false, PropertyType.String)
+    }
     "/instore/checkout/card/debit_card"(platform: "/mobile", isAbstract: true) {}
-    "/instore/checkout/card/debit_card/security_code"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/card/debit_card/security_code"(platform: "/mobile", type: TrackType.View) {
+        security_code_view_reason(required: false, PropertyType.String)
+    }
     "/instore/checkout/congrats"(platform: "/mobile", isAbstract: true) {}
     "/instore/checkout/congrats/business"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/congrats/rejected"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/congrats/rejected"(platform: "/mobile", type: TrackType.View) {
+        issuer(required: false, PropertyType.String)
+        payment_id(required: false, PropertyType.String)
+        is_express(required: false, PropertyType.String)
+        payment_method(required: false, PropertyType.String)
+        payment_status(required: false, PropertyType.String)
+        payment_status_detail(required: false, PropertyType.String)
+    }
+    "/instore/checkout/card/number"(platform: "/mobile", type: TrackType.View) {}
+
+    "/instore/checkout/payment_option/"(platform: "/mobile", isAbstract: true) {}
+    "/instore/checkout/payment_option/cards"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/error_view"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/card/debit_card/number"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/card/credit_card/number"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/card/credit_card/name"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/card/credit_card/expiration"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/card/credit_card/cvv"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/card/debit_card/name"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/card/debit_card/expiration"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/checkout/card/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {}
+
 }
