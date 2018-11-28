@@ -629,6 +629,11 @@ tracks {
 
     // ESC: Enter the Sec Code to generate an Encrypted Security Code
     "/checkout/payment/encrypted_security_code_add"(platform:"/mobile") {}
+    "/checkout/payment/encrypted_security_code_add#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        status(required: true, type: PropertyType.String)
+        checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"]) 
+    }
 
     //Billing info
     "/checkout/billing"(platform: "/mobile", isAbstract: true) {}
@@ -759,6 +764,8 @@ tracks {
         seller(required: true, type: PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
+
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     //Congrats tracks - shared between Legacy App and new App (Required False to prevent catalog validation failures)
     "/checkout/congrats"(platform: "/") {
@@ -770,21 +777,21 @@ tracks {
     "/checkout/congrats/recommendations"(platform: "/", type: TrackType.View) {}
 
     "/checkout/finish#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         action(required: true, description: "Action executed, for ex: call_seller, email_seller, etc")
     }
 
     "/checkout/finish/call_for_auth"(platform:"/", type: TrackType.View, isAbstract: true) {}
     "/checkout/finish/call_for_auth/instructions"(platform: "/mobile") {}
     "/checkout/finish/call_for_auth/instructions#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         status(required: true, type: PropertyType.String)
         checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
     }
     "/checkout/finish/call_for_auth/later"(platform: "/mobile") {}
 
     "/checkout/finish/invalid_sec_code"(platform:"/", type: TrackType.View, isAbstract: true) {}
-    "/checkout/finish/invalid_sec_code/input"(platform: "/mobile", parentPropertiesInherited: false) {}
+    "/checkout/finish/invalid_sec_code/input"(platform: "/mobile") {}
 
     "/checkout/finish"(platform: "/mobile", isAbstract: true) {
         /** **************************************/
@@ -840,6 +847,8 @@ tracks {
         seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
+
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
     "/checkout/finish/choose_action"(platform: "/mobile") {
@@ -902,12 +911,16 @@ tracks {
         //id
         //nickname
         error_code(required: false, type: PropertyType.String)
+
+        session_id(required:false, description:"Session in which the checkout is being held")
     }
 
     "/checkout/show_ticket"(platform: "/") {}
 
     "/checkout/show_ticket#save"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")}
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+
     "/checkout/show_geolocation_map"(platform: "/mobile") {
         order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
@@ -960,19 +973,20 @@ tracks {
         seller(required: true, type: PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
+        session_id(required:false, description:"Session in which the checkout is being held")
     }
     "/checkout/show_geolocation_map/search"(platform: "/mobile") {}
     "/checkout/show_geolocation_map/search#location"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/checkout/show_geolocation_map/search#preloaded"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/checkout/show_geolocation_map/search#select"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/checkout/show_geolocation_map#agencies_request"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         agencies(required: true)
         payment_method(required: true)
 
