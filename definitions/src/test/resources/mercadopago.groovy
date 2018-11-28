@@ -616,6 +616,13 @@ trackTests {
         }
 
     }
+    
+    test("Login Success") {
+        "/login_success"(platform: "/mobile/ios") {
+        }
+        
+    }
+
 
     test("Sign In") {
         "/sign_in"(platform: "/mobile") {
