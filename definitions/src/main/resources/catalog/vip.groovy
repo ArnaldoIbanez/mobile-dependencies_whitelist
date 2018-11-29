@@ -12,7 +12,7 @@ tracks {
         main_action(required: false, type: PropertyType.String, values: ["buy", "a2c_fs", "a2c_discount", "a2c_default"],
                 description: "Indicates which button the VIP is showing as main_action (ie, shown as blue button). If it is a2c, it then specifies which button type (default, fs, discount)")
 
-        // SHIPPING_FIELDS (NOT PRESENT IN CLASI)
+        // SHIPPING_FIELDS (NOT PRESENT IN CLASI) 
         shipping_preference(required: false, type: PropertyType.String,
                 description: "Shipping method's name shown when the user has zipcode/location preloaded")
         shipping_mode(required: false, type: PropertyType.String, values: ["not_specified", "custom", "me1", "me2"],
