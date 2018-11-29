@@ -12,7 +12,7 @@ tracks {
         main_action(required: false, type: PropertyType.String, values: ["buy", "a2c_fs", "a2c_discount", "a2c_default"],
                 description: "Indicates which button the VIP is showing as main_action (ie, shown as blue button). If it is a2c, it then specifies which button type (default, fs, discount)")
 
-        // SHIPPING_FIELDS (NOT PRESENT IN CLASI)
+        // SHIPPING_FIELDS (NOT PRESENT IN CLASI) 
         shipping_preference(required: false, type: PropertyType.String,
                 description: "Shipping method's name shown when the user has zipcode/location preloaded")
         shipping_mode(required: false, type: PropertyType.String, values: ["not_specified", "custom", "me1", "me2"],
@@ -164,6 +164,8 @@ tracks {
         quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to buy")
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        is_valid_variation(required: false, type: PropertyType.Boolean, description: "Is the selected variation valid")
+        loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
         add_cart_info
         shipping_info
     }
@@ -173,6 +175,8 @@ tracks {
         quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to a2c")
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        is_valid_variation(required: false, type: PropertyType.Boolean, description: "Is the selected variation valid")
+        loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
         add_cart_info
         shipping_info
     }
