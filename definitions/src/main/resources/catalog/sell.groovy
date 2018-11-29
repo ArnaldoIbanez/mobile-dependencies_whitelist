@@ -299,6 +299,7 @@ tracks {
     "/sell/list/picture_editor/function"(platform: "/mobile",isAbstract:true){}
     "/sell/list/picture_editor/function/crop"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_editor/function/rotate"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/picture_editor/function/delete"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/category"(platform: "/mobile", isAbstract:true){}
     "/sell/list/category/selection"(platform: "/mobile", isAbstract:true){}
     "/sell/list/category/selection/confirm_suggested"(platform: "/mobile", type: TrackType.Event) {}
