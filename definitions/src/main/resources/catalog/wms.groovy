@@ -23,6 +23,15 @@ tracks {
             description: "Message of feedback screen.")
     }
 
+    "/wms/scan"(platform: "/mobile/android", type: TrackType.Event) {
+        input_data(required: true, type: PropertyType.String, description: "The data received from the scanner.")
+        context(required: true, type: PropertyType.String, description: "The context in which the scan was made.")
+        source(required: true,
+                type: PropertyType.String,
+                values: ["scanner", "manual_input"],
+                description: "The source of the input data, can be scanner or manual_input")
+    }
+
     /* Put away tracks */
 	"/wms/put_away"(platform: "/mobile/android", type: TrackType.View) {
 		put_away_id(required: false, type: PropertyType.String, description: "Put away id")
