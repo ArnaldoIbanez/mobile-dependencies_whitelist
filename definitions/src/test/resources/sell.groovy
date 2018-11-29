@@ -511,10 +511,10 @@ trackTests {
         "/sell/update/pictures/gallery"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures/editor"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures/crop"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/pictures_uploader/crop/crop_canceled"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/pictures_uploader/crop/crop_acepted"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/pictures_uploader/rotate"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/pictures_uploader/delete"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/picture_uploader/crop/crop_canceled"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/picture_uploader/crop/crop_acepted"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/picture_uploader/rotate"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/picture_uploader/delete"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures_review"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures_review/gallery"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures_review/editor"(platform: "/mobile") {item_id = "MLA123456"}

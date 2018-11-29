@@ -472,12 +472,10 @@ tracks {
     "/sell/update/picture_editor/function/crop"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/update/picture_editor/function/delete"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/update/picture_editor/function/rotate"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/pictures_uploader"(platform: "/", isAbstract: true) {}
-    "/sell/update/pictures_uploader/crop"(platform: "/", isAbstract: true) {}
-    "/sell/update/pictures_uploader/crop/crop_canceled"(platform: "/", type: TrackType.Event) {}
-    "/sell/update/pictures_uploader/crop/crop_acepted"(platform: "/", type: TrackType.Event) {}
-    "/sell/update/pictures_uploader/rotate"(platform: "/", type: TrackType.Event) {}
-    "/sell/update/pictures_uploader/delete"(platform: "/", type: TrackType.Event) {}
+    "/sell/update/picture_uploader"(platform: "/", isAbstract: true) {}
+    "/sell/update/picture_uploader/crop"(platform: "/", isAbstract: true) {}
+    "/sell/update/picture_uploader/crop/crop_canceled"(platform: "/", type: TrackType.Event) {}
+    "/sell/update/picture_uploader/crop/crop_acepted"(platform: "/", type: TrackType.Event) {}
     "/sell/update/pictures_review"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures_review/gallery"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures_review/editor"(platform: "/", type: TrackType.View) {}
