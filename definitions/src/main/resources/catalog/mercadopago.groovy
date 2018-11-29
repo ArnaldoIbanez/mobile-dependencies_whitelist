@@ -4,7 +4,7 @@ import com.ml.melidata.TrackType
 
 
 /**
-*
+* 
 * The events means actions that happens without launch a View,
 * as example of that we can consider Bookmark an item in a VIP page
 * Every event is an action, so the verbs available are:
