@@ -324,6 +324,8 @@ trackTests {
         "/sell/list/pictures/gallery"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures/editor"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures/crop"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/picture_uploader/delete"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/picture_uploader/rotate"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures_review/gallery"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures_review/editor"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
@@ -375,6 +377,7 @@ trackTests {
         "/sell/list/modal/close/onboarding"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/phone"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/picture_editor/function/crop"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/picture_editor/function/delete"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/picture_uploader/mode/camera"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures/crop/crop_accepted"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures/crop/crop_canceled"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
@@ -450,7 +453,15 @@ trackTests {
             item_id = "MLA123456"
             attribute_id = "brand"
         }
+        "/sell/update/autocomplete/update/custom_attr_selected"(platform: "/mobile") {
+            item_id = "MLA123456"
+            attribute_id = "brand"
+        }
         "/sell/update/technical_specification/update/suggested_attr_selected"(platform: "/mobile") {
+            item_id = "MLA123456"
+            attribute_id = "brand"
+        }
+        "/sell/update/technical_specification/update/custom_attr_selected"(platform: "/mobile") {
             item_id = "MLA123456"
             attribute_id = "brand"
         }
@@ -478,8 +489,6 @@ trackTests {
         "/sell/update/sip/update/listing_types" (platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/update/modify_variations" (platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/update/technical_specifications" (platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/picture_uploader/delete"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/picture_uploader/rotate"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/update/pictures" (platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/update/price" (platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip/update/quantity" (platform: "/mobile") {item_id = "MLA123456"}
@@ -503,8 +512,10 @@ trackTests {
         "/sell/update/pictures/gallery"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures/editor"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures/crop"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/pictures_uploader/crop/crop_canceled"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/pictures_uploader/crop/crop_acepted"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/picture_uploader/crop/crop_canceled"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/picture_uploader/crop/crop_acepted"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/picture_uploader/rotate"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/picture_uploader/delete"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures_review"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures_review/gallery"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures_review/editor"(platform: "/mobile") {item_id = "MLA123456"}
@@ -541,6 +552,7 @@ trackTests {
         "/sell/update/shipping_landing"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/shipping_mandatory_landing"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/technical_specifications"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/product_identifier"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/variations"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/variations_pi"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/statistics"(platform: "/mobile") {item_id = "MLA123456"}
