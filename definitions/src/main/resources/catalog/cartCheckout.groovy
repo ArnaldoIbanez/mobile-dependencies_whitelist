@@ -183,7 +183,6 @@ tracks {
 "/cart/checkout/review/edit_shipping"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/review/change_installments"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/review/change_shipping"(platform:"/", type: TrackType.Event) {}
-"/cart/checkout/review/confirm_purchase"(platform:"/", type: TrackType.Event) {}
 
 "/cart/checkout/review/change_address"(platform:"/", type: TrackType.View) {}
 
@@ -428,6 +427,9 @@ tracks {
 "/cart/checkout/review/inconsistency/payment_combination/shipping"(platform: "/mobile") {}
 "/cart/checkout/review/inconsistency/payment_combination/new_split"(platform: "/mobile") {}
 
+"/cart/checkout/review/confirm_purchase"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
 
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -452,8 +454,10 @@ tracks {
         geolocation_error(required: true, description: "Why the geo failed")
 }
 
+"/cart/checkout/review/confirm_purchase"(platform:"/web", type: TrackType.Event) {}
+
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// Fin Web platform
+// Fin Web platform 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 }
