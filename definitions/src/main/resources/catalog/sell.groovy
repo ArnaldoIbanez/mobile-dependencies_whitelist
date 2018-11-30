@@ -392,6 +392,10 @@ tracks {
     "/sell/update/closed_sip/section/disabled"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/update/sip"(platform: "/mobile", type: TrackType.View) {
         has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
+        total_pictures(required: false, description: "Total pictures", type: PropertyType.Numeric)
+        pending_pictures(required: false, description: "Pending pictures", type: PropertyType.Numeric)
+        fail_pictures(required: false, description: "Failed pictures", type: PropertyType.Numeric)
+        pictures_errors(required: false, description: "Array of pictures error", type: PropertyType.ArrayList)
     }
     "/sell/update/sip/section"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/sip/section/disabled"(platform: "/mobile", type: TrackType.Event) {
