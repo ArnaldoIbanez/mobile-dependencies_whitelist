@@ -30,6 +30,7 @@ class JSONFormatter extends CatalogFormatter {
     static void main(String[] args) {
         def file = new File("catalog.json")
         file.delete()
+        
         file << new JSONFormatter().output
     }
 

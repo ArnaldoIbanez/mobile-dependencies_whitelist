@@ -42,9 +42,11 @@ class HiveFormatter extends CatalogFormatter {
         b.toString()
     }
 
+
     static void main(String[] args) {
         def file = new File("catalog.csv")
         file.delete()
+
         file << new HiveFormatter().output
     }
 }
