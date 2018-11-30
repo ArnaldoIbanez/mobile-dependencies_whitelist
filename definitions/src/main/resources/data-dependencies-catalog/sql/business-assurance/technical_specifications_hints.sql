@@ -12,15 +12,15 @@ SELECT
         END AS source,
     application.site_id AS site,
     usr.user_id AS user,
-    substr(ds,1,10) AS date
+    substr(ds,1,10) AS ds
 FROM tracks
 WHERE jest(tracks.event_data, 'item_id') IN
       (SELECT DISTINCT
           jest(tracks.event_data, 'item_id')
       FROM tracks
       WHERE tracks.path LIKE '/seller_central/%/technical_specifications/hints/available' 
-          AND ds >= '@from'
-          AND ds < '@to'
+          AND ds >= '@param01'
+          AND ds < '@param02'
           AND type = 'event'
           AND application.business = 'mercadolibre')
     AND jest(tracks.event_data, 'session_id') IN
@@ -28,12 +28,12 @@ WHERE jest(tracks.event_data, 'item_id') IN
             jest(tracks.event_data, 'session_id')
         FROM tracks
         WHERE tracks.path LIKE '/seller_central/%/technical_specifications/hints/available' 
-            AND ds >= '@from'
-            AND ds < '@to'
+            AND ds >= '@param01'
+            AND ds < '@param02'
             AND type = 'event'
             AND application.business = 'mercadolibre')
     AND tracks.path LIKE '/seller_central/%/technical_specifications/hints/%' 
-    AND ds >= '@from'
-    AND ds < '@to'
+    AND ds >= '@param01'
+    AND ds < '@param02'
     AND type = 'event'
     AND application.business = 'mercadolibre'

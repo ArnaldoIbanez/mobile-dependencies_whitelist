@@ -6,6 +6,10 @@
   "cron": "00 07 * * *",
   "extract": {
     "operation": "append",
+    "partition": {
+      "name": "ds",
+      "type": "DATE"
+    },
     "columns": [
       {
         "name": "path",
@@ -46,23 +50,18 @@
       {
         "name": "source",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "date",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
       }
     ],
     "sql": {
       "script": "business-assurance/technical_specifications_hints.sql",
       "parameters": [
         {
-          "name": "from",
+          "name": "param01",
           "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
-          "name": "to",
+          "name": "param02",
           "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
