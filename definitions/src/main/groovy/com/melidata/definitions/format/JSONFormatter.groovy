@@ -5,6 +5,10 @@ import groovy.json.JsonOutput
 
 class JSONFormatter extends CatalogFormatter {
 
+    JSONFormatter(String catalogDir, String s3CatalogFile) {
+        super(catalogDir, s3CatalogFile)
+    }
+
     def generate(String business) {
         def platforms = getPlatforms(catalog.platformTrees.get(business))
 
@@ -26,12 +30,4 @@ class JSONFormatter extends CatalogFormatter {
     def formatOutput(def data) {
         JsonOutput.toJson(data)
     }
-
-    static void main(String[] args) {
-        def file = new File("catalog.json")
-        file.delete()
-
-        file << new JSONFormatter().output
-    }
-
 }

@@ -10,19 +10,19 @@ import java.util.concurrent.TimeUnit
  */
 class CatalogManager implements Runnable {
 
-	private CatalogHandler catalogHandler
+    private CatalogHandler catalogHandler
 
-	public CatalogManager() {
-		catalogHandler = new CatalogHandler();
+	CatalogManager(String lastVersionObject, String lastVersionFileName, String localFolder, String s3Container, String s3CatalogFile, String csvFileName) {
+        catalogHandler = new CatalogHandler(lastVersionObject, lastVersionFileName, localFolder, s3Container, s3CatalogFile, csvFileName)
 	}
 
-	public void init() {
+	void init() {
 		catalogHandler.reload()
-		Executors.newScheduledThreadPool(1).scheduleAtFixedRate(this, 0, 5, TimeUnit.MINUTES);
+		Executors.newScheduledThreadPool(1).scheduleAtFixedRate(this, 0, 5, TimeUnit.MINUTES)
 	}
 
 	@Override
-	public void run() {
+	void run() {
 		try {
 			if ( catalogHandler.reload() ) {
 				log.info(String.format("New catalog [version: %s] has been loaded", catalogHandler.getVersion()))
@@ -36,14 +36,14 @@ class CatalogManager implements Runnable {
 	}
 
 	@Override
-	public void close() throws IOException {
+	void close() throws IOException {
 	}
 
-	public Catalog getCatalog() {
+	Catalog getCatalog() {
 		return catalogHandler.getCatalog()
 	}
 
-	public int getVersion() {
+    int getVersion() {
 		return catalogHandler.getVersion()
 	}
 }
