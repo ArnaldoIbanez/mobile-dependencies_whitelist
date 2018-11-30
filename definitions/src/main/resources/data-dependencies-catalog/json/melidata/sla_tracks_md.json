@@ -1,12 +1,13 @@
 {
     "users": [
       "alejandro.maciel@mercadolibre.com",
-       "ba-analytics@mercadolibre.com"
+      "ba-analytics@mercadolibre.com"
     ],
     "process_name": "sla_tracks_md",
     "cron": "00 04 * * *",
     "extract": {
       "operation": "append",
+      "site": "QA",
       "columns": [
         {
           "name": "fecha",
