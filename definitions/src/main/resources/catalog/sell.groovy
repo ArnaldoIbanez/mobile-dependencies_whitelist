@@ -158,6 +158,8 @@ tracks {
     "/sell/list/picture_uploader"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/picture_uploader/mode"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/picture_uploader/mode/camera"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/picture_uploader/rotate"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/picture_uploader/delete"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/pictures/crop"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/pictures/crop"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures/crop/crop_accepted"(platform: "/mobile", type: TrackType.Event) {}
@@ -297,6 +299,7 @@ tracks {
     "/sell/list/picture_editor/function"(platform: "/mobile",isAbstract:true){}
     "/sell/list/picture_editor/function/crop"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_editor/function/rotate"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/picture_editor/function/delete"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/category"(platform: "/mobile", isAbstract:true){}
     "/sell/list/category/selection"(platform: "/mobile", isAbstract:true){}
     "/sell/list/category/selection/confirm_suggested"(platform: "/mobile", type: TrackType.Event) {}
@@ -362,10 +365,16 @@ tracks {
     "/sell/update/autocomplete/update/suggested_attr_selected"(platform: "/mobile", type: TrackType.Event) {
         attribute_id(required: true, "ID from attribute that was suggested", type: PropertyType.String)
     }
+    "/sell/update/autocomplete/update/custom_attr_selected"(platform: "/mobile", type: TrackType.Event) {
+        attribute_id(required: true, "ID from attribute that was completed with new value", type: PropertyType.String)
+    }
     "/sell/update/technical_specification"(platform: "/", isAbstract: true){}
     "/sell/update/technical_specification/update"(platform: "/", isAbstract: true){}
     "/sell/update/technical_specification/update/suggested_attr_selected"(platform: "/mobile", type: TrackType.Event) {
         attribute_id(required: true, "ID from attribute that was suggested", type: PropertyType.String)
+    }
+    "/sell/update/technical_specification/update/custom_attr_selected"(platform: "/mobile", type: TrackType.Event) {
+        attribute_id(required: true, "ID from attribute that was completed with new value", type: PropertyType.String)
     }
     "/sell/update/picture_uploader"(platform: "/", isAbstract: true){}
     "/sell/update/picture_uploader/delete"(platform: "/mobile", type: TrackType.Event){
@@ -409,6 +418,7 @@ tracks {
     "/sell/update/picture_preview_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/quantity"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/technical_specifications"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/product_identifier"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping_mandatory_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/variations"(platform: "/mobile", type: TrackType.View) {}
@@ -463,10 +473,10 @@ tracks {
     "/sell/update/picture_editor/function/crop"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/update/picture_editor/function/delete"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/update/picture_editor/function/rotate"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/pictures_uploader"(platform: "/", isAbstract: true) {}
-    "/sell/update/pictures_uploader/crop"(platform: "/", isAbstract: true) {}
-    "/sell/update/pictures_uploader/crop/crop_canceled"(platform: "/", type: TrackType.Event) {}
-    "/sell/update/pictures_uploader/crop/crop_acepted"(platform: "/", type: TrackType.Event) {}
+    "/sell/update/picture_uploader"(platform: "/", isAbstract: true) {}
+    "/sell/update/picture_uploader/crop"(platform: "/", isAbstract: true) {}
+    "/sell/update/picture_uploader/crop/crop_canceled"(platform: "/", type: TrackType.Event) {}
+    "/sell/update/picture_uploader/crop/crop_acepted"(platform: "/", type: TrackType.Event) {}
     "/sell/update/pictures_review"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures_review/gallery"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures_review/editor"(platform: "/", type: TrackType.View) {}

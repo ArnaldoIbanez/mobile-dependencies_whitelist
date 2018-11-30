@@ -616,6 +616,13 @@ trackTests {
         }
 
     }
+    
+    test("Login Success") {
+        "/login_success"(platform: "/mobile/ios") {
+        }
+        
+    }
+
 
     test("Sign In") {
         "/sign_in"(platform: "/mobile") {
@@ -2064,6 +2071,11 @@ trackTests {
             news_id = "credits-merchants_about_to_expire_first_notice-9876"
             event_type = "shown"
             installment_id= 9876
+        }
+
+        "/notification/fraud_cash_release_iv"(platform: "/mobile") {
+            news_id = "fraud_cash_release_iv-12345678"
+            event_type = "shown"
         }
 
         "/notification/health_check"(platform: "/mobile/android") {

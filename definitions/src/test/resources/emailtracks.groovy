@@ -6,7 +6,6 @@ trackTests {
 
     test("melidata emails track") {
 
-
         def defaultTrackInformation = {
             email_id = 123456
             subject = "Test"
@@ -110,6 +109,12 @@ trackTests {
         "/email/checkout/refunded"(platform: "/email") {
             defaultTrackInformation()
             defaultCheckoutTrackInformation()
+        }
+
+        "/email/chargebacks"(platform: "/email") {
+            defaultTrackInformation()
+            case_id = "987987987004"
+            receiver_id = 306162056
         }
     }
 }

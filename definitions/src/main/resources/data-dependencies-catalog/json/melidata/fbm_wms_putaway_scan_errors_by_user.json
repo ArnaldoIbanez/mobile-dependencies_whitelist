@@ -3,7 +3,11 @@
     "wms-android@mercadolibre.com"
   ],
   "process_name": "fbm_wms_putaway_scan_errors_by_user",
-  "cron": "0 22 * * 0",
+  "cron": "0 6 * * *",
+  "partition": {
+    "name": "fecha",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "overwrite",
     "site": "Shipping",
@@ -34,7 +38,7 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-7",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
