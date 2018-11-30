@@ -32,7 +32,8 @@ tracks {
 
     "/contact/congrats"(platform: "/web") {
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
-        // CLASSI FIELDS
+
+        //classified's fields
         contract_available(required: false, type: PropertyType.Boolean)
         comparator_available(required: false, type: PropertyType.Boolean,
                  description: "Indicates if clasi item has model comparator available")
@@ -45,6 +46,8 @@ tracks {
         description_type(required: false, description: "Description type: plain text, html, both, none",
                         values: ["plain_text", "html", "both", "none"])
 
+        price_comparison_available(required: false, type: PropertyType.Boolean,
+          description: "Indicates if classified item has model price comparator available")
     }
 
 }
