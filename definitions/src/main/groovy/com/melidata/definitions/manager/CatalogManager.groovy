@@ -12,8 +12,8 @@ class CatalogManager implements Runnable {
 
     private CatalogHandler catalogHandler
 
-	CatalogManager(String lastVersionObject, String lastVersionFileName, String localFolder, String s3Container, String s3CatalogFile, String csvFileName) {
-        catalogHandler = new CatalogHandler(lastVersionObject, lastVersionFileName, localFolder, s3Container, s3CatalogFile, csvFileName)
+	CatalogManager(String lastVersionObject, String lastVersionFileName, String localFolder, String s3Container, String s3CatalogFile, String csvFileName, String catalogName) {
+        catalogHandler = new CatalogHandler(lastVersionObject, lastVersionFileName, localFolder, s3Container, s3CatalogFile, csvFileName, catalogName)
 	}
 
 	void init() {
@@ -45,5 +45,9 @@ class CatalogManager implements Runnable {
 
     int getVersion() {
 		return catalogHandler.getVersion()
+	}
+
+	String getCatalogName() {
+		return catalogHandler.getCatalogName()
 	}
 }

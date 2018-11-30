@@ -10,7 +10,7 @@ class MeliDataCatalogManager extends CatalogManager {
     public static String CSV_FILE_NAME = "melidata_last.csv/melidata_catalog.csv"
 
     MeliDataCatalogManager() {
-        super(LAST_VERSION_OBJECT, LAST_VERSION_FILE_NAME, LOCAL_FOLDER, S3_CONTAINER, S3_CATALOG_FILE, CSV_FILE_NAME)
+        super(LAST_VERSION_OBJECT, LAST_VERSION_FILE_NAME, LOCAL_FOLDER, S3_CONTAINER, S3_CATALOG_FILE, CSV_FILE_NAME, "melidata")
     }
 
 }
