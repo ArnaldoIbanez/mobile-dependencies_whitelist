@@ -39,20 +39,18 @@ FROM (
                                   AND ds  < '@param02'
                                   AND NOT is_bot(device.user_agent)
                                   AND (
-                                          (application.business = 'mercadolibre'  AND device.platform = '/mobile/android')                                        --ML Android
-                                       OR (application.business = 'mercadolibre'  AND device.platform = '/mobile/ios')                                            --ML iOS
-                                       OR (application.business = 'mercadopago'   AND device.platform = '/mobile/android')                                        --Wallet Android
-                                       OR (application.business = 'mercadopago'   AND device.platform = '/mobile/ios')                                            --Wallet iOS
-                                       OR (application.business = 'mercadoenvios' AND device.platform = '/mobile/android' AND NOT application.app_id = 'WMS_APP') --Flex Android
-                                     --OR (application.business = 'mercadoenvios' AND device.platform = '/mobile/android' AND application.app_id = 'WMS_APP')     --Warehouses Android
+                                          (application.business = 'mercadolibre'  AND device.platform = '/mobile/android')                                       
+                                       OR (application.business = 'mercadolibre'  AND device.platform = '/mobile/ios')                                           
+                                       OR (application.business = 'mercadopago'   AND device.platform = '/mobile/android')                                       
+                                       OR (application.business = 'mercadopago'   AND device.platform = '/mobile/ios')                                           
+                                       OR (application.business = 'mercadoenvios' AND device.platform = '/mobile/android' AND NOT application.app_id = 'WMS_APP')
                                       )
                                 GROUP BY application.business, device.platform, application.version 
---                                ORDER BY application.business ASC, device.platform ASC, application.version DESC, percentage DESC
                                ) subQueryVersions1
-                          WHERE percentage >= 20 --Threshold de Porcentaje para tener en cuenta las versiones mas usadas
+                          WHERE percentage >= 20
                          ) subQueryVersions2
                    ) subQueryVersions3
-              WHERE rnk = 1 --Tomamos la version mas nueva de las que cumplen con el porcentaje
+              WHERE rnk = 1
              ) versions ON versions.business = application.business AND versions.platform = device.platform AND versions.version = application.version
              WHERE ds >= '@param01'
                AND ds  < '@param02'
@@ -68,4 +66,3 @@ FROM (
                    AND tb = 'map_project_initiative') iniciatives ON datos.section_path = iniciatives.section
      )
 GROUP BY fecha, iniciatives.iniciative, datos.section_path, datos.platform, datos.version, datos.type, datos.path     
---ORDER BY totalTracks DESC
