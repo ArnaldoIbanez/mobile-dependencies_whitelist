@@ -42,6 +42,10 @@
       {
         "name": "user",
         "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "source",
+        "type": "UNICODE_STRING"
       },
       {
         "name": "date",
