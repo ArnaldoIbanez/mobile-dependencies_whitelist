@@ -4,7 +4,7 @@ import com.ml.melidata.TrackType
 
 
 /**
-*
+* 
 * The events means actions that happens without launch a View,
 * as example of that we can consider Bookmark an item in a VIP page
 * Every event is an action, so the verbs available are:
@@ -718,6 +718,14 @@ tracks {
         notification_created_error(required: false, description: "The notification created error", type: PropertyType.String)
 
         device_id(required: false, description: "The real device_id, may differ from device field")
+
+        //For event_type:autodismiss, indicates why the notification was dismissed
+        source(required: false, values: ["notification_center","logout","overwrite","dismiss_notification"])
+
+        context(required: false, type: PropertyType.String)
+
+        notification_style(required: false, description: "The notification style used when displaying the notification to the user.")
+
     }
 
     //Acount
@@ -743,6 +751,9 @@ tracks {
     "/notification/credits_merchants_about_to_expire_first_notice"(platform: "/mobile") {
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
+
+    //Fraud
+    "/notification/fraud_cash_release_iv"(platform: "/mobile") {}
 
     //Health Check
     "/notification/health_check"(platform: "/mobile") {
