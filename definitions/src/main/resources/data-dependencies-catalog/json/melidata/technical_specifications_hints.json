@@ -54,7 +54,7 @@
       }
     ],
     "sql": {
-      "script": "business-assurance/technical_specifications_hints",
+      "script": "business-assurance/technical_specifications_hints.sql",
       "parameters": [
         {
           "name": "from",
