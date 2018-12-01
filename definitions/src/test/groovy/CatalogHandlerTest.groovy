@@ -92,11 +92,11 @@ class CatalogHandlerTest {
 
     @Test void testSingleFileCatalog(){
 
-        CatalogHandler handler = new CatalogHandler("lastMeliDataVersion","lastMeliData","src/main/resources/catalog/","lastMeliData.dsl/","melidata_catalog.groovy","melidata_last.csv/melidata_catalog.csv")
+        CatalogHandler handler = new CatalogHandler("melidata")
 
         //mock cli
         def catalogObj = new S3ObjectSummary();
-        catalogObj.setKey("melidata_catalog.groovy")
+        catalogObj.setKey("catalog.groovy")
         catalogObj.setETag("XXX")
         def list = new ObjectListing()
         list.objectSummaries = [catalogObj]
