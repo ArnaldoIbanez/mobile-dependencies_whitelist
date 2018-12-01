@@ -16,8 +16,8 @@ import java.util.Date
 
 class Validate {
 
-    public static String CATALOG_DIR = "src/main/resources/catalog/"
-    public static String DEFAULT_CATALOG = "melidata_catalog.groovy"
+    public static String CATALOG_DIR = "src/main/resources/catalog/melidata"
+    public static String DEFAULT_CATALOG = "catalog.groovy"
 
     static void main(String[] args) {
         def cli = buildCli(args)
