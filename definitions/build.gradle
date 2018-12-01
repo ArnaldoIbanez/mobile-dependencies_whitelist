@@ -101,8 +101,6 @@ task exportMelidata(type:JavaExec) {
     def mainClass
     if (format == 'hive')
         mainClass = "com.melidata.definitions.format.HiveFormatter"
-    else if (format == 'json')
-        mainClass = "com.melidata.definitions.format.JSONFormatter"
     else
         throw new IllegalArgumentException("Invalid format. Must be 'hive' or 'json'")
 
@@ -115,11 +113,8 @@ task exportShipping(type:JavaExec) {
     def mainClass
     if (format == 'hive')
         mainClass = "com.melidata.definitions.format.HiveFormatter"
-    else if (format == 'json')
-        mainClass = "com.melidata.definitions.format.JSONFormatter"
     else
         throw new IllegalArgumentException("Invalid format. Must be 'hive' or 'json'")
-
     main = mainClass
     classpath = sourceSets.main.runtimeClasspath
     args ["shipping"]

@@ -1,6 +1,7 @@
 package com.melidata.definitions.manager
 
 import com.melidata.definitions.format.HiveFormatter
+
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.exceptions.CatalogException
 import com.ml.melidata.catalog.parsers.json.CatalogJsonOutput
@@ -19,11 +20,13 @@ class CatalogUploader {
     String CATALOG_DIR
     S3Controller s3Controller
     CatalogHandler catalogHandler
+    HiveFormatter hiveFormatter
 
     CatalogUploader(String catalogName) {
         s3Controller = new S3Controller(S3_BUCKET, AWS_ACCESS_KEY, AWS_SECRET_KEY)
         this.CATALOG_DIR = BASE_CATALOG_DIR + catalogName
         this.catalogHandler = new CatalogHandler(catalogName)
+        this.hiveFormatter = new HiveFormatter(catalogName)
     }
 
     def upload() {
@@ -54,7 +57,7 @@ class CatalogUploader {
         println("Setting last version")
         s3Controller.setLastServersion(catalogHandler.LAST_VERSION_FILE_NAME, lastVersion)
         println("Upload catalog csv hive format")
-        def csv = new HiveFormatter(CATALOG_DIR, CatalogHandler.S3_CATALOG_FILE).output
+        String csv = hiveFormatter.output
         s3Controller.saveFile(catalogHandler.CSV_FILE_NAME, csv)
     }
 
