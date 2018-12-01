@@ -4,7 +4,7 @@ import com.melidata.definitions.JsonUploaderValidator
 
 println( "Preparing....")
 def tests = new File("src/test/resources/").listFiles().collect{ it -> it.getAbsolutePath() }
-def status = TestRunner.run("src/main/resources/catalog/catalog.groovy", tests, new StdOut())
+def status = TestRunner.run("src/main/resources/catalog/melidata/catalog.groovy", tests, new StdOut())
 
 status = status && JsonUploaderValidator.validate()
 
