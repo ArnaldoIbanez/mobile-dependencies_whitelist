@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
  */
 class CatalogManager implements Runnable {
 
-    private Map catalogHandlers
+    private Map<String, CatalogHandler> catalogHandlers
 
 	CatalogManager() {
 		this.catalogHandlers = [:]
@@ -45,10 +45,6 @@ class CatalogManager implements Runnable {
 		}catch (Throwable e){
 			//log.error("Error checking catalog", e);
 		}
-	}
-
-	@Override
-	void close() throws IOException {
 	}
 
 	Catalog getCatalog(String catalogName) {

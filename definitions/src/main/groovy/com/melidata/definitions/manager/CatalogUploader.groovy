@@ -13,18 +13,22 @@ class CatalogUploader {
 
     private static final String AWS_ACCESS_KEY = "AKIAIRJ4DFA72UDCX7QA"
     private static final String AWS_SECRET_KEY = "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"
-    private static String S3BUCKET = "melidata-catalog-versions"
+    private static String S3_BUCKET = "melidata-catalog-versions"
+    public static String BASE_CATALOG_DIR = "src/main/resources/catalog"
 
+    String CATALOG_DIR
     S3Controller s3Controller
+    CatalogHandler catalogHandler
 
-    CatalogUploader(String catalogDir, String s3CatalogFile, String lastVersionObject, String lastVersionFileName, String csvFileName) {
-        s3Controller = new S3Controller(S3BUCKET, AWS_ACCESS_KEY, AWS_SECRET_KEY)
-        upload(catalogDir, s3CatalogFile, lastVersionObject, lastVersionFileName, csvFileName)
+    CatalogUploader(String catalogName) {
+        s3Controller = new S3Controller(S3_BUCKET, AWS_ACCESS_KEY, AWS_SECRET_KEY)
+        this.CATALOG_DIR = BASE_CATALOG_DIR + catalogName
+        this.catalogHandler = new CatalogHandler(catalogName)
     }
 
-    def upload(String catalogDir, String s3CatalogFile, String lastVersionObject, String lastVersionFileName, String csvFileName) {
+    def upload() {
         println("Starting uploader")
-        def catalogFile = new File(catalogDir, s3CatalogFile)
+        def catalogFile = new File(CATALOG_DIR, CatalogHandler.S3_CATALOG_FILE)
         println("Reading [${catalogFile}]")
         def dsl = IOUtils.toString(new FileInputStream(catalogFile))
         println("DSL loaded")
@@ -36,7 +40,7 @@ class CatalogUploader {
         def json = new CatalogJsonOutput().toJson(catalog)
         println("JSON ready")
         println("Getting last catalog version")
-        Integer lastVersion = s3Controller.getLastVersion(lastVersionObject)
+        Integer lastVersion = s3Controller.getLastVersion(catalogHandler.LAST_VERSION_OBJECT)
         lastVersion++
         println("New version: ${lastVersion}")
         println("Uploading ${lastVersion}.dsl")
@@ -44,14 +48,14 @@ class CatalogUploader {
         println("Uploading ${lastVersion}.json")
         s3Controller.saveCatalogVersion(json,lastVersion.toString(),lastVersion)
         println("Uploading last dsl")
-        s3Controller.saveCatalogVersion(catalog,lastVersionFileName,lastVersion)
+        s3Controller.saveCatalogVersion(catalog,catalogHandler.LAST_VERSION_FILE_NAME,lastVersion)
         println("Uploading last json")
-        s3Controller.saveCatalogVersion(json,lastVersionFileName,lastVersion)
+        s3Controller.saveCatalogVersion(json,catalogHandler.LAST_VERSION_FILE_NAME,lastVersion)
         println("Setting last version")
-        s3Controller.setLastServersion(lastVersionFileName, lastVersion)
+        s3Controller.setLastServersion(catalogHandler.LAST_VERSION_FILE_NAME, lastVersion)
         println("Upload catalog csv hive format")
-        def csv = new HiveFormatter(catalogDir, s3CatalogFile).output
-        s3Controller.saveFile(csvFileName, csv)
+        def csv = new HiveFormatter(CATALOG_DIR, CatalogHandler.S3_CATALOG_FILE).output
+        s3Controller.saveFile(catalogHandler.CSV_FILE_NAME, csv)
     }
 
 
@@ -70,4 +74,11 @@ class CatalogUploader {
             throw new CatalogException("Error parsing catalog")
         }
     }
+
+    static void main(String[] args) {
+        String catalogName = args[0]
+
+        new CatalogUploader(catalogName).upload()
+    }
+
 }
