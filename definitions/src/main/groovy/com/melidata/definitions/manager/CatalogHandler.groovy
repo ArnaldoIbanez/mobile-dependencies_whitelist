@@ -27,7 +27,6 @@ class CatalogHandler {
 	private Map<String, String> lastEtag = [:]
 	private Catalog catalog
 	private int version
-	private String catalogName
 
 	CatalogHandler(String catalogName) {
 
@@ -73,10 +72,6 @@ class CatalogHandler {
 
 	int getVersion() {
 		version
-	}
-
-	String getCatalogName() {
-		catalogName
 	}
 
 	private reloadCatalog(S3Object object, List<S3ObjectSummary> objectSummaries) {
