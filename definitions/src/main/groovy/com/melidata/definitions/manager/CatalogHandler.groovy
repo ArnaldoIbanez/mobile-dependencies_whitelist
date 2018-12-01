@@ -14,14 +14,13 @@ class CatalogHandler {
 
 	private static final String AWS_ACCESS_KEY = 'AKIAIRJ4DFA72UDCX7QA'//'AKIAI2AFLMRLNMSP3IJA'
 	private static final String AWS_SECRET_KEY = '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'//'BZUVcUw7CfLgoJVr06w15sJ308Tnxv+c42Hhul6G'
-
 	public static String S3BUCKET = "melidata-catalog-versions"
+	public static String S3_CATALOG_FILE = "catalog.groovy"
 
 	public static String LAST_VERSION_OBJECT
 	public static String LAST_VERSION_FILE_NAME
 	public static String LOCAL_FOLDER
 	public static String S3_CONTAINER
-	public static String S3_CATALOG_FILE
 	public static String CSV_FILE_NAME
 
 	private S3Controller cli
@@ -30,15 +29,15 @@ class CatalogHandler {
 	private int version
 	private String catalogName
 
-	CatalogHandler(String lastVersionObject, String lastVersionFileName, String localFolder, String s3Container, String s3CatalogFile, String csvFileName, String catalogName) {
-		LAST_VERSION_OBJECT = lastVersionObject
-		LAST_VERSION_FILE_NAME = lastVersionFileName
-		LOCAL_FOLDER = localFolder
-		S3_CONTAINER = s3Container
-		S3_CATALOG_FILE = s3CatalogFile
-		CSV_FILE_NAME = csvFileName
-		cli = new S3Controller(S3BUCKET, AWS_ACCESS_KEY, AWS_SECRET_KEY)
-		this.catalogName = catalogName
+	CatalogHandler(String catalogName) {
+
+		LAST_VERSION_OBJECT = "last" + catalogName.capitalize() + "Version"
+		LAST_VERSION_FILE_NAME = "last" + catalogName.capitalize()
+		LOCAL_FOLDER = "/data/catalog/" + catalogName
+		S3_CONTAINER = last_version_file_name + ".dsl/"
+		CSV_FILE_NAME = catalogName + "_last.csv/" + catalogName + "_catalog.csv"
+
+		cli = new S3Controller(S3BUCKET + "/" + catalogName, AWS_ACCESS_KEY, AWS_SECRET_KEY)
 	}
 
 	boolean reload() {

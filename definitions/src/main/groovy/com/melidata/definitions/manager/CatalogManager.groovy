@@ -10,25 +10,37 @@ import java.util.concurrent.TimeUnit
  */
 class CatalogManager implements Runnable {
 
-    private CatalogHandler catalogHandler
+    private Map catalogHandlers
 
-	CatalogManager(String lastVersionObject, String lastVersionFileName, String localFolder, String s3Container, String s3CatalogFile, String csvFileName, String catalogName) {
-        catalogHandler = new CatalogHandler(lastVersionObject, lastVersionFileName, localFolder, s3Container, s3CatalogFile, csvFileName, catalogName)
+	CatalogManager() {
+		this.catalogHandlers = [:]
+		addCatalogHandler("melidata")
+		addCatalogHandler("shipping")
+	}
+
+	CatalogManager(catalogHandlers) {
+		this.catalogHandlers = catalogHandlers
+	}
+
+	void addCatalogHandler(String catalogName) {
+		catalogHandlers[catalogName] = new CatalogHandler(catalogName)
 	}
 
 	void init() {
-		catalogHandler.reload()
+		catalogHandlers.each{ _, catalogHandler -> catalogHandler.reload()}
 		Executors.newScheduledThreadPool(1).scheduleAtFixedRate(this, 0, 5, TimeUnit.MINUTES)
 	}
 
 	@Override
 	void run() {
 		try {
-			if ( catalogHandler.reload() ) {
-				log.info(String.format("New catalog [version: %s] has been loaded", catalogHandler.getVersion()))
-				//log.info(String.format("New catalog [version: %s] [etag: %s] has been loaded", catalogHandler.getVersion(), catalogHandler.getLastEtag()));
+			for (catalogHandler in catalogHandlers.values()) {
+				if (catalogHandler.reload()) {
+					log.info(String.format("New catalog [version: %s] has been loaded", catalogHandler.getVersion()))
+					//log.info(String.format("New catalog [version: %s] [etag: %s] has been loaded", catalogHandler.getVersion(), catalogHandler.getLastEtag()));
+				}
+				//updateVersionInDynamo();
 			}
-			//updateVersionInDynamo();
 
 		}catch (Throwable e){
 			//log.error("Error checking catalog", e);
@@ -39,15 +51,11 @@ class CatalogManager implements Runnable {
 	void close() throws IOException {
 	}
 
-	Catalog getCatalog() {
-		return catalogHandler.getCatalog()
+	Catalog getCatalog(String catalogName) {
+		return catalogHandlers[catalogName]?.getCatalog()
 	}
 
-    int getVersion() {
-		return catalogHandler.getVersion()
-	}
-
-	String getCatalogName() {
-		return catalogHandler.getCatalogName()
+    int getCatalogVersion(String catalogName) {
+		return catalogHandlers[catalogName]?.getVersion()
 	}
 }
