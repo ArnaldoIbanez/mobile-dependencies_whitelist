@@ -17,11 +17,11 @@ class CatalogHandler {
 	public static String S3BUCKET = "melidata-catalog-versions"
 	public static String S3_CATALOG_FILE = "catalog.groovy"
 
-	public static String LAST_VERSION_OBJECT
-	public static String LAST_VERSION_FILE_NAME
-	public static String LOCAL_FOLDER
-	public static String S3_CONTAINER
-	public static String CSV_FILE_NAME
+	private String LAST_VERSION_OBJECT
+	private String LAST_VERSION_FILE_NAME
+	private String LOCAL_FOLDER
+	private String S3_CONTAINER
+	private String CSV_FILE_NAME
 
 	private S3Controller cli
 	private Map<String, String> lastEtag = [:]
