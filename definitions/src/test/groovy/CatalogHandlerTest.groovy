@@ -75,6 +75,7 @@ import com.amazonaws.services.s3.model.UploadPartResult
 import com.amazonaws.services.s3.model.VersionListing
 import com.melidata.definitions.manager.CatalogHandler
 import com.melidata.definitions.manager.CatalogManager
+import com.melidata.definitions.manager.CatalogUploader
 import com.melidata.definitions.manager.S3Controller
 import com.ml.melidata.catalog.tree.TrackValidationResponse
 import org.junit.Test
@@ -96,7 +97,7 @@ class CatalogHandlerTest {
 
         //mock cli
         def catalogObj = new S3ObjectSummary();
-        catalogObj.setKey("catalog.groovy")
+        catalogObj.setKey(CatalogHandler.S3_CATALOG_FILE)
         catalogObj.setETag("XXX")
         def list = new ObjectListing()
         list.objectSummaries = [catalogObj]
