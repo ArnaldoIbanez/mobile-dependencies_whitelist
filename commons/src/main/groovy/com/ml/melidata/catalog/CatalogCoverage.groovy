@@ -10,7 +10,7 @@ class CatalogCoverage {
 
 	def Catalog catalog
 	def Set<String> testedPaths
-        def Set<String> assertCoverageBusiness = ["mercadolibre" , "mercadopago"]
+        def Set<String> assertCoverageBusiness = ["mercadolibre" , "mercadopago", "carriers"]
 
 	def Map<TestablePath, Boolean> coverage
 	def Double coveragePercent

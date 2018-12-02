@@ -59,10 +59,16 @@ task coverage (dependsOn:[":test",":jacocoTestReport"]) << {
   println("Coverage, check: ${buildDir}/jacocoHtml")
 }
 
-task tests (dependsOn: 'classes', type: JavaExec) {
+task testMelidata (dependsOn: 'classes', type: JavaExec) {
     main = 'tests'
     classpath = sourceSets.main.runtimeClasspath
     args = ["melidata"]
+}
+
+task testShipping (dependsOn: 'classes', type: JavaExec) {
+    main = 'tests'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["shipping"]
 }
 
 task uploadMeliDataCatalog(type:JavaExec) {

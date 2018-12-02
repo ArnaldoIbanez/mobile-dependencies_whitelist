@@ -8,15 +8,11 @@ tracks {
 
     "/shipping"(platform: "/", isAbstract: true) {}
 
-    "/shipping/tracking"(platform: "/api", type: TrackType.Event) {
-        shipment(required:true, description: "Shippment we are tracking", type: PropertyType.Map)
-    }
-
-    "/shipping/tracking"(platform: "/backend", type: TrackType.View) {
+    "/shipping/tracking"(platform: "/backend", type: TrackType.Event) {
         status_code(required:true, description: "API Response code", type: PropertyType.String)
     }
 
-    "/shipping/tracking/select_status"(platform: "/backend", type: TrackType.Evebt) {
+    "/shipping/tracking/select_status"(platform: "/backend", type: TrackType.Event) {
         status_selected(required:true, description: "Shippment status selected", type: PropertyType.String)
     }
 }

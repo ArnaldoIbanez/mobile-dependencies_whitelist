@@ -4,6 +4,7 @@ import com.melidata.definitions.parsers.dsl.TestDsl
 import com.melidata.definitions.outs.DefinitionsOut
 import com.ml.melidata.catalog.Catalog
 import groovy.transform.Synchronized
+import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
 
 /**
  * Created by apetalas on 20/11/14.

@@ -9,7 +9,8 @@ import com.ml.melidata.catalog.DslUtils
 class CatalogDsl {
 
     //it is not thread safe
-    def static String baseDir = "src/main/resources/catalog/melidata/"
+    def static String baseDir = "src/main/resources/catalog/" + catalogName + "/"
+    static String catalogName = "shipping"
 
     def Catalog catalog;
 
@@ -19,6 +20,10 @@ class CatalogDsl {
 
     def CatalogDsl() {
         catalog = new Catalog()
+    }
+
+    def static setCatalogName(String catalogName) {
+        this.catalogName = catalogName
     }
 
     def static setBaseDir(String dir) {
