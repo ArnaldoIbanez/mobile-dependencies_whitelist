@@ -504,7 +504,7 @@ trackTests {
             }
             transaction_amount = 130
             coupon_amount = 0
-            melidata.marketplace = "NONE"
+            marketplace = "NONE"
             shipping_amount = 0
             coupon_id = 43427906
             captured = true
@@ -520,7 +520,7 @@ trackTests {
             money_release_days = 0
             order = {
                 id = 909650158
-                type = melidata.mercadopago
+                type = mercadopago
             }
             external_reference = "nicaragua2"
             transaction_amount = 560
@@ -583,7 +583,7 @@ trackTests {
                 money_release_days = 0
                 order = {
                     id = 909650158
-                    type = melidata.mercadopago
+                    type = mercadopago
                 }
                 external_reference = "nicaragua2"
                 transaction_amount = 560
@@ -596,7 +596,7 @@ trackTests {
                 }
                 coupon_amount = 100
                 client_id = "1945000207238192"
-                melidata.marketplace = "NONE"
+                marketplace = "NONE"
                 currency_id = "ARS"
                 collector_id = 350075398
                 status = "approved"
@@ -1243,7 +1243,7 @@ trackTests {
                 }
                 transaction_amount = 130
                 coupon_amount = 0
-                melidata.marketplace = "NONE"
+                marketplace = "NONE"
                 shipping_amount = 0
                 coupon_id = 43427906
                 captured = true
@@ -1259,7 +1259,7 @@ trackTests {
                 money_release_days = 0
                 order = {
                     id = 909650158
-                    type = melidata.mercadopago
+                    type = mercadopago
                 }
                 external_reference = "nicaragua2"
                 transaction_amount = 560
@@ -1322,7 +1322,7 @@ trackTests {
                 money_release_days = 0
                 order = {
                     id = 909650158
-                    type = melidata.mercadopago
+                    type = mercadopago
                 }
                 external_reference = "nicaragua2"
                 transaction_amount = 560
@@ -1335,7 +1335,7 @@ trackTests {
                 }
                 coupon_amount = 100
                 client_id = "1945000207238192"
-                melidata.marketplace = "NONE"
+                marketplace = "NONE"
                 currency_id = "ARS"
                 collector_id = 350075398
                 status = "approved"

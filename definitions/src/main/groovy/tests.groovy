@@ -4,7 +4,6 @@ import com.melidata.definitions.JsonUploaderValidator
 
 
 static void main(String[] args) {
-    println(args)
     String catalogName = args[0]
 
     println( "Preparing....")
