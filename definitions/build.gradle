@@ -62,18 +62,19 @@ task coverage (dependsOn:[":test",":jacocoTestReport"]) << {
 task tests (dependsOn: 'classes', type: JavaExec) {
     main = 'tests'
     classpath = sourceSets.main.runtimeClasspath
+    args = ["melidata"]
 }
 
 task uploadMeliDataCatalog(type:JavaExec) {
     main = 'com.melidata.definitions.manager.MeliDataCatalogUploader'
     classpath = sourceSets.main.runtimeClasspath
-    args ["melidata"]
+    args = ["melidata"]
 }
 
 task uploadShippingCatalog(type:JavaExec) {
     main = 'com.melidata.definitions.manager.ShippingCatalogUploader'
     classpath = sourceSets.main.runtimeClasspath
-    args ["shipping"]
+    args = ["shipping"]
 }
 
 task uploadMetrics(type:JavaExec) {
