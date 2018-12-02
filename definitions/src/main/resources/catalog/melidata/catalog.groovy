@@ -1,5 +1,4 @@
 import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.catalog
-import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.include
 
 /**
  * Main catalog definitions
