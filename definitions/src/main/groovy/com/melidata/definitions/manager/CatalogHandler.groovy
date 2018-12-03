@@ -33,7 +33,7 @@ class CatalogHandler {
 		LAST_VERSION_OBJECT = "last" + catalogName.capitalize() + "Version"
 		LAST_VERSION_FILE_NAME = "last" + catalogName.capitalize()
 		LOCAL_FOLDER = "/data/catalog/" + catalogName
-		S3_CONTAINER = last_version_file_name + ".dsl/"
+		S3_CONTAINER = LAST_VERSION_FILE_NAME + ".dsl/"
 		CSV_FILE_NAME = catalogName + "_last.csv/" + catalogName + "_catalog.csv"
 
 		cli = new S3Controller(S3_BUCKET + "/" + catalogName, AWS_ACCESS_KEY, AWS_SECRET_KEY)
