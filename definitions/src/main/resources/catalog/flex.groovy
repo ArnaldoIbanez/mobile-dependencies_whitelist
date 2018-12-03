@@ -215,6 +215,8 @@ tracks {
         location
         error_type(required: true, type: PropertyType.String,  values: ["generic", "connection"],
             description: "Specifies what kind of error happened.",inheritable:false)
+        error_step_id(required: false, type: PropertyType.String,
+                description: "Specifies the stepId where the error happened.",inheritable:false)
     }
 
     "/flex/error/snackbar"(platform: "/mobile", type: TrackType.Event) {

@@ -328,6 +328,7 @@ trackTests {
         "/flex/error"(platform:"/mobile", type: TrackType.View) {
             defaultLocation()
             error_type = "connection"
+            error_step_id = "example_step_id"
         }
 
         //Snackbar error event success
