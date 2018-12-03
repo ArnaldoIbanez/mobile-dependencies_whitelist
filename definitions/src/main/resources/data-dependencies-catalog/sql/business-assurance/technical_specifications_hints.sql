@@ -11,7 +11,7 @@ SELECT
         WHEN tracks.path LIKE '/seller_central/modify/technical_specifications/hints/%' THEN 'modify'  
         END AS source,
     application.site_id AS site,
-    usr.user_id AS user,
+    usr.user_id AS t_user,
     substr(ds,1,10) AS ds
 FROM tracks
 WHERE jest(tracks.event_data, 'item_id') IN
