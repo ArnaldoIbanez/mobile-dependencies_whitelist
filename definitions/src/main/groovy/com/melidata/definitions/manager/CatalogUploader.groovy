@@ -4,6 +4,7 @@ import com.melidata.definitions.format.HiveFormatter
 
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.exceptions.CatalogException
+import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
 import com.ml.melidata.catalog.parsers.json.CatalogJsonOutput
 import org.apache.commons.io.IOUtils
 
@@ -23,10 +24,11 @@ class CatalogUploader {
     HiveFormatter hiveFormatter
 
     CatalogUploader(String catalogName) {
-        s3Controller = new S3Controller(S3_BUCKET, AWS_ACCESS_KEY, AWS_SECRET_KEY)
+        s3Controller = new S3Controller(S3_BUCKET + "/" + catalogName, AWS_ACCESS_KEY, AWS_SECRET_KEY)
         this.CATALOG_DIR = BASE_CATALOG_DIR + "/" + catalogName
         this.catalogHandler = new CatalogHandler(catalogName)
         this.hiveFormatter = new HiveFormatter(catalogName)
+        CatalogDsl.setBaseDir("src/main/resources/catalog/" + catalogName + "/")
     }
 
     def upload() {

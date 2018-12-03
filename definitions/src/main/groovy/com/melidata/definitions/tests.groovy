@@ -10,7 +10,6 @@ static void main(String[] args) {
 
     args.eachWithIndex { catalogName, index ->
         catalogName = args[index]
-        System.setProperty("CATALOG_NAME", catalogName)
         CatalogDsl.setBaseDir("src/main/resources/catalog/" + catalogName + "/")
 
         status = status && TestRunner.run(catalogName, new StdOut())
