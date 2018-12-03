@@ -4,7 +4,7 @@ import com.ml.melidata.TrackType
 
 
 /**
-* 
+*
 * The events means actions that happens without launch a View,
 * as example of that we can consider Bookmark an item in a VIP page
 * Every event is an action, so the verbs available are:
@@ -711,8 +711,12 @@ tracks {
      **/
     "/notification"(platform: "/mobile") {
         event_type(required: true,
-                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown"],
+                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "purged_token"],
         description: "Type of notification event")
+
+        notification_type(required: false,
+                values: ["deep_linking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"])
+
         news_id(required: false, description: "Identifier of the notification generated")
 
         notification_created_error(required: false, description: "The notification created error", type: PropertyType.String)
