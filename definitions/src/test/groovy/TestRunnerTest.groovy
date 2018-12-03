@@ -16,7 +16,7 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 class TestRunnerTest {
 
     public static final String PATH_CATALOG = "src/main/resources/catalog/melidata/catalog.groovy"
-    public static final String PATH_TEST = "tests/marketplace.groovy"
+    public static final String PATH_TEST = "testCatalog/marketplace.groovy"
 
     def catalog = null
 

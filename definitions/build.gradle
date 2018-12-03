@@ -60,15 +60,25 @@ task coverage (dependsOn:[":test",":jacocoTestReport"]) << {
 }
 
 task testMelidata (dependsOn: 'classes', type: JavaExec) {
-    main = 'tests'
+    main = 'testCatalog'
     classpath = sourceSets.main.runtimeClasspath
     args = ["melidata"]
 }
 
 task testShipping (dependsOn: 'classes', type: JavaExec) {
-    main = 'tests'
+    main = 'testCatalog'
     classpath = sourceSets.main.runtimeClasspath
     args = ["shipping"]
+}
+
+task testCronnedQueries (dependsOn: 'classes', type: JavaExec) {
+    main = 'testCronnedQueries'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task testMetrics (dependsOn: 'classes', type: JavaExec) {
+    main = 'testMetrics'
+    classpath = sourceSets.main.runtimeClasspath
 }
 
 task uploadMeliDataCatalog(type:JavaExec) {

@@ -9,7 +9,7 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
 
-    test("Buy intention event tests"){
+    test("Buy intention event testCatalog"){
 
         def buyIntentionDataSet = {
             session_id=1234

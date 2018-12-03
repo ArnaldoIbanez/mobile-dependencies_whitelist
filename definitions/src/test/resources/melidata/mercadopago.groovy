@@ -3047,7 +3047,7 @@ trackTests {
             exception_message = "Some exception message"
         }
 
-        //Unified tracking tests
+        //Unified tracking testCatalog
 
         //Actions
         "/checkout_off/v1/init"(platform: "/web/mobile") {
