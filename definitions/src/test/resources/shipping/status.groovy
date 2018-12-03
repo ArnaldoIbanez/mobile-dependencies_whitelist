@@ -16,6 +16,7 @@ trackTests {
 
         "/shipping/tracking/select_status"(platform: "/backend", type: TrackType.Event) {
             status_selected = "rojo"
+            status_code = "200"
         }
     }
 }

@@ -6,6 +6,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    "/"(platform: "/", isAbstract: true) {}
+
     "/shipping"(platform: "/", isAbstract: true) {}
 
     "/shipping/tracking"(platform: "/backend", type: TrackType.Event) {

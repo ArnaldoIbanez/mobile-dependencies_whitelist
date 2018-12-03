@@ -5,7 +5,7 @@ import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
 
 static void main(String[] args) {
     String catalogName = args[0]
-    CatalogDsl.setCatalogName(catalogName)
+    System.setProperty("CATALOG_NAME", catalogName)
 
     println( "Preparing....")
     def status = TestRunner.run(catalogName, new StdOut())
