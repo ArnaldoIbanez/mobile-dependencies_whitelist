@@ -88,13 +88,13 @@ task testMetrics (dependsOn: 'classes', type: JavaExec) {
 }
 
 task uploadMeliDataCatalog(type:JavaExec) {
-    main = 'com.melidata.definitions.manager.MeliDataCatalogUploader'
+    main = 'com.melidata.definitions.manager.CatalogUploader'
     classpath = sourceSets.main.runtimeClasspath
     args = ["melidata"]
 }
 
 task uploadShippingCatalog(type:JavaExec) {
-    main = 'com.melidata.definitions.manager.ShippingCatalogUploader'
+    main = 'com.melidata.definitions.manager.CatalogUploader'
     classpath = sourceSets.main.runtimeClasspath
     args = ["shipping"]
 }
