@@ -4,12 +4,12 @@
   ],
   "process_name": "technical_specifications_hints",
   "cron": "00 07 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
-    "partition": {
-      "name": "ds",
-      "type": "DATE"
-    },
     "columns": [
       {
         "name": "path",
