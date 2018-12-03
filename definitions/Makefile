@@ -1,7 +1,4 @@
 test:
-	./gradlew testMelidata
-	./gradlew testShipping
-	./gradlew testCronnedQueries
-	./gradlew testMetrics
+	./gradlew testAll
 
 .PHONY: test
