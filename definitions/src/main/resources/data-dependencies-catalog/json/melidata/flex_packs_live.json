@@ -29,6 +29,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "server_time",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "longitude",
         "type": "DOUBLE"
       },
