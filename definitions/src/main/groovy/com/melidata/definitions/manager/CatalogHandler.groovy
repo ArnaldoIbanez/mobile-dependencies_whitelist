@@ -27,21 +27,23 @@ class CatalogHandler {
 	Map<String, String> lastEtag = [:]
 	Catalog catalog
 	int version
+	String catalogName;
 
 	CatalogHandler(String catalogName) {
 
 		LAST_VERSION_OBJECT = "last" + catalogName.capitalize() + "Version"
 		LAST_VERSION_FILE_NAME = "last" + catalogName.capitalize()
-		LOCAL_FOLDER = "/data/catalog/" + catalogName
-		S3_CONTAINER = catalogName + "/" + LAST_VERSION_FILE_NAME + ".dsl/"
+		LOCAL_FOLDER = "/data/catalog/"
+		S3_CONTAINER = LAST_VERSION_FILE_NAME + ".dsl/"
 		CSV_FILE_NAME = catalogName + "_last.csv/" + catalogName + "_catalog.csv"
+		this.catalogName = catalogName
 
-		cli = new S3Controller(S3_BUCKET + "/" + catalogName, AWS_ACCESS_KEY, AWS_SECRET_KEY)
+		cli = new S3Controller(S3_BUCKET, AWS_ACCESS_KEY, AWS_SECRET_KEY)
 	}
 
 	boolean reload() {
 		//check if some file of BUCKET/S3_CONTAINER has changed (etag)
-		List<S3ObjectSummary> objectSummaries = cli.listObjects(new ListObjectsRequest().withBucketName(S3_BUCKET).withPrefix(S3_CONTAINER)).getObjectSummaries()
+		List<S3ObjectSummary> objectSummaries = cli.listObjects(new ListObjectsRequest().withBucketName(S3_BUCKET).withPrefix(catalogName + "/" + S3_CONTAINER)).getObjectSummaries()
 
 		boolean reload = false
 		for ( S3ObjectSummary obj : objectSummaries ) {
