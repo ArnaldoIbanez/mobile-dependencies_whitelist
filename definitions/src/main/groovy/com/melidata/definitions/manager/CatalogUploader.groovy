@@ -48,12 +48,18 @@ class CatalogUploader {
         Integer lastVersion = s3Controller.getLastVersion(catalogHandler.LAST_VERSION_OBJECT)
         lastVersion++
         println("New version: ${lastVersion}")
-        println("Uploading ${lastVersion} dsl")
+        println("Uploading ${lastVersion}.dsl")
+        s3Controller.saveCatalogVersion(catalog,lastVersion.toString(),lastVersion)
+        println("Uploading ${lastVersion}.json")
+        s3Controller.saveCatalogVersion(json,lastVersion.toString(),lastVersion)
+
+
+        println("Uploading last.dsl")
         s3Controller.saveCatalogVersion(catalog,catalogHandler.LAST_VERSION_FILE_NAME,lastVersion)
-        println("Uploading ${lastVersion} json")
+        println("Uploading last.dsl")
         s3Controller.saveCatalogVersion(json,catalogHandler.LAST_VERSION_FILE_NAME,lastVersion)
         println("Setting last version")
-        s3Controller.setLastServersion(catalogHandler.LAST_VERSION_FILE_NAME, lastVersion)
+        s3Controller.setLastServersion(catalogHandler.LAST_VERSION_OBJECT, lastVersion)
         println("Upload catalog csv hive format")
         String csv = hiveFormatter.output
         s3Controller.saveFile(catalogHandler.CSV_FILE_NAME, csv)
