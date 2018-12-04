@@ -41,16 +41,16 @@
         "type": "UNICODE_STRING"
       },      
       {
+        "name": "source",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "site",
         "type": "UNICODE_STRING"
       },      
       {
         "name": "t_user",
-        "type": "UNICODE_STRING"
-      },      
-      {
-        "name": "source",
-        "type": "UNICODE_STRING"
+        "type": "INTEGER"
       }
     ],
     "sql": {
