@@ -33,8 +33,8 @@ FROM (
                           SUM(IF(catalog_data.is_valid = TRUE,1,0))                   AS valid_tracks,
                           SUM(IF(catalog_data.is_valid = FALSE,1,0))                  AS invalid_tracks 
                    FROM tracks
-                   WHERE ds >= '2018-12-03 00:00:00'
-                     AND ds  < '2018-12-04 00:00:00'
+                   WHERE ds >= '@param01'
+                     AND ds  < '@param02'
                      AND NOT is_bot(device.user_agent)
                      AND (not (application.server_poolname rlike 'checkout-on.+') OR application.server_poolname is null)
                    GROUP BY substr(ds, 1, 10), 
@@ -58,8 +58,8 @@ FROM (
                                              application.version                                                                          As version,
                                              (count(*) * 100.0) / sum(count(*)) OVER (PARTITION BY application.business, device.platform) AS percentage
                                       FROM tracks
-                                      WHERE ds >= '2018-12-03 00:00:00'
-                                        AND ds  < '2018-12-04 00:00:00'
+                                      WHERE ds >= '@param01'
+                                        AND ds  < '@param02'
                                         AND NOT is_bot(device.user_agent)
                                         AND (
                                                 (application.business = 'mercadolibre'  AND device.platform = '/mobile/android')                                       
