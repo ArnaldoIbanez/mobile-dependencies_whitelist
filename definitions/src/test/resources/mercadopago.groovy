@@ -752,19 +752,19 @@ trackTests {
         "/send_money/bacen"(platform: "/mobile", type: TrackType.View) {
             flow = "/send_money"
         }
-        "/send_money/bacen_ok"(platform: "/mobile", type: TrackType.Event) {
+        "/send_money/bacen/ok"(platform: "/mobile", type: TrackType.Event) {
             flow = "/send_money"
         }
-        "/send_money/bacen_cancel"(platform: "/mobile", type: TrackType.Event) {
+        "/send_money/bacen/cancel"(platform: "/mobile", type: TrackType.Event) {
             flow = "/send_money"
         }
-        "/send_money/bacen_error"(platform: "/mobile", type: TrackType.Event) {
+        "/send_money/bacen/error"(platform: "/mobile", type: TrackType.Event) {
             flow = "/send_money"
         }
-        "/send_money/bacen_open"(platform: "/mobile", type: TrackType.Event) {
+        "/send_money/bacen/open"(platform: "/mobile", type: TrackType.Event) {
             flow = "/send_money"
         }
-        "/send_money/bacen_close"(platform: "/mobile", type: TrackType.Event) {
+        "/send_money/bacen/close"(platform: "/mobile", type: TrackType.Event) {
             flow = "/send_money"
         }
     }
@@ -1961,23 +1961,23 @@ trackTests {
             flow = "/withdraw"
             from = "/deep_link"
         }
-        "/withdraw/bacen_ok"(platform: "/mobile") {
+        "/withdraw/bacen/ok"(platform: "/mobile") {
             flow = "/withdraw"
             from = "/deep_link"
         }
-        "/withdraw/bacen_cancel"(platform: "/mobile") {
+        "/withdraw/bacen/cancel"(platform: "/mobile") {
             flow = "/withdraw"
             from = "/deep_link"
         }
-        "/withdraw/bacen_error"(platform: "/mobile") {
+        "/withdraw/bacen/error"(platform: "/mobile") {
             flow = "/withdraw"
             from = "/deep_link"
         }
-        "/withdraw/bacen_open"(platform: "/mobile") {
+        "/withdraw/bacen/open"(platform: "/mobile") {
             flow = "/withdraw"
             from = "/deep_link"
         }
-        "/withdraw/bacen_close"(platform: "/mobile") {
+        "/withdraw/bacen/close"(platform: "/mobile") {
             flow = "/withdraw"
             from = "/deep_link"
         }

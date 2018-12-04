@@ -382,11 +382,11 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
     "/send_money/bacen"(platform: "/mobile", isAbstract: true) {}
-    "/send_money/bacen_ok"(platform: "/mobile") {}
-    "/send_money/bacen_cancel"(platform: "/mobile") {}
-    "/send_money/bacen_error"(platform: "/mobile") {}
-    "/send_money/bacen_open"(platform: "/mobile") {}
-    "/send_money/bacen_close"(platform: "/mobile") {}
+    "/send_money/bacen/ok"(platform: "/mobile") {}
+    "/send_money/bacen/cancel"(platform: "/mobile") {}
+    "/send_money/bacen/error"(platform: "/mobile") {}
+    "/send_money/bacen/open"(platform: "/mobile") {}
+    "/send_money/bacen/close"(platform: "/mobile") {}
 
 
     "/checkout"(platform: "/mobile", isAbstract: true) {
@@ -668,11 +668,11 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
     "/withdraw/bacen"(platform: "/mobile", isAbstract: true) {}
-    "/withdraw/bacen_ok"(platform: "/mobile") {}
-    "/withdraw/bacen_cancel"(platform: "/mobile") {}
-    "/withdraw/bacen_error"(platform: "/mobile") {}
-    "/withdraw/bacen_open"(platform: "/mobile") {}
-    "/withdraw/bacen_close"(platform: "/mobile") {}
+    "/withdraw/bacen/ok"(platform: "/mobile") {}
+    "/withdraw/bacen/cancel"(platform: "/mobile") {}
+    "/withdraw/bacen/error"(platform: "/mobile") {}
+    "/withdraw/bacen/open"(platform: "/mobile") {}
+    "/withdraw/bacen/close"(platform: "/mobile") {}
 
     "/fund_account"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
