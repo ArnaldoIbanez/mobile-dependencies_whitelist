@@ -749,9 +749,6 @@ trackTests {
             flow = "/send_money"
         }
 
-        "/send_money/bacen"(platform: "/mobile", type: TrackType.View) {
-            flow = "/send_money"
-        }
         "/send_money/bacen/ok"(platform: "/mobile", type: TrackType.Event) {
             flow = "/send_money"
         }
@@ -1956,10 +1953,6 @@ trackTests {
             from = "/deep_link"
             result_status = "rejected"
             status_detail = "internal_server_error"
-        }
-        "/withdraw/bacen"(platform: "/mobile") {
-            flow = "/withdraw"
-            from = "/deep_link"
         }
         "/withdraw/bacen/ok"(platform: "/mobile") {
             flow = "/withdraw"
