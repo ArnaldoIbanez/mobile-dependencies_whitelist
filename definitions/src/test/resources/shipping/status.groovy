@@ -5,16 +5,16 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
-    defaultBusiness = "carriers"
+    defaultBusiness = "shipping"
 
     test("Shipping test path") {
 
-        "/shipping/tracking"(platform: "/backend", type: TrackType.Event) {
+        "/shipping/tracking"(platform: "/api", type: TrackType.Event) {
             status_code = "200"
         }
 
 
-        "/shipping/tracking/select_status"(platform: "/backend", type: TrackType.Event) {
+        "/shipping/tracking/select_status"(platform: "/api", type: TrackType.Event) {
             status_selected = "rojo"
             status_code = "200"
         }

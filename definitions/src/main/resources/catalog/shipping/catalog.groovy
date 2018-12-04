@@ -15,9 +15,9 @@ catalog {
             "/backend"
     ]
 
-    def carriers = ["shipping"]
+    def shipping = ["shipping"]
 
-    carriers.each { business ->
+    shipping.each { business ->
         include business, "status.groovy"
     }
 }
