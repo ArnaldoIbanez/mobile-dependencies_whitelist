@@ -15,7 +15,7 @@ class CatalogHandler {
 	private static final String AWS_ACCESS_KEY = 'AKIAIRJ4DFA72UDCX7QA'//'AKIAI2AFLMRLNMSP3IJA'
 	private static final String AWS_SECRET_KEY = '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'//'BZUVcUw7CfLgoJVr06w15sJ308Tnxv+c42Hhul6G'
 	public static String S3_BUCKET = "melidata-catalog-versions"
-	public static String S3_CATALOG_FILE = "catalog.groovy"
+	public static String S3_CATALOG_FILE = "/catalog.groovy"
 
 	public String LAST_VERSION_OBJECT
 	public String LAST_VERSION_FILE_NAME
@@ -33,8 +33,8 @@ class CatalogHandler {
 
 		LAST_VERSION_OBJECT = "last" + catalogName.capitalize() + "Version"
 		LAST_VERSION_FILE_NAME = "last" + catalogName.capitalize()
-		LOCAL_FOLDER = "/data/catalog/"
-		S3_CONTAINER = LAST_VERSION_FILE_NAME + ".dsl/"
+		LOCAL_FOLDER = "/data/catalog/" + catalogName + "/"
+		S3_CONTAINER = catalogName + "/" + LAST_VERSION_FILE_NAME + ".dsl/"
 		CSV_FILE_NAME = catalogName + "_last.csv/" + catalogName + "_catalog.csv"
 		this.catalogName = catalogName
 
@@ -43,7 +43,7 @@ class CatalogHandler {
 
 	boolean reload() {
 		//check if some file of BUCKET/S3_CONTAINER has changed (etag)
-		List<S3ObjectSummary> objectSummaries = cli.listObjects(new ListObjectsRequest().withBucketName(S3_BUCKET).withPrefix(catalogName + "/" + S3_CONTAINER)).getObjectSummaries()
+		List<S3ObjectSummary> objectSummaries = cli.listObjects(new ListObjectsRequest().withBucketName(S3_BUCKET).withPrefix(S3_CONTAINER)).getObjectSummaries()
 
 		boolean reload = false
 		for ( S3ObjectSummary obj : objectSummaries ) {
@@ -121,7 +121,7 @@ class CatalogHandler {
 	}
 
 	private boolean isMainFile(String key) {
-		return (key.contains("/") && key.endsWith("/" + S3_CATALOG_FILE)) ||
+		return (key.contains("/") && key.endsWith(S3_CATALOG_FILE)) ||
 				(!key.contains("/") && key.endsWith(S3_CATALOG_FILE))
 	}
 
