@@ -335,6 +335,7 @@ trackTests {
         "/flex/error/snackbar"(platform:"/mobile", type: TrackType.Event) {
             defaultLocation()
             error_type = "delivery_failed"
+            error_step_id = "example_step_id"
         }
 
         "/flex/error/update_app/update_app"(platform:"/mobile", type: TrackType.Event) {
