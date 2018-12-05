@@ -16,8 +16,9 @@ import java.util.Date
 
 class Validate {
 
-    public static String CATALOG_DIR = "src/main/resources/catalog/melidata"
+    public static String BASE_CATALOG_DIR = "src/main/resources/catalog/"
     public static String DEFAULT_CATALOG = "catalog.groovy"
+    public static String DEFAULT_CATALOG_DIR = BASE_CATALOG_DIR + "melidata/"
 
     static void main(String[] args) {
         def cli = buildCli(args)
@@ -25,14 +26,17 @@ class Validate {
 
         println "Generating Catalog..."
 
+        String catalogName = options.catalog_name
         String pathCatalog
-        if (options.catalog_name) {
-            pathCatalog = CATALOG_DIR + options.catalog_name.toString() + ".groovy"
+        if (catalogName) {
+            def catalogDir = BASE_CATALOG_DIR + catalogName + "/"
+            pathCatalog = catalogDir + DEFAULT_CATALOG
+            DslUtils.setBaseDir(catalogDir)
         } else {
-            pathCatalog = CATALOG_DIR + DEFAULT_CATALOG
+            pathCatalog = DEFAULT_CATALOG_DIR + DEFAULT_CATALOG
+            DslUtils.setBaseDir(DEFAULT_CATALOG_DIR)
         }
         def catalogScript = TestRunner.getScriptFromFile(pathCatalog)
-        DslUtils.setBaseDir(CATALOG_DIR)
         def catalog = TestRunner.runScript(catalogScript)
 
         println "Done. Will fetch for tracks for validating..."

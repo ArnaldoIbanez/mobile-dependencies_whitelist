@@ -16,7 +16,7 @@ class CatalogUploader {
     private static final String AWS_ACCESS_KEY = "AKIAIRJ4DFA72UDCX7QA"
     private static final String AWS_SECRET_KEY = "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"
     private static String S3_BUCKET = "melidata-catalog-versions"
-    public static String BASE_CATALOG_DIR = "src/main/resources/catalog"
+    public static String BASE_CATALOG_DIR = "src/main/resources/catalog/"
 
     String CATALOG_DIR
     S3Controller s3Controller
@@ -25,10 +25,10 @@ class CatalogUploader {
 
     CatalogUploader(String catalogName) {
         s3Controller = new S3Controller(S3_BUCKET + "/" + catalogName, AWS_ACCESS_KEY, AWS_SECRET_KEY)
-        this.CATALOG_DIR = BASE_CATALOG_DIR + "/" + catalogName
+        this.CATALOG_DIR = BASE_CATALOG_DIR + catalogName
         this.catalogHandler = new CatalogHandler(catalogName)
         this.hiveFormatter = new HiveFormatter(catalogName)
-        CatalogDsl.setBaseDir("src/main/resources/catalog/" + catalogName + "/")
+        CatalogDsl.setBaseDir(BASE_CATALOG_DIR + catalogName + "/")
     }
 
     def upload() {
