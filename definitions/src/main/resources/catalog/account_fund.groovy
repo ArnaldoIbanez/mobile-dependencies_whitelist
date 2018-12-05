@@ -31,6 +31,7 @@ tracks {
         result_type (required:false, description: "Operation result type")
     }
 
+    "/account_fund/cvu"(platform: "/", isAbstract: true) {}
     "/account_fund/cvu/ftu"(platform: "/", type: TrackType.View) {}
     "/account_fund/cvu/main"(platform: "/", type: TrackType.View) {}
     "/account_fund/cvu/result"(platform: "/", type: TrackType.View) {
