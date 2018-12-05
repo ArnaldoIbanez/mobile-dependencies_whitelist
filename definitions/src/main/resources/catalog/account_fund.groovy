@@ -16,6 +16,7 @@ tracks {
     "/account_fund/ftu"(platform: "/", type: TrackType.View) {}
     "/account_fund/unique_code"(platform: "/", type: TrackType.View) {}
     "/account_fund/unique_code/help"(platform: "/", type: TrackType.View) {}
+    "/account_fund/result"(platform: "/", type: TrackType.View) {}
 
     "/account_fund/px"(platform: "/", isAbstract: true) {}
     "/account_fund/px/card_vault"(platform: "/", type: TrackType.View) {}
@@ -26,6 +27,13 @@ tracks {
     "/account_fund/px/identification_number"(platform: "/", type: TrackType.View) {}
     "/account_fund/px/review_and_confirm"(platform: "/", type: TrackType.View) {}
     "/account_fund/px/result"(platform: "/", type: TrackType.View) {
+        result_status (required:false, description: "Operation result status") // Change in the future with required true
+        result_type (required:false, description: "Operation result type")
+    }
+
+    "/account_fund/cvu/ftu"(platform: "/", type: TrackType.View) {}
+    "/account_fund/cvu/main"(platform: "/", type: TrackType.View) {}
+    "/account_fund/cvu/result"(platform: "/", type: TrackType.View) {
         result_status (required:false, description: "Operation result status") // Change in the future with required true
         result_type (required:false, description: "Operation result type")
     }
