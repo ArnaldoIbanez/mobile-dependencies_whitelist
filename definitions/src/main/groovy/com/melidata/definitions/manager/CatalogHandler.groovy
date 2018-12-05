@@ -121,8 +121,7 @@ class CatalogHandler {
 	}
 
 	private boolean isMainFile(String key) {
-		return (key.contains("/") && key.endsWith(S3_CATALOG_FILE)) ||
-				(!key.contains("/") && key.endsWith(S3_CATALOG_FILE))
+		return key.endsWith(S3_CATALOG_FILE)
 	}
 
 }

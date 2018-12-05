@@ -18,8 +18,9 @@ class CatalogManager implements Runnable {
 		addCatalogHandler("shipping")
 	}
 
-	CatalogManager(catalogHandlers) {
-		this.catalogHandlers = catalogHandlers
+	CatalogManager(String catalogName) {
+		this.catalogHandlers = [:]
+		addCatalogHandler(catalogName)
 	}
 
 	void addCatalogHandler(String catalogName) {
