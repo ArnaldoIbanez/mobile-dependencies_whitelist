@@ -50,6 +50,9 @@ trackTests {
             reason = 'default'
         }
 
+        "/credits/merchant/enrollment/documentation"(platform: "/web/desktop") {
+            userType = 'moral'
+        }
 
         //Events
         //Landing merchant

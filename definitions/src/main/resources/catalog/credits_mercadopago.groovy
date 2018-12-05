@@ -107,6 +107,9 @@ tracks {
         type(type: PropertyType.String, required: true, values: ['physical', 'moral'])
     }
     "/credits/merchant/enrollment/load_documents/cancel"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/enrollment/documentation"(platform: "/", type: TrackType.View) {
+        userType(type: PropertyType.String, required: true, values: ['physical', 'moral'])
+    }
 
     //Review merchant
     "/credits/merchant/enrollment/review"(platform: "/", type: TrackType.Event) {}
