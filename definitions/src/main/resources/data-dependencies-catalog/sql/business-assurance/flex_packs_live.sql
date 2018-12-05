@@ -96,7 +96,7 @@ select
       jest(event_data,'longitude') as longitude,
       jest(event_data,'latitude') as latitude
   from tracks
-where ds >='2018-11-27' and ds < '2018-11-28'
+where ds >='@param01' 
     and type = 'event'
       and application.business='mercadoenvios'
     and ((path = '/flex/package/not_delivered_reason/selection' and jest(event_data,'reason_type') <>'others_reason')
