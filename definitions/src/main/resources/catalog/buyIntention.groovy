@@ -87,7 +87,7 @@ tracks {
 
     available_consumer_credit(required:false, type: PropertyType.String, values:["YES", "NO"], description:"If the user has active consumer credits")
 
-    account_money_info(required:false, type: PropertyType.ArrayList, description: "Array with data of the account money of the buyer")
+    account_money_info(required:false, type: PropertyType.Map, description: "Map with data of the account money of the buyer")
         //skipPassword
         //useAccountMoneyWithAnotherPM
         //availableAccountMoney
