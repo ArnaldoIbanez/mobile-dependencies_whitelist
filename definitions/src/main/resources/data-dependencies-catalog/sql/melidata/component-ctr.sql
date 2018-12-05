@@ -1,5 +1,4 @@
 SELECT
-    SUBSTR(prints.dsx, 1, 10) AS `ds`,
     prints.component AS `component`,
     prints.platform AS `device_type`,
     prints.site_id AS `site_id`,
@@ -8,7 +7,8 @@ SELECT
     prints.brand_name AS `brand_name`,
     prints.category_id AS `category_id`,
     prints_count as `prints`,
-    clicks_count as `clicks`
+    clicks_count as `clicks`,
+    SUBSTR(prints.dsx, 1, 10) AS `ds`
 
 FROM
 
