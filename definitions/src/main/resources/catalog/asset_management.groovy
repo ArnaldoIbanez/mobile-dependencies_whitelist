@@ -42,6 +42,10 @@ tracks {
 
     // Faqs
     "/asset_management/faqs"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/faq"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/faq_external"(platform: "/mobile", type: TrackType.Event) {
+        url (required: true, type: PropertyType.String, description: "The external URL that the user is accessing")
+    }
 
     // Splitter
     "/asset_management/splitter"(platform: "/mobile", type: TrackType.View) {}
