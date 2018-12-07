@@ -98,7 +98,10 @@ tracks {
     }
 
     //Modal merchant
-    "/credits/merchant/enrollment/preconfirm"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/enrollment/preconfirm"(platform: "/", type: TrackType.View) {
+        amount(type: PropertyType.Numeric, required: false)
+        installment(type: PropertyType.Numeric, required: false)
+    }
     "/credits/merchant/enrollment/cancel"(platform: "/", type: TrackType.Event) {}
 
     //Upload Files merchant
