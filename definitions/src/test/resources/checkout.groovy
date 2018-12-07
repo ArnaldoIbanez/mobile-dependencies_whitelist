@@ -477,7 +477,12 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
-            selected_filters = ["tomorrow"]
+            selected_filters = [
+                                    {
+                                        filter_id : "free"
+                                        type : "quick / category"
+                                    }
+                                ]
         }
         "/checkout/shipping/select_store/selected_store"(platform: "/mobile", type: TrackType.Event) {
             default_location_info = {
@@ -488,7 +493,12 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
-            selected_filters = ["next_day","open_weekends"]
+            selected_filters = [
+                    {
+                        filter_id : "free"
+                        type : "quick / category"
+                    }
+            ]
         }
         //
 
@@ -2051,7 +2061,12 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
-            selected_filters = ["tomorrow"]
+            selected_filters = [
+                    {
+                        filter_id : "free"
+                        type : "quick / category"
+                    }
+            ]
         }
         "/checkout/shipping/select_store/selected_store"(platform: "/web", type: TrackType.Event) {
             default_location_info = {
@@ -2062,7 +2077,12 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
-            selected_filters = ["next_day","open_weekends"]
+            selected_filters = [
+                    {
+                        filter_id : "free"
+                        type : "quick / category"
+                    }
+            ]
         }
 
         // Suscripciones
