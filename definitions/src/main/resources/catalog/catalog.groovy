@@ -56,6 +56,7 @@ catalog {
         include business, "wallet.groovy"
         include business, "px.groovy"
         include business, "mobile_commons.groovy"
+        include business, "google_connect.groovy"
     }
 
     marketplace.each { business ->
@@ -109,7 +110,6 @@ catalog {
         include business, "supermarket.groovy"
         include business, "payers_growth.groovy"
         include business, "contact.groovy"
-        include business, "google_connect.groovy"
     }
 
     mercadopago.each { business ->
@@ -127,7 +127,6 @@ catalog {
         include business, "asset_management.groovy"
         include business, "single_player.groovy"
         include business, "instore.groovy"
-        include business, "google_connect.groovy"
     }
 
     mercadoshops.each { business ->
