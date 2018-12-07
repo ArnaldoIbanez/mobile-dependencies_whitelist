@@ -962,17 +962,6 @@ tracks {
 
     "/free_navigation/wifi"(platform:"/mobile", type:TrackType.Event) {}
 
-    "/google_connect"(platform: "/mobile", isAbstract: true) {}
-    "/google_connect/init_flow"(platform: "/mobile") {
-        type (required:true, type: PropertyType.String, description: "type of operation that google want", values: ["normal", "reauthentication", "no_params"])
-        withToken (required:false, type: PropertyType.Boolean, description: "The user was logged in MP?")
-        withAuthRequest (required:false, type: PropertyType.Boolean, description: "Is google asking for re-authentication?")
-    }
-
-    "/google_connect/end_flow"(platform: "/mobile") {
-        status (required:true, type: PropertyType.String, description: "Operation result status", values: ["approved", "canceled", "first_user"])
-    }
-
     "/device_settings/"(platform: "/", isAbstract: true){}
 
     "/device_settings/notifications"(platform: "/mobile/android", type:TrackType.Event) {
