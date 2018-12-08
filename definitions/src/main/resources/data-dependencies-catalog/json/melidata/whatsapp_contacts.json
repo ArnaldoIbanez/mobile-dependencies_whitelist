@@ -21,15 +21,23 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "vertical",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "seller_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "listing_type_id",
+        "name": "item_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "item_id",
+        "name": "listing_type_id",
         "type": "UNICODE_STRING"
       },
       {
