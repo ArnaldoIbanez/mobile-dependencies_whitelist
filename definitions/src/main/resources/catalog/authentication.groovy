@@ -250,7 +250,7 @@ tracks {
         flow_type(type: PropertyType.String, required: true, description: "Current enrollment flow type")
         authenticator(type: PropertyType.String, required: false, description: "Authenticator name", values: ["phoneValidation", "emailValidation", "notVerifiedPhoneValidation"])
         risk_context(type: PropertyType.Boolean, required: false, description: "Is a risky context")
-        option_selected(type: PropertyType.String, required: false, description: "Describes authentication option selected by user", values: ["primary_email", "google_connect", "microsoft_connect", "sms", "call", "push"])
+        option_selected(type: PropertyType.String, required: false, description: "Describes authentication option selected by user", values: ["primary_email", "google_connect", "microsoft_connect", "sms", "call", "push", "got_code"])
         domain(type: PropertyType.String, required: false, description: "Describes email domain")
     }
 
@@ -262,10 +262,14 @@ tracks {
 
     "/auth/authentication_factors/primary_email"(platform: "/", type: TrackType.Event) {
         primary_email_option(type: PropertyType.Boolean, required: true, description: "Is email available to authenticate user")
+        is_google_account_of_different_user(type: PropertyType.String, required: false, description: "Differs between user emails")
+        is_microsoft_account_of_different_user(type: PropertyType.String, required: false, description: "Differs between user emails")
+        email_id(type: PropertyType.String, required: false, description: "Email identification")
     }
 
     "/auth/authentication_factors/social_connect"(platform: "/", type: TrackType.Event) {
         microsoft_connect_option(type: PropertyType.Boolean, required: false, description: "Is microsoft connect available to authenticate user")
+        primary_email_option(type: PropertyType.Boolean, required: false, description: "As a fallback for social connect")
         google_connect_option(type: PropertyType.Boolean, required: false, description: "Is google connect available to authenticate user")
         is_google_account_of_different_user(type: PropertyType.String, required: false, description: "Differs between user emails")
         is_microsoft_account_of_different_user(type: PropertyType.String, required: false, description: "Differs between user emails")

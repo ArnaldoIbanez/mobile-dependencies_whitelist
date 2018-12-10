@@ -489,6 +489,22 @@ trackTests {
         "/merchant_acquisition/qr/landing/landing-get-qr-code"(platform: "/", type: TrackType.Event) {}
     }
 
+    test("MP-MA Flow QR Assignment") {
+        "/merchant_acquisition/flows/qr-assignment"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-assignment/success"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
+            status = 'invalidAccess'
+        }
+        "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
+            status = 'invalidUser'
+        }
+        "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
+            status = 'error'
+        }
+        "/merchant_acquisition/flows/qr-assignment/validate_email"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/flows/qr-assignment/qr_scan"(platform:"/", type: TrackType.Event) {}
+    }
+
     test("MP-MA Flow QR") {
         "/merchant_acquisition/qr/onboarding"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/qr-code"(platform:"/", type: TrackType.View) {}
@@ -594,6 +610,19 @@ trackTests {
             flow = "/login"
         }
     }
+
+    test("Camera") {
+        "/camera"(platform: "/mobile/android") {
+        }
+
+    }
+    
+    test("Login Success") {
+        "/login_success"(platform: "/mobile/ios") {
+        }
+        
+    }
+
 
     test("Sign In") {
         "/sign_in"(platform: "/mobile") {
@@ -724,6 +753,22 @@ trackTests {
         }
 
         "/send_money/confirm"(platform: "/web"){
+            flow = "/send_money"
+        }
+
+        "/send_money/bacen/ok"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/send_money"
+        }
+        "/send_money/bacen/cancel"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/send_money"
+        }
+        "/send_money/bacen/error"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/send_money"
+        }
+        "/send_money/bacen/open"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/send_money"
+        }
+        "/send_money/bacen/close"(platform: "/mobile", type: TrackType.Event) {
             flow = "/send_money"
         }
     }
@@ -1916,6 +1961,26 @@ trackTests {
             result_status = "rejected"
             status_detail = "internal_server_error"
         }
+        "/withdraw/bacen/ok"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
+        "/withdraw/bacen/cancel"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
+        "/withdraw/bacen/error"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
+        "/withdraw/bacen/open"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
+        "/withdraw/bacen/close"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
     }
 
     test("Withdraw_advance") {
@@ -2003,20 +2068,81 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/account_fund_approved_mp"(platform: "/mobile") {
+            news_id = "account_fund-account_fund-approved_mp-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_approved_ml"(platform: "/mobile") {
+            news_id = "account_fund-account_fund-approved_ml-12345678"
+            event_type = "shown"
+        }
+
         "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
-                news_id = "123"
-                campaign_id = "prueba_123"
-                event_type = "open"
+            news_id = "123"
+            event_type = "open"
+            campaign_id = "mkt_campaign_co"
+            batch_id = "MLB_PACK_20180508_2"
+        }
+
+        "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
+            news_id = "credits-merchants_expired_first_notice-9876"
+            event_type = "shown"
+            installment_id= 9876
+        }
+
+        "/notification/credits_merchants_expired_second_notice"(platform: "/mobile") {
+            news_id = "credits-merchants_expired_second_notice-9876"
+            event_type = "shown"
+            installment_id= 9876
+        }
+
+        "/notification/credits_merchants_expired_third_notice"(platform: "/mobile") {
+            news_id = "credits-merchants_expired_third_notice-9876"
+            event_type = "shown"
+            installment_id= 9876
+        }
+
+        "/notification/credits_merchants_about_to_expire_first_notice"(platform: "/mobile") {
+            news_id = "credits-merchants_about_to_expire_first_notice-9876"
+            event_type = "shown"
+            installment_id= 9876
+        }
+
+        "/notification/fraud_cash_release_iv"(platform: "/mobile") {
+            news_id = "fraud_cash_release_iv-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/health_check"(platform: "/mobile/android") {
+            news_id = "COXwPxDrigQYBw==-1eb9ff37e01d45b0"
+            original_news_id = "messages-new-1688986927-60f251a8ee0a4b748b6c1b59bc1e267a"
+            event_type = "arrived"
+        }
+
+        "/notification/invite_gift"(platform: "/mobile"){
+            news_id = "invite-gift-12345"
+            event_type = "sent"
+        }
+
+        "/notification/messages_new"(platform: "/mobile") {
+            news_id = "messages_new_123"
+            event_type = "open"
         }
 
         "/notification/money_transfer_received"(platform: "/mobile") {
-                news_id = "123"
-                event_type = "open"
+            news_id = "123"
+            event_type = "open"
         }
 
         "/notification/money_transfer_request"(platform: "/mobile") {
-                news_id = "123"
-                event_type = "open"
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/loyalty_milestone"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
         }
 
         "/notification/prepaid_card_shipped"(platform: "/mobile") {
@@ -2049,6 +2175,24 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/prepaid_card_third_activation_reminder"(platform: "/mobile") {
+            news_id = "prepaid_card-third_activation_reminder-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {
+            news_id = "prepaid_card-second_activation_reminder-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_activation_reminder-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
@@ -2077,6 +2221,66 @@ trackTests {
             news_id = "123"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
+        }
+
+        "/notification/point_shipping_delayed_p4_p8"(platform: "/mobile") {
+            news_id = "point_shipping-delayed_p4_p8-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/point_shipping_ready_to_ship_delayed"(platform: "/mobile") {
+            news_id = "point_shipping-ready_to_ship_delayed-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/recurring_recharge_insufficient_balance_error"(platform: "/mobile") {
+            news_id = "recurring_recharge_insufficient_balance_error-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/security_event_feedback"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/questions_new"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "dismiss"
+            question_id = 1234
+        }
+
+        "/notification/seller_qr_payment_received"(platform: "/mobile") {
+            news_id = "seller_qr_payment_received-186785675"
+            event_type = "open"
+        }
+
+        "/notification/seller_integrations_new_payment"(platform: "/mobile") {
+            news_id = "seller_integrations_new_payment-186785675"
+            event_type = "open"
+        }
+
+        "/notification/seller_integrations_erase_name"(platform: "/mobile") {
+            news_id = "seller_integrations_erase_name-186785675"
+            event_type = "open"
+        }
+
+        "/notification/orders_new"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            order_id = 12132
+        }
+
+        "/notification/wallet_integrator_insufficient_amount"(platform: "/mobile") {
+            news_id = "wallet_integrator-insufficient_amount-186785675"
+            event_type = "open"
+        }
+
+        "/notification/withdraw_approved_contingency"(platform: "/mobile") {
+            news_id = "withdraw-approved_contingency-186785675"
+            event_type = "open"
         }
 
     }
@@ -3367,8 +3571,6 @@ trackTests {
             activity = "transport"
         }
     }
-    
-    test("Wallet") {
-        "/wallet_error"(platform: "/mobile", type: TrackType.View) {}
-    }
+
+
 }

@@ -165,7 +165,6 @@ tracks {
 
     "/flex/package/detail/receipt"(platform: "/mobile", type: TrackType.View) {
         packsAndLocation
-        receiver_info(required: true, description: "The receiver data")
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
         //Name
         //Surname
@@ -216,6 +215,8 @@ tracks {
         location
         error_type(required: true, type: PropertyType.String,  values: ["generic", "connection"],
             description: "Specifies what kind of error happened.",inheritable:false)
+        error_step_id(required: false, type: PropertyType.String,
+                description: "Specifies the stepId where the error happened.",inheritable:false)
     }
 
     "/flex/error/snackbar"(platform: "/mobile", type: TrackType.Event) {
@@ -223,6 +224,8 @@ tracks {
         error_type(required: true, type: PropertyType.String,  values: ["generic", "delivery_failed",
                                                                         "not_delivered_failed", "connection"],
             description: "Specifies what kind of error happened.")
+        error_step_id(required: false, type: PropertyType.String,
+                description: "Specifies the stepId where the error happened.",inheritable:false)
     }
 
     "/flex/error/update_app/update_app"(platform: "/mobile", type: TrackType.Event) {
@@ -249,7 +252,6 @@ tracks {
 
     "/flex/package/detail/receipt/save"(platform: "/mobile", type: TrackType.Event) {
         packsAndLocation
-        receiver_info(required: true, description: "The receiver data")
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
@@ -277,11 +279,24 @@ tracks {
     "/flex/package/not_delivered_reason/form/other_reason"(platform: "/mobile", type: TrackType.Event) {
         packsAndLocation
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
-        reason(required: true, type: PropertyType.String, description: "The driver's reason why the pack wasn't delivered", inheritable:false)
+        reason(required: false, type: PropertyType.String, description: "The driver's reason why the pack wasn't delivered", inheritable:false)
     }
 
     "/flex/package/not_delivered_reason/form"(platform: "/mobile", type: TrackType.View) {
         packsAndLocation
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+    "/flex/package/detail/receipt/go_back"(platform: "/mobile", type: TrackType.View) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+    "/flex/package/detail/receipt/back"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+    "/flex/login/select_country"(platform: "/mobile", type: TrackType.View) {
     }
 }

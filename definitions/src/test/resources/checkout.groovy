@@ -298,6 +298,11 @@ trackTests {
             selections = ["shipping_geo", "shipping_other", "local_pick_up"]
         }
         "/checkout/shipping/custom_address/zip_code"(platform:"/mobile", type:TrackType.View) {
+            edit_flow = true
+            checkoutStatus()
+        }
+        "/checkout/shipping/custom_address/zip_code/back"(platform:"/mobile", type:TrackType.Event) {
+            edit_flow = true
             checkoutStatus()
         }
         "/checkout/shipping/custom_address/zip_code#zip_code"(platform:"/mobile", type: TrackType.Event) {
@@ -324,8 +329,9 @@ trackTests {
         "/checkout/shipping/custom_address/zip_code#additional_info"(platform:"/mobile", type: TrackType.Event) {
             additional_info = "1er piso"
         }
-        "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event) {}
-
+        "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event) {
+            success = true
+        }
         "/checkout/shipping/custom_address/zip_code/query"(platform:"/mobile", type:TrackType.View) {}
         "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event) {
             query_parameters = "Mexico D.F."
@@ -405,6 +411,10 @@ trackTests {
             contact_name = "Juan"
             contact_phone = "555-5555"
         }
+       "/checkout/shipping/location/new_contact#submit"(platform:"/mobile", type:TrackType.Event) {
+            success = true
+            session_id = "1241n1kj2nk14141nl12nl"
+        }
         "/checkout/shipping/select_address"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             //List of available shippingMethods
@@ -467,7 +477,12 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
-            selected_filters = ["tomorrow"]
+            selected_filters = [
+                                    {
+                                        filter_id : "free"
+                                        type : "quick / category"
+                                    }
+                                ]
         }
         "/checkout/shipping/select_store/selected_store"(platform: "/mobile", type: TrackType.Event) {
             default_location_info = {
@@ -478,7 +493,12 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
-            selected_filters = ["next_day","open_weekends"]
+            selected_filters = [
+                    {
+                        filter_id : "free"
+                        type : "quick / category"
+                    }
+            ]
         }
         //
 
@@ -529,6 +549,26 @@ trackTests {
             available_issuers = ["Visa", "Banamex", "Santander"]
         }
         "/checkout/payment/add_card/installments"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            available_installments = [
+                    [
+                            installment: 1,
+                            amount: 20.6,
+                            without_fee: true
+                    ],
+                    [
+                            installment: 3,
+                            amount: 7.2,
+                            without_fee: true
+                    ],
+                    [
+                            installment: 6,
+                            amount: 3.2,
+                            without_fee: true
+                    ]
+            ]
+        }
+        "/checkout/payment/add_card/installments/back"(platform: "/mobile", type: TrackType.Event) {
             checkoutStatus()
             available_installments = [
                     [
@@ -701,12 +741,23 @@ trackTests {
             checkoutStatus()
         }
 
+        "/checkout/payment/encrypted_security_code_add#submit"(platform:"/mobile") {
+            status = "success"
+            checkout_flow = "direct"
+            session_id = "asodas98a9sd8a"
+        }
 
         // Billing Info
         "/checkout/billing/physical_person"(platform: "/mobile") {
             checkoutStatus()
         }
+        "/checkout/billing/physical_person/back"(platform: "/mobile", type: TrackType.Event) {
+            checkoutStatus()
+        }
         "/checkout/billing/legal_person"(platform: "/mobile") {
+            checkoutStatus()
+        }
+        "/checkout/billing/legal_person/back"(platform: "/mobile", type: TrackType.Event) {
             checkoutStatus()
         }
         "/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event) {
@@ -786,6 +837,7 @@ trackTests {
             checkoutStatus()
         }
         "/checkout/finish/invalid_sec_code/input"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
         }
 
         "/checkout/finish/choose_action"(platform:"/mobile", type:TrackType.View) {
@@ -1874,6 +1926,8 @@ trackTests {
         "/checkout/payment/input_second_password"(platform:"/web", dataSet)
         "/checkout/payment/input_second_password/edit_payment"(platform:"/web", dataSet)
         "/checkout/payment/billing_information"(platform:"/web", dataSet)
+        "/checkout/billing/physical_person"(platform:"/web", dataSet)
+        "/checkout/billing/legal_person"(platform:"/web", dataSet)
         "/checkout/review/edit_payment"(platform:"/web", dataSet)
         "/checkout/review/edit_first_payment"(platform:"/web", dataSet)
         "/checkout/review/edit_second_payment"(platform:"/web", dataSet)
@@ -2007,7 +2061,12 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
-            selected_filters = ["tomorrow"]
+            selected_filters = [
+                    {
+                        filter_id : "free"
+                        type : "quick / category"
+                    }
+            ]
         }
         "/checkout/shipping/select_store/selected_store"(platform: "/web", type: TrackType.Event) {
             default_location_info = {
@@ -2018,7 +2077,12 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
-            selected_filters = ["next_day","open_weekends"]
+            selected_filters = [
+                    {
+                        filter_id : "free"
+                        type : "quick / category"
+                    }
+            ]
         }
 
         // Suscripciones

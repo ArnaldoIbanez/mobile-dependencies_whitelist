@@ -278,11 +278,6 @@ trackTests {
         "/flex/package/detail/receipt"(platform:"/mobile", type: TrackType.View) {
             defaultSinglePack()
             defaultLocation()
-            receiver_info = {
-                name = "Sebastian"
-                surname = "Pérez"
-                doc_number = "33343344"
-            }
             delivery_id = 123456
         }
 
@@ -333,12 +328,14 @@ trackTests {
         "/flex/error"(platform:"/mobile", type: TrackType.View) {
             defaultLocation()
             error_type = "connection"
+            error_step_id = "example_step_id"
         }
 
         //Snackbar error event success
         "/flex/error/snackbar"(platform:"/mobile", type: TrackType.Event) {
             defaultLocation()
             error_type = "delivery_failed"
+            error_step_id = "example_step_id"
         }
 
         "/flex/error/update_app/update_app"(platform:"/mobile", type: TrackType.Event) {
@@ -368,11 +365,6 @@ trackTests {
         "/flex/package/detail/receipt/save"(platform:"/mobile", type: TrackType.Event) {
             defaultLocation()
             defaultPacksInfo()
-            receiver_info = {
-                name = "TestName"
-                surname = "TestSurname"
-                doc_number = "31723886"
-            }
             delivery_id = 123456
         }
         //Onboarding action with context success
@@ -416,6 +408,24 @@ trackTests {
             defaultLocation()
             defaultPacksInfo()
             delivery_id = 123456
+        }
+
+        //Signature Back Modal View
+        "/flex/package/detail/receipt/go_back"(platform:"/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+        }
+
+        //Signature Back Modal Event
+        "/flex/package/detail/receipt/back"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+        }
+
+        //Country selection View
+        "/flex/login/select_country"(platform:"/mobile", type: TrackType.View) {
         }
     }
 }

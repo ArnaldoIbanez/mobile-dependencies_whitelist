@@ -15,6 +15,11 @@ trackTests {
             category_id="MLA32089"
             filters=[]
             pads=[]
+            pads_info={
+                ids=[]
+                printed_positions=[]
+                printed_positions_size=0
+            }
             billboards=[]
             offset=0
             sort_id="relevance"
@@ -87,7 +92,70 @@ trackTests {
             landing="base"
             layout_forced=true
             pads=[]
+            pads_info={
+                ids=[]
+                printed_positions=[]
+                printed_positions_size=0
+            }
 
+        })
+
+        "/search"(platform: "/web",{
+            total=0
+            sort_id="relevance"
+            view_mode="MOSAIC"
+            filters = { seller_id = "47316577" }
+            only_in_type="Seller"
+            limit=20
+            offset=0
+            official_stores_carousel_shown=["224", "234", "255"]
+            click_banner={
+                exhibitors_id='12'
+            }
+            banner={
+                deal_id='12'
+                exhibitors_id='12'
+            }
+            click_banner={
+                exhibitors_id='12'
+            }
+            related_searches={
+                query= 'ipod'
+                position=1
+                quantity=2
+                related_by_category=false
+            }
+            related_searches_info={
+                quantity=2
+                related_queries=['ipod', 'ipod nano']
+            }
+            canonical={
+                url = "https://listado.mercadolibre.com.ar/zapatillas"
+                no_follow_tag = true
+                mirror_category_canonical = true
+            }
+
+            autosuggest={
+                suggest_position=3
+            }
+            autosuggest={
+                last_search_position=1
+            }
+            autosuggest={
+                block_store_position=19
+            }
+            results=["232232000", "232232001", "232232002"]
+            billboards = ["232232000"]
+            geolocation="AR:CABA"
+            landing="cpg"
+            layout_forced=true
+            pads=[]
+            pads_info={
+                ids=[]
+                printed_positions=[]
+                printed_positions_size=0
+            }
+            geo_search = false
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -104,7 +172,13 @@ trackTests {
             filters = {official_store="140"}
             autoselected_filters = ["official_store"]
             geo_search = "false"
+            filter_tags = "locationFromHistory"
             pads=[]
+            pads_info={
+                ids=[]
+                printed_positions=[]
+                printed_positions_size=0
+            }
         })
 
 
@@ -178,6 +252,11 @@ trackTests {
             sort_id = "relevance"
             filters = []
             pads=[]
+            pads_info={
+                ids=[]
+                printed_positions=[]
+                printed_positions_size=0
+            }
             view_mode = "LIST"
             results = []
             billboards = []
@@ -194,6 +273,11 @@ trackTests {
             sort_id = "relevance"
             filters = []
             pads=[]
+            pads_info={
+                ids=[]
+                printed_positions=[]
+                printed_positions_size=0
+            }
             view_mode = "LIST"
             results = []
             billboards = []
@@ -217,11 +301,29 @@ trackTests {
             sort_id = "relevance"
             filters = []
             pads=[]
+            pads_info={
+                ids=[]
+                printed_positions=[]
+                printed_positions_size=0
+            }
             view_mode = "LIST"
             results = []
             billboards = []
             category_id="MLA32089"
             query="iphone"
+        }
+    }
+
+    test("Search Recommendations "){
+        "/search/category_recommendations"(platform: "/web"){
+            item_id = "MLM1234"
+            category_id = "MLM123456"
+            category_path = ["MLM1234", "MLM12345", "MLM123456"]
+            recommended_categories = [
+                    "MLM4321",
+                    "MLM54321"
+            ]
+
         }
     }
 }

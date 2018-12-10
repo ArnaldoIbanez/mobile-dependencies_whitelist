@@ -57,6 +57,16 @@ tracks {
     // Merchant Acquisition
     "/merchant_acquisition"(platform: "/", isAbstract: true) {}
     "/merchant_acquisition/qr"(platform: "/", isAbstract: true) {}
+    "/merchant_acquisition/flows"(platform: "/", isAbstract: true) {}
+
+    // QR Assignment
+    "/merchant_acquisition/flows/qr-assignment"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/qr-assignment/success"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
+       status (type: PropertyType.String, required: true, description: "Error Status, ex: invalidAccess, invalidUser, error")
+    }
+    "/merchant_acquisition/flows/qr-assignment/validate_email"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/qr-assignment/qr_scan"(platform:"/", type: TrackType.Event) {}
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
@@ -349,6 +359,14 @@ tracks {
         description (required:false, type: PropertyType.String, description: "Status description")
     }
 
+    "/camera"(platform: "/mobile/android", type: TrackType.View) {
+        from (required:false, type: PropertyType.String, description: "Where the Camera start in picture profile or person validataion in android")
+    }
+
+    "/login_success"(platform: "/mobile/ios", type: TrackType.View) {
+        from (required:false, type: PropertyType.String, description: "When user login success in ios")
+    }
+
     "/send_money"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
@@ -367,6 +385,12 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    "/send_money/bacen"(platform: "/mobile", isAbstract: true) {}
+    "/send_money/bacen/ok"(platform: "/mobile") {}
+    "/send_money/bacen/cancel"(platform: "/mobile") {}
+    "/send_money/bacen/error"(platform: "/mobile") {}
+    "/send_money/bacen/open"(platform: "/mobile") {}
+    "/send_money/bacen/close"(platform: "/mobile") {}
 
 
     "/checkout"(platform: "/mobile", isAbstract: true) {
@@ -647,6 +671,12 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    "/withdraw/bacen"(platform: "/mobile", isAbstract: true) {}
+    "/withdraw/bacen/ok"(platform: "/mobile") {}
+    "/withdraw/bacen/cancel"(platform: "/mobile") {}
+    "/withdraw/bacen/error"(platform: "/mobile") {}
+    "/withdraw/bacen/open"(platform: "/mobile") {}
+    "/withdraw/bacen/close"(platform: "/mobile") {}
 
     "/fund_account"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -693,23 +723,71 @@ tracks {
      **/
     "/notification"(platform: "/mobile") {
         event_type(required: true,
-                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown"],
+                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "purged_token"],
         description: "Type of notification event")
+
+        notification_type(required: false,
+                values: ["deep_linking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"])
+
         news_id(required: false, description: "Identifier of the notification generated")
 
         notification_created_error(required: false, description: "The notification created error", type: PropertyType.String)
 
         device_id(required: false, description: "The real device_id, may differ from device field")
+
+        //For event_type:autodismiss, indicates why the notification was dismissed
+        source(required: false, values: ["notification_center","logout","overwrite","dismiss_notification"])
+
+        context(required: false, type: PropertyType.String)
+
+        notification_style(required: false, description: "The notification style used when displaying the notification to the user.")
+
     }
+
+    //Acount
+    "/notification/account_fund_approved_ml"(platform: "/mobile") {}
+    "/notification/account_fund_approved_mp"(platform: "/mobile") {}
 
     //Campañas
     "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
     }
+
+    //Credits Merchants
+    "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_expired_second_notice"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_expired_third_notice"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_about_to_expire_first_notice"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+
+    //Fraud
+    "/notification/fraud_cash_release_iv"(platform: "/mobile") {}
+
+    //Health Check
+    "/notification/health_check"(platform: "/mobile") {
+        original_news_id( required: false, type: PropertyType.String, description: "Original identifier of the notification generated" )
+    }
+
+    //Inivite Gift
+    "/notification/invite_gift"(platform: "/mobile") {}
+
+    //Messages New
+    "/notification/messages_new"(platform: "/mobile") {}
 
     //Money
     "/notification/money_transfer_received"(platform: "/mobile") {}
     "/notification/money_transfer_request"(platform: "/mobile") {}
+
+    //Loyalty
+    "/notification/loyalty_milestone"(platform: "/mobile") {}
 
     //Prepaid
     "/notification/prepaid_card_shipped"(platform: "/mobile") {
@@ -725,6 +803,15 @@ tracks {
         notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
     }
     "/notification/prepaid_card_not_delivered"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+    "/notification/prepaid_card_third_activation_reminder"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+    "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+    "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {
         notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
     }
 
@@ -744,6 +831,42 @@ tracks {
     "/notification/point_shipping_delayed_p1"(platform: "/mobile") {
         notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
     }
+    "/notification/point_shipping_delayed_p4_p8"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+    "/notification/point_shipping_ready_to_ship_delayed"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+
+    //Recurring Recharge
+    "/notification/recurring_recharge_insufficient_balance_error"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+
+    //Security
+    "/notification/security_event_feedback"(platform: "/mobile") {}
+
+    //Questions
+    "/notification/questions_new"(platform: "/mobile") {
+        question_id(required: true, type: PropertyType.Numeric)
+    }
+
+    //Seller QR
+    "/notification/seller_qr_payment_received"(platform: "/mobile") {}
+    "/notification/seller_integrations_new_payment"(platform: "/mobile") {}
+    "/notification/seller_integrations_erase_name"(platform: "/mobile") {}
+
+    //Orders New
+    "/notification/orders_new"(platform: "/mobile") {
+        order_id(required: true, type: PropertyType.Numeric)
+    }
+
+    //Wallet
+    "/notification/wallet_integrator_insufficient_amount"(platform: "/mobile") {}
+
+    //Withdraw
+    "/notification/withdraw_approved_contingency"(platform: "/mobile") {}
+
     //Digital Goods
      "/digital_goods"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -864,6 +987,8 @@ tracks {
         activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "where open link from sms")
     }
 
-    // Wallet error view
-    "/wallet_error"(platform: "/mobile", type: TrackType.View) {}
+
 }
+
+
+
