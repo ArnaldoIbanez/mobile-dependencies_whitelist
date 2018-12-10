@@ -63,7 +63,7 @@ tracks {
             ]
          }
          */
-        context(required: true, values: ["search", "cart", "UNKNOWN"])
+        context(required: true, values: ["search", "cart", "supermarket-home", "UNKNOWN"])
         items(required: true, type: PropertyType.ArrayList, description: "The list of items removed from cart")
     }
 }
