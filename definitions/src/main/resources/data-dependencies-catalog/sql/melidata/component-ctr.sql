@@ -1,5 +1,4 @@
 SELECT
-    SUBSTR(prints.dsx, 1, 10) AS `ds`,
     prints.component AS `component`,
     prints.platform AS `device_type`,
     prints.site_id AS `site_id`,
@@ -8,7 +7,8 @@ SELECT
     prints.brand_name AS `brand_name`,
     prints.category_id AS `category_id`,
     prints_count as `prints`,
-    clicks_count as `clicks`
+    clicks_count as `clicks`,
+    SUBSTR(prints.dsx, 1, 10) AS `ds`
 
 FROM
 
@@ -31,7 +31,7 @@ LATERAL VIEW json_tuple(app.`application`, 'site_id') jt3 AS `site_id`
 WHERE ds >= '@param03 20' AND ds < '@param04 20'
     AND `jt`.`event` = 'print'
     AND `jt`.`id` IS NOT NULL
-GROUP BY from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') + 14400, 'yyyy-MM-dd HH'), `jt2`.`platform`,`jt3`.`site_id`, `jt`.`id`, `jt`.`c_order`, `jt`.`campaign`, `jt`.`brand_name`, `jt`.`category_id`) AS prints
+GROUP BY from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') + 14400, 'yyyy-MM-dd HH'), `jt2`.`platform`,`jt3`.`site_id`, `jt`.`id`, `jt`.`element_order`, `jt`.`campaign`, `jt`.`brand_name`, `jt`.`category_id`) AS prints
 
 LEFT JOIN
 
@@ -51,7 +51,7 @@ WHERE ds >= '@param01' AND ds < '@param02'
     AND `path` <> '/recommendations'
     AND `jt`.`id` IS NOT NULL
     AND others['intersection_observer_supported'] = 'true'
-GROUP BY ds, device.platform, application.site_id, regexp_extract(`jt`.`id`, '^(\/.*)\/.*$', 1), `jt`.`c_order`, `jt`.`campaign`, `jt`.`brand_name`, `jt`.`category_id`) AS clicks
+GROUP BY ds, device.platform, application.site_id, regexp_extract(`jt`.`id`, '^(\/.*)\/.*$', 1), `jt`.`element_order`, `jt`.`campaign`, `jt`.`brand_name`, `jt`.`category_id`) AS clicks
 
 ON
 

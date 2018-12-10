@@ -1,23 +1,21 @@
 {
   "users": [
-    "ext_grodrig@mercadolibre.com","ext_mberriel@mercadolibre.com"
+    "luciano.montero@mercadolibre.com",
+     "cpg_it@mercadolibre.com"
   ],
-  "process_name": "suggested_discount_push_open_rate",
-  "cron": "00 01 * * *",
-  "extract": {
-    "operation": "append",
-    "columns": [
-      {
-        "name": "ds",
+  "process_name": "plugin_cpg_ctr",
+  "cron": "00 07 * * *",
+  "partition": {
+        "name": "track_date",
         "type": "DATE",
         "format": "yyyy-MM-dd"
-      },
+  },
+  "extract": {
+    "operation": "append",
+    "site": "Sales",
+    "columns": [
       {
-        "name": "siteId",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "path",
+        "name": "client_id",
         "type": "UNICODE_STRING"
       },
       {
@@ -25,16 +23,16 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "userId",
+        "name": "prints",
         "type": "INTEGER"
       },
       {
-        "name": "event_type",
-        "type": "UNICODE_STRING"
+        "name": "clicks",
+        "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "melidata/suggested-discount-push-open-rate.sql",
+      "script": "cpg/plugin_cpg_ctr.sql",
       "parameters": [
         {
           "name": "param01",

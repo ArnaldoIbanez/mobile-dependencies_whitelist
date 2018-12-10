@@ -363,6 +363,7 @@ trackTests {
             primary_email_option = true
             domain = "gmail"
             authenticator = "emailValidation"
+            email_id = "123465789"
         }
         "/auth/authentication_factors/social_connect"(platform: "/web", type: TrackType.Event) {
             event = "close_validation"

@@ -42,6 +42,8 @@ trackTests {
             logistic_type = "fulfillment"
             free_shipping_benefit = false
             loyalty_level = 2
+            price_comparison_available = true
+            price_comparison_position =  0.75
         }
 
         "/vip"(platform:"/mobile", {
@@ -80,6 +82,11 @@ trackTests {
         "/vip/description/failure"(platform:"/mobile"){
             item_id = "MLA533657947"
         }
+
+        "/vip/price_comparison"(platform:"/", type: TrackType.Event, {
+            mandatory()
+            optionals()
+        })
 
         "/vip/contact_seller"(platform:"/mobile", type: TrackType.Event, {
             mandatory()
@@ -353,6 +360,10 @@ trackTests {
             defaultTrackInformation()
         }
 
+        "/vip/similar_vehicles"(platform: "/mobile", type: TrackType.Event) {
+            defaultTrackInformation()
+        }        
+
 
         "/vip/free_shipping_cart_available"(platform: "/web", type:TrackType.Event){
             defaultTrackInformation()
@@ -616,4 +627,91 @@ trackTests {
          "/vip/input_zip_code/dont_know_my_zip_code"(platform: "/", type: TrackType.Event) {}
     }
 
+    test("VIP fulfillment modal") {
+
+        "/vip/show_fulfillment_popup"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA533657947"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            item_condition = "new"
+            seller_id = 131662738
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+        }
+    }
+
+    test("VIP Shipping Calculator"){
+
+        def model = {
+            location = {
+                type = "zip_code"
+                value = "1234"
+            }
+            shipping_methods = [{
+                cost = 50
+                promoted_amount = 12
+                delivery_type = "seller_agreement"
+                selected = false
+                promise = {
+                    to = 4
+                    from = 5
+                    deferred = true
+                }}]
+        }
+
+        def shipping_method = {
+            selected_method = {
+                cost = 50
+                promoted_amount = 12
+                delivery_type = "seller_agreement"
+                selected = false
+                promise = {
+                    to = 4
+                    from = 5
+                    deferred = true
+                }
+            }
+        }
+
+        "/vip/shipping_calculator"(platform: "/", type: TrackType.View) {
+            model()
+        }
+
+         "/vip/shipping_calculator/select"(platform: "/", type: TrackType.Event) {
+            model()
+            shipping_method()
+        }
+
+        "/vip/shipping_calculator/cancel"(platform: "/", type: TrackType.Event) {
+            model()
+        }
+        
+        "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {}
+        
+        "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
+             model()
+        }
+        
+        
+        //Apps
+        "/vip/shipping_calculator"(platform: "/mobile/ios", type: TrackType.View) {
+            model()
+        }
+
+         "/vip/shipping_calculator/select"(platform: "/mobile/ios", type: TrackType.Event) {
+            model()
+            shipping_method()
+        }
+
+        "/vip/shipping_calculator/cancel"(platform: "/mobile/ios", type: TrackType.Event) {
+            model()
+        }
+        
+        "/vip/shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) { }
+        
+        "/vip/shipping_calculator/show_map"(platform: "/mobile/ios", type: TrackType.Event) {
+            model()
+        }
+    }
 }

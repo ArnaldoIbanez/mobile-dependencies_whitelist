@@ -1,60 +1,60 @@
 {
   "users": [
-    "ext_grodrig@mercadolibre.com","ext_mberriel@mercadolibre.com"
+    "emanuel.lopez@mercadolibre.com"
   ],
-  "process_name": "suggested_discount_tracks",
-  "cron": "00 01 * * *",
+  "process_name": "technical_specifications_hints",
+  "cron": "00 07 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
+    "site": "QA",
     "columns": [
-      {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
-      {
-        "name": "siteId",
-        "type": "UNICODE_STRING"
-      },
       {
         "name": "path",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "platform",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "userId",
-        "type": "INTEGER"
-      },
-      {
-        "name": "type",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "item_id",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "selected_discount",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "discount_status",
-        "type": "UNICODE_STRING"
-      },
+      },      
       {
         "name": "action",
         "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "session",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "item",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "domain",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "attribute",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "hintType",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "source",
+        "type": "UNICODE_STRING"
       },
       {
-        "name": "onboarding_step",
+        "name": "site",
         "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "t_user",
+        "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "melidata/suggested-discount-tracks.sql",
+      "script": "business-assurance/technical_specifications_hints.sql",
       "parameters": [
         {
           "name": "param01",

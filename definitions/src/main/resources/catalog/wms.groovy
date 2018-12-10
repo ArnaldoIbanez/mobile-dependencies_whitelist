@@ -1,15 +1,13 @@
-import com.ml.melidata.catalog.PropertyType
-import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
+
+import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
     "/wms"(platform: "/mobile/android", type: TrackType.View, isAbstract: true) {
         warehouse_id(required: true, type: PropertyType.String,
         	description: "Id of the warehouse to track")
-        email(required: false, type: PropertyType.String)
-        first_name(required: true, type: PropertyType.String)
-        last_name(required: true, type: PropertyType.String)
         error_type(
         	required: false,
         	values: ["SERVER", "NETWORK", "ZRP", "TIMEOUT"],
@@ -26,6 +24,15 @@ tracks {
             description: "Message of feedback screen.")
     }
 
+    "/wms/scan"(platform: "/mobile/android", type: TrackType.Event) {
+        input_data(required: true, type: PropertyType.String, description: "The data received from the scanner.")
+        context(required: true, type: PropertyType.String, description: "The context in which the scan was made.")
+        source(required: true,
+                type: PropertyType.String,
+                values: ["scanner", "manual_input"],
+                description: "The source of the input data, can be scanner or manual_input")
+    }
+
     /* Put away tracks */
 	"/wms/put_away"(platform: "/mobile/android", type: TrackType.View) {
 		put_away_id(required: false, type: PropertyType.String, description: "Put away id")
@@ -36,6 +43,10 @@ tracks {
 	"/wms/put_away/scan_cart"(platform: "/mobile/android", type: TrackType.View) {}
 	"/wms/put_away/scan_cart/start_put_away"(platform: "/mobile/android", type: TrackType.Event) {}
 	"/wms/put_away/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/put_away/scan_inventory/post_item"(platform: "/mobile/android", type: TrackType.Event) {
+        is_retry(required: true, type: PropertyType.Boolean, description: "If the request is a retry or not")
+        idempotency_key(required: true, type: PropertyType.String, description: "Idempotency key of request")
+    }
 	"/wms/put_away/scan_inventory/end_put_away"(platform: "/mobile/android", type: TrackType.Event) {}
 	"/wms/put_away/scan_inventory/cancel_put_away"(platform: "/mobile/android", type: TrackType.Event) {}
 	"/wms/put_away/item"(platform: "/mobile/android", type: TrackType.View) {
@@ -63,13 +74,13 @@ tracks {
     "/wms/inbound_audit/count_around"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/inbound_audit/congrats"(platform: "/mobile/android", type: TrackType.View) {}
 
-    "/wms/inbound_audit/start_audit"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/inbound_audit/reset_audit"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/inbound_audit/finish_checkpoint"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/inbound_audit/item_not_found"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/inbound_audit/damaged_item_confirmation"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/inbound_audit/start_count_around"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/inbound_audit/skip_count_around"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/confirmation/start_audit"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/item/reset_audit"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/item/finish_checkpoint"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/item/item_not_found"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/item/damaged_item_confirmation"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/count_around/start_count_around"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/inbound_audit/count_around/skip_count_around"(platform: "/mobile/android", type: TrackType.Event) {}
 
     /* Picking tracks */
     "/wms/picking"(platform: "/mobile/android", type: TrackType.View) {
@@ -79,8 +90,6 @@ tracks {
     "/wms/picking/confirmation"(platform: "/mobile/android", type: TrackType.View) {
         pickup_id(required: false, type: PropertyType.String, description: "Id of the Pickup")
     }
-    "/wms/picking/scan_closest_address"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/picking/floor_selection"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/picking/scan_container"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/picking/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/picking/item"(platform: "/mobile/android", type: TrackType.View) {
@@ -104,6 +113,8 @@ tracks {
     "/wms/picking/congrats"(platform: "/mobile/android", type: TrackType.View) {}
 
     "/wms/picking/confirmation/start_pickup"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/picking/confirmation/scan_closest_address"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/picking/confirmation/floor_selection"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/picking/item/item_not_found"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/picking/item/finish_checkpoint"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/picking/scan_destination/finish_checkpoint"(platform: "/mobile/android", type: TrackType.Event) {}
@@ -112,8 +123,6 @@ tracks {
     "/wms/login"(platform: "/mobile/android", type: TrackType.View) {
         warehouse_id(required: false, type: PropertyType.String,
             description: "Id of the warehouse to track")
-        first_name(required: false, type: PropertyType.String)
-        last_name(required: false, type: PropertyType.String)
     }
     "/wms/home"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/receiving"(platform: "/mobile/android", type: TrackType.View) {}
@@ -131,54 +140,67 @@ tracks {
     "/wms/cycle_count/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/cycle_count/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/cycle_count/item"(platform: "/mobile/android", type: TrackType.View) {
-        inventory_id(required: true, type: PropertyType.String, description: "Inventory id")
-        quantity(required: true, type: PropertyType.Numeric, description: "Item quantity")
+        inventory_id(required: false, type: PropertyType.String, description: "Inventory id")
+        quantity(required: false, type: PropertyType.Numeric, description: "Item quantity")
     }
 
     "/wms/cycle_count/confirmation/start_cycle_count"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/cycle_count/scan_inventory/finish_cycle_count"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/cycle_count/item/finish_cycle_count"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/cycle_count/scan_inventory/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/cycle_count/scan_inventory/finish_cycle_count"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/cycle_count/item/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/cycle_count/item/reset_address"(platform: "/mobile/android", type: TrackType.Event) {
         navigate_to_home(required: true, type: PropertyType.Boolean, description: "Whether or not the reset event is triggered by the user navigating to the home screen.")
     }
 
-    /* Removal tracks */
-    "/wms/removal"(platform: "/mobile/android", type: TrackType.View) {
+    /* Withdrawals Removal tracks */
+    "/wms/withdrawals_removal"(platform: "/mobile/android", type: TrackType.View) {
         removal_id(required: true, type: PropertyType.String, description: "Removal id")
     }
-    "/wms/removal/authorization"(platform: "/mobile/android", type: TrackType.View) {
+    "/wms/withdrawals_removal/authorization"(platform: "/mobile/android", type: TrackType.View) {
         removal_id(required: false, type: PropertyType.String, description: "Removal id")
     }
-    "/wms/removal/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {
+    "/wms/withdrawals_removal/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {
         address_id(required: true, type: PropertyType.String, description: "Address id")
     }
-    "/wms/removal/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/removal/authorization/start_removal"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/removal/confirmation/finish_removal"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/withdrawals_removal/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/withdrawals_removal/authorization/start_removal"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/withdrawals_removal/confirmation/finish_removal"(platform: "/mobile/android", type: TrackType.Event) {}
 
-    /* Withdrawal tracks */
-    "/wms/withdrawal"(platform: "/mobile/android", type: TrackType.View) {
+    /* Withdrawals Collector tracks */
+    "/wms/withdrawals_collector"(platform: "/mobile/android", type: TrackType.View) {
         pickup_id(required: true, type: PropertyType.String, description: "Id of the pickup for the withdrawal flow")
     }
-    "/wms/withdrawal/confirmation"(platform: "/mobile/android", type: TrackType.View) {
+    "/wms/withdrawals_collector/confirmation"(platform: "/mobile/android", type: TrackType.View) {
         pickup_id(required: false, type: PropertyType.String, description: "Id of the pickup for the withdrawal flow")
     }
-    "/wms/withdrawal/scan_container"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/withdrawal/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/withdrawal/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {
+    "/wms/withdrawals_collector/scan_container"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/withdrawals_collector/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/withdrawals_collector/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {
         inventory_id(required: true, type: PropertyType.String, description: "Id of the item")
         checkpoint_id(required: true, type: PropertyType.String, description: "Id of checkpoint for the pickup")
     }
-    "/wms/withdrawal/scan_destination"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/withdrawal/congrats"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/withdrawals_collector/scan_destination"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/withdrawals_collector/congrats"(platform: "/mobile/android", type: TrackType.View) {}
 
-    "/wms/withdrawal/confirmation/start_withdrawal"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/withdrawal/scan_inventory/update_checkpoint"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/withdrawal/scan_inventory/item_not_found"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/withdrawal/scan_inventory/start_unload_cart"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/withdrawal/congrats/finish_unload_cart"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/withdrawal/congrats/finish_withdrawal"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/withdrawals_collector/confirmation/start_withdrawal"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/withdrawals_collector/scan_inventory/update_checkpoint"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/withdrawals_collector/scan_inventory/item_not_found"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/withdrawals_collector/scan_inventory/start_unload_cart"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/withdrawals_collector/congrats/finish_unload_cart"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/withdrawals_collector/congrats/finish_withdrawal"(platform: "/mobile/android", type: TrackType.Event) {}
 
+    /* Problem solver tracks */
+    "/wms/problem_solver"(platform: "/mobile/android", type: TrackType.View) {}
+
+    /* Take sub flow */
+    "/wms/problem_solver/take"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/problem_solver/take/scan_inbound_shipment"(platform: "/mobile/android", type: TrackType.View) {
+    }
+    "/wms/problem_solver/take/scan_destination"(platform: "/mobile/android", type: TrackType.View) {
+        inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
+        destination_address(required: false, type: PropertyType.String, 
+            description: "Address to put the items. Is sent after the scan action")
+    }
 }

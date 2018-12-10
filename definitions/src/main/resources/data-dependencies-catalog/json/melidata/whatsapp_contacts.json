@@ -1,18 +1,27 @@
 {
   "users": [
-      "horacio.lopez@mercadolibre.com", "mauro.reverter@mercadolibre.com"
+      "jorge.vidaurre@mercadolibre.cl"
   ],
-  "process_name": "checkout-off-funnels-all-platforms",
-  "cron": "00 06 * * *",
+  "process_name": "whatsapp_contacts",
+  "cron": "00 07 * * *",
+  "partition": {
+        "name": "ds",
+        "type": "DATE"
+   },
   "extract": {
     "operation": "append",
+    "site": "MeliLake",
     "columns": [
       {
-        "name": "event_id",
+        "name": "site",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "flow",
+        "name": "business",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "vertical",
         "type": "UNICODE_STRING"
       },
       {
@@ -20,33 +29,32 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "site_id",
+        "name": "seller_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "version",
+        "name": "item_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "collector",
+        "name": "listing_type_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "environment",
+        "name": "item_condition",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
+        "name": "vips_whit_whatsapp",
+        "type": "INTEGER"
       },
       {
-        "name": "ocurrences",
+        "name": "whatsapp_contacts",
         "type": "INTEGER"
       }
     ],
     "sql": {
-        "script": "mercadopago/checkout-off/checkout-off-funnels-all-platforms.sql",
+        "script": "business-assurance/whatsapp_contacts.sql",
       "parameters": [
         {
           "name": "param01",

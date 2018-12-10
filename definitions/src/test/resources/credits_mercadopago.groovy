@@ -9,12 +9,24 @@ trackTests {
         //Views
         "/credits/merchant/enrollment"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/credits_conditions"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment/preconfirm"(platform: "/web/desktop") {
+            amount = 200000
+            installment = 9
+        }
         "/credits/merchant/enrollment/preconfirm"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/load_documents"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/not_interested"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/review"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/error"(platform: "/web/desktop") {}
+
+        "/credits/merchant/enrollment/feedback"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment/feedback/interested"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment/feedback/not_interested"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment/feedback/success"(platform: "/web/desktop")  {}
+        "/credits/merchant/enrollment/feedback/error"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment/error/accept"(platform: "/web/desktop") {}
+
         "/credits/merchant/administrator"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/dashboard"(platform: "/") {
             status = 'offer'
@@ -26,6 +38,24 @@ trackTests {
         "/credits/merchant/no_offer"(platform: "/web/desktop") {}
         "/credits/merchant/public_landing"(platform: "/web/desktop") {
             user_profile = 'offer'
+        }
+
+        "/credits/merchant/administrator/next_installment_payment"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/congrats"(platform: "/web/desktop") {
+            flow = 'voluntary_payment'
+        }
+        "/credits/merchant/administrator/error"(platform: "/web/desktop") {
+            reason = 'insufficient_account_money'
+        }
+        "/credits/merchant/administrator/error"(platform: "/web/desktop") {
+            reason = 'lender_cannot_collect_installments'
+        }
+        "/credits/merchant/administrator/error"(platform: "/web/desktop") {
+            reason = 'default'
+        }
+
+        "/credits/merchant/enrollment/documentation"(platform: "/web/desktop") {
+            userType = 'moral'
         }
 
         //Events
