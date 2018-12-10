@@ -159,7 +159,7 @@ tracks {
         reviews_attributes(required: false, type: PropertyType.ArrayList, description: "Reviewable catalog attribute names")
     }
     
-    "/vip/quantity_change"(platform: "/", parentPropertiesInherited: false) {
+    "/vip/quantity_change"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
         zip_code(required: false,  PropertyType.Numeric, description: "Indicates the buyer's zip_code")
