@@ -611,6 +611,15 @@ trackTests {
             cartInformation()
             shippingInformation()
         }
+        
+        "/vip/quantity_change"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA533657947"
+            price = 123
+            zip_code = 123
+            quantity = 2
+            seller_id = 131662738
+            has_shipping = false
+        }
     }
 
     test("VIP zipcode") {
