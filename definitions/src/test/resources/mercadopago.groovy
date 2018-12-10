@@ -523,8 +523,24 @@ trackTests {
         "/merchant_acquisition/mydata/success"(platform:"/", type: TrackType.View) {}
     }
 
-    test("Point Flow Congrats") {
+    test("Point Flow Congrats Success") {
         "/point/flows/congrats"(platform:"/", type: TrackType.View) {}
+    }
+
+    test("Point Flow Congrats Instructions") {
+        "/point/flows/congrats/instructions"(platform:"/") {
+          paymentId = 4334902696
+          paymentMethod = "bolbradesco"
+          deviceId = 9
+          paidAmount = 118.11
+          isGuest = "false"
+        }
+    }
+
+    test("Point Flow Congrats Instructions click events") {
+        "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {}
+        "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {}
+        "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {}
     }
 
     test("Landing mercadopago point") {
