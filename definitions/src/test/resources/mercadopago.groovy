@@ -529,11 +529,11 @@ trackTests {
 
     test("Point Flow Congrats Instructions") {
         "/point/flows/congrats/instructions"(platform:"/") {
-          paymentId = 4334902696
-          paymentMethod = "bolbradesco"
-          deviceId = 9
-          paidAmount = 118.11
-          isGuest = "false"
+          payment_id = 4334902696
+          payment_method = "bolbradesco"
+          device_id = 9
+          paid_amount = 118.11
+          is_guest = "false"
         }
     }
 

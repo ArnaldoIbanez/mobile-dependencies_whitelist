@@ -126,11 +126,11 @@ tracks {
     "/point/flows/congrats"(platform:"/", type: TrackType.View) {}
     // Point Flows Congrats Instructions > Pageview
     "/point/flows/congrats/instructions"(platform:"/") {
-      paymentId (required: false, type: PropertyType.Numeric, description: "ID of payment")
-      paymentMethod (required: false, type: PropertyType.String, description: "Method of payment")
-      deviceId (required: false, type: PropertyType.Numeric, description: "ID of Point device")
-      paidAmount (required: false, type: PropertyType.Numeric, description: "Ticket amount")
-      isGuest (required: false, type: PropertyType.String, description: "Guest user flag")
+      payment_id (required: false, type: PropertyType.Numeric, description: "ID of payment")
+      payment_method (required: false, type: PropertyType.String, description: "Method of payment")
+      device_id (required: false, type: PropertyType.Numeric, description: "ID of Point device")
+      paid_amount (required: false, type: PropertyType.Numeric, description: "Ticket amount")
+      is_guest (required: false, type: PropertyType.String, description: "Guest user flag")
     }
     // Point Flows Congrats Instructions > Click Events
     "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {}
