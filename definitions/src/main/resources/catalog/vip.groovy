@@ -193,6 +193,15 @@ tracks {
         reviews_attributes(required: false, type: PropertyType.ArrayList, description: "Reviewable catalog attribute names")
     }
     
+    "/vip/quantity_change"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
+        zip_code(required: false,  PropertyType.Numeric, description: "Indicates the buyer's zip_code")
+        quantity(required: true, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to buy")
+        shipping_method(required: false)
+        has_shipping(requered: true,type: PropertyType.Boolean)
+    }
+    
     "/vip/buy_action"(platform: "/", parentPropertiesInherited: false) {
         item_id(required: false, type: PropertyType.String, description: "Item ID")
         quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to buy")
