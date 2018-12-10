@@ -30,7 +30,7 @@ abstract class CatalogFormatter {
     }
 
     protected Catalog getCatalog() {
-        DslUtils.parseCatalog(new File(CatalogUploader.BASE_CATALOG_DIR + catalogName, CatalogHandler.S3_CATALOG_FILE))
+        DslUtils.parseCatalog(new File(CatalogUploader.BASE_CATALOG_DIR + catalogName + "/", CatalogHandler.S3_CATALOG_FILE))
     }
 
     def getPlatforms(def t) {

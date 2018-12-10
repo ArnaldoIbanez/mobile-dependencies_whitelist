@@ -6,6 +6,7 @@ import com.amazonaws.services.s3.model.S3ObjectInputStream
 import com.amazonaws.services.s3.model.S3ObjectSummary
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.DslUtils
+import org.apache.commons.io.FileUtils
 
 /**
  * Created by mtencer on 5/4/16.
@@ -15,7 +16,7 @@ class CatalogHandler {
 	private static final String AWS_ACCESS_KEY = 'AKIAIRJ4DFA72UDCX7QA'//'AKIAI2AFLMRLNMSP3IJA'
 	private static final String AWS_SECRET_KEY = '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'//'BZUVcUw7CfLgoJVr06w15sJ308Tnxv+c42Hhul6G'
 	public static String S3_BUCKET = "melidata-catalog-versions"
-	public static String S3_CATALOG_FILE = "/catalog.groovy"
+	public static String S3_CATALOG_FILE = "catalog.groovy"
 
 	public String LAST_VERSION_OBJECT
 	public String LAST_VERSION_FILE_NAME
@@ -68,6 +69,16 @@ class CatalogHandler {
 		return false
 	}
 
+	boolean catalogIsUpdated(File catalogFile, String tmpFolder, String tmpFilePrefix) {
+        String mainCatalog = S3_CONTAINER + S3_CATALOG_FILE
+		List<S3ObjectSummary> objectSummaries = cli.listObjects(new ListObjectsRequest().withBucketName(S3_BUCKET).withPrefix(mainCatalog)).getObjectSummaries()
+        downloadCatalog(objectSummaries, tmpFolder, tmpFilePrefix)
+		File s3Catalog = new File(tmpFolder, tmpFilePrefix + S3_CATALOG_FILE)
+		boolean isUpdated = FileUtils.contentEquals(catalogFile, s3Catalog)
+		s3Catalog.delete()
+		return isUpdated
+	}
+
 	Catalog getCatalog() {
 		return catalog
 	}
@@ -89,7 +100,7 @@ class CatalogHandler {
 		}
 	}
 
-	private S3Object downloadCatalog(List<S3ObjectSummary> objectSummaries) throws IOException {
+	private S3Object downloadCatalog(List<S3ObjectSummary> objectSummaries, String folder = LOCAL_FOLDER, String keyPrefixReplacement = "") throws IOException {
 		S3Object object = null
 		for ( S3ObjectSummary obj : objectSummaries ) {
 			S3Object s3Object = cli.getObject(obj.getKey())
@@ -98,7 +109,7 @@ class CatalogHandler {
 			BufferedWriter writer = null
 			BufferedReader reader = null
 			try {
-				def output = new File(LOCAL_FOLDER, obj.getKey().replace(S3_CONTAINER, ""))
+				def output = new File(folder, obj.getKey().replace(S3_CONTAINER, keyPrefixReplacement))
 				output.getParentFile().mkdirs()
 				writer = new BufferedWriter(new FileWriter(output))
 				reader = new BufferedReader(new InputStreamReader(objectContent))
