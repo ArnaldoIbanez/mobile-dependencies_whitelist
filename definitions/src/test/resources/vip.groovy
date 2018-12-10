@@ -619,7 +619,7 @@ trackTests {
             shippingInformation()
         }
         
-         def shipping_method = {
+        def shipping_method = {
             id = 531332827
             name = "Retiro en Correo Argentino"
             currency_id = "ARS"
@@ -639,6 +639,7 @@ trackTests {
                     date =  "2018-12-10T00:00:00.000-03:00"
                     shipping = 48
                 }
+            }      
         }
         
         "/vip/quantity_change"(platform: "/", type: TrackType.Event) {
