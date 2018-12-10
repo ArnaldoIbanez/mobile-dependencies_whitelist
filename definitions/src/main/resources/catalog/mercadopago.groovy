@@ -128,7 +128,7 @@ tracks {
     "/point/flows/congrats/instructions"(platform:"/") {
       payment_id (required: false, type: PropertyType.Numeric, description: "ID of payment")
       payment_method (required: false, type: PropertyType.String, description: "Method of payment")
-      device_id (required: false, type: PropertyType.Numeric, description: "ID of Point device")
+      device_id (required: false, type: PropertyType.String, description: "ID of Point device")
       amount (required: false, type: PropertyType.Numeric, description: "Ticket amount")
       is_guest (required: false, type: PropertyType.String, description: "Guest user flag")
     }

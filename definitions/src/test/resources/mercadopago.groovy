@@ -531,7 +531,7 @@ trackTests {
         "/point/flows/congrats/instructions"(platform:"/") {
           payment_id = 4334902696
           payment_method = "bolbradesco"
-          device_id = 9
+          device_id = "9"
           amount = 118.11
           is_guest = "false"
         }
