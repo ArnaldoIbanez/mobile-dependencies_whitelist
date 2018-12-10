@@ -206,6 +206,67 @@ tracks {
     "/notification_center/sc_editor_off"(platform: "/", type: TrackType.Event) {}
     "/notification_center/security-account_validation"(platform: "/", type: TrackType.Event) {}
 
+    "/notification_center/chargeback-payer_start_ml"(platform: "/") {
+        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/chargeback-payer_start_mp"(platform: "/") {
+        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/chargeback-payer_ultimatum_ml"(platform: "/") {
+        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/chargeback-payer_ultimatum_mp"(platform: "/") {
+        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/chargeback-payer_intensify_ml"(platform: "/") {
+        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/chargeback-payer_intensify_mp"(platform: "/") {
+        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/chargeback-payer_contact_ml"(platform: "/") {
+        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/chargeback-payer_contact_mp"(platform: "/") {
+        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/chargeback-payer_notify_ml"(platform: "/") {
+        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/chargeback-payer_notify_mp"(platform: "/") {
+        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/chargeback-payer_update_ml"(platform: "/") {
+        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/chargeback-payer_update_mp"(platform: "/") {
+        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
       /**
        * NOTIFICATIONS TRAY
        **/
