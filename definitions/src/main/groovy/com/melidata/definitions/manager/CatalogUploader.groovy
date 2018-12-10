@@ -33,7 +33,11 @@ class CatalogUploader {
 
     def upload() {
         println("Starting uploader")
-        def catalogFile = new File(CATALOG_DIR, CatalogHandler.S3_CATALOG_FILE)
+        def catalogFile = new File(CATALOG_DIR + "/", CatalogHandler.S3_CATALOG_FILE)
+        if (catalogHandler.catalogIsUpdated(catalogFile, CATALOG_DIR + "/", "tmp")) {
+            println("Catalog doesn't have changes")
+            return
+        }
         println("Reading [${catalogFile}]")
         def dsl = IOUtils.toString(new FileInputStream(catalogFile))
         println("DSL loaded")
