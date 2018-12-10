@@ -619,27 +619,29 @@ trackTests {
             shippingInformation()
         }
         
-        def shipping_method = {
-            id = 531332827
-            name = "Retiro en Correo Argentino"
-            currency_id = "ARS"
-            list_cost =  178.49
-            cost = 178.49
-            base_cost = 169.99
-            display = "recommended"
-            shipping_method_id = 503045
-            shipping_method_type = "standard"
-            shipping_option_type = "agency"
-            estimated_delivery_time = {
-                type = "unknown_frame"
-                date = "2018-12-06T00:00:00.000-03:00"
-                shipping = 48
-                unit =  "hour"
-                offset = {
-                    date =  "2018-12-10T00:00:00.000-03:00"
+        def shipping_method = { 
+            shipping_method = {
+                id = 531332827
+                name = "Retiro en Correo Argentino"
+                currency_id = "ARS"
+                list_cost =  178.49
+                cost = 178.49
+                base_cost = 169.99
+                display = "recommended"
+                shipping_method_id = 503045
+                shipping_method_type = "standard"
+                shipping_option_type = "agency"
+                estimated_delivery_time = {
+                    type = "unknown_frame"
+                    date = "2018-12-06T00:00:00.000-03:00"
                     shipping = 48
-                }
-            }      
+                    unit =  "hour"
+                    offset = {
+                        date =  "2018-12-10T00:00:00.000-03:00"
+                        shipping = 48
+                    }
+                }      
+            }
         }
         
         "/vip/quantity_change"(platform: "/", type: TrackType.Event) {
