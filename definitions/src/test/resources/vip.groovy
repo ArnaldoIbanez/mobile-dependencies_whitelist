@@ -623,10 +623,10 @@ trackTests {
             id = 531332827
             name = "Retiro en Correo Argentino"
             currency_id = "ARS"
-            list_cost" =  178.49
-            cost": 178.49
+            list_cost =  178.49
+            cost = 178.49
             base_cost = 169.99
-            display = recommended"
+            display = "recommended"
             shipping_method_id = 503045
             shipping_method_type = "standard"
             shipping_option_type = "agency"
