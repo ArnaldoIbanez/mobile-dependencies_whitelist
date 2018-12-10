@@ -45,7 +45,9 @@ tracks {
     "/asset_management/faq"(platform: "/mobile", type: TrackType.Event) {}
 
     // WebView events
-    "/asset_management/url_external"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/url_external"(platform: "/mobile", type: TrackType.Event) {
+        context (required: true, type: PropertyType.String, description: "The context where this event occurred")
+    }
 
     // Splitter
     "/asset_management/splitter"(platform: "/mobile", type: TrackType.View) {}
