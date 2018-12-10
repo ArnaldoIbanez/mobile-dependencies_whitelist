@@ -477,7 +477,12 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
-            selected_filters = ["tomorrow"]
+            selected_filters = [
+                                    {
+                                        filter_id : "free"
+                                        type : "quick / category"
+                                    }
+                                ]
         }
         "/checkout/shipping/select_store/selected_store"(platform: "/mobile", type: TrackType.Event) {
             default_location_info = {
@@ -488,7 +493,12 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
-            selected_filters = ["next_day","open_weekends"]
+            selected_filters = [
+                    {
+                        filter_id : "free"
+                        type : "quick / category"
+                    }
+            ]
         }
         //
 
@@ -731,6 +741,11 @@ trackTests {
             checkoutStatus()
         }
 
+        "/checkout/payment/encrypted_security_code_add#submit"(platform:"/mobile") {
+            status = "success"
+            checkout_flow = "direct"
+            session_id = "asodas98a9sd8a"
+        }
 
         // Billing Info
         "/checkout/billing/physical_person"(platform: "/mobile") {
@@ -822,6 +837,7 @@ trackTests {
             checkoutStatus()
         }
         "/checkout/finish/invalid_sec_code/input"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
         }
 
         "/checkout/finish/choose_action"(platform:"/mobile", type:TrackType.View) {
@@ -2045,7 +2061,12 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
-            selected_filters = ["tomorrow"]
+            selected_filters = [
+                    {
+                        filter_id : "free"
+                        type : "quick / category"
+                    }
+            ]
         }
         "/checkout/shipping/select_store/selected_store"(platform: "/web", type: TrackType.Event) {
             default_location_info = {
@@ -2056,7 +2077,12 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
-            selected_filters = ["next_day","open_weekends"]
+            selected_filters = [
+                    {
+                        filter_id : "free"
+                        type : "quick / category"
+                    }
+            ]
         }
 
         // Suscripciones

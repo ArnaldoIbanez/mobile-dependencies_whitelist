@@ -647,19 +647,19 @@ trackTests {
             label = "active"
             placement = "publicidad-banner"
             adv_segmentation = "winback"
-            reputationLevel="yellow"
+            reputation_level="yellow"
         }
         "/myml/listings/hide"(platform: "/web"){
             label = "active"
             placement = "publicidad-banner"
             adv_segmentation = "winback"
-            reputationLevel="yellow"
+            reputation_level="yellow"
         }
         "/myml/listings/go"(platform: "/web"){
             label = "active"
             placement = "publicidad-banner"
             adv_segmentation = "winback"
-            reputationLevel="yellow"
+            reputation_level="yellow"
         }
     }
 
@@ -667,17 +667,17 @@ trackTests {
         "/myml/summary/show"(platform: "/web"){
             placement = "publicidad-banner"
             adv_segmentation = "winback"
-            reputationLevel="yellow"
+            reputation_level="yellow"
         }
         "/myml/summary/hide"(platform: "/web"){
             placement = "publicidad-banner"
             adv_segmentation = "winback"
-            reputationLevel="yellow"
+            reputation_level="yellow"
         }
         "/myml/summary/go"(platform: "/web"){
             placement = "publicidad-banner"
             adv_segmentation = "winback"
-            reputationLevel="yellow"
+            reputation_level="yellow"
         }
     }
 

@@ -25,23 +25,52 @@ trackTests {
 
     test("Portal") {
         "/portal/faq"(platform: "/", type: TrackType.View) {
-            portal_content_id = 987
-            portal_source_id = 123
+            portal_contact = [
+                channels: [:],
+                contact_config: false
+            ]
+            user_type = "normal"
+            reputation_level  = "5_green"
+            seller_profile = "ADVANCED"
+            loyalty_level = 5
+            portal_content_id = 96
             portal_has_channels_configured = true
         }
         "/portal/hub"(platform: "/", type: TrackType.View) {
-            portal_form_id = 54
-            portal_source_id = 123
-            portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
+            portal_contact = [
+                channels: [:],
+                contact_config: false
+            ]
+            user_type = "normal"
+            reputation_level  = "5_green"
+            seller_profile = "ADVANCED"
+            loyalty_level = 5
+            portal_content_id = 96
+            user_profile = ""
         }
         "/portal/form"(platform: "/", type: TrackType.View) {
-            portal_form_id = 54
-            portal_source_id = 123
+            portal_contact = [
+                channels: [:],
+                contact_config: false
+            ]
+            user_type = "normal"
+            reputation_level  = "5_green"
+            portal_form_id = 96
+            seller_profile = "ADVANCED"
+            loyalty_level = 5
+            portal_content_id = 96
         }
         "/portal/folder"(platform: "/", type: TrackType.View) {
-            portal_content_id = 987
-            portal_source_id = 123
-            portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
+            portal_contact = [
+                channels: [:],
+                contact_config: false
+            ]
+            user_type = "normal"
+            reputation_level  = "5_green"
+            seller_profile = "ADVANCED"
+            loyalty_level = 5
+            portal_content_id = 96
+            user_profile = ""
         }
         "/portal/create_case"(platform: "/", type: TrackType.View) {}
         "/portal/search/result"(platform: "/", type: TrackType.View) {}

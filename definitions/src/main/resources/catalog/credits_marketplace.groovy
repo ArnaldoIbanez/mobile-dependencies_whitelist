@@ -29,19 +29,27 @@ tracks {
 
     //Page views
     "/credits/consumer/public_landing"(platform: "/", type: TrackType.View) {
-        user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
+        user_profile(type: PropertyType.String, required: true, inheritable: false, values: ["guest", "no_offer"])
     }
+    "/credits/consumer/public_landing/application_result"(platform: "/", type: TrackType.View) {
+        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
+    }
+    "/credits/consumer/public_landing/application_start"(platform: "/", type: TrackType.View) {}
 
     //Events
     "/credits/consumer/public_landing/click_hero"(platform: "/", type: TrackType.Event) {
         user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
     }
-    "/credits/consumer/public_landing/click_activation"(platform: "/", type: TrackType.Event) {
+    "/credits/consumer/public_landing/credit_line_request"(platform: "/", type: TrackType.Event) {
         user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
     }
     "/credits/consumer/public_landing/click_help"(platform: "/", type: TrackType.Event) {
         user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
     }
+    "/credits/consumer/public_landing/application_result/click_home"(platform: "/", type: TrackType.Event) {
+        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
+    }
+    "/credits/consumer/public_landing/click_application_start"(platform: "/", type: TrackType.Event) {}
     /******************************************
      *       End: Consumers Public Landings
      ******************************************/
@@ -249,9 +257,9 @@ tracks {
      *       End: Consumers Recurring Campaign
      ******************************************/
 
-     /******************************************
-      *       Start: Consumers Persue Campaign
-      ******************************************/
+    /******************************************
+     *       Start: Consumers Persue Campaign
+     ******************************************/
 
     propertyDefinitions {
         status(required: true, type: PropertyType.String, values: ["no_charge_period", "fixed_charge_period_1", "fixed_charge_period_2", "daily_charge_period"],
@@ -267,18 +275,18 @@ tracks {
 
     //Page Views
 
-     "/vip/credits/pursue/overdue_modal"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
-       status(type: PropertyType.String, required: true,
-         values: ["payment_intention_pre_restriction", "payment_intention_post_restriction"])
-       milestone(type: PropertyType.Numeric , required: true)
-     }
+    "/vip/credits/pursue/overdue_modal"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+        status(type: PropertyType.String, required: true,
+                values: ["payment_intention_pre_restriction", "payment_intention_post_restriction"])
+        milestone(type: PropertyType.Numeric, required: true)
+    }
 
-     //Event Views
-     "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
-       status(type: PropertyType.String, required: true,
-         values: ["payment_intention_pre_restriction", "payment_intention_post_restriction"])
-       milestone(type: PropertyType.Numeric , required: true)
-     }
+    //Event Views
+    "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+        status(type: PropertyType.String, required: true,
+                values: ["payment_intention_pre_restriction", "payment_intention_post_restriction"])
+        milestone(type: PropertyType.Numeric, required: true)
+    }
 
     "/credits/pursue/overdue_nav"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
         pursue_nav_properties
@@ -287,68 +295,68 @@ tracks {
     "/credits/pursue/overdue_nav/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
         pursue_nav_properties
     }
-     /******************************************
-      *       End: Consumers Persue Campaign
-      ******************************************/
+    /******************************************
+     *       End: Consumers Persue Campaign
+     ******************************************/
 
-      /******************************************
-      *   Start: Consumers Unified Payment Hack
-      ******************************************/
+    /******************************************
+     *   Start: Consumers Unified Payment Hack
+     ******************************************/
 
-      "/credits/consumer/unified_payment_hack"(platform: "/", isAbstract: true) {}
-      "/credits/consumer/unified_payment_hack/intermediate_landing"(platform: "/", isAbstract: true) {}
-      "/credits/consumer/administrator/unified_payment_hack"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/unified_payment_hack"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/unified_payment_hack/intermediate_landing"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/administrator/unified_payment_hack"(platform: "/", isAbstract: true) {}
 
-      propertyDefinitions {
+    propertyDefinitions {
         loans_installments_status(
-          description: "Installment status to be considered when paying debt",
-          required: true,
-          values: ["on_time", "to_expire_soft", "to_expire_hard", "expired_today", "no_charge_period"]
+                description: "Installment status to be considered when paying debt",
+                required: true,
+                values: ["on_time", "to_expire_soft", "to_expire_hard", "expired_today", "no_charge_period"]
         )
         installments_count(
-          description: "Installments count to pay",
-          type: PropertyType.Numeric,
-          required: true,
+                description: "Installments count to pay",
+                type: PropertyType.Numeric,
+                required: true,
         )
-      }
+    }
 
-      propertyGroups {
-          unified_payment_hack_properties(loans_installments_status, installments_count)
-      }
+    propertyGroups {
+        unified_payment_hack_properties(loans_installments_status, installments_count)
+    }
 
-      "/credits/consumer/administrator/unified_payment_hack/payment_intention"(platform:"/", type: TrackType.Event) {
+    "/credits/consumer/administrator/unified_payment_hack/payment_intention"(platform: "/", type: TrackType.Event) {
         unified_payment_hack_properties
         days_apart(
-          description: "Positive number indicanting the difference of days between now and the installments' due date",
-          type: PropertyType.Numeric,
-          required: true,
+                description: "Positive number indicanting the difference of days between now and the installments' due date",
+                type: PropertyType.Numeric,
+                required: true,
         )
-      }
+    }
 
-      "/credits/consumer/unified_payment_hack/intermediate_landing"(platform:"/", type: TrackType.View) {
+    "/credits/consumer/unified_payment_hack/intermediate_landing"(platform: "/", type: TrackType.View) {
         unified_payment_hack_properties
         money_account_status(
-          description: "User account status related to the total debt",
-          required: true,
-          values: ["enough_money", "not_enough_money", "without_money"]
+                description: "User account status related to the total debt",
+                required: true,
+                values: ["enough_money", "not_enough_money", "without_money"]
         )
         days_apart(
-          description: "Positive number indicanting the difference of days between now and the installments' due date",
-          type: PropertyType.Numeric,
-          required: true,
+                description: "Positive number indicanting the difference of days between now and the installments' due date",
+                type: PropertyType.Numeric,
+                required: true,
         )
-      }
+    }
 
-      "/credits/consumer/unified_payment_hack/intermediate_landing/insert_money_and_payment_intention"(platform:"/", parentPropertiesInherited: false, type: TrackType.Event) {
+    "/credits/consumer/unified_payment_hack/intermediate_landing/insert_money_and_payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
         unified_payment_hack_properties
         money_account_status(
-          description: "User account status related to the total debt",
-          required: true,
-          values: ["enough_money", "not_enough_money", "without_money"]
+                description: "User account status related to the total debt",
+                required: true,
+                values: ["enough_money", "not_enough_money", "without_money"]
         )
-      }
+    }
 
-      /******************************************
-      *   End: Consumers Unified Payment Hack
-      ******************************************/
+    /******************************************
+     *   End: Consumers Unified Payment Hack
+     ******************************************/
 }

@@ -616,6 +616,13 @@ trackTests {
         }
 
     }
+    
+    test("Login Success") {
+        "/login_success"(platform: "/mobile/ios") {
+        }
+        
+    }
+
 
     test("Sign In") {
         "/sign_in"(platform: "/mobile") {
@@ -746,6 +753,22 @@ trackTests {
         }
 
         "/send_money/confirm"(platform: "/web"){
+            flow = "/send_money"
+        }
+
+        "/send_money/bacen/ok"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/send_money"
+        }
+        "/send_money/bacen/cancel"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/send_money"
+        }
+        "/send_money/bacen/error"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/send_money"
+        }
+        "/send_money/bacen/open"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/send_money"
+        }
+        "/send_money/bacen/close"(platform: "/mobile", type: TrackType.Event) {
             flow = "/send_money"
         }
     }
@@ -1938,6 +1961,26 @@ trackTests {
             result_status = "rejected"
             status_detail = "internal_server_error"
         }
+        "/withdraw/bacen/ok"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
+        "/withdraw/bacen/cancel"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
+        "/withdraw/bacen/error"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
+        "/withdraw/bacen/open"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
+        "/withdraw/bacen/close"(platform: "/mobile") {
+            flow = "/withdraw"
+            from = "/deep_link"
+        }
     }
 
     test("Withdraw_advance") {
@@ -2064,6 +2107,11 @@ trackTests {
             news_id = "credits-merchants_about_to_expire_first_notice-9876"
             event_type = "shown"
             installment_id= 9876
+        }
+
+        "/notification/fraud_cash_release_iv"(platform: "/mobile") {
+            news_id = "fraud_cash_release_iv-12345678"
+            event_type = "shown"
         }
 
         "/notification/health_check"(platform: "/mobile/android") {
@@ -3460,35 +3508,6 @@ trackTests {
         "/free_navigation/wifi"(platform:"/mobile", type:TrackType.Event) {}
     }
 
-    test("MPConnect Lib") {
-         "/google_connect/init_flow"(platform:"/mobile", type: TrackType.Event) {
-             type = "no_params"
-         }
-
-         "/google_connect/init_flow"(platform:"/mobile", type: TrackType.Event) {
-             type = "normal"
-             withToken = false
-             withAuthRequest = false
-         }
-
-         "/google_connect/init_flow"(platform:"/mobile", type: TrackType.Event) {
-             type = "normal"
-             withAuthRequest = true
-         }
-
-         "/google_connect/init_flow"(platform:"/mobile", type: TrackType.Event) {
-             type = "reauthentication"
-             withToken = true
-             withAuthRequest = false
-         }
-
-         "/google_connect/end_flow"(platform:"/mobile", type: TrackType.Event) {
-             status = "approved"
-         }
-         "/google_connect/end_flow"(platform:"/mobile", type: TrackType.Event) {
-             status = "canceled"
-         }
-     }
 
     test("Bugsnag tracks to use on Canejo MP") {
         "/mobile/bugsnag"(platform:"/mobile/android", type:TrackType.Event) {
@@ -3552,5 +3571,6 @@ trackTests {
             activity = "transport"
         }
     }
+
 
 }

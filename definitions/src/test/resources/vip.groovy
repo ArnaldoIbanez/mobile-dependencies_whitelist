@@ -42,6 +42,8 @@ trackTests {
             logistic_type = "fulfillment"
             free_shipping_benefit = false
             loyalty_level = 2
+            price_comparison_available = true
+            price_comparison_position =  0.75
         }
 
         "/vip"(platform:"/mobile", {
@@ -80,6 +82,11 @@ trackTests {
         "/vip/description/failure"(platform:"/mobile"){
             item_id = "MLA533657947"
         }
+
+        "/vip/price_comparison"(platform:"/", type: TrackType.Event, {
+            mandatory()
+            optionals()
+        })
 
         "/vip/contact_seller"(platform:"/mobile", type: TrackType.Event, {
             mandatory()
@@ -688,11 +695,11 @@ trackTests {
             model()
         }
         
-        "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {
-            model()
-        }
+        "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {}
         
-        "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {}
+        "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
+             model()
+        }
         
         
         //Apps
@@ -709,7 +716,7 @@ trackTests {
             model()
         }
         
-        "/vip/shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) {}
+        "/vip/shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) { }
         
         "/vip/shipping_calculator/show_map"(platform: "/mobile/ios", type: TrackType.Event) {
             model()

@@ -363,6 +363,10 @@ tracks {
         from (required:false, type: PropertyType.String, description: "Where the Camera start in picture profile or person validataion in android")
     }
 
+    "/login_success"(platform: "/mobile/ios", type: TrackType.View) {
+        from (required:false, type: PropertyType.String, description: "When user login success in ios")
+    }
+
     "/send_money"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
@@ -381,6 +385,12 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    "/send_money/bacen"(platform: "/mobile", isAbstract: true) {}
+    "/send_money/bacen/ok"(platform: "/mobile") {}
+    "/send_money/bacen/cancel"(platform: "/mobile") {}
+    "/send_money/bacen/error"(platform: "/mobile") {}
+    "/send_money/bacen/open"(platform: "/mobile") {}
+    "/send_money/bacen/close"(platform: "/mobile") {}
 
 
     "/checkout"(platform: "/mobile", isAbstract: true) {
@@ -661,6 +671,12 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    "/withdraw/bacen"(platform: "/mobile", isAbstract: true) {}
+    "/withdraw/bacen/ok"(platform: "/mobile") {}
+    "/withdraw/bacen/cancel"(platform: "/mobile") {}
+    "/withdraw/bacen/error"(platform: "/mobile") {}
+    "/withdraw/bacen/open"(platform: "/mobile") {}
+    "/withdraw/bacen/close"(platform: "/mobile") {}
 
     "/fund_account"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -707,13 +723,25 @@ tracks {
      **/
     "/notification"(platform: "/mobile") {
         event_type(required: true,
-                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown"],
+                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "purged_token"],
         description: "Type of notification event")
+
+        notification_type(required: false,
+                values: ["deep_linking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"])
+
         news_id(required: false, description: "Identifier of the notification generated")
 
         notification_created_error(required: false, description: "The notification created error", type: PropertyType.String)
 
         device_id(required: false, description: "The real device_id, may differ from device field")
+
+        //For event_type:autodismiss, indicates why the notification was dismissed
+        source(required: false, values: ["notification_center","logout","overwrite","dismiss_notification"])
+
+        context(required: false, type: PropertyType.String)
+
+        notification_style(required: false, description: "The notification style used when displaying the notification to the user.")
+
     }
 
     //Acount
@@ -739,6 +767,9 @@ tracks {
     "/notification/credits_merchants_about_to_expire_first_notice"(platform: "/mobile") {
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
+
+    //Fraud
+    "/notification/fraud_cash_release_iv"(platform: "/mobile") {}
 
     //Health Check
     "/notification/health_check"(platform: "/mobile") {
@@ -931,17 +962,6 @@ tracks {
 
     "/free_navigation/wifi"(platform:"/mobile", type:TrackType.Event) {}
 
-    "/google_connect"(platform: "/mobile", isAbstract: true) {}
-    "/google_connect/init_flow"(platform: "/mobile") {
-        type (required:true, type: PropertyType.String, description: "type of operation that google want", values: ["normal", "reauthentication", "no_params"])
-        withToken (required:false, type: PropertyType.Boolean, description: "The user was logged in MP?")
-        withAuthRequest (required:false, type: PropertyType.Boolean, description: "Is google asking for re-authentication?")
-    }
-
-    "/google_connect/end_flow"(platform: "/mobile") {
-        status (required:true, type: PropertyType.String, description: "Operation result status", values: ["approved", "canceled", "first_user"])
-    }
-
     "/device_settings/"(platform: "/", isAbstract: true){}
 
     "/device_settings/notifications"(platform: "/mobile/android", type:TrackType.Event) {
@@ -967,4 +987,8 @@ tracks {
         activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "where open link from sms")
     }
 
+
 }
+
+
+
