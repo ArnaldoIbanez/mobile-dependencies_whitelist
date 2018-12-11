@@ -185,7 +185,7 @@ trackTests {
             milestone = 20
         }
 
-        "/credits/pursue/overdue_nav"(platform: "/web/desktop", type: TrackType.View) {
+        "/credits/consumer/overdue_nav"(platform: "/web/desktop", type: TrackType.View) {
             status = "fixed_charge_period_1"
             milestone = 4
             context = "vip"
@@ -198,7 +198,7 @@ trackTests {
             milestone = 28
         }
 
-        "/credits/pursue/overdue_nav/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+        "/credits/consumer/overdue_nav/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
             status = "fixed_charge_period_1"
             milestone = 4
             context = "vip"
