@@ -33,6 +33,7 @@ trackTests {
             camera_permissions = true
             location_permissions = true
             notifications_permissions = true
+            bluetooth_permissions = true
         }
         "/instore/scan_qr/qr_discovery"(platform: "/mobile", type: TrackType.Event) {
             qr_data = "Any scanned data"
@@ -279,6 +280,10 @@ trackTests {
             view_time_in_millis = "134231"
         }
         "/instore/shell_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
+            view_time_in_millis = "134231"
+        }
+
+        "/instore/qr_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
             view_time_in_millis = "134231"
         }
 
@@ -762,7 +767,13 @@ trackTests {
 
 
         // Scan QR
-        "/instore/scan_qr"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/scan_qr"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            camera_permissions = true
+            location_permissions = true
+            notifications_permissions = true
+            bluetooth_permissions = true            
+        }
+        
         "/instore/scan_qr/qr_discovery"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             qr_data = "Any scanned data"
             qr_discovery_time_in_millis = "323223"
@@ -1020,6 +1031,11 @@ trackTests {
         "/instore/shell_first_time_use/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             view_time_in_millis = "134231"
         }
+
+        "/instore/qr_first_time_use/back"(platform: "/mobile", business:"mercadopago",type: TrackType.Event) {
+            view_time_in_millis = "134231"
+        }
+
 
         // Shell
         "/instore/shell/pump_code"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
