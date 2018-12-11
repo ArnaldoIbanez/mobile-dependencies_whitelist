@@ -8,8 +8,7 @@ static void main(String[] args) {
     println( "Preparing....")
     def status = true
 
-    args.eachWithIndex { catalogName, index ->
-        catalogName = args[index]
+    args.each { catalogName ->
         CatalogDsl.setBaseDir("src/main/resources/catalog/" + catalogName + "/")
 
         status = status && TestRunner.run(catalogName, new StdOut())
