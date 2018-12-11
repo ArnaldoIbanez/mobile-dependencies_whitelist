@@ -21,4 +21,4 @@ Please check [tracks definitions guidelines](https://github.com/mercadolibre/mel
 
 ## Testing the catalog
 
-If you want to run the tests, you should execute **```make test```**
+If you want to run the melidata tests, you should execute **```make test```**, or **```make test CATALOG=Shipping```** if you want to run Shipping tests. Execute **```make test CATALOG=All```** for running both catalog tests.
