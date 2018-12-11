@@ -18,6 +18,7 @@ tracks {
         notification_permissions(required: false, PropertyType.Boolean)
         // Deprecated. Typo on Android
         notifications_permissions(required: false, PropertyType.Boolean)
+        bluetooth_permissions(required: false, PropertyType.Boolean)
     }
     "/instore/scan_qr"(platform: "/mobile", isAbstract: true) {}
     "/instore/scan_qr/qr_discovery"(platform: "/mobile", type: TrackType.Event) {
@@ -276,6 +277,10 @@ tracks {
         view_time_in_millis(required: false, PropertyType.String)
     }
     "/instore/shell_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
+        view_time_in_millis(required: false, PropertyType.String)
+    }
+
+    "/instore/qr_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
         view_time_in_millis(required: false, PropertyType.String)
     }
 
