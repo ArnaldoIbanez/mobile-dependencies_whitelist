@@ -538,9 +538,27 @@ trackTests {
     }
 
     test("Point Flow Congrats Instructions click events") {
-        "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {}
-        "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {}
-        "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {}
+        "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {
+          payment_id = 4334902696
+          payment_method = "bolbradesco"
+          device_id = "9"
+          amount = 118.11
+          is_guest = "false"
+        }
+        "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {
+          payment_id = 4334902696
+          payment_method = "bolbradesco"
+          device_id = "9"
+          amount = 118.11
+          is_guest = "false"
+        }
+        "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {
+          payment_id = 4334902696
+          payment_method = "bolbradesco"
+          device_id = "9"
+          amount = 118.11
+          is_guest = "false"
+        }
     }
 
     test("Landing mercadopago point") {
