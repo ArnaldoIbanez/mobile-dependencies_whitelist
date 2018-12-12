@@ -254,9 +254,10 @@ trackTests {
         "/wms/withdrawals_collector/scan_shelf"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
+            pickup_address = "CA-0-100-000-00-00"
             pickup_id = "1"
         }
-        "/wms/withdrawals_collector/scan_inventory"(platform: "/mobile/android") {
+        "/wms/withdrawals_collector/item"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
             pickup_id = "1"
@@ -435,21 +436,21 @@ trackTests {
             warehouse_id = "BRWT01"
             pickup_id = "1"
         }
-        "/wms/withdrawals_collector/scan_inventory/update_checkpoint"(platform: "/mobile/android") {
+        "/wms/withdrawals_collector/item/update_checkpoint"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
             pickup_id = "1"
             inventory_id = "AAAA11111"
             checkpoint_id = "2"
         }
-        "/wms/withdrawals_collector/scan_inventory/item_not_found"(platform: "/mobile/android") {
+        "/wms/withdrawals_collector/item/item_not_found"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
             pickup_id = "1"
             inventory_id = "AAAA11111"
             checkpoint_id = "2"
         }
-        "/wms/withdrawals_collector/scan_inventory/start_unload_cart"(platform: "/mobile/android") {
+        "/wms/withdrawals_collector/item/start_unload_cart"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
             pickup_id = "1"
