@@ -207,8 +207,10 @@ tracks {
 
     // Init event:
     "/px_checkout/init"(platform: "/mobile", type: TrackType.Event) {
-        payment_preference_id(required: false, type: PropertyType.String, description: "Preference id")
-        payment_preference(required: false, description: "Payment preference")
+        checkout_preference_id(required: false, type: PropertyType.String, description: "Preference id")
+        checkout_preference(required: false, description: "Payment preference")
+        esc_enabled(required: true, type: PropertyType.Boolean, description: "Has esc feauture")
+        express_enabled(required: true, type: PropertyType.Boolean, description: "Has one tap feauture")
     }
 
     // Payment Selection event

@@ -650,7 +650,9 @@ trackTests {
 
         // Init event + pref id:
         "/px_checkout/init"(platform: "/mobile", type: TrackType.Event) {
-            payment_preference_id = "123"
+            checkout_preference_id = "123"
+            esc_enabled = true
+            express_enabled = true
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
@@ -662,7 +664,7 @@ trackTests {
 
         // Init event:
         "/px_checkout/init"(platform: "/mobile", type: TrackType.Event) {
-            payment_preference = {
+            checkout_preference = {
                 items = [
                         {
                             item = {
@@ -675,6 +677,8 @@ trackTests {
                         }
                 ]
             }
+            esc_enabled = true
+            express_enabled = true
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
@@ -1879,7 +1883,9 @@ trackTests {
 
         // Init event + pref id:
         "/px_checkout/init"(platform: "/mobile", type: TrackType.Event) {
-            payment_preference_id = "123"
+            checkout_preference_id = "123"
+            esc_enabled = true
+            express_enabled = true
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
@@ -1891,7 +1897,7 @@ trackTests {
 
         // Init event:
         "/px_checkout/init"(platform: "/mobile", type: TrackType.Event) {
-            payment_preference = {
+            checkout_preference = {
                 items = [
                         {
                             item = {
@@ -1904,6 +1910,8 @@ trackTests {
                         }
                 ]
             }
+            esc_enabled = true
+            express_enabled = true
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
