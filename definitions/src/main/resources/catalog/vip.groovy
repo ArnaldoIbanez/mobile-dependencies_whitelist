@@ -195,7 +195,7 @@ tracks {
     
     "/vip/quantity_change"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
-        price(required: false, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
+        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
         zip_code(required: false,  PropertyType.Numeric, description: "Indicates the buyer's zip_code")
         quantity(required: true, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to buy")
         shipping_method(required: false)
