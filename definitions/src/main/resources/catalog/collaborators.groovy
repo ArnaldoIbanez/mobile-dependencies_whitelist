@@ -24,10 +24,9 @@ tracks {
         segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
-
     "/collaborators_admin/invite"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {}
 
-    "/collaborators_admin/linkOpStores"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {}
+    "/collaborators_admin/link_stores"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {}
 
     "/collaborators_admin/roles/"(platform:"/web", isAbstract: true, parentPropertiesInherited: false) {}
 
