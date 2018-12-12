@@ -650,11 +650,11 @@ trackTests {
         }
 
     }
-    
+
     test("Login Success") {
         "/login_success"(platform: "/mobile/ios") {
         }
-        
+
     }
 
 
@@ -2542,6 +2542,51 @@ trackTests {
             view = "recognized"
             event_type = "render"
             phone_status = "hasPhone"
+        }
+    }
+
+    test("Account recovery flow") {
+        "/account_recovery/canceled"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
+        "/account_recovery/canceled"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+        }
+        "/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
+        "/account_recovery/congrats"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+        }
+        "/account_recovery/congrats"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "cancel_button"
+        }
+        "/account_recovery/phone_number_verification"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
+        "/account_recovery/phone_number_verification"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "unlink_button"
+        }
+        "/account_recovery/phone_number_verification"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "cancel_button"
+        }
+        "/account_recovery/on_hold"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
+        "/account_recovery/on_hold"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
         }
     }
 
