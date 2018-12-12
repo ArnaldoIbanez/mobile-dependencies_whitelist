@@ -69,14 +69,13 @@ class CatalogHandler {
 		return false
 	}
 
-	boolean catalogIsUpdated(File catalogFile, String tmpFolder, String tmpFilePrefix) {
-        String mainCatalog = S3_CONTAINER + S3_CATALOG_FILE
-		List<S3ObjectSummary> objectSummaries = cli.listObjects(new ListObjectsRequest().withBucketName(S3_BUCKET).withPrefix(mainCatalog)).getObjectSummaries()
-        downloadCatalog(objectSummaries, tmpFolder, tmpFilePrefix)
-		File s3Catalog = new File(tmpFolder, tmpFilePrefix + S3_CATALOG_FILE)
-		boolean isUpdated = FileUtils.contentEquals(catalogFile, s3Catalog)
-		s3Catalog.delete()
-		return isUpdated
+	boolean catalogIsUpdated(String catalogFolder) {
+		def provisionalCatalogFolder = "/tmp/" + catalogName + "/"
+
+		List<S3ObjectSummary> objectSummaries = cli.listObjects(new ListObjectsRequest().withBucketName(S3_BUCKET).withPrefix(S3_CONTAINER)).getObjectSummaries()
+        downloadCatalog(objectSummaries, provisionalCatalogFolder, "")
+
+		return compareDirs(catalogFolder, provisionalCatalogFolder) && compareDirs(provisionalCatalogFolder, catalogFolder)
 	}
 
 	Catalog getCatalog() {
@@ -133,6 +132,26 @@ class CatalogHandler {
 
 	private boolean isMainFile(String key) {
 		return key.endsWith(S3_CATALOG_FILE)
+	}
+
+	private boolean compareDirs(actualCatalog, uploadedCatalog) {
+
+		def areEquals = true
+
+		new File(actualCatalog).listFiles().each { actualFile ->
+			def fileUploaded = new File(uploadedCatalog + actualFile.name)
+
+
+			if (!fileUploaded.exists()) {
+				areEquals = false
+			}
+
+			if (actualFile.text != fileUploaded.text) {
+				areEquals = false
+			}
+		}
+
+		return areEquals
 	}
 
 }

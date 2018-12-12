@@ -10,7 +10,7 @@ tracks {
 
     "/shipping"(platform: "/", isAbstract: true) {}
 
-    "/shipping/tracking"(platform: "/api", type: TrackType.Event) {
+    "/ "(platform: "/api", type: TrackType.Event) {
         status_code(required:true, description: "API Response code", type: PropertyType.String)
     }
 

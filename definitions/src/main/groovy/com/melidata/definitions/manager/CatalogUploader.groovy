@@ -24,17 +24,17 @@ class CatalogUploader {
     HiveFormatter hiveFormatter
 
     CatalogUploader(String catalogName) {
-        s3Controller = new S3Controller(S3_BUCKET + "/" + catalogName, AWS_ACCESS_KEY, AWS_SECRET_KEY)
-        this.CATALOG_DIR = BASE_CATALOG_DIR + catalogName
+        s3Controller = new S3Controller(S3_BUCKET + "/" + catalogName,  AWS_ACCESS_KEY, AWS_SECRET_KEY)
         this.catalogHandler = new CatalogHandler(catalogName)
         this.hiveFormatter = new HiveFormatter(catalogName)
         CatalogDsl.setBaseDir(BASE_CATALOG_DIR + catalogName + "/")
+        CATALOG_DIR = BASE_CATALOG_DIR + catalogName + "/"
     }
 
     def upload() {
         println("Starting uploader")
         def catalogFile = new File(CATALOG_DIR + "/", CatalogHandler.S3_CATALOG_FILE)
-        if (catalogHandler.catalogIsUpdated(catalogFile, CATALOG_DIR + "/", "tmp")) {
+        if (catalogHandler.catalogIsUpdated(CATALOG_DIR)) {
             println("Catalog doesn't have changes")
             return
         }
