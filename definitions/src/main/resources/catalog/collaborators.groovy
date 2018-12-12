@@ -26,6 +26,8 @@ tracks {
 
     "/collaborators_admin/invite"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {}
 
+    "/collaborators_admin/link_stores"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {}
+
     "/collaborators_admin/roles/"(platform:"/web", isAbstract: true, parentPropertiesInherited: false) {}
 
     "/collaborators_admin/roles/create"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {

@@ -3606,5 +3606,22 @@ trackTests {
         }
     }
 
+    test("Stores frontend admin") {
+        "/stores/create"(platform: "/web", type: TrackType.View) {}
+        "/stores/link_operators"(platform: "/web", type: TrackType.View) {}
+        "/stores/list"(platform: "/web", type: TrackType.View) {}
+        "/stores/update"(platform: "/web", type: TrackType.View) {}
+        "/stores/details"(platform: "/web", type: TrackType.View) {}
+        "/stores/pos/create"(platform: "/web", type: TrackType.View) {}
+        "/stores/pos/update"(platform: "/web", type: TrackType.View) {}
+
+        "/stores/create"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/link_operators"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/list"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/update"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/details"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/pos/create"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/pos/update"(platform: "/web/mobile", type: TrackType.View) {}
+    }
 
 }
