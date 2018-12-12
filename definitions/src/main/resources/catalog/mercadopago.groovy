@@ -1005,6 +1005,7 @@ tracks {
     "/stores/list"(platform: "/web", type: TrackType.View) {}
     "/stores/update"(platform: "/web", type: TrackType.View) {}
     "/stores/details"(platform: "/web", type: TrackType.View) {}
+    "/stores/pos"(platform: "/web", type: TrackType.View, isAbstract:true) {}
     "/stores/pos/create"(platform: "/web", type: TrackType.View) {}
     "/stores/pos/update"(platform: "/web", type: TrackType.View) {}
 
