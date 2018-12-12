@@ -999,6 +999,14 @@ tracks {
         activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "where open link from sms")
     }
 
+    "/stores"(platform: "/", isAbstract: true) {}
+    "/stores/create"(platform: "/", type: TrackType.View) {}
+    "/stores/link_operators"(platform: "/", type: TrackType.View) {}
+    "/stores/list"(platform: "/", type: TrackType.View) {}
+    "/stores/update"(platform: "/", type: TrackType.View) {}
+    "/stores/details"(platform: "/", type: TrackType.View) {}
+    "/stores/pos/create"(platform: "/", type: TrackType.View) {}
+    "/stores/pos/update"(platform: "/", type: TrackType.View) {}
 
 }
 
