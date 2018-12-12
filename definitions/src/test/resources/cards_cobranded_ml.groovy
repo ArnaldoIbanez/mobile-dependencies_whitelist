@@ -44,6 +44,10 @@ trackTests {
         "/cobranded/acquisition/error/corporation"(platform: "/web/desktop", type: TrackType.View){}
         "/cobranded/acquisition/error/operator"(platform: "/web/desktop", type: TrackType.View){}
         "/cobranded/acquisition/error/without_credit_card"(platform: "/web/desktop", type: TrackType.View){}
+        "/cobranded/landing/delivered_card"(platform: "/web/desktop", type: TrackType.View){}
+        "/cobranded/landing/active_card"(platform: "/web/desktop", type: TrackType.View){}
+        "/cobranded/acquisition/summary_date"(platform: "/web/desktop", type: TrackType.View){}
+        "/cobranded/acquisition/error/cnpj"(platform: "/web/desktop", type: TrackType.View){} 
 
         // View mobile
         "/cobranded/acquisition"(platform: "/web/mobile", type: TrackType.View){}
@@ -66,6 +70,12 @@ trackTests {
         "/cobranded/acquisition/error/corporation"(platform: "/web/mobile", type: TrackType.View){}
         "/cobranded/acquisition/error/operator"(platform: "/web/mobile", type: TrackType.View){}
         "/cobranded/acquisition/error/without_credit_card"(platform: "/web/mobile", type: TrackType.View){}
+        "/cobranded/landing/delivered_card"(platform: "/web/mobile", type: TrackType.View){}
+        "/cobranded/landing/active_card"(platform: "/web/mobile", type: TrackType.View){}
+        "/cobranded/acquisition/summary_date"(platform: "/web/mobile", type: TrackType.View){}
+        "/cobranded/acquisition/error/cnpj"(platform: "/web/mobile", type: TrackType.View){}
+
+        
     }
 
     test("cards cobranded ML error") {
