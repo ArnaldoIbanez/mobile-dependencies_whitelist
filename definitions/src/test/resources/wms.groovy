@@ -104,7 +104,7 @@ trackTests {
             trackDataForAudit()
             warehouse_id = "BRWT01"
         }
-        "/wms/inbound_audit/damaged_item"(platform: "/mobile/android") {
+        "/wms/inbound_audit/item/damaged_item"(platform: "/mobile/android") {
             trackDataForAudit()
             warehouse_id = "BRWT01"
         }

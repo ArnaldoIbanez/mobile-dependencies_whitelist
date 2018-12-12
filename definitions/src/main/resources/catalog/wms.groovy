@@ -70,10 +70,9 @@ tracks {
     "/wms/inbound_audit/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/inbound_audit/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/inbound_audit/item"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/inbound_audit/damaged_item"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/inbound_audit/item/damaged_item"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/inbound_audit/count_around"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/inbound_audit/congrats"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/inbound_audit/item/damaged_item"(platform: "/mobile/android", type: TrackType.View) {}
 
     "/wms/inbound_audit/confirmation/start_audit"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/inbound_audit/item/reset_audit"(platform: "/mobile/android", type: TrackType.Event) {}
