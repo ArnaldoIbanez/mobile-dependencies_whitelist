@@ -116,10 +116,6 @@ tracks {
         page(required: false, type: PropertyType.Numeric, description: "Page number")
     }
 
-    "/seller_central/bulk/discounts/domain"(platform: "/", type: TrackType.Event) {
-        id(required: true, type: PropertyType.String, description: "Id of the domaing group")
-    }
-
     "/seller_central/bulk/discounts/filters"(platform: "/", type: TrackType.Event) {
         filters(required: true, type: PropertyType.ArrayList, description: "List of selected filters")
     }
