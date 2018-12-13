@@ -92,7 +92,7 @@ class Validate {
         System.err.println("")
 
         def db = [url:'jdbc:presto://melidata-presto.ml.com:80/hive/default', 
-                    user:'catalog', password:'psw', 
+                    user:'app_hivetab', password:'Meli.1806', 
                     driver:'com.facebook.presto.jdbc.PrestoDriver']
         def sql = Sql.newInstance(db.url, db.user, db.password, db.driver)
 
