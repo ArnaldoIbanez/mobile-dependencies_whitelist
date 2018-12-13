@@ -693,6 +693,11 @@ tracks {
     }
 
     "/instore/map/permissions"(platform: "/mobile", isAbstract: true) {}
+
+    "/instore/map/permissions/back"(platform: "/mobile", type: TrackType.Event) {
+        time_in_millis(required: false, PropertyType.String)
+    }
+    
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {}
     "/ask_device_permission/location"(platform: "/mobile", isAbstract: true) {}
 
@@ -706,8 +711,18 @@ tracks {
         tags(required: false, PropertyType.String)
     }
 
-    "/instore/map/permissions/back"(platform: "/mobile", type: TrackType.Event) {
+    "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {
+        context(required: false, PropertyType.String)
         time_in_millis(required: false, PropertyType.String)
     }
+
+    "/ask_device_permission/location/granted"(platform: "/mobile", type: TrackType.Event) {
+        context(required: false, PropertyType.String)
+    }
+
+    "/ask_device_permission/location/rejected"(platform: "/mobile", type: TrackType.Event) {
+        context(required: false, PropertyType.String)
+    }
+
 
 }
