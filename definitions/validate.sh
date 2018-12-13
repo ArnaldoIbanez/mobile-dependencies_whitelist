@@ -7,6 +7,4 @@ if [ $version -lt "8" ]; then
   exit 1
 fi
 
-certs=$(for i in ../certificateChain_elb.pem ../trustedCertificates_elb.pem; do keytool -importcert -file $i -alias "presto_$i" -keystore $JAVA_HOME/jre/lib/security/cacerts -storepass changeit -noprompt; done)
-
 ./gradlew validate -q -Pargs="$*"
