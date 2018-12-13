@@ -693,9 +693,17 @@ tracks {
     }
 
     "/instore/map/permissions"(platform: "/mobile", isAbstract: true) {}
+    "/ask_device_permission"(platform: "/mobile", isAbstract: true) {}
+    "/ask_device_permission/location"(platform: "/mobile", isAbstract: true) {}
 
-    "/instore/map/permissions/location"(platform: "/mobile", type: TrackType.View) {
-        time_in_millis(required: false, PropertyType.String)
+
+
+    "/ask_device_permission/location"(platform: "/mobile", type: TrackType.View) {
+        context(required: false, PropertyType.String)
+        location_permission_enabled(required: false, PropertyType.Boolean)
+        device_gps_enabled(required: false, PropertyType.Boolean)
+        type(required: false, PropertyType.String)
+        tags(required: false, PropertyType.String)
     }
 
     "/instore/map/permissions/back"(platform: "/mobile", type: TrackType.Event) {
