@@ -90,6 +90,11 @@ task validate(type:JavaExec) {
     if (project.hasProperty('args')) args project.args.split()
 }
 
+task uploadWhitelist(type:JavaExec) {
+    main = 'com.melidata.definitions.manager.WhitelistPathUploader'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
 task export(type:JavaExec) {
     def mainClass
     if (format == 'hive')
