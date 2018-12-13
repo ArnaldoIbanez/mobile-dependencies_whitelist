@@ -185,7 +185,7 @@ trackTests {
 
     test("seller central bulk filters and search") {
         "/seller_central/bulk/discounts/undo_changes"(platform: "/", type: TrackType.Event) {}
-        "/seller_central/bulk/search"(platform: "/", type: TrackType.Event) {}
+        "/seller_central/bulk/discounts/search"(platform: "/", type: TrackType.Event) {}
     }
 
 
