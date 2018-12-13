@@ -2119,6 +2119,14 @@ trackTests {
             batch_id = "MLB_PACK_20180508_2"
         }
 
+        "/notification/mpcampaigns-control_group"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "discarded"
+            campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
+            deal_id = "MLA_MP_PRUEBA_G_20181211"
+            sent_date = "20181211"
+        }
+
         "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
             news_id = "credits-merchants_expired_first_notice-9876"
             event_type = "shown"
