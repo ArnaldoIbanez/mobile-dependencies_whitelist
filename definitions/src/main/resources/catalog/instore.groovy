@@ -662,4 +662,32 @@ tracks {
     "/instore/checkout/card/debit_card/expiration"(platform: "/mobile", type: TrackType.View) {}
     "/instore/checkout/card/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {}
 
+    // Discovery
+    "/instore/map"(platform: "/mobile", isAbstract: true) {}
+    "/instore/map"(platform: "/mobile", type: TrackType.View) {
+        northeast(required: false, PropertyType.String)
+        southwest(required: false, PropertyType.String)
+        location(required: false, PropertyType.String)
+        type(required: false, PropertyType.String)
+        tags(required: false, PropertyType.ArrayList)
+        bluetooth_permissions(required: false, PropertyType.Boolean)
+    }
+
+    "/instore/map/data_retrieved"(platform: "/mobile", type: TrackType.Event) {
+        action_type(required: false, PropertyType.String)
+        stores_quantity(required: flase, PropertyType.String)
+    }
+
+    "/instore/map/locate_by_gps"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/map/back"(platform: "/mobile", type: TrackType.Event) {
+        time_in_millis(required: false, PropertyType.String)
+    }
+
+    "/instore/map/permissions"(platform: "/mobile", isAbstract: true) {}
+
+    "/instore/map/permissions/back"(platform: "/mobile", type: TrackType.Event) {
+        time_in_millis(required: false, PropertyType.String)
+    }
+
 }
