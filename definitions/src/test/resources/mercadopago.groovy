@@ -2545,7 +2545,7 @@ trackTests {
         }
     }
 
-    test("Account recovery flow") {
+    test("Account recovery flow mp") {
         "/account_recovery/canceled"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
         }
