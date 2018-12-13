@@ -54,6 +54,7 @@ trackTests {
                         currency_id = "ARS"
                     }
             ]
+            collector_id = "12312412"
         }
         "/px_checkout/payments/select_method/ticket"(platform: "/mobile", type: TrackType.View) {
             available_methods = [
@@ -369,9 +370,21 @@ trackTests {
                         campaign_id = 1
                         is_available = true
                     }
+
+            collector_id = "12312412"
         }
 
-        "/px_checkout/review/traditional/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
+        "/px_checkout/payments/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+
+            flow = "/instore"
+            url = "https://www.mercadopago.com.ar/ayuda/terminos-y-condiciones_299"
+        }
 
         // One tap + descuento
         "/px_checkout/review/one_tap"(platform: "/mobile", type: TrackType.View) {
@@ -1349,7 +1362,10 @@ trackTests {
                 store_id = 1234
                 pos_id = 1234
             }
+            
             flow = "/instore"
+
+            collector_id = "12312412"
         }
 
         "/px_checkout/payments/applied_discount"(platform: "/mobile", type: TrackType.View) {
@@ -1583,7 +1599,17 @@ trackTests {
                     }
         }
 
-        "/px_checkout/review/traditional/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
+        "/px_checkout/payments/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+
+            flow = "/instore"
+            url = "https://www.mercadopago.com.ar/ayuda/terminos-y-condiciones_299"
+        }
 
         // One tap + descuento
         "/px_checkout/review/one_tap"(platform: "/mobile", type: TrackType.View) {

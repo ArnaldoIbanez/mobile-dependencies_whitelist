@@ -8,10 +8,11 @@ tracks {
     propertyDefinitions {
         flow_detail(required: false, description: "External info")
         flow(required: false, type: PropertyType.String, description: "External flow name")
+        collector_id(required: false, type: PropertyType.String, description: "Collector external id")
     }
 
     propertyGroups {
-        externalData(flow, flow_detail)
+        externalData(flow, flow_detail, collector_id)
     }
 
     // Views:
@@ -142,7 +143,8 @@ tracks {
     }
 
     // Terms and conditions view
-    "/px_checkout/review/traditional/terms_and_conditions"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
+    "/px_checkout/payments/terms_and_conditions"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
+        url(required: true, type: PropertyType.String, description: "Web view url")
         externalData
     }
 
