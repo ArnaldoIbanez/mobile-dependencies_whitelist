@@ -199,7 +199,9 @@ tracks {
         zip_code(required: false,  PropertyType.Numeric, description: "Indicates the buyer's zip_code")
         quantity(required: true, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to buy")
         shipping_method(required: false)
-        has_shipping(requered: true,type: PropertyType.Boolean)
+        has_shipping(required: true,type: PropertyType.Boolean)
+        has_stock(required: true,type: PropertyType.Boolean)
+
     }
     
     "/vip/buy_action"(platform: "/", parentPropertiesInherited: false) {
