@@ -3,7 +3,8 @@
     "franco.vitali@mercadolibre.com",
     "victoria.perello@mercadolibre.com",
     "mauro.capolupo@mercadolibre.com",
-    "juanjose.barrera@mercadolibre.com"
+    "juanjose.barrera@mercadolibre.com",
+    "nicolas.outeda@mercadolibre.com"
   ],
   "process_name": "component_ctr",
   "cron": "00 04 * * *",
