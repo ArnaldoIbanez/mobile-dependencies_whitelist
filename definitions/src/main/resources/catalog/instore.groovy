@@ -678,6 +678,14 @@ tracks {
         stores_quantity(required: flase, PropertyType.String)
     }
 
+    "/instore/map/search_in_this_area"(platform: "/mobile", type: TrackType.Event) {
+        includes_user_position(required: false, PropertyType.Boolean)
+        center(required: false, PropertyType.String)
+        northeast(required: false, PropertyType.String)
+        southwest(required: false, PropertyType.String)
+        tags(required: false, PropertyType.String)
+    }
+
     "/instore/map/locate_by_gps"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/map/back"(platform: "/mobile", type: TrackType.Event) {
