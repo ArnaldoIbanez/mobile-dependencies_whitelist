@@ -106,7 +106,53 @@ tracks {
 
     "/seller_central/bulk/offline/download/warning"(platform: "/", type: TrackType.Event){}
 
+    //BULK SECTION - DISCOUNTS VERSION
 
+    "/seller_central/bulk/discounts"(platform: "/", isAbstract: true) {}
+    "/seller_central/bulk/discounts/list"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/discounts/onboarding"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Id of the action", values:["start","close", "rollback", "dismiss"])
+        page(required: false, type: PropertyType.Numeric, description: "Page number")
+    }
+
+    "/seller_central/bulk/discounts/domain"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Id of the domaing group")
+    }
+
+    "/seller_central/bulk/discounts/filters"(platform: "/", type: TrackType.Event) {
+        filters(required: true, type: PropertyType.ArrayList, description: "List of selected filters")
+    }
+
+    "/seller_central/bulk/discounts/search"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/bulk/discounts/undo_changes"(platform: "/", type: TrackType.Event) {}
+
+
+    "/seller_central/bulk/discounts/columns"(platform: "/", type: TrackType.Event){
+        columns(required: true, type: PropertyType.ArrayList, description: "List of the available columns and his order")
+    }
+
+    "/seller_central/bulk/discounts/offline"(platform: "/", isAbstract: true) {}
+
+    "/seller_central/bulk/discounts/offline/home"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/discounts/offline/download"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/discounts/offline/download/congrats"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/discounts/offline/upload"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/discounts/offline/upload/congrats"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/discounts/offline/download/user_selection"(platform: "/", type: TrackType.Event){
+        columns(required: true, type: PropertyType.ArrayList, description: "List of the selected columns")
+        domains(required: true, type: PropertyType.ArrayList, description: "List of the selected domains")
+    }
+
+    "/seller_central/bulk/discounts/offline/download/error"(platform: "/", type: TrackType.Event){}
+
+    "/seller_central/bulk/discounts/offline/download/warning"(platform: "/", type: TrackType.Event){}
     //ITEM DETAIL SECTION
 
     "/seller_central/modify"(platform: "/", isAbstract: true) {
