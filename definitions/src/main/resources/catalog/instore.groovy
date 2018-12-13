@@ -694,6 +694,10 @@ tracks {
 
     "/instore/map/permissions"(platform: "/mobile", isAbstract: true) {}
 
+    "/instore/map/permissions/location"(platform: "/mobile", type: TrackType.View) {
+        time_in_millis(required: false, PropertyType.String)
+    }
+
     "/instore/map/permissions/back"(platform: "/mobile", type: TrackType.Event) {
         time_in_millis(required: false, PropertyType.String)
     }
