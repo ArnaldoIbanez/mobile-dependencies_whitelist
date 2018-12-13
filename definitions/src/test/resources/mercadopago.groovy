@@ -2553,45 +2553,45 @@ trackTests {
         }
     }
 
-    test("Account recovery flow mp") {
-        "/account_recovery/canceled"(platform: "/web", type: TrackType.View) {
+    test("Account recovery flow") {
+        "/auth/account_recovery/canceled"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
         }
-        "/account_recovery/canceled"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/phone_number_verification"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/on_hold"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/canceled/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
         }
-        "/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
-            id = "id--fury"
-        }
-        "/account_recovery/congrats"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
         }
-        "/account_recovery/congrats"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "cancel_button"
         }
-        "/account_recovery/phone_number_verification"(platform: "/web", type: TrackType.View) {
-            id = "id--fury"
-        }
-        "/account_recovery/phone_number_verification"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "unlink_button"
         }
-        "/account_recovery/phone_number_verification"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "cancel_button"
         }
-        "/account_recovery/on_hold"(platform: "/web", type: TrackType.View) {
-            id = "id--fury"
-        }
-        "/account_recovery/on_hold"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"

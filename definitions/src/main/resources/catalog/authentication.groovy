@@ -215,27 +215,43 @@ tracks {
     }
 
     //Account Recovery
-    "/account_recovery"(platform: "/", isAbstract: true) {}
+    "/auth/account_recovery"(platform: "/", isAbstract: true) {}
 
-    "/account_recovery/canceled"(platform: "/") {
+    "/auth/account_recovery/canceled"(platform: "/", type: TrackType.View) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+    }
+
+    "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+    }
+
+    "/auth/account_recovery/phone_number_verification"(platform: "/", type: TrackType.View) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+    }
+
+    "/auth/account_recovery/on_hold"(platform: "/", type: TrackType.View) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+    }
+
+    "/auth/account_recovery/canceled/action"(platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
     }
 
-    "/account_recovery/congrats"(platform: "/") {
+    "/auth/account_recovery/congrats/action"(platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
     }
 
-    "/account_recovery/phone_number_verification"(platform: "/") {
+    "/auth/account_recovery/phone_number_verification/action"(platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
     }
 
-    "/account_recovery/on_hold"(platform: "/") {
+    "/auth/account_recovery/on_hold/action"(platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
