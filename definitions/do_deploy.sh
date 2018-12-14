@@ -15,6 +15,9 @@ if [[ $DRONE_BRANCH == "master" && $DRONE_BUILD_DIR != "" ]]; then
   echo "Starting upload json for batch queries"
   ./gradlew uploadBatchQueries
 
+  echo "Starting upload json for whitelisted paths"
+  ./gradlew uploadWhitelist
+
 else
   echo "This branch / fork doesn't deploy"
 fi

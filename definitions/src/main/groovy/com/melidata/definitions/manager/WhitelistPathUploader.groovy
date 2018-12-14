@@ -18,7 +18,7 @@ class WhitelistPathUploader {
 
     def static void main(String[] args) {
         def pathWhitelistDir = "./src/main/resources/whitelist/"
-        def s3Bucket = "melidata-croned-queries"
+        def s3Bucket = "melidata-api-whitelist"
         def accessKey = "AKIAJ4K4ZOXUNJLTL4NQ"
         def secretKey = "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"
 
@@ -33,13 +33,13 @@ class WhitelistPathUploader {
         def gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create()
         def json =  gson.toJson(gson.fromJson(pathContents, Map))
 
-        String versionedName = "whitelist/versions/path_" + new Date().format("yyyMMddHHmmss") + ".json"
+        String versionedName = "versions/path_" + new Date().format("yyyMMddHHmmss") + ".json"
 
         println("JSON loaded")
         println("Uploading ${FILE_NAME}")
 
 
-        s3Controller.saveFile( "whitelist/" + FILE_NAME, json, JSON_CONTENT)
+        s3Controller.saveFile( FILE_NAME, json, JSON_CONTENT)
         s3Controller.saveFile(versionedName, json, JSON_CONTENT)
 
         println("Finish")
