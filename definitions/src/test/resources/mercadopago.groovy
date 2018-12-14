@@ -650,11 +650,11 @@ trackTests {
         }
 
     }
-    
+
     test("Login Success") {
         "/login_success"(platform: "/mobile/ios") {
         }
-        
+
     }
 
 
@@ -2119,6 +2119,14 @@ trackTests {
             batch_id = "MLB_PACK_20180508_2"
         }
 
+        "/notification/mpcampaigns-control_group"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "discarded"
+            campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
+            deal_id = "MLA_MP_PRUEBA_G_20181211"
+            sent_date = "20181211"
+        }
+
         "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
             news_id = "credits-merchants_expired_first_notice-9876"
             event_type = "shown"
@@ -2542,6 +2550,51 @@ trackTests {
             view = "recognized"
             event_type = "render"
             phone_status = "hasPhone"
+        }
+    }
+
+    test("Account recovery flow") {
+        "/auth/account_recovery/canceled"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/phone_number_verification"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/on_hold"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/canceled/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+        }
+        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+        }
+        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "cancel_button"
+        }
+        "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "unlink_button"
+        }
+        "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "cancel_button"
+        }
+        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
         }
     }
 

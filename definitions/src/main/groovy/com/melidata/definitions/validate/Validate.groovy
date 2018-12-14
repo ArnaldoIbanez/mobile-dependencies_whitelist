@@ -87,11 +87,12 @@ class Validate {
 
     private static List generateResultFromPresto(options, catalog) {
         def query = buildQuery(options)
+        def presto_certs_path = System.getProperty("user.dir") + "/src/main/resources/presto_cacerts"
         System.err.println("Query:")
         System.err.println("${query}")
         System.err.println("")
 
-        def db = [url:'jdbc:presto://melidata-presto.ml.com:443/hive/default?SSL=true', 
+        def db = [url:"jdbc:presto://melidata-presto.ml.com:443/hive/default?SSL=true&SSLKeyStorePath=${presto_certs_path}",
                     user:'app_hivetab', password:'Meli.1806', 
                     driver:'com.facebook.presto.jdbc.PrestoDriver']
         def sql = Sql.newInstance(db.url, db.user, db.password, db.driver)
