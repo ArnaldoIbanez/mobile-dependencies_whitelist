@@ -300,8 +300,8 @@ tracks {
         listing_type_id(required: true, description: "Item listing type id")
         vertical(required: true, description: "Item Vertical: core/service/motor/real_estate/etc...")
         buying_mode(required: true, description: "Item buying mode: buy_it_now/auction/classified")
-        condition(required: true, description: "Item condition: used/new/not_specified")
-        price(required: true, description: "Item price")
+        condition(required: false, description: "Item condition: used/new/not_specified/refurbished", type: PropertyType.String)
+        price(required: false, description: "Item price", type: PropertyType.Numeric)
         category_id(required: true, description: "Item category_id")
         category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree")
 
@@ -326,8 +326,8 @@ tracks {
         listing_type_id(required: true, description: "Item listing type id")
         vertical(required: true, description: "Item Vertical: core/service/motor/real_estate/etc...")
         buying_mode(required: true, description: "Item buying mode: buy_it_now/auction/classified")
-        condition(required: true, description: "Item condition: used/new/not_specified")
-        price(required: true, description: "Item price")
+        condition(required: false, description: "Item condition: used/new/not_specified/refurbished", type: PropertyType.String)
+        price(required: false, description: "Item price", type: PropertyType.Numeric)
         parent_id(required: false, description: "Parent item listing type id")
         parent_listing_type_id(required: false, description: "Parent item listing type id")
         change_listing_type(required: false, description: "If the listing type changed compare to its parent. Values: upgrade/no_change/downgrade")
@@ -512,17 +512,17 @@ tracks {
         errorValidation(required: false, type:  PropertyType.String, description: "Error message when value is invalid")
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
     }
-    
+
     //landing
     "/myml/invoices/landing"(platform: "/") {}
     "/myml/invoices/landing/optin"(platform: "/", type: TrackType.Event) {
         type (required: true, values: ["top", "bottom"], description: "Top or bottom button")
     }
-    
+
     //certificate
     "/myml/invoices/company-info/certificate"(platform: "/") {}
     "/myml/invoices/company-info/certificate/help_tooltip"(platform: "/", type: TrackType.Event) {}
-    
+
     "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
     "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/save"(platform: "/", isAbstract: true) {}
@@ -532,14 +532,14 @@ tracks {
         message(required: true, description: "Description of error when user uploads an A1 digital certificate")
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
     }
-    
+
     "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
     "/myml/invoices/company-info/certificate/a3/handshake"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/certificate/a3/handshake/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a3/handshake/response"(platform: "/", type: TrackType.Event) {
         data(required: true, description: "A3 certificate Handshake event infos")
     }
-    
+
     //serie
     "/myml/invoices/company-info/serie"(platform: "/") {}
     "/myml/invoices/company-info/serie/help_tooltip"(platform: "/", type: TrackType.Event) {}
@@ -558,7 +558,7 @@ tracks {
         month(required: true, type: PropertyType.Numeric, description: "Which month user is requesting your invoice xml file")
         year(required: true, type: PropertyType.Numeric, description: "Which year user is requesting your invoice xml file")
     }
-    
+
     //cst
     "/myml/invoices/company-info/cst"(platform: "/") {}
     "/myml/invoices/company-info/cst/help_tooltip"(platform: "/", type: TrackType.Event) {}
@@ -584,7 +584,7 @@ tracks {
         data(required: true, type: PropertyType.String, description: "User state registration code (tax information) input")
     }
     "/myml/invoices/company-info/ie/save/response"(platform: "/", type: TrackType.Event) {}
-    
+
     //confirm
     "/myml/invoices/company-info/confirm"(platform: "/") {}
     "/myml/invoices/company-info/confirm/save"(platform: "/", isAbstract: true) {}
@@ -636,7 +636,7 @@ tracks {
     "/myml/invoices/order/carrier"(platform: "/") {}
     "/myml/invoices/order/carrier/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/order/carrier/save/request"(platform: "/", type: TrackType.Event) {
-      data(required: true, description: "Form values, buyer, transport company, quantiy and value that user inputs")      
+      data(required: true, description: "Form values, buyer, transport company, quantiy and value that user inputs")
     }
     "/myml/invoices/order/carrier/save/response"(platform: "/", type: TrackType.Event) {}
     "/myml/sales/list/set_user_fiscal_order_action"(platform: "/web", type: TrackType.Event) {
@@ -747,11 +747,11 @@ tracks {
         error(required: false, type: PropertyType.Boolean, description: "Boolean if request was error")
         message(required: false, type: PropertyType.String, description: "Error message that pops on page")
     }
-    
+
     "/myml/invoices/error"(platform: "/") {
         error(required: true, type: PropertyType.String, values:[
-            "not_legal_entity", 
-            "not_valid_address", 
+            "not_legal_entity",
+            "not_valid_address",
             "not_tax_regime_allowed",
             "not_right_tax_regime",
             "not_cnpj_user",

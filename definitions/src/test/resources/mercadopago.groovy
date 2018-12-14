@@ -523,8 +523,42 @@ trackTests {
         "/merchant_acquisition/mydata/success"(platform:"/", type: TrackType.View) {}
     }
 
-    test("Point Flow Congrats") {
+    test("Point Flow Congrats Success") {
         "/point/flows/congrats"(platform:"/", type: TrackType.View) {}
+    }
+
+    test("Point Flow Congrats Instructions") {
+        "/point/flows/congrats/instructions"(platform:"/") {
+          payment_id = 4334902696
+          payment_method = "bolbradesco"
+          device_id = "9"
+          amount = 118.11
+          is_guest = "false"
+        }
+    }
+
+    test("Point Flow Congrats Instructions click events") {
+        "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {
+          payment_id = 4334902696
+          payment_method = "bolbradesco"
+          device_id = "9"
+          amount = 118.11
+          is_guest = "false"
+        }
+        "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {
+          payment_id = 4334902696
+          payment_method = "bolbradesco"
+          device_id = "9"
+          amount = 118.11
+          is_guest = "false"
+        }
+        "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {
+          payment_id = 4334902696
+          payment_method = "bolbradesco"
+          device_id = "9"
+          amount = 118.11
+          is_guest = "false"
+        }
     }
 
     test("Landing mercadopago point") {
@@ -616,11 +650,11 @@ trackTests {
         }
 
     }
-    
+
     test("Login Success") {
         "/login_success"(platform: "/mobile/ios") {
         }
-        
+
     }
 
 
@@ -2085,6 +2119,14 @@ trackTests {
             batch_id = "MLB_PACK_20180508_2"
         }
 
+        "/notification/mpcampaigns-control_group"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "discarded"
+            campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
+            deal_id = "MLA_MP_PRUEBA_G_20181211"
+            sent_date = "20181211"
+        }
+
         "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
             news_id = "credits-merchants_expired_first_notice-9876"
             event_type = "shown"
@@ -2508,6 +2550,51 @@ trackTests {
             view = "recognized"
             event_type = "render"
             phone_status = "hasPhone"
+        }
+    }
+
+    test("Account recovery flow") {
+        "/auth/account_recovery/canceled"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/phone_number_verification"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/on_hold"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/canceled/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+        }
+        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+        }
+        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "cancel_button"
+        }
+        "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "unlink_button"
+        }
+        "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "cancel_button"
+        }
+        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
         }
     }
 
@@ -3572,5 +3659,22 @@ trackTests {
         }
     }
 
+    test("Stores frontend admin") {
+        "/stores/create"(platform: "/web", type: TrackType.View) {}
+        "/stores/link_operators"(platform: "/web", type: TrackType.View) {}
+        "/stores/list"(platform: "/web", type: TrackType.View) {}
+        "/stores/update"(platform: "/web", type: TrackType.View) {}
+        "/stores/details"(platform: "/web", type: TrackType.View) {}
+        "/stores/pos/create"(platform: "/web", type: TrackType.View) {}
+        "/stores/pos/update"(platform: "/web", type: TrackType.View) {}
+
+        "/stores/create"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/link_operators"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/list"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/update"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/details"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/pos/create"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/pos/update"(platform: "/web/mobile", type: TrackType.View) {}
+    }
 
 }

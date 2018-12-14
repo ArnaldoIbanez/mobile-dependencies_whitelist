@@ -288,11 +288,11 @@ tracks {
         milestone(type: PropertyType.Numeric, required: true)
     }
 
-    "/credits/pursue/overdue_nav"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+    "/credits/consumer/overdue_nav"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
         pursue_nav_properties
     }
 
-    "/credits/pursue/overdue_nav/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+    "/credits/consumer/overdue_nav/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
         pursue_nav_properties
     }
     /******************************************

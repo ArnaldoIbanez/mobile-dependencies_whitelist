@@ -33,6 +33,7 @@ trackTests {
             camera_permissions = true
             location_permissions = true
             notifications_permissions = true
+            bluetooth_permissions = true
         }
         "/instore/scan_qr/qr_discovery"(platform: "/mobile", type: TrackType.Event) {
             qr_data = "Any scanned data"
@@ -50,6 +51,7 @@ trackTests {
             pos_id = "65763"
             success = true
             next_step_deeplink = "Any deeplink"
+            currency = "ARS"
         }
         "/instore/scan_qr/abort"(platform: "/mobile", type: TrackType.Event) {
             view_time_in_millis = "453282"
@@ -282,6 +284,10 @@ trackTests {
             view_time_in_millis = "134231"
         }
 
+        "/instore/qr_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
+            view_time_in_millis = "134231"
+        }
+
         // Shell
         "/instore/shell/pump_code"(platform: "/mobile", type: TrackType.View) {}
         "/instore/shell/pump_code_check"(platform: "/mobile", type: TrackType.Event) {
@@ -417,6 +423,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            vending_id = "12345"
         }
         "/instore/vending/machine_response_final_result"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -424,31 +431,36 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             machine_response_final_result = "Any machine response"
+            vending_id = "12345"
         }
         "/instore/vending/st_machine_connection_error"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             st_machine_connection_error = "Any machine error"
+            vending_id = "12345"
         }
         "/instore/vending/machine_response_state"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
-            machine_response_state = "Any response state"
+            machine_response_state = "available"
+            vending_id = "12345"
         }
         "/instore/vending/st_machine_not_available"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            vending_id = "12345"
         }
         "/instore/vending/st_machine_connected"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            vending_id = "12345"
         }
         "/instore/vending/response_end_transaction"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -458,6 +470,8 @@ trackTests {
             response_end_transaction = "Transaction response"
             business_result = ["show_payment_method":true, "top_custom_view":[], "title":"¡Listo! Ya le pagaste a FEED", "bottom_custom_view":[], "status":"approved"]
             success = true
+            vending_id = "12345"
+            end_transaction_status = "success"
         }
         "/instore/vending/response_payment"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -546,6 +560,7 @@ trackTests {
             payment_type_id = "credit_card"
             notification_url = "http://181.30.31.180:23080/gap-backend/notificaciones/notificar"
             sponsor_id = 1234567
+            vending_id = "12345"
         }
 
         "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
@@ -762,7 +777,13 @@ trackTests {
 
 
         // Scan QR
-        "/instore/scan_qr"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/scan_qr"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            camera_permissions = true
+            location_permissions = true
+            notifications_permissions = true
+            bluetooth_permissions = true            
+        }
+        
         "/instore/scan_qr/qr_discovery"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             qr_data = "Any scanned data"
             qr_discovery_time_in_millis = "323223"
@@ -779,6 +800,7 @@ trackTests {
             pos_id = "65763"
             success = true
             next_step_deeplink = "Any deeplink"
+            currency = "ARS"
         }
         "/instore/scan_qr/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             view_time_in_millis = "453282"
@@ -1021,6 +1043,11 @@ trackTests {
             view_time_in_millis = "134231"
         }
 
+        "/instore/qr_first_time_use/back"(platform: "/mobile", business:"mercadopago",type: TrackType.Event) {
+            view_time_in_millis = "134231"
+        }
+
+
         // Shell
         "/instore/shell/pump_code"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/shell/pump_code_check"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
@@ -1046,6 +1073,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            vending_id = "12345"
         }
         "/instore/vending/machine_response_final_result"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1053,31 +1081,36 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             machine_response_final_result = "Any machine response"
+            vending_id = "12345"
         }
         "/instore/vending/st_machine_connection_error"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             st_machine_connection_error = "Any machine error"
+            vending_id = "12345"
         }
         "/instore/vending/machine_response_state"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
-            machine_response_state = "Any response state"
+            machine_response_state = "available"
+            vending_id = "12345"
         }
         "/instore/vending/st_machine_not_available"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            vending_id = "12345"
         }
         "/instore/vending/st_machine_connected"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            vending_id = "12345"
         }
         "/instore/vending/response_end_transaction"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1087,6 +1120,8 @@ trackTests {
             response_end_transaction = "Transaction response"
             business_result = ["show_payment_method":true, "top_custom_view":[], "title":"¡Listo! Ya le pagaste a FEED", "bottom_custom_view":[], "status":"approved"]
             success = true
+            vending_id = "12345"
+            end_transaction_status = "success"
         }
         "/instore/vending/response_payment"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1285,6 +1320,8 @@ trackTests {
                 payment_type_id = "credit_card"
                 notification_url = "http://181.30.31.180:23080/gap-backend/notificaciones/notificar"
                 sponsor_id = 1234567
+                vending_id = "12345"
+
         }
 
         "/instore/post_payment"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {

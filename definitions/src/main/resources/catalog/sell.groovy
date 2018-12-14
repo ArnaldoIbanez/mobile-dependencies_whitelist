@@ -82,6 +82,13 @@ tracks {
         buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
         condition(required: false, description: "Item condition: used/new/not_specified")
         price(required: false, description: "Item price")
+        category_prediction(required: false, description: "Category prediction path result", type: PropertyType.ArrayList)
+        category_prediction_score(required: false, description: "Category prediction scores result", type: PropertyType.ArrayList)
+        category_prediction_zordon(required: false, description: "Category prediction path result from zordon", type: PropertyType.ArrayList)
+        category_prediction_zordon_score(required: false, description: "Category prediction scores result from zordon", type: PropertyType.ArrayList)
+        title_predicted(required: false, description: "Title used to predict category", type: PropertyType.String)
+        category_id(required: false, description: "Category Id", type: PropertyType.String)
+        category_path(required: false, description: "Category path", type: PropertyType.ArrayList)
     }
     // Upgrade Off = El upgrade de clasificados
     "/sell/upgradeOff"(platform:"/", type: TrackType.View){

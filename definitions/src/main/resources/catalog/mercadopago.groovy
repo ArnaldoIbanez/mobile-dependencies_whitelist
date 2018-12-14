@@ -122,8 +122,20 @@ tracks {
     // Point Flows
     "/point/flows"(platform: "/", isAbstract: true) {}
 
-    // Point Flows Congrats > Pageviews
+    // Point Flows Congrats Success > Pageview
     "/point/flows/congrats"(platform:"/", type: TrackType.View) {}
+    // Point Flows Congrats Instructions > Pageview
+    "/point/flows/congrats/instructions"(platform:"/") {
+      payment_id (required: true, type: PropertyType.Numeric, description: "ID of payment")
+      payment_method (required: true, type: PropertyType.String, description: "Method of payment")
+      device_id (required: true, type: PropertyType.String, description: "ID of Point device")
+      amount (required: true, type: PropertyType.Numeric, description: "Ticket amount")
+      is_guest (required: true, type: PropertyType.String, description: "Guest user flag")
+    }
+    // Point Flows Congrats Instructions > Click Events
+    "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {}
 
     //Point Devices
     "/point/landings/landing_bundles_buy"(platform:"/", type: TrackType.Event) {
@@ -754,6 +766,12 @@ tracks {
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
     }
 
+    "/notification/mpcampaigns-control_group"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
+        sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
+    }
+
     //Credits Merchants
     "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
@@ -987,6 +1005,15 @@ tracks {
         activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "where open link from sms")
     }
 
+    "/stores"(platform: "/web", isAbstract: true) {}
+    "/stores/create"(platform: "/web", type: TrackType.View) {}
+    "/stores/link_operators"(platform: "/web", type: TrackType.View) {}
+    "/stores/list"(platform: "/web", type: TrackType.View) {}
+    "/stores/update"(platform: "/web", type: TrackType.View) {}
+    "/stores/details"(platform: "/web", type: TrackType.View) {}
+    "/stores/pos"(platform: "/web", type: TrackType.View, isAbstract:true) {}
+    "/stores/pos/create"(platform: "/web", type: TrackType.View) {}
+    "/stores/pos/update"(platform: "/web", type: TrackType.View) {}
 
 }
 

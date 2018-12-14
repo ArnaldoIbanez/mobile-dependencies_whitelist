@@ -18,6 +18,9 @@ tracks {
         //payment_method_name
         //last_four_digits
     }
+
+    // Card detail
+    "/wallet/card_detail"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {}
     
     // Add card button
     "/wallet/cards/add_card"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
