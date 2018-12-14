@@ -72,7 +72,16 @@ trackTests {
             portal_content_id = 96
             user_profile = ""
         }
-        "/portal/create_case"(platform: "/", type: TrackType.View) {}
+        "/portal/create_case"(platform: "/", type: TrackType.View) {
+            portal_contact = [
+                channels: [:],
+                contact_config: false
+            ]
+            user_type = "normal"
+            reputation_level  = "5_green"
+            seller_profile = "ADVANCED"
+            loyalty_level = 5
+        }
         "/portal/search/result"(platform: "/", type: TrackType.View) {}
         "/portal/search/empty"(platform: "/", type: TrackType.View) {}
         "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
