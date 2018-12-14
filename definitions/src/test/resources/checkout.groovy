@@ -2067,6 +2067,9 @@ trackTests {
                         type : "quick / category"
                     }
             ]
+            filters_present = true
+            agencyLat = 31.638802
+            agencyLng = -106.436181
         }
         "/checkout/shipping/select_store/selected_store"(platform: "/web", type: TrackType.Event) {
             default_location_info = {
@@ -2083,6 +2086,9 @@ trackTests {
                         type : "quick / category"
                     }
             ]
+            filters_present = true
+            agencyLat = 31.638802
+            agencyLng = -106.436181
         }
 
         // Suscripciones

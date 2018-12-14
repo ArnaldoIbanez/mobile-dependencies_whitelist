@@ -456,6 +456,9 @@ tracks {
         last_action(type: PropertyType.String, required: true, description: "That indicate the last action the user on the map")
         distance(type: PropertyType.Numeric, required: false, description: "indicate the distance of the agencie selected to the default center point")
         selected_filters(type: PropertyType.ArrayList, required: false, description: "indicates the selected filters when an agency is selected")
+        agencyLat(type: PropertyType.Numeric, required: false, description: "the latitude of the selected agency")
+        agencyLng(type: PropertyType.Numeric, required: false, description: "the longitude of the selected agency")
+        filters_present(type: PropertyType.Boolean, required: false, description: "indicates if the last request for agencies contains filters or not")
     }
 
     "/checkout/shipping/select_store/selected_store"(platform: "/", type: TrackType.Event) {
@@ -465,6 +468,9 @@ tracks {
         last_action(type: PropertyType.String, required: true, description: "That indicate the last action the user on the map")
         distance(type: PropertyType.Numeric, required: false, description: "indicate the distance of the agencie selected to the default center point")
         selected_filters(type: PropertyType.ArrayList, required: false, description: "indicates the selected filters when an agency is selected")
+        agencyLat(type: PropertyType.Numeric, required: false, description: "the latitude of the selected agency")
+        agencyLng(type: PropertyType.Numeric, required: false, description: "the longitude of the selected agency")
+        filters_present(type: PropertyType.Boolean, required: false, description: "indicates if the last request for agencies contains filters or not")
     }
 
     // No agencies
