@@ -136,13 +136,6 @@ tracks {
 
     "/loyalty/milestones"(platform: "/", type: TrackType.View) {}
 
-
-    // Rewards
-
-    "/loyalty/rewards/"(platform: "/", type: TrackType.View) {}
-
-    "/loyalty/rewards/activity"(platform: "/", type: TrackType.View) {}
-
     //Partners
     "/loyalty/subscribe"(platform: "/", type: TrackType.Event) {
         partner_id(required: true, description: "id of partner",type: PropertyType.String)
