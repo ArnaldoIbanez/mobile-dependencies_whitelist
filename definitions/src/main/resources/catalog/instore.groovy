@@ -6,8 +6,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 tracks {
 
     /**
-    * INSTORES Screen Tracks
-    */
+     * INSTORES Screen Tracks
+     */
 
     "/instore"(platform: "/mobile", isAbstract: true) {}
 
@@ -556,7 +556,7 @@ tracks {
         money_release_date(required: false, PropertyType.String)
         internal_metadata(required: false, description: "transaction information details")
         transaction_amount_refunded(required: false, PropertyType.Numeric)
-        payment_type_id (required: false, PropertyType.String)
+        payment_type_id(required: false, PropertyType.String)
         notification_url(required: false, PropertyType.String)
         sponsor_id(required: false, PropertyType.Numeric)
         vending_id(required: false, PropertyType.String)
@@ -580,10 +580,10 @@ tracks {
     "/instore/permission/location"(platform: "/mobile", type: TrackType.View) {}
     "/instore/camera_permission"(platform: "/mobile", type: TrackType.View) {}
     "/instore/generic_error"(platform: "/mobile", type: TrackType.View) {
-            additional_info (required:false, description: "Extra info")
+        additional_info(required: false, description: "Extra info")
     }
     "/instore/scan_qr/read"(platform: "/mobile", type: TrackType.Event) {
-        data(required:true, type: PropertyType.String)
+        data(required: true, type: PropertyType.String)
     }
     "/instore/required_action/bluetooth_permission"(platform: "/mobile", type: TrackType.View) {}
     "/instore/required_action/bluetooth_on"(platform: "/mobile", type: TrackType.View) {}
@@ -600,7 +600,7 @@ tracks {
     }
     "/instore/checkout/review_and_confirm"(platform: "/mobile", type: TrackType.View) {
         issuer(required: false, PropertyType.String)
-        has_shipping (required: false, PropertyType.String)
+        has_shipping(required: false, PropertyType.String)
         payment_method(required: false, PropertyType.String)
         payment_type(required: false, PropertyType.String)
     }
@@ -674,6 +674,7 @@ tracks {
     // Discovery
     "/instore/map"(platform: "/mobile", isAbstract: true) {}
     "/instore/map"(platform: "/mobile", type: TrackType.View) {
+        from(required: false, PropertyType.String)
         northeast(required: false, PropertyType.String)
         southwest(required: false, PropertyType.String)
         location(required: false, PropertyType.String)
@@ -681,12 +682,10 @@ tracks {
         tags(required: false, PropertyType.ArrayList)
         bluetooth_permissions(required: false, PropertyType.Boolean)
     }
-
     "/instore/map/data_retrieved"(platform: "/mobile", type: TrackType.Event) {
         action_type(required: false, PropertyType.String)
         stores_quantity(required: flase, PropertyType.String)
     }
-
     "/instore/map/search_in_this_area"(platform: "/mobile", type: TrackType.Event) {
         includes_user_position(required: false, PropertyType.Boolean)
         center(required: false, PropertyType.String)
@@ -694,24 +693,29 @@ tracks {
         southwest(required: false, PropertyType.String)
         tags(required: false, PropertyType.String)
     }
-
     "/instore/map/locate_by_gps"(platform: "/mobile", type: TrackType.Event) {}
-
     "/instore/map/back"(platform: "/mobile", type: TrackType.Event) {
         time_in_millis(required: false, PropertyType.String)
     }
-
     "/instore/map/permissions"(platform: "/mobile", isAbstract: true) {}
-
+    "/instore/map/permissions/"(platform: "/mobile", type: TrackType.View) {
+        from(required: false, PropertyType.String)
+        location_permission_enabled(required: false, PropertyType.Boolean)
+    }
+    "/instore/map/permission/"(platform: "/mobile", type: TrackType.View) {
+        from(required: false, PropertyType.String)
+    }
+    "/instore/map/permission/back"(platform: "/mobile", type: TrackType.Event) {
+        device_gps_enabled(required: false, PropertyType.Boolean)
+        location_permission_enabled(required: false, PropertyType.Boolean)
+        time_in_milis(required: false, PropertyType.String)
+    }
     "/instore/map/permissions/back"(platform: "/mobile", type: TrackType.Event) {
+        location_permission_enabled(required: false, PropertyType.Boolean)
         time_in_millis(required: false, PropertyType.String)
     }
-    
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {}
     "/ask_device_permission/location"(platform: "/mobile", isAbstract: true) {}
-
-
-
     "/ask_device_permission/location"(platform: "/mobile", type: TrackType.View) {
         context(required: false, PropertyType.String)
         location_permission_enabled(required: false, PropertyType.Boolean)
@@ -719,19 +723,14 @@ tracks {
         type(required: false, PropertyType.String)
         tags(required: false, PropertyType.String)
     }
-
     "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {
         context(required: false, PropertyType.String)
         time_in_millis(required: false, PropertyType.String)
     }
-
     "/ask_device_permission/location/granted"(platform: "/mobile", type: TrackType.Event) {
         context(required: false, PropertyType.String)
     }
-
     "/ask_device_permission/location/rejected"(platform: "/mobile", type: TrackType.Event) {
         context(required: false, PropertyType.String)
     }
-
-
 }
