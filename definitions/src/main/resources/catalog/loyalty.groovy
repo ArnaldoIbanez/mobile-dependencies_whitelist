@@ -128,7 +128,7 @@ tracks {
 
     // Rewards
 
-    "/loyalty/rewards/"(platform: "/", type: TrackType.View) {}
+    "/loyalty/rewards"(platform: "/", type: TrackType.View) {}
 
     "/loyalty/rewards/activity"(platform: "/", type: TrackType.View) {}
 

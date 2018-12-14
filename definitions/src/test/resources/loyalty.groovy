@@ -260,9 +260,8 @@ trackTests {
         }
     }
 
-
-    test("Rewards test"){
-        "/loyalty/rewards/"(platform: "/", type: TrackType.View) {}
+    test("rewards test"){
+        "/loyalty/rewards"(platform: "/", type: TrackType.View) {}
 
         "/loyalty/rewards/activity"(platform: "/", type: TrackType.View) {}
     }
