@@ -680,7 +680,6 @@ tracks {
         location(required: false, PropertyType.String)
         type(required: false, PropertyType.String)
         tags(required: false, PropertyType.ArrayList)
-        bluetooth_permissions(required: false, PropertyType.Boolean)
     }
     "/instore/map/data_retrieved"(platform: "/mobile", type: TrackType.Event) {
         action_type(required: false, PropertyType.String)
@@ -691,7 +690,7 @@ tracks {
         center(required: false, PropertyType.String)
         northeast(required: false, PropertyType.String)
         southwest(required: false, PropertyType.String)
-        tags(required: false, PropertyType.String)
+        tags(required: false, PropertyType.String)""
     }
     "/instore/map/locate_by_gps"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/map/back"(platform: "/mobile", type: TrackType.Event) {
