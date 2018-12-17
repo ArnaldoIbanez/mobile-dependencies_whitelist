@@ -683,25 +683,25 @@ tracks {
     }
     "/instore/map/data_retrieved"(platform: "/mobile", type: TrackType.Event) {
         action_type(required: false, PropertyType.String)
-        stores_quantity(required: flase, PropertyType.String)
+        stores_quantity(required: false, PropertyType.String)
     }
     "/instore/map/search_in_this_area"(platform: "/mobile", type: TrackType.Event) {
         includes_user_position(required: false, PropertyType.Boolean)
         center(required: false, PropertyType.String)
         northeast(required: false, PropertyType.String)
         southwest(required: false, PropertyType.String)
-        tags(required: false, PropertyType.String)""
+        tags(required: false, PropertyType.String)
     }
     "/instore/map/locate_by_gps"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/map/back"(platform: "/mobile", type: TrackType.Event) {
         time_in_millis(required: false, PropertyType.String)
     }
     "/instore/map/permissions"(platform: "/mobile", isAbstract: true) {}
-    "/instore/map/permissions/"(platform: "/mobile", type: TrackType.View) {
+    "/instore/map/permissions"(platform: "/mobile", type: TrackType.View) {
         from(required: false, PropertyType.String)
         location_permission_enabled(required: false, PropertyType.Boolean)
     }
-    "/instore/map/permission/"(platform: "/mobile", type: TrackType.View) {
+    "/instore/map/permission"(platform: "/mobile", type: TrackType.View) {
         from(required: false, PropertyType.String)
     }
     "/instore/map/permission/back"(platform: "/mobile", type: TrackType.Event) {
@@ -732,4 +732,5 @@ tracks {
     "/ask_device_permission/location/rejected"(platform: "/mobile", type: TrackType.Event) {
         context(required: false, PropertyType.String)
     }
+
 }
