@@ -87,9 +87,10 @@ class CatalogUploader {
     }
 
     static void main(String[] args) {
-        String catalogName = args[0]
 
-        new CatalogUploader(catalogName).upload()
+        args.each { catalogName ->
+            new CatalogUploader(catalogName).upload()
+        }
     }
 
 }

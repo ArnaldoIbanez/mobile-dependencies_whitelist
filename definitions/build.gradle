@@ -13,10 +13,10 @@ task wrapper(type: Wrapper) {
 }
 
 repositories {
-      mavenCentral()
-      maven {
-         url "http://git.ml.com/nexus/content/groups/ML"
-      }
+    mavenCentral()
+    maven {
+        url "http://git.ml.com/nexus/content/groups/ML"
+    }
 }
 
 dependencies {
@@ -37,15 +37,15 @@ dependencies {
 }
 
 test {
-  afterTest { desc, result -> 
-    println "Executing test ${desc.name} [${desc.className}] with result: ${result.resultType}"
-  }
+    afterTest { desc, result ->
+        println "Executing test ${desc.name} [${desc.className}] with result: ${result.resultType}"
+    }
 }
 
 
 jacoco {
-  toolVersion = "0.7.1.201405082137"
-  reportsDir = file("$buildDir/customJacocoReportDir")
+    toolVersion = "0.7.1.201405082137"
+    reportsDir = file("$buildDir/customJacocoReportDir")
 }
 jacocoTestReport {
     reports {
@@ -56,7 +56,7 @@ jacocoTestReport {
 }
 
 task coverage (dependsOn:[":test",":jacocoTestReport"]) << {
-  println("Coverage, check: ${buildDir}/jacocoHtml")
+    println("Coverage, check: ${buildDir}/jacocoHtml")
 }
 
 task testAll (dependsOn: 'classes', type: JavaExec) {
@@ -85,6 +85,12 @@ task testCronnedQueries (dependsOn: 'classes', type: JavaExec) {
 task testMetrics (dependsOn: 'classes', type: JavaExec) {
     main = 'testMetrics'
     classpath = sourceSets.main.runtimeClasspath
+}
+
+task uploadAllCatalog(type:JavaExec) {
+    main = 'com.melidata.definitions.manager.CatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["melidata", "shipping"]
 }
 
 task uploadMeliDataCatalog(type:JavaExec) {
@@ -151,12 +157,12 @@ task exportMetrics(type:JavaExec) {
 uploadArchives {
     repositories {
         mavenDeployer {
-              repository(url: 'http://git.ml.com/nexus/content/repositories/releases') {
-                  authentication(userName: 'mlGrailsPluginDeployer', password: '123456')
-              }
-              pom.groupId = project.group
-              pom.artifactId = 'definitions'
-              pom.version = project.version
+            repository(url: 'http://git.ml.com/nexus/content/repositories/releases') {
+                authentication(userName: 'mlGrailsPluginDeployer', password: '123456')
+            }
+            pom.groupId = project.group
+            pom.artifactId = 'definitions'
+            pom.version = project.version
         }
     }
 }
