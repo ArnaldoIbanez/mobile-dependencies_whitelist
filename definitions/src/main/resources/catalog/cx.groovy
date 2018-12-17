@@ -38,7 +38,7 @@ tracks {
             description: "Type of seller")
         loyalty_level(required:true, 
             description:"The loyalty level of the buyer")
-        user_profile(required:true, 
+        user_profile(required:false, 
             description:"CX Channel's user profile")
     }
 
@@ -67,6 +67,8 @@ tracks {
         portal_has_channels_configured
         loyalty_level
         portal_content_id
+        portal_source_id(required: false, type: PropertyType.Numeric,
+            description: "Indicates the source ID for the current page. Required false because some faqs are contact points and most are not")
     }
     "/portal/hub"(platform: "/", type: TrackType.View) {
         portal_contact
@@ -97,7 +99,13 @@ tracks {
         portal_has_channels_configured(required: false, type: PropertyType.Boolean,
             description: "Indicates if the current content has any channels configured, not required for home page")
     }
-    "/portal/create_case"(platform: "/", type: TrackType.View) {}
+    "/portal/create_case"(platform: "/", type: TrackType.View) {
+        user_type
+        seller_profile
+        reputation_level
+        portal_contact
+        loyalty_level
+    }
     "/portal/search"(platform: "/", isAbstract:  true) {}
     "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
     "/portal/search/empty"(platform: "/", type: TrackType.View) {}
