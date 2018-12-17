@@ -33,6 +33,10 @@ class WhitelistPathUploader {
         def gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create()
         def json =  gson.toJson(gson.fromJson(pathContents, Map))
 
+
+        //println("Checking if there were updates")
+        //def previousVersion = s3Controller.getObject( FILE_NAME ).getObjectContent()
+
         String versionedName = "versions/path_" + new Date().format("yyyMMddHHmmss") + ".json"
 
         println("JSON loaded")
