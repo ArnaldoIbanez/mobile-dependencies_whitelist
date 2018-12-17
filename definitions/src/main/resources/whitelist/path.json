@@ -15,6 +15,6 @@
     "/vip/contact_seller",
     "/register/success",
     "/register/failure",
-    "/myml"
+    "/wms/scan"
   ]
 }
