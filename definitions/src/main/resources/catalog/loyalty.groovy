@@ -126,6 +126,12 @@ tracks {
         milestone_id(required: false, description: "Indicates the id of the milestone that corresponds to the modal")
     }
 
+    // Rewards
+
+    "/loyalty/rewards"(platform: "/", type: TrackType.View) {}
+
+    "/loyalty/rewards/activity"(platform: "/", type: TrackType.View) {}
+
     // Milestones Page
 
     "/loyalty/milestones"(platform: "/", type: TrackType.View) {}
