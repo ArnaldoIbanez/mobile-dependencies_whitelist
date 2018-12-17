@@ -82,6 +82,7 @@ task uploadBatchQueries(type:JavaExec) {
 task exportCronQueries(type:JavaExec) {
     main = 'com.melidata.metrics.format.QueryFormatter'
     classpath = sourceSets.main.runtimeClasspath
+
 }
 
 task validate(type:JavaExec) {
