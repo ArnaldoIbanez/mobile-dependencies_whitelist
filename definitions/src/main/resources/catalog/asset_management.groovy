@@ -27,6 +27,20 @@ tracks {
     "/asset_management/challenge_review_and_confirm"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_document_type"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_gender"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_terms_and_conditions_company"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_selfie"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_selfie_bad_quality"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_company_relationship"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_identification"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_nationality"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_identifier_type"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_identity"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_identity_mismatch"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_birthdate"(platform: "/mobile", type: TrackType.View) {}
+
+
+    // Terms and conditions view
     "/asset_management/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
 
     // Opt-out
@@ -35,7 +49,11 @@ tracks {
 
     // Detail
     "/asset_management/investment_detail"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/movements_detail"(platform: "/mobile", type: TrackType.View) {}
+
+    // Operations
+    "/asset_management/movements_detail"(platform: "/mobile", type: TrackType.View) {} // old name
+    "/asset_management/operations"(platform: "/mobile") {} // new name
+    "/asset_management/operations/detail"(platform: "/mobile") {} // specific operation
 
     // Congrats
     "/asset_management/result_investing"(platform: "/mobile", type: TrackType.View) {}
@@ -43,6 +61,9 @@ tracks {
     // Faqs
     "/asset_management/faqs"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/faq"(platform: "/mobile", type: TrackType.Event) {}
+
+    // Clarification show event
+    "/asset_management/clarification"(platform: "/mobile", type: TrackType.Event) {}
 
     // WebView events
     "/asset_management/url_external"(platform: "/mobile", type: TrackType.Event) {
