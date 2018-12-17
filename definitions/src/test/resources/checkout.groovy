@@ -2068,8 +2068,8 @@ trackTests {
                     }
             ]
             filters_present = true
-            agencyLat = 31.638802
-            agencyLng = -106.436181
+            agency_latitude = 31.638802
+            agency_longitude = -106.436181
         }
         "/checkout/shipping/select_store/selected_store"(platform: "/web", type: TrackType.Event) {
             default_location_info = {
@@ -2087,8 +2087,8 @@ trackTests {
                     }
             ]
             filters_present = true
-            agencyLat = 31.638802
-            agencyLng = -106.436181
+            agency_latitude = 31.638802
+            agency_longitude = -106.436181
         }
 
         // Suscripciones
