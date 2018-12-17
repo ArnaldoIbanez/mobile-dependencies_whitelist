@@ -14,7 +14,6 @@
     "/question/ask/post",
     "/vip/contact_seller",
     "/register/success",
-    "/register/failure",
-    "/wms/scan"
+    "/register/failure"
   ]
 }
