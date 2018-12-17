@@ -467,7 +467,11 @@ trackTests {
             warehouse_id = "BRWT01"
             pickup_id = "1"
         }
-        "/wms/problem_solver/take"(platform: "/mobile/android") {
+        "/wms/problem_solver_inbound_tasks/take"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+        "/wms/problem_solver_inbound_tasks/returns"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
         }
