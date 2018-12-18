@@ -7,17 +7,19 @@ tracks {
     propertyDefinitions {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
-        seller_profile(required: true, type: PropertyType.String, description: "Type of seller")
+        seller_profile(required: false, type: PropertyType.String, description: "Type of seller")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         category_domain(required: false, type: PropertyType.String, description: "Item category domain")
         category_path(required: false, type: PropertyType.ArrayList, description: "Path of category")
         type(required: true, type: PropertyType.String, description: "Type of hint", values: ["info", "actionable"])
         attribute(required: true, type: PropertyType.String, description: "Id of the attribute")
+        reputation_level(required: false, type: PropertyType.String, description: "user reputation level")
     }
 
     propertyGroups {
         sellerCentralModifyGroup(item_id, session_id)
         sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path)
+        sellerCentralSettingsGroup(seller_profile, reputation_level)
         hintsGroup(type, attribute)
     }
 
@@ -171,5 +173,15 @@ tracks {
 
     "/seller_central/bulk/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event) {
         user_action(required: false, type: PropertyType.String, description: "Type of user action", values: ["click", "write"])
+    }
+
+    // SETTINGS SECTION
+
+    "/seller_central/settings"(platform: "/", type: TrackType.View) {
+        sellerCentralSettingsGroup
+    }
+
+    "/seller_central/empty_settings"(platform: "/", type: TrackType.View) {
+        sellerCentralSettingsGroup
     }
 }
