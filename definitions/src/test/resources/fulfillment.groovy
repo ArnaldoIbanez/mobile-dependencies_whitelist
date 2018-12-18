@@ -16,6 +16,7 @@ trackTests {
         "/fbm/landing/congrats"(platform: "/", type: TrackType.View) {}        
         "/fbm/panel/inbound/units"(platform: "/", type: TrackType.View) {}
         "/fbm/panel/inbound/labeling"(platform: "/", type: TrackType.View) {}
+        "/fbm/panel/inbound/identifiers"(platform: "/", type: TrackType.View) {}
 
         //Events
         "/fbm/landing/contact_me"(platform: "/", type: TrackType.Event) { location = "top" }

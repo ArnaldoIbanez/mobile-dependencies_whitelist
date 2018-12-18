@@ -34,12 +34,13 @@ tracks {
     "/credits/consumer/public_landing/application_result"(platform: "/", type: TrackType.View) {
         result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
     }
+    "/credits/consumer/public_landing/application_start"(platform: "/", type: TrackType.View) {}
 
     //Events
     "/credits/consumer/public_landing/click_hero"(platform: "/", type: TrackType.Event) {
         user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
     }
-    "/credits/consumer/public_landing/click_activation"(platform: "/", type: TrackType.Event) {
+    "/credits/consumer/public_landing/credit_line_request"(platform: "/", type: TrackType.Event) {
         user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
     }
     "/credits/consumer/public_landing/click_help"(platform: "/", type: TrackType.Event) {
@@ -48,6 +49,7 @@ tracks {
     "/credits/consumer/public_landing/application_result/click_home"(platform: "/", type: TrackType.Event) {
         result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
     }
+    "/credits/consumer/public_landing/click_application_start"(platform: "/", type: TrackType.Event) {}
     /******************************************
      *       End: Consumers Public Landings
      ******************************************/
@@ -286,11 +288,11 @@ tracks {
         milestone(type: PropertyType.Numeric, required: true)
     }
 
-    "/credits/pursue/overdue_nav"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+    "/credits/consumer/overdue_nav"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
         pursue_nav_properties
     }
 
-    "/credits/pursue/overdue_nav/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+    "/credits/consumer/overdue_nav/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
         pursue_nav_properties
     }
     /******************************************

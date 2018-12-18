@@ -98,7 +98,10 @@ tracks {
     }
 
     //Modal merchant
-    "/credits/merchant/enrollment/preconfirm"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/enrollment/preconfirm"(platform: "/", type: TrackType.View) {
+        amount(type: PropertyType.Numeric, required: false)
+        installment(type: PropertyType.Numeric, required: false)
+    }
     "/credits/merchant/enrollment/cancel"(platform: "/", type: TrackType.Event) {}
 
     //Upload Files merchant
@@ -107,6 +110,9 @@ tracks {
         type(type: PropertyType.String, required: true, values: ['physical', 'moral'])
     }
     "/credits/merchant/enrollment/load_documents/cancel"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/enrollment/documentation"(platform: "/", type: TrackType.View) {
+        userType(type: PropertyType.String, required: true, values: ['physical', 'moral'])
+    }
 
     //Review merchant
     "/credits/merchant/enrollment/review"(platform: "/", type: TrackType.Event) {}

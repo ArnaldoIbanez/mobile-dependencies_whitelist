@@ -41,6 +41,23 @@ trackTests {
         // Faqs
         "/asset_management/faqs"(platform: "/mobile") {}
 
+        "/asset_management/faq"(platform: "/mobile") {}
+
+        "/asset_management/url_external"(platform: "/mobile") {
+            label = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
+            context = "onboarding"
+        }
+
+        "/asset_management/url_external"(platform: "/mobile") {
+            label = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
+            context = "faqs"
+        }
+
+        "/asset_management/url_external"(platform: "/mobile") {
+            label = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
+            context = "movements_detail"
+        }
+
         // Splitter
         "/asset_management/splitter"(platform: "/mobile") {}
         "/asset_management/profile"(platform: "/mobile") {}

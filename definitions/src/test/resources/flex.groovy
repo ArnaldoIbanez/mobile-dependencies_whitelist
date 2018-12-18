@@ -328,12 +328,14 @@ trackTests {
         "/flex/error"(platform:"/mobile", type: TrackType.View) {
             defaultLocation()
             error_type = "connection"
+            error_step_id = "example_step_id"
         }
 
         //Snackbar error event success
         "/flex/error/snackbar"(platform:"/mobile", type: TrackType.Event) {
             defaultLocation()
             error_type = "delivery_failed"
+            error_step_id = "example_step_id"
         }
 
         "/flex/error/update_app/update_app"(platform:"/mobile", type: TrackType.Event) {

@@ -1,6 +1,6 @@
 {
   "users": [
-    "tomas.auchterlonie@mercadolibre.com"
+    "devoluciones-it@mercadolibre.com"
   ],
   "process_name": "returns-intent-to-return",
   "cron": "00 11 * * *",

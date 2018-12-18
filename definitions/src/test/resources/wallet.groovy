@@ -21,6 +21,8 @@ trackTests {
                         ]}
         )
 
+        "/wallet/card_detail"(platform:"/mobile", {})
+
         "/wallet/cards/add_card"(platform:"/mobile", {})
 
         "/wallet/cards/back"(platform:"/mobile", {})
@@ -47,6 +49,8 @@ trackTests {
                             }
                         ]}
         )
+
+        "/wallet/card_detail"(platform:"/mobile", {})
 
         "/wallet/cards/add_card"(platform:"/mobile", {})
 

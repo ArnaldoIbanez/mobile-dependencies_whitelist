@@ -114,8 +114,14 @@ tracks {
     // MLA => https://www.mercadopago.com.ar/prepaid/block/congrats
     "/prepaid/block" (platform: "/", type: TrackType.View) {}
 
-    //New invalid
-    "/my_cards_webview" (platform: "/mobile", type: TrackType.View) {}
+    //Webview Activation Flow MLA 
+    "/my_cards_webview" (platform: "/mobile", type: TrackType.View) {
+        from(
+            required: false,
+            type: PropertyType.String,
+            description: "Webview trigger."
+        )
+    }
 
 
 

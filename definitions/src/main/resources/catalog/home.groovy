@@ -127,4 +127,6 @@ tracks {
         link(required: true, type: PropertyType.String)
     }
 
+    // Supermarket
+    "/home/supermarket"(platform: "/", type: TrackType.View) {}
 }  

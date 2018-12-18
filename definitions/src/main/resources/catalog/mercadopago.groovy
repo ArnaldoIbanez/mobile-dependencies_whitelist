@@ -4,7 +4,7 @@ import com.ml.melidata.TrackType
 
 
 /**
-* 
+*
 * The events means actions that happens without launch a View,
 * as example of that we can consider Bookmark an item in a VIP page
 * Every event is an action, so the verbs available are:
@@ -122,8 +122,20 @@ tracks {
     // Point Flows
     "/point/flows"(platform: "/", isAbstract: true) {}
 
-    // Point Flows Congrats > Pageviews
+    // Point Flows Congrats Success > Pageview
     "/point/flows/congrats"(platform:"/", type: TrackType.View) {}
+    // Point Flows Congrats Instructions > Pageview
+    "/point/flows/congrats/instructions"(platform:"/") {
+      payment_id (required: true, type: PropertyType.Numeric, description: "ID of payment")
+      payment_method (required: true, type: PropertyType.String, description: "Method of payment")
+      device_id (required: true, type: PropertyType.String, description: "ID of Point device")
+      amount (required: true, type: PropertyType.Numeric, description: "Ticket amount")
+      is_guest (required: true, type: PropertyType.String, description: "Guest user flag")
+    }
+    // Point Flows Congrats Instructions > Click Events
+    "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {}
 
     //Point Devices
     "/point/landings/landing_bundles_buy"(platform:"/", type: TrackType.Event) {
@@ -385,6 +397,12 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    "/send_money/bacen"(platform: "/mobile", isAbstract: true) {}
+    "/send_money/bacen/ok"(platform: "/mobile") {}
+    "/send_money/bacen/cancel"(platform: "/mobile") {}
+    "/send_money/bacen/error"(platform: "/mobile") {}
+    "/send_money/bacen/open"(platform: "/mobile") {}
+    "/send_money/bacen/close"(platform: "/mobile") {}
 
 
     "/checkout"(platform: "/mobile", isAbstract: true) {
@@ -665,6 +683,12 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    "/withdraw/bacen"(platform: "/mobile", isAbstract: true) {}
+    "/withdraw/bacen/ok"(platform: "/mobile") {}
+    "/withdraw/bacen/cancel"(platform: "/mobile") {}
+    "/withdraw/bacen/error"(platform: "/mobile") {}
+    "/withdraw/bacen/open"(platform: "/mobile") {}
+    "/withdraw/bacen/close"(platform: "/mobile") {}
 
     "/fund_account"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -711,8 +735,12 @@ tracks {
      **/
     "/notification"(platform: "/mobile") {
         event_type(required: true,
-                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown"],
+                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "purged_token"],
         description: "Type of notification event")
+
+        notification_type(required: false,
+                values: ["deep_linking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"])
+
         news_id(required: false, description: "Identifier of the notification generated")
 
         notification_created_error(required: false, description: "The notification created error", type: PropertyType.String)
@@ -736,6 +764,12 @@ tracks {
     "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+    }
+
+    "/notification/mpcampaigns_control_group"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
+        sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
     }
 
     //Credits Merchants
@@ -946,17 +980,6 @@ tracks {
 
     "/free_navigation/wifi"(platform:"/mobile", type:TrackType.Event) {}
 
-    "/google_connect"(platform: "/mobile", isAbstract: true) {}
-    "/google_connect/init_flow"(platform: "/mobile") {
-        type (required:true, type: PropertyType.String, description: "type of operation that google want", values: ["normal", "reauthentication", "no_params"])
-        withToken (required:false, type: PropertyType.Boolean, description: "The user was logged in MP?")
-        withAuthRequest (required:false, type: PropertyType.Boolean, description: "Is google asking for re-authentication?")
-    }
-
-    "/google_connect/end_flow"(platform: "/mobile") {
-        status (required:true, type: PropertyType.String, description: "Operation result status", values: ["approved", "canceled", "first_user"])
-    }
-
     "/device_settings/"(platform: "/", isAbstract: true){}
 
     "/device_settings/notifications"(platform: "/mobile/android", type:TrackType.Event) {
@@ -982,4 +1005,17 @@ tracks {
         activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "where open link from sms")
     }
 
+    "/stores"(platform: "/web", isAbstract: true) {}
+    "/stores/create"(platform: "/web", type: TrackType.View) {}
+    "/stores/link_operators"(platform: "/web", type: TrackType.View) {}
+    "/stores/list"(platform: "/web", type: TrackType.View) {}
+    "/stores/update"(platform: "/web", type: TrackType.View) {}
+    "/stores/details"(platform: "/web", type: TrackType.View) {}
+    "/stores/pos"(platform: "/web", type: TrackType.View, isAbstract:true) {}
+    "/stores/pos/create"(platform: "/web", type: TrackType.View) {}
+    "/stores/pos/update"(platform: "/web", type: TrackType.View) {}
+
 }
+
+
+

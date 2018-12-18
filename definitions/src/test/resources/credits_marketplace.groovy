@@ -22,17 +22,19 @@ trackTests {
         "/credits/consumer/public_landing/application_result"(platform: "/web/desktop") {
             result = 'manual_review'
         }
+        "/credits/consumer/public_landing/application_start"(platform: "/web/desktop") {}
 
         //Events
         "/credits/consumer/public_landing/click_hero"(platform: "/web/mobile", type: TrackType.Event) {
             user_profile = 'no_offer'
         }
-        "/credits/consumer/public_landing/click_activation"(platform: "/web/desktop", type: TrackType.Event) {
+        "/credits/consumer/public_landing/credit_line_request"(platform: "/web/desktop", type: TrackType.Event) {
             user_profile = 'no_offer'
         }
         "/credits/consumer/public_landing/click_help"(platform: "/web/mobile", type: TrackType.Event) {
             user_profile = 'guest'
         }
+        "/credits/consumer/public_landing/click_application_start"(platform: "/web/mobile", type: TrackType.Event) {}
         "/credits/consumer/public_landing/application_result/click_home"(platform: "/web/desktop") {
             result = 'manual_review'
         }
@@ -183,7 +185,7 @@ trackTests {
             milestone = 20
         }
 
-        "/credits/pursue/overdue_nav"(platform: "/web/desktop", type: TrackType.View) {
+        "/credits/consumer/overdue_nav"(platform: "/web/desktop", type: TrackType.View) {
             status = "fixed_charge_period_1"
             milestone = 4
             context = "vip"
@@ -196,7 +198,7 @@ trackTests {
             milestone = 28
         }
 
-        "/credits/pursue/overdue_nav/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+        "/credits/consumer/overdue_nav/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
             status = "fixed_charge_period_1"
             milestone = 4
             context = "vip"

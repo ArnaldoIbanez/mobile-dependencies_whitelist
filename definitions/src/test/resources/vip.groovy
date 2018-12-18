@@ -42,6 +42,8 @@ trackTests {
             logistic_type = "fulfillment"
             free_shipping_benefit = false
             loyalty_level = 2
+            price_comparison_available = true
+            price_comparison_position =  0.75
         }
 
         "/vip"(platform:"/mobile", {
@@ -80,6 +82,11 @@ trackTests {
         "/vip/description/failure"(platform:"/mobile"){
             item_id = "MLA533657947"
         }
+
+        "/vip/price_comparison"(platform:"/", type: TrackType.Event, {
+            mandatory()
+            optionals()
+        })
 
         "/vip/contact_seller"(platform:"/mobile", type: TrackType.Event, {
             mandatory()
@@ -610,6 +617,41 @@ trackTests {
             defaultTrackInformation()
             cartInformation()
             shippingInformation()
+        }
+        
+        def shipping_method = { 
+            shipping_method = {
+                id = 531332827
+                name = "Retiro en Correo Argentino"
+                currency_id = "ARS"
+                list_cost =  178.49
+                cost = 178.49
+                base_cost = 169.99
+                display = "recommended"
+                shipping_method_id = 503045
+                shipping_method_type = "standard"
+                shipping_option_type = "agency"
+                estimated_delivery_time = {
+                    type = "unknown_frame"
+                    date = "2018-12-06T00:00:00.000-03:00"
+                    shipping = 48
+                    unit =  "hour"
+                    offset = {
+                        date =  "2018-12-10T00:00:00.000-03:00"
+                        shipping = 48
+                    }
+                }      
+            }
+        }
+        
+        "/vip/quantity_change"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA533657947"
+            price = 123
+            zip_code = 123
+            quantity = 2
+            has_shipping = false
+            has_stock = false
+            shipping_method()
         }
     }
 
