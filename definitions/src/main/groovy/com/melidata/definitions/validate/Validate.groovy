@@ -92,11 +92,9 @@ class Validate {
         System.err.println("${query}")
         System.err.println("")
 
-        def db = [url:"jdbc:presto://melidata-presto.ml.com:80/hive/default",
-                    user:'catalog',
-                    driver:'com.facebook.presto.jdbc.PrestoDriver']
+        def db = [url:"jdbc:presto://melidata-presto.ml.com:443/hive/default?SSL=true&SSLKeyStorePath=${presto_certs_path}",
+                  user:'app_hivetab', password:'Meli.1806', driver:'com.facebook.presto.jdbc.PrestoDriver']
         def sql = Sql.newInstance(db.url, db.user, db.password, db.driver)
-
         def result = []
         sql.eachRow(query) { row ->
             com.ml.melidata.Track track = new com.ml.melidata.Track(
