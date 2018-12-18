@@ -26,9 +26,9 @@ class Validate {
 
         println "Generating Catalog..."
 
-        String catalogName = options.catalog_name
         String pathCatalog
-        if (catalogName) {
+        if (options.catalog) {
+            String catalogName = options.catalog
             def catalogDir = BASE_CATALOG_DIR + catalogName + "/"
             pathCatalog = catalogDir + DEFAULT_CATALOG
             DslUtils.setBaseDir(catalogDir)
@@ -203,7 +203,7 @@ class Validate {
 
     private static CliBuilder buildCli(String[] args) {
         def cli = new CliBuilder()
-        cli.catalog_name(args:1, "catalog_name")
+        cli.catalog(args:1, "catalog")
         cli.date(args:1, "date")
         cli.exact_path(args:1, "exact_path")
         cli.path(args:1, "path")
