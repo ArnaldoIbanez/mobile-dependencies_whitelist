@@ -352,4 +352,22 @@ trackTests {
             session_id = "123-update-abc123"
         }
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller central settings
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("seller central settings view"){
+        "/seller_central/settings"(platform: "/", type: TrackType.View){
+            reputation_level: "5_green"
+            seller_profile: "advanced"
+        }
+    }
+
+
+    test("seller central empty settings view"){
+        "/seller_central/empty_settings"(platform: "/", type: TrackType.View){
+            seller_profile: "newbie"
+        }
+    }
 }

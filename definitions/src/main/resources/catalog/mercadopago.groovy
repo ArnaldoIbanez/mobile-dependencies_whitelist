@@ -766,7 +766,7 @@ tracks {
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
     }
 
-    "/notification/mpcampaigns-control_group"(platform: "/mobile") {
+    "/notification/mpcampaigns_control_group"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
         sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")

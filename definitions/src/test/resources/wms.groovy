@@ -274,19 +274,48 @@ trackTests {
             warehouse_id = "BRWT01"
             pickup_id = "1"
         }
-        "/wms/problem_solver"(platform: "/mobile/android") {
+        "/wms/problem_solver_inbound_tasks"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
         }
-        "/wms/problem_solver/take/scan_inbound_shipment"(platform: "/mobile/android") {
+        "/wms/problem_solver_inbound_tasks/take/scan_inbound_shipment"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
         }
-        "/wms/problem_solver/take/scan_destination"(platform: "/mobile/android") {
+        "/wms/problem_solver_inbound_tasks/take/scan_destination"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
             inbound_id = "1234"
             destination_address = "destination_address"
+        }
+        "/wms/problem_solver_inbound_tasks/returns/scan_destination"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+        "/wms/problem_solver_inbound_tasks/returns/scan_inbound_shipment"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            destination_address = "destination_address"
+        }
+        "/wms/problem_solver_inbound_tasks/returns/single_selection"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            inbound_id = "1234"
+            destination_address = "destination_address"
+        }
+        "/wms/problem_solver_inbound_tasks/returns/single_selection/confirmation"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            inbound_id = "1234"
+            destination_address = "destination_address"
+            return_type = "return_type"
+        }
+        "/wms/problem_solver_inbound_tasks/returns/scan_stage_in_destination"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            inbound_id = "1234"
+            destination_address = "destination_address"
+            return_type = "return_type"
         }
 
         //Events
@@ -467,7 +496,11 @@ trackTests {
             warehouse_id = "BRWT01"
             pickup_id = "1"
         }
-        "/wms/problem_solver/take"(platform: "/mobile/android") {
+        "/wms/problem_solver_inbound_tasks/take"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+        "/wms/problem_solver_inbound_tasks/returns"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
         }
