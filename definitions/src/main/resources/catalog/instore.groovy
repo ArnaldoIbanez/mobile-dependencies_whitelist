@@ -674,63 +674,103 @@ tracks {
     // Discovery
     "/instore/map"(platform: "/mobile", isAbstract: true) {}
     "/instore/map"(platform: "/mobile", type: TrackType.View) {
+        session_id(required: false, PropertyType.String)
         from(required: false, PropertyType.String)
+        type(required: false, PropertyType.String, description: "type of stores to show on the map")
+        tags(required: false, PropertyType.ArrayList)
+    }
+    "/instore/map/first_user_location"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, PropertyType.String)
         northeast(required: false, PropertyType.String)
         southwest(required: false, PropertyType.String)
         location(required: false, PropertyType.String)
-        type(required: false, PropertyType.String)
-        tags(required: false, PropertyType.ArrayList)
+
     }
     "/instore/map/data_retrieved"(platform: "/mobile", type: TrackType.Event) {
-        action_type(required: false, PropertyType.String)
+        session_id(required: false, PropertyType.String)
+        action_type(required: false, PropertyType.String, description: "type of action that triggered the data request", values: ["init", "search_in_this_area", "filters_applied", "text_search"])
         stores_quantity(required: false, PropertyType.String)
     }
     "/instore/map/search_in_this_area"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, PropertyType.String)
         includes_user_position(required: false, PropertyType.Boolean)
         center(required: false, PropertyType.String)
         northeast(required: false, PropertyType.String)
         southwest(required: false, PropertyType.String)
         tags(required: false, PropertyType.String)
     }
-    "/instore/map/locate_by_gps"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/map/locate_by_gps"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, PropertyType.String)
+    }
     "/instore/map/back"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, PropertyType.String)
         time_in_millis(required: false, PropertyType.String)
     }
     "/instore/map/permissions"(platform: "/mobile", isAbstract: true) {}
     "/instore/map/permissions"(platform: "/mobile", type: TrackType.View) {
+        session_id(required: false, PropertyType.String)
         from(required: false, PropertyType.String)
         location_permission_enabled(required: false, PropertyType.Boolean)
     }
     "/instore/map/permission"(platform: "/mobile", type: TrackType.View) {
+        session_id(required: false, PropertyType.String)
         from(required: false, PropertyType.String)
     }
     "/instore/map/permission/back"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, PropertyType.String)
         device_gps_enabled(required: false, PropertyType.Boolean)
         location_permission_enabled(required: false, PropertyType.Boolean)
         time_in_milis(required: false, PropertyType.String)
     }
     "/instore/map/permissions/back"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, PropertyType.String)
         location_permission_enabled(required: false, PropertyType.Boolean)
         time_in_millis(required: false, PropertyType.String)
     }
+    "/instore/map/navigate_to_store"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, PropertyType.String)
+        store_name(required: true, PropertyType.String)
+        store_location(required: true, PropertyType.String)
+        navigation_apps(required: false, PropertyType.String)
+    }
+    "/instore/map/navigate_to_store_app_chosen"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, PropertyType.String)
+        store_name(required: true, PropertyType.String)
+        store_location(required: true, PropertyType.String)
+        navigation_apps(required: false, PropertyType.String)
+        chosen_app(required: true, PropertyType.String)
+        view_time_in_millis(required: true, PropertyType.String)
+    }
+    "/instore/map/navigate_to_store_cancelled"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, PropertyType.String)
+        store_name(required: true, PropertyType.String)
+        store_location(required: true, PropertyType.String)
+        navigation_apps(required: false, PropertyType.String)
+        view_time_in_millis(required: true, PropertyType.String)
+    }
+
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {}
     "/ask_device_permission/location"(platform: "/mobile", isAbstract: true) {}
     "/ask_device_permission/location"(platform: "/mobile", type: TrackType.View) {
-        context(required: false, PropertyType.String)
+        session_id(required: false, PropertyType.String)
+        context(required: false, PropertyType.String, description: "Reference to the context that started location permissions flow")
         location_permission_enabled(required: false, PropertyType.Boolean)
         device_gps_enabled(required: false, PropertyType.Boolean)
         type(required: false, PropertyType.String)
         tags(required: false, PropertyType.String)
     }
     "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {
-        context(required: false, PropertyType.String)
+        session_id(required: false, PropertyType.String)
+        context(required: false, PropertyType.String, description: "Reference to the context that started location permissions flow")
         time_in_millis(required: false, PropertyType.String)
     }
     "/ask_device_permission/location/granted"(platform: "/mobile", type: TrackType.Event) {
-        context(required: false, PropertyType.String)
+        session_id(required: false, PropertyType.String)
+        context(required: false, PropertyType.String, description: "Reference to the context that started location permissions flow")
     }
     "/ask_device_permission/location/rejected"(platform: "/mobile", type: TrackType.Event) {
-        context(required: false, PropertyType.String)
+        session_id(required: false, PropertyType.String)
+        context(required: false, PropertyType.String, description: "Reference to the context that started location permissions flow")
     }
 
 }

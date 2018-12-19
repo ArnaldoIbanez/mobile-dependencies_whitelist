@@ -772,57 +772,95 @@ trackTests {
         "/instore/checkout/card/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {}
 
         "/instore/map"(platform: "/mobile", type: TrackType.View) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             from = "scan_qr"
-            northeast = "-34.5442707,-58.5001586,15"
-            southwest = "-34.532499, -58.493422"
-            location = "-34.532499, -58.493422"
             type = "qr"
             tags = "shell"
         }
+        "/instore/map/first_user_location"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
+            northeast = "-34.5442707,-58.5001586,15"
+            southwest = "-34.532499, -58.493422"
+            location = "-34.532499, -58.493422"
+        }
         "/instore/map/data_retrieved"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             action_type = "init"
             stores_quantity = "5"
         }
         "/instore/map/search_in_this_area"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             includes_user_position = true
             center = "20.323595,-95.951633"
             northeast = "24.207090,-92.486475"
             southwest = "16.440100,-99.416791"
             tags = "shell"
         }
-        "/instore/map/locate_by_gps"(platform: "/mobile", type: TrackType.Event) {}
+        "/instore/map/locate_by_gps"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
+        }
         "/instore/map/back"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             time_in_millis = "14519"
         }
         "/instore/map/permissions"(platform: "/mobile", type: TrackType.View) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             from = "scan_qr"
             location_permission_enabled = "scan_qr"
         }
         "/instore/map/permission"(platform: "/mobile", type: TrackType.View) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             from = "scan_qr"
         }
         "/instore/map/permission/back"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             device_gps_enabled = false
             location_permission_enabled = false
             time_in_milis = "4519"
         }
         "/instore/map/permissions/back"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             location_permission_enabled = false
             time_in_millis = "4519"
         }
         "/instore/map/permission/"(platform: "/mobile", type: TrackType.View) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             from = "scan_qr"
         }
         "/instore/map/permission/back"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             device_gps_enabled = false
             location_permission_enabled = false
             time_in_milis = "4519"
         }
         "/instore/map/permissions/back"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             location_permission_enabled = false
             time_in_millis = "4519"
         }
+        "/instore/map/navigate_to_store"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
+            store_name = "Burger King"
+            store_location = "-32.895112, -68.840782"
+            navigation_apps = "Maps, Waze"
+        }
+        "/instore/map/navigate_to_store_app_chosen"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
+            store_name = "Burger King"
+            store_location = "-32.895112, -68.840782"
+            navigation_apps = "maps, waze"
+            chosen_app = "waze"
+            view_time_in_millis = "4508"
+        }
+        "/instore/map/navigate_to_store_cancelled"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
+            store_name = "Burger King"
+            store_location = "-32.895112, -68.840782"
+            navigation_apps = "Maps, Waze"
+            view_time_in_millis = "4508"
+        }
         "/ask_device_permission/location"(platform: "/mobile", type: TrackType.View) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             context = "/instore/map"
             location_permission_enabled = true
             device_gps_enabled = true
@@ -830,13 +868,16 @@ trackTests {
             tags = "shell"
         }
         "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             context = "/instore/map"
             time_in_millis = "3040"
         }
         "/ask_device_permission/location/granted"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             context = "/instore/map"
         }
         "/ask_device_permission/location/rejected"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             context = "/instore/map"
         }
 
@@ -1606,46 +1647,81 @@ trackTests {
         "/instore/checkout/card/debit_card/cvv"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {}
 
         "/instore/map"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             from = "scan_qr"
-            northeast = "-34.5442707,-58.5001586,15"
-            southwest = "-34.532499, -58.493422"
-            location = "-34.532499, -58.493422"
             type = "qr"
             tags = "shell"
         }
+        "/instore/map/first_user_location"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
+            northeast = "-34.5442707,-58.5001586,15"
+            southwest = "-34.532499, -58.493422"
+            location = "-34.532499, -58.493422"
+        }
         "/instore/map/data_retrieved"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             action_type = "init"
             stores_quantity = "5"
         }
         "/instore/map/search_in_this_area"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             includes_user_position = true
             center = "20.323595,-95.951633"
             northeast = "24.207090,-92.486475"
             southwest = "16.440100,-99.416791"
             tags = "shell"
         }
-        "/instore/map/locate_by_gps"(platform: "/mobile", business:  "mercadopago", type: TrackType.Event) {}
+        "/instore/map/locate_by_gps"(platform: "/mobile", business:  "mercadopago", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
+        }
         "/instore/map/back"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             time_in_millis = "14519"
         }
         "/instore/map/permissions"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             from = "scan_qr"
             location_permission_enabled = "scan_qr"
         }
         "/instore/map/permission"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             from = "scan_qr"
         }
 
         "/instore/map/permission/back"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             device_gps_enabled = false
             location_permission_enabled = false
             time_in_milis = "4519"
         }
         "/instore/map/permissions/back"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             location_permission_enabled = false
             time_in_millis = "4519"
         }
+        "/instore/map/navigate_to_store"(platform: "/mobile", business: "mercadopago",type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
+            store_name = "Burger King"
+            store_location = "-32.895112, -68.840782"
+            navigation_apps = "Maps, Waze"
+        }
+        "/instore/map/navigate_to_store_app_chosen"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
+            store_name = "Burger King"
+            store_location = "-32.895112, -68.840782"
+            navigation_apps = "maps, waze"
+            chosen_app = "waze"
+            view_time_in_millis = "4508"
+        }
+        "/instore/map/navigate_to_store_cancelled"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
+            store_name = "Burger King"
+            store_location = "-32.895112, -68.840782"
+            navigation_apps = "Maps, Waze"
+            view_time_in_millis = "4508"
+        }
         "/ask_device_permission/location"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             context = "/instore/map"
             location_permission_enabled = true
             device_gps_enabled = true
@@ -1653,13 +1729,16 @@ trackTests {
             tags = "shell"
         }
         "/ask_device_permission/location/back"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             context = "/instore/map"
             time_in_millis = "3040"
         }
         "/ask_device_permission/location/granted"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             context = "/instore/map"
         }
         "/ask_device_permission/location/rejected"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             context = "/instore/map"
         }
     }
