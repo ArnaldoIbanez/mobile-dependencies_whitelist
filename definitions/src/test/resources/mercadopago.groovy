@@ -2119,7 +2119,7 @@ trackTests {
             batch_id = "MLB_PACK_20180508_2"
         }
 
-        "/notification/mpcampaigns-control_group"(platform: "/mobile") {
+        "/notification/mpcampaigns_control_group"(platform: "/mobile") {
             news_id = "123"
             event_type = "discarded"
             campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
