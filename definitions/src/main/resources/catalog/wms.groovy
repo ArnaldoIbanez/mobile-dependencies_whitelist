@@ -193,16 +193,47 @@ tracks {
     "/wms/withdrawals_collector/congrats/finish_unload_cart"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/withdrawals_collector/congrats/finish_withdrawal"(platform: "/mobile/android", type: TrackType.Event) {}
 
-    /* Problem solver tracks */
-    "/wms/problem_solver"(platform: "/mobile/android", type: TrackType.View) {}
+    /* Inbound Problem solver tracks */
+    "/wms/problem_solver_inbound_tasks"(platform: "/mobile/android", type: TrackType.View) {}
 
     /* Take sub flow */
-    "/wms/problem_solver/take"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/problem_solver/take/scan_inbound_shipment"(platform: "/mobile/android", type: TrackType.View) {
+    "/wms/problem_solver_inbound_tasks/take"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/problem_solver_inbound_tasks/take/scan_inbound_shipment"(platform: "/mobile/android", type: TrackType.View) {
     }
-    "/wms/problem_solver/take/scan_destination"(platform: "/mobile/android", type: TrackType.View) {
+    "/wms/problem_solver_inbound_tasks/take/scan_destination"(platform: "/mobile/android", type: TrackType.View) {
         inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
         destination_address(required: false, type: PropertyType.String, 
             description: "Address to put the items. Is sent after the scan action")
     }
+
+    /* Returns sub flow */
+    "/wms/problem_solver_inbound_tasks/returns"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/problem_solver_inbound_tasks/returns/scan_destination"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/problem_solver_inbound_tasks/returns/scan_inbound_shipment"(platform: "/mobile/android", type: TrackType.View) {
+        destination_address(required: false, type: PropertyType.String, 
+            description: "Address to put the items. Is sent after the scan action")
+    }
+    "/wms/problem_solver_inbound_tasks/returns/single_selection"(platform: "/mobile/android", type: TrackType.View) {
+        inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
+        destination_address(required: false, type: PropertyType.String, 
+            description: "Address to put the items. Is sent after the scan action")
+    }
+
+    "/wms/problem_solver_inbound_tasks/returns/single_selection/confirmation"(platform: "/mobile/android", type: TrackType.Event) {
+        inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
+        destination_address(required: false, type: PropertyType.String, 
+            description: "Address to put the items. Is sent after the scan action")
+        return_type(required: false, type: PropertyType.String, 
+            description: "Return type selected by the user")
+    }
+
+    "/wms/problem_solver_inbound_tasks/returns/scan_stage_in_destination"(platform: "/mobile/android", type: TrackType.View) {
+        inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
+        destination_address(required: false, type: PropertyType.String, 
+            description: "Address to put the items. Is sent after the scan action")
+        return_type(required: false, type: PropertyType.String, 
+            description: "Return type selected by the user")
+    }
+
+
 }
