@@ -858,13 +858,6 @@ trackTests {
             chosen_app = "waze"
             view_time_in_millis = "4508"
         }
-        "/instore/map/navigate_to_store_cancelled"(platform: "/mobile", type: TrackType.Event) {
-            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
-            store_name = "Burger King"
-            store_location = "-32.895112, -68.840782"
-            navigation_apps = "Maps, Waze"
-            view_time_in_millis = "4508"
-        }
         "/instore/map/quick_filters_selected"(platform: "/mobile", type: TrackType.Event) {
             session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
             selected_filters = "combustibles, mercados, gastronomia"
@@ -1727,13 +1720,6 @@ trackTests {
             store_location = "-32.895112, -68.840782"
             navigation_apps = "maps, waze"
             chosen_app = "waze"
-            view_time_in_millis = "4508"
-        }
-        "/instore/map/navigate_to_store_cancelled"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
-            session_id = "123hdsaZsRd623bfb76823b7dnDSAsdL4"
-            store_name = "Burger King"
-            store_location = "-32.895112, -68.840782"
-            navigation_apps = "Maps, Waze"
             view_time_in_millis = "4508"
         }
         "/instore/map/quick_filters_selected"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
