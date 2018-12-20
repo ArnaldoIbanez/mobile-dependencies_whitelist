@@ -672,12 +672,11 @@ tracks {
     "/instore/checkout/card/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {}
 
     // Discovery
-    "/instore/map"(platform: "/mobile", isAbstract: true) {}
     "/instore/map"(platform: "/mobile", type: TrackType.View) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
         from(required: false, PropertyType.String, description: "from where in the app is this view called")
-        northeast(required: false, PropertyType.String)
-        southwest(required: false, PropertyType.String)
+        northeast(required: false, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
+        southwest(required: false, PropertyType.String, description: "latitude and longitude of the southwest corner of the visible area on the map")
         location(required: false, PropertyType.String)
         type(required: false, PropertyType.String, description: "type of stores to show on the map")
         tags(required: false, PropertyType.ArrayList)
@@ -686,7 +685,7 @@ tracks {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
         northeast(required: false, PropertyType.String)
         southwest(required: false, PropertyType.String)
-        location(required: false, PropertyType.String)
+        location(required: false, PropertyType.String, description: "latitude and longitude of the user")
     }
     "/instore/map/data_retrieved"(platform: "/mobile", type: TrackType.Event) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
@@ -706,26 +705,12 @@ tracks {
     }
     "/instore/map/back"(platform: "/mobile", type: TrackType.Event) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        time_in_milis(required: false, PropertyType.String)
         time_in_millis(required: false, PropertyType.String)
     }
-    "/instore/map/permissions"(platform: "/mobile", isAbstract: true) {}
     "/instore/map/permissions"(platform: "/mobile", type: TrackType.View) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
         from(required: false, PropertyType.String, description: "from where in the app is this view called")
         location_permission_enabled(required: true, PropertyType.Boolean)
-    }
-    "/instore/map/permission"(platform: "/mobile", type: TrackType.View) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        from(required: false, PropertyType.String, description: "from where in the app is this view called")
-        type(required: false, PropertyType.String, description: "type of stores to show on the map")
-        tags(required: false, PropertyType.ArrayList)
-    }
-    "/instore/map/permission/back"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        device_gps_enabled(required: true, PropertyType.Boolean)
-        location_permission_enabled(required: true, PropertyType.Boolean)
-        time_in_milis(required: true, PropertyType.String)
     }
     "/instore/map/permissions/back"(platform: "/mobile", type: TrackType.Event) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
@@ -758,7 +743,6 @@ tracks {
     }
 
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {}
-    "/ask_device_permission/location"(platform: "/mobile", isAbstract: true) {}
     "/ask_device_permission/location"(platform: "/mobile", type: TrackType.View) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
         context(required: false, PropertyType.String, description: "Reference to the context that started location permissions flow")
