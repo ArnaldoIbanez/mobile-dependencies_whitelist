@@ -675,7 +675,7 @@ tracks {
     "/instore/map"(platform: "/mobile", isAbstract: true) {}
     "/instore/map"(platform: "/mobile", type: TrackType.View) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        from(required: false, PropertyType.String)
+        from(required: false, PropertyType.String, description: "from where in the app is this view called")
         northeast(required: false, PropertyType.String)
         southwest(required: false, PropertyType.String)
         location(required: false, PropertyType.String)
@@ -712,12 +712,12 @@ tracks {
     "/instore/map/permissions"(platform: "/mobile", isAbstract: true) {}
     "/instore/map/permissions"(platform: "/mobile", type: TrackType.View) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        from(required: false, PropertyType.String)
+        from(required: false, PropertyType.String, description: "from where in the app is this view called")
         location_permission_enabled(required: true, PropertyType.Boolean)
     }
     "/instore/map/permission"(platform: "/mobile", type: TrackType.View) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        from(required: false, PropertyType.String)
+        from(required: false, PropertyType.String, description: "from where in the app is this view called")
         type(required: false, PropertyType.String, description: "type of stores to show on the map")
         tags(required: false, PropertyType.ArrayList)
     }
