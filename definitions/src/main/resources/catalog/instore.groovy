@@ -6,8 +6,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 tracks {
 
     /**
-     * INSTORES Screen Tracks
-     */
+    * INSTORES Screen Tracks
+    */
 
     "/instore"(platform: "/mobile", isAbstract: true) {}
 
@@ -556,7 +556,7 @@ tracks {
         money_release_date(required: false, PropertyType.String)
         internal_metadata(required: false, description: "transaction information details")
         transaction_amount_refunded(required: false, PropertyType.Numeric)
-        payment_type_id(required: false, PropertyType.String)
+        payment_type_id (required: false, PropertyType.String)
         notification_url(required: false, PropertyType.String)
         sponsor_id(required: false, PropertyType.Numeric)
         vending_id(required: false, PropertyType.String)
@@ -580,10 +580,10 @@ tracks {
     "/instore/permission/location"(platform: "/mobile", type: TrackType.View) {}
     "/instore/camera_permission"(platform: "/mobile", type: TrackType.View) {}
     "/instore/generic_error"(platform: "/mobile", type: TrackType.View) {
-        additional_info(required: false, description: "Extra info")
+            additional_info (required:false, description: "Extra info")
     }
     "/instore/scan_qr/read"(platform: "/mobile", type: TrackType.Event) {
-        data(required: true, type: PropertyType.String)
+        data(required:true, type: PropertyType.String)
     }
     "/instore/required_action/bluetooth_permission"(platform: "/mobile", type: TrackType.View) {}
     "/instore/required_action/bluetooth_on"(platform: "/mobile", type: TrackType.View) {}
@@ -600,7 +600,7 @@ tracks {
     }
     "/instore/checkout/review_and_confirm"(platform: "/mobile", type: TrackType.View) {
         issuer(required: false, PropertyType.String)
-        has_shipping(required: false, PropertyType.String)
+        has_shipping (required: false, PropertyType.String)
         payment_method(required: false, PropertyType.String)
         payment_type(required: false, PropertyType.String)
     }
