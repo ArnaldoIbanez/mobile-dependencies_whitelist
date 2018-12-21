@@ -22,6 +22,9 @@ trackTests {
         "/credits/consumer/public_landing/application_result"(platform: "/web/desktop") {
             result = 'manual_review'
         }
+        "/credits/consumer/public_landing/application_result/click_credits"(platform: "/web/desktop") {
+            result = 'manual_review'
+        }
         "/credits/consumer/public_landing/application_start"(platform: "/web/desktop") {}
 
         //Events
