@@ -446,74 +446,57 @@ tracks {
     }
     "/instore/vending"(platform: "/mobile", isAbstract: true) {}
     "/instore/vending/st_machine_disconnected"(platform: "/mobile", type: TrackType.Event) {
-        collector_id(required: false, PropertyType.String)
+        collector_id(required: true, PropertyType.String)
         brand_name(required: false, PropertyType.String)
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
-        vending_id(required: false, PropertyType.String)
+        vending_id(required: true, PropertyType.String)
     }
     "/instore/vending/machine_response_final_result"(platform: "/mobile", type: TrackType.Event) {
-        collector_id(required: false, PropertyType.String)
+        collector_id(required: true, PropertyType.String)
         brand_name(required: false, PropertyType.String)
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
-        machine_response_final_result(required: false, PropertyType.String)
-        vending_id(required: false, PropertyType.String)
+        vending_id(required: true, PropertyType.String)
     }
     "/instore/vending/st_machine_connection_error"(platform: "/mobile", type: TrackType.Event) {
-        collector_id(required: false, PropertyType.String)
+        collector_id(required: true, PropertyType.String)
         brand_name(required: false, PropertyType.String)
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
-        st_machine_connection_error(required: false, PropertyType.String)
-        vending_id(required: false, PropertyType.String)
+        st_machine_connection_error(required: true, PropertyType.String)
+        vending_id(required: true, PropertyType.String)
     }
     "/instore/vending/machine_response_state"(platform: "/mobile", type: TrackType.Event) {
-        collector_id(required: false, PropertyType.String)
+        collector_id(required: true, PropertyType.String)
         brand_name(required: false, PropertyType.String)
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
-        machine_response_state(required: false, PropertyType.String)
-        vending_id(required: false, PropertyType.String)
+        machine_response_state(required: true, PropertyType.String)
+        vending_id(required: true, PropertyType.String)
     }
     "/instore/vending/st_machine_not_available"(platform: "/mobile", type: TrackType.Event) {
-        collector_id(required: false, PropertyType.String)
+        collector_id(required: true, PropertyType.String)
         brand_name(required: false, PropertyType.String)
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
-        vending_id(required: false, PropertyType.String)
+        vending_id(required: true, PropertyType.String)
     }
     "/instore/vending/st_machine_connected"(platform: "/mobile", type: TrackType.Event) {
-        collector_id(required: false, PropertyType.String)
+        collector_id(required: true, PropertyType.String)
         brand_name(required: false, PropertyType.String)
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
-        vending_id(required: false, PropertyType.String)
+        vending_id(required: true, PropertyType.String)
     }
     "/instore/vending/response_end_transaction"(platform: "/mobile", type: TrackType.Event) {
-        collector_id(required: false, PropertyType.String)
+        collector_id(required: true, PropertyType.String)
         brand_name(required: false, PropertyType.String)
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
-        response_end_transaction(required: false, description: "Transaction response")
-        business_result(required: false, PropertyType.ArrayList)
-        success(required: false, PropertyType.Boolean)
-        vending_id(required: false, PropertyType.String)
-        end_transaction_status(required: false, PropertyType.String)
+        vending_id(required: true, PropertyType.String)
+        end_transaction_status(required: true, PropertyType.String)
     }
-    "/instore/vending/response_payment"(platform: "/mobile", type: TrackType.Event) {
-        collector_id(required: false, PropertyType.String)
-        brand_name(required: false, PropertyType.String)
-        store_id(required: false, PropertyType.String)
-        pos_id(required: false, PropertyType.String)
-        response_payment(required: false, description: "Payment response")
-        screens_info(required: false, PropertyType.String)
-        raw(required: false, PropertyType.ArrayList)
-        business_result(required: false, PropertyType.ArrayList)
-        vending_operation_context(required: false, PropertyType.ArrayList)
-        dispatching_time(required: false, PropertyType.Numeric)
-    }
-
     "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
         // Possible fields for Android & IOS
         currency_id(required: false, PropertyType.String)
