@@ -657,9 +657,7 @@ trackTests {
         }
         "/instore/camera_permission"(platform: "/mobile", type: TrackType.View) {}
         "/instore/permission/location"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/map"(platform: "/mobile", type: TrackType.View) {}
         "/instore/required_action/bluetooth_on"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/map"(platform: "/mobile", type: TrackType.View) {}
         "/instore/scan_qr/ftu"(platform: "/mobile", type: TrackType.View) {}
         "/instore/manual_price"(platform: "/mobile", type: TrackType.View) {}
         // Error
@@ -774,6 +772,9 @@ trackTests {
         "/instore/map"(platform: "/mobile", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             from = "scan_qr"
+            northeast = "-34.5442707,-58.5001586,15"
+            southwest = "-34.532499, -58.493422"
+            location = "-34.532499, -58.493422"
             type = "qr"
             tags = "shell"
         }
@@ -848,7 +849,6 @@ trackTests {
         "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             context = "/instore/map"
-            time_in_millis = "3040"
         }
         "/ask_device_permission/location/granted"(platform: "/mobile", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
@@ -1531,9 +1531,7 @@ trackTests {
         "/instore/waiting/generic_ticket"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/camera_permission"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/permission/location"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/map"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/required_action/bluetooth_on"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/map"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/scan_qr/ftu"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/manual_price"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
         "/instore/activity/list"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
@@ -1628,6 +1626,9 @@ trackTests {
         "/instore/map"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             from = "scan_qr"
+            northeast = "-34.5442707,-58.5001586,15"
+            southwest = "-34.532499, -58.493422"
+            location = "-34.532499, -58.493422"
             type = "qr"
             tags = "shell"
         }
@@ -1702,7 +1703,6 @@ trackTests {
         "/ask_device_permission/location/back"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             context = "/instore/map"
-            time_in_millis = "3040"
         }
         "/ask_device_permission/location/granted"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
