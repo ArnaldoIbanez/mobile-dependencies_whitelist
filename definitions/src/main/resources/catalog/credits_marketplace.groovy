@@ -64,6 +64,9 @@ tracks {
     "/credits/consumer/administrator/dashboard"(platform: "/", type: TrackType.View) {
         dashboard_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
     }
+    "/credits/consumer/administrator/summary"(platform: "/", type: TrackType.View) {
+        summary_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
+    }
 
     //Events
     "/credits/consumer/administrator/tooltip"(platform: "/", type: TrackType.Event) {}
@@ -96,6 +99,18 @@ tracks {
     "/credits/consumer/administrator/help"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/educational_landing"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/see_product"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/summary/payment_intention"(platform: "/", type: TrackType.Event) {
+        summary_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
+    }
+    "/credits/consumer/administrator/summary/cx_contact"(platform: "/", type: TrackType.Event) {
+        summary_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
+    }
+    "/credits/consumer/administrator/summary/go_shopping"(platform: "/", type: TrackType.Event) {
+        summary_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
+    }
+    "/credits/consumer/administrator/summary/get_help"(platform: "/", type: TrackType.Event) {
+        summary_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
+    }
 
     //Admin History (Compras Finalizadas)
 
