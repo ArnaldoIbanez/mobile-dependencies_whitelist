@@ -179,6 +179,7 @@ tracks {
     "/wms/withdrawals_collector/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {
         pickup_address(required: false, type: PropertyType.String, description: "Address where items are being picked up.")
     }
+    "/wms/withdrawals_collector/scan_shelf/start_unload_cart"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/withdrawals_collector/item"(platform: "/mobile/android", type: TrackType.View) {
         inventory_id(required: true, type: PropertyType.String, description: "Id of the item")
         checkpoint_id(required: false, type: PropertyType.String, description: "Id of checkpoint for the pickup")
