@@ -771,7 +771,6 @@ trackTests {
 
         "/instore/map"(platform: "/mobile", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            from = "scan_qr"
             northeast = "-34.5442707,-58.5001586,15"
             southwest = "-34.532499, -58.493422"
             location = "-34.532499, -58.493422"
@@ -806,7 +805,6 @@ trackTests {
         }
         "/instore/map/permissions"(platform: "/mobile", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            from = "scan_qr"
             location_permission_enabled = "scan_qr"
         }
         "/instore/map/permissions/back"(platform: "/mobile", type: TrackType.Event) {
@@ -839,7 +837,6 @@ trackTests {
             selected_filters = "combustibles, mercados, gastronomia"
         }
         "/ask_device_permission/location"(platform: "/mobile", type: TrackType.View) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
             context = "/instore/map"
             location_permission_enabled = true
             device_gps_enabled = true
@@ -847,15 +844,12 @@ trackTests {
             tags = "shell"
         }
         "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
             context = "/instore/map"
         }
         "/ask_device_permission/location/granted"(platform: "/mobile", type: TrackType.Event) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
             context = "/instore/map"
         }
         "/ask_device_permission/location/rejected"(platform: "/mobile", type: TrackType.Event) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
             context = "/instore/map"
         }
 
@@ -1625,7 +1619,6 @@ trackTests {
 
         "/instore/map"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            from = "scan_qr"
             northeast = "-34.5442707,-58.5001586,15"
             southwest = "-34.532499, -58.493422"
             location = "-34.532499, -58.493422"
@@ -1660,7 +1653,6 @@ trackTests {
         }
         "/instore/map/permissions"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            from = "scan_qr"
             location_permission_enabled = "scan_qr"
         }
         "/instore/map/permissions/back"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
@@ -1693,7 +1685,6 @@ trackTests {
             selected_filters = "combustibles, mercados, gastronomia"
         }
         "/ask_device_permission/location"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
             context = "/instore/map"
             location_permission_enabled = true
             device_gps_enabled = true
@@ -1701,15 +1692,12 @@ trackTests {
             tags = "shell"
         }
         "/ask_device_permission/location/back"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
             context = "/instore/map"
         }
         "/ask_device_permission/location/granted"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
             context = "/instore/map"
         }
         "/ask_device_permission/location/rejected"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
             context = "/instore/map"
         }
     }
