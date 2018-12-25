@@ -9,12 +9,12 @@ trackTests {
 
     test("Shipping test path") {
 
-        "/shipping/tracking"(platform: "/api", type: TrackType.Event) {
+        "/shipping/tracking"(platform: "/", type: TrackType.View) {
             status_code = "200"
         }
 
 
-        "/shipping/tracking/select_status"(platform: "/api", type: TrackType.Event) {
+        "/shipping/tracking/select_status"(platform: "/", type: TrackType.Event) {
             status_selected = "rojo"
             status_code = "200"
         }

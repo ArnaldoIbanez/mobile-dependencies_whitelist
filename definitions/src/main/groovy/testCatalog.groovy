@@ -1,10 +1,12 @@
 import com.melidata.definitions.outs.StdOut
 import com.melidata.definitions.TestRunner
+import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
+
 
 static void main(String[] args) {
     String catalogName = args[0]
-    System.setProperty("CATALOG_NAME", catalogName)
 
+    CatalogDsl.setBaseDir("src/main/resources/catalog/" + catalogName + "/")
     println( "Preparing....")
     def status = TestRunner.run(catalogName, new StdOut())
 
