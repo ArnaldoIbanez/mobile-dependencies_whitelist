@@ -197,7 +197,6 @@ trackTests {
                                 id: "23cfddb085c577f0584ab78e17861c63be386608",
                                 paid_amount: 0.0
                         ]]
-            platform = "/mobile/android"
             seller = [[
                               id: "208642594"
                       ]]
@@ -1715,7 +1714,6 @@ trackTests {
             buy_equal_pay=true
             recovery_flow=false
             register_int=false
-            platform = "/web/desktop"
             payments=[
                     [
                             id:333,
