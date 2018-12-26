@@ -98,7 +98,7 @@ tracks {
 
     // mails for: unsubscribe from emails reception
     "/email/form-optout/unsubscribe"(platform: "/email"){
-        selectet_option(required: true, description: "Selected option in unsubscribe view as cause of unsubscription")
+        selected_option(required: true, description: "Selected option in unsubscribe view as cause of unsubscription")
     }
 
     // mails for: showing unsubscribe view
