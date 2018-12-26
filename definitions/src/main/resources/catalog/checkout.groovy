@@ -384,6 +384,7 @@ tracks {
         //View specific data
         edit_flow(required: true, type: PropertyType.Boolean)
     }
+    "/checkout/shipping/location/address/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/shipping/location/select_state"(platform: "/mobile") {}
     "/checkout/shipping/location/select_city"(platform: "/mobile") {}
     "/checkout/shipping/location/select_city/invalid_destination"(platform: "/mobile") {}
@@ -396,6 +397,7 @@ tracks {
         //View specific data
         available_options(required: true, type: PropertyType.Numeric)
     }
+    "/checkout/shipping/location/select_contact/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/shipping/location/find_contact"(platform: "/mobile") {}
     "/checkout/shipping/location/new_contact"(platform: "/mobile") {
         //View specific data
@@ -981,6 +983,7 @@ tracks {
         //nickname
         session_id(required:false, description:"Session in which the checkout is being held")
     }
+    "/checkout/show_geolocation_map/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/show_geolocation_map/search"(platform: "/mobile") {}
     "/checkout/show_geolocation_map/search#location"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
