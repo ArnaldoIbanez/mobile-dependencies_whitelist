@@ -8,13 +8,17 @@ trackTests {
 
     test("PX - views") {
 
-        "/px_checkout/payments/select_method"(platform: "/mobile", type: TrackType.View) {}
+        "/px_checkout/payments/select_method"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "1234"
+        }
         "/px_checkout/payments/select_method/ticket"(platform: "/mobile", type: TrackType.View) {}
         "/px_checkout/payments/select_method/select_card_type"(platform: "/mobile", type: TrackType.View) {}
 
         "/px_checkout/payments/select_method/applied_discount"(platform: "/mobile", type: TrackType.View) {}
 
-        "/px_checkout/payments/select_method/credit_card/cvv"(platform: "/mobile", type: TrackType.View) {}
+        "/px_checkout/payments/select_method/credit_card/cvv"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "1234"
+        }
         "/px_checkout/payments/select_method/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {}
         "/px_checkout/payments/select_method/prepaid_card/cvv"(platform: "/mobile", type: TrackType.View) {}
 
@@ -22,7 +26,9 @@ trackTests {
 
         "/px_checkout/add_payment_method/promotions/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
 
-        "/px_checkout/add_payment_method/credit_card/number"(platform: "/mobile", type: TrackType.View) {}
+        "/px_checkout/add_payment_method/credit_card/number"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "1234"
+        }
         "/px_checkout/add_payment_method/debit_card/number"(platform: "/mobile", type: TrackType.View) {}
         "/px_checkout/add_payment_method/prepaid_card/number"(platform: "/mobile", type: TrackType.View) {}
         "/px_checkout/add_payment_method/credit_card/number/error_more_info"(platform: "/mobile", type: TrackType.View) {}
@@ -49,7 +55,9 @@ trackTests {
         "/px_checkout/select_method/ticket/name"(platform: "/mobile", type: TrackType.View) {}
         "/px_checkout/select_method/ticket/lastname"(platform: "/mobile", type: TrackType.View) {}
 
-        "/px_checkout/review/traditional"(platform: "/mobile", type: TrackType.View) {}
+        "/px_checkout/review/traditional"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "1234"
+        }
 
         "/px_checkout/review/traditional/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
 
