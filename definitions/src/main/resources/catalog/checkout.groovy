@@ -200,7 +200,6 @@ tracks {
 
         buy_equal_pay(required: false, description: "BP flag")
         recovery_flow(required: false, description: "Is recovery CHO flow")
-        platform(required: true)
 
         payments(required: false, description: "Array of payments information")
         // id
@@ -253,7 +252,7 @@ tracks {
     }
 
     "/checkout/init/options"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         shipping_data(required: true, type: PropertyType.ArrayList, description: "Shipping options available for the buyer")
         payment_data(required: true, type: PropertyType.String, description: "Payment options available for the buyer")
         shipping(required: false)
@@ -730,7 +729,6 @@ tracks {
 
         buy_equal_pay(required: true, description: "BP flag")
         recovery_flow(required: true, description: "Is recovery CHO flow")
-        platform(required: true)
 
         payments(required: true, description: "Array of payments information")
         // id
@@ -938,7 +936,6 @@ tracks {
 
         buy_equal_pay(required: true, description: "BP flag")
         recovery_flow(required: true, description: "Is recovery CHO flow")
-        platform(required: true)
         payment_method(required: true)
 
         payments(required: true, description: "Array of payments information")
