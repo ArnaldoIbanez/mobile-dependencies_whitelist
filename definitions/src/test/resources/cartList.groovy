@@ -52,6 +52,17 @@ trackTests {
                     ]
             ]
 
+            summary = [
+                    "total":[
+                            "amount":1446.61,
+                            "symbol":"\$"
+                    ],
+                    "shipping_total":[
+                            "amount":0,
+                            "symbol":"\$"
+                    ]
+            ]
+
         }
 
         "/cart/my_cart"(platform: "/web", dataSet)
