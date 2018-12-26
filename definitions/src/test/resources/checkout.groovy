@@ -395,6 +395,10 @@ trackTests {
             checkoutStatus()
             edit_flow = true
         }
+        "/checkout/shipping/location/address/back"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+            edit_flow = true
+        }
         "/checkout/shipping/location/select_contact#submit"(platform:"/mobile", type: TrackType.Event) {
             success = true
             error_codes = ["street_name_error"]

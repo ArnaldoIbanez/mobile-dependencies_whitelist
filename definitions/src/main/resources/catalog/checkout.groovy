@@ -384,6 +384,10 @@ tracks {
         //View specific data
         edit_flow(required: true, type: PropertyType.Boolean)
     }
+    "/checkout/shipping/location/address/back"(platform: "/mobile", type: TrackType.Event) {
+        //View specific data
+        edit_flow(required: true, type: PropertyType.Boolean)
+    }
     "/checkout/shipping/location/select_state"(platform: "/mobile") {}
     "/checkout/shipping/location/select_city"(platform: "/mobile") {}
     "/checkout/shipping/location/select_city/invalid_destination"(platform: "/mobile") {}
