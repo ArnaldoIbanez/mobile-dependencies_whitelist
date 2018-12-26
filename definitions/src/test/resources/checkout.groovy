@@ -407,6 +407,10 @@ trackTests {
             checkoutStatus()
             available_options = 2
         }
+        "/checkout/shipping/location/select_contact/back"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+            available_options = 2
+        }
         "/checkout/shipping/location/find_contact"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
@@ -864,6 +868,10 @@ trackTests {
         }
         "/checkout/show_ticket#save"(platform:"/mobile", type:TrackType.Event) {}
         "/checkout/show_geolocation_map"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            payment_method = "telecomm"
+        }
+        "/checkout/show_geolocation_map/back"(platform:"/mobile", type:TrackType.Event) {
             checkoutStatus()
             payment_method = "telecomm"
         }
