@@ -116,5 +116,14 @@ trackTests {
             case_id = "987987987004"
             receiver_id = 306162056
         }
+
+        "/email/form-optout/unsubscribe"(platform: "/email"){
+            defaultTrackInformation()
+            selectet_option = 1
+        }
+
+        "/email/form-optout"(platform: "/email"){
+            defaultTrackInformation()
+        }
     }
 }

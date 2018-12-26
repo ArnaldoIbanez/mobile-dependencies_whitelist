@@ -96,6 +96,14 @@ tracks {
     // mails for: purchases with some of its payments refunded
     "/email/checkout/refunded"(platform: "/email"){}
 
+    // mails for: unsubscribe from emails reception
+    "/email/form-optout/unsubscribe"(platform: "/email"){
+        selectet_option(required: true, description: "Selected option in unsubscribe view as cause of unsubscription")
+    }
+
+    // mails for: showing unsubscribe view
+    "/email/form-optout"(platform: "/email"){}
+
     "/email/chargebacks"(platform: "/email") {
         case_id(required: true, type: PropertyType.String)
         receiver_id(required: true, type: PropertyType.Numeric)
