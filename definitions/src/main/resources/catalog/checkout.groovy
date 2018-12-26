@@ -397,7 +397,7 @@ tracks {
         //View specific data
         available_options(required: true, type: PropertyType.Numeric)
     }
-    "/checkout/shipping/location/select_contact/back"(platform: "/mobile", , type: TrackType.Event) {}
+    "/checkout/shipping/location/select_contact/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/shipping/location/find_contact"(platform: "/mobile") {}
     "/checkout/shipping/location/new_contact"(platform: "/mobile") {
         //View specific data
