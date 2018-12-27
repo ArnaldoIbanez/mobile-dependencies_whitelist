@@ -1,7 +1,8 @@
-package com.melidata.definitions.manager
+package com.melidata.definitions.uploaders
 
 import com.melidata.definitions.format.HiveFormatter
 
+import com.melidata.definitions.manager.S3Controller
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.exceptions.CatalogException
 import com.ml.melidata.catalog.parsers.dsl.CatalogDsl

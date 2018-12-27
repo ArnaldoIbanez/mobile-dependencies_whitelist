@@ -1,4 +1,6 @@
-package com.melidata.definitions.manager
+package com.melidata.definitions.uploaders
+
+import com.melidata.definitions.manager.S3Controller
 
 class QueriesUploader {
 

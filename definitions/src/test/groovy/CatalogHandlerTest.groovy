@@ -74,9 +74,6 @@ import com.amazonaws.services.s3.model.UploadPartRequest
 import com.amazonaws.services.s3.model.UploadPartResult
 import com.amazonaws.services.s3.model.VersionListing
 import com.melidata.definitions.manager.CatalogHandler
-import com.melidata.definitions.manager.CatalogManager
-import com.melidata.definitions.manager.CatalogUploader
-import com.melidata.definitions.manager.S3Controller
 import com.ml.melidata.catalog.tree.TrackValidationResponse
 import org.junit.Test
 
