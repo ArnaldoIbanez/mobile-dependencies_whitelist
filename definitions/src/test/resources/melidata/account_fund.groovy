@@ -19,6 +19,7 @@ trackTests {
         "/account_fund/ftu"(platform: "/", type: TrackType.View) {}
         "/account_fund/unique_code"(platform: "/", type: TrackType.View) {}
         "/account_fund/unique_code/help"(platform: "/", type: TrackType.View) {}
+        "/account_fund/result"(platform: "/", type: TrackType.View) {}
 
         "/account_fund/px/card_vault"(platform: "/", type: TrackType.View) {}
         "/account_fund/px/card_number"(platform: "/", type: TrackType.View) {}
@@ -29,6 +30,12 @@ trackTests {
         "/account_fund/px/review_and_confirm"(platform: "/", type: TrackType.View) {}
         "/account_fund/px/result"(platform: "/", type: TrackType.View) {
             result_status = "rejected"
+        }
+
+        "/account_fund/cvu/ftu"(platform: "/", type: TrackType.View) {}
+        "/account_fund/cvu/main"(platform: "/", type: TrackType.View) {}
+        "/account_fund/cvu/result"(platform: "/", type: TrackType.View) {
+            result_status = "approved"
         }
     }
 }

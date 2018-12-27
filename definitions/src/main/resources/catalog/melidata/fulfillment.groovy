@@ -7,41 +7,16 @@ tracks {
     "/fbm"(platform: "/", isAbstract: true) {}
     "/fbm/panel"(platform: "/", isAbstract: true) {}
     "/fbm/panel/inbound"(platform: "/", isAbstract: true) {}
-
-    /**
-     *  Landing for Opt-IN into Fulfillment
-     */
+    "/full"(platform: "/", isAbstract: true) {}
+    "/full/landing"(platform: "/", isAbstract: true) {}
 
     //Views
-    "/fbm/landing"(platform: "/", type: TrackType.View) {}    
-    "/fbm/landing/optin"(platform: "/", type: TrackType.View) {}
-    "/fbm/landing/congrats"(platform: "/", type: TrackType.View) {}
     "/fbm/panel/inbound/units"(platform: "/", type: TrackType.View) {}
     "/fbm/panel/inbound/labeling"(platform: "/", type: TrackType.View) {}
+    "/fbm/panel/inbound/identifiers"(platform: "/", type: TrackType.View) {}
+    "/full/landing/buyer"(platform: "/", type: TrackType.View) {}
 
-    //Contact me Button
-    "/fbm/landing/contact_me"(platform: "/", type: TrackType.Event) {
-        location(
-            required: true,
-            type: PropertyType.String,
-            description: "Location of the CTA Button.",
-            values: ["top", "bottom"]
-        )
-    }
-
-    //FAQs about Fulfillment
-    "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) {
-        faq(
-            required: true,
-            type: PropertyType.String,
-            description: "Which FAQ has been opened.",
-            values: ["opt_in", "dc_location", "send_my_inventory", "send_inventory_from_supplier", "fees", "manage_inventory"]
-        )
-    }
-
-    //Cancel Fulfillment Opt-in
-    "/fbm/landing/cancel_opt_in"(platform: "/", type: TrackType.Event) { }
-
+    // Events
     //Change value input in units page
     "/fbm/panel/inbound/units/input_change"(platform: "/", type: TrackType.Event) {
         warning_type(

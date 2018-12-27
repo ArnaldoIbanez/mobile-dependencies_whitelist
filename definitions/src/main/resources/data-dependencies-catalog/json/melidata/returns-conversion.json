@@ -2,10 +2,10 @@
   "users": [
     "devoluciones-it@mercadolibre.com"
   ],
-  "process_name": "returns-drop-out",
+  "process_name": "returns-conversion",
   "cron": "00 11 * * *",
   "partition": {
-    "name": "day",
+    "name": "fecha",
     "type": "DATE",
     "format": "yyyy-MM-dd"
   },
@@ -131,7 +131,7 @@
 
     ],
     "sql": {
-      "script": "returns/returns-drop-out.sql",
+      "script": "returns/returns-conversion.sql",
       "parameters": [
         {
           "name": "param01",

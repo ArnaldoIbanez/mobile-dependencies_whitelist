@@ -262,6 +262,12 @@ trackTests {
         }
     }
 
+    test("rewards test"){
+        "/loyalty/rewards"(platform: "/", type: TrackType.View) {}
+
+        "/loyalty/rewards/activity"(platform: "/", type: TrackType.View) {}
+    }
+
     test("campaign"){
         "/loyalty/campaign/email"(platform: "/", type: TrackType.Event) {
             action = "open"

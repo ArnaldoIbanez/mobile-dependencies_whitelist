@@ -27,6 +27,19 @@ trackTests {
         "/asset_management/challenge_review_and_confirm"(platform: "/mobile") {}
         "/asset_management/challenge_document_type"(platform: "/mobile") {}
         "/asset_management/challenge_gender"(platform: "/mobile") {}
+        "/asset_management/challenge_terms_and_conditions"(platform: "/mobile") {}
+        "/asset_management/challenge_birthdate"(platform: "/mobile") {}
+        "/asset_management/challenge_company_relationship"(platform: "/mobile") {}
+        "/asset_management/challenge_identification"(platform: "/mobile") {}
+        "/asset_management/challenge_identifier_type"(platform: "/mobile") {}
+        "/asset_management/challenge_identity"(platform: "/mobile") {}
+        "/asset_management/challenge_identity_mismatch"(platform: "/mobile") {}
+        "/asset_management/challenge_nationality"(platform: "/mobile") {}
+        "/asset_management/challenge_selfie"(platform: "/mobile") {}
+        "/asset_management/challenge_selfie_bad_quality"(platform: "/mobile") {}
+        "/asset_management/challenge_terms_and_conditions_company"(platform: "/mobile") {}
+
+        // Terms and conditions View
         "/asset_management/terms_and_conditions"(platform: "/mobile") {}
 
         // Opt-out
@@ -35,13 +48,38 @@ trackTests {
 
         // Detail
         "/asset_management/investment_detail"(platform: "/mobile") {}
-        "/asset_management/movements_detail"(platform: "/mobile") {}
+
+        // Operations
+        "/asset_management/movements_detail"(platform: "/mobile") {} // old name
+        "/asset_management/operations"(platform: "/mobile") {} // new name
+        "/asset_management/operations/detail"(platform: "/mobile") {} // specific operation
 
         // Congrats
         "/asset_management/result_investing"(platform: "/mobile") {}
 
         // Faqs
         "/asset_management/faqs"(platform: "/mobile") {}
+
+        "/asset_management/faq"(platform: "/mobile") {}
+
+        "/asset_management/url_external"(platform: "/mobile") {
+            label = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
+            context = "/asset_management/onboarding"
+        }
+
+        "/asset_management/url_external"(platform: "/mobile") {
+            label = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
+            context = "/asset_management/faqs"
+        }
+
+        "/asset_management/url_external"(platform: "/mobile") {
+            label = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
+            context = "/asset_management/operations"
+        }
+
+        "/asset_management/clarification"(platform: "/mobile") {
+            label = "/asset_management/movements_detail"
+        }
 
         // Splitter
         "/asset_management/splitter"(platform: "/mobile") {}

@@ -7,17 +7,19 @@ tracks {
     propertyDefinitions {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
-        seller_profile(required: true, type: PropertyType.String, description: "Type of seller")
+        seller_profile(required: false, type: PropertyType.String, description: "Type of seller")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         category_domain(required: false, type: PropertyType.String, description: "Item category domain")
         category_path(required: false, type: PropertyType.ArrayList, description: "Path of category")
         type(required: true, type: PropertyType.String, description: "Type of hint", values: ["info", "actionable"])
         attribute(required: true, type: PropertyType.String, description: "Id of the attribute")
+        reputation_level(required: false, type: PropertyType.String, description: "user reputation level")
     }
 
     propertyGroups {
         sellerCentralModifyGroup(item_id, session_id)
         sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path)
+        sellerCentralSettingsGroup(seller_profile, reputation_level)
         hintsGroup(type, attribute)
     }
 
@@ -106,7 +108,49 @@ tracks {
 
     "/seller_central/bulk/offline/download/warning"(platform: "/", type: TrackType.Event){}
 
+    //BULK SECTION - DISCOUNTS VERSION
 
+    "/seller_central/bulk/discounts"(platform: "/", isAbstract: true) {}
+    "/seller_central/bulk/discounts/list"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/discounts/onboarding"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Id of the action", values:["start","close", "rollback", "dismiss"])
+        page(required: false, type: PropertyType.Numeric, description: "Page number")
+    }
+
+    "/seller_central/bulk/discounts/filters"(platform: "/", type: TrackType.Event) {
+        filters(required: true, type: PropertyType.ArrayList, description: "List of selected filters")
+    }
+
+    "/seller_central/bulk/discounts/search"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/bulk/discounts/undo_changes"(platform: "/", type: TrackType.Event) {}
+
+
+    "/seller_central/bulk/discounts/columns"(platform: "/", type: TrackType.Event){
+        columns(required: true, type: PropertyType.ArrayList, description: "List of the available columns and his order")
+    }
+
+    "/seller_central/bulk/discounts/offline"(platform: "/", isAbstract: true) {}
+
+    "/seller_central/bulk/discounts/offline/home"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/discounts/offline/download"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/discounts/offline/download/congrats"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/discounts/offline/upload"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/discounts/offline/upload/congrats"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/discounts/offline/download/user_selection"(platform: "/", type: TrackType.Event){
+        columns(required: true, type: PropertyType.ArrayList, description: "List of the selected columns")
+        domains(required: true, type: PropertyType.ArrayList, description: "List of the selected domains")
+    }
+
+    "/seller_central/bulk/discounts/offline/download/error"(platform: "/", type: TrackType.Event){}
+
+    "/seller_central/bulk/discounts/offline/download/warning"(platform: "/", type: TrackType.Event){}
     //ITEM DETAIL SECTION
 
     "/seller_central/modify"(platform: "/", isAbstract: true) {
@@ -171,5 +215,15 @@ tracks {
 
     "/seller_central/bulk/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event) {
         user_action(required: false, type: PropertyType.String, description: "Type of user action", values: ["click", "write"])
+    }
+
+    // SETTINGS SECTION
+
+    "/seller_central/settings"(platform: "/", type: TrackType.View) {
+        sellerCentralSettingsGroup
+    }
+
+    "/seller_central/empty_settings"(platform: "/", type: TrackType.View) {
+        sellerCentralSettingsGroup
     }
 }

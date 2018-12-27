@@ -1,8 +1,13 @@
+<<<<<<< HEAD:definitions/src/test/resources/melidata/contact.groovy
 package src.test.resources.melidata
 
 import com.ml.melidata.TrackType
 
+=======
+package src.test.resources
+>>>>>>> master:definitions/src/test/resources/contact.groovy
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
+import com.ml.melidata.TrackType
 
 trackTests {
 
@@ -20,9 +25,7 @@ trackTests {
             item_status = "active"
             listing_type_id = "gold_special"
             seller_id = 131662738
-
         }
-
 
         "/contact/congrats"(platform: "/web") {
             item_id = "MLA750001220"
@@ -35,12 +38,12 @@ trackTests {
             listing_type_id = "gold_special"
             seller_id = 131662738
             deal_ids = []
-            // CLASSI FIELDS
+            // classified's fields
             contract_available = false
             comparator_available = false
             gallery_pattern = ""
             description_type = "plain_text"
-
+            price_comparison_available = false
         }
 
     }

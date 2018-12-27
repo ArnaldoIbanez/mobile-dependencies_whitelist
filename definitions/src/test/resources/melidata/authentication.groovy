@@ -258,6 +258,51 @@ trackTests {
         }
     }
 
+    test("Account recovery flow") {
+        "/auth/account_recovery/canceled"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/phone_number_verification"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/on_hold"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
+        "/auth/account_recovery/canceled/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+        }
+        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+        }
+        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "cancel_button"
+        }
+        "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "unlink_button"
+        }
+        "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "cancel_button"
+        }
+        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+        }
+    }
+
     test("Phone Enrollment flow") {
         "/auth/recovery/phone/registration"(platform: "/web", type: TrackType.Event) {
             redirect_url = 'www.mercadolibre.com'

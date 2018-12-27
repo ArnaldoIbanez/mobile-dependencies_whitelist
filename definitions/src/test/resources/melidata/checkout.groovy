@@ -197,7 +197,6 @@ trackTests {
                                 id: "23cfddb085c577f0584ab78e17861c63be386608",
                                 paid_amount: 0.0
                         ]]
-            platform = "/mobile/android"
             seller = [[
                               id: "208642594"
                       ]]
@@ -395,11 +394,19 @@ trackTests {
             checkoutStatus()
             edit_flow = true
         }
+        "/checkout/shipping/location/address/back"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+            edit_flow = true
+        }
         "/checkout/shipping/location/select_contact#submit"(platform:"/mobile", type: TrackType.Event) {
             success = true
             error_codes = ["street_name_error"]
         }
         "/checkout/shipping/location/select_contact"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            available_options = 2
+        }
+        "/checkout/shipping/location/select_contact/back"(platform:"/mobile", type:TrackType.Event) {
             checkoutStatus()
             available_options = 2
         }
@@ -477,7 +484,12 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
-            selected_filters = ["tomorrow"]
+            selected_filters = [
+                                    {
+                                        filter_id : "free"
+                                        type : "quick / category"
+                                    }
+                                ]
         }
         "/checkout/shipping/select_store/selected_store"(platform: "/mobile", type: TrackType.Event) {
             default_location_info = {
@@ -488,7 +500,12 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
-            selected_filters = ["next_day","open_weekends"]
+            selected_filters = [
+                    {
+                        filter_id : "free"
+                        type : "quick / category"
+                    }
+            ]
         }
         //
 
@@ -850,6 +867,10 @@ trackTests {
         }
         "/checkout/show_ticket#save"(platform:"/mobile", type:TrackType.Event) {}
         "/checkout/show_geolocation_map"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            payment_method = "telecomm"
+        }
+        "/checkout/show_geolocation_map/back"(platform:"/mobile", type:TrackType.Event) {
             checkoutStatus()
             payment_method = "telecomm"
         }
@@ -1705,7 +1726,6 @@ trackTests {
             buy_equal_pay=true
             recovery_flow=false
             register_int=false
-            platform = "/web/desktop"
             payments=[
                     [
                             id:333,
@@ -2051,7 +2071,15 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
-            selected_filters = ["tomorrow"]
+            selected_filters = [
+                    {
+                        filter_id : "free"
+                        type : "quick / category"
+                    }
+            ]
+            filters_present = true
+            agency_latitude = 31.638802
+            agency_longitude = -106.436181
         }
         "/checkout/shipping/select_store/selected_store"(platform: "/web", type: TrackType.Event) {
             default_location_info = {
@@ -2062,7 +2090,15 @@ trackTests {
             longitude = -58.929484
             last_action = "geolocation"
             distance = 345
-            selected_filters = ["next_day","open_weekends"]
+            selected_filters = [
+                    {
+                        filter_id : "free"
+                        type : "quick / category"
+                    }
+            ]
+            filters_present = true
+            agency_latitude = 31.638802
+            agency_longitude = -106.436181
         }
 
         // Suscripciones

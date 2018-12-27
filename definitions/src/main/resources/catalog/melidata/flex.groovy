@@ -215,6 +215,8 @@ tracks {
         location
         error_type(required: true, type: PropertyType.String,  values: ["generic", "connection"],
             description: "Specifies what kind of error happened.",inheritable:false)
+        error_step_id(required: false, type: PropertyType.String,
+                description: "Specifies the stepId where the error happened.",inheritable:false)
     }
 
     "/flex/error/snackbar"(platform: "/mobile", type: TrackType.Event) {
@@ -222,6 +224,8 @@ tracks {
         error_type(required: true, type: PropertyType.String,  values: ["generic", "delivery_failed",
                                                                         "not_delivered_failed", "connection"],
             description: "Specifies what kind of error happened.")
+        error_step_id(required: false, type: PropertyType.String,
+                description: "Specifies the stepId where the error happened.",inheritable:false)
     }
 
     "/flex/error/update_app/update_app"(platform: "/mobile", type: TrackType.Event) {

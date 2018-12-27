@@ -200,7 +200,6 @@ tracks {
 
         buy_equal_pay(required: false, description: "BP flag")
         recovery_flow(required: false, description: "Is recovery CHO flow")
-        platform(required: true)
 
         payments(required: false, description: "Array of payments information")
         // id
@@ -253,7 +252,7 @@ tracks {
     }
 
     "/checkout/init/options"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         shipping_data(required: true, type: PropertyType.ArrayList, description: "Shipping options available for the buyer")
         payment_data(required: true, type: PropertyType.String, description: "Payment options available for the buyer")
         shipping(required: false)
@@ -384,6 +383,7 @@ tracks {
         //View specific data
         edit_flow(required: true, type: PropertyType.Boolean)
     }
+    "/checkout/shipping/location/address/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/shipping/location/select_state"(platform: "/mobile") {}
     "/checkout/shipping/location/select_city"(platform: "/mobile") {}
     "/checkout/shipping/location/select_city/invalid_destination"(platform: "/mobile") {}
@@ -396,6 +396,7 @@ tracks {
         //View specific data
         available_options(required: true, type: PropertyType.Numeric)
     }
+    "/checkout/shipping/location/select_contact/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/shipping/location/find_contact"(platform: "/mobile") {}
     "/checkout/shipping/location/new_contact"(platform: "/mobile") {
         //View specific data
@@ -456,6 +457,9 @@ tracks {
         last_action(type: PropertyType.String, required: true, description: "That indicate the last action the user on the map")
         distance(type: PropertyType.Numeric, required: false, description: "indicate the distance of the agencie selected to the default center point")
         selected_filters(type: PropertyType.ArrayList, required: false, description: "indicates the selected filters when an agency is selected")
+        agency_latitude(type: PropertyType.Numeric, required: false, description: "the latitude of the selected agency")
+        agency_longitude(type: PropertyType.Numeric, required: false, description: "the longitude of the selected agency")
+        filters_present(type: PropertyType.Boolean, required: false, description: "indicates if the last request for agencies contains filters or not")
     }
 
     "/checkout/shipping/select_store/selected_store"(platform: "/", type: TrackType.Event) {
@@ -465,6 +469,9 @@ tracks {
         last_action(type: PropertyType.String, required: true, description: "That indicate the last action the user on the map")
         distance(type: PropertyType.Numeric, required: false, description: "indicate the distance of the agencie selected to the default center point")
         selected_filters(type: PropertyType.ArrayList, required: false, description: "indicates the selected filters when an agency is selected")
+        agency_latitude(type: PropertyType.Numeric, required: false, description: "the latitude of the selected agency")
+        agency_longitude(type: PropertyType.Numeric, required: false, description: "the longitude of the selected agency")
+        filters_present(type: PropertyType.Boolean, required: false, description: "indicates if the last request for agencies contains filters or not")
     }
 
     // No agencies
@@ -722,7 +729,6 @@ tracks {
 
         buy_equal_pay(required: true, description: "BP flag")
         recovery_flow(required: true, description: "Is recovery CHO flow")
-        platform(required: true)
 
         payments(required: true, description: "Array of payments information")
         // id
@@ -930,7 +936,6 @@ tracks {
 
         buy_equal_pay(required: true, description: "BP flag")
         recovery_flow(required: true, description: "Is recovery CHO flow")
-        platform(required: true)
         payment_method(required: true)
 
         payments(required: true, description: "Array of payments information")
@@ -975,6 +980,7 @@ tracks {
         //nickname
         session_id(required:false, description:"Session in which the checkout is being held")
     }
+    "/checkout/show_geolocation_map/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/show_geolocation_map/search"(platform: "/mobile") {}
     "/checkout/show_geolocation_map/search#location"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")

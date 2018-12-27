@@ -97,7 +97,7 @@ trackTests {
     }
     
     test("My card webview") {
-        "/my_cards_webview" (platform: "/mobile") {}
+        "/my_cards_webview" (platform: "/mobile") { from = "/deep_link" }
     }
 
 

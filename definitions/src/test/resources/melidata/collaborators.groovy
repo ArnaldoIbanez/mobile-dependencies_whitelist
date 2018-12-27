@@ -25,6 +25,7 @@ trackTests {
         "/collaborators_admin/roles/create"(platform:"/web", type: TrackType.View) {
             email = 'colaborador@owner.io'
         }
+        "/collaborators_admin/link_stores"(platform:"/web", type: TrackType.View) {}
     }
 
     test("Finish of creation of the new operator" ) {

@@ -11,6 +11,8 @@ This repository contains all the definitions for the information tracked in *mel
 
 Please check [tracks definitions guidelines](https://github.com/mercadolibre/melidata-catalog/wiki/Tracking-Style-Guide) before making PR. Try to follow other definition examples and make sure your data is not already tracked.
 
+And always remember to define how your tracking "should be" not "as it is". We want this catalog to represent "the tracking we want" and not "the one we have". The catalog helps us to keep governance on our data and making it more predictable and easy to exploit
+
 ## Metrics Definitions
 
 [Documentation](https://github.com/mercadolibre/melidata-catalog/wiki#metrics-definitions)

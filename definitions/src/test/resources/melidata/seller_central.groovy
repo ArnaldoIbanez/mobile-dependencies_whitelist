@@ -155,6 +155,79 @@ trackTests {
         "/seller_central/bulk/offline/download/error"(platform: "/", type: TrackType.Event) {}
     }
 
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller central Bulk - DISCOUNTS version
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("seller central bulk view") {
+        "/seller_central/bulk/discounts/list"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("seller central bulk onboarding") {
+        "/seller_central/bulk/discounts/onboarding"(platform: "/", type: TrackType.Event) {
+            action = "close"
+        }
+        "/seller_central/bulk/discounts/onboarding"(platform: "/", type: TrackType.Event) {
+            action = "start"
+        }
+        "/seller_central/bulk/discounts/onboarding"(platform: "/", type: TrackType.Event) {
+            action = "dismiss"
+            page = 2
+        }
+        "/seller_central/bulk/discounts/onboarding"(platform: "/", type: TrackType.Event) {
+            action = "rollback"
+        }
+    }
+
+    test("seller central bulk filters and search") {
+        "/seller_central/bulk/discounts/filters"(platform: "/", type: TrackType.Event) {
+            filters = ["active", "inactive"]
+        }
+    }
+
+    test("seller central bulk filters and search") {
+        "/seller_central/bulk/discounts/undo_changes"(platform: "/", type: TrackType.Event) {}
+        "/seller_central/bulk/discounts/search"(platform: "/", type: TrackType.Event) {}
+    }
+
+
+    test("seller central bulk columns") {
+        "/seller_central/bulk/discounts/columns"(platform: "/", type: TrackType.Event) {
+            columns = ["price", "quantity"]
+        }
+    }
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller central Offline - DISCOUNTS version
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("seller central offline view") {
+        "/seller_central/bulk/discounts/offline/home"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("seller central offline download views") {
+        "/seller_central/bulk/discounts/offline/download"(platform: "/", type: TrackType.View) {}
+        "/seller_central/bulk/discounts/offline/download/congrats"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("seller central offline upload views") {
+        "/seller_central/bulk/discounts/offline/upload"(platform: "/", type: TrackType.View) {}
+        "/seller_central/bulk/discounts/offline/upload/congrats"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("seller central offline download apply user selected columns and domains") {
+        "/seller_central/bulk/discounts/offline/download/user_selection"(platform: "/", type: TrackType.Event) {
+            domains = ["Mochilas", "Banquetas", "Bicicletas"]
+            columns = ["price", "status"]
+
+        }
+    }
+
+    test("seller central offline warning and error") {
+        "/seller_central/bulk/discounts/offline/download/warning"(platform: "/", type: TrackType.Event) {}
+        "/seller_central/bulk/discounts/offline/download/error"(platform: "/", type: TrackType.Event) {}
+    }
+
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central modify
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -279,6 +352,24 @@ trackTests {
             category_domain= "MLA-CAMERAS"
             item_id= "MLA682118081"
             session_id = "123-update-abc123"
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller central settings
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("seller central settings view"){
+        "/seller_central/settings"(platform: "/", type: TrackType.View){
+            reputation_level: "5_green"
+            seller_profile: "advanced"
+        }
+    }
+
+
+    test("seller central empty settings view"){
+        "/seller_central/empty_settings"(platform: "/", type: TrackType.View){
+            seller_profile: "newbie"
         }
     }
 }

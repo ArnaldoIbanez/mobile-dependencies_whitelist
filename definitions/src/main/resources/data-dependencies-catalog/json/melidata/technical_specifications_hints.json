@@ -1,60 +1,60 @@
 {
   "users": [
-      "jorge.vidaurre@mercadolibre.cl"
+    "emanuel.lopez@mercadolibre.com"
   ],
-  "process_name": "whatsapp_contacts",
+  "process_name": "technical_specifications_hints",
   "cron": "00 07 * * *",
   "partition": {
-        "name": "ds",
-        "type": "DATE"
-   },
+    "name": "ds",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
-    "site": "MeliLake",
+    "site": "QA",
     "columns": [
+      {
+        "name": "path",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "action",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "session",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "item",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "domain",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "attribute",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "hintType",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "source",
+        "type": "UNICODE_STRING"
+      },
       {
         "name": "site",
         "type": "UNICODE_STRING"
-      },
+      },      
       {
-        "name": "business",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "vertical",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "platform",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "seller_id",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "item_id",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "listing_type_id",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "item_condition",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "vips_whit_whatsapp",
-        "type": "INTEGER"
-      },
-      {
-        "name": "whatsapp_contacts",
+        "name": "t_user",
         "type": "INTEGER"
       }
     ],
     "sql": {
-        "script": "business-assurance/whatsapp_contacts.sql",
+      "script": "business-assurance/technical_specifications_hints.sql",
       "parameters": [
         {
           "name": "param01",
