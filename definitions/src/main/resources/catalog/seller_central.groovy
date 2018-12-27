@@ -60,8 +60,7 @@ tracks {
         id(required: true, type: PropertyType.String, description: "Preference id", values:["shipping", "advertising"])
     }
 
-    //LISTING SECTION - VIEWS
-    "/seller_central/listings/list/listing"(platform: "/", type: TrackType.Event) {}
+    //LISTING SECTION - TABS
     "/seller_central/listings/list/promos"(platform: "/", type: TrackType.Event) {}
 
     //BULK SECTION

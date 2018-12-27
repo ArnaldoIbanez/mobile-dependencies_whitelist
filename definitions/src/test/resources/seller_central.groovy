@@ -13,9 +13,7 @@ trackTests {
         "/seller_central/listings/list"(platform: "/", type: TrackType.View) {}
     }
 
-    test("seller central listing differents views") {
-        "/seller_central/listings/list/listing"(platform: "/", type: TrackType.Event) {}
-
+    test("seller central listing differents tabs") {
         "/seller_central/listings/list/promos"(platform: "/", type: TrackType.Event) {}
     }
 
