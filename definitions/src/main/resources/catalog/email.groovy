@@ -99,10 +99,13 @@ tracks {
     // mails for: unsubscribe from emails reception
     "/email/form-optout/unsubscribe"(platform: "/email"){
         selected_option(required: true, description: "Selected option in unsubscribe view as cause of unsubscription")
+        hash(required: true, description: "Hash associated to claimchek for the user data")
     }
 
     // mails for: showing unsubscribe view
-    "/email/form-optout"(platform: "/email"){}
+    "/email/form-optout"(platform: "/email"){
+        hash(required: true, description: "Hash associated to claimchek for the user data")
+    }
 
     "/email/chargebacks"(platform: "/email") {
         case_id(required: true, type: PropertyType.String)
