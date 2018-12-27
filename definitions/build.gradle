@@ -87,30 +87,30 @@ task testMetrics (dependsOn: 'classes', type: JavaExec) {
 }
 
 task uploadAllCatalog(type:JavaExec) {
-    main = 'com.melidata.definitions.manager.CatalogUploader'
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
     classpath = sourceSets.main.runtimeClasspath
     args = ["melidata", "shipping"]
 }
 
 task uploadMeliDataCatalog(type:JavaExec) {
-    main = 'com.melidata.definitions.manager.CatalogUploader'
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
     classpath = sourceSets.main.runtimeClasspath
     args = ["melidata"]
 }
 
 task uploadShippingCatalog(type:JavaExec) {
-    main = 'com.melidata.definitions.manager.CatalogUploader'
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
     classpath = sourceSets.main.runtimeClasspath
     args = ["shipping"]
 }
 
 task uploadMetrics(type:JavaExec) {
-    main = 'com.melidata.definitions.manager.MetricsUploader'
+    main = 'com.melidata.definitions.uploaders.MetricsUploader'
     classpath = sourceSets.main.runtimeClasspath
 }
 
 task uploadBatchQueries(type:JavaExec) {
-    main = 'com.melidata.definitions.manager.QueriesUploader'
+    main = 'com.melidata.definitions.uploaders.QueriesUploader'
     classpath = sourceSets.main.runtimeClasspath
 }
 
@@ -126,7 +126,7 @@ task validate(type:JavaExec) {
 }
 
 task uploadWhitelist(type:JavaExec) {
-    main = 'com.melidata.definitions.manager.WhitelistPathUploader'
+    main = 'com.melidata.definitions.uploaders.WhitelistPathUploader'
     classpath = sourceSets.main.runtimeClasspath
 }
 

@@ -1,13 +1,6 @@
-<<<<<<< HEAD:definitions/src/test/resources/melidata/contact.groovy
 package src.test.resources.melidata
 
-import com.ml.melidata.TrackType
-
-=======
-package src.test.resources
->>>>>>> master:definitions/src/test/resources/contact.groovy
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
-import com.ml.melidata.TrackType
 
 trackTests {
 
