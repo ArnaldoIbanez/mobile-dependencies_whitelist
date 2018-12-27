@@ -24,7 +24,7 @@ class OldCatalogUploader {
     HiveFormatter hiveFormatter
 
     OldCatalogUploader() {
-        catalogName = "melidata"
+        def catalogName = "melidata"
         s3Controller = new S3Controller(S3_BUCKET,  AWS_ACCESS_KEY, AWS_SECRET_KEY)
         this.hiveFormatter = new HiveFormatter(catalogName)
         CatalogDsl.setBaseDir(BASE_CATALOG_DIR + catalogName + "/")
