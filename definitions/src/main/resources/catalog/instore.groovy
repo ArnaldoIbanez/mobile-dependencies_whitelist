@@ -19,6 +19,7 @@ tracks {
         // Deprecated. Typo on Android
         notifications_permissions(required: false, PropertyType.Boolean)
         bluetooth_permissions(required: false, PropertyType.Boolean)
+        qr_data(required: false, PropertyType.String)
     }
     "/instore/scan_qr"(platform: "/mobile", isAbstract: true) {}
     "/instore/scan_qr/qr_discovery"(platform: "/mobile", type: TrackType.Event) {

@@ -34,6 +34,7 @@ trackTests {
             location_permissions = true
             notifications_permissions = true
             bluetooth_permissions = true
+            qr_data = "Any scanned data"
         }
         "/instore/scan_qr/qr_discovery"(platform: "/mobile", type: TrackType.Event) {
             qr_data = "Any scanned data"
