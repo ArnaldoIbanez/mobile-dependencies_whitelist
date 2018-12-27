@@ -13,6 +13,12 @@ abstract class CatalogFormatter {
     abstract def generate(String business)
     abstract def formatOutput(def data)
 
+    private String catalogName
+
+    CatalogFormatter(String catalogName) {
+        this.catalogName = catalogName
+    }
+
     def generate() {
         catalog.platformTrees.keySet().collect { business ->
             [business, generate(business)]
@@ -24,7 +30,7 @@ abstract class CatalogFormatter {
     }
 
     protected Catalog getCatalog() {
-        DslUtils.parseCatalog(new File(CatalogUploader.CATALOG_DIR, CatalogHandler.S3_CATALOG_FILE))
+        DslUtils.parseCatalog(new File(CatalogUploader.BASE_CATALOG_DIR + catalogName + "/", CatalogHandler.S3_CATALOG_FILE))
     }
 
     def getPlatforms(def t) {
