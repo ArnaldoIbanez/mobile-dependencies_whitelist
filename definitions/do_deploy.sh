@@ -9,6 +9,8 @@ if [[ $DRONE_BRANCH == "master" && $DRONE_BUILD_DIR != "" ]]; then
   echo "Starting upload of all catalogs"
   ./gradlew uploadAllCatalog
 
+  ./gradlew uploadOldCatalog
+
   echo "Starting upload metrics"
   ./gradlew uploadMetrics
 
