@@ -45,6 +45,14 @@ trackTests {
             prog_reg_version = 1
         }
 
+        "/register/form"(platform: "/web/desktop") {
+            app = "shield"
+            source = "email"
+            origin = "bacen"
+            captcha_showed = false
+            prog_reg_version = 0
+        }
+
         "/register/form/error"(platform: "/web/desktop") {
             app = "registration"
             source = "email"
@@ -96,6 +104,26 @@ trackTests {
                     [
                             code:8,
                             field: 'email'
+                    ]
+            ]
+            errors_validation = 'back'
+            prog_reg_version = 0
+        }
+
+        "/register/form/error"(platform: "/web/desktop") {
+            app = "shield"
+            origin = "bacen"
+            source = "email"
+            captcha_showed = false
+            errors = [
+                    [
+                            code:0,
+                            field: 'firstName',
+                            message: 'Tu nombre es incorrecto'
+                    ],
+                    [
+                            code:2,
+                            field: 'lastName'
                     ]
             ]
             errors_validation = 'back'
