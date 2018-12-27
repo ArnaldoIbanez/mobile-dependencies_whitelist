@@ -384,6 +384,10 @@ trackTests {
     }
 
     test("seller central sales dashboard") {
+        "/seller_central/sales/list/dashboard"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("seller central sales dashboard tasks") {
         "/seller_central/sales/list/dashboard/tasks"(platform: "/", type: TrackType.Event) {
             tasks = ["ready", "print"]
         }

@@ -236,6 +236,8 @@ tracks {
 
     "/seller_central/sales/list"(platform: "/", type: TrackType.View) {}
 
+    "/seller_central/sales/list/dashboard"(platform: "/", type: TrackType.Event) {}
+
     "/seller_central/sales/list/dashboard/tasks"(platform: "/", type: TrackType.Event) {
         tasks(required: true, type: PropertyType.ArrayList, description: "List of available tasks")
     }
