@@ -229,4 +229,19 @@ tracks {
     "/seller_central/empty_settings"(platform: "/", type: TrackType.View) {
         sellerCentralSettingsGroup
     }
+
+    // SALES SECTION
+
+    "/seller_central/sales"(platform: "/", isAbstract: true) {}
+
+    "/seller_central/sales/list"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/sales/list/dashboard/tasks"(platform: "/", type: TrackType.Event) {
+        tasks(required: true, type: PropertyType.ArrayList, description: "List of available tasks")
+    }
+
+    "/seller_central/sales/list/dashboard/task"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Task id")
+        count(required: false, type: PropertyType.Numeric, description: "Task count")
+    }
 }
