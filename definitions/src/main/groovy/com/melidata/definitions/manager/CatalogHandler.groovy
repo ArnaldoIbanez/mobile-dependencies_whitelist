@@ -6,7 +6,7 @@ import com.amazonaws.services.s3.model.S3ObjectInputStream
 import com.amazonaws.services.s3.model.S3ObjectSummary
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.DslUtils
-import org.apache.commons.io.FileUtils
+import java.io.FileNotFoundException
 
 /**
  * Created by mtencer on 5/4/16.
@@ -139,14 +139,15 @@ class CatalogHandler {
 		def areEquals = true
 
 		new File(actualCatalog).listFiles().each { actualFile ->
-			def fileUploaded = new File(uploadedCatalog + actualFile.name)
 
+			try {
+				def fileUploaded = new File(uploadedCatalog + actualFile.name)
 
-			if (!fileUploaded.exists()) {
-				areEquals = false
+				if (actualFile.text != fileUploaded.text) {
+					areEquals = false
+				}
 			}
-
-			if (actualFile.text != fileUploaded.text) {
+			catch (FileNotFoundException e){
 				areEquals = false
 			}
 		}
