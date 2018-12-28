@@ -1,7 +1,7 @@
 package com.melidata.definitions.format
 
 import com.melidata.definitions.manager.CatalogHandler
-import com.melidata.definitions.manager.CatalogUploader
+import com.melidata.definitions.uploaders.CatalogUploader
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.DslUtils
 import com.ml.melidata.catalog.tree.PlatformTree
@@ -12,6 +12,12 @@ abstract class CatalogFormatter {
     abstract def getLine(def k, def v)
     abstract def generate(String business)
     abstract def formatOutput(def data)
+
+    private String catalogName
+
+    CatalogFormatter(String catalogName) {
+        this.catalogName = catalogName
+    }
 
     def generate() {
         catalog.platformTrees.keySet().collect { business ->
@@ -24,7 +30,7 @@ abstract class CatalogFormatter {
     }
 
     protected Catalog getCatalog() {
-        DslUtils.parseCatalog(new File(CatalogUploader.CATALOG_DIR, CatalogHandler.S3_CATALOG_FILE))
+        DslUtils.parseCatalog(new File(CatalogUploader.BASE_CATALOG_DIR + catalogName + "/", CatalogHandler.S3_CATALOG_FILE))
     }
 
     def getPlatforms(def t) {
