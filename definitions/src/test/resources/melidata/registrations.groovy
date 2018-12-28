@@ -1,4 +1,4 @@
-package src.test.resources
+package src.test.resources.melidata
 
 import com.ml.melidata.TrackType
 
