@@ -4,6 +4,7 @@ import com.melidata.definitions.parsers.dsl.TestDsl
 import com.melidata.definitions.outs.DefinitionsOut
 import com.ml.melidata.catalog.Catalog
 import groovy.transform.Synchronized
+import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
 
 /**
  * Created by apetalas on 20/11/14.
@@ -33,10 +34,11 @@ class TestRunner {
     }
 
     @Synchronized
-    def static boolean run(String pathCatalog, List<String> pathTests, DefinitionsOut out){
+    def static boolean run(String catalogName, DefinitionsOut out){
 
         try{
-            def catalogScript = getScriptFromFile(pathCatalog)
+            def pathTests = getTests(catalogName)
+            def catalogScript = getScriptFromFile("src/main/resources/catalog/" + catalogName + "/catalog.groovy")
             def testsScript = new ArrayList<Script>()
             pathTests.each { testsScript.add(getScriptFromFile(it)) }
 
@@ -62,5 +64,9 @@ class TestRunner {
 
     def static Object runScript(Script toRun){
         return toRun.run()
+    }
+
+    private static List<String> getTests(String catalogName) {
+        return new File("src/test/resources/" + catalogName + "/").listFiles().collect{ it -> it.getAbsolutePath() }
     }
 }
