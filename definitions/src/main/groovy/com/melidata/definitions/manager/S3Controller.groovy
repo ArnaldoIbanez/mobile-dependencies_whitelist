@@ -40,16 +40,16 @@ class S3Controller {
         s3 = new AmazonS3Client(credentials, config)
     }
 
-    Integer getLastVersion() {
-        println "getLastVersion ${bucket} - ${CatalogHandler.LAST_VERSION_OBJECT}"
-        S3Object obj = s3.getObject(bucket, CatalogHandler.LAST_VERSION_OBJECT);
+    Integer getLastVersion(String lastVersionObject) {
+        println "getLastVersion ${bucket} - ${lastVersionObject}"
+        S3Object obj = s3.getObject(bucket, lastVersionObject);
         def content = IOUtils.toString(obj.objectContent);
         return Integer.parseInt(content.trim());
     }
 
 
-    void setLastServersion(Integer version) {
-        saveFile(CatalogHandler.LAST_VERSION_OBJECT,version.toString())
+    void setLastServersion(String lastVersionObject, Integer version) {
+        saveFile(lastVersionObject ,version.toString())
     }
 
     void saveCatalogVersion(Catalog catalog, String name, Integer version) {
