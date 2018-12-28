@@ -31,6 +31,7 @@ tracks {
 
     "/register/form"(platform: "/web", type: TrackType.View) {
         app(type: PropertyType.String, description: "Current Flow", required:true)
+        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
         source(type: PropertyType.String, description: "Source (on mobile is facebook/email, on web at the moment is only email)", required:true)
         item_id(type: PropertyType.String, description: "Item", required:false)
         captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:true)
