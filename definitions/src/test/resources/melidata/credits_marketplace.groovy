@@ -278,5 +278,16 @@ trackTests {
         /******************************************
          *      End: Consumers Unified Payment Hack
          ******************************************/
+
+        /******************************************
+         *   Start: Consumers Checkout
+         ******************************************/
+
+        "/credits/consumer/administrator/checkout"(platform: "/web/desktop", type: TrackType.View) {}
+
+        /******************************************
+         *   End: Consumers Checkout
+         ******************************************/
+
     }
 }
