@@ -5,11 +5,19 @@ import com.ml.melidata.catalog.PropertyType
 
 tracks {
 
+    propertyDefinitions {
+        flow_detail(required: false, description: "External info")
+        flow(required: false, type: PropertyType.String, description: "External flow name")
+        collector_id(required: false, type: PropertyType.String, description: "Collector external id")
+    }
+    propertyGroups {
+        externalData(flow, flow_detail, collector_id)
+    }
+
     // Views:
 
     "/px_checkout"(platform: "/mobile", isAbstract: true){
-        flow_detail(required: false, description: "External info")
-        flow(required: false, type: PropertyType.String, description: "External flow name")
+        externalData
     }
 
     // Payment Selection views
@@ -117,14 +125,12 @@ tracks {
         total_amount(required: true, type: PropertyType.Numeric , description: "Total amount")
         currency_id(required: true, type: PropertyType.String , description: "Currency id")
         available_installments(required: true, type: PropertyType.ArrayList , description: "Array of available installments")
-        flow_detail(required: false, description: "External info")
-        flow(required: false, type: PropertyType.String, description: "External flow name")
+        externalData
     }
 
     // One tap discount view
     "/px_checkout/review/one_tap/applied_discount"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
-        flow_detail(required: false, description: "External info")
-        flow(required: false, type: PropertyType.String, description: "External flow name")
+        externalData
     }
 
     // Payment result views
@@ -142,12 +148,10 @@ tracks {
 
     // One Tap:
     "/px_checkout/review/one_tap/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
-        flow_detail(required: false, description: "External info")
-        flow(required: false, type: PropertyType.String, description: "External flow name")
+        externalData
     }
     "/px_checkout/review/one_tap/swipe"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
-        flow_detail(required: false, description: "External info")
-        flow(required: false, type: PropertyType.String, description: "External flow name")
+        externalData
     }
 
     // Review:
@@ -156,8 +160,7 @@ tracks {
         payment_method_type(required: true, type: PropertyType.String, description: "Payment method type id")
         review_type(required: true, type: PropertyType.String, description: "Review screen type", values: ["one_tap" , "traditional"])
         extra_info(required: false, description: "Extra payment method info")
-        flow_detail(required: false, description: "External info")
-        flow(required: false, type: PropertyType.String, description: "External flow name")
+        externalData
     }
 
 }
