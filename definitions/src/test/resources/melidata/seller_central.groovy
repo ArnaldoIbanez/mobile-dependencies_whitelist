@@ -376,4 +376,25 @@ trackTests {
             seller_profile: "newbie"
         }
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller central Sales
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("seller central sales view") {
+        "/seller_central/sales/list"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("seller central sales dashboard tasks") {
+        "/seller_central/sales/list/dashboard/tasks"(platform: "/", type: TrackType.Event) {
+            tasks = ["ready", "print"]
+        }
+    }
+
+    test("seller central sales dashboard task") {
+        "/seller_central/sales/list/dashboard/task"(platform: "/", type: TrackType.Event) {
+            id = "prepare"
+        }
+    }
+
 }
