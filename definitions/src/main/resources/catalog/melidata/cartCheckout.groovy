@@ -220,6 +220,11 @@ tracks {
 "/cart/checkout/finish/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
 "/cart/checkout/finish/choose_action"(platform:"/", type: TrackType.View) {}
 
+"/checkout/finish/click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        action(required: true, description: "Action executed, for ex: call_seller, email_seller, etc")
+}
+
 "/cart/checkout/loading"(platform: "/", type: TrackType.View) {
     items(required: false, type:PropertyType.ArrayList, description: "Array of items in the cart with following data")
     seller(required: false, type:PropertyType.ArrayList, description: "Array of sellers with their data")
