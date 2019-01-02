@@ -231,6 +231,7 @@ trackTests {
             total_paid_amount = 0.0
             reservation_price = 50
             vertical = "MOTORS"
+            loyalty_level = 1
             context = "vip"
         }
 
