@@ -28,22 +28,9 @@ public abstract class Validator {
     public static CreateCategoryValidator(){
         return new CategoryValidator()
     }
-}
 
-public class ValuesValidator extends Validator{
-
-    private ArrayList<String> values;
-
-    def ValuesValidator(ArrayList<String> values){
-        this.values = values
-    }
-
-
-    void validate(TrackValidationResponse response, String property,Object value, boolean required=true) {
-        if(!required && value == null)
-            return;
-        if(!values.find{va -> va.equals(value)})
-            response.addValidation(false, "Property '${property}' has invalid value '${value}'. (possible values: ${this.values})")
+    public static CreateNestedValidator(Map<String,TrackDefinitionProperty> properties){
+        return new NestedValidator(properties)
     }
 }
 
@@ -84,5 +71,47 @@ public class CategoryValidator extends RegexValidator{
 
     def CategoryValidator() {
         super(/[a-zA-Z]{1,3}[0-9]+/)
+    }
+}
+
+public class ValuesValidator extends Validator{
+
+    private ArrayList<String> values;
+
+    def ValuesValidator(ArrayList<String> values){
+        this.values = values
+    }
+
+
+    void validate(TrackValidationResponse response, String property,Object value, boolean required=true) {
+        if(!required && value == null)
+            return;
+        if(!values.find{va -> va.equals(value)})
+            response.addValidation(false, "Property '${property}' has invalid value '${value}'. (possible values: ${this.values})")
+    }
+}
+
+public class NestedValidator extends Validator {
+
+    private Map<String,TrackDefinitionProperty> properties = [:]
+
+    def NestedValidator(Map<String,TrackDefinitionProperty> properties) {
+
+        this.properties = properties
+    }
+
+
+    void validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
+
+        if(!required) return
+        properties.each { k, v ->
+            def mapProperty = value[k]
+            v.validate(response, k, mapProperty)
+        }
+
+        if(!response.status) {
+            response.addValidation(false, "The error ocurred in property '${property}'")
+        }
+
     }
 }

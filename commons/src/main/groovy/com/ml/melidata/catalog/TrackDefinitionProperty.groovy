@@ -28,12 +28,12 @@ public enum PropertyType {
         public Boolean validate(Object value) {
             return value instanceof Timestamp
         }
-    }, 
+    },
     ArrayList {
         public Boolean validate(Object value) {
             return value instanceof ArrayList
         }
-    }, 
+    },
     Map {
         public Boolean validate(Object value) {
             return value instanceof Map
@@ -51,6 +51,7 @@ class TrackDefinitionProperty {
     def ArrayList<Validator> validators
     def Boolean serverSide = false
     def Boolean inheritable = true
+    def Map<String,TrackDefinitionProperty> properties = [:]
 
     def setRegex(String regex){
         this.validators.push(Validator.CreateRegexValidator(regex))
@@ -75,13 +76,29 @@ class TrackDefinitionProperty {
         this.inheritable = value
     }
 
+    def setPropertyDefinitions(Map<String,TrackDefinitionProperty> properties) {
+        this.properties = properties
+        this.validators.push(Validator.CreateNestedValidator(properties))
+    }
+
     public TrackDefinitionProperty(Map map) {
         this.validators = new ArrayList<Validator>()
         map?.each { k, v ->
-          if (this.hasProperty(k)) this[k] = v
+            if (this.hasProperty(k)) this[k] = v
         }
         if(regex && values) {
             throw new CatalogException("Regex and Values can't be defined together in the same property");
+        }
+
+        /*          People should define their maps properties as well
+        if(type == PropertyType.Map && properties == [:]) {
+            throw new CatalogException("You can't define a map type without specifying propertyDefinitions");
+        }
+
+        */
+
+        if(type != PropertyType.Map && properties != [:]) {
+            throw new CatalogException("You can't define propertyDefinitions if the type isn't Map");
         }
     }
 
