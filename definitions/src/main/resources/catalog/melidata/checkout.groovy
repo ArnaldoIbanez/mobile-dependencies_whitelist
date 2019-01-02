@@ -191,37 +191,7 @@ tracks {
 
     "/checkout/wrapper"(platform: "/mobile") {} //Melidata experiment
     "/checkout/init"(platform: "/mobile") {
-        //Might not have most of status values in case of requestFailure
-        order_id(required: false, description: "OrderId")
-        status(required: false, description: "status")
-        total_amount(required: false, description: "totalAmount")
-        total_amount_with_shipping(required: false, description: "totalAmount with shipping cost")
-        total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
-
-        buy_equal_pay(required: false, description: "BP flag")
-        recovery_flow(required: false, description: "Is recovery CHO flow")
-
-        payments(required: false, description: "Array of payments information")
-        // id
-        // payment_method,
-        // payment_type,
-        // installments,
-        // paid_amount,
-        // installment_amount
-        // without_fee
-        // status
-        // status_detail
-
-        shipping(required: false)
-        // shipping_type
-        // cost
-        // shipping_option,
-        // id,
-        // name,
-        // shipping_method_id
-        // id
-        // shipping_mode
-
+        // items is required for this call
         items(required: true, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
         //item
         //id
@@ -234,21 +204,13 @@ tracks {
         //unit_price
         //currency_id
 
-        buyer(required: false)
-        //id
-        //nickname
-
-        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
-        //id
-        //nickname
-        //View specific data
         success(required: true, type: PropertyType.Boolean)
         location(required: false, type: PropertyType.String)
         geolocation_method(required: false, type: PropertyType.String)
     }
 
     "/checkout/init/back"(platform: "/mobile", type: TrackType.Event) {
-        success(required: falses, type: PropertyType.Boolean)
+        success(required: false, type: PropertyType.Boolean)
     }
 
     "/checkout/init/options"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -289,15 +251,15 @@ tracks {
     //Geolocation on fallback
     "/checkout/shipping/select_method/ask_enable_geolocation"(platform: "/mobile") {}
     "/checkout/shipping/select_method/ask_enable_geolocation#geolocation_permission_ask"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         granted(required: true, type: PropertyType.String)
     }
     "/checkout/shipping/select_method/ask_enable_geolocation#geolocation_enabled"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         status(required: true, type: PropertyType.String)
     }
     "/checkout/shipping/select_method/ask_enable_geolocation#unable_to_use_location_services"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     //Geolocation
     "/checkout/shipping/select_method/geolocated"(platform: "/mobile") {}
@@ -307,38 +269,38 @@ tracks {
         edit_flow(required = false, type: PropertyType.Boolean, description: "Represents the state of user editing address flow")
     }
     "/checkout/shipping/custom_address/zip_code/back"(platform: "/mobile", type: TrackType.Event) {
-       edit_flow(required = false, type: PropertyType.Boolean, description: "Represents the state of user editing address flow")
+        edit_flow(required = false, type: PropertyType.Boolean, description: "Represents the state of user editing address flow")
     }
     "/checkout/shipping/custom_address/zip_code#zip_code"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         zip_code(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/custom_address/zip_code#street_name"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         street_name(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/custom_address/zip_code#street_number"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         street_number(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/custom_address/zip_code#internal_number"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         internal_number(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/custom_address/zip_code#between_streets"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         between_streets(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/custom_address/zip_code#references"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         references(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/custom_address/zip_code#neighborhood"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         neighborhood(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/custom_address/zip_code#additional_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         additional_info(required: false, type: PropertyType.String)
     }
     "/checkout/shipping/custom_address/zip_code#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -432,7 +394,7 @@ tracks {
     "/checkout/shipping/select_store_map"(platform: "/mobile") {}
     "/checkout/shipping/select_store_map/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/shipping/select_store_map#agencies_request"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         agencies(required: true, description: "the number of agencies returned by the request")
         item_id(required: true, description: "the item id for which we are requesting agencies")
         latitude(required: false, description: "the latitude at which we are requesting agencies")
@@ -494,7 +456,7 @@ tracks {
         coupon_discount(required: false, type: PropertyType.Numeric)
     }
     "/checkout/payment/select_method#new_payment_method_selected"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         payment_method_id(required: false, type: PropertyType.String)
         payment_type_id(required: false, type: PropertyType.String)
     }
@@ -502,7 +464,7 @@ tracks {
     // Add card form
     "/checkout/payment/add_debit_card"(platform: "/mobile") {}
     "/checkout/payment/add_debit_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         bin(required: true, type: PropertyType.String)
         success(required: true, type: PropertyType.Boolean)
     }
@@ -511,14 +473,14 @@ tracks {
     }
     "/checkout/payment/add_prepaid_card"(platform: "/mobile") {}
     "/checkout/payment/add_prepaid_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         bin(required: true, type: PropertyType.String)
         success(required: true, type: PropertyType.Boolean)
     }
     "/checkout/payment/add_card"(platform: "/mobile") {}
     "/checkout/payment/add_card/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/payment/add_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-  session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         bin(required: true, type: PropertyType.String)
         success(required: true, type: PropertyType.Boolean)
     }
@@ -721,8 +683,7 @@ tracks {
     "/checkout/review/display_detail#closed"(platform: "/mobile", type: TrackType.Event) {}
 
     "/checkout/additional_info"(platform: "/mobile") {
-        order_id(required: false, description: "OrderId")
-        status(required: false, description: "status")
+        // amounts, items, shipping and payment are required for this track
         total_amount(required: true, description: "totalAmount")
         total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
         total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
@@ -770,8 +731,6 @@ tracks {
         seller(required: true, type: PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
-
-        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     //Congrats tracks - shared between Legacy App and new App (Required False to prevent catalog validation failures)
     "/checkout/congrats"(platform: "/") {
@@ -801,17 +760,9 @@ tracks {
 
     "/checkout/finish"(platform: "/mobile", isAbstract: true) {
         /** **************************************/
-        // Same as congrats tracks
+        // order id, payments and items are required
         order_id(required: true, description: "OrderId")
         status(required: false, description: "status")
-        total_amount(required: false, description: "totalAmount")
-        total_amount_with_shipping(required: false, description: "totalAmount with shipping cost")
-        total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
-
-        buy_equal_pay(required: false, description: "BP flag")
-        recovery_flow(required: false, description: "Is recovery CHO flow")
-        register_int(required: false, description: "Integrated registration")
-        platform(required: false)
 
         payments(required: true, description: "Array of payments information")
         // id
@@ -824,16 +775,6 @@ tracks {
         // status
         // status_detail
 
-        shipping(required: false)
-        // shipping_type
-        // cost
-        // shipping_option,
-        // id,
-        // name,
-        // shipping_method_id
-        // id
-        // shipping_mode
-
         items(required: true, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
         //item
         //id
@@ -845,16 +786,6 @@ tracks {
         //quantity
         //unit_price
         //currency_id
-
-        buyer(required: false)
-        //id
-        //nickname
-
-        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
-        //id
-        //nickname
-
-        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
     "/checkout/finish/choose_action"(platform: "/mobile") {
@@ -866,59 +797,8 @@ tracks {
     "/checkout/finish/second_step/error_details"(platform: "/mobile") {}
 
     "/checkout/error"(platform: "/") {
-        order_id(required: false, description: "OrderId")
         status(required: false, description: "status")
-        total_amount(required: false, description: "totalAmount")
-        total_amount_with_shipping(required: false, description: "totalAmount with shipping cost")
-        total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
-
-        buy_equal_pay(required: false, description: "BP flag")
-        recovery_flow(required: false, description: "Is recovery CHO flow")
-        platform(required: false)
-
-        payments(required: false, description: "Array of payments information")
-        // id
-        // payment_method,
-        // payment_type,
-        // installments,
-        // paid_amount,
-        // installment_amount
-        // without_fee
-        // status
-        // status_detail
-
-        shipping(required: false)
-        // shipping_type
-        // cost
-        // shipping_option,
-        // id,
-        // name,
-        // shipping_method_id
-        // id
-        // shipping_mode
-
-        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
-        //item
-        //id
-        //variation_id
-        //buying_mode
-        //shipping_mode
-        //category_id
-        //deal_ids
-        //quantity
-        //unit_price
-        //currency_id
-
-        buyer(required: false)
-        //id
-        //nickname
-
-        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
-        //id
-        //nickname
         error_code(required: false, type: PropertyType.String)
-
-        session_id(required:false, description:"Session in which the checkout is being held")
     }
 
     "/checkout/show_ticket"(platform: "/") {}
@@ -928,8 +808,7 @@ tracks {
     }
 
     "/checkout/show_geolocation_map"(platform: "/mobile") {
-        order_id(required: false, description: "OrderId")
-        status(required: false, description: "status")
+        // amounts, payment, shipping, items, seller and buyer are required for this track
         total_amount(required: true, description: "totalAmount")
         total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
         total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
@@ -978,7 +857,6 @@ tracks {
         seller(required: true, type: PropertyType.ArrayList, description: "Array of sellers with their data")
         //id
         //nickname
-        session_id(required:false, description:"Session in which the checkout is being held")
     }
     "/checkout/show_geolocation_map/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/show_geolocation_map/search"(platform: "/mobile") {}
