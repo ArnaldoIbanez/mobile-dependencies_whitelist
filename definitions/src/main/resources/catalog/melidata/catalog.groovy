@@ -109,6 +109,7 @@ catalog {
         include business, "supermarket.groovy"
         include business, "payers_growth.groovy"
         include business, "contact.groovy"
+        include business, "full.groovy"
     }
 
     mercadopago.each { business ->
