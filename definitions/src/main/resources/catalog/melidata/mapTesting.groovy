@@ -8,12 +8,12 @@ tracks {
      * ACCOUNT FUND Screen Tracks
      */
 
-    retrievePropertyDefinitions {
+    def results_dataset = retrievePropertyDefinitions {
         result_status(required:true, description: "Operation result status", type: PropertyType.String)
         money (required:true, description: "quantity", type: PropertyType.Numeric)
     }
 
-    retrievePropertyDefinitions {
+    def double_results_dataset = retrievePropertyDefinitions {
         result_map(required:true, description: "Operation result status", type:PropertyType.Map, propertyDefinitions: results_dataset)
         money (required:true, description: "quantity", type: PropertyType.Numeric)
     }
