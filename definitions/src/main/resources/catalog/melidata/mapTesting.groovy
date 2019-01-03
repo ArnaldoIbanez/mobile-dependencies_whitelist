@@ -8,10 +8,18 @@ tracks {
      * ACCOUNT FUND Screen Tracks
      */
 
-    def item_definition = objectSchemaDefinitions {
+    propertyDefinitions {
         item_id(required:true, description: "Operation result status", type: PropertyType.String)
         price (required:true, description: "quantity", type: PropertyType.Numeric)
         shipping (required:true, description: "shippings", type: PropertyType.ArrayList)
+    }
+
+    propertyGroups {
+        item_total(item_id, price, shipping)
+    }
+
+    def item_definition = objectSchemaDefinitions {
+        item_total
     }
 
     def purchased_item_definition = objectSchemaDefinitions {
@@ -27,4 +35,10 @@ tracks {
     "/mapTesting/subdir"(platform: "/", type: TrackType.View) {}
 
     "/mapTesting/websubdir"(platform: "/web", type: TrackType.View) {}
+
+    "/mapManual"(platform:"/", type: TrackType.View) {
+        item_id(required:true, description: "Operation result status", type: PropertyType.String)
+        price (required:true, description: "quantity", type: PropertyType.Numeric)
+        shipping (required:true, description: "shippings", type: PropertyType.ArrayList)
+    }
 }

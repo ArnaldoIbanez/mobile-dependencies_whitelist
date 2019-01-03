@@ -16,7 +16,7 @@ import static org.junit.Assert.*
 /**
  * Created by geisbruch on 11/11/14.
  */
-class DefinitionTest {
+class TrackDefinitionTest {
 
 
     @Test void shouldEnableAddPropertiesWithOutTrackDefinitionProperty() {
