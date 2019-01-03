@@ -11,6 +11,7 @@ tracks {
     def item_definition = objectSchemaDefinitions {
         item_id(required:true, description: "Operation result status", type: PropertyType.String)
         price (required:true, description: "quantity", type: PropertyType.Numeric)
+        shipping (required:true, description: "shippings", type: PropertyType.ArrayList)
     }
 
     def purchased_item_definition = objectSchemaDefinitions {

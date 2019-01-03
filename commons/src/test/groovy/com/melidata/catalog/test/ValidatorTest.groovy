@@ -1,16 +1,10 @@
 package com.melidata.catalog.test
 
-import com.ml.melidata.catalog.CategoryValidator
+import com.ml.melidata.catalog.TrackDefinitionProperty
 import com.ml.melidata.catalog.PropertyType
-import com.ml.melidata.catalog.RegexValidator
-import com.ml.melidata.catalog.TypeValidator
 import com.ml.melidata.catalog.Validator
-import com.ml.melidata.catalog.ValuesValidator
 import com.ml.melidata.catalog.tree.TrackValidationResponse
 import org.junit.Test
-
-import java.security.Timestamp
-
 import static org.junit.Assert.assertEquals
 
 /**
@@ -146,6 +140,49 @@ class ValidatorTest {
         //println response.messages
         assertEquals(response.status, false)
         assertEquals(response.messages.size(), 1)
+
+    }
+
+    @Test void shouldValidateTrackWithNestedValidator() {
+
+        // Arrange
+        def response = new TrackValidationResponse()
+        def validator = Validator.CreateNestedValidator( [
+                propertyname: new TrackDefinitionProperty(required: true, type: PropertyType.String),
+                propertyname2: new TrackDefinitionProperty(required: true, type: PropertyType.Numeric),
+                propertyname3: new TrackDefinitionProperty(required: true, type: PropertyType.ArrayList)
+        ])
+
+        validator.validate(response,"propertyname", [
+                propertyname: "value",
+                propertyname2: 289,
+                propertyname3: [1, 2, 3]
+        ])
+
+        // Assert
+        //println response.messages
+        assertEquals(response.status, true)
+        assertEquals(response.messages.size(), 0)
+
+    }
+
+    @Test void shouldFailValidationTrackWithNestedValidatorPropertyMissing() {
+
+        // Arrange
+        def response = new TrackValidationResponse()
+        def validator = Validator.CreateNestedValidator( [
+                propertyname: new TrackDefinitionProperty(required: true, type: PropertyType.String),
+                propertyname2: new TrackDefinitionProperty(required: true, type: PropertyType.Numeric)
+        ])
+
+        validator.validate(response,"propertyname", [
+                propertyname: "value"
+        ])
+
+        // Assert
+        //println response.messages
+        assertEquals(response.status, false)
+        assertEquals(response.messages.size(), 2)
 
     }
 

@@ -8,11 +8,12 @@ trackTests {
         "/mapTesting"(platform: "/", type: TrackType.View) {
             recommended_item = [
                     item_id : "321421",
-                    price: 200
+                    price: 200,
+                    shipping: ["Argentina", "Brasil", "Mexico"]
             ]
 
             purchased_item = [
-                    item : [item_id: "432321", price: 200],
+                    item : [item_id: "432321", price: 200, shipping: ["Argentina", "Brasil", "Mexico"]],
                     quantity: 200
             ]
 
@@ -21,11 +22,12 @@ trackTests {
         "/mapTesting/subdir"(platform: "/", type: TrackType.View) {
             recommended_item = [
                     item_id : "321421",
-                    price: 200
+                    price: 200,
+                    shipping: ["Argentina", "Brasil", "Mexico"]
             ]
 
             purchased_item = [
-                    item : [item_id: "432321", price: 200],
+                    item : [item_id: "432321", price: 200, shipping: ["Argentina", "Brasil", "Mexico"]],
                     quantity: 200
             ]
 
@@ -34,11 +36,12 @@ trackTests {
         "/mapTesting/websubdir"(platform: "/web", type: TrackType.View) {
             recommended_item = [
                     item_id : "321421",
-                    price: 200
+                    price: 200,
+                    shipping: ["Argentina", "Brasil", "Mexico"]
             ]
 
             purchased_item = [
-                    item : [item_id: "432321", price: 200],
+                    item : [item_id: "432321", price: 200, shipping: ["Argentina", "Brasil", "Mexico"]],
                     quantity: 200
             ]
         }
