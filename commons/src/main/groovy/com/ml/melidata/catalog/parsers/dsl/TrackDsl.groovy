@@ -10,7 +10,6 @@ class TrackDsl {
 
     def Map<String, TrackDefinitionProperty> propertyDefinitions = [:]
     def Map<String, Collection<TrackDefinitionProperty>> propertyDefinitionGroups = [:]
-    def Map<String, Map<String,TrackDefinitionProperty>> nestedPropertyDefinitionsGroups = [:]
 
     def List<TrackDefinition> trackDefinitions = [];
 
