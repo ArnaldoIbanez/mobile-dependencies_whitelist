@@ -10,6 +10,7 @@ class TrackDsl {
 
     def Map<String, TrackDefinitionProperty> propertyDefinitions = [:]
     def Map<String, Collection<TrackDefinitionProperty>> propertyDefinitionGroups = [:]
+    def Map<String, Map<String,TrackDefinitionProperty>> nestedPropertyDefinitionsGroups = [:]
 
     def List<TrackDefinition> trackDefinitions = [];
 
@@ -35,7 +36,6 @@ class TrackDsl {
         propertyDefinitionGroups.putAll(propertyGroupDefinitionDsl.propertyDefinitionGroups)
     }
 
-
     def methodMissing(String method, args) {
         def path = method;
 
@@ -50,9 +50,6 @@ class TrackDsl {
         trackDefinition.properties.putAll(properties);
         trackDefinitions.add(trackDefinition)
     }
-
-
-
 
     def retrievePropertyDefinitions (closure, providedPropertyDefinitionGroups = [:]) {
         PropertyDefinitionDsl propertyDefinitionDsl = new PropertyDefinitionDsl(providedPropertyDefinitionGroups: providedPropertyDefinitionGroups);

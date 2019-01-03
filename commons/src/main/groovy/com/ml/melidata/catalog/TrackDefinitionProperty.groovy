@@ -90,14 +90,14 @@ class TrackDefinitionProperty {
             throw new CatalogException("Regex and Values can't be defined together in the same property");
         }
 
-        /*          People should define their maps properties as well
+        /*          People should define their already defined maps
         if(type == PropertyType.Map && properties == [:]) {
             throw new CatalogException("You can't define a map type without specifying propertyDefinitions");
         }
 
         */
 
-        if(type != PropertyType.Map && properties != [:]) {
+        if(type != PropertyType.Map && properties != [:] && properties != null) {
             throw new CatalogException("You can't define propertyDefinitions if the type isn't Map");
         }
     }

@@ -74,6 +74,23 @@ public class CategoryValidator extends RegexValidator{
     }
 }
 
+public class ValuesValidator extends Validator{
+
+    private ArrayList<String> values;
+
+    def ValuesValidator(ArrayList<String> values){
+        this.values = values
+    }
+
+
+    void validate(TrackValidationResponse response, String property,Object value, boolean required=true) {
+        if(!required && value == null)
+            return;
+        if(!values.find{va -> va.equals(value)})
+            response.addValidation(false, "Property '${property}' has invalid value '${value}'. (possible values: ${this.values})")
+    }
+}
+
 public class NestedValidator extends Validator {
 
     private Map<String,TrackDefinitionProperty> properties = [:]
