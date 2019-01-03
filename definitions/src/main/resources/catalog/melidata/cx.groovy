@@ -142,4 +142,30 @@ tracks {
         portal_form_id
         portal_problem_id
     }
+
+    // Mis Consultas
+
+    "/support/cases"(platform: "/", isAbstract: true) {}
+
+    "/support/cases/detail"(platform: "/", type: TrackType.View) {
+        case_status(required: true, type: PropertyType.String,
+            values: ["pending", "waiting_for_info", "waiting_for_external", "waiting_for_fix", "fixed", "final_answer", "finished_no_answer", "duplicated", "finished", "final_greetings"],
+            description: "Case status")
+        case_id(required: true, type: PropertyType.Numeric,
+            description: "CX case id")
+        has_parent(required: true, type: PropertyType.Boolean,
+            description: "If current case has parent")
+        parent_id(required: false, type: PropertyType.Numeric,
+            description: "If it has a parent, this is my parent id")
+        expired(required: true, type: PropertyType.Boolean,
+            description: "Case has SLA expired")
+    }
+
+    "/support/cases/new_contact"(platform: "/", type: TrackType.Event) {
+        case_id(required: true, type: PropertyType.Numeric,
+            description: "CX case id")
+        type(required: true, type: PropertyType.String, 
+            values: ["more_information", "greetings", "recontact"],
+            description: "Contact type")
+    }
 }

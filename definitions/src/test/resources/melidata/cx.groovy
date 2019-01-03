@@ -112,4 +112,24 @@ trackTests {
             portal_problem_id = 456
         }
     }
+
+    def defaultCaseInfo = {
+        case_status = "pending"
+        case_id = 12345678
+        has_parent = false
+        expired = false
+    }
+
+    test("Support Cases") {
+        "/support/cases/detail"(platform: "/", type: TrackType.View) {
+            case_status = "pending"
+            case_id = 12345678
+            has_parent = false
+            expired = false
+        }
+        "/support/cases/new_contact"(platform: "/", type: TrackType.Event) {
+            case_id = 12345555
+            type = "greetings"
+        }
+    }
 }
