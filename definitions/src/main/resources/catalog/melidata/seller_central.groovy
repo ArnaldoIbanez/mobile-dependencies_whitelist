@@ -230,6 +230,19 @@ tracks {
         sellerCentralSettingsGroup
     }
 
+    "/seller_central/settings/show_row"(platform: "/", type: TrackType.Event) {
+        row_id(required: true, type: PropertyType.String, description: "Row Id displayed")
+        ui_type(required: true, type: PropertyType.String, description: "UI Type of row", values: ["row","row_disabled","row_error"])
+        section(required: true, type: PropertyType.String, description: "Section where the row is display")
+    }
+
+    "/seller_central/settings/update_row"(platform: "/", type: TrackType.Event) {
+        to(required: true, type: PropertyType.String, description: "New value of the row")
+        from(required: false, type: PropertyType.String, description: "Previous value of the row")
+        section_id(required: true, type: PropertyType.String, description: "Section of the row")
+        row_id(required: true, type: PropertyType.String, description: "Row Id")
+    }
+
     // SALES SECTION
 
     "/seller_central/sales"(platform: "/", isAbstract: true) {}
