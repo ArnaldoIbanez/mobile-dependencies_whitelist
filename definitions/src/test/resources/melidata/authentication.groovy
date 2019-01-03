@@ -394,6 +394,7 @@ trackTests {
             event = "method_selector"
             flow_type = 'sms_enrollment'
             risk_context = false
+            reauthentication = false
             sms_option = true
             call_option = true
             push_option = false
@@ -404,6 +405,7 @@ trackTests {
             event = "start_validation"
             flow_type = 'sms_enrollment'
             risk_context = true
+            reauthentication = true
             option_selected = "primary_email"
             primary_email_option = true
             domain = "gmail"
@@ -414,6 +416,7 @@ trackTests {
             event = "close_validation"
             flow_type = 'sms_enrollment'
             risk_context = true
+            reauthentication = false
             option_selected = "microsoft_connect"
             google_connect_option = true
             domain = "gmail"
