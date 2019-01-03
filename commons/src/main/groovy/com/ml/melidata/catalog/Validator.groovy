@@ -93,18 +93,18 @@ public class ValuesValidator extends Validator{
 
 public class NestedValidator extends Validator {
 
-    private Map<String,TrackDefinitionProperty> properties = [:]
+    private Map<String,TrackDefinitionProperty> nestedProperties = [:]
 
     def NestedValidator(Map<String,TrackDefinitionProperty> properties) {
 
-        this.properties = properties
+        this.nestedProperties = properties
     }
 
 
     void validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
 
         if(!required) return
-        properties.each { k, v ->
+        nestedProperties.each { k, v ->
             def mapProperty = value[k]
             v.validate(response, k, mapProperty)
         }

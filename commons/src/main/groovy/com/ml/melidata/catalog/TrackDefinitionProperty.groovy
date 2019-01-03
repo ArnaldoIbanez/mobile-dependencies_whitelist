@@ -51,7 +51,7 @@ class TrackDefinitionProperty {
     def ArrayList<Validator> validators
     def Boolean serverSide = false
     def Boolean inheritable = true
-    def Map<String,TrackDefinitionProperty> properties = [:]
+    def Map<String,TrackDefinitionProperty> nestedProperties = [:]
 
     def setRegex(String regex){
         this.validators.push(Validator.CreateRegexValidator(regex))
@@ -76,8 +76,8 @@ class TrackDefinitionProperty {
         this.inheritable = value
     }
 
-    def setPropertyDefinitions(Map<String,TrackDefinitionProperty> properties) {
-        this.properties = properties
+    def setSchemaDefinitions(Map<String,TrackDefinitionProperty> properties) {
+        this.nestedProperties = properties
         this.validators.push(Validator.CreateNestedValidator(properties))
     }
 
@@ -97,7 +97,7 @@ class TrackDefinitionProperty {
 
         */
 
-        if(type != PropertyType.Map && properties != [:] && properties != null) {
+        if(type != PropertyType.Map && nestedProperties != [:] && nestedProperties != null) {
             throw new CatalogException("You can't define propertyDefinitions if the type isn't Map");
         }
     }
