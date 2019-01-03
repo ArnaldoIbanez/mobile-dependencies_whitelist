@@ -297,6 +297,9 @@ tracks {
 
       "/notification/account_fund_approved_mp"(platform: "/") {}
       "/notification/account_fund_approved_ml"(platform: "/") {}
+      "/notification/account_fund_salary"(platform: "/") {}
+      "/notification/account_balance_approved_mp"(platform: "/") {}
+      "/notification/account_balance_approved_ml"(platform: "/") {}
       "/notification/credits_consumer_about_to_expire_second_notice"(platform: "/") {
           loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
           installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
@@ -334,6 +337,17 @@ tracks {
       "/notification/credits_consumer_expired_n_loans_fourth_notice"(platform: "/") {}
       "/notification/credits_consumer_expired_n_loans_second_notice"(platform: "/") {}
       "/notification/credits_consumer_expired_n_loans_third_notice"(platform: "/") {}
+
+      //Chargeback
+      "/notification/chargeback_payer_start_ml"(platform: "/") {
+          case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+      }
+      "/notification/chargeback_payer_notify_ml"(platform: "/") {
+          case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+      }
+      "/notification/chargeback_payer_update_ml"(platform: "/") {
+          case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+      }
 
       "/notification/instore_discover_activities"(platform: "/") {}
 
@@ -395,17 +409,19 @@ tracks {
 
       //Hubo un problema con el envío (para el comprador)
       "/notification/shipping_not_delivered_receiver"(platform: "/") {
-          shipment_id(required: true, type: PropertyType.String, description: "Id of shipment.")
+          shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
       }
 
       //Paquete entregado
       "/notification/shipping_delivered"(platform: "/") {
           shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
       }
+
       "/notification/shipping_reminder_agency_withdrawal"(platform: "/") {
           shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
           agency_to_agency(required:true, type:PropertyType.Boolean, description: "Indicates if package was sent to an agency in the first place or was shipped there because the user wasnt found in his address")
       }
+
       //Paquete proximo a entregarse
       "/notification/shipping_soon_deliver"(platform: "/") {
           shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
@@ -419,10 +435,24 @@ tracks {
           shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
       }
 
-      "/notification/shipping_legacy_delivered"(platform: "/") {}
-      "/notification/shipping_legacy_shipped"(platform: "/") {}
-      "/notification/shipping_legacy_delayed_receiver"(platform: "/") {}
+      "/notification/shipping_legacy_delivered"(platform: "/") {
+          shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+          order_id(required: true, type: PropertyType.Numeric)
+      }
+      "/notification/shipping_legacy_shipped"(platform: "/") {
+          shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+          order_id(required: true, type: PropertyType.Numeric)
+      }
+      "/notification/shipping_legacy_delayed_receiver"(platform: "/") {
+          shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+          order_id(required: true, type: PropertyType.Numeric)
+          delay_reason(required: true, type: PropertyType.String, description: "shipping_time or handling_time")
+      }
       "/notification/shipping_legacy_agency_withdrawal"(platform: "/") {}
+      "/notification/shipping_legacy_delayed_sender"(platform: "/") {
+          shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+          order_id(required: true, type: PropertyType.Numeric)
+      }
 
       //Seller questions
       "/notification/questions_new"(platform: "/") {
@@ -566,7 +596,10 @@ tracks {
       }
 
       //Qrviral
-      "/notification/qrviral_onboard"(platform: "/") {}
+      "/notification/qrviral_onboard"(platform: "/") {
+          campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+      }
+      "/notification/qrviral_onboard_recharge"(platform: "/") {}
       "/notification/qrviral_reminder"(platform: "/") {}
       "/notification/qrviral_extension"(platform: "/") {}
 
@@ -590,6 +623,9 @@ tracks {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
       "/notification/mediations_respondent"(platform: "/") {
+          claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
+      }
+      "/notification/mediations_legacy_complainant"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
 
@@ -620,12 +656,12 @@ tracks {
       }
       "/notification/payments_approved"(platform: "/") {
           item_id(required: true, type: PropertyType.String)
-          order_id(required: true, type: PropertyType.String)
+          order_id(required: true, type: PropertyType.Numeric)
       }
 
       "/notification/payments_rejected"(platform: "/") {
           item_id(required: true, type: PropertyType.String)
-          order_id(required: true, type: PropertyType.String)
+          order_id(required: true, type: PropertyType.Numeric)
       }
 
       //Puis
@@ -705,7 +741,13 @@ tracks {
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
       }
-      "/notification/campaigns_suggested_discounts_buyer"(platform: "/") {}
+      "/notification/campaigns_suggested_discounts_buyer"(platform: "/") {
+          item_id(required: true, type: PropertyType.String, description: "Id of item.")
+          campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+          test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+          sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+          batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+      }
 
       "/notification/campaigns_remarketing"(platform: "/") {
           campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
@@ -730,6 +772,7 @@ tracks {
 
       //Fraud
       "/notification/fraud_identity_validation"(platform: "/") {}
+      "/notification/fraud_delivery_cancellation_stop_ml"(platform: "/") {}
 
       //Loyalty
       "/notification/loyalty"(platform: "/") {}
@@ -777,6 +820,7 @@ tracks {
       "/notification/security_event_feedback"(platform: "/") {}
       "/notification/security_account_validation"(platform: "/") {}
       "/notification/security_login_auth"(platform: "/") {}
+      "/notification/security_device_authorization"(platform: "/") {}
 
       //Health Check
       "/notification/health_check"(platform: "/") {

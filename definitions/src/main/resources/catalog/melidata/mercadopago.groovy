@@ -754,11 +754,15 @@ tracks {
 
         notification_style(required: false, description: "The notification style used when displaying the notification to the user.")
 
+        discard_reason(required: false, description: "The discarded reason of the notification", values: ["invalid_payload","invalid_user", "settings_disabled"], type: PropertyType.String)
     }
 
-    //Acount
+    //Account
     "/notification/account_fund_approved_ml"(platform: "/mobile") {}
     "/notification/account_fund_approved_mp"(platform: "/mobile") {}
+    "/notification/account_fund_salary"(platform: "/mobile") {}
+    "/notification/account_balance_approved_mp"(platform: "/mobile") {}
+    "/notification/account_balance_approved_ml"(platform: "/mobile") {}
 
     //Campañas
     "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
@@ -783,6 +787,18 @@ tracks {
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
     "/notification/credits_merchants_about_to_expire_first_notice"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_expired_no_charges"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_to_expire"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_expired_near_to_fixed_charges"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_expired_near_to_daily_charges"(platform: "/mobile") {
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
 
@@ -831,6 +847,16 @@ tracks {
     }
     "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {
         notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+    "/notification/credits_merchants_to_expire_standard"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+    "/notification/credits_merchants_to_expire_not_standard"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+    }
+    "/notification/credits_merchants_educational"(platform: "/mobile") {
+        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
+        loan_id(required: true, type: PropertyType.Numeric)
     }
 
     //Point
