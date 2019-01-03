@@ -11,6 +11,11 @@ tracks {
         email_id(required: false)
         subject(required: false)
         sent_date(required: false)
+        provider(required: true,
+                values: ["ironport","sendgrid","sparkpost"],
+                type: PropertyType.String, description: "Email Service Provider which generated this track event")
+        communication_id(required: false, type: PropertyType.String, description: "Email campaign id")
+        communication_version(required: false, type: PropertyType.String, description: "Email campaign version")
     }
 
     "/email/orders"(platform: "/email") {

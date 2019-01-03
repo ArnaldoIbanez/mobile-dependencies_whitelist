@@ -35,6 +35,25 @@ trackTests {
             buy_equals_pay = true
         }
 
+        def defaultTrackInformationWithProvider = {
+            email_id = 123456
+            subject = "Test"
+            email_template = "CHO_PAGO_AGREE"
+            event_type = "send"
+            sent_date = new Date().toString()
+            provider = "sendgrid"
+        }
+
+        def defaultTrackInformationWithCommunicationInfo = {
+            email_id = 123456
+            subject = "Test"
+            email_template = "CHO_PAGO_AGREE"
+            event_type = "send"
+            sent_date = new Date().toString()
+            communication_id = "comm1"
+            communication_version = "0.0.1"
+        }
+
         "/email/generic"(platform: "/email") {
             defaultTrackInformation()
         }
@@ -127,5 +146,14 @@ trackTests {
         "/email/form-optout"(platform: "/email"){
             defaultTrackInformation()
         }
+
+        "/email/generic"(platform: "/email") {
+            defaultTrackInformationWithProvider()
+        }
+
+        "/email/generic"(platform: "/email") {
+            defaultTrackInformationWithCommunicationInfo()
+        }
+
     }
 }
