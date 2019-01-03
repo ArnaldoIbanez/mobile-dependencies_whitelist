@@ -27,7 +27,7 @@ class TrackDefinitionPropertyTest {
         } catch (CatalogException e) {}
     }
 
-    @Test void shouldCreateNestedValidatorBothWithSameProperties() {
+    @Test void shouldCreateNestedValidatorFromTrackDefinitionBothWithSameNestedProperties() {
         // Arrange
         def definition = new TrackDefinitionProperty(name: "layout", type: PropertyType.Map, schemaDefinitions: [
                     heigth: new TrackDefinitionProperty(name: "width", description: "The layout used in the search query", type: PropertyType.String),

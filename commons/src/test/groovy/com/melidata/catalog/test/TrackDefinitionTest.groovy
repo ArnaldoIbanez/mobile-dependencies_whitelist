@@ -280,4 +280,16 @@ class TrackDefinitionTest {
         assertTrue(track.type.equals(TrackType.View))
     }
 
+    @Test void schemaDefinitionsPropertiesArentTracksProperties() {
+
+        def definition = new TrackDefinition("/search")
+                .addProperty(name: "category", description: "category of", type: PropertyType.Map, schemaDefinitions: [
+                heigth: new TrackDefinitionProperty(name: "width", description: "The layout used in the search query", type: PropertyType.String),
+                width: new TrackDefinitionProperty(name: "width", description: "The layout used in the search query", type: PropertyType.String)
+                ])
+
+        assertNull(definition.getProperties()["heigth"])
+        assertNotNull(definition.getProperties()["category"])
+    }
+
 }
