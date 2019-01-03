@@ -365,15 +365,32 @@ trackTests {
 
     test("seller central settings view"){
         "/seller_central/settings"(platform: "/", type: TrackType.View){
-            reputation_level: "5_green"
-            seller_profile: "advanced"
+            reputation_level = "5_green"
+            seller_profile = "advanced"
         }
     }
 
 
     test("seller central empty settings view"){
         "/seller_central/empty_settings"(platform: "/", type: TrackType.View){
-            seller_profile: "newbie"
+            seller_profile = "newbie"
+        }
+    }
+
+    test("seller central settings view event when a row is displayed"){
+        "/seller_central/settings/show_row"(platform: "/", type: TrackType.Event){
+            row_id = "row_shipping_address"
+            ui_type = "row"
+            section = "shipping"
+        }
+    }
+
+    test("seller central settings view event when a row is updated"){
+        "/seller_central/settings/update_row"(platform: "/", type: TrackType.Event){
+            to = "DEFAULT"
+            from = "THERMAL"
+            row_id = "row_printer_method"
+            section_id = "shipping"
         }
     }
 
