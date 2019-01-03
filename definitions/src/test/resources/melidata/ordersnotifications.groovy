@@ -31,6 +31,7 @@ trackTests {
             ]
             shipping_type = "custom_shipping"
             buy_equals_pay = true
+            provider = "ironport"
         }
 
         "/email/orders"(platform:"/email") {

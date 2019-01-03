@@ -14,6 +14,7 @@ trackTests {
             email_template = "CHO_PAGO_AGREE"
             event_type = "send"
             sent_date = new Date().toString()
+            provider = "ironport"
         }
 
         def defaultCheckoutTrackInformation = {
@@ -33,12 +34,13 @@ trackTests {
                     ]
             ]
             buy_equals_pay = true
+            provider = "ironport"
         }
 
         def defaultTrackInformationWithProvider = {
             email_id = 123456
             subject = "Test"
-            email_template = "CHO_PAGO_AGREE"
+            email_template = "REMARKETING"
             event_type = "send"
             sent_date = new Date().toString()
             provider = "sendgrid"
@@ -47,11 +49,12 @@ trackTests {
         def defaultTrackInformationWithCommunicationInfo = {
             email_id = 123456
             subject = "Test"
-            email_template = "CHO_PAGO_AGREE"
+            email_template = "REMARKETING"
             event_type = "send"
             sent_date = new Date().toString()
             communication_id = "comm1"
             communication_version = "0.0.1"
+            provider = "ironport"
         }
 
         "/email/generic"(platform: "/email") {
