@@ -92,11 +92,6 @@ task uploadAllCatalog(type:JavaExec) {
     args = ["melidata", "shipping"]
 }
 
-task uploadOldCatalog(type:JavaExec) {
-    main = 'com.melidata.definitions.uploaders.OldCatalogUploader'
-    classpath = sourceSets.main.runtimeClasspath
-}
-
 task uploadMeliDataCatalog(type:JavaExec) {
     main = 'com.melidata.definitions.uploaders.CatalogUploader'
     classpath = sourceSets.main.runtimeClasspath
