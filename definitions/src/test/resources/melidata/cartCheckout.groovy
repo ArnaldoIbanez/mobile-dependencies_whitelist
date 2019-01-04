@@ -376,7 +376,7 @@ trackTests {
         "/cart/checkout/review/inconsistency/payment_combination/shipping"(platform: "/mobile", dataSet)
         "/cart/checkout/review/inconsistency/payment_combination/new_split"(platform: "/mobile", dataSet)
     
-        "cart/checkout/finish#click"(platform: "/mobile", type: TrackType.Event) {
+        "/cart/checkout/finish/click"(platform: "/mobile", type: TrackType.Event) {
             action = 'call_seller'
             session_id = "asda98sad98ad89ad8"
         }
