@@ -119,14 +119,14 @@ trackTests {
             receiver_id = 306162056
         }
 
-        "/email/form-optout/unsubscribe"(platform: "/email"){
+        "/email/form-optout"(platform: "/email"){
             defaultTrackInformation()
-            selected_option = 1
             hash = "1a2b3c4d5e6f7g"
         }
 
-        "/email/form-optout"(platform: "/email"){
+        "/email/form-optout/unsubscribe"(platform: "/email"){
             defaultTrackInformation()
+            selected_option = 1
             hash = "1a2b3c4d5e6f7g"
         }
     }
