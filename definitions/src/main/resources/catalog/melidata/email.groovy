@@ -96,15 +96,14 @@ tracks {
     // mails for: purchases with some of its payments refunded
     "/email/checkout/refunded"(platform: "/email"){}
 
-    // mails for: unsubscribe from emails reception
-    "/email/form-optout/unsubscribe"(platform: "/email"){
-        selected_option(required: true, description: "Selected option in unsubscribe view as cause of unsubscription")
-        hash(required: true, description: "Hash associated to claimchek for the user data")
-    }
-
     // mails for: showing unsubscribe view
     "/email/form-optout"(platform: "/email"){
         hash(required: true, description: "Hash associated to claimchek for the user data")
+    }
+
+    // mails for: unsubscribe from emails reception
+    "/email/form-optout/unsubscribe"(platform: "/email", type: TrackType.Event){
+        selected_option(required: true, description: "Selected option in unsubscribe view as cause of unsubscription")
     }
 
     "/email/chargebacks"(platform: "/email") {
