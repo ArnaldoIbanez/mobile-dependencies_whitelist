@@ -5,15 +5,51 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 trackTests {
 
     test("Map testing") {
+
+        "/mapTestingIterated"(platform: "/", type: TrackType.View) {
+            recommendeds_item = [[
+                    item_id : "321421",
+                    price   : 200,
+                    shipping: ["Argentina", 7482391, "Mexico"],
+                    currency: "USD",
+                    op_id   : 1,
+                    stars   : 4
+            ],[
+                    item_id : "321421",
+                    price   : 200,
+                    shipping: ["Argentina", "Brasil", "Mexico"],
+                    currency: "USD",
+                    op_id   : 1,
+                    stars   : 4
+            ],[
+                    item_id : "321421",
+                    price   : 200,
+                    shipping: ["Argentina", 29, "Mexico"],
+                    currency: "USD",
+                    op_id   : 1,
+                    stars   : 4
+            ],[
+                    item_id : "321421",
+                    price   : 200,
+                    shipping: ["Argentina", "Brasil", "Mexico"],
+                    currency: "USD",
+                    op_id   : 1,
+                    stars   : 4
+            ]]
+        }
+
         "/mapTesting"(platform: "/", type: TrackType.View) {
             recommended_item = [
                     item_id : "321421",
                     price: 200,
-                    shipping: ["Argentina", "Brasil", "Mexico"]
+                    shipping: ["Argentina", "Brasil", "Mexico"],
+                    currency: "USD",
+                    op_id: 1,
+                    stars: 4
             ]
 
             purchased_item = [
-                    item : [item_id: "432321", price: 200, shipping: ["Argentina", "Brasil", "Mexico"]],
+                    item : [item_id: "432321", price: 200, shipping: ["Argentina", "Brasil", "Mexico"], currency: "USD", op_id: 1, stars: 5],
                     quantity: 200
             ]
 
@@ -22,12 +58,15 @@ trackTests {
         "/mapTesting/subdir"(platform: "/", type: TrackType.View) {
             recommended_item = [
                     item_id : "321421",
-                    price: "200",
-                    shipping: ["Argentina", "Brasil", "Mexico"]
+                    price: 200,
+                    shipping: ["Argentina", "Brasil", "Mexico"],
+                    currency: "USD",
+                    op_id: 1,
+                    stars: 4
             ]
 
             purchased_item = [
-                    item : [item_id: "432321", price: 200, shipping: ["Argentina", "Brasil", "Mexico"]],
+                    item : [item_id: "432321", price: 200, shipping: ["Argentina", "Brasil", "Mexico"], currency: "USD", op_id: 1, stars: 5],
                     quantity: 200
             ]
 
@@ -36,12 +75,15 @@ trackTests {
         "/mapTesting/websubdir"(platform: "/web", type: TrackType.View) {
             recommended_item = [
                     item_id : "321421",
-                    price: "200",
-                    shipping: ["Argentina", "Brasil", "Mexico"]
+                    price: 200,
+                    shipping: ["Argentina", "Brasil", "Mexico"],
+                    currency: "USD",
+                    op_id: 1,
+                    stars: 4
             ]
 
             purchased_item = [
-                    item : [item_id: "432321", price: 200, shipping: ["Argentina", "Brasil", "Mexico"]],
+                    item : [item_id: "432321", price: 200, shipping: ["Argentina", "Brasil", "Mexico"], currency: "USD", op_id: 1, stars: 5],
                     quantity: 200
             ]
         }

@@ -1,17 +1,16 @@
 package com.ml.melidata.catalog
 
-import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.tree.TrackValidationResponse
-
-import java.sql.Timestamp
 
 /**
  * Created by apetalas on 13/11/14.
  */
 
-public abstract class Validator {
+public interface Validator {
+    boolean validate(TrackValidationResponse response, String property,Object value, boolean required)
+}
 
-    abstract void validate(TrackValidationResponse response, String property,Object value, boolean required)
+public abstract class ValidatorFactory {
 
     public static CreateValuesValidator(ArrayList<String> values){
         return new ValuesValidator(values)
@@ -28,13 +27,9 @@ public abstract class Validator {
     public static CreateCategoryValidator(){
         return new CategoryValidator()
     }
-
-    public static CreateNestedValidator(Map<String,TrackDefinitionProperty> properties){
-        return new NestedValidator(properties)
-    }
 }
 
-public class RegexValidator extends Validator{
+public class RegexValidator implements Validator{
 
     private def regex
 
@@ -43,27 +38,27 @@ public class RegexValidator extends Validator{
     }
 
 
-    void validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
+    boolean validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
+        def valid = true
         if(!(value ==~ regex))
             response.addValidation(false, "Property '${property}' has invalid value '${value}'. (value must match with: ${this.regex})")
+            valid = false
+
+        return valid
     }
 }
 
-public class TypeValidator extends Validator {
+public class TypeValidator implements Validator {
 
-    private def PropertyType type = null
+    private def Validator type = null
 
-    def TypeValidator(PropertyType type){
+    def TypeValidator(Validator type){
         this.type = type
     }
 
 
-    void validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
-
-        if(type?.validate(value))
-            return
-
-        response.addValidation(false, "Property '${property}' has invalid type '${value?.class}'. (value must be: ${type})")
+    boolean validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
+        return type?.validate(response, property, value, required)
     }
 }
 
@@ -74,7 +69,7 @@ public class CategoryValidator extends RegexValidator{
     }
 }
 
-public class ValuesValidator extends Validator{
+public class ValuesValidator implements Validator{
 
     private ArrayList<String> values;
 
@@ -83,35 +78,16 @@ public class ValuesValidator extends Validator{
     }
 
 
-    void validate(TrackValidationResponse response, String property,Object value, boolean required=true) {
+    boolean validate(TrackValidationResponse response, String property,Object value, boolean required=true) {
+        def valid = true
+
         if(!required && value == null)
-            return;
+            return true;
         if(!values.find{va -> va.equals(value)})
             response.addValidation(false, "Property '${property}' has invalid value '${value}'. (possible values: ${this.values})")
-    }
-}
+            valid = false
 
-public class NestedValidator extends Validator {
-
-    private Map<String,TrackDefinitionProperty> nestedProperties = [:]
-
-    def NestedValidator(Map<String,TrackDefinitionProperty> properties) {
-
-        this.nestedProperties = properties
-    }
-
-
-    void validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
-
-        if(!required) return
-        nestedProperties.each { k, v ->
-            def mapProperty = value[k]
-            v.validate(response, k, mapProperty)
-        }
-
-        if(!response.status) {
-            response.addValidation(false, "The error ocurred in property '${property}'")
-        }
+        return valid
 
     }
 }

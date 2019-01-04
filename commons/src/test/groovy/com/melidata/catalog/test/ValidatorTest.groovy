@@ -2,10 +2,12 @@ package com.melidata.catalog.test
 
 import com.ml.melidata.catalog.TrackDefinitionProperty
 import com.ml.melidata.catalog.PropertyType
-import com.ml.melidata.catalog.Validator
+import com.ml.melidata.catalog.MapProperty
+import com.ml.melidata.catalog.ValidatorFactory
 import com.ml.melidata.catalog.tree.TrackValidationResponse
 import org.junit.Test
 import static org.junit.Assert.assertEquals
+import static org.junit.Assert.assertTrue
 
 /**
  * Created by apetalas on 13/11/14.
@@ -18,7 +20,7 @@ class ValidatorTest {
 
         // Arrange
         def response = new TrackValidationResponse()
-        def validator = Validator.CreateValuesValidator(["mobile", "web"])
+        def validator = ValidatorFactory.CreateValuesValidator(["mobile", "web"])
 
         validator.validate(response,"" ,"webs")
 
@@ -32,7 +34,7 @@ class ValidatorTest {
 
         // Arrange
         def response = new TrackValidationResponse()
-        def validator = Validator.CreateValuesValidator(["mobile", "web"])
+        def validator = ValidatorFactory.CreateValuesValidator(["mobile", "web"])
 
         validator.validate(response, "","web")
 
@@ -46,7 +48,7 @@ class ValidatorTest {
 
         // Arrange
         def response = new TrackValidationResponse()
-        def validator = Validator.CreateRegexValidator(/mob[iI]le/)
+        def validator = ValidatorFactory.CreateRegexValidator(/mob[iI]le/)
 
         validator.validate(response,"", "mobIle")
 
@@ -60,7 +62,7 @@ class ValidatorTest {
 
         // Arrange
         def response = new TrackValidationResponse()
-        def validator = Validator.CreateTypeValidator(PropertyType.Numeric)
+        def validator = ValidatorFactory.CreateTypeValidator(PropertyType.Numeric)
 
         validator.validate(response,"" ,1)
 
@@ -74,24 +76,9 @@ class ValidatorTest {
 
         // Arrange
         def response = new TrackValidationResponse()
-        def validator = Validator.CreateTypeValidator(PropertyType.String)
+        def validator = ValidatorFactory.CreateTypeValidator(PropertyType.String)
 
         validator.validate(response, "", "1")
-
-        // Assert
-        assertEquals(response.status, true)
-        assertEquals(response.messages.size(), 0)
-        //println result.messages
-    }
-
-    @Test void shouldValidateTrackWithTypeValidatorTimeStamp() {
-
-        // Arrange
-        def response = new TrackValidationResponse()
-        def validator = Validator.CreateTypeValidator(PropertyType.Timestamp)
-
-
-        validator.validate(response, "", new java.sql.Timestamp(123123123))
 
         // Assert
         assertEquals(response.status, true)
@@ -103,7 +90,7 @@ class ValidatorTest {
 
         // Arrange
         def response = new TrackValidationResponse()
-        def validator = Validator.CreateTypeValidator(PropertyType.Numeric)
+        def validator = ValidatorFactory.CreateTypeValidator(PropertyType.Numeric)
 
 
         validator.validate(response, "propertyname", "a")
@@ -117,7 +104,7 @@ class ValidatorTest {
 
         // Arrange
         def response = new TrackValidationResponse()
-        def validator = Validator.CreateCategoryValidator()
+        def validator = ValidatorFactory.CreateCategoryValidator()
 
         validator.validate(response, "propertyname", "MLA1334")
 
@@ -132,7 +119,7 @@ class ValidatorTest {
 
         // Arrange
         def response = new TrackValidationResponse()
-        def validator = Validator.CreateCategoryValidator()
+        def validator = ValidatorFactory.CreateCategoryValidator()
 
         validator.validate(response,"propertyname", "MLAA1334")
 
@@ -147,11 +134,11 @@ class ValidatorTest {
 
         // Arrange
         def response = new TrackValidationResponse()
-        def validator = Validator.CreateNestedValidator( [
+        def validator = ValidatorFactory.CreateTypeValidator( new MapProperty([
                 propertyname: new TrackDefinitionProperty(required: true, type: PropertyType.String),
                 propertyname2: new TrackDefinitionProperty(required: true, type: PropertyType.Numeric),
-                propertyname3: new TrackDefinitionProperty(required: true, type: PropertyType.ArrayList)
-        ])
+                propertyname3: new TrackDefinitionProperty(required: true, type: PropertyType.ArrayList(PropertyType.Numeric))
+        ]))
 
         validator.validate(response,"propertyname", [
                 propertyname: "value",
@@ -170,21 +157,18 @@ class ValidatorTest {
 
         // Arrange
         def response = new TrackValidationResponse()
-        def validator = Validator.CreateNestedValidator( [
+        def validator = ValidatorFactory.CreateTypeValidator(new MapProperty([
                 propertyname: new TrackDefinitionProperty(required: true, type: PropertyType.String),
                 propertyname2: new TrackDefinitionProperty(required: true, type: PropertyType.Numeric)
-        ])
+        ]))
 
         validator.validate(response,"propertyname", [
                 propertyname: "value"
         ])
 
         // Assert
-        //println response.messages
         assertEquals(response.status, false)
-        assertEquals(response.messages.size(), 2)
+        assertEquals(response.messages.size(), 1)
 
     }
-
-
 }
