@@ -293,6 +293,7 @@ tracks {
         flow_type(type: PropertyType.String, required: true, description: "Current enrollment flow type")
         authenticator(type: PropertyType.String, required: false, description: "Authenticator name", values: ["phoneValidation", "emailValidation", "notVerifiedPhoneValidation"])
         risk_context(type: PropertyType.Boolean, required: false, description: "Is a risky context")
+        reauthentication(type: PropertyType.Boolean, required: true, description: "Is reauthentication context")
         option_selected(type: PropertyType.String, required: false, description: "Describes authentication option selected by user", values: ["primary_email", "google_connect", "microsoft_connect", "sms", "call", "push", "got_code"])
         domain(type: PropertyType.String, required: false, description: "Describes email domain")
     }

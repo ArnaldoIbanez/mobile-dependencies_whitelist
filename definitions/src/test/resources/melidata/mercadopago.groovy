@@ -2629,6 +2629,7 @@ trackTests {
         "/auth/authentication_factors/sms"(platform: "/web", type: TrackType.Event) {
             event = "method_selector"
             flow_type = 'sms_enrollment'
+            reauthentication = true
             risk_context = false
             sms_option = true
             call_option = true
@@ -2638,6 +2639,7 @@ trackTests {
         "/auth/authentication_factors/primary_email"(platform: "/web", type: TrackType.Event) {
             event = "start_validation"
             flow_type = 'sms_enrollment'
+            reauthentication = false
             risk_context = true
             option_selected = "primary_email"
             primary_email_option = true
@@ -2646,6 +2648,7 @@ trackTests {
         "/auth/authentication_factors/social_connect"(platform: "/web", type: TrackType.Event) {
             event = "close_validation"
             flow_type = 'sms_enrollment'
+            reauthentication = true
             risk_context = true
             option_selected = "microsoft_connect"
             google_connect_option = true
