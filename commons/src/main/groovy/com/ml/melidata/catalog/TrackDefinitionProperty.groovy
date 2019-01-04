@@ -10,7 +10,7 @@ class TrackDefinitionProperty {
 
     def String name
     def String description
-    def Validator type = SimpleProperty.String
+    def PropertyTypeValidator type = SimpleProperty.String
     def Boolean required = true
     def ArrayList<String> values = null
     def String regex = null
@@ -23,7 +23,7 @@ class TrackDefinitionProperty {
         this.regex = regex
     }
 
-    def setType(Validator type){
+    def setType(PropertyTypeValidator type){
         this.validators.push(ValidatorFactory.CreateTypeValidator(type))
         this.type = type
     }

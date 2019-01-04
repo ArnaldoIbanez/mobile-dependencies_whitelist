@@ -50,15 +50,16 @@ public class RegexValidator implements Validator{
 
 public class TypeValidator implements Validator {
 
-    private def Validator type = null
+    private def PropertyTypeValidator type = null
 
-    def TypeValidator(Validator type){
+    def TypeValidator(PropertyTypeValidator type){
         this.type = type
     }
 
-
     boolean validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
-        return type?.validate(response, property, value, required)
+
+        if(!required) return true
+        return type?.validate(response, property, value)
     }
 }
 

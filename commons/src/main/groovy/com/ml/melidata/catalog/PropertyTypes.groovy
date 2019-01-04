@@ -2,40 +2,43 @@ package com.ml.melidata.catalog
 
 import com.ml.melidata.catalog.tree.TrackValidationResponse
 
+public interface PropertyTypeValidator {
+    boolean validate(TrackValidationResponse response, String property, Object value)
+}
+
 class PropertyType {
 
-    public static Validator String = SimpleProperty.String
-    public static Validator Numeric = SimpleProperty.Numeric
-    public static Validator Boolean = SimpleProperty.Boolean
-    public static Validator ArrayList = SimpleProperty.ArrayList
-    public static Validator Map = SimpleProperty.Map
+    public static PropertyTypeValidator String = SimpleProperty.String
+    public static PropertyTypeValidator Numeric = SimpleProperty.Numeric
+    public static PropertyTypeValidator Boolean = SimpleProperty.Boolean
+    public static PropertyTypeValidator ArrayList = SimpleProperty.ArrayList
+    public static PropertyTypeValidator Map = SimpleProperty.Map
 
     static Map(Map<String,TrackDefinitionProperty> nestedProperties) {
 
         return new MapProperty(nestedProperties)
     }
 
-    static ArrayList(Validator propertyType) {
+    static ArrayList(PropertyTypeValidator propertyType) {
 
         return new ArrayListProperty(propertyType)
     }
 }
 
-class ArrayListProperty implements Validator {
+class ArrayListProperty implements PropertyTypeValidator {
 
-    Validator propertyType
+    PropertyTypeValidator propertyType
 
-    ArrayListProperty(Validator propertyType) {
+    ArrayListProperty(PropertyTypeValidator propertyType) {
         this.propertyType = propertyType
     }
 
-    boolean validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
+    boolean validate(TrackValidationResponse response, String property, Object value) {
 
         def valid = true
 
-        if(!required) return true
         value.each { val ->
-            if(!propertyType.validate(response, property, val, required)) {
+            if(!propertyType.validate(response, property, val)) {
                 response.addComment(". The error ocurred at List with value ${val}")
                 valid = false
             }
@@ -46,18 +49,17 @@ class ArrayListProperty implements Validator {
 
 }
 
-class MapProperty implements Validator {
+class MapProperty implements PropertyTypeValidator {
     Map<String,TrackDefinitionProperty> nestedProperties
 
     MapProperty(Map<String,TrackDefinitionProperty> nestedProperties) {
         this.nestedProperties = nestedProperties
     }
 
-    boolean validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
+    boolean validate(TrackValidationResponse response, String property, Object value) {
 
         def valid = true
 
-        if(!required) return true
         nestedProperties.each { k, v ->
             def mapProperty = value[k]
             if(!v.validate(response, k, mapProperty)) {
@@ -72,7 +74,7 @@ class MapProperty implements Validator {
 
 }
 
-public enum SimpleProperty implements Validator{
+public enum SimpleProperty implements PropertyTypeValidator{
     String {
         public Boolean validate(Object value) {
             return value instanceof String
@@ -99,7 +101,7 @@ public enum SimpleProperty implements Validator{
         }
     }
 
-    boolean validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
+    boolean validate(TrackValidationResponse response, String property, Object value) {
 
         if(this.validate(value))
             return true
