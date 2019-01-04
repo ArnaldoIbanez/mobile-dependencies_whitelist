@@ -832,8 +832,12 @@ tracks {
     "/notification/prepaid_card_third_activation_reminder"(platform: "/mobile") {}
     "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {}
-    "/notification/credits_merchants_to_expire_standard"(platform: "/mobile") {}
-    "/notification/credits_merchants_to_expire_not_standard"(platform: "/mobile") {}
+    "/notification/credits_merchants_to_expire_standard"(platform: "/mobile") {
+        loan_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/credits_merchants_to_expire_not_standard"(platform: "/mobile") {
+        loan_id(required: true, type: PropertyType.Numeric)
+    }
     "/notification/credits_merchants_educational"(platform: "/mobile") {
         loan_id(required: true, type: PropertyType.Numeric)
     }
