@@ -596,10 +596,10 @@ tracks {
       }
 
       //Qrviral
-      "/notification/qrviral_onboard"(platform: "/") {
+      "/notification/qrviral_onboard"(platform: "/") {}
+      "/notification/qrviral_onboard_recharge"(platform: "/") {
           campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
       }
-      "/notification/qrviral_onboard_recharge"(platform: "/") {}
       "/notification/qrviral_reminder"(platform: "/") {}
       "/notification/qrviral_extension"(platform: "/") {}
 

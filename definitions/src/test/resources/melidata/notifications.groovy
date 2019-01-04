@@ -468,6 +468,21 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/account_fund_salary"(platform: "/mobile") {
+            news_id = "account_fund-account_fund_salary-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_balance_approved_mp"(platform: "/mobile") {
+            news_id = "account_fund-account_balance_approved_mp-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_balance_approved_ml"(platform: "/mobile") {
+            news_id = "account_fund-account_balance_approved_ml-12345678"
+            event_type = "shown"
+        }
+
         "/notification/campaigns_deals"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
@@ -531,6 +546,22 @@ trackTests {
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
             item_id = "MLB1234"
+        }
+
+        "/notification/chargeback_payer_start_ml"(platform: "/mobile") {
+            news_id = "chargeback_payer_start_ml-21680059-20180516"
+            event_type = "shown"
+            case_id = "158213000000"
+        }
+        "/notification/chargeback_payer_notify_ml"(platform: "/mobile") {
+            news_id = "chargeback_payer_notify_ml-21680059-20180516"
+            event_type = "shown"
+            case_id = "158213000000"
+        }
+        "/notification/chargeback_payer_update_ml"(platform: "/mobile") {
+            news_id = "chargeback_payer_update_ml-21680059-20180516"
+            event_type = "shown"
+            case_id = "158213000000"
         }
 
         "/notification/credits_consumer_expired_n_loans_fourth_notice"(platform: "/mobile") {
@@ -774,6 +805,11 @@ trackTests {
             news_id = "qrviral-onboard-1234-186785675"
             event_type = "open"
         }
+        "/notification/qrviral_onboard_recharge"(platform: "/mobile") {
+            news_id = "qrviral-onboard_recharge-1234-186785675"
+            event_type = "open"
+            campaign_id = "qrviral-onboard_recharge"
+        }
         "/notification/qrviral_reminder"(platform: "/mobile") {
             news_id = "qrviral-reminder-1234-186785675"
             event_type = "open"
@@ -937,7 +973,7 @@ trackTests {
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
-            shipment_id = "1234"
+            shipment_id = 1234
         }
 
         "/notification/shipping_soon_deliver"(platform: "/mobile"){
@@ -969,16 +1005,30 @@ trackTests {
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+            order_id = 123
+            delay_reason = "shipping_time"
         }
         "/notification/shipping_legacy_delivered"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+            order_id = 123
         }
         "/notification/shipping_legacy_shipped"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+            order_id = 123
+        }
+        "/notification/shipping_legacy_delayed_sender"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+            order_id = 123
         }
         "/notification/collections_approved"(platform: "/mobile") {
             news_id = "12332323"
@@ -1085,6 +1135,14 @@ trackTests {
             action_type = "favorite"
         }
 
+        "/notification/mediations_legacy_complainant"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "auto_dismiss"
+            notification_style = "BigTextStyle"
+            claim_id = 3123
+            action_type = "favorite"
+        }
+
         "/notification/mediations_respondent"(platform: "/mobile") {
             news_id = "mediations-respondent-1013715421-5b0d7ee426e063333fe0c582"
             event_type = "shown"
@@ -1180,42 +1238,42 @@ trackTests {
             news_id = "123"
             event_type = "dismiss"
             item_id = "MLA1234"
-            order_id = "1234321"
+            order_id = 1234321
         }
 
         "/notification/payments_approved"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
             item_id = "MLA1234"
-            order_id = "1234321"
+            order_id = 1234321
         }
 
         "/notification/payments_approved"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
             item_id = "MLA1234"
-            order_id = "1234321"
+            order_id = 1234321
         }
 
         "/notification/payments_rejected"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
             item_id = "MLA1234"
-            order_id = "1234321"
+            order_id = 1234321
         }
 
         "/notification/payments_rejected"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
             item_id = "MLA1234"
-            order_id = "1234321i"
+            order_id = 1234321
         }
 
         "/notification/payments_rejected"(platform: "/mobile") {
             news_id = "123"
             event_type = "dismiss"
             item_id = "MLA1234"
-            order_id = "1234321"
+            order_id = 1234321
         }
 
         "/notification/messages_new"(platform: "/mobile") {
@@ -1305,16 +1363,22 @@ trackTests {
         "/notification/campaigns_suggested_discounts_buyer"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
+            item_id = "123"
+            campaign_id = 1234
         }
 
         "/notification/campaigns_suggested_discounts_buyer"(platform: "/mobile") {
             news_id = "123"
             event_type = "dismiss"
+            item_id = "123"
+            campaign_id = 1234
         }
 
         "/notification/campaigns_suggested_discounts_buyer"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
+            item_id = "123"
+            campaign_id = 1234
         }
 
         "/notification/campaigns_download_app"(platform: "/mobile") {
@@ -1478,6 +1542,10 @@ trackTests {
             news_id = "123"
             event_type = "open"
         }
+        "/notification/security_device_authorization"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
 
         "/notification/reviews_reminder"(platform: "/mobile") {
             news_id = "123"
@@ -1485,6 +1553,11 @@ trackTests {
         }
 
         "/notification/fraud_identity_validation"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/fraud_delivery_cancellation_stop_ml"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
         }

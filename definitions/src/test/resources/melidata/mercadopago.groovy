@@ -2114,6 +2114,21 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/account_fund_salary"(platform: "/mobile") {
+            news_id = "account_fund-account_fund_salary-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_balance_approved_mp"(platform: "/mobile") {
+            news_id = "account_fund-account_balance_approved_mp-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_balance_approved_ml"(platform: "/mobile") {
+            news_id = "account_fund-account_balance_approved_ml-12345678"
+            event_type = "shown"
+        }
+
         "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -2132,25 +2147,60 @@ trackTests {
         "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
             news_id = "credits-merchants_expired_first_notice-9876"
             event_type = "shown"
-            installment_id= 9876
+            installment_id = 9876
         }
 
         "/notification/credits_merchants_expired_second_notice"(platform: "/mobile") {
             news_id = "credits-merchants_expired_second_notice-9876"
             event_type = "shown"
-            installment_id= 9876
+            installment_id = 9876
         }
 
         "/notification/credits_merchants_expired_third_notice"(platform: "/mobile") {
             news_id = "credits-merchants_expired_third_notice-9876"
             event_type = "shown"
-            installment_id= 9876
+            installment_id = 9876
         }
 
         "/notification/credits_merchants_about_to_expire_first_notice"(platform: "/mobile") {
             news_id = "credits-merchants_about_to_expire_first_notice-9876"
             event_type = "shown"
-            installment_id= 9876
+            installment_id = 9876
+        }
+
+        "/notification/credits_merchants_expired_no_charges"(platform: "/mobile") {
+            news_id = "credits-merchants_expired_no_charges-9876"
+            event_type = "shown"
+            installment_id = 9876
+        }
+        "/notification/credits_merchants_to_expire"(platform: "/mobile") {
+            news_id = "credits-merchants_to_expire-9876"
+            event_type = "shown"
+            installment_id = 9876
+        }
+        "/notification/credits_merchants_expired_near_to_fixed_charges"(platform: "/mobile") {
+            news_id = "credits-merchants_expired_near_to_fixed_charges-9876"
+            event_type = "shown"
+            installment_id = 9876
+        }
+        "/notification/credits_merchants_expired_near_to_daily_charges"(platform: "/mobile") {
+            news_id = "credits-merchants_expired_near_to_daily_charges-9876"
+            event_type = "shown"
+            installment_id = 9876
+        }
+
+        "/notification/credits_merchants_to_expire_standard"(platform: "/mobile") {
+            news_id = "credits-merchants_to_expire_standard-9876"
+            event_type = "shown"
+        }
+        "/notification/credits_merchants_to_expire_not_standard"(platform: "/mobile") {
+            news_id = "credits-merchants_to_expire_not_standard-9876"
+            event_type = "shown"
+        }
+        "/notification/credits_merchants_educational"(platform: "/mobile") {
+            news_id = "credits-merchants_educational-9876"
+            event_type = "shown"
+            loan_id = 123
         }
 
         "/notification/fraud_cash_release_iv"(platform: "/mobile") {
