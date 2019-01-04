@@ -801,6 +801,15 @@ tracks {
     "/notification/credits_merchants_expired_near_to_daily_charges"(platform: "/mobile") {
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
+    "/notification/credits_merchants_to_expire_standard"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/credits_merchants_to_expire_not_standard"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/credits_merchants_educational"(platform: "/mobile") {
+        loan_id(required: true, type: PropertyType.Numeric)
+    }
 
     //Fraud
     "/notification/fraud_cash_release_iv"(platform: "/mobile") {}
@@ -832,15 +841,6 @@ tracks {
     "/notification/prepaid_card_third_activation_reminder"(platform: "/mobile") {}
     "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {}
-    "/notification/credits_merchants_to_expire_standard"(platform: "/mobile") {
-        loan_id(required: true, type: PropertyType.Numeric)
-    }
-    "/notification/credits_merchants_to_expire_not_standard"(platform: "/mobile") {
-        loan_id(required: true, type: PropertyType.Numeric)
-    }
-    "/notification/credits_merchants_educational"(platform: "/mobile") {
-        loan_id(required: true, type: PropertyType.Numeric)
-    }
 
     //Point
     "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {}

@@ -2192,12 +2192,12 @@ trackTests {
         "/notification/credits_merchants_to_expire_standard"(platform: "/mobile") {
             news_id = "credits-merchants_to_expire_standard-9876"
             event_type = "shown"
-            loan_id = 123
+            installment_id = 123
         }
         "/notification/credits_merchants_to_expire_not_standard"(platform: "/mobile") {
             news_id = "credits-merchants_to_expire_not_standard-9876"
             event_type = "shown"
-            loan_id = 123
+            installment_id = 123
         }
         "/notification/credits_merchants_educational"(platform: "/mobile") {
             news_id = "credits-merchants_educational-9876"
