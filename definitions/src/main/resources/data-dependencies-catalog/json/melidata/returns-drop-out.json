@@ -1,7 +1,6 @@
 {
   "users": [
-    "tomas.auchterlonie@mercadolibre.com",
-    "facundo.allemand@mercadolibre.com"
+    "devoluciones-it@mercadolibre.com"
   ],
   "process_name": "returns-drop-out",
   "cron": "00 11 * * *",

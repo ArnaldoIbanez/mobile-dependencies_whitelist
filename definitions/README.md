@@ -10,6 +10,16 @@
     ./gradlew tests [--debug-jvm]
 
 
+## Generating metrics ouput
+
+    ./gradlew exportMetrics [--debug-jvm]
+
+
+## Generating queries output
+
+    ./gradlew exportCronQueries [--debug-jvm]
+    
+
 ## Uploading the catalog ( Destination: s3://melidata-jobs )
 
     ./gradlew uploadCatalog [--debug-jvm]

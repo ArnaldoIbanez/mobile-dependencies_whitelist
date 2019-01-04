@@ -1,7 +1,6 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
-
 	"vip"(description: "vip count") {
 		countsOn {
 			condition {
@@ -41,7 +40,6 @@ metrics {
 			}
 		}
 	}
-
 	
 	"checkout.loading"(description: "The checkout V5 first-page after performing a buy_intention ") {
 		countsOn {
@@ -61,7 +59,7 @@ metrics {
 	
 	"publish_congrats"(description: "Selling flow new item published - Does not track congrats view") {	
 		startWith {
-	            experiment(regex("sell/.*"))
+      experiment(regex("sell/.*"))
 		}
 		
 		countsOn {
@@ -98,7 +96,7 @@ metrics {
 	
 	"sell_list_congrats"(description: "Arrival to congrats page - Selling flow") {	
 		startWith {
-	            experiment(regex("sell/.*"))
+	    experiment(regex("sell/.*"))
 		}
 		
 		countsOn {
@@ -115,6 +113,23 @@ metrics {
 		countsOn {
 			condition {
 				path("/login/auth/success")
+			}
+		}
+	}
+
+  "point_congrats"(description: "Arrival to congrats page from Point landings") {
+		startWith {
+			experiment(regex("mpos/.*"))
+		}
+		
+		countsOn {
+			condition {
+        path("/checkout_off/v1/checkout_confirmed")
+        or(
+          equals("event_data.collector_id", "228415881"),
+          equals("event_data.collector_id", "179504451"),
+          equals("event_data.collector_id", "193054976")
+			  )
 			}
 		}
 	}

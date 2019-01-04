@@ -1,6 +1,6 @@
 {
   "users": [
-    "martin.maldonado@mercadolibre.com"
+    "devoluciones-it@mercadolibre.com"
   ],
   "process_name": "returns-intent-to-return-v3",
   "cron": "00 11 * * *",

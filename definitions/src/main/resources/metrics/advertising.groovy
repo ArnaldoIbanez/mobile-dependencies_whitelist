@@ -4,278 +4,342 @@ metrics {
 
 //	Advertising experiments
 
-	"mclics/ads-from-search-backend-native-mla_full-match"(description: "Experiment subsegmentation by BS full match") {
+	"mclics/ads-from-search-backend-native-mla2"(description: "Experiment testing for adv") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-native-mla")
 			condition {
-				like('event_data.backend_data.fms', '^((?!S).)*$')
+				empty("experiments.mclics/ads-from-search-backend-native-mla", false)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-native-mla"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-native-mla"(default: "DEFAULT")
+			}
+		}
+	}
+	
+	
+	"mclics/ads-from-search-backend-native-mla_full-match"(description: "Experiment subsegmentation by BS full match") {
+		startWith {
+			condition {
+				and(
+					empty("experiments.mclics/ads-from-search-backend-native-mla", false),
+					like('event_data.backend_data.fsm', '^((?!S).)*$')
+				)
+
+			}
+			openBy {
+				"experiments.mclics/ads-from-search-backend-native-mla"(default: "DEFAULT")
 			}
 		}
 	}
 	"mclics/ads-from-search-backend-native-mla_soft-match"(description: "Experiment subsegmentation by BS soft match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-native-mla")
 			condition {
-				like('event_data.backend_data.fms', '.+(?:S)')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-native-mla", false),
+					like('event_data.backend_data.fsm', '.+(?:S)')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-native-mla"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-native-mla"(default: "DEFAULT")
 			}
 		}
 	}
 
 	"mclics/ads-from-search-backend-desktop-mla_full-match"(description: "Experiment subsegmentation by BS full match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-desktop-mla ")
 			condition {
-				like('event_data.backend_data.fms', '^((?!S).)*$')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-desktop-mla", false),
+					like('event_data.backend_data.fsm', '^((?!S).)*$')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-desktop-mla"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-desktop-mla"(default: "DEFAULT")
 			}
 		}
 	}
 	"mclics/ads-from-search-backend-desktop-mla_soft-match"(description: "Experiment subsegmentation by BS soft match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-desktop-mla ")
 			condition {
-				like('event_data.backend_data.fms', '.+(?:S)')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-desktop-mla", false),
+					like('event_data.backend_data.fsm', '.+(?:S)')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-desktop-mla"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-desktop-mla"(default: "DEFAULT")
 			}
 		}
 	}
 
 	"mclics/ads-from-search-backend-webmobile-mla_full-match"(description: "Experiment subsegmentation by BS full match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-webmobile-mla")
 			condition {
-				like('event_data.backend_data.fms', '^((?!S).)*$')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-webmobile-mla", false),
+					like('event_data.backend_data.fsm', '^((?!S).)*$')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-webmobile-mla"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-webmobile-mla"(default: "DEFAULT")
 			}
 		}
 	}
 	"mclics/ads-from-search-backend-webmobile-mla_soft-match"(description: "Experiment subsegmentation by BS soft match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-webmobile-mla")
 			condition {
-				like('event_data.backend_data.fms', '.+(?:S)')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-webmobile-mla", false),
+					like('event_data.backend_data.fsm', '.+(?:S)')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-webmobile-mla"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-webmobile-mla"(default: "DEFAULT")
 			}
 		}
 	}
 
 	"mclics/ads-from-search-backend-native-mlb_full-match"(description: "Experiment subsegmentation by BS full match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-native-mlb")
 			condition {
-				like('event_data.backend_data.fms', '^((?!S).)*$')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-native-mlb", false),
+					like('event_data.backend_data.fsm', '^((?!S).)*$')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-native-mlb"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-native-mlb"(default: "DEFAULT")
 			}
 		}
 	}
 	"mclics/ads-from-search-backend-native-mlb_soft-match"(description: "Experiment subsegmentation by BS soft match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-native-mlb")
 			condition {
-				like('event_data.backend_data.fms', '.+(?:S)')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-native-mlb", false),
+					like('event_data.backend_data.fsm', '.+(?:S)')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-native-mlb"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-native-mlb"(default: "DEFAULT")
 			}
 		}
 	}
 
 	"mclics/ads-from-search-backend-desktop-mlb_full-match"(description: "Experiment subsegmentation by BS full match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-desktop-mlb")
 			condition {
-				like('event_data.backend_data.fms', '^((?!S).)*$')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-desktop-mlb", false),
+					like('event_data.backend_data.fsm', '^((?!S).)*$')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-desktop-mlb"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-desktop-mlb"(default: "DEFAULT")
 			}
 		}
 	}
 	"mclics/ads-from-search-backend-desktop-mlb_soft-match"(description: "Experiment subsegmentation by BS soft match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-desktop-mlb")
 			condition {
-				like('event_data.backend_data.fms', '.+(?:S)')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-desktop-mlb", false),
+					like('event_data.backend_data.fsm', '.+(?:S)')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-desktop-mlb"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-desktop-mlb"(default: "DEFAULT")
 			}
 		}
 	}
 
 	"mclics/ads-from-search-backend-webmobile-mlb_full-match"(description: "Experiment subsegmentation by BS full match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-webmobile-mlb")
 			condition {
-				like('event_data.backend_data.fms', '^((?!S).)*$')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-webmobile-mlb", false),
+					like('event_data.backend_data.fsm', '^((?!S).)*$')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-webmobile-mlb"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-webmobile-mlb"(default: "DEFAULT")
 			}
 		}
 	}
 	"mclics/ads-from-search-backend-webmobile-mlb_soft-match"(description: "Experiment subsegmentation by BS soft match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-webmobile-mlb")
 			condition {
-				like('event_data.backend_data.fms', '.+(?:S)')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-webmobile-mlb", false),
+					like('event_data.backend_data.fsm', '.+(?:S)')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-webmobile-mlb"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-webmobile-mlb"(default: "DEFAULT")
 			}
 		}
 	}
 
 	"mclics/ads-from-search-backend-native-mlm_full-match"(description: "Experiment subsegmentation by BS full match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-native-mlm")
 			condition {
-				like('event_data.backend_data.fms', '^((?!S).)*$')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-native-mlm", false),
+					like('event_data.backend_data.fsm', '^((?!S).)*$')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-native-mlm"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-native-mlm"(default: "DEFAULT")
 			}
 		}
 	}
 	"mclics/ads-from-search-backend-native-mlm_soft-match"(description: "Experiment subsegmentation by BS soft match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-native-mlm")
 			condition {
-				like('event_data.backend_data.fms', '.+(?:S)')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-native-mlm", false),
+					like('event_data.backend_data.fsm', '.+(?:S)')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-native-mlm"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-native-mlm"(default: "DEFAULT")
 			}
 		}
 	}
 
 	"mclics/ads-from-search-backend-desktop-mlm_full-match"(description: "Experiment subsegmentation by BS full match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-desktop-mlm")
 			condition {
-				like('event_data.backend_data.fms', '^((?!S).)*$')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-desktop-mlm", false),
+					like('event_data.backend_data.fsm', '^((?!S).)*$')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-desktop-mlm"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-desktop-mlm"(default: "DEFAULT")
 			}
 		}
 	}
 	"mclics/ads-from-search-backend-desktop-mlm_soft-match"(description: "Experiment subsegmentation by BS soft match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-desktop-mlm")
 			condition {
-				like('event_data.backend_data.fms', '.+(?:S)')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-desktop-mlm", false),
+					like('event_data.backend_data.fsm', '.+(?:S)')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-desktop-mlm"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-desktop-mlm"(default: "DEFAULT")
 			}
 		}
 	}
 
 	"mclics/ads-from-search-backend-webmobile-mlm_full-match"(description: "Experiment subsegmentation by BS full match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-webmobile-mlm")
 			condition {
-				like('event_data.backend_data.fms', '^((?!S).)*$')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-webmobile-mlm", false),
+					like('event_data.backend_data.fsm', '^((?!S).)*$')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-webmobile-mlm"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-webmobile-mlm"(default: "DEFAULT")
 			}
 		}
 	}
 	"mclics/ads-from-search-backend-webmobile-mlm_soft-match"(description: "Experiment subsegmentation by BS soft match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-webmobile-mlm")
 			condition {
-				like('event_data.backend_data.fms', '.+(?:S)')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-webmobile-mlm", false),
+					like('event_data.backend_data.fsm', '.+(?:S)')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-webmobile-mlm"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-webmobile-mlm"(default: "DEFAULT")
 			}
 		}
 	}
 
 	"mclics/ads-from-search-backend-native-resto_full-match"(description: "Experiment subsegmentation by BS full match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-native-resto")
 			condition {
-				like('event_data.backend_data.fms', '^((?!S).)*$')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-native-resto", false),
+					like('event_data.backend_data.fsm', '^((?!S).)*$')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-native-resto"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-native-resto"(default: "DEFAULT")
 			}
 		}
 	}
 	"mclics/ads-from-search-backend-native-resto_soft-match"(description: "Experiment subsegmentation by BS soft match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-native-resto")
 			condition {
-				like('event_data.backend_data.fms', '.+(?:S)')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-native-resto", false),
+					like('event_data.backend_data.fsm', '.+(?:S)')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-native-resto"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-native-resto"(default: "DEFAULT")
 			}
 		}
 	}
 
 	"mclics/ads-from-search-backend-desktop-resto_full-match"(description: "Experiment subsegmentation by BS full match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-desktop-resto")
 			condition {
-				like('event_data.backend_data.fms', '^((?!S).)*$')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-desktop-resto", false),
+					like('event_data.backend_data.fsm', '^((?!S).)*$')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-desktop-resto"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-desktop-resto"(default: "DEFAULT")
 			}
 		}
 	}
 	"mclics/ads-from-search-backend-desktop-resto_soft-match"(description: "Experiment subsegmentation by BS soft match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-desktop-resto")
 			condition {
-				like('event_data.backend_data.fms', '.+(?:S)')
+
+				and(
+					empty("experiments.mclics/ads-from-search-backend-desktop-resto", false),
+					like('event_data.backend_data.fsm', '.+(?:S)')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-desktop-resto"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-desktop-resto"(default: "DEFAULT")
 			}
 		}
 	}
-
 	"mclics/ads-from-search-backend-webmobile-resto_full-match"(description: "Experiment subsegmentation by BS full match") {
+
 		startWith {
-			experiment("mclics/ads-from-search-backend-webmobile-resto")
 			condition {
-				like('event_data.backend_data.fms', '^((?!S).)*$')
+
+				and(
+					empty("experiments.mclics/ads-from-search-backend-webmobile-resto", false),
+					like('event_data.backend_data.fsm', '^((?!S).)*$')
+				)
+
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-webmobile-resto"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-webmobile-resto"(default: "DEFAULT")
 			}
 		}
 	}
 	"mclics/ads-from-search-backend-webmobile-resto_soft-match"(description: "Experiment subsegmentation by BS soft match") {
 		startWith {
-			experiment("mclics/ads-from-search-backend-webmobile-resto")
 			condition {
-				like('event_data.backend_data.fms', '.+(?:S)')
+				and(
+					empty("experiments.mclics/ads-from-search-backend-webmobile-resto", false),
+					like('event_data.backend_data.fsm', '.+(?:S)')
+				)
 			}
 			openBy {
-				"experiment.mclics/ads-from-search-backend-webmobile-resto"(default: "DEFAULT")
+				"experiments.mclics/ads-from-search-backend-webmobile-resto"(default: "DEFAULT")
 			}
 		}
 	}

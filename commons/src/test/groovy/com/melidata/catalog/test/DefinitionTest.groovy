@@ -109,7 +109,7 @@ class DefinitionTest {
                 .addProperty(name: "view_mode", values:["LIST","MOSAIC","GALLERY"], description: "client layout")
 
         // Act
-        def result = definition.validate(new Track(path: "/search", event_data: ["view_mode":"GALLERY"]))
+        def result = definition.validate(new Track(path: "/search", event_data: ["view_mode":"gallery"]))
 
         // Assert
         assertEquals(result.status, false)
