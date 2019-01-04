@@ -824,68 +824,31 @@ tracks {
     "/notification/loyalty_milestone"(platform: "/mobile") {}
 
     //Prepaid
-    "/notification/prepaid_card_shipped"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/prepaid_card_waiting_for_withdrawal"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/prepaid_card_delivered"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/prepaid_card_delayed_p1"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/prepaid_card_not_delivered"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/prepaid_card_third_activation_reminder"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/credits_merchants_to_expire_standard"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/credits_merchants_to_expire_not_standard"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
+    "/notification/prepaid_card_shipped"(platform: "/mobile") {}
+    "/notification/prepaid_card_waiting_for_withdrawal"(platform: "/mobile") {}
+    "/notification/prepaid_card_delivered"(platform: "/mobile") {}
+    "/notification/prepaid_card_delayed_p1"(platform: "/mobile") {}
+    "/notification/prepaid_card_not_delivered"(platform: "/mobile") {}
+    "/notification/prepaid_card_third_activation_reminder"(platform: "/mobile") {}
+    "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {}
+    "/notification/credits_merchants_to_expire_standard"(platform: "/mobile") {}
+    "/notification/credits_merchants_to_expire_not_standard"(platform: "/mobile") {}
     "/notification/credits_merchants_educational"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
         loan_id(required: true, type: PropertyType.Numeric)
     }
 
     //Point
-    "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/point_shipping_shipped"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/point_shipping_not_delivered"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/point_shipping_waiting_for_withdrawal"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/point_shipping_delayed_p1"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/point_shipping_delayed_p4_p8"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/point_shipping_ready_to_ship_delayed"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
+    "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {}
+    "/notification/point_shipping_shipped"(platform: "/mobile") {}
+    "/notification/point_shipping_not_delivered"(platform: "/mobile") {}
+    "/notification/point_shipping_waiting_for_withdrawal"(platform: "/mobile") {}
+    "/notification/point_shipping_delayed_p1"(platform: "/mobile") {}
+    "/notification/point_shipping_delayed_p4_p8"(platform: "/mobile") {}
+    "/notification/point_shipping_ready_to_ship_delayed"(platform: "/mobile") {}
 
     //Recurring Recharge
-    "/notification/recurring_recharge_insufficient_balance_error"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
+    "/notification/recurring_recharge_insufficient_balance_error"(platform: "/mobile") {}
 
     //Security
     "/notification/security_event_feedback"(platform: "/mobile") {}
