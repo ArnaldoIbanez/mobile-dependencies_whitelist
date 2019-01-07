@@ -169,6 +169,5 @@ class ValidatorTest {
         // Assert
         assertEquals(response.status, false)
         assertEquals(response.messages.size(), 1)
-
     }
 }

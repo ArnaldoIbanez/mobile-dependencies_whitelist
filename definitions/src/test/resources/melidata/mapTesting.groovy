@@ -10,7 +10,7 @@ trackTests {
             recommendeds_item = [[
                     item_id : "321421",
                     price   : 200,
-                    shipping: ["Argentina", 7482391, "Mexico"],
+                    shipping: ["Argentina", "Brasil", "Mexico"],
                     currency: "USD",
                     op_id   : 1,
                     stars   : 4
@@ -24,7 +24,7 @@ trackTests {
             ],[
                     item_id : "321421",
                     price   : 200,
-                    shipping: ["Argentina", 29, "Mexico"],
+                    shipping: ["Argentina", "Brasil", "Mexico"],
                     currency: "USD",
                     op_id   : 1,
                     stars   : 4
@@ -35,7 +35,8 @@ trackTests {
                     currency: "USD",
                     op_id   : 1,
                     stars   : 4
-            ]]
+            ],
+            3]
         }
 
         "/mapTesting"(platform: "/", type: TrackType.View) {

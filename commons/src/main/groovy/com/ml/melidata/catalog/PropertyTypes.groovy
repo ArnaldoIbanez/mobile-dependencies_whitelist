@@ -60,12 +60,19 @@ class MapProperty implements PropertyTypeValidator {
 
         def valid = true
 
-        nestedProperties.each { k, v ->
-            def mapProperty = value[k]
-            if(!v.validate(response, k, mapProperty)) {
-                response.addComment(". The error ocurred at property '${property}'")
-                valid = false
+        try {
+            nestedProperties.each { k, v ->
+                def mapProperty = value[k]
+                if(!v.validate(response, k, mapProperty)) {
+                    response.addComment(". The error ocurred at property '${property}'")
+                    valid = false
+                }
+
             }
+        } catch (Exception e) {
+            response.addValidation(false, "Property '${property}' was expected as map or array of maps but ${value?.class} was received")
+            valid = false
+
         }
 
         return valid
