@@ -49,7 +49,7 @@ trackTests {
             ]
 
             purchased_item = [
-                    item : [item_id: "432325", price: 200, shipping: ["Argentina", "Brasil", "Mexico"], currency: "USD", op_id: 1, stars: 5, opinion : "hello"],
+                    item : 3,
                     quantity: 200
             ]
 

@@ -179,7 +179,7 @@ class ValidatorTest {
                 propertyname: new TrackDefinitionProperty(required: true, type: PropertyType.String),
         ]))
 
-        validator.validate(response,"propertyname", 3)
+        validator.validate(response,"propertyname", 89321)
 
         // Assert
         assertEquals(response.status, false)

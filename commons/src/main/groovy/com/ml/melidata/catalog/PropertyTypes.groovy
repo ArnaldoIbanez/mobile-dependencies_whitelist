@@ -39,7 +39,6 @@ class ArrayListProperty implements PropertyTypeValidator {
 
         value.each { val ->
             if(!propertyType.validate(response, property, val)) {
-                printf("property ${val} made it explode \n")
                 response.addComment(". The error ocurred at List with value ${val}")
                 valid = false
             }
@@ -58,9 +57,14 @@ class MapProperty implements PropertyTypeValidator {
     }
 
     boolean validate(TrackValidationResponse response, String property, Object value) {
-
+        
         def valid = true
         def mapErrorComment = ". The error ocurred at map property '${property}'"
+
+        if (!(value instanceof Map)) {
+            response.addValidation(false, "Property '${property}' was expected as map or array of maps but ${value.class} was received in it")
+            return false
+        }
 
         value.each { k, v ->
             if(nestedProperties[k] == null && v != null) {
@@ -71,25 +75,18 @@ class MapProperty implements PropertyTypeValidator {
         }
 
 
-        try {
 
-            nestedProperties.each { k, v ->
-                def mapProperty = value[k]
-                if(mapProperty == null) {
-                    response.addValidation(false, "Property '${k}'" +
-                            "${v.description?'('+v.description+')':''} is required" + mapErrorComment)
-                } else {
-                    if(!v.validate(response, k, mapProperty)) {
-                        response.addComment(mapErrorComment)
-                        valid = false
-                    }
+        nestedProperties.each { k, v ->
+            def mapProperty = value[k]
+            if(mapProperty == null && v.required) {
+                response.addValidation(false, "Property '${k}'" +
+                        "${v.description?'('+v.description+')':''} is required" + mapErrorComment)
+            } else {
+                if(!v.validate(response, k, mapProperty)) {
+                    response.addComment(mapErrorComment)
+                    valid = false
                 }
-
             }
-        } catch (Exception e) {
-            response.addValidation(false, "Property '${property}' was expected as map or array of maps but ${value?.class} was received")
-            valid = false
-
         }
 
         return valid
