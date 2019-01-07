@@ -34,6 +34,9 @@ tracks {
     "/credits/consumer/public_landing/application_result"(platform: "/", type: TrackType.View) {
         result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
     }
+    "/credits/consumer/public_landing/application_result/click_credits"(platform: "/", type: TrackType.Event) {
+        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
+    }
     "/credits/consumer/public_landing/application_start"(platform: "/", type: TrackType.View) {}
 
     //Events
@@ -63,6 +66,9 @@ tracks {
     "/credits/consumer/administrator"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/administrator/dashboard"(platform: "/", type: TrackType.View) {
         dashboard_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
+    }
+    "/credits/consumer/administrator/summary"(platform: "/", type: TrackType.View) {
+        summary_status(description: "Current status of the loan summary", type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
     }
 
     //Events
@@ -96,6 +102,14 @@ tracks {
     "/credits/consumer/administrator/help"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/educational_landing"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/see_product"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/summary/payment_intention"(platform: "/", type: TrackType.Event) {
+    }
+    "/credits/consumer/administrator/summary/cx_contact"(platform: "/", type: TrackType.Event) {
+    }
+    "/credits/consumer/administrator/summary/go_shopping"(platform: "/", type: TrackType.Event) {
+    }
+    "/credits/consumer/administrator/summary/get_help"(platform: "/", type: TrackType.Event) {
+    }
 
     //Admin History (Compras Finalizadas)
 
