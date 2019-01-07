@@ -57,7 +57,7 @@ class MapProperty implements PropertyTypeValidator {
     }
 
     boolean validate(TrackValidationResponse response, String property, Object value) {
-        
+
         def valid = true
         def mapErrorComment = ". The error ocurred at map property '${property}'"
 

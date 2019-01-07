@@ -3,6 +3,7 @@ package com.melidata.catalog.test
 import com.ml.melidata.catalog.TrackDefinitionProperty
 import com.ml.melidata.catalog.PropertyType
 import com.ml.melidata.catalog.MapProperty
+import com.ml.melidata.catalog.ArrayListProperty
 import com.ml.melidata.catalog.ValidatorFactory
 import com.ml.melidata.catalog.tree.TrackValidationResponse
 import org.junit.Test
@@ -153,7 +154,7 @@ class ValidatorTest {
 
     }
 
-    @Test void shouldFailValidationTrackWithNestedValidatorPropertyMissing() {
+    @Test void shouldFailValidationTrackWithNestedValidatorRequiredPropertyMissing() {
 
         // Arrange
         def response = new TrackValidationResponse()
@@ -169,6 +170,23 @@ class ValidatorTest {
         // Assert
         assertEquals(response.status, false)
         assertEquals(response.messages.size(), 1)
+    }
+
+    @Test void shouldValidateTrackWithNestedValidatorNonRequiredPropertyMissing() {
+
+        // Arrange
+        def response = new TrackValidationResponse()
+        def validator = ValidatorFactory.CreateTypeValidator(new MapProperty([
+                propertyname: new TrackDefinitionProperty(required: true, type: PropertyType.String),
+                propertyname2: new TrackDefinitionProperty(required: false, type: PropertyType.Numeric)
+        ]))
+
+        validator.validate(response,"propertyname", [
+                propertyname: "value"
+        ])
+
+        // Assert
+        assertEquals(response.status, true)
     }
 
     @Test void shouldFailValidationTrackWithNestedValidatorAgainstSomethingThatsNotAMap() {
@@ -202,5 +220,107 @@ class ValidatorTest {
         // Assert
         assertEquals(response.status, false)
         assertEquals(response.messages.size(), 1)
+    }
+
+    @Test void shouldFailValidationTrackWithNestedValidatorWithIteratedMapError() {
+
+        // Arrange
+        def response = new TrackValidationResponse()
+        def validator = ValidatorFactory.CreateTypeValidator(new MapProperty([
+                propertyname: new TrackDefinitionProperty(required: true, type: PropertyType.Map([
+                        propertyname1: new TrackDefinitionProperty(required: true, type: PropertyType.String),
+                        propertyname2: new TrackDefinitionProperty(required: false, type: PropertyType.String)
+                ])),
+        ]))
+
+        validator.validate(response,"propertyname", [
+                propertyname: [
+                        propertyname1: 3
+                ]
+        ])
+
+        // Assert
+        assertEquals(response.status, false)
+        assertEquals(response.messages.size(), 1)
+
+        def message = response.messages.get(0)
+        assertTrue(message.contains("propertyname") && message.contains("propertyname1") && !message.contains("propertyname2") && message.contains("Integer"))
+    }
+
+    @Test void shouldValidateTrackWithArrayListValidator() {
+
+        // Arrange
+        def response = new TrackValidationResponse()
+        def validator = ValidatorFactory.CreateTypeValidator(new ArrayListProperty(PropertyType.String))
+
+        validator.validate(response,"propertyname", ["Hello"])
+
+        // Assert
+        assertEquals(response.status, true)
+        assertEquals(response.messages.size(), 0)
+    }
+
+    @Test void shouldFailValidationTrackWithArrayListValidatorArraySizeTimes() {
+
+        // Arrange
+        def testArray = [0,2,3,4,5]
+        def response = new TrackValidationResponse()
+        def validator = ValidatorFactory.CreateTypeValidator(new ArrayListProperty(PropertyType.String))
+
+        validator.validate(response,"propertyname", testArray)
+
+        // Assert
+        assertEquals(response.status, false)
+        assertEquals(response.messages.size(), testArray.size())
+    }
+
+
+    @Test void shouldFailValidationTrackWithArrayListValidatorWithAnyPositionWrongType() {
+
+        // Arrange
+        def response = new TrackValidationResponse()
+        def validator = ValidatorFactory.CreateTypeValidator(new ArrayListProperty(PropertyType.String))
+
+        validator.validate(response,"propertyname", ["hola", "chau", "todo", 0, "bien"])
+
+        // Assert
+        assertEquals(response.status, false)
+        assertEquals(response.messages.size(), 1)
+
+        assertTrue(response.messages.get(0).contains("Integer"))
+    }
+
+    @Test void shouldFailOnNestedMapOnArray() {
+
+        // Arrange
+        def response = new TrackValidationResponse()
+        def validator = ValidatorFactory.CreateTypeValidator(new ArrayListProperty(new MapProperty([
+                items: new TrackDefinitionProperty(required: true, type: PropertyType.Map([
+                        credits: new TrackDefinitionProperty(required: true, type: PropertyType.ArrayList(PropertyType.String)),
+                        propertyname2: new TrackDefinitionProperty(required: false, type: PropertyType.String)
+                ])),
+        ])))
+
+        validator.validate(response,"propertyname", [
+                [
+                        items: [
+                                credits: ["1", 2, "3"],
+                                propertyname2: "hola"
+                        ]
+                ],
+                [
+                        items: [
+                                credits: ["1", "2", "3"],
+                                propertyname2: "hola"
+                        ]
+                ]
+        ])
+
+        // Assert
+        assertEquals(response.status, false)
+        assertEquals(response.messages.size(), 1)
+
+        def message = response.messages.get(0)
+        assertTrue(message.contains("items") && message.contains("credits") && !message.contains("list") && message.contains("Integer"))
     }
 }
