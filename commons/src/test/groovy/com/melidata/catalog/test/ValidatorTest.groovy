@@ -170,4 +170,37 @@ class ValidatorTest {
         assertEquals(response.status, false)
         assertEquals(response.messages.size(), 1)
     }
+
+    @Test void shouldFailValidationTrackWithNestedValidatorAgainstSomethingThatsNotAMap() {
+
+        // Arrange
+        def response = new TrackValidationResponse()
+        def validator = ValidatorFactory.CreateTypeValidator(new MapProperty([
+                propertyname: new TrackDefinitionProperty(required: true, type: PropertyType.String),
+        ]))
+
+        validator.validate(response,"propertyname", 3)
+
+        // Assert
+        assertEquals(response.status, false)
+        assertEquals(response.messages.size(), 1)
+    }
+
+    @Test void shouldFailValidationTrackWithNestedValidatorWithNonDeclaredField() {
+
+        // Arrange
+        def response = new TrackValidationResponse()
+        def validator = ValidatorFactory.CreateTypeValidator(new MapProperty([
+                propertyname: new TrackDefinitionProperty(required: true, type: PropertyType.String),
+        ]))
+
+        validator.validate(response,"propertyname", [
+                propertyname: "value",
+                propertyname2: "value"
+        ])
+
+        // Assert
+        assertEquals(response.status, false)
+        assertEquals(response.messages.size(), 1)
+    }
 }

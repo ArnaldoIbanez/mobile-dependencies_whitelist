@@ -8,7 +8,7 @@ trackTests {
 
         "/mapTestingIterated"(platform: "/", type: TrackType.View) {
             recommendeds_item = [[
-                    item_id : "321421",
+                    item_id : "321420",
                     price   : 200,
                     shipping: ["Argentina", "Brasil", "Mexico"],
                     currency: "USD",
@@ -22,26 +22,25 @@ trackTests {
                     op_id   : 1,
                     stars   : 4
             ],[
-                    item_id : "321421",
+                    item_id : "321422",
                     price   : 200,
                     shipping: ["Argentina", "Brasil", "Mexico"],
                     currency: "USD",
                     op_id   : 1,
-                    stars   : 4
+                    stars   : 4,
             ],[
-                    item_id : "321421",
+                    item_id : "321423",
                     price   : 200,
                     shipping: ["Argentina", "Brasil", "Mexico"],
                     currency: "USD",
                     op_id   : 1,
                     stars   : 4
-            ],
-            3]
+            ]]
         }
 
         "/mapTesting"(platform: "/", type: TrackType.View) {
             recommended_item = [
-                    item_id : "321421",
+                    item_id : "321424",
                     price: 200,
                     shipping: ["Argentina", "Brasil", "Mexico"],
                     currency: "USD",
@@ -50,7 +49,7 @@ trackTests {
             ]
 
             purchased_item = [
-                    item : [item_id: "432321", price: 200, shipping: ["Argentina", "Brasil", "Mexico"], currency: "USD", op_id: 1, stars: 5],
+                    item : [item_id: "432325", price: 200, shipping: ["Argentina", "Brasil", "Mexico"], currency: "USD", op_id: 1, stars: 5, opinion : "hello"],
                     quantity: 200
             ]
 
@@ -58,7 +57,7 @@ trackTests {
 
         "/mapTesting/subdir"(platform: "/", type: TrackType.View) {
             recommended_item = [
-                    item_id : "321421",
+                    item_id : "321426",
                     price: 200,
                     shipping: ["Argentina", "Brasil", "Mexico"],
                     currency: "USD",
@@ -67,7 +66,7 @@ trackTests {
             ]
 
             purchased_item = [
-                    item : [item_id: "432321", price: 200, shipping: ["Argentina", "Brasil", "Mexico"], currency: "USD", op_id: 1, stars: 5],
+                    item : [item_id: "432327", price: 200, shipping: ["Argentina", "Brasil", "Mexico"], currency: "USD", op_id: 1, stars: 5],
                     quantity: 200
             ]
 
@@ -75,7 +74,7 @@ trackTests {
 
         "/mapTesting/websubdir"(platform: "/web", type: TrackType.View) {
             recommended_item = [
-                    item_id : "321421",
+                    item_id : "321428",
                     price: 200,
                     shipping: ["Argentina", "Brasil", "Mexico"],
                     currency: "USD",
@@ -84,13 +83,13 @@ trackTests {
             ]
 
             purchased_item = [
-                    item : [item_id: "432321", price: 200, shipping: ["Argentina", "Brasil", "Mexico"], currency: "USD", op_id: 1, stars: 5],
+                    item : [item_id: "432329", price: 200, shipping: ["Argentina", "Brasil", "Mexico"], currency: "USD", op_id: 1, stars: 5],
                     quantity: 200
             ]
         }
 
         "/mapManual"(platform: "/", type: TrackType.View) {
-            item_id = "321421"
+            item_id = "321430"
             price = 200
             shipping = ["Argentina", "Brasil", "Mexico"]
         }

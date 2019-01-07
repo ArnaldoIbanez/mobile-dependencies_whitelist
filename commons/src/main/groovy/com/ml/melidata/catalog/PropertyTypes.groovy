@@ -39,6 +39,7 @@ class ArrayListProperty implements PropertyTypeValidator {
 
         value.each { val ->
             if(!propertyType.validate(response, property, val)) {
+                printf("property ${val} made it explode \n")
                 response.addComment(". The error ocurred at List with value ${val}")
                 valid = false
             }
@@ -59,13 +60,29 @@ class MapProperty implements PropertyTypeValidator {
     boolean validate(TrackValidationResponse response, String property, Object value) {
 
         def valid = true
+        def mapErrorComment = ". The error ocurred at map property '${property}'"
+
+        value.each { k, v ->
+            if(nestedProperties[k] == null && v != null) {
+                response.addValidation(false, "Property '${k}' is not cataloged" +
+                        " (you can't add properties to a track that are not declared in the catalog)" + mapErrorComment)
+                valid = false
+            }
+        }
+
 
         try {
+
             nestedProperties.each { k, v ->
                 def mapProperty = value[k]
-                if(!v.validate(response, k, mapProperty)) {
-                    response.addComment(". The error ocurred at property '${property}'")
-                    valid = false
+                if(mapProperty == null) {
+                    response.addValidation(false, "Property '${k}'" +
+                            "${v.description?'('+v.description+')':''} is required" + mapErrorComment)
+                } else {
+                    if(!v.validate(response, k, mapProperty)) {
+                        response.addComment(mapErrorComment)
+                        valid = false
+                    }
                 }
 
             }
