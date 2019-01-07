@@ -24,7 +24,7 @@ class TrackDsl {
 
 
     def propertyDefinitions (closure) {
-        propertyDefinitions.putAll(objectSchemaDefinitions(closure));
+        propertyDefinitions.putAll(retrievePropertyDefinitions(closure));
     }
 
     def propertyGroups (closure) {
@@ -45,17 +45,21 @@ class TrackDsl {
         TrackDefinition trackDefinition = new TrackDefinition(trackArgs)
         def closure = args[-1]
 
-        def properties = objectSchemaDefinitions(closure, propertyDefinitionGroups)
+        def properties = objectSchemaDefinitions(closure)
         trackDefinition.properties.putAll(properties);
         trackDefinitions.add(trackDefinition)
     }
 
-    def objectSchemaDefinitions (closure, providedPropertyDefinitionGroups = [:]) {
+    def retrievePropertyDefinitions (closure, providedPropertyDefinitionGroups = [:]) {
         PropertyDefinitionDsl propertyDefinitionDsl = new PropertyDefinitionDsl(providedPropertyDefinitionGroups: providedPropertyDefinitionGroups);
         closure.resolveStrategy = Closure.DELEGATE_FIRST
         closure.delegate = propertyDefinitionDsl
         closure()
         propertyDefinitionDsl.properties
+    }
+
+    def objectSchemaDefinitions (closure) {
+        retrievePropertyDefinitions(closure, propertyDefinitionGroups)
     }
 
 }

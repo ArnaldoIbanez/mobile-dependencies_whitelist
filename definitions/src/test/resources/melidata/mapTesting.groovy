@@ -49,7 +49,7 @@ trackTests {
             ]
 
             purchased_item = [
-                    item : 3,
+                    item : [item_id: "432327", price: 200, shipping: ["Argentina", "Brasil", "Mexico"], currency: "USD", op_id: 1, stars: 5],
                     quantity: 200
             ]
 
@@ -92,6 +92,10 @@ trackTests {
             item_id = "321430"
             price = 200
             shipping = ["Argentina", "Brasil", "Mexico"]
+        }
+
+        "/integrationMapTesting"(platform: "/", type: TrackType.View) {
+            price = 200
         }
     }
 }

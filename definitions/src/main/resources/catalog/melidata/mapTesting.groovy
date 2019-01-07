@@ -8,10 +8,17 @@ tracks {
      * ACCOUNT FUND Screen Tracks
      */
 
+    propertyDefinitions {
+        price (required:true, description: "quantity", type: PropertyType.Numeric)
+    }
+    propertyGroups {
+        priceGroup(price)
+    }
+
 
     def item_definition = objectSchemaDefinitions {
         item_id(required:true, description: "Operation result status", type: PropertyType.String)
-        price (required:true, description: "quantity", type: PropertyType.Numeric)
+        priceGroup
         shipping (required:true, description: "shippings", type: PropertyType.ArrayList(PropertyType.String))
         currency (required:true, type: PropertyType.String)
         op_id (required:true, type: PropertyType.Numeric)
@@ -40,5 +47,9 @@ tracks {
         item_id(required:true, description: "Operation result status", type: PropertyType.String)
         price (required:true, description: "quantity", type: PropertyType.Numeric)
         shipping (required:true, description: "shippings", type: PropertyType.ArrayList)
+    }
+
+    "/integrationMapTesting"(platform: "/", type: TrackType.View) {
+        priceGroup
     }
 }
