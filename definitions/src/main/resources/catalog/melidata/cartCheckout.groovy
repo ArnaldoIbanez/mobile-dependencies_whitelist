@@ -360,7 +360,7 @@ tracks {
 
 "/cart/checkout/show_geolocation_map"(platform:"/mobile", type: TrackType.View) {}
 
-"cart/checkout/finish#click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+"/cart/checkout/finish/click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     action(required: true, type: PropertyType.String, description: "Action executed, for ex: call_seller, email_seller, etc")
 }
