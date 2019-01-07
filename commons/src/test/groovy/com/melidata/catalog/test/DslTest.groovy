@@ -325,8 +325,12 @@ public class DslTest {
                     offset(type: PropertyType.Numeric, required: true)
                 }
 
+                propertyGroups {
+                    offsetGroup(offset)
+                }
+
                 def item_definition = objectSchemaDefinitions {
-                    offset(type: PropertyType.Numeric, required: true)
+                    offsetGroup
                     position(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
                 }
 
@@ -334,7 +338,7 @@ public class DslTest {
                     item(type: PropertyType.Map(item_definition), required:true)
                 }
                 "/search/specific"(platform: "/mobile") {
-                    offset(type: PropertyType.Numeric, required: true)
+                    offsetGroup
                 }
             }
         }
