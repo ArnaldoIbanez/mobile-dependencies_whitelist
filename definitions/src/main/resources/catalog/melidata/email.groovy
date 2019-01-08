@@ -98,9 +98,7 @@ tracks {
     "/email/checkout/refunded"(platform: "/email"){}
 
     // mails for: showing unsubscribe view
-    "/email/form-optout"(platform: "/email"){
-        hash(required: true, description: "Hash associated to claimchek for the user data")
-    }
+    "/email/form-optout"(platform: "/email"){}
 
     // mails for: unsubscribe from emails reception
     "/email/form-optout/unsubscribe"(platform: "/email", type: TrackType.Event){
