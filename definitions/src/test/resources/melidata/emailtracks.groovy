@@ -125,7 +125,7 @@ trackTests {
 
         "/email/form-optout/unsubscribe"(platform: "/email"){
             defaultTrackInformation()
-            selected_option = 1git
+            selected_option = 1
         }
     }
 }
