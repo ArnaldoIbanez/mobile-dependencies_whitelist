@@ -119,13 +119,13 @@ trackTests {
             receiver_id = 306162056
         }
 
+        "/email/form-optout"(platform: "/email"){
+            defaultTrackInformation()
+        }
+
         "/email/form-optout/unsubscribe"(platform: "/email"){
             defaultTrackInformation()
             selected_option = 1
-        }
-
-        "/email/form-optout"(platform: "/email"){
-            defaultTrackInformation()
         }
     }
 }

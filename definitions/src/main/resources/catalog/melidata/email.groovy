@@ -1,5 +1,6 @@
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.catalog.PropertyType
+import com.ml.melidata.TrackType
 
 tracks {
 
@@ -96,13 +97,13 @@ tracks {
     // mails for: purchases with some of its payments refunded
     "/email/checkout/refunded"(platform: "/email"){}
 
-    // mails for: unsubscribe from emails reception
-    "/email/form-optout/unsubscribe"(platform: "/email"){
-        selected_option(required: true, description: "Selected option in unsubscribe view as cause of unsubscription")
-    }
-
     // mails for: showing unsubscribe view
     "/email/form-optout"(platform: "/email"){}
+
+    // mails for: unsubscribe from emails reception
+    "/email/form-optout/unsubscribe"(platform: "/email", type: TrackType.Event){
+        selected_option(required: true, description: "Selected option in unsubscribe view as cause of unsubscription")
+    }
 
     "/email/chargebacks"(platform: "/email") {
         case_id(required: true, type: PropertyType.String)
