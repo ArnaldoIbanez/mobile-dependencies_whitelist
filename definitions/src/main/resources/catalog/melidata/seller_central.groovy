@@ -134,6 +134,8 @@ tracks {
         columns(required: true, type: PropertyType.ArrayList, description: "List of the available columns and his order")
     }
 
+    "/seller_central/bulk/discounts/save"(platform: "/", type: TrackType.Event) {}
+
     "/seller_central/bulk/discounts/offline"(platform: "/", isAbstract: true) {}
 
     "/seller_central/bulk/discounts/offline/home"(platform: "/", type: TrackType.View) {}
