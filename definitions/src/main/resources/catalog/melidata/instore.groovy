@@ -19,15 +19,13 @@ tracks {
         // Deprecated. Typo on Android
         notifications_permissions(required: false, PropertyType.Boolean)
         bluetooth_permissions(required: false, PropertyType.Boolean)
-    }
-    "/instore/scan_qr"(platform: "/mobile", isAbstract: true) {}
-    "/instore/scan_qr/qr_discovery"(platform: "/mobile", type: TrackType.Event) {
         qr_data(required: false, PropertyType.String)
+    }
+    "/instore/scan_qr/qr_discovery"(platform: "/mobile", type: TrackType.Event) {
         qr_discovery_time_in_millis(required: false, PropertyType.String)
         camera_flash(required: false, PropertyType.Boolean)
     }
     "/instore/scan_qr/qr_resolved"(platform: "/mobile", type: TrackType.Event) {
-        qr_data(required: false, PropertyType.String)
         qr_discovery_time_in_millis(required: false, PropertyType.String)
         qr_server_time_in_millis(required: false, PropertyType.String)
         camera_flash(required: false, PropertyType.Boolean)
