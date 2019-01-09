@@ -19,4 +19,8 @@ class TrackValidationResponse {
         if(message)
             this.messages.push(message)
     }
+
+    def addComment(String comment) {
+        this.messages[messages.size() - 1] = this.messages[messages.size() - 1] + comment
+    }
 }
