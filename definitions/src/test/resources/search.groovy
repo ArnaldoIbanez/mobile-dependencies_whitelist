@@ -40,6 +40,7 @@ trackTests {
                 cli_rel_qty_link_to_category="MLA123"
             }
             catalog_product_id="MLA123"
+            show_supermarket_carousel=true
         }
 
         "/search"(platform: "/web",{
