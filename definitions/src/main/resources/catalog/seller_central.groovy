@@ -29,7 +29,7 @@ tracks {
     "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}
 
     "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "rollback", "start"])
+        action(required: true, type: PropertyType.String, description: "Id of the action adasda", values: ["close", "dismiss", "rollback", "start"])
         page(required: false, type: PropertyType.Numeric, description: "Page number")
     }
 
