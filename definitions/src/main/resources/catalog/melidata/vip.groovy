@@ -482,28 +482,6 @@ tracks {
     }
     "/vip/free_shipping_cart_available"(platform: "/web", type: TrackType.Event){}
 
-    // FIT ANALYTICS
-
-    "/vip/fitanalytics"(platform: "/", isAbstract: true) {}
-
-    "/vip/fitanalytics/view"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item ID")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        fit(required: true, description: "Available fit")
-    }
-
-    "/vip/fitanalytics/predict"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item ID")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-    }
-
-    "/vip/fitanalytics/close"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item ID")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        variation(required: true, description: "Current Variation")
-        size(required: false, type: PropertyType.String, description: "Size of recomendation")
-    }
-
     // RESERVATION
 
     "/vip/reservation_onboard"(platform: "/web", type: TrackType.View) {
