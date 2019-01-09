@@ -6,42 +6,51 @@ import com.amazonaws.services.s3.model.S3ObjectInputStream
 import com.amazonaws.services.s3.model.S3ObjectSummary
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.DslUtils
+import java.io.FileNotFoundException
 
 /**
  * Created by mtencer on 5/4/16.
  */
 class CatalogHandler {
 
-	private static final String AWS_KEY = 'AKIAIRJ4DFA72UDCX7QA'//'AKIAI2AFLMRLNMSP3IJA'
-	private static final String AWS_SECRET = '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'//'BZUVcUw7CfLgoJVr06w15sJ308Tnxv+c42Hhul6G'
+	private static final String AWS_ACCESS_KEY = 'AKIAIRJ4DFA72UDCX7QA'//'AKIAI2AFLMRLNMSP3IJA'
+	private static final String AWS_SECRET_KEY = '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'//'BZUVcUw7CfLgoJVr06w15sJ308Tnxv+c42Hhul6G'
+	public static String S3_BUCKET = "melidata-catalog-versions"
+	public static String S3_CATALOG_FILE = "catalog.groovy"
 
-	public static String LAST_VERSION_OBJECT = "lastVersion"
-	public static String LAST_VERSION_FILE_NAME = "last"
+	public String LAST_VERSION_OBJECT
+	public String LAST_VERSION_FILE_NAME
+	public String LOCAL_FOLDER
+	public String S3_CONTAINER
+	public String CSV_FILE_NAME
 
-	public static String LOCAL_FOLDER = "/data/catalog/";
-	public static String S3_CONTAINER = LAST_VERSION_FILE_NAME + ".dsl/";
-	public static String S3_CATALOG_FILE = "catalog.groovy";
-	public static String BUCKET = "melidata-catalog-versions"
-	public static String CSV_FILE_NAME = "last.csv/catalog.csv"
+	S3Controller cli
+	Map<String, String> lastEtag = [:]
+	Catalog catalog
+	int version
+	String catalogName;
 
-	private S3Controller cli
-	private Map<String, String> lastEtag = [:]
-	private Catalog catalog
-	private int version
+	CatalogHandler(String catalogName) {
 
-	def CatalogHandler() {
-		cli = new S3Controller(BUCKET, AWS_KEY, AWS_SECRET)
+		LAST_VERSION_OBJECT = "last" + catalogName.capitalize() + "Version"
+		LAST_VERSION_FILE_NAME = "last" + catalogName.capitalize()
+		LOCAL_FOLDER = "/data/catalog/" + catalogName + "/"
+		S3_CONTAINER = catalogName + "/" + LAST_VERSION_FILE_NAME + ".dsl/"
+		CSV_FILE_NAME = catalogName + "_last.csv/" + catalogName + "_catalog.csv"
+		this.catalogName = catalogName
+
+		cli = new S3Controller(S3_BUCKET, AWS_ACCESS_KEY, AWS_SECRET_KEY)
 	}
 
-	def boolean reload() {
+	boolean reload() {
 		//check if some file of BUCKET/S3_CONTAINER has changed (etag)
-		List<S3ObjectSummary> objectSummaries = cli.listObjects(new ListObjectsRequest().withBucketName(BUCKET).withPrefix(S3_CONTAINER)).getObjectSummaries();
+		List<S3ObjectSummary> objectSummaries = cli.listObjects(new ListObjectsRequest().withBucketName(S3_BUCKET).withPrefix(S3_CONTAINER)).getObjectSummaries()
 
 		boolean reload = false
 		for ( S3ObjectSummary obj : objectSummaries ) {
 			if ( !lastEtag[obj.getKey()] || lastEtag[obj.getKey()] != obj.getETag() ){
-				reload = true;
-				break;
+				reload = true
+				break
 			}
 		}
 
@@ -60,61 +69,90 @@ class CatalogHandler {
 		return false
 	}
 
-	def Catalog getCatalog() {
+	boolean catalogIsUpdated(String catalogFolder) {
+		def provisionalCatalogFolder = "/tmp/" + catalogName + "/"
+
+		List<S3ObjectSummary> objectSummaries = cli.listObjects(new ListObjectsRequest().withBucketName(S3_BUCKET).withPrefix(S3_CONTAINER)).getObjectSummaries()
+        downloadCatalog(objectSummaries, provisionalCatalogFolder, "")
+
+		return compareDirs(catalogFolder, provisionalCatalogFolder) && compareDirs(provisionalCatalogFolder, catalogFolder)
+	}
+
+	Catalog getCatalog() {
 		return catalog
 	}
 
-	def int getVersion() {
+	int getVersion() {
 		version
 	}
 
 	private reloadCatalog(S3Object object, List<S3ObjectSummary> objectSummaries) {
-		Integer newVersion = Integer.parseInt(object.getObjectMetadata().getUserMetaDataOf("catalog-version"));
+		Integer newVersion = Integer.parseInt(object.getObjectMetadata().getUserMetaDataOf("catalog-version"))
 		if (catalog == null || !newVersion.equals(version)) {
-			DslUtils.setBaseDir(LOCAL_FOLDER);
-			this.catalog = DslUtils.parseCatalog(new File(LOCAL_FOLDER, S3_CATALOG_FILE));
+			DslUtils.setBaseDir(LOCAL_FOLDER)
+			this.catalog = DslUtils.parseCatalog(new File(LOCAL_FOLDER, S3_CATALOG_FILE))
 			this.version = newVersion
 			this.lastEtag.clear()
 			for ( S3ObjectSummary obj : objectSummaries ) {
-				this.lastEtag[obj.getKey()] = obj.getETag();
+				this.lastEtag[obj.getKey()] = obj.getETag()
 			}
 		}
 	}
 
-	private S3Object downloadCatalog(List<S3ObjectSummary> objectSummaries) throws IOException {
-		S3Object object = null;
+	private S3Object downloadCatalog(List<S3ObjectSummary> objectSummaries, String folder = LOCAL_FOLDER, String keyPrefixReplacement = "") throws IOException {
+		S3Object object = null
 		for ( S3ObjectSummary obj : objectSummaries ) {
-			S3Object s3Object = cli.getObject(obj.getKey());
-			S3ObjectInputStream objectContent = s3Object.getObjectContent();
+			S3Object s3Object = cli.getObject(obj.getKey())
+			S3ObjectInputStream objectContent = s3Object.getObjectContent()
 
-			BufferedWriter writer = null;
-			BufferedReader reader = null;
+			BufferedWriter writer = null
+			BufferedReader reader = null
 			try {
-				def output = new File(LOCAL_FOLDER, obj.getKey().replace(S3_CONTAINER, ""))
+				def output = new File(folder, obj.getKey().replace(S3_CONTAINER, keyPrefixReplacement))
 				output.getParentFile().mkdirs()
-				writer = new BufferedWriter(new FileWriter(output));
-				reader = new BufferedReader(new InputStreamReader(objectContent));
-				String line;
+				writer = new BufferedWriter(new FileWriter(output))
+				reader = new BufferedReader(new InputStreamReader(objectContent))
+				String line
 				while ((line = reader.readLine()) != null) {
-					writer.write(line + "\n");
+					writer.write(line + "\n")
 				}
 			} finally {
 				if ( reader != null )
-					reader.close();
+					reader.close()
 				if ( writer != null )
-					writer.close();
+					writer.close()
 			}
 
-			if ( isMainFile(obj.getKey()) ) object =  s3Object;
+			if ( isMainFile(obj.getKey()) ) object =  s3Object
 		}
 
-		return object;
+		return object
 
 	}
 
 	private boolean isMainFile(String key) {
-		return (key.contains("/") && key.endsWith("/" + S3_CATALOG_FILE)) ||
-				(!key.contains("/") && key.endsWith(S3_CATALOG_FILE))
+		return key.endsWith(S3_CATALOG_FILE)
+	}
+
+	private boolean compareDirs(actualCatalog, uploadedCatalog) {
+
+		def areEquals = true
+
+		new File(actualCatalog).listFiles().each { actualFile ->
+
+			try {
+				def fileUploaded = new File(uploadedCatalog + actualFile.name)
+
+				if (actualFile.text != fileUploaded.text) {
+					areEquals = false
+				}
+			}
+			catch (FileNotFoundException e){
+				areEquals = false
+			}
+		}
+
+		return areEquals
 	}
 
 }
