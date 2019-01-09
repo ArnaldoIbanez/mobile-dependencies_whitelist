@@ -25,7 +25,8 @@ class PropertyDefinitionDsl {
 
     def propertyMissing (name, value) {
         providedPropertyDefinitionGroups[name]?.each { trackDefinitionProperty ->
-            properties.put(trackDefinitionProperty.name,trackDefinitionProperty)
+            properties.put(trackDefinitionProperty.name, trackDefinitionProperty)
         }
     }
+
 }

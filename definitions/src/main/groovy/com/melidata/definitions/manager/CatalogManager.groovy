@@ -10,40 +10,49 @@ import java.util.concurrent.TimeUnit
  */
 class CatalogManager implements Runnable {
 
-	private CatalogHandler catalogHandler
+    private Map<String, CatalogHandler> catalogHandlers
 
-	public CatalogManager() {
-		catalogHandler = new CatalogHandler();
+	CatalogManager() {
+		this.catalogHandlers = [:]
+		addCatalogHandler("melidata")
+		addCatalogHandler("shipping")
 	}
 
-	public void init() {
-		catalogHandler.reload()
-		Executors.newScheduledThreadPool(1).scheduleAtFixedRate(this, 0, 5, TimeUnit.MINUTES);
+	CatalogManager(String catalogName) {
+		this.catalogHandlers = [:]
+		addCatalogHandler(catalogName)
+	}
+
+	void addCatalogHandler(String catalogName) {
+		catalogHandlers[catalogName] = new CatalogHandler(catalogName)
+	}
+
+	void init() {
+		catalogHandlers.each{ _, catalogHandler -> catalogHandler.reload()}
+		Executors.newScheduledThreadPool(1).scheduleAtFixedRate(this, 0, 5, TimeUnit.MINUTES)
 	}
 
 	@Override
-	public void run() {
+	void run() {
 		try {
-			if ( catalogHandler.reload() ) {
-				log.info(String.format("New catalog [version: %s] has been loaded", catalogHandler.getVersion()))
-				//log.info(String.format("New catalog [version: %s] [etag: %s] has been loaded", catalogHandler.getVersion(), catalogHandler.getLastEtag()));
+			for (catalogHandler in catalogHandlers.values()) {
+				if (catalogHandler.reload()) {
+					log.info(String.format("New catalog [version: %s] has been loaded", catalogHandler.getVersion()))
+					//log.info(String.format("New catalog [version: %s] [etag: %s] has been loaded", catalogHandler.getVersion(), catalogHandler.getLastEtag()));
+				}
+				//updateVersionInDynamo();
 			}
-			//updateVersionInDynamo();
 
 		}catch (Throwable e){
 			//log.error("Error checking catalog", e);
 		}
 	}
 
-	@Override
-	public void close() throws IOException {
+	Catalog getCatalog(String catalogName) {
+		return catalogHandlers[catalogName]?.getCatalog()
 	}
 
-	public Catalog getCatalog() {
-		return catalogHandler.getCatalog()
-	}
-
-	public int getVersion() {
-		return catalogHandler.getVersion()
+    int getCatalogVersion(String catalogName) {
+		return catalogHandlers[catalogName]?.getVersion()
 	}
 }
