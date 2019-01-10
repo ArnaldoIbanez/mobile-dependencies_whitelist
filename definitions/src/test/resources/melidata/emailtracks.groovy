@@ -14,7 +14,6 @@ trackTests {
             email_template = "CHO_PAGO_AGREE"
             event_type = "send"
             sent_date = new Date().toString()
-            provider = "ironport"
         }
 
         def defaultCheckoutTrackInformation = {
@@ -34,19 +33,33 @@ trackTests {
                     ]
             ]
             buy_equals_pay = true
-            provider = "ironport"
         }
 
-        def defaultTrackInformationWithProvider = {
+        def defaultTrackInformationSendgridProviderFeedback = {
             email_id = 123456
             subject = "Test"
             email_template = "REMARKETING"
             event_type = "send"
             sent_date = new Date().toString()
+            communication_id = "comm1"
+            communication_version = "0.0.1"
             provider = "sendgrid"
+            provider_feedback = true
         }
 
-        def defaultTrackInformationWithCommunicationInfo = {
+        def defaultTrackInformationSendgridEmailsApiFeedback = {
+            email_id = 123456
+            subject = "Test"
+            email_template = "REMARKETING"
+            event_type = "send"
+            sent_date = new Date().toString()
+            communication_id = "comm1"
+            communication_version = "0.0.1"
+            provider = "sendgrid"
+            provider_feedback = false
+        }
+
+        def defaultTrackInformationIronportEmailsApiFeedback = {
             email_id = 123456
             subject = "Test"
             email_template = "REMARKETING"
@@ -55,6 +68,7 @@ trackTests {
             communication_id = "comm1"
             communication_version = "0.0.1"
             provider = "ironport"
+            provider_feedback = false
         }
 
         "/email/generic"(platform: "/email") {
@@ -151,11 +165,15 @@ trackTests {
         }
 
         "/email/generic"(platform: "/email") {
-            defaultTrackInformationWithProvider()
+            defaultTrackInformationSendgridProviderFeedback()
         }
 
         "/email/generic"(platform: "/email") {
-            defaultTrackInformationWithCommunicationInfo()
+            defaultTrackInformationSendgridEmailsApiFeedback()
+        }
+
+        "/email/generic"(platform: "/email") {
+            defaultTrackInformationIronportEmailsApiFeedback()
         }
 
     }
