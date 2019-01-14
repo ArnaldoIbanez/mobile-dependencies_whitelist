@@ -353,17 +353,7 @@ trackTests {
     }
 
     test("catalog_widget congrats should be tracked"){
-        "/catalogwidget/final_congrats"(platform: "/", type: TrackType.Event){
-            category_id = "MLA390784"
-            page = "summary"
-            item_id = "MLA682118081"
-            officialstore = false
-            domain_id = "MLA-FRAGRANCES"
-            seller_id = "241616388"
-            pi = false
-            category_path = ["MLA1234", "MLA12345"]
-            attribute_type = "item_attribute"
-        }
+        "/catalogwidget/final_congrats"(platform: "/", type: TrackType.Event){}
     }
 
     test("catalog_widget coachmark should be tracked"){
