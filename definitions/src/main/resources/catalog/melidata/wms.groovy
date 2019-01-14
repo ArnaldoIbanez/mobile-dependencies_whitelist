@@ -125,12 +125,24 @@ tracks {
             description: "Id of the warehouse to track")
     }
     "/wms/home"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/receiving"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/transfer"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/found"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/restock"(platform: "/mobile/android", type: TrackType.View) {}
 	"/wms/return"(platform: "/mobile/android", type: TrackType.View) {}
 
+    /* Receiving tracks */
+    "/wms/receiving"(platform: "/mobile/android", type: TrackType.View, isAbstract: true) {}
+    "/wms/receiving/scan_inbound_shipment"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/receiving/scan_destination"(platform: "/mobile/android", type: TrackType.View) {
+        inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
+        receiving_id(required: true, type: PropertyType.String, description: "Receiving id")
+    } // pallet scan screen
+    "/wms/receiving/scan_destination/start_receiving"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/receiving/scan_destination/finish_receiving"(platform: "/mobile/android", type: TrackType.Event) {
+        inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
+        receiving_id(required: true, type: PropertyType.String, description: "Receiving id")
+    }
+	
     /* Cycle count tracks */
     "/wms/cycle_count"(platform: "/mobile/android", type: TrackType.View, isAbstract: true) {
         cycle_count_id(required: false, type: PropertyType.Numeric, description: "Cycle count id")
