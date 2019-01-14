@@ -14,7 +14,7 @@
     "columns": [
 
       {
-        "name": "eventos",
+        "name": "evento",
         "type": "UNICODE_STRING"
       },
       {
@@ -23,7 +23,7 @@
       },
       {
         "name": "cantidad",
-        "type": "UNICODE_STRING"
+        "type": "INTEGER"
       },
       {
         "name": "site",
