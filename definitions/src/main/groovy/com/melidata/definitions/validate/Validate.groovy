@@ -2,12 +2,13 @@ package com.melidata.definitions.validate
 
 import com.melidata.definitions.TestRunner
 import com.melidata.definitions.outs.StdOut
+import com.ml.melidata.catalog.DslUtils
+import com.ml.melidata.catalog.tree.TrackValidationResponse
 import com.ml.melidata.Track
 import com.ml.melidata.TrackAdapterHelper
-import com.ml.melidata.catalog.tree.TrackValidationResponse
 import groovy.json.*
 import groovy.util.CliBuilder
-import groovy.sql.Sql;
+import groovy.sql.Sql
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -15,15 +16,27 @@ import java.util.Date
 
 class Validate {
 
-    def static void main(String[] args) {
+    public static String BASE_CATALOG_DIR = "src/main/resources/catalog/"
+    public static String DEFAULT_CATALOG = "catalog.groovy"
+    public static String DEFAULT_CATALOG_DIR = BASE_CATALOG_DIR + "melidata/"
+
+    static void main(String[] args) {
         def cli = buildCli(args)
         def options = cli.parse(args)
 
-        println "Generating Melidata Catalog..."
+        println "Generating Catalog..."
 
-        def pathCatalog = "src/main/resources/catalog/catalog.groovy"
+        String pathCatalog
+        if (options.catalog) {
+            String catalogName = options.catalog
+            def catalogDir = BASE_CATALOG_DIR + catalogName + "/"
+            pathCatalog = catalogDir + DEFAULT_CATALOG
+            DslUtils.setBaseDir(catalogDir)
+        } else {
+            pathCatalog = DEFAULT_CATALOG_DIR + DEFAULT_CATALOG
+            DslUtils.setBaseDir(DEFAULT_CATALOG_DIR)
+        }
         def catalogScript = TestRunner.getScriptFromFile(pathCatalog)
-        com.ml.melidata.catalog.DslUtils.setBaseDir("src/main/resources/catalog/")
         def catalog = TestRunner.runScript(catalogScript)
 
         println "Done. Will fetch for tracks for validating..."
@@ -87,15 +100,14 @@ class Validate {
 
     private static List generateResultFromPresto(options, catalog) {
         def query = buildQuery(options)
+        def presto_certs_path = System.getProperty("user.dir") + "/src/main/resources/presto_cacerts"
         System.err.println("Query:")
         System.err.println("${query}")
         System.err.println("")
 
-        def db = [url:'jdbc:presto://melidata-presto.ml.com:80/hive/default', 
-                    user:'catalog', password:'psw', 
-                    driver:'com.facebook.presto.jdbc.PrestoDriver']
+        def db = [url:"jdbc:presto://melidata-presto.ml.com:443/hive/default?SSL=true&SSLKeyStorePath=${presto_certs_path}",
+                  user:'catalog_md', password:'Entrada.10', driver:'com.facebook.presto.jdbc.PrestoDriver']
         def sql = Sql.newInstance(db.url, db.user, db.password, db.driver)
-
         def result = []
         sql.eachRow(query) { row ->
             com.ml.melidata.Track track = new com.ml.melidata.Track(
@@ -114,7 +126,7 @@ class Validate {
         return result
     }
 
-    private static List generateResultsFromFile(options, catalog) {
+    private static List generateResultFromFile(options, catalog) {
         def result = []
         def slurper = new JsonSlurper()
         def reader = new BufferedReader(new FileReader(options.from_file.toString()))
@@ -190,6 +202,7 @@ class Validate {
 
     private static CliBuilder buildCli(String[] args) {
         def cli = new CliBuilder()
+        cli.catalog(args:1, "catalog")
         cli.date(args:1, "date")
         cli.exact_path(args:1, "exact_path")
         cli.path(args:1, "path")
