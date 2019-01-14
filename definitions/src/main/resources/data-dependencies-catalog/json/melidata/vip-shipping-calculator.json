@@ -1,0 +1,50 @@
+{
+  "users": [
+    "manuel.kenar@mercadolibre.com",
+    "vip_it@mercadolibre.com"
+  ],
+  "process_name": "structured_data_modal_attributes_views",
+  "cron": "00 06 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
+  "extract": {
+    "operation": "append",
+    "columns": [
+
+      {
+        "name": "eventos",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "plataforma",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "cantidad",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "site",
+        "type": "UNICODE_STRING"
+      }
+
+    ],
+    "sql": {
+      "script": "vip/vip-shipping-calculator.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
