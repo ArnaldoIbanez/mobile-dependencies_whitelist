@@ -51,6 +51,27 @@ trackTests {
             trackData()
             warehouse_id = "BRWT01"
         }
+        
+        "/wms/receiving/scan_inbound_shipment"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+        "/wms/receiving/scan_destination"(platform: "/mobile/android", type: TrackType.View) {
+            trackData()
+            warehouse_id = "BRWT01"
+            inbound_id = "1234"
+            receiving_id = "1234"
+        } // pallet scan screen
+        "/wms/receiving/scan_destination/start_receiving"(platform: "/mobile/android", type: TrackType.Event) {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+        "/wms/receiving/scan_destination/finish_receiving"(platform: "/mobile/android", type: TrackType.Event) {
+            trackData()
+            warehouse_id = "BRWT01"
+            inbound_id = "1234"
+            receiving_id = "1234"
+        }
         "/wms/put_away"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
@@ -510,5 +531,7 @@ trackTests {
             trackData()
             warehouse_id = "BRWT01"
         }
+        
+        
     }
 }
