@@ -116,7 +116,6 @@ tracks {
     }
 
     // Boleto views
-    "/px_checkout/payments/select_method/ticket"(platform: "/mobile", isAbstract: true){}
 
     "/px_checkout/payments/select_method/ticket/cpf"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
         payment_method_id(required: true, type: PropertyType.String, description: "Payment method id")
