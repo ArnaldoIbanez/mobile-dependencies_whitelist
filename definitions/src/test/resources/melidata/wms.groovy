@@ -61,7 +61,7 @@ trackTests {
             warehouse_id = "BRWT01"
             inbound_id = "1234"
             receiving_id = "1234"
-        } // pallet scan screen
+        } 
         "/wms/receiving/scan_destination/start_receiving"(platform: "/mobile/android", type: TrackType.Event) {
             trackData()
             warehouse_id = "BRWT01"
