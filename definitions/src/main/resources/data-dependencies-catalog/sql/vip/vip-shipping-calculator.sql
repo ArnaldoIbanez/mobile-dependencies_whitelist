@@ -3,7 +3,7 @@ application.site_id as site,
 device.platform AS plataforma,
 count(distinct id) as cantidad,
 path as evento
-substr(ds,1,10) AS ds
+ds
 from tracks
 where 	   ds >='@param01'
 and 	   ds <'@param02'
@@ -12,4 +12,4 @@ group by
 path,
 device.platform,
 application.site_id,
-substr(ds,1,10)
+ds
