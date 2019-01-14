@@ -3,7 +3,7 @@
     "manuel.kenar@mercadolibre.com",
     "vip_it@mercadolibre.com"
   ],
-  "process_name": "structured_data_modal_attributes_views",
+  "process_name": "vip_shipping_calculator",
   "cron": "00 06 * * *",
   "partition": {
     "name": "ds",
