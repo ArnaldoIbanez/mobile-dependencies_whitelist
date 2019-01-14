@@ -5,6 +5,10 @@
   ],
   "process_name": "vip_shipping_calculator",
   "cron": "00 06 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
     "columns": [
@@ -24,10 +28,6 @@
       {
         "name": "site",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name":"ds",
-        "type":"UNICODE_STRING"
       }
 
     ],

@@ -2,7 +2,7 @@ select
 application.site_id as site,
 device.platform AS plataforma,
 count(distinct id) as cantidad,
-path as evento
+path as evento,
 ds
 from tracks
 where 	   ds >='@param01'
