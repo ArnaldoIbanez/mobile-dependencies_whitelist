@@ -111,9 +111,7 @@ tracks {
         catalogWidgetCompletenessGroup
     }
 
-    "/catalogwidget/final_congrats"(platform: "/",type: TrackType.Event) {
-        catalogWidgetGroup
-    }
+    "/catalogwidget/final_congrats"(platform: "/",type: TrackType.Event) {}
 
     "/catalogwidget/coachmark"(platform: "/",type: TrackType.Event) {
         catalogWidgetGroup
