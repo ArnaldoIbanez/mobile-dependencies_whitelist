@@ -48,6 +48,8 @@ tracks {
         convertion_code(type: PropertyType.String, required: false)
     }
 
+    "/"(platform: "/api") {}
+
     "/notifications"(platform: "/api") {
         action(type: PropertyType.String, required: false, description: "Action taken with notification")
         notification(type: PropertyType.Map(notification_definition), required: false, description: "Carrier notification")
@@ -59,7 +61,7 @@ tracks {
     "/notifications/event_processing"(platform: "/api") {
         action_params(type: PropertyType.Map(action_params_definition), required: true)
         carrier_id(type: PropertyType.Numeric, required: true)
-        configuration_filters(type: PropertyType.Map(configuration_filters_definition), required: true)
+        configuration_filters(type: PropertyType.ArrayList(PropertyType.Map(configuration_filters_definition)), required: true)
         notification_after(type: PropertyType.Map(notification_definition), required: true, description: "Carrier notification after event processing")
         stage_id(type: PropertyType.String, required: true)
         stage_type(type: PropertyType.String, required: true, description: "Type of actual stage")
