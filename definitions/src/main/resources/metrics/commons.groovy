@@ -134,7 +134,7 @@ metrics {
 		}
 	}
 
-  "point_landings"(description: "Point Landings buy intention") {
+  "point_buy_intention"(description: "Point Landings buy intention") {
     startWith {
       experiment(regex("mpos/.*"))
     }
