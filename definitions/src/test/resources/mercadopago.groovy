@@ -496,13 +496,19 @@ trackTests {
             status = 'invalidAccess'
         }
         "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
-            status = 'invalidUser'
-        }
-        "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
             status = 'error'
         }
-        "/merchant_acquisition/flows/qr-assignment/validate_email"(platform:"/", type: TrackType.Event) {}
-        "/merchant_acquisition/flows/qr-assignment/qr_scan"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/flows/qr-assignment/validate_email"(platform:"/", type: TrackType.Event) {
+          email = 'test_user_80936558@testuser.com'
+          valid = true
+        }
+        "/merchant_acquisition/flows/qr-assignment/validate_email"(platform:"/", type: TrackType.Event) {
+          email = 'test_user_64317727@testuser.com'
+          valid = false
+        }
+        "/merchant_acquisition/flows/qr-assignment/qr_scan"(platform:"/", type: TrackType.Event) {
+          qr_content = 'http://qr-content'
+        }
     }
 
     test("MP-MA Flow QR") {

@@ -63,10 +63,15 @@ tracks {
     "/merchant_acquisition/flows/qr-assignment"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/qr-assignment/success"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
-       status (type: PropertyType.String, required: true, description: "Error Status, ex: invalidAccess, invalidUser, error")
+       status (type: PropertyType.String, required: true, description: "Error Status, ex: invalidAccess, error")
     }
-    "/merchant_acquisition/flows/qr-assignment/validate_email"(platform:"/", type: TrackType.Event) {}
-    "/merchant_acquisition/flows/qr-assignment/qr_scan"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/qr-assignment/validate_email"(platform:"/", type: TrackType.Event) {
+      email (type: PropertyType.String, required: true, description: "Ex: test_user_64317727@testuser.com")
+      valid (type: PropertyType.Boolean, required: true, description: "Ex: true or false")
+    }
+    "/merchant_acquisition/flows/qr-assignment/qr_scan"(platform:"/", type: TrackType.Event) {
+      qr_content (type: PropertyType.String, required: true, description: "Ex: http://qrContent")
+    }
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
