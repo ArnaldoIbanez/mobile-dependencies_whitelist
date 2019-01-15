@@ -84,7 +84,7 @@ metrics {
 
 	"sell_upgrade_intention"(description: "Intention for upgrading - Selling flow") {	
 		startWith {
-	            experiment(regex("sell/.*"))
+      experiment(regex("sell/.*"))
 		}
 		
 		countsOn {
@@ -135,14 +135,14 @@ metrics {
 	}
 
   "point_landings"(description: "Point Landings buy intention") {
-		startWith {
-			experiment(regex("mpos/.*"))
-		}
-		
-		countsOn {
-			condition {
+    startWith {
+      experiment(regex("mpos/.*"))
+    }
+
+    countsOn {
+      condition {
         path("/point/landings/buy")
-			}
-		}
+      }
+    }
 	}
 }
