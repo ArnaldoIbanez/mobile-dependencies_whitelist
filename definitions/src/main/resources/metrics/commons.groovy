@@ -144,5 +144,5 @@ metrics {
         path("/point/landings/buy")
       }
     }
-	}
+  }
 }
