@@ -26,7 +26,7 @@ tracks {
         code(type: PropertyType.String, required: true, description: "Code sent by carrier")
         origin(type: PropertyType.String, required: true, description: "Notification origin (push-pull)")
         payload(type: PropertyType.Map(notification_payload_definition), required: true, description: "Notification payload")
-        shipment_id(type: PropertyType.String, required: true)
+        shipment_id(type: PropertyType.Numeric, required: true)
         tracking_number(type: PropertyType.String, required: true, description: "Shipment tracking number")
 
         //Event processor track for notification after
@@ -50,17 +50,17 @@ tracks {
 
     "/notifications"(platform: "/api") {
         action(type: PropertyType.String, required: false, description: "Action taken with notification")
-        notification(type: PropertyType.Map(notification_definition), required: true, description: "Carrier notification")
+        notification(type: PropertyType.Map(notification_definition), required: false, description: "Carrier notification")
         shipment_id(type: PropertyType.Numeric, required: true)
+        raw(type: PropertyType.String, required: true, description: "Carrier raw notification")
+        response(type: PropertyType.String, required: true, description: "Response to carrier")
     }
 
     "/notifications/event_processing"(platform: "/api") {
         action_params(type: PropertyType.Map(action_params_definition), required: true)
         carrier_id(type: PropertyType.Numeric, required: true)
         configuration_filters(type: PropertyType.Map(configuration_filters_definition), required: true)
-        notification(type: PropertyType.Map(notification_definition), required: true, description: "Carrier notification")
         notification_after(type: PropertyType.Map(notification_definition), required: true, description: "Carrier notification after event processing")
-        shipment(type: PropertyType.Numeric, required: true, description: "Shipment id")
         stage_id(type: PropertyType.String, required: true)
         stage_type(type: PropertyType.String, required: true, description: "Type of actual stage")
     }
