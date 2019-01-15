@@ -7,11 +7,20 @@ tracks {
     "/email"(platform: "/email", isAbstract: true) {
         email_template(required: true)
         event_type(required: true,
-                values: ["send", "open", "cancel", "cancel_old_emails"],
+                values: ["send", "open", "cancel", "cancel_old_emails", "processed", "dropped", "delivered", "deferred",
+                         "bounce", "open", "click", "spam_report", "unsubscribe", "group_unsubscribe", "group_resubscribe"],
                 description: "Type of email event")
         email_id(required: false)
         subject(required: false)
         sent_date(required: false)
+        provider(required: false,
+                values: ["ironport","sendgrid","sparkpost"],
+                type: PropertyType.String, description: "Email Service Provider which generated this track event")
+        communication_id(required: false, type: PropertyType.String, description: "Email campaign id")
+        communication_version(required: false, type: PropertyType.String, description: "Email campaign version")
+        provider_feedback(required: false, type: PropertyType.Boolean, description: "Used to identify events reported by the " +
+                "Email Service Provider (e.g. Sendgrid), in particular send and open, which might be reported by the provider " +
+                "and also by the emails-api")
     }
 
     "/email/orders"(platform: "/email") {
