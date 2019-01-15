@@ -966,7 +966,6 @@ trackTests {
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
             shipment_id = 1234
-            agency_to_agency = true
         }
 
         "/notification/shipping_not_delivered_receiver"(platform: "/mobile"){
