@@ -5,37 +5,68 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    def payload_location_definition = objectSchemaDefinitions {
+        city_name(type: PropertyType.String, required: false, description: "Shipment city name")
+        country_id(type: PropertyType.String, required: false, description: "Shipment country id")
+        geolocation(type: PropertyType.String, required: false, description: "Shipment geolocation")
+        neighborhood_name(type: PropertyType.String, required: false, description: "Shipment neighborhood name")
+        state_id(type: PropertyType.String, required: false, description: "Shipment state id")
+    }
+
     def notification_payload_definition = objectSchemaDefinitions {
+        agency_id(type: PropertyType.String, required: false, description: "Carrier agency id")
+        carrier_id(type: PropertyType.String, required: false)
         client_id(type: PropertyType.String, required: false, description: "Carrier client id")
+        comment(type: PropertyType.String, required: false, description: "Carrier notification comment")
         date(type: PropertyType.String, required: true, description: "Carrier notification date")
-        carrier_id(type: PropertyType.String, required: false, description: "Carrier id")
+        location(type: PropertyType.Map(payload_location_definition), required: false, description: "Carrier location")
     }
 
     def notification_definition = objectSchemaDefinitions {
-        id(type: PropertyType.String, required: true, description: "Notification id")
-        origin(type: PropertyType.String, required: true, description: "Notification origin (push-pull)")
-        tracking_number(type: PropertyType.String, required: true, description: "Tracking number")
         code(type: PropertyType.String, required: true, description: "Code sent by carrier")
-        carrier_code(type: PropertyType.String, required: false, description: "Carrier code")
+        origin(type: PropertyType.String, required: true, description: "Notification origin (push-pull)")
         payload(type: PropertyType.Map(notification_payload_definition), required: true, description: "Notification payload")
+        shipment_id(type: PropertyType.String, required: true)
+        tracking_number(type: PropertyType.String, required: true, description: "Shipment tracking number")
+
+        //Event processor track for notification after
+        delay_date(type: PropertyType.String, required: false, description: "Date of delay")
     }
 
-    def configuration_definition = objectSchemaDefinitions {
+    def values_definition = objectSchemaDefinitions {
+        codes(type: PropertyType.ArrayList(PropertyType.String), required: false, description: "Carrier codes")
+        types(type: PropertyType.ArrayList(PropertyType.String), required: false, description: "Logistic types")
     }
 
-    "/notifications"(platform: "/") {
-        shipment_id(type: PropertyType.Numeric, required: true, description: "Shipment id")
+    def configuration_filters_definition = objectSchemaDefinitions {
+        filter(type: PropertyType.String, required: true, description: "Filter id")
+        values(type: PropertyType.Map(values_definition), required: false)
+    }
+
+    def action_params_definition = objectSchemaDefinitions {
+        delay_time_hours(type: PropertyType.String, required: false)
+        convertion_code(type: PropertyType.String, required: false)
+    }
+
+    "/notifications"(platform: "/api") {
+        action(type: PropertyType.String, required: false, description: "Action taken with notification")
         notification(type: PropertyType.Map(notification_definition), required: true, description: "Carrier notification")
-        action(type: PropertyType.String, required: true, description: "Action taken with notification")
+        shipment_id(type: PropertyType.Numeric, required: true)
     }
 
-    "/notifications/event_processing"(platform: "/") {
-        configuration(type: PropertyType.Map(configuration_definition), required: true)
-        new_notification(type: PropertyType.Map(configuration_definition), required: true)
+    "/notifications/event_processing"(platform: "/api") {
+        action_params(type: PropertyType.Map(action_params_definition), required: true)
+        carrier_id(type: PropertyType.Numeric, required: true)
+        configuration_filters(type: PropertyType.Map(configuration_filters_definition), required: true)
+        notification(type: PropertyType.Map(notification_definition), required: true, description: "Carrier notification")
+        notification_after(type: PropertyType.Map(notification_definition), required: true, description: "Carrier notification after event processing")
+        shipment(type: PropertyType.Numeric, required: true, description: "Shipment id")
+        stage_id(type: PropertyType.String, required: true)
+        stage_type(type: PropertyType.String, required: true, description: "Type of actual stage")
     }
 
-    "/notifications/ssm"(platform: "/") {
-        response(type: PropertyType.String, required: true)
-        cause(type: PropertyType.String, required: true)
+    "/notifications/ssm"(platform: "/api") {
+        cause(type: PropertyType.String, required: false)
+        response(type: PropertyType.String, required: false)
     }
 }
