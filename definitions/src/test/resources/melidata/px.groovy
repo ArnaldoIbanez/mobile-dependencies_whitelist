@@ -523,7 +523,7 @@ trackTests {
             style = "generic"
             payment_method_id = "redlink"
             payment_method_type = "atm"
-            payment_id = "1234"
+            payment_id = 1234
             payment_status = "approved"
             payment_status_detail = "approved"
 
@@ -539,7 +539,7 @@ trackTests {
             style = "generic"
             payment_method_id = "visa"
             payment_method_type = "credit_card"
-            payment_id = "1234"
+            payment_id = 1234
             payment_status = "pending"
             payment_status_detail = "pending"
             extra_info = {
@@ -559,7 +559,7 @@ trackTests {
             style = "generic"
             payment_method_id = "visa"
             payment_method_type = "credit_card"
-            payment_id = "1234"
+            payment_id = 1234
             payment_status = "rejected"
             payment_status_detail = "STATUS_DETAIL_REJECTED_REJECTED_BY_BANK"
             extra_info = {
@@ -1769,7 +1769,7 @@ trackTests {
             style = "generic"
             payment_method_id = "redlink"
             payment_method_type = "atm"
-            payment_id = "1234"
+            payment_id = 1234
             payment_status = "approved"
             payment_status_detail = "approved"
 
@@ -1785,7 +1785,7 @@ trackTests {
             style = "generic"
             payment_method_id = "visa"
             payment_method_type = "credit_card"
-            payment_id = "1234"
+            payment_id = 1234
             payment_status = "pending"
             payment_status_detail = "pending"
             extra_info = {
