@@ -204,11 +204,7 @@ trackTests {
         "/landing/generic"(platform: "/mobile"){
             url = "https://www.mercadolibre.com"
             is_main_url = true
-        }
-
-        "/landing/generic/v2"(platform: "/mobile"){
-            url = "https://www.mercadolibre.com"
-            is_main_url = true
+            version = "2"
         }
     }
 
