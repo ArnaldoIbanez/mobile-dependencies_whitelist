@@ -66,7 +66,6 @@ tracks {
        status (type: PropertyType.String, required: true, description: "Error Status, ex: invalidAccess, error")
     }
     "/merchant_acquisition/flows/qr-assignment/validate_email"(platform:"/", type: TrackType.Event) {
-      email (type: PropertyType.String, required: true, description: "Ex: test_user_64317727@testuser.com")
       valid (type: PropertyType.Boolean, required: true, description: "Ex: true or false")
     }
     "/merchant_acquisition/flows/qr-assignment/qr_scan"(platform:"/", type: TrackType.Event) {
