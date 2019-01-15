@@ -1805,7 +1805,7 @@ trackTests {
             style = "generic"
             payment_method_id = "visa"
             payment_method_type = "credit_card"
-            payment_id = "1234"
+            payment_id = 1234
             payment_status = "rejected"
             payment_status_detail = "STATUS_DETAIL_REJECTED_REJECTED_BY_BANK"
             extra_info = {
