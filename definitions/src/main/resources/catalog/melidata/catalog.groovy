@@ -21,7 +21,8 @@ catalog {
             "/mobile",
             "/mobile/android",
             "/mobile/ios",
-            "/email"
+            "/email",
+            "/backend"
     ]
 
     def marketplace = [
@@ -110,6 +111,7 @@ catalog {
         include business, "payers_growth.groovy"
         include business, "contact.groovy"
         include business, "full.groovy"
+        include business, "user.groovy"
     }
 
     mercadopago.each { business ->
