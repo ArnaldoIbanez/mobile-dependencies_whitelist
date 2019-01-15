@@ -1,13 +1,14 @@
 select
-  hoy.site_id as site,
-  hoy.delivery_id as delivery_id,
+    hoy.site_id as site,
+    hoy.delivery_id as delivery_id,
     hoy.shipping_id as shipping_id,
     hoy.seller_id as seller_id,
-    CAST(coalesce(delivered.longitude, not_delivered.longitude, hoy.longitude) as DOUBLE) as longitude,
-    CAST(coalesce(delivered.latitude, not_delivered.latitude, hoy.latitude) as DOUBLE) as latitude,
+    CAST(coalesce(delivered.longitude, not_delivered.longitude,receipt.longitude, hoy.longitude) as DOUBLE) as longitude,
+    CAST(coalesce(delivered.latitude, not_delivered.latitude, receipt.latitude, hoy.latitude) as DOUBLE) as latitude,
     coalesce(delivered.status, not_delivered.status, 'Pending') as pack_status,
     not_delivered.reason as not_delivered_reason,
     coalesce(delivered.status_time, not_delivered.status_time,current_timestamp) as status_time,
+    not_delivered.status_time as  not_delivered_time,
     delivered.hora as hora,
     coalesce(ayer.rescanned,0) as rescanned,
     event.event_detail as event_detail,
@@ -45,8 +46,8 @@ from (
       jest(packs_data,'shipping_id') as shipping_id,
       jest(event_data, 'delivery_id') as delivery_id,
       jest(packs_data, 'seller_id') as seller_id,
-      jest(packs_data,'destintation_info.longitude') as longitude,
-      jest(packs_data,'destintation_info.latitude') as latitude
+      jest(packs_data,'destination_info.longitude') as longitude,
+      jest(packs_data,'destination_info.latitude') as latitude
   from tracks
   LATERAL VIEW explode(json_to_array(jest(event_data,'packs_info'))) tf as packs_data
   where ds >='@param02' and ds < '@param03'
@@ -109,14 +110,52 @@ select
       if( jest(event_data,'reason_type') <>'other_reason',jest(event_data,'reason_type'),'others_reason') as reason,
       jest(event_data,'longitude') as longitude,
       jest(event_data,'latitude') as latitude
-  from tracks
+from tracks
 where ds >='@param02' and ds < '@param03'
     and type = 'event'
-      and application.business='mercadoenvios'
+    and application.business='mercadoenvios'
     and ((path = '/flex/package/not_delivered_reason/selection' and jest(event_data,'reason_type') <>'others_reason')
-        or path = '/flex/package/not_delivered_reason/form/other_reason' and lower(jest(event_data,'reason')) <> 'test')
+         or path = '/flex/package/not_delivered_reason/form/other_reason' and lower(jest(event_data,'reason')) <> 'test')
 ) not_delivered on not_delivered.ds = hoy.ds and not_delivered.site_id = hoy.site_id and not_delivered.shipping_id = hoy.shipping_id and not_delivered.delivery_id = hoy.delivery_id
+left join (
+select
+  last_receipt.ds,
+  last_receipt.site_id,
+  last_receipt.delivery_id,
+  last_receipt.shipping_id,
+  receipt_info.longitude,
+  receipt_info.latitude
+from (
+  select
+        substr(ds,1,10) as ds,
+        application.site_id as site_id,
+        jest(event_data,'delivery_id') as delivery_id,
+        jest(event_data,'packs_info[0].shipping_id') as shipping_id,
+        max(user_timestamp) as status_time
+    from tracks
+    where ds >='@param02' and ds < '@param03'
+      and type = 'view'
+      and application.business='mercadoenvios'
+      and path = '/flex/package/detail/receipt'
+      group by substr(ds,1,10), application.site_id, jest(event_data,'delivery_id'), jest(event_data,'packs_info[0].shipping_id') 
+  ) last_receipt
+  inner join (
+  select
+      substr(ds,1,10) as ds,
+      application.site_id as site_id,
+      jest(event_data,'delivery_id') as delivery_id,
+      jest(event_data,'packs_info[0].shipping_id') as shipping_id,
+      user_timestamp as status_time,
+      jest(event_data,'longitude') as longitude,
+      jest(event_data,'latitude') as latitude
+  from tracks
+  where ds >='@param02' and ds < '@param03'
+    and type = 'view'
+    and application.business='mercadoenvios'
+    and path = '/flex/package/detail/receipt'
+  ) receipt_info on receipt_info.ds = last_receipt.ds and receipt_info.site_id = last_receipt.site_id and receipt_info.shipping_id = last_receipt.shipping_id and receipt_info.delivery_id = last_receipt.delivery_id
 
+) receipt on receipt.ds = hoy.ds and receipt.site_id = hoy.site_id and receipt.shipping_id = hoy.shipping_id and receipt.delivery_id = hoy.delivery_id
 Left join(
   select distinct
       jest(packs_data,'shipping_id') as shipping_id,
@@ -125,9 +164,26 @@ Left join(
   from tracks
   LATERAL VIEW explode(json_to_array(jest(event_data,'packs_info'))) tf as packs_data
   where ds >='@param01' and ds < '@param02'
+      and type = 'view'
       and application.business='mercadoenvios'
     and path = '/flex/package/list'
  ) ayer on ayer.shipping_id = hoy.shipping_id and ayer.site_id = hoy.site_id
+left Join (
+  select
+      substr(ds,1,10) as ds,
+      application.site_id as site_id,
+      jest(event_data,'delivery_id') as Delivery_id,
+      jest(event_data,'packs_info[0].shipping_id') as shipping_id,
+      jest(event_data,'context') as context,
+      Count(*) as cant_retry
+    from tracks 
+    where ds>='@param02' AND ds<'@param03'
+        and type = 'event'
+        and application.business='mercadoenvios'
+        and path ='/flex/package/retry_pack'
+        and jest(event_data,'context') = 'list'
+      group by substr(ds,1,10),application.site_id, jest(event_data,'delivery_id'), jest(event_data,'packs_info[0].shipping_id'), jest(event_data,'context')
+) retry on retry.ds = hoy.ds and retry.site_id = hoy.site_id and retry.delivery_id = hoy.delivery_id and retry.shipping_id = hoy.shipping_id
 left join (
   select 
       ds, 
@@ -147,7 +203,7 @@ left join (
           WHEN '/flex/package/see_on_google_maps' THEN 'see_on_google_maps'
       END     as event_detail
     from tracks
-  where ds >='@param02' and ds < '@param03'
+    where ds>='@param02' AND ds<'@param03'
         and application.business='mercadoenvios'
           and path in ('/flex/package/detail/receipt_other_person','/flex/package/detail/call_seller','/flex/package/detail/call_buyer','/flex/package/see_on_google_maps')
   ) t
@@ -159,7 +215,7 @@ left join (
     application.site_id as site_id,
     count(*) as num_add_more
   from tracks
-  where ds >='@param02' and ds < '@param03'
+    where ds>='@param02' AND ds<'@param03'
       and application.business='mercadoenvios'
         and path like '/flex/package/add_more_packages/qr_detected'
         and jest(event_data,'status') = 'ok'
@@ -172,26 +228,11 @@ left join (
       jest(event_data,'delivery_id') as delivery_id, 
       count(*) as num_missing_addresses
   from tracks
-  where ds >='@param02' and ds < '@param03'
+    where ds>='@param02' AND ds<'@param03'
         and application.business='mercadoenvios'
         and path like '/flex/package/list/map_missing_addresses'
   GROUP BY substr(ds,1,10), application.site_id, jest(event_data,'delivery_id') 
 ) m_address on m_address.ds = hoy.ds and m_address.site_id = hoy.site_id and m_address.delivery_id = hoy.delivery_id
-
-left Join (
-  select
-      substr(ds,1,10) as ds,
-      application.site_id as site_id,
-      jest(event_data,'delivery_id') as Delivery_id,
-      Count(*) as cant_retry
-    from tracks 
-    where ds>='@param02' AND ds<'@param03'
-      and path ='/flex/package/retry_delivery'
-        and application.business='mercadoenvios'
-        and jest(event_data,'context') = 'list'
-      group by substr(ds,1,10),application.site_id, jest(event_data,'delivery_id')
-) retry on retry.ds = hoy.ds and retry.site_id = hoy.site_id and retry.delivery_id = hoy.delivery_id
-
 left join
 (
   select
@@ -227,4 +268,3 @@ left join
     ) delivery on status.ds = delivery.ds and status.Delivery_id = delivery.Delivery_id and status.Delivery_Time = delivery.Delivery_Time   
 ) delivery on delivery.ds = hoy.ds and delivery.site_id = hoy.site_id and delivery.delivery_id = hoy.delivery_id
 
-    
