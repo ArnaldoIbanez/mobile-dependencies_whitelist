@@ -133,4 +133,16 @@ metrics {
 			}
 		}
 	}
+
+  "point_landings"(description: "Point Landings buy intention") {
+		startWith {
+			experiment(regex("mpos/.*"))
+		}
+		
+		countsOn {
+			condition {
+        path("/point/landings/buy")
+			}
+		}
+	}
 }
