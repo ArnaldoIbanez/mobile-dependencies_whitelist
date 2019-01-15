@@ -132,6 +132,12 @@ tracks {
                 descripcion: "True if the url is the first url to be loaded. Next urls will have this flag in false (redirects, taps)")
     }
 
+    "/landing/generic/v2"(platform: "/mobile") {
+        url(required:true, descripcion:"The url to be loaded by the generic landing")
+        is_main_url(required:false, type: PropertyType.Boolean,
+                descripcion: "True if the url is the first url to be loaded. Next urls will have this flag in false (redirects, taps)")
+    }
+
     "/official_stores"(platform: "/web", isAbstract: true) {}
 
     "/official_stores/home"(platform: "/web", type: TrackType.View) {
