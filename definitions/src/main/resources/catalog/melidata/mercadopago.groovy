@@ -815,6 +815,9 @@ tracks {
         loan_id(required: true, type: PropertyType.Numeric)
     }
 
+    //Compliance Support
+    "/notification/compliance_support_validations"(platform: "/mobile") {}
+
     //Fraud
     "/notification/fraud_cash_release_iv"(platform: "/mobile") {}
 
@@ -845,6 +848,7 @@ tracks {
     "/notification/prepaid_card_third_activation_reminder"(platform: "/mobile") {}
     "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_invalid_pin"(platform: "/mobile") {}
 
     //Point
     "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {}
