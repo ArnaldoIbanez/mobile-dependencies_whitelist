@@ -146,9 +146,9 @@ metrics {
     }
   }
 
-	"testing-v1"(description: "Testing for send email") {
+	"installment_merchant_debit_payment"(description: "Send email from automatic debit installment credits merchant") {
 		startWith {
-			experiment("credits/testing-v1")
+			experiment("credits/merchant/whatsapp_five_overdue")
 		}
 
 		countsOn {
