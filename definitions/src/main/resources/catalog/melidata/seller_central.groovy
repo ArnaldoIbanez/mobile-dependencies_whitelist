@@ -184,6 +184,33 @@ tracks {
         to(required: true, type: PropertyType.String, description: "Updated listing type value")
     }
 
+    /**
+     * La idea de este track es poder tener informacion
+     * para generar un dataset sobre la conversion de los
+     * objetivos de calidad y poder utilizar machine learning
+     * para mejorar el ordenamiento.
+     */
+    "/seller_central/modify/sucess"(platform: "/web", type: TrackType.Event){
+        goals_achieved(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Goals achieved in this session, dataset target.")
+        original_goals_not_completed(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Original goals available to complete ordered by source.")
+        original_goals_completed(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Original goals completed ordered by source.")
+        original_goals_not_applied(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Original goals that not applied for this item, ordered by source.")
+        original_goal_order(required: true, type: PropertyType.String, description: "Goals order source. Values: ['random', 'health-api']")
+        original_price(required: false, type: PropertyType.Numeric, description: "Original item price")
+        original_currency(required: false, type: PropertyType.String, description: "Original item currency")
+        original_listing_type(required: true, type: PropertyType.String, description: "Original item listing type")
+        original_quantity(required: false, type: PropertyType.Numeric, description: "Original item quantity")
+        original_condition(required: false, type: PropertyType.String, description: "Original item condition")
+        original_shipping(required: false, type: PropertyType.String, description: "Original item shippgin mode. Values: ['custom','custom_free_shippgin','me2','me2_free_shipping','without_shipping']")
+        original_local_pickup(required: false, type: PropertyType.Boolean, description: "Item original local_pickup")
+        domain(required: true, type: PropertyType.String, description: "Item domain")
+        is_catalog_product(required: false, type: PropertyType.Boolean, description: "Item is in catalog")
+        technical_specifications_attributes_empty(required: false, type: PropertyType.Numeric, description: "Original Technical specifications attributes requested")
+        technical_specifications_attributes_loaded(required: false, type: PropertyType.Numeric, description: "Original Technical specifications attributes completed")
+        seller_experience(required: false, type: PropertyType.String, description: "Type of experience. Values ['NEWBIE','INTERMEDIATE','ADVANCED']")
+        is_official_store(required: false, type: PropertyType.String, description: "User is official store")
+    }
+
     //STRUCTURED DATA
 
     "/seller_central/modify/technical_specifications"(platform: "/", isAbstract: true) {}

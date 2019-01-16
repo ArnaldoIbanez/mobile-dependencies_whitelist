@@ -296,6 +296,31 @@ trackTests {
         }
     }
 
+    test("seller central track to measure health changes"){
+        "/seller_central/modify/sucess"(platform: "/web", type: TrackType.Event){
+            item_id = "MLA12345"
+            session_id = "123-update-abc123"
+            goals_achieved = ["mercado_envios"]
+            original_goals_not_completed = ["mercado_envios", "pictures"]
+            original_goals_completed = ["technical_specifications"]
+            original_goals_not_applied = ["price_parity"]
+            original_goal_order = "random"
+            original_price = 123.4
+            original_currency = "ARS"
+            original_listing_type = "gold_special"
+            original_quantity = 2
+            original_condition = "used"
+            original_shipping = "me2"
+            original_local_pickup = true
+            domain = "cellphones"
+            is_catalog_product = true
+            technical_specifications_attributes_empty = 0
+            technical_specifications_attributes_loaded = 5
+            seller_experience = "ADVANCED"
+            is_official_store = true
+        }
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central Structured Data
     //------------------------------------------------------------------------------------------------------------------------------------------------------
