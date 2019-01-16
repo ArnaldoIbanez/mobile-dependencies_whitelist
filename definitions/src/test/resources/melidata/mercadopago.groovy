@@ -507,6 +507,13 @@ trackTests {
         "/merchant_acquisition/flows/qr-assignment/qr_scan"(platform:"/", type: TrackType.Event) {}
     }
 
+    test("MP-MA Flow QR Queue Web") {
+        "/merchant_acquisition/flows/qr-queue"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-queue/amount"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-queue/waiting-payment"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-queue/congrats"(platform:"/", type: TrackType.View) {}
+    }
+
     test("MP-MA Flow QR") {
         "/merchant_acquisition/qr/onboarding"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/qr-code"(platform:"/", type: TrackType.View) {}
