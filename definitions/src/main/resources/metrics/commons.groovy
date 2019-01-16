@@ -145,4 +145,21 @@ metrics {
       }
     }
   }
+
+	"testing-v1"(description: "Testing for send email") {
+		startWith {
+			experiment("credits/testing-v1")
+		}
+
+		countsOn {
+			condition {
+				path("/email/generic")
+				and(
+					equals("event_data.event_type", "send"),
+					equals("event_data.email_template", "CM_AUTOCOLLECT")
+				)
+			}
+		}
+	}
+
 }
