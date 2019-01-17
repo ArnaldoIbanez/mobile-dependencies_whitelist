@@ -148,7 +148,7 @@ metrics {
 
 	"installment_merchant_debit_payment"(description: "Send email from automatic debit installment credits merchant") {
 		startWith {
-			experiment("credits/merchant/whatsapp_five_overdue")
+			experiment("credits/merchant_whatsapp_five_overdue")
 		}
 
 		countsOn {
