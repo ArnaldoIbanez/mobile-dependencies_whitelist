@@ -145,4 +145,21 @@ metrics {
       }
     }
   }
+
+	"installment_merchant_debit_payment"(description: "Send email from automatic debit installment credits merchant") {
+		startWith {
+			experiment("credits/merchant_whatsapp_five_overdue")
+		}
+
+		countsOn {
+			condition {
+				path("/email/generic")
+				and(
+					equals("event_data.event_type", "send"),
+					equals("event_data.email_template", "CM_AUTOCOLLECT")
+				)
+			}
+		}
+	}
+
 }
