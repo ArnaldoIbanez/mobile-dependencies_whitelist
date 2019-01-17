@@ -84,7 +84,7 @@ metrics {
 
 	"sell_upgrade_intention"(description: "Intention for upgrading - Selling flow") {	
 		startWith {
-	            experiment(regex("sell/.*"))
+      experiment(regex("sell/.*"))
 		}
 		
 		countsOn {
@@ -124,13 +124,42 @@ metrics {
 		
 		countsOn {
 			condition {
-			  	path("/checkout_off/v1/checkout_confirmed")
-          		or(
-				equals("event_data.collector_id", "228415881"),
-				equals("event_data.collector_id", "179504451"),
-				equals("event_data.collector_id", "193054976")
-			)
+        path("/checkout_off/v1/checkout_confirmed")
+        or(
+          equals("event_data.collector_id", "228415881"),
+          equals("event_data.collector_id", "179504451"),
+          equals("event_data.collector_id", "193054976")
+			  )
 			}
 		}
 	}
+
+  "point_buy_intention"(description: "Point Landings buy intention") {
+    startWith {
+      experiment(regex("mpos/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/point/landings/buy")
+      }
+    }
+  }
+
+	"installment_merchant_debit_payment"(description: "Send email from automatic debit installment credits merchant") {
+		startWith {
+			experiment("credits/merchant_whatsapp_five_overdue")
+		}
+
+		countsOn {
+			condition {
+				path("/email/generic")
+				and(
+					equals("event_data.event_type", "send"),
+					equals("event_data.email_template", "CM_AUTOCOLLECT")
+				)
+			}
+		}
+	}
+
 }

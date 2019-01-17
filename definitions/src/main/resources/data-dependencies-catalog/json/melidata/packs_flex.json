@@ -41,6 +41,18 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "not_delivered_reason",
+        "type": "UNICODE_STRING"
+      },
+      {
+       "name": "status_time",
+        "type": "UNICODE_STRING"
+      },
+      {
+       "name": "not_delivered_time",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "hora",
         "type": "UNICODE_STRING"
       },
