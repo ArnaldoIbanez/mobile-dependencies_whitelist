@@ -509,7 +509,12 @@ trackTests {
 
     test("MP-MA Flow QR Queue Web") {
         "/merchant_acquisition/flows/qr-queue"(platform:"/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/qr-queue/amount"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-queue/amount"(platform:"/", type: TrackType.View) {
+            onboarding = true
+        }
+        "/merchant_acquisition/flows/qr-queue/amount"(platform:"/", type: TrackType.View) {
+            onboarding = false
+        }
         "/merchant_acquisition/flows/qr-queue/waiting-payment"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/flows/qr-queue/congrats"(platform:"/", type: TrackType.View) {}
     }
