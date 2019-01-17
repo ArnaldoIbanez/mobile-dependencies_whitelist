@@ -51,7 +51,6 @@ tracks {
     "/"(platform: "/api") {}
 
     "/notifications"(platform: "/api") {
-        action(type: PropertyType.String, required: false, description: "Action taken with notification")
         notification(type: PropertyType.Map(notification_definition), required: false, description: "Carrier notification")
         shipment_id(type: PropertyType.Numeric, required: true)
         raw(type: PropertyType.String, required: true, description: "Carrier raw notification")
