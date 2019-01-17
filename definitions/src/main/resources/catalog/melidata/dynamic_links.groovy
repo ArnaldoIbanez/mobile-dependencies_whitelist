@@ -14,6 +14,9 @@ tracks {
     "/dynamiclink/url-opened"(platform: "/mobile", type: TrackType.Event) {
         url(required: false, type: PropertyType.String, description: "url opened")
     }
+
+    "/dynamiclink/link"(platform: "/mobile", isAbstract: true) {}
+
     "/dynamiclink/link/success"(platform: "/mobile", type: TrackType.Event) {
         url(required: false, type: PropertyType.String, description: "url opened success")
     }
