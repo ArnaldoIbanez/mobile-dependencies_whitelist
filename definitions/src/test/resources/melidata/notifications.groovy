@@ -267,9 +267,9 @@ trackTests {
             latest_news_type= "cx-generic"
             latest_news_id= "cx-generic-143816022-MLB1013046714"
         }
-        "/notification_center/cx-question"(platform: "/mobile"){
-            latest_news_type= "cx-question"
-            latest_news_id= "cx-question-143816022-MLB1013046714"
+        "/notification_center/cx_question"(platform: "/mobile"){
+            latest_news_type= "cx-cx_question"
+            latest_news_id= "cx_question-143816022-MLB1013046714"
         }
         "/notification_center/fraud-identity_validation"(platform: "/mobile"){
             newsgroup_id= "fraud-identity_validation-142593788"
