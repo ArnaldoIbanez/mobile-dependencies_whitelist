@@ -90,5 +90,8 @@ trackTests {
         "/credits/merchant/hero_cta"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/merchant/second_offer_cta"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/merchant/help"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        //Notification Credits Merchant
+        "/credits/merchant/collection"(platform: "unknown", type: TrackType.Event) {}
     }
 }
