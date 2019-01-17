@@ -23,6 +23,11 @@ trackTests {
             user_birthday = true
             user_likes = true
         }
+
+        "/register/user_delete"(platform: "/backend"){
+            application_source = "registration"
+            reason = "register_not_validated"
+        }
     }
 
     test("Progressive registration") {

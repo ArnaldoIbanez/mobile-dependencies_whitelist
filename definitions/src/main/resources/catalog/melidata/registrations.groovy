@@ -27,6 +27,11 @@ tracks {
         user_likes(type: PropertyType.Boolean, description : "Needed  to access user liked pages.", required:false)
     }
 
+    "/register/user_delete"(platform: "/backend") {
+        application_source(type: PropertyType.String, required:true, description: "Source that made the deletion", values: ["registration"])
+        reason(type: PropertyType.String, required:true, description: "Reason for delete User Account", values: ["register_not_validated"])
+    }
+
     // REGISTER WEB
 
     "/register/form"(platform: "/web", type: TrackType.View) {
