@@ -11,10 +11,10 @@ tracks {
     "/dynamiclink"(platform: "/mobile", isAbstract: true) {}
 
     // Dynamic Links Events
-    "/dynamiclink/url-opened"(platform: "/mobile", type: TrackType.Event) {} {
+    "/dynamiclink/url-opened"(platform: "/mobile", type: TrackType.Event) {
         url(required: false, type: PropertyType.String, description: "url opened")
     }
-    "/dynamiclink/link/success"(platform: "/mobile", type: TrackType.Event) {} {
+    "/dynamiclink/link/success"(platform: "/mobile", type: TrackType.Event) {
         url(required: false, type: PropertyType.String, description: "url opened success")
     }
     "/dynamiclink/link/failed"(platform: "/mobile", type: TrackType.Event) {}
