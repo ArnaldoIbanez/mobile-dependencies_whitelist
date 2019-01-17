@@ -16,11 +16,13 @@ trackTests {
 
 	    // Dynamic Links Events
 	    "/dynamiclink/url-opened"(platform: "/mobile", type: TrackType.Event) {
-	    	url = "http://www.mercadopago.com"
-	    }
-	    "/dynamiclink/link/success"(platform: "/mobile", type: TrackType.Event) {
-	    	url = "http://www.mercadopago.com"
-	    }
+			url = "http://www.mercadopago.com"
+		}
+		"/dynamiclink/link/success"(platform: "/mobile", type: TrackType.Event) {
+			url = "http://www.mercadopago.com"
+		}
+		"/dynamiclink/url-opened"(platform: "/mobile", type: TrackType.Event) {}
+		"/dynamiclink/link/success"(platform: "/mobile", type: TrackType.Event) {}
 	    "/dynamiclink/link/failed"(platform: "/mobile", type: TrackType.Event) {}
     }
 }
