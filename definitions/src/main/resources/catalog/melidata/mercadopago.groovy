@@ -72,6 +72,14 @@ tracks {
       qr_content (type: PropertyType.String, required: true, description: "Ex: http://qrContent")
     }
 
+    // QR Queue Web
+    "/merchant_acquisition/flows/qr-queue"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/qr-queue/amount"(platform:"/", type: TrackType.View) {
+        onboarding (type: PropertyType.Boolean, required: true, description: "Flag that determines if onboarding was shown. Ex: true / false")
+    }
+    "/merchant_acquisition/flows/qr-queue/waiting-payment"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/qr-queue/congrats"(platform:"/", type: TrackType.View) {}
+
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
 
