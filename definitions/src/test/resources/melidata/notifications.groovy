@@ -19,7 +19,10 @@ trackTests {
         "/notification_center/screen"(platform: "/", type: TrackType.View){}
         "/notification_center"(platform: "/mobile"){}
         "/notification_center/abort"(platform: "/mobile"){}
-        "/notification_center/addresses-update"(platform: "/mobile") {}
+        "/notification_center/addresses-update"(platform: "/mobile") {
+            latest_news_type= "addresses-update"
+            latest_news_id= "addresses-update-126635313"
+        }
         "/notification_center/back"(platform: "/mobile"){}
         "/notification_center/failure"(platform: "/mobile"){}
         "/notification_center"(platform: "/mobile") {

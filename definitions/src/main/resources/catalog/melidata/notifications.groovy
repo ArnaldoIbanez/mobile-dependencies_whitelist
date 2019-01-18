@@ -28,7 +28,10 @@ tracks {
         type_layout(required: false, type: PropertyType.String, values: ["bullet_list", "order", "picture", "standard"])
     }
     "/notification_center/abort"(platform: "/", type: TrackType.Event) {}
-    "/notification_center/addresses-update"(platform: "/", type: TrackType.Event) {}
+    "/notification_center/addresses-update"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/back"(platform: "/", type: TrackType.Event) {}
     "/notification_center/failure"(platform: "/", type: TrackType.Event) {}
     "/notification_center/reputation"(platform: "/", type: TrackType.Event) {
