@@ -131,12 +131,12 @@ tracks {
 	"/wms/return"(platform: "/mobile/android", type: TrackType.View) {}
 
     /* Receiving tracks */
-    "/wms/receiving"(platform: "/mobile/android", type: TrackType.View, isAbstract: true) {}
+    "/wms/receiving"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/receiving/scan_inbound_shipment"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/receiving/scan_destination"(platform: "/mobile/android", type: TrackType.View) {
         inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
         receiving_id(required: true, type: PropertyType.String, description: "Receiving id")
-    } // pallet scan screen
+    } 
     "/wms/receiving/scan_destination/start_receiving"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/receiving/scan_destination/finish_receiving"(platform: "/mobile/android", type: TrackType.Event) {
         inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
