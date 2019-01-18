@@ -110,16 +110,24 @@ trackTests {
             context = "/instore"
         }
         "/ask_device_permission/location"(platform: "/mobile", type: TrackType.View) {
-            context = "/instore"
+            session_id = "wi234nuHSd83h478"
+            context = "/instore/map"
+            location_permission_enabled = true
+            device_gps_enabled = true
+            type = "qr"
+            tags = "shell"
         }
         "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {
-            context = "/instore"
+            session_id = "wi234nuHSd83h478"
+            context = "/instore/map"
         }
         "/ask_device_permission/location/granted"(platform: "/mobile", type: TrackType.Event) {
-            context = "/instore"
+            session_id = "wi234nuHSd83h478"
+            context = "/instore/map"
         }
         "/ask_device_permission/location/rejected"(platform: "/mobile", type: TrackType.Event) {
-            context = "/instore"
+            session_id = "wi234nuHSd83h478"
+            context = "/instore/map"
         }
 
         // Error
@@ -788,6 +796,12 @@ trackTests {
             action_type = "init"
             stores_quantity = "5"
         }
+        "/instore/map/pin_selected"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            store_name = "shell"
+            stores_id = "2373810"
+            store_location = "-34.532499, -58.493422"
+        }
         "/instore/map/search_in_this_area"(platform: "/mobile", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             includes_user_position = true
@@ -802,6 +816,8 @@ trackTests {
         "/instore/map/back"(platform: "/mobile", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             time_in_millis = "14519"
+            time_in_milis = "14519"
+            view_time_in_millis = "14519"
         }
         "/instore/map/permissions"(platform: "/mobile", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
@@ -812,6 +828,11 @@ trackTests {
             location_permission_enabled = false
             time_in_millis = "4519"
         }
+        "/instore/map/permission/back"(platform: "/mobile", type: TrackType.Event) {
+            location_permission_enabled = false
+            time_in_milis = "4519"
+            device_gps_enabled = true
+        }
         "/instore/map/navigate_to_store"(platform: "/mobile", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             store_name = "Burger King"
@@ -819,7 +840,6 @@ trackTests {
             navigation_apps = "Maps, Waze"
         }
         "/instore/map/navigate_to_store_app_picker"(platform: "/mobile", type: TrackType.Event) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
             store_name = "Burger King"
             store_location = "-32.895112, -68.840782"
             navigation_apps = "Maps, Waze"
@@ -836,21 +856,14 @@ trackTests {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             selected_filters = "combustibles, mercados, gastronomia"
         }
-        "/ask_device_permission/location"(platform: "/mobile", type: TrackType.View) {
-            context = "/instore/map"
-            location_permission_enabled = true
-            device_gps_enabled = true
-            type = "qr"
-            tags = "shell"
-        }
-        "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {
-            context = "/instore/map"
-        }
-        "/ask_device_permission/location/granted"(platform: "/mobile", type: TrackType.Event) {
-            context = "/instore/map"
-        }
-        "/ask_device_permission/location/rejected"(platform: "/mobile", type: TrackType.Event) {
-            context = "/instore/map"
+
+        "/instore/map/error/server_error"(platform: "/mobile", type: TrackType.View) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            context = "/instore/map/error"
+            style = "screen"
+            id = "operation_error"
+            message = "server error"
+            attributable_to = "server"
         }
 
 
@@ -950,15 +963,23 @@ trackTests {
             context = "/instore"
         }
         "/ask_device_permission/location"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            context = "/instore"
+            session_id = "wi234nuHSd83h478"
+            context = "/instore/map"
+            location_permission_enabled = true
+            device_gps_enabled = true
+            type = "qr"
+            tags = "shell"
         }
         "/ask_device_permission/location/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "wi234nuHSd83h478"
             context = "/instore"
         }
         "/ask_device_permission/location/granted"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "wi234nuHSd83h478"
             context = "/instore"
         }
         "/ask_device_permission/location/rejected"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "wi234nuHSd83h478"
             context = "/instore"
         }
 
@@ -1636,6 +1657,12 @@ trackTests {
             action_type = "init"
             stores_quantity = "5"
         }
+        "/instore/map/pin_selected"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            store_name = "shell"
+            stores_id = "2373810"
+            store_location = "-34.532499, -58.493422"
+        }
         "/instore/map/search_in_this_area"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             includes_user_position = true
@@ -1650,6 +1677,8 @@ trackTests {
         "/instore/map/back"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             time_in_millis = "14519"
+            time_in_milis = "14519"
+            view_time_in_millis = "14519"
         }
         "/instore/map/permissions"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
@@ -1660,6 +1689,11 @@ trackTests {
             location_permission_enabled = false
             time_in_millis = "4519"
         }
+        "/instore/map/permission/back"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            location_permission_enabled = false
+            time_in_milis = "4519"
+            device_gps_enabled = true
+        }
         "/instore/map/navigate_to_store"(platform: "/mobile", business: "mercadopago",type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             store_name = "Burger King"
@@ -1667,7 +1701,6 @@ trackTests {
             navigation_apps = "Maps, Waze"
         }
         "/instore/map/navigate_to_store_app_picker"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
             store_name = "Burger King"
             store_location = "-32.895112, -68.840782"
             navigation_apps = "Maps, Waze"
@@ -1691,14 +1724,13 @@ trackTests {
             type = "qr"
             tags = "shell"
         }
-        "/ask_device_permission/location/back"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
-            context = "/instore/map"
-        }
-        "/ask_device_permission/location/granted"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
-            context = "/instore/map"
-        }
-        "/ask_device_permission/location/rejected"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
-            context = "/instore/map"
+        "/instore/map/error/server_error"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            context = "/instore/map/error"
+            style = "screen"
+            id = "operation_error"
+            message = "server error"
+            attributable_to = "server"
         }
     }
 
