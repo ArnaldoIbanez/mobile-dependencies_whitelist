@@ -102,6 +102,8 @@ trackTests {
         }
         "/notification_center/reviews-reminder"(platform: "/mobile"){
             vertical= "services"
+            latest_news_type= "reviews-reminder"
+            latest_news_id= "reviews-reminder-143816022-MLB1013046714"
         }
         "/notification_center/fiscal_data-business_registration"(platform: "/mobile"){
             latest_news_type= "fiscal_data-business_registration"
@@ -263,6 +265,15 @@ trackTests {
             latest_news_type= "1592866"
             latest_news_id= "credits-consumer_expired_second_notice-1592866"
         }
+        "/notification_center/credits-merchants"(platform: "/mobile"){
+            newsgroup_id= "credits-merchants-213882865-255720"
+            event_type= "open"
+            deeplink= "meli://generic_landing?authenticate=true&url=https%3A%2F%2Fwww.mercadolibre.com.ar%2Fcredits%2Fconsumer%2Fnews%3FloanId%3D255720%26installmentId%3D1592866"
+            type_layout= "standard"
+            installment_id= 717743
+            latest_news_type= "1592866"
+            latest_news_id= "credits-merchants-1592866"
+        }
         "/notification_center/cx-generic"(platform: "/mobile"){
             latest_news_type= "cx-generic"
             latest_news_id= "cx-generic-143816022-MLB1013046714"
@@ -373,127 +384,23 @@ trackTests {
         "/notification_center/reservations"(platform: "/mobile") {
             order_id = 12132
         }
+        "/notification_center/reservations-pending_reminder"(platform: "/mobile") {
+            latest_news_type= "reservations-pending_reminder"
+            latest_news_id= "reservations-pending_reminder-1000000016305386"
+        }
         "/notification_center/sc_editor_off"(platform: "/mobile") {
             latest_news_type= "sc_editor_off"
             latest_news_id= "sc_editor_off-1000000016305386"
         }
-
         "/notification_center/security-account_validation"(platform: "/mobile") {
             latest_news_type= "security-account_validation"
             latest_news_id= "security-account_validation-1000000016305386"
         }
-
-        "/notification_center/chargeback-payer_start_ml"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
+        "/notification_center/security-device_authorization"(platform: "/mobile") {
+            latest_news_type= "security-device_authorization"
+            latest_news_id= "security-device_authorization-1000000016305386"
         }
-        "/notification_center/chargeback-payer_start_mp"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
-        }
-        "/notification_center/chargeback-payer_ultimatum_ml"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
-        }
-        "/notification_center/chargeback-payer_ultimatum_mp"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
-        }
-        "/notification_center/chargeback-payer_intensify_ml"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
-        }
-        "/notification_center/chargeback-payer_intensify_mp"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
-        }
-        "/notification_center/chargeback-payer_contact_ml"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
-        }
-        "/notification_center/chargeback-payer_contact_mp"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
-        }
-        "/notification_center/chargeback-payer_notify_ml"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
-        }
-        "/notification_center/chargeback-payer_notify_mp"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
-        }
-        "/notification_center/chargeback-payer_update_ml"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
-        }
-        "/notification_center/chargeback-payer_update_mp"(platform: "/mobile") {
+        "/notification_center/chargeback-payer"(platform: "/mobile") {
             case_id = "158213000000"
             latest_news_id = "chargeback-buyer-158213000000-init13545"
             latest_news_type = "chargeback-buyer"
