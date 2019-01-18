@@ -24,7 +24,7 @@ trackTests {
             user_likes = true
         }
 
-        "/register/user_delete"(platform: "/backend"){
+        "/register/user_delete"(platform: "/"){
             application_source = "registration"
             reason = "register_not_validated"
         }

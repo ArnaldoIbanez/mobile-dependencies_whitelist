@@ -21,8 +21,7 @@ catalog {
             "/mobile",
             "/mobile/android",
             "/mobile/ios",
-            "/email",
-            "/backend"
+            "/email"
     ]
 
     def marketplace = [
