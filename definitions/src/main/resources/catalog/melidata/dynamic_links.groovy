@@ -12,13 +12,13 @@ tracks {
 
     // Dynamic Links Events
     "/dynamiclink/url-opened"(platform: "/mobile", type: TrackType.Event) {
-        url(required: false, type: PropertyType.String, description: "url opened")
+        url(required: true, type: PropertyType.String, description: "url opened")
     }
 
     "/dynamiclink/link"(platform: "/mobile", isAbstract: true) {}
 
     "/dynamiclink/link/success"(platform: "/mobile", type: TrackType.Event) {
-        url(required: false, type: PropertyType.String, description: "url opened success")
+        url(required: true, type: PropertyType.String, description: "url opened success")
     }
     "/dynamiclink/link/failed"(platform: "/mobile", type: TrackType.Event) {}
 }
