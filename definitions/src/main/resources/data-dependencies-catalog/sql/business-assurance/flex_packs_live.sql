@@ -4,8 +4,8 @@ select
     hoy.shipping_id as shipping_id,
     hoy.list_timestamp as list_timestamp,
     current_timestamp as server_time,
-    CAST(coalesce(delivered.longitude, not_delivered.longitude, hoy.longitude) as DOUBLE) as longitude,
-    CAST(coalesce(delivered.latitude, not_delivered.latitude, hoy.latitude) as DOUBLE) as latitude,
+    CAST(coalesce(delivered.longitude, not_delivered.longitude,receipt.longitude, hoy.longitude) as DOUBLE) as longitude,
+    CAST(coalesce(delivered.latitude, not_delivered.latitude, receipt.latitude, hoy.latitude) as DOUBLE) as latitude,
     coalesce(delivered.status, not_delivered.status, 'Pending') as pack_status,
     delivered.hora as hora,
     coalesce(delivery.delivery_status, 'pending') as delivery_status,
@@ -26,7 +26,7 @@ from (
           jest(event_data,'delivery_id') as delivery_id, 
           Max(user_local_timestamp)  as user_local_timestamp 
       from tracks
-    where ds >='@param01' 
+  where ds >='@param01' 
         and application.business='mercadoenvios'
           and type = 'view' and path = '/flex/package/list'
     GROUP BY substr(ds,1,10), application.site_id, jest(event_data,'delivery_id')
@@ -79,7 +79,7 @@ left join (
       jest(event_data,'longitude') as longitude,
       jest(event_data,'latitude') as latitude
     from tracks
-   where ds >='@param01' 
+  where ds >='@param01' 
        and application.business='mercadoenvios'
        and path = '/flex/package/detail/receipt/save'
     ) save on save.user_local_timestamp = last_save.user_local_timestamp and save.shipping_id = last_save.shipping_id and save.site_id = last_save.site_id
@@ -96,12 +96,50 @@ select
       jest(event_data,'longitude') as longitude,
       jest(event_data,'latitude') as latitude
   from tracks
-where ds >='@param01' 
+  where ds >='@param01' 
     and type = 'event'
       and application.business='mercadoenvios'
     and ((path = '/flex/package/not_delivered_reason/selection' and jest(event_data,'reason_type') <>'others_reason')
         or path = '/flex/package/not_delivered_reason/form/other_reason' and lower(jest(event_data,'reason')) <> 'test')
 ) not_delivered on not_delivered.ds = hoy.ds and not_delivered.site_id = hoy.site_id and not_delivered.shipping_id = hoy.shipping_id and not_delivered.delivery_id = hoy.delivery_id
+Left join (
+select
+  last_receipt.ds,
+  last_receipt.site_id,
+  last_receipt.delivery_id,
+  last_receipt.shipping_id,
+  receipt_info.longitude,
+  receipt_info.latitude
+from (
+  select
+        substr(ds,1,10) as ds,
+        application.site_id as site_id,
+        jest(event_data,'delivery_id') as delivery_id,
+        jest(event_data,'packs_info[0].shipping_id') as shipping_id,
+        max(user_timestamp) as status_time
+    from tracks
+  where ds >='@param01' 
+      and type = 'view'
+      and application.business='mercadoenvios'
+      and path = '/flex/package/detail/receipt'
+      group by substr(ds,1,10), application.site_id, jest(event_data,'delivery_id'), jest(event_data,'packs_info[0].shipping_id') 
+  ) last_receipt
+  inner join (
+  select
+      substr(ds,1,10) as ds,
+      application.site_id as site_id,
+      jest(event_data,'delivery_id') as delivery_id,
+      jest(event_data,'packs_info[0].shipping_id') as shipping_id,
+      user_timestamp as status_time,
+      jest(event_data,'longitude') as longitude,
+      jest(event_data,'latitude') as latitude
+  from tracks
+  where ds >='@param01' 
+    and type = 'view'
+    and application.business='mercadoenvios'
+    and path = '/flex/package/detail/receipt'
+  ) receipt_info on receipt_info.ds = last_receipt.ds and receipt_info.site_id = last_receipt.site_id and receipt_info.shipping_id = last_receipt.shipping_id and receipt_info.delivery_id = last_receipt.delivery_id
+) receipt on receipt.ds = hoy.ds and receipt.site_id = hoy.site_id and receipt.shipping_id = hoy.shipping_id and receipt.delivery_id = hoy.delivery_id
 left join
 (
   select
@@ -116,7 +154,7 @@ left join
          jest(event_data,'delivery_id') as Delivery_id,
          Max(user_timestamp) as Delivery_Time
       from tracks 
-      where ds >='@param01' 
+  where ds >='@param01' 
           and path ='/flex/package/finish_delivery'
           and application.business='mercadoenvios'
           and not isnull(jest(event_data,'delivery_id'))
@@ -130,7 +168,7 @@ left join
           jest(event_data,'delivery_status') as DeliveryStatus,
           user_timestamp as Delivery_Time
         from tracks
-        where ds >='@param01' 
+  where ds >='@param01' 
           and path ='/flex/package/finish_delivery'
           and application.business='mercadoenvios'
           and not isnull(jest(event_data,'delivery_id'))
