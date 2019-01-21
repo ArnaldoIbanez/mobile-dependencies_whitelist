@@ -16,7 +16,7 @@ tracks {
         feedback_type(
         	required: false,
         	values: ["SUCCESS", "ERROR", "WARNING", "LOCKED"],
-        	type: PropertyType.String,
+        	type: PropertyType.String
             description: "Type of feedback event")
         feedback_message(
             required: false,
@@ -138,10 +138,7 @@ tracks {
         receiving_id(required: true, type: PropertyType.String, description: "Receiving id")
     } 
     "/wms/receiving/scan_destination/start_receiving"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/receiving/scan_destination/finish_receiving"(platform: "/mobile/android", type: TrackType.Event) {
-        inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
-        receiving_id(required: true, type: PropertyType.String, description: "Receiving id")
-    }
+    "/wms/receiving/scan_destination/finish_receiving"(platform: "/mobile/android", type: TrackType.Event) {}
 	
     /* Cycle count tracks */
     "/wms/cycle_count"(platform: "/mobile/android", type: TrackType.View, isAbstract: true) {
