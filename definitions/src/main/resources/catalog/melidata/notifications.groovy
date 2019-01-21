@@ -28,7 +28,10 @@ tracks {
         type_layout(required: false, type: PropertyType.String, values: ["bullet_list", "order", "picture", "standard"])
     }
     "/notification_center/abort"(platform: "/", type: TrackType.Event) {}
-    "/notification_center/addresses-update"(platform: "/", type: TrackType.Event) {}
+    "/notification_center/addresses-update"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/back"(platform: "/", type: TrackType.Event) {}
     "/notification_center/failure"(platform: "/", type: TrackType.Event) {}
     "/notification_center/reputation"(platform: "/", type: TrackType.Event) {
@@ -63,10 +66,17 @@ tracks {
     "/notification_center/listings"(platform: "/", type: TrackType.Event) {}
     "/notification_center/reviews-reminder"(platform: "/", type: TrackType.Event) {
         vertical(required: true, type: PropertyType.String, description: "vertical.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/credits-consumer"(platform: "/", type: TrackType.Event) {
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
         loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/credits-merchants"(platform: "/", type: TrackType.Event) {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -254,6 +264,10 @@ tracks {
     "/notification_center/reservations"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.Numeric)
     }
+    "/notification_center/reservations-pending_reminder"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/sc_editor_off"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -262,62 +276,11 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
-    "/notification_center/chargeback-payer_start_ml"(platform: "/") {
-        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+    "/notification_center/security-device_authorization"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
-    "/notification_center/chargeback-payer_start_mp"(platform: "/") {
-        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }
-    "/notification_center/chargeback-payer_ultimatum_ml"(platform: "/") {
-        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }
-    "/notification_center/chargeback-payer_ultimatum_mp"(platform: "/") {
-        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }
-    "/notification_center/chargeback-payer_intensify_ml"(platform: "/") {
-        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }
-    "/notification_center/chargeback-payer_intensify_mp"(platform: "/") {
-        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }
-    "/notification_center/chargeback-payer_contact_ml"(platform: "/") {
-        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }
-    "/notification_center/chargeback-payer_contact_mp"(platform: "/") {
-        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }
-    "/notification_center/chargeback-payer_notify_ml"(platform: "/") {
-        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }
-    "/notification_center/chargeback-payer_notify_mp"(platform: "/") {
-        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }
-    "/notification_center/chargeback-payer_update_ml"(platform: "/") {
-        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }
-    "/notification_center/chargeback-payer_update_mp"(platform: "/") {
+    "/notification_center/chargeback-payer"(platform: "/", type: TrackType.Event) {
         case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
