@@ -16,7 +16,7 @@ tracks {
         feedback_type(
         	required: false,
         	values: ["SUCCESS", "ERROR", "WARNING", "LOCKED"],
-        	type: PropertyType.String
+        	type: PropertyType.String,
             description: "Type of feedback event")
         feedback_message(
             required: false,
