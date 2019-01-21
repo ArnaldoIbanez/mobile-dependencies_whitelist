@@ -52,7 +52,7 @@ trackTests {
             warehouse_id = "BRWT01"
         }
         
-        "/wms/receiving/scan_inbound_shipment"(platform: "/mobile/android") {
+        "/wms/receiving/scan_inbound_shipment"(platform: "/mobile/android", type: TrackType.View) {
             trackData()
             warehouse_id = "BRWT01"
         }
