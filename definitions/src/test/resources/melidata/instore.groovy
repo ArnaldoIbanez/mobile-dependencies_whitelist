@@ -823,11 +823,6 @@ trackTests {
             store_location = "-32.895112, -68.840782"
             navigation_apps = "Maps, Waze"
         }
-        "/instore/map/navigate_to_store_app_picker"(platform: "/mobile", type: TrackType.Event) {
-            store_name = "Burger King"
-            store_location = "-32.895112, -68.840782"
-            navigation_apps = "Maps, Waze"
-        }
         "/instore/map/navigate_to_store_app_chosen"(platform: "/mobile", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             store_name = "Burger King"
@@ -1625,7 +1620,7 @@ trackTests {
         "/instore/map"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             type = "qr"
-            tags = "shell"
+            tags = ["shell"]
         }
         "/instore/map/first_user_location"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
@@ -1667,22 +1662,17 @@ trackTests {
             store_location = "-32.895112, -68.840782"
             navigation_apps = "Maps, Waze"
         }
-        "/instore/map/navigate_to_store_app_picker"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
-            store_name = "Burger King"
-            store_location = "-32.895112, -68.840782"
-            navigation_apps = "Maps, Waze"
-        }
         "/instore/map/navigate_to_store_app_chosen"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             store_name = "Burger King"
             store_location = "-32.895112, -68.840782"
-            navigation_apps = "maps, waze"
+            navigation_apps = ["maps", "waze"]
             chosen_app = "waze"
             view_time_in_millis = "4508"
         }
         "/instore/map/quick_filters_selected"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            selected_filters = "combustibles, mercados, gastronomia"
+            selected_filters = ["combustibles", "mercados", "gastronomia"]
         }
         "/ask_device_permission/location"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             context = "/instore/map"

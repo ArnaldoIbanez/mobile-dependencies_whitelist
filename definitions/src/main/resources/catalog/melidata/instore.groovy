@@ -678,6 +678,7 @@ tracks {
     "/instore/checkout/card/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {}
 
     // Discovery
+    "/instore/map"(platform: "/mobile", isAbstract: true) {}
     "/instore/map"(platform: "/mobile", type: TrackType.View) {
         session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
         type(required: true, PropertyType.String, description: "type of stores to show on the map")
@@ -740,6 +741,7 @@ tracks {
         tags(required: false, PropertyType.ArrayList)
         view_time_in_millis(required: true, PropertyType.String)
     }
+    "/instore/map/error"(platform: "/mobile", isAbstract: true) {}
     "instore/map/error/server_error"(platform: "/mobile", type: TrackType.View) {
         type(required: false, PropertyType.String, description: "type of stores to show on the map")
         tags(required: false, PropertyType.ArrayList)
