@@ -697,7 +697,7 @@ tracks {
         action_type(required: true, PropertyType.String, description: "type of action that triggered the data request", values: ["init", "search_in_this_area", "filters_applied", "text_search"])
         stores_quantity(required: true, PropertyType.String)
     }
-    "instore/map/pin_selected"(platform: "/mobile", type: TrackType.Event) {
+    "/instore/map/pin_selected"(platform: "/mobile", type: TrackType.Event) {
         type(required: false, PropertyType.String, description: "type of stores to show on the map")
         tags(required: false, PropertyType.ArrayList)
         store_name(required: true, PropertyType.String, description: "the name of the selected store")
@@ -742,7 +742,7 @@ tracks {
         view_time_in_millis(required: true, PropertyType.String)
     }
     "/instore/map/error"(platform: "/mobile", isAbstract: true) {}
-    "instore/map/error/server_error"(platform: "/mobile", type: TrackType.View) {
+    "/instore/map/error/server_error"(platform: "/mobile", type: TrackType.View) {
         type(required: false, PropertyType.String, description: "type of stores to show on the map")
         tags(required: false, PropertyType.ArrayList)
         context(required: true, PropertyType.String)

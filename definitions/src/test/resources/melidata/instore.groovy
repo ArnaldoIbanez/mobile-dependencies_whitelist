@@ -799,7 +799,7 @@ trackTests {
         "/instore/map/pin_selected"(platform: "/mobile", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             store_name = "shell"
-            stores_id = "2373810"
+            store_id = "2373810"
             store_location = "-34.532499, -58.493422"
         }
         "/instore/map/search_in_this_area"(platform: "/mobile", type: TrackType.Event) {
@@ -1636,7 +1636,7 @@ trackTests {
         "/instore/map/pin_selected"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             store_name = "shell"
-            stores_id = "2373810"
+            store_id = "2373810"
             store_location = "-34.532499, -58.493422"
         }
         "/instore/map/search_in_this_area"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
@@ -1652,8 +1652,6 @@ trackTests {
         }
         "/instore/map/back"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            time_in_millis = "14519"
-            time_in_milis = "14519"
             view_time_in_millis = "14519"
         }
         "/instore/map/navigate_to_store"(platform: "/mobile", business: "mercadopago",type: TrackType.Event) {
