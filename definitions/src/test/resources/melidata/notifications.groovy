@@ -282,6 +282,7 @@ trackTests {
             latest_news_id= "cx-generic-143816022-MLB1013046714"
         }
         "/notification_center/cx_question"(platform: "/mobile"){
+            case_id= "12345678"
             latest_news_type= "cx-cx_question"
             latest_news_id= "cx_question-143816022-MLB1013046714"
         }
