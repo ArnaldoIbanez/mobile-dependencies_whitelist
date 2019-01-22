@@ -282,6 +282,7 @@ trackTests {
             latest_news_id= "cx-generic-143816022-MLB1013046714"
         }
         "/notification_center/cx_question"(platform: "/mobile"){
+            case_id= "12345678"
             latest_news_type= "cx-cx_question"
             latest_news_id= "cx_question-143816022-MLB1013046714"
         }
@@ -402,6 +403,10 @@ trackTests {
         "/notification_center/security-device_authorization"(platform: "/mobile") {
             latest_news_type= "security-device_authorization"
             latest_news_id= "security-device_authorization-1000000016305386"
+        }
+        "/notification_center/security-device_authorization_congrats"(platform: "/mobile") {
+            latest_news_type= "security-device_authorization_congrats"
+            latest_news_id= "security-device_authorization_congrats-1000000016305386"
         }
         "/notification_center/chargeback-payer"(platform: "/mobile") {
             case_id = "158213000000"
