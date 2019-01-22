@@ -213,12 +213,8 @@ tracks {
     "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {
     }
     "/ask_device_permission/location/granted"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        context(required: true, PropertyType.String)
     }
     "/ask_device_permission/location/rejected"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        context(required: true, PropertyType.String)
     }
     "/ask_device_permission/bluetooth"(platform: "/mobile", type: TrackType.View) {
         context(required: true, PropertyType.String)
