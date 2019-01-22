@@ -207,7 +207,7 @@ tracks {
         location_permission_enabled(required: false, PropertyType.Boolean)
         device_gps_enabled(required: false, PropertyType.Boolean)
         type(required: false, PropertyType.String, description: "type of app launching the map")
-        tags(required: false, PropertyType.ArrayList, description: "an array of strings used to know the type of stores to show on the map")
+        tags(required: false, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the type of stores to show on the map")
     }
     "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {
     }
@@ -674,7 +674,7 @@ tracks {
     "/instore/map"(platform: "/mobile", type: TrackType.View) {
         session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
         type(required: true, inheritable: false, PropertyType.String, description: "type of stores to show on the map")
-        tags(required: true, inheritable: false, PropertyType.ArrayList, description: "an array of strings used to know the type of stores to show on the map")
+        tags(required: true, inheritable: false, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the type of stores to show on the map")
     }
     "/instore/map/first_user_location"(platform: "/mobile", type: TrackType.Event) {
         northeast(required: true, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
@@ -695,24 +695,24 @@ tracks {
     "/instore/map/search_in_this_area"(platform: "/mobile", type: TrackType.Event) {
         northeast(required: true, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
         southwest(required: true, PropertyType.String, description: "latitude and longitude of the southwest corner of the visible area on the map")
-        tags(required: true, PropertyType.ArrayList, description: "an array of strings used to know the type of stores to show on the map")
+        tags(required: true, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the type of stores to show on the map")
         includes_user_position(required: true, PropertyType.Boolean)
         center(required: true, PropertyType.String)
     }
     "/instore/map/navigate_to_store"(platform: "/mobile", type: TrackType.Event) {
         store_name(required: true, PropertyType.String)
         store_location(required: true, PropertyType.String)
-        navigation_apps(required: true, PropertyType.ArrayList, description: "all the apps available to handle the requested navigation")
+        navigation_apps(required: true, PropertyType.ArrayList(PropertyType.String), description: "all the apps available to handle the requested navigation")
     }
     "/instore/map/navigate_to_store_app_chosen"(platform: "/mobile", type: TrackType.Event) {
         store_name(required: true, PropertyType.String)
         store_location(required: true, PropertyType.String)
-        navigation_apps(required: true, PropertyType.ArrayList)
+        navigation_apps(required: true, PropertyType.ArrayList(PropertyType.String))
         chosen_app(required: true, PropertyType.String)
         view_time_in_millis(required: true, PropertyType.String)
     }
     "/instore/map/quick_filters_selected"(platform: "/mobile", type: TrackType.Event) {
-        selected_filters(required: true, PropertyType.ArrayList)
+        selected_filters(required: true, PropertyType.ArrayList(PropertyType.String))
     }
     "/instore/map/back"(platform: "/mobile", type: TrackType.Event) {
         view_time_in_millis(required: true, PropertyType.String)
