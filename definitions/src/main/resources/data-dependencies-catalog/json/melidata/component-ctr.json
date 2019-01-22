@@ -29,22 +29,6 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "component_order",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "campaign",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "brand_name",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "category_id",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "prints",
         "type": "INTEGER"
       },
