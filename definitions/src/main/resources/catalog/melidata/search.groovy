@@ -48,6 +48,8 @@ tracks {
         //corrections(required: false, description:'corrections over query')
         //processed_query(required: false, description:'processed query by backend')
         //stems(required: false, description:'stems list which returns backend to stand out in frontend'
+
+        user_zone(required: false, description: "the user zone registered", type: PropertyType.String)
     }
 
     "/search"(platform: "/web") {
@@ -192,4 +194,8 @@ tracks {
         category_path(required: true, description: "the path from root of the category_ud", type: PropertyType.ArrayList)
         recommended_categories(required: true, description: "the recommended categories for the item", type: PropertyType.ArrayList)
     }
+
+//    "/search/user_zone"(platform: "/") {
+//        user_zone(required: false, description: "the user zone registered", type: PropertyType.String)
+//    }
 }

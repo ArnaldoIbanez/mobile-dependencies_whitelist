@@ -43,6 +43,7 @@ trackTests {
             }
             catalog_product_id="MLA123"
             show_supermarket_carousel=true
+            user_zone = "CABA"
         }
 
         "/search"(platform: "/web",{
@@ -329,4 +330,5 @@ trackTests {
 
         }
     }
+
 }
