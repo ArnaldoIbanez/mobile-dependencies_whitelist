@@ -131,7 +131,7 @@ tracks {
     "/credits/merchant/enrollment/ask_us"(platform: "/", type: TrackType.Event) {}
 
     //Notification Credits Merchant
-    "/credits/merchant/collection"(platform: "unknown", type: TrackType.Event) {}
+    "/credits/merchant/collection"(platform: "/mobile", type: TrackType.Event) {}
     /******************************************
      *       End: Merchants Enrollment
      ******************************************/

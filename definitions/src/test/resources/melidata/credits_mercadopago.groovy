@@ -92,6 +92,6 @@ trackTests {
         "/credits/merchant/help"(platform: "/web/desktop", type: TrackType.Event) {}
 
         //Notification Credits Merchant
-        "/credits/merchant/collection"(platform: "unknown", type: TrackType.Event) {}
+        "/credits/merchant/collection"(platform: "/mobile", type: TrackType.Event) {}
     }
 }
