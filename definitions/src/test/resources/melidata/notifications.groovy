@@ -404,6 +404,10 @@ trackTests {
             latest_news_type= "security-device_authorization"
             latest_news_id= "security-device_authorization-1000000016305386"
         }
+        "/notification_center/security-device_authorization_congrats"(platform: "/mobile") {
+            latest_news_type= "security-device_authorization_congrats"
+            latest_news_id= "security-device_authorization_congrats-1000000016305386"
+        }
         "/notification_center/chargeback-payer"(platform: "/mobile") {
             case_id = "158213000000"
             latest_news_id = "chargeback-buyer-158213000000-init13545"
