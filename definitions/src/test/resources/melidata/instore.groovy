@@ -833,7 +833,7 @@ trackTests {
         }
         "/instore/map/quick_filters_selected"(platform: "/mobile", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            selected_filters = "combustibles, mercados, gastronomia"
+            selected_filters = ["combustibles", "mercados", "gastronomia"]
         }
 
         "/instore/map/error/server_error"(platform: "/mobile", type: TrackType.View) {
