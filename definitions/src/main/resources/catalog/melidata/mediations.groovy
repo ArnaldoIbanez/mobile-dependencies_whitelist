@@ -3,18 +3,21 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
-    propertyDefinitions {
-        reason(required: false, type: PropertyType.String)
-    }
-
     "/claims"(platform: "/", isAbstract: true) { }
+
+    /**
+     * Init claim steps.
+     */
+    "/claims/init"(platform: "/") {
+        pageName(required: true, type: PropertyType.String, description: 'The page name.', values: ['create_claim', 'cancel_purchase', 'creation_denied', 'contention', 'congrats', 'mp_contention', 'error-view'])
+    }
 
     /**
      * Claim creation steps.
      */
     "/claims/create_claim"(platform: "/", isAbstract: true) { }
 
-    "/claims/create_claim/form"(platform: "/", isAbstract: true) { 
+    "/claims/create_claim/form"(platform: "/", isAbstract: true) {
         vertical(required: true, type: PropertyType.String)
         order_id(required: true, type: PropertyType.Numeric,  description: "order id related to the claim")
         item_id(required: true, type: PropertyType.String,  description: "item id related to the claim")
@@ -32,10 +35,6 @@ tracks {
         returns_item_category_l1(required: false, type: PropertyType.String)
         returns_refund_account_money(required: false, type: PropertyType.Boolean)
         returns_authorized(required: false, type: PropertyType.Boolean)
-    }
-
-    "/claims/create_claim/denied"(platform: "/", type: TrackType.View) {
-        reason(description: 'Claim denied reason.')
     }
 
     //TODO @paltorres @nacho-ml please update this track in mediations repo so we can mark all these as required
@@ -56,24 +55,9 @@ tracks {
     }
 
     /**
-     * Stale flow.
-     */
-    "/claims/stale"(platform: "/", type: TrackType.View) {
-        reason(description: 'The reason that the user gets a stale view.')
-        expected_resolution(required: false, description: 'The complaint expected resolution', values: ['refund', 'product'])
-    }
-
-    /**
      * Claim detail views and actions.
      */
     "/claims/detail"(platform: "/", type: TrackType.View) {
         status(required: false, type: PropertyType.String, description: 'The current claim status.')
-    }
-
-    /**
-     * Claims view when the payment is already refunded.
-     */
-    "/claims/refunded"(platform: "/", type: TrackType.View) {
-        expected_resolution(required: false, type: PropertyType.String, description: 'The complaint expected resolution', values: ['refund', 'product'])
     }
 }
