@@ -16,6 +16,7 @@ trackTests {
             category_path=["MLA1051", "MLA1055", "MLA32089"]
             category_id="MLA32089"
             filters=[]
+            available_filters=[{shipping_time_sameday: "250"}]
             pads=[]
             pads_info={
                 ids=[]
