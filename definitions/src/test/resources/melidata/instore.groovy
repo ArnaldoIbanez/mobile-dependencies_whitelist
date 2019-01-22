@@ -838,7 +838,6 @@ trackTests {
 
         "/instore/map/error/server_error"(platform: "/mobile", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            context = "/instore/map/error"
             style = "screen"
             id = "operation_error"
             message = "server error"
@@ -1674,7 +1673,6 @@ trackTests {
         }
         "/instore/map/error/server_error"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            context = "/instore/map/error"
             style = "screen"
             id = "operation_error"
             message = "server error"

@@ -207,9 +207,8 @@ tracks {
         location_permission_enabled(required: false, PropertyType.Boolean)
         device_gps_enabled(required: false, PropertyType.Boolean)
         type(required: false, PropertyType.String, description: "type of app launching the map")
-        tags(required: false, PropertyType.ArrayList)
+        tags(required: false, PropertyType.ArrayList, description: "an array of strings used to know the type of stores to show on the map")
     }
-    "/ask_device_permission/location/"(platform: "/mobile", isAbstract: true) {}
     "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {
     }
     "/ask_device_permission/location/granted"(platform: "/mobile", type: TrackType.Event) {
@@ -672,53 +671,40 @@ tracks {
     "/instore/checkout/card/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {}
 
     // Discovery
-    "/instore/map"(platform: "/mobile", isAbstract: true) {}
     "/instore/map"(platform: "/mobile", type: TrackType.View) {
         session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        type(required: true, PropertyType.String, description: "type of stores to show on the map")
-        tags(required: true, PropertyType.ArrayList)
+        type(required: true, inheritable: false, PropertyType.String, description: "type of stores to show on the map")
+        tags(required: true, inheritable: false, PropertyType.ArrayList, description: "an array of strings used to know the type of stores to show on the map")
     }
     "/instore/map/first_user_location"(platform: "/mobile", type: TrackType.Event) {
         northeast(required: true, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
         southwest(required: true, PropertyType.String, description: "latitude and longitude of the southwest corner of the visible area on the map")
         location(required: true, PropertyType.String)
-        type(required: false, PropertyType.String, description: "type of stores to show on the map")
-        tags(required: false, PropertyType.ArrayList)
     }
     "/instore/map/data_retrieved"(platform: "/mobile", type: TrackType.Event) {
-        type(required: false, PropertyType.String, description: "type of stores to show on the map")
-        tags(required: false, PropertyType.ArrayList)
         action_type(required: true, PropertyType.String, description: "type of action that triggered the data request", values: ["init", "search_in_this_area", "filters_applied", "text_search"])
         stores_quantity(required: true, PropertyType.String)
     }
     "/instore/map/pin_selected"(platform: "/mobile", type: TrackType.Event) {
-        type(required: false, PropertyType.String, description: "type of stores to show on the map")
-        tags(required: false, PropertyType.ArrayList)
         store_name(required: true, PropertyType.String, description: "the name of the selected store")
         store_id(required: true, PropertyType.String, description: "the store's id")
         store_location(required: true, PropertyType.String, description: "the stores lat and long")
     }
     "/instore/map/locate_by_gps"(platform: "/mobile", type: TrackType.Event) {
-        type(required: false, PropertyType.String, description: "type of stores to show on the map")
-        tags(required: false, PropertyType.ArrayList)
     }
     "/instore/map/search_in_this_area"(platform: "/mobile", type: TrackType.Event) {
         northeast(required: true, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
         southwest(required: true, PropertyType.String, description: "latitude and longitude of the southwest corner of the visible area on the map")
-        type(required: false, PropertyType.String, description: "type of stores to show on the map")
+        tags(required: true, PropertyType.ArrayList, description: "an array of strings used to know the type of stores to show on the map")
         includes_user_position(required: true, PropertyType.Boolean)
         center(required: true, PropertyType.String)
     }
     "/instore/map/navigate_to_store"(platform: "/mobile", type: TrackType.Event) {
-        type(required: false, PropertyType.String, description: "type of stores to show on the map")
-        tags(required: false, PropertyType.ArrayList)
         store_name(required: true, PropertyType.String)
         store_location(required: true, PropertyType.String)
         navigation_apps(required: true, PropertyType.ArrayList, description: "all the apps available to handle the requested navigation")
     }
     "/instore/map/navigate_to_store_app_chosen"(platform: "/mobile", type: TrackType.Event) {
-        type(required: false, PropertyType.String, description: "type of stores to show on the map")
-        tags(required: false, PropertyType.ArrayList)
         store_name(required: true, PropertyType.String)
         store_location(required: true, PropertyType.String)
         navigation_apps(required: true, PropertyType.ArrayList)
@@ -726,20 +712,13 @@ tracks {
         view_time_in_millis(required: true, PropertyType.String)
     }
     "/instore/map/quick_filters_selected"(platform: "/mobile", type: TrackType.Event) {
-        type(required: false, PropertyType.String, description: "type of stores to show on the map")
-        tags(required: false, PropertyType.ArrayList)
         selected_filters(required: true, PropertyType.ArrayList)
     }
     "/instore/map/back"(platform: "/mobile", type: TrackType.Event) {
-        type(required: false, PropertyType.String, description: "type of stores to show on the map")
-        tags(required: false, PropertyType.ArrayList)
         view_time_in_millis(required: true, PropertyType.String)
     }
     "/instore/map/error"(platform: "/mobile", isAbstract: true) {}
     "/instore/map/error/server_error"(platform: "/mobile", type: TrackType.View) {
-        type(required: false, PropertyType.String, description: "type of stores to show on the map")
-        tags(required: false, PropertyType.ArrayList)
-        context(required: true, PropertyType.String)
         style(required: true, PropertyType.String, descriptio: "how the error is presented to the user (screen, snackbar")
         id(required: true, PropertyType.String, description:"an identifer for the type of error")
         message(required: true, PropertyType.String, description: "server error description")
