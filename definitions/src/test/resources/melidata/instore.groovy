@@ -1672,13 +1672,6 @@ trackTests {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             selected_filters = ["combustibles", "mercados", "gastronomia"]
         }
-        "/ask_device_permission/location"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
-            context = "/instore/map"
-            location_permission_enabled = true
-            device_gps_enabled = true
-            type = "qr"
-            tags = "shell"
-        }
         "/instore/map/error/server_error"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             context = "/instore/map/error"

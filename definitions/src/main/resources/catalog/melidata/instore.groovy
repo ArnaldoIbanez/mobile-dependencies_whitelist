@@ -202,8 +202,8 @@ tracks {
     // Permissions
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {}
     "/ask_device_permission/location"(platform: "/mobile", type: TrackType.View) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        context(required: true, PropertyType.String)
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
+        context(required: true, PropertyType.String, values: ["/instore", "/instore/map"])
         location_permission_enabled(required: false, PropertyType.Boolean)
         device_gps_enabled(required: false, PropertyType.Boolean)
         type(required: false, PropertyType.String, description: "type of app launching the map")
@@ -211,8 +211,6 @@ tracks {
     }
     "/ask_device_permission/location/"(platform: "/mobile", isAbstract: true) {}
     "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        context(required: true, PropertyType.String)
     }
     "/ask_device_permission/location/granted"(platform: "/mobile", type: TrackType.Event) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
