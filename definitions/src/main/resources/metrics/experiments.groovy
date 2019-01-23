@@ -231,4 +231,15 @@ metrics {
 		}
 	}
 
+	"asset_management_congrats"(description: "Arrival to congrats for Asset Management") {
+		startWith {
+			experiment("mpmobile/asset_management")
+		}
+
+		countsOn {
+			condition {
+				path("/asset_management/result_investing")
+			}
+		}
+	}
 }
