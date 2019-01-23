@@ -22,7 +22,7 @@ tracks {
         category_path(required: false, description: "path from root category", regex: categoryPathRegex, type: PropertyType.ArrayList)
         sort_id(required: true, description: "relevance, price_asc or price_desc", values: ["relevance", "price_asc", "price_desc"])
         filters(required: true, description: "filters applied")
-        available_filters(required: false, description: "available filters, sameday and nextday")
+        available_filters(required: true, description: "available filters, sameday and nextday")
         autoselected_filters(required: false, description: "filters not applied by the user (category from canonical or adults)", PropertyType.ArrayList)
         view_mode(required: true, description: "MOSAIC, LIST or GALLERY on WM and apps and STACK or GRID on desktop", values:["STACK","GRID","LIST","MOSAIC","GALLERY"])
         results(required: true, description: "item ids from search result", PropertyType.ArrayList)
@@ -50,7 +50,7 @@ tracks {
         //processed_query(required: false, description:'processed query by backend')
         //stems(required: false, description:'stems list which returns backend to stand out in frontend'
 
-        user_zone(required: false, description: "the user zone registered", type: PropertyType.String)
+        user_zone(required: true, description: "the user zone registered", type: PropertyType.String)
     }
 
     "/search"(platform: "/web") {
