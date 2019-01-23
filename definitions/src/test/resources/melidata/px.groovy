@@ -54,7 +54,7 @@ trackTests {
                         currency_id = "ARS"
                     }
             ]
-            collector_id = "12312412"
+            collector_id = 12312412
         }
         "/px_checkout/payments/select_method/ticket"(platform: "/mobile", type: TrackType.View) {
             available_methods = [
