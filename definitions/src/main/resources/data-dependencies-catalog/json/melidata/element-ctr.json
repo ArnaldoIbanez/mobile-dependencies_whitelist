@@ -5,7 +5,7 @@
     "juanjose.barrera@mercadolibre.com",
     "nicolas.outeda@mercadolibre.com"
   ],
-  "process_name": "component_ctr",
+  "process_name": "element_ctr",
   "cron": "00 04 * * *",
   "partition": {
     "name": "ds",
@@ -28,6 +28,22 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "element_order",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "campaign",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "brand_name",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "category_id",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "prints",
         "type": "INTEGER"
       },
@@ -37,7 +53,7 @@
       }
     ],
     "sql": {
-      "script": "melidata/component-ctr.sql",
+      "script": "melidata/element-ctr.sql",
       "parameters": [
         {
           "name": "param01",
