@@ -36,7 +36,6 @@ trackTests {
             location_permissions = true
             notifications_permissions = true
             bluetooth_permissions = true
-            qr_data = "Any scanned data"
         }
         "/instore/scan_qr/qr_discovery"(platform: "/mobile", type: TrackType.Event) {
             qr_data = "Any scanned data"
@@ -441,7 +440,6 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
-            machine_response_final_result = "Any machine response"
             vending_id = "12345"
         }
         "/instore/vending/st_machine_connection_error"(platform: "/mobile", type: TrackType.Event) {
@@ -478,25 +476,9 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
-            response_end_transaction = "Transaction response"
-            business_result = ["show_payment_method":true, "top_custom_view":[], "title":"¡Listo! Ya le pagaste a FEED", "bottom_custom_view":[], "status":"approved"]
-            success = true
             vending_id = "12345"
             end_transaction_status = "success"
         }
-        "/instore/vending/response_payment"(platform: "/mobile", type: TrackType.Event) {
-            collector_id = "12356"
-            brand_name = "YPF"
-            store_id = "76840"
-            pos_id = "65763"
-            response_payment = "Payment response"
-            screens_info = "screen info"
-            raw = ["coupon_amount":31.5, "operation_type":"regular_payment"]
-            business_result = ["show_payment_method":true, "top_custom_view":[], "title":"¡Listo! Ya le pagaste a FEED", "bottom_custom_view":[], "status":"approved"]
-            vending_operation_context = ["transaction_id":732941543339532, "vending_code":"GOtm10Y=", "service_uuid":"455a0001-0000-4000-4541-5a59434f494e", "connection_id":"EZ_50000131", "vending_id":"50000131", "mac":"00:1E:C0:27:77:25"]
-            dispatching_time = 1000
-        }
-
         "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
             currency_id = "ARS"
             statement_descriptor = "WWW.MERCADOPAGO.COM"
@@ -1162,7 +1144,6 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
-            machine_response_final_result = "Any machine response"
             vending_id = "12345"
         }
         "/instore/vending/st_machine_connection_error"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
@@ -1199,23 +1180,8 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
-            response_end_transaction = "Transaction response"
-            business_result = ["show_payment_method":true, "top_custom_view":[], "title":"¡Listo! Ya le pagaste a FEED", "bottom_custom_view":[], "status":"approved"]
-            success = true
             vending_id = "12345"
             end_transaction_status = "success"
-        }
-        "/instore/vending/response_payment"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
-            collector_id = "12356"
-            brand_name = "YPF"
-            store_id = "76840"
-            pos_id = "65763"
-            response_payment = "Payment response"
-            screens_info = "screen info"
-            raw = ["coupon_amount":31.5, "operation_type":"regular_payment"]
-            business_result = ["show_payment_method":true, "top_custom_view":[], "title":"¡Listo! Ya le pagaste a FEED", "bottom_custom_view":[], "status":"approved"]
-            vending_operation_context = ["transaction_id":732941543339532, "vending_code":"GOtm10Y=", "service_uuid":"455a0001-0000-4000-4541-5a59434f494e", "connection_id":"EZ_50000131", "vending_id":"50000131", "mac":"00:1E:C0:27:77:25"]
-            dispatching_time = 1000
         }
 
         // Waiting
