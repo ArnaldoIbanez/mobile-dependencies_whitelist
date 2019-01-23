@@ -202,17 +202,18 @@ tracks {
     // Permissions
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {}
     "/ask_device_permission/location"(platform: "/mobile", type: TrackType.View) {
-        context(required: true, PropertyType.String)
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
+        context(required: true, PropertyType.String, values: ["/instore", "/instore/map"])
+        location_permission_enabled(required: false, PropertyType.Boolean)
+        device_gps_enabled(required: false, PropertyType.Boolean)
+        type(required: false, PropertyType.String, description: "type of app launching the map")
+        tags(required: false, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the type of stores to show on the map")
     }
-    "/ask_device_permission/location/"(platform: "/mobile", isAbstract: true) {}
     "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {
-        context(required: true, PropertyType.String)
     }
     "/ask_device_permission/location/granted"(platform: "/mobile", type: TrackType.Event) {
-        context(required: true, PropertyType.String)
     }
     "/ask_device_permission/location/rejected"(platform: "/mobile", type: TrackType.Event) {
-        context(required: true, PropertyType.String)
     }
     "/ask_device_permission/bluetooth"(platform: "/mobile", type: TrackType.View) {
         context(required: true, PropertyType.String)
@@ -671,105 +672,57 @@ tracks {
 
     // Discovery
     "/instore/map"(platform: "/mobile", type: TrackType.View) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        from(required: true, PropertyType.String, description: "from where in the app is this view called")
-        northeast(required: false, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
-        southwest(required: false, PropertyType.String, description: "latitude and longitude of the southwest corner of the visible area on the map")
-        location(required: false, PropertyType.String)
-        type(required: false, PropertyType.String, description: "type of stores to show on the map")
-        tags(required: false, PropertyType.ArrayList)
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
+        type(required: true, inheritable: false, PropertyType.String, description: "type of stores to show on the map")
+        tags(required: true, inheritable: false, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the type of stores to show on the map")
     }
     "/instore/map/first_user_location"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        from(required: false, PropertyType.String, description: "from where in the app is this view called")
-        northeast(required: false, PropertyType.String)
-        southwest(required: false, PropertyType.String)
-        location(required: false, PropertyType.String, description: "latitude and longitude of the user")
+        northeast(required: true, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
+        southwest(required: true, PropertyType.String, description: "latitude and longitude of the southwest corner of the visible area on the map")
+        location(required: true, PropertyType.String)
     }
     "/instore/map/data_retrieved"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        from(required: false, PropertyType.String, description: "from where in the app is this view called")
         action_type(required: true, PropertyType.String, description: "type of action that triggered the data request", values: ["init", "search_in_this_area", "filters_applied", "text_search"])
         stores_quantity(required: true, PropertyType.String)
     }
-    "/instore/map/search_in_this_area"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        from(required: false, PropertyType.String, description: "from where in the app is this view called")
-        includes_user_position(required: true, PropertyType.Boolean)
-        center(required: false, PropertyType.String)
-        northeast(required: true, PropertyType.String)
-        southwest(required: true, PropertyType.String)
-        tags(required: true, PropertyType.String)
+    "/instore/map/pin_selected"(platform: "/mobile", type: TrackType.Event) {
+        store_name(required: true, PropertyType.String, description: "the name of the selected store")
+        store_id(required: true, PropertyType.String, description: "the store's id")
+        store_location(required: true, PropertyType.String, description: "the stores lat and long")
     }
     "/instore/map/locate_by_gps"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        from(required: false, PropertyType.String, description: "from where in the app is this view called")
     }
-    "/instore/map/back"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        from(required: false, PropertyType.String, description: "from where in the app is this view called")
-        time_in_millis(required: true, PropertyType.String)
-    }
-    "/instore/map/permissions"(platform: "/mobile", type: TrackType.View) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        from(required: true, PropertyType.String, description: "from where in the app is this view called")
-        location_permission_enabled(required: true, PropertyType.Boolean)
-    }
-    "/instore/map/permissions/back"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        from(required: false, PropertyType.String, description: "from where in the app is this view called")
-        location_permission_enabled(required: true, PropertyType.Boolean)
-        time_in_millis(required: true, PropertyType.String)
+    "/instore/map/search_in_this_area"(platform: "/mobile", type: TrackType.Event) {
+        northeast(required: true, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
+        southwest(required: true, PropertyType.String, description: "latitude and longitude of the southwest corner of the visible area on the map")
+        tags(required: true, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the type of stores to show on the map")
+        includes_user_position(required: true, PropertyType.Boolean)
+        center(required: true, PropertyType.String)
     }
     "/instore/map/navigate_to_store"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        from(required: false, PropertyType.String, description: "from where in the app is this view called")
         store_name(required: true, PropertyType.String)
         store_location(required: true, PropertyType.String)
-        navigation_apps(required: true, PropertyType.String, description: "all the apps available to handle the requested navigation")
-    }
-    "/instore/map/navigate_to_store_app_picker"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        from(required: false, PropertyType.String, description: "from where in the app is this view called")
-        store_name(required: true, PropertyType.String)
-        store_location(required: true, PropertyType.String)
-        navigation_apps(required: true, PropertyType.String, description: "all the apps available to handle the requested navigation")
+        navigation_apps(required: true, PropertyType.ArrayList(PropertyType.String), description: "all the apps available to handle the requested navigation")
     }
     "/instore/map/navigate_to_store_app_chosen"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        from(required: false, PropertyType.String, description: "from where in the app is this view called")
         store_name(required: true, PropertyType.String)
         store_location(required: true, PropertyType.String)
-        navigation_apps(required: true, PropertyType.String)
+        navigation_apps(required: true, PropertyType.ArrayList(PropertyType.String))
         chosen_app(required: true, PropertyType.String)
         view_time_in_millis(required: true, PropertyType.String)
     }
     "/instore/map/quick_filters_selected"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        from(required: false, PropertyType.String, description: "from where in the app is this view called")
-        selected_filters(required: true, PropertyType.String)
+        selected_filters(required: true, PropertyType.ArrayList(PropertyType.String))
     }
-
-    "/ask_device_permission"(platform: "/mobile", isAbstract: true) {}
-    "/ask_device_permission/location"(platform: "/mobile", type: TrackType.View) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        context(required: false, PropertyType.String, description: "Reference to the context that started location permissions flow")
-        location_permission_enabled(required: false, PropertyType.Boolean)
-        device_gps_enabled(required: false, PropertyType.Boolean)
-        type(required: false, PropertyType.String, description: "type of stores to show on the map")
-        tags(required: false, PropertyType.String)
+    "/instore/map/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time_in_millis(required: true, PropertyType.String)
     }
-    "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        context(required: false, PropertyType.String, description: "Reference to the context that started location permissions flow")
-    }
-    "/ask_device_permission/location/granted"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        context(required: false, PropertyType.String, description: "Reference to the context that started location permissions flow")
-    }
-    "/ask_device_permission/location/rejected"(platform: "/mobile", type: TrackType.Event) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
-        context(required: false, PropertyType.String, description: "Reference to the context that started location permissions flow")
+    "/instore/map/error"(platform: "/mobile", isAbstract: true) {}
+    "/instore/map/error/server_error"(platform: "/mobile", type: TrackType.View) {
+        style(required: true, PropertyType.String, descriptio: "how the error is presented to the user (screen, snackbar")
+        id(required: true, PropertyType.String, description:"an identifer for the type of error")
+        message(required: true, PropertyType.String, description: "server error description")
+        attributable_to(required: true, PropertyType.String)
     }
 
 }
