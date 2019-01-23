@@ -13,7 +13,7 @@
     "format": "yyyy-MM-dd"
   },
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
         "name": "component",
