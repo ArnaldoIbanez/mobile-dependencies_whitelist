@@ -19,7 +19,10 @@ trackTests {
         "/notification_center/screen"(platform: "/", type: TrackType.View){}
         "/notification_center"(platform: "/mobile"){}
         "/notification_center/abort"(platform: "/mobile"){}
-        "/notification_center/addresses-update"(platform: "/mobile") {}
+        "/notification_center/addresses-update"(platform: "/mobile") {
+            latest_news_type= "addresses-update"
+            latest_news_id= "addresses-update-126635313"
+        }
         "/notification_center/back"(platform: "/mobile"){}
         "/notification_center/failure"(platform: "/mobile"){}
         "/notification_center"(platform: "/mobile") {
@@ -27,6 +30,15 @@ trackTests {
             event_type = "open"
         }
         "/notification_center/reputation"(platform: "/mobile"){
+            newsgroup_id= "reputation-126635313"
+            status= "read"
+            event_type= "open"
+            deeplink= "https://reputacao.mercadolivre.com.br/myReputation"
+            type_layout= "standard"
+            latest_news_type= "reputation"
+            latest_news_id= "reputation-126635313-grace_time_126635313-13804002905"
+        }
+        "/notification_center/reputation-medal_lost_reminder"(platform: "/mobile"){
             newsgroup_id= "reputation-medal_lost_reminder-126635313"
             status= "read"
             event_type= "open"
@@ -93,12 +105,21 @@ trackTests {
         }
         "/notification_center/reviews-reminder"(platform: "/mobile"){
             vertical= "services"
+            latest_news_type= "reviews-reminder"
+            latest_news_id= "reviews-reminder-143816022-MLB1013046714"
         }
-        "/notification_center/fiscal_data-business_registration"(platform: "/mobile"){}
-        "/notification_center/fraud-postpayment"(platform: "/mobile"){}
-
-        "/notification_center/instore-activities"(platform: "/mobile"){}
-        "/notification_center/invoices"(platform: "/mobile"){}
+        "/notification_center/fiscal_data-business_registration"(platform: "/mobile"){
+            latest_news_type= "fiscal_data-business_registration"
+            latest_news_id= "fiscal_data-business_registration-143816022-MLB1013046714"
+        }
+        "/notification_center/instore-activities"(platform: "/mobile"){
+            latest_news_type= "instore-activities"
+            latest_news_id= "instore-activities-143816022-MLB1013046714"
+        }
+        "/notification_center/invoices"(platform: "/mobile"){
+            latest_news_type= "invoices"
+            latest_news_id= "invoices-143816022-MLB1013046714"
+        }
         "/notification_center/listings"(platform: "/mobile"){}
         "/notification_center/campaigns-deals"(platform: "/mobile"){
             campaign_id= "campaign1"
@@ -233,6 +254,10 @@ trackTests {
             latest_news_type= "campaigns-remarketing"
             latest_news_id= "campaigns-remarketing-143816022-MLB1013046714"
         }
+        "/notification_center/compliance_support-validations"(platform: "/mobile"){
+            latest_news_type= "compliance_support-validations"
+            latest_news_id= "compliance_support-validations-143816022-MLB1013046714"
+        }
         "/notification_center/credits-consumer"(platform: "/mobile"){
             newsgroup_id= "credits-consumer-213882865-255720"
             event_type= "open"
@@ -243,6 +268,24 @@ trackTests {
             latest_news_type= "1592866"
             latest_news_id= "credits-consumer_expired_second_notice-1592866"
         }
+        "/notification_center/credits-merchants"(platform: "/mobile"){
+            newsgroup_id= "credits-merchants-213882865-255720"
+            event_type= "open"
+            deeplink= "meli://generic_landing?authenticate=true&url=https%3A%2F%2Fwww.mercadolibre.com.ar%2Fcredits%2Fconsumer%2Fnews%3FloanId%3D255720%26installmentId%3D1592866"
+            type_layout= "standard"
+            installment_id= 717743
+            latest_news_type= "1592866"
+            latest_news_id= "credits-merchants-1592866"
+        }
+        "/notification_center/cx-generic"(platform: "/mobile"){
+            latest_news_type= "cx-generic"
+            latest_news_id= "cx-generic-143816022-MLB1013046714"
+        }
+        "/notification_center/cx_question"(platform: "/mobile"){
+            case_id= "12345678"
+            latest_news_type= "cx-cx_question"
+            latest_news_id= "cx_question-143816022-MLB1013046714"
+        }
         "/notification_center/fraud-identity_validation"(platform: "/mobile"){
             newsgroup_id= "fraud-identity_validation-142593788"
             event_type= "open"
@@ -251,9 +294,25 @@ trackTests {
             latest_news_type= "fraud-identity_validation"
             latest_news_id= "campaigns-remarketing-143816022-MLB1013046714"
         }
+        "/notification_center/fraud-postpayment"(platform: "/mobile"){}
+        "/notification_center/fraud-delivery_cancellation"(platform: "/mobile"){
+            latest_news_type= "fraud-delivery_cancellation"
+            latest_news_id= "fraud-delivery_cancellation-143816022-MLB1013046714"
+        }
+        "/notification_center/fraud-cash_release_iv"(platform: "/mobile"){
+            latest_news_type= "fraud-cash_release_iv"
+            latest_news_id= "fraud-cash_release_iv-143816022-MLB1013046714"
+        }
+        "/notification_center/fraud-identity_validation_reminder"(platform: "/mobile"){
+            latest_news_type= "fraud-identity_validation_reminder"
+            latest_news_id= "fraud-identity_validation_reminder-143816022-MLB1013046714"
+        }
         "/notification_center/packages-buyer"(platform: "/mobile"){}
         "/notification_center/packages-seller"(platform: "/mobile"){}
-        "/notification_center/me_flex-optin"(platform: "/mobile"){}
+        "/notification_center/me_flex-optin"(platform: "/mobile"){
+            latest_news_type= "me_flex-optin"
+            latest_news_id= "me_flex-optin-143816022-MLB1013046714"
+        }
         "/notification_center/returns"(platform: "/mobile"){
             newsgroup_id= "packages-seller-2000000031949978"
             event_type= "open"
@@ -318,125 +377,38 @@ trackTests {
             type_layout= "bullet_list"
             question_id= 3730000436
         }
-        "/notification_center/registration-info"(platform: "/mobile") {}
+        "/notification_center/registration-info"(platform: "/mobile") {
+            latest_news_type= "registration-info"
+            latest_news_id= "registration-info-1000000016305386"
+        }
+        "/notification_center/registration-generated_pwd"(platform: "/mobile") {
+            latest_news_type= "registration-generated_pwd"
+            latest_news_id= "registration-generated_pwd-1000000016305386"
+        }
         "/notification_center/reservations"(platform: "/mobile") {
             order_id = 12132
         }
-        "/notification_center/sc_editor_off"(platform: "/mobile") {}
-
-        "/notification_center/security-account_validation"(platform: "/mobile") {}
-
-        "/notification_center/chargeback-payer_start_ml"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
+        "/notification_center/reservations-pending_reminder"(platform: "/mobile") {
+            latest_news_type= "reservations-pending_reminder"
+            latest_news_id= "reservations-pending_reminder-1000000016305386"
         }
-        "/notification_center/chargeback-payer_start_mp"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
+        "/notification_center/sc_editor_off"(platform: "/mobile") {
+            latest_news_type= "sc_editor_off"
+            latest_news_id= "sc_editor_off-1000000016305386"
         }
-        "/notification_center/chargeback-payer_ultimatum_ml"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
+        "/notification_center/security-account_validation"(platform: "/mobile") {
+            latest_news_type= "security-account_validation"
+            latest_news_id= "security-account_validation-1000000016305386"
         }
-        "/notification_center/chargeback-payer_ultimatum_mp"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
+        "/notification_center/security-device_authorization"(platform: "/mobile") {
+            latest_news_type= "security-device_authorization"
+            latest_news_id= "security-device_authorization-1000000016305386"
         }
-        "/notification_center/chargeback-payer_intensify_ml"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
+        "/notification_center/security-device_authorization_congrats"(platform: "/mobile") {
+            latest_news_type= "security-device_authorization_congrats"
+            latest_news_id= "security-device_authorization_congrats-1000000016305386"
         }
-        "/notification_center/chargeback-payer_intensify_mp"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
-        }
-        "/notification_center/chargeback-payer_contact_ml"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
-        }
-        "/notification_center/chargeback-payer_contact_mp"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
-        }
-        "/notification_center/chargeback-payer_notify_ml"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
-        }
-        "/notification_center/chargeback-payer_notify_mp"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
-        }
-        "/notification_center/chargeback-payer_update_ml"(platform: "/mobile") {
-            case_id = "158213000000"
-            latest_news_id = "chargeback-buyer-158213000000-init13545"
-            latest_news_type = "chargeback-buyer"
-            type_layout = "standard"
-            newsgroup_id = "chargeback-buyer-158213000000"
-            status = "unread"
-            event_type = "open"
-            deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
-        }
-        "/notification_center/chargeback-payer_update_mp"(platform: "/mobile") {
+        "/notification_center/chargeback-payer"(platform: "/mobile") {
             case_id = "158213000000"
             latest_news_id = "chargeback-buyer-158213000000-init13545"
             latest_news_type = "chargeback-buyer"
@@ -465,6 +437,21 @@ trackTests {
 
         "/notification/account_fund_approved_mp"(platform: "/mobile") {
             news_id = "account_fund-account_fund-approved_mp-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_salary"(platform: "/mobile") {
+            news_id = "account_fund-account_fund_salary-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_balance_approved_mp"(platform: "/mobile") {
+            news_id = "account_fund-account_balance_approved_mp-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_balance_approved_ml"(platform: "/mobile") {
+            news_id = "account_fund-account_balance_approved_ml-12345678"
             event_type = "shown"
         }
 
@@ -531,6 +518,26 @@ trackTests {
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
             item_id = "MLB1234"
+        }
+
+        "/notification/compliance_support_validations"(platform: "/mobile") {
+            event_type = "shown"
+        }
+
+        "/notification/chargeback_payer_start_ml"(platform: "/mobile") {
+            news_id = "chargeback_payer_start_ml-21680059-20180516"
+            event_type = "shown"
+            case_id = "158213000000"
+        }
+        "/notification/chargeback_payer_notify_ml"(platform: "/mobile") {
+            news_id = "chargeback_payer_notify_ml-21680059-20180516"
+            event_type = "shown"
+            case_id = "158213000000"
+        }
+        "/notification/chargeback_payer_update_ml"(platform: "/mobile") {
+            news_id = "chargeback_payer_update_ml-21680059-20180516"
+            event_type = "shown"
+            case_id = "158213000000"
         }
 
         "/notification/credits_consumer_expired_n_loans_fourth_notice"(platform: "/mobile") {
@@ -774,6 +781,11 @@ trackTests {
             news_id = "qrviral-onboard-1234-186785675"
             event_type = "open"
         }
+        "/notification/qrviral_onboard_recharge"(platform: "/mobile") {
+            news_id = "qrviral-onboard_recharge-1234-186785675"
+            event_type = "open"
+            campaign_id = "qrviral-onboard_recharge"
+        }
         "/notification/qrviral_reminder"(platform: "/mobile") {
             news_id = "qrviral-reminder-1234-186785675"
             event_type = "open"
@@ -923,21 +935,20 @@ trackTests {
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
-            shipment_id = "1234"
+            shipment_id = 1234
         }
         "/notification/shipping_reminder_agency_withdrawal"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
             shipment_id = 1234
-            agency_to_agency = true
         }
 
         "/notification/shipping_not_delivered_receiver"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
-            shipment_id = "1234"
+            shipment_id = 1234
         }
 
         "/notification/shipping_soon_deliver"(platform: "/mobile"){
@@ -963,22 +974,39 @@ trackTests {
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+            order_id = 123
+            agency_to_agency = true
         }
 
         "/notification/shipping_legacy_delayed_receiver"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+            order_id = 123
+            delay_reason = "shipping_time"
         }
         "/notification/shipping_legacy_delivered"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+            order_id = 123
         }
         "/notification/shipping_legacy_shipped"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+            order_id = 123
+        }
+        "/notification/shipping_legacy_delayed_sender"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+            order_id = 123
         }
         "/notification/collections_approved"(platform: "/mobile") {
             news_id = "12332323"
@@ -1085,6 +1113,14 @@ trackTests {
             action_type = "favorite"
         }
 
+        "/notification/mediations_legacy_complainant"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "auto_dismiss"
+            notification_style = "BigTextStyle"
+            claim_id = 3123
+            action_type = "favorite"
+        }
+
         "/notification/mediations_respondent"(platform: "/mobile") {
             news_id = "mediations-respondent-1013715421-5b0d7ee426e063333fe0c582"
             event_type = "shown"
@@ -1166,7 +1202,7 @@ trackTests {
             news_id = "123"
             event_type = "open"
             item_id = "MLA1234"
-            order_id = "1234321"
+            order_id = 1234321
         }
 
         "/notification/payments_pending_reminder"(platform: "/mobile") {
@@ -1180,42 +1216,42 @@ trackTests {
             news_id = "123"
             event_type = "dismiss"
             item_id = "MLA1234"
-            order_id = "1234321"
+            order_id = 1234321
         }
 
         "/notification/payments_approved"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
             item_id = "MLA1234"
-            order_id = "1234321"
+            order_id = 1234321
         }
 
         "/notification/payments_approved"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
             item_id = "MLA1234"
-            order_id = "1234321"
+            order_id = 1234321
         }
 
         "/notification/payments_rejected"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
             item_id = "MLA1234"
-            order_id = "1234321"
+            order_id = 1234321
         }
 
         "/notification/payments_rejected"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
             item_id = "MLA1234"
-            order_id = "1234321i"
+            order_id = 1234321
         }
 
         "/notification/payments_rejected"(platform: "/mobile") {
             news_id = "123"
             event_type = "dismiss"
             item_id = "MLA1234"
-            order_id = "1234321"
+            order_id = 1234321
         }
 
         "/notification/messages_new"(platform: "/mobile") {
@@ -1305,16 +1341,22 @@ trackTests {
         "/notification/campaigns_suggested_discounts_buyer"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
+            item_id = "123"
+            campaign_id = 1234
         }
 
         "/notification/campaigns_suggested_discounts_buyer"(platform: "/mobile") {
             news_id = "123"
             event_type = "dismiss"
+            item_id = "123"
+            campaign_id = 1234
         }
 
         "/notification/campaigns_suggested_discounts_buyer"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
+            item_id = "123"
+            campaign_id = 1234
         }
 
         "/notification/campaigns_download_app"(platform: "/mobile") {
@@ -1478,6 +1520,10 @@ trackTests {
             news_id = "123"
             event_type = "open"
         }
+        "/notification/security_device_authorization"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
 
         "/notification/reviews_reminder"(platform: "/mobile") {
             news_id = "123"
@@ -1485,6 +1531,16 @@ trackTests {
         }
 
         "/notification/fraud_identity_validation"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/fraud_delivery_cancellation_stop_ml"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/fraud_cash_release_iv"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
         }

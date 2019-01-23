@@ -74,6 +74,7 @@ tracks {
         reviews_attributes(required: false, type: PropertyType.ArrayList, inheritable: false, description: "Reviewable catalog attribute names")
         return_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has free return for the item")
+        has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
         
         // CART
         add_cart_info

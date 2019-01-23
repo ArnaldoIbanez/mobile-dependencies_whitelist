@@ -1,40 +1,38 @@
 {
   "users": [
-    "alejandro.torres@mercadolibre.com"
+    "manuel.kenar@mercadolibre.com",
+    "vip_it@mercadolibre.com"
   ],
-  "process_name": "mediations-post_refund",
-  "cron": "00 07 * * *",
+  "process_name": "vip_shipping_calculator",
+  "cron": "00 06 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
     "columns": [
+
       {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
+        "name": "evento",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "plataforma",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "cantidad",
+        "type": "INTEGER"
       },
       {
         "name": "site",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "total",
-        "type": "INTEGER"
-      },
-      {
-        "name": "platform",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "business",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "expected_resolution",
-        "type": "UNICODE_STRING"
       }
+
     ],
     "sql": {
-      "script": "mediations/post-refund.sql",
+      "script": "vip/vip-shipping-calculator.sql",
       "parameters": [
         {
           "name": "param01",
