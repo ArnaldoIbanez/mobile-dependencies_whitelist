@@ -23,8 +23,8 @@ LATERAL VIEW json_tuple(app.`application`, 'site_id') jt3 AS `site_id`
 WHERE ds >= '@param03 20' AND ds < '@param04 20'
     AND `jt`.`event` = 'print'
     AND `jt`.`id` IS NOT NULL
-    AND `jt`.`id` RLIKE '.*(?<!element)$'
-    AND `jt`.`id` RLIKE '.*(?<!item)$'
+    AND `jt`.`id` RLIKE '.*(?<!\/element)$'
+    AND `jt`.`id` RLIKE '.*(?<!\/item)$'
 GROUP BY from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') + 14400, 'yyyy-MM-dd HH'), `jt2`.`platform`,`jt3`.`site_id`, `jt`.`id`) AS prints
 
 LEFT JOIN
