@@ -185,12 +185,10 @@ tracks {
     }
 
     /**
-     * La idea de este track es poder tener informacion
-     * para generar un dataset sobre la conversion de los
-     * objetivos de calidad y poder utilizar machine learning
-     * para mejorar el ordenamiento.
+     * La idea es trackear en el snackbar informacion
+     * del item original y algunos cambios que se produjeron.
      */
-    "/seller_central/modify/sucess"(platform: "/web", type: TrackType.Event){
+    "/seller_central/modify/success"(platform: "/web", type: TrackType.Event){
         goals_achieved(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Goals achieved in this session, dataset target.")
         original_goals_not_completed(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Original goals available to complete ordered by source.")
         original_goals_completed(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Original goals completed ordered by source.")
@@ -203,6 +201,7 @@ tracks {
         original_condition(required: false, type: PropertyType.String, description: "Original item condition")
         original_shipping(required: false, type: PropertyType.String, description: "Original item shippgin mode. Values: ['custom','custom_free_shippgin','me2','me2_free_shipping','without_shipping']")
         original_local_pickup(required: false, type: PropertyType.Boolean, description: "Item original local_pickup")
+        is_fbm(required: false, type: PropertyType.Boolean, description: "Is a FullFillment item")
         domain(required: true, type: PropertyType.String, description: "Item domain")
         is_catalog_product(required: false, type: PropertyType.Boolean, description: "Item is in catalog")
         technical_specifications_attributes_empty(required: false, type: PropertyType.Numeric, description: "Original Technical specifications attributes requested")

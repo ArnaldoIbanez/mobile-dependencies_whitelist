@@ -297,7 +297,7 @@ trackTests {
     }
 
     test("seller central track to measure health changes"){
-        "/seller_central/modify/sucess"(platform: "/web", type: TrackType.Event){
+        "/seller_central/modify/success"(platform: "/web", type: TrackType.Event){
             item_id = "MLA12345"
             session_id = "123-update-abc123"
             goals_achieved = ["mercado_envios"]
@@ -313,6 +313,7 @@ trackTests {
             original_shipping = "me2"
             original_local_pickup = true
             domain = "cellphones"
+            is_fbm = true
             is_catalog_product = true
             technical_specifications_attributes_empty = 0
             technical_specifications_attributes_loaded = 5
