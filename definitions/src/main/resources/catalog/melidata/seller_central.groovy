@@ -184,6 +184,32 @@ tracks {
         to(required: true, type: PropertyType.String, description: "Updated listing type value")
     }
 
+    /**
+     * La idea es trackear en el snackbar informacion
+     * del item original y algunos cambios que se produjeron.
+     */
+    "/seller_central/modify/success"(platform: "/web", type: TrackType.Event){
+        goals_achieved(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Goals achieved in this session, dataset target.")
+        original_goals_not_completed(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Original goals available to complete ordered by source.")
+        original_goals_completed(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Original goals completed ordered by source.")
+        original_goals_not_applied(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Original goals that not applied for this item, ordered by source.")
+        original_goal_order(required: true, type: PropertyType.String, description: "Goals order source.", values: ["random", "health-api"])
+        original_price(required: true, type: PropertyType.Numeric, description: "Original item price")
+        original_currency(required: true, type: PropertyType.String, description: "Original item currency")
+        original_listing_type(required: true, type: PropertyType.String, description: "Original item listing type")
+        original_quantity(required: true, type: PropertyType.Numeric, description: "Original item quantity")
+        original_condition(required: true, type: PropertyType.String, description: "Original item condition")
+        original_shipping(required: false, type: PropertyType.String, description: "Original item shippgin mode.", values: ['ME_DISCOUNT', 'ME_FREE_SHIPPING', 'CUSTOM_SHIPPING', 'FREE_CUSTOM_SHIPPING', 'NO_SHIPPING', 'ME_BUYER'])
+        original_local_pickup(required: false, type: PropertyType.Boolean, description: "Item original local_pickup")
+        is_fbm(required: false, type: PropertyType.Boolean, description: "Is a FullFillment item")
+        domain(required: true, type: PropertyType.String, description: "Item domain")
+        is_catalog_product(required: true, type: PropertyType.Boolean, description: "Item is in catalog")
+        technical_specifications_attributes_empty(required: false, type: PropertyType.Numeric, description: "Original Technical specifications attributes requested")
+        technical_specifications_attributes_loaded(required: false, type: PropertyType.Numeric, description: "Original Technical specifications attributes completed")
+        seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
+        is_official_store(required: true, type: PropertyType.Boolean, description: "User is official store")
+    }
+
     //STRUCTURED DATA
 
     "/seller_central/modify/technical_specifications"(platform: "/", isAbstract: true) {}
