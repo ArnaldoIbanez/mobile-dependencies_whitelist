@@ -16,7 +16,6 @@ trackTests {
             category_path=["MLA1051", "MLA1055", "MLA32089"]
             category_id="MLA32089"
             filters=[]
-            available_filters=[{shipping_time_sameday: "250"}]
             pads=[]
             pads_info={
                 ids=[]
@@ -44,7 +43,6 @@ trackTests {
             }
             catalog_product_id="MLA123"
             show_supermarket_carousel=true
-            user_zone = "CABA"
         }
 
         "/search"(platform: "/web",{
@@ -178,7 +176,6 @@ trackTests {
             offset = 50.0
             sort_id = "relevance"
             filters = {official_store="140"}
-            available_filters = []
             autoselected_filters = ["official_store"]
             geo_search = "false"
             filter_tags = "locationFromHistory"
@@ -188,7 +185,6 @@ trackTests {
                 printed_positions=[]
                 printed_positions_size=0
             }
-            user_zone = ""
         })
 
 
@@ -228,10 +224,16 @@ trackTests {
             defaultSearchInformation()
             list_mode = "mosaic"
         }
-        "/search/promoted_items"(platform: "/web", defaultSearchInformation)
+        "/search/promoted_items"(platform: "/web") {
+            defaultSearchInformation()
+            available_filters = []
+            user_zone = ""
+        }
         "/search/promoted_items/show"(platform: "/web") {
             defaultSearchInformation()
             item_type = "projects"
+            available_filters = []
+            user_zone = ""
         }
         "/search/billboard"(platform: "/") {
             defaultSearchInformation()
@@ -241,12 +243,15 @@ trackTests {
         "/search/billboard/resize"(platform: "/web") {
             defaultSearchInformation()
             action = "expand"
+            available_filters = []
+            user_zone = ""
         }
         "/search/save"(platform: "/") {
             defaultSearchInformation()
         }
-        "/search/official_stores_carousel"(platform: "/", defaultSearchInformation)
-
+        "/search/official_stores_carousel"(platform: "/") {
+            defaultSearchInformation()
+        }
         "/search/official_stores_carousel/click"(platform: "/") {
             defaultSearchInformation()
             to_name="adidas"
@@ -261,7 +266,6 @@ trackTests {
             total = 0
             sort_id = "relevance"
             filters = []
-            available_filters = []
             pads=[]
             pads_info={
                 ids=[]
@@ -273,7 +277,6 @@ trackTests {
             billboards = []
             category_id="MLA32089"
             query="iphone"
-            user_zone = ""
         }
     }
 
@@ -284,7 +287,6 @@ trackTests {
             total = 0
             sort_id = "relevance"
             filters = []
-            available_filters = []
             pads=[]
             pads_info={
                 ids=[]
@@ -296,7 +298,6 @@ trackTests {
             billboards = []
             category_id="ROOT"
             query="iphone"
-            user_zone = ""
         }
     }
 
@@ -327,6 +328,7 @@ trackTests {
             category_id="MLA32089"
             query="iphone"
             user_zone = ""
+
         }
     }
 
