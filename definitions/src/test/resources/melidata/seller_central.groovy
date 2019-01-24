@@ -310,7 +310,7 @@ trackTests {
             original_listing_type = "gold_special"
             original_quantity = 2
             original_condition = "used"
-            original_shipping = "me2"
+            original_shipping = "ME_BUYER"
             original_local_pickup = true
             domain = "cellphones"
             is_fbm = true
