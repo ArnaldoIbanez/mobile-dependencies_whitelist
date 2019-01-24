@@ -52,6 +52,7 @@ trackTests {
             sort_id="relevance"
             view_mode="MOSAIC"
             filters = { seller_id = "47316577" }
+            available_filters=[{shipping_time_sameday: "250"}]
             only_in_type="Seller"
             limit=20
             offset=0
@@ -102,7 +103,7 @@ trackTests {
                 printed_positions=[]
                 printed_positions_size=0
             }
-
+            user_zone = ""
         })
 
         "/search"(platform: "/web",{
@@ -110,6 +111,7 @@ trackTests {
             sort_id="relevance"
             view_mode="MOSAIC"
             filters = { seller_id = "47316577" }
+            available_filters = []
             only_in_type="Seller"
             limit=20
             offset=0
@@ -161,6 +163,7 @@ trackTests {
                 printed_positions_size=0
             }
             geo_search = false
+            user_zone = ""
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -175,6 +178,7 @@ trackTests {
             offset = 50.0
             sort_id = "relevance"
             filters = {official_store="140"}
+            available_filters = []
             autoselected_filters = ["official_store"]
             geo_search = "false"
             filter_tags = "locationFromHistory"
@@ -184,6 +188,7 @@ trackTests {
                 printed_positions=[]
                 printed_positions_size=0
             }
+            user_zone = ""
         })
 
 
@@ -256,6 +261,7 @@ trackTests {
             total = 0
             sort_id = "relevance"
             filters = []
+            available_filters = []
             pads=[]
             pads_info={
                 ids=[]
@@ -267,6 +273,7 @@ trackTests {
             billboards = []
             category_id="MLA32089"
             query="iphone"
+            user_zone = ""
         }
     }
 
@@ -277,6 +284,7 @@ trackTests {
             total = 0
             sort_id = "relevance"
             filters = []
+            available_filters = []
             pads=[]
             pads_info={
                 ids=[]
@@ -288,6 +296,7 @@ trackTests {
             billboards = []
             category_id="ROOT"
             query="iphone"
+            user_zone = ""
         }
     }
 
@@ -305,6 +314,7 @@ trackTests {
             total = 0
             sort_id = "relevance"
             filters = []
+            available_filters = []
             pads=[]
             pads_info={
                 ids=[]
@@ -316,6 +326,7 @@ trackTests {
             billboards = []
             category_id="MLA32089"
             query="iphone"
+            user_zone = ""
         }
     }
 
