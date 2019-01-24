@@ -24,7 +24,7 @@ tracks {
         status(required: false, type: PropertyType.String, values:["unread", "read"])
         event_type(required: false, values: ["open", "pull_to_refresh", "swipe", "action_open", "create", "update", "shown"])
         deeplink(required: false, type: PropertyType.String)
-        action_type(required: false, type: PropertyType.String,  values: ["messages", "message", "vop", "picture", "shipping_print_label", "claims", "tracking", "feedback", "changepayment", "reply", "ask", "questions-buy", "cart", "twitter_bar"])
+        action_type(required: false, type: PropertyType.String,  values: ["messages", "message", "vop", "picture", "shipping_print_label", "claims", "tracking", "feedback", "changepayment", "reply", "ask", "questions-buy", "cart", "twitter_bar", "leftcta", "rightcta", "create"])
         type_layout(required: false, type: PropertyType.String, values: ["bullet_list", "order", "picture", "standard"])
     }
     "/notification_center/abort"(platform: "/", type: TrackType.Event) {}
@@ -191,7 +191,7 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/cx_question"(platform: "/", type: TrackType.Event) {
-        case_id(required: true, type: PropertyType.String, description: "Id of cx case.")
+        case_id(required: true, type: PropertyType.Numeric, description: "Id of cx case.")
         latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -559,7 +559,7 @@ tracks {
       //MKT Deals
       "/notification/campaigns_deals"(platform: "/") {
           campaign_id(required: true, description: "Id of the campaign related to the mkt notification sent.")
-          deal_id(required: true, description: "Id of the deal related to the mkt notification sent.")
+          deal_id(required: true, type: PropertyType.String, description: "Id of the deal related to the mkt notification sent.")
           test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
@@ -657,6 +657,7 @@ tracks {
       }
       "/notification/mediations_legacy_complainant"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
+          order_id(required: true, type: PropertyType.Numeric)
       }
 
       //Moderation

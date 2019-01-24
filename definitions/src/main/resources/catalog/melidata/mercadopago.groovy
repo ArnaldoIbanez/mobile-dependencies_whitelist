@@ -781,8 +781,17 @@ tracks {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
     }
-
     "/notification/mpcampaigns_control_group"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
+        sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
+    }
+    "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
+        sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
+    }
+    "/notification/mpcampaigns_mpcampaignsinfo"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
         sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
