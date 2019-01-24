@@ -193,7 +193,7 @@ tracks {
         original_goals_not_completed(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Original goals available to complete ordered by source.")
         original_goals_completed(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Original goals completed ordered by source.")
         original_goals_not_applied(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Original goals that not applied for this item, ordered by source.")
-        original_goal_order(required: true, type: PropertyType.String, description: "Goals order source.", values: ["random", "health-api"])
+        goal_order(required: true, type: PropertyType.String, description: "Goals order source.", values: ["random", "health-api"])
         original_price(required: true, type: PropertyType.Numeric, description: "Original item price")
         original_currency(required: true, type: PropertyType.String, description: "Original item currency")
         original_listing_type(required: true, type: PropertyType.String, description: "Original item listing type", values: ['free', 'bronze', 'silver', 'gold', 'gold_premium', 'gold_special', 'gold_pro'])
