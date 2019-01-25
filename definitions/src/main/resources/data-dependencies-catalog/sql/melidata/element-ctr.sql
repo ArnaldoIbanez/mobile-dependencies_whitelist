@@ -64,3 +64,4 @@ ON
     COALESCE(prints.campaign, -1) = COALESCE(clicks.campaign, -1) AND
     COALESCE(prints.brand_name, -1) = COALESCE(clicks.brand_name, -1) AND
     COALESCE(prints.category_id, -1) = COALESCE(clicks.category_id, -1)
+    
