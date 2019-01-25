@@ -304,7 +304,7 @@ trackTests {
             original_goals_not_completed = ["mercado_envios", "pictures"]
             original_goals_completed = ["technical_specifications"]
             original_goals_not_applied = ["price_parity"]
-            original_goal_order = "random"
+            goal_order = "random"
             original_price = 123.4
             original_currency = "ARS"
             original_listing_type = "gold_special"
