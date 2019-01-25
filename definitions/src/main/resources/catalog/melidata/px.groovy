@@ -8,7 +8,7 @@ tracks {
     propertyDefinitions {
         flow_detail(required: false, description: "External info")
         flow(required: false, type: PropertyType.String, description: "External flow name")
-        collector_id(required: false, type: PropertyType.String, description: "Collector external id")
+        collector_id(required: false, description: "Collector external id")
     }
 
     propertyGroups {
@@ -185,7 +185,7 @@ tracks {
         payment_method_id(required: true, type: PropertyType.String, description: "Payment method id")
         payment_method_type(required: true, type: PropertyType.String, description: "Payment method type id")
         extra_info(required: false, description: "Extra payment method info")
-        payment_id(required: false, type: PropertyType.String, description: "Payment id")
+        payment_id(required: false, type: PropertyType.Numeric, description: "Payment id")
         payment_status(required: true, type: PropertyType.String, description: "Payment status")
         payment_status_detail(required: true, type: PropertyType.String, description: "Payment status")
     }
