@@ -70,8 +70,8 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/credits-consumer"(platform: "/", type: TrackType.Event) {
-        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
-        loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
+        installment_id(required: false, type: PropertyType.Numeric, description: "Id of installment.")
+        loan_id(required: false, type: PropertyType.Numeric, description: "Id of loan.")
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -766,7 +766,7 @@ tracks {
 
       //Notification suggested discounts
       "/notification/campaigns_suggested_discounts_seller"(platform: "/") {
-          item_id(required: true, type: PropertyType.String, description: "Id of item.")
+          item_id(required: false, type: PropertyType.String, description: "Id of item.")
           campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
           test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
