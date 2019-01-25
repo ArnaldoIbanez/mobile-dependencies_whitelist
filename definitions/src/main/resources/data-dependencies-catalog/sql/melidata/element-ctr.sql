@@ -60,7 +60,7 @@ ON
     prints.platform = clicks.platform AND
     prints.site_id = clicks.site_id AND
     prints.component = clicks.component AND
-    (prints.element_order = clicks.element_order OR
-    prints.campaign clicks.campaign OR
-    prints.brand_name = clicks.brand_name OR
-    prints.category_id = clicks.category_id)
+    COALESCE(prints.element_order, -1) = COALESCE(clicks.element_order, -1) AND
+    COALESCE(prints.campaign, -1) = COALESCE(clicks.campaign, -1) AND
+    COALESCE(prints.brand_name, -1) = COALESCE(clicks.brand_name, -1) AND
+    COALESCE(prints.category_id, -1) = COALESCE(clicks.category_id, -1)
