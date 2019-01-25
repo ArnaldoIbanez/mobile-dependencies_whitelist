@@ -75,7 +75,7 @@ trackTests {
             adv_segmentation = "winback"
             reputation_level="yellow"
         }
-        "/seller_central/listings/communication/show"(platform: "/", type: TrackType.Event) {
+        "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
             type = "news"           
             placement = "publicidad-banner"
             adv_segmentation = "winback"

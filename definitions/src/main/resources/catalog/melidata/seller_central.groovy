@@ -40,7 +40,7 @@ tracks {
         id(required: false, type: PropertyType.String, description: "Id of the communication ")
     }
 
-    "/seller_central/listings/communication/show"(platform: "/", type: TrackType.Event) {
+    "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
         placement(required: true, description: "Place where track was dispatched")
         adv_segmentation(required: true, description: "Adevrtasement segmentation ")
         reputation_level(required: true, description: "Reputation for Pads")
