@@ -52,7 +52,7 @@ WHERE ds >= '@param01' AND ds < '@param02'
     AND `path` <> '/recommendations'
     AND `jt`.`id` IS NOT NULL
     AND others['intersection_observer_supported'] = 'true'
-GROUP BY ds, device.platform, application.site_id, regexp_extract(`jt`.`id`, '^(\/.*)\/.*$', 1), `jt`.`element_order`, `jt`.`campaign`, `jt`.`brand_name`, `jt`.`category_id`) AS clicks
+GROUP BY ds, device.platform, application.site_id, `jt`.`id`, `jt`.`element_order`, `jt`.`campaign`, `jt`.`brand_name`, `jt`.`category_id`) AS clicks
 
 ON
 
