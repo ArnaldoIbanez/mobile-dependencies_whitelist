@@ -46,7 +46,9 @@ tracks {
         view_time_in_millis(required: false, PropertyType.String)
         camera_flash(required: false, PropertyType.Boolean)
     }
-    "/instore/scan_qr/back"(platform: "/mobile", type: TrackType.Event) {
+    "/instore/scan_qr/help"(platform: "/mobile", type: TrackType.Event) {
+    }
+	"/instore/scan_qr/back"(platform: "/mobile", type: TrackType.Event) {
         view_time_in_millis(required: false, PropertyType.String)
         camera_flash(required: false, PropertyType.Boolean)
     }

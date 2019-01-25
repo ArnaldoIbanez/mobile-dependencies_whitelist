@@ -66,6 +66,8 @@ trackTests {
         "/instore/scan_qr/flash"(platform: "/mobile", type: TrackType.Event) {
             camera_flash = false
         }
+		"/instore/scan_qr/help"(platform: "/mobile", type: TrackType.Event) {
+        }
         // Permissions
         "/ask_device_permission/bluetooth"(platform: "/mobile", type: TrackType.View) {
             context = "/instore"
@@ -869,7 +871,9 @@ trackTests {
         "/instore/scan_qr/flash"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             camera_flash = false
         }
-        // Permissions
+		"/instore/scan_qr/help"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+        }
+		// Permissions
         "/ask_device_permission/bluetooth"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             context = "/instore"
             collector_id = "12356"
