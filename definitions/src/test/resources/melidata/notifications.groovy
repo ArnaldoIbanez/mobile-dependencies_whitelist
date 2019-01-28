@@ -1008,6 +1008,13 @@ trackTests {
             shipment_id = 1234
             order_id = 123
         }
+        "/notification/shipping_legacy_not_delivered_receiver"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+            order_id = 123
+        }
         "/notification/collections_approved"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "dismiss"
