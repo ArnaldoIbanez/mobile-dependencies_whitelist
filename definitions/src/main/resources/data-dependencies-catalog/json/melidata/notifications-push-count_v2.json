@@ -2,7 +2,7 @@
   "users": [
     "notifications-it@mercadolibre.com"
   ],
-  "process_name": "notifications_push",
+  "process_name": "notifications_push_v2",
   "cron": "00 06 * * *",
   "extract": {
     "operation": "append",
@@ -36,6 +36,9 @@
       "type": "UNICODE_STRING"
     }, {
       "name": "action_type",
+      "type": "UNICODE_STRING"
+    },{
+      "name": "discard_reason",
       "type": "UNICODE_STRING"
     }],
     "sql": {
