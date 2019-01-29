@@ -12,6 +12,7 @@ FROM (
         jet(event_data,'discard_reason') AS discard_reason,
  FROM tracks
  WHERE path LIKE '/notification/%'
+ AND path not in ('/notification/health_check', '/notification/messages_read', '/notification/campaigns-control_group', '/notification/security_event_feedback')
  AND   ds >= '@param01'
  AND   ds < '@param02'
  AND (jest(event_data,'context') is null OR jest(event_data,'context') != 'notification_center')
