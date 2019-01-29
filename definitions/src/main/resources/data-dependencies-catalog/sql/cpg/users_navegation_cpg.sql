@@ -1,4 +1,4 @@
-SELECT substr(ds,1,10) AS date, 
+SELECT substr(ds,1,10) AS track_date, 
   usr.user_id as user_id,
   device.platform as platform
 FROM
@@ -13,7 +13,7 @@ group by
   usr.user_id,
   device.platform
 union all
-SELECT substr(ds,1,10) AS date, 
+SELECT substr(ds,1,10) AS track_date, 
   usr.user_id as user_id,
   device.platform as platform
 FROM

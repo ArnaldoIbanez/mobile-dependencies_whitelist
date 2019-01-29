@@ -15,7 +15,7 @@
     "site": "Sales",
     "columns": [
       {
-        "name": "date",
+        "name": "track_date",
         "format": "yyyy-MM-dd",
         "type": "DATE"
       }
