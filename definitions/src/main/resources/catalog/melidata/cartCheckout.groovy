@@ -75,7 +75,7 @@ tracks {
 
     //TO-DO: Eliminar cuando /mobile/ios deje de mandar platform
     platform(required: false, deprecated:true)
-  
+
     recovery_flow(required: true, description: "Is recovery CHO flow")
     register_int(required: false, description: "Integrated registration")
 
@@ -109,7 +109,7 @@ tracks {
     nearest_store_distance(required: false, description: "Distance to the nearest store")
 
     account_money_info(required:false, type: PropertyType.Map, description: "Map with data of the account money of the buyer")
-    loyalty_level(required:false, description:"The loyalty level of the buyer") 
+    loyalty_level(required:false, description:"The loyalty level of the buyer")
 }
 
 "/cart/checkout/items_not_available"(platform:"/", type: TrackType.View) {}
@@ -431,6 +431,42 @@ tracks {
     session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
 }
 
+//Payment form input tack events:
+"/cart/checkout/payment/input_card/card_number"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+    session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
+"/cart/checkout/payment/input_card/holder_name"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+    session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
+"/cart/checkout/payment/input_card/expiry_date"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+    session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
+"/cart/checkout/payment/input_card/security_code"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+    session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
+"/cart/checkout/payment/input_card/identification_number"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+    session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
+"/cart/checkout/payment/input_card/error_card_number"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+    session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+    error(required: true, type: PropertyType.String, description: "Error that was shown to the user")
+}
+"/cart/checkout/payment/input_card/error_holder_name"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+    session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+    error(required: true, type: PropertyType.String, description: "Error that was shown to the user")
+}
+"/cart/checkout/payment/input_card/error_expiry_date"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+    session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+    error(required: true, type: PropertyType.String, description: "Error that was shown to the user")
+}
+"/cart/checkout/payment/input_card/error_security_code"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+    session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+    error(required: true, type: PropertyType.String, description: "Error that was shown to the user")
+}
+"/cart/checkout/payment/input_card/error_identification_number"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+    session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+    error(required: true, type: PropertyType.String, description: "Error that was shown to the user")
+}
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin Mobile platform
@@ -457,7 +493,7 @@ tracks {
 "/cart/checkout/review/confirm_purchase"(platform:"/web", type: TrackType.Event) {}
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// Fin Web platform 
+// Fin Web platform
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 }
