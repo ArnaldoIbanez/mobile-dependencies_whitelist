@@ -181,7 +181,6 @@ left Join (
         and type = 'event'
         and application.business='mercadoenvios'
         and path ='/flex/package/retry_pack'
-        and jest(event_data,'context') = 'list'
       group by substr(ds,1,10),application.site_id, jest(event_data,'delivery_id'), jest(event_data,'packs_info[0].shipping_id'), jest(event_data,'context')
 ) retry on retry.ds = hoy.ds and retry.site_id = hoy.site_id and retry.delivery_id = hoy.delivery_id and retry.shipping_id = hoy.shipping_id
 left join (
