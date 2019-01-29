@@ -440,8 +440,12 @@ trackTests {
     // TRACKS Seller central Sales
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    test("seller central sales view") {
+    test("seller central sales list view") {
         "/seller_central/sales/list"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("seller central sales detail view") {
+        "/seller_central/sales/detail"(platform: "/", type: TrackType.View) {}
     }
 
     test("seller central sales dashboard tasks") {
