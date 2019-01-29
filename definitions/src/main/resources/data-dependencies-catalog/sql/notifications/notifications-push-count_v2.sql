@@ -15,6 +15,6 @@ FROM (
  AND path not in ('/notification/health_check', '/notification/messages_read', '/notification/campaigns-control_group', '/notification/security_event_feedback')
  AND   ds >= '@param01'
  AND   ds < '@param02'
- AND (jest(event_data,'context') is null OR jest(event_data,'context') != 'notification_center')
+ AND (jet(event_data,'context') is null OR jet(event_data,'context') != 'notification_center')
 ) t
 GROUP BY t.fecha, t.notification_type, t.event_type, t.platform, t.os_version, t.site, t.marketplace, t.app_version, t.action_type
