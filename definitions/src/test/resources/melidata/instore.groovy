@@ -36,7 +36,6 @@ trackTests {
             location_permissions = true
             notifications_permissions = true
             bluetooth_permissions = true
-            qr_data = "Any scanned data"
         }
         "/instore/scan_qr/qr_discovery"(platform: "/mobile", type: TrackType.Event) {
             qr_data = "Any scanned data"
@@ -66,6 +65,8 @@ trackTests {
         }
         "/instore/scan_qr/flash"(platform: "/mobile", type: TrackType.Event) {
             camera_flash = false
+        }
+		"/instore/scan_qr/help"(platform: "/mobile", type: TrackType.Event) {
         }
         // Permissions
         "/ask_device_permission/bluetooth"(platform: "/mobile", type: TrackType.View) {
@@ -113,16 +114,24 @@ trackTests {
             context = "/instore"
         }
         "/ask_device_permission/location"(platform: "/mobile", type: TrackType.View) {
-            context = "/instore"
+            session_id = "wi234nuHSd83h478"
+            context = "/instore/map"
+            location_permission_enabled = true
+            device_gps_enabled = true
+            type = "qr"
+            tags = "shell"
         }
         "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {
-            context = "/instore"
+            session_id = "wi234nuHSd83h478"
+            context = "/instore/map"
         }
         "/ask_device_permission/location/granted"(platform: "/mobile", type: TrackType.Event) {
-            context = "/instore"
+            session_id = "wi234nuHSd83h478"
+            context = "/instore/map"
         }
         "/ask_device_permission/location/rejected"(platform: "/mobile", type: TrackType.Event) {
-            context = "/instore"
+            session_id = "wi234nuHSd83h478"
+            context = "/instore/map"
         }
 
         // Error
@@ -433,7 +442,6 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
-            machine_response_final_result = "Any machine response"
             vending_id = "12345"
         }
         "/instore/vending/st_machine_connection_error"(platform: "/mobile", type: TrackType.Event) {
@@ -470,25 +478,9 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
-            response_end_transaction = "Transaction response"
-            business_result = ["show_payment_method":true, "top_custom_view":[], "title":"¡Listo! Ya le pagaste a FEED", "bottom_custom_view":[], "status":"approved"]
-            success = true
             vending_id = "12345"
             end_transaction_status = "success"
         }
-        "/instore/vending/response_payment"(platform: "/mobile", type: TrackType.Event) {
-            collector_id = "12356"
-            brand_name = "YPF"
-            store_id = "76840"
-            pos_id = "65763"
-            response_payment = "Payment response"
-            screens_info = "screen info"
-            raw = ["coupon_amount":31.5, "operation_type":"regular_payment"]
-            business_result = ["show_payment_method":true, "top_custom_view":[], "title":"¡Listo! Ya le pagaste a FEED", "bottom_custom_view":[], "status":"approved"]
-            vending_operation_context = ["transaction_id":732941543339532, "vending_code":"GOtm10Y=", "service_uuid":"455a0001-0000-4000-4541-5a59434f494e", "connection_id":"EZ_50000131", "vending_id":"50000131", "mac":"00:1E:C0:27:77:25"]
-            dispatching_time = 1000
-        }
-
         "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
             currency_id = "ARS"
             statement_descriptor = "WWW.MERCADOPAGO.COM"
@@ -774,10 +766,6 @@ trackTests {
 
         "/instore/map"(platform: "/mobile", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            from = "scan_qr"
-            northeast = "-34.5442707,-58.5001586,15"
-            southwest = "-34.532499, -58.493422"
-            location = "-34.532499, -58.493422"
             type = "qr"
             tags = "shell"
         }
@@ -792,6 +780,12 @@ trackTests {
             action_type = "init"
             stores_quantity = "5"
         }
+        "/instore/map/pin_selected"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            store_name = "shell"
+            store_id = "2373810"
+            store_location = "-34.532499, -58.493422"
+        }
         "/instore/map/search_in_this_area"(platform: "/mobile", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             includes_user_position = true
@@ -805,25 +799,9 @@ trackTests {
         }
         "/instore/map/back"(platform: "/mobile", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            time_in_millis = "14519"
-        }
-        "/instore/map/permissions"(platform: "/mobile", type: TrackType.View) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            from = "scan_qr"
-            location_permission_enabled = "scan_qr"
-        }
-        "/instore/map/permissions/back"(platform: "/mobile", type: TrackType.Event) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            location_permission_enabled = false
-            time_in_millis = "4519"
+            view_time_in_millis = "14519"
         }
         "/instore/map/navigate_to_store"(platform: "/mobile", type: TrackType.Event) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            store_name = "Burger King"
-            store_location = "-32.895112, -68.840782"
-            navigation_apps = "Maps, Waze"
-        }
-        "/instore/map/navigate_to_store_app_picker"(platform: "/mobile", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             store_name = "Burger King"
             store_location = "-32.895112, -68.840782"
@@ -839,27 +817,15 @@ trackTests {
         }
         "/instore/map/quick_filters_selected"(platform: "/mobile", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            selected_filters = "combustibles, mercados, gastronomia"
+            selected_filters = ["combustibles", "mercados", "gastronomia"]
         }
-        "/ask_device_permission/location"(platform: "/mobile", type: TrackType.View) {
+
+        "/instore/map/error/server_error"(platform: "/mobile", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            context = "/instore/map"
-            location_permission_enabled = true
-            device_gps_enabled = true
-            type = "qr"
-            tags = "shell"
-        }
-        "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            context = "/instore/map"
-        }
-        "/ask_device_permission/location/granted"(platform: "/mobile", type: TrackType.Event) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            context = "/instore/map"
-        }
-        "/ask_device_permission/location/rejected"(platform: "/mobile", type: TrackType.Event) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            context = "/instore/map"
+            style = "screen"
+            id = "operation_error"
+            message = "server error"
+            attributable_to = "server"
         }
 
 
@@ -905,7 +871,9 @@ trackTests {
         "/instore/scan_qr/flash"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             camera_flash = false
         }
-        // Permissions
+		"/instore/scan_qr/help"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+        }
+		// Permissions
         "/ask_device_permission/bluetooth"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             context = "/instore"
             collector_id = "12356"
@@ -959,15 +927,23 @@ trackTests {
             context = "/instore"
         }
         "/ask_device_permission/location"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            context = "/instore"
+            session_id = "wi234nuHSd83h478"
+            context = "/instore/map"
+            location_permission_enabled = true
+            device_gps_enabled = true
+            type = "qr"
+            tags = "shell"
         }
         "/ask_device_permission/location/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "wi234nuHSd83h478"
             context = "/instore"
         }
         "/ask_device_permission/location/granted"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "wi234nuHSd83h478"
             context = "/instore"
         }
         "/ask_device_permission/location/rejected"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "wi234nuHSd83h478"
             context = "/instore"
         }
 
@@ -1172,7 +1148,6 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
-            machine_response_final_result = "Any machine response"
             vending_id = "12345"
         }
         "/instore/vending/st_machine_connection_error"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
@@ -1209,23 +1184,8 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
-            response_end_transaction = "Transaction response"
-            business_result = ["show_payment_method":true, "top_custom_view":[], "title":"¡Listo! Ya le pagaste a FEED", "bottom_custom_view":[], "status":"approved"]
-            success = true
             vending_id = "12345"
             end_transaction_status = "success"
-        }
-        "/instore/vending/response_payment"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
-            collector_id = "12356"
-            brand_name = "YPF"
-            store_id = "76840"
-            pos_id = "65763"
-            response_payment = "Payment response"
-            screens_info = "screen info"
-            raw = ["coupon_amount":31.5, "operation_type":"regular_payment"]
-            business_result = ["show_payment_method":true, "top_custom_view":[], "title":"¡Listo! Ya le pagaste a FEED", "bottom_custom_view":[], "status":"approved"]
-            vending_operation_context = ["transaction_id":732941543339532, "vending_code":"GOtm10Y=", "service_uuid":"455a0001-0000-4000-4541-5a59434f494e", "connection_id":"EZ_50000131", "vending_id":"50000131", "mac":"00:1E:C0:27:77:25"]
-            dispatching_time = 1000
         }
 
         // Waiting
@@ -1628,12 +1588,8 @@ trackTests {
 
         "/instore/map"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            from = "scan_qr"
-            northeast = "-34.5442707,-58.5001586,15"
-            southwest = "-34.532499, -58.493422"
-            location = "-34.532499, -58.493422"
             type = "qr"
-            tags = "shell"
+            tags = ["shell"]
         }
         "/instore/map/first_user_location"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
@@ -1645,6 +1601,12 @@ trackTests {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             action_type = "init"
             stores_quantity = "5"
+        }
+        "/instore/map/pin_selected"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            store_name = "shell"
+            store_id = "2373810"
+            store_location = "-34.532499, -58.493422"
         }
         "/instore/map/search_in_this_area"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
@@ -1659,25 +1621,9 @@ trackTests {
         }
         "/instore/map/back"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            time_in_millis = "14519"
-        }
-        "/instore/map/permissions"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            from = "scan_qr"
-            location_permission_enabled = "scan_qr"
-        }
-        "/instore/map/permissions/back"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            location_permission_enabled = false
-            time_in_millis = "4519"
+            view_time_in_millis = "14519"
         }
         "/instore/map/navigate_to_store"(platform: "/mobile", business: "mercadopago",type: TrackType.Event) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            store_name = "Burger King"
-            store_location = "-32.895112, -68.840782"
-            navigation_apps = "Maps, Waze"
-        }
-        "/instore/map/navigate_to_store_app_picker"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             store_name = "Burger King"
             store_location = "-32.895112, -68.840782"
@@ -1687,33 +1633,20 @@ trackTests {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             store_name = "Burger King"
             store_location = "-32.895112, -68.840782"
-            navigation_apps = "maps, waze"
+            navigation_apps = ["maps", "waze"]
             chosen_app = "waze"
             view_time_in_millis = "4508"
         }
         "/instore/map/quick_filters_selected"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            selected_filters = "combustibles, mercados, gastronomia"
+            selected_filters = ["combustibles", "mercados", "gastronomia"]
         }
-        "/ask_device_permission/location"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+        "/instore/map/error/server_error"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            context = "/instore/map"
-            location_permission_enabled = true
-            device_gps_enabled = true
-            type = "qr"
-            tags = "shell"
-        }
-        "/ask_device_permission/location/back"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            context = "/instore/map"
-        }
-        "/ask_device_permission/location/granted"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            context = "/instore/map"
-        }
-        "/ask_device_permission/location/rejected"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
-            session_id = "2183nHUADndjsu123yu8N7r73ndf"
-            context = "/instore/map"
+            style = "screen"
+            id = "operation_error"
+            message = "server error"
+            attributable_to = "server"
         }
     }
 

@@ -69,6 +69,18 @@ trackTests {
         "/seller_central/listings/communication/more_info"(platform: "/mobile", type: TrackType.Event) {
             type = "news"
         }
+        "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
+            type = "news"           
+            placement = "publicidad-banner"
+            adv_segmentation = "winback"
+            reputation_level="yellow"
+        }
+        "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
+            type = "news"           
+            placement = "publicidad-banner"
+            adv_segmentation = "winback"
+            reputation_level="yellow"
+        }
     }
 
     test("seller central list to bulk editor") {
@@ -293,6 +305,32 @@ trackTests {
             seller_profile = "ADVANCED"
             from = "gold_special"
             to = "gold_pro"
+        }
+    }
+
+    test("seller central track to measure health changes"){
+        "/seller_central/modify/success"(platform: "/web", type: TrackType.Event){
+            item_id = "MLA12345"
+            session_id = "123-update-abc123"
+            goals_achieved = ["mercado_envios"]
+            original_goals_not_completed = ["mercado_envios", "pictures"]
+            original_goals_completed = ["technical_specifications"]
+            original_goals_not_applied = ["price_parity"]
+            goal_order = "random"
+            original_price = 123.4
+            original_currency = "ARS"
+            original_listing_type = "gold_special"
+            original_quantity = 2
+            original_condition = "used"
+            original_shipping = "ME_BUYER"
+            original_local_pickup = true
+            domain = "cellphones"
+            is_fbm = true
+            is_catalog_product = true
+            technical_specifications_attributes_empty = 0
+            technical_specifications_attributes_loaded = 5
+            seller_experience = "ADVANCED"
+            is_official_store = true
         }
     }
 

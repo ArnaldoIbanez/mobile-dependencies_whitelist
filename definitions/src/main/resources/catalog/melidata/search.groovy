@@ -48,6 +48,7 @@ tracks {
         //corrections(required: false, description:'corrections over query')
         //processed_query(required: false, description:'processed query by backend')
         //stems(required: false, description:'stems list which returns backend to stand out in frontend'
+
     }
 
     "/search"(platform: "/web") {
@@ -66,6 +67,8 @@ tracks {
         has_logos(required: false, description: "indicates if there is an item with logos", PropertyType.Boolean)
         promise_items(required: false, description:  "items with shipping promise", PropertyType.ArrayList)
         geo_search(required: false, description: "search with geolocation", type: PropertyType.Boolean)
+        available_filters(required: true, description: "available filters, sameday and nextday")
+        user_zone(required: true, description: "the user zone registered", type: PropertyType.String)
     }
 
     "/search"(platform: "/mobile") {
@@ -93,7 +96,8 @@ tracks {
         filters(required: false)
         results(required: false)
         billboard_shown(required: false)
-
+        available_filters(required: false, description: "available filters, sameday and nextday")
+        user_zone(required: false, description: "the user zone registered", type: PropertyType.String)
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
@@ -192,4 +196,5 @@ tracks {
         category_path(required: true, description: "the path from root of the category_ud", type: PropertyType.ArrayList)
         recommended_categories(required: true, description: "the recommended categories for the item", type: PropertyType.ArrayList)
     }
+
 }

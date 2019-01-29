@@ -50,6 +50,7 @@ trackTests {
             sort_id="relevance"
             view_mode="MOSAIC"
             filters = { seller_id = "47316577" }
+            available_filters=[{shipping_time_sameday: "250"}]
             only_in_type="Seller"
             limit=20
             offset=0
@@ -100,7 +101,7 @@ trackTests {
                 printed_positions=[]
                 printed_positions_size=0
             }
-
+            user_zone = ""
         })
 
         "/search"(platform: "/web",{
@@ -108,6 +109,7 @@ trackTests {
             sort_id="relevance"
             view_mode="MOSAIC"
             filters = { seller_id = "47316577" }
+            available_filters = []
             only_in_type="Seller"
             limit=20
             offset=0
@@ -159,6 +161,7 @@ trackTests {
                 printed_positions_size=0
             }
             geo_search = false
+            user_zone = ""
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -221,10 +224,16 @@ trackTests {
             defaultSearchInformation()
             list_mode = "mosaic"
         }
-        "/search/promoted_items"(platform: "/web", defaultSearchInformation)
+        "/search/promoted_items"(platform: "/web") {
+            defaultSearchInformation()
+            available_filters = []
+            user_zone = ""
+        }
         "/search/promoted_items/show"(platform: "/web") {
             defaultSearchInformation()
             item_type = "projects"
+            available_filters = []
+            user_zone = ""
         }
         "/search/billboard"(platform: "/") {
             defaultSearchInformation()
@@ -234,12 +243,15 @@ trackTests {
         "/search/billboard/resize"(platform: "/web") {
             defaultSearchInformation()
             action = "expand"
+            available_filters = []
+            user_zone = ""
         }
         "/search/save"(platform: "/") {
             defaultSearchInformation()
         }
-        "/search/official_stores_carousel"(platform: "/", defaultSearchInformation)
-
+        "/search/official_stores_carousel"(platform: "/") {
+            defaultSearchInformation()
+        }
         "/search/official_stores_carousel/click"(platform: "/") {
             defaultSearchInformation()
             to_name="adidas"
@@ -303,6 +315,7 @@ trackTests {
             total = 0
             sort_id = "relevance"
             filters = []
+            available_filters = []
             pads=[]
             pads_info={
                 ids=[]
@@ -314,6 +327,8 @@ trackTests {
             billboards = []
             category_id="MLA32089"
             query="iphone"
+            user_zone = ""
+
         }
     }
 
@@ -329,4 +344,5 @@ trackTests {
 
         }
     }
+
 }

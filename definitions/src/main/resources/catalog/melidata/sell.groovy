@@ -86,6 +86,7 @@ tracks {
         category_prediction_score(required: false, description: "Category prediction scores result", type: PropertyType.ArrayList)
         category_prediction_zordon(required: false, description: "Category prediction path result from zordon", type: PropertyType.ArrayList)
         category_prediction_zordon_score(required: false, description: "Category prediction scores result from zordon", type: PropertyType.ArrayList)
+        predictor_chosen(required: false, description: "Which predictor we used to predict category: ZORDON/DEFAULT/etc...", type: PropertyType.String)
         title_predicted(required: false, description: "Title used to predict category", type: PropertyType.String)
         category_id(required: false, description: "Category Id", type: PropertyType.String)
         category_path(required: false, description: "Category path", type: PropertyType.ArrayList)

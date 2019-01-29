@@ -72,6 +72,14 @@ tracks {
       qr_content (type: PropertyType.String, required: true, description: "Ex: http://qrContent")
     }
 
+    // QR Queue Web
+    "/merchant_acquisition/flows/qr-queue"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/qr-queue/amount"(platform:"/", type: TrackType.View) {
+        onboarding (type: PropertyType.Boolean, required: true, description: "Flag that determines if onboarding was shown. Ex: true / false")
+    }
+    "/merchant_acquisition/flows/qr-queue/waiting-payment"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/qr-queue/congrats"(platform:"/", type: TrackType.View) {}
+
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
 
@@ -778,8 +786,17 @@ tracks {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
     }
-
     "/notification/mpcampaigns_control_group"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
+        sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
+    }
+    "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
+        sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
+    }
+    "/notification/mpcampaigns_mpcampaignsinfo"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
         sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
@@ -820,6 +837,9 @@ tracks {
         loan_id(required: true, type: PropertyType.Numeric)
     }
 
+    //Compliance Support
+    "/notification/compliance_support_validations"(platform: "/mobile") {}
+
     //Fraud
     "/notification/fraud_cash_release_iv"(platform: "/mobile") {}
 
@@ -850,6 +870,7 @@ tracks {
     "/notification/prepaid_card_third_activation_reminder"(platform: "/mobile") {}
     "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_invalid_pin"(platform: "/mobile") {}
 
     //Point
     "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {}
