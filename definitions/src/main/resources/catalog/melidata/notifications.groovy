@@ -375,6 +375,9 @@ tracks {
       "/notification/chargeback_payer_update_ml"(platform: "/") {
           case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
       }
+      "/notification/chargeback_payer_ultimatum_ml"(platform: "/") {
+          case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+      }
 
       "/notification/instore_discover_activities"(platform: "/") {}
 
@@ -485,6 +488,11 @@ tracks {
       }
 
       "/notification/shipping_legacy_not_delivered_receiver"(platform: "/") {
+          shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+          order_id(required: true, type: PropertyType.Numeric)
+      }
+
+      "/notification/shipping_legacy_reminder_agency_withdrawal"(platform: "/") {
           shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
           order_id(required: true, type: PropertyType.Numeric)
       }
