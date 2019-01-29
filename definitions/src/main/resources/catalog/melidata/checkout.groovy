@@ -758,6 +758,8 @@ tracks {
     "/checkout/finish/invalid_sec_code"(platform:"/", type: TrackType.View, isAbstract: true) {}
     "/checkout/finish/invalid_sec_code/input"(platform: "/mobile") {}
 
+    "/checkout/finish/invalid_sec_code/input#submit"(platform: "/mobile", type: TrackType.Event) {}
+
     "/checkout/finish"(platform: "/mobile", isAbstract: true) {
         /** **************************************/
         // order id, payments and items are required

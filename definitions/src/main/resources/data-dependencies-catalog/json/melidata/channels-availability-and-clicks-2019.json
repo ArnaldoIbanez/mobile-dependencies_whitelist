@@ -119,7 +119,7 @@
       }
     ],
     "sql": {
-      "script": "cx/channels-availability-click.sql",
+      "script": "cx/channels-availability-and-clicks-2019.sql",
       "parameters": [
         {
           "name": "param01",

@@ -848,6 +848,8 @@ trackTests {
             checkoutStatus()
         }
 
+        "/checkout/finish/invalid_sec_code/input#submit"(platform:"/mobile", type:TrackType.Event) { }
+
         "/checkout/finish/choose_action"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
