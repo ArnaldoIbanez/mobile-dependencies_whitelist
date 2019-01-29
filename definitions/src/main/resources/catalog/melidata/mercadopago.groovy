@@ -111,6 +111,8 @@ tracks {
     "/merchant_acquisition/mydata/success"(platform: "/", type: TrackType.View) {}
 
     // Merchant Acqusition Point Landings - Set Language In Chinese
+    // "/merchant_acquisition"(platform: "/", isAbstract: true) {}
+    "/merchant_acquisition/point-landings"(platform: "/", isAbstract: true) {}
     "/merchant_acquisition/point-landings/app-chinese"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/point-landings/app-chinese/error"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/point-landings/app-chinese/success"(platform:"/", type: TrackType.View) {}
