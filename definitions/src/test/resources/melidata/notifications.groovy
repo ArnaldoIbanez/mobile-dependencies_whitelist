@@ -269,7 +269,7 @@ trackTests {
             latest_news_type= "compliance_support-validations"
             latest_news_id= "compliance_support-validations-143816022-MLB1013046714"
         }
-        "/notification_center/credits-consumer"(platform: "/mobile"){
+        "/notification_center/credits_consumer"(platform: "/mobile"){
             newsgroup_id= "credits-consumer-213882865-255720"
             event_type= "open"
             deeplink= "meli://generic_landing?authenticate=true&url=https%3A%2F%2Fwww.mercadolibre.com.ar%2Fcredits%2Fconsumer%2Fnews%3FloanId%3D255720%26installmentId%3D1592866"
