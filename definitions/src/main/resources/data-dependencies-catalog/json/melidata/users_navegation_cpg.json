@@ -15,11 +15,6 @@
     "site": "Sales",
     "columns": [
       {
-        "name": "track_date",
-        "format": "yyyy-MM-dd",
-        "type": "DATE"
-      }
-      {
         "name": "user_id",
         "type": "INTEGER"
       },
