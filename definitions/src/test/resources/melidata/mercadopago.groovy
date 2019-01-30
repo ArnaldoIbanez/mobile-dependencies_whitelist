@@ -584,6 +584,13 @@ trackTests {
         }
     }
 
+
+    test("MP-MA Point Landings App Chinese") {
+        "/merchant_acquisition/point-landings/app-chinese"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/point-landings/app-chinese/error"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/point-landings/app-chinese/success"(platform:"/", type: TrackType.View) {}
+    }
+
     test("Landing mercadopago point") {
         "/point/landings" (platform: "/") {
             product = "point-h"

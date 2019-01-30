@@ -289,6 +289,8 @@ tracks {
 
     "/seller_central/sales/list"(platform: "/", type: TrackType.View) {}
 
+    "/seller_central/sales/detail"(platform: "/", type: TrackType.View) {}
+
     "/seller_central/sales/list/dashboard"(platform: "/", isAbstract: true) {}
 
     "/seller_central/sales/list/dashboard/tasks"(platform: "/", type: TrackType.Event) {

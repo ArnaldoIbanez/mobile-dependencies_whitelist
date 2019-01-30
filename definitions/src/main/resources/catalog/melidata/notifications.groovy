@@ -147,6 +147,13 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/campaigns-ticket_recovery"(platform: "/") {
+        campaign_id(required: true, description: "Id of the campaign related to the campaigns notification sent.")
+        test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test.")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/campaigns-cho_cart_recovery"(platform: "/") {
         campaign_id(required: false, description: "Id of the campaign related to the campaigns notification sent.")
         test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test.")
@@ -579,6 +586,11 @@ tracks {
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
           item_id(required: true, type: PropertyType.String)
           experiment(required: false, type: PropertyType.Boolean)
+      }
+      "/notification/campaigns_ticket_recovery"(platform: "/") {
+          campaign_id(required: true, description: "Id of the campaign related to the campaigns notification sent.")
+          test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+          sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
       }
       "/notification/campaigns_cho_cart_recovery"(platform: "/") {
           campaign_id(required: true, description: "Id of the campaign related to the campaigns notification sent.")
