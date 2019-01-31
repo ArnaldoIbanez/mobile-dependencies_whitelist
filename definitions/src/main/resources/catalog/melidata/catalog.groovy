@@ -63,6 +63,7 @@ catalog {
         include business, "bookmarks.groovy"
         include business, "buyIntention.groovy"
         include business, "cards_cobranded_ml.groovy"
+        include business, "cards_prepaid.groovy"
         include business, "cartCheckout.groovy"
         include business, "cartList.groovy"
         include business, "cellphone_recharge.groovy"
