@@ -74,7 +74,7 @@ trackTests {
 
     test("Loyalty landing aerolineas") {
         "/loyalty/landing/aerolineas"(platform: "/", type: TrackType.Event) {
-            destionation_id = "123ABC"
+            destination_id = "123ABC"
         }
     }
 
