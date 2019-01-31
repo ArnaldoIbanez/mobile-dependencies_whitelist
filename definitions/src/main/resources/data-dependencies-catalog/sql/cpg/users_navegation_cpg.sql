@@ -1,6 +1,6 @@
-SELECT substr(ds,1,10) AS track_date, 
-  usr.user_id as user_id,
-  device.platform as platform
+SELECT usr.user_id as user_id,
+  device.platform as platform,
+  substr(ds,1,10) AS track_date
 FROM
   tracks 
 WHERE
@@ -13,9 +13,9 @@ group by
   usr.user_id,
   device.platform
 union all
-SELECT substr(ds,1,10) AS track_date, 
-  usr.user_id as user_id,
-  device.platform as platform
+SELECT usr.user_id as user_id,
+  device.platform as platform,
+  substr(ds,1,10) AS track_date
 FROM
   tracks 
 WHERE
