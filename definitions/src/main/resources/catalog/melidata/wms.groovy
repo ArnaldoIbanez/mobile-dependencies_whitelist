@@ -128,9 +128,6 @@ tracks {
 <<<<<<< HEAD:definitions/src/main/resources/catalog/wms.groovy
     "/wms/home/logout"(platform: "mobile/android", type: TrackType.Event) {}
 
-    "/wms/receiving"(platform: "/mobile/android", type: TrackType.View) {}
-=======
->>>>>>> master:definitions/src/main/resources/catalog/melidata/wms.groovy
     "/wms/transfer"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/found"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/restock"(platform: "/mobile/android", type: TrackType.View) {}
