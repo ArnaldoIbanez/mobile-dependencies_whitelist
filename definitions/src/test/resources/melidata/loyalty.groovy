@@ -72,6 +72,12 @@ trackTests {
         }
     }
 
+    test("Loyalty landing aerolineas") {
+        "/loyalty/landing/aerolineas"(platform: "/", type: TrackType.Event) {
+            destionation_id = "123ABC"
+        }
+    }
+
     test("Loyalty welcome modal") {
         "/loyalty/modal"(platform: "/mobile", type: TrackType.View) {
             event_type = "SHOW"
