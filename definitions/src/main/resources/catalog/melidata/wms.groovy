@@ -124,9 +124,10 @@ tracks {
         warehouse_id(required: false, type: PropertyType.String,
             description: "Id of the warehouse to track")
     }
+    "/wms/login"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/logout"(platform: "/mobile/android", type: TrackType.Event) {}
+	
     "/wms/home"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/home/logout"(platform: "mobile/android", type: TrackType.Event) {}
-
     "/wms/transfer"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/found"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/restock"(platform: "/mobile/android", type: TrackType.View) {}
