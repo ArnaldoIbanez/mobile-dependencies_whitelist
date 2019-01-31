@@ -42,6 +42,8 @@ trackTests {
         //Views
         "/wms/login"(platform: "/mobile/android") {
             trackData()
+            warehouse_id = "BRTW01"
+
         }
         "/wms/home"(platform: "/mobile/android") {
             trackData()
@@ -348,10 +350,6 @@ trackTests {
         }
 
         //Events
-        "/wms/login"(platform: "/mobile/android") {
-            trackData()
-            warehouse_id = "BRTW01"
-        }
         "/wms/logout"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRTW01"
