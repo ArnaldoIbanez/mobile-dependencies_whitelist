@@ -2,6 +2,10 @@ package com.melidata.definitions.format
 
 class HiveFormatter extends CatalogFormatter {
 
+    HiveFormatter(String catalogName) {
+        super(catalogName)
+    }
+
     def generate(String business) {
         def platforms = getPlatforms(catalog.platformTrees.get(business))
 
@@ -44,9 +48,10 @@ class HiveFormatter extends CatalogFormatter {
 
 
     static void main(String[] args) {
+        String catalogName = args[0]
         def file = new File("catalog.csv")
         file.delete()
 
-        file << new HiveFormatter().output
+        file << new HiveFormatter(catalogName).output
     }
 }
