@@ -125,7 +125,6 @@ tracks {
             description: "Id of the warehouse to track")
     }
     "/wms/home"(platform: "/mobile/android", type: TrackType.View) {}
-<<<<<<< HEAD:definitions/src/main/resources/catalog/wms.groovy
     "/wms/home/logout"(platform: "mobile/android", type: TrackType.Event) {}
 
     "/wms/transfer"(platform: "/mobile/android", type: TrackType.View) {}
