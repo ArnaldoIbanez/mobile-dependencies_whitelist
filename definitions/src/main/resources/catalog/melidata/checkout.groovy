@@ -601,7 +601,7 @@ tracks {
     "/checkout/payment/encrypted_security_code_add#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         status(required: true, type: PropertyType.String)
-        checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"]) 
+        checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
     }
 
     //Billing info
@@ -660,8 +660,8 @@ tracks {
         new_value(required: true, type: PropertyType.Numeric)
     }
     "/checkout/review/edit_installments"(platform: "/") {
-        // TODO: Include this tracking in we version => https://mercadolibre.atlassian.net/browse/CHKON-6166 
-        
+        // TODO: Include this tracking in we version => https://mercadolibre.atlassian.net/browse/CHKON-6166
+
         //List of available installments
         available_installments(required: false, type: PropertyType.ArrayList)
         //installments: [
@@ -877,6 +877,44 @@ tracks {
         payment_method(required: true)
 
     }
+
+    //Payment form input tack events:
+    "/checkout/payment/input_card/card_number"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+        session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/checkout/payment/input_card/holder_name"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+        session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/checkout/payment/input_card/expiry_date"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+        session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/checkout/payment/input_card/security_code"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+        session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/checkout/payment/input_card/identification_number"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+        session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/checkout/payment/input_card/error_card_number"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+        session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+        error(required: true, type: PropertyType.String, description: "Error that was shown to the user")
+    }
+    "/checkout/payment/input_card/error_holder_name"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+        session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+        error(required: true, type: PropertyType.String, description: "Error that was shown to the user")
+    }
+    "/checkout/payment/input_card/error_expiry_date"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+        session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+        error(required: true, type: PropertyType.String, description: "Error that was shown to the user")
+    }
+    "/checkout/payment/input_card/error_security_code"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+        session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+        error(required: true, type: PropertyType.String, description: "Error that was shown to the user")
+    }
+    "/checkout/payment/input_card/error_identification_number"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+        session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+        error(required: true, type: PropertyType.String, description: "Error that was shown to the user")
+    }
+
     /*
     * CHECKOUT V4
     */

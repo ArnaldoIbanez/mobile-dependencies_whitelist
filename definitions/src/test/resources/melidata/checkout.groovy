@@ -423,6 +423,7 @@ trackTests {
             success = true
             session_id = "1241n1kj2nk14141nl12nl"
         }
+
         "/checkout/shipping/select_address"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             //List of available shippingMethods
@@ -754,6 +755,43 @@ trackTests {
             checkout_flow = "direct"
             session_id = "asodas98a9sd8a"
         }
+
+         //Payment form input tack events:
+         "/checkout/payment/input_card/card_number"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+         }
+         "/checkout/payment/input_card/holder_name"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+         }
+         "/checkout/payment/input_card/expiry_date"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+         }
+         "/checkout/payment/input_card/security_code"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+         }
+         "/checkout/payment/input_card/identification_number"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+         }
+         "/checkout/payment/input_card/error_card_number"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+             error = "Completa este dato"
+         }
+         "/checkout/payment/input_card/error_holder_name"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+             error = "Completa este dato"
+         }
+         "/checkout/payment/input_card/error_expiry_date"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+             error = "Completa este dato"
+         }
+         "/checkout/payment/input_card/error_security_code"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+             error = "Completa este dato"
+         }
+         "/checkout/payment/input_card/error_identification_number"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+             error = "Completa este dato"
+         }
 
         // Billing Info
         "/checkout/billing/physical_person"(platform: "/mobile") {
