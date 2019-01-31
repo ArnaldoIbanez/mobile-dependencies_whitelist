@@ -64,6 +64,10 @@ tracks {
         landing_id(required: true, description: "id of landing")
     }
 
+    "/loyalty/landing/aerolineas"(platform: "/", type: TrackType.Event) {
+        destination_id(required: false, description: "id of the promoted destination")
+    }
+
     "/loyalty/modal"(platform: "/mobile", type: TrackType.View) {
         event_type(required: true, values: ["SHOW", "delawed", "shown", "close", "dismiss", "received", "open"])
     }
