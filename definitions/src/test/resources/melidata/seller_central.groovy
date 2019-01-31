@@ -69,6 +69,18 @@ trackTests {
         "/seller_central/listings/communication/more_info"(platform: "/mobile", type: TrackType.Event) {
             type = "news"
         }
+        "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
+            type = "news"           
+            placement = "publicidad-banner"
+            adv_segmentation = "winback"
+            reputation_level="yellow"
+        }
+        "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
+            type = "news"           
+            placement = "publicidad-banner"
+            adv_segmentation = "winback"
+            reputation_level="yellow"
+        }
     }
 
     test("seller central list to bulk editor") {
@@ -428,8 +440,12 @@ trackTests {
     // TRACKS Seller central Sales
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    test("seller central sales view") {
+    test("seller central sales list view") {
         "/seller_central/sales/list"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("seller central sales detail view") {
+        "/seller_central/sales/detail"(platform: "/", type: TrackType.View) {}
     }
 
     test("seller central sales dashboard tasks") {

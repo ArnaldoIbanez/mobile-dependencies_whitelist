@@ -199,6 +199,17 @@ trackTests {
             item_id= "MLV515515631"
             experiment= false
         }
+        "/notification_center/campaigns-ticket_recovery"(platform: "/") {
+            campaign_id = "mkt_campaign_ticket_recovery"
+            newsgroup_id = "campaigns_ticket_recovery-320010629"
+            event_type = "open"
+            deeplink = "meli://purchases"
+            type_layout = "standard"
+            test_notification = false
+            sent_date = "20190129"
+            latest_news_type = "campaigns_ticket_recovery"
+            latest_news_id = "campaigns_ticket_recovery-143816022"
+        }
         "/notification_center/campaigns-cho_cart_recovery"(platform: "/mobile"){
             campaign_id= "campaign1"
             newsgroup_id= "campaigns-checkout_recovery-320010629"
@@ -258,7 +269,7 @@ trackTests {
             latest_news_type= "compliance_support-validations"
             latest_news_id= "compliance_support-validations-143816022-MLB1013046714"
         }
-        "/notification_center/credits-consumer"(platform: "/mobile"){
+        "/notification_center/credits_consumer"(platform: "/mobile"){
             newsgroup_id= "credits-consumer-213882865-255720"
             event_type= "open"
             deeplink= "meli://generic_landing?authenticate=true&url=https%3A%2F%2Fwww.mercadolibre.com.ar%2Fcredits%2Fconsumer%2Fnews%3FloanId%3D255720%26installmentId%3D1592866"
@@ -496,6 +507,15 @@ trackTests {
             batch_id = "MLB_PACK_20180508_2"
             item_id = "MLV515515631"
             experiment = false
+        }
+
+        "/notification/campaigns_ticket_recovery"(platform: "/") {
+            news_id = "12332323"
+            event_type = "sent"
+            deeplink ="meli://purchases"
+            campaign_id = "mkt_campaign_ticket_recovery"
+            test_notification = false
+            sent_date = "20190129"
         }
 
         "/notification/campaigns_cho_cart_recovery"(platform: "/mobile") {

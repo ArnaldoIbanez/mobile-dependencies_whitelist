@@ -184,7 +184,10 @@ trackTests {
             price = 123.456
         }
 
-        "/sell/list/congrats"(platform: "/web/desktop", itemData)
+        "/sell/list/congrats"(platform: "/web/desktop", {
+            itemData
+            predictor_chosen = "ZORDON"
+        })
         "/sell/upgrade_on"(platform: "/web/desktop", itemData)
 
     }

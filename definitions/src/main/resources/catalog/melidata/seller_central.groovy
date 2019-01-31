@@ -40,6 +40,18 @@ tracks {
         id(required: false, type: PropertyType.String, description: "Id of the communication ")
     }
 
+    "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
+        placement(required: true, description: "Place where track was dispatched")
+        adv_segmentation(required: true, description: "Adevrtasement segmentation ")
+        reputation_level(required: true, description: "Reputation for Pads")
+    }
+
+    "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
+        placement(required: true, description: "Place where track was dispatched")
+        adv_segmentation(required: true, description: "Adevrtasement segmentation ")
+        reputation_level(required: true, description: "Reputation for Pads")
+    }
+
     "/seller_central/listings/communication/more_info"(platform: "/mobile", type: TrackType.Event) {}
 
     "/seller_central/listings/editor"(platform: "/", type: TrackType.Event) {}
@@ -276,6 +288,8 @@ tracks {
     "/seller_central/sales"(platform: "/", isAbstract: true) {}
 
     "/seller_central/sales/list"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/sales/detail"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/sales/list/dashboard"(platform: "/", isAbstract: true) {}
 
