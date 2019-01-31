@@ -348,6 +348,14 @@ trackTests {
         }
 
         //Events
+        "/wms/login"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+        "/wms/logout"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
         "/wms/scan"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             context = "/wms/picking/scan_container"
