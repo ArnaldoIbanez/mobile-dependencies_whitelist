@@ -125,6 +125,8 @@ tracks {
             description: "Id of the warehouse to track")
     }
     "/wms/home"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/home/logout"(platform: "mobile/android", type: TrackType.Event) {}
+
     "/wms/receiving"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/transfer"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/found"(platform: "/mobile/android", type: TrackType.View) {}
