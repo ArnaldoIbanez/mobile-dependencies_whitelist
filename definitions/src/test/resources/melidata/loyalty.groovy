@@ -198,6 +198,9 @@ trackTests {
                         origin= "marketplace"
         }
         "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
+                        origin= "aerolineas"
+        }
+        "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
         }
     }
 
@@ -242,6 +245,14 @@ trackTests {
        "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
             action= "started"
             origin= "landing"
+        }
+        "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
+            action= "started"
+            origin= "aerolineas"
+        }
+        "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
+            action= "success"
+            origin= "aerolineas"
         }
     }
 
