@@ -27,6 +27,10 @@
       {
         "name": "Reputation_level",
         "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Page",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
