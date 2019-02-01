@@ -538,6 +538,9 @@ trackTests {
             checkoutStatus()
             available_issuers = ["Visa", "Banamex", "Santander"]
         }
+        "/checkout/payment/add_debit_card/back"(platform: "/mobile", type:TrackType.Event) {
+            back = true
+        }
         "/checkout/payment/add_prepaid_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
