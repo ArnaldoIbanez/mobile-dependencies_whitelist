@@ -12,11 +12,6 @@
     "operation": "append",
     "columns": [
       {
-        "name": "Fecha",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
-      {
         "name": "Site_id",
         "type": "UNICODE_STRING"
       },
