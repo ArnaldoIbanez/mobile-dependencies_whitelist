@@ -175,6 +175,7 @@ trackTests {
         "/cart/checkout/review/confirm_purchase"(platform:"/web", dataSet)
         "/cart/checkout/review/confirm_purchase"(platform:"/mobile", type:TrackType.Event) {
             session_id = "98f8v98au0af9af0af"
+            status = "success"
         }
         "/cart/checkout/congrats"(platform:"/"){
             dataSet()
