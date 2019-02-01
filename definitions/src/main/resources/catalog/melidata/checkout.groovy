@@ -307,6 +307,9 @@ tracks {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         success(required: false, type: PropertyType.Boolean, description: "API Call when success on loading shipping options")
     }
+    "/checkout/payment/add_debit_card/back"(platform: "/mobile") {
+        back(required: false, type: PropertyType.Boolean, description: "Represents the back in add debit card screen")
+    }
     //Query zip code
     "/checkout/shipping/custom_address/zip_code/query"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
     }
