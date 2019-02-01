@@ -429,6 +429,7 @@ tracks {
 
 "/cart/checkout/review/confirm_purchase"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    status(required: false, type: PropertyType.String, description: "The result of the purchase")
 }
 
 //Payment form input tack events:
