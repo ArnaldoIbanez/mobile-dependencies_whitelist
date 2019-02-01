@@ -4,14 +4,13 @@
   ],
   "process_name": "seller_central_settings_pageview",
   "cron": "00 08 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
     "columns": [
-      {
-        "name": "Fecha",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
       {
         "name": "Site_id",
         "type": "UNICODE_STRING"

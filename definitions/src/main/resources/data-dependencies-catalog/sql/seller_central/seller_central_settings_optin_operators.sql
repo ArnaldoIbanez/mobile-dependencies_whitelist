@@ -1,6 +1,6 @@
 SELECT t1.usr.user_id as User_id,
     t1.application.site_id as Site_id,
-    substr(t1.server_timestamp, 1, 10) as Fecha
+    substr(server_timestamp, 1, 10) as ds
 FROM tracks as t1
 INNER JOIN tracks as t2 ON (t1.usr.user_id=t2.usr.user_id AND t1.application.site_id=t2.application.site_id)
 INNER JOIN tracks as t3 ON (t2.usr.user_id=t3.usr.user_id AND t2.application.site_id=t3.application.site_id)

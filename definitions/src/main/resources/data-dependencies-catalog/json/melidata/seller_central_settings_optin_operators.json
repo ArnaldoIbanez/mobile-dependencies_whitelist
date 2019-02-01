@@ -4,6 +4,10 @@
   ],
   "process_name": "seller_central_settings_optin_operators",
   "cron": "00 08 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
     "columns": [

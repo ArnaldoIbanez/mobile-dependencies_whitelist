@@ -4,7 +4,7 @@ SELECT usr.user_id as User_id,
     jest(event_data, 'section_id') as Section_id,
     jest(event_data, 'from') as Prev_value,
     jest(event_data, 'to') as Actual_value,
-    substr(server_timestamp, 1, 10) as Fecha
+    substr(server_timestamp, 1, 10) as ds
 FROM tracks
 WHERE ds >= '@param01'
     AND ds < '@param02'

@@ -4,7 +4,7 @@ SELECT usr.user_id as User_id,
     jest(event_data, 'reputation_level') as Reputation_level,
     CASE WHEN path LIKE '%/settings%' THEN 'SETTINGS'
          WHEN path LIKE '%/empty_settings%' THEN 'EMPTY_SETTINGS' END as Page,
-    substr(server_timestamp, 1, 10) as Fecha
+    substr(server_timestamp, 1, 10) as ds
 FROM tracks
 WHERE ds >= '@param01'
     AND ds < '@param02'
