@@ -1,5 +1,3 @@
-import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.catalog
-
 /**
  * Main catalog definitions
  */
@@ -25,14 +23,14 @@ catalog {
     ]
 
     def marketplace = [
-           "mercadolibre",
-           "tucarro",
-           "tumoto",
-           "tulancha",
-           "tuinmueble",
-           "autoplaza",
-           "metroscubicos",
-           "portalinmobiliario"
+            "mercadolibre",
+            "tucarro",
+            "tumoto",
+            "tulancha",
+            "tuinmueble",
+            "autoplaza",
+            "metroscubicos",
+            "portalinmobiliario"
     ]
 
     def mercadopago = ["mercadopago"]
@@ -56,6 +54,7 @@ catalog {
         include business, "px.groovy"
         include business, "mobile_commons.groovy"
         include business, "google_connect.groovy"
+        include business, "security_settings.groovy"
     }
 
     marketplace.each { business ->
