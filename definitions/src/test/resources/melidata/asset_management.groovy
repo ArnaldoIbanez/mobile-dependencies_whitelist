@@ -11,6 +11,8 @@ trackTests {
 
         // Onboarding
         "/asset_management/onboarding"(platform: "/mobile") {}
+        "/asset_management/start_investing"(platform: "/mobile") {}
+        "/asset_management/know_more"(platform: "/mobile") {}
 
         // Challenges
         "/asset_management/challenge_pep"(platform: "/mobile") {}
@@ -38,6 +40,8 @@ trackTests {
         "/asset_management/challenge_selfie"(platform: "/mobile") {}
         "/asset_management/challenge_selfie_bad_quality"(platform: "/mobile") {}
         "/asset_management/challenge_terms_and_conditions_company"(platform: "/mobile") {}
+        "/asset_management/challenge_address"(platform: "/mobile") {}
+        "/asset_management/challenge_phone"(platform: "/mobile") {}
 
         // Terms and conditions View
         "/asset_management/terms_and_conditions"(platform: "/mobile") {}
