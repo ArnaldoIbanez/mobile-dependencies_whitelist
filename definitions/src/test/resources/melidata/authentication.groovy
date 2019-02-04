@@ -83,7 +83,6 @@ trackTests {
             operator_id = "123"
             has_error = false
             recaptcha = false
-            push_control_group_user = false
             old_user_id = "123456"
             old_user_nick = "nick"
         }
@@ -108,7 +107,6 @@ trackTests {
             is_otp = false
             is_admin_otp = false
             operator_id = null
-            push_control_group_user = false
             rememberme_enabled = true
         }
         "/login/auth/success"(platform: "/mobile", type: TrackType.Event) {
@@ -162,12 +160,6 @@ trackTests {
             challenge = "pass"
             source = "QUESTION"
             tracking_id = "123"
-        }
-        "/login/auth/push"(platform: "/", type: TrackType.Event) {
-            view = "waiting_view"
-            event_type = "click_go_to_password_button"
-            challenge = "push_authentication"
-            tx = "adHgjskcD01lM6EeLs7zUGgBaA1GiWqF6w_XQUgLJk0QAmdhE"
         }
         "/logout"(platform: "/", type: TrackType.Event) {
             source = "MSL"
