@@ -2,7 +2,7 @@
   "users": [
     "luis.olivera@mercadolibre.com"
   ],
-  "process_name": "seller_central_settings_show_row",
+  "process_name": "seller_central_settings_update_row",
   "cron": "00 08 * * *",
   "partition": {
     "name": "ds",
