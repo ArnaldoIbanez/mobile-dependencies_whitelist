@@ -330,4 +330,38 @@ tracks {
         device_profile_id(type: PropertyType.String, required: true, description: "Describes user device profile id")
     }
 
+    // Device Authorization Authenticator
+    "/authenticators"(platform: "/", isAbstract: true) {}
+
+    "/authenticators/device_authorization"(platform: "/", isAbstract: true) {}
+
+    "/authenticators/device_authorization/request"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/device_authorization/request/fallback"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/device_authorization/answer"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/device_authorization/answer/send"(platform: "/", type: TrackType.Event) {
+        status(type: PropertyType.String, required: true, values: ["approve", "decline", "reject"], description: "Did the user approve the access?")
+    }
+
+    "/authenticators/device_authorization/enrollment"(platform: "/", isAbstract: true) {
+        section(type: PropertyType.String, required: true, description: "How did the user land at the enrollment flow?")
+    }
+
+    "/authenticators/device_authorization/enrollment/greeting"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/device_authorization/enrollment/request"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/device_authorization/enrollment/request/fallback"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/device_authorization/enrollment/answer"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/device_authorization/enrollment/answer/send"(platform: "/", type: TrackType.Event) {
+        status(type: PropertyType.String, required: true, values: ["approve", "decline", "reject"], description: "Did the user approve the simulated access?")
+    }
+
+    "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {
+        status(type: PropertyType.String, required: true, values: ["approve", "decline", "reject"], description: "Did the user approve the simulated access?")
+    }
 }

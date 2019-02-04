@@ -2766,6 +2766,46 @@ trackTests {
         }
     }
 
+    test("Device Authorization - Authentication") {
+        "/authenticators/device_authorization/request"(platform: "/", type: TrackType.View) {}
+
+        "/authenticators/device_authorization/request/fallback"(platform: "/", type: TrackType.View) {}
+
+        "/authenticators/device_authorization/answer"(platform: "/", type: TrackType.View) {}
+
+        "/authenticators/device_authorization/answer/send"(platform: "/", type: TrackType.Event) {
+            status = "approve"
+        }
+    }
+
+    test("Device Authorization - Enrollment") {
+        "/authenticators/device_authorization/enrollment/greeting"(platform: "/", type: TrackType.View) {
+            section = "security_settings"
+        }
+
+        "/authenticators/device_authorization/enrollment/request"(platform: "/", type: TrackType.View) {
+            section = "security_settings"
+        }
+
+        "/authenticators/device_authorization/enrollment/request/fallback"(platform: "/", type: TrackType.View) {
+            section = "security_settings"
+        }
+
+        "/authenticators/device_authorization/enrollment/answer"(platform: "/", type: TrackType.View) {
+            section = "security_settings"
+        }
+
+        "/authenticators/device_authorization/enrollment/answer/send"(platform: "/", type: TrackType.Event) {
+            section = "security_settings"
+            status = "approve"
+        }
+
+        "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {
+            section = "security_settings"
+            status = "approve"
+        }
+    }
+
     test("Change Password") {
         "/auth/authentication_methods/password/change_form"(platform: "/", type: TrackType.Event) {
             redirect_url = "https://accountrecovery.mercadolibre.com.ar/collect/userInfo"
