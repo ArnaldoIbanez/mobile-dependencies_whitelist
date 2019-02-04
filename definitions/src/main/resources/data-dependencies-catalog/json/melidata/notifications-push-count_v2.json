@@ -14,31 +14,10 @@
       "name": "fecha",
       "type": "UNICODE_STRING"
     }, {
-      "name": "notification_type",
-      "type": "UNICODE_STRING"
-    }, {
       "name": "event_type",
       "type": "UNICODE_STRING"
     }, {
-      "name": "platform",
-      "type": "UNICODE_STRING"
-    }, {
-      "name": "os_version",
-      "type": "UNICODE_STRING"
-    }, {
-      "name": "site_id",
-      "type": "UNICODE_STRING"
-    }, {
       "name": "marketplace",
-      "type": "UNICODE_STRING"
-    }, {
-      "name": "app_version",
-      "type": "UNICODE_STRING"
-    }, {
-      "name": "action_type",
-      "type": "UNICODE_STRING"
-    },{
-      "name": "discard_reason",
       "type": "UNICODE_STRING"
     }],
     "sql": {

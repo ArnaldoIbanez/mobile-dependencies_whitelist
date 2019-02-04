@@ -37,9 +37,6 @@
     }, {
       "name": "action_type",
       "type": "UNICODE_STRING"
-    },{
-      "name": "discard_reason",
-      "type": "UNICODE_STRING"
     }],
     "sql": {
       "script": "notifications/notifications-push-count.sql",
