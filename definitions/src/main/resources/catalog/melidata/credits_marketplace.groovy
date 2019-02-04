@@ -390,12 +390,12 @@ tracks {
 
     //Page Views
     "/credits/consumer/contacts"(platform: "/", type: TrackType.View) {
-        credits_type(description: "Type of credits user", type: PropertyType.String, required: true, values: ["consumer", "merchant"])
+        credits_type(description: "Credits user type", type: PropertyType.String, required: true, values: ["consumer", "merchant"])
         site_id(description: "Site of the user", type: PropertyType.String, required: true)
         medium(description: "Medium of the contact", type: PropertyType.String, required: true)
         campaign(description: "Source of the contact", type: PropertyType.String, required: true)
         status_from_medium(description: "Initial state from the medium", type: PropertyType.String, required: false)
-        action_label(description: "Initial state from the medium", type: PropertyType.String, required: true)
+        action_label(description: "Text of the action triggered", type: PropertyType.String, required: true)
         loan_status(description: "Current loan status", type: PropertyType.String, required: true)
         next_installment_status(description: "Current installment to pay status", type: PropertyType.String, required: true)
         output_label(description: "Redirection result", type: PropertyType.String, required: true)
