@@ -16,10 +16,6 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "User_id",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "Row_id",
         "type": "UNICODE_STRING"
       },
