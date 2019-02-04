@@ -361,7 +361,5 @@ tracks {
         status(type: PropertyType.String, required: true, values: ["approve", "decline", "reject"], description: "Did the user approve the simulated access?")
     }
 
-    "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {
-        status(type: PropertyType.String, required: true, values: ["approve", "decline", "reject"], description: "Did the user approve the simulated access?")
-    }
+    "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {}
 }

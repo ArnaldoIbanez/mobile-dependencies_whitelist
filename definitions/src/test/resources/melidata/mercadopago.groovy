@@ -2802,7 +2802,6 @@ trackTests {
 
         "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {
             section = "security_settings"
-            status = "approve"
         }
     }
 
