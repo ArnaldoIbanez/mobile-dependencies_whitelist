@@ -12,6 +12,10 @@
     "operation": "append",
     "columns": [
       {
+        "name": "Quantity",
+        "type": "INTEGER"
+      },
+      {
         "name": "Site_id",
         "type": "UNICODE_STRING"
       },
@@ -20,15 +24,11 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Prev_value",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "Actual_value",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "Section_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Action_id",
         "type": "UNICODE_STRING"
       }
     ],
