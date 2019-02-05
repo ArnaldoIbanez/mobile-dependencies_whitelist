@@ -564,6 +564,11 @@ trackTests {
             event_type = "shown"
             case_id = "158213000000"
         }
+        "/notification/chargeback_payer_intensify_ml"(platform: "/mobile") {
+            news_id = "chargeback_payer_intensify_ml-21680059-20180516"
+            event_type = "shown"
+            case_id = "158213000000"
+        }
 
         "/notification/credits_consumer_expired_n_loans_fourth_notice"(platform: "/mobile") {
             news_id = "credits-consumer_expired_n_loans_fourth_notice-21680059-20180516"
@@ -644,6 +649,12 @@ trackTests {
             event_type = "dismiss"
             installment_id= 717743
             loan_id= 107849
+        }
+
+        "/notification/credits_merchants_educational"(platform: "/mobile") {
+            news_id = "credits-merchants_educational-9876"
+            event_type = "shown"
+            loan_id = 123
         }
 
         "/notification/instore_discover_activities"(platform: "/mobile"){

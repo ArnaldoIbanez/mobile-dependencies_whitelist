@@ -369,6 +369,10 @@ tracks {
       "/notification/credits_consumer_expired_n_loans_second_notice"(platform: "/") {}
       "/notification/credits_consumer_expired_n_loans_third_notice"(platform: "/") {}
 
+      "/notification/credits_merchants_educational"(platform: "/") {
+          loan_id(required: true, type: PropertyType.Numeric)
+      }
+
       //Compliance Support
       "/notification/compliance_support_validations"(platform: "/") {}
 
@@ -383,6 +387,9 @@ tracks {
           case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
       }
       "/notification/chargeback_payer_ultimatum_ml"(platform: "/") {
+          case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+      }
+      "/notification/chargeback_payer_intensify_ml"(platform: "/") {
           case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
       }
 
