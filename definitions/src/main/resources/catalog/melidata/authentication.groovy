@@ -335,13 +335,13 @@ tracks {
 
     "/authenticators/device_authorization"(platform: "/", isAbstract: true) {}
 
-    "/authenticators/device_authorization/request"(platform: "/", type: TrackType.View) {}
+    "/authenticators/device_authorization/access_request"(platform: "/", type: TrackType.View) {}
 
-    "/authenticators/device_authorization/request/fallback"(platform: "/", type: TrackType.View) {}
+    "/authenticators/device_authorization/access_request/fallback"(platform: "/", type: TrackType.View) {}
 
-    "/authenticators/device_authorization/answer"(platform: "/", type: TrackType.View) {}
+    "/authenticators/device_authorization/access_answer"(platform: "/", type: TrackType.View) {}
 
-    "/authenticators/device_authorization/answer/send"(platform: "/", type: TrackType.Event) {
+    "/authenticators/device_authorization/access_answer/send"(platform: "/", type: TrackType.Event) {
         status(type: PropertyType.String, required: true, values: ["approve", "decline", "reject"], description: "Did the user approve the access?")
     }
 

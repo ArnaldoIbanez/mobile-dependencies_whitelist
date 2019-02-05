@@ -439,13 +439,13 @@ trackTests {
     }
 
     test("Device Authorization - Authentication") {
-        "/authenticators/device_authorization/request"(platform: "/", type: TrackType.View) {}
+        "/authenticators/device_authorization/access_request"(platform: "/", type: TrackType.View) {}
 
-        "/authenticators/device_authorization/request/fallback"(platform: "/", type: TrackType.View) {}
+        "/authenticators/device_authorization/access_request/fallback"(platform: "/", type: TrackType.View) {}
 
-        "/authenticators/device_authorization/answer"(platform: "/", type: TrackType.View) {}
+        "/authenticators/device_authorization/access_answer"(platform: "/", type: TrackType.View) {}
 
-        "/authenticators/device_authorization/answer/send"(platform: "/", type: TrackType.Event) {
+        "/authenticators/device_authorization/access_answer/send"(platform: "/", type: TrackType.Event) {
             status = "approve"
         }
     }
