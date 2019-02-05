@@ -203,7 +203,7 @@ trackTests {
             milestone = 20
         }
 
-        "/credits/consumer/overdue_nav"(platform: "/web/desktop", type: TrackType.View) {
+        "/credits/consumer/overdue_nav"(platform: "/web/desktop", type: TrackType.Event) {
             status = "fixed_charge_period_1"
             milestone = 4
             context = "vip"

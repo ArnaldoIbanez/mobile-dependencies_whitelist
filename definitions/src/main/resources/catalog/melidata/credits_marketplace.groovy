@@ -279,7 +279,7 @@ tracks {
         status(required: true, type: PropertyType.String, values: ["no_charge_period", "fixed_charge_period_1", "fixed_charge_period_2", "daily_charge_period"],
                 description: "Indicates user status")
         milestone(type: PropertyType.Numeric, required: true)
-        context(required: true, values: ["search", "vip", "home"],
+        context(required: false, values: ["search", "vip", "home"],
                 description: "The page or section where the nav action is taking place")
     }
 
@@ -302,7 +302,7 @@ tracks {
         milestone(type: PropertyType.Numeric, required: true)
     }
 
-    "/credits/consumer/overdue_nav"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+    "/credits/consumer/overdue_nav"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
         pursue_nav_properties
     }
 
