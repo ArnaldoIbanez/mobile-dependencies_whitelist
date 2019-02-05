@@ -351,13 +351,13 @@ tracks {
 
     "/authenticators/device_authorization/enrollment/greeting"(platform: "/", type: TrackType.View) {}
 
-    "/authenticators/device_authorization/enrollment/request"(platform: "/", type: TrackType.View) {}
+    "/authenticators/device_authorization/enrollment/access_request"(platform: "/", type: TrackType.View) {}
 
-    "/authenticators/device_authorization/enrollment/request/fallback"(platform: "/", type: TrackType.View) {}
+    "/authenticators/device_authorization/enrollment/access_request/fallback"(platform: "/", type: TrackType.View) {}
 
-    "/authenticators/device_authorization/enrollment/answer"(platform: "/", type: TrackType.View) {}
+    "/authenticators/device_authorization/enrollment/access_answer"(platform: "/", type: TrackType.View) {}
 
-    "/authenticators/device_authorization/enrollment/answer/send"(platform: "/", type: TrackType.Event) {
+    "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
         status(type: PropertyType.String, required: true, values: ["approve", "decline", "reject"], description: "Did the user approve the simulated access?")
     }
 

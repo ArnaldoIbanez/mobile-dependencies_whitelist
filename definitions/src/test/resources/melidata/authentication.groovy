@@ -455,19 +455,19 @@ trackTests {
             section = "security_settings"
         }
 
-        "/authenticators/device_authorization/enrollment/request"(platform: "/", type: TrackType.View) {
+        "/authenticators/device_authorization/enrollment/access_request"(platform: "/", type: TrackType.View) {
             section = "security_settings"
         }
 
-        "/authenticators/device_authorization/enrollment/request/fallback"(platform: "/", type: TrackType.View) {
+        "/authenticators/device_authorization/enrollment/access_request/fallback"(platform: "/", type: TrackType.View) {
             section = "security_settings"
         }
 
-        "/authenticators/device_authorization/enrollment/answer"(platform: "/", type: TrackType.View) {
+        "/authenticators/device_authorization/enrollment/access_answer"(platform: "/", type: TrackType.View) {
             section = "security_settings"
         }
 
-        "/authenticators/device_authorization/enrollment/answer/send"(platform: "/", type: TrackType.Event) {
+        "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
             section = "security_settings"
             status = "approve"
         }
