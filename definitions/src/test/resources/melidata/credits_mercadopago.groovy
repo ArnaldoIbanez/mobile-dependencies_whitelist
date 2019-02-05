@@ -100,5 +100,9 @@ trackTests {
         "/credits/merchant/money_advance/summary"(platform: "/web/desktop", type: TrackType.View) {}
         "/credits/merchant/money_advance/no_options"(platform: "/web/desktop", type: TrackType.View) {}
 
+        "/credits/merchant/money_advance/congrats"(platform: "/mobile", type: TrackType.View) {}
+        "/credits/merchant/money_advance/hub"(platform: "/mobile", type: TrackType.View) {}
+        "/credits/merchant/money_advance/summary"(platform: "/mobile", type: TrackType.View) {}
+        "/credits/merchant/money_advance/no_options"(platform: "/mobile", type: TrackType.View) {}
     }
 }
