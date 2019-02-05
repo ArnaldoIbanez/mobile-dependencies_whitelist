@@ -75,6 +75,7 @@ tracks {
     //Enrollment
     //Page Views
     "/credits/merchant/enrollment"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/money_advance"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/enrollment/credits_conditions"(platform: "/", type: TrackType.View) {}
 
 
