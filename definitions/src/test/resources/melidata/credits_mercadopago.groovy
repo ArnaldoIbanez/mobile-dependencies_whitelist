@@ -11,6 +11,7 @@ trackTests {
         //Views
         "/credits/merchant/enrollment"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/credits_conditions"(platform: "/web/desktop") {}
+        "/credits/merchant/money_advance"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/preconfirm"(platform: "/web/desktop") {
             amount = 200000
             installments = 9
