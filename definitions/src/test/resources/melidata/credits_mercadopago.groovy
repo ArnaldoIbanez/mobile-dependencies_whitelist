@@ -95,10 +95,10 @@ trackTests {
         "/credits/merchant/collection"(platform: "/mobile", type: TrackType.Event) {}
 
         //Money advance Credits
-        "/credits/merchant/money_advance/congrats"(platform: "/", type: TrackType.View) {}
-        "/credits/merchant/money_advance/hub"(platform: "/", type: TrackType.View) {}
-        "/credits/merchant/money_advance/summary"(platform: "/", type: TrackType.View) {}
-        "/credits/merchant/money_advance/no_options"(platform: "/", type: TrackType.View) {}
+        "/credits/merchant/money_advance/congrats"(platform: "/web/desktop", type: TrackType.View) {}
+        "/credits/merchant/money_advance/hub"(platform: "/web/desktop", type: TrackType.View) {}
+        "/credits/merchant/money_advance/summary"(platform: "/web/desktop", type: TrackType.View) {}
+        "/credits/merchant/money_advance/no_options"(platform: "/web/desktop", type: TrackType.View) {}
 
     }
 }
