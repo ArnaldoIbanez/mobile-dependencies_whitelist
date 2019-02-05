@@ -29,6 +29,12 @@ trackTests {
         "/credits/merchant/enrollment/feedback/error"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/error/accept"(platform: "/web/desktop") {}
 
+        //Money advance Credits
+        "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {}
+        "/credits/merchant/money_advance/hub"(platform: "/web/desktop") {}
+        "/credits/merchant/money_advance/summary"(platform: "/web/desktop") {}
+        "/credits/merchant/money_advance/no_options"(platform: "/web/desktop") {}
+
         "/credits/merchant/administrator"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/dashboard"(platform: "/") {
             status = 'offer'
@@ -94,11 +100,6 @@ trackTests {
         //Notification Credits Merchant
         "/credits/merchant/collection"(platform: "/mobile", type: TrackType.Event) {}
 
-        //Money advance Credits
-        "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {}
-        "/credits/merchant/money_advance/hub"(platform: "/web/desktop") {}
-        "/credits/merchant/money_advance/summary"(platform: "/web/desktop") {}
-        "/credits/merchant/money_advance/no_options"(platform: "/web/desktop") {}
-
+        
     }
 }
