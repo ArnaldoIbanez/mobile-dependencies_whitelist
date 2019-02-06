@@ -94,6 +94,7 @@ trackTests {
             mandatory()
             listing_type_id = "GOLD"
             item_seller_type = "AB001"
+            unregister = false
         })
 
         "/vip/contact_seller"(platform: "/web/desktop", type: TrackType.Event, {
@@ -382,6 +383,7 @@ trackTests {
 
         "/vip/question"(platform: "/", type: TrackType.View){
             item_id = "MLA213512313"
+            unregister = false
 
         }
     }

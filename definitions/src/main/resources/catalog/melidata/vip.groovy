@@ -266,6 +266,8 @@ tracks {
         listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
         source(required: false, description: "Source of the referred")
+        unregister(required: false, type: PropertyType.Boolean,
+                description: "User is not register")
     }
 
     "/vip/call_seller"(platform: "/", type: TrackType.Event) {
@@ -342,6 +344,8 @@ tracks {
         vertical(required: false, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"],
                 description: "Vertical of the item")
+        unregister(required: false, type: PropertyType.Boolean,
+                description: "User is not register")
     }
 
 
