@@ -7,7 +7,7 @@ tracks {
     propertyDefinitions {
         cart_content(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the VIP has cart features (only for core items)")
-        add_to_cart_availability(required: false, type: PropertyType.String, values: ["yes_default", "yes_discount", "yes_fs", "no_high_ratio", "no_too_many_items", "no_item_price_too_low"], 
+        add_to_cart_availability(required: false, type: PropertyType.String, values: ["yes_default", "yes_discount", "yes_fs", "no_high_ratio", "no_too_many_items", "no_item_price_too_low"],
                 description: "Indicates which add_to_cart button the VIP is showing (Default, Discount, Free Shipping). In case it doesn't show it, also indicates the reason why it doesn't show it (High Ratio, Item price too low, Too many items in cart)")
         main_action(required: false, type: PropertyType.String, values: ["buy", "a2c_fs", "a2c_discount", "a2c_default"],
                 description: "Indicates which button the VIP is showing as main_action (ie, shown as blue button). If it is a2c, it then specifies which button type (default, fs, discount)")
@@ -33,10 +33,10 @@ tracks {
         //price: {amount, currency_id, is_loyalty_discount}
         //destination: zipcode | city/state
     }
-    
+
     propertyGroups {
         add_cart_info(cart_content, add_to_cart_availability, main_action)
-        shipping_info(shipping_preference, shipping_mode, free_shipping, local_pick_up, 
+        shipping_info(shipping_preference, shipping_mode, free_shipping, local_pick_up,
                 logistic_type, free_shipping_benefit, shipping_promise)
     }
 
@@ -75,7 +75,7 @@ tracks {
         return_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has free return for the item")
         has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
-        
+
         // CART
         add_cart_info
 
@@ -109,7 +109,7 @@ tracks {
         store_type(required: false, type: PropertyType.String, values: ["normal", "brand"], description: "Indicates store type")
 
         // SHIPPING
-        shipping_info 
+        shipping_info
 
         // USER FIELD
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
@@ -121,7 +121,7 @@ tracks {
                 description: "The value of the discount when the user subscribes to the item")
         default_tab(required: false, type: PropertyType.String, values: ["buy", "subscription"],
                 description: "Indicates if the 'buy' tab or the 'subscription' tab is shown by default in the short description")
-        
+
         // TOOLTIPS
         shown_tooltip(required: false, type: PropertyType.String,
                       description: "Indicates which tooltip is shown in the VIP at the time, if any. In case it does not show anything, it should be 'none'. E.g: 'credits', 'subscription', 'cart_benefit_free_shipping', etc.")
@@ -193,7 +193,7 @@ tracks {
         review_rate(required: false, type: PropertyType.Numeric, description: "The rating average of the reviews")
         reviews_attributes(required: false, type: PropertyType.ArrayList, description: "Reviewable catalog attribute names")
     }
-    
+
     "/vip/quantity_change"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
@@ -204,7 +204,7 @@ tracks {
         has_stock(required: true,type: PropertyType.Boolean)
 
     }
-    
+
     "/vip/buy_action"(platform: "/", parentPropertiesInherited: false) {
         item_id(required: false, type: PropertyType.String, description: "Item ID")
         quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to buy")
@@ -266,8 +266,7 @@ tracks {
         listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
         source(required: false, description: "Source of the referred")
-        unregister(required: false, type: PropertyType.Boolean,
-                description: "User is not register")
+        unregister(required: false, type: PropertyType.Boolean, "User is unregister type")
     }
 
     "/vip/call_seller"(platform: "/", type: TrackType.Event) {
@@ -345,7 +344,8 @@ tracks {
                 values: ["core", "motors", "realEstate", "services"],
                 description: "Vertical of the item")
         unregister(required: false, type: PropertyType.Boolean,
-                description: "User is not register")
+                description: "User is unregister type")
+        captcha_showed(required: false, type: PropertyType.Boolean, description: "If captcha is showed")
     }
 
 
@@ -465,7 +465,7 @@ tracks {
 
     "/vip/shipping/calculator/choose_state"(platform: "/", type: TrackType.View) {
     }
- 
+
     "/vip/shipping/calculator/choose_city"(platform: "/", type: TrackType.View) {
     }
 
@@ -547,7 +547,7 @@ tracks {
         price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
         original_price(required: true, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
         currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
-        
+
     }
 
     "/vip/shipping_calculator"(platform: "/", type: TrackType.View, parentPropertiesInherited: false){
