@@ -530,6 +530,9 @@ trackTests {
         "/checkout/payment/add_debit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+        "/checkout/payment/add_debit_card/back"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+        }
         "/checkout/payment/add_debit_card#card_config"(platform:"/mobile", type: TrackType.Event) {
             bin = "123456"
             success = true
