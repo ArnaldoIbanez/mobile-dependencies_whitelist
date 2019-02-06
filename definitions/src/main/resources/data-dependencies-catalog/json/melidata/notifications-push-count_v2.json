@@ -12,11 +12,7 @@
     "operation": "append",
     "columns": [{
       "name": "total",
-      "type": "INTEGER",
-      "format": "yyyy-MM-dd"
-    }, {
-      "name": "fecha",
-      "type": "UNICODE_STRING"
+      "type": "INTEGER"
     }, {
       "name": "event_type",
       "type": "UNICODE_STRING"

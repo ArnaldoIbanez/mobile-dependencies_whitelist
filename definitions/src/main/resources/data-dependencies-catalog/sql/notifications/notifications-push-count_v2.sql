@@ -1,4 +1,4 @@
-select count(*) as total, '@param01' as fecha, t.event_type as event_type, t.marketplace as marketplace from 
+select count(*) as total, t.event_type as event_type, t.marketplace as marketplace, t.fecha AS ds from 
   (SELECT application.business as marketplace, SUBSTRING (ds, 1, 10) AS fecha, jest(event_data, 'event_type') as event_type
   FROM tracks
   WHERE ds >= '@param01'
