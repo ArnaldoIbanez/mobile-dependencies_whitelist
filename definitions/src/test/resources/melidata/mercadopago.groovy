@@ -2874,6 +2874,16 @@ trackTests {
         }
     }
 
+    test("Security Settings") {
+        "/security_settings"(platform: "/", type: TrackType.View) {}
+
+        "/security_settings/2fa"(platform: "/", type: TrackType.View) {}
+
+        "/security_settings/2fa/switch"(platform: "/", type: TrackType.Event) {
+            status = "opted_in"
+        }
+    }
+
     test("Identity Validation ") {
 
         "/identity-validation/validation_landing"(platform: "/web/mobile") {
