@@ -35,7 +35,6 @@ tracks {
         operator_id(type: PropertyType.String, required: false, description: "Indicates the id of the operator when login is carried out by one")
         has_error(type: PropertyType.Boolean, required: false)
         recaptcha(type: PropertyType.Boolean, required: false, description: "Indicates whether recaptcha is present or not")
-        push_control_group_user(type: PropertyType.Boolean, required: false)
     }
 
     "/login/recovery"(platform: "/web", type: TrackType.Event) {}
@@ -52,7 +51,6 @@ tracks {
         is_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via a One Time Password")
         is_admin_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via an Admin One Time Password")
         operator_id(type: PropertyType.String, required: false, description: "Indicates the id of the operator when login is carried out by one")
-        push_control_group_user(type:PropertyType.Boolean, required: false)
         rememberme_enabled(type:PropertyType.Boolean, required: false)
     }
 
@@ -107,7 +105,6 @@ tracks {
         source(type: PropertyType.String, required: false, description: "Context on which the login is presented")
         has_error(type: PropertyType.Boolean, required: false, description: "Indicates if there's an error shown in screen")
         recaptcha(type: PropertyType.Boolean, required: false, description: "Indicates whether recaptcha is present or not")
-        push_control_group_user(type: PropertyType.Boolean, required: false, description: "Indicates if user enter in push experiment control group")
     }
 
     "/login/auth/error"(platform: "/", type: TrackType.View) {
@@ -136,13 +133,6 @@ tracks {
     "/logout"(platform: "/", type: TrackType.Event) {
         source(type: PropertyType.String, required: false, values: ["LFE", "MSL"], description: "difference Legacy login and MSL")
         action(type: PropertyType.String, required: false, description: "Mobile only, action perceived")
-    }
-
-    "/login/auth/push"(platform: "/", type: TrackType.Event) {
-        view(type: PropertyType.String, required: true)
-        event_type(type: PropertyType.String, required: true)
-        challenge(type: PropertyType.String, required: true, description: "Login step")
-        tx(type: PropertyType.String, required: true)
     }
 
     "/login/status"(platform: "/mobile", type: TrackType.Event) {
@@ -340,4 +330,36 @@ tracks {
         device_profile_id(type: PropertyType.String, required: true, description: "Describes user device profile id")
     }
 
+    // Device Authorization Authenticator
+    "/authenticators"(platform: "/", isAbstract: true) {}
+
+    "/authenticators/device_authorization"(platform: "/", isAbstract: true) {}
+
+    "/authenticators/device_authorization/access_request"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/device_authorization/access_request/fallback"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/device_authorization/access_answer"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/device_authorization/access_answer/send"(platform: "/", type: TrackType.Event) {
+        status(type: PropertyType.String, required: true, values: ["approve", "decline", "reject"], description: "Did the user approve the access?")
+    }
+
+    "/authenticators/device_authorization/enrollment"(platform: "/", isAbstract: true) {
+        section(type: PropertyType.String, required: true, description: "How did the user land at the enrollment flow?")
+    }
+
+    "/authenticators/device_authorization/enrollment/greeting"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/device_authorization/enrollment/access_request"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/device_authorization/enrollment/access_request/fallback"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/device_authorization/enrollment/access_answer"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
+        status(type: PropertyType.String, required: true, values: ["approve", "decline", "reject"], description: "Did the user approve the simulated access?")
+    }
+
+    "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {}
 }

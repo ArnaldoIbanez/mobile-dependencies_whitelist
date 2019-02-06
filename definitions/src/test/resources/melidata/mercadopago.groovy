@@ -2454,7 +2454,6 @@ trackTests {
             operator_id = "123"
             has_error = false
             recaptcha = false
-            push_control_group_user = false
             old_user_id = "123456"
             old_user_nick = "nick"
         }
@@ -2479,7 +2478,6 @@ trackTests {
             is_otp = true
             is_admin_otp = false
             operator_id = null
-            push_control_group_user = false
             rememberme_enabled = true
         }
         "/login/auth/success"(platform: "/mobile", type: TrackType.Event) {
@@ -2518,12 +2516,6 @@ trackTests {
             source = "QUESTION"
             tx = "tx"
             operator_id = null
-        }
-        "/login/auth/push"(platform: "/", type: TrackType.Event) {
-            view = "waiting_view"
-            event_type = "click_go_to_password_button"
-            challenge = "push_authentication"
-            tx = "adHgjskcD01lM6EeLs7zUGgBaA1GiWqF6w_XQUgLJk0QAmdhE"
         }
         "/logout"(platform: "/", type: TrackType.Event) {
             source = "MSL"
@@ -2771,6 +2763,45 @@ trackTests {
             domain = "gmail"
             is_google_account_of_different_user = "false"
             authenticator = "emailValidation"
+        }
+    }
+
+    test("Device Authorization - Authentication") {
+        "/authenticators/device_authorization/access_request"(platform: "/", type: TrackType.View) {}
+
+        "/authenticators/device_authorization/access_request/fallback"(platform: "/", type: TrackType.View) {}
+
+        "/authenticators/device_authorization/access_answer"(platform: "/", type: TrackType.View) {}
+
+        "/authenticators/device_authorization/access_answer/send"(platform: "/", type: TrackType.Event) {
+            status = "approve"
+        }
+    }
+
+    test("Device Authorization - Enrollment") {
+        "/authenticators/device_authorization/enrollment/greeting"(platform: "/", type: TrackType.View) {
+            section = "security_settings"
+        }
+
+        "/authenticators/device_authorization/enrollment/access_request"(platform: "/", type: TrackType.View) {
+            section = "security_settings"
+        }
+
+        "/authenticators/device_authorization/enrollment/access_request/fallback"(platform: "/", type: TrackType.View) {
+            section = "security_settings"
+        }
+
+        "/authenticators/device_authorization/enrollment/access_answer"(platform: "/", type: TrackType.View) {
+            section = "security_settings"
+        }
+
+        "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
+            section = "security_settings"
+            status = "approve"
+        }
+
+        "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {
+            section = "security_settings"
         }
     }
 
