@@ -47,7 +47,6 @@ items_saved_in_individual_editor as (
   AND DS < '@param02'
   nd not regexp_like(usr.user_nick,'^(TETE|TT|TEST)[0-9]*')
 )
-
 select
   list.site_id,
   count(distinct list.user_id) prints_in_list,
@@ -71,11 +70,11 @@ and list.user_id = individual_save.user_id
 and list.ds = individual_save.ds
 and individual_save.user_id is not NULL
 left join saves_in_massive_editor massive_save on list.site_id = massive_save.site_id
-and list.user_id = individual_save.user_id
-and list.ds = individual_save.ds
+and list.user_id = massive_save.user_id
+and list.ds = massive_save.ds
 and massive_save.user_id is not NULL
 left join items_saved_in_individual_editor count_discounts on list.site_id = count_discounts.site_id
 and list.user_id = count_discounts.user_id
 and list.ds = count_discounts.ds
 and count_discounts.item_id is not NULL
-group by list.site_id, list.ds
+group by list.site_id, list.ds;
