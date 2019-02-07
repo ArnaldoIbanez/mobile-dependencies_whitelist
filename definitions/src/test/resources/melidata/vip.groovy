@@ -110,7 +110,7 @@ trackTests {
 
         "/vip/contact_seller"(platform: "/", type: TrackType.Event, {
             mandatory()
-            unregister = false
+            unregistered_contact = false
         })
 
         "/vip/call_seller"(platform:"/mobile", type: TrackType.Event, {
@@ -391,7 +391,7 @@ trackTests {
 
         "/vip/question"(platform: "/", type: TrackType.View){
             item_id = "MLA213512313"
-            unregister = false
+            unregistered_contact = false
         }
     }
 
