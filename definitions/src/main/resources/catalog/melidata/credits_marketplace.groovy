@@ -279,7 +279,7 @@ tracks {
         status(required: true, type: PropertyType.String, values: ["no_charge_period", "fixed_charge_period_1", "fixed_charge_period_2", "daily_charge_period"],
                 description: "Indicates user status")
         milestone(type: PropertyType.Numeric, required: true)
-        context(required: true, values: ["search", "vip", "home"],
+        context(required: false, values: ["search", "vip", "home"],
                 description: "The page or section where the nav action is taking place")
     }
 
@@ -302,7 +302,7 @@ tracks {
         milestone(type: PropertyType.Numeric, required: true)
     }
 
-    "/credits/consumer/overdue_nav"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+    "/credits/consumer/overdue_nav"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
         pursue_nav_properties
     }
 
@@ -382,6 +382,27 @@ tracks {
 
     /******************************************
      *   End: Consumers Checkout
+     ******************************************/
+
+    /******************************************
+    *    Start: Consumers Contacts
+     ******************************************/
+
+    //Page Views
+    "/credits/consumer/contacts"(platform: "/", type: TrackType.View) {
+        credits_type(description: "Type of credit user", type: PropertyType.String, required: true, values: ["consumer", "merchant"])
+        site_id(description: "Site of the user", type: PropertyType.String, required: true)
+        medium(description: "Medium of the contact", type: PropertyType.String, required: true)
+        campaign(description: "Source of the contact", type: PropertyType.String, required: true)
+        status_from_medium(description: "Initial state from the medium", type: PropertyType.String, required: false)
+        action_label(description: "Label of the action", type: PropertyType.String, required: true)
+        loan_status(description: "Current loan status", type: PropertyType.String, required: true)
+        next_installment_status(description: "Current installment to pay status", type: PropertyType.String, required: true)
+        output_label(description: "Redirection result", type: PropertyType.String, required: true)
+    }
+
+    /******************************************
+     *   End: Consumers Contacts
      ******************************************/
 
 }
