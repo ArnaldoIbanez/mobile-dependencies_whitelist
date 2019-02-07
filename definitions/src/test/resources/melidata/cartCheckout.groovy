@@ -386,6 +386,7 @@ trackTests {
             session_id = "1241n1kj2nk14141nl12nl"
             error = "Completa este dato"
         }
+        "/cart/checkout/payment/input_card/back"(platform:"/mobile", type: TrackType.Event, dataSet){}
 
         // Cancelarion
         "/cart/checkout/payments_cancelation"(platform:"/mobile", dataSet)
