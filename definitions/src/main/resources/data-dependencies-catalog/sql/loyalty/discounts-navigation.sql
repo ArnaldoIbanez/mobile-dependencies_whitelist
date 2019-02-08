@@ -45,7 +45,7 @@ items_saved_in_individual_editor as (
   where  path = '/myml/loyal_discounts/add'
   AND DS >= '@param01' 
   AND DS < '@param02'
-  nd not regexp_like(usr.user_nick,'^(TETE|TT|TEST)[0-9]*')
+  and not regexp_like(usr.user_nick,'^(TETE|TT|TEST)[0-9]*')
 )
 select
   list.site_id,
