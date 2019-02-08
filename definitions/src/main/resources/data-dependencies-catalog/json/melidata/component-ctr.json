@@ -2,19 +2,19 @@
   "users": [
     "franco.vitali@mercadolibre.com",
     "victoria.perello@mercadolibre.com",
-    "mauro.capolupo@mercadolibre.com",
-    "juanjose.barrera@mercadolibre.com"
+    "juanjose.barrera@mercadolibre.com",
+    "nicolas.outeda@mercadolibre.com"
   ],
   "process_name": "component_ctr",
   "cron": "00 04 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE",
+    "format": "yyyy-MM-dd"
+  },
   "extract": {
     "operation": "append",
     "columns": [
-      {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
       {
         "name": "component",
         "type": "UNICODE_STRING"
@@ -25,22 +25,6 @@
       },
       {
         "name": "site_id",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "component_order",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "campaign",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "brand_name",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "category_id",
         "type": "UNICODE_STRING"
       },
       {

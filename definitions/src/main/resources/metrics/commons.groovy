@@ -1,7 +1,6 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
-
 	"vip"(description: "vip count") {
 		countsOn {
 			condition {
@@ -41,7 +40,6 @@ metrics {
 			}
 		}
 	}
-
 	
 	"checkout.loading"(description: "The checkout V5 first-page after performing a buy_intention ") {
 		countsOn {
@@ -61,7 +59,7 @@ metrics {
 	
 	"publish_congrats"(description: "Selling flow new item published - Does not track congrats view") {	
 		startWith {
-	            experiment(regex("sell/.*"))
+      experiment(regex("sell/.*"))
 		}
 		
 		countsOn {
@@ -86,7 +84,7 @@ metrics {
 
 	"sell_upgrade_intention"(description: "Intention for upgrading - Selling flow") {	
 		startWith {
-	            experiment(regex("sell/.*"))
+      experiment(regex("sell/.*"))
 		}
 		
 		countsOn {
@@ -98,7 +96,7 @@ metrics {
 	
 	"sell_list_congrats"(description: "Arrival to congrats page - Selling flow") {	
 		startWith {
-	            experiment(regex("sell/.*"))
+	    experiment(regex("sell/.*"))
 		}
 		
 		countsOn {
@@ -114,12 +112,70 @@ metrics {
 		}
 		countsOn {
 			condition {
-				path("/login/auth/challenge_success")
+				path("/login/auth/success")
+			}
+		}
+	}
 
+  "point_congrats"(description: "Arrival to congrats page from Point landings") {
+		startWith {
+			experiment(regex("mpos/.*"))
+		}
+		
+		countsOn {
+			condition {
+        path("/checkout_off/v1/checkout_confirmed")
+        or(
+          equals("event_data.collector_id", "228415881"),
+          equals("event_data.collector_id", "179504451"),
+          equals("event_data.collector_id", "193054976")
+			  )
+			}
+		}
+	}
+
+  "point_buy_intention"(description: "Point Landings buy intention") {
+    startWith {
+      experiment(regex("mpos/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/point/landings/buy")
+      }
+    }
+  }
+
+	"installment_merchant_debit_payment_five"(description: "Send email from automatic debit installment for five overdue credits merchant") {
+		startWith {
+			experiment("credits/merchant_whatsapp_five_overdue")
+		}
+
+		countsOn {
+			condition {
+				path("/email/generic")
 				and(
-					equals("event_data.challenge", "pass"),
+					equals("event_data.event_type", "send"),
+					equals("event_data.email_template", "CM_AUTOCOLLECT")
 				)
 			}
 		}
 	}
+
+	"installment_merchant_debit_payment_fifteen"(description: "Send email from automatic debit installment for fifteen overdue credits merchant") {
+		startWith {
+			experiment("credits/merchant_whatsapp_fifteen_overdue")
+		}
+
+		countsOn {
+			condition {
+				path("/email/generic")
+				and(
+					equals("event_data.event_type", "send"),
+					equals("event_data.email_template", "CM_AUTOCOLLECT")
+				)
+			}
+		}
+	}
+
 }
