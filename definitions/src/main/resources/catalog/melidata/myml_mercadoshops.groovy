@@ -17,6 +17,8 @@ tracks {
         mshopsGroup
     }
 
+    "/mercado_shops/optin"(platform: "/", type: TrackType.View){}
+
     "/mercado_shops/admin"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/admin/sidebar"(platform: "/", type: TrackType.Event){
