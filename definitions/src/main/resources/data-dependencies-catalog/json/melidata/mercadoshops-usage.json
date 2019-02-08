@@ -1,0 +1,76 @@
+{
+  "users": ["it@mercadoshops.com"],
+  "process_name": "mercadoshops-usage",
+  "cron": "00 07 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
+  "extract": {
+    "operation": "append",
+    "site": "MercadoShops",
+    "columns": [{
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      }, {
+        "name": "type",
+        "type": "UNICODE_STRING"
+      }, {
+        "name": "server_timestamp",
+        "type": "UNICODE_STRING"
+      }, {
+        "name": "path",
+        "type": "UNICODE_STRING"
+      }, {
+        "name": "uid",
+        "type": "UNICODE_STRING"
+      }, {
+        "name": "cust_id",
+        "type": "UNICODE_STRING"
+      }, {
+        "name": "shop_name",
+        "type": "UNICODE_STRING"
+      }, {
+        "name": "shop_domain",
+        "type": "UNICODE_STRING"
+      }, {
+        "name": "opened_sidebar",
+        "type": "UNICODE_STRING"
+      }, {
+        "name": "http_referer",
+        "type": "UNICODE_STRING"
+      }, {
+        "name": "http_url",
+        "type": "UNICODE_STRING"
+      }, {
+        "name": "ref_source",
+        "type": "UNICODE_STRING"
+      }, {
+        "name": "utm_source",
+        "type": "UNICODE_STRING"
+      }, {
+        "name": "utm_medium",
+        "type": "UNICODE_STRING"
+      }, {
+        "name": "utm_campaign",
+        "type": "UNICODE_STRING"
+      }, {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
+      }
+    ],
+    "sql": {
+      "script": "mercadoshops/usage.sql",
+      "parameters": [{
+        "name": "param01",
+        "value": "DAY-1",
+        "format": "yyyy-MM-dd"
+      }, {
+        "name": "param02",
+        "value": "DAY-0",
+        "format": "yyyy-MM-dd"
+      }]
+    }
+  }
+}
