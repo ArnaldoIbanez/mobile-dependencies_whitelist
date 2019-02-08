@@ -16,6 +16,7 @@ trackTests {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
+            ref = "myml_menu"
         }
     }
 
@@ -28,6 +29,7 @@ trackTests {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
+            ref = ""
         }
     }
 
@@ -36,6 +38,7 @@ trackTests {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
+            ref = ""
             sidebar_name = "SHOP_NAME"
         }
     }
@@ -45,11 +48,13 @@ trackTests {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
+            ref = ""
         }
         "/mercado_shops/admin/sidebar/banner"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
+            ref = ""
             image_id = "784348-MLA28624404159_112018"
             alignment = "center"
         }
@@ -57,6 +62,7 @@ trackTests {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
+            ref = ""
             preset_name = "dummy preset"
             colors = ["#000", "#fff"]
         }
@@ -64,17 +70,20 @@ trackTests {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
+            ref = ""
             image_id = "784348-MLA28624404159_112018"
         }
         "/mercado_shops/admin/sidebar/shop_name"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
+            ref = ""
         }
         "/mercado_shops/admin/sidebar/slider"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
+            ref = ""
             image_list = ["784348-MLA28624404159_112018", "784348-MLA28624404159_112019", "784348-MLA28624404159_112020"]
             slider_size = 'medium'
         }
@@ -82,6 +91,7 @@ trackTests {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
+            ref = ""
             subdomain = "test-shop"
         }
     }
