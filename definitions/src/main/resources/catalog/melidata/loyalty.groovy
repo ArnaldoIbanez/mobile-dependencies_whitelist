@@ -154,4 +154,7 @@ tracks {
         mail_origin(required: false, description: "Level group that received the email", type: PropertyType.String)
         campaign_id(required: true, description: "Campaign id (number/string)", type: PropertyType.String)
     }
+
+    "/loyalty/sellers"(platform: "/", isAbstract: true, type: TrackType.View){}
+    "/loyalty/sellers/discounts"(platform: "/", type: TrackType.View){}
 }

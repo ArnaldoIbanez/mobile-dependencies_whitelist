@@ -761,4 +761,7 @@ tracks {
     }
 
     "/myml/invoices/sku/status"(platform: "/") {}
+
+    //Loyal Discounts One Item Editor
+    "/myml/loyal_discounts"(platform: "/", type: TrackType.View) {}
 }

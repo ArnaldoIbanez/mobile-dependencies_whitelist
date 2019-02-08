@@ -299,4 +299,8 @@ trackTests {
             campaign_id = "mlb_campaign_buyers_test"
         }
     }
+
+    test("Loyalty Offer Discounts"){
+        "/loyalty/sellers/discounts"(platform: "/",type: TrackType.View){}
+    }
 }

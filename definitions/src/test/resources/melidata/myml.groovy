@@ -817,4 +817,8 @@ trackTests {
             option = "add_fiscal_data"
         }
     }
+
+    test("Myml loyal discount"){
+        "/myml/loyal_discounts"(platform:"/web", type: TrackType.View) {}
+    }
 }
