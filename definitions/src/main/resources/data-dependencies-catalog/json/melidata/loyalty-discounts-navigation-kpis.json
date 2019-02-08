@@ -3,14 +3,14 @@
   [
     "loyalty_devs@mercadolibre.com"
   ],
-  "process_name": "loyaly_discoutns_navigation_kpis",
+  "process_name": "loyalty_discoutns_navigation_kpis",
   "cron": "00 06 * * *",
   "partition": {
     "name": "ds",
     "type": "DATE"
   },
   "extract":
-  {
+  t{
     "operation": "append",
     "site": "MeliLake",
     "columns":
