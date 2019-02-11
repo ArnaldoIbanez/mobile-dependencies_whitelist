@@ -1,5 +1,5 @@
 with prints_discount_list as (
-  select distinct(usr.user_id) user_id, usr.user_nick user_nick, application.site_id site_id, substr(ds,1,10) ds, count(1) counts
+  select distinct(usr.user_id) user_id, usr.user_nick user_nick, application.site_id site_id,  count(1) counts, substr(ds,1,10) ds
   from tracks
   where path = '/seller_central/listings/list/promos'
   AND DS >= '@param01' 
@@ -8,7 +8,7 @@ with prints_discount_list as (
   group by application.site_id, usr.user_id, usr.user_nick, substr(ds,1,10)
 ),
 prints_masive_discount_editor as (
-  select distinct(usr.user_id) user_id, usr.user_nick user_nick, application.site_id site_id, substr(ds,1,10) ds, count(1) counts
+  select distinct(usr.user_id) user_id, usr.user_nick user_nick, application.site_id site_id, count(1) counts, substr(ds, 1, 10) ds 
   from tracks
   where path = '/seller_central/bulk/discounts/list'
   AND DS >= '@param01' 
