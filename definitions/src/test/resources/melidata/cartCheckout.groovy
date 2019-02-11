@@ -281,6 +281,7 @@ trackTests {
         "/cart/checkout/shipping/add_contact_info"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_contact_info"(platform:"/mobile", dataSet)
         "/cart/checkout/payment/select_unique_installment"(platform:"/", dataSet)
+        "/cart/checkout/payment/select_unique_installment/back"(platform:"/", dataSet)
         "/cart/checkout/payment/select_unique_installment/edit_installment_options"(platform:"/", dataSet)
         "/cart/checkout/payment/select_unique_installment/select_installment"(platform: "/", dataSet)
         "/cart/checkout/payment/select_split_installments"(platform:"/", dataSet)

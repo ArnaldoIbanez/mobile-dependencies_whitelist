@@ -316,6 +316,8 @@ tracks {
 
 "/cart/checkout/payment/select_unique_installment"(platform:"/", type: TrackType.View) {}
 
+"/cart/checkout/payment/select_unique_installment/back"(platform:"/", type: TrackType.Event) {}
+
 "/cart/checkout/payment/select_split_installments"(platform:"/", type: TrackType.View) {}
 
 "/cart/checkout/payment/select_split_installments/select_installment"(platform: "/", type: TrackType.Event) {
