@@ -572,7 +572,6 @@ trackTests {
             dataSet()
         }
 
-        "/myml/loyal_discounts" (platform: "/", type: TrackType.View) {}
         "/myml/loyal_discounts/add" (platform: "/web", type: TrackType.Event) {
             item = {
                 id = 'MLA713079054'
@@ -819,6 +818,21 @@ trackTests {
     }
 
     test("Myml loyal discount"){
-        "/myml/loyal_discounts"(platform:"/web", type: TrackType.View) {}
+        "/myml/loyal_discounts"(platform:"/web", type: TrackType.View) {
+            item = {
+                id = "MLM664051031"
+                title= "Item De Testeo, Por Favor No Ofertar --kc:off"
+                price= 100
+                currency_id= "MXN"
+                category_id= "MLM3530"
+                available_quantity= 97
+                thumbnail= "http=//www.mercadolibre.com/jm/img?s=STC&v=I&f=proccesing_image_es.jpg"
+                seller_id= "383653285"
+                site_id= "MLM"
+                original_price = ""
+                sale_terms= []
+                deal_ids= [ ]
+            }
+        }
     }
 }
