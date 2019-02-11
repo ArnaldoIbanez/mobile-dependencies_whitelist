@@ -346,6 +346,7 @@ trackTests {
         }
         "/instore/shell_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
             view_time_in_millis = "134231"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
         "/instore/qr_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
@@ -369,7 +370,9 @@ trackTests {
             next_step = "Any deeplink"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/shell/pump_code/abort"(platform: "/mobile", type: TrackType.Event) {}
+        "/instore/shell/pump_code/abort"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
 
         // Waiting
         "/instore/waiting/gas_jockey"(platform: "/mobile", type: TrackType.View) {
@@ -1363,6 +1366,7 @@ trackTests {
         }
         "/instore/shell_first_time_use/back"(platform: "/mobile", business:"mercadopago",type: TrackType.Event) {
             view_time_in_millis = "134231"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
         "/instore/qr_first_time_use/back"(platform: "/mobile", business:"mercadopago",type: TrackType.Event) {
@@ -1387,7 +1391,9 @@ trackTests {
             next_step = "Any deeplink"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/shell/pump_code/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {}
+        "/instore/shell/pump_code/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
 
         // Vending
         "/instore/waiting/vending_product_selection"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
