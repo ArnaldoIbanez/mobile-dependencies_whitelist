@@ -75,6 +75,7 @@ tracks {
     //Enrollment
     //Page Views
     "/credits/merchant/enrollment"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/money_advance"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/enrollment/credits_conditions"(platform: "/", type: TrackType.View) {}
 
 
@@ -134,6 +135,27 @@ tracks {
     "/credits/merchant/collection"(platform: "/mobile", type: TrackType.Event) {}
     /******************************************
      *       End: Merchants Enrollment
+     ******************************************/
+
+    /******************************************
+     *       Start: Money Advance
+     ******************************************/
+
+    //Congrats money advance
+    "/credits/merchant/money_advance/congrats"(platform: "/", type: TrackType.View) {}
+
+    //Hub money advance
+    "/credits/merchant/money_advance/hub"(platform: "/", type: TrackType.View) {}
+
+    //Summary money advance
+    "/credits/merchant/money_advance/summary"(platform: "/", type: TrackType.View) {}
+
+    //No options money advance
+    "/credits/merchant/money_advance/no_options"(platform: "/", type: TrackType.View) {}
+
+    
+    /******************************************
+     *       End: Money Advance
      ******************************************/
 
 }
