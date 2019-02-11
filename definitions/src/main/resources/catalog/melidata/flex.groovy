@@ -33,6 +33,24 @@ tracks {
         message(required: false, type: PropertyType.String, description: "user feedback")
     }
 
+    "/flex/optin/congrats"(platform: "/", type: TrackType.Event) {
+        view(required: true, type: PropertyType.String, description: "specific view the app returned")
+    }
+
+    "/flex/configuration"(platform: "/", type: TrackType.View) {}
+
+    "/flex/configuration/select_handling_time"(platform: "/", type: TrackType.Event) {
+        handling_time(required: true, type: PropertyType.String, description: "handling time selected by the user")
+    }
+
+    "/flex/configuration/select_zones"(platform: "/", type: TrackType.Event) {
+        zones(required: true, type: PropertyType.ArrayList, description: "Array of areas selected by the user")
+    }
+
+    "/flex/configuration/select_capacity"(platform: "/", type: TrackType.Event) {
+        capacity(required: true, type: PropertyType.String, description: "sales limit selected by the user")
+    }
+
     "/flex/login/name"(platform: "/mobile", type: TrackType.View) {
         location
     }
