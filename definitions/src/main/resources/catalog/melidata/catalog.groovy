@@ -57,6 +57,7 @@ catalog {
         include business, "mobile_commons.groovy"
         include business, "google_connect.groovy"
         include business, "security_settings.groovy"
+        include business, "mgm.groovy"
     }
 
     marketplace.each { business ->
