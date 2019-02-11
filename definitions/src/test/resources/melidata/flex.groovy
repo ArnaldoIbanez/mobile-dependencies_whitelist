@@ -61,12 +61,12 @@ trackTests {
         def zonesSelected = {
             zones = [  
                 {
-                    zone: "CABA",
-                    selected: 0,
+                    zone = "CABA",
+                    selected = 0,
                 },
                 {
-                    zone: "Vicente_Lopez",
-                    selected: 1,
+                    zone = "Vicente_Lopez",
+                    selected = 1,
                 }
             ]
         }
