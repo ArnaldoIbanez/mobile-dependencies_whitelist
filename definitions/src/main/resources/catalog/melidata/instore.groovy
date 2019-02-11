@@ -288,6 +288,9 @@ tracks {
     "/instore/shell_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
         view_time_in_millis(required: false, PropertyType.String)
     }
+    "/instore/shell_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time_in_millis(required: false, PropertyType.String)
+    }
 
     "/instore/qr_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
         view_time_in_millis(required: false, PropertyType.String)
@@ -424,6 +427,7 @@ tracks {
         success(required: true, PropertyType.Boolean)
         next_step(required: true, PropertyType.String)
     }
+    "/instore/shell/pump_code/abort"(platform: "/mobile", type: TrackType.Event) {}
 
     // Required action
     "/instore/data_required"(platform: "/mobile", isAbstract: true) {}
@@ -466,6 +470,10 @@ tracks {
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
         vending_id(required: true, PropertyType.String)
+        external_reference(required: false, PropertyType.String)
+        id(required: false, PropertyType.Numeric)
+        status(required: false, PropertyType.String)
+        status_detail(required: false, PropertyType.String)
     }
     "/instore/vending/st_machine_connection_error"(platform: "/mobile", type: TrackType.Event) {
         collector_id(required: true, PropertyType.String)
@@ -482,6 +490,10 @@ tracks {
         pos_id(required: false, PropertyType.String)
         machine_response_state(required: true, PropertyType.String)
         vending_id(required: true, PropertyType.String)
+        external_reference(required: false, PropertyType.String)
+        id(required: false, PropertyType.Numeric)
+        status(required: false, PropertyType.String)
+        status_detail(required: false, PropertyType.String)
     }
     "/instore/vending/st_machine_not_available"(platform: "/mobile", type: TrackType.Event) {
         collector_id(required: true, PropertyType.String)
@@ -496,6 +508,10 @@ tracks {
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
         vending_id(required: true, PropertyType.String)
+        external_reference(required: false, PropertyType.String)
+        id(required: false, PropertyType.Numeric)
+        status(required: false, PropertyType.String)
+        status_detail(required: false, PropertyType.String)
     }
     "/instore/vending/response_end_transaction"(platform: "/mobile", type: TrackType.Event) {
         collector_id(required: true, PropertyType.String)
@@ -504,6 +520,11 @@ tracks {
         pos_id(required: false, PropertyType.String)
         vending_id(required: true, PropertyType.String)
         end_transaction_status(required: true, PropertyType.String)
+        item_price(required: false, PropertyType.Numeric)
+        external_reference(required: false, PropertyType.String)
+        id(required: false, PropertyType.Numeric)
+        status(required: false, PropertyType.String)
+        status_detail(required: false, PropertyType.String)
     }
     "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
         // Possible fields for Android & IOS
@@ -551,6 +572,8 @@ tracks {
         notification_url(required: false, PropertyType.String)
         sponsor_id(required: false, PropertyType.Numeric)
         vending_id(required: false, PropertyType.String)
+        pos_id(required: false, PropertyType.String)
+        store_id(required: false, PropertyType.String)
     }
     "/instore/payment_info"(platform: "/mobile", type: TrackType.Event) {
         payment_info_tag(required: false, "Execute post payment")
