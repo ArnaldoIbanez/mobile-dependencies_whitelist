@@ -1,7 +1,9 @@
 {
   "users":
   [
-    "loyalty_devs@mercadolibre.com"
+    "loyalty_dev@mercadolibre.com",
+    "diego.meller@mercadolibre.com",
+    "carlos.rodrigo@mercadolibre.com"
   ],
   "process_name": "loyalty_discounts_navigation_kpis",
   "cron": "00 06 * * *",
