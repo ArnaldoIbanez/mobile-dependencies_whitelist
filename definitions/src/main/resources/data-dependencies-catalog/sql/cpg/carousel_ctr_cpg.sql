@@ -1,9 +1,9 @@
 SELECT prints.query AS query,
     prints.platform AS platform,
-    prints.track_date AS track_date,
     clicks.place AS place,
     prints.prints AS prints,
-    clicks.clicks AS clicks
+    clicks.clicks AS clicks,
+    prints.track_date AS track_date
 FROM 
 (
   SELECT trim(jest(event_data, 'query')) AS query,
