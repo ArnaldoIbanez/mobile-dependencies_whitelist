@@ -47,6 +47,10 @@ trackTests {
             trackData()
             warehouse_id = "BRWT01"
         }
+        "/wms/inventory"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
         "/wms/receiving"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
@@ -216,25 +220,25 @@ trackTests {
         "/wms/cycle_count/scan_shelf"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
-            cycle_count_id = 123
+            count_id = 123
             address_id = "RS-0-001-001-00-00"
         }
         "/wms/cycle_count/scan_inventory"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
-            cycle_count_id = 123
+            count_id = 123
             address_id = "RS-0-001-001-00-00"
         }
-        "/wms/cycle_count/scan_inventory/finish_cycle_count"(platform: "/mobile/android") {
+        "/wms/cycle_count/scan_inventory/finish_count"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
-            cycle_count_id = 123
+            count_id = 123
             address_id = "RS-0-001-001-00-00"
         }
         "/wms/cycle_count/item"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
-            cycle_count_id = 123
+            count_id = 123
             address_id = "RS-0-001-001-00-00"
             inventory_id = "AAAA11111"
             quantity = 1
@@ -413,26 +417,26 @@ trackTests {
             trackDataForAudit()
             warehouse_id = "BRWT01"
         }
-        "/wms/cycle_count/confirmation/start_cycle_count"(platform: "/mobile/android") {
+        "/wms/cycle_count/confirmation/start_count"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
         }
         "/wms/cycle_count/scan_inventory/finish_address"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
-            cycle_count_id = 123
+            count_id = 123
             address_id = "RS-0-001-001-00-00"
         }
-        "/wms/cycle_count/scan_inventory/finish_cycle_count"(platform: "/mobile/android") {
+        "/wms/cycle_count/scan_inventory/finish_count"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
-            cycle_count_id = 123
+            count_id = 123
             address_id = "RS-0-001-001-00-00"
         }
         "/wms/cycle_count/item/finish_address"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
-            cycle_count_id = 123
+            count_id = 123
             address_id = "RS-0-001-001-00-00"
             inventory_id = "AAAA11111"
             quantity = 1
@@ -440,16 +444,16 @@ trackTests {
         "/wms/cycle_count/item/reset_address"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
-            cycle_count_id = 123
+            count_id = 123
             address_id = "RS-0-001-001-00-00"
             inventory_id = "AAAA11111"
             quantity = 1
             navigate_to_home = true
         }
-        "/wms/cycle_count/item/finish_cycle_count"(platform: "/mobile/android") {
+        "/wms/cycle_count/item/finish_count"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
-            cycle_count_id = 123
+            count_id = 123
             address_id = "RS-0-001-001-00-00"
             inventory_id = "AAAA11111"
             quantity = 1
