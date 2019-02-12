@@ -108,6 +108,11 @@ trackTests {
             item_seller_type = "AB001"
         })
 
+        "/vip/contact_seller"(platform: "/", type: TrackType.Event, {
+            mandatory()
+            unregistered_contact = false
+        })
+
         "/vip/call_seller"(platform:"/mobile", type: TrackType.Event, {
             mandatory()
             listing_type_id = "GOLD"
@@ -382,7 +387,11 @@ trackTests {
 
         "/vip/question"(platform: "/", type: TrackType.View){
             item_id = "MLA213512313"
+        }
 
+        "/vip/question"(platform: "/", type: TrackType.View){
+            item_id = "MLA213512313"
+            unregistered_contact = false
         }
     }
 

@@ -10,7 +10,10 @@ tracks {
     * INSTORES Screen Tracks
     */
 
-    "/instore"(platform: "/mobile", isAbstract: true) {}
+    "/instore"(platform: "/mobile", isAbstract: true) {
+        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
+        new_session(required: false, PropertyType.Boolean, description: "indicates if a new session_id was created")
+    }
 
     // Scan QR
     "/instore/scan_qr"(platform: "/mobile", type: TrackType.View) {
@@ -204,9 +207,11 @@ tracks {
     }
 
     // Permissions
-    "/ask_device_permission"(platform: "/mobile", isAbstract: true) {}
+    "/ask_device_permission"(platform: "/mobile", isAbstract: true) {
+        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
+        new_session(required: false, PropertyType.Boolean, description: "indicates if a new session_id was created")
+    }
     "/ask_device_permission/location"(platform: "/mobile", type: TrackType.View) {
-        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
         context(required: true, PropertyType.String, values: ["/instore", "/instore/map"])
         location_permission_enabled(required: false, PropertyType.Boolean)
         device_gps_enabled(required: false, PropertyType.Boolean)
@@ -659,7 +664,6 @@ tracks {
 
     // Discovery
     "/instore/map"(platform: "/mobile", type: TrackType.View) {
-        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
         type(required: true, inheritable: false, PropertyType.String, description: "type of stores to show on the map")
         tags(required: true, inheritable: false, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the type of stores to show on the map")
     }

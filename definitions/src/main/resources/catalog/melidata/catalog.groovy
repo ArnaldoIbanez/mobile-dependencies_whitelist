@@ -25,14 +25,14 @@ catalog {
     ]
 
     def marketplace = [
-           "mercadolibre",
-           "tucarro",
-           "tumoto",
-           "tulancha",
-           "tuinmueble",
-           "autoplaza",
-           "metroscubicos",
-           "portalinmobiliario"
+            "mercadolibre",
+            "tucarro",
+            "tumoto",
+            "tulancha",
+            "tuinmueble",
+            "autoplaza",
+            "metroscubicos",
+            "portalinmobiliario"
     ]
 
     def mercadopago = ["mercadopago"]
@@ -56,6 +56,8 @@ catalog {
         include business, "px.groovy"
         include business, "mobile_commons.groovy"
         include business, "google_connect.groovy"
+        include business, "security_settings.groovy"
+        include business, "mgm.groovy"
     }
 
     marketplace.each { business ->
@@ -63,6 +65,7 @@ catalog {
         include business, "bookmarks.groovy"
         include business, "buyIntention.groovy"
         include business, "cards_cobranded_ml.groovy"
+        include business, "cards_prepaid.groovy"
         include business, "cartCheckout.groovy"
         include business, "cartList.groovy"
         include business, "cellphone_recharge.groovy"

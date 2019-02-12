@@ -64,6 +64,10 @@ tracks {
         landing_id(required: true, description: "id of landing")
     }
 
+    "/loyalty/landing/aerolineas"(platform: "/", type: TrackType.Event) {
+        destination_id(required: false, description: "id of the promoted destination")
+    }
+
     "/loyalty/modal"(platform: "/mobile", type: TrackType.View) {
         event_type(required: true, values: ["SHOW", "delawed", "shown", "close", "dismiss", "received", "open"])
     }
@@ -84,12 +88,12 @@ tracks {
     }
 
     "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
-        origin(required: false, values: ["marketplace","loyalty_frontend","push"],description: "Where the user came from.")
+        origin(required: false, values: ["marketplace","loyalty_frontend","push","aerolineas"],description: "Where the user came from.")
     }
 
     "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.Event){
         action(required: true, values: ["started","success","success_orange","rejected","error"], description: "'started' when the CHO starts, success/success_orange/error is when the CHO finish")
-        origin(required: false, values: ["mail","vip","marketplace","loyalty_frontend","new_vip","landing"],description: "Where was the checkout was initiated from.")
+        origin(required: false, values: ["mail","vip","marketplace","loyalty_frontend","new_vip","landing","aerolineas"],description: "Where was the checkout was initiated from.")
         item_id(required: false, description: "If flow starts from vip || new_vip")     
     }
 
@@ -150,4 +154,7 @@ tracks {
         mail_origin(required: false, description: "Level group that received the email", type: PropertyType.String)
         campaign_id(required: true, description: "Campaign id (number/string)", type: PropertyType.String)
     }
+
+    "/loyalty/sellers"(platform: "/", isAbstract: true, type: TrackType.View){}
+    "/loyalty/sellers/discounts"(platform: "/", type: TrackType.View){}
 }

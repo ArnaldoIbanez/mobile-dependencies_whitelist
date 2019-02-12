@@ -72,6 +72,13 @@ trackTests {
         }
     }
 
+    test("Loyalty landing aerolineas") {
+        "/loyalty/landing/aerolineas"(platform: "/", type: TrackType.Event) {
+            landing_id = "aerolineas"
+            destination_id = "123ABC"
+        }
+    }
+
     test("Loyalty welcome modal") {
         "/loyalty/modal"(platform: "/mobile", type: TrackType.View) {
             event_type = "SHOW"
@@ -191,6 +198,9 @@ trackTests {
                         origin= "marketplace"
         }
         "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
+                        origin= "aerolineas"
+        }
+        "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
         }
     }
 
@@ -236,6 +246,14 @@ trackTests {
             action= "started"
             origin= "landing"
         }
+        "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
+            action= "started"
+            origin= "aerolineas"
+        }
+        "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
+            action= "success"
+            origin= "aerolineas"
+        }
     }
 
     test("Loyalty Buy Level Payment"){
@@ -280,5 +298,9 @@ trackTests {
             mail_origin = "level_3_4_5_6"
             campaign_id = "mlb_campaign_buyers_test"
         }
+    }
+
+    test("Loyalty Offer Discounts"){
+        "/loyalty/sellers/discounts"(platform: "/",type: TrackType.View){}
     }
 }

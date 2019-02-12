@@ -5,7 +5,7 @@ import com.ml.melidata.TrackType;
 
 trackTests {
 
-    defaultBusiness = "mercadopago"
+    defaultBusiness = "mercadolibre"
 
     test("cards prepaid landing") {
 

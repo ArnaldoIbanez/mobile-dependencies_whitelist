@@ -120,7 +120,7 @@ class Catalog implements CatalogInterface{
             if ( catalogDefinition != null ) {
                 return catalogDefinition.validate(track, serverSide)
             } else {
-                tr.addValidation(false, "Path '${track.path}' not found in catalog (check if it's defined in the catalog file and if it's defined for the specified platform")
+                tr.addValidation(false, "Path '${track.path}' not found in catalog (check if it's defined in the catalog file and if it's defined for the specified platform & business")
                 return tr
             }
         }catch (CatalogException e) {
