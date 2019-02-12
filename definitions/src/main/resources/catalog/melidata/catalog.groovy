@@ -113,6 +113,7 @@ catalog {
         include business, "contact.groovy"
         include business, "full.groovy"
         include business, "dynamic_links.groovy"
+        include business, "sube_recharge.groovy"
     }
 
     mercadopago.each { business ->
@@ -130,6 +131,8 @@ catalog {
         include business, "asset_management.groovy"
         include business, "single_player.groovy"
         include business, "instore.groovy"
+        include business, "sube_recharge.groovy"
+
     }
 
     mercadoshops.each { business ->
