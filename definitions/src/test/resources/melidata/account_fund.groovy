@@ -39,8 +39,18 @@ trackTests {
         }
 
         "/account_fund/cvu/edit_alias"(platform: "/", type: TrackType.View) {}
+        "/account_fund/cvu/copy_alias"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/cvu/copy_cvu"(platform: "/", type: TrackType.Event) {}
         "/account_fund/cvu/edit_alias/save"(platform: "/", type: TrackType.Event) {}
         "/account_fund/cvu/edit_alias/save/success"(platform: "/", type: TrackType.View) {}
         "/account_fund/cvu/edit_alias/save/fail"(platform: "/", type: TrackType.View) {}
+
+        "/account_fund/mi_cvu"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/mi_cvu/copy_alias"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/mi_cvu/copy_cvu"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/mi_cvu/edit_alias"(platform: "/", type: TrackType.View) {}
+        "/account_fund/mi_cvu/edit_alias/save"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/mi_cvu/edit_alias/save/success"(platform: "/", type: TrackType.View) {}
+        "/account_fund/mi_cvu/edit_alias/save/fail"(platform: "/", type: TrackType.View) {}
     }
 }
