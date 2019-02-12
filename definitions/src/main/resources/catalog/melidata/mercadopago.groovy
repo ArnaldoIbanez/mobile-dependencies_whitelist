@@ -550,6 +550,7 @@ tracks {
     "/get_member/invite"(platform: "/mobile") {
         scope(required: true, type: PropertyType.String, description: "The scope from where it has been executed")
     }
+    "/get_member/invite/invite"(platform: "/mobile", type: TrackType.Event) {}
     "/get_member/redeem"(platform: "/mobile") {}
 
     "/bill_payments"(platform: "/mobile", isAbstract: true) {
