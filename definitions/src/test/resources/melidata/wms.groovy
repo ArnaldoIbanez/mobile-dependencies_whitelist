@@ -62,7 +62,7 @@ trackTests {
             inbound_id = "1234"
             receiving_id = "1234"
         } 
-        "/wms/receiving/scan_destination/start_receiving"(platform: "/mobile/android") {
+        "/wms/receiving/scan_inbound_shipment/start_receiving"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
             inbound_id = "1234"
