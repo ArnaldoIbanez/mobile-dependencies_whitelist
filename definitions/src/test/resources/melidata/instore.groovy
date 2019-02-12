@@ -588,7 +588,7 @@ trackTests {
         "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
             currency_id = "ARS"
             statement_descriptor = "WWW.MERCADOPAGO.COM"
-            collector_id = 244110353
+            collector_id = "244110353"
             status = "approved"
             payment_method_id = "visa"
             site_id = "MLA"
@@ -1606,7 +1606,7 @@ trackTests {
         "/instore/post_payment"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
                 currency_id = "ARS"
                 statement_descriptor = "WWW.MERCADOPAGO.COM"
-                collector_id = 244110353
+                collector_id = "244110353"
                 status = "approved"
                 payment_method_id = "visa"
                 site_id = "MLA"

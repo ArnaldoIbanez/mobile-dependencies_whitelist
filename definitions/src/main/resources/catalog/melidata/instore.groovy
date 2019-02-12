@@ -530,7 +530,7 @@ tracks {
         // Possible fields for Android & IOS
         currency_id(required: false, PropertyType.String)
         statement_descriptor(required: false, PropertyType.String)
-        collector_id(required: false, PropertyType.Numeric)
+        collector_id(required: false, PropertyType.String)
         status(required: false, PropertyType.String)
         payment_method_id(required: false, PropertyType.String)
         site_id(required: false, PropertyType.String)
