@@ -49,7 +49,6 @@ trackTests {
         }
         "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
             type = "use_coupon"
-            platform = "mercadolibre"
         }
     }
 
@@ -62,7 +61,7 @@ trackTests {
         "/mgm/payers/init"(platform: "/mobile", type: TrackType.Event) {
             origin = "row"
         }
-        
+
         // Invite Screen
         "/mgm/payers/invite"(platform: "/mobile", type: TrackType.View) {}
 
@@ -96,7 +95,6 @@ trackTests {
         }
         "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
             type = "use_coupon"
-            platform = "mercadopago"
         }
     }
 }

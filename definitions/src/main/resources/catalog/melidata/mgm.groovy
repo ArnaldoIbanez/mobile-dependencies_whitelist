@@ -15,7 +15,7 @@ tracks {
     // MOBILE
     // Access MGM flow
     "/mgm/payers/init"(platform: "/mobile", type: TrackType.Event) {
-        origin (required:true, type: PropertyType.String, description: "What is the origin of the flow (ex: row / shortcut)")
+        origin (required:true, type: PropertyType.String, description: "What is the origin of the flow (ex: row / shortcut / drawer)", values: ["row", "shortcut", "drawer"])
     }
 
     // Invite Screen
@@ -47,9 +47,7 @@ tracks {
 
     // WEB
     "/mgm/payers/stop_landing"(platform: "/web", type: TrackType.View) {
-        type (required:true, type: PropertyType.String, description: "Which landing are we tracking (ex: invite / use_coupon)")
+        type (required:true, type: PropertyType.String, description: "Which landing are we tracking (ex: invite / use_coupon)", values: ["invite", "use_coupon"])
     }
-    "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
-        platform (required:true, type: PropertyType.String, description: "The platform where we are redirecting the user (ex: Mercadolibre / Mercadopago)")
-    }
+    "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {}
 }
