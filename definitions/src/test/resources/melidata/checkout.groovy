@@ -816,6 +816,9 @@ trackTests {
             status = "success"
             checkout_flow = "direct"
         }
+
+        "/checkout/review#submit/abort"(platform:"/mobile", type:TrackType.Event) {}
+
         "/checkout/review/quantity#submit"(platform:"/mobile", type: TrackType.Event) {
             old_quantity = 4
             selected_quantity = 1
