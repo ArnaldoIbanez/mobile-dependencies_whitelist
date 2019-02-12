@@ -511,39 +511,6 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
-    "/cellphone_recharge"(platform: "/", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-    "/cellphone_recharge/push_handler"(platform: "/mobile") {}
-    "/cellphone_recharge/pay"(platform: "/mobile") {}
-    "/cellphone_recharge/deals"(platform: "/mobile") {}
-    "/cellphone_recharge/deals/terms"(platform: "/mobile") {}
-    "/cellphone_recharge/payment_methods"(platform: "/mobile") {}
-    "/cellphone_recharge/other_payment_methods"(platform: "/mobile") {}
-    "/cellphone_recharge/cards"(platform: "/mobile") {}
-    "/cellphone_recharge/add_card"(platform: "/mobile") {}
-    "/cellphone_recharge/issuers"(platform: "/mobile") {}
-    "/cellphone_recharge/result"(platform: "/mobile") {
-        result_status (required:true, type: PropertyType.String, description: "Operation result status")
-        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
-    }
-
-    // Cellphone Recharge Frontend
-    "/cellphone_recharge/suggested_phones"(platform: "/web", type: TrackType.View) {}
-    "/cellphone_recharge/second_password"(platform: "/web", type: TrackType.View) {}
-    "/cellphone_recharge/phone_income"(platform: "/web", type: TrackType.View) {}
-    "/cellphone_recharge/congrats"(platform: "/web", type: TrackType.View) {
-        status (required:true, type: PropertyType.String, description: "Payment status (approved, pending, rejected)")
-    }
-    "/cellphone_recharge/companies"(platform: "/web", type: TrackType.View) {}
-    "/cellphone_recharge/checkout"(platform: "/web/desktop", type: TrackType.View) {}
-    "/cellphone_recharge/amounts"(platform: "/web", type: TrackType.View) {}
-    "/cellphone_recharge/amount_recommended"(platform: "/web", type: TrackType.View) {}
-    "/cellphone_recharge/alias_income"(platform: "/web/mobile", type: TrackType.View) {}
-    "/cellphone_recharge/account_money"(platform: "/web", type: TrackType.View) {}
-    "/cellphone_recharge/error"(platform: "/web", type: TrackType.View) {}
-    "/cellphone_recharge/not-found"(platform: "/web", type: TrackType.View) {}
 
     "/scheduled_recharge"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -622,38 +589,6 @@ tracks {
     "/bill_payments/fixed_amount"(platform: "/mobile") {}
     "/bill_payments/ticket_data"(platform: "/mobile") {}
     "/bill_payments/fee"(platform: "/mobile"){}
-
-
-    "/recharge_sube"(platform: "/mobile", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-    "/recharge_sube/first_time_use"(platform: "/mobile") {}
-    "/recharge_sube/no_money"(platform: "/mobile") {}
-    "/recharge_sube/choose_amount_information"(platform: "/mobile") {}
-    "/recharge_sube/localization"(platform: "/mobile") {}
-    "/recharge_sube/localization_permission"(platform: "/mobile") {}
-    "/recharge_sube/select_recharge_card"(platform: "/mobile") {}
-    "/recharge_sube/information"(platform: "/mobile") {}
-    "/recharge_sube/add_bus_card"(platform: "/mobile") {}
-    "/recharge_sube/add_card_name"(platform: "/mobile") {}
-    "/recharge_sube/choose_amount"(platform: "/mobile") {}
-    "/recharge_sube/second_password"(platform: "/mobile") {}
-    "/recharge_sube/px_payment_method_search"(platform: "/mobile") {}
-    "/recharge_sube/px_discount_summary"(platform: "/mobile") {}
-    "/recharge_sube/px_card_vault"(platform: "/mobile") {}
-    "/recharge_sube/px_card_number"(platform: "/mobile") {}
-    "/recharge_sube/px_card_holder_name"(platform: "/mobile") {}
-    "/recharge_sube/px_card_expiry_date"(platform: "/mobile") {}
-    "/recharge_sube/px_card_security_code"(platform: "/mobile") {}
-    "/recharge_sube/px_identification_number"(platform: "/mobile") {}
-    "/recharge_sube/px_card_issuers"(platform: "/mobile") {}
-    "/recharge_sube/px_card_installments"(platform: "/mobile") {}
-    "/recharge_sube/px_review_and_confirm"(platform: "/mobile") {}
-    "/recharge_sube/px_result"(platform: "/mobile") {
-        result_status (required:true, type: PropertyType.String, description: "Operation result status")
-        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
-    }
 
 
     "/money_request"(platform: "/", isAbstract: true) {
@@ -984,7 +919,7 @@ tracks {
     //END -- MP personalFrontend
 
     //MP frontend
-    "/cellphone_recharge/confirm"(platform: "/web"){}
+    
     "/fund_account/confirm"(platform: "/web"){}
     "/send_money/confirm"(platform: "/web"){}
     "/money_request/confirm"(platform: "/web"){}
