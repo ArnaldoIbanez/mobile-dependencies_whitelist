@@ -13,6 +13,11 @@ tracks {
     "/mgm/payers"(platform: "/", isAbstract: true) {}
 
     // MOBILE
+    // Access MGM flow
+    "/mgm/payers/init"(platform: "/mobile", type: TrackType.Event) {
+        origin (required:true, type: PropertyType.String, description: "What is the origin of the flow (ex: row / shortcut)")
+    }
+
     // Invite Screen
     "/mgm/payers/invite"(platform: "/mobile", type: TrackType.View) {}
 
@@ -25,10 +30,10 @@ tracks {
 
     // Redeem Screen
     "/mgm/payers/redeem"(platform: "/mobile", type: TrackType.View) {}
-    "/mgm/payers/invite/option"(platform: "/mobile", type: TrackType.Event) {
+    "/mgm/payers/redeem/option"(platform: "/mobile", type: TrackType.Event) {
         option (required:true, type: PropertyType.String, description: "Which option did the user selected (ex: cellphone_recharge)")
     }
-    "/mgm/payers/invite/terms"(platform: "/mobile", type: TrackType.Event) {}
+    "/mgm/payers/redeem/terms"(platform: "/mobile", type: TrackType.Event) {}
 
     // No Redeem Screen
     "/mgm/payers/no_redeem"(platform: "/mobile", type: TrackType.View) {}
@@ -44,7 +49,7 @@ tracks {
     "/mgm/payers/stop_landing"(platform: "/web", type: TrackType.View) {
         type (required:true, type: PropertyType.String, description: "Which landing are we tracking (ex: invite / use_coupon)")
     }
-    "/mgm/payers/redirect"(platform: "/web", type: TrackType.Event) {
+    "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
         platform (required:true, type: PropertyType.String, description: "The platform where we are redirecting the user (ex: Mercadolibre / Mercadopago)")
     }
 }

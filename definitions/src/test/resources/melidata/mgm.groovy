@@ -11,6 +11,11 @@ trackTests {
     test("MGM track ML") {
 
         // MOBILE
+        // Access MGM flow
+        "/mgm/payers/init"(platform: "/mobile", type: TrackType.Event) {
+            origin = "row"
+        }
+
         // Invite Screen
         "/mgm/payers/invite"(platform: "/mobile", type: TrackType.View) {}
 
@@ -23,10 +28,10 @@ trackTests {
 
         // Redeem Screen
         "/mgm/payers/redeem"(platform: "/mobile", type: TrackType.View) {}
-        "/mgm/payers/invite/option"(platform: "/mobile", type: TrackType.Event) {
+        "/mgm/payers/redeem/option"(platform: "/mobile", type: TrackType.Event) {
             option = "cellphone_recharge"
         }
-        "/mgm/payers/invite/terms"(platform: "/mobile", type: TrackType.Event) {}
+        "/mgm/payers/redeem/terms"(platform: "/mobile", type: TrackType.Event) {}
 
         // No Redeem Screen
         "/mgm/payers/no_redeem"(platform: "/mobile", type: TrackType.View) {}
@@ -42,7 +47,8 @@ trackTests {
         "/mgm/payers/stop_landing"(platform: "/web", type: TrackType.View) {
             type = "use_coupon"
         }
-        "/mgm/payers/redirect"(platform: "/web", type: TrackType.Event) {
+        "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
+            type = "use_coupon"
             platform = "mercadolibre"
         }
     }
@@ -52,6 +58,11 @@ trackTests {
     test("MGM track MP") {
 
         // MOBILE
+        // Access MGM flow
+        "/mgm/payers/init"(platform: "/mobile", type: TrackType.Event) {
+            origin = "row"
+        }
+        
         // Invite Screen
         "/mgm/payers/invite"(platform: "/mobile", type: TrackType.View) {}
 
@@ -64,10 +75,10 @@ trackTests {
 
         // Redeem Screen
         "/mgm/payers/redeem"(platform: "/mobile", type: TrackType.View) {}
-        "/mgm/payers/invite/option"(platform: "/mobile", type: TrackType.Event) {
+        "/mgm/payers/redeem/option"(platform: "/mobile", type: TrackType.Event) {
             option = "cellphone_recharge"
         }
-        "/mgm/payers/invite/terms"(platform: "/mobile", type: TrackType.Event) {}
+        "/mgm/payers/redeem/terms"(platform: "/mobile", type: TrackType.Event) {}
 
         // No Redeem Screen
         "/mgm/payers/no_redeem"(platform: "/mobile", type: TrackType.View) {}
@@ -83,7 +94,8 @@ trackTests {
         "/mgm/payers/stop_landing"(platform: "/web", type: TrackType.View) {
             type = "use_coupon"
         }
-        "/mgm/payers/redirect"(platform: "/web", type: TrackType.Event) {
+        "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
+            type = "use_coupon"
             platform = "mercadopago"
         }
     }
