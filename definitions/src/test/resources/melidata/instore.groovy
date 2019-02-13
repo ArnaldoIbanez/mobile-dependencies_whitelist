@@ -517,6 +517,10 @@ trackTests {
             pos_id = "65763"
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/machine_response_final_result"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -537,6 +541,10 @@ trackTests {
             st_machine_connection_error = "Any machine error"
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/machine_response_state"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -558,6 +566,10 @@ trackTests {
             pos_id = "65763"
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/st_machine_connected"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -792,9 +804,6 @@ trackTests {
             }
         }
         "/instore/activity/list"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/vending/select_product"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/required_action/data_required"(platform: "/mobile", type: TrackType.View) {
@@ -1281,6 +1290,10 @@ trackTests {
             pos_id = "65763"
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/machine_response_final_result"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1301,6 +1314,10 @@ trackTests {
             st_machine_connection_error = "Any machine error"
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/machine_response_state"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1322,6 +1339,10 @@ trackTests {
             pos_id = "65763"
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/st_machine_connected"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1330,6 +1351,10 @@ trackTests {
             pos_id = "65763"
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/response_end_transaction"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1669,9 +1694,6 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/shell_first_time_use"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/vending/select_product"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
