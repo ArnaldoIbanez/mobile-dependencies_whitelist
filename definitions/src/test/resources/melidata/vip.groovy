@@ -552,6 +552,7 @@ trackTests {
         def defaultTrackInformation = {
             item_id = "MLA213512313"
             quantity = 1
+            has_variations = true
         }
 
         def cartInformation = {

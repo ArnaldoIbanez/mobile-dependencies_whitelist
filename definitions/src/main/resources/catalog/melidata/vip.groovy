@@ -212,6 +212,7 @@ tracks {
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         is_valid_variation(required: false, type: PropertyType.Boolean, description: "Is the selected variation valid")
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
+        has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
         add_cart_info
         shipping_info
     }
@@ -223,6 +224,7 @@ tracks {
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         is_valid_variation(required: false, type: PropertyType.Boolean, description: "Is the selected variation valid")
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
+        has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
         add_cart_info
         shipping_info
     }
