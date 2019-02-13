@@ -90,6 +90,8 @@ trackTests {
             label = "/asset_management/movements_detail"
         }
 
+        "/asset_management/add_funds"(platform: "/mobile") {}
+
         // Splitter
         "/asset_management/splitter"(platform: "/mobile") {}
         "/asset_management/profile"(platform: "/mobile") {}

@@ -79,6 +79,9 @@ tracks {
     // Clarification show event
     "/asset_management/clarification"(platform: "/mobile", type: TrackType.Event) {}
 
+    // Money-In Specific event
+    "/asset_management/add_funds"(platform: "/mobile", type: TrackType.Event) {}
+
     // WebView events
     "/asset_management/url_external"(platform: "/mobile", type: TrackType.Event) {
         context (required: true, type: PropertyType.String, description: "The context where this event occurred")
