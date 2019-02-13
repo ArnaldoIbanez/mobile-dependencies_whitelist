@@ -33,36 +33,44 @@ tracks {
      *       Start: Merchants Administrator
      ******************************************/
 
-    //Transactional
-    "/credits/merchant/administrator/congrats"(platform: "/", type: TrackType.View) {
-        flow(type: PropertyType.String, required: true, values: ['voluntary_payment'])
-    }
-    "/credits/merchant/administrator/error"(platform: "/", type: TrackType.View) {
-        reason(type: PropertyType.String, required: true, values: ['insufficient_account_money',
-                                                                   'lender_cannot_collect_installments',
-                                                                   'default'])
+    //Dashboard
+    "/credits/merchant/administrator"(platform: "/", type: TrackType.View) {
+        status(type: PropertyType.String, required: true, values: ['on_time', 'overdue'], inheritable: false)
     }
 
-    //Dashboard merchants
-    //Page Views
-    "/credits/merchant/administrator/dashboard"(platform: "/", type: TrackType.View) {
-        status(type: PropertyType.String, required: true, values: ['offer', 'no_offer', 'on_time', 'overdue',
-                                                                   'on_time_with_offer', 'overdue_with_offer'])
+    //Detail
+    "/credits/merchant/administrator/detail"(platform: "/", type: TrackType.View) {
+        status(
+                type: PropertyType.String,
+                required: true,
+                values: ['on_time', 'overdue', 'finished'],
+                inheritable: false
+        )
     }
+    "/credits/merchant/administrator/detail/conditions"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/", type: TrackType.Event) {}
+
+    //Voluntary Payment
+    "/credits/merchant/administrator/voluntary_payment"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/administrator/voluntary_payment/congrats"(platform: "/", type: TrackType.View) {
+        flow(type: PropertyType.String, required: false, values: ['voluntary_payment'])
+    }
+    "/credits/merchant/administrator/voluntary_payment/error"(platform: "/", type: TrackType.View) {
+        reason(type: PropertyType.String, required: false, values: ['insufficient_account_money',
+                                                                    'lender_cannot_collect_installments',
+                                                                    'default'])
+    }
+
+    //These should be deprecated...
     "/credits/merchant/administrator"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/offer"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/no_offer"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/admin_on_time"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/admin_late_pay"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/administrator/detail"(platform: "/", type: TrackType.View) {}
-
-    //Events
     "/credits/merchant/hero_cta"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant/second_offer_cta"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant/help"(platform: "/", type: TrackType.Event) {}
-
-    //Voluntary Payment
-    "/credits/merchant/administrator/next_installment_payment"(platform: "/", type: TrackType.View) {}
 
     /******************************************
      *       End: Merchants Administrator
@@ -153,7 +161,7 @@ tracks {
     //No options money advance
     "/credits/merchant/money_advance/no_options"(platform: "/", type: TrackType.View) {}
 
-    
+
     /******************************************
      *       End: Money Advance
      ******************************************/
