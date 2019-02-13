@@ -17,13 +17,7 @@
         "name": "type",
         "type": "UNICODE_STRING"
       }, {
-        "name": "server_timestamp",
-        "type": "UNICODE_STRING"
-      }, {
         "name": "path",
-        "type": "UNICODE_STRING"
-      }, {
-        "name": "uid",
         "type": "UNICODE_STRING"
       }, {
         "name": "cust_id",
@@ -58,6 +52,9 @@
       }, {
         "name": "site_id",
         "type": "UNICODE_STRING"
+      }, {
+        "name": "interactions",
+        "type": "INTEGER"
       }
     ],
     "sql": {

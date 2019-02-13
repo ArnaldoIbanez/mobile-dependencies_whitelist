@@ -1,9 +1,7 @@
 SELECT
-    ds,
+    substr(ds,1,10),
     type,
-    server_timestamp,
     path,
-    usr.uid,
     usr.user_id as cust_id,
     jest(event_data, 'shop_name') as shop_name,
     jest(event_data, 'shop_domain') as shop_domain,
@@ -14,7 +12,8 @@ SELECT
     jest(others['utm'], 'utm_source') as utm_source,
     jest(others['utm'], 'utm_medium') as utm_medium,
     jest(others['utm'], 'utm_campaign') as utm_campaign,
-    application.site_id
+    application.site_id,
+    count(1) as interactions
 from default.tracks
-where ds >= '@param01' and ds < '@param02'
-and path like '/mercado_shops%'
+where ds >= '@param01' and ds < '@param02' and path like '/mercado_shops%'
+group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14
