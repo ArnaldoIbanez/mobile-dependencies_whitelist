@@ -11,6 +11,8 @@ trackTests {
 
         // Onboarding
         "/asset_management/onboarding"(platform: "/mobile") {}
+        "/asset_management/start_investing"(platform: "/mobile") {}
+        "/asset_management/know_more"(platform: "/mobile") {}
 
         // Challenges
         "/asset_management/challenge_pep"(platform: "/mobile") {}
@@ -38,6 +40,8 @@ trackTests {
         "/asset_management/challenge_selfie"(platform: "/mobile") {}
         "/asset_management/challenge_selfie_bad_quality"(platform: "/mobile") {}
         "/asset_management/challenge_terms_and_conditions_company"(platform: "/mobile") {}
+        "/asset_management/challenge_address"(platform: "/mobile") {}
+        "/asset_management/challenge_phone"(platform: "/mobile") {}
 
         // Terms and conditions View
         "/asset_management/terms_and_conditions"(platform: "/mobile") {}
@@ -45,9 +49,14 @@ trackTests {
         // Opt-out
         "/asset_management/opt_out"(platform: "/mobile") {}
         "/asset_management/result_stop_investing"(platform: "/mobile") {}
+        "/asset_management/result_stop_investing"(platform: "/web") {}
 
         // Detail
         "/asset_management/investment_detail"(platform: "/mobile") {}
+        "/asset_management/investment_detail"(platform: "/web") {}
+
+        "/asset_management/landing"(platform: "/web") {}
+        "/asset_management/invest"(platform: "/web") {}
 
         // Operations
         "/asset_management/movements_detail"(platform: "/mobile") {} // old name
@@ -59,21 +68,21 @@ trackTests {
 
         // Faqs
         "/asset_management/faqs"(platform: "/mobile") {}
-
+        "/asset_management/faqs"(platform: "/web") {}
         "/asset_management/faq"(platform: "/mobile") {}
 
         "/asset_management/url_external"(platform: "/mobile") {
-            label = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
+            url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
             context = "/asset_management/onboarding"
         }
 
         "/asset_management/url_external"(platform: "/mobile") {
-            label = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
+            url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
             context = "/asset_management/faqs"
         }
 
         "/asset_management/url_external"(platform: "/mobile") {
-            label = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
+            url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
             context = "/asset_management/operations"
         }
 
