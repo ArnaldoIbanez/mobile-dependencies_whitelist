@@ -506,6 +506,10 @@ trackTests {
 
         "/myml/sales/questions"(platform: "/web") {}
 
+        "/myml/sales/questions/response"(platform: "/") {
+            unregistered_contact = false
+        }
+
         "/myml/sales/shipping" (platform:"/", type: TrackType.View) {
             dataSet()
         }
