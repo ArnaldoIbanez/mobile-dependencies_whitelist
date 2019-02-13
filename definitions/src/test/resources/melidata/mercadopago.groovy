@@ -1389,6 +1389,11 @@ trackTests {
             scope = "point"
         }
 
+        "/get_member/invite/invite"(platform: "/mobile", type:TrackType.Event) {
+            flow = "/get_member"
+            scope = "wallet"
+        }
+
         "/get_member/redeem"(platform: "/mobile") {
             flow = "/get_member"
         }
