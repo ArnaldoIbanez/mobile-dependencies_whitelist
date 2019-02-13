@@ -18,7 +18,7 @@ from (
 left join (
   select distinct(usr.user_id) user_id, usr.user_nick user_nick, application.site_id site_id, substr(ds,1,10) ds
   from tracks
-  where path = '/seller_central/bulk/dvimiscounts/list'
+  where path = '/seller_central/bulk/discounts/list'
   AND DS >= '@param01' 
   AND DS < '@param02'
  and not (usr.user_nick RLIKE '^(TETE|TT|TEST)[0-9]*')
