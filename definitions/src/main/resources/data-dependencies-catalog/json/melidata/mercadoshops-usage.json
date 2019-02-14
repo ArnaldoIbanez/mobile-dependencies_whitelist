@@ -52,10 +52,6 @@
       }, {
         "name": "interactions",
         "type": "INTEGER"
-      },{
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
       }
     ],
     "sql": {
