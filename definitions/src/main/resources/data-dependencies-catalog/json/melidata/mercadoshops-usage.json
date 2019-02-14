@@ -9,11 +9,8 @@
   "extract": {
     "operation": "append",
     "site": "MercadoShops",
-    "columns": [{
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      }, {
+    "columns": [
+      {
         "name": "type",
         "type": "UNICODE_STRING"
       }, {
