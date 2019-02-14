@@ -41,6 +41,9 @@ trackTests {
         "/credits/consumer/public_landing/application_result/click_home"(platform: "/web/desktop") {
             result = 'manual_review'
         }
+        "/credits/consumer/public_landing/application_result/more_info"(platform: "/web/desktop") {
+            result = 'manual_review'
+        }
 
         /******************************************
          *       End: Consumers Public Landings
