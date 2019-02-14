@@ -624,7 +624,6 @@ trackTests {
             zip_code = 123
             quantity = 2
             has_shipping = false
-            has_stock = false
             shipping_method()
         }
     }
