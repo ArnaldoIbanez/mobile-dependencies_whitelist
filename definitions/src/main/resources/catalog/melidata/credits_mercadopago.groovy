@@ -128,7 +128,7 @@ tracks {
 
     //Documentation
     "/credits/merchant/enrollment/documentation"(platform: "/", type: TrackType.View) {
-        userType(type: PropertyType.String, required: true, values: ['physical', 'moral'])
+        userType(type: PropertyType.String, required: true, values: ['physical', 'moral'], inheritable: false)
     }
     "/credits/merchant/enrollment/documentation/congrats"(platform: "/", type: TrackType.View) {
         userType(type: PropertyType.String, required: true, values: ['physical', 'moral'])
@@ -144,7 +144,7 @@ tracks {
 
     //Feedback
     "/credits/merchant/enrollment/feedback"(platform: "/", type: TrackType.View) {
-         reason(type: PropertyType.String, required: true, values: ['interested', 'not_interested'])
+         reason(type: PropertyType.String, required: true, values: ['interested', 'not_interested'], inheritable: false)
     }
     "/credits/merchant/enrollment/feedback/congrats"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/enrollment/feedback/error"(platform: "/", type: TrackType.View) {

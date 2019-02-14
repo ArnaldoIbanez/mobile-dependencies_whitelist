@@ -8,42 +8,48 @@ trackTests {
     defaultBusiness = "mercadopago"
 
     test("Merchant Credits Enrollment") {
-        "/credits/merchant/enrollment"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/credits_conditions"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/preconfirm"(platform: "/web/desktop") {
+        "/credits/merchant/enrollment"(platform: "/web/desktop") {
+            status = 'pending'
+        }
+        "/credits/merchant/enrollment"(platform: "/web/desktop") {
+            status = 'rejected'
+        }
+        "/credits/merchant/enrollment"(platform: "/web/desktop") {
+            status = 'approved'
+        }
+        "/credits/merchant/enrollment/confirmation"(platform: "/web/desktop") {
             amount = 200000
             installments = 9
         }
-        "/credits/merchant/enrollment/preconfirm"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/load_documents"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/not_interested"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/review"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/error"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/feedback"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/feedback/interested"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/feedback/not_interested"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/feedback/success"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/feedback/error"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/error/accept"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment/error"(platform: "/web/desktop") {
+            reason = 'loan_creation_failed'
+        }
         "/credits/merchant/enrollment/documentation"(platform: "/web/desktop") {
             userType = 'moral'
         }
-        "/credits/merchant/enrollment/choose_amount"(platform: "/web/desktop", type: TrackType.Event) {
-            amount = 200000
+        "/credits/merchant/enrollment/documentation"(platform: "/web/desktop") {
+            userType = 'physical'
         }
-        "/credits/merchant/enrollment/choose_installment"(platform: "/web/desktop", type: TrackType.Event) {
-            installment = 9
+        "/credits/merchant/enrollment/documentation/congrats"(platform: "/web/desktop") {
+            userType = 'moral'
         }
-        "/credits/merchant/enrollment/ask_us"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant/enrollment/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant/enrollment/load_documents/user_type"(platform: "/web/desktop", type: TrackType.Event) {
-            type = 'moral'
+        "/credits/merchant/enrollment/documentation/congrats"(platform: "/web/desktop") {
+            userType = 'physical'
         }
-        "/credits/merchant/enrollment/load_documents/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant/enrollment/error/try_it_again"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant/enrollment/error/contact_us"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant/enrollment/withdrawal"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/merchant/enrollment/documentation/error"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment/testimonials"(platform: "/web/desktop") {
+            brand = 'interfuerzas'
+        }
+        "/credits/merchant/enrollment/feedback"(platform: "/web/desktop") {
+            reason = 'interested'
+        }
+        "/credits/merchant/enrollment/feedback"(platform: "/web/desktop") {
+            reason = 'not_interested'
+        }
+        "/credits/merchant/enrollment/feedback/congrats"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment/feedback/error"(platform: "/web/desktop") {}
     }
 
     test("Merchant Credits Administrator") {
