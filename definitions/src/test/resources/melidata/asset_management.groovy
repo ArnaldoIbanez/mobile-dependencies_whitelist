@@ -14,6 +14,9 @@ trackTests {
         "/asset_management/start_investing"(platform: "/mobile") {}
         "/asset_management/know_more"(platform: "/mobile") {}
 
+        // First time
+        "/asset_management/first_time"(platform: "/mobile") {}
+
         // Challenges
         "/asset_management/challenge_pep"(platform: "/mobile") {}
         "/asset_management/challenge_fatca"(platform: "/mobile") {}

@@ -9,6 +9,9 @@ tracks {
         category (required: false, type: PropertyType.String, description: "The category of the current event") // for backwards compatibility with old tracks
     }
 
+    // First time
+    "/asset_management/first_time"(platform: "/mobile", type: TrackType.View) {}
+
     // Onboarding
     "/asset_management/onboarding"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/start_investing"(platform: "/mobile", type: TrackType.Event) {}
@@ -85,7 +88,7 @@ tracks {
     // WebView events
     "/asset_management/url_external"(platform: "/mobile", type: TrackType.Event) {
         context (required: true, type: PropertyType.String, description: "The context where this event occurred")
-        url (required: true, type: PropertyType.String, description: "The external URL")
+        url (required: false, type: PropertyType.String, description: "The external URL") // TODO: Mark as required when the app version it's fully productive
     }
 
     // Splitter
