@@ -131,7 +131,7 @@ tracks {
         userType(type: PropertyType.String, required: true, values: ['physical', 'moral'], inheritable: false)
     }
     "/credits/merchant/enrollment/documentation/congrats"(platform: "/", type: TrackType.View) {
-        userType(type: PropertyType.String, required: true, values: ['physical', 'moral'])
+        userType(type: PropertyType.String, required: true, values: ['physical', 'moral'], inheritable: false)
     }
     "/credits/merchant/enrollment/documentation/error"(platform: "/", type: TrackType.View) {
         reason(type: PropertyType.String, required: false)
@@ -176,9 +176,6 @@ tracks {
         type(type: PropertyType.String, required: true, values: ['physical', 'moral'])
     }
     "/credits/merchant/enrollment/load_documents/cancel"(platform: "/", type: TrackType.Event) {}
-    "/credits/merchant/enrollment/documentation"(platform: "/", type: TrackType.View) {
-        userType(type: PropertyType.String, required: true, values: ['physical', 'moral'])
-    }
     "/credits/merchant/enrollment/review"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant/enrollment/withdrawal"(platform: "/", type: TrackType.Event) {}
     "/credits/merchant/enrollment/error/accept"(platform: "/", type: TrackType.View) {}

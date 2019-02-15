@@ -10,12 +10,16 @@ trackTests {
     test("Merchant Credits Enrollment") {
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'pending'
+            productType = 'default'
         }
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'rejected'
+            productType = 'early_offer'
         }
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'approved'
+            subStatus = 'review_pending'
+            productType = 'point'
         }
         "/credits/merchant/enrollment/confirmation"(platform: "/web/desktop") {
             amount = 200000
