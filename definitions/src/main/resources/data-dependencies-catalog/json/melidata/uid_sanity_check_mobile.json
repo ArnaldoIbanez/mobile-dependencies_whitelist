@@ -29,6 +29,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "site",
+        "type": "UNICODE_STRING"
+      }
+      {
         "name": "uids_quantity",
         "type": "INTEGER"
       }
