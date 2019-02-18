@@ -285,9 +285,7 @@ tracks {
     "/instore/shell_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {
         view_time_in_millis(required: false, PropertyType.String)
     }
-    "/instore/shell_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
-        view_time_in_millis(required: false, PropertyType.String)
-    }
+    "/instore/shell_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/shell_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/qr_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
