@@ -33,6 +33,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "path",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "uids_quantity",
         "type": "INTEGER"
       }
