@@ -56,7 +56,7 @@ tracks {
         flow(type: PropertyType.String, required: false, values: ['voluntary_payment'])
     }
     "/credits/merchant/administrator/voluntary_payment/error"(platform: "/", type: TrackType.View) {
-        reason(type: PropertyType.String, required: false, values: ['insufficient_account_money',
+        reason(type: PropertyType.String, required: true, values: ['insufficient_account_money',
                                                                     'lender_cannot_collect_installments',
                                                                     'default'])
     }
@@ -89,13 +89,13 @@ tracks {
             values: ['pending', 'rejected', 'approved'],
             inheritable: false
         )
-        subStatus(
+        sub_status(
             type: PropertyType.String,
             required: false,
             values: ['missing_documentation','review_pending', 'loan_granted'],
             inheritable: false
         )
-        productType(
+        product_type(
             type: PropertyType.String,
             required: true,
             values: ['default', 'point', 'early_offer'],
@@ -128,10 +128,10 @@ tracks {
 
     //Documentation
     "/credits/merchant/enrollment/documentation"(platform: "/", type: TrackType.View) {
-        userType(type: PropertyType.String, required: true, values: ['physical', 'moral'], inheritable: false)
+        user_type(type: PropertyType.String, required: true, values: ['physical', 'moral'], inheritable: false)
     }
     "/credits/merchant/enrollment/documentation/congrats"(platform: "/", type: TrackType.View) {
-        userType(type: PropertyType.String, required: true, values: ['physical', 'moral'], inheritable: false)
+        user_type(type: PropertyType.String, required: true, values: ['physical', 'moral'], inheritable: false)
     }
     "/credits/merchant/enrollment/documentation/error"(platform: "/", type: TrackType.View) {
         reason(type: PropertyType.String, required: false)

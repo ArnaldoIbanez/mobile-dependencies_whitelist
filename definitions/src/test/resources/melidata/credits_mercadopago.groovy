@@ -10,16 +10,16 @@ trackTests {
     test("Merchant Credits Enrollment") {
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'pending'
-            productType = 'default'
+            product_type = 'default'
         }
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'rejected'
-            productType = 'early_offer'
+            product_type = 'early_offer'
         }
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'approved'
-            subStatus = 'review_pending'
-            productType = 'point'
+            sub_status = 'review_pending'
+            product_type = 'point'
         }
         "/credits/merchant/enrollment/credits_conditions"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/preconfirm"(platform: "/web/desktop") {
@@ -40,16 +40,16 @@ trackTests {
             reason = 'loan_creation_failed'
         }
         "/credits/merchant/enrollment/documentation"(platform: "/web/desktop") {
-            userType = 'moral'
+            user_type = 'moral'
         }
         "/credits/merchant/enrollment/documentation"(platform: "/web/desktop") {
-            userType = 'physical'
+            user_type = 'physical'
         }
         "/credits/merchant/enrollment/documentation/congrats"(platform: "/web/desktop") {
-            userType = 'moral'
+            user_type = 'moral'
         }
         "/credits/merchant/enrollment/documentation/congrats"(platform: "/web/desktop") {
-            userType = 'physical'
+            user_type = 'physical'
         }
         "/credits/merchant/enrollment/documentation/error"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/testimonials"(platform: "/web/desktop") {
