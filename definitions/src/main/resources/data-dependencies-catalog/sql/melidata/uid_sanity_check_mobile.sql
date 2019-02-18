@@ -3,6 +3,7 @@ SELECT device.device_id AS device,
       application.version AS VERSION,
       application.business AS business,
       application.site_id AS site,
+      path,
       count(DISTINCT usr.uid) AS uids_quantity,
       substr
  (ds,1,10) AS ds
@@ -17,5 +18,6 @@ GROUP BY substr(ds,1,10),
         application.version,
         application.business,
         application.site_id,
-        device.device_id
+        device.device_id,
+        path
 HAVING count(DISTINCT usr.uid) > 1
