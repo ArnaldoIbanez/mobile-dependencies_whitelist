@@ -4,7 +4,7 @@
      "agustin.romano@mercadolibre.com",
      "cpg_it@mercadolibre.com"
   ],
-  "process_name": "deal_hub_sources",
+  "process_name": "home_cpg",
   "cron": "00 06 * * *",
   "partition": {
         "name": "track_date",
