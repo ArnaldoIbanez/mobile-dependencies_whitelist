@@ -56,7 +56,7 @@ tracks {
         flow(type: PropertyType.String, required: false, values: ['voluntary_payment'])
     }
     "/credits/merchant/administrator/voluntary_payment/error"(platform: "/", type: TrackType.View) {
-        reason(type: PropertyType.String, required: true, values: ['insufficient_account_money',
+        reason(type: PropertyType.String, required: false, values: ['insufficient_account_money',
                                                                     'lender_cannot_collect_installments',
                                                                     'default'])
     }
@@ -116,13 +116,14 @@ tracks {
     "/credits/merchant/enrollment/error"(platform: "/", type: TrackType.View) {
         reason(
             type: PropertyType.String,
-            required: false,
+            required: true,
             values: [
                 'loan_creation_failed',
                 'feedback_creation_failed',
                 'files_upload_failed',
                 'default'
-            ]
+            ],
+            inheritable: false
         )
     }
 

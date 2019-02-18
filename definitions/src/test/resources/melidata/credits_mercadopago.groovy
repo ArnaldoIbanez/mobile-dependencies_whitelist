@@ -35,7 +35,6 @@ trackTests {
             installments = 9
         }
         "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/error"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/error"(platform: "/web/desktop") {
             reason = 'loan_creation_failed'
         }
