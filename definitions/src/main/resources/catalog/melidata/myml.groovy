@@ -68,6 +68,10 @@ tracks {
 
     "/myml/sales/questions"(platform: "/") {}
 
+    "/myml/sales/questions/response"(platform: "/") {
+        unregistered_contact(required: true, type: PropertyType.Boolean, "User is unregister type")
+    }
+
     "/myml/sales/buyer"(platform:"/", type: TrackType.View) {}
 
     "/myml/sales/item"(platform:"/", type: TrackType.View) {}
