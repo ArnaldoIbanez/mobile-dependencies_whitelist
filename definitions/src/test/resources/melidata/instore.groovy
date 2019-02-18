@@ -341,7 +341,9 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/shell_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
-            view_time_in_millis = "134231"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/shell_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
@@ -364,6 +366,9 @@ trackTests {
             pump_code = "13423"
             success = true
             next_step = "Any deeplink"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/shell/pump_code/abort"(platform: "/mobile", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
@@ -510,6 +515,10 @@ trackTests {
             pos_id = "65763"
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/machine_response_final_result"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -518,6 +527,10 @@ trackTests {
             pos_id = "65763"
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/st_machine_connection_error"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -526,6 +539,10 @@ trackTests {
             st_machine_connection_error = "Any machine error"
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/machine_response_state"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -535,6 +552,10 @@ trackTests {
             machine_response_state = "available"
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/st_machine_not_available"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -543,6 +564,10 @@ trackTests {
             pos_id = "65763"
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/st_machine_connected"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -551,6 +576,10 @@ trackTests {
             pos_id = "65763"
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/response_end_transaction"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -560,11 +589,16 @@ trackTests {
             vending_id = "12345"
             end_transaction_status = "success"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
+            item_price = 130
         }
         "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
             currency_id = "ARS"
             statement_descriptor = "WWW.MERCADOPAGO.COM"
-            collector_id = 244110353
+            collector_id = "244110353"
             status = "approved"
             payment_method_id = "visa"
             site_id = "MLA"
@@ -637,6 +671,8 @@ trackTests {
             sponsor_id = 1234567
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            pos_id = "9355"
+            store_id = "12964038"
         }
 
         "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
@@ -768,9 +804,6 @@ trackTests {
         "/instore/activity/list"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/vending/select_product"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
         "/instore/required_action/data_required"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
@@ -811,135 +844,6 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/price_picker"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        // Deprecated PX
-        "/instore/checkout/card/number"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/installments"(platform: "/mobile", type: TrackType.View) {
-            payment_method = "amex"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/security_code_card"(platform: "/mobile", type: TrackType.View) {
-            security_code_view_reason = "saved_card"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/congrats/business"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/congrats/rejected"(platform: "/mobile", type: TrackType.View) {
-            issuer ="24"
-            payment_id  = "4318458695"
-            is_express = "false"
-            payment_method = "master"
-            payment_status = "rejected"
-            payment_status_detail = "cc_rejected_high_risk"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/credit_card/security_code"(platform: "/mobile", type: TrackType.View) {
-            security_code_view_reason = "saved_card"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/debit_card/security_code"(platform: "/mobile", type: TrackType.View) {
-            security_code_view_reason = "saved_card"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card_expiry_date"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card_holder_name"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card_installments"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card_number"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card_security_code"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card_vault credit_card"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card_vault debit_card"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/identification_number"(platform: "/mobile", type: TrackType.View) {
-            payment_method =  "visa"
-            payment_type = "credit_card"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/installments"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/payment_method_search"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            options = "visa:credit_card|master:credit_card|amex:credit_card|mercadopago_cc:credit_card" +
-                    "|naranja:credit_card|nativa:credit_card|cabal:credit_card|tarshop:credit_card" +
-                    "|cencosud:credit_card|diners:credit_card|argencard:credit_card|maestro:debit_card" +
-                    "|debmaster:debit_card|debcabal:debit_card|debvisa:debit_card|cordial:credit_card" +
-                    "|cordobesa:credit_card|cmr:credit_card|debvisa:debit_card:7775245748:ESC" +
-                    "|visa:credit_card:8237344527"
-        }
-        "/instore/checkout/payment_option"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            options = "visa:credit_card|master:credit_card|amex:credit_card|mercadopago_cc:credit_card" +
-                    "|naranja:credit_card|nativa:credit_card|cabal:credit_card|tarshop:credit_card" +
-                    "|cencosud:credit_card|diners:credit_card|argencard:credit_card|maestro:debit_card" +
-                    "|debmaster:debit_card|debcabal:debit_card|debvisa:debit_card|cordial:credit_card" +
-                    "|cordobesa:credit_card|cmr:credit_card|debvisa:debit_card:7775245748:ESC" +
-                    "|visa:credit_card:8237344527"
-        }
-        "/instore/checkout/result"(platform: "/mobile", type: TrackType.View) {
-            issuer = "24"
-            payment_id = "4319318405"
-            is_express = "false"
-            payment_method = "master"
-            payment_type = "credit_card"
-            payment_status_detail = "cc_rejected_plugin_pm"
-            payment_status = "rejected"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/review"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/review_and_confirm"(platform: "/mobile", type: TrackType.View) {
-            issuer = "0"
-            has_shipping = "false"
-            payment_method = "account_money"
-            payment_type = "payment_method_plugin"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/payment_option/cards"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/error_view"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/debit_card/number"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/credit_card/number"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/credit_card/name"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/credit_card/expiration"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/credit_card/cvv"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/debit_card/name"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/debit_card/expiration"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
@@ -1335,7 +1239,9 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/shell_first_time_use/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
-            view_time_in_millis = "134231"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/shell_first_time_use/back"(platform: "/mobile", business:"mercadopago",type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
@@ -1361,6 +1267,9 @@ trackTests {
             next_step = "Any deeplink"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+        "/instore/shell/pump_code/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
 
         // Vending
         "/instore/waiting/vending_product_selection"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
@@ -1377,6 +1286,10 @@ trackTests {
             pos_id = "65763"
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/machine_response_final_result"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1385,6 +1298,10 @@ trackTests {
             pos_id = "65763"
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/st_machine_connection_error"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1393,6 +1310,10 @@ trackTests {
             st_machine_connection_error = "Any machine error"
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/machine_response_state"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1402,6 +1323,10 @@ trackTests {
             machine_response_state = "available"
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/st_machine_not_available"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1410,6 +1335,10 @@ trackTests {
             pos_id = "65763"
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/st_machine_connected"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1418,6 +1347,10 @@ trackTests {
             pos_id = "65763"
             vending_id = "12345"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/response_end_transaction"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1427,6 +1360,11 @@ trackTests {
             vending_id = "12345"
             end_transaction_status = "success"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
+            item_price = 130
         }
 
         // Waiting
@@ -1560,7 +1498,7 @@ trackTests {
         "/instore/post_payment"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
                 currency_id = "ARS"
                 statement_descriptor = "WWW.MERCADOPAGO.COM"
-                collector_id = 244110353
+                collector_id = "244110353"
                 status = "approved"
                 payment_method_id = "visa"
                 site_id = "MLA"
@@ -1634,6 +1572,8 @@ trackTests {
                 sponsor_id = 1234567
                 vending_id = "12345"
                 session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+                pos_id = "9355"
+                store_id = "12964038"
         }
 
         "/instore/post_payment"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
@@ -1752,9 +1692,6 @@ trackTests {
         "/instore/shell_first_time_use"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/vending/select_product"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
         "/instore/waiting"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
@@ -1807,137 +1744,6 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/price_picker"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        // Deprecated PX
-        "/instore/checkout/card/installments"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            payment_method = "amex"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/security_code_card"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            security_code_view_reason = "saved_card"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/congrats/business"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/congrats/rejected"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            issuer ="24"
-            payment_id  = "4318458695"
-            is_express = "false"
-            payment_method = "master"
-            payment_status = "rejected"
-            payment_status_detail = "cc_rejected_high_risk"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/credit_card/security_code"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            security_code_view_reason = "saved_card"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/debit_card/security_code"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            security_code_view_reason = "saved_card"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card_expiry_date"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card_holder_name"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card_installments"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card_number"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card_security_code"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card_vault credit_card"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card_vault debit_card"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/identification_number"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            payment_method =  "visa"
-            payment_type = "credit_card"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/installments"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/payment_method_search"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            options = "visa:credit_card|master:credit_card|amex:credit_card|mercadopago_cc:credit_card" +
-                    "|naranja:credit_card|nativa:credit_card|cabal:credit_card|tarshop:credit_card" +
-                    "|cencosud:credit_card|diners:credit_card|argencard:credit_card|maestro:debit_card" +
-                    "|debmaster:debit_card|debcabal:debit_card|debvisa:debit_card|cordial:credit_card" +
-                    "|cordobesa:credit_card|cmr:credit_card|debvisa:debit_card:7775245748:ESC" +
-                    "|visa:credit_card:8237344527"
-        }
-        "/instore/checkout/payment_option"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            options = "visa:credit_card|master:credit_card|amex:credit_card|mercadopago_cc:credit_card" +
-                    "|naranja:credit_card|nativa:credit_card|cabal:credit_card|tarshop:credit_card" +
-                    "|cencosud:credit_card|diners:credit_card|argencard:credit_card|maestro:debit_card" +
-                    "|debmaster:debit_card|debcabal:debit_card|debvisa:debit_card|cordial:credit_card" +
-                    "|cordobesa:credit_card|cmr:credit_card|debvisa:debit_card:7775245748:ESC" +
-                    "|visa:credit_card:8237344527"
-        }
-        "/instore/checkout/result"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            issuer = "24"
-            payment_id = "4319318405"
-            is_express = "false"
-            payment_method = "master"
-            payment_type = "credit_card"
-            payment_status_detail = "cc_rejected_plugin_pm"
-            payment_status = "rejected"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/number"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/review"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/review_and_confirm"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            issuer = "0"
-            has_shipping = "false"
-            payment_method = "account_money"
-            payment_type = "payment_method_plugin"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-      
-      
-        "/instore/checkout/payment_option/cards"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/error_view"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/debit_card/number"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/credit_card/number"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/credit_card/name"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/credit_card/expiration"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/credit_card/cvv"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/debit_card/name"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/debit_card/expiration"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/checkout/card/debit_card/cvv"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
