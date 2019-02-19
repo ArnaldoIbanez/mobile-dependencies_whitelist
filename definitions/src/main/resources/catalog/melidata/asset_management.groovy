@@ -15,7 +15,7 @@ tracks {
     // Onboarding
     "/asset_management/onboarding"(platform: "/mobile", type: TrackType.View) {
         type (
-            required: true,
+            required: false, // for backwards compatibility
             type: PropertyType.String,
             values: ["a", "b", "c", "d"],
             description: "The view type corresponding to the experiment variant"
