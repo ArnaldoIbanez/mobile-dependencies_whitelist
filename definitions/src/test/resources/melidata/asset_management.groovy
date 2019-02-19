@@ -11,6 +11,18 @@ trackTests {
 
         // Onboarding
         "/asset_management/onboarding"(platform: "/mobile") {}
+        "/asset_management/onboarding"(platform: "/mobile") {
+            type = "a"
+        }
+        "/asset_management/onboarding"(platform: "/mobile") {
+            type = "b"
+        }
+        "/asset_management/onboarding"(platform: "/mobile") {
+            type = "c"
+        }
+        "/asset_management/onboarding"(platform: "/mobile") {
+            type = "d"
+        }
         "/asset_management/start_investing"(platform: "/mobile") {}
         "/asset_management/know_more"(platform: "/mobile") {}
 
