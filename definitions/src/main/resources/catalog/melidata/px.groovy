@@ -455,4 +455,61 @@ tracks {
         externalData
     }
 
+    // Congrats:
+    // Approved payment
+    "/px_checkout/result/success/continue"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/success/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
+    // In process payment
+    "/px_checkout/result/further_action_needed/continue"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/further_action_needed/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
+    // Rejected payment
+    "/px_checkout/result/error/change_payment_method"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/error/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
+    // Approved business
+    "/px_checkout/result/success/primary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/success/secondary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/success/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
+    // Pending business
+    "/px_checkout/result/further_action_needed/primary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/further_action_needed/secondary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/further_action_needed/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
+    // Rejected business
+    "/px_checkout/result/error/primary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/error/secondary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/error/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
 }
