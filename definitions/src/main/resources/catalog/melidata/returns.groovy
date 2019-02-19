@@ -15,6 +15,14 @@ tracks {
     }
 
     // STEP 01
+    "/return/potential_resolutions"(platform: "/", type: TrackType.View) {
+        ref(required: false, type: PropertyType.String, description: 'reference of the beginning of the flow')
+    }
+    "/return/potential_resolutions/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        potential_resolution(required: true, type: PropertyType.String, description: 'kind of operation (repurchase, return or change)')
+    }
+
+    // STEP 02
     "/return/typifications"(platform: "/", type: TrackType.View) {
       ref(required: false, type: PropertyType.String, description: 'reference of the beginning of the flow')
     }
@@ -22,7 +30,7 @@ tracks {
       typification(required: true, type: PropertyType.String, description: 'reason why the product is returned')
     }
 
-    // STEP 02
+    // STEP 03
     "/return/conditions"(platform: "/", type: TrackType.View) {
       ref(required: false, type: PropertyType.String, description: 'reference of the beginning of the flow')
     }
@@ -30,7 +38,7 @@ tracks {
       selection(required: true, values:['accepted', 'rejected'], type: PropertyType.String, description: 'selected option button')
     }
 
-    // STEP 03
+    // STEP 04
     "/return/payments"(platform: "/", type: TrackType.View) {
       ref(required: false, type: PropertyType.String, description: 'reference of the beginning of the flow')
       showed_payment_methods(required: true, type: PropertyType.String, description: 'what payment refund methods are shown to the buyer')
@@ -39,29 +47,30 @@ tracks {
       payment_refund_method(required: true, type: PropertyType.String, description: 'payment refund method selected by the user')
     }
 
-    // STEP 04
+    // STEP 05
     "/return/shipping"(platform: "/", type: TrackType.View) { }
     "/return/shipping/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
       shipment_type(required: true, values:['delivery', 'pickup'], type: PropertyType.String, description: 'selected shipment type')
     }
 
-    // STEP 05.a
+    // STEP 06.a
     "/return/pickup"(platform: "/", type: TrackType.View) { }
     "/return/pickup/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
       pickup_time(required: true, type: PropertyType.String, description: 'when will the carrier arrive to buyer address')
     }
 
-    // STEP 05.b
+    // STEP 06.b
     "/return/delivery"(platform: "/", type: TrackType.View) { }
 
-    // STEP 05.c
+    // STEP 06.c
     "/return/review"(platform: "/", type: TrackType.View) { }
     "/return/review/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
       review_return_method(required: true, type: PropertyType.String, description: 'type of review', values: ['review_code', 'review_label'] )
     }
 
-    // STEP 06
+    // STEP 07
     "/return/congrats"(platform: "/", type: TrackType.View) {
+      potential_resolution(required: true, type: PropertyType.String, description: 'kind of operation (repurchase, return or change)')
       typification(required: true, type: PropertyType.String, description: 'reason why the product is returned')
       payment_refund_method(required: false, type: PropertyType.String, description: 'payment refund method selected by the user')
       shipment_type(required: true, type: PropertyType.String, description: 'shipment type')
@@ -79,6 +88,7 @@ tracks {
 
     // Bloqueo Scoring High
     "/return/congrats_error"(platform: "/", type: TrackType.View) {
+      potential_resolution(required: true, type: PropertyType.String, description: 'kind of operation (repurchase, return or change)')
       typification(required: true, type: PropertyType.String, description: 'reason why the product is returned')
       payment_refund_method(required: false, type: PropertyType.String, description: 'origin of payment')
       shipment_type(required: true, type: PropertyType.String, description: 'shipment type')

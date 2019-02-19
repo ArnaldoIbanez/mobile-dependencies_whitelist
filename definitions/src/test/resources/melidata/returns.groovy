@@ -10,6 +10,22 @@ trackTests {
     test("Returns tracks") {
 
       // STEP 01
+      "/return/potential_resolutions"(platform: "/", type: TrackType.View)  {
+        loyalty_level = 5
+        order_id = 1763279429
+        buyer_scoring = "low"
+        seller_scoring = "low"
+        category_id = "MLB48550"
+        category_l1_id = "MLB48551"
+        category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
+        ref = "mediations_init"
+      }
+
+      "/return/potential_resolutions/selection"(platform: "/", type: TrackType.Event)  {
+        potential_resolution = "return"
+      }
+
+      // STEP 02
       "/return/typifications"(platform: "/", type: TrackType.View)  {
         loyalty_level = 5
         order_id = 1763279429
@@ -25,7 +41,7 @@ trackTests {
         typification = "broken_item"
       }
 
-      // STEP 02
+      // STEP 03
       "/return/conditions"(platform: "/", type: TrackType.View) {
         loyalty_level = 4
         order_id = 1763279429
@@ -41,7 +57,7 @@ trackTests {
         selection = "accepted"
       }
 
-      // STEP 03
+      // STEP 04
       "/return/payments"(platform: "/", type: TrackType.View) {
         loyalty_level = 4
         order_id = 1763279429
@@ -58,7 +74,7 @@ trackTests {
         payment_refund_method = "credit_card"
       }
 
-      // STEP 04
+      // STEP 05
       "/return/shipping"(platform: "/", type: TrackType.View) {
         loyalty_level = 4
         order_id = 1763279429
@@ -73,7 +89,7 @@ trackTests {
         shipment_type = "pickup"
       }
 
-      // STEP 05.a
+      // STEP 06.a
       "/return/pickup"(platform: "/", type: TrackType.View) {
         loyalty_level = 4
         order_id = 1763279429
@@ -88,7 +104,7 @@ trackTests {
         pickup_time = "2018-01-31 18:00.000"
       }
 
-      // STEP 05.b
+      // STEP 06.b
       "/return/delivery"(platform: "/", type: TrackType.View) {
         loyalty_level = 4
         order_id = 1763279429
@@ -99,7 +115,7 @@ trackTests {
         category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
       }
 
-      // STEP 05.c
+      // STEP 06.c
        "/return/review"(platform: "/", type: TrackType.View) {
         loyalty_level = 4
         order_id = 1763279429
@@ -114,7 +130,7 @@ trackTests {
         review_return_method = 'review_code'
       }
 
-      // STEP 06
+      // STEP 07
       "/return/congrats"(platform: "/", type: TrackType.View) {
         loyalty_level = 4
         order_id = 1763279429
