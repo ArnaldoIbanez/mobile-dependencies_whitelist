@@ -430,6 +430,10 @@ tracks {
         externalData
     }
 
+    "/px_checkout/review/traditional/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
     "/px_checkout/review/traditional/change_payment_method"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
     }

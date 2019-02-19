@@ -1217,6 +1217,16 @@ trackTests {
             flow = "/instore"
         }
 
+        "/px_checkout/review/traditional/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
         "/px_checkout/review/traditional/change_payment_method"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
                 collector_id = 1234
@@ -2454,6 +2464,16 @@ trackTests {
 
         // Revisa y confirma:
         "/px_checkout/review/traditional/back"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        "/px_checkout/review/traditional/abort"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
