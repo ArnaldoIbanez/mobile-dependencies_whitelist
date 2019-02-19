@@ -13,7 +13,14 @@ tracks {
     "/asset_management/first_time"(platform: "/mobile", type: TrackType.View) {}
 
     // Onboarding
-    "/asset_management/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/onboarding"(platform: "/mobile", type: TrackType.View) {
+        type (
+            required: true,
+            type: PropertyType.String,
+            values: ["a", "b", "c", "d"],
+            description: "The view type corresponding to the experiment variant"
+        )
+    }
     "/asset_management/start_investing"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/know_more"(platform: "/mobile", type: TrackType.Event) {}
 
