@@ -280,6 +280,24 @@ trackTests {
             qr_data = "Any scanned data"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+        "/instore/error/cant_pay_in_different_sites"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "12356"
+            pos_id = "65763"
+            qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_pay_in_different_sites/back"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            pos_id = "65763"
+            qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_pay_in_different_sites/abort"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            pos_id = "65763"
+            qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
 
         // Amount
         "/instore/amount/price_list"(platform: "/mobile", type: TrackType.View) {
@@ -1214,6 +1232,24 @@ trackTests {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
+            pos_id = "65763"
+            qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_pay_in_different_sites"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            collector_id = "12356"
+            pos_id = "65763"
+            qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_pay_in_different_sites/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            pos_id = "65763"
+            qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_pay_in_different_sites/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
             pos_id = "65763"
             qr_data = "Any scanned data"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
