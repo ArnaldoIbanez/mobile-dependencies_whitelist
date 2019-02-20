@@ -1,3 +1,5 @@
+set hive.groupby.orderby.position.alias=true;
+
 SELECT
     prints.component AS `component`,
     prints.platform AS `device_type`,
@@ -6,13 +8,13 @@ SELECT
     prints.campaign AS `campaign`,
     prints.brand_name AS `brand_name`,
     prints.category_id AS `category_id`,
-    prints_count as `prints`,
-    clicks_count as `clicks`,
-    SUBSTR(prints.dsx, 1, 10) AS `ds`
+    prints_count AS `prints`,
+    clicks_count AS `clicks`,
+    prints.dsx AS `ds`
 
 FROM
 
-(SELECT from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') + 14400, 'yyyy-MM-dd HH') AS `dsx`,
+(SELECT from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') + 14400, 'yyyy-MM-dd') AS `dsx`,
     `jt`.`id` AS `component`,
     `jt2`.`platform` AS `platform`,
     `jt3`.`site_id` AS  `site_id`,
@@ -21,6 +23,7 @@ FROM
     COALESCE(`jt`.`brand_name`, `jt`.`legacy_brand_name`) AS `brand_name`,
     COALESCE(`jt`.`category_id`, `jt`.`legacy_category_id`) AS `category_id`,
     COUNT(`jt`.`id`) AS `prints_count`
+    
 FROM component_prints
 LATERAL VIEW json_tuple(`data`, 'event_data') ed AS `event_data`
 LATERAL VIEW json_tuple(ed.`event_data`, 'c_event', 'c_id', 'c_element_order', 'c_campaign', 'c_brand_name', 'brand_name', 'c_category_id', 'category_id') jt AS `event`, `id`, `element_order`, `campaign`, `brand_name`, `legacy_brand_name`, `category_id`, `legacy_category_id`
@@ -28,15 +31,16 @@ LATERAL VIEW json_tuple(`data`, 'device') dev AS `device`
 LATERAL VIEW json_tuple(dev.`device`, 'platform') jt2 AS `platform`
 LATERAL VIEW json_tuple(`data`, 'application') app AS `application`
 LATERAL VIEW json_tuple(app.`application`, 'site_id') jt3 AS `site_id`
+
 WHERE ds >= '@param03 20' AND ds < '@param04 20'
     AND `jt`.`event` = 'print'
     AND `jt`.`id` IS NOT NULL
     AND (`jt`.`id` RLIKE '.*(?<=\/element)$' OR `jt`.`id` RLIKE '.*(?<=\/item)$')
-GROUP BY from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') + 14400, 'yyyy-MM-dd HH'), `jt2`.`platform`,`jt3`.`site_id`, `jt`.`id`, `jt`.`element_order`, `jt`.`campaign`, COALESCE(`jt`.`brand_name`, `jt`.`legacy_brand_name`), COALESCE(`jt`.`category_id`, `jt`.`legacy_category_id`)) AS prints
+GROUP BY 1, 2, 3, 4, 5, 6, 7, 8) AS prints
 
 LEFT JOIN
 
-(SELECT ds,
+(SELECT SUBSTR(tracks.ds, 1, 10) AS `dsx`,
     `jt`.`id` AS `component`,
     device.platform AS `platform`,
     application.site_id AS `site_id`,
@@ -46,17 +50,17 @@ LEFT JOIN
     `jt`.`category_id` AS `category_id`,
     COUNT(`jt`.`id`) AS `clicks_count`
 FROM tracks
-LATERAL VIEW json_tuple(others['fragment'], 'c_event', 'c_id', 'c_element_order', 'c_campaign', 'c_brand_name', 'c_category_id') jt AS `event`, `id`, `element_order`, `campaign`, `brand_name`, `category_id`
+LATERAL VIEW json_tuple(others['fragment'], 'c_id', 'c_element_order', 'c_campaign', 'c_brand_name', 'c_category_id') jt AS `id`, `element_order`, `campaign`, `brand_name`, `category_id`
 WHERE ds >= '@param01' AND ds < '@param02'
     AND `type` = 'view'
     AND `path` <> '/recommendations'
     AND `jt`.`id` IS NOT NULL
     AND others['intersection_observer_supported'] = 'true'
-GROUP BY ds, device.platform, application.site_id, `jt`.`id`, `jt`.`element_order`, `jt`.`campaign`, `jt`.`brand_name`, `jt`.`category_id`) AS clicks
+GROUP BY 1, 2, 3, 4, 5, 6, 7, 8) AS clicks
 
 ON
 
-    prints.dsx = clicks.ds AND
+    prints.dsx = clicks.dsx AND
     prints.platform = clicks.platform AND
     prints.site_id = clicks.site_id AND
     prints.component = clicks.component AND
