@@ -26,7 +26,7 @@ FROM
     
 FROM component_prints
 LATERAL VIEW json_tuple(`data`, 'event_data') ed AS `event_data`
-LATERAL VIEW json_tuple(ed.`event_data`, 'c_id', 'c_element_order', 'c_campaign', 'c_brand_name', 'brand_name', 'c_category_id', 'category_id') jt AS `event`, `id`, `element_order`, `campaign`, `brand_name`, `legacy_brand_name`, `category_id`, `legacy_category_id`
+LATERAL VIEW json_tuple(ed.`event_data`, 'c_event', 'c_id', 'c_element_order', 'c_campaign', 'c_brand_name', 'brand_name', 'c_category_id', 'category_id') jt AS `event`, `id`, `element_order`, `campaign`, `brand_name`, `legacy_brand_name`, `category_id`, `legacy_category_id`
 LATERAL VIEW json_tuple(`data`, 'device') dev AS `device`
 LATERAL VIEW json_tuple(dev.`device`, 'platform') jt2 AS `platform`
 LATERAL VIEW json_tuple(`data`, 'application') app AS `application`
