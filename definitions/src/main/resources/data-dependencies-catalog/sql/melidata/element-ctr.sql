@@ -10,7 +10,7 @@ SELECT
     prints.category_id AS `category_id`,
     prints_count AS `prints`,
     clicks_count AS `clicks`,
-    prints.dsx AS `ds`,
+    prints.dsx AS `ds`
 
 FROM
 
@@ -20,13 +20,13 @@ FROM
     `jt3`.`site_id` AS  `site_id`,
     `jt`.`element_order` AS `element_order`,
     `jt`.`campaign` AS `campaign`,
-    `jt`.`brand_name` AS `brand_name`,
-    `jt`.`category_id` AS `category_id`,
+    COALESCE(`jt`.`brand_name`, `jt`.`legacy_brand_name`) AS `brand_name`,
+    COALESCE(`jt`.`category_id`, `jt`.`legacy_category_id`) AS `category_id`,
     COUNT(`jt`.`id`) AS `prints_count`
     
 FROM component_prints
 LATERAL VIEW json_tuple(`data`, 'event_data') ed AS `event_data`
-LATERAL VIEW json_tuple(ed.`event_data`, 'c_id', 'c_element_order', 'c_campaign', 'brand_name', 'category_id') jt AS `id`, `element_order`, `campaign`, `brand_name`, `category_id`
+LATERAL VIEW json_tuple(ed.`event_data`, 'c_id', 'c_element_order', 'c_campaign', 'c_brand_name', 'brand_name', 'c_category_id', 'category_id') jt AS `event`, `id`, `element_order`, `campaign`, `brand_name`, `legacy_brand_name`, `category_id`, `legacy_category_id`
 LATERAL VIEW json_tuple(`data`, 'device') dev AS `device`
 LATERAL VIEW json_tuple(dev.`device`, 'platform') jt2 AS `platform`
 LATERAL VIEW json_tuple(`data`, 'application') app AS `application`
