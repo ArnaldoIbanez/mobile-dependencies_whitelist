@@ -1322,16 +1322,6 @@ trackTests {
             flow = "/instore"
         }
 
-        "/px_checkout/result/success/abort"(platform: "/mobile", type: TrackType.Event) {
-            flow_detail = {
-                collector_id = 1234
-                brand_name = "YPF"
-                store_id = 1234
-                pos_id = 1234
-            }
-            flow = "/instore"
-        }
-
         // Pending business
         "/px_checkout/result/further_action_needed/primary_action"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
@@ -1344,16 +1334,6 @@ trackTests {
         }
 
         "/px_checkout/result/further_action_needed/secondary_action"(platform: "/mobile", type: TrackType.Event) {
-            flow_detail = {
-                collector_id = 1234
-                brand_name = "YPF"
-                store_id = 1234
-                pos_id = 1234
-            }
-            flow = "/instore"
-        }
-
-        "/px_checkout/result/further_action_needed/abort"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
@@ -2735,16 +2715,6 @@ trackTests {
             flow = "/instore"
         }
 
-        "/px_checkout/result/success/abort"(platform: "/mobile", type: TrackType.Event) {
-            flow_detail = {
-                collector_id = 1234
-                brand_name = "YPF"
-                store_id = 1234
-                pos_id = 1234
-            }
-            flow = "/instore"
-        }
-
         // Pending business
         "/px_checkout/result/further_action_needed/primary_action"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
@@ -2766,16 +2736,6 @@ trackTests {
             flow = "/instore"
         }
 
-        "/px_checkout/result/further_action_needed/abort"(platform: "/mobile", type: TrackType.Event) {
-            flow_detail = {
-                collector_id = 1234
-                brand_name = "YPF"
-                store_id = 1234
-                pos_id = 1234
-            }
-            flow = "/instore"
-        }
-
         // Rejected business
         "/px_checkout/result/error/primary_action"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
@@ -2788,16 +2748,6 @@ trackTests {
         }
 
         "/px_checkout/result/error/secondary_action"(platform: "/mobile", type: TrackType.Event) {
-            flow_detail = {
-                collector_id = 1234
-                brand_name = "YPF"
-                store_id = 1234
-                pos_id = 1234
-            }
-            flow = "/instore"
-        }
-
-        "/px_checkout/result/error/abort"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
