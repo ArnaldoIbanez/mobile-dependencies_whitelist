@@ -3,8 +3,8 @@
   "process_name": "credits_consumer_contac_api",
   "cron": "0 5 * * *",
   "partition": {
-    "name": "site",
-    "type": "UNICODE_STRING"
+    "name": "ds",
+    "type": "DATE"
   },
   "extract": {
     "operation": "append",

@@ -9,7 +9,8 @@ SELECT
   jest(event_data, 'next_installment_status') AS next_installment_status,
   jest(event_data, 'credits_type') AS credits_type,
   jest(event_data, 'medium') AS medium,
-  jest(event_data, 'site_id') AS site
+  jest(event_data, 'site_id') AS site,
+  substr(ds,1,10) as ds,
 FROM tracks
 WHERE path = '/credits/consumer/contacts'
   AND (ds >= '@param01' AND ds < '@param02')
