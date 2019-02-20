@@ -13,7 +13,7 @@
     "operation": "append",
     "columns": [
       {
-        "name": "site",
+        "name": "path",
         "type": "UNICODE_STRING"
       },
       {
