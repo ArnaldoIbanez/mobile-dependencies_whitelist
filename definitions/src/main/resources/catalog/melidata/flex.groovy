@@ -283,6 +283,11 @@ tracks {
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
+    "/flex/notification/pass_near_pack_destination"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
     "/flex/package/not_delivered_reason/selection"(platform: "/mobile", type: TrackType.Event) {
         packsAndLocation
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
