@@ -1,5 +1,4 @@
 SELECT
-    substr(ds,1,10),
     type,
     path,
     usr.user_id as cust_id,
@@ -13,10 +12,11 @@ SELECT
     jest(others['utm'], 'utm_medium') as utm_medium,
     jest(others['utm'], 'utm_campaign') as utm_campaign,
     application.site_id,
-    count(1) as interactions
+    count(1) as interactions,
+    substr(ds,1,10)
 from default.tracks
 where ds >= '@param01' and ds < '@param02' and path like '/mercado_shops%'
-group by 
+group by
     substr(ds, 1,10),
     type,
     path,
