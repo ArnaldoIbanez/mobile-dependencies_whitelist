@@ -546,7 +546,6 @@ tracks {
     "/instore/required_action"(platform: "/mobile", isAbstract: true) {}
     "/instore/required_action/data_required"(platform: "/mobile", type: TrackType.View) {}
     "/instore/required_action/data_required/dni"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/gas_station_shell"(platform: "/mobile", type: TrackType.View) {}
     "/instore/waiting"(platform: "/mobile", type: TrackType.View) {}
     "/instore/permission"(platform: "/mobile", isAbstract: true) {}
     "/instore/permission/location"(platform: "/mobile", type: TrackType.View) {}
