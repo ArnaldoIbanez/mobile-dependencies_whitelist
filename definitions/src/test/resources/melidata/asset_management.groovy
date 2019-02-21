@@ -57,6 +57,7 @@ trackTests {
         "/asset_management/challenge_terms_and_conditions_company"(platform: "/mobile") {}
         "/asset_management/challenge_address"(platform: "/mobile") {}
         "/asset_management/challenge_phone"(platform: "/mobile") {}
+        "/asset_management/challenge_single_pep_fatca_so"(platform: "/mobile") {}
 
         // Terms and conditions View
         "/asset_management/terms_and_conditions"(platform: "/mobile") {}

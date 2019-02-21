@@ -52,6 +52,7 @@ tracks {
     "/asset_management/challenge_birthdate"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_address"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_phone"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_single_pep_fatca_so"(platform: "/mobile", type: TrackType.View) {}
 
     // Terms and conditions view
     "/asset_management/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
