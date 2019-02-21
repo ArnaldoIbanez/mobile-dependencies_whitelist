@@ -213,6 +213,7 @@ tracks {
     "/instore/error/cant_pay_in_different_sites"(platform: "/mobile", isAbstract: true) {
         qr_data(required: false, PropertyType.String)
         collector_id(required: false, PropertyType.String)
+        store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
     }
     "/instore/error/cant_pay_in_different_sites"(platform: "/mobile", type: TrackType.View) {}
