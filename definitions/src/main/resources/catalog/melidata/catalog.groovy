@@ -46,6 +46,7 @@ catalog {
     all.each { business ->
         include business, "authentication.groovy"
         include business, "bugsnag.groovy"
+        include business, "cx.groovy"
         include business, "identity_validation.groovy"
         include business, "melidata_sdk.groovy"
         include business, "registrations.groovy"
@@ -71,7 +72,6 @@ catalog {
         include business, "cellphone_recharge.groovy"
         include business, "checkout.groovy"
         include business, "credits_marketplace.groovy"
-        include business, "cx.groovy"
         include business, "moderations.groovy"
         include business, "email.groovy"
         include business, "freeData.groovy"
