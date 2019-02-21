@@ -217,6 +217,7 @@ trackTests {
         "/myml/invoices/company-info/confirm/save/response"(platform: "/", type: TrackType.Event) {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
+        "/myml/invoices/company-info/confirm/help_tooltip/serie"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/confirm/help_tooltip/freight"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/confirm-normal"(platform: "/") {}
         "/myml/invoices/company-info/confirm-normal/save/request"(platform: "/", type: TrackType.Event) {
