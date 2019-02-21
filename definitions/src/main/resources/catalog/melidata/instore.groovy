@@ -183,6 +183,11 @@ tracks {
         pos_id(required: false, PropertyType.String)
         qr_data(required: false, PropertyType.String)
     }
+    "/instore/error/cant_pay_to_yourself/retry"(platform: "/mobile", type: TrackType.Event) {
+        qr_data(required: true, PropertyType.String)
+        collector_id(required: false, PropertyType.String)
+        pos_id(required: false, PropertyType.String)
+    }
     "/instore/error/payment_timeout"(platform: "/mobile", type: TrackType.View) {
         collector_id(required: false, PropertyType.String)
         brand_name(required: false, PropertyType.String)
