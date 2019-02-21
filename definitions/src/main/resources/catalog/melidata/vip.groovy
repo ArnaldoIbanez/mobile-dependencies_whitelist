@@ -214,10 +214,13 @@ tracks {
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
         has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
         is_official_store(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
-        reputation_level(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
-        review_rate(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
-        free_return(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
-        has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
+        reputation_levelreputation_level(required: false, type: PropertyType.String,
+                values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"],
+                description: "Seller's reputation level")
+        review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
+        has_free_return(required: false, type: PropertyType.Boolean, description: "Indicates if the item has free return")
+        installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
+        has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
         add_cart_info
         shipping_info
     }
@@ -230,6 +233,14 @@ tracks {
         is_valid_variation(required: false, type: PropertyType.Boolean, description: "Is the selected variation valid")
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
         has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
+        is_official_store(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
+        reputation_levelreputation_level(required: false, type: PropertyType.String,
+                values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"],
+                description: "Seller's reputation level")
+        review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
+        has_free_return(required: false, type: PropertyType.Boolean, description: "Indicates if the item has free return")
+        installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
+        has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
         add_cart_info
         shipping_info
     }
