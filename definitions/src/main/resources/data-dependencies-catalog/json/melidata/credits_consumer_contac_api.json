@@ -15,6 +15,10 @@
         "type": "INTEGER"
       },
       {
+        "name": "path",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "actual_status",
         "type": "UNICODE_STRING"
       },
