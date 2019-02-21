@@ -16,17 +16,10 @@ trackTests {
         "/account_fund/select_method"(platform: "/", type: TrackType.View) {}
         "/account_fund/amount"(platform: "/", type: TrackType.View) {}
 
-        // Amount presets MLB
-        "/account_fund/amount/preset/mlb/30"(platform: "/", type: TrackType.Event) {}
-        "/account_fund/amount/preset/mlb/60"(platform: "/", type: TrackType.Event) {}
-        "/account_fund/amount/preset/mlb/120"(platform: "/", type: TrackType.Event) {}
-        "/account_fund/amount/preset/mlb/240"(platform: "/", type: TrackType.Event) {}
-
-        // Amount presets MLA
-        "/account_fund/amount/preset/mla/500"(platform: "/", type: TrackType.Event) {}
-        "/account_fund/amount/preset/mla/1000"(platform: "/", type: TrackType.Event) {}
-        "/account_fund/amount/preset/mla/2000"(platform: "/", type: TrackType.Event) {}
-        "/account_fund/amount/preset/mla/5000"(platform: "/", type: TrackType.Event) {}
+        // Amount presets buttons
+        "/account_fund/amount/preset"(platform: "/", type: TrackType.Event) {
+            preset = "100"
+        }
 
         "/account_fund/agencies_map"(platform: "/", type: TrackType.View) {}
         "/account_fund/ftu"(platform: "/", type: TrackType.View) {}
