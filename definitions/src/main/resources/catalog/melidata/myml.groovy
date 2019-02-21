@@ -615,7 +615,8 @@ tracks {
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
     }
     "/myml/invoices/company-info/confirm/help_tooltip"(platform: "/", isAbstract: true) {}
-     "/myml/invoices/company-info/confirm/help_tooltip/freight"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/confirm/help_tooltip/serie"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/confirm/help_tooltip/freight"(platform: "/", type: TrackType.Event) {}
 
     //confirm-normal
     "/myml/invoices/company-info/confirm-normal"(platform: "/") {}
@@ -632,7 +633,6 @@ tracks {
     "/myml/invoices/company-info/confirm-normal/help_tooltip"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm-normal/help_tooltip/freight"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/confirm-normal/help_tooltip/serie"(platform: "/", type: TrackType.Event) {}
-
 
     "/myml/invoices/company-info/success"(platform: "/") {}
 
