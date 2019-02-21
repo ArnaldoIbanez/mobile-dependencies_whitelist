@@ -316,6 +316,8 @@ tracks {
 
 "/cart/checkout/payment/select_unique_installment"(platform:"/", type: TrackType.View) {}
 
+"/cart/checkout/payment/select_unique_installment/back"(platform:"/", type: TrackType.Event) {}
+
 "/cart/checkout/payment/select_split_installments"(platform:"/", type: TrackType.View) {}
 
 "/cart/checkout/payment/select_split_installments/select_installment"(platform: "/", type: TrackType.Event) {
@@ -468,6 +470,7 @@ tracks {
     session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
     error(required: true, type: PropertyType.String, description: "Error that was shown to the user")
 }
+"/cart/checkout/payment/input_card/back"(platform:"/mobile", type: TrackType.Event){}
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin Mobile platform
