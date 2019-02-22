@@ -18,7 +18,7 @@ trackTests {
 
         // Amount presets buttons
         "/account_fund/amount/preset"(platform: "/", type: TrackType.Event) {
-            preset = "100"
+            preset = "30"
         }
 
         "/account_fund/agencies_map"(platform: "/", type: TrackType.View) {}

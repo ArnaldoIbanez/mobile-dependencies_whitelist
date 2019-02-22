@@ -16,7 +16,7 @@ tracks {
 
     // Amount presets buttons
     "/account_fund/amount/preset"(platform: "/", type: TrackType.Event) {
-        preset (required:true, description: "Amount preset button value")
+        preset (required:true, description: "Amount preset button value", values: ["30", "60", "120", "240", "500", "1000", "2000", "5000"])
     }
 
     "/account_fund/agencies_map"(platform: "/", type: TrackType.View) {}
