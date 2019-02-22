@@ -48,6 +48,7 @@ catalog {
         include business, "bugsnag.groovy"
         include business, "cx.groovy"
         include business, "identity_validation.groovy"
+        include business, "remedies.groovy"
         include business, "melidata_sdk.groovy"
         include business, "registrations.groovy"
         include business, "fiscaldata.groovy"
