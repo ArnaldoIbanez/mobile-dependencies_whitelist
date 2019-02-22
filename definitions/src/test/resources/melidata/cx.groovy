@@ -95,9 +95,19 @@ trackTests {
         }
         "/portal/search/result"(platform: "/", type: TrackType.View) {
             user_type = "normal"
+            reputation_level  = "5_green"
+            seller_profile = "ADVANCED"
+            loyalty_level = 5
+            portal_content_id = 96
+            portal_has_channels_configured = true
         }
         "/portal/search/empty"(platform: "/", type: TrackType.View) {
             user_type = "normal"
+            reputation_level  = "5_green"
+            seller_profile = "ADVANCED"
+            loyalty_level = 5
+            portal_content_id = 96
+            portal_has_channels_configured = true
         }
         "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
     }
@@ -212,9 +222,19 @@ trackTests {
         }
         "/portal/search/result"(platform: "/", type: TrackType.View) {
             user_type = "normal"
+            reputation_level  = "5_green"
+            seller_profile = "ADVANCED"
+            loyalty_level = 5
+            portal_content_id = 96
+            portal_has_channels_configured = true
         }
         "/portal/search/empty"(platform: "/", type: TrackType.View) {
             user_type = "normal"
+            reputation_level  = "5_green"
+            seller_profile = "ADVANCED"
+            loyalty_level = 5
+            portal_content_id = 96
+            portal_has_channels_configured = true
         }
         "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
     }
