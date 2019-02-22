@@ -226,7 +226,7 @@ trackTests {
         }
 
         "/credits/consumer/myml/summary/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
-            status = "daily_charge_period"
+            loans_status = "daily_charge_period"
             place = "right_section_message"
         }
         /******************************************
