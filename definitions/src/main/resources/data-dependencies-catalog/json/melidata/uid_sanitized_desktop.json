@@ -23,6 +23,10 @@
       {
         "name": "uids_quantity",
         "type": "INTEGER"
+      },
+      {
+        "name": "uids_total",
+        "type": "INTEGER"
       }
     ],
     "sql": {

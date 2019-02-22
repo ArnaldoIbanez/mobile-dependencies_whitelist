@@ -2,7 +2,7 @@
   "users": [
     "melidata_dev@mercadolibre.com"
   ],
-  "process_name": "uid_sanity_check_desktop",
+  "process_name": "uid_sanity_check",
   "cron": "00 06 * * *",
   "partition": {
     "name": "ds",
@@ -17,15 +17,15 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "path",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "user_agent",
+        "name": "user_second_id",
         "type": "UNICODE_STRING"
       },
       {
         "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "version",
         "type": "UNICODE_STRING"
       },
       {
@@ -42,7 +42,7 @@
       }
     ],
     "sql": {
-      "script": "melidata/uid_sanity_check_desktop.sql",
+      "script": "melidata/uid_sanity_check.sql",
       "parameters": [
         {
           "name": "param01",
