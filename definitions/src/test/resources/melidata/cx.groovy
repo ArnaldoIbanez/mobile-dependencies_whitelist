@@ -93,8 +93,12 @@ trackTests {
             seller_profile = "ADVANCED"
             loyalty_level = 5
         }
-        "/portal/search/result"(platform: "/", type: TrackType.View) {}
-        "/portal/search/empty"(platform: "/", type: TrackType.View) {}
+        "/portal/search/result"(platform: "/", type: TrackType.View) {
+            user_type = "normal"
+        }
+        "/portal/search/empty"(platform: "/", type: TrackType.View) {
+            user_type = "normal"
+        }
         "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
     }
 
@@ -206,8 +210,12 @@ trackTests {
             seller_profile = "ADVANCED"
             loyalty_level = 5
         }
-        "/portal/search/result"(platform: "/", type: TrackType.View) {}
-        "/portal/search/empty"(platform: "/", type: TrackType.View) {}
+        "/portal/search/result"(platform: "/", type: TrackType.View) {
+            user_type = "normal"
+        }
+        "/portal/search/empty"(platform: "/", type: TrackType.View) {
+            user_type = "normal"
+        }
         "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
     }
 
