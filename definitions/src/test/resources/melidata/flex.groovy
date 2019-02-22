@@ -425,6 +425,13 @@ trackTests {
             delivery_id = 123456
         }
 
+        //Onboarding action with context success
+        "/flex/notification/pass_near_pack_destination"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+        }
+
         //Not delivered event
         "/flex/package/not_delivered_reason/selection"(platform:"/mobile", type: TrackType.Event) {
             defaultLocation()
