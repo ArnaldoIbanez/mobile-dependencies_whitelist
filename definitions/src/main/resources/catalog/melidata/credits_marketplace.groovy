@@ -317,7 +317,7 @@ tracks {
     }
 
     "/credits/consumer/myml/summary/payment_intention"(platform: "/", type: TrackType.Event) {
-        loans_status(required: true, type: PropertyType.String, description: "Indicates all loans status")
+        loan_status(required: true, type: PropertyType.String, description: "Indicates loan status")
         place(
                 type: PropertyType.String,
                 required: true,
