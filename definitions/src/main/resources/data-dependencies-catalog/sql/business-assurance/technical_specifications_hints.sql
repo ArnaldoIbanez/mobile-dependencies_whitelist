@@ -24,15 +24,6 @@ WHERE jest(tracks.event_data, 'item_id') IN
           AND ds < '@param02'
           AND type = 'event'
           AND application.business = 'mercadolibre')
-    AND jest(tracks.event_data, 'session_id') IN
-        (SELECT DISTINCT
-            jest(tracks.event_data, 'session_id')
-        FROM tracks
-        WHERE tracks.path LIKE '/seller_central/%/technical_specifications/hints/available'
-            AND ds >= '@param01'
-            AND ds < '@param02'
-            AND type = 'event'
-            AND application.business = 'mercadolibre')
     AND tracks.path LIKE '/seller_central/%/technical_specifications/hints/%'
     AND ds >= '@param01'
     AND ds < '@param02'
