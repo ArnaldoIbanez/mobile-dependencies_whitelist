@@ -224,6 +224,11 @@ trackTests {
             milestone = 4
             context = "vip"
         }
+
+        "/credits/consumer/myml/summary/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            status = "daily_charge_period"
+            place = "right_section_message"
+        }
         /******************************************
          *       End: Consumers Pursue Campaign
          ******************************************/
