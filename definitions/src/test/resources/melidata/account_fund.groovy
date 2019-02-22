@@ -15,6 +15,12 @@ trackTests {
     test("Account Fund - views") {
         "/account_fund/select_method"(platform: "/", type: TrackType.View) {}
         "/account_fund/amount"(platform: "/", type: TrackType.View) {}
+
+        // Amount presets buttons
+        "/account_fund/amount/preset"(platform: "/", type: TrackType.Event) {
+            preset = "30"
+        }
+
         "/account_fund/agencies_map"(platform: "/", type: TrackType.View) {}
         "/account_fund/ftu"(platform: "/", type: TrackType.View) {}
         "/account_fund/unique_code"(platform: "/", type: TrackType.View) {}
