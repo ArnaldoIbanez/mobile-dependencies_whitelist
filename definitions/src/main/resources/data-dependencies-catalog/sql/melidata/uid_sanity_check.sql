@@ -9,7 +9,7 @@ SELECT usr.user_id AS user_id,
        application.business AS business,
        application.site_id AS site,
        count(DISTINCT usr.uid) AS uids_quantity,
-       date_part(ds) AS ds
+       substr(ds,1,10) AS ds
 FROM tracks
 WHERE ds >= '@param01'
   AND ds < '@param02'
@@ -20,7 +20,7 @@ WHERE ds >= '@param01'
   AND (CASE WHEN device.platform IN ('/web/mobile','/web/desktop') THEN (is_bot(device.user_agent) = false AND device.user_agent IS NOT NULL)
             WHEN device.platform IN ('/mobile/android', '/mobile/ios') THEN device.device_id is not null
             END)
-GROUP BY date_part(ds),
+GROUP BY substr(ds,1,10),
          device.platform,
          application.business,
          usr.user_id,
@@ -30,4 +30,3 @@ GROUP BY date_part(ds),
          application.site_id,
          application.version
 HAVING count(DISTINCT usr.uid) > 1
-order by uids_quantity DESC
