@@ -221,6 +221,8 @@ tracks {
         has_free_return(required: false, type: PropertyType.Boolean, description: "Indicates if the item has free return")
         installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
         has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
         add_cart_info
         shipping_info
     }
@@ -241,6 +243,8 @@ tracks {
         has_free_return(required: false, type: PropertyType.Boolean, description: "Indicates if the item has free return")
         installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
         has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
         add_cart_info
         shipping_info
     }
