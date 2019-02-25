@@ -9,6 +9,8 @@ tracks {
 
     "/remedies"(platform: "/", isAbstract: true) {}
 
+    "/remedies/activity"(platform: "/", isAbstract: true) {}
+
     "/remedies/executed_action"(platform: "/mobile", type: TrackType.Event) {
         executed_action(type: PropertyType.String, required: true, description: "Action executed from component actions")
         deeplink_params(type: PropertyType.String, required: false, description: "The deeplink params with which the flow was invoked")
