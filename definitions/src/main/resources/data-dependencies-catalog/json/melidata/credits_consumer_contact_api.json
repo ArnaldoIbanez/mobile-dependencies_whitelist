@@ -1,6 +1,6 @@
 {
   "users": ["ariel.mariani@mercadolibre.com"],
-  "process_name": "credits_consumer_contac_api",
+  "process_name": "credits_consumer_contact_api",
   "cron": "0 5 * * *",
   "partition": {
     "name": "ds",
@@ -56,7 +56,7 @@
       }
     ],
     "sql": {
-      "script": "business-assurance/credits_consumer_contac_api.sql",
+      "script": "business-assurance/credits_consumer_contact_api.sql",
       "parameters": [
         {
           "name": "param01",

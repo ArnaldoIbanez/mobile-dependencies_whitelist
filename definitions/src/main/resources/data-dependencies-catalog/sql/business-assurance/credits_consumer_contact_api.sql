@@ -14,7 +14,7 @@ SELECT
 FROM tracks
 WHERE path = '/credits/consumer/contacts'
   AND (ds >= '@param01' AND ds < '@param02')
-GROUP BY
+GROUP BY substr(ds,1,10),
   path,
   jest(event_data, 'loan_status'),
   jest(event_data, 'status_from_medium'),
