@@ -17,6 +17,8 @@ tracks {
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
     "/credits/pursue"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/myml"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/myml/summary"(platform: "/", isAbstract: true) {}
 
     "/vip"(platform: "/", isAbstract: true) {}
     "/vip/credits"(platform: "/", isAbstract: true) {}
@@ -311,6 +313,14 @@ tracks {
 
     "/credits/consumer/overdue_nav/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
         pursue_nav_properties
+    }
+
+    "/credits/consumer/myml/summary/payment_intention"(platform: "/", type: TrackType.Event) {
+        loan_status(required: true, type: PropertyType.String, description: "Indicates loan status")
+        place(
+                type: PropertyType.String,
+                required: true,
+                values: ["left_section_message", "right_section_message"])
     }
     /******************************************
      *       End: Consumers Persue Campaign
