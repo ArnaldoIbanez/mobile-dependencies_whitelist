@@ -10,7 +10,7 @@ select count(*) as total, t.event_type as event_type, t.marketplace as marketpla
   and (
         jet(event_data, 'event_type') in ('sent', 'arrived') 
         or 
-        (jet(event_data, 'event_type') in ('discarded') and jet(event_data, 'discard_reason') is null)
+        (jet(event_data, 'event_type') in ('discarded') and jest(event_data, 'discard_reason') is null)
       )
   UNION ALL
   SELECT application.business as marketplace, SUBSTRING (ds, 1, 10) as fecha, 'not_arrived_track' as event_type
@@ -24,7 +24,7 @@ select count(*) as total, t.event_type as event_type, t.marketplace as marketpla
   and (
         jest(event_data, 'event_type') in ('shown', 'auto_dismiss', 'open', 'action_open', 'swipe', 'dismiss') 
         or 
-        (jest(event_data, 'event_type') in ('discarded') and jet(event_data, 'discard_reason') is not null)
+        (jest(event_data, 'event_type') in ('discarded') and jest(event_data, 'discard_reason') is not null)
       ) 
   AND CONCAT(application.business, '-',device.device_id,'-', jest(event_data, 'news_id')) not in (
                                                               SELECT CONCAT(application.business, '-',device.device_id,'-', jet(event_data, 'news_id'))

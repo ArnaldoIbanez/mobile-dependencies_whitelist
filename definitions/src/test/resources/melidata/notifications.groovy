@@ -559,6 +559,16 @@ trackTests {
             event_type = "shown"
             case_id = "158213000000"
         }
+        "/notification/chargeback_payer_ultimatum_ml"(platform: "/mobile") {
+            news_id = "chargeback_payer_ultimatum_ml-21680059-20180516"
+            event_type = "shown"
+            case_id = "158213000000"
+        }
+        "/notification/chargeback_payer_intensify_ml"(platform: "/mobile") {
+            news_id = "chargeback_payer_intensify_ml-21680059-20180516"
+            event_type = "shown"
+            case_id = "158213000000"
+        }
 
         "/notification/credits_consumer_expired_n_loans_fourth_notice"(platform: "/mobile") {
             news_id = "credits-consumer_expired_n_loans_fourth_notice-21680059-20180516"
@@ -639,6 +649,12 @@ trackTests {
             event_type = "dismiss"
             installment_id= 717743
             loan_id= 107849
+        }
+
+        "/notification/credits_merchants_educational"(platform: "/mobile") {
+            news_id = "credits-merchants_educational-9876"
+            event_type = "shown"
+            loan_id = 123
         }
 
         "/notification/instore_discover_activities"(platform: "/mobile"){
@@ -998,6 +1014,13 @@ trackTests {
             order_id = 123
             agency_to_agency = true
         }
+        "/notification/shipping_legacy_not_delivered_receiver"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+            order_id = 123
+        }
 
         "/notification/shipping_legacy_delayed_receiver"(platform: "/mobile"){
             news_id = "12332323"
@@ -1022,6 +1045,13 @@ trackTests {
             order_id = 123
         }
         "/notification/shipping_legacy_delayed_sender"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+            order_id = 123
+        }
+        "/notification/shipping_legacy_reminder_agency_withdrawal"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"

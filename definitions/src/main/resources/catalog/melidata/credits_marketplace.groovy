@@ -52,6 +52,9 @@ tracks {
     "/credits/consumer/public_landing/application_result/click_home"(platform: "/", type: TrackType.Event) {
         result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
     }
+    "/credits/consumer/public_landing/application_result/more_info"(platform: "/", type: TrackType.Event) {
+        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
+    }
     "/credits/consumer/public_landing/click_application_start"(platform: "/", type: TrackType.Event) {}
     /******************************************
      *       End: Consumers Public Landings

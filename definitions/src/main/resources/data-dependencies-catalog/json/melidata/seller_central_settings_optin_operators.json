@@ -16,7 +16,11 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "User_id",
+        "name": "Quantity",
+        "type": "INTEGER"
+      },
+      {
+        "name": "Step",
         "type": "UNICODE_STRING"
       }
     ],

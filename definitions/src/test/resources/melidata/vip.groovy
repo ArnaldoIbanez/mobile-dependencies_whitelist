@@ -552,6 +552,7 @@ trackTests {
         def defaultTrackInformation = {
             item_id = "MLA213512313"
             quantity = 1
+            has_variations = true
         }
 
         def cartInformation = {
@@ -623,7 +624,6 @@ trackTests {
             zip_code = 123
             quantity = 2
             has_shipping = false
-            has_stock = false
             shipping_method()
         }
     }
