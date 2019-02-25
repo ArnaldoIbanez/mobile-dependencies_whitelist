@@ -38,7 +38,7 @@
       }
     ],
     "sql": {
-      "script": "melidata/uid_sanity_check.sql",
+      "script": "melidata/uid_sanity_check_by_path.sql",
       "parameters": [
         {
           "name": "param01",
