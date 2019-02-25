@@ -38,8 +38,13 @@ tracks {
         skip_landing(type: PropertyType.Boolean, required: true, description: "skipLanding parameter")
     }
 
+    "/remedies/modal_element_selected"(platform: "/mobile", type: TrackType.Event) {
+        modal_name(type: PropertyType.String, required: true, description: "name of the open modal")
+        element_selected(type: PropertyType.String, required: true, description: "Modal element selected")
+    }
+
     "/remedies/open_modal"(platform: "/mobile", type: TrackType.Event) {
-        open_modal(type: PropertyType.String, required: true, description: "name of the open modal")
+        modal_name(type: PropertyType.String, required: true, description: "name of the open modal")
     }
 
     "/remedies/unsupported_deeplink"(platform: "/mobile", type: TrackType.Event) {

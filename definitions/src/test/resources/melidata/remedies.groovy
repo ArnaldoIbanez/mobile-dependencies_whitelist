@@ -19,7 +19,7 @@ trackTests {
             action_type = "internal_navigation"
         }
 
-        "/remedies/business_error"(platform: "/mobile") {
+        "/remedies/business_error"(platform: "/mobile/android") {
             error_message = "telefono incorrecto"
             api_call_identificator = 1
         }
@@ -35,11 +35,11 @@ trackTests {
             skip_landing = true
         }
 
-        "/remedies/open_modal"(platform: "/mobile") {
+        "/remedies/open_modal"(platform: "/mobile/android") {
             modal_name = "iv_modal"
         }
 
-        "/remedies/modal_element_selected"(platform: "/mobile") {
+        "/remedies/modal_element_selected"(platform: "/mobile/android") {
             modal_name = "iv_modal"
             element_selected = "V"
         }
