@@ -31,9 +31,13 @@
       {
         "name": "platform",
         "type": "UNICODE_STRING"
-      }
+      },
       {
         "name": "uids_quantity",
+        "type": "INTEGER"
+      },
+      {
+        "name": "rows_quantity",
         "type": "INTEGER"
       }
     ],
