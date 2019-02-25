@@ -290,7 +290,6 @@ tracks {
 
     propertyGroups {
         pursue_nav_properties(status, milestone, context)
-        loans_installments_status(status)
     }
 
     //Page Views
