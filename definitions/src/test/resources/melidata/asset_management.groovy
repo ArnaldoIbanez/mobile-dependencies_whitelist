@@ -14,6 +14,9 @@ trackTests {
         "/asset_management/start_investing"(platform: "/mobile") {}
         "/asset_management/know_more"(platform: "/mobile") {}
 
+        // First time
+        "/asset_management/first_time"(platform: "/mobile") {}
+
         // Challenges
         "/asset_management/challenge_pep"(platform: "/mobile") {}
         "/asset_management/challenge_fatca"(platform: "/mobile") {}
@@ -42,6 +45,7 @@ trackTests {
         "/asset_management/challenge_terms_and_conditions_company"(platform: "/mobile") {}
         "/asset_management/challenge_address"(platform: "/mobile") {}
         "/asset_management/challenge_phone"(platform: "/mobile") {}
+        "/asset_management/challenge_single_pep_fatca_so"(platform: "/mobile") {}
 
         // Terms and conditions View
         "/asset_management/terms_and_conditions"(platform: "/mobile") {}
@@ -89,6 +93,8 @@ trackTests {
         "/asset_management/clarification"(platform: "/mobile") {
             label = "/asset_management/movements_detail"
         }
+
+        "/asset_management/add_funds"(platform: "/mobile") {}
 
         // Splitter
         "/asset_management/splitter"(platform: "/mobile") {}
