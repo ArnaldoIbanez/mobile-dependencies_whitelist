@@ -150,10 +150,15 @@ tracks {
      ******************************************/
 
     //Congrats money advance
-    "/credits/merchant/money_advance/congrats"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/money_advance/congrats"(platform: "/", type: TrackType.View) {
+        status(type: PropertyType.String, required: false, values: ['delayed'])
+        user_status(type: PropertyType.String, required: false, values: ['in_default'])
+    }
 
     //Hub money advance
-    "/credits/merchant/money_advance/hub"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/money_advance/hub"(platform: "/", type: TrackType.View) {
+        user_status(type: PropertyType.String, required: false, values: ['in_default'])
+    }
 
     //Summary money advance
     "/credits/merchant/money_advance/summary"(platform: "/", type: TrackType.View) {}
