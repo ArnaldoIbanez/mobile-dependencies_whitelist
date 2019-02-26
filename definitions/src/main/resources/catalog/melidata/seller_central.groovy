@@ -42,14 +42,14 @@ tracks {
 
     "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
         placement(required: true, description: "Place where track was dispatched")
-        adv_segmentation(required: true, description: "Adevrtasement segmentation ")
-        reputation_level(required: true, description: "Reputation for Pads")
+        adv_segmentation(required: false, description: "Adevrtasement segmentation ")
+        reputation_level(required: false, description: "Reputation for Pads")
     }
 
     "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
         placement(required: true, description: "Place where track was dispatched")
-        adv_segmentation(required: true, description: "Adevrtasement segmentation ")
-        reputation_level(required: true, description: "Reputation for Pads")
+        adv_segmentation(required: false, description: "Adevrtasement segmentation ")
+        reputation_level(required: false, description: "Reputation for Pads")
     }
 
     "/seller_central/listings/communication/more_info"(platform: "/mobile", type: TrackType.Event) {}
