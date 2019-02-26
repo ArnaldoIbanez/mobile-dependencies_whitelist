@@ -51,11 +51,56 @@ tracks {
         unsupported_deeplink(type: PropertyType.String, required: true, description: "Unsupported deeplink")
     }
 
+    "/remedies/generic_error"(platform: "/mobile", type: TrackType.Event) {
+        error_cause(type: PropertyType.String, required: true, description: "Error cause")
+    }
+
+    "/remedies/executed_camera_action"(platform: "/mobile", type: TrackType.Event) {
+        executed_camera_action(type: PropertyType.String, required: true, description: "Executed camera action")
+    }
+
+    "/remedies/ask_permissions"(platform: "/mobile/android", type: TrackType.Event) {
+        permissions(type: PropertyType.String, required: true, description: "Asked permissions")
+    }
+
+    "/remedies/permissions_fallback"(platform: "/mobile/android", type: TrackType.Event) {
+        permissions(type: PropertyType.String, required: true, description: "Permissions fallback")
+    }
+
+    "/remedies/permission_denied"(platform: "/mobile/android", type: TrackType.Event) {
+        permissions(type: PropertyType.String, required: true, description: "Denied permissions")
+    }
+
+    "/remedies/permission_accepted"(platform: "/mobile/android", type: TrackType.Event) {
+        permissions(type: PropertyType.String, required: true, description: "Accepted permissions")
+    }
+
+    "/remedies/camera_init_state"(platform: "/mobile/android", type: TrackType.Event) {
+        default_flash(type: PropertyType.String, required: true, description: "Default flash configuration")
+        switch_flash(type: PropertyType.Boolean, required: true, description: "Possibility of switch flash enable")
+        default_lens(type: PropertyType.String, required: true, description: "Default camera mode")
+        switch_lens(type: PropertyType.Boolean, required: true, description: "Possibility of switch camera mode enable")
+        compression_rate(type: PropertyType.Numeric, required: true, description: "Compression rate")
+        max_side(type: PropertyType.Numeric, required: true, description: "Max side size")
+    }
+
     "/remedies/activity/check_step"(platform: "/mobile/android", type: TrackType.View) {}
     "/remedies/activity/landing"(platform: "/mobile/android", type: TrackType.View) {}
     "/remedies/activity/phone_landing"(platform: "/mobile/android", type: TrackType.View) {}
     "/remedies/activity/phone_validation"(platform: "/mobile/android", type: TrackType.View) {}
     "/remedies/activity/image_upload"(platform: "/mobile/android", type: TrackType.View) {}
+    "/remedies/activity/image_upload/landing"(platform: "/mobile/android", type: TrackType.View) {
+        doc_type(type: PropertyType.String, required: true, description: "Type of document")
+        model_id(type: PropertyType.String, required: true, description: "Model id")
+    }
+    "/remedies/activity/image_upload/uploading"(platform: "/mobile/android", type: TrackType.View) {
+        doc_type(type: PropertyType.String, required: true, description: "Type of document")
+        model_id(type: PropertyType.String, required: true, description: "Model id")
+    }
+    "/remedies/activity/image_upload/result"(platform: "/mobile/android", type: TrackType.View) {
+        doc_type(type: PropertyType.String, required: true, description: "Type of document")
+        model_id(type: PropertyType.String, required: true, description: "Model id")
+    }
     "/remedies/activity/congrats"(platform: "/mobile/android", type: TrackType.View) {}
     "/remedies/activity/documentation_number"(platform: "/mobile/android", type: TrackType.View) {}
     "/remedies/activity/custom_camera"(platform: "/mobile/android", type: TrackType.View) {}
