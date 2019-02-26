@@ -108,8 +108,22 @@ tracks {
     }
     "/portal/search"(platform: "/", isAbstract:  true) {}
     "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
-    "/portal/search/empty"(platform: "/", type: TrackType.View) {}
-    "/portal/search/result"(platform: "/", type: TrackType.View) {}
+    "/portal/search/empty"(platform: "/", type: TrackType.View) {
+        user_type
+        seller_profile
+        reputation_level
+        portal_contact
+        portal_has_channels_configured
+        loyalty_level
+    }
+    "/portal/search/result"(platform: "/", type: TrackType.View) {
+        user_type
+        seller_profile
+        reputation_level
+        portal_contact
+        portal_has_channels_configured
+        loyalty_level
+    }
 
     "/support"(platform: "/", isAbstract:  true) {}
     "/support/widget"(platform: "/", isAbstract:  true) {}

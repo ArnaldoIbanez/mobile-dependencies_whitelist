@@ -9,6 +9,9 @@ tracks {
         category (required: false, type: PropertyType.String, description: "The category of the current event") // for backwards compatibility with old tracks
     }
 
+    // First time
+    "/asset_management/first_time"(platform: "/mobile", type: TrackType.View) {}
+
     // Onboarding
     "/asset_management/onboarding"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/start_investing"(platform: "/mobile", type: TrackType.Event) {}
@@ -42,6 +45,7 @@ tracks {
     "/asset_management/challenge_birthdate"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_address"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_phone"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_single_pep_fatca_so"(platform: "/mobile", type: TrackType.View) {}
 
     // Terms and conditions view
     "/asset_management/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
@@ -78,6 +82,9 @@ tracks {
 
     // Clarification show event
     "/asset_management/clarification"(platform: "/mobile", type: TrackType.Event) {}
+
+    // Money-In Specific event
+    "/asset_management/add_funds"(platform: "/mobile", type: TrackType.Event) {}
 
     // WebView events
     "/asset_management/url_external"(platform: "/mobile", type: TrackType.Event) {

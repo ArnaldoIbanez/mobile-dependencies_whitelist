@@ -41,6 +41,9 @@ trackTests {
         "/credits/consumer/public_landing/application_result/click_home"(platform: "/web/desktop") {
             result = 'manual_review'
         }
+        "/credits/consumer/public_landing/application_result/more_info"(platform: "/web/desktop") {
+            result = 'manual_review'
+        }
 
         /******************************************
          *       End: Consumers Public Landings
@@ -220,6 +223,11 @@ trackTests {
             status = "fixed_charge_period_1"
             milestone = 4
             context = "vip"
+        }
+
+        "/credits/consumer/myml/summary/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            loan_status = "daily_charge_period"
+            place = "right_section_message"
         }
         /******************************************
          *       End: Consumers Pursue Campaign

@@ -16,4 +16,18 @@ SELECT
     substr(ds,1,10)
 from default.tracks
 where ds >= '@param01' and ds < '@param02' and path like '/mercado_shops%'
-group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14
+group by
+    substr(ds, 1,10),
+    type,
+    path,
+    usr.user_id,
+    jest(event_data, 'shop_name'),
+    jest(event_data, 'shop_domain'),
+    jest(event_data, 'sidebar_name'),
+    platform.http.http_referer,
+    platform.http.http_url,
+    jest(event_data, 'ref'),
+    jest(others['utm'], 'utm_source'),
+    jest(others['utm'], 'utm_medium'),
+    jest(others['utm'], 'utm_campaign'),
+    application.site_id

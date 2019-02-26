@@ -1,65 +1,62 @@
 {
-  "users": [
-    "emanuel.lopez@mercadolibre.com",
-    "sebastian.schmukliar@mercadolibre.com"
-  ],
-  "process_name": "technical_specifications_hints",
-  "cron": "00 07 * * *",
+  "users": ["ariel.mariani@mercadolibre.com"],
+  "process_name": "credits_consumer_contact_api",
+  "cron": "0 5 * * *",
   "partition": {
     "name": "ds",
     "type": "DATE"
   },
   "extract": {
     "operation": "append",
-    "site": "QA",
+    "site": "Credits",
     "columns": [
+      {
+        "name": "total",
+        "type": "INTEGER"
+      },
       {
         "name": "path",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "action",
+        "name": "actual_status",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "session",
+        "name": "status_from_medium",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "item",
+        "name": "output_label",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "domain",
+        "name": "campaign",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "attribute",
+        "name": "action_label",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "hintType",
+        "name": "next_installment_status",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "hintId",
+        "name": "credits_type",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "source",
+        "name": "medium",
         "type": "UNICODE_STRING"
       },
       {
         "name": "site",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "t_user",
-        "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "business-assurance/technical_specifications_hints.sql",
+      "script": "business-assurance/credits_consumer_contact_api.sql",
       "parameters": [
         {
           "name": "param01",

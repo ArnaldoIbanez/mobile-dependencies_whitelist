@@ -1,52 +1,35 @@
 {
   "users": [
-    "emanuel.lopez@mercadolibre.com",
-    "sebastian.schmukliar@mercadolibre.com"
+    "melidata_dev@mercadolibre.com"
   ],
-  "process_name": "technical_specifications_hints",
-  "cron": "00 07 * * *",
+  "process_name": "uid_sanity_check",
+  "cron": "00 06 * * *",
   "partition": {
     "name": "ds",
-    "type": "DATE"
+    "type": "DATE",
+    "format": "yyyy-MM-dd"
   },
   "extract": {
     "operation": "append",
-    "site": "QA",
     "columns": [
       {
-        "name": "path",
+        "name": "user_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "action",
+        "name": "user_second_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "session",
+        "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "item",
+        "name": "version",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "domain",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "attribute",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "hintType",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "hintId",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "source",
+        "name": "business",
         "type": "UNICODE_STRING"
       },
       {
@@ -54,12 +37,12 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "t_user",
+        "name": "uids_quantity",
         "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "business-assurance/technical_specifications_hints.sql",
+      "script": "melidata/uid_sanity_check.sql",
       "parameters": [
         {
           "name": "param01",

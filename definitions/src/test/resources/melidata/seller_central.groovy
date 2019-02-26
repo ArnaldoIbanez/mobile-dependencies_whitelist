@@ -70,13 +70,13 @@ trackTests {
             type = "news"
         }
         "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-            type = "news"           
+            type = "news"
             placement = "publicidad-banner"
             adv_segmentation = "winback"
             reputation_level="yellow"
         }
         "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-            type = "news"           
+            type = "news"
             placement = "publicidad-banner"
             adv_segmentation = "winback"
             reputation_level="yellow"
@@ -345,6 +345,7 @@ trackTests {
             category_domain= "MLA-CAMERAS"
             item_id= "MLA682118081"
             session_id = "123-update-abc123"
+            hint_id = "REPEATED_ATTRIBUTE"
         }
     }
 
@@ -355,6 +356,7 @@ trackTests {
             category_domain= "MLA-CAMERAS"
             item_id= "MLA682118081"
             session_id = "123-update-abc123"
+            hint_id = "REPEATED_ATTRIBUTE"
         }
     }
 
@@ -366,6 +368,7 @@ trackTests {
             category_domain= "MLA-CAMERAS"
             item_id= "MLA682118081"
             session_id = "123-update-abc123"
+            hint_id = "REPEATED_ATTRIBUTE"
         }
     }
 
@@ -376,6 +379,7 @@ trackTests {
             category_domain= "MLA-CAMERAS"
             item_id= "MLA682118081"
             session_id = "123-update-abc123"
+            hint_id = "REPEATED_ATTRIBUTE"
         }
     }
 
@@ -386,6 +390,7 @@ trackTests {
             category_domain= "MLA-CAMERAS"
             item_id= "MLA682118081"
             session_id = "123-update-abc123"
+            hint_id = "REPEATED_ATTRIBUTE"
         }
     }
 
@@ -398,6 +403,7 @@ trackTests {
             category_domain= "MLA-CAMERAS"
             item_id= "MLA682118081"
             session_id = "123-update-abc123"
+            hint_id = "REPEATED_ATTRIBUTE"
         }
     }
 
