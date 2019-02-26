@@ -166,6 +166,10 @@ tracks {
     //No options money advance
     "/credits/merchant/money_advance/no_options"(platform: "/", type: TrackType.View) {}
 
+    // Error money advance
+    "/credits/merchant/money_advance/error"(platform: "/", type: TrackType.View) {
+        reason(type: PropertyType.String, required: false)
+    }
 
     /******************************************
      *       End: Money Advance
