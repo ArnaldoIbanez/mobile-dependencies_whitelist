@@ -133,6 +133,8 @@ tracks {
         available_methods(required: false, type: PropertyType.ArrayList, description: "Available payment methods for this flow")
         nearest_store_distance(required: false, description: "Distance to the nearest store")
         flow_type(required: false, type: PropertyType.String, description: "Type of operation")
+
+        item_with_garex(required: false, type: PropertyType.Boolean, description: 'Item has available warranty')
     }
 
     /*
@@ -1070,6 +1072,35 @@ tracks {
     "/checkout/review/edit_unique_installment"(platform:"/", type: TrackType.View) {}
     "/checkout/review/edit_first_installment"(platform:"/", type: TrackType.View) {}
     "/checkout/review/edit_second_installment"(platform:"/", type: TrackType.View) {}
+
+
+    /*
+    * GarEx tracks
+    * */
+    "/checkout/garex"(required: false, platform:"/web", type: TrackType.View, description: 'G Page track') {}
+    "/checkout/garex/more_info"(required: false, platform:"/web", type: TrackType.Event, description: 'Click on More Info o How it works?') {}
+    "/checkout/garex/selected_garex"(required: false, platform:"/web", type: TrackType.Event, description: 'User select warranty') {
+        garex(type: PropertyType.Map)
+        /*
+        Garex spec:
+        {
+            "id": String,
+            "period": Number,
+            "cost": Number,
+            "revenue_share_fee": Number,
+            "revenue": Double,
+            "currency_id": String
+        }
+        * */
+    }
+    "/checkout/garex/not_selected_garex"(required: false, platform:"/web", type: TrackType.Event, description: 'User decline warranty') {}
+    "/checkout/garex/delete"(required: false, platform:"/web", type: TrackType.Event, description: 'User remove warranty on review page') {
+        garex(type: PropertyType.Map)
+    }
+
+    /*
+    * end GarEx tracks
+    * */
 
     /*
     * CHECKOUT V5
