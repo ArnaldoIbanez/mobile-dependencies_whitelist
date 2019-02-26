@@ -210,13 +210,12 @@ tracks {
         pos_id(required: false, PropertyType.String)
         qr_data(required: false, PropertyType.String)
     }
-    "/instore/error/cant_pay_in_different_sites"(platform: "/mobile", isAbstract: true) {
+    "/instore/error/cant_pay_in_different_sites"(platform: "/mobile", type: TrackType.View) {
         qr_data(required: false, PropertyType.String, description: "data scanned on the payment flow")
         collector_id(required: false, PropertyType.String, description: "collector user unique identifier")
         store_id(required: false, PropertyType.String, description: "collector store unique identifier")
         pos_id(required: false, PropertyType.String, description: "collector point of sale unique identifier")
     }
-    "/instore/error/cant_pay_in_different_sites"(platform: "/mobile", type: TrackType.View) {}
     "/instore/error/cant_pay_in_different_sites/back"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/error/cant_pay_in_different_sites/abort"(platform: "/mobile", type: TrackType.Event) {}
 
