@@ -107,6 +107,7 @@ tracks {
     "/merchant_acquisition/qr/error"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/qr/settings"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/qr/permission-denied"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/qr/web-mobile"(platform:"/", type: TrackType.View) {}
     
     // QR Flow > Events
     "/merchant_acquisition/qr/qr-code/download"(platform:"/", type: TrackType.Event) {}
