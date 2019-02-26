@@ -84,7 +84,10 @@ tracks {
     // QR Queue Web > Events
     "/merchant_acquisition/flows/qr-queue/amount/download"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/flows/qr-queue/amount/print"(platform:"/", type: TrackType.Event) {}
-    "/merchant_acquisition/flows/qr-queue/amount/post-locked"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/qr-queue/amount/replace-amount"(platform:"/", type: TrackType.Event) {}
+
+    "/merchant_acquisition/flows/qr-queue/waiting-payment/retry"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/qr-queue/waiting-payment/extend-time"(platform:"/", type: TrackType.Event) {}
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
