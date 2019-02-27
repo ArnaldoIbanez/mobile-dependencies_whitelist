@@ -109,7 +109,7 @@ tracks {
     }
 
     "/loyalty/buylevel/cancellation/not-applicable"(platform: "/",type: TrackType.View){
-        reason(required: false, values: ["already_cancelled","not_bought","past_time"], description: "Reason to reject the cancellation")
+        reason(required: true, values: ["already_cancelled","not_bought","past_time"], description: "Reason to reject the cancellation")
     }
 
     "/loyalty/buylevel/cancellation/retention_landing"(platform: "/",type: TrackType.View){
