@@ -13,10 +13,10 @@ trackTests {
         "/denounce/form/success"(platform: "/") {}
         "/denounce/form/error"(platform: "/") {}
         "/denounce/form/tool_migration_app"(platform: "/") {
-            context = "test"
+            context = "modal"
         }
         "/denounce/form/tool_migration_landing"(platform: "/") {
-            context = "test"
+            context = "announcement"
         }
 
         "/denounce/error"(platform: "/") {}
@@ -50,10 +50,10 @@ trackTests {
 
         "/pppi/landings/revamp"(platform: "/") {}
         "/pppi/landings/revamp/app"(platform: "/") {
-            context = "test"
+            context = "headline"
         }
         "/pppi/landings/revamp/contact"(platform: "/") {
-            context = "test"
+            context = "tool"
         }
 
         // Error
