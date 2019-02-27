@@ -216,7 +216,7 @@ tracks {
 
     // Error money advance
     "/credits/merchant/money_advance/error"(platform: "/", type: TrackType.View) {
-        reason(type: PropertyType.String, required: false)
+        reason(type: PropertyType.String, required: true)
     }
 
     /******************************************
