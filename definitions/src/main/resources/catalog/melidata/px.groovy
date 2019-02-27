@@ -143,7 +143,7 @@ tracks {
 
     // Terms and conditions view
     "/px_checkout/payments/terms_and_conditions"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
-        url(required: false, type: PropertyType.String, description: "Web view url")
+        url(required: true, type: PropertyType.String, description: "Web view url")
         externalData
     }
 
