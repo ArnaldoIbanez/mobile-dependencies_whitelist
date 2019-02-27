@@ -105,6 +105,23 @@ tracks {
         our_payment_error(required: false, description: "An error from our (with our endpoint) payment post, is not an error creating the payment")
     }
 
+    "/loyalty/buylevel/cancellation"(platform: "/", isAbstract: true, type: TrackType.View){
+    }
+
+    "/loyalty/buylevel/cancellation/not-applicable"(platform: "/",type: TrackType.View){
+        reason(required: true, values: ["already_cancelled","not_bought","past_time"], description: "Reason to reject the cancellation")
+    }
+
+    "/loyalty/buylevel/cancellation/retention_landing"(platform: "/",type: TrackType.View){
+    }
+
+    "/loyalty/buylevel/cancellation/reason_form"(platform: "/",type: TrackType.View){
+    }
+
+    "/loyalty/buylevel/cancellation/congrats"(platform: "/",type: TrackType.View){
+        status(required: true, values: ["success","needs_validation"], description: "Congrats status. Can be either success or 'needs-validation'")
+    }
+
     /**
      * Loyalty Redesign Tracks
      */

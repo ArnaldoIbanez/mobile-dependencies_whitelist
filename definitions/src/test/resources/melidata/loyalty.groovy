@@ -270,6 +270,33 @@ trackTests {
         }
     }
 
+    test("Loyalty Buy Level Cancellation"){
+        "/loyalty/buylevel/cancellation/retention_landing"(platform: "/",type: TrackType.Event){
+        }
+
+        "/loyalty/buylevel/cancellation/not-applicable"(platform: "/",type: TrackType.Event){
+            reason = "already_cancelled"
+        }
+        "/loyalty/buylevel/cancellation/not-applicable"(platform: "/",type: TrackType.Event){
+            reason = "not_bought"
+        }
+        "/loyalty/buylevel/cancellation/not-applicable"(platform: "/",type: TrackType.Event){
+            reason = "past_time"
+        }
+
+        "/loyalty/buylevel/cancellation/reason_form"(platform: "/",type: TrackType.Event){
+        }
+
+        "/loyalty/buylevel/cancellation/congrats"(platform: "/",type: TrackType.Event){
+            status = "success"
+        }
+
+        "/loyalty/buylevel/cancellation/congrats"(platform: "/",type: TrackType.Event){
+            status = "needs_validation"
+        }
+
+    }
+
     test("partners"){
         "/loyalty/subscribe"(platform: "/", type: TrackType.Event){
             partner_id = "megatlon"
