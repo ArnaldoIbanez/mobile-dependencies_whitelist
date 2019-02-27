@@ -108,7 +108,9 @@ tracks {
     "/loyalty/buylevel/cancellation"(platform: "/", isAbstract: true, type: TrackType.View){
     }
 
-
+    "/loyalty/buylevel/cancellation/not-applicable"(platform: "/",type: TrackType.View){
+        reason(required: false, values: ["already-cancelled","not-bought","past-time"], description: "Reason to reject the cancellation")
+    }
 
     /**
      * Loyalty Redesign Tracks
