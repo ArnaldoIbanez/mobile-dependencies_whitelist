@@ -471,6 +471,7 @@ tracks {
     "/checkout/payment/add_debit_card/select_bank"(platform: "/mobile") {
         available_issuers(required: true, type: PropertyType.ArrayList)
     }
+    "/checkout/payment/add_debit_card/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/payment/add_prepaid_card"(platform: "/mobile") {}
     "/checkout/payment/add_prepaid_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
@@ -620,6 +621,9 @@ tracks {
         status(required: true, type: PropertyType.String)
         checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
     }
+
+    "/checkout/review#submit/abort"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+
     "/checkout/review/quantity#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         old_quantity(required: true, type: PropertyType.Numeric)

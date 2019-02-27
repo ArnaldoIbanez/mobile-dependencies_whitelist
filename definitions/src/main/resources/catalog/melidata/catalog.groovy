@@ -25,14 +25,14 @@ catalog {
     ]
 
     def marketplace = [
-           "mercadolibre",
-           "tucarro",
-           "tumoto",
-           "tulancha",
-           "tuinmueble",
-           "autoplaza",
-           "metroscubicos",
-           "portalinmobiliario"
+            "mercadolibre",
+            "tucarro",
+            "tumoto",
+            "tulancha",
+            "tuinmueble",
+            "autoplaza",
+            "metroscubicos",
+            "portalinmobiliario"
     ]
 
     def mercadopago = ["mercadopago"]
@@ -46,6 +46,7 @@ catalog {
     all.each { business ->
         include business, "authentication.groovy"
         include business, "bugsnag.groovy"
+        include business, "cx.groovy"
         include business, "identity_validation.groovy"
         include business, "melidata_sdk.groovy"
         include business, "registrations.groovy"
@@ -56,6 +57,9 @@ catalog {
         include business, "px.groovy"
         include business, "mobile_commons.groovy"
         include business, "google_connect.groovy"
+        include business, "security_settings.groovy"
+        include business, "mgm.groovy"
+        include business, "mediations.groovy"
     }
 
     marketplace.each { business ->
@@ -69,7 +73,6 @@ catalog {
         include business, "cellphone_recharge.groovy"
         include business, "checkout.groovy"
         include business, "credits_marketplace.groovy"
-        include business, "cx.groovy"
         include business, "moderations.groovy"
         include business, "email.groovy"
         include business, "freeData.groovy"
@@ -78,7 +81,6 @@ catalog {
         include business, "loyalty.groovy"
         include business, "make_an_offer.groovy"
         include business, "marketplace.groovy"
-        include business, "mediations.groovy"
         include business, "melidata_sdk.groovy"
         include business, "mobile.groovy"
         include business, "myml.groovy"
@@ -112,6 +114,7 @@ catalog {
         include business, "contact.groovy"
         include business, "full.groovy"
         include business, "dynamic_links.groovy"
+        include business, "sube_recharge.groovy"
     }
 
     mercadopago.each { business ->
@@ -129,6 +132,8 @@ catalog {
         include business, "asset_management.groovy"
         include business, "single_player.groovy"
         include business, "instore.groovy"
+        include business, "sube_recharge.groovy"
+
     }
 
     mercadoshops.each { business ->

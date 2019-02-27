@@ -530,6 +530,9 @@ trackTests {
         "/checkout/payment/add_debit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
+        "/checkout/payment/add_debit_card/back"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+        }
         "/checkout/payment/add_debit_card#card_config"(platform:"/mobile", type: TrackType.Event) {
             bin = "123456"
             success = true
@@ -813,6 +816,9 @@ trackTests {
             status = "success"
             checkout_flow = "direct"
         }
+
+        "/checkout/review#submit/abort"(platform:"/mobile", type:TrackType.Event) {}
+
         "/checkout/review/quantity#submit"(platform:"/mobile", type: TrackType.Event) {
             old_quantity = 4
             selected_quantity = 1

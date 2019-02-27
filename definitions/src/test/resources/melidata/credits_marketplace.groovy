@@ -41,6 +41,9 @@ trackTests {
         "/credits/consumer/public_landing/application_result/click_home"(platform: "/web/desktop") {
             result = 'manual_review'
         }
+        "/credits/consumer/public_landing/application_result/more_info"(platform: "/web/desktop") {
+            result = 'manual_review'
+        }
 
         /******************************************
          *       End: Consumers Public Landings
@@ -203,7 +206,7 @@ trackTests {
             milestone = 20
         }
 
-        "/credits/consumer/overdue_nav"(platform: "/web/desktop", type: TrackType.View) {
+        "/credits/consumer/overdue_nav"(platform: "/web/desktop", type: TrackType.Event) {
             status = "fixed_charge_period_1"
             milestone = 4
             context = "vip"
@@ -220,6 +223,11 @@ trackTests {
             status = "fixed_charge_period_1"
             milestone = 4
             context = "vip"
+        }
+
+        "/credits/consumer/myml/summary/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            loan_status = "daily_charge_period"
+            place = "right_section_message"
         }
         /******************************************
          *       End: Consumers Pursue Campaign
@@ -307,5 +315,35 @@ trackTests {
          *   End: Consumers Checkout
          ******************************************/
 
+        /******************************************
+         *    Start: Consumers Contacts
+         ******************************************/
+
+        "/credits/consumer/contacts"(platform: "/", type: TrackType.View) {
+            credits_type = "consumer"
+            site_id = "mla"
+            medium = "email"
+            campaign = "collection"
+            status_from_medium = "overdue"
+            action_label = "contact"
+            loan_status = "on_time"
+            next_installment_status = "on_time"
+            output_label = "faqs"
+        }
+
+        "/credits/consumer/contacts"(platform: "/", type: TrackType.View) {
+            credits_type = "consumer"
+            site_id = "mla"
+            medium = "webapp"
+            campaign = "activities"
+            action_label = "have_a_problem"
+            loan_status = "overdue"
+            next_installment_status = "overdue"
+            output_label = "widget"
+        }
+
+        /******************************************
+         *   End: Consumers Contacts
+         ******************************************/
     }
 }

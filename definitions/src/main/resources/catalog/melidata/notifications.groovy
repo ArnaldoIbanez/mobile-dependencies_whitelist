@@ -369,6 +369,10 @@ tracks {
       "/notification/credits_consumer_expired_n_loans_second_notice"(platform: "/") {}
       "/notification/credits_consumer_expired_n_loans_third_notice"(platform: "/") {}
 
+      "/notification/credits_merchants_educational"(platform: "/") {
+          loan_id(required: true, type: PropertyType.Numeric)
+      }
+
       //Compliance Support
       "/notification/compliance_support_validations"(platform: "/") {}
 
@@ -380,6 +384,12 @@ tracks {
           case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
       }
       "/notification/chargeback_payer_update_ml"(platform: "/") {
+          case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+      }
+      "/notification/chargeback_payer_ultimatum_ml"(platform: "/") {
+          case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+      }
+      "/notification/chargeback_payer_intensify_ml"(platform: "/") {
           case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
       }
 
@@ -487,6 +497,16 @@ tracks {
           agency_to_agency(required:true, type:PropertyType.Boolean, description: "Indicates if package was sent to an agency in the first place or was shipped there because the user wasnt found in his address")
       }
       "/notification/shipping_legacy_delayed_sender"(platform: "/") {
+          shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+          order_id(required: true, type: PropertyType.Numeric)
+      }
+
+      "/notification/shipping_legacy_not_delivered_receiver"(platform: "/") {
+          shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+          order_id(required: true, type: PropertyType.Numeric)
+      }
+
+      "/notification/shipping_legacy_reminder_agency_withdrawal"(platform: "/") {
           shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
           order_id(required: true, type: PropertyType.Numeric)
       }
@@ -778,7 +798,7 @@ tracks {
 
       //Notification suggested discounts
       "/notification/campaigns_suggested_discounts_seller"(platform: "/") {
-          item_id(required: true, type: PropertyType.String, description: "Id of item.")
+          item_id(required: false, type: PropertyType.String, description: "Id of item.")
           campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
           test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")

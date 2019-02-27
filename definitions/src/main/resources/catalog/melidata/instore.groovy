@@ -10,7 +10,10 @@ tracks {
     * INSTORES Screen Tracks
     */
 
-    "/instore"(platform: "/mobile", isAbstract: true) {}
+    "/instore"(platform: "/mobile", isAbstract: true) {
+        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
+        new_session(required: false, PropertyType.Boolean, description: "indicates if a new session_id was created")
+    }
 
     // Scan QR
     "/instore/scan_qr"(platform: "/mobile", type: TrackType.View) {
@@ -180,6 +183,11 @@ tracks {
         pos_id(required: false, PropertyType.String)
         qr_data(required: false, PropertyType.String)
     }
+    "/instore/error/cant_pay_to_yourself/retry"(platform: "/mobile", type: TrackType.Event) {
+        qr_data(required: true, PropertyType.String)
+        collector_id(required: false, PropertyType.String)
+        pos_id(required: false, PropertyType.String)
+    }
     "/instore/error/payment_timeout"(platform: "/mobile", type: TrackType.View) {
         collector_id(required: false, PropertyType.String)
         brand_name(required: false, PropertyType.String)
@@ -202,11 +210,21 @@ tracks {
         pos_id(required: false, PropertyType.String)
         qr_data(required: false, PropertyType.String)
     }
+    "/instore/error/cant_pay_in_different_sites"(platform: "/mobile", type: TrackType.View) {
+        qr_data(required: false, PropertyType.String, description: "data scanned on the payment flow")
+        collector_id(required: false, PropertyType.String, description: "collector user unique identifier")
+        store_id(required: false, PropertyType.String, description: "collector store unique identifier")
+        pos_id(required: false, PropertyType.String, description: "collector point of sale unique identifier")
+    }
+    "/instore/error/cant_pay_in_different_sites/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/cant_pay_in_different_sites/abort"(platform: "/mobile", type: TrackType.Event) {}
 
     // Permissions
-    "/ask_device_permission"(platform: "/mobile", isAbstract: true) {}
+    "/ask_device_permission"(platform: "/mobile", isAbstract: true) {
+        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
+        new_session(required: false, PropertyType.Boolean, description: "indicates if a new session_id was created")
+    }
     "/ask_device_permission/location"(platform: "/mobile", type: TrackType.View) {
-        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
         context(required: true, PropertyType.String, values: ["/instore", "/instore/map"])
         location_permission_enabled(required: false, PropertyType.Boolean)
         device_gps_enabled(required: false, PropertyType.Boolean)
@@ -280,9 +298,8 @@ tracks {
     "/instore/shell_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {
         view_time_in_millis(required: false, PropertyType.String)
     }
-    "/instore/shell_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
-        view_time_in_millis(required: false, PropertyType.String)
-    }
+    "/instore/shell_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/shell_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/qr_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
         view_time_in_millis(required: false, PropertyType.String)
@@ -419,6 +436,7 @@ tracks {
         success(required: true, PropertyType.Boolean)
         next_step(required: true, PropertyType.String)
     }
+    "/instore/shell/pump_code/abort"(platform: "/mobile", type: TrackType.Event) {}
 
     // Required action
     "/instore/data_required"(platform: "/mobile", isAbstract: true) {}
@@ -447,64 +465,36 @@ tracks {
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
     }
-    "/instore/vending"(platform: "/mobile", isAbstract: true) {}
-    "/instore/vending/st_machine_disconnected"(platform: "/mobile", type: TrackType.Event) {
+    "/instore/vending"(platform: "/mobile", isAbstract: true) {
         collector_id(required: true, PropertyType.String)
         brand_name(required: false, PropertyType.String)
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
         vending_id(required: true, PropertyType.String)
+        external_reference(required: true, PropertyType.String)
+        id(required: true, PropertyType.Numeric)
+        status(required: true, PropertyType.String)
+        status_detail(required: true, PropertyType.String)
     }
-    "/instore/vending/machine_response_final_result"(platform: "/mobile", type: TrackType.Event) {
-        collector_id(required: true, PropertyType.String)
-        brand_name(required: false, PropertyType.String)
-        store_id(required: false, PropertyType.String)
-        pos_id(required: false, PropertyType.String)
-        vending_id(required: true, PropertyType.String)
-    }
+    "/instore/vending/st_machine_disconnected"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/vending/machine_response_final_result"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/vending/st_machine_connection_error"(platform: "/mobile", type: TrackType.Event) {
-        collector_id(required: true, PropertyType.String)
-        brand_name(required: false, PropertyType.String)
-        store_id(required: false, PropertyType.String)
-        pos_id(required: false, PropertyType.String)
         st_machine_connection_error(required: true, PropertyType.String)
-        vending_id(required: true, PropertyType.String)
     }
     "/instore/vending/machine_response_state"(platform: "/mobile", type: TrackType.Event) {
-        collector_id(required: true, PropertyType.String)
-        brand_name(required: false, PropertyType.String)
-        store_id(required: false, PropertyType.String)
-        pos_id(required: false, PropertyType.String)
         machine_response_state(required: true, PropertyType.String)
-        vending_id(required: true, PropertyType.String)
     }
-    "/instore/vending/st_machine_not_available"(platform: "/mobile", type: TrackType.Event) {
-        collector_id(required: true, PropertyType.String)
-        brand_name(required: false, PropertyType.String)
-        store_id(required: false, PropertyType.String)
-        pos_id(required: false, PropertyType.String)
-        vending_id(required: true, PropertyType.String)
-    }
-    "/instore/vending/st_machine_connected"(platform: "/mobile", type: TrackType.Event) {
-        collector_id(required: true, PropertyType.String)
-        brand_name(required: false, PropertyType.String)
-        store_id(required: false, PropertyType.String)
-        pos_id(required: false, PropertyType.String)
-        vending_id(required: true, PropertyType.String)
-    }
+    "/instore/vending/st_machine_not_available"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/vending/st_machine_connected"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/vending/response_end_transaction"(platform: "/mobile", type: TrackType.Event) {
-        collector_id(required: true, PropertyType.String)
-        brand_name(required: false, PropertyType.String)
-        store_id(required: false, PropertyType.String)
-        pos_id(required: false, PropertyType.String)
-        vending_id(required: true, PropertyType.String)
         end_transaction_status(required: true, PropertyType.String)
+        item_price(required: false, PropertyType.Numeric)
     }
     "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
         // Possible fields for Android & IOS
         currency_id(required: false, PropertyType.String)
         statement_descriptor(required: false, PropertyType.String)
-        collector_id(required: false, PropertyType.Numeric)
+        collector_id(required: false, PropertyType.String)
         status(required: false, PropertyType.String)
         payment_method_id(required: false, PropertyType.String)
         site_id(required: false, PropertyType.String)
@@ -546,6 +536,8 @@ tracks {
         notification_url(required: false, PropertyType.String)
         sponsor_id(required: false, PropertyType.Numeric)
         vending_id(required: false, PropertyType.String)
+        pos_id(required: false, PropertyType.String)
+        store_id(required: false, PropertyType.String)
     }
     "/instore/payment_info"(platform: "/mobile", type: TrackType.Event) {
         payment_info_tag(required: false, "Execute post payment")
@@ -556,11 +548,9 @@ tracks {
     "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
         raw(required: false, description: "Raw with post payment information")
     }
-    "/instore/vending/select_product"(platform: "/mobile", type: TrackType.View) {}
     "/instore/required_action"(platform: "/mobile", isAbstract: true) {}
     "/instore/required_action/data_required"(platform: "/mobile", type: TrackType.View) {}
     "/instore/required_action/data_required/dni"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/gas_station_shell"(platform: "/mobile", type: TrackType.View) {}
     "/instore/waiting"(platform: "/mobile", type: TrackType.View) {}
     "/instore/permission"(platform: "/mobile", isAbstract: true) {}
     "/instore/permission/location"(platform: "/mobile", type: TrackType.View) {}
@@ -579,87 +569,9 @@ tracks {
     "/instore/activity"(platform: "/mobile", isAbstract: true) {}
     "/instore/activity/list"(platform: "/mobile", type: TrackType.View) {}
     "/instore/price_picker"(platform: "/mobile", type: TrackType.View) {}
-    // Deprecated PX
-    "/instore/checkout"(platform: "/mobile", isAbstract: true) {}
-    "/instore/checkout/payment_method_search"(platform: "/mobile", type: TrackType.View) {
-        options(required: false, PropertyType.String)
-    }
-    "/instore/checkout/review_and_confirm"(platform: "/mobile", type: TrackType.View) {
-        issuer(required: false, PropertyType.String)
-        has_shipping (required: false, PropertyType.String)
-        payment_method(required: false, PropertyType.String)
-        payment_type(required: false, PropertyType.String)
-    }
-    "/instore/checkout/result"(platform: "/mobile", type: TrackType.View) {
-        issuer(required: false, PropertyType.String)
-        payment_id(required: false, PropertyType.String)
-        is_express(required: false, PropertyType.String)
-        payment_method(required: false, PropertyType.String)
-        payment_type(required: false, PropertyType.String)
-        payment_status_detail(required: false, PropertyType.String)
-        payment_status(required: false, PropertyType.String)
-    }
-    "/instore/checkout/payment_option"(platform: "/mobile", type: TrackType.View) {
-        options(required: false, PropertyType.String)
-    }
-    "/instore/checkout/review"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/card_installments"(platform: "/mobile", type: TrackType.View) {
-        payment_method(required: false, PropertyType.String)
-    }
-    "/instore/checkout/card_number"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/card_vault"(platform: "/mobile", isAbstract: true) {}
-    "/instore/checkout/card_vault credit_card"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/card_vault debit_card"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/card_holder_name"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/card_expiry_date"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/card_security_code"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/identification_number"(platform: "/mobile", type: TrackType.View) {
-        payment_method(required: false, PropertyType.String)
-        payment_type(required: false, PropertyType.String)
-    }
-    "/instore/checkout/installments"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/card/installments"(platform: "/mobile", type: TrackType.View) {
-        payment_method(required: false, PropertyType.String)
-    }
-    "/instore/checkout/security_code_card"(platform: "/mobile", type: TrackType.View) {
-        security_code_view_reason(required: false, PropertyType.String)
-    }
-    "/instore/checkout/card"(platform: "/mobile", isAbstract: true) {}
-    "/instore/checkout/card/credit_card"(platform: "/mobile", isAbstract: true) {}
-    "/instore/checkout/card/credit_card/security_code"(platform: "/mobile", type: TrackType.View) {
-        security_code_view_reason(required: false, PropertyType.String)
-    }
-    "/instore/checkout/card/debit_card"(platform: "/mobile", isAbstract: true) {}
-    "/instore/checkout/card/debit_card/security_code"(platform: "/mobile", type: TrackType.View) {
-        security_code_view_reason(required: false, PropertyType.String)
-    }
-    "/instore/checkout/congrats"(platform: "/mobile", isAbstract: true) {}
-    "/instore/checkout/congrats/business"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/congrats/rejected"(platform: "/mobile", type: TrackType.View) {
-        issuer(required: false, PropertyType.String)
-        payment_id(required: false, PropertyType.String)
-        is_express(required: false, PropertyType.String)
-        payment_method(required: false, PropertyType.String)
-        payment_status(required: false, PropertyType.String)
-        payment_status_detail(required: false, PropertyType.String)
-    }
-    "/instore/checkout/card/number"(platform: "/mobile", type: TrackType.View) {}
-
-    "/instore/checkout/payment_option/"(platform: "/mobile", isAbstract: true) {}
-    "/instore/checkout/payment_option/cards"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/error_view"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/card/debit_card/number"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/card/credit_card/number"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/card/credit_card/name"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/card/credit_card/expiration"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/card/credit_card/cvv"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/card/debit_card/name"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/card/debit_card/expiration"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/checkout/card/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {}
 
     // Discovery
     "/instore/map"(platform: "/mobile", type: TrackType.View) {
-        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
         type(required: true, inheritable: false, PropertyType.String, description: "type of stores to show on the map")
         tags(required: true, inheritable: false, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the type of stores to show on the map")
     }

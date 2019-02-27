@@ -47,18 +47,18 @@ tracks {
     "/px_checkout/payments/select_method/prepaid_card"(platform: "/mobile", isAbstract: true){}
 
     "/px_checkout/payments/select_method/credit_card/cvv"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
-        payment_method_id(required: true, type: PropertyType.String, description: "Payment method id")
-        card_id(required: true, type: PropertyType.String , description: "Card id")
+        payment_method_id(required: false, type: PropertyType.String, description: "Payment method id")
+        card_id(required: false, type: PropertyType.String , description: "Card id")
         externalData
     }
     "/px_checkout/payments/select_method/debit_card/cvv"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
-        payment_method_id(required: true, type: PropertyType.String, description: "Payment method id")
-        card_id(required: true, type: PropertyType.String , description: "Card id")
+        payment_method_id(required: false, type: PropertyType.String, description: "Payment method id")
+        card_id(required: false, type: PropertyType.String , description: "Card id")
         externalData
     }
     "/px_checkout/payments/select_method/prepaid_card/cvv"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
-        payment_method_id(required: true, type: PropertyType.String, description: "Payment method id")
-        card_id(required: true, type: PropertyType.String , description: "Card id")
+        payment_method_id(required: false, type: PropertyType.String, description: "Payment method id")
+        card_id(required: false, type: PropertyType.String , description: "Card id")
         externalData
     }
 
@@ -430,6 +430,10 @@ tracks {
         externalData
     }
 
+    "/px_checkout/review/traditional/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
     "/px_checkout/review/traditional/change_payment_method"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
     }
@@ -451,4 +455,52 @@ tracks {
         externalData
     }
 
+    // Congrats:
+    // Approved payment
+    "/px_checkout/result/success/continue"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/success/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
+    // In process payment
+    "/px_checkout/result/further_action_needed/continue"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/further_action_needed/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
+    // Rejected payment
+    "/px_checkout/result/error/change_payment_method"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/error/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
+    // Approved business
+    "/px_checkout/result/success/primary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/success/secondary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
+    // Pending business
+    "/px_checkout/result/further_action_needed/primary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/further_action_needed/secondary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
+    // Rejected business
+    "/px_checkout/result/error/primary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/error/secondary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
 }

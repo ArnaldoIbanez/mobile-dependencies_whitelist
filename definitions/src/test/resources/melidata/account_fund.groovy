@@ -15,6 +15,12 @@ trackTests {
     test("Account Fund - views") {
         "/account_fund/select_method"(platform: "/", type: TrackType.View) {}
         "/account_fund/amount"(platform: "/", type: TrackType.View) {}
+
+        // Amount presets buttons
+        "/account_fund/amount/preset"(platform: "/", type: TrackType.Event) {
+            preset = "30"
+        }
+
         "/account_fund/agencies_map"(platform: "/", type: TrackType.View) {}
         "/account_fund/ftu"(platform: "/", type: TrackType.View) {}
         "/account_fund/unique_code"(platform: "/", type: TrackType.View) {}
@@ -39,8 +45,18 @@ trackTests {
         }
 
         "/account_fund/cvu/edit_alias"(platform: "/", type: TrackType.View) {}
+        "/account_fund/cvu/copy_alias"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/cvu/copy_cvu"(platform: "/", type: TrackType.Event) {}
         "/account_fund/cvu/edit_alias/save"(platform: "/", type: TrackType.Event) {}
         "/account_fund/cvu/edit_alias/save/success"(platform: "/", type: TrackType.View) {}
         "/account_fund/cvu/edit_alias/save/fail"(platform: "/", type: TrackType.View) {}
+
+        "/account_fund/mi_cvu"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/mi_cvu/copy_alias"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/mi_cvu/copy_cvu"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/mi_cvu/edit_alias"(platform: "/", type: TrackType.View) {}
+        "/account_fund/mi_cvu/edit_alias/save"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/mi_cvu/edit_alias/save/success"(platform: "/", type: TrackType.View) {}
+        "/account_fund/mi_cvu/edit_alias/save/fail"(platform: "/", type: TrackType.View) {}
     }
 }

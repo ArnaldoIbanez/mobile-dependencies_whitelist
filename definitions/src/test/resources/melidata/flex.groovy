@@ -49,6 +49,49 @@ trackTests {
         "/flex/landing"(platform:"/", type: TrackType.View) {}
     }
 
+     test("flex configuration view"){
+        "/flex/configuration"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("flex configuration events"){
+        def handlingTimeSelected = {
+            handling_time = "SameDay"
+        }
+
+        def zonesSelected = {
+            zones = [  
+                {
+                    zone = "CABA"
+                    selected = 0
+                },
+                {
+                    zone = "Vicente_Lopez"
+                    selected = 1
+                }
+            ]
+        }
+
+        def capacitySelected = {
+            capacity = "20"
+        }
+
+
+
+        "/flex/configuration/select_handling_time"(platform: "/", type: TrackType.Event) {
+            handlingTimeSelected()
+        }
+
+        "/flex/configuration/select_zones"(platform: "/", type: TrackType.Event) {
+            zonesSelected()
+        }
+
+        "/flex/configuration/select_capacity"(platform: "/", type: TrackType.Event) {
+            capacitySelected()
+        }
+
+    }
+
+
     test("Testing flex"){
         def defaultLocation =
             {
@@ -377,6 +420,13 @@ trackTests {
         }
         //Onboarding action with context success
         "/flex/notification/view_near_pack_destination"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+        }
+
+        //Onboarding action with context success
+        "/flex/notification/pass_near_pack_destination"(platform:"/mobile", type: TrackType.Event) {
             defaultLocation()
             defaultPacksInfo()
             delivery_id = 123456

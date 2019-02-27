@@ -7,15 +7,23 @@ tracks {
         shop_id(required: true, type: PropertyType.Numeric)
         shop_domain(required: true, type: PropertyType.String)
         shop_name(required: true, type: PropertyType.String)
+
+        ref(
+            required: true,
+            type: PropertyType.String,
+            description: "Additional information from where the user is coming"
+        )
     }
 
     propertyGroups {
-        mshopsGroup(shop_id, shop_domain, shop_name)
+        mshopsGroup(shop_id, shop_domain, shop_name, ref)
     }
 
     "/mercado_shops"(platform: "/", isAbstract: true) {
         mshopsGroup
     }
+
+    "/mercado_shops/optin"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/admin"(platform: "/", type: TrackType.View){}
 

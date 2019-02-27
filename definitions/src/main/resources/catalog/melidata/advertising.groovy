@@ -54,10 +54,12 @@ tracks {
 //    Generic landing
     "/advertising/pads2/landing"(platform: "/web", type: TrackType.View) {
         free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
+        budget(required: true, description: "Budget related to the landing", inheritable:false)
     }
 
     "/advertising/pads2/landing/main_action"(platform: "/web", type: TrackType.Event) {
         button(required: true, description: "Button that redirects to confirm page")
+        budget(required: true, description: "Budget related to the landing", inheritable:false)
     }
 
     "/advertising/pads2/landing/contract_confirmation"(platform: "/web", type: TrackType.View) {

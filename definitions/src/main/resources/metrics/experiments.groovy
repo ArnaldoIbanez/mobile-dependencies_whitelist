@@ -242,4 +242,16 @@ metrics {
 			}
 		}
 	}
+
+	"asset_management_start_investing"(description: "Touches the button 'Quiero invertir' from onboarding") {
+		startWith {
+			experiment("mpmobile/asset_management")
+		}
+
+		countsOn {
+			condition {
+				path("/asset_management/start_investing")
+			}
+		}
+	}
 }

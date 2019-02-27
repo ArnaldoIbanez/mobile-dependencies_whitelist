@@ -16,6 +16,7 @@ trackTests {
 
         // Error
         "/instore/generic_error"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             additional_info = {
                 message = "Escanear código QR"
                 icon = "error"
@@ -36,11 +37,14 @@ trackTests {
             location_permissions = true
             notifications_permissions = true
             bluetooth_permissions = true
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            new_session = true
         }
         "/instore/scan_qr/qr_discovery"(platform: "/mobile", type: TrackType.Event) {
             qr_data = "Any scanned data"
             qr_discovery_time_in_millis = "323223"
             camera_flash = false
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/scan_qr/qr_resolved"(platform: "/mobile", type: TrackType.Event) {
             qr_data = "Any scanned data"
@@ -54,19 +58,24 @@ trackTests {
             success = true
             next_step_deeplink = "Any deeplink"
             currency = "ARS"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/scan_qr/abort"(platform: "/mobile", type: TrackType.Event) {
             view_time_in_millis = "453282"
             camera_flash = false
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/scan_qr/back"(platform: "/mobile", type: TrackType.Event) {
             view_time_in_millis = "125638"
             camera_flash = false
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/scan_qr/flash"(platform: "/mobile", type: TrackType.Event) {
             camera_flash = false
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 		"/instore/scan_qr/help"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         // Permissions
         "/ask_device_permission/bluetooth"(platform: "/mobile", type: TrackType.View) {
@@ -76,6 +85,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/bluetooth/back"(platform: "/mobile", type: TrackType.Event) {
             context = "/instore"
@@ -84,6 +94,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/bluetooth/granted"(platform: "/mobile", type: TrackType.Event) {
             context = "/instore"
@@ -92,6 +103,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/bluetooth/rejected"(platform: "/mobile", type: TrackType.Event) {
             context = "/instore"
@@ -100,18 +112,23 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/camera"(platform: "/mobile", type: TrackType.View) {
             context = "/instore"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/camera/back"(platform: "/mobile", type: TrackType.Event) {
             context = "/instore"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/camera/granted"(platform: "/mobile", type: TrackType.Event) {
             context = "/instore"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/camera/rejected"(platform: "/mobile", type: TrackType.Event) {
             context = "/instore"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/location"(platform: "/mobile", type: TrackType.View) {
             session_id = "wi234nuHSd83h478"
@@ -141,6 +158,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/unrecognized_qr_code/back"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -148,6 +166,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/unrecognized_qr_code/abort"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -155,6 +174,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/something_went_wrong"(platform: "/mobile", type: TrackType.View) {
             collector_id = "12356"
@@ -162,6 +182,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/something_went_wrong/back"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -169,6 +190,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/something_went_wrong/abort"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -176,6 +198,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/something_went_wrong/retry"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -183,6 +206,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/gas_station_cant_process_qr_payment"(platform: "/mobile", type: TrackType.View) {
             collector_id = "12356"
@@ -190,6 +214,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/gas_station_cant_process_qr_payment/back"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -197,6 +222,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/gas_station_cant_process_qr_payment/abort"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -204,6 +230,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/cant_pay_to_yourself"(platform: "/mobile", type: TrackType.View) {
             collector_id = "12356"
@@ -211,6 +238,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/cant_pay_to_yourself/back"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -218,6 +246,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/cant_pay_to_yourself/abort"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -225,6 +254,13 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_pay_to_yourself/retry"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            pos_id = "65763"
+            qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/payment_timeout"(platform: "/mobile", type: TrackType.View) {
             collector_id = "12356"
@@ -232,6 +268,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/payment_timeout/back"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -239,6 +276,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/payment_timeout/abort"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -246,22 +284,50 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_pay_in_different_sites"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "12356"
+            store_id = "76840"
+            pos_id = "65763"
+            qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_pay_in_different_sites/back"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            store_id = "76840"
+            pos_id = "65763"
+            qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_pay_in_different_sites/abort"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            store_id = "76840"
+            pos_id = "65763"
+            qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
         // Amount
-        "/instore/amount/price_list"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/amount/price_list"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         "/instore/amount/price_list/back"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/amount/calculator"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/amount/calculator"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         "/instore/amount/calculator/back"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
         // Required action
@@ -271,6 +337,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             data_key = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/data_required/identification_number/back"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -278,39 +345,58 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             data_key = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
         // FTU
-        "/instore/qr_first_time_use"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/qr_first_time_use"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         "/instore/qr_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {
             view_time_in_millis = "134231"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/qr_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
             view_time_in_millis = "134231"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/shell_first_time_use"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/shell_first_time_use"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         "/instore/shell_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {
             view_time_in_millis = "134231"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/shell_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
-            view_time_in_millis = "134231"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/shell_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
         "/instore/qr_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
             view_time_in_millis = "134231"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
         // Shell
-        "/instore/shell/pump_code"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/shell/pump_code"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         "/instore/shell/pump_code_check"(platform: "/mobile", type: TrackType.Event) {
             pump_code = "13423"
             latitude = "16826323"
             longitude = "1826323"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/shell/pump_code_resolved"(platform: "/mobile", type: TrackType.Event) {
             pump_code = "13423"
             success = true
             next_step = "Any deeplink"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/shell/pump_code/abort"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
         // Waiting
@@ -319,108 +405,126 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gas_jockey/next"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gas_jockey/back"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gas_pump"(platform: "/mobile", type: TrackType.View) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gas_pump/next"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gas_pump/back"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gas_clock"(platform: "/mobile", type: TrackType.View) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gas_clock/back"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gastronomy_cashier"(platform: "/mobile", type: TrackType.View) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gastronomy_cashier/next"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gastronomy_cashier/back"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gastronomy_order"(platform: "/mobile", type: TrackType.View) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gastronomy_order/back"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/generic_cashier"(platform: "/mobile", type: TrackType.View) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/generic_cashier/next"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/generic_cashier/back"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/generic_ticket"(platform: "/mobile", type: TrackType.View) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/generic_ticket/back"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
         // Vending
@@ -429,6 +533,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/vending/st_machine_disconnected"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -436,6 +541,11 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/machine_response_final_result"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -443,6 +553,11 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/st_machine_connection_error"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -450,6 +565,11 @@ trackTests {
             store_id = "76840"
             st_machine_connection_error = "Any machine error"
             vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/machine_response_state"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -458,6 +578,11 @@ trackTests {
             pos_id = "65763"
             machine_response_state = "available"
             vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/st_machine_not_available"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -465,6 +590,11 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/st_machine_connected"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -472,6 +602,11 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/response_end_transaction"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -480,11 +615,17 @@ trackTests {
             pos_id = "65763"
             vending_id = "12345"
             end_transaction_status = "success"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
+            item_price = 130
         }
         "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
             currency_id = "ARS"
             statement_descriptor = "WWW.MERCADOPAGO.COM"
-            collector_id = 244110353
+            collector_id = "244110353"
             status = "approved"
             payment_method_id = "visa"
             site_id = "MLA"
@@ -556,9 +697,13 @@ trackTests {
             notification_url = "http://181.30.31.180:23080/gap-backend/notificaciones/notificar"
             sponsor_id = 1234567
             vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            pos_id = "9355"
+            store_id = "12964038"
         }
 
         "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             raw = {
                 statement_descriptor = "WWW.MERCADOPAGO.COM"
                 shipping_amount = 0
@@ -644,19 +789,32 @@ trackTests {
         "/instore/payment_info"(platform: "/mobile", type: TrackType.Event) {
             payment_info_tag = "Execute post payment"
             remaining_attempts = 2
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
         //Deprecated
         "/instore/scan_qr/read"(platform: "/mobile", type: TrackType.Event) {
             data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/camera_permission"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/permission/location"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/required_action/bluetooth_on"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/scan_qr/ftu"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/manual_price"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/camera_permission"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/permission/location"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/required_action/bluetooth_on"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/scan_qr/ftu"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/manual_price"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         // Error
         "/instore/generic_error"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             additional_info = {
                 message = "Escanear código QR"
                 icon = "error"
@@ -670,99 +828,48 @@ trackTests {
                            }]
             }
         }
-        "/instore/activity/list"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/vending/select_product"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/required_action/data_required"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/required_action/data_required/dni"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/required_action/bluetooth_permission"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/waiting"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/waiting/gas_jockey"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/waiting/gas_pump"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/waiting/gas_clock"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/waiting/gastronomy_cashier"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/waiting/gastronomy_order"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/waiting/generic_cashier"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/waiting/generic_ticket"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/gas_station_shell"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/shell_first_time_use"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/price_picker"(platform: "/mobile", type: TrackType.View) {}
-        // Deprecated PX
-        "/instore/checkout/card/number"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/card/installments"(platform: "/mobile", type: TrackType.View) {
-            payment_method = "amex"
+        "/instore/activity/list"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/security_code_card"(platform: "/mobile", type: TrackType.View) {
-            security_code_view_reason = "saved_card"
+        "/instore/required_action/data_required"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/congrats/business"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/congrats/rejected"(platform: "/mobile", type: TrackType.View) {
-            issuer ="24"
-            payment_id  = "4318458695"
-            is_express = "false"
-            payment_method = "master"
-            payment_status = "rejected"
-            payment_status_detail = "cc_rejected_high_risk"
+        "/instore/required_action/data_required/dni"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/card/credit_card/security_code"(platform: "/mobile", type: TrackType.View) {
-            security_code_view_reason = "saved_card"
+        "/instore/required_action/bluetooth_permission"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/card/debit_card/security_code"(platform: "/mobile", type: TrackType.View) {
-            security_code_view_reason = "saved_card"
+        "/instore/waiting"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/card_expiry_date"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/card_holder_name"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/card_installments"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/card_number"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/card_security_code"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/card_vault credit_card"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/card_vault debit_card"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/identification_number"(platform: "/mobile", type: TrackType.View) {
-            payment_method =  "visa"
-            payment_type = "credit_card"
+        "/instore/waiting/gas_jockey"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/installments"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/payment_method_search"(platform: "/mobile", type: TrackType.View) {
-            options = "visa:credit_card|master:credit_card|amex:credit_card|mercadopago_cc:credit_card" +
-                    "|naranja:credit_card|nativa:credit_card|cabal:credit_card|tarshop:credit_card" +
-                    "|cencosud:credit_card|diners:credit_card|argencard:credit_card|maestro:debit_card" +
-                    "|debmaster:debit_card|debcabal:debit_card|debvisa:debit_card|cordial:credit_card" +
-                    "|cordobesa:credit_card|cmr:credit_card|debvisa:debit_card:7775245748:ESC" +
-                    "|visa:credit_card:8237344527"
+        "/instore/waiting/gas_pump"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/payment_option"(platform: "/mobile", type: TrackType.View) {
-            options = "visa:credit_card|master:credit_card|amex:credit_card|mercadopago_cc:credit_card" +
-                    "|naranja:credit_card|nativa:credit_card|cabal:credit_card|tarshop:credit_card" +
-                    "|cencosud:credit_card|diners:credit_card|argencard:credit_card|maestro:debit_card" +
-                    "|debmaster:debit_card|debcabal:debit_card|debvisa:debit_card|cordial:credit_card" +
-                    "|cordobesa:credit_card|cmr:credit_card|debvisa:debit_card:7775245748:ESC" +
-                    "|visa:credit_card:8237344527"
+        "/instore/waiting/gas_clock"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/result"(platform: "/mobile", type: TrackType.View) {
-            issuer = "24"
-            payment_id = "4319318405"
-            is_express = "false"
-            payment_method = "master"
-            payment_type = "credit_card"
-            payment_status_detail = "cc_rejected_plugin_pm"
-            payment_status = "rejected"
+        "/instore/waiting/gastronomy_cashier"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/review"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/review_and_confirm"(platform: "/mobile", type: TrackType.View) {
-            issuer = "0"
-            has_shipping = "false"
-            payment_method = "account_money"
-            payment_type = "payment_method_plugin"
+        "/instore/waiting/gastronomy_order"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/payment_option/cards"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/error_view"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/card/debit_card/number"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/card/credit_card/number"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/card/credit_card/name"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/card/credit_card/expiration"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/card/credit_card/cvv"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/card/debit_card/name"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/card/debit_card/expiration"(platform: "/mobile", type: TrackType.View) {}
-        "/instore/checkout/card/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {}
+        "/instore/waiting/generic_cashier"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/generic_ticket"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/shell_first_time_use"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/price_picker"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
 
         "/instore/map"(platform: "/mobile", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
@@ -839,13 +946,16 @@ trackTests {
             camera_permissions = true
             location_permissions = true
             notifications_permissions = true
-            bluetooth_permissions = true            
+            bluetooth_permissions = true
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            new_session = true
         }
         
         "/instore/scan_qr/qr_discovery"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             qr_data = "Any scanned data"
             qr_discovery_time_in_millis = "323223"
             camera_flash = false
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/scan_qr/qr_resolved"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             qr_data = "Any scanned data"
@@ -859,19 +969,24 @@ trackTests {
             success = true
             next_step_deeplink = "Any deeplink"
             currency = "ARS"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/scan_qr/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             view_time_in_millis = "453282"
             camera_flash = false
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/scan_qr/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             view_time_in_millis = "125638"
             camera_flash = false
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/scan_qr/flash"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             camera_flash = false
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 		"/instore/scan_qr/help"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 		// Permissions
         "/ask_device_permission/bluetooth"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
@@ -881,6 +996,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/bluetooth/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             context = "/instore"
@@ -889,6 +1005,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/bluetooth/granted"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             context = "/instore"
@@ -897,6 +1014,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/bluetooth/rejected"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             context = "/instore"
@@ -905,6 +1023,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/bluetooth/rejected"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             context = "/instore"
@@ -913,18 +1032,23 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/camera"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             context = "/instore"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/camera/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             context = "/instore"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/camera/granted"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             context = "/instore"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/camera/rejected"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             context = "/instore"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/location"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             session_id = "wi234nuHSd83h478"
@@ -948,19 +1072,25 @@ trackTests {
         }
 
         // Amount
-        "/instore/amount/price_list"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/amount/price_list"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         "/instore/amount/price_list/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/amount/calculator"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/amount/calculator"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         "/instore/amount/calculator/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
         // Required action
@@ -971,6 +1101,7 @@ trackTests {
             pos_id = "65763"
             data_key = "Any data key"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/data_required/identification_number/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -979,6 +1110,7 @@ trackTests {
             pos_id = "65763"
             data_key = "Any data key"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
         // Error
@@ -988,6 +1120,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/unrecognized_qr_code/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -995,6 +1128,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/unrecognized_qr_code/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1002,6 +1136,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/something_went_wrong"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             collector_id = "12356"
@@ -1009,6 +1144,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/something_went_wrong/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1016,6 +1152,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/something_went_wrong/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1023,6 +1160,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/something_went_wrong/retry"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1030,6 +1168,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/gas_station_cant_process_qr_payment"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             collector_id = "12356"
@@ -1037,6 +1176,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/gas_station_cant_process_qr_payment/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1044,6 +1184,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/gas_station_cant_process_qr_payment/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1051,6 +1192,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/cant_pay_to_yourself"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             collector_id = "12356"
@@ -1058,6 +1200,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/cant_pay_to_yourself/back"(platform: "/mobile", business:"mercadopago",  type: TrackType.Event) {
             collector_id = "12356"
@@ -1065,6 +1208,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/cant_pay_to_yourself/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1072,6 +1216,13 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_pay_to_yourself/retry"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            pos_id = "65763"
+            qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/payment_timeout"(platform: "/mobile", business:"mercadopago",  type: TrackType.View) {
             collector_id = "12356"
@@ -1079,6 +1230,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/payment_timeout/back"(platform: "/mobile", business:"mercadopago",  type: TrackType.Event) {
             collector_id = "12356"
@@ -1086,6 +1238,7 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/payment_timeout/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1093,40 +1246,80 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_pay_in_different_sites"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            collector_id = "12356"
+            store_id = "76840"
+            pos_id = "65763"
+            qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_pay_in_different_sites/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            store_id = "76840"
+            pos_id = "65763"
+            qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_pay_in_different_sites/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            store_id = "76840"
+            pos_id = "65763"
+            qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
         // FTU
-        "/instore/qr_first_time_use"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/qr_first_time_use"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         "/instore/qr_first_time_use/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             view_time_in_millis = "134231"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/qr_first_time_use/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             view_time_in_millis = "134231"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/shell_first_time_use"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/shell_first_time_use"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         "/instore/shell_first_time_use/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             view_time_in_millis = "134231"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/shell_first_time_use/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
-            view_time_in_millis = "134231"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/shell_first_time_use/back"(platform: "/mobile", business:"mercadopago",type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
         "/instore/qr_first_time_use/back"(platform: "/mobile", business:"mercadopago",type: TrackType.Event) {
             view_time_in_millis = "134231"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
 
         // Shell
-        "/instore/shell/pump_code"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
+        "/instore/shell/pump_code"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         "/instore/shell/pump_code_check"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             pump_code = "13423"
             latitude = "16826323"
             longitude = "1826323"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/shell/pump_code_resolved"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             pump_code = "13423"
             success = true
             next_step = "Any deeplink"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/shell/pump_code/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
         // Vending
@@ -1135,6 +1328,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/vending/st_machine_disconnected"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1142,6 +1336,11 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/machine_response_final_result"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1149,6 +1348,11 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/st_machine_connection_error"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1156,6 +1360,11 @@ trackTests {
             store_id = "76840"
             st_machine_connection_error = "Any machine error"
             vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/machine_response_state"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1164,6 +1373,11 @@ trackTests {
             pos_id = "65763"
             machine_response_state = "available"
             vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/st_machine_not_available"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1171,6 +1385,11 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/st_machine_connected"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1178,6 +1397,11 @@ trackTests {
             store_id = "76840"
             pos_id = "65763"
             vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
         }
         "/instore/vending/response_end_transaction"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1186,6 +1410,12 @@ trackTests {
             pos_id = "65763"
             vending_id = "12345"
             end_transaction_status = "success"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
+            item_price = 130
         }
 
         // Waiting
@@ -1194,114 +1424,132 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gas_jockey/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gas_jockey/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gas_pump"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gas_pump/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gas_pump/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gas_clock"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gas_clock/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gastronomy_cashier"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gastronomy_cashier/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gastronomy_cashier/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gastronomy_order"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/gastronomy_order/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/generic_cashier"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/generic_cashier/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/generic_cashier/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/generic_ticket"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/generic_ticket/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
         "/instore/post_payment"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
                 currency_id = "ARS"
                 statement_descriptor = "WWW.MERCADOPAGO.COM"
-                collector_id = 244110353
+                collector_id = "244110353"
                 status = "approved"
                 payment_method_id = "visa"
                 site_id = "MLA"
@@ -1310,6 +1558,7 @@ trackTests {
                 operation_type = "regular_payment"
                 installments = 1
                 id = 4315937273
+                session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
                 payer_id = 79063514
                 collector = {
                     id = 244110353
@@ -1373,10 +1622,13 @@ trackTests {
                 notification_url = "http://181.30.31.180:23080/gap-backend/notificaciones/notificar"
                 sponsor_id = 1234567
                 vending_id = "12345"
-
+                session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+                pos_id = "9355"
+                store_id = "12964038"
         }
 
         "/instore/post_payment"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             raw = {
                 statement_descriptor = "WWW.MERCADOPAGO.COM"
                 shipping_amount = 0
@@ -1393,6 +1645,7 @@ trackTests {
                 date_last_updated = "2018-11-24T21:00:16.000-04:00"
                 api_version = "2"
                 id = 4315374212
+                session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
                 collector = {
                     id = 350075398
                     phone = {
@@ -1461,13 +1714,16 @@ trackTests {
         "/instore/payment_info"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             payment_info_tag = "Execute post payment"
             remaining_attempts = 2
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
         // Deprecated
         "/instore/scan_qr/read"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/generic_error"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             additional_info = {
                 message = "Escanear código QR"
                 icon = "error"
@@ -1481,110 +1737,63 @@ trackTests {
                            }]
             }
         }
-        "/instore/gas_station_shell"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/shell_first_time_use"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/vending/select_product"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/waiting"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/waiting/gas_jockey"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/waiting/gas_pump"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/waiting/gas_clock"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/waiting/gastronomy_cashier"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/waiting/gastronomy_order"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/waiting/generic_cashier"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/waiting/generic_ticket"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/camera_permission"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/permission/location"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/required_action/bluetooth_on"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/scan_qr/ftu"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/manual_price"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/activity/list"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/required_action/data_required"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/required_action/data_required/dni"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/required_action/bluetooth_permission"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/price_picker"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        // Deprecated PX
-        "/instore/checkout/card/installments"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            payment_method = "amex"
+        "/instore/shell_first_time_use"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/security_code_card"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            security_code_view_reason = "saved_card"
+        "/instore/waiting"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/congrats/business"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/congrats/rejected"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            issuer ="24"
-            payment_id  = "4318458695"
-            is_express = "false"
-            payment_method = "master"
-            payment_status = "rejected"
-            payment_status_detail = "cc_rejected_high_risk"
+        "/instore/waiting/gas_jockey"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/card/credit_card/security_code"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            security_code_view_reason = "saved_card"
+        "/instore/waiting/gas_pump"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/card/debit_card/security_code"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            security_code_view_reason = "saved_card"
+        "/instore/waiting/gas_clock"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/card_expiry_date"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/card_holder_name"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/card_installments"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/card_number"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/card_security_code"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/card_vault credit_card"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/card_vault debit_card"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/identification_number"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            payment_method =  "visa"
-            payment_type = "credit_card"
+        "/instore/waiting/gastronomy_cashier"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/installments"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/payment_method_search"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            options = "visa:credit_card|master:credit_card|amex:credit_card|mercadopago_cc:credit_card" +
-                    "|naranja:credit_card|nativa:credit_card|cabal:credit_card|tarshop:credit_card" +
-                    "|cencosud:credit_card|diners:credit_card|argencard:credit_card|maestro:debit_card" +
-                    "|debmaster:debit_card|debcabal:debit_card|debvisa:debit_card|cordial:credit_card" +
-                    "|cordobesa:credit_card|cmr:credit_card|debvisa:debit_card:7775245748:ESC" +
-                    "|visa:credit_card:8237344527"
+        "/instore/waiting/gastronomy_order"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/payment_option"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            options = "visa:credit_card|master:credit_card|amex:credit_card|mercadopago_cc:credit_card" +
-                    "|naranja:credit_card|nativa:credit_card|cabal:credit_card|tarshop:credit_card" +
-                    "|cencosud:credit_card|diners:credit_card|argencard:credit_card|maestro:debit_card" +
-                    "|debmaster:debit_card|debcabal:debit_card|debvisa:debit_card|cordial:credit_card" +
-                    "|cordobesa:credit_card|cmr:credit_card|debvisa:debit_card:7775245748:ESC" +
-                    "|visa:credit_card:8237344527"
+        "/instore/waiting/generic_cashier"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/result"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            issuer = "24"
-            payment_id = "4319318405"
-            is_express = "false"
-            payment_method = "master"
-            payment_type = "credit_card"
-            payment_status_detail = "cc_rejected_plugin_pm"
-            payment_status = "rejected"
+        "/instore/waiting/generic_ticket"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/card/number"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/review"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {}
-        "/instore/checkout/review_and_confirm"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            issuer = "0"
-            has_shipping = "false"
-            payment_method = "account_money"
-            payment_type = "payment_method_plugin"
+        "/instore/camera_permission"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-      
-      
-        "/instore/checkout/payment_option/cards"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {}
-        "/instore/checkout/error_view"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {}
-        "/instore/checkout/card/debit_card/number"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+        "/instore/permission/location"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/card/credit_card/number"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+        "/instore/required_action/bluetooth_on"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/card/credit_card/name"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {}
-        "/instore/checkout/card/credit_card/expiration"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+        "/instore/scan_qr/ftu"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/card/credit_card/cvv"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {}
-        "/instore/checkout/card/debit_card/name"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {}
-        "/instore/checkout/card/debit_card/expiration"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+        "/instore/manual_price"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/instore/checkout/card/debit_card/cvv"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {}
+        "/instore/activity/list"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/required_action/data_required"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/required_action/data_required/dni"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/required_action/bluetooth_permission"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/price_picker"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
 
         "/instore/map"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
