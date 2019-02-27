@@ -59,6 +59,7 @@ catalog {
         include business, "google_connect.groovy"
         include business, "security_settings.groovy"
         include business, "mgm.groovy"
+        include business, "mediations.groovy"
     }
 
     marketplace.each { business ->
@@ -80,7 +81,6 @@ catalog {
         include business, "loyalty.groovy"
         include business, "make_an_offer.groovy"
         include business, "marketplace.groovy"
-        include business, "mediations.groovy"
         include business, "melidata_sdk.groovy"
         include business, "mobile.groovy"
         include business, "myml.groovy"

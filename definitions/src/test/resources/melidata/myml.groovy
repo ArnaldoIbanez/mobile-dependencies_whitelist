@@ -708,6 +708,42 @@ trackTests {
             adv_segmentation = "winback"
             reputation_level="yellow"
         }
+
+        "/myml/summary/show"(platform: "/web"){
+            placement = "publicidad-banner"
+        }
+        "/myml/summary/hide"(platform: "/web"){
+            placement = "publicidad-banner"
+        }
+        "/myml/summary/go"(platform: "/web"){
+            placement = "publicidad-banner"
+        }
+
+         "/myml/summary/show"(platform: "/web"){
+            placement = "publicidad-banner"
+            reputation_level="yellow"
+        }
+        "/myml/summary/hide"(platform: "/web"){
+            placement = "publicidad-banner"
+            reputation_level="yellow"
+        }
+        "/myml/summary/go"(platform: "/web"){
+            placement = "publicidad-banner"
+            reputation_level="yellow"
+        }
+
+        "/myml/summary/show"(platform: "/web"){
+            placement = "publicidad-banner"
+            adv_segmentation = "winback"
+        }
+        "/myml/summary/hide"(platform: "/web"){
+            placement = "publicidad-banner"
+            adv_segmentation = "winback"
+        }
+        "/myml/summary/go"(platform: "/web"){
+            placement = "publicidad-banner"
+            adv_segmentation = "winback"
+        }
     }
 
     test("Myml My Data"){
