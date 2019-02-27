@@ -105,6 +105,11 @@ tracks {
         our_payment_error(required: false, description: "An error from our (with our endpoint) payment post, is not an error creating the payment")
     }
 
+    "/loyalty/buylevel/cancellation"(platform: "/", isAbstract: true, type: TrackType.View){
+    }
+
+
+
     /**
      * Loyalty Redesign Tracks
      */
