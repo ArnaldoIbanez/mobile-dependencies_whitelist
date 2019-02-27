@@ -12,6 +12,12 @@ trackTests {
         "/denounce/form"(platform: "/") {}
         "/denounce/form/success"(platform: "/") {}
         "/denounce/form/error"(platform: "/") {}
+        "/denounce/form/tool_migration_app"(platform: "/") {
+            context = "test"
+        }
+        "/denounce/form/tool_migration_landing"(platform: "/") {
+            context = "test"
+        }
 
         "/denounce/error"(platform: "/") {}
 
@@ -36,6 +42,21 @@ trackTests {
         "/pppi/rights/member"(platform: "/") {}
         "/pppi/rights/member/success"(platform: "/") {}
         "/pppi/rights/member/error"(platform: "/") {}
+
+
+        // Landing
+
+        "/pppi/landings"(platform: "/") {}
+
+        "/pppi/landings/revamp"(platform: "/") {}
+        "/pppi/landings/revamp/app"(platform: "/") {
+            context = "test"
+        }
+        "/pppi/landings/revamp/contact"(platform: "/") {
+            context = "test"
+        }
+
+        // Error
 
         "/pppi/error"(platform: "/") {}
 
