@@ -21,4 +21,4 @@ GROUP BY substr(ds,1,10), usr.user_id, (CASE WHEN device.platform IN ('/web/mobi
 , path, application.business, device.platform
 ) AS t2
 GROUP BY user_id, user_second_id, business, platform, ds) as t3
-GROUP BY business, platform
+GROUP BY business, platform, ds
