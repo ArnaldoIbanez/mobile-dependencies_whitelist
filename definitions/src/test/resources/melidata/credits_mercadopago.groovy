@@ -130,6 +130,9 @@ trackTests {
         "/credits/merchant/money_advance/hub"(platform: "/web/desktop") {}
         "/credits/merchant/money_advance/summary"(platform: "/web/desktop") {}
         "/credits/merchant/money_advance/no_options"(platform: "/web/desktop") {}
+        "/credits/merchant/money_advance/error"(platform: "/web/desktop") {
+            reason = 'default'
+        }
     }
 
     test("Merchant Public Landing") {
