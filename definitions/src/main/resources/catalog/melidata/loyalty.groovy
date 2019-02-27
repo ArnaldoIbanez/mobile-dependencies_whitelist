@@ -109,7 +109,17 @@ tracks {
     }
 
     "/loyalty/buylevel/cancellation/not-applicable"(platform: "/",type: TrackType.View){
-        reason(required: false, values: ["already-cancelled","not-bought","past-time"], description: "Reason to reject the cancellation")
+        reason(required: false, values: ["already_cancelled","not_bought","past_time"], description: "Reason to reject the cancellation")
+    }
+
+    "/loyalty/buylevel/cancellation/retention_landing"(platform: "/",type: TrackType.View){
+    }
+
+    "/loyalty/buylevel/cancellation/reason_form"(platform: "/",type: TrackType.View){
+    }
+
+    "/loyalty/buylevel/cancellation/congrats"(platform: "/",type: TrackType.View){
+        status(required: true, values: ["success","needs_validation"], description: "Congrats status. Can be either success or 'needs-validation'")
     }
 
     /**
