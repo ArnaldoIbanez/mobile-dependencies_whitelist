@@ -43,7 +43,6 @@ trackTests {
         "/pppi/rights/member/success"(platform: "/") {}
         "/pppi/rights/member/error"(platform: "/") {}
 
-
         // Landing
 
         "/pppi/landings"(platform: "/") {}
