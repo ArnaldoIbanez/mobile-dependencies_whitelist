@@ -16,6 +16,15 @@ tracks {
         shipping_inconsistency(selections, error_code, inconsistency)
     }
 
+    def garexTrackStructure = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String)
+        period(required: true, type: PropertyType.Numeric)
+        cost(required: true, type: PropertyType.Numeric)
+        revenue_share_fee(required: true, type: PropertyType.Numeric)
+        revenue(required: true, type: PropertyType.Numeric)
+        currency_id(required: true, type: PropertyType.String)
+    }
+
     //CHECKOUT FLOW
 
     "/checkout"(platform: "/") {
@@ -135,6 +144,7 @@ tracks {
         flow_type(required: false, type: PropertyType.String, description: "Type of operation")
 
         item_with_garex(required: false, type: PropertyType.Boolean, description: 'Item has available warranty')
+        garex(required: false, type: PropertyType.Map(garexTrackStructure), description: 'Item has available warranty')
     }
 
     /*
@@ -1076,28 +1086,19 @@ tracks {
 
     /*
     * GarEx tracks
+    *
+    * GarEx es una entidad que representa la garantia que el usuario elige para su producto
     * */
 
 
     "/checkout/garex"(platform:"/web", type: TrackType.View) {}
     "/checkout/garex/more_info"(platform:"/web", type: TrackType.Event) {}
     "/checkout/garex/selected_garex"(platform:"/web", type: TrackType.Event) {
-        garex(required: false, type: PropertyType.Map)
-        /*
-        Garex spec:
-        {
-            "id": String,
-            "period": Number,
-            "cost": Number,
-            "revenue_share_fee": Number,
-            "revenue": Double,
-            "currency_id": String
-        }*/
-
+        garex(required: true, type: PropertyType.Map(garexTrackStructure) )
     }
     "/checkout/garex/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
     "/checkout/garex/delete"(platform:"/web", type: TrackType.Event) {
-        garex(required: false, type: PropertyType.Map)
+        garex(required: true, type: PropertyType.Map(garexTrackStructure) )
     }
 
     /*
