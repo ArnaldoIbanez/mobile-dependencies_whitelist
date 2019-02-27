@@ -1077,10 +1077,12 @@ tracks {
     /*
     * GarEx tracks
     * */
-    "/checkout/garex"(required: false, platform:"/web", type: TrackType.View, description: 'G Page track') {}
-    "/checkout/garex/more_info"(required: false, platform:"/web", type: TrackType.Event, description: 'Click on More Info o How it works?') {}
-    "/checkout/garex/selected_garex"(required: false, platform:"/web", type: TrackType.Event, description: 'User select warranty') {
-        garex(type: PropertyType.Map)
+
+
+    "/checkout/garex"(platform:"/web", type: TrackType.View) {}
+    "/checkout/garex/more_info"(platform:"/web", type: TrackType.Event) {}
+    "/checkout/garex/selected_garex"(platform:"/web", type: TrackType.Event) {
+        garex(required: false, type: PropertyType.Map)
         /*
         Garex spec:
         {
@@ -1090,12 +1092,12 @@ tracks {
             "revenue_share_fee": Number,
             "revenue": Double,
             "currency_id": String
-        }
-        * */
+        }*/
+
     }
-    "/checkout/garex/not_selected_garex"(required: false, platform:"/web", type: TrackType.Event, description: 'User decline warranty') {}
-    "/checkout/garex/delete"(required: false, platform:"/web", type: TrackType.Event, description: 'User remove warranty on review page') {
-        garex(type: PropertyType.Map)
+    "/checkout/garex/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
+    "/checkout/garex/delete"(platform:"/web", type: TrackType.Event) {
+        garex(required: false, type: PropertyType.Map)
     }
 
     /*
