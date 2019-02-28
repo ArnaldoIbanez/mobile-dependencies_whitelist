@@ -73,7 +73,7 @@ tracks {
         dashboard_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
     }
     "/credits/consumer/administrator/summary"(platform: "/", type: TrackType.View) {
-        summary_status(description: "Current status of the loan summary", type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
+        dashboard_status(description: "Current status of the loan summary", type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
     }
 
     //Events
