@@ -278,10 +278,10 @@ tracks {
     "/checkout/shipping/custom_address"(platform: "/mobile", isAbstract: true) {}
     //Input zip_code
     "/checkout/shipping/custom_address/zip_code"(platform: "/mobile") {
-        edit_flow(required = false, type: PropertyType.Boolean, description: "Represents the state of user editing address flow")
+        edit_flow(required: false, type: PropertyType.Boolean, description: "Represents the state of user editing address flow")
     }
     "/checkout/shipping/custom_address/zip_code/back"(platform: "/mobile", type: TrackType.Event) {
-        edit_flow(required = false, type: PropertyType.Boolean, description: "Represents the state of user editing address flow")
+        edit_flow(required: false, type: PropertyType.Boolean, description: "Represents the state of user editing address flow")
     }
     "/checkout/shipping/custom_address/zip_code#zip_code"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
@@ -320,9 +320,11 @@ tracks {
         success(required: false, type: PropertyType.Boolean, description: "API Call when success on loading shipping options")
     }
     //Query zip code
-    "/checkout/shipping/custom_address/zip_code/query"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+    "/checkout/shipping/custom_address/zip_code/query"(platform: "/mobile", type: TrackType.View) {
+        edit_flow(required: false, type: PropertyType.Boolean, description: "Represents the state of user editing address flow")
     }
-    "/checkout/shipping/custom_address/zip_code/query/back"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/shipping/custom_address/zip_code/query/back"(platform: "/mobile", type: TrackType.Event) {
+        edit_flow(required: false, type: PropertyType.Boolean, description: "Represents the state of user editing address flow")
     }
     "/checkout/shipping/custom_address/zip_code/query#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
