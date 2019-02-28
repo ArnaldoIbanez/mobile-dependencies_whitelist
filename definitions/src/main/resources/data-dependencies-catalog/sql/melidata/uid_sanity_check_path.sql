@@ -1,4 +1,4 @@
-SELECT platform, business, path, AVG(uids_quantity) AS average_uids_quantity, COUNT(*) AS sessions_quantity, ds FROM
+SELECT platform, business, path, (AVG(uids_quantity) * 10000000000000000) AS average_uids_quantity, COUNT(*) AS sessions_quantity, ds FROM
 (SELECT usr.user_id, (CASE WHEN device.platform IN ('/web/mobile','/web/desktop') THEN device.user_agent
             WHEN device.platform IN ('/mobile/android', '/mobile/ios') THEN device.device_id
             END) AS user_second_id

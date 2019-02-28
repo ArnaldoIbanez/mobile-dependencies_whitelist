@@ -26,7 +26,7 @@
       },
       {
         "name": "average_uids_quantity",
-        "type": "DOUBLE"
+        "type": "INTEGER"
       },
       {
         "name": "sessions_quantity",
