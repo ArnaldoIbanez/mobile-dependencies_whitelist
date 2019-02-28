@@ -12,10 +12,10 @@ trackTests {
         "/denounce/form"(platform: "/") {}
         "/denounce/form/success"(platform: "/") {}
         "/denounce/form/error"(platform: "/") {}
-        "/denounce/form/tool_migration_app"(platform: "/") {
+        "/denounce/form/go_to_tool"(platform: "/") {
             context = "modal"
         }
-        "/denounce/form/tool_migration_landing"(platform: "/") {
+        "/denounce/form/go_to_tool_landing"(platform: "/") {
             context = "announcement"
         }
 
@@ -48,10 +48,10 @@ trackTests {
         "/pppi/landings"(platform: "/") {}
 
         "/pppi/landings/revamp"(platform: "/") {}
-        "/pppi/landings/revamp/app"(platform: "/") {
+        "/pppi/landings/revamp/go_to_tool"(platform: "/") {
             context = "headline"
         }
-        "/pppi/landings/revamp/contact"(platform: "/") {
+        "/pppi/landings/revamp/go_to_contact"(platform: "/") {
             context = "tool"
         }
 
