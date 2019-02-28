@@ -25,7 +25,7 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "average_uids_quantity",
+        "name": "total_uids_quantity",
         "type": "INTEGER"
       },
       {
