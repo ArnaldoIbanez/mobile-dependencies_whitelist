@@ -22,7 +22,7 @@
       },
       {
         "name": "average_uids_quantity",
-        "type": "INTEGER"
+        "type": "DOUBLE"
       },
       {
         "name": "paths_quantity",
