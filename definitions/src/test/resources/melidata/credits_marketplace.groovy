@@ -84,7 +84,7 @@ trackTests {
             dashboard_status = 'empty_state'
         }
         "/credits/consumer/administrator/summary"(platform: "/mobile", type: TrackType.View) {
-            summary_status = 'empty_state'
+            dashboard_status = 'empty_state'
         }
 
         //Events
@@ -105,16 +105,16 @@ trackTests {
         "/credits/consumer/administrator/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/see_product"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/summary/payment_intention"(platform: "/mobile", type: TrackType.Event) {
-            summary_status = 'on_time'
+            dashboard_status = 'on_time'
         }
         "/credits/consumer/administrator/summary/cx_contact"(platform: "/mobile", type: TrackType.Event) {
-            summary_status = 'on_time'
+            dashboard_status = 'on_time'
         }
         "/credits/consumer/administrator/summary/go_shopping"(platform: "/mobile", type: TrackType.Event) {
-            summary_status = 'on_time'
+            dashboard_status = 'on_time'
         }
         "/credits/consumer/administrator/summary/get_help"(platform: "/mobile", type: TrackType.Event) {
-            summary_status = 'on_time'
+            dashboard_status = 'on_time'
         }
 
         //Admin History (Compras Finalizadas)
