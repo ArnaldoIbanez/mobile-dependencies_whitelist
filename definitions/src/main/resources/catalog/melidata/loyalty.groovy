@@ -267,9 +267,12 @@ tracks {
 
     //  -----------------> Payment Track
     "/loyalty/freetrial/payment"(platform: "/",type: TrackType.Event){
-        payment(required: false, type: PropertyType.Numeric, description: "Payment ID Number")
-        payment_status(required: false, description: "Payment status, like rejected/success/pending/etc...")
-        payment_status_detail(required: false, description: "Payment status detail")
-        our_payment_error(required: false, description: "An error from our (with our endpoint) payment post, is not an error creating the payment")
+        payment(required: true, type: PropertyType.Numeric, description: "Payment ID Number")
+        payment_status(required: true, description: "Payment status, like rejected/success/pending/etc...")
+        payment_status_detail(required: true, description: "Payment status detail")
+    }
+
+    "/loyalty/freetrial/payment/error"(platform: "/",type: TrackType.Event, parentPropertiesInherited:false){
+        our_payment_error(required: true, description: "An error from our (with our endpoint) payment post, is not an error creating the payment")
     }
 }

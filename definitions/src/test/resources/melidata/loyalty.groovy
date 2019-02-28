@@ -427,7 +427,7 @@ trackTests {
             payment_status_detail= "cc_approved_plugin_pm"
         }
 
-        "/loyalty/freetrial/payment"(platform: "/",type: TrackType.Event){
+        "/loyalty/freetrial/payment/error"(platform: "/",type: TrackType.Event){
             our_payment_error="Error msg"
         }
     }
