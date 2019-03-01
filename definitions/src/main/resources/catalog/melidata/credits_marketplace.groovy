@@ -19,6 +19,7 @@ tracks {
     "/credits/pursue"(platform: "/", isAbstract: true) {}
     "/credits/consumer/myml"(platform: "/", isAbstract: true) {}
     "/credits/consumer/myml/summary"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/my_account"(platform: "/", isAbstract: true) {}
 
     "/vip"(platform: "/", isAbstract: true) {}
     "/vip/credits"(platform: "/", isAbstract: true) {}
@@ -322,6 +323,8 @@ tracks {
                 required: true,
                 values: ["left_section_message", "right_section_message"])
     }
+
+    "/credits/consumer/my_account/left_nav"(platform: "/mobile", type: TrackType.Event) {}
     /******************************************
      *       End: Consumers Persue Campaign
      ******************************************/
