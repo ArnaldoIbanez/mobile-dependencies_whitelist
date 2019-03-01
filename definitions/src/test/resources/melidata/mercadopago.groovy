@@ -561,6 +561,7 @@ trackTests {
     }
 
     test("Point Flow Congrats Instructions click events") {
+
         "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {
           payment_id = 4334902696
           payment_method = "bolbradesco"
@@ -583,7 +584,41 @@ trackTests {
           is_guest = "false"
         }
     }
-
+    test("Point Friction test") {
+        "/pos_mobile"(platform: "/mobile", type: TrackType.Event) {}
+        "/pos_mobile/friction"(platform: "/mobile", type: TrackType.Event) {
+            id = "error_generic"
+            context = "point/card_reader"
+            style = "snackbar"
+            message = "No se pudo realizar el pago, intentelo nuevamente."
+            attributable_to = "device"
+        }
+        "/pos_mobile/friction"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "12345-asdf-hash"
+            id = "error_generic"
+            context = "point/card_reader"
+            style = "snackbar"
+            message = "No se pudo realizar el pago, intentelo nuevamente."
+            attributable_to = "device"
+            extra_info = "missing_track_2"
+        }
+        "/pos_mobile/friction"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "12345-asdf-hash"
+            id = "error_generic"
+            context = "point/card_reader"
+            style = "snackbar"
+            message = "No se pudo realizar el pago, intentelo nuevamente."
+            attributable_to = "device"
+        }
+        "/pos_mobile/friction"(platform: "/mobile", type: TrackType.Event) {
+            id = "error_generic"
+            context = "point/card_reader"
+            style = "snackbar"
+            message = "No se pudo realizar el pago, intentelo nuevamente."
+            attributable_to = "device"
+            extra_info = "missing_track_2"
+        }
+    }
 
     test("MP-MA Point Landings App Chinese") {
         "/merchant_acquisition/point-landings/app-chinese"(platform:"/", type: TrackType.View) {}
