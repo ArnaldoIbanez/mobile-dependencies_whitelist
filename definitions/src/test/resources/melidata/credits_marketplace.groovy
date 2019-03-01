@@ -229,6 +229,9 @@ trackTests {
             loan_status = "daily_charge_period"
             place = "right_section_message"
         }
+
+        "/credits/consumer/my_account/left_nav"(platform: "/mobile/android", type: TrackType.Event) {
+        }
         /******************************************
          *       End: Consumers Pursue Campaign
          ******************************************/
