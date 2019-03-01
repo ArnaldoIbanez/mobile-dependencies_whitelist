@@ -479,5 +479,17 @@ trackTests {
         //Country selection View
         "/flex/login/select_country"(platform:"/mobile", type: TrackType.View) {
         }
+
+        //Out of distance View
+        "/flex/package/detail/out_of_distance"(platform:"/mobile", type: TrackType.View) {
+            context = "delivered"
+            distance = 1234
+        }
+
+        //Snackbar error event success
+        "/flex/package/detail/out_of_distance"(platform:"/mobile", type: TrackType.Event) {
+            error_type = "permission_denied"
+            error_message = "example_message"
+        }
     }
 }
