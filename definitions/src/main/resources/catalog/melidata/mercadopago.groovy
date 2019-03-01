@@ -185,9 +185,9 @@ tracks {
         flow_id(required: false, type: PropertyType.String, description: "Flow id.")
         id(required: true, type: PropertyType.String, description: "Flow id.")
         context(required: true, type: PropertyType.String, description: "Context friction")
-        style(required: true, type: PropertyType.String, description: "Style showed, window, dialog, toast.. ")
+        style(required: true, type: PropertyType.String, description: "Style showed, window, dialog, toast.. ", values: ["dialog", "window", "snackbar", "toast"])
         message(required: true, type: PropertyType.String, description: "Message showed ")
-        attributable_to(required: true, type: PropertyType.String, description: "User, Phone, Device, network or card")
+        attributable_to(required: true, type: PropertyType.String, description: "User, Phone, Device, network or card", values: ["user", "reader", "network", "device", "card"])
         extra_info(required: false, type: PropertyType.String, description: "Extra info")
     }
     //TODO: The flow_origin field must be changed to mandatory, when all the productive versions send this information
