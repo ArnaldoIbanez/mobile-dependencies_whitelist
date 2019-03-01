@@ -111,6 +111,7 @@ trackTests {
         "/vip/contact_seller"(platform: "/", type: TrackType.Event, {
             mandatory()
             unregistered_contact = false
+            captcha_showed = false
         })
 
         "/vip/call_seller"(platform:"/mobile", type: TrackType.Event, {

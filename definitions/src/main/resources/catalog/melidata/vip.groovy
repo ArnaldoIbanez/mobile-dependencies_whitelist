@@ -285,6 +285,8 @@ tracks {
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
         source(required: false, description: "Source of the referred")
         unregistered_contact(required: false, type: PropertyType.Boolean, "User is unregister type")
+        captcha_showed(required: false, type: PropertyType.Boolean, description: "If captcha is showed")
+
     }
 
     "/vip/call_seller"(platform: "/", type: TrackType.Event) {
@@ -363,7 +365,6 @@ tracks {
                 description: "Vertical of the item")
         unregistered_contact(required: false, type: PropertyType.Boolean,
                 description: "User is unregister type")
-        captcha_showed(required: false, type: PropertyType.Boolean, description: "If captcha is showed")
     }
 
 
