@@ -481,7 +481,7 @@ trackTests {
         }
 
         //Out of distance View
-        "/flex/package/detail/out_of_distance"(platform:"/mobile", type: TrackType.View) {
+        "/flex/package/detail/out_of_distance_modal"(platform:"/mobile", type: TrackType.View) {
             context = "delivered"
             distance = 1234
         }
