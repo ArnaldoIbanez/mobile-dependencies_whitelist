@@ -2,7 +2,7 @@
   "users": [
     "melidata_dev@mercadolibre.com"
   ],
-  "process_name": "uid_sanity_check_path",
+  "process_name": "uid_sanity_check_path_v2",
   "cron": "00 06 * * *",
   "partition": {
     "name": "ds",
