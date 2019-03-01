@@ -744,6 +744,13 @@ trackTests {
             placement = "publicidad-banner"
             adv_segmentation = "winback"
         }
+
+        "/myml/summary/show"(platform: "/web"){
+        }
+        "/myml/summary/hide"(platform: "/web"){
+        }
+        "/myml/summary/go"(platform: "/web"){
+        }
     }
 
     test("Myml My Data"){

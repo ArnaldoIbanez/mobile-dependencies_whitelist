@@ -178,19 +178,19 @@ tracks {
     "/myml/summary"(platform: "/web", type: TrackType.View) {}
 
     "/myml/summary/show"(platform: "/web", type: TrackType.View) {
-        placement(required: true, description: "Place where track was dispatched")
+        placement(required: false, description: "Place where track was dispatched")
         adv_segmentation(required: false, description: "Adevrtasement segmentation ")
         reputation_level(required: false, description: "Reputation for Pads")
     }
 
     "/myml/summary/hide"(platform: "/web", type: TrackType.Event) {
-        placement(required: true, description: "Place where track was dispatched")
+        placement(required: false, description: "Place where track was dispatched")
         adv_segmentation(required: false, description: "Adevrtasement segmentation ")
         reputation_level(required: false, description: "Reputation for Pads")
     }
 
     "/myml/summary/go"(platform: "/web", type: TrackType.Event) {
-        placement(required: true, description: "Place where track was dispatched")
+        placement(required: false, description: "Place where track was dispatched")
         adv_segmentation(required: false, description: "Adevrtasement segmentation ")
         reputation_level(required: false, description: "Reputation for Pads")
     }
