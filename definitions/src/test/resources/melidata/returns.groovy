@@ -22,7 +22,7 @@ trackTests {
       }
 
       "/return/potential_resolutions/selection"(platform: "/", type: TrackType.Event)  {
-        potential_resolution = "return"
+        request_type = "return"
       }
 
       // STEP 02
