@@ -21,10 +21,6 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "potential_resolution",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "typification",
         "type": "UNICODE_STRING"
       },

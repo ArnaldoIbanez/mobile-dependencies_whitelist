@@ -3,7 +3,6 @@ SELECT
        PLATFORM,
 
        COUNT(DISTINCT case when path = '/return/potential_resolutions' then ORDER_ID end) as POTENTIAL_RESOLUTIONS,
-       COUNT(DISTINCT case when path = '/return/potential_resolutions/selection' then ORDER_ID end) as POTENTIAL_RESOLUTIONS_WENT_CLAIMS,
        COUNT(DISTINCT case when path = '/return/typifications' then ORDER_ID end) as TYPIFICATIONS,
        COUNT(DISTINCT case when path = '/return/typifications/selection' then ORDER_ID end) as TYPIFICATIONS_WENT_CLAIMS,
        COUNT(DISTINCT case when path = '/return/conditions'    then ORDER_ID end) as CONDITIONS,
@@ -15,7 +14,6 @@ SELECT
        COUNT(DISTINCT case when path = '/return/review'        then ORDER_ID end) as REVIEW,
        COUNT(DISTINCT case when path = '/return/congrats'      then ORDER_ID end) as CONGRATS,
 
-       COUNT(DISTINCT case when path = '/return/potential_resolutions' and REF = 'mediations_init' then ORDER_ID end) as POTENTIAL_RESOLUTIONS_FROM_CLAIMS,
        COUNT(DISTINCT case when path = '/return/typifications' and REF = 'mediations_init' then ORDER_ID end) as TYPIFICATIONS_FROM_CLAIMS,
        COUNT(DISTINCT case when path = '/return/conditions'    and REF = 'mediations_init' then ORDER_ID end) as CONDITIONS_FROM_CLAIMS,
        COUNT(DISTINCT case when path = '/return/payments'      and REF = 'mediations_init' then ORDER_ID end) as PAYMENTS_FROM_CLAIMS,

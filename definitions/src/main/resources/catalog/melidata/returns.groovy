@@ -12,6 +12,7 @@ tracks {
       category_id(required: false, type: PropertyType.String, description: 'category identifier')
       category_l1_id(required: false, type: PropertyType.String, description: 'main category of item')
       category_path(required: false, type: PropertyType.ArrayList, description: 'the path of the category')
+      request_type(required: false, type: PropertyType.String, description: 'request type of the operation', values:['RETURN', 'REPURCHASE', 'CHANGE'])
     }
 
     // STEP 01
@@ -19,7 +20,7 @@ tracks {
         ref(required: false, type: PropertyType.String, description: 'reference of the beginning of the flow')
     }
     "/return/potential_resolutions/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        potential_resolution(required: true, type: PropertyType.String, description: 'kind of operation (repurchase, return or change)')
+        request_type(required: true, type: PropertyType.String, description: 'kind of operation (repurchase, return or change)')
     }
 
     // STEP 02
@@ -70,7 +71,6 @@ tracks {
 
     // STEP 07
     "/return/congrats"(platform: "/", type: TrackType.View) {
-      potential_resolution(required: true, type: PropertyType.String, description: 'kind of operation (repurchase, return or change)')
       typification(required: true, type: PropertyType.String, description: 'reason why the product is returned')
       payment_refund_method(required: false, type: PropertyType.String, description: 'payment refund method selected by the user')
       shipment_type(required: true, type: PropertyType.String, description: 'shipment type')
@@ -88,7 +88,6 @@ tracks {
 
     // Bloqueo Scoring High
     "/return/congrats_error"(platform: "/", type: TrackType.View) {
-      potential_resolution(required: true, type: PropertyType.String, description: 'kind of operation (repurchase, return or change)')
       typification(required: true, type: PropertyType.String, description: 'reason why the product is returned')
       payment_refund_method(required: false, type: PropertyType.String, description: 'origin of payment')
       shipment_type(required: true, type: PropertyType.String, description: 'shipment type')
