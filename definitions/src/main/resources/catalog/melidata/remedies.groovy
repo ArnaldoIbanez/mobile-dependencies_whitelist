@@ -28,9 +28,9 @@ tracks {
     }
 
     "/remedies/failure_api_call"(platform: "/mobile", type: TrackType.Event) {
-        error_message(type: PropertyType.String, required: true, description: "error message of the exception")
-        error_cause(type: PropertyType.String, required: true, description: "error cause of the exception")
-        exception(type: PropertyType.String, required: true, description: "exception")
+        error_message(type: PropertyType.String, required: false, description: "error message of the exception")
+        error_cause(type: PropertyType.String, required: false, description: "error cause of the exception")
+        exception(type: PropertyType.String, required: false, description: "exception")
     }
 
     "/remedies/on_back_pressed"(platform: "/mobile", type: TrackType.Event) {
