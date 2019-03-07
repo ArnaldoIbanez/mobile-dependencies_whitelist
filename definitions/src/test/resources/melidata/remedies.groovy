@@ -10,7 +10,7 @@ trackTests {
 
         "/remedies/executed_action"(platform: "/mobile") {
             executed_action = "check_step"
-            deeplink_params = "meli://identity_validation/?flow=uniqueness"
+            extra_params = "meli://identity_validation/?flow=uniqueness"
         }
 
         "/remedies/executed_action"(platform: "/mobile") {
@@ -115,7 +115,7 @@ trackTests {
 
         "/remedies/executed_action"(platform: "/mobile") {
             executed_action = "check_step"
-            deeplink_params = "meli://identity_validation/?flow=uniqueness"
+            extra_params = "meli://identity_validation/?flow=uniqueness"
         }
 
         "/remedies/executed_action"(platform: "/mobile") {
