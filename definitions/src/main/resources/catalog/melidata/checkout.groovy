@@ -144,6 +144,7 @@ tracks {
         flow_type(required: false, type: PropertyType.String, description: "Type of operation")
 
         item_with_garex(required: false, type: PropertyType.Boolean, description: 'Item has available warranty')
+        total_amount_including_garex(required: false, type: PropertyType.Numeric, description: 'Total amount (include garex if applies)')
         garex(required: false, type: PropertyType.Map(garexTrackStructure), description: 'Item has available warranty')
     }
 
