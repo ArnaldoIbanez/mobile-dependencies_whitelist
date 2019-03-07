@@ -564,6 +564,11 @@ tracks {
     "/get_member/invite/invite"(platform: "/mobile", type: TrackType.Event) {}
     "/get_member/redeem"(platform: "/mobile") {}
 
+    "/get_member/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+
     "/bill_payments"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
