@@ -998,10 +998,12 @@ trackTests {
          * */
         "/checkout/"(platform: "/web") {
             item_with_garex: true
+            total_amount_including_garex: 1869.89
         }
 
         "/checkout/"(platform: "/web") {
             item_with_garex: false
+            total_amount_including_garex: 1699.89
         }
 
         //Checkout Desktop
