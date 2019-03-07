@@ -49,6 +49,7 @@ trackTests {
         }
         "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
             type = "use_coupon"
+            promoter = "123456"
         }
     }
 
@@ -95,6 +96,7 @@ trackTests {
         }
         "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
             type = "use_coupon"
+            promoter = "123456"
         }
     }
 }

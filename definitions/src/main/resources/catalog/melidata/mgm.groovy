@@ -49,5 +49,7 @@ tracks {
     "/mgm/payers/stop_landing"(platform: "/web", type: TrackType.View) {
         type (required:true, type: PropertyType.String, description: "Which landing are we tracking (ex: invite / use_coupon)", values: ["invite", "use_coupon"])
     }
-    "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {}
+    "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
+        promoter (required:true, type: PropertyType.String, description: "Indicates the id of the inviter/promoter")
+    }
 }
