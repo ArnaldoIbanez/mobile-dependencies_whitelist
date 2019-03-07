@@ -24,9 +24,10 @@ tracks {
 
     def notification_definition = objectSchemaDefinitions {
         code(type: PropertyType.String, required: true, description: "Code sent by carrier")
-        origin(type: PropertyType.String, required: true, description: "Notification origin (push-pull)")
+        id(type: PropertyType.String, required: false, description: "Notification id")
+        origin(type: PropertyType.String, required: false, description: "Notification origin (push-pull)")
         payload(type: PropertyType.Map(notification_payload_definition), required: true, description: "Notification payload")
-        shipment_id(type: PropertyType.Numeric, required: true)
+        shipment_id(type: PropertyType.Numeric, required: false)
         tracking_number(type: PropertyType.String, required: true, description: "Shipment tracking number")
 
         //Event processor track for notification after
@@ -51,6 +52,7 @@ tracks {
     "/"(platform: "/api") {}
 
     "/notifications"(platform: "/api") {
+        notification(type: PropertyType.Map(notification_definition), required: true, description: "Carrier notification")
         shipment_id(type: PropertyType.Numeric, required: true)
     }
 
@@ -60,11 +62,11 @@ tracks {
     }
 
     "/notifications/received"(platform: "/api") {
-        raw(type: PropertyType.String, required: true, description: "Carrier raw notification")
+        notification_id(type: PropertyType.String, required: true, description: "Notification id")
+        status(type: PropertyType.Numeric, required: true, description: "Error code")
     }
 
     "/notifications/validated"(platform: "/api") {
-        notification(type: PropertyType.Map(notification_definition), required: true, description: "Carrier notification fully validated")
     }
 
     "/notifications/event_processing"(platform: "/api") {
@@ -72,7 +74,6 @@ tracks {
         carrier_id(type: PropertyType.Numeric, required: true)
         configuration_filters(type: PropertyType.ArrayList(PropertyType.Map(configuration_filters_definition)), required: true)
         notification_after(type: PropertyType.Map(notification_definition), required: true, description: "Carrier notification after event processing")
-        notification_before(type: PropertyType.Map(notification_definition), required: true, description: "Carrier notification before event processing")
         stage_id(type: PropertyType.String, required: true)
         stage_type(type: PropertyType.String, required: true, description: "Type of actual stage")
     }
