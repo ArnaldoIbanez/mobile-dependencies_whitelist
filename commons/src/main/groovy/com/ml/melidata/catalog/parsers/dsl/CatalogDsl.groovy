@@ -74,4 +74,12 @@ class CatalogDsl {
         }
     }
 
+    def setPlatformsExperiments(arr) {
+        platformsExperiments.addAll(arr)
+    }
+
+    def setPlatformsTracking(arr) {
+        platformsTracking.addAll(arr)
+    }
+
 }
