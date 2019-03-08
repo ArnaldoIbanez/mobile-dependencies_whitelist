@@ -287,24 +287,27 @@ tracks {
         milestone(type: PropertyType.Numeric, required: true)
         context(required: false, values: ["search", "vip", "home"],
                 description: "The page or section where the nav action is taking place")
-        overdue_summary_status(type: PropertyType.String, required: true,
-                description: "Summary status for pre and post marketplace restriction who consumers with debt",
-                values: ["pre_restriction", "post_restriction"])
     }
 
     propertyGroups {
         pursue_nav_properties(status, milestone, context)
-        pursue_modal_properties(overdue_summary_status, milestone, context)
+        pursue_modal_properties(milestone, context)
     }
 
     //Page Views
     "/credits/consumer/overdue_modal"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
         pursue_modal_properties
+        status(type: PropertyType.String, required: true,
+                description: "Summary status for pre and post marketplace restriction who consumers with debt",
+                values: ["pre_restriction", "post_restriction"])
     }
 
     //Event Views
     "/credits/consumer/overdue_modal/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
         pursue_modal_properties
+        status(type: PropertyType.String, required: true,
+                description: "Summary status for pre and post marketplace restriction who consumers with debt",
+                values: ["pre_restriction", "post_restriction"])
     }
 
     "/credits/consumer/overdue_nav"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
