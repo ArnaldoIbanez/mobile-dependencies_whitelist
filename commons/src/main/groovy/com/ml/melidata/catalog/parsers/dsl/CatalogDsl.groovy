@@ -75,11 +75,11 @@ class CatalogDsl {
     }
 
     def setPlatformsExperiments(arr) {
-        platformsExperiments.addAll(arr)
+        catalog.platformsExperiments = arr
     }
 
     def setPlatformsTracking(arr) {
-        platformsTracking.addAll(arr)
+        catalog.platformsTracking = arr
     }
 
 }
