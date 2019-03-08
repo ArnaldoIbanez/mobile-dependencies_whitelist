@@ -201,9 +201,10 @@ trackTests {
          *       Start: Consumers Pursue Campaign
          ******************************************/
         //Page Views
-        "/vip/credits/pursue/overdue_modal"(platform: "/web/desktop", type: TrackType.View) {
-            status = "payment_intention_pre_restriction"
+        "/credits/consumer/overdue_modal"(platform: "/web/desktop", type: TrackType.View) {
+            status = "pre_restriction"
             milestone = 20
+            context = "vip"
         }
 
         "/credits/consumer/overdue_nav"(platform: "/web/desktop", type: TrackType.Event) {
@@ -214,9 +215,10 @@ trackTests {
 
         //Events
         //Vip
-        "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
-            status = "payment_intention_post_restriction"
+        "/credits/consumer/overdue_modal/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            status = "post_restriction"
             milestone = 28
+            context = "vip"
         }
 
         "/credits/consumer/overdue_nav/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
@@ -348,5 +350,35 @@ trackTests {
         /******************************************
          *   End: Consumers Contacts
          ******************************************/
+
+       /******************************************
+        *    Start: Consumers Enhance Adoption
+        ******************************************/
+
+        "/credits/consumer/adoption_modal"(platform: "/web/desktop", type: TrackType.View) {
+            credits_user_mark = "open_market"
+            context = "vip"
+        }
+
+        "/credits/consumer/adoption_modal/understood"(platform: "/web/desktop", type: TrackType.Event) {
+            credits_user_mark = "open_market"
+            context = "vip"
+        }
+
+
+        "/credits/consumer/adoption_modal/close"(platform: "/web/desktop", type: TrackType.Event) {
+            credits_user_mark = "priority_1"
+            context = "vip"
+        }
+
+
+        "/credits/consumer/adoption_modal/go_back"(platform: "/web/desktop", type: TrackType.Event) {
+            credits_user_mark = "priority_2"
+            context = "vip"
+        }
+
+       /******************************************
+        *    End: Consumers Enhance Adoption
+        ******************************************/
     }
 }

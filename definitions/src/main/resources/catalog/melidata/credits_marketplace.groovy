@@ -291,21 +291,23 @@ tracks {
 
     propertyGroups {
         pursue_nav_properties(status, milestone, context)
+        pursue_modal_properties(milestone, context)
     }
 
     //Page Views
-
-    "/vip/credits/pursue/overdue_modal"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+    "/credits/consumer/overdue_modal"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+        pursue_modal_properties
         status(type: PropertyType.String, required: true,
-                values: ["payment_intention_pre_restriction", "payment_intention_post_restriction"])
-        milestone(type: PropertyType.Numeric, required: true)
+                description: "Summary status for pre and post marketplace restriction who consumers with debt",
+                values: ["pre_restriction", "post_restriction"])
     }
 
     //Event Views
-    "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+    "/credits/consumer/overdue_modal/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+        pursue_modal_properties
         status(type: PropertyType.String, required: true,
-                values: ["payment_intention_pre_restriction", "payment_intention_post_restriction"])
-        milestone(type: PropertyType.Numeric, required: true)
+                description: "Summary status for pre and post marketplace restriction who consumers with debt",
+                values: ["pre_restriction", "post_restriction"])
     }
 
     "/credits/consumer/overdue_nav"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
@@ -419,6 +421,43 @@ tracks {
 
     /******************************************
      *   End: Consumers Contacts
+     ******************************************/
+
+    /******************************************
+     *    Start: Consumers Enhance Adoption
+     ******************************************/
+
+     propertyDefinitions {
+         credits_user_mark(
+             type: PropertyType.String,
+             description: "Credits user mark related to consumer adoption",
+             required: true,
+             values: ["open_market", "priority_1", "priority_2"]
+         )
+     }
+
+     propertyGroups {
+         adoption_modal_properties(credits_user_mark, context)
+     }
+
+     "/credits/consumer/adoption_modal"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+         adoption_modal_properties
+     }
+
+     "/credits/consumer/adoption_modal/understood"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+         adoption_modal_properties
+     }
+
+     "/credits/consumer/adoption_modal/close"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+         adoption_modal_properties
+     }
+
+     "/credits/consumer/adoption_modal/go_back"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+         adoption_modal_properties
+     }
+
+    /******************************************
+     *    End: Consumers Enhance Adoption
      ******************************************/
 
 }
