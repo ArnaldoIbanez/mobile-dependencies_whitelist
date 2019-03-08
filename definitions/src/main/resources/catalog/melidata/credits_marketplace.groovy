@@ -437,8 +437,6 @@ tracks {
          adoption_modal_properties(credits_user_mark, context)
      }
 
-     /credits/consumer/overdue_modal/payment_intention
-
      "/credits/consumer/adoption_modal"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
          adoption_modal_properties
      }
