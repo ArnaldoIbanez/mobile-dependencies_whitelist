@@ -1437,6 +1437,11 @@ trackTests {
             flow = "/get_member"
             from = "/deep_link"
         }
+
+        "/get_member/px_result"(platform: "/mobile") {
+            flow = "/get_member"
+            result_status = "rejected"
+        }
     }
 
     test("Digital Goods") {

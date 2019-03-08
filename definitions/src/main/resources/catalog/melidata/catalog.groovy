@@ -24,6 +24,33 @@ catalog {
             "/email"
     ]
 
+    platformsExperiments = [
+            "/",
+            "/web",
+            "/web/desktop",
+            "/web/mobile",
+            "/mobile",
+            "/mobile/android",
+            "/mobile/ios",
+            "/email",
+            "/multiplatform"
+    ]
+
+    platformsTracking = [
+            "/web/desktop",
+            "/web/desktop/forced",
+            "/web/desktop/static",
+            "/web/mobile",
+            "/web/mobile/forced",
+            "/web/mobile/static",
+            "/mobile",
+            "/mobile/android",
+            "/mobile/ios",
+            "/email",
+            "/unknown"
+    ]
+
+
     def marketplace = [
             "mercadolibre",
             "tucarro",
