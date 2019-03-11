@@ -490,6 +490,9 @@ trackTests {
 
         //Snackbar error event success
         "/flex/package/detail/out_of_distance"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            context = "delivered"
             error_type = "permission_denied"
             error_message = "example_message"
         }
