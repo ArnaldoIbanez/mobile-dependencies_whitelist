@@ -331,6 +331,9 @@ tracks {
     }
 
     "/flex/package/detail/out_of_distance"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        context(required: true, type: PropertyType.String,  values: ["not_delivered", "delivered"],
+                description: "Indicates whether the event was triggered in the delivered or in the event of non-delivery")
         error_type(required: true, type: PropertyType.String,  values: ["waiting_time_out", "permission_denied",
                                                                         "location_result_exception", "location_availability_exception"],
                 description: "Specifies what kind of error happened.")
