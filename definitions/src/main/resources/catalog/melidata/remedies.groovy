@@ -13,7 +13,7 @@ tracks {
 
     "/remedies/executed_action"(platform: "/mobile", type: TrackType.Event) {
         executed_action(type: PropertyType.String, required: true, description: "Action executed from component actions")
-        deeplink_params(type: PropertyType.String, required: false, description: "The deeplink params with which the flow was invoked")
+        extra_params(type: PropertyType.String, required: false, description: "The deeplink params with which the flow was invoked")
     }
 
     "/remedies/resolve_model"(platform: "/mobile", type: TrackType.Event) {
@@ -25,12 +25,6 @@ tracks {
     "/remedies/business_error"(platform: "/mobile/android", type: TrackType.Event) {
         error_message(type: PropertyType.String, required: true, description: "error message returned from frapi")
         api_call_identificator(type: PropertyType.Numeric, required: true, description: "Api call identificator")
-    }
-
-    "/remedies/failure_api_call"(platform: "/mobile", type: TrackType.Event) {
-        error_message(type: PropertyType.String, required: true, description: "error message of the exception")
-        error_cause(type: PropertyType.String, required: true, description: "error cause of the exception")
-        exception(type: PropertyType.String, required: true, description: "exception")
     }
 
     "/remedies/on_back_pressed"(platform: "/mobile", type: TrackType.Event) {
@@ -52,7 +46,8 @@ tracks {
     }
 
     "/remedies/generic_error"(platform: "/mobile", type: TrackType.Event) {
-        error_cause(type: PropertyType.String, required: true, description: "Error cause")
+        error_type(type: PropertyType.String, required: true, description: "Type of error")
+        error_cause(type: PropertyType.String, required: false, description: "Error cause")
     }
 
     "/remedies/executed_camera_action"(platform: "/mobile", type: TrackType.Event) {

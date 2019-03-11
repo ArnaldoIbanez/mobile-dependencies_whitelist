@@ -10,7 +10,7 @@ trackTests {
 
         "/remedies/executed_action"(platform: "/mobile") {
             executed_action = "check_step"
-            deeplink_params = "meli://identity_validation/?flow=uniqueness"
+            extra_params = "meli://identity_validation/?flow=uniqueness"
         }
 
         "/remedies/executed_action"(platform: "/mobile") {
@@ -26,12 +26,6 @@ trackTests {
         "/remedies/business_error"(platform: "/mobile/android") {
             error_message = "telefono incorrecto"
             api_call_identificator = 1
-        }
-
-        "/remedies/failure_api_call"(platform: "/mobile") {
-            error_message = "NullPointerException"
-            error_cause = "NullPointerException"
-            exception = "NullPointerException"
         }
 
         "/remedies/on_back_pressed"(platform: "/mobile") {
@@ -53,6 +47,7 @@ trackTests {
         }
 
         "/remedies/generic_error"(platform: "/mobile") {
+            error_type = "instantiate_camera"
             error_cause = "error"
         }
 
@@ -115,7 +110,7 @@ trackTests {
 
         "/remedies/executed_action"(platform: "/mobile") {
             executed_action = "check_step"
-            deeplink_params = "meli://identity_validation/?flow=uniqueness"
+            extra_params = "meli://identity_validation/?flow=uniqueness"
         }
 
         "/remedies/executed_action"(platform: "/mobile") {
@@ -131,12 +126,6 @@ trackTests {
         "/remedies/business_error"(platform: "/mobile/android") {
             error_message = "telefono incorrecto"
             api_call_identificator = 1
-        }
-
-        "/remedies/failure_api_call"(platform: "/mobile") {
-            error_message = "NullPointerException"
-            error_cause = "NullPointerException"
-            exception = "NullPointerException"
         }
 
         "/remedies/on_back_pressed"(platform: "/mobile") {
@@ -158,6 +147,7 @@ trackTests {
         }
 
         "/remedies/generic_error"(platform: "/mobile") {
+            error_type = "instantiate_camera"
             error_cause = "error"
         }
 
@@ -189,7 +179,6 @@ trackTests {
             compression_rate = 100
             max_size = 1200
         }
-
 
         "/remedies/activity/check_step"(platform: "/mobile/android") {}
         "/remedies/activity/landing"(platform: "/mobile/android") {}
