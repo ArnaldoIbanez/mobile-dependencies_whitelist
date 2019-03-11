@@ -40,6 +40,13 @@ trackTests {
 
         "/account_fund/cvu/ftu"(platform: "/", type: TrackType.View) {}
         "/account_fund/cvu/main"(platform: "/", type: TrackType.View) {}
+        
+        "/account_fund/cvu/main/instructions"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/cvu/main/bank_selection"(platform: "/", type: TrackType.View) {}
+        "/account_fund/cvu/main/bank_selection/select"(platform: "/", type: TrackType.Event) {
+            bank = "santander"
+        }
+        
         "/account_fund/cvu/result"(platform: "/", type: TrackType.View) {
             result_status = "approved"
         }
