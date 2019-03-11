@@ -173,10 +173,6 @@ trackTests {
                     channels: [:],
                     contact_config: false
             ]
-            user_type = "normal"
-            reputation_level  = "5_green"
-            seller_profile = "ADVANCED"
-            loyalty_level = 5
             portal_content_id = 96
             portal_has_channels_configured = true
         }
@@ -185,10 +181,6 @@ trackTests {
                     channels: [:],
                     contact_config: false
             ]
-            user_type = "normal"
-            reputation_level  = "5_green"
-            seller_profile = "ADVANCED"
-            loyalty_level = 5
             portal_content_id = 96
             user_profile = ""
         }
@@ -197,11 +189,7 @@ trackTests {
                     channels: [:],
                     contact_config: false
             ]
-            user_type = "normal"
-            reputation_level  = "5_green"
             portal_form_id = 96
-            seller_profile = "ADVANCED"
-            loyalty_level = 5
             portal_content_id = 96
         }
         "/portal/folder"(platform: "/", type: TrackType.View) {
@@ -209,10 +197,6 @@ trackTests {
                     channels: [:],
                     contact_config: false
             ]
-            user_type = "normal"
-            reputation_level  = "5_green"
-            seller_profile = "ADVANCED"
-            loyalty_level = 5
             portal_content_id = 96
             user_profile = ""
         }
@@ -221,16 +205,8 @@ trackTests {
                     channels: [:],
                     contact_config: false
             ]
-            user_type = "normal"
-            reputation_level  = "5_green"
-            seller_profile = "ADVANCED"
-            loyalty_level = 5
         }
         "/portal/search/result"(platform: "/", type: TrackType.View) {
-            user_type = "normal"
-            reputation_level  = "5_green"
-            seller_profile = "ADVANCED"
-            loyalty_level = 5
             portal_contact = [
                     channels: [:],
                     contact_config: false
@@ -238,10 +214,6 @@ trackTests {
             portal_has_channels_configured = true
         }
         "/portal/search/empty"(platform: "/", type: TrackType.View) {
-            user_type = "normal"
-            reputation_level  = "5_green"
-            seller_profile = "ADVANCED"
-            loyalty_level = 5
             portal_contact = [
                     channels: [:],
                     contact_config: false
