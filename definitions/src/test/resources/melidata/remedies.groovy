@@ -28,12 +28,6 @@ trackTests {
             api_call_identificator = 1
         }
 
-        "/remedies/failure_api_call"(platform: "/mobile") {
-            error_message = "NullPointerException"
-            error_cause = "NullPointerException"
-            exception = "NullPointerException"
-        }
-
         "/remedies/on_back_pressed"(platform: "/mobile") {
             on_back_go_check_step = true
             skip_landing = true
@@ -53,6 +47,7 @@ trackTests {
         }
 
         "/remedies/generic_error"(platform: "/mobile") {
+            error_type = "instantiate_camera"
             error_cause = "error"
         }
 
@@ -133,12 +128,6 @@ trackTests {
             api_call_identificator = 1
         }
 
-        "/remedies/failure_api_call"(platform: "/mobile") {
-            error_message = "NullPointerException"
-            error_cause = "NullPointerException"
-            exception = "NullPointerException"
-        }
-
         "/remedies/on_back_pressed"(platform: "/mobile") {
             on_back_go_check_step = true
             skip_landing = true
@@ -158,6 +147,7 @@ trackTests {
         }
 
         "/remedies/generic_error"(platform: "/mobile") {
+            error_type = "instantiate_camera"
             error_cause = "error"
         }
 
@@ -189,7 +179,6 @@ trackTests {
             compression_rate = 100
             max_size = 1200
         }
-
 
         "/remedies/activity/check_step"(platform: "/mobile/android") {}
         "/remedies/activity/landing"(platform: "/mobile/android") {}

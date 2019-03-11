@@ -27,12 +27,6 @@ tracks {
         api_call_identificator(type: PropertyType.Numeric, required: true, description: "Api call identificator")
     }
 
-    "/remedies/failure_api_call"(platform: "/mobile", type: TrackType.Event) {
-        error_message(type: PropertyType.String, required: false, description: "error message of the exception")
-        error_cause(type: PropertyType.String, required: false, description: "error cause of the exception")
-        exception(type: PropertyType.String, required: false, description: "exception")
-    }
-
     "/remedies/on_back_pressed"(platform: "/mobile", type: TrackType.Event) {
         on_back_go_check_step(type: PropertyType.Boolean, required: true, description: "onBackGoCheckStep parameter")
         skip_landing(type: PropertyType.Boolean, required: true, description: "skipLanding parameter")
@@ -52,7 +46,8 @@ tracks {
     }
 
     "/remedies/generic_error"(platform: "/mobile", type: TrackType.Event) {
-        error_cause(type: PropertyType.String, required: true, description: "Error cause")
+        error_type(type: PropertyType.String, required: true, description: "Type of error")
+        error_cause(type: PropertyType.String, required: false, description: "Error cause")
     }
 
     "/remedies/executed_camera_action"(platform: "/mobile", type: TrackType.Event) {
