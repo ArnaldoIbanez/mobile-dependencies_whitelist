@@ -46,6 +46,7 @@ trackTests {
             loyalty_level = 2
             price_comparison_available = true
             price_comparison_position =  0.75
+            whatsapp_available = "false"
         }
 
         "/vip"(platform:"/mobile", {
