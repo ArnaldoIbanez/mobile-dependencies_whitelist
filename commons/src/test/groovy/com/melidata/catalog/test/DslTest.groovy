@@ -263,5 +263,102 @@ public class DslTest {
         assertTrue(j.validate(t2).status)
     }
 
+    @Test void nestedMapDslTest() {
+        def j = catalog {
+
+            defaultBusiness = "mercadolibre"
+
+            platforms = [
+                    "/mobile",
+                    "/mobile/ios"
+            ]
+
+            tracks {
+
+                propertyDefinitions {
+                    offset(type: PropertyType.Numeric, required: true)
+                }
+
+                def item_definition = objectSchemaDefinitions {
+                    offset(type: PropertyType.Numeric, required: true)
+                    position(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
+                }
+
+                "/search"(platform: "/") {
+                    item(type: PropertyType.Map(item_definition), required:true)
+                }
+                "/search/specific"(platform: "/mobile") {
+                    offset(type: PropertyType.Numeric, required: true)
+                }
+            }
+        }
+
+        Track t =  new Track(path:"/search", event_data: [item:[
+                offset: 20,
+                position: [1,2,3]
+        ]])
+
+        Track t2 =  new Track(path:"/search/specific", event_data: [item:[
+                offset: 20,
+                position: [1,2,3]
+        ], offset: 30], platform: "/mobile")
+
+
+        assertTrue(j.validate(t).status)
+        //      Item Map is inherited well via path and platform
+        assertTrue(j.validate(t2).status)
+    }
+
+    @Test void nestedMapDslAndPropertyDefinitionsIntegrationTest() {
+        def j = catalog {
+
+            defaultBusiness = "mercadolibre"
+
+            platforms = [
+                    "/mobile",
+                    "/mobile/ios"
+            ]
+
+            tracks {
+
+                propertyDefinitions {
+                    offset(type: PropertyType.Numeric, required: true)
+                }
+
+                propertyGroups {
+                    offsetGroup(offset)
+                }
+
+                def item_definition = objectSchemaDefinitions {
+                    offsetGroup
+                    position(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
+                }
+
+                "/search"(platform: "/") {
+                    item(type: PropertyType.Map(item_definition), required:true)
+                }
+                "/search/specific"(platform: "/mobile") {
+                    offsetGroup
+                }
+            }
+        }
+
+        Track t =  new Track(path:"/search", event_data: [item:[
+                offset: 20,
+                position: [1,2,3]
+        ]])
+
+        Track t2 =  new Track(path:"/search/specific", event_data: [item:[
+                offset: 20,
+                position: [1,2,3]
+        ], offset: 30], platform: "/mobile")
+
+
+        assertTrue(j.validate(t).status)
+        //      Item Map is inherited well via path and platform
+        assertTrue(j.validate(t2).status)
+    }
+
+
 
 }
