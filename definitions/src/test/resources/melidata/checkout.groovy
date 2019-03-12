@@ -2225,6 +2225,19 @@ trackTests {
             item_id = "MLU451705243"
             item_status = "inactive"
         }
+
+        "/checkout_recovery" (platform:"/mobile/android", type: TrackType.View) {
+            item_id = "MLU451705243"
+            item_status = "inactive"
+        }
+        "/checkout_recovery/error" (platform:"/mobile/android", type: TrackType.View) {
+            item_id = "MLU451705243"
+            item_status = "inactive"
+        }
+        "/checkout_recovery/notfound" (platform:"/mobile/android", type: TrackType.View) {
+            item_id = "MLU451705243"
+            item_status = "inactive"
+        }
     }
 
     test ("checkout Legacy"){
