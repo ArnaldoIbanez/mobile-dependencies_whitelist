@@ -16,7 +16,7 @@ tracks {
     }
 
     "/quotation/details"(platform: "/web") {
-        seller_id(required: true, type:PropertyType.Numeric)
+        seller_id(required: true, type:PropertyType.Numeric, inheritable: false)
         category_id(required: false, type:PropertyType.String, description: "Item category id")
         vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
         error_type(required: false, type:PropertyType.String)
@@ -31,7 +31,6 @@ tracks {
     }
 
     "/quotation/details/show"(platform: "/web", type: TrackType.Event) {
-        seller_id(required: false, type:PropertyType.Numeric)
         source(required: true, type:PropertyType.String,description: "Origen de donde se llego al selector de modelos")
     }
 
