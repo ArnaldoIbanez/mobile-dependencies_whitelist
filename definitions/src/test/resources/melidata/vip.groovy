@@ -394,6 +394,7 @@ trackTests {
         "/vip/question"(platform: "/", type: TrackType.View){
             item_id = "MLA213512313"
             unregistered_contact = false
+            unregistered_contact_context = false
         }
     }
 
