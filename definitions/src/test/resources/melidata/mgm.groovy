@@ -30,6 +30,7 @@ trackTests {
         "/mgm/payers/redeem"(platform: "/mobile", type: TrackType.View) {}
         "/mgm/payers/redeem/option"(platform: "/mobile", type: TrackType.Event) {
             option = "cellphone_recharge"
+            type = "use_coupon"
         }
         "/mgm/payers/redeem/terms"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -45,10 +46,9 @@ trackTests {
 
         // WEB
         "/mgm/payers/stop_landing"(platform: "/web", type: TrackType.View) {
-            type = "use_coupon"
+            promoter = "123456"
         }
         "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
-            type = "use_coupon"
             promoter = "123456"
         }
     }
@@ -77,6 +77,7 @@ trackTests {
         "/mgm/payers/redeem"(platform: "/mobile", type: TrackType.View) {}
         "/mgm/payers/redeem/option"(platform: "/mobile", type: TrackType.Event) {
             option = "cellphone_recharge"
+            type = "use_coupon"
         }
         "/mgm/payers/redeem/terms"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -92,10 +93,9 @@ trackTests {
 
         // WEB
         "/mgm/payers/stop_landing"(platform: "/web", type: TrackType.View) {
-            type = "use_coupon"
+            promoter = "123456"
         }
         "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
-            type = "use_coupon"
             promoter = "123456"
         }
     }
