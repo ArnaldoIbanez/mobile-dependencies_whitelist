@@ -238,6 +238,7 @@ tracks {
     }
     "/notification_center/orders-buyer"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.Numeric)
+        experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
     }
     "/notification_center/orders-seller"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.Numeric)
@@ -570,6 +571,16 @@ tracks {
           newsgroup_id(required: false, type: PropertyType.String)
           type_layout(required: false, type: PropertyType.String)
           type(required: false, type: PropertyType.String, description: "type of order notificaction.")
+      }
+
+      "/notification/orders_ticket_payment_pending_extend_expiration_general_notice"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+          experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
+      }
+
+      "/notification/orders_ticket_payment_pending_reminder_general_notice"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+          experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
       }
 
       //Reviews
