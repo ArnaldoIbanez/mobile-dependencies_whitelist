@@ -89,6 +89,9 @@ tracks {
         title_predicted(required: false, description: "Title used to predict category", type: PropertyType.String)
         category_id(required: false, description: "Category Id", type: PropertyType.String)
         category_path(required: false, description: "Category path", type: PropertyType.ArrayList)
+        placement(required: false, description: "Place where track was dispatched")
+        adv_segmentation(required: false, description: "Adevrtasement segmentation ")
+        reputation_level(required: false, description: "Reputation for Pads")
     }
     // Upgrade Off = El upgrade de clasificados
     "/sell/upgradeOff"(platform:"/", type: TrackType.View){
