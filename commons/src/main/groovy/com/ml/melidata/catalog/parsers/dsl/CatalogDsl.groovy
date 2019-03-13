@@ -75,7 +75,7 @@ class CatalogDsl {
     }
 
     def setAbPlatforms(arr) {
-        catalog.abPlatforms.addAll(arr)
+        catalog.addAbPlatforms(arr)
     }
 
 }

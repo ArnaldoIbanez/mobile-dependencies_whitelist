@@ -52,6 +52,11 @@ class Catalog implements CatalogInterface{
         tree.addNode(platform, new CatalogTree(), true);
     }
 
+    def addAbPlatforms(platforms) {
+        abPlatforms.addAll(platforms)
+    }
+
+
     def addFile(File file) {
         includedFiles.add(file)
     }
