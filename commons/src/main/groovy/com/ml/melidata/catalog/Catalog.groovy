@@ -17,9 +17,7 @@ class Catalog implements CatalogInterface{
 
     def platforms = []
 
-    def platformsExperiments = []
-
-    def platformsTracking = []
+    def abPlatforms = []
 
     def defaultBusiness
 
