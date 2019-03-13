@@ -367,6 +367,8 @@ tracks {
                 description: "Vertical of the item")
         unregistered_contact(required: false, type: PropertyType.Boolean,
                 description: "User is unregister type")
+        unregistered_contact_context(required: false, type: PropertyType.Boolean,
+                description: "User is unregister after returning from email")
     }
 
 
