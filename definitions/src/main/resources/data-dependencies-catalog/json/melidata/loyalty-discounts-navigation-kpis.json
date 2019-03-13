@@ -34,11 +34,11 @@
         "type": "INTEGER"
       },
       {
-        "name": "users_save_in_massive",
+        "name": "users_save_in_individual",
         "type": "INTEGER"
       },
       {
-        "name": "users_save_in_individual",
+        "name": "users_save_in_massive",
         "type": "INTEGER"
       },
       {
