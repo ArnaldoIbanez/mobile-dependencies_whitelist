@@ -10,7 +10,9 @@ trackTests {
 
         "/"(platform: "/api") {}
 
-        "/notifications"(platform: "/api") {
+        "/notifications"(platform: "/api") {}
+
+        "/notifications/tracking"(platform: "/api") {
             shipment_id = 27752190312
             notification = [
                     origin: "carrier-pull",
@@ -34,7 +36,7 @@ trackTests {
             ]
         }
 
-        "/notifications/received"(platform: "/api") {
+        "/notifications/tracking/received"(platform: "/api") {
             shipment_id = 27752190312
             notification_id = "1550919708135-27866910716-4bd030ab-0d9f-421f-84b6-7a8af74c1fca"
             notification = [
@@ -58,35 +60,10 @@ trackTests {
                     code: "0621"
             ]
             status = 200
+            client_id = 100008
         }
 
-        "/notifications/error"(platform: "/api") {
-            notification = [
-                    origin: "carrier-pull",
-                    tracking_number: "OG357465336BR",
-                    payload: [
-                            agency_id: "58051970",
-                            location: [
-                                    state_id: "PB",
-                                    city_name: "JOAO PESSOA",
-                                    geolocation: null,
-                                    country_id: "BR",
-                                    neighborhood_name: "AC CIDADE UNIVERS JOAO PESSOA"
-                            ],
-                            client_id: "100008",
-                            comment: "Destinatário não retirou objeto na Unidade dos Correios",
-                            date: "2019-01-07T11:42:00Z",
-                            carrier_id: "100008"
-                    ],
-                    shipment_id: 27752190312,
-                    code: "0621"
-            ]
-            shipment_id = 27752190312
-            response = "ERROR com.mercadolibre.clients.ShipmentRestClient - Shipment 27752190312 not found"
-            status = 404
-        }
-
-        "/notifications/validated"(platform: "/api") {
+        "/notifications/tracking/validated"(platform: "/api") {
             shipment_id = 27752190312
             notification = [
                 origin: "carrier-pull",
@@ -111,7 +88,7 @@ trackTests {
             ]
         }
 
-        "/notifications/event_processing"(platform: "/api") {
+        "/notifications/tracking/event_processing"(platform: "/api") {
             stage_type = "DELAY"
             notification = [
                     origin: "carrier-pull",
@@ -178,27 +155,6 @@ trackTests {
 
         "/notifications/ssm"(platform: "/api") {
             cause = "invalid code"
-            notification = [
-                    origin: "carrier-pull",
-                    tracking_number: "OG357465336BR",
-                    payload: [
-                            agency_id: "58051970",
-                            location: [
-                                    state_id: "PB",
-                                    city_name: "JOAO PESSOA",
-                                    geolocation: null,
-                                    country_id: "BR",
-                                    neighborhood_name: "AC CIDADE UNIVERS JOAO PESSOA"
-                            ],
-                            client_id: "100008",
-                            comment: "Destinatário não retirou objeto na Unidade dos Correios",
-                            date: "2019-01-07T11:42:00Z",
-                            carrier_id: "100008"
-                    ],
-                    shipment_id: 27752190312,
-                    code: "0621"
-            ]
-            shipment_id = 27752190312
         }
     }
 }
