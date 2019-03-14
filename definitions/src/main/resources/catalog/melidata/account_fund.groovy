@@ -12,7 +12,7 @@ tracks {
 
     "/account_fund/select_method"(platform: "/", type: TrackType.View) {}
     "/account_fund/select_method/selected"(platform: "/", type: TrackType.Event) {
-        method (required:true, description: "Selected money in method", values: ["debit_card", "cvu", "cash", "atm", "qr"])
+        method (required:true, description: "Selected money in method", values: ["debit_card", "cvu", "cash", "atm", "qr", "ticket", "spb"])
     }
 
     "/account_fund/amount"(platform: "/", type: TrackType.View) {}
