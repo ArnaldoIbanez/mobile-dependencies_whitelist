@@ -101,6 +101,10 @@
         "type": "INTEGER"
       },
       {
+        "name": "potential_resolutions_error",
+        "type": "INTEGER"
+      },
+      {
         "name": "typifications_error",
         "type": "INTEGER"
       },
