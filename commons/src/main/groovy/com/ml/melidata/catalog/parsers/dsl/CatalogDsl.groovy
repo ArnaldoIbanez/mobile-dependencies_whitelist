@@ -15,6 +15,8 @@ class CatalogDsl {
 
     def platforms = []
 
+    def abPlatforms = []
+
     def String defaultBusiness;
 
     def CatalogDsl() {
