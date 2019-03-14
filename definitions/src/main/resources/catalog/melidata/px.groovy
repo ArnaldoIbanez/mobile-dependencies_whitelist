@@ -212,6 +212,7 @@ tracks {
         checkout_preference(required: false, description: "Payment preference")
         esc_enabled(required: true, type: PropertyType.Boolean, description: "Has esc feauture")
         express_enabled(required: true, type: PropertyType.Boolean, description: "Has one tap feauture")
+        split_enabled(required: false, type: PropertyType.Boolean, description: "Has split enabled")
     }
 
     // Payment Selection event
