@@ -464,9 +464,9 @@ tracks {
      *    Start: Consumers Experiments
      ******************************************/
 
-    "/credits/consumer/experiments"(platform: "/") {}
+    "/credits/consumer/notification"(platform: "/") {}
 
-    "/credits/consumer/experiments/new_channels"(platform: "/", type: TrackType.Event) {
+    "/credits/consumer/notification/new_channels_stimulous"(platform: "/", type: TrackType.Event) {
         milestone(description: "Milestone of the user", type: PropertyType.Numeric, required: true)
         notification_type(description: "Notification type for the user", type: PropertyType.String, required: true, values: ["email", "web", "mobile", "push", "wapp", "sms"])
     }
