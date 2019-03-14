@@ -19,7 +19,9 @@ tracks {
     }
 
     // Invite Screen
-    "/mgm/payers/invite"(platform: "/mobile", type: TrackType.View) {}
+    "/mgm/payers/invite"(platform: "/mobile", type: TrackType.View) {
+        promoter (required:true, type: PropertyType.String, description: "Indicates the id of the inviter/promoter")
+    }
 
     // Invite Screen Events
     "/mgm/payers/invite/invite"(platform: "/mobile", type: TrackType.Event) {
@@ -29,7 +31,9 @@ tracks {
     "/mgm/payers/invite/terms"(platform: "/mobile", type: TrackType.Event) {}
 
     // Redeem Screen
-    "/mgm/payers/redeem"(platform: "/mobile", type: TrackType.View) {}
+    "/mgm/payers/redeem"(platform: "/mobile", type: TrackType.View) {
+        promoter (required:true, type: PropertyType.String, description: "Indicates the id of the inviter/promoter")
+    }
     "/mgm/payers/redeem/option"(platform: "/mobile", type: TrackType.Event) {
         option (required:true, type: PropertyType.String, description: "Which option did the user selected (ex: cellphone_recharge)")
         type (required:true, type: PropertyType.String, description: "Which action are we tracking (ex: install / use_coupon)", values: ["install", "use_coupon"])
@@ -50,7 +54,5 @@ tracks {
     "/mgm/payers/stop_landing"(platform: "/web", type: TrackType.View) {
         promoter (required:true, type: PropertyType.String, description: "Indicates the id of the inviter/promoter")
     }
-    "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
-        promoter (required:true, type: PropertyType.String, description: "Indicates the id of the inviter/promoter")
-    }
+    "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {}
 }
