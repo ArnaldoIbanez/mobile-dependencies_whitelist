@@ -259,6 +259,7 @@ tracks {
     "/point_payment/buyer_email"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/discount"(platform: "/mobile", type: TrackType.View) {}
 
+
     "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
         flow_id (required: true, type: PropertyType.String, description: "Flow id.")
         user_id (required: false, type: PropertyType.String, description: "User id.")
@@ -298,6 +299,9 @@ tracks {
          devices (required:false, type: PropertyType.String, description: "paired devices")
     }
     "/point_payment/flow_tracker/cancel_qr_charge"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/auto_reverse_off"(platform: "/mobile", type: TrackType.Event) {
+        trx_id (required: true, type: PropertyType.String, description: "trx1234567")
+    }
 
 
     "/settings/point"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}

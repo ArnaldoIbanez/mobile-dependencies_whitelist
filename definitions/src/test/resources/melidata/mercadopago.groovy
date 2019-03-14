@@ -1146,6 +1146,13 @@ trackTests {
             level ="info"
             data ="{ctr: 2313}"
         }
+         "/point_payment/flow_tracker/auto_reverse_off"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            trx_id = "as-123241234413"
+           
+        }
 
 
         "/settings/point/costs_calculator"(platform: "/mobile", type: TrackType.View) {
