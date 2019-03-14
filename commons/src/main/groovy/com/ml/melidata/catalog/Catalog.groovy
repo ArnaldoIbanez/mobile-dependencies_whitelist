@@ -17,6 +17,8 @@ class Catalog implements CatalogInterface{
 
     def platforms = []
 
+    def abPlatforms = []
+
     def defaultBusiness
 
     def CatalogCoverage catalogCoverage
@@ -49,6 +51,11 @@ class Catalog implements CatalogInterface{
     def addPlatform(PlatformTree tree , String platform) {
         tree.addNode(platform, new CatalogTree(), true);
     }
+
+    def addAbPlatforms(platforms) {
+        abPlatforms.addAll(platforms)
+    }
+
 
     def addFile(File file) {
         includedFiles.add(file)

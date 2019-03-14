@@ -15,6 +15,8 @@ class CatalogDsl {
 
     def platforms = []
 
+    def abPlatforms = []
+
     def String defaultBusiness;
 
     def CatalogDsl() {
@@ -72,6 +74,10 @@ class CatalogDsl {
         platforms.each {p ->
             catalog.addPlatform(p)
         }
+    }
+
+    def setAbPlatforms(arr) {
+        catalog.addAbPlatforms(arr)
     }
 
 }
