@@ -167,26 +167,49 @@ tracks {
         navigate_to_home(required: true, type: PropertyType.Boolean, description: "Whether or not the reset event is triggered by the user navigating to the home screen.")
     }
 
-    /* Targeted count tracks */
-    "/wms/targeted_count"(platform: "/mobile/android", type: TrackType.View, isAbstract: true) {
+    /* Area count tracks */
+    "/wms/area_count"(platform: "/mobile/android", type: TrackType.View, isAbstract: true) {
         count_id(required: false, type: PropertyType.Numeric, description: "Count id")
         address_id(required: false, type: PropertyType.String, description: "Address id")
     }
-    "/wms/targeted_count/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/targeted_count/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/targeted_count/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/targeted_count/item"(platform: "/mobile/android", type: TrackType.View) {
+    "/wms/area_count/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/area_count/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/area_count/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/area_count/item"(platform: "/mobile/android", type: TrackType.View) {
         inventory_id(required: false, type: PropertyType.String, description: "Inventory id")
         quantity(required: false, type: PropertyType.Numeric, description: "Item quantity")
     }
 
-    "/wms/targeted_count/confirmation/start_count"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/targeted_count/scan_inventory/finish_count"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/targeted_count/item/finish_count"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/targeted_count/scan_inventory/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/targeted_count/scan_inventory/finish_count"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/targeted_count/item/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/targeted_count/item/reset_address"(platform: "/mobile/android", type: TrackType.Event) {
+    "/wms/area_count/confirmation/start_count"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/area_count/scan_inventory/finish_count"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/area_count/item/finish_count"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/area_count/scan_inventory/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/area_count/scan_inventory/finish_count"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/area_count/item/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/area_count/item/reset_address"(platform: "/mobile/android", type: TrackType.Event) {
+        navigate_to_home(required: true, type: PropertyType.Boolean, description: "Whether or not the reset event is triggered by the user navigating to the home screen.")
+    }
+
+    /* Range count tracks */
+    "/wms/range_count"(platform: "/mobile/android", type: TrackType.View, isAbstract: true) {
+        count_id(required: false, type: PropertyType.Numeric, description: "Count id")
+        address_id(required: false, type: PropertyType.String, description: "Address id")
+    }
+    "/wms/range_count/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/range_count/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/range_count/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/range_count/item"(platform: "/mobile/android", type: TrackType.View) {
+        inventory_id(required: false, type: PropertyType.String, description: "Inventory id")
+        quantity(required: false, type: PropertyType.Numeric, description: "Item quantity")
+    }
+
+    "/wms/range_count/confirmation/start_count"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/range_count/scan_inventory/finish_count"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/range_count/item/finish_count"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/range_count/scan_inventory/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/range_count/scan_inventory/finish_count"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/range_count/item/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/range_count/item/reset_address"(platform: "/mobile/android", type: TrackType.Event) {
         navigate_to_home(required: true, type: PropertyType.Boolean, description: "Whether or not the reset event is triggered by the user navigating to the home screen.")
     }
 
