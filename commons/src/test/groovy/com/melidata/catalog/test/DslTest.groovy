@@ -359,6 +359,31 @@ public class DslTest {
         assertTrue(j.validate(t2).status)
     }
 
+    @Test void abPlatformsTest() {
+        def j = catalog {
+
+            defaultBusiness = "mercadolibre"
+
+            platforms = [
+                    "/mobile",
+                    "/mobile/ios"
+            ]
+
+            abPlatforms = [
+                    "/web/desktop",
+                    "/web/mobile",
+                    "/mobile/android",
+                    "/mobile/ios"
+            ]
+
+        }
+
+        assertTrue(j.getAbPlatforms() == ["/web/desktop",
+                                          "/web/mobile",
+                                          "/mobile/android",
+                                          "/mobile/ios"])
+    }
+
 
 
 }
