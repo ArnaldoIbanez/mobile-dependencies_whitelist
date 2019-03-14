@@ -385,19 +385,19 @@ trackTests {
          *    Start: Consumers Experiments
          ******************************************/
 
-        "/credits/consumer/experiments"(platform: "/web/desktop") {}
+        "/credits/consumer/notification"(platform: "/web/desktop") {}
 
-        "/credits/consumer/experiments/new_channels"(platform: "/web/mobile", type: TrackType.Event) {
+        "/credits/consumer/notification/new_channels_stimulous"(platform: "/web/mobile", type: TrackType.Event) {
             milestone = -10
             notification_type = "web"
         }
 
-        "/credits/consumer/experiments/new_channels"(platform: "/web/desktop", type: TrackType.Event) {
+        "/credits/consumer/notification/new_channels_stimulous"(platform: "/web/desktop", type: TrackType.Event) {
             milestone = 0
             notification_type = "email"
         }
 
-        "/credits/consumer/experiments/new_channels"(platform: "/", type: TrackType.Event) {
+        "/credits/consumer/notification/new_channels_stimulous"(platform: "/", type: TrackType.Event) {
             milestone = 45
             notification_type = "wapp"
         }
