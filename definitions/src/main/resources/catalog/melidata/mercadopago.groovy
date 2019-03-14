@@ -298,6 +298,9 @@ tracks {
          devices (required:false, type: PropertyType.String, description: "paired devices")
     }
     "/point_payment/flow_tracker/cancel_qr_charge"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/auto_reverse_off"(platform: "/mobile", type: TrackType.Event) {
+        trx_id (required: true, type: PropertyType.String, description: "trx1234567")
+    }
 
 
     "/settings/point"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
