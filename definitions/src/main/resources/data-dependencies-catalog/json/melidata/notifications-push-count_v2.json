@@ -11,24 +11,31 @@
   "extract": {
     "operation": "append",
     "columns": [{
-      "name": "total",
-      "type": "INTEGER"
-    }, {
-      "name": "event_type",
-      "type": "UNICODE_STRING"
-    }, {
       "name": "marketplace",
       "type": "UNICODE_STRING"
+    }, {
+      "name": "event",
+      "type": "UNICODE_STRING"
+    }, {
+      "name": "event_id",
+      "type": "UNICODE_STRING"
+    }, {
+      "name": "total",
+      "type": "INTEGER"
     }],
     "sql": {
       "script": "notifications/notifications-push-count_v2.sql",
       "parameters": [{
-        "name": "param01",
+        "name": "send_date",
+        "value": "DAY-4",
+        "format": "yyyy-MM-dd"
+      },{
+        "name": "three_days_after_send_date",
         "value": "DAY-1",
         "format": "yyyy-MM-dd"
       }, {
-        "name": "param02",
-        "value": "DAY-0",
+        "name": "one_day_after_send_date",
+        "value": "DAY-3",
         "format": "yyyy-MM-dd"
       }]
     }
