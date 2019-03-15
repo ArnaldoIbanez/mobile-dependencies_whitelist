@@ -203,6 +203,17 @@ trackTests {
         }
         "/sell/upgradeOff"(platform: "/", itemData)
     }
+
+    test("Sell Flow view Pages upselling pads"){
+        def itemData = {
+            reputation_level = "platinum"
+            placement = "syi_congrats"
+            adv_segmentation = "1-Active (0-30)"
+        }
+
+        "/sell/list/congrats"(platform: "/web/desktop", itemData)
+    }
+
     test("Sell landing free_listing"){
         def data={
             referer = "1234L"

@@ -47,6 +47,8 @@ tracks {
                 inheritable: false
         )
     }
+
+    "/credits/merchant/administrator/error"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/administrator/detail/conditions"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/", type: TrackType.Event) {}
 
@@ -118,9 +120,9 @@ tracks {
             type: PropertyType.String,
             required: true,
             values: [
-                'loan_creation_failed',
-                'feedback_creation_failed',
-                'files_upload_failed',
+                'loan_creation',
+                'feedback_creation',
+                'files_upload',
                 'default'
             ],
             inheritable: false
@@ -198,10 +200,15 @@ tracks {
     "/credits/merchant/money_advance"(platform: "/", type: TrackType.View) {}
 
     //Congrats money advance
-    "/credits/merchant/money_advance/congrats"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/money_advance/congrats"(platform: "/", type: TrackType.View) {
+        status(type: PropertyType.String, required: false, values: ['on_time', 'delayed'])
+        user_status(type: PropertyType.String, required: false, values: ['correct', 'in_default'])
+    }
 
     //Hub money advance
-    "/credits/merchant/money_advance/hub"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/money_advance/hub"(platform: "/", type: TrackType.View) {
+        user_status(type: PropertyType.String, required: false, values: ['correct', 'in_default'])
+    }
 
     //Summary money advance
     "/credits/merchant/money_advance/summary"(platform: "/", type: TrackType.View) {}
@@ -209,6 +216,10 @@ tracks {
     //No options money advance
     "/credits/merchant/money_advance/no_options"(platform: "/", type: TrackType.View) {}
 
+    // Error money advance
+    "/credits/merchant/money_advance/error"(platform: "/", type: TrackType.View) {
+        reason(type: PropertyType.String, required: true)
+    }
 
     /******************************************
      *       End: Money Advance

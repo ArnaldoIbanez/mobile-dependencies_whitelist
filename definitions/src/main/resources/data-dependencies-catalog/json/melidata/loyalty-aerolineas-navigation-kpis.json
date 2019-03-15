@@ -2,10 +2,10 @@
   "users":
   [
     "loyalty_dev@mercadolibre.com",
-    "diego.meller@mercadolibre.com",
-    "carlos.rodrigo@mercadolibre.com"
+    "daniel.lamonica@mercadolibre.com",
+    "jonathan.cortese@mercadolibre.com"
   ],
-  "process_name": "loyalty_discounts_navigation_kpis",
+  "process_name": "loyalty_aerolineas_navigation_kpis",
   "cron": "00 06 * * *",
   "partition": {
     "name": "ds",
@@ -18,36 +18,24 @@
     "columns":
     [
       {
-        "name": "site_id",
+        "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "prints_in_list",
+        "name": "prints",
         "type": "INTEGER"
       },
       {
-        "name": "prints_in_editor",
+        "name": "clicks",
         "type": "INTEGER"
       },
       {
-        "name": "prints_in_individual",
-        "type": "INTEGER"
-      },
-      {
-        "name": "users_save_in_individual",
-        "type": "INTEGER"
-      },
-      {
-        "name": "users_save_in_massive",
-        "type": "INTEGER"
-      },
-      {
-        "name": "count_items_saved_in_individual",
-        "type": "INTEGER"
+        "name": "click_rate",
+        "type": "DOUBLE"
       }
     ],
     "sql": {
-      "script": "loyalty/discounts-navigation.sql",
+      "script": "loyalty/aerolineas-navigation-metrics.sql",
       "parameters": [
         {
           "name": "param01",

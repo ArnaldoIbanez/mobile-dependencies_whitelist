@@ -2,7 +2,7 @@
   "users": [
     "melidata_dev@mercadolibre.com"
   ],
-  "process_name": "uid_sanitized_desktop",
+  "process_name": "d2id_sanity_check",
   "cron": "00 06 * * *",
   "partition": {
     "name": "ds",
@@ -13,7 +13,11 @@
     "operation": "append",
     "columns": [
       {
-        "name": "path",
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "site_id",
         "type": "UNICODE_STRING"
       },
       {
@@ -21,16 +25,16 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "uids_quantity",
+        "name": "qty_distinct_d2id",
         "type": "INTEGER"
       },
       {
-        "name": "uids_total",
+        "name": "qty_distinct_d2id_with_n",
         "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "melidata/uid_sanitized_desktop.sql",
+      "script": "melidata/d2id_sanity_check.sql",
       "parameters": [
         {
           "name": "param01",

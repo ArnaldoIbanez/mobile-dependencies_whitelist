@@ -58,6 +58,12 @@ trackTests {
 
         "/buy_intention"(platform:"/mobile/android") {
             buyIntentionDataSet()
+            context = "checkout_recovery_combo"
+            checkout_flow="direct"
+        }
+        
+        "/buy_intention"(platform:"/mobile/android") {
+            buyIntentionDataSet()
             context = "cart_combo_reco"
             checkout_flow="direct"
         }

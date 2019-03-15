@@ -692,6 +692,7 @@ trackTests {
             }
             esc_enabled = true
             express_enabled = true
+            split_enabled = false
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"

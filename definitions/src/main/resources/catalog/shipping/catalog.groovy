@@ -18,6 +18,6 @@ catalog {
     def shipping = ["shipping"]
 
     shipping.each { business ->
-        include business, "status.groovy"
+        include business, "tracking.groovy"
     }
 }

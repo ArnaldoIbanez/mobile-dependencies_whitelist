@@ -113,6 +113,7 @@ trackTests {
                             longitude = "-35.56065"
                         }
                         status = "shipped"
+                        low_precition = true
                     },
                     {
                         shipping_id = "342994423"
@@ -123,6 +124,7 @@ trackTests {
                             addresses_info = "Uruguay 756"
                         }
                         status = "not_delivered"
+                        low_precition = false
                     },
                     {
                         shipping_id = "645292393"
@@ -153,6 +155,7 @@ trackTests {
                             longitude = "-35.56065"
                         }
                         status = "shipped"
+                        low_precition = true
                     }
                 ]
             }
@@ -478,6 +481,23 @@ trackTests {
 
         //Country selection View
         "/flex/login/select_country"(platform:"/mobile", type: TrackType.View) {
+        }
+
+        //Out of distance View
+        "/flex/package/detail/out_of_distance_modal"(platform:"/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultPacksInfo()
+            context = "delivered"
+            distance = 1234
+        }
+
+        //Snackbar error event success
+        "/flex/package/detail/out_of_distance"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            context = "delivered"
+            error_type = "permission_denied"
+            error_message = "example_message"
         }
     }
 }

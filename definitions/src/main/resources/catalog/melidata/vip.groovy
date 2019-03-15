@@ -61,6 +61,7 @@ tracks {
                 description: "Whenever the items is active, closed or paused")
         deal_ids(required: true, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         billboard_clicked_position(required: false, type: PropertyType.String, description: "Clicked billboard index. We use it to track when the user entered to VIP via Billboard")
+        has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
 
         // ONLY CORE FIELDS
         quantity( required: false, type: PropertyType.Numeric, description: "Available items quantity show at this vip")
@@ -108,6 +109,9 @@ tracks {
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
         store_type(required: false, type: PropertyType.String, values: ["normal", "brand"], description: "Indicates store type")
 
+        // PAYMENT
+        installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
+
         // SHIPPING
         shipping_info 
 
@@ -125,6 +129,8 @@ tracks {
         // TOOLTIPS
         shown_tooltip(required: false, type: PropertyType.String,
                       description: "Indicates which tooltip is shown in the VIP at the time, if any. In case it does not show anything, it should be 'none'. E.g: 'credits', 'subscription', 'cart_benefit_free_shipping', etc.")
+
+        whatsapp_available(required: false, type: PropertyType.String, description: "determines if whatsapp is available")
     }
 
     "/vip"(platform: "/web") {
@@ -210,15 +216,14 @@ tracks {
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         is_valid_variation(required: false, type: PropertyType.Boolean, description: "Is the selected variation valid")
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
-        has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
-        is_official_store(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
-        reputation_levelreputation_level(required: false, type: PropertyType.String,
-                values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"],
-                description: "Seller's reputation level")
-        review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
-        has_free_return(required: false, type: PropertyType.Boolean, description: "Indicates if the item has free return")
-        installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
+        vertical(required: false, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        return_available(required: false, type: PropertyType.Boolean, description: "Indicates if the user has free return for the item")
         has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
+        review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
+        official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
+        reputation_level(required: false, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Seller's reputation level")
+        installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
+        has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
         add_cart_info
         shipping_info
     }
@@ -230,15 +235,14 @@ tracks {
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         is_valid_variation(required: false, type: PropertyType.Boolean, description: "Is the selected variation valid")
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
-        has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
-        is_official_store(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
-        reputation_levelreputation_level(required: false, type: PropertyType.String,
-                values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"],
-                description: "Seller's reputation level")
-        review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
-        has_free_return(required: false, type: PropertyType.Boolean, description: "Indicates if the item has free return")
-        installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
+        vertical(required: false, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        return_available(required: false, type: PropertyType.Boolean, description: "Indicates if the user has free return for the item")
         has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
+        review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
+        official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
+        reputation_level(required: false, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Seller's reputation level")
+        installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
+        has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
         add_cart_info
         shipping_info
     }
@@ -283,6 +287,8 @@ tracks {
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
         source(required: false, description: "Source of the referred")
         unregistered_contact(required: false, type: PropertyType.Boolean, "User is unregister type")
+        captcha_showed(required: false, type: PropertyType.Boolean, description: "If captcha is showed")
+
     }
 
     "/vip/call_seller"(platform: "/", type: TrackType.Event) {
@@ -361,7 +367,8 @@ tracks {
                 description: "Vertical of the item")
         unregistered_contact(required: false, type: PropertyType.Boolean,
                 description: "User is unregister type")
-        captcha_showed(required: false, type: PropertyType.Boolean, description: "If captcha is showed")
+        unregistered_contact_context(required: false, type: PropertyType.Boolean,
+                description: "User is unregister after returning from email")
     }
 
 

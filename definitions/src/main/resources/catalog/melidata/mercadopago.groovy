@@ -190,6 +190,17 @@ tracks {
         flow (required: false, type: PropertyType.String, description: "Flow")
         error_msg (required:false, type: PropertyType.String, description: "Error shown to seller")
     }
+
+    "/pos_mobile"(platform: "/mobile", type: TrackType.Event) {}
+    "/pos_mobile/friction"(platform: "/mobile", type: TrackType.Event) {
+        flow_id(required: false, type: PropertyType.String, description: "Flow id.")
+        id(required: true, type: PropertyType.String, description: "Flow id.")
+        context(required: true, type: PropertyType.String, description: "Context friction")
+        style(required: true, type: PropertyType.String, description: "Style showed, window, dialog, toast.. ", values: ["dialog", "window", "snackbar", "toast"])
+        message(required: true, type: PropertyType.String, description: "Message showed ")
+        attributable_to(required: true, type: PropertyType.String, description: "User, Phone, Device, network or card", values: ["user", "reader", "network", "device", "card"])
+        extra_info(required: false, type: PropertyType.String, description: "Extra info")
+    }
     //TODO: The flow_origin field must be changed to mandatory, when all the productive versions send this information
     "/point_payment/main"(platform: "/mobile", type: TrackType.View) {
         flow_origin (required: false, type: PropertyType.String, values: ["point", "qr", "chooser","share_social"])
@@ -298,6 +309,9 @@ tracks {
          devices (required:false, type: PropertyType.String, description: "paired devices")
     }
     "/point_payment/flow_tracker/cancel_qr_charge"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/auto_reverse_off"(platform: "/mobile", type: TrackType.Event) {
+        trx_id (required: true, type: PropertyType.String, description: "trx1234567")
+    }
 
 
     "/settings/point"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
@@ -563,6 +577,11 @@ tracks {
     }
     "/get_member/invite/invite"(platform: "/mobile", type: TrackType.Event) {}
     "/get_member/redeem"(platform: "/mobile") {}
+
+    "/get_member/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
 
     "/bill_payments"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")

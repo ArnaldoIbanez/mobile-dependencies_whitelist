@@ -21,6 +21,14 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "potential_resolutions",
+        "type": "INTEGER"
+      },
+      {
+        "name": "potential_resolutions_went_claims",
+        "type": "INTEGER"
+      },
+      {
         "name": "typifications",
         "type": "INTEGER"
       },
@@ -61,6 +69,10 @@
         "type": "INTEGER"
       },
       {
+        "name": "potential_resolutions_from_claims",
+        "type": "INTEGER"
+      },
+      {
         "name": "typifications_from_claims",
         "type": "INTEGER"
       },
@@ -98,6 +110,10 @@
       },
       {
         "name": "orderid_error",
+        "type": "INTEGER"
+      },
+      {
+        "name": "potential_resolutions_error",
         "type": "INTEGER"
       },
       {
