@@ -9,16 +9,19 @@
     "type": "DATE"
   },
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [{
-      "name": "total",
-      "type": "INTEGER"
-    }, {
-      "name": "event_type",
-      "type": "UNICODE_STRING"
-    }, {
       "name": "marketplace",
       "type": "UNICODE_STRING"
+    }, {
+      "name": "event",
+      "type": "UNICODE_STRING"
+    }, {
+      "name": "event_id",
+      "type": "UNICODE_STRING"
+    }, {
+      "name": "total",
+      "type": "INTEGER"
     }],
     "sql": {
       "script": "notifications/notifications-push-count_v2.sql",

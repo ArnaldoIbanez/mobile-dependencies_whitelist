@@ -1,4 +1,4 @@
-SELECT summary.business AS business, summary.fecha AS fecha, summary.event AS event, CONCAT(summary.business, '-', summary.fecha, '-', summary.event) AS event_id, sum(summary.total) AS total
+SELECT summary.fecha AS ds, summary.business AS marketplace, summary.event AS event, CONCAT(summary.business, '-', summary.fecha, '-', summary.event) AS event_id, sum(summary.total) AS total
 FROM 
 (SELECT application.business AS business, '@send_date' AS fecha, jest(event_data, 'event_type') AS event, 1 AS total
   FROM tracks
