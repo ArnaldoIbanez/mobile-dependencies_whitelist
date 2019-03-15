@@ -23,12 +23,16 @@
     "sql": {
       "script": "notifications/notifications-push-count_v2.sql",
       "parameters": [{
-        "name": "param01",
+        "name": "send_date",
+        "value": "DAY-4",
+        "format": "yyyy-MM-dd"
+      },{
+        "name": "three_days_after_send_date",
         "value": "DAY-1",
         "format": "yyyy-MM-dd"
       }, {
-        "name": "param02",
-        "value": "DAY-0",
+        "name": "one_day_after_send_date",
+        "value": "DAY-3",
         "format": "yyyy-MM-dd"
       }]
     }
