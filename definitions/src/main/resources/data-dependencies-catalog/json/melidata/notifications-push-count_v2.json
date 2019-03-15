@@ -17,9 +17,6 @@
       "name": "event",
       "type": "UNICODE_STRING"
     }, {
-      "name": "event_id",
-      "type": "UNICODE_STRING"
-    }, {
       "name": "total",
       "type": "INTEGER"
     }],
