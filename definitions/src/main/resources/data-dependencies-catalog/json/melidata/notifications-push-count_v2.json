@@ -9,6 +9,7 @@
     "type": "DATE"
   },
   "extract": {
+    "operation": "append",
     "columns": [{
       "name": "marketplace",
       "type": "UNICODE_STRING"
