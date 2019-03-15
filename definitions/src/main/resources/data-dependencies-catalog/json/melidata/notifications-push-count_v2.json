@@ -9,7 +9,6 @@
     "type": "DATE"
   },
   "extract": {
-    "operation": "overwrite",
     "columns": [{
       "name": "marketplace",
       "type": "UNICODE_STRING"
