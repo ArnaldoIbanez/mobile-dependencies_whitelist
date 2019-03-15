@@ -19,6 +19,8 @@ class Catalog implements CatalogInterface{
 
     def abPlatforms = []
 
+    def abPlatformsSubscriptions = []
+
     def defaultBusiness
 
     def CatalogCoverage catalogCoverage
@@ -54,6 +56,10 @@ class Catalog implements CatalogInterface{
 
     def addAbPlatforms(platforms) {
         abPlatforms.addAll(platforms)
+    }
+
+    def addAbPlatformsSubscriptions(platforms) {
+        abPlatformsSubscriptions.addAll(platforms)
     }
 
 

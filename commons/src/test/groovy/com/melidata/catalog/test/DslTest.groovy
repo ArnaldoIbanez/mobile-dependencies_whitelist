@@ -385,5 +385,31 @@ public class DslTest {
     }
 
 
+    @Test void abPlatformsSubscriptionsTest() {
+        def j = catalog {
+
+            defaultBusiness = "mercadolibre"
+
+            platforms = [
+                    "/mobile",
+                    "/mobile/ios"
+            ]
+
+            abPlatformsSubscriptions = [
+                    "/web/desktop",
+                    "/web/mobile",
+                    "/mobile/android",
+                    "/mobile/ios"
+            ]
+
+        }
+
+        assertTrue(j.getAbPlatformsSubscriptions() == ["/web/desktop",
+                                          "/web/mobile",
+                                          "/mobile/android",
+                                          "/mobile/ios"])
+    }
+
+
 
 }

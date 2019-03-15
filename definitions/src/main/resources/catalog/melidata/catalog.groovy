@@ -31,6 +31,17 @@ catalog {
             "/mobile/ios"
     ]
 
+    abPlatformsSubscriptions = [
+            "/",
+            "/web",
+            "/web/desktop",
+            "/web/mobile",
+            "/mobile",
+            "/mobile/android",
+            "/mobile/ios",
+    ]
+
+
 
     def marketplace = [
             "mercadolibre",
