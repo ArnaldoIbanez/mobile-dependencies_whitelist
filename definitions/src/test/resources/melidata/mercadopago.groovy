@@ -1151,7 +1151,7 @@ trackTests {
             user_id = "123241234413"
             level ="info"
             trx_id = "as-123241234413"
-           
+
         }
 
 
@@ -2514,11 +2514,15 @@ trackTests {
     }
 
     test("Account recovery flow") {
-        "/auth/account_recovery/canceled"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/recovery_confirmation"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
             is_webview = true
         }
         "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+            is_webview = true
+        }
+        "/auth/account_recovery/landing"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
             is_webview = true
         }
@@ -2530,10 +2534,16 @@ trackTests {
             id = "id--fury"
             is_webview = true
         }
-        "/auth/account_recovery/canceled/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/recovery_confirmation/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
-            target = "go_home_button"
+            target = "confirm_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/recovery_confirmation/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "cancel_button"
             is_webview = true
         }
         "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
@@ -2542,28 +2552,36 @@ trackTests {
             target = "go_home_button"
             is_webview = true
         }
-        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
-            target = "cancel_button"
+            target = "validate_identity_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
             is_webview = true
         }
         "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
-            target = "unlink_button"
-            is_webview = true
-        }
-        "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "cancel_button"
+            target = "continue_button"
             is_webview = true
         }
         "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
+            status_code = "429"
+            is_webview = true
+        }
+        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+            status_code = "403"
             is_webview = true
         }
     }
