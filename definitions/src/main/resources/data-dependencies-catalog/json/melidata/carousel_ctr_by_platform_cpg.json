@@ -3,7 +3,7 @@
       "ines.saint@mercadolibre.com",
        "cpg_it@mercadolibre.com"
     ],
-    "process_name": "carousel_cpg_ctr",
+    "process_name": "carousel_ctr_by_platform_cpg",
     "cron": "00 06 * * *",
     "partition": {
           "name": "track_date",
@@ -28,7 +28,7 @@
         }
       ],
       "sql": {
-        "script": "cpg/carousel_cpg_ctr.sql",
+        "script": "cpg/carousel_ctr_by_platform_cpg.sql",
         "parameters": [
           {
             "name": "param01",
