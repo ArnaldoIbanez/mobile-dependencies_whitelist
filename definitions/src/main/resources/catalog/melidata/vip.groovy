@@ -594,7 +594,7 @@ tracks {
         selected_method(required: true, description: "Shipping Methods")
     }
 
-    "/vip/shipping_calculator/cancel"(platform: "/", type: TrackType.Event){
+    "/vip/shipping_calculator/cancel"(platform: "/web", type: TrackType.Event){
     }
      "/vip/shipping_calculator/cancel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
     }
