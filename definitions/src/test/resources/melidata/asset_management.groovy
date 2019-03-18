@@ -17,6 +17,9 @@ trackTests {
         // First time
         "/asset_management/first_time"(platform: "/mobile") {}
 
+        // Blocking screen
+        "/asset_management/blocker"(platform: "/mobile") {}
+
         // Challenges
         "/asset_management/challenge_pep"(platform: "/mobile") {}
         "/asset_management/challenge_fatca"(platform: "/mobile") {}
@@ -61,6 +64,25 @@ trackTests {
 
         "/asset_management/landing"(platform: "/web") {}
         "/asset_management/invest"(platform: "/web") {}
+        "/asset_management/investment_report"(platform: "/web") {
+            year = "2018"
+            quarter = "1"
+        }
+        "/asset_management/investment_report"(platform: "/web") {
+            year = "2018"
+            quarter = "2"
+        }
+        "/asset_management/investment_report"(platform: "/web") {
+            year = "2018"
+            quarter = "3"
+        }
+        "/asset_management/investment_report"(platform: "/web") {
+            year = "2018"
+            quarter = "4"
+        }
+        "/asset_management/investment_report"(platform: "/web") {
+            year = "2018"
+        }
 
         // Operations
         "/asset_management/movements_detail"(platform: "/mobile") {} // old name
@@ -69,6 +91,9 @@ trackTests {
 
         // Congrats
         "/asset_management/result_investing"(platform: "/mobile") {}
+        "/asset_management/result_investing_company/approved"(platform: "/mobile") {}
+        "/asset_management/result_investing_company/pending"(platform: "/mobile") {}
+        "/asset_management/result_investing_company/rejected"(platform: "/mobile") {}
 
         // Faqs
         "/asset_management/faqs"(platform: "/mobile") {}
