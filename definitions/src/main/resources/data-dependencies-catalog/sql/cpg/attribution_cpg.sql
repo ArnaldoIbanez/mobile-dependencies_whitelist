@@ -2,6 +2,8 @@ select
    a11.SIT_SITE_ID  SIT_SITE_ID,
    a11.ite_item_id item_id,
    a11.cus_cust_id_buy buyer,
+   USRS.user_id navegation_user,
+   USRS.platform platform,
    sum((a11.BID_BASE_CURRENT_PRICE * a11.BID_QUANTITY_OK))  GMVE,
    sum(a11.BID_QUANTITY_OK)  SI,
    cast(a11.tim_day_winning_date as string)  track_date
@@ -32,4 +34,6 @@ group by
    cast(a11.tim_day_winning_date as string),
    a11.SIT_SITE_ID,
    a11.ite_item_id,
-   a11.cus_cust_id_buy
+   a11.cus_cust_id_buy,
+   USRS.user_id,
+   USRS.platform
