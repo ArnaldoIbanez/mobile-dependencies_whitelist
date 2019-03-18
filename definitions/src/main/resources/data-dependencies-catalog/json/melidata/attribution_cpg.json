@@ -27,6 +27,14 @@
         "type": "INTEGER"
       },
       {
+        "name": "navegation_user",
+        "type": "INTEGER"
+      },
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "GMVE",
         "type": "INTEGER"
       },
