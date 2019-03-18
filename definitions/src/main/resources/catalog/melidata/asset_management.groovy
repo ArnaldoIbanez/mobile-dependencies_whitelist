@@ -71,6 +71,7 @@ tracks {
 
     // Congrats
     "/asset_management/result_investing"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/result_investing_company"(platform: "/mobile", isAbstract: true) {}
     "/asset_management/result_investing_company/approved"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_investing_company/pending"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_investing_company/rejected"(platform: "/mobile", type: TrackType.View) {}
