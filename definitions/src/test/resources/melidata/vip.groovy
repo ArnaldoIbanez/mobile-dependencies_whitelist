@@ -46,6 +46,7 @@ trackTests {
             loyalty_level = 2
             price_comparison_available = true
             price_comparison_position =  0.75
+            whatsapp_available = "false"
         }
 
         "/vip"(platform:"/mobile", {
@@ -111,6 +112,7 @@ trackTests {
         "/vip/contact_seller"(platform: "/", type: TrackType.Event, {
             mandatory()
             unregistered_contact = false
+            captcha_showed = false
         })
 
         "/vip/call_seller"(platform:"/mobile", type: TrackType.Event, {
@@ -392,6 +394,7 @@ trackTests {
         "/vip/question"(platform: "/", type: TrackType.View){
             item_id = "MLA213512313"
             unregistered_contact = false
+            unregistered_contact_context = false
         }
     }
 

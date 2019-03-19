@@ -2,7 +2,7 @@
   "users": [
     "melidata_dev@mercadolibre.com"
   ],
-  "process_name": "uid_sanity_check_path",
+  "process_name": "uid_sanity_check_path_v2",
   "cron": "00 06 * * *",
   "partition": {
     "name": "ds",
@@ -25,7 +25,7 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "average_uids_quantity",
+        "name": "total_uids_quantity",
         "type": "INTEGER"
       },
       {
@@ -34,16 +34,16 @@
       }
     ],
     "sql": {
-      "script": "melidata/uid_sanity_check_path.sql",
+      "script": "melidata/uid_sanity_check_path_v2.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "DAY-2",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         }
       ]

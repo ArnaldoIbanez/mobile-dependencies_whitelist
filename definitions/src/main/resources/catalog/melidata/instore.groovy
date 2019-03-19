@@ -41,6 +41,7 @@ tracks {
         success(required: false, PropertyType.Boolean)
         next_step_deeplink(required: false, PropertyType.String)
         currency(required: false, PropertyType.String)
+        status_code(required: false, PropertyType.Numeric, description: "error code sent when resolve service fail")
     }
     "/instore/scan_qr/flash"(platform: "/mobile", type: TrackType.Event) {
         camera_flash(required: false, PropertyType.Boolean)

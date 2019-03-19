@@ -24,6 +24,25 @@ catalog {
             "/email"
     ]
 
+    abPlatforms = [
+            "/web/desktop",
+            "/web/mobile",
+            "/mobile/android",
+            "/mobile/ios"
+    ]
+
+    abPlatformsSubscriptions = [
+            "/",
+            "/web",
+            "/web/desktop",
+            "/web/mobile",
+            "/mobile",
+            "/mobile/android",
+            "/mobile/ios",
+    ]
+
+
+
     def marketplace = [
             "mercadolibre",
             "tucarro",
@@ -48,6 +67,7 @@ catalog {
         include business, "bugsnag.groovy"
         include business, "cx.groovy"
         include business, "identity_validation.groovy"
+        include business, "remedies.groovy"
         include business, "melidata_sdk.groovy"
         include business, "registrations.groovy"
         include business, "fiscaldata.groovy"

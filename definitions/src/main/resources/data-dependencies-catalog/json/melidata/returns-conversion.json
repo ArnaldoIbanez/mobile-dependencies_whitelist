@@ -21,6 +21,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "potential_resolutions",
+        "type": "INTEGER"
+      },
+      {
         "name": "typifications",
         "type": "INTEGER"
       },
@@ -98,6 +102,10 @@
       },
       {
         "name": "orderid_error",
+        "type": "INTEGER"
+      },
+      {
+        "name": "potential_resolutions_error",
         "type": "INTEGER"
       },
       {

@@ -59,6 +59,7 @@ trackTests {
             next_step_deeplink = "Any deeplink"
             currency = "ARS"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            status_code = 403
         }
         "/instore/scan_qr/abort"(platform: "/mobile", type: TrackType.Event) {
             view_time_in_millis = "453282"
@@ -970,6 +971,7 @@ trackTests {
             next_step_deeplink = "Any deeplink"
             currency = "ARS"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            status_code = 403
         }
         "/instore/scan_qr/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             view_time_in_millis = "453282"

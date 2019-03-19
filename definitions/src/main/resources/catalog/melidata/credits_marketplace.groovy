@@ -19,6 +19,7 @@ tracks {
     "/credits/pursue"(platform: "/", isAbstract: true) {}
     "/credits/consumer/myml"(platform: "/", isAbstract: true) {}
     "/credits/consumer/myml/summary"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/my_account"(platform: "/", isAbstract: true) {}
 
     "/vip"(platform: "/", isAbstract: true) {}
     "/vip/credits"(platform: "/", isAbstract: true) {}
@@ -73,7 +74,7 @@ tracks {
         dashboard_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
     }
     "/credits/consumer/administrator/summary"(platform: "/", type: TrackType.View) {
-        summary_status(description: "Current status of the loan summary", type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
+        dashboard_status(description: "Current status of the loan summary", type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
     }
 
     //Events
@@ -290,21 +291,23 @@ tracks {
 
     propertyGroups {
         pursue_nav_properties(status, milestone, context)
+        pursue_modal_properties(milestone, context)
     }
 
     //Page Views
-
-    "/vip/credits/pursue/overdue_modal"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+    "/credits/consumer/overdue_modal"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+        pursue_modal_properties
         status(type: PropertyType.String, required: true,
-                values: ["payment_intention_pre_restriction", "payment_intention_post_restriction"])
-        milestone(type: PropertyType.Numeric, required: true)
+                description: "Summary status for pre and post marketplace restriction who consumers with debt",
+                values: ["pre_restriction", "post_restriction"])
     }
 
     //Event Views
-    "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+    "/credits/consumer/overdue_modal/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+        pursue_modal_properties
         status(type: PropertyType.String, required: true,
-                values: ["payment_intention_pre_restriction", "payment_intention_post_restriction"])
-        milestone(type: PropertyType.Numeric, required: true)
+                description: "Summary status for pre and post marketplace restriction who consumers with debt",
+                values: ["pre_restriction", "post_restriction"])
     }
 
     "/credits/consumer/overdue_nav"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
@@ -322,6 +325,8 @@ tracks {
                 required: true,
                 values: ["left_section_message", "right_section_message"])
     }
+
+    "/credits/consumer/my_account/left_nav"(platform: "/mobile", type: TrackType.Event) {}
     /******************************************
      *       End: Consumers Persue Campaign
      ******************************************/
@@ -418,4 +423,55 @@ tracks {
      *   End: Consumers Contacts
      ******************************************/
 
+    /******************************************
+     *    Start: Consumers Enhance Adoption
+     ******************************************/
+
+     propertyDefinitions {
+         credits_user_mark(
+             type: PropertyType.String,
+             description: "Credits user mark related to consumer adoption",
+             required: true,
+             values: ["open_market", "priority_1", "priority_2"]
+         )
+     }
+
+     propertyGroups {
+         adoption_modal_properties(credits_user_mark, context)
+     }
+
+     "/credits/consumer/adoption_modal"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+         adoption_modal_properties
+     }
+
+     "/credits/consumer/adoption_modal/understood"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+         adoption_modal_properties
+     }
+
+     "/credits/consumer/adoption_modal/close"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+         adoption_modal_properties
+     }
+
+     "/credits/consumer/adoption_modal/go_back"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+         adoption_modal_properties
+     }
+
+    /******************************************
+     *    End: Consumers Enhance Adoption
+     ******************************************/
+
+    /******************************************
+     *    Start: Consumers Experiments
+     ******************************************/
+
+    "/credits/consumer/notification"(platform: "/") {}
+
+    "/credits/consumer/notification/new_channels_stimulous"(platform: "/", type: TrackType.Event) {
+        milestone(description: "Milestone of the user", type: PropertyType.Numeric, required: true)
+        notification_type(description: "Notification type for the user", type: PropertyType.String, required: true, values: ["email", "web", "mobile", "push", "wapp", "sms"])
+    }
+
+    /******************************************
+     *   End: Consumers Experiments
+     ******************************************/
 }

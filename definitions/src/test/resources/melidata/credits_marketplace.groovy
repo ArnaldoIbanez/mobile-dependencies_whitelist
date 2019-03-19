@@ -84,7 +84,7 @@ trackTests {
             dashboard_status = 'empty_state'
         }
         "/credits/consumer/administrator/summary"(platform: "/mobile", type: TrackType.View) {
-            summary_status = 'empty_state'
+            dashboard_status = 'empty_state'
         }
 
         //Events
@@ -105,16 +105,16 @@ trackTests {
         "/credits/consumer/administrator/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/see_product"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/summary/payment_intention"(platform: "/mobile", type: TrackType.Event) {
-            summary_status = 'on_time'
+            dashboard_status = 'on_time'
         }
         "/credits/consumer/administrator/summary/cx_contact"(platform: "/mobile", type: TrackType.Event) {
-            summary_status = 'on_time'
+            dashboard_status = 'on_time'
         }
         "/credits/consumer/administrator/summary/go_shopping"(platform: "/mobile", type: TrackType.Event) {
-            summary_status = 'on_time'
+            dashboard_status = 'on_time'
         }
         "/credits/consumer/administrator/summary/get_help"(platform: "/mobile", type: TrackType.Event) {
-            summary_status = 'on_time'
+            dashboard_status = 'on_time'
         }
 
         //Admin History (Compras Finalizadas)
@@ -201,9 +201,10 @@ trackTests {
          *       Start: Consumers Pursue Campaign
          ******************************************/
         //Page Views
-        "/vip/credits/pursue/overdue_modal"(platform: "/web/desktop", type: TrackType.View) {
-            status = "payment_intention_pre_restriction"
+        "/credits/consumer/overdue_modal"(platform: "/web/desktop", type: TrackType.View) {
+            status = "pre_restriction"
             milestone = 20
+            context = "vip"
         }
 
         "/credits/consumer/overdue_nav"(platform: "/web/desktop", type: TrackType.Event) {
@@ -214,9 +215,10 @@ trackTests {
 
         //Events
         //Vip
-        "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
-            status = "payment_intention_post_restriction"
+        "/credits/consumer/overdue_modal/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            status = "post_restriction"
             milestone = 28
+            context = "vip"
         }
 
         "/credits/consumer/overdue_nav/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
@@ -228,6 +230,9 @@ trackTests {
         "/credits/consumer/myml/summary/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
             loan_status = "daily_charge_period"
             place = "right_section_message"
+        }
+
+        "/credits/consumer/my_account/left_nav"(platform: "/mobile/android", type: TrackType.Event) {
         }
         /******************************************
          *       End: Consumers Pursue Campaign
@@ -344,6 +349,61 @@ trackTests {
 
         /******************************************
          *   End: Consumers Contacts
+         ******************************************/
+
+       /******************************************
+        *    Start: Consumers Enhance Adoption
+        ******************************************/
+
+        "/credits/consumer/adoption_modal"(platform: "/web/desktop", type: TrackType.View) {
+            credits_user_mark = "open_market"
+            context = "vip"
+        }
+
+        "/credits/consumer/adoption_modal/understood"(platform: "/web/desktop", type: TrackType.Event) {
+            credits_user_mark = "open_market"
+            context = "vip"
+        }
+
+
+        "/credits/consumer/adoption_modal/close"(platform: "/web/desktop", type: TrackType.Event) {
+            credits_user_mark = "priority_1"
+            context = "vip"
+        }
+
+
+        "/credits/consumer/adoption_modal/go_back"(platform: "/web/desktop", type: TrackType.Event) {
+            credits_user_mark = "priority_2"
+            context = "vip"
+        }
+
+       /******************************************
+        *    End: Consumers Enhance Adoption
+        ******************************************/
+
+        /******************************************
+         *    Start: Consumers Experiments
+         ******************************************/
+
+        "/credits/consumer/notification"(platform: "/web/desktop") {}
+
+        "/credits/consumer/notification/new_channels_stimulous"(platform: "/web/mobile", type: TrackType.Event) {
+            milestone = -10
+            notification_type = "web"
+        }
+
+        "/credits/consumer/notification/new_channels_stimulous"(platform: "/web/desktop", type: TrackType.Event) {
+            milestone = 0
+            notification_type = "email"
+        }
+
+        "/credits/consumer/notification/new_channels_stimulous"(platform: "/", type: TrackType.Event) {
+            milestone = 45
+            notification_type = "wapp"
+        }
+
+        /******************************************
+         *   End: Consumers Experiments
          ******************************************/
     }
 }

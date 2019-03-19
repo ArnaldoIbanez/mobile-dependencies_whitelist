@@ -65,7 +65,6 @@ trackTests {
 
                     },
                     {
-                        payment_method_id = "rapipago"
                         payment_method_type = "ticket"
                         extra_info = null
                     }
@@ -692,6 +691,7 @@ trackTests {
             }
             esc_enabled = true
             express_enabled = true
+            split_enabled = false
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
@@ -1690,7 +1690,6 @@ trackTests {
         }
 
         "/px_checkout/payments/select_method/ticket/cpf"(platform: "/mobile", type: TrackType.View) {
-            payment_method_id = "bolbradesco"
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"

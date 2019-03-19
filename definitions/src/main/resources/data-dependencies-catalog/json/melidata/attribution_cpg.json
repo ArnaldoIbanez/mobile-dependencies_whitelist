@@ -1,44 +1,50 @@
 {
   "users": [
-    "melidata_dev@mercadolibre.com"
+     "agustin.romano@mercadolibre.com",
+     "cpg_it@mercadolibre.com"
   ],
-  "process_name": "uid_sanity_check_navigation",
+  "process_name": "attribution_cpg",
   "cron": "00 06 * * *",
   "partition": {
-    "name": "ds",
-    "type": "DATE",
-    "format": "yyyy-MM-dd"
+        "name": "track_date",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
   },
   "extract": {
     "operation": "append",
+    "site": "Sales",
     "columns": [
       {
-        "name": "user_id",
+        "name": "SIT_SITE_ID",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "user_second_id",
+        "name": "item_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "business",
-        "type": "UNICODE_STRING"
+        "name": "buyer",
+        "type": "INTEGER"
+      },
+      {
+        "name": "navegation_user",
+        "type": "INTEGER"
       },
       {
         "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "average_uids_quantity",
+        "name": "GMVE",
         "type": "INTEGER"
       },
       {
-        "name": "paths_quantity",
+        "name": "SI",
         "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "melidata/uid_sanity_check_navigation.sql",
+      "script": "cpg/attribution_cpg.sql",
       "parameters": [
         {
           "name": "param01",

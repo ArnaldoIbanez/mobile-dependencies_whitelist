@@ -105,6 +105,23 @@ tracks {
         our_payment_error(required: false, description: "An error from our (with our endpoint) payment post, is not an error creating the payment")
     }
 
+    "/loyalty/buylevel/cancellation"(platform: "/", isAbstract: true, type: TrackType.View){
+    }
+
+    "/loyalty/buylevel/cancellation/not-applicable"(platform: "/",type: TrackType.View){
+        reason(required: true, values: ["already_cancelled","not_bought","past_time"], description: "Reason to reject the cancellation")
+    }
+
+    "/loyalty/buylevel/cancellation/retention_landing"(platform: "/",type: TrackType.View){
+    }
+
+    "/loyalty/buylevel/cancellation/reason_form"(platform: "/",type: TrackType.View){
+    }
+
+    "/loyalty/buylevel/cancellation/congrats"(platform: "/",type: TrackType.View){
+        status(required: true, values: ["success","needs_validation"], description: "Congrats status. Can be either success or 'needs-validation'")
+    }
+
     /**
      * Loyalty Redesign Tracks
      */
@@ -157,4 +174,122 @@ tracks {
 
     "/loyalty/sellers"(platform: "/", isAbstract: true, type: TrackType.View){}
     "/loyalty/sellers/discounts"(platform: "/", type: TrackType.View){}
+
+    //  --------------------------------------------- Free-Trials ---------------------------------------------
+
+    "/loyalty/freetrial/"(platform: "/", isAbstract: true){
+    }
+
+    //  -----------------> Contention Screen
+
+    "/loyalty/freetrial/contention"(platform: "/",type: TrackType.View){
+    }
+
+    "/loyalty/freetrial/contention/continue"(platform: "/",type: TrackType.Event){
+    }
+
+    "/loyalty/freetrial/contention/cancel"(platform: "/",type: TrackType.Event){
+        type(required: true, values: ["button","back","close"], description: "Finish flow from button or X or back arrow", type: PropertyType.String)
+    }
+
+    //  -----------------> Card Selection
+    "/loyalty/freetrial/cardselection"(platform: "/",type: TrackType.View){
+    }
+
+    "/loyalty/freetrial/cardselection/selected"(platform: "/",type: TrackType.Event){
+        selected(required: true, values: ["cardName","cardPosition","newCard"], description: "Card selected", type: PropertyType.String)
+    }
+
+    "/loyalty/freetrial/cardselection/continue"(platform: "/",type: TrackType.Event){
+    }
+
+    "/loyalty/freetrial/cardselection/cancel"(platform: "/",type: TrackType.Event){
+        type(required: true, values: ["button","back","close"], description: "Finish flow from button or X or back arrow", type: PropertyType.String)
+    }
+
+    //  -----------------> New Card Screen/Modal
+    "/loyalty/freetrial/newcard"(platform: "/",type: TrackType.View){
+    }
+
+    "/loyalty/freetrial/newcard/continue"(platform: "/",type: TrackType.Event){
+    }
+
+    "/loyalty/freetrial/newcard/cancel"(platform: "/",type: TrackType.Event){
+        type(required: true, values: ["button","back","close"], description: "Finish flow from button or X or back arrow", type: PropertyType.String)
+    }
+
+    "/loyalty/freetrial/newcard/cardnumber"(platform: "/",type: TrackType.View){
+    }
+
+    "/loyalty/freetrial/newcard/cardnumber/continue"(platform: "/",type: TrackType.Event){
+    }
+
+    "/loyalty/freetrial/newcard/cardnumber/cancel"(platform: "/",type: TrackType.Event){
+        type(required: true, values: ["button","back","close"], description: "Finish flow from button or X or back arrow", type: PropertyType.String)
+    }
+
+    "/loyalty/freetrial/newcard/securitycode"(platform: "/",type: TrackType.View){
+    }
+
+    "/loyalty/freetrial/newcard/securitycode/continue"(platform: "/",type: TrackType.Event){
+    }
+
+    "/loyalty/freetrial/newcard/securitycode/cancel"(platform: "/",type: TrackType.Event){
+        type(required: true, values: ["button","back","close"], description: "Finish flow from button or X or back arrow", type: PropertyType.String)
+    }
+
+    "/loyalty/freetrial/newcard/name"(platform: "/",type: TrackType.View){
+    }
+
+    "/loyalty/freetrial/newcard/name/continue"(platform: "/",type: TrackType.Event){
+    }
+
+    "/loyalty/freetrial/newcard/name/cancel"(platform: "/",type: TrackType.Event){
+        type(required: true, values: ["button","back","close"], description: "Finish flow from button or X or back arrow", type: PropertyType.String)
+    }
+
+    "/loyalty/freetrial/newcard/identification"(platform: "/",type: TrackType.View){
+    }
+
+    "/loyalty/freetrial/newcard/identification/continue"(platform: "/",type: TrackType.Event){
+    }
+
+    "/loyalty/freetrial/newcard/identification/cancel"(platform: "/",type: TrackType.Event){
+        type(required: true, values: ["button","back","close"], description: "Finish flow from button or X or back arrow", type: PropertyType.String)
+    }
+
+    //  -----------------> Congrats Screen
+    "/loyalty/freetrial/congrats"(platform: "/",type: TrackType.View){
+        congratstype(required: true, values: ["success","error","warning"] , description: "Congrats type", type: PropertyType.String)
+    }
+
+    "/loyalty/freetrial/congrats/continue"(platform: "/",type: TrackType.Event){
+        congratstype(required: true, values: ["success","error","warning"] ,description: "Congrats type", type: PropertyType.String)
+    }
+
+    "/loyalty/freetrial/congrats/cancel"(platform: "/",type: TrackType.Event){
+        congratstype(required: true, values: ["success","error","warning"] ,description: "Congrats type", type: PropertyType.String)
+    }
+
+    //  -----------------> Confirm Screen
+    "/loyalty/freetrial/confirm"(platform: "/mobile",type: TrackType.View){
+    }
+
+    "/loyalty/freetrial/confirm/continue"(platform: "/mobile",type: TrackType.Event){
+    }
+
+    "/loyalty/freetrial/confirm/cancel"(platform: "/mobile",type: TrackType.Event){
+        type(required: true, values: ["button","back","close"], description: "Finish flow from button or X or back arrow", type: PropertyType.String)
+    }
+
+    //  -----------------> Payment Track
+    "/loyalty/freetrial/payment"(platform: "/",type: TrackType.Event){
+        payment(required: true, type: PropertyType.Numeric, description: "Payment ID Number")
+        payment_status(required: true, description: "Payment status, like rejected/success/pending/etc...")
+        payment_status_detail(required: true, description: "Payment status detail")
+    }
+
+    "/loyalty/freetrial/payment/error"(platform: "/",type: TrackType.Event, parentPropertiesInherited:false){
+        our_payment_error(required: true, description: "An error from our (with our endpoint) payment post, is not an error creating the payment")
+    }
 }

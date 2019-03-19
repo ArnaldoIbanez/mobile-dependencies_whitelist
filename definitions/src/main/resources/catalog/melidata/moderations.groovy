@@ -13,6 +13,12 @@ tracks {
     "/denounce/form"(platform: "/", type: TrackType.View) {}
     "/denounce/form/success"(platform: "/", type: TrackType.View) {}
     "/denounce/form/error"(platform: "/", type: TrackType.View) {}
+    "/denounce/form/go_to_tool"(platform: "/", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, values: ["modal", "announcement", "message"], description: "context in which the event was triggered")
+    }
+    "/denounce/form/go_to_tool_landing"(platform: "/", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, values: ["modal", "announcement", "message"], description: "context in which the event was triggered")
+    }
 
     "/denounce/error"(platform: "/", type: TrackType.View) {}
 
@@ -43,6 +49,20 @@ tracks {
     "/pppi/rights/member"(platform: "/", type: TrackType.View) {}
     "/pppi/rights/member/success"(platform: "/", type: TrackType.View) {}
     "/pppi/rights/member/error"(platform: "/", type: TrackType.View) {}
+
+    // Landing
+
+    "/pppi/landings"(platform: "/", isAbstract: true) {}
+
+    "/pppi/landings/revamp"(platform: "/", type: TrackType.View) {}
+    "/pppi/landings/revamp/go_to_tool"(platform: "/", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, values: ["headline", "tool"], description: "context in which the event was triggered")
+    }
+    "/pppi/landings/revamp/go_to_contact"(platform: "/", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, values: ["tool"], description: "context in which the event was triggered")
+    }
+
+    // Error
 
     "/pppi/error"(platform: "/", type: TrackType.View) {}
 }

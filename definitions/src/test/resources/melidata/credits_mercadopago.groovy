@@ -36,7 +36,7 @@ trackTests {
         }
         "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/error"(platform: "/web/desktop") {
-            reason = 'loan_creation_failed'
+            reason = 'loan_creation'
         }
         "/credits/merchant/enrollment/documentation"(platform: "/web/desktop") {
             user_type = 'moral'
@@ -100,6 +100,7 @@ trackTests {
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             status = 'finished'
         }
+        "/credits/merchant/administrator/error"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/voluntary_payment"(platform: "/web/desktop") {}

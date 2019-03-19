@@ -129,6 +129,8 @@ tracks {
         // TOOLTIPS
         shown_tooltip(required: false, type: PropertyType.String,
                       description: "Indicates which tooltip is shown in the VIP at the time, if any. In case it does not show anything, it should be 'none'. E.g: 'credits', 'subscription', 'cart_benefit_free_shipping', etc.")
+
+        whatsapp_available(required: false, type: PropertyType.String, description: "determines if whatsapp is available")
     }
 
     "/vip"(platform: "/web") {
@@ -285,6 +287,8 @@ tracks {
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
         source(required: false, description: "Source of the referred")
         unregistered_contact(required: false, type: PropertyType.Boolean, "User is unregister type")
+        captcha_showed(required: false, type: PropertyType.Boolean, description: "If captcha is showed")
+
     }
 
     "/vip/call_seller"(platform: "/", type: TrackType.Event) {
@@ -363,7 +367,8 @@ tracks {
                 description: "Vertical of the item")
         unregistered_contact(required: false, type: PropertyType.Boolean,
                 description: "User is unregister type")
-        captcha_showed(required: false, type: PropertyType.Boolean, description: "If captcha is showed")
+        unregistered_contact_context(required: false, type: PropertyType.Boolean,
+                description: "User is unregister after returning from email")
     }
 
 

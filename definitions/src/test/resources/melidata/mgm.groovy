@@ -17,21 +17,34 @@ trackTests {
         }
 
         // Invite Screen
-        "/mgm/payers/invite"(platform: "/mobile", type: TrackType.View) {}
+        "/mgm/payers/invite"(platform: "/mobile", type: TrackType.View) {
+            promoter = "123456"
+        }
 
         // Invite Screen Events
         "/mgm/payers/invite/invite"(platform: "/mobile", type: TrackType.Event) {
             media = "whatsapp"
+            promoter = "123456"
         }
-        "/mgm/payers/invite/back"(platform: "/mobile", type: TrackType.Event) {}
-        "/mgm/payers/invite/terms"(platform: "/mobile", type: TrackType.Event) {}
+        "/mgm/payers/invite/back"(platform: "/mobile", type: TrackType.Event) {
+            promoter = "123456"
+        }
+        "/mgm/payers/invite/terms"(platform: "/mobile", type: TrackType.Event) {
+            promoter = "123456"
+        }
 
         // Redeem Screen
-        "/mgm/payers/redeem"(platform: "/mobile", type: TrackType.View) {}
+        "/mgm/payers/redeem"(platform: "/mobile", type: TrackType.View) {
+            promoter = "123456"
+        }
         "/mgm/payers/redeem/option"(platform: "/mobile", type: TrackType.Event) {
             option = "cellphone_recharge"
+            type = "use_coupon"
+            promoter = "123456"
         }
-        "/mgm/payers/redeem/terms"(platform: "/mobile", type: TrackType.Event) {}
+        "/mgm/payers/redeem/terms"(platform: "/mobile", type: TrackType.Event) {
+            promoter = "123456"
+        }
 
         // No Redeem Screen
         "/mgm/payers/no_redeem"(platform: "/mobile", type: TrackType.View) {}
@@ -45,10 +58,10 @@ trackTests {
 
         // WEB
         "/mgm/payers/stop_landing"(platform: "/web", type: TrackType.View) {
-            type = "use_coupon"
+            promoter = "123456"
         }
         "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
-            type = "use_coupon"
+            promoter = "123456"
         }
     }
 
@@ -63,21 +76,34 @@ trackTests {
         }
 
         // Invite Screen
-        "/mgm/payers/invite"(platform: "/mobile", type: TrackType.View) {}
+        "/mgm/payers/invite"(platform: "/mobile", type: TrackType.View) {
+            promoter = "123456"
+        }
 
         // Invite Screen Events
         "/mgm/payers/invite/invite"(platform: "/mobile", type: TrackType.Event) {
             media = "whatsapp"
+            promoter = "123456"
         }
-        "/mgm/payers/invite/back"(platform: "/mobile", type: TrackType.Event) {}
-        "/mgm/payers/invite/terms"(platform: "/mobile", type: TrackType.Event) {}
+        "/mgm/payers/invite/back"(platform: "/mobile", type: TrackType.Event) {
+            promoter = "123456"
+        }
+        "/mgm/payers/invite/terms"(platform: "/mobile", type: TrackType.Event) {
+            promoter = "123456"
+        }
 
         // Redeem Screen
-        "/mgm/payers/redeem"(platform: "/mobile", type: TrackType.View) {}
+        "/mgm/payers/redeem"(platform: "/mobile", type: TrackType.View) {
+            promoter = "123456"
+        }
         "/mgm/payers/redeem/option"(platform: "/mobile", type: TrackType.Event) {
             option = "cellphone_recharge"
+            type = "use_coupon"
+            promoter = "123456"
         }
-        "/mgm/payers/redeem/terms"(platform: "/mobile", type: TrackType.Event) {}
+        "/mgm/payers/redeem/terms"(platform: "/mobile", type: TrackType.Event) {
+            promoter = "123456"
+        }
 
         // No Redeem Screen
         "/mgm/payers/no_redeem"(platform: "/mobile", type: TrackType.View) {}
@@ -91,10 +117,10 @@ trackTests {
 
         // WEB
         "/mgm/payers/stop_landing"(platform: "/web", type: TrackType.View) {
-            type = "use_coupon"
+            promoter = "123456"
         }
         "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
-            type = "use_coupon"
+            promoter = "123456"
         }
     }
 }

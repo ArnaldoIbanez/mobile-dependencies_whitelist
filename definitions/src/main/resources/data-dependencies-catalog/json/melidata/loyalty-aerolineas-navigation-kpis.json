@@ -1,36 +1,41 @@
 {
-  "users": [
-    "melidata_dev@mercadolibre.com"
+  "users":
+  [
+    "loyalty_dev@mercadolibre.com",
+    "daniel.lamonica@mercadolibre.com",
+    "jonathan.cortese@mercadolibre.com"
   ],
-  "process_name": "uid_sanitized_desktop",
+  "process_name": "loyalty_aerolineas_navigation_kpis",
   "cron": "00 06 * * *",
   "partition": {
     "name": "ds",
-    "type": "DATE",
-    "format": "yyyy-MM-dd"
+    "type": "DATE"
   },
-  "extract": {
+  "extract":
+  {
     "operation": "append",
-    "columns": [
+    "site": "MeliLake",
+    "columns":
+    [
       {
-        "name": "path",
+        "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "business",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "uids_quantity",
+        "name": "prints",
         "type": "INTEGER"
       },
       {
-        "name": "uids_total",
+        "name": "clicks",
         "type": "INTEGER"
+      },
+      {
+        "name": "click_rate",
+        "type": "DOUBLE"
       }
     ],
     "sql": {
-      "script": "melidata/uid_sanitized_desktop.sql",
+      "script": "loyalty/aerolineas-navigation-metrics.sql",
       "parameters": [
         {
           "name": "param01",

@@ -265,6 +265,19 @@ trackTests {
             latest_news_type= "campaigns-remarketing"
             latest_news_id= "campaigns-remarketing-143816022-MLB1013046714"
         }
+        "/notification_center/campaigns-recharge_recovery"(platform: "/mobile"){
+            campaign_id= "campaign1"
+            newsgroup_id= "campaigns-recharge_recovery-320010629"
+            event_type= "open"
+            deeplink= "meli://cellphone-recharge/"
+            type_layout= "standard"
+            test_notification= false
+            sent_date= "20180508"
+            batch_id= "MLB_PACK_20180508_2"
+            latest_news_type= "campaigns-recharge_recovery"
+            latest_news_id= "campaigns-recharge_recovery-143816022-MLB1013046714"
+            experiment= false
+        }        
         "/notification_center/compliance_support-validations"(platform: "/mobile"){
             latest_news_type= "compliance_support-validations"
             latest_news_id= "compliance_support-validations-143816022-MLB1013046714"
@@ -538,6 +551,17 @@ trackTests {
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
             item_id = "MLB1234"
+        }
+
+        "/notification/campaigns_recharge_recovery"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "received"
+            deeplink ="meli://cellphone-recharge/"
+            campaign_id = "mkt_campaign_co"
+            test_notification = false
+            sent_date = "20180508"
+            batch_id = "MLB_PACK_20180508_2"
+            experiment = false
         }
 
         "/notification/compliance_support_validations"(platform: "/mobile") {

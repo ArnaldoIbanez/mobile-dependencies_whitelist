@@ -1,4 +1,4 @@
-SELECT user_id, user_second_id, business, platform, AVG(uids_quantity) AS average_uids_quantity, COUNT(*) AS paths_quantity, ds FROM
+SELECT platform, business, path, SUM(uids_quantity) AS total_uids_quantity, COUNT(*) AS sessions_quantity, ds FROM
 (SELECT usr.user_id, (CASE WHEN device.platform IN ('/web/mobile','/web/desktop') THEN device.user_agent
             WHEN device.platform IN ('/mobile/android', '/mobile/ios') THEN device.device_id
             END) AS user_second_id
@@ -17,5 +17,5 @@ GROUP BY substr(ds,1,10), usr.user_id, (CASE WHEN device.platform IN ('/web/mobi
             WHEN device.platform IN ('/mobile/android', '/mobile/ios') THEN device.device_id
             END)
 , path, application.business, device.platform
-) AS t2
-GROUP BY user_id, user_second_id, business, platform, ds
+) AS t1
+GROUP BY platform, business, path, ds

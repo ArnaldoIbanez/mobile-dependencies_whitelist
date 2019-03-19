@@ -23,6 +23,10 @@ class MetricsFormatter {
 			result += [order: definition.compute_order]
 		}
 
+		if ( definition.sum_by ) {
+			result += [sum_by: definition.sum_by]
+		}
+
 		//EXPERIMENT
 		if ( definition.experiments ) {
 			//result += add("experiment", "experiments", definition.experiments)
