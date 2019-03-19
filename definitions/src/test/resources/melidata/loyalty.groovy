@@ -333,6 +333,12 @@ trackTests {
 
     //  --------------------------------------------- Free-Trials ---------------------------------------------
 
+    test("Loyalty Free Trial Landing"){
+
+        "/loyalty/freetrial/landing"(platform: "/", type: TrackType.View) {
+        }
+    }
+
     test("Loyalty Free Trials Contention Screen"){
 
         "/loyalty/freetrial"(platform: "/",type: TrackType.View){
@@ -347,6 +353,10 @@ trackTests {
         "/loyalty/freetrial/contention/cancel"(platform: "/",type: TrackType.Event){
             type = "close"
         }
+
+        "/loyalty/freetrial/contention/cancel"(platform: "/",type: TrackType.Event){
+            type = "dismiss"
+        }
     }
 
     test("Loyalty Free Trials Card Selection Screen"){
@@ -354,7 +364,8 @@ trackTests {
         }
 
         "/loyalty/freetrial/cardselection/selected"(platform: "/",type: TrackType.Event){
-            selected = "cardName"
+            cardName = "mastercard"
+            cardPosition = 1
         }
 
         "/loyalty/freetrial/cardselection/continue"(platform: "/",type: TrackType.Event){
@@ -362,6 +373,18 @@ trackTests {
 
         "/loyalty/freetrial/cardselection/cancel"(platform: "/",type: TrackType.Event){
             type = "close"
+        }
+    }
+
+    test("Loyalty Free Trials Set Only CVV"){
+        "/loyalty/freetrial/cardselection/cvv"(platform: "/",type: TrackType.View){
+        }
+
+        "/loyalty/freetrial/cardselection/cvv/continue"(platform: "/",type: TrackType.Event){
+        }
+
+        "/loyalty/freetrial/cardselection/cvv/cancel"(platform: "/",type: TrackType.Event){
+            type = "dismiss"
         }
     }
 
