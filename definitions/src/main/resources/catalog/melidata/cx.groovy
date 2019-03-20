@@ -98,6 +98,8 @@ tracks {
         seller_profile
         loyalty_level
         user_profile
+        portal_source_id(required: false, type: PropertyType.Numeric,
+            description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
         portal_has_channels_configured(required: false, type: PropertyType.Boolean,
             description: "Indicates if the current content has any channels configured, not required for home page")
     }
