@@ -694,10 +694,6 @@ trackTests {
             model()
             shipping_method()
         }
-
-        "/vip/shipping_calculator/cancel"(platform: "/", type: TrackType.Event) {
-            model()
-        }
         
         "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {
         }
