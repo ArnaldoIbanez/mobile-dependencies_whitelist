@@ -685,6 +685,7 @@ trackTests {
             }
         }
 
+
         "/vip/shipping_calculator"(platform: "/", type: TrackType.View) {
             model()
         }
@@ -693,14 +694,32 @@ trackTests {
             model()
             shipping_method()
         }
+        
+        "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {
+        }
+        
+        "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
+             model()
+        }
 
-        "/vip/shipping_calculator/cancel"(platform: "/", type: TrackType.Event) {
+
+        "/vip/shipping_calculator"(platform: "/web/desktop", type: TrackType.View) {
+            model()
+        }
+
+         "/vip/shipping_calculator/select"(platform: "/web/desktop", type: TrackType.Event) {
+            model()
+            shipping_method()
+        }
+
+        "/vip/shipping_calculator/cancel"(platform: "/web/desktop", type: TrackType.Event) {
             model()
         }
         
-        "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {}
+        "/vip/shipping_calculator/modify"(platform: "/web/desktop", type: TrackType.Event) {
+        }
         
-        "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
+        "/vip/shipping_calculator/show_map"(platform: "/web/desktop", type: TrackType.Event) {
              model()
         }
         
@@ -715,12 +734,13 @@ trackTests {
             shipping_method()
         }
 
-        "/vip/shipping_calculator/cancel"(platform: "/mobile/ios", type: TrackType.Event) {
-            model()
+        "/vip/shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) {
         }
-        
-        "/vip/shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) { }
-        
+
+    
+        "/vip/shipping_calculator/cancel"(platform: "/mobile/ios", type: TrackType.Event) {
+        }
+                
         "/vip/shipping_calculator/show_map"(platform: "/mobile/ios", type: TrackType.Event) {
             model()
         }
