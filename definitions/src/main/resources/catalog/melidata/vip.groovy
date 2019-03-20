@@ -578,7 +578,7 @@ tracks {
         //Location
             //type: [address | zip_code]
             //value: String
-        shipping_methods(required: true,  type: PropertyType.ArrayList,description: "Shipping Methods")
+            shipping_methods(required: true,  type: PropertyType.ArrayList,description: "Shipping Methods")
     //Shipping Method
         //promise 
         //  from: Integer
