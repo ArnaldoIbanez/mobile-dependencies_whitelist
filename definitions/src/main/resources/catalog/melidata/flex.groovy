@@ -328,6 +328,7 @@ tracks {
         context(required: true, type: PropertyType.String,  values: ["not_delivered", "delivered"],
                 description: "Indicates whether the event was triggered in the delivered or in the event of non-delivery")
         distance(required: false, type: PropertyType.Numeric, description: "The range to the destination", inheritable:false)
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
     "/flex/package/detail/out_of_distance"(platform: "/mobile", type: TrackType.Event) {
