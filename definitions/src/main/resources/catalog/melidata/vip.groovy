@@ -369,6 +369,7 @@ tracks {
                 description: "User is unregister type")
         unregistered_contact_context(required: false, type: PropertyType.Boolean,
                 description: "User is unregister after returning from email")
+        event_source(required: false, description: "source of the event")
     }
 
 
