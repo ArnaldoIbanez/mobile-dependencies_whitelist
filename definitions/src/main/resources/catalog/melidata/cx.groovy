@@ -89,6 +89,8 @@ tracks {
         seller_profile
         loyalty_level
         portal_content_id
+        portal_has_channels_configured(required: true, type: PropertyType.Boolean,
+            description: "Indicates if the current content has any channels configured")
     }
     "/portal/folder"(platform: "/", business: "mercadolibre", type: TrackType.View) {
         portal_content_id(required: false, type: PropertyType.Numeric, description: "Indicates the id of the content shown on the page, in case its not the home page")
@@ -147,6 +149,8 @@ tracks {
         portal_contact
         portal_form_id
         portal_content_id
+        portal_has_channels_configured(required: true, type: PropertyType.Boolean,
+            description: "Indicates if the current content has any channels configured")
     }
     "/portal/folder"(platform: "/", business: "mercadopago", type: TrackType.View) {
         portal_content_id(required: false, type: PropertyType.Numeric, description: "Indicates the id of the content shown on the page, in case its not the home page")
