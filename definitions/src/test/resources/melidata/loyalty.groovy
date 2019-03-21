@@ -337,6 +337,11 @@ trackTests {
 
         "/loyalty/freetrial/landing"(platform: "/", type: TrackType.View) {
         }
+
+
+        "/loyalty/freetrial/landing"(platform: "/", type: TrackType.View) {
+            origin = "email"
+        }
     }
 
     test("Loyalty Free Trials Contention Screen"){
@@ -345,6 +350,10 @@ trackTests {
         }
 
         "/loyalty/freetrial/contention"(platform: "/",type: TrackType.View){
+        }
+
+        "/loyalty/freetrial/contention"(platform: "/",type: TrackType.View){
+            from = "primaryButton"
         }
 
         "/loyalty/freetrial/contention/continue"(platform: "/",type: TrackType.Event){

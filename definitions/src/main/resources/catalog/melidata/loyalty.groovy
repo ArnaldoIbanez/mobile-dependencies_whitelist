@@ -182,11 +182,13 @@ tracks {
 
     //  -----------------> Free Trial Landing
     "/loyalty/freetrial/landing"(platform: "/", type: TrackType.View) {
+        origin(required: false, values: ["marketplace", "loyalty_frontend", "push", "email"], description: "Where the user came from.")
     }
 
     //  -----------------> Contention Screen
 
     "/loyalty/freetrial/contention"(platform: "/", type: TrackType.View) {
+        from(required: false, values: ["primaryButton", "secondaryButton"])
     }
 
     "/loyalty/freetrial/contention/continue"(platform: "/", type: TrackType.Event) {
