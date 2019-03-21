@@ -185,6 +185,7 @@ trackTests {
             ]
             portal_content_id = 96
             user_profile = ""
+            portal_has_channels_configured = true
         }
         "/portal/form"(platform: "/", type: TrackType.View) {
             portal_contact = [
