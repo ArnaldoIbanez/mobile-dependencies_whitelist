@@ -178,7 +178,6 @@ trackTests {
 
         }
 
-
         "/identity-validation/image_error"(platform: "/mobile/ios") {
             source = "TAKE_PHOTO"
         }
@@ -231,6 +230,23 @@ trackTests {
         "/identity-validation/skip_flow"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             flow = "ms_hard_validation"
             step = "documentation"
+        }
+
+        "/identity-validation/pick_photo"(platform: "/mobile/android", business:"mercadopago") {
+            _label = "documentation_landing"
+        }
+
+        "/identity-validation/take_photo"(platform: "/mobile/android", business:"mercadopago") {
+            _label = "documentation_landing"
+        }
+
+        "/identity-validation/landing/back"(platform: "/", business:"mercadopago") {
+
+        }
+
+        "/identity-validation/final_reached"(platform: "/",  business:"mercadopago") {
+            result = "valid"
+            flow = "ms_hard_validation"
         }
     }
 
