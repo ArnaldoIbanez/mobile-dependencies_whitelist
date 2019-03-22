@@ -3,7 +3,7 @@
      "agustin.romano@mercadolibre.com",
      "cpg_it@mercadolibre.com"
   ],
-  "process_name": "attribution_cpg",
+  "process_name": "attribution_cpg_2",
   "cron": "00 06 * * *",
   "partition": {
         "name": "track_date",
@@ -44,7 +44,7 @@
       }
     ],
     "sql": {
-      "script": "cpg/attribution_cpg.sql",
+      "script": "cpg/attribution_cpg_2.sql",
       "parameters": [
         {
           "name": "param01",
