@@ -222,6 +222,9 @@ metrics {
 		countsOn {
 			condition {
 				path("/credits/merchant/enrollment/congrats")
+				or (
+					path("/credits/merchant/enrollment/documentation/congrats")
+				)
 			}
 		}
 	}
@@ -233,6 +236,9 @@ metrics {
 		countsOn {
 			condition {
 				path("/credits/merchant/enrollment/congrats")
+				or (
+					path("/credits/merchant/enrollment/documentation/congrats")
+				)
 			}
 		}
 	}
