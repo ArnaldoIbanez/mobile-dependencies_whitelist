@@ -38,6 +38,11 @@ trackTests {
             flow = "ms_hard_validation"
         }
 
+        "/identity-validation/final_reached"(platform: "/") {
+            result = "valid"
+            flow = "ms_hard_validation"
+        }
+
         "/identity-validation/validation_landing"(platform: "/web/desktop") {
             flow = "ms_hard_validation"
         }
@@ -140,22 +145,39 @@ trackTests {
         "/identity-validation/upload_compress"(platform: "/mobile/ios") {
             upload_time = 10
             compression_time = 10
+            _label = "documentation_landing"
         }
 
         "/identity-validation/upload_compress"(platform: "/mobile/android") {
             upload_time = 10
             compression_time = 10
+            _label = "documentation_landing"
         }
 
         "/identity-validation/upload_compress"(platform: "/web/mobile") {
             upload_time = 10
             compression_time = 10
+            _label = "documentation_landing"
         }
 
         "/identity-validation/upload_compress"(platform: "/web/desktop") {
             upload_time = 10
             compression_time = 10
+            _label = "documentation_landing"
         }
+
+        "/identity-validation/take_photo"(platform: "/mobile/android") {
+            _label = "documentation_landing"
+        }
+
+        "/identity-validation/pick_photo"(platform: "/mobile/android") {
+            _label = "documentation_landing"
+        }
+
+        "/identity-validation/landing/back"(platform: "/") {
+
+        }
+
 
         "/identity-validation/image_error"(platform: "/mobile/ios") {
             source = "TAKE_PHOTO"
@@ -176,7 +198,15 @@ trackTests {
         "/identity-validation/phone_code"(platform: "/mobile") {}
         "/identity-validation/phone"(platform: "/mobile") {}
         "/identity-validation/upload_doc"(platform: "/mobile") {}
+        "/identity-validation/upload_doc"(platform: "/mobile") {
+            from = "web_view"
+            flow = "prepaid"
+        }
         "/identity-validation/landing"(platform: "/mobile") {}
+        "/identity-validation/landing"(platform: "/mobile") {
+            from = "deeplink"
+            flow = "prepaid"
+        }
         "/identity-validation/congrats"(platform: "/mobile") {}
         "/identity-validation/landing_doc"(platform: "/mobile") {}
         "/identity-validation/doc_number"(platform: "/mobile") {}

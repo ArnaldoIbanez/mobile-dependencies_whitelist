@@ -9,6 +9,8 @@ tracks {
 
     "/identity-validation"(platform: "/", isAbstract: true) {}
 
+    "/identity-validation/landing"(platform: "/", isAbstract: true) {}
+
     "/identity-validation/validation_landing"(platform: "/", type: TrackType.Event) {
         flow(type: PropertyType.String, required: true, description: "The flow to call identity validation. Ej. ms_hard_validation")
     }
@@ -27,14 +29,15 @@ tracks {
         result(type: PropertyType.String, required: true, description: "The result of validation. Ej. valid, invalid")
     }
 
-    "/identity-validation/upload_compress"(platform: "/", type: TrackType.Event) {
-        upload_time(type: PropertyType.Numeric, required: true, description: "The time in second to upload image")
-        compression_time(type: PropertyType.Numeric, required: true, description: "The time in second to compress a image.")
+    "/identity-validation/final_reached"(platform: "/", type: TrackType.Event) {
+        flow(type: PropertyType.String, required: true, description: "The flow to call identity validation. Ej. ms_hard_validation")
+        result(type: PropertyType.String, required: true, description: "The result of validation. Ej. valid, invalid")
     }
 
     "/identity-validation/upload_compress"(platform: "/", type: TrackType.Event) {
         upload_time(type: PropertyType.Numeric, required: true, description: "The time in second to upload image")
         compression_time(type: PropertyType.Numeric, required: true, description: "The time in second to compress a image.")
+        _label(type: PropertyType.String, required: true, description: "The activity name")
     }
 
     "/identity-validation/image_error"(platform: "/", type: TrackType.Event) {
@@ -46,12 +49,28 @@ tracks {
         step(type: PropertyType.String, required: true, description: "The challenge the user skipped. Ej. documentation")
     }
 
+    "/identity-validation/take_photo"(platform: "/mobile/android", type: TrackType.Event) {
+        _label(type: PropertyType.String, required: true, description: "The activity name")
+    }
+
+    "/identity-validation/pick_photo"(platform: "/mobile/android", type: TrackType.Event) {
+        _label(type: PropertyType.String, required: true, description: "The activity name")
+    }
+
+    "/identity-validation/landing/back"(platform: "/", type: TrackType.Event) {
+    }
+
     "/identity-validation/phone_code"(platform: "/", type: TrackType.View) {}
     "/identity-validation/phone"(platform: "/", type: TrackType.View) {}
-    "/identity-validation/upload_doc"(platform: "/", type: TrackType.View) {}
-    "/identity-validation/landing"(platform: "/", type: TrackType.View) {}
+    "/identity-validation/upload_doc"(platform: "/", type: TrackType.View) {
+        from(type: PropertyType.String, required: false, description: "Describes from where the user entered the flow")
+        flow(type: PropertyType.String, required: false, description: "The flow the user skipped. Ej. ms_hard_validation")
+    }
+    "/identity-validation/landing"(platform: "/", type: TrackType.View) {
+        from(type: PropertyType.String, required: false, description: "Describes from where the user entered the flow")
+        flow(type: PropertyType.String, required: false, description: "The flow the user skipped. Ej. ms_hard_validation")
+    }
     "/identity-validation/congrats"(platform: "/", type: TrackType.View) {}
     "/identity-validation/landing_doc"(platform: "/", type: TrackType.View) {}
     "/identity-validation/doc_number"(platform: "/", type: TrackType.View) {}
-
 }
