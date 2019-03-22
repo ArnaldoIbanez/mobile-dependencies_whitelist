@@ -31,7 +31,7 @@
 - [ ] Same actions have same paths. Remember that core actions like [bookmarking](https://github.com/mercadolibre/melidata-catalog/blob/master/definitions/src/main/resources/catalog/bookmarks.groovy), [questions](https://github.com/mercadolibre/melidata-catalog/blob/master/definitions/src/main/resources/catalog/questions.groovy) or [adding items to cart](https://github.com/mercadolibre/melidata-catalog/blob/master/definitions/src/main/resources/catalog/add_to_cart.groovy) are already standarized events at Melidata. 
 
 ## Disclaimer
-Mentioning SLA reasons when discussing a pull request, may cost you one week penalization.
+Passing SLA validation is not a justification for building bad-tracking. Remember SLA is just and indicator of ungovernanble/unpredictable tracking. The final aim is having good quality tracking.
 
 
 ## For more info...  
