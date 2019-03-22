@@ -20,6 +20,7 @@
 ## Self-validation  
 [//]: # (Does your track check the following?)  
 
+- [ ] I made my changes, not to improve my SLA but to improve my tracking 
 - [ ] I know (or at least believe) no one is tracking this  
 - [ ] I limit the specific _values_ a field can have
 - [ ] I prefered the usage of _required:true_ (default) fields
@@ -28,6 +29,9 @@
 - [ ] I am tracking events only because I cannot track views  
 - [ ] On each track I specify only the relevant platforms   
 - [ ] Same actions have same paths. Remember that core actions like [bookmarking](https://github.com/mercadolibre/melidata-catalog/blob/master/definitions/src/main/resources/catalog/bookmarks.groovy), [questions](https://github.com/mercadolibre/melidata-catalog/blob/master/definitions/src/main/resources/catalog/questions.groovy) or [adding items to cart](https://github.com/mercadolibre/melidata-catalog/blob/master/definitions/src/main/resources/catalog/add_to_cart.groovy) are already standarized events at Melidata. 
+
+## Disclaimer
+Mentioning SLA reasons when discussing a pull request, may cost you one week penalization.
 
 
 ## For more info...  
