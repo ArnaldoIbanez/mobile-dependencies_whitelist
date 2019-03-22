@@ -58,6 +58,7 @@ trackTests {
             loyalty_level = 5
             portal_content_id = 96
             user_profile = ""
+            portal_has_channels_configured = true
         }
         "/portal/form"(platform: "/", type: TrackType.View) {
             portal_contact = [
@@ -70,6 +71,7 @@ trackTests {
             seller_profile = "ADVANCED"
             loyalty_level = 5
             portal_content_id = 96
+            portal_has_channels_configured = true
         }
         "/portal/folder"(platform: "/", type: TrackType.View) {
             portal_contact = [
@@ -183,6 +185,7 @@ trackTests {
             ]
             portal_content_id = 96
             user_profile = ""
+            portal_has_channels_configured = true
         }
         "/portal/form"(platform: "/", type: TrackType.View) {
             portal_contact = [
@@ -191,6 +194,7 @@ trackTests {
             ]
             portal_form_id = 96
             portal_content_id = 96
+            portal_has_channels_configured = true
         }
         "/portal/folder"(platform: "/", type: TrackType.View) {
             portal_contact = [
