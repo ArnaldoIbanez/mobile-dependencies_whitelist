@@ -37,7 +37,7 @@ tracks {
     "/identity-validation/upload_compress"(platform: "/", type: TrackType.Event) {
         upload_time(type: PropertyType.Numeric, required: true, description: "The time in second to upload image")
         compression_time(type: PropertyType.Numeric, required: true, description: "The time in second to compress a image.")
-        _label(type: PropertyType.String, required: true, description: "The activity name")
+        _label(type: PropertyType.String, required: false, description: "The activity name")
     }
 
     "/identity-validation/image_error"(platform: "/", type: TrackType.Event) {
