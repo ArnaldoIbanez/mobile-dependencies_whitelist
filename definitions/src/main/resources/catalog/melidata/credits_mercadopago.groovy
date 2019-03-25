@@ -203,23 +203,23 @@ tracks {
     "/credits/merchant/money_advance/congrats"(platform: "/", type: TrackType.View) {
         status(type: PropertyType.String, required: false, values: ['on_time', 'delayed'])
         user_status(type: PropertyType.String, required: false, values: ['correct', 'in_default'])
-        view_context(type: PropertyType.String, required: false, values: 'credits')
+        view_context(type: PropertyType.String, required: false, values: ['credits'])
     }
 
     //Hub money advance
     "/credits/merchant/money_advance/hub"(platform: "/", type: TrackType.View) {
         user_status(type: PropertyType.String, required: false, values: ['correct', 'in_default'])
-        view_context(type: PropertyType.String, required: false, values: 'credits')
+        view_context(type: PropertyType.String, required: false, values: ['credits'])
     }
 
     //Summary money advance
     "/credits/merchant/money_advance/summary"(platform: "/", type: TrackType.View) {
-        view_context(type: PropertyType.String, required: false, values: 'credits')
+        view_context(type: PropertyType.String, required: false, values: ['credits'])
     }
 
     //No options money advance
     "/credits/merchant/money_advance/no_options"(platform: "/", type: TrackType.View) {
-        view_context(type: PropertyType.String, required: false, values: 'credits')
+        view_context(type: PropertyType.String, required: false, values: ['credits'])
     }
 
     // Error money advance
