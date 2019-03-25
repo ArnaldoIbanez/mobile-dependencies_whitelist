@@ -369,6 +369,9 @@ tracks {
                 description: "User is unregister type")
         unregistered_contact_context(required: false, type: PropertyType.Boolean,
                 description: "User is unregister after returning from email")
+        event_source(required: false, type: PropertyType.String,
+                values: ["vip", "technicalSpecs", "description"],
+                description: "source of the event")
     }
 
 
@@ -578,7 +581,7 @@ tracks {
         //Location
             //type: [address | zip_code]
             //value: String
-        shipping_methods(required: true,  type: PropertyType.ArrayList,description: "Shipping Methods")
+            shipping_methods(required: true,  type: PropertyType.ArrayList,description: "Shipping Methods")
     //Shipping Method
         //promise 
         //  from: Integer
@@ -594,7 +597,9 @@ tracks {
         selected_method(required: true, description: "Shipping Methods")
     }
 
-    "/vip/shipping_calculator/cancel"(platform: "/", type: TrackType.Event){
+    "/vip/shipping_calculator/cancel"(platform: "/web", type: TrackType.Event){
+    }
+     "/vip/shipping_calculator/cancel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
     }
 
      "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event){

@@ -489,6 +489,7 @@ trackTests {
             defaultPacksInfo()
             context = "delivered"
             distance = 1234
+            delivery_id = 123456
         }
 
         //Snackbar error event success

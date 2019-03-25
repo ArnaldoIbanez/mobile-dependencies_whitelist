@@ -779,6 +779,15 @@ tracks {
 
     "/checkout/finish/invalid_sec_code/input#submit"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/checkout/features"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {}
+
+    "/checkout/features/bridge"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        is_experiment_on(required: false, type: PropertyType.Boolean, description: "Check if the bridge is on or not")
+        can_navigate_to(required: false, type: PropertyType.Boolean, description: "Check if the navigation is to a internal flow screen")
+        screen(required: false, type: PropertyType.String, "Destination screen name")
+    }
+
     "/checkout/finish"(platform: "/mobile", isAbstract: true) {
         /** **************************************/
         // order id, payments and items are required
