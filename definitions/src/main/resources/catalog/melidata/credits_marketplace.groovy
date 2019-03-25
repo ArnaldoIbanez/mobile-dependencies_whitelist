@@ -45,6 +45,7 @@ tracks {
     //Events
     "/credits/consumer/public_landing/click_hero"(platform: "/", type: TrackType.Event) {
         user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
+        variant(type: PropertyType.String, required: false)
     }
     "/credits/consumer/public_landing/credit_line_request"(platform: "/", type: TrackType.Event) {
         user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
