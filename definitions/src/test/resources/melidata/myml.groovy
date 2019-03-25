@@ -136,6 +136,7 @@ trackTests {
     }
 
     test("Optin flow") {
+        "/myml/invoices/not-found"(platform: "/") {}
         "/myml/invoices/landing"(platform: "/") {}
         "/myml/invoices/landing/optin"(platform: "/", type: TrackType.Event) {
             type = "top"
@@ -150,7 +151,12 @@ trackTests {
             message = "Password incorrect!"
         }
         "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
-        "/myml/invoices/company-info/certificate/a3/handshake/request"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/certificate/a3/handshake/request"(platform: "/", type: TrackType.Event) {
+            cnpj = "212121210000155"
+            certificateId = 1412444
+            callback = "https://www.mercadolivre.com.br"
+            editing = true
+        }
         "/myml/invoices/company-info/certificate/a3/handshake/response"(platform: "/", type: TrackType.Event) {
             data = {
                 id = 12
@@ -164,10 +170,13 @@ trackTests {
         "/myml/invoices/company-info/serie/save/request"(platform: "/", type: TrackType.Event) {
             serie = 3
             url = "/invoices/company-info/confirm"
+            callback = "https://www.mercadolivre.com.br"
+            editing = true
         }
         "/myml/invoices/company-info/serie/save/response"(platform: "/", type: TrackType.Event) {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
             errorValidation = "O número de série não pode ser vazio"
+            url = "/invoices/company-info/confirm"
         }
         "/myml/invoices/company-info/cst"(platform: "/") {}
         "/myml/invoices/company-info/cst/help_tooltip"(platform: "/", type: TrackType.Event) {}
@@ -178,6 +187,8 @@ trackTests {
                 COFINS = "07"
             }
             url = "/invoices/company-info/confirm"
+            editing = true
+            callback = "https://www.mercadolivre.com.br"
         }
         "/myml/invoices/company-info/cst/save/response"(platform: "/", type: TrackType.Event) {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
@@ -192,9 +203,7 @@ trackTests {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/company-info/ie"(platform: "/") {}
-        "/myml/invoices/company-info/ie/save/request"(platform: "/", type: TrackType.Event) {
-             data = "492875457119"
-        }
+        "/myml/invoices/company-info/ie/save/request"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/ie/save/response"(platform: "/", type: TrackType.Event) {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
@@ -208,7 +217,22 @@ trackTests {
         "/myml/invoices/company-info/confirm/save/response"(platform: "/", type: TrackType.Event) {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
+        "/myml/invoices/company-info/confirm/help_tooltip/serie"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/confirm/help_tooltip/freight"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/confirm-normal"(platform: "/") {}
+        "/myml/invoices/company-info/confirm-normal/save/request"(platform: "/", type: TrackType.Event) {
+            serie = 5
+            include_freight = true
+            url = "/sales/list"
+            callback = "https://www.mercadolivre.com.br"
+
+        }
+        "/myml/invoices/company-info/confirm-normal/save/response"(platform: "/", type: TrackType.Event) {
+            error = "Não conseguimos processar a sua solicitação. Tente Novamente"
+        }
+        "/myml/invoices/company-info/confirm-normal/help_tooltip"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/confirm-normal/help_tooltip/freight"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/confirm-normal/help_tooltip/serie"(platform: "/", type: TrackType.Event) {}
 
         "/myml/invoices/company-info/include-freight"(platform: "/") {}
         "/myml/invoices/company-info/include-freight/help_tooltip"(platform: "/", type: TrackType.Event) {}
@@ -216,13 +240,14 @@ trackTests {
             code = "true"
             url = "/invoices/company-info/confirm"
             callback = ""
-
+            editing = true
         }
         "/myml/invoices/company-info/include-freight/save/response"(platform: "/", type: TrackType.Event) {
             success = true
             message = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/company-info/success"(platform: "/") {}
+        "/myml/invoices/company-info/tax-rules-information"(platform: "/") {}
     }
 
     test("Order pages") {
@@ -506,6 +531,10 @@ trackTests {
 
         "/myml/sales/questions"(platform: "/web") {}
 
+        "/myml/sales/questions/response"(platform: "/") {
+            unregistered_contact = false
+        }
+
         "/myml/sales/shipping" (platform:"/", type: TrackType.View) {
             dataSet()
         }
@@ -572,7 +601,6 @@ trackTests {
             dataSet()
         }
 
-        "/myml/loyal_discounts" (platform: "/", type: TrackType.View) {}
         "/myml/loyal_discounts/add" (platform: "/web", type: TrackType.Event) {
             item = {
                 id = 'MLA713079054'
@@ -679,6 +707,49 @@ trackTests {
             placement = "publicidad-banner"
             adv_segmentation = "winback"
             reputation_level="yellow"
+        }
+
+        "/myml/summary/show"(platform: "/web"){
+            placement = "publicidad-banner"
+        }
+        "/myml/summary/hide"(platform: "/web"){
+            placement = "publicidad-banner"
+        }
+        "/myml/summary/go"(platform: "/web"){
+            placement = "publicidad-banner"
+        }
+
+         "/myml/summary/show"(platform: "/web"){
+            placement = "publicidad-banner"
+            reputation_level="yellow"
+        }
+        "/myml/summary/hide"(platform: "/web"){
+            placement = "publicidad-banner"
+            reputation_level="yellow"
+        }
+        "/myml/summary/go"(platform: "/web"){
+            placement = "publicidad-banner"
+            reputation_level="yellow"
+        }
+
+        "/myml/summary/show"(platform: "/web"){
+            placement = "publicidad-banner"
+            adv_segmentation = "winback"
+        }
+        "/myml/summary/hide"(platform: "/web"){
+            placement = "publicidad-banner"
+            adv_segmentation = "winback"
+        }
+        "/myml/summary/go"(platform: "/web"){
+            placement = "publicidad-banner"
+            adv_segmentation = "winback"
+        }
+
+        "/myml/summary/show"(platform: "/web"){
+        }
+        "/myml/summary/hide"(platform: "/web"){
+        }
+        "/myml/summary/go"(platform: "/web"){
         }
     }
 
@@ -815,6 +886,25 @@ trackTests {
     test("Myml invoices preferences"){
         "/myml/sales/list/set_user_fiscal_order_action"(platform: "/web", type: TrackType.Event) {
             option = "add_fiscal_data"
+        }
+    }
+
+    test("Myml loyal discount"){
+        "/myml/loyal_discounts"(platform:"/web", type: TrackType.View) {
+            item = {
+                id = "MLM664051031"
+                title= "Item De Testeo, Por Favor No Ofertar --kc:off"
+                price= 100
+                currency_id= "MXN"
+                category_id= "MLM3530"
+                available_quantity= 97
+                thumbnail= "http=//www.mercadolibre.com/jm/img?s=STC&v=I&f=proccesing_image_es.jpg"
+                seller_id= "383653285"
+                site_id= "MLM"
+                original_price = ""
+                sale_terms= []
+                deal_ids= [ ]
+            }
         }
     }
 }

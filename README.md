@@ -13,6 +13,10 @@ Please check [tracks definitions guidelines](https://github.com/mercadolibre/mel
 
 And always remember to define how your tracking "should be" not "as it is". We want this catalog to represent "the tracking we want" and not "the one we have". The catalog helps us to keep governance on our data and making it more predictable and easy to exploit
 
+## Catalog under the hood
+
+If you want to understand how the catalog works please check [catalog's tree structure](https://docs.google.com/document/d/1hDP_2iB3lNnKcsbsuQAdvCEentABMEF6sbbV-C6MUTM/edit?usp=sharing)
+
 ## Metrics Definitions
 
 [Documentation](https://github.com/mercadolibre/melidata-catalog/wiki#metrics-definitions)
@@ -24,5 +28,7 @@ And always remember to define how your tracking "should be" not "as it is". We w
 ## Testing the catalog
 
 If you want to run the tests, you should execute **```make test```**
+
 If you want to run the tests for a specific catalog, you should execute **```make test CATALOG=${catalogName}```** with the catalogName capitalized
+
 If you want to run all available tests **```make test CATALOG=${All}```**

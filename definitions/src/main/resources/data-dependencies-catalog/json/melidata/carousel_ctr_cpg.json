@@ -1,44 +1,45 @@
 {
   "users": [
-    "alejandro.torres@mercadolibre.com"
+    "agustin.romano@mercadolibre.com",
+    "juan.larrambebere@mercadolibre.com",
+     "cpg_it@mercadolibre.com"
   ],
-  "process_name": "mediations-stale_flow",
-  "cron": "00 07 * * *",
-  "extract": {
-    "operation": "append",
-    "columns": [
-      {
-        "name": "ds",
+  "process_name": "carousel_ctr_cpg",
+  "cron": "00 09 * * *",
+  "partition": {
+        "name": "track_date",
         "type": "DATE",
         "format": "yyyy-MM-dd"
-      },
+  },
+  "extract": {
+    "operation": "append",
+    "site": "Sales",
+    "columns": [
       {
-        "name": "site",
+        "name": "query",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "total",
-        "type": "INTEGER"
       },
       {
         "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "business",
+        "name": "place",
         "type": "UNICODE_STRING"
       },
+      
       {
-        "name": "reason",
-        "type": "UNICODE_STRING"
+        "name": "prints",
+        "type": "INTEGER"
       },
       {
-        "name": "expected_resolution",
-        "type": "UNICODE_STRING"
+        "name": "clicks",
+        "type": "INTEGER"
       }
+      
     ],
     "sql": {
-      "script": "mediations/stale-flow.sql",
+      "script": "cpg/carousel_ctr_cpg.sql",
       "parameters": [
         {
           "name": "param01",

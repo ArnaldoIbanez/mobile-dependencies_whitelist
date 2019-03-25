@@ -17,6 +17,9 @@ tracks {
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
     "/credits/pursue"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/myml"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/myml/summary"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/my_account"(platform: "/", isAbstract: true) {}
 
     "/vip"(platform: "/", isAbstract: true) {}
     "/vip/credits"(platform: "/", isAbstract: true) {}
@@ -34,11 +37,15 @@ tracks {
     "/credits/consumer/public_landing/application_result"(platform: "/", type: TrackType.View) {
         result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
     }
+    "/credits/consumer/public_landing/application_result/click_credits"(platform: "/", type: TrackType.Event) {
+        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
+    }
     "/credits/consumer/public_landing/application_start"(platform: "/", type: TrackType.View) {}
 
     //Events
     "/credits/consumer/public_landing/click_hero"(platform: "/", type: TrackType.Event) {
         user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
+        variant(type: PropertyType.String, required: false)
     }
     "/credits/consumer/public_landing/credit_line_request"(platform: "/", type: TrackType.Event) {
         user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
@@ -47,6 +54,9 @@ tracks {
         user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
     }
     "/credits/consumer/public_landing/application_result/click_home"(platform: "/", type: TrackType.Event) {
+        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
+    }
+    "/credits/consumer/public_landing/application_result/more_info"(platform: "/", type: TrackType.Event) {
         result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
     }
     "/credits/consumer/public_landing/click_application_start"(platform: "/", type: TrackType.Event) {}
@@ -63,6 +73,9 @@ tracks {
     "/credits/consumer/administrator"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/administrator/dashboard"(platform: "/", type: TrackType.View) {
         dashboard_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
+    }
+    "/credits/consumer/administrator/summary"(platform: "/", type: TrackType.View) {
+        dashboard_status(description: "Current status of the loan summary", type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
     }
 
     //Events
@@ -96,6 +109,14 @@ tracks {
     "/credits/consumer/administrator/help"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/educational_landing"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/see_product"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/summary/payment_intention"(platform: "/", type: TrackType.Event) {
+    }
+    "/credits/consumer/administrator/summary/cx_contact"(platform: "/", type: TrackType.Event) {
+    }
+    "/credits/consumer/administrator/summary/go_shopping"(platform: "/", type: TrackType.Event) {
+    }
+    "/credits/consumer/administrator/summary/get_help"(platform: "/", type: TrackType.Event) {
+    }
 
     //Admin History (Compras Finalizadas)
 
@@ -265,36 +286,48 @@ tracks {
         status(required: true, type: PropertyType.String, values: ["no_charge_period", "fixed_charge_period_1", "fixed_charge_period_2", "daily_charge_period"],
                 description: "Indicates user status")
         milestone(type: PropertyType.Numeric, required: true)
-        context(required: true, values: ["search", "vip", "home"],
+        context(required: false, values: ["search", "vip", "home"],
                 description: "The page or section where the nav action is taking place")
     }
 
     propertyGroups {
         pursue_nav_properties(status, milestone, context)
+        pursue_modal_properties(milestone, context)
     }
 
     //Page Views
-
-    "/vip/credits/pursue/overdue_modal"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+    "/credits/consumer/overdue_modal"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+        pursue_modal_properties
         status(type: PropertyType.String, required: true,
-                values: ["payment_intention_pre_restriction", "payment_intention_post_restriction"])
-        milestone(type: PropertyType.Numeric, required: true)
+                description: "Summary status for pre and post marketplace restriction who consumers with debt",
+                values: ["pre_restriction", "post_restriction"])
     }
 
     //Event Views
-    "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+    "/credits/consumer/overdue_modal/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+        pursue_modal_properties
         status(type: PropertyType.String, required: true,
-                values: ["payment_intention_pre_restriction", "payment_intention_post_restriction"])
-        milestone(type: PropertyType.Numeric, required: true)
+                description: "Summary status for pre and post marketplace restriction who consumers with debt",
+                values: ["pre_restriction", "post_restriction"])
     }
 
-    "/credits/consumer/overdue_nav"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+    "/credits/consumer/overdue_nav"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
         pursue_nav_properties
     }
 
     "/credits/consumer/overdue_nav/payment_intention"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
         pursue_nav_properties
     }
+
+    "/credits/consumer/myml/summary/payment_intention"(platform: "/", type: TrackType.Event) {
+        loan_status(required: true, type: PropertyType.String, description: "Indicates loan status")
+        place(
+                type: PropertyType.String,
+                required: true,
+                values: ["left_section_message", "right_section_message"])
+    }
+
+    "/credits/consumer/my_account/left_nav"(platform: "/mobile", type: TrackType.Event) {}
     /******************************************
      *       End: Consumers Persue Campaign
      ******************************************/
@@ -358,5 +391,88 @@ tracks {
 
     /******************************************
      *   End: Consumers Unified Payment Hack
+     ******************************************/
+
+    /******************************************
+     *   Start: Consumers Checkout
+     ******************************************/
+
+    "/credits/consumer/administrator/checkout"(platform: "/web/desktop", type: TrackType.View) {}
+
+    /******************************************
+     *   End: Consumers Checkout
+     ******************************************/
+
+    /******************************************
+    *    Start: Consumers Contacts
+     ******************************************/
+
+    //Page Views
+    "/credits/consumer/contacts"(platform: "/", type: TrackType.View) {
+        credits_type(description: "Type of credit user", type: PropertyType.String, required: true, values: ["consumer", "merchant"])
+        site_id(description: "Site of the user", type: PropertyType.String, required: true)
+        medium(description: "Medium of the contact", type: PropertyType.String, required: true)
+        campaign(description: "Source of the contact", type: PropertyType.String, required: true)
+        status_from_medium(description: "Initial state from the medium", type: PropertyType.String, required: false)
+        action_label(description: "Label of the action", type: PropertyType.String, required: true)
+        loan_status(description: "Current loan status", type: PropertyType.String, required: true)
+        next_installment_status(description: "Current installment to pay status", type: PropertyType.String, required: true)
+        output_label(description: "Redirection result", type: PropertyType.String, required: true)
+    }
+
+    /******************************************
+     *   End: Consumers Contacts
+     ******************************************/
+
+    /******************************************
+     *    Start: Consumers Enhance Adoption
+     ******************************************/
+
+     propertyDefinitions {
+         credits_user_mark(
+             type: PropertyType.String,
+             description: "Credits user mark related to consumer adoption",
+             required: true,
+             values: ["open_market", "priority_1", "priority_2"]
+         )
+     }
+
+     propertyGroups {
+         adoption_modal_properties(credits_user_mark, context)
+     }
+
+     "/credits/consumer/adoption_modal"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+         adoption_modal_properties
+     }
+
+     "/credits/consumer/adoption_modal/understood"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+         adoption_modal_properties
+     }
+
+     "/credits/consumer/adoption_modal/close"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+         adoption_modal_properties
+     }
+
+     "/credits/consumer/adoption_modal/go_back"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+         adoption_modal_properties
+     }
+
+    /******************************************
+     *    End: Consumers Enhance Adoption
+     ******************************************/
+
+    /******************************************
+     *    Start: Consumers Experiments
+     ******************************************/
+
+    "/credits/consumer/notification"(platform: "/") {}
+
+    "/credits/consumer/notification/new_channels_stimulous"(platform: "/", type: TrackType.Event) {
+        milestone(description: "Milestone of the user", type: PropertyType.Numeric, required: true)
+        notification_type(description: "Notification type for the user", type: PropertyType.String, required: true, values: ["email", "web", "mobile", "push", "wapp", "sms"])
+    }
+
+    /******************************************
+     *   End: Consumers Experiments
      ******************************************/
 }

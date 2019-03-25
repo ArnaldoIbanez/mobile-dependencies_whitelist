@@ -68,6 +68,10 @@ tracks {
 
     "/myml/sales/questions"(platform: "/") {}
 
+    "/myml/sales/questions/response"(platform: "/") {
+        unregistered_contact(required: true, type: PropertyType.Boolean, "User is unregister type")
+    }
+
     "/myml/sales/buyer"(platform:"/", type: TrackType.View) {}
 
     "/myml/sales/item"(platform:"/", type: TrackType.View) {}
@@ -174,21 +178,21 @@ tracks {
     "/myml/summary"(platform: "/web", type: TrackType.View) {}
 
     "/myml/summary/show"(platform: "/web", type: TrackType.View) {
-        placement(required: true, description: "Place where track was dispatched")
-        adv_segmentation(required: true, description: "Adevrtasement segmentation ")
-        reputation_level(required: true, description: "Reputation for Pads")
+        placement(required: false, description: "Place where track was dispatched")
+        adv_segmentation(required: false, description: "Adevrtasement segmentation ")
+        reputation_level(required: false, description: "Reputation for Pads")
     }
 
     "/myml/summary/hide"(platform: "/web", type: TrackType.Event) {
-        placement(required: true, description: "Place where track was dispatched")
-        adv_segmentation(required: true, description: "Adevrtasement segmentation ")
-        reputation_level(required: true, description: "Reputation for Pads")
+        placement(required: false, description: "Place where track was dispatched")
+        adv_segmentation(required: false, description: "Adevrtasement segmentation ")
+        reputation_level(required: false, description: "Reputation for Pads")
     }
 
     "/myml/summary/go"(platform: "/web", type: TrackType.Event) {
-        placement(required: true, description: "Place where track was dispatched")
-        adv_segmentation(required: true, description: "Adevrtasement segmentation ")
-        reputation_level(required: true, description: "Reputation for Pads")
+        placement(required: false, description: "Place where track was dispatched")
+        adv_segmentation(required: false, description: "Adevrtasement segmentation ")
+        reputation_level(required: false, description: "Reputation for Pads")
     }
 
     // Myml - Suggested Discounts
@@ -347,13 +351,15 @@ tracks {
     "/myml/fiscal_data_edit"(platform: "/mobile", type:TrackType.View){}
 
     // Loyalty discounts. May need to add parentPropertiesInherited: false property
-    "/myml/loyal_discounts" (platform: "/", type: TrackType.View) {}
+    "/myml/loyal_discounts" (platform: "/", type: TrackType.View) {
+        item(required: true, description: "Item to apply discounts")
+    }
     "/myml/loyal_discounts/add" (platform: "/web", type: TrackType.Event) {
         item (required: true)
         percentage (required: true)
         type (required: true, values: ["LOW_LOYAL", "HIGH_LOYAL"])
     }
-    "/myml/loyal_discounts/delete" (platform: "/", type: TrackType.Event) {
+    "/myml/loyal_discounts/delete" (platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
         item_id (required: true)
         type (required: true, values: ["LOW_LOYAL", "HIGH_LOYAL"])
     }
@@ -513,6 +519,9 @@ tracks {
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
     }
 
+    //not found
+    "/myml/invoices/not-found"(platform: "/") {}
+
     //landing
     "/myml/invoices/landing"(platform: "/") {}
     "/myml/invoices/landing/optin"(platform: "/", type: TrackType.Event) {
@@ -528,14 +537,19 @@ tracks {
     "/myml/invoices/company-info/certificate/a1/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
-        error(required: true, description: "Error type when user uploads an A1 digital certificate")
-        message(required: true, description: "Description of error when user uploads an A1 digital certificate")
+        error(required: false, description: "Error type when user uploads an A1 digital certificate")
+        message(required: false, description: "Description of error when user uploads an A1 digital certificate")
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
     }
 
     "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
     "/myml/invoices/company-info/certificate/a3/handshake"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/company-info/certificate/a3/handshake/request"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/certificate/a3/handshake/request"(platform: "/", type: TrackType.Event) {
+        cnpj(required: true, type: PropertyType.String, description: "Company doc number")
+        certificateId(required: true, type: PropertyType.Numeric, description: "Certificate ID")
+        callback(required: true, type:  PropertyType.String, description: "Url to redirect after response")
+        editing(required: true, type: PropertyType.Boolean, description: "Parameter to allow user to modify information on the page")
+    }
     "/myml/invoices/company-info/certificate/a3/handshake/response"(platform: "/", type: TrackType.Event) {
         data(required: true, description: "A3 certificate Handshake event infos")
     }
@@ -546,8 +560,13 @@ tracks {
     "/myml/invoices/company-info/serie/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/serie/save/request"(platform: "/", type: TrackType.Event) {
         serie(required: true, description: "Serie number input and url to redirect")
+        callback(required: true, type:  PropertyType.String, description: "Url to redirect after response")
+        editing(required: true, type: PropertyType.Boolean, description: "Parameter to allow user to modify information on the page")
+        url(required: true, type:  PropertyType.String, description: "Url to redirect after response")
     }
-    "/myml/invoices/company-info/serie/save/response"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/serie/save/response"(platform: "/", type: TrackType.Event) {
+      url(required: true, type:  PropertyType.String, description: "Url to redirect after response")
+    }
 
     //export nfe
     "/myml/invoices/company-info/zip"(platform: "/", type: TrackType.Event) {}
@@ -565,6 +584,9 @@ tracks {
     "/myml/invoices/company-info/cst/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/cst/save/request"(platform: "/", type: TrackType.Event) {
         data(required: true, description: "Tax information of selected fields")
+        callback(required: true, type:  PropertyType.String, description: "Url to redirect after response")
+        editing(required: true, type: PropertyType.Boolean, description: "Parameter to allow user to modify information on the page")
+        url(required: true, type:  PropertyType.String, description: "Url to redirect after response")
     }
     "/myml/invoices/company-info/cst/save/response"(platform: "/", type: TrackType.Event) {}
 
@@ -580,11 +602,10 @@ tracks {
     //ie
     "/myml/invoices/company-info/ie"(platform: "/") {}
     "/myml/invoices/company-info/ie/save"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/company-info/ie/save/request"(platform: "/", type: TrackType.Event) {
-        data(required: true, type: PropertyType.String, description: "User state registration code (tax information) input")
+    "/myml/invoices/company-info/ie/save/request"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/ie/save/response"(platform: "/", type: TrackType.Event) {
+        error(required: false, type: PropertyType.Boolean, description: "State registration saving error")
     }
-    "/myml/invoices/company-info/ie/save/response"(platform: "/", type: TrackType.Event) {}
-
     //confirm
     "/myml/invoices/company-info/confirm"(platform: "/") {}
     "/myml/invoices/company-info/confirm/save"(platform: "/", isAbstract: true) {}
@@ -598,7 +619,24 @@ tracks {
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
     }
     "/myml/invoices/company-info/confirm/help_tooltip"(platform: "/", isAbstract: true) {}
-     "/myml/invoices/company-info/confirm/help_tooltip/freight"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/confirm/help_tooltip/serie"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/confirm/help_tooltip/freight"(platform: "/", type: TrackType.Event) {}
+
+    //confirm-normal
+    "/myml/invoices/company-info/confirm-normal"(platform: "/") {}
+    "/myml/invoices/company-info/confirm-normal/save"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/company-info/confirm-normal/save/request"(platform: "/", type: TrackType.Event) {
+        serie(required: true, type:  PropertyType.Numeric, description: "Invoice serie number input")
+        include_freight(required: true, type:  PropertyType.Boolean, description: "Include freight option for sellers")
+        url(required: true, type:  PropertyType.String, description: "Url from the page that made the request")
+        callback(required: true, type:  PropertyType.String, description: "Url to redirect after response")
+    }
+    "/myml/invoices/company-info/confirm-normal/save/response"(platform: "/", type: TrackType.Event) {
+        message(required: false, type:  PropertyType.String, description: "Error message that pop to user after request")
+    }
+    "/myml/invoices/company-info/confirm-normal/help_tooltip"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/company-info/confirm-normal/help_tooltip/freight"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/confirm-normal/help_tooltip/serie"(platform: "/", type: TrackType.Event) {}
 
     "/myml/invoices/company-info/success"(platform: "/") {}
 
@@ -609,6 +647,7 @@ tracks {
         code(required: true, type:  PropertyType.String, description: "Boolean with user preference to include freight")
         url(required: true, type: PropertyType.String, description: "Redirect url value before save")
         callback(required: true, type: PropertyType.String, description: "Redirect url after save")
+        editing(required: true, type: PropertyType.Boolean, description: "Parameter to allow user to modify information on the page")
     }
     "/myml/invoices/company-info/include-freight/save/response"(platform: "/", type: TrackType.Event) {
         redirect_url(required: false, type: PropertyType.String, description: "Redirect url after save on success")
@@ -616,6 +655,9 @@ tracks {
         message(required: false, type: PropertyType.String, description: "Error message that pops on page on error")
     }
     "/myml/invoices/company-info/success"(platform: "/") {}
+  
+    //tax-rules-information
+    "/myml/invoices/company-info/tax-rules-information"(platform: "/") {}
 
     //:::: Order
     "/myml/invoices/order"(platform: "/", isAbstract: true) {
@@ -761,4 +803,5 @@ tracks {
     }
 
     "/myml/invoices/sku/status"(platform: "/") {}
+
 }

@@ -53,6 +53,15 @@ tracks {
 "/cart/my_cart"(platform: "/") {
     resolution(required:false, type: PropertyType.String)
     cart_ratio(required: false, type: PropertyType.String, values: ["applies", "not_applies"])
+    summary(required: false, type: PropertyType.Map,
+            description: "Map with information from the summary: total cost, total shipping cost and striked promoted amount if it exists")
+    //total
+        //amount
+        //symbol
+    //shipping_total
+        //amount
+        //symbol
+    //shipping_promoted_amount -> va a tener el mismo symbol que shipping_total
 }
 
 "/cart/my_cart/save_for_later"(platform: "/", type: TrackType.Event) {

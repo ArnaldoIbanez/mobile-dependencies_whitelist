@@ -51,10 +51,58 @@ trackTests {
                             ]
                     ]
             ]
-
         }
 
-        "/cart/my_cart"(platform: "/web", dataSet)
+        def dataSetWithSummary = {
+
+            items = [
+                    [
+                            currency_id: "ARS",
+                            unit_price: 100,
+                            quantity: 1,
+                            item: [
+                                    category_id: "MLA63385",
+                                    buying_mode: "buy_it_now",
+                                    category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
+                                    id: "MLA754486062",
+                                    official_store: "Adidas",
+                                    condition: "new",
+                                    listing_type: "gold_special",
+                                    title: "Conector 12 Vias",
+                                    shipping_mode: "me2"
+                            ]
+                    ],
+                    [
+                            currency_id: "ARS",
+                            unit_price: 1000,
+                            quantity: 3,
+                            item: [
+                                    category_id: "MLA63385",
+                                    buying_mode: "buy_it_now",
+                                    category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
+                                    id: "MLA754486062",
+                                    official_store: "SportCenter",
+                                    condition: "new",
+                                    listing_type: "gold_pro",
+                                    title: "Conector 12 Vias",
+                                    shipping_mode: "me2"
+                            ]
+                    ]
+            ]
+
+            summary = [
+                    "total":[
+                            "amount":1446.61,
+                            "symbol":"\$"
+                    ],
+                    "shipping_total":[
+                            "amount":0,
+                            "symbol":"\$"
+                    ]
+            ]
+        }
+
+        "/cart/my_cart"(platform: "/web", dataSetWithSummary)
 
         "/cart/my_cart/save_for_later"(platform: "/web"){
             item = [
@@ -101,15 +149,15 @@ trackTests {
             unit_price = 173
         }
 
-        "/cart/my_cart/select_address"(platform: "/web", dataSet)
+        "/cart/my_cart/select_address"(platform: "/web", dataSetWithSummary)
 
-        "/cart/my_cart/dont_know_cp"(platform: "/web", dataSet)
+        "/cart/my_cart/dont_know_cp"(platform: "/web", dataSetWithSummary)
 
-        "/cart/my_cart/view_similar"(platform: "/web", dataSet)
+        "/cart/my_cart/view_similar"(platform: "/web", dataSetWithSummary)
 
-        "/cart/my_cart/open_change_notification"(platform: "/web", dataSet)
+        "/cart/my_cart/open_change_notification"(platform: "/web", dataSetWithSummary)
 
-        "/cart/my_cart/close_change_notification"(platform: "/web", dataSet)
+        "/cart/my_cart/close_change_notification"(platform: "/web", dataSetWithSummary)
 
         "/cart/saved_for_later"(platform: "/web", dataSet)
 
@@ -175,19 +223,19 @@ trackTests {
 
         "/cart/saved_for_later/cant_add_to_cart/buy_now"(platform: "/web", cannotAddModalDataSet)
 
-        "/cart/my_cart/change_address"(platform: "/web", dataSet)
+        "/cart/my_cart/change_address"(platform: "/web", dataSetWithSummary)
 
-        "/cart/my_cart/add_cp/"(platform: "/web", dataSet)
+        "/cart/my_cart/add_cp/"(platform: "/web", dataSetWithSummary)
 
-        "/cart/my_cart/confirm_address"(platform: "/web", dataSet)
+        "/cart/my_cart/confirm_address"(platform: "/web", dataSetWithSummary)
 
-        "/cart/my_cart/my_addresses"(platform: "/web", dataSet)
+        "/cart/my_cart/my_addresses"(platform: "/web", dataSetWithSummary)
 
-        "/cart/my_cart/confirm_cp"(platform: "/web", dataSet)
+        "/cart/my_cart/confirm_cp"(platform: "/web", dataSetWithSummary)
 
-        "/cart/my_cart/add_cp/confirm_cp"(platform: "/web", dataSet)
+        "/cart/my_cart/add_cp/confirm_cp"(platform: "/web", dataSetWithSummary)
 
-        "/cart/my_cart/add_cp/dont_know_cp"(platform: "/web", dataSet)
+        "/cart/my_cart/add_cp/dont_know_cp"(platform: "/web", dataSetWithSummary)
 
         "/cart/item_add"(platform: "/web", dataSet)
 

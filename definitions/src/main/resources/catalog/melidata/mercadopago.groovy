@@ -63,10 +63,22 @@ tracks {
     "/merchant_acquisition/flows/qr-assignment"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/qr-assignment/success"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
-       status (type: PropertyType.String, required: true, description: "Error Status, ex: invalidAccess, invalidUser, error")
+       status (type: PropertyType.String, required: true, description: "Error Status, ex: invalidAccess, error")
     }
-    "/merchant_acquisition/flows/qr-assignment/validate_email"(platform:"/", type: TrackType.Event) {}
-    "/merchant_acquisition/flows/qr-assignment/qr_scan"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/qr-assignment/validate_email"(platform:"/", type: TrackType.Event) {
+      valid (type: PropertyType.Boolean, required: true, description: "Ex: true or false")
+    }
+    "/merchant_acquisition/flows/qr-assignment/qr_scan"(platform:"/", type: TrackType.Event) {
+      qr_content (type: PropertyType.String, required: true, description: "Ex: http://qrContent")
+    }
+
+    // QR Queue Web
+    "/merchant_acquisition/flows/qr-queue"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/qr-queue/amount"(platform:"/", type: TrackType.View) {
+        onboarding (type: PropertyType.Boolean, required: true, description: "Flag that determines if onboarding was shown. Ex: true / false")
+    }
+    "/merchant_acquisition/flows/qr-queue/waiting-payment"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/qr-queue/congrats"(platform:"/", type: TrackType.View) {}
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
@@ -97,6 +109,13 @@ tracks {
     "/merchant_acquisition/mydata"(platform: "/", isAbstract: true) {}
     "/merchant_acquisition/mydata/edit"(platform: "/", type: TrackType.View) {}
     "/merchant_acquisition/mydata/success"(platform: "/", type: TrackType.View) {}
+
+    // Merchant Acqusition Point Landings - Set Language In Chinese
+    // "/merchant_acquisition"(platform: "/", isAbstract: true) {}
+    "/merchant_acquisition/point-landings"(platform: "/", isAbstract: true) {}
+    "/merchant_acquisition/point-landings/app-chinese"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/point-landings/app-chinese/error"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/point-landings/app-chinese/success"(platform:"/", type: TrackType.View) {}
 
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
@@ -159,6 +178,17 @@ tracks {
         operator_id (required: false, type: PropertyType.String, description: "Operator identification")
         flow (required: false, type: PropertyType.String, description: "Flow")
         error_msg (required:false, type: PropertyType.String, description: "Error shown to seller")
+    }
+
+    "/pos_mobile"(platform: "/mobile", type: TrackType.Event) {}
+    "/pos_mobile/friction"(platform: "/mobile", type: TrackType.Event) {
+        flow_id(required: false, type: PropertyType.String, description: "Flow id.")
+        id(required: true, type: PropertyType.String, description: "Flow id.")
+        context(required: true, type: PropertyType.String, description: "Context friction")
+        style(required: true, type: PropertyType.String, description: "Style showed, window, dialog, toast.. ", values: ["dialog", "window", "snackbar", "toast"])
+        message(required: true, type: PropertyType.String, description: "Message showed ")
+        attributable_to(required: true, type: PropertyType.String, description: "User, Phone, Device, network or card", values: ["user", "reader", "network", "device", "card"])
+        extra_info(required: false, type: PropertyType.String, description: "Extra info")
     }
     //TODO: The flow_origin field must be changed to mandatory, when all the productive versions send this information
     "/point_payment/main"(platform: "/mobile", type: TrackType.View) {
@@ -268,6 +298,9 @@ tracks {
          devices (required:false, type: PropertyType.String, description: "paired devices")
     }
     "/point_payment/flow_tracker/cancel_qr_charge"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/auto_reverse_off"(platform: "/mobile", type: TrackType.Event) {
+        trx_id (required: true, type: PropertyType.String, description: "trx1234567")
+    }
 
 
     "/settings/point"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
@@ -492,39 +525,6 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
-    "/cellphone_recharge"(platform: "/", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-    "/cellphone_recharge/push_handler"(platform: "/mobile") {}
-    "/cellphone_recharge/pay"(platform: "/mobile") {}
-    "/cellphone_recharge/deals"(platform: "/mobile") {}
-    "/cellphone_recharge/deals/terms"(platform: "/mobile") {}
-    "/cellphone_recharge/payment_methods"(platform: "/mobile") {}
-    "/cellphone_recharge/other_payment_methods"(platform: "/mobile") {}
-    "/cellphone_recharge/cards"(platform: "/mobile") {}
-    "/cellphone_recharge/add_card"(platform: "/mobile") {}
-    "/cellphone_recharge/issuers"(platform: "/mobile") {}
-    "/cellphone_recharge/result"(platform: "/mobile") {
-        result_status (required:true, type: PropertyType.String, description: "Operation result status")
-        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
-    }
-
-    // Cellphone Recharge Frontend
-    "/cellphone_recharge/suggested_phones"(platform: "/web", type: TrackType.View) {}
-    "/cellphone_recharge/second_password"(platform: "/web", type: TrackType.View) {}
-    "/cellphone_recharge/phone_income"(platform: "/web", type: TrackType.View) {}
-    "/cellphone_recharge/congrats"(platform: "/web", type: TrackType.View) {
-        status (required:true, type: PropertyType.String, description: "Payment status (approved, pending, rejected)")
-    }
-    "/cellphone_recharge/companies"(platform: "/web", type: TrackType.View) {}
-    "/cellphone_recharge/checkout"(platform: "/web/desktop", type: TrackType.View) {}
-    "/cellphone_recharge/amounts"(platform: "/web", type: TrackType.View) {}
-    "/cellphone_recharge/amount_recommended"(platform: "/web", type: TrackType.View) {}
-    "/cellphone_recharge/alias_income"(platform: "/web/mobile", type: TrackType.View) {}
-    "/cellphone_recharge/account_money"(platform: "/web", type: TrackType.View) {}
-    "/cellphone_recharge/error"(platform: "/web", type: TrackType.View) {}
-    "/cellphone_recharge/not-found"(platform: "/web", type: TrackType.View) {}
 
     "/scheduled_recharge"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -564,7 +564,13 @@ tracks {
     "/get_member/invite"(platform: "/mobile") {
         scope(required: true, type: PropertyType.String, description: "The scope from where it has been executed")
     }
+    "/get_member/invite/invite"(platform: "/mobile", type: TrackType.Event) {}
     "/get_member/redeem"(platform: "/mobile") {}
+
+    "/get_member/px_result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
 
     "/bill_payments"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -603,38 +609,6 @@ tracks {
     "/bill_payments/fixed_amount"(platform: "/mobile") {}
     "/bill_payments/ticket_data"(platform: "/mobile") {}
     "/bill_payments/fee"(platform: "/mobile"){}
-
-
-    "/recharge_sube"(platform: "/mobile", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-    "/recharge_sube/first_time_use"(platform: "/mobile") {}
-    "/recharge_sube/no_money"(platform: "/mobile") {}
-    "/recharge_sube/choose_amount_information"(platform: "/mobile") {}
-    "/recharge_sube/localization"(platform: "/mobile") {}
-    "/recharge_sube/localization_permission"(platform: "/mobile") {}
-    "/recharge_sube/select_recharge_card"(platform: "/mobile") {}
-    "/recharge_sube/information"(platform: "/mobile") {}
-    "/recharge_sube/add_bus_card"(platform: "/mobile") {}
-    "/recharge_sube/add_card_name"(platform: "/mobile") {}
-    "/recharge_sube/choose_amount"(platform: "/mobile") {}
-    "/recharge_sube/second_password"(platform: "/mobile") {}
-    "/recharge_sube/px_payment_method_search"(platform: "/mobile") {}
-    "/recharge_sube/px_discount_summary"(platform: "/mobile") {}
-    "/recharge_sube/px_card_vault"(platform: "/mobile") {}
-    "/recharge_sube/px_card_number"(platform: "/mobile") {}
-    "/recharge_sube/px_card_holder_name"(platform: "/mobile") {}
-    "/recharge_sube/px_card_expiry_date"(platform: "/mobile") {}
-    "/recharge_sube/px_card_security_code"(platform: "/mobile") {}
-    "/recharge_sube/px_identification_number"(platform: "/mobile") {}
-    "/recharge_sube/px_card_issuers"(platform: "/mobile") {}
-    "/recharge_sube/px_card_installments"(platform: "/mobile") {}
-    "/recharge_sube/px_review_and_confirm"(platform: "/mobile") {}
-    "/recharge_sube/px_result"(platform: "/mobile") {
-        result_status (required:true, type: PropertyType.String, description: "Operation result status")
-        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
-    }
 
 
     "/money_request"(platform: "/", isAbstract: true) {
@@ -754,19 +728,32 @@ tracks {
 
         notification_style(required: false, description: "The notification style used when displaying the notification to the user.")
 
+        discard_reason(required: false, description: "The discarded reason of the notification", values: ["invalid_payload","invalid_user", "settings_disabled"], type: PropertyType.String)
     }
 
-    //Acount
+    //Account
     "/notification/account_fund_approved_ml"(platform: "/mobile") {}
     "/notification/account_fund_approved_mp"(platform: "/mobile") {}
+    "/notification/account_fund_salary"(platform: "/mobile") {}
+    "/notification/account_balance_approved_mp"(platform: "/mobile") {}
+    "/notification/account_balance_approved_ml"(platform: "/mobile") {}
 
     //Campañas
     "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
     }
-
     "/notification/mpcampaigns_control_group"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
+        sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
+    }
+    "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
+        sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
+    }
+    "/notification/mpcampaigns_mpcampaignsinfo"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
         sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
@@ -785,6 +772,30 @@ tracks {
     "/notification/credits_merchants_about_to_expire_first_notice"(platform: "/mobile") {
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
+    "/notification/credits_merchants_expired_no_charges"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_to_expire"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_expired_near_to_fixed_charges"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_expired_near_to_daily_charges"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_to_expire_standard"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/credits_merchants_to_expire_not_standard"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/credits_merchants_educational"(platform: "/mobile") {
+        loan_id(required: true, type: PropertyType.Numeric)
+    }
+
+    //Compliance Support
+    "/notification/compliance_support_validations"(platform: "/mobile") {}
 
     //Fraud
     "/notification/fraud_cash_release_iv"(platform: "/mobile") {}
@@ -808,58 +819,27 @@ tracks {
     "/notification/loyalty_milestone"(platform: "/mobile") {}
 
     //Prepaid
-    "/notification/prepaid_card_shipped"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/prepaid_card_waiting_for_withdrawal"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/prepaid_card_delivered"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/prepaid_card_delayed_p1"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/prepaid_card_not_delivered"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/prepaid_card_third_activation_reminder"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
+    "/notification/prepaid_card_shipped"(platform: "/mobile") {}
+    "/notification/prepaid_card_waiting_for_withdrawal"(platform: "/mobile") {}
+    "/notification/prepaid_card_delivered"(platform: "/mobile") {}
+    "/notification/prepaid_card_delayed_p1"(platform: "/mobile") {}
+    "/notification/prepaid_card_not_delivered"(platform: "/mobile") {}
+    "/notification/prepaid_card_third_activation_reminder"(platform: "/mobile") {}
+    "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_invalid_pin"(platform: "/mobile") {}
 
     //Point
-    "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/point_shipping_shipped"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/point_shipping_not_delivered"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/point_shipping_waiting_for_withdrawal"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/point_shipping_delayed_p1"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/point_shipping_delayed_p4_p8"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
-    "/notification/point_shipping_ready_to_ship_delayed"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
+    "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {}
+    "/notification/point_shipping_shipped"(platform: "/mobile") {}
+    "/notification/point_shipping_not_delivered"(platform: "/mobile") {}
+    "/notification/point_shipping_waiting_for_withdrawal"(platform: "/mobile") {}
+    "/notification/point_shipping_delayed_p1"(platform: "/mobile") {}
+    "/notification/point_shipping_delayed_p4_p8"(platform: "/mobile") {}
+    "/notification/point_shipping_ready_to_ship_delayed"(platform: "/mobile") {}
 
     //Recurring Recharge
-    "/notification/recurring_recharge_insufficient_balance_error"(platform: "/mobile") {
-        notification_type(required: false, type: PropertyType.String, description: "Optional notification type because event type.")
-    }
+    "/notification/recurring_recharge_insufficient_balance_error"(platform: "/mobile") {}
 
     //Security
     "/notification/security_event_feedback"(platform: "/mobile") {}
@@ -959,7 +939,7 @@ tracks {
     //END -- MP personalFrontend
 
     //MP frontend
-    "/cellphone_recharge/confirm"(platform: "/web"){}
+    
     "/fund_account/confirm"(platform: "/web"){}
     "/send_money/confirm"(platform: "/web"){}
     "/money_request/confirm"(platform: "/web"){}

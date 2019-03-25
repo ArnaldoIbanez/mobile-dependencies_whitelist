@@ -59,7 +59,9 @@ tracks {
 
     "/portal"(platform: "/", isAbstract:  true) {}
 
-    "/portal/faq"(platform: "/", type: TrackType.View) {
+    // ML Portal
+
+    "/portal/faq"(platform: "/", business: "mercadolibre", type: TrackType.View) {
         portal_contact
         user_type
         reputation_level
@@ -70,16 +72,18 @@ tracks {
         portal_source_id(required: false, type: PropertyType.Numeric,
             description: "Indicates the source ID for the current page. Required false because some faqs are contact points and most are not")
     }
-    "/portal/hub"(platform: "/", type: TrackType.View) {
+    "/portal/hub"(platform: "/", business: "mercadolibre", type: TrackType.View) {
         portal_contact
         user_type
         reputation_level
         seller_profile
         loyalty_level
         user_profile   
-        portal_content_id 
+        portal_content_id
+        portal_has_channels_configured(required: true, type: PropertyType.Boolean,
+            description: "Indicates if the current content has any channels configured")
     }
-    "/portal/form"(platform: "/", type: TrackType.View) {
+    "/portal/form"(platform: "/", business: "mercadolibre", type: TrackType.View) {
         portal_contact
         user_type
         reputation_level
@@ -87,8 +91,10 @@ tracks {
         seller_profile
         loyalty_level
         portal_content_id
+        portal_has_channels_configured(required: true, type: PropertyType.Boolean,
+            description: "Indicates if the current content has any channels configured")
     }
-    "/portal/folder"(platform: "/", type: TrackType.View) {
+    "/portal/folder"(platform: "/", business: "mercadolibre", type: TrackType.View) {
         portal_content_id(required: false, type: PropertyType.Numeric, description: "Indicates the id of the content shown on the page, in case its not the home page")
         portal_contact
         user_type
@@ -96,20 +102,82 @@ tracks {
         seller_profile
         loyalty_level
         user_profile
+        portal_source_id(required: false, type: PropertyType.Numeric,
+            description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
         portal_has_channels_configured(required: false, type: PropertyType.Boolean,
             description: "Indicates if the current content has any channels configured, not required for home page")
     }
-    "/portal/create_case"(platform: "/", type: TrackType.View) {
+    "/portal/create_case"(platform: "/", business: "mercadolibre", type: TrackType.View) {
         user_type
         seller_profile
         reputation_level
         portal_contact
         loyalty_level
     }
-    "/portal/search"(platform: "/", isAbstract:  true) {}
-    "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
-    "/portal/search/empty"(platform: "/", type: TrackType.View) {}
-    "/portal/search/result"(platform: "/", type: TrackType.View) {}
+    "/portal/search"(platform: "/", business: "mercadolibre", isAbstract:  true) {}
+    "/portal/folder_rules"(platform: "/", business: "mercadolibre", type: TrackType.View) {}
+    "/portal/search/empty"(platform: "/", business: "mercadolibre", type: TrackType.View) {
+        user_type
+        seller_profile
+        reputation_level
+        portal_contact
+        portal_has_channels_configured
+        loyalty_level
+    }
+    "/portal/search/result"(platform: "/", business: "mercadolibre", type: TrackType.View) {
+        user_type
+        seller_profile
+        reputation_level
+        portal_contact
+        portal_has_channels_configured
+        loyalty_level
+    }
+
+    // MP Portal
+
+    "/portal/faq"(platform: "/", business: "mercadopago", type: TrackType.View) {
+        portal_contact
+        portal_has_channels_configured
+        portal_content_id
+        portal_source_id(required: false, type: PropertyType.Numeric,
+            description: "Indicates the source ID for the current page. Required false because some faqs are contact points and most are not")
+    }
+    "/portal/hub"(platform: "/", business: "mercadopago", type: TrackType.View) {
+        portal_contact
+        user_profile   
+        portal_content_id
+        portal_has_channels_configured(required: true, type: PropertyType.Boolean,
+            description: "Indicates if the current content has any channels configured")
+    }
+    "/portal/form"(platform: "/", business: "mercadopago", type: TrackType.View) {
+        portal_contact
+        portal_form_id
+        portal_content_id
+        portal_has_channels_configured(required: true, type: PropertyType.Boolean,
+            description: "Indicates if the current content has any channels configured")
+    }
+    "/portal/folder"(platform: "/", business: "mercadopago", type: TrackType.View) {
+        portal_content_id(required: false, type: PropertyType.Numeric, description: "Indicates the id of the content shown on the page, in case its not the home page")
+        portal_contact
+        user_profile
+        portal_has_channels_configured(required: false, type: PropertyType.Boolean,
+            description: "Indicates if the current content has any channels configured, not required for home page")
+    }
+    "/portal/create_case"(platform: "/", business: "mercadopago", type: TrackType.View) {
+        portal_contact
+    }
+    "/portal/search"(platform: "/", business: "mercadopago", isAbstract:  true) {}
+    "/portal/folder_rules"(platform: "/", business: "mercadopago", type: TrackType.View) {}
+    "/portal/search/empty"(platform: "/", business: "mercadopago", type: TrackType.View) {
+        portal_contact
+        portal_has_channels_configured
+    }
+    "/portal/search/result"(platform: "/", business: "mercadopago", type: TrackType.View) {
+        portal_contact
+        portal_has_channels_configured
+    }
+
+    // Support Widget
 
     "/support"(platform: "/", isAbstract:  true) {}
     "/support/widget"(platform: "/", isAbstract:  true) {}
@@ -141,5 +209,31 @@ tracks {
         portal_source_id
         portal_form_id
         portal_problem_id
+    }
+
+    // Mis Consultas
+
+    "/support/cases"(platform: "/", isAbstract: true) {}
+
+    "/support/cases/detail"(platform: "/", type: TrackType.View) {
+        case_status(required: true, type: PropertyType.String,
+            values: ["pending", "waiting_for_info", "waiting_for_external", "waiting_for_fix", "fixed", "final_answer", "finished_no_answer", "duplicated", "finished", "final_greetings"],
+            description: "Case status")
+        case_id(required: true, type: PropertyType.Numeric,
+            description: "CX case id")
+        has_parent(required: true, type: PropertyType.Boolean,
+            description: "If current case has parent")
+        parent_id(required: false, type: PropertyType.Numeric,
+            description: "If it has a parent, this is my parent id")
+        expired(required: true, type: PropertyType.Boolean,
+            description: "Case has SLA expired")
+    }
+
+    "/support/cases/new_contact"(platform: "/", type: TrackType.Event) {
+        case_id(required: true, type: PropertyType.Numeric,
+            description: "CX case id")
+        type(required: true, type: PropertyType.String, 
+            values: ["more_information", "greetings", "recontact"],
+            description: "Contact type")
     }
 }

@@ -35,6 +35,42 @@ trackTests {
             buy_equals_pay = true
         }
 
+        def defaultTrackInformationSendgridProviderFeedback = {
+            email_id = 123456
+            subject = "Test"
+            email_template = "REMARKETING"
+            event_type = "send"
+            sent_date = new Date().toString()
+            communication_id = "comm1"
+            communication_version = "0.0.1"
+            provider = "sendgrid"
+            provider_feedback = true
+        }
+
+        def defaultTrackInformationSendgridEmailsApiFeedback = {
+            email_id = 123456
+            subject = "Test"
+            email_template = "REMARKETING"
+            event_type = "send"
+            sent_date = new Date().toString()
+            communication_id = "comm1"
+            communication_version = "0.0.1"
+            provider = "sendgrid"
+            provider_feedback = false
+        }
+
+        def defaultTrackInformationIronportEmailsApiFeedback = {
+            email_id = 123456
+            subject = "Test"
+            email_template = "REMARKETING"
+            event_type = "send"
+            sent_date = new Date().toString()
+            communication_id = "comm1"
+            communication_version = "0.0.1"
+            provider = "ironport"
+            provider_feedback = false
+        }
+
         "/email/generic"(platform: "/email") {
             defaultTrackInformation()
         }
@@ -119,13 +155,26 @@ trackTests {
             receiver_id = 306162056
         }
 
+        "/email/form-optout"(platform: "/email"){
+            defaultTrackInformation()
+        }
+
         "/email/form-optout/unsubscribe"(platform: "/email"){
             defaultTrackInformation()
             selected_option = 1
         }
 
-        "/email/form-optout"(platform: "/email"){
-            defaultTrackInformation()
+        "/email/generic"(platform: "/email") {
+            defaultTrackInformationSendgridProviderFeedback()
         }
+
+        "/email/generic"(platform: "/email") {
+            defaultTrackInformationSendgridEmailsApiFeedback()
+        }
+
+        "/email/generic"(platform: "/email") {
+            defaultTrackInformationIronportEmailsApiFeedback()
+        }
+
     }
 }

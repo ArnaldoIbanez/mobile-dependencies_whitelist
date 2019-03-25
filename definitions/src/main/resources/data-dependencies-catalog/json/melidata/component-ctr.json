@@ -2,7 +2,6 @@
   "users": [
     "franco.vitali@mercadolibre.com",
     "victoria.perello@mercadolibre.com",
-    "mauro.capolupo@mercadolibre.com",
     "juanjose.barrera@mercadolibre.com",
     "nicolas.outeda@mercadolibre.com"
   ],
@@ -26,22 +25,6 @@
       },
       {
         "name": "site_id",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "component_order",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "campaign",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "brand_name",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "category_id",
         "type": "UNICODE_STRING"
       },
       {

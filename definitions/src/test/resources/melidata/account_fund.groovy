@@ -14,7 +14,17 @@ trackTests {
 
     test("Account Fund - views") {
         "/account_fund/select_method"(platform: "/", type: TrackType.View) {}
+        "/account_fund/select_method/selected"(platform: "/", type: TrackType.Event) {
+            method = "qr"
+        }
+
         "/account_fund/amount"(platform: "/", type: TrackType.View) {}
+
+        // Amount presets buttons
+        "/account_fund/amount/preset"(platform: "/", type: TrackType.Event) {
+            preset = "30"
+        }
+
         "/account_fund/agencies_map"(platform: "/", type: TrackType.View) {}
         "/account_fund/ftu"(platform: "/", type: TrackType.View) {}
         "/account_fund/unique_code"(platform: "/", type: TrackType.View) {}
@@ -34,8 +44,30 @@ trackTests {
 
         "/account_fund/cvu/ftu"(platform: "/", type: TrackType.View) {}
         "/account_fund/cvu/main"(platform: "/", type: TrackType.View) {}
+        
+        "/account_fund/cvu/main/instructions"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/cvu/main/bank_selection"(platform: "/", type: TrackType.View) {}
+        "/account_fund/cvu/main/bank_selection/select"(platform: "/", type: TrackType.Event) {
+            bank = "santander"
+        }
+        
         "/account_fund/cvu/result"(platform: "/", type: TrackType.View) {
             result_status = "approved"
         }
+
+        "/account_fund/cvu/edit_alias"(platform: "/", type: TrackType.View) {}
+        "/account_fund/cvu/copy_alias"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/cvu/copy_cvu"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/cvu/edit_alias/save"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/cvu/edit_alias/save/success"(platform: "/", type: TrackType.View) {}
+        "/account_fund/cvu/edit_alias/save/fail"(platform: "/", type: TrackType.View) {}
+
+        "/account_fund/mi_cvu"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/mi_cvu/copy_alias"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/mi_cvu/copy_cvu"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/mi_cvu/edit_alias"(platform: "/", type: TrackType.View) {}
+        "/account_fund/mi_cvu/edit_alias/save"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/mi_cvu/edit_alias/save/success"(platform: "/", type: TrackType.View) {}
+        "/account_fund/mi_cvu/edit_alias/save/fail"(platform: "/", type: TrackType.View) {}
     }
 }

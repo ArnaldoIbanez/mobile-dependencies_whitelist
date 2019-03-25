@@ -49,6 +49,10 @@
         "type": "UNICODE_STRING"
       },
       {
+       "name": "not_delivered_time",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "hora",
         "type": "UNICODE_STRING"
       },

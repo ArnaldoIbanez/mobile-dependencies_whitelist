@@ -22,6 +22,9 @@ trackTests {
         "/credits/consumer/public_landing/application_result"(platform: "/web/desktop") {
             result = 'manual_review'
         }
+        "/credits/consumer/public_landing/application_result/click_credits"(platform: "/web/desktop") {
+            result = 'manual_review'
+        }
         "/credits/consumer/public_landing/application_start"(platform: "/web/desktop") {}
 
         //Events
@@ -36,6 +39,9 @@ trackTests {
         }
         "/credits/consumer/public_landing/click_application_start"(platform: "/web/mobile", type: TrackType.Event) {}
         "/credits/consumer/public_landing/application_result/click_home"(platform: "/web/desktop") {
+            result = 'manual_review'
+        }
+        "/credits/consumer/public_landing/application_result/more_info"(platform: "/web/desktop") {
             result = 'manual_review'
         }
 
@@ -77,6 +83,9 @@ trackTests {
         "/credits/consumer/administrator/dashboard"(platform: "/web/desktop", type: TrackType.View) {
             dashboard_status = 'empty_state'
         }
+        "/credits/consumer/administrator/summary"(platform: "/mobile", type: TrackType.View) {
+            dashboard_status = 'empty_state'
+        }
 
         //Events
         "/credits/consumer/administrator/tooltip"(platform: "/web/desktop", type: TrackType.Event) {}
@@ -95,6 +104,18 @@ trackTests {
         "/credits/consumer/administrator/help"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/see_product"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/summary/payment_intention"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
+        }
+        "/credits/consumer/administrator/summary/cx_contact"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
+        }
+        "/credits/consumer/administrator/summary/go_shopping"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
+        }
+        "/credits/consumer/administrator/summary/get_help"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
+        }
 
         //Admin History (Compras Finalizadas)
 
@@ -180,12 +201,13 @@ trackTests {
          *       Start: Consumers Pursue Campaign
          ******************************************/
         //Page Views
-        "/vip/credits/pursue/overdue_modal"(platform: "/web/desktop", type: TrackType.View) {
-            status = "payment_intention_pre_restriction"
+        "/credits/consumer/overdue_modal"(platform: "/web/desktop", type: TrackType.View) {
+            status = "pre_restriction"
             milestone = 20
+            context = "vip"
         }
 
-        "/credits/consumer/overdue_nav"(platform: "/web/desktop", type: TrackType.View) {
+        "/credits/consumer/overdue_nav"(platform: "/web/desktop", type: TrackType.Event) {
             status = "fixed_charge_period_1"
             milestone = 4
             context = "vip"
@@ -193,15 +215,24 @@ trackTests {
 
         //Events
         //Vip
-        "/vip/credits/pursue/overdue_modal/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
-            status = "payment_intention_post_restriction"
+        "/credits/consumer/overdue_modal/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            status = "post_restriction"
             milestone = 28
+            context = "vip"
         }
 
         "/credits/consumer/overdue_nav/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
             status = "fixed_charge_period_1"
             milestone = 4
             context = "vip"
+        }
+
+        "/credits/consumer/myml/summary/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            loan_status = "daily_charge_period"
+            place = "right_section_message"
+        }
+
+        "/credits/consumer/my_account/left_nav"(platform: "/mobile/android", type: TrackType.Event) {
         }
         /******************************************
          *       End: Consumers Pursue Campaign
@@ -277,6 +308,102 @@ trackTests {
 
         /******************************************
          *      End: Consumers Unified Payment Hack
+         ******************************************/
+
+        /******************************************
+         *   Start: Consumers Checkout
+         ******************************************/
+
+        "/credits/consumer/administrator/checkout"(platform: "/web/desktop", type: TrackType.View) {}
+
+        /******************************************
+         *   End: Consumers Checkout
+         ******************************************/
+
+        /******************************************
+         *    Start: Consumers Contacts
+         ******************************************/
+
+        "/credits/consumer/contacts"(platform: "/", type: TrackType.View) {
+            credits_type = "consumer"
+            site_id = "mla"
+            medium = "email"
+            campaign = "collection"
+            status_from_medium = "overdue"
+            action_label = "contact"
+            loan_status = "on_time"
+            next_installment_status = "on_time"
+            output_label = "faqs"
+        }
+
+        "/credits/consumer/contacts"(platform: "/", type: TrackType.View) {
+            credits_type = "consumer"
+            site_id = "mla"
+            medium = "webapp"
+            campaign = "activities"
+            action_label = "have_a_problem"
+            loan_status = "overdue"
+            next_installment_status = "overdue"
+            output_label = "widget"
+        }
+
+        /******************************************
+         *   End: Consumers Contacts
+         ******************************************/
+
+       /******************************************
+        *    Start: Consumers Enhance Adoption
+        ******************************************/
+
+        "/credits/consumer/adoption_modal"(platform: "/web/desktop", type: TrackType.View) {
+            credits_user_mark = "open_market"
+            context = "vip"
+        }
+
+        "/credits/consumer/adoption_modal/understood"(platform: "/web/desktop", type: TrackType.Event) {
+            credits_user_mark = "open_market"
+            context = "vip"
+        }
+
+
+        "/credits/consumer/adoption_modal/close"(platform: "/web/desktop", type: TrackType.Event) {
+            credits_user_mark = "priority_1"
+            context = "vip"
+        }
+
+
+        "/credits/consumer/adoption_modal/go_back"(platform: "/web/desktop", type: TrackType.Event) {
+            credits_user_mark = "priority_2"
+            context = "vip"
+        }
+
+       /******************************************
+        *    End: Consumers Enhance Adoption
+        ******************************************/
+
+        /******************************************
+         *    Start: Consumers Experiments
+         ******************************************/
+
+        "/credits/consumer/notification"(platform: "/web/desktop") {}
+
+        "/credits/consumer/notification/new_channels_stimulous"(platform: "/web/mobile", type: TrackType.Event) {
+            milestone = -10
+            notification_type = "web"
+        }
+
+        "/credits/consumer/notification/new_channels_stimulous"(platform: "/web/desktop", type: TrackType.Event) {
+            milestone = 0
+            notification_type = "email"
+        }
+
+        "/credits/consumer/notification/new_channels_stimulous"(platform: "/", type: TrackType.Event) {
+            milestone = 45
+            notification_type = "wapp"
+        }
+
+        /******************************************
+         *   End: Consumers Experiments
          ******************************************/
     }
 }

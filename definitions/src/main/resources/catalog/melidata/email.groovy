@@ -1,16 +1,26 @@
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.catalog.PropertyType
+import com.ml.melidata.TrackType
 
 tracks {
 
     "/email"(platform: "/email", isAbstract: true) {
         email_template(required: true)
         event_type(required: true,
-                values: ["send", "open", "cancel", "cancel_old_emails"],
+                values: ["send", "open", "cancel", "cancel_old_emails", "processed", "dropped", "delivered", "deferred",
+                         "bounce", "open", "click", "spam_report", "unsubscribe", "group_unsubscribe", "group_resubscribe"],
                 description: "Type of email event")
         email_id(required: false)
         subject(required: false)
         sent_date(required: false)
+        provider(required: false,
+                values: ["ironport","sendgrid","sparkpost"],
+                type: PropertyType.String, description: "Email Service Provider which generated this track event")
+        communication_id(required: false, type: PropertyType.String, description: "Email campaign id")
+        communication_version(required: false, type: PropertyType.String, description: "Email campaign version")
+        provider_feedback(required: false, type: PropertyType.Boolean, description: "Used to identify events reported by the " +
+                "Email Service Provider (e.g. Sendgrid), in particular send and open, which might be reported by the provider " +
+                "and also by the emails-api")
     }
 
     "/email/orders"(platform: "/email") {
@@ -96,13 +106,13 @@ tracks {
     // mails for: purchases with some of its payments refunded
     "/email/checkout/refunded"(platform: "/email"){}
 
-    // mails for: unsubscribe from emails reception
-    "/email/form-optout/unsubscribe"(platform: "/email"){
-        selected_option(required: true, description: "Selected option in unsubscribe view as cause of unsubscription")
-    }
-
     // mails for: showing unsubscribe view
     "/email/form-optout"(platform: "/email"){}
+
+    // mails for: unsubscribe from emails reception
+    "/email/form-optout/unsubscribe"(platform: "/email", type: TrackType.Event){
+        selected_option(required: true, description: "Selected option in unsubscribe view as cause of unsubscription")
+    }
 
     "/email/chargebacks"(platform: "/email") {
         case_id(required: true, type: PropertyType.String)

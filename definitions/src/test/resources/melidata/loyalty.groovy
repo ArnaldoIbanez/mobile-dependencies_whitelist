@@ -72,6 +72,13 @@ trackTests {
         }
     }
 
+    test("Loyalty landing aerolineas") {
+        "/loyalty/landing/aerolineas"(platform: "/", type: TrackType.Event) {
+            landing_id = "aerolineas"
+            destination_id = "123ABC"
+        }
+    }
+
     test("Loyalty welcome modal") {
         "/loyalty/modal"(platform: "/mobile", type: TrackType.View) {
             event_type = "SHOW"
@@ -191,6 +198,9 @@ trackTests {
                         origin= "marketplace"
         }
         "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
+                        origin= "aerolineas"
+        }
+        "/loyalty/buylevel/landing"(platform: "/",type: TrackType.View){
         }
     }
 
@@ -236,6 +246,14 @@ trackTests {
             action= "started"
             origin= "landing"
         }
+        "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
+            action= "started"
+            origin= "aerolineas"
+        }
+        "/loyalty/buylevel/checkout"(platform: "/",type: TrackType.View){
+            action= "success"
+            origin= "aerolineas"
+        }
     }
 
     test("Loyalty Buy Level Payment"){
@@ -250,6 +268,33 @@ trackTests {
             item_id = "MLA000000"
             our_payment_error="Error msg"
         }
+    }
+
+    test("Loyalty Buy Level Cancellation"){
+        "/loyalty/buylevel/cancellation/retention_landing"(platform: "/",type: TrackType.Event){
+        }
+
+        "/loyalty/buylevel/cancellation/not-applicable"(platform: "/",type: TrackType.Event){
+            reason = "already_cancelled"
+        }
+        "/loyalty/buylevel/cancellation/not-applicable"(platform: "/",type: TrackType.Event){
+            reason = "not_bought"
+        }
+        "/loyalty/buylevel/cancellation/not-applicable"(platform: "/",type: TrackType.Event){
+            reason = "past_time"
+        }
+
+        "/loyalty/buylevel/cancellation/reason_form"(platform: "/",type: TrackType.Event){
+        }
+
+        "/loyalty/buylevel/cancellation/congrats"(platform: "/",type: TrackType.Event){
+            status = "success"
+        }
+
+        "/loyalty/buylevel/cancellation/congrats"(platform: "/",type: TrackType.Event){
+            status = "needs_validation"
+        }
+
     }
 
     test("partners"){
@@ -279,6 +324,138 @@ trackTests {
             action = "open"
             mail_origin = "level_3_4_5_6"
             campaign_id = "mlb_campaign_buyers_test"
+        }
+    }
+
+    test("Loyalty Offer Discounts"){
+        "/loyalty/sellers/discounts"(platform: "/",type: TrackType.View){}
+    }
+
+    //  --------------------------------------------- Free-Trials ---------------------------------------------
+
+    test("Loyalty Free Trials Contention Screen"){
+
+        "/loyalty/freetrial"(platform: "/",type: TrackType.View){
+        }
+
+        "/loyalty/freetrial/contention"(platform: "/",type: TrackType.View){
+        }
+
+        "/loyalty/freetrial/contention/continue"(platform: "/",type: TrackType.Event){
+        }
+
+        "/loyalty/freetrial/contention/cancel"(platform: "/",type: TrackType.Event){
+            type = "close"
+        }
+    }
+
+    test("Loyalty Free Trials Card Selection Screen"){
+        "/loyalty/freetrial/cardselection"(platform: "/",type: TrackType.View){
+        }
+
+        "/loyalty/freetrial/cardselection/selected"(platform: "/",type: TrackType.Event){
+            selected = "cardName"
+        }
+
+        "/loyalty/freetrial/cardselection/continue"(platform: "/",type: TrackType.Event){
+        }
+
+        "/loyalty/freetrial/cardselection/cancel"(platform: "/",type: TrackType.Event){
+            type = "close"
+        }
+    }
+
+    test("Loyalty Free Trials New Card Screen"){
+        "/loyalty/freetrial/newcard"(platform: "/",type: TrackType.View){
+        }
+
+        "/loyalty/freetrial/newcard/continue"(platform: "/",type: TrackType.Event){
+        }
+
+        "/loyalty/freetrial/newcard/cancel"(platform: "/",type: TrackType.Event){
+            type = "button"
+        }
+
+        "/loyalty/freetrial/newcard/cardnumber"(platform: "/",type: TrackType.View){
+        }
+
+        "/loyalty/freetrial/newcard/cardnumber/continue"(platform: "/",type: TrackType.Event){
+        }
+
+        "/loyalty/freetrial/newcard/cardnumber/cancel"(platform: "/",type: TrackType.Event){
+            type = "close"
+        }
+
+        "/loyalty/freetrial/newcard/securitycode"(platform: "/",type: TrackType.View){
+        }
+
+        "/loyalty/freetrial/newcard/securitycode/continue"(platform: "/",type: TrackType.Event){
+        }
+
+        "/loyalty/freetrial/newcard/securitycode/cancel"(platform: "/",type: TrackType.Event){
+            type = "back"
+        }
+
+        "/loyalty/freetrial/newcard/name"(platform: "/",type: TrackType.View){
+        }
+
+        "/loyalty/freetrial/newcard/name/continue"(platform: "/",type: TrackType.Event){
+        }
+
+        "/loyalty/freetrial/newcard/name/cancel"(platform: "/",type: TrackType.Event){
+            type  = "back"
+        }
+
+        "/loyalty/freetrial/newcard/identification"(platform: "/",type: TrackType.View){
+        }
+
+        "/loyalty/freetrial/newcard/identification/continue"(platform: "/",type: TrackType.Event){
+        }
+
+        "/loyalty/freetrial/newcard/identification/cancel"(platform: "/",type: TrackType.Event){
+            type = "button"
+        }
+    }
+
+    test("Loyalty Free Trials Congrats Screen"){
+        "/loyalty/freetrial/congrats"(platform: "/",type: TrackType.View){
+            congratstype = "warning"
+        }
+
+        "/loyalty/freetrial/congrats/continue"(platform: "/",type: TrackType.Event){
+            congratstype = "success"
+        }
+
+        "/loyalty/freetrial/congrats/cancel"(platform: "/",type: TrackType.Event){
+            congratstype = "error"
+        }
+    }
+
+    test("Loyalty Free Trials Confirm Screen"){
+        "/loyalty/freetrial/confirm"(platform: "/mobile/android",type: TrackType.View){
+        }
+
+        "/loyalty/freetrial/confirm/continue"(platform: "/mobile/android",type: TrackType.Event){
+        }
+
+        "/loyalty/freetrial/confirm/cancel"(platform: "/mobile/android",type: TrackType.Event){
+            type = "back"
+        }
+
+        "/loyalty/freetrial/confirm/cancel"(platform: "/mobile/android",type: TrackType.Event){
+            type = "button"
+        }
+    }
+
+    test("Loyalty Free Trials Payment Track"){
+        "/loyalty/freetrial/payment"(platform: "/",type: TrackType.Event){
+            payment = 454353
+            payment_status= "approved"
+            payment_status_detail= "cc_approved_plugin_pm"
+        }
+
+        "/loyalty/freetrial/payment/error"(platform: "/",type: TrackType.Event){
+            our_payment_error="Error msg"
         }
     }
 }
