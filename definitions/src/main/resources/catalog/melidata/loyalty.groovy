@@ -122,6 +122,22 @@ tracks {
         status(required: true, values: ["success","needs_validation"], description: "Congrats status. Can be either success or 'needs-validation'")
     }
 
+    "/loyalty/freetrial/cancellation"(platform: "/", isAbstract: true, type: TrackType.View){
+    }
+
+    "/loyalty/freetrial/cancellation/not-applicable"(platform: "/",type: TrackType.View){
+        reason(required: true, values: ["already_cancelled","not_in_freetrial"], description: "Reason to reject the cancellation")
+    }
+
+    "/loyalty/freetrial/cancellation/retention_landing"(platform: "/",type: TrackType.View){
+    }
+
+    "/loyalty/freetrial/cancellation/reason_form"(platform: "/",type: TrackType.View){
+    }
+
+    "/loyalty/freetrial/cancellation/congrats"(platform: "/",type: TrackType.View){
+    }
+
     /**
      * Loyalty Redesign Tracks
      */
