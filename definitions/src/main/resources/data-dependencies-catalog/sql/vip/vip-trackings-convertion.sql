@@ -7,7 +7,7 @@ sum(if(path='/vip',1,0)) as vips,
 FROM tracks
 WHERE ds >= '@param01'
 AND ds < '@param02'
-and application.site_id = 'MLB'
+and application.site_id in ('MLA', 'MLB', 'MLC', 'MLM', 'MCO', 'MLV', 'MPE', 'MLU')
 and jest(event_data, 'vertical') = 'core'
 and jest(event_data, 'item_id') like 'MLB%'
 and (((regexp_like(application.version, '(9\.2[8-9][0-9]*\.)|(9\.[3-9][0-9]\.)|(9\.[0-9]{3,}\.)|([1-9][0-9]{1,}\.[0-9]+\.)'))
