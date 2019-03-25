@@ -70,4 +70,5 @@ tracks {
     "/account_fund/cvu/main/bank_selection/select"(platform: "/", type: TrackType.Event) {
         bank (required:true, description: "Bank to display instructions for")
     }
+    "/account_fund/cvu/main/help"(platform: "/", type: TrackType.Event) {}
 }
