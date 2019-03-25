@@ -297,6 +297,22 @@ trackTests {
 
     }
 
+    test("Loyalty Free Trial Cancellation"){
+        "/loyalty/freetrial/cancellation/retention_landing"(platform: "/",type: TrackType.Event){
+        }
+        "/loyalty/freetrial/cancellation/not-applicable"(platform: "/",type: TrackType.Event){
+            reason = "already_cancelled"
+        }
+        "/loyalty/freetrial/cancellation/not-applicable"(platform: "/",type: TrackType.Event){
+            reason = "not_in_freetrial"
+        }
+        "/loyalty/freetrial/cancellation/reason_form"(platform: "/",type: TrackType.Event){
+        }
+
+        "/loyalty/freetrial/cancellation/congrats"(platform: "/",type: TrackType.Event){
+        }
+    }
+
     test("partners"){
         "/loyalty/subscribe"(platform: "/", type: TrackType.Event){
             partner_id = "megatlon"
