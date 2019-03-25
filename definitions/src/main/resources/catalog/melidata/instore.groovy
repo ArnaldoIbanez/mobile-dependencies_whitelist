@@ -285,7 +285,7 @@ tracks {
         context(required: true, PropertyType.String)
     }
 
-    // FTU
+    // Landing
     "/instore/qr_first_time_use"(platform: "/mobile", type: TrackType.View) {}
     "/instore/qr_first_time_use"(platform: "/mobile", isAbstract: true) {}
     "/instore/qr_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {
@@ -305,6 +305,13 @@ tracks {
     "/instore/qr_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
         view_time_in_millis(required: false, PropertyType.String)
     }
+    "/instore/landing"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/landing"(platform: "/mobile", isAbstract: true) {}
+    "/instore/landing/next"(platform: "/mobile", type: TrackType.Event) {
+        view_time_in_millis(required: false, PropertyType.String)
+    }
+    "/instore/landing/abort"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/landing/back"(platform: "/mobile", type: TrackType.Event) {}
 
     // Waiting
     "/instore/waiting"(platform: "/mobile", isAbstract: true) {}
