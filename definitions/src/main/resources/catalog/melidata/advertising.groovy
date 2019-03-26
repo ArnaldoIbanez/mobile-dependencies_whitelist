@@ -62,6 +62,11 @@ tracks {
         budget(required: true, description: "Budget related to the landing", inheritable:false)
     }
 
+    "/advertising/pads2/landing/from_main_slider"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
+        id(required: true, description: "Indicates if the user was redirected to the landing using the main slide of the home")
+        position(required: true, description: "indicates the position of the main slide")
+    }
+
     "/advertising/pads2/landing/contract_confirmation"(platform: "/web", type: TrackType.View) {
     }
 
