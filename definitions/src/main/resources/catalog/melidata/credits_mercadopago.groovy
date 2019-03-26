@@ -145,7 +145,7 @@ tracks {
 
     //Feedback
     "/credits/merchant/enrollment/feedback"(platform: "/", type: TrackType.View) {
-         reason(type: PropertyType.String, required: true, values: ['interested', 'not_interested'], inheritable: false)
+         reason(type: PropertyType.String, required: true, values: ['interested', 'not_interested', 'capped'], inheritable: false)
     }
     "/credits/merchant/enrollment/feedback/congrats"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/enrollment/feedback/error"(platform: "/", type: TrackType.View) {

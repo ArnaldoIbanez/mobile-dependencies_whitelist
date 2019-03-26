@@ -64,6 +64,9 @@ trackTests {
         "/credits/merchant/enrollment/feedback"(platform: "/web/desktop") {
             reason = 'not_interested'
         }
+        "/credits/merchant/enrollment/feedback"(platform: "/web/desktop") {
+            reason = 'capped'
+        }
         "/credits/merchant/enrollment/feedback/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/feedback/error"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/error/accept"(platform: "/web/desktop") {}
