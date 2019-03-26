@@ -235,7 +235,7 @@ tracks {
         case_id(required: true, type: PropertyType.Numeric,
             description: "CX case id")
         type(required: true, type: PropertyType.String, 
-            values: ["more_information", "greetings", "recontact"],
+            values: ["new_information", "greetings", "recontact"],
             description: "Contact type")
     }
 }
