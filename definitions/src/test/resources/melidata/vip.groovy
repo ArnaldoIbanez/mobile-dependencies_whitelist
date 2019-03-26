@@ -47,6 +47,7 @@ trackTests {
             price_comparison_available = true
             price_comparison_position =  0.75
             whatsapp_available = "false"
+            quote_demand_available = false
         }
 
         "/vip"(platform:"/mobile", {
@@ -395,6 +396,7 @@ trackTests {
             item_id = "MLA213512313"
             unregistered_contact = false
             unregistered_contact_context = false
+            event_source= "description"
         }
     }
 
