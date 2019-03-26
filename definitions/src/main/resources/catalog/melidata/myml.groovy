@@ -150,6 +150,11 @@ tracks {
 
     "/myml/purchases/seller"(platform:"/", type: TrackType.View) {}
 
+    "/myml/purchases/buy_it_again"(platform:"/", type: TrackType.View) {
+        action(required: true, description: "Selected exit action", type: PropertyType.String)
+        item_id(required: true,type: PropertyType.String, description: "Item id")
+    }
+
     "/myml"(platform: "/", isAbstract: true) {}
     "/myml/listings"(platform: "/web", type: TrackType.View) {
         label(required: true, description: "Selected label: active/closed/paused/...")
