@@ -242,6 +242,9 @@ tracks {
         user_action(required: false, type: PropertyType.String, description: "Type of user action", values: ["click", "write"])
     }
 
+    "/seller_central/modify/optin_flex_subflow"(platform: "/", type: TrackType.View) {
+        sellerCentralModifyCardsGroup
+    }
 
     "/seller_central/bulk/technical_specifications"(platform: "/", isAbstract: true) {}
     "/seller_central/bulk/technical_specifications/hints"(platform: "/", isAbstract: true) {
