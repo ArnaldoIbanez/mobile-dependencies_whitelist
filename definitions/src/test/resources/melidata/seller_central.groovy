@@ -362,6 +362,15 @@ trackTests {
         }
     }
 
+    test("seller central flex subflow"){
+        "/seller_central/modify/optin_flex_subflow"(platform: "/", type: TrackType.View){
+            category_id = "MLA12812"
+            item_id = "MLA776923789"
+            session_id = "416163910-update-79c25d849574"
+            seller_profile = "NEWBIE"
+        }
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central Structured Data
     //------------------------------------------------------------------------------------------------------------------------------------------------------
