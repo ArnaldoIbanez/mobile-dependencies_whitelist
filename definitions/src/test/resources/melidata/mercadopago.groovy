@@ -2631,6 +2631,8 @@ trackTests {
             mode = "prefetch"
         }
 
+        "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {}
+
         "/auth/attestation/signature/request"(platform: "/mobile", type: TrackType.Event) {}
 
         "/auth/attestation/signature/created"(platform: "/mobile", type: TrackType.Event) {}
