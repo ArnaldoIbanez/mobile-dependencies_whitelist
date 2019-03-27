@@ -517,7 +517,12 @@ trackTests {
     }
 
     test("MP-MA Point Pro paper rolls request") {
-      "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {}
+      "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
+        view "address")
+      }
+      "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
+        view "congrats")
+      }
     }
 
     test("MP-MA Flow QR Queue Web") {
