@@ -456,6 +456,32 @@ trackTests {
         }
     }
 
+    test("Device Attestation"){
+        "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
+            mode = "prefetch"
+        }
+
+        "/auth/attestation/signature/request"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/created"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/reuse"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/expired"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/fail"(platform: "/mobile", type: TrackType.Event) {
+            reason = "quota exceeded"
+        }
+
+        "/auth/attestation/nonce/request"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/nonce/created"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/nonce/fail"(platform: "/mobile", type: TrackType.Event) {
+            reason = "missing vendor"
+        }
+    }
+
     test("Device Authorization - Authentication") {
         "/authenticators/device_authorization/access_request"(platform: "/", type: TrackType.View) {}
 

@@ -58,6 +58,7 @@ trackTests {
             loyalty_level = 5
             portal_content_id = 96
             user_profile = ""
+            portal_has_channels_configured = true
         }
         "/portal/form"(platform: "/", type: TrackType.View) {
             portal_contact = [
@@ -70,6 +71,7 @@ trackTests {
             seller_profile = "ADVANCED"
             loyalty_level = 5
             portal_content_id = 96
+            portal_has_channels_configured = true
         }
         "/portal/folder"(platform: "/", type: TrackType.View) {
             portal_contact = [
@@ -92,6 +94,7 @@ trackTests {
             reputation_level  = "5_green"
             seller_profile = "ADVANCED"
             loyalty_level = 5
+            portal_has_channels_configured = true
         }
         "/portal/search/result"(platform: "/", type: TrackType.View) {
             user_type = "normal"
@@ -183,6 +186,7 @@ trackTests {
             ]
             portal_content_id = 96
             user_profile = ""
+            portal_has_channels_configured = true
         }
         "/portal/form"(platform: "/", type: TrackType.View) {
             portal_contact = [
@@ -191,6 +195,7 @@ trackTests {
             ]
             portal_form_id = 96
             portal_content_id = 96
+            portal_has_channels_configured = true
         }
         "/portal/folder"(platform: "/", type: TrackType.View) {
             portal_contact = [
@@ -205,6 +210,8 @@ trackTests {
                     channels: [:],
                     contact_config: false
             ]
+                        portal_has_channels_configured = true
+
         }
         "/portal/search/result"(platform: "/", type: TrackType.View) {
             portal_contact = [

@@ -17,6 +17,10 @@ tracks {
     "/asset_management/start_investing"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/know_more"(platform: "/mobile", type: TrackType.Event) {}
 
+    // Blocking screen
+    "/asset_management/blocker"(platform: "/web", type: TrackType.View) {}
+    "/asset_management/blocker"(platform: "/mobile", type: TrackType.View) {}
+
     // Challenges
     "/asset_management/challenge_pep"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_fatca"(platform: "/mobile", type: TrackType.View) {}
@@ -68,6 +72,10 @@ tracks {
 
     // Congrats
     "/asset_management/result_investing"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/result_investing_company"(platform: "/mobile", isAbstract: true) {}
+    "/asset_management/result_investing_company/approved"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/result_investing_company/pending"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/result_investing_company/rejected"(platform: "/mobile", type: TrackType.View) {}
 
     // Faqs
     "/asset_management/faqs"(platform: "/mobile", type: TrackType.View) {}
@@ -76,9 +84,16 @@ tracks {
 
     // Landing Web
     "/asset_management/landing"(platform: "/web", type: TrackType.View) {}
+    "/asset_management/landing"(platform: "/mobile", type: TrackType.View) {}
 
     // Pre-landing
     "/asset_management/invest"(platform: "/web", type: TrackType.View) {}
+
+    // Investment report
+    "/asset_management/investment_report"(platform: "/web", type: TrackType.Event) {
+        year (required: true, type: PropertyType.String, description: "The year of earnings requested")
+        quarter (required: false, type: PropertyType.String, values: ["1", "2", "3", "4"], description: "The requested quarter of the year, if chosen")
+    }
 
     // Clarification show event
     "/asset_management/clarification"(platform: "/mobile", type: TrackType.Event) {}

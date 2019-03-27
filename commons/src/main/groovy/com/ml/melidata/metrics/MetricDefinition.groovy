@@ -9,6 +9,7 @@ class MetricDefinition {
 	def condition
 	def open
 	def properties
+	List sum_by
 
 	Boolean acceptMultiVariantSession = false
    	Boolean parametricName = false

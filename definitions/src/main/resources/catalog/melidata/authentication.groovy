@@ -268,6 +268,37 @@ tracks {
         is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
     }
 
+    //Attestation App
+    "/auth/attestation"(platform: "/mobile", isAbstract: true) {}
+
+    "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
+        mode(type: PropertyType.String, required: true, description: "In which mode attestation was started")
+    }
+
+    "/auth/attestation/signature"(platform: "/mobile", isAbstract: true) {}
+
+    "/auth/attestation/signature/request"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/auth/attestation/signature/created"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/auth/attestation/signature/reuse"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/auth/attestation/signature/expired"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/auth/attestation/signature/fail"(platform: "/mobile", type: TrackType.Event) {
+        reason(type: PropertyType.String, required: true, description: "Failure reason")
+    }
+
+    "/auth/attestation/nonce"(platform: "/mobile", isAbstract: true) {}
+
+    "/auth/attestation/nonce/request"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/auth/attestation/nonce/created"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/auth/attestation/nonce/fail"(platform: "/mobile", type: TrackType.Event) {
+        reason(type: PropertyType.String, required: true, description: "Failure reason")
+    }
+
     //SMS Enrollment
     "/auth/recovery"(platform: "/", isAbstract: true) {}
 

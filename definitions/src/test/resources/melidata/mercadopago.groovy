@@ -516,6 +516,15 @@ trackTests {
         }
     }
 
+    test("MP-MA Point Pro paper rolls request") {
+        "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
+          view = "address"
+        }
+        "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
+          view = "congrats"
+        }
+    }
+
     test("MP-MA Flow QR Queue Web") {
         "/merchant_acquisition/flows/qr-queue"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/flows/qr-queue/amount"(platform:"/", type: TrackType.View) {
@@ -2641,6 +2650,32 @@ trackTests {
             domain = "gmail"
             is_google_account_of_different_user = "false"
             authenticator = "emailValidation"
+        }
+    }
+
+    test("Device Attestation"){
+        "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
+            mode = "prefetch"
+        }
+
+        "/auth/attestation/signature/request"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/created"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/reuse"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/expired"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/fail"(platform: "/mobile", type: TrackType.Event) {
+            reason = "quota exceeded"
+        }
+
+        "/auth/attestation/nonce/request"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/nonce/created"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/nonce/fail"(platform: "/mobile", type: TrackType.Event) {
+            reason = "missing vendor"
         }
     }
 
