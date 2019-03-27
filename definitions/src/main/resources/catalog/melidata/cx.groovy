@@ -113,6 +113,7 @@ tracks {
         reputation_level
         portal_contact
         loyalty_level
+        portal_has_channels_configured
     }
     "/portal/search"(platform: "/", business: "mercadolibre", isAbstract:  true) {}
     "/portal/folder_rules"(platform: "/", business: "mercadolibre", type: TrackType.View) {}
@@ -165,6 +166,7 @@ tracks {
     }
     "/portal/create_case"(platform: "/", business: "mercadopago", type: TrackType.View) {
         portal_contact
+        portal_has_channels_configured
     }
     "/portal/search"(platform: "/", business: "mercadopago", isAbstract:  true) {}
     "/portal/folder_rules"(platform: "/", business: "mercadopago", type: TrackType.View) {}
@@ -233,7 +235,7 @@ tracks {
         case_id(required: true, type: PropertyType.Numeric,
             description: "CX case id")
         type(required: true, type: PropertyType.String, 
-            values: ["more_information", "greetings", "recontact"],
+            values: ["new_information", "greetings", "recontact"],
             description: "Contact type")
     }
 }

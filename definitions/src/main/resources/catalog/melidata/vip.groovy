@@ -131,6 +131,7 @@ tracks {
                       description: "Indicates which tooltip is shown in the VIP at the time, if any. In case it does not show anything, it should be 'none'. E.g: 'credits', 'subscription', 'cart_benefit_free_shipping', etc.")
 
         whatsapp_available(required: false, type: PropertyType.String, description: "determines if whatsapp is available")
+        quote_demand_available(required: false, type: PropertyType.Boolean, description: "determines if an item has quote demand available")
     }
 
     "/vip"(platform: "/web") {
