@@ -205,67 +205,45 @@ tracks {
     }
 
     //Account Recovery
-    "/auth/account_recovery"(platform: "/", isAbstract: true) {}
-
-    "/auth/account_recovery/recovery_confirmation"(platform: "/", type: TrackType.View) {
+    "/auth/account_recovery"(platform: "/", isAbstract: true) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
     }
 
-    "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {
-        id(type: PropertyType.String, required: true, description: "Current transaction id")
-        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
-    }
+    "/auth/account_recovery/recovery_confirmation"(platform: "/", type: TrackType.View) {}
 
-    "/auth/account_recovery/landing"(platform: "/", type: TrackType.View) {
-        id(type: PropertyType.String, required: true, description: "Current transaction id")
-        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
-    }
+    "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {}
 
-    "/auth/account_recovery/phone_number_verification"(platform: "/", type: TrackType.View) {
-        id(type: PropertyType.String, required: true, description: "Current transaction id")
-        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
-    }
+    "/auth/account_recovery/landing"(platform: "/", type: TrackType.View) {}
 
-    "/auth/account_recovery/on_hold"(platform: "/", type: TrackType.View) {
-        id(type: PropertyType.String, required: true, description: "Current transaction id")
-        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
-    }
+    "/auth/account_recovery/phone_number_verification"(platform: "/", type: TrackType.View) {}
+
+    "/auth/account_recovery/on_hold"(platform: "/", type: TrackType.View) {}
 
     "/auth/account_recovery/recovery_confirmation/action"(platform: "/", type: TrackType.Event) {
-        id(type: PropertyType.String, required: true, description: "Current transaction id")
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
-        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
     }
 
     "/auth/account_recovery/congrats/action"(platform: "/", type: TrackType.Event) {
-        id(type: PropertyType.String, required: true, description: "Current transaction id")
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
-        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
     }
 
     "/auth/account_recovery/landing/action"(platform: "/", type: TrackType.View) {
-        id(type: PropertyType.String, required: true, description: "Current transaction id")
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
-        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
     }
 
     "/auth/account_recovery/phone_number_verification/action"(platform: "/", type: TrackType.Event) {
-        id(type: PropertyType.String, required: true, description: "Current transaction id")
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
-        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
     }
 
     "/auth/account_recovery/on_hold/action"(platform: "/", type: TrackType.Event) {
-        id(type: PropertyType.String, required: true, description: "Current transaction id")
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
         status_code(type: PropertyType.String, required: true, description: "Describes relation between this view and current status code")
-        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
     }
 
     //Attestation App
