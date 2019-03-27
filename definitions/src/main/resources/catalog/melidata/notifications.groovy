@@ -143,6 +143,7 @@ tracks {
         sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
         batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
         item_id(required: false, type: PropertyType.String, description: "Id of item.")
+        variation_id(required: false, type: PropertyType.String, description: "Id of variaton of the item.")
         experiment(required: false, type: PropertyType.Boolean, description: "experiment.")
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -625,6 +626,7 @@ tracks {
           sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
           item_id(required: true, type: PropertyType.String)
+          variation_id(required: false, type: PropertyType.String, description: "Id of variaton of the item.")
           experiment(required: false, type: PropertyType.Boolean)
       }
       "/notification/campaigns_ticket_recovery"(platform: "/") {
