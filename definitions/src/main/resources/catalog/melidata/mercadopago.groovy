@@ -76,7 +76,7 @@ tracks {
 
     // Point Pro Solicitud Bobinas > Pageviews
     "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
-      view (type: PropertyType.String, required: true, description: "'address' | 'congrats'")
+      view (type: PropertyType.String, required: true, description: "Type of view", values: ["address", "congrats"])
     }
 
     // QR Queue Web > Pageviews
