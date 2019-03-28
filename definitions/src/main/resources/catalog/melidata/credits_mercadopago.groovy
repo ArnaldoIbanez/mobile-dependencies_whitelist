@@ -200,7 +200,7 @@ tracks {
     "/credits/merchant/money_advance"(platform: "/", type: TrackType.View) {}
 
     //Congrats money advance
-    "/credits/merchant/money_advance/congrats"(platform: "/", type: TrackType.View) {
+    "/credits/merchant/money_advance/congrats"(platform: "/web", type: TrackType.View) {
         status(type: PropertyType.String, required: false, values: ['on_time', 'delayed'])
         user_status(type: PropertyType.String, required: false, values: ['correct', 'in_default'])
     }
@@ -209,12 +209,12 @@ tracks {
     "/credits/merchant/money_advance/congrats"(platform: "/mobile", type: TrackType.View) {}
 
     //Hub money advance
-    "/credits/merchant/money_advance/hub"(platform: "/", type: TrackType.View) {
+    "/credits/merchant/money_advance/hub"(platform: "/web", type: TrackType.View) {
         user_status(type: PropertyType.String, required: false, values: ['correct', 'in_default'])
     }
 
     //Hub money advance mobile
-    "/credits/merchant/money_advance/hub"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/money_advance/hub"(platform: "/mobile", type: TrackType.View) {}
 
 
 
