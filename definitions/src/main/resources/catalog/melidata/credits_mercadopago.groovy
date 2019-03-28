@@ -202,7 +202,7 @@ tracks {
     //Congrats money advance
     "/credits/merchant/money_advance/congrats"(platform: "/web", type: TrackType.View) {
         status(type: PropertyType.String, required: false, values: ['on_time', 'delayed'])
-        user_status(type: PropertyType.String, required: false, values: ['correct', 'in_default'])
+        user_status(type: PropertyType.String, required: false, values: ['on_time', 'overdue'])
     }
 
     //Congrats money advance mobile
@@ -210,12 +210,11 @@ tracks {
 
     //Hub money advance
     "/credits/merchant/money_advance/hub"(platform: "/web", type: TrackType.View) {
-        user_status(type: PropertyType.String, required: false, values: ['correct', 'in_default'])
+        user_status(type: PropertyType.String, required: false, values: ['on_time', 'overdue'])
     }
 
     //Hub money advance mobile
     "/credits/merchant/money_advance/hub"(platform: "/mobile", type: TrackType.View) {}
-
 
 
     //Summary money advance
