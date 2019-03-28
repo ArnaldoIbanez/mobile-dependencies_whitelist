@@ -83,6 +83,10 @@ tracks {
             description: "Types of error pages in acquisition flow."
         )
     }
+    "/prepaid/acquisition/cellphone"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/rootfaq"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/detailfaq"(platform: "/mobile", type: TrackType.View) {}
 
     // Activation Flow
     // MLA => https://www.mercadopago.com.ar/prepaid/activation
