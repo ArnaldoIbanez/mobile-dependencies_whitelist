@@ -44,7 +44,6 @@ LEFT OUTER JOIN
   ) AS Open
 ON Sent.purchase_id = Open.purchase_id
 AND Sent.email_id = Open.email_id
-AND Sent.payment_method_id = Open.payment_method_id
 GROUP BY Sent.sent_date,
          Sent.email_id,
          Sent.site_id,

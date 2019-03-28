@@ -23,6 +23,10 @@ class MetricsFormatter {
 			result += [order: definition.compute_order]
 		}
 
+		if ( definition.sum_by ) {
+			result += [sum_by: definition.sum_by]
+		}
+
 		//EXPERIMENT
 		if ( definition.experiments ) {
 			//result += add("experiment", "experiments", definition.experiments)
@@ -162,8 +166,11 @@ class MetricsFormatter {
 	static void main(String[] args) {
 		def file = new File("metrics.json")
 		file.delete()
+		println("\nCompiling metrics to metrics.json...")
 
-		file << new MetricsFormatter(com.ml.melidata.metrics.MetricsFactory.metrics).output
+		def output = new MetricsFormatter(com.ml.melidata.metrics.MetricsFactory.metrics).output
+		println(output)
+		file << output
 
 		println("\nFile $file generated")
 	}

@@ -1,6 +1,6 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
-def classiExperiments = "(.*/classi.*|vip/newDesignMotors|vip/newDesktopDesignMotors|buyingflow/reservationMLAv5|sell/congrats_upgrade_listing_type|vip/servicesNewDesignMobileMLA|vip/servicesNewDesignDesktopMLA|search/goLocal)"
+def classiExperiments = "(.*/classi.*|vip/newDesignMotors|vip/newDesktopDesignMotors|buyingflow/reservationMLAv5|sell/congrats_upgrade_listing_type|vip/servicesNewDesignMobileMLA|vip/servicesNewDesignDesktopMLA|search/openInNewTab|search/goLocal|vip/realEstate.*)"
 
 metrics {
 
@@ -112,6 +112,7 @@ metrics {
 		}
 	}
 
+	//TODO esto se debe eliminar una vez que deje de ser experimento, o cuando la data ya sea concluyente. La métrica fue reemplazada por su equivalente "classifieds_user_contact"
 	"user_vip_interaction"(description: "track vip user interaction as success for classifieds") {
 		startWith {
 			experiment(regex(classiExperiments))
@@ -120,6 +121,30 @@ metrics {
 		countsOn {
 			condition {
 				path("/vip/call_seller", "/vip/show_phone", "/vip/contact_seller")
+			}
+		}
+	}
+
+	"classifieds_user_contact"(description: "track vip user interaction as success for classifieds") {
+		startWith {
+			experiment(regex(classiExperiments))
+		}
+
+		countsOn {
+			condition {
+				path("/vip/call_seller", "/vip/show_phone", "/vip/contact_seller")
+			}
+		}
+	}
+
+	"classifieds_user_contact_mobile"(description: "track vip user interaction as success for classifieds mobile") {
+		startWith {
+			experiment(regex(classiExperiments))
+		}
+
+		countsOn {
+			condition {
+				path("/vip/call_seller", "/questions/ask/post")
 			}
 		}
 	}
@@ -202,6 +227,30 @@ metrics {
 		countsOn {
 			condition {
 				path("/sell/upgrade/listing_types")
+			}
+		}
+	}
+
+	"asset_management_congrats"(description: "Arrival to congrats for Asset Management") {
+		startWith {
+			experiment("mpmobile/asset_management")
+		}
+
+		countsOn {
+			condition {
+				path("/asset_management/result_investing")
+			}
+		}
+	}
+
+	"asset_management_start_investing"(description: "Touches the button 'Quiero invertir' from onboarding") {
+		startWith {
+			experiment("mpmobile/asset_management")
+		}
+
+		countsOn {
+			condition {
+				path("/asset_management/start_investing")
 			}
 		}
 	}

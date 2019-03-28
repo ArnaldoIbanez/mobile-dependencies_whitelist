@@ -17,6 +17,10 @@ class Catalog implements CatalogInterface{
 
     def platforms = []
 
+    def abPlatforms = []
+
+    def abPlatformsSubscriptions = []
+
     def defaultBusiness
 
     def CatalogCoverage catalogCoverage
@@ -49,6 +53,15 @@ class Catalog implements CatalogInterface{
     def addPlatform(PlatformTree tree , String platform) {
         tree.addNode(platform, new CatalogTree(), true);
     }
+
+    def addAbPlatforms(platforms) {
+        abPlatforms.addAll(platforms)
+    }
+
+    def addAbPlatformsSubscriptions(platforms) {
+        abPlatformsSubscriptions.addAll(platforms)
+    }
+
 
     def addFile(File file) {
         includedFiles.add(file)
@@ -120,7 +133,7 @@ class Catalog implements CatalogInterface{
             if ( catalogDefinition != null ) {
                 return catalogDefinition.validate(track, serverSide)
             } else {
-                tr.addValidation(false, "Path '${track.path}' not found in catalog (check if it's defined in the catalog file and if it's defined for the specified platform")
+                tr.addValidation(false, "Path '${track.path}' not found in catalog (check if it's defined in the catalog file and if it's defined for the specified platform & business")
                 return tr
             }
         }catch (CatalogException e) {

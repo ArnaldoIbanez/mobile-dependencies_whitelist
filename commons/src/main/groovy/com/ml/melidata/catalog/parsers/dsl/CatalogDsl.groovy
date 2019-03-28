@@ -9,7 +9,7 @@ import com.ml.melidata.catalog.DslUtils
 class CatalogDsl {
 
     //it is not thread safe
-    def static String baseDir = "src/main/resources/catalog/"
+    def static String baseDir = "src/main/resources/catalog/melidata/"
 
     def Catalog catalog;
 
@@ -72,6 +72,14 @@ class CatalogDsl {
         platforms.each {p ->
             catalog.addPlatform(p)
         }
+    }
+
+    def setAbPlatforms(arr) {
+        catalog.addAbPlatforms(arr)
+    }
+
+    def setAbPlatformsSubscriptions(arr) {
+        catalog.addAbPlatformsSubscriptions(arr)
     }
 
 }
