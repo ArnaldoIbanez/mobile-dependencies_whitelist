@@ -200,6 +200,19 @@ trackTests {
             variation_id="BLUE"
             experiment= false
         }
+        "/notification_center/campaigns-acho_reminder"(platform: "/mobile"){
+            campaign_id= "campaign1"
+            newsgroup_id= "campaigns-acho_reminder-320010629"
+            event_type= "open"
+            deeplink= "meli://item?id=MLA645507294"
+            type_layout= "standard"
+            test_notification= false
+            sent_date= "20180508"
+            batch_id= "MLB_PACK_20180508_2"
+            latest_news_type= "campaigns-acho_reminder"
+            latest_news_id= "campaigns-acho_reminder-143816022-MLB1013046714"
+            item_id= "MLV515515631"
+        }
         "/notification_center/campaigns-ticket_recovery"(platform: "/") {
             campaign_id = "mkt_campaign_ticket_recovery"
             newsgroup_id = "campaigns_ticket_recovery-320010629"
@@ -522,6 +535,17 @@ trackTests {
             item_id = "MLV515515631"
             variation_id="BLUE"
             experiment = false
+        }
+
+        "/notification/campaigns_acho_reminder"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "received"
+            deeplink ="meli://search?q=sony"
+            campaign_id = "mkt_campaign_co"
+            test_notification = false
+            sent_date = "20180508"
+            batch_id = "MLB_PACK_20180508_2"
+            item_id = "MLV515515631"
         }
 
         "/notification/campaigns_ticket_recovery"(platform: "/") {
