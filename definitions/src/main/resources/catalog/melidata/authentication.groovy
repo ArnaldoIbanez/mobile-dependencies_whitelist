@@ -259,7 +259,7 @@ tracks {
     "/auth/attestation"(platform: "/mobile", isAbstract: true) {}
 
     "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
-        mode(type: PropertyType.String, required: false, description: "In which mode attestation was started")
+        mode(type: PropertyType.String, required: false, description: "In which mode attestation was started" , values:['publish_result', 'prefetch_only', 'cache_only'])
     }
 
     "/auth/attestation/signature"(platform: "/mobile", isAbstract: true) {}
