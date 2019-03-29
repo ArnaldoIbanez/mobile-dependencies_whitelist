@@ -2,7 +2,7 @@ SELECT
 sum(if(path='/vip',1,0)) as vips,
     sum(if(path='/vip/buy_action',1,0)) as buy,
     sum(if(path='/vip/add_cart_action',1,0)) as add_to_cart,
-    substr(ds, 1 , 10) AS a_sent_date,
+    substr(ds, 1 , 10) AS ds,
     device.platform AS a_device,
     application.site_id AS a_site
 FROM tracks
