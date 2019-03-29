@@ -518,10 +518,10 @@ trackTests {
 
     test("MP-MA Point Pro paper rolls request") {
         "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
-          view = "address"
+          view = "order"
         }
         "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
-          view = "congrats"
+          view = "congrats_waiting"
         }
     }
 

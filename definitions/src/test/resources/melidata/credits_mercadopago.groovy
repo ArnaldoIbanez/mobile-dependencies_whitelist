@@ -131,7 +131,9 @@ trackTests {
     test("Money Advance") {
         "/credits/merchant/money_advance"(platform: "/web/desktop") {}
         "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {}
+        "/credits/merchant/money_advance/congrats"(platform: "/mobile/android") {}
         "/credits/merchant/money_advance/hub"(platform: "/web/desktop") {}
+        "/credits/merchant/money_advance/hub"(platform: "/mobile/android") {}
         "/credits/merchant/money_advance/summary"(platform: "/web/desktop") {}
         "/credits/merchant/money_advance/no_options"(platform: "/web/desktop") {}
         "/credits/merchant/money_advance/error"(platform: "/web/desktop") {
