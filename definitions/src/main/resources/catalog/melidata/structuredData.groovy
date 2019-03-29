@@ -163,11 +163,11 @@ tracks {
     "/structure_data/product_creator"(platform: "/",isAbstract: true) {}
     "/structure_data/product_creator/other_domain"(platform: "/", type: TrackType.Event) {
         bs_user_email(required: true, description: "Email of brightsector user")
-        score(required: true, description: "Score of the zordon api")
-        is_same_domain(required: false, description:"Must maintain or not in this domain", PropertyType.Boolean)
+        score(required: true, description: "Score of zordon api")
+        is_same_domain(required: true, description:"Must keep or not in this domain", PropertyType.Boolean)
         domain_id(required: true, description: "Current domain")
         suggested_domain(required: true, description: "Suggested domain")
         item_id(required: true, description: "Item Id")
-        user_action(required: true, description: "Action taken by the user")
+        user_action(required: true, description: "Action taken by user")
     }
 }
