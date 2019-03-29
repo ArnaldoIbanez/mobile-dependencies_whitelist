@@ -313,11 +313,11 @@ tracks {
         view_time_in_millis(required: false, PropertyType.String)
     }
     "/instore/landing/abort"(platform: "/mobile", type: TrackType.Event) {
-        view_time_in_millis(required: false, PropertyType.String)
+         view_time_in_millis(required: false, PropertyType.String)
     }
     "/instore/landing/back"(platform: "/mobile", type: TrackType.Event) {
-        view_time_in_millis(required: false, PropertyType.String)
-    }
+         view_time_in_millis(required: false, PropertyType.String)
+     }
 
     // Waiting
     "/instore/waiting"(platform: "/mobile", isAbstract: true) {}
