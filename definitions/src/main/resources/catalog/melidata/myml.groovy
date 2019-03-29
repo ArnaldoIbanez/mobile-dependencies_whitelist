@@ -804,4 +804,16 @@ tracks {
 
     "/myml/invoices/sku/status"(platform: "/") {}
 
+    //Backoffice pages
+    "/myml/invoices/backoffice"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/backoffice/search"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/backoffice/search/invoice"(platform: "/") {
+       search_filter(required: true, description: "Search filter used")
+    }
+
+    "/myml/invoices/backoffice/search/invoicesList"(platform: "/") {
+       search_filter(required: true, description: "Search filter used on massive invoices search")
+    }
+
 }
