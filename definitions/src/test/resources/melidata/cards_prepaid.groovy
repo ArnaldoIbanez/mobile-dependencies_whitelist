@@ -91,10 +91,6 @@ trackTests {
         // View
         "/prepaid/block"(platform: "/web/desktop") {}
     }
-
-    test("Landing Cobranded card") {
-        "/cobranded/acquisition/landing" (platform: "/web") {}
-    }
     
     test("My card webview") {
         "/my_cards_webview" (platform: "/mobile") { from = "/deep_link" }

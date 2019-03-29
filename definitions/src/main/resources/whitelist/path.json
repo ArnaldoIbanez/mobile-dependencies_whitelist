@@ -14,6 +14,7 @@
     "/question/ask/post",
     "/vip/contact_seller",
     "/register/success",
-    "/register/failure"
+    "/register/failure",
+    "/asset_management/error"
   ]
 }

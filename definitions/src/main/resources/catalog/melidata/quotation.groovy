@@ -16,7 +16,7 @@ tracks {
     }
 
     "/quotation/details"(platform: "/web") {
-        seller_id(required: true, type:PropertyType.Numeric)
+        seller_id(required: true, type:PropertyType.Numeric, inheritable: false)
         category_id(required: false, type:PropertyType.String, description: "Item category id")
         vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
         error_type(required: false, type:PropertyType.String)
@@ -28,6 +28,10 @@ tracks {
         vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
         model_id(required: false, type:PropertyType.String, "Model Id" )
         unit_id(required: false, type:PropertyType.Numeric, description: "Unit Id")
+    }
+
+    "/quotation/details/show"(platform: "/web", type: TrackType.Event) {
+        source(required: true, type:PropertyType.String,description: "Origen de donde se llego al selector de modelos")
     }
 
     //Quotation :: Gallery
@@ -55,6 +59,11 @@ tracks {
         item_id(required: true, type:PropertyType.String, description: "Item id")
         model_id(required: true, type:PropertyType.String, description: "Model id")
         unit_id(required: true, type:PropertyType.String, description: "Unit id")
+    }
+
+    "/quotation/quote_intention"(platform: "/web", type: TrackType.Event) {
+        item_id(required: true, type:PropertyType.String,description: "Item id")
+        source(required: true, type:PropertyType.String,description: "Origen de donde se llego al selector de modelos")
     }
 
     //Quotation :: Quotation success

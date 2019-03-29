@@ -1,6 +1,7 @@
 {
   "users": [
-    "emanuel.lopez@mercadolibre.com"
+    "emanuel.lopez@mercadolibre.com",
+    "sebastian.schmukliar@mercadolibre.com"
   ],
   "process_name": "technical_specifications_hints",
   "cron": "00 07 * * *",
@@ -15,31 +16,35 @@
       {
         "name": "path",
         "type": "UNICODE_STRING"
-      },      
+      },
       {
         "name": "action",
         "type": "UNICODE_STRING"
-      },      
+      },
       {
         "name": "session",
         "type": "UNICODE_STRING"
-      },      
+      },
       {
         "name": "item",
         "type": "UNICODE_STRING"
-      },      
+      },
       {
         "name": "domain",
         "type": "UNICODE_STRING"
-      },      
+      },
       {
         "name": "attribute",
         "type": "UNICODE_STRING"
-      },      
+      },
       {
         "name": "hintType",
         "type": "UNICODE_STRING"
-      },      
+      },
+      {
+        "name": "hintId",
+        "type": "UNICODE_STRING"
+      },
       {
         "name": "source",
         "type": "UNICODE_STRING"
@@ -47,7 +52,7 @@
       {
         "name": "site",
         "type": "UNICODE_STRING"
-      },      
+      },
       {
         "name": "t_user",
         "type": "INTEGER"

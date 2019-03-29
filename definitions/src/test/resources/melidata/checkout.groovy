@@ -332,11 +332,15 @@ trackTests {
         "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event) {
             success = true
         }
-        "/checkout/shipping/custom_address/zip_code/query"(platform:"/mobile", type:TrackType.View) {}
+        "/checkout/shipping/custom_address/zip_code/query"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
         "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event) {
             query_parameters = "Mexico D.F."
         }
-        "/checkout/shipping/custom_address/zip_code/query/back"(platform:"/mobile", type:TrackType.Event) {}
+        "/checkout/shipping/custom_address/zip_code/query/back"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+        }
         "/checkout/shipping/select_option/mercado_envios"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             //List of available shippingMethods
@@ -423,6 +427,7 @@ trackTests {
             success = true
             session_id = "1241n1kj2nk14141nl12nl"
         }
+
         "/checkout/shipping/select_address"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             //List of available shippingMethods
@@ -527,6 +532,9 @@ trackTests {
             checkoutStatus()
         }
         "/checkout/payment/add_debit_card"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
+        "/checkout/payment/add_debit_card/back"(platform:"/mobile", type:TrackType.Event) {
             checkoutStatus()
         }
         "/checkout/payment/add_debit_card#card_config"(platform:"/mobile", type: TrackType.Event) {
@@ -755,6 +763,43 @@ trackTests {
             session_id = "asodas98a9sd8a"
         }
 
+         //Payment form input tack events:
+         "/checkout/payment/input_card/card_number"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+         }
+         "/checkout/payment/input_card/holder_name"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+         }
+         "/checkout/payment/input_card/expiry_date"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+         }
+         "/checkout/payment/input_card/security_code"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+         }
+         "/checkout/payment/input_card/identification_number"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+         }
+         "/checkout/payment/input_card/error_card_number"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+             error = "Completa este dato"
+         }
+         "/checkout/payment/input_card/error_holder_name"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+             error = "Completa este dato"
+         }
+         "/checkout/payment/input_card/error_expiry_date"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+             error = "Completa este dato"
+         }
+         "/checkout/payment/input_card/error_security_code"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+             error = "Completa este dato"
+         }
+         "/checkout/payment/input_card/error_identification_number"(platform:"/mobile", type: TrackType.Event){
+             session_id = "1241n1kj2nk14141nl12nl"
+             error = "Completa este dato"
+         }
+
         // Billing Info
         "/checkout/billing/physical_person"(platform: "/mobile") {
             checkoutStatus()
@@ -775,6 +820,9 @@ trackTests {
             status = "success"
             checkout_flow = "direct"
         }
+
+        "/checkout/review#submit/abort"(platform:"/mobile", type:TrackType.Event) {}
+
         "/checkout/review/quantity#submit"(platform:"/mobile", type: TrackType.Event) {
             old_quantity = 4
             selected_quantity = 1
@@ -848,6 +896,14 @@ trackTests {
             checkoutStatus()
         }
 
+        "/checkout/finish/invalid_sec_code/input#submit"(platform:"/mobile", type:TrackType.Event) { }
+
+        "/checkout/features/bridge"(platform:"/mobile", type:TrackType.Event) {
+            is_experiment_on = true
+            can_navigate_to = false
+            screen = "MapScreen"
+        }
+
         "/checkout/finish/choose_action"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
@@ -856,7 +912,7 @@ trackTests {
             checkoutStatus()
         }
 
-        "/checkout/finish#click"(platform: "/mobile", type: TrackType.Event) {
+        "/checkout/finish/click"(platform: "/mobile", type: TrackType.Event) {
             action = 'call_seller'
         }
 
@@ -941,6 +997,19 @@ trackTests {
             ]
 
             order_id=912391
+        }
+
+        /**
+         * Garex
+         * */
+        "/checkout/"(platform: "/web") {
+            item_with_garex: true
+            total_amount_including_garex: 1869.89
+        }
+
+        "/checkout/"(platform: "/web") {
+            item_with_garex: false
+            total_amount_including_garex: 1699.89
         }
 
         //Checkout Desktop
@@ -1705,6 +1774,35 @@ trackTests {
 
     }
 
+    /*
+    Garex tracks tests
+    * */
+    test('checkout garex') {
+        "/checkout/garex"(platform:"/web", type: TrackType.View) {}
+        "/checkout/garex/more_info"(platform:"/web", type: TrackType.Event) {}
+        "/checkout/garex/selected_garex"(platform:"/web", type: TrackType.Event) {
+            garex = [
+                    "id": "MLA390289_GAR16001",
+                    "period": 24,
+                    "cost": 1234,
+                    "revenue_share_fee": 70,
+                    "revenue": 863.80,
+                    "currency_id": "ARS"
+            ]
+        }
+        "/checkout/garex/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
+        "/checkout/garex/delete"(platform:"/web", type: TrackType.Event) {
+            garex = [
+                    "id": "MLA390289_GAR16001",
+                    "period": 24,
+                    "cost": 1234,
+                    "revenue_share_fee": 70,
+                    "revenue": 863.80,
+                    "currency_id": "ARS"
+            ]
+        }
+    }
+
     test("checkout payment combination inconsistencies") {
         "/checkout/review/discard_payment_combination"(platform: "/mobile", type:TrackType.View) {}
         "/checkout/review/inconsistency/payment_combination/payment"(platform: "/mobile", type:TrackType.View) {}
@@ -2130,6 +2228,19 @@ trackTests {
             item_status = "inactive"
         }
         "/checkout_recovery/notfound" (platform:"/web/mobile", type: TrackType.View) {
+            item_id = "MLU451705243"
+            item_status = "inactive"
+        }
+
+        "/checkout_recovery" (platform:"/mobile/android", type: TrackType.View) {
+            item_id = "MLU451705243"
+            item_status = "inactive"
+        }
+        "/checkout_recovery/error" (platform:"/mobile/android", type: TrackType.View) {
+            item_id = "MLU451705243"
+            item_status = "inactive"
+        }
+        "/checkout_recovery/notfound" (platform:"/mobile/android", type: TrackType.View) {
             item_id = "MLU451705243"
             item_status = "inactive"
         }

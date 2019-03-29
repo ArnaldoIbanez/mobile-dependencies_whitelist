@@ -61,6 +61,7 @@ tracks {
                 description: "Whenever the items is active, closed or paused")
         deal_ids(required: true, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         billboard_clicked_position(required: false, type: PropertyType.String, description: "Clicked billboard index. We use it to track when the user entered to VIP via Billboard")
+        has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
 
         // ONLY CORE FIELDS
         quantity( required: false, type: PropertyType.Numeric, description: "Available items quantity show at this vip")
@@ -74,6 +75,7 @@ tracks {
         reviews_attributes(required: false, type: PropertyType.ArrayList, inheritable: false, description: "Reviewable catalog attribute names")
         return_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has free return for the item")
+        has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
         
         // CART
         add_cart_info
@@ -107,6 +109,9 @@ tracks {
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
         store_type(required: false, type: PropertyType.String, values: ["normal", "brand"], description: "Indicates store type")
 
+        // PAYMENT
+        installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
+
         // SHIPPING
         shipping_info 
 
@@ -124,6 +129,9 @@ tracks {
         // TOOLTIPS
         shown_tooltip(required: false, type: PropertyType.String,
                       description: "Indicates which tooltip is shown in the VIP at the time, if any. In case it does not show anything, it should be 'none'. E.g: 'credits', 'subscription', 'cart_benefit_free_shipping', etc.")
+
+        whatsapp_available(required: false, type: PropertyType.String, description: "determines if whatsapp is available")
+        quote_demand_available(required: false, type: PropertyType.Boolean, description: "determines if an item has quote demand available")
     }
 
     "/vip"(platform: "/web") {
@@ -199,9 +207,7 @@ tracks {
         zip_code(required: false,  PropertyType.Numeric, description: "Indicates the buyer's zip_code")
         quantity(required: true, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to buy")
         shipping_method(required: false)
-        has_shipping(required: true,type: PropertyType.Boolean)
-        has_stock(required: true,type: PropertyType.Boolean)
-
+        has_shipping(requered: true,type: PropertyType.Boolean)
     }
     
     "/vip/buy_action"(platform: "/", parentPropertiesInherited: false) {
@@ -211,6 +217,14 @@ tracks {
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         is_valid_variation(required: false, type: PropertyType.Boolean, description: "Is the selected variation valid")
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
+        vertical(required: false, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        return_available(required: false, type: PropertyType.Boolean, description: "Indicates if the user has free return for the item")
+        has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
+        review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
+        official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
+        reputation_level(required: false, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Seller's reputation level")
+        installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
+        has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
         add_cart_info
         shipping_info
     }
@@ -222,6 +236,14 @@ tracks {
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         is_valid_variation(required: false, type: PropertyType.Boolean, description: "Is the selected variation valid")
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
+        vertical(required: false, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        return_available(required: false, type: PropertyType.Boolean, description: "Indicates if the user has free return for the item")
+        has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
+        review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
+        official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
+        reputation_level(required: false, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Seller's reputation level")
+        installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
+        has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
         add_cart_info
         shipping_info
     }
@@ -265,6 +287,9 @@ tracks {
         listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
         source(required: false, description: "Source of the referred")
+        unregistered_contact(required: false, type: PropertyType.Boolean, "User is unregister type")
+        captcha_showed(required: false, type: PropertyType.Boolean, description: "If captcha is showed")
+
     }
 
     "/vip/call_seller"(platform: "/", type: TrackType.Event) {
@@ -341,6 +366,13 @@ tracks {
         vertical(required: false, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"],
                 description: "Vertical of the item")
+        unregistered_contact(required: false, type: PropertyType.Boolean,
+                description: "User is unregister type")
+        unregistered_contact_context(required: false, type: PropertyType.Boolean,
+                description: "User is unregister after returning from email")
+        event_source(required: false, type: PropertyType.String,
+                values: ["vip", "technicalSpecs", "description"],
+                description: "source of the event")
     }
 
 
@@ -482,28 +514,6 @@ tracks {
     }
     "/vip/free_shipping_cart_available"(platform: "/web", type: TrackType.Event){}
 
-    // FIT ANALYTICS
-
-    "/vip/fitanalytics"(platform: "/", isAbstract: true) {}
-
-    "/vip/fitanalytics/view"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item ID")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        fit(required: true, description: "Available fit")
-    }
-
-    "/vip/fitanalytics/predict"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item ID")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-    }
-
-    "/vip/fitanalytics/close"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item ID")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        variation(required: true, description: "Current Variation")
-        size(required: false, type: PropertyType.String, description: "Size of recomendation")
-    }
-
     // RESERVATION
 
     "/vip/reservation_onboard"(platform: "/web", type: TrackType.View) {
@@ -572,7 +582,7 @@ tracks {
         //Location
             //type: [address | zip_code]
             //value: String
-        shipping_methods(required: true,  type: PropertyType.ArrayList,description: "Shipping Methods")
+            shipping_methods(required: true,  type: PropertyType.ArrayList,description: "Shipping Methods")
     //Shipping Method
         //promise 
         //  from: Integer
@@ -588,7 +598,9 @@ tracks {
         selected_method(required: true, description: "Shipping Methods")
     }
 
-    "/vip/shipping_calculator/cancel"(platform: "/", type: TrackType.Event){
+    "/vip/shipping_calculator/cancel"(platform: "/web", type: TrackType.Event){
+    }
+     "/vip/shipping_calculator/cancel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
     }
 
      "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event){

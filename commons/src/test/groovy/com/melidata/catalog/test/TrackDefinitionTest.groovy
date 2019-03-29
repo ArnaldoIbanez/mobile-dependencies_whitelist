@@ -16,7 +16,7 @@ import static org.junit.Assert.*
 /**
  * Created by geisbruch on 11/11/14.
  */
-class DefinitionTest {
+class TrackDefinitionTest {
 
 
     @Test void shouldEnableAddPropertiesWithOutTrackDefinitionProperty() {
@@ -278,6 +278,18 @@ class DefinitionTest {
         def track = new Track("/search", TrackType.View, "/mobile")
 
         assertTrue(track.type.equals(TrackType.View))
+    }
+
+    @Test void schemaDefinitionsPropertiesArentTracksProperties() {
+
+        def definition = new TrackDefinition("/search")
+                .addProperty(name: "category", description: "category of", type: PropertyType.Map, schemaDefinitions: [
+                heigth: new TrackDefinitionProperty(name: "width", description: "The layout used in the search query", type: PropertyType.String),
+                width: new TrackDefinitionProperty(name: "width", description: "The layout used in the search query", type: PropertyType.String)
+                ])
+
+        assertNull(definition.getProperties()["heigth"])
+        assertNotNull(definition.getProperties()["category"])
     }
 
 }

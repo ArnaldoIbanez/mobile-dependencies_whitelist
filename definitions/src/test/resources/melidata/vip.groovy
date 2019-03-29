@@ -46,6 +46,8 @@ trackTests {
             loyalty_level = 2
             price_comparison_available = true
             price_comparison_position =  0.75
+            whatsapp_available = "false"
+            quote_demand_available = false
         }
 
         "/vip"(platform:"/mobile", {
@@ -106,6 +108,12 @@ trackTests {
             mandatory()
             listing_type_id = "GOLD"
             item_seller_type = "AB001"
+        })
+
+        "/vip/contact_seller"(platform: "/", type: TrackType.Event, {
+            mandatory()
+            unregistered_contact = false
+            captcha_showed = false
         })
 
         "/vip/call_seller"(platform:"/mobile", type: TrackType.Event, {
@@ -382,7 +390,13 @@ trackTests {
 
         "/vip/question"(platform: "/", type: TrackType.View){
             item_id = "MLA213512313"
+        }
 
+        "/vip/question"(platform: "/", type: TrackType.View){
+            item_id = "MLA213512313"
+            unregistered_contact = false
+            unregistered_contact_context = false
+            event_source= "description"
         }
     }
 
@@ -486,44 +500,6 @@ trackTests {
         }
     }
 
-
-   // FIT ANALYTICS
-
-    test("VIP Web fitanalytics ") {
-
-         def defaultTrackInformation = {
-             item_id = "MLA213512313"
-             category_id = "MLA123"
-             buying_mode = "classified"
-             category_path = ["MLA1234","MLA6789"]
-             item_condition = "new"
-             item_status = "active"
-             deal_ids = []
-             seller_id = 123456789
-             vertical = "core"
-             listing_type_id = "gold_special"
-        }
-
-        "/vip/fitanalytics"(platform: "/", type: TrackType.Event) {
-           defaultTrackInformation()
-        }
-        
-        "/vip/fitanalytics/view"(platform: "/", type: TrackType.Event) {
-           defaultTrackInformation()
-           fit = true
-        }
-
-        "/vip/fitanalytics/predict"(platform: "/", type: TrackType.Event) {
-           defaultTrackInformation()
-        }
-
-         "/vip/fitanalytics/close"(platform: "/", type: TrackType.Event) {
-           defaultTrackInformation()
-           variation = {}
-        }
-
-    }
-
     // RESERVATION
 
     test("VIP Web reservation onboard ") {
@@ -581,6 +557,7 @@ trackTests {
         def defaultTrackInformation = {
             item_id = "MLA213512313"
             quantity = 1
+            has_variations = true
         }
 
         def cartInformation = {
@@ -652,7 +629,6 @@ trackTests {
             zip_code = 123
             quantity = 2
             has_shipping = false
-            has_stock = false
             shipping_method()
         }
     }
@@ -711,6 +687,7 @@ trackTests {
             }
         }
 
+
         "/vip/shipping_calculator"(platform: "/", type: TrackType.View) {
             model()
         }
@@ -719,14 +696,32 @@ trackTests {
             model()
             shipping_method()
         }
+        
+        "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {
+        }
+        
+        "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
+             model()
+        }
 
-        "/vip/shipping_calculator/cancel"(platform: "/", type: TrackType.Event) {
+
+        "/vip/shipping_calculator"(platform: "/web/desktop", type: TrackType.View) {
+            model()
+        }
+
+         "/vip/shipping_calculator/select"(platform: "/web/desktop", type: TrackType.Event) {
+            model()
+            shipping_method()
+        }
+
+        "/vip/shipping_calculator/cancel"(platform: "/web/desktop", type: TrackType.Event) {
             model()
         }
         
-        "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {}
+        "/vip/shipping_calculator/modify"(platform: "/web/desktop", type: TrackType.Event) {
+        }
         
-        "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
+        "/vip/shipping_calculator/show_map"(platform: "/web/desktop", type: TrackType.Event) {
              model()
         }
         
@@ -741,12 +736,13 @@ trackTests {
             shipping_method()
         }
 
-        "/vip/shipping_calculator/cancel"(platform: "/mobile/ios", type: TrackType.Event) {
-            model()
+        "/vip/shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) {
         }
-        
-        "/vip/shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) { }
-        
+
+    
+        "/vip/shipping_calculator/cancel"(platform: "/mobile/ios", type: TrackType.Event) {
+        }
+                
         "/vip/shipping_calculator/show_map"(platform: "/mobile/ios", type: TrackType.Event) {
             model()
         }

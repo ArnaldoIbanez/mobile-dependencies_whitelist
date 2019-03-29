@@ -35,7 +35,6 @@ class TrackDsl {
         propertyDefinitionGroups.putAll(propertyGroupDefinitionDsl.propertyDefinitionGroups)
     }
 
-
     def methodMissing(String method, args) {
         def path = method;
 
@@ -46,13 +45,10 @@ class TrackDsl {
         TrackDefinition trackDefinition = new TrackDefinition(trackArgs)
         def closure = args[-1]
 
-        def properties = retrievePropertyDefinitions(closure, propertyDefinitionGroups)
+        def properties = objectSchemaDefinitions(closure)
         trackDefinition.properties.putAll(properties);
         trackDefinitions.add(trackDefinition)
     }
-
-
-
 
     def retrievePropertyDefinitions (closure, providedPropertyDefinitionGroups = [:]) {
         PropertyDefinitionDsl propertyDefinitionDsl = new PropertyDefinitionDsl(providedPropertyDefinitionGroups: providedPropertyDefinitionGroups);
@@ -60,6 +56,10 @@ class TrackDsl {
         closure.delegate = propertyDefinitionDsl
         closure()
         propertyDefinitionDsl.properties
+    }
+
+    def objectSchemaDefinitions (closure) {
+        retrievePropertyDefinitions(closure, propertyDefinitionGroups)
     }
 
 }

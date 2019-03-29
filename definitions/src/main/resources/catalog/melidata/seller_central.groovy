@@ -40,6 +40,18 @@ tracks {
         id(required: false, type: PropertyType.String, description: "Id of the communication ")
     }
 
+    "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
+        placement(required: true, description: "Place where track was dispatched")
+        adv_segmentation(required: false, description: "Adevrtasement segmentation ")
+        reputation_level(required: false, description: "Reputation for Pads")
+    }
+
+    "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
+        placement(required: true, description: "Place where track was dispatched")
+        adv_segmentation(required: false, description: "Adevrtasement segmentation ")
+        reputation_level(required: false, description: "Reputation for Pads")
+    }
+
     "/seller_central/listings/communication/more_info"(platform: "/mobile", type: TrackType.Event) {}
 
     "/seller_central/listings/editor"(platform: "/", type: TrackType.Event) {}
@@ -134,6 +146,8 @@ tracks {
         columns(required: true, type: PropertyType.ArrayList, description: "List of the available columns and his order")
     }
 
+    "/seller_central/bulk/discounts/save"(platform: "/", type: TrackType.Event) {}
+
     "/seller_central/bulk/discounts/offline"(platform: "/", isAbstract: true) {}
 
     "/seller_central/bulk/discounts/offline/home"(platform: "/", type: TrackType.View) {}
@@ -182,12 +196,39 @@ tracks {
         to(required: true, type: PropertyType.String, description: "Updated listing type value")
     }
 
+    /**
+     * La idea es trackear en el snackbar informacion
+     * del item original y algunos cambios que se produjeron.
+     */
+    "/seller_central/modify/success"(platform: "/web", type: TrackType.Event){
+        goals_achieved(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Goals achieved in this session, dataset target.")
+        original_goals_not_completed(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Original goals available to complete ordered by source.")
+        original_goals_completed(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Original goals completed ordered by source.")
+        original_goals_not_applied(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Original goals that not applied for this item, ordered by source.")
+        goal_order(required: true, type: PropertyType.String, description: "Goals order source.", values: ["random", "health-api"])
+        original_price(required: true, type: PropertyType.Numeric, description: "Original item price")
+        original_currency(required: true, type: PropertyType.String, description: "Original item currency")
+        original_listing_type(required: true, type: PropertyType.String, description: "Original item listing type", values: ['free', 'bronze', 'silver', 'gold', 'gold_premium', 'gold_special', 'gold_pro'])
+        original_quantity(required: true, type: PropertyType.Numeric, description: "Original item quantity")
+        original_condition(required: true, type: PropertyType.String, description: "Original item condition", values: ['new', 'not_specified', 'used', 'refurbished'])
+        original_shipping(required: false, type: PropertyType.String, description: "Original item shippgin mode.", values: ['ME_DISCOUNT', 'ME_FREE_SHIPPING', 'CUSTOM_SHIPPING', 'FREE_CUSTOM_SHIPPING', 'NO_SHIPPING', 'ME_BUYER'])
+        original_local_pickup(required: false, type: PropertyType.Boolean, description: "Item original local_pickup")
+        is_fbm(required: false, type: PropertyType.Boolean, description: "Is a FullFillment item")
+        domain(required: true, type: PropertyType.String, description: "Item domain")
+        is_catalog_product(required: true, type: PropertyType.Boolean, description: "Item is in catalog")
+        technical_specifications_attributes_empty(required: false, type: PropertyType.Numeric, description: "Original Technical specifications attributes requested")
+        technical_specifications_attributes_loaded(required: false, type: PropertyType.Numeric, description: "Original Technical specifications attributes completed")
+        seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
+        is_official_store(required: true, type: PropertyType.Boolean, description: "User is official store")
+    }
+
     //STRUCTURED DATA
 
     "/seller_central/modify/technical_specifications"(platform: "/", isAbstract: true) {}
     "/seller_central/modify/technical_specifications/hints"(platform: "/", isAbstract: true) {
         hintsGroup
         category_domain(required: true, type: PropertyType.String, description: "Item category domain")
+        hint_id(required: true, type: PropertyType.String, description: "Id del hint que se mostro, pueden cambiar o generarse nuevos por lo que no conocemos todos los valores posibles.")
     }
 
     "/seller_central/modify/technical_specifications/hints/available"(platform: "/", type: TrackType.Event) {
@@ -201,10 +242,14 @@ tracks {
         user_action(required: false, type: PropertyType.String, description: "Type of user action", values: ["click", "write"])
     }
 
+    "/seller_central/modify/optin_flex_subflow"(platform: "/", type: TrackType.View) {
+        sellerCentralModifyCardsGroup
+    }
 
     "/seller_central/bulk/technical_specifications"(platform: "/", isAbstract: true) {}
     "/seller_central/bulk/technical_specifications/hints"(platform: "/", isAbstract: true) {
         hintsGroup
+        hint_id(required: true, type: PropertyType.String, description: "Id del hint que se mostro, pueden cambiar o generarse nuevos por lo que no conocemos todos los valores posibles.")
         category_domain(required: true, type: PropertyType.String, description: "Item category domain")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
@@ -248,6 +293,8 @@ tracks {
     "/seller_central/sales"(platform: "/", isAbstract: true) {}
 
     "/seller_central/sales/list"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/sales/detail"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/sales/list/dashboard"(platform: "/", isAbstract: true) {}
 
