@@ -116,6 +116,7 @@ tracks {
     "/credits/consumer/administrator/summary/go_shopping"(platform: "/", type: TrackType.Event) {
     }
     "/credits/consumer/administrator/summary/get_help"(platform: "/", type: TrackType.Event) {
+        summary_status(description: "Current status of the loan summary", type: PropertyType.String, required: false, values: ["empty_state", "on_time", "overdue"])
     }
     "/credits/consumer/administrator/summary/get_educative"(platform: "/", type: TrackType.Event) {
     }
