@@ -8,6 +8,7 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
+    //SELLER
     test("Quote :: Show listing seller tracking") {
         //Quote Seller Tracks
         "/quote/seller"(platform: "/") {
@@ -296,10 +297,179 @@ trackTests {
             action = "go_listing"
         }
     }
+
    //BUYER
     test("Quote :: Show buyer tracking") {
-        //Quote Seller Tracks
+        //Quote Buyer Tracks
         "/quote/buyer"(platform: "/") {
+            vertical = "services"
+        }
+    }
+
+    test("Quote Buyer :: Listing tracking") {
+        //Quote Buyer :: Listing
+        "/quote/buyer/listing"(platform: "/mobile") {
+            vertical = "services"
+        }
+
+        //Quote Buyer :: Listing - Filters
+        "/quote/buyer/listing/filters"(platform: "/mobile", type: TrackType.View) {
+            vertical = "services"
+        }
+
+        //Quote Buyer :: Listing - Empty
+        "/quote/buyer/listing/empty"(platform: "/mobile", type: TrackType.View) {
+            vertical = "services"
+            buying_mode = "classified"
+        }
+
+        //Quote Buyer :: Listing - News
+        "/quote/buyer/listing/news"(platform: "/mobile", type: TrackType.Event) {
+            vertical = "services"
+        }
+
+        //Quote Buyer :: Listing - Detail
+        "/quote/buyer/listing/detail"(platform: "/mobile", type: TrackType.View) {
+            buyer_id = 33624088
+            vertical = "services"
+            buying_mode = "classified"
+            demand_id = 123123
+        }
+    }
+
+    test("Quote Buyer :: VIP tracking") {
+        //Quote Buyer :: VIP vencido
+        "/quote/buyer/vip"(platform: "/mobile", type: TrackType.Event) {
+            vertical = "services"
+            buyer_id = 33624088
+            quote_id = "123213"
+            quote_demand_id = "43543"
+            item_id =  "MLA123456"
+            status_quote =  "vencido"
+        }
+
+        //Quote Buyer :: VIP cancelado
+        "/quote/buyer/vip"(platform: "/mobile", type: TrackType.Event) {
+            vertical = "services"
+            buyer_id = 33624088
+            quote_id = "123213"
+            quote_demand_id = "43543"
+            item_id =  "MLA123456"
+            status_quote =  "cancelado"
+        }
+
+        //Quote Buyer :: VIP activo
+        "/quote/buyer/vip"(platform: "/mobile", type: TrackType.Event) {
+            vertical = "services"
+            buyer_id = 33624088
+            quote_id = "123213"
+            quote_demand_id = "43543"
+            item_id =  "MLA123456"
+            status_quote =  "activo"
+        }
+    }
+
+    test("Quote Buyer :: Buying Flow tracking") {
+        //Quote Buyer :: Buying Flow vencido
+        "/quote/buyer/buyingflow"(platform: "/mobile", type: TrackType.Event) {
+            vertical = "services"
+            buyer_id = 33624088
+            quote_id = "123213"
+            quote_demand_id = "43543"
+            item_id =  "MLA123456"
+            status_quote =  "vencido"
+        }
+
+        //Quote Buyer :: Buying Flow cancelado
+        "/quote/buyer/buyingflow"(platform: "/mobile", type: TrackType.Event) {
+            vertical = "services"
+            buyer_id = 33624088
+            quote_id = "123213"
+            quote_demand_id = "43543"
+            item_id =  "MLA123456"
+            status_quote =  "cancelado"
+        }
+
+        //Quote Buyer :: Buying Flow activo
+        "/quote/buyer/buyingflow"(platform: "/mobile", type: TrackType.Event) {
+            vertical = "services"
+            buyer_id = 33624088
+            quote_id = "123213"
+            quote_demand_id = "43543"
+            item_id =  "MLA123456"
+            status_quote =  "activo"
+        }
+    }
+
+    test("Quote Buyer :: Message tracking") {
+        //Quote Buyer :: Message vencido
+        "/quote/buyer/message"(platform: "/mobile", type: TrackType.Event) {
+            vertical = "services"
+            buyer_id = 33624088
+            quote_id = "123213"
+            quote_demand_id = "43543"
+            item_id =  "MLA123456"
+            status_quote =  "vencido"
+        }
+
+        //Quote Buyer :: Message cancelado
+        "/quote/buyer/message"(platform: "/mobile", type: TrackType.Event) {
+            vertical = "services"
+            buyer_id = 33624088
+            quote_id = "123213"
+            quote_demand_id = "43543"
+            item_id =  "MLA123456"
+            status_quote =  "cancelado"
+        }
+
+        //Quote Buyer :: Message activo
+        "/quote/buyer/message"(platform: "/mobile", type: TrackType.Event) {
+            vertical = "services"
+            buyer_id = 33624088
+            quote_id = "123213"
+            quote_demand_id = "43543"
+            item_id =  "MLA123456"
+            status_quote =  "activo"
+        }
+    }
+
+    test("Quote Buyer :: Detail tracking") {
+        //Quote Buyer :: Detail vencido
+        "/quote/buyer/detail"(platform: "/mobile", type: TrackType.View) {
+            vertical = "services"
+            buyer_id = 33624088
+            quote_id = "123213"
+            quote_demand_id = "43543"
+            item_id =  "MLA123456"
+            status_quote =  "vencido"
+        }
+
+        //Quote Buyer :: Detail cancelado
+        "/quote/buyer/detail"(platform: "/mobile", type: TrackType.View) {
+            vertical = "services"
+            buyer_id = 33624088
+            quote_id = "123213"
+            quote_demand_id = "43543"
+            item_id =  "MLA123456"
+            status_quote =  "cancelado"
+        }
+
+        //Quote Buyer :: Detail activo
+        "/quote/buyer/detail"(platform: "/mobile", type: TrackType.View) {
+            vertical = "services"
+            buyer_id = 33624088
+            quote_id = "123213"
+            quote_demand_id = "3543"
+            item_id =  "MLA123456"
+            status_quote =  "activo"
+        }
+    }
+
+    test("Quote Buyer :: OnBoarding tracking") {
+        //Quote Buyer :: OnBoarding
+        "/quote/buyer/onboarding"(platform: "/mobile") {
+            vertical = "services"
+
         }
     }
 }
