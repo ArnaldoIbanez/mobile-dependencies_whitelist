@@ -34,6 +34,13 @@ trackTests {
             action = "search_reset"
         }
 
+        //quote seller :: Listing - filters
+        "/quote/seller/listing/filters/modal"(platform: "/web", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            action = "submit_filter"
+        }
+
         //quote seller :: Listing - menu
         "/quote/seller/listing/menu"(platform: "/web", type: TrackType.Event) {
             vertical = "services"
@@ -147,7 +154,7 @@ trackTests {
             currency_id = "ARS"
         }
         //quote seller :: Quote Detail  action  button create similary quote
-        "/quote/seller/detail/create/similary"(platform: "/mobile", type: TrackType.Event) {
+        "/quote/seller/detail/create_similary"(platform: "/mobile", type: TrackType.Event) {
             item_id = "MLA698669764"
             quote_demand_id = 698669764
             quote_id = 65732
@@ -428,20 +435,6 @@ trackTests {
             action = "go_listing"
 
         }
-        //quote seller :: Quote Congrats  view
-        "/goto/quotes/create/congrats"(platform: "/", type: TrackType.View) {
-            item_id = "MLA698669764"
-            category_id = "MLA43718"
-            category_path = ["MLA1234", "MLA6789"]
-            seller_id = 33624088
-            buyer_id = 64567088
-            quote_demand_id = 698669764
-            quote_demand_status = "active"
-            vertical = "services"
-            price = 15.3
-            currency_id = "ARS"
-            is_similar = "true"
-        }
 
     }
 
@@ -481,6 +474,19 @@ trackTests {
             seller_id = 33624088
             currency_id = "ARS"
             action = "on_time"
+        }
+
+        //quote seller :: Quote Cancel Custom
+        "/quote/seller/cancel/custom/submit_reason"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            category_path = ["MLA1234", "MLA6789"]
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "active"
+            vertical = "services"
+            seller_id = 33624088
+
         }
 
         //quote seller :: Quote Congrats - go listing

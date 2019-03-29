@@ -136,7 +136,7 @@ tracks {
     }
 
     //quote seller :: Quote Detail  action  button create similary quote
-    "/quote/seller/detail/create/similary"(platform: "/mobile", type: TrackType.Event) {
+    "/quote/seller/detail/create_similary"(platform: "/mobile", type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "Item id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
@@ -304,20 +304,6 @@ tracks {
     //Quote Seller :: Loading screen view - Create
     "/quote/seller/create/loading"(platform: "/mobile", type: TrackType.View) {}
 
-    //Quote Seller :: Loading - Create congrats view
-    "/goto/quotes/create/congrats"(platform: "/", type: TrackType.View) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_demand_status(required: true, type: PropertyType.String, description: "the status quote")
-        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
-        is_similar(required: true, type: PropertyType.String, description: "Quote Demand id")
-        quoteSellerGroup
-
-    }
 
     /******************************************
      *       End: Detail Screen
@@ -369,7 +355,7 @@ tracks {
     }
 
     //Quote Seller :: Cancel submit  custom reason
-    "/quote/seller/cancel/custom/submit_reason"(platform: "/", type: TrackType.Event) {
+    "/quote/seller/cancel/custom/submit_reason"(platform: "/mobile", type: TrackType.Event) {
     }
 
     //Quote Seller :: Cancel congrats  view
