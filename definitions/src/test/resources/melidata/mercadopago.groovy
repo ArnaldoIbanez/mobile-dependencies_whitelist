@@ -2628,7 +2628,7 @@ trackTests {
 
     test("Device Attestation"){
         "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
-            mode = "prefetch"
+            mode = "prefetch_only"
         }
 
         "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {}
