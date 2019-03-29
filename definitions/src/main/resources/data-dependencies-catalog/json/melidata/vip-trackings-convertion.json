@@ -6,7 +6,7 @@
     "vip_it@mercadolibre.com"
   ],
   "process_name": "vip_trackings_convertion",
-  "cron": "0 0 2 * * ?",
+  "cron": "00 02 * * *",
   "partition": {
     "name": "ds",
     "type": "DATE"
