@@ -320,7 +320,7 @@ trackTests {
         //Quote Buyer :: Listing - Empty
         "/quote/buyer/listing/empty"(platform: "/mobile", type: TrackType.View) {
             vertical = "services"
-            buying_mode = "CLASSIFIED"
+            buying_mode = "classified"
         }
 
         //Quote Buyer :: Listing - News
@@ -332,7 +332,7 @@ trackTests {
         "/quote/buyer/listing/detail"(platform: "/mobile", type: TrackType.View) {
             buyer_id = 33624088
             vertical = "services"
-            buying_mode = "CLASSIFIED"
+            buying_mode = "classified"
             demand_id = 123123
         }
     }
