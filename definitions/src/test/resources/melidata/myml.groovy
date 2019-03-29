@@ -599,7 +599,6 @@ trackTests {
 
         "/myml/purchases/buy_it_again" (platform:"/", type: TrackType.View) {
             item_id = 'MLA713079054'
-            action = 'buy_it_again'
         }
 
         "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {
