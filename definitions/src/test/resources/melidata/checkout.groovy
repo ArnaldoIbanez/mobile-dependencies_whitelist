@@ -2004,6 +2004,7 @@ trackTests {
             nearest_store_distance = 250000
             checkout_flow = "direct"
             flow_type = "buy_it_now"
+            stored_cards_quantity = 3
         }
 
         "/checkout/geolocation"(platform:"/web", type: TrackType.Event) {

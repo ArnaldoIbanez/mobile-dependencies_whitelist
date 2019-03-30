@@ -119,6 +119,7 @@ trackTests {
             user_identification = ["doc_type", "doc_number"]
             available_methods = ["visa", "master", "amex"]
             nearest_store_distance = 250000
+            stored_cards_quantity = 3
         }
 
         "/cart/checkout/review/edit_installments"(platform:"/", type: TrackType.Event) {
