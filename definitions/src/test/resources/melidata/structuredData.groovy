@@ -431,4 +431,16 @@ trackTests {
         }
     }
 
+    test("product_creator new other domain action should be tracked"){
+        "/structure_data/product_creator/other_domain"(platform: "/", type: TrackType.Event){
+            bs_user_email ="jose.rosales@mercadolibre.com"
+            score = 0.9913573265075684
+            is_same_domain = true
+            domain_id = "MLA-MOTORCYCLE_HELMETS"
+            suggested_domain = "MOTORCYCLE_HELMETS"
+            item_id = "MLA763560508"
+            user_action = "OTHER_DOMAIN"
+        }
+    }
+
 }

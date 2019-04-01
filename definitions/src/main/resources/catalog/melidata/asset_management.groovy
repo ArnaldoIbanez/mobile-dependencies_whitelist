@@ -18,6 +18,7 @@ tracks {
     "/asset_management/know_more"(platform: "/mobile", type: TrackType.Event) {}
 
     // Blocking screen
+    "/asset_management/blocker"(platform: "/web", type: TrackType.View) {}
     "/asset_management/blocker"(platform: "/mobile", type: TrackType.View) {}
 
     // Challenges
@@ -83,6 +84,7 @@ tracks {
 
     // Landing Web
     "/asset_management/landing"(platform: "/web", type: TrackType.View) {}
+    "/asset_management/landing"(platform: "/mobile", type: TrackType.View) {}
 
     // Pre-landing
     "/asset_management/invest"(platform: "/web", type: TrackType.View) {}

@@ -59,12 +59,14 @@ tracks {
     "/merchant_acquisition/qr"(platform: "/", isAbstract: true) {}
     "/merchant_acquisition/flows"(platform: "/", isAbstract: true) {}
 
-    // QR Assignment
+    // QR Assignment > Pageviews
     "/merchant_acquisition/flows/qr-assignment"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/qr-assignment/success"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
        status (type: PropertyType.String, required: true, description: "Error Status, ex: invalidAccess, error")
     }
+
+    // QR Assignment > Events
     "/merchant_acquisition/flows/qr-assignment/validate_email"(platform:"/", type: TrackType.Event) {
       valid (type: PropertyType.Boolean, required: true, description: "Ex: true or false")
     }
@@ -72,7 +74,12 @@ tracks {
       qr_content (type: PropertyType.String, required: true, description: "Ex: http://qrContent")
     }
 
-    // QR Queue Web
+    // Point Pro Solicitud Bobinas > Pageviews
+    "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
+      view (type: PropertyType.String, required: true, description: "Type of view", values: ["order", "congrats_waiting", "congrats_success", "access_denied", "error"])
+    }
+
+    // QR Queue Web > Pageviews
     "/merchant_acquisition/flows/qr-queue"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/qr-queue/amount"(platform:"/", type: TrackType.View) {
         onboarding (type: PropertyType.Boolean, required: true, description: "Flag that determines if onboarding was shown. Ex: true / false")

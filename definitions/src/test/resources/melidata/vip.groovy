@@ -47,6 +47,7 @@ trackTests {
             price_comparison_available = true
             price_comparison_position =  0.75
             whatsapp_available = "false"
+            quote_demand_available = false
         }
 
         "/vip"(platform:"/mobile", {

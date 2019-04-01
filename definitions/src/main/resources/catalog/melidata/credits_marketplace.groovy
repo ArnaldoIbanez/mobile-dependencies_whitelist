@@ -45,6 +45,7 @@ tracks {
     //Events
     "/credits/consumer/public_landing/click_hero"(platform: "/", type: TrackType.Event) {
         user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
+        variant(type: PropertyType.String, required: false)
     }
     "/credits/consumer/public_landing/credit_line_request"(platform: "/", type: TrackType.Event) {
         user_profile(type: PropertyType.String, required: true, values: ["guest", "no_offer"])
@@ -74,7 +75,7 @@ tracks {
         dashboard_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
     }
     "/credits/consumer/administrator/summary"(platform: "/", type: TrackType.View) {
-        dashboard_status(description: "Current status of the loan summary", type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
+        summary_status(description: "Current status of the loan summary", type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
     }
 
     //Events
@@ -115,6 +116,9 @@ tracks {
     "/credits/consumer/administrator/summary/go_shopping"(platform: "/", type: TrackType.Event) {
     }
     "/credits/consumer/administrator/summary/get_help"(platform: "/", type: TrackType.Event) {
+        summary_status(description: "Current status of the loan summary", type: PropertyType.String, required: false, values: ["empty_state", "on_time", "overdue"])
+    }
+    "/credits/consumer/administrator/summary/get_educative"(platform: "/", type: TrackType.Event) {
     }
 
     //Admin History (Compras Finalizadas)
@@ -396,7 +400,9 @@ tracks {
      *   Start: Consumers Checkout
      ******************************************/
 
-    "/credits/consumer/administrator/checkout"(platform: "/web/desktop", type: TrackType.View) {}
+    "/credits/consumer/administrator/checkout"(platform: "/web/desktop", type: TrackType.View) {
+        summary_status(description: "Current status of the loan summary", type: PropertyType.String, required: false, values: ["empty_state", "on_time", "overdue"])
+    }
 
     /******************************************
      *   End: Consumers Checkout

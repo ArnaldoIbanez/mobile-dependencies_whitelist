@@ -10,6 +10,7 @@ tracks {
     }
     propertyGroups {
         quoteSellerGroup(vertical, seller_id)
+        quoteBuyerGroup(vertical)
     }
 
     /******************************************
@@ -420,5 +421,66 @@ tracks {
 
     //Quote Buyer Tracks
     "/quote/buyer/"(platform: "/", isAbstract: true) {
+        quoteBuyerGroup
     }
+
+    //Quote Buyer :: Listing
+    "/quote/buyer/listing"(platform: "/mobile", type: TrackType.View) {}
+
+    //Quote Buyer :: Listing - Empty
+    "/quote/buyer/listing/empty"(platform: "/mobile", type: TrackType.View) {
+        buying_mode(required: true, type:PropertyType.String, description: "Indicates buying mode type")
+    }
+
+    //Quote Buyer :: Listing - Filters
+    "/quote/buyer/listing/filters"(platform: "/mobile", type: TrackType.View) {}
+
+    //Quote Buyer :: Listing - News
+    "/quote/buyer/listing/news"(platform: "/mobile", type: TrackType.Event) {}
+
+    //Quote Buyer :: Listing - Detail
+    "/quote/buyer/listing/detail"(platform: "/mobile", type: TrackType.View) {
+        buyer_id(required: true, type:PropertyType.Numeric, description: "Buyer ID")
+        buying_mode(required: true, type:PropertyType.String, description: "Indicates buying mode type")
+        demand_id(required: true, type:PropertyType.Numeric, description: "Demand id")
+    }
+
+    //Quote Buyer :: VIP
+    "/quote/buyer/vip"(platform: "/mobile", type: TrackType.Event) {
+        quote_id(required: true, type:PropertyType.String, description: "Quote id")
+        quote_demand_id(required: true, type:PropertyType.String, description: "Quote Demand id")
+        buyer_id(required: true, type:PropertyType.Numeric, description: "Buyer ID")
+        item_id(required: true, type:PropertyType.String, description: "Item id")
+        status_quote(required: true, type:PropertyType.String,  values: ["vencido","cancelado","activo"], description: "Indicates the quote status")
+    }
+
+    //Quote Buyer :: Buying Flow
+    "/quote/buyer/buyingflow"(platform: "/mobile", type: TrackType.Event) {
+        quote_id(required: true, type:PropertyType.String, description: "Quote id")
+        quote_demand_id(required: true, type:PropertyType.String, description: "Quote Demand id")
+        buyer_id(required: true, type:PropertyType.Numeric, description: "Buyer ID")
+        item_id(required: true, type:PropertyType.String, description: "Item id")
+        status_quote(required: true, type:PropertyType.String,  values: ["vencido","cancelado","activo"], description: "Indicates the quote status")
+    }
+
+    //Quote Buyer :: Message
+    "/quote/buyer/message"(platform: "/mobile", type: TrackType.Event) {
+        quote_id(required: true, type:PropertyType.String, description: "Quote id")
+        quote_demand_id(required: true, type:PropertyType.String, description: "Quote Demand id")
+        buyer_id(required: true, type:PropertyType.Numeric, description: "Buyer ID")
+        item_id(required: true, type:PropertyType.String, description: "Item id")
+        status_quote(required: true, type:PropertyType.String,  values: ["vencido","cancelado","activo"], description: "Indicates the quote status")
+    }
+
+    //Quote Buyer :: Detail
+    "/quote/buyer/detail"(platform: "/mobile", type: TrackType.View) {
+        quote_id(required: true, type:PropertyType.String, description: "Quote id")
+        quote_demand_id(required: true, type:PropertyType.String, description: "Quote Demand id")
+        buyer_id(required: true, type:PropertyType.Numeric, description: "Buyer ID")
+        item_id(required: true, type:PropertyType.String, description: "Item id")
+        status_quote(required: true, type:PropertyType.String,  values: ["vencido","cancelado","activo"], description: "Indicates the quote status")
+    }
+
+    //Quote Buyer :: OnBoarding
+    "/quote/buyer/onboarding"(platform: "/mobile", type: TrackType.View) {}
 }

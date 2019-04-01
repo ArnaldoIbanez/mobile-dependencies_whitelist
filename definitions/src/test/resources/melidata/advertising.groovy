@@ -71,6 +71,11 @@ trackTests {
             budget = 500
         }
 
+        "/advertising/pads2/landing/from_main_slider"(platform: "/web", type: TrackType.Event) {
+            id = "adq_pads"
+            position = "home_desktop"
+        }
+
         "/advertising/pads2/landing/contract_confirmation"(platform: "/web", type: TrackType.View) {
             free_trial_ad = true
         }

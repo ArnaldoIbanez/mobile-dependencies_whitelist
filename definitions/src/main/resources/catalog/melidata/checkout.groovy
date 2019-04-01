@@ -127,8 +127,6 @@ tracks {
         //useAccountMoneyWithAnotherPM
         //availableAccountMoney
 
-        available_subscription(required:false, description:"If the item is elegible for subscription")
-
         loyalty_level(required:false, description:"The loyalty level of the buyer")
 
         investor(required:false, type: PropertyType.String, values:["YES", "NO"], description:"If the user is an investor")
@@ -146,6 +144,7 @@ tracks {
         item_with_garex(required: false, type: PropertyType.Boolean, description: 'Item has available warranty')
         total_amount_including_garex(required: false, type: PropertyType.Numeric, description: 'Total amount (include garex if applies)')
         garex(required: false, type: PropertyType.Map(garexTrackStructure), description: 'Item has available warranty')
+        stored_cards_quantity(required: false, type: PropertyType.Numeric, description: "Stored cards quantity of the buyer")
     }
 
     /*

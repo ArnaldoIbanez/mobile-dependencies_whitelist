@@ -597,6 +597,10 @@ trackTests {
             dataSet()
         }
 
+        "/myml/purchases/buy_it_again" (platform:"/", type: TrackType.View) {
+            item_id = 'MLA713079054'
+        }
+
         "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {
             dataSet()
         }
