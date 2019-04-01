@@ -11,7 +11,7 @@
   },
   "extract": {
     "operation": "append",
-    "site": "MeliLake",
+    "site": "QA",
     "columns": [
       {
         "name": "siteId",
@@ -23,6 +23,10 @@
       },
       {
         "name": "client",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "itemCondition",
         "type": "UNICODE_STRING"
       },
       {
