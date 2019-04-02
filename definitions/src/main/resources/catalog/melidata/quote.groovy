@@ -7,9 +7,22 @@ tracks {
     propertyDefinitions {
         vertical(required: true, type: PropertyType.String, values: ["services"], description: "Vertical services")
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        item_id(required: true, type: PropertyType.String, description: "Item id")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
+        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
+        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
+        quote_id(required: false, type: PropertyType.Numeric, description: "Quote id")
+        quote_status(required: false, type: PropertyType.String,values: ["sent", "cancelled_by_seller", "accepted","expired","rejected_by_seller"], description: "the status quote")
+        price(required: false, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
+        currency_id(required: false, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+        quote_demand_status(required: false, type: PropertyType.String, values: ["pending_by_seller", "answered", "rejected_by_seller","accepted"],description: "the status quote demand")
+
+
     }
     propertyGroups {
         quoteSellerGroup(vertical, seller_id)
+        quoteSellerItemGroup(item_id,category_id,category_path,buyer_id,price,currency_id,quote_status, quote_demand_id, quote_id,quote_demand_status)
         quoteBuyerGroup(vertical)
     }
 
@@ -56,42 +69,16 @@ tracks {
 
     //quote seller :: Quote Detail
     "/quote/seller/listing/detail"(platform: "/mobile", type: TrackType.View) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_id(required: true, type: PropertyType.Numeric, description: "Quote id")
-        quote_status(required: true, type: PropertyType.String, description: "the status quote")
-        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+        quoteSellerItemGroup
     }
 
     //quote seller ::  Quote listing  rows event (go to detail)   - Mobile
     "/quote/seller/listing/open_detail"(platform: "/mobile", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_id(required: true, type: PropertyType.Numeric, description: "Quote id")
-        quote_status(required: true, type: PropertyType.String, description: "the status quote")
-        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
-
+        quoteSellerItemGroup
     }
     //quote seller :: Quote listing  rows event (go to message)  - Mobile
     "/quote/seller/listing/go_message"(platform: "/mobile", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_id(required: true, type: PropertyType.Numeric, description: "Quote id")
-        quote_status(required: true, type: PropertyType.String, description: "the status quote")
-        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
-
+        quoteSellerItemGroup
     }
 
     //Quote Seller :: Listing - Empty view
@@ -99,6 +86,8 @@ tracks {
 
     //Quote Seller :: Listing - search Actionbar icon
     "/quote/seller/listing/search"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/quote/seller/onboarding"(platform: "/mobile", type: TrackType.Event) {}
 
     /******************************************
      *       End: Listing Screen
@@ -110,58 +99,17 @@ tracks {
 
     //quote seller :: Quote Detail
     "/quote/seller/detail"(platform: "/", type: TrackType.View) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_demand_status(required: true, type: PropertyType.String, description: "the status quote demand")
-        quote_id(required: true, type: PropertyType.Numeric, description: "Quote id")
-        quote_status(required: true, type: PropertyType.String, description: "the status quote")
-        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+        quoteSellerItemGroup
     }
 
     //quote seller :: Quote Detail  action  button send message
-    "/quote/seller/detail/send_message"(platform: "/mobile", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_demand_status(required: true, type: PropertyType.String, description: "the status quote demand")
-        quote_id(required: true, type: PropertyType.Numeric, description: "Quote id")
-        quote_status(required: true, type: PropertyType.String, description: "the status quote")
-        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+    "/quote/seller/detail/send_message"(platform: "/", type: TrackType.Event) {
+        quoteSellerItemGroup
     }
 
     //quote seller :: Quote Detail  action  button create similary quote
     "/quote/seller/detail/create_similary"(platform: "/mobile", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_demand_status(required: true, type: PropertyType.String, description: "the status quote demand")
-        quote_id(required: true, type: PropertyType.Numeric, description: "Quote id")
-        quote_status(required: true, type: PropertyType.String, description: "the status quote")
-        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
-    }
-
-    //quote seller :: Quote Detail  action  button cancel
-    "/quote/seller/detail/cancel"(platform: "/mobile", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_demand_status(required: true, type: PropertyType.String, description: "the status quote demand")
-        quote_id(required: true, type: PropertyType.Numeric, description: "Quote id")
-        quote_status(required: true, type: PropertyType.String, description: "the status quote")
-        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+        quoteSellerItemGroup
     }
 
     //quote seller :: Quote Detail - menu
@@ -174,6 +122,12 @@ tracks {
         action(required: true, type: PropertyType.String, values: ["show_modal_messages"], description: "show modal messages")
     }
 
+    //quote seller :: Quote Detail  action  button cancel
+    "/quote/seller/detail/cancel"(platform: "/mobile", type: TrackType.Event) {
+        quoteSellerItemGroup
+    }
+
+
     /******************************************
      *       End: Detail Screen
      ******************************************/
@@ -184,16 +138,7 @@ tracks {
 
     //quote seller :: Quote Messages
     "/quote/seller/messages"(platform: "/web", type: TrackType.View) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_demand_status(required: true, type: PropertyType.String, description: "the status quote demand")
-        quote_id(required: true, type: PropertyType.Numeric, description: "Quote id")
-        quote_status(required: true, type: PropertyType.String, description: "the status quote")
-        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+        quoteSellerItemGroup
     }
 
     //quote seller :: Quote Messages - create
@@ -230,16 +175,7 @@ tracks {
 
     //quote seller :: Create quote confirmation button
     "/quote/seller/create/confirmation"(platform: "/mobile", type: TrackType.View) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_id(required: true, type: PropertyType.Numeric, description: "Quote id")
-        quote_status(required: true, type: PropertyType.String, description: "the status quote")
-        quote_demand_status(required: true, type: PropertyType.String, description: "the status quote")
-        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+        quoteSellerItemGroup
         is_similar(required: false, type: PropertyType.String, description: "true/false  is a new quote or is a similar quote")
     }
 
@@ -250,17 +186,7 @@ tracks {
 
     //Quote Seller ::  Quote Create - confirmation send quote button
     "/quote/seller/create/confirmation/send_quote"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_id(required: true, type: PropertyType.Numeric, description: "Quote id")
-        quote_status(required: true, type: PropertyType.String, description: "the status quote")
-        quote_demand_status(required: true, type: PropertyType.String, description: "the status quote")
-        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
-        quoteSellerGroup
+        quoteSellerItemGroup
 
     }
 
@@ -278,28 +204,13 @@ tracks {
 
     //quote seller :: Quote Congrats screenview
     "/quote/seller/create/congrats"(platform: "/", type: TrackType.View) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
+        quoteSellerItemGroup
         is_similar(required: false, type: PropertyType.String, description: "Quote Demand id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        quote_demand_status(required: true, type: PropertyType.String, description: "the status quote demand")
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
     }
 
     //quote seller :: Quote Congrats - go listing button
     "/quote/seller/create/congrats/go_listing"(platform: "/mobile", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        quote_demand_status(required: true, type: PropertyType.String, description: "the status quote demand")
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
-        action(required: false, type: PropertyType.String, description: "Go to listing path (go_listing)")
+        quoteSellerItemGroup
     }
 
     //Quote Seller :: Loading screen view - Create
@@ -316,42 +227,19 @@ tracks {
 
     //Quote Seller :: Cancel screen view
     "/quote/seller/cancel"(platform: "/", type: TrackType.View) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_demand_status(required: true, type: PropertyType.String, description: "the status quote")
-        price(required: false, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        currency_id(required: false, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
-        quoteSellerGroup
+        quoteSellerItemGroup
 
     }
 
     //Quote Seller :: Cancel submit  reason button
     "/quote/seller/cancel/submit_reason"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, values: [
-                'on_time',
-                'to_expire_soft',
-                'to_expire_hard',
-                'expired_today',
-                'no_charge_period',
-                'fixed_charge_period_1',
-                'fixed_charge_period_2',
-                'daily_charge_period'
-        ], description: "cancellation reason id")
+        action(required: true, type: PropertyType.Numeric, description: "cancellation reason id")
 
     }
 
     //Quote Seller :: Cancel custom reason
     "/quote/seller/cancel/custom"(platform: "/", type: TrackType.View) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_demand_status(required: true, type: PropertyType.String, description: "the status quote")
-        quoteSellerGroup
+        quoteSellerItemGroup
 
     }
 
@@ -361,14 +249,9 @@ tracks {
 
     //Quote Seller :: Cancel congrats  view
     "/quote/seller/cancel/congrats"(platform: "/mobile", type: TrackType.View) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_demand_status(required: true, type: PropertyType.String, description: "the status quote")
+        quoteSellerItemGroup
         reason_id(required: true, type: PropertyType.Numeric, description: "The currency in which the prices amounts are expressed")
-        quoteSellerGroup
+
 
     }
 
@@ -382,14 +265,8 @@ tracks {
 
     //Quote Seller :: reject  view
     "/quote/seller/reject"(platform: "/mobile", type: TrackType.View) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_demand_status(required: true, type: PropertyType.String, description: "the status quote")
         reason_id(required: true, type: PropertyType.Numeric, description: "The currency in which the prices amounts are expressed")
-        quoteSellerGroup
+        quoteSellerItemGroup
 
     }
 
@@ -399,16 +276,8 @@ tracks {
 
     //Quote Seller :: reject congrats  view
     "/quote/seller/reject/congrats"(platform: "/mobile", type: TrackType.View) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        quote_id(required: true, type: PropertyType.Numeric, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_demand_status(required: true, type: PropertyType.String, description: "the status quote")
         reason_id(required: true, type: PropertyType.Numeric, description: "The currency in which the prices amounts are expressed")
-        quoteSellerGroup
-
+        quoteSellerItemGroup
     }
 
     //Quote Seller :: reject congrats  go to quote buttom
