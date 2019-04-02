@@ -201,6 +201,7 @@ trackTests {
             optionals()
             unregistered_contact = false
             unregistered_contact_context = false
+            event_source = "description"
         })
 
         "/vip/question_intention"(platform: "/web/mobile", type: TrackType.Event, {
@@ -213,16 +214,10 @@ trackTests {
         "/vip/captcha_showed"(platform: "/web/desktop", type: TrackType.Event, {
             mandatory()
             optionals()
-            unregistered_contact = false
-            unregistered_contact_context = false
-            event_source = "vip"
         })
 
         "/vip/captcha_showed"(platform: "/web/mobile", type: TrackType.Event, {
             mandatory()
-            unregistered_contact = true
-            unregistered_contact_context = false
-            event_source = "technicalSpecs"
         })
     }
 

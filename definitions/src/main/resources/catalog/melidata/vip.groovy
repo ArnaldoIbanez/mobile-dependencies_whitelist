@@ -376,23 +376,16 @@ tracks {
     }
 
     "/vip/question_intention"(platform: "/web", type: TrackType.Event) {
-        unregistered_contact(required: false, type: PropertyType.Boolean,
+        unregistered_contact(required: true, type: PropertyType.Boolean,
                 description: "User is unregister type")
-        unregistered_contact_context(required: false, type: PropertyType.Boolean,
+        unregistered_contact_context(required: true, type: PropertyType.Boolean,
                 description: "User is unregister after returning from email")
-        event_source(required: false, type: PropertyType.String,
+        event_source(required: true, type: PropertyType.String,
                 values: ["vip", "technicalSpecs", "description"],
                 description: "source of the event")
     }
 
     "/vip/captcha_showed"(platform: "/web", type: TrackType.Event) {
-        unregistered_contact(required: false, type: PropertyType.Boolean,
-            description: "User is unregister type")
-        unregistered_contact_context(required: false, type: PropertyType.Boolean,
-                description: "User is unregister after returning from email")
-        event_source(required: false, type: PropertyType.String,
-                values: ["vip", "technicalSpecs", "description"],
-                description: "source of the event")
     }
 
 
