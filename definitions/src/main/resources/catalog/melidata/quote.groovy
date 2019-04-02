@@ -44,7 +44,7 @@ tracks {
 
     //Quote seller :: Listing - rows
     "/quote/seller/listing"(platform: "/web", type: TrackType.Event) {
-        action(required: false, type: PropertyType.String, description: "rows actions (go_messages, go_quote)")
+        action(required: false, type: PropertyType.String,  values: ["go_messages", "go_quote"],description: "rows actions (go_messages, go_quote)")
     }
 
     //quote seller :: Listing - news
@@ -59,12 +59,12 @@ tracks {
 
     //quote seller :: Listing - menu
     "/quote/seller/listing/menu"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "action selected from menu quotes(cancel,sent,reject,delete,copy)")
+        action(required: true, type: PropertyType.String, values: ["cancel", "sent","reject","delete","copy"], description: "action selected from menu quotes")
     }
 
     //quote seller :: Listing - filters screen
     "/quote/seller/listing/filters/modal"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, values: ["reset", "submit_filter"], description: "filter modal actions (reset,submit_filter)")
+        action(required: true, type: PropertyType.String, values: ["reset", "submit_filter"], description: "filter modal actions ")
     }
 
     //quote seller :: Quote Detail
@@ -114,7 +114,7 @@ tracks {
 
     //quote seller :: Quote Detail - menu
     "/quote/seller/detail/menu"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "action selected from menu quotes(cancel,sent,reject,delete,copy)")
+        action(required: true, type: PropertyType.String, values: ["cancel", "sent","reject","delete","copy"],description: "action selected from menu quotes")
     }
 
     ///quote seller :: Quote Messages
@@ -148,7 +148,7 @@ tracks {
 
     //quote seller :: Quote Messages - menu
     "/quote/seller/messages/menu"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "action selected from menu quotes(cancel,sent,reject,delete,copy)")
+        action(required: true, type: PropertyType.String, values: ["cancel", "sent","reject","delete","copy"],description: "action selected from menu quotes")
     }
 
     //quote seller :: Quote Create
@@ -176,12 +176,12 @@ tracks {
     //quote seller :: Create quote confirmation button
     "/quote/seller/create/confirmation"(platform: "/mobile", type: TrackType.View) {
         quoteSellerItemGroup
-        is_similar(required: false, type: PropertyType.String, description: "true/false  is a new quote or is a similar quote")
+        is_similar(required: false, type: PropertyType.String, values: ["true", "false"],description: "true/false  is a new quote or is a similar quote")
     }
 
     //quote seller :: Quote Create - confirmation
     "/quote/seller/create/confirmation"(platform: "/web", type: TrackType.Event) {
-        action(required: false, type: PropertyType.String, description: "create quote action (send_quote)")
+        action(required: false, type: PropertyType.String, values: ["send_quote"],description: "create quote action (send_quote)")
     }
 
     //Quote Seller ::  Quote Create - confirmation send quote button
@@ -199,7 +199,7 @@ tracks {
 
     //quote seller :: Quote Edit - confirmation
     "/quote/seller/create/edit"(platform: "/web", type: TrackType.Event) {
-        action(required: false, type: PropertyType.String, description: "edit quote (confirmation_edit,cancel_edit)")
+        action(required: false, type: PropertyType.String,values: ["confirmation_edit", "cancel_edit"] ,description: "edit quote (confirmation_edit,cancel_edit)")
     }
 
     //quote seller :: Quote Congrats screenview
