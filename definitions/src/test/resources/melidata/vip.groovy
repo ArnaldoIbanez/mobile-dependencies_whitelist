@@ -195,6 +195,35 @@ trackTests {
         "/vip/quantity"(platform: "/mobile") {
             item_id = "MLA533657947"
         }
+
+        "/vip/question_intention"(platform: "/web/desktop", type: TrackType.Event, {
+            mandatory()
+            optionals()
+            unregistered_contact = false
+            unregistered_contact_context = false
+        })
+
+        "/vip/question_intention"(platform: "/web/mobile", type: TrackType.Event, {
+            mandatory()
+            unregistered_contact = true
+            unregistered_contact_context = false
+            event_source = "technicalSpecs"
+        })
+
+        "/vip/captcha_showed"(platform: "/web/desktop", type: TrackType.Event, {
+            mandatory()
+            optionals()
+            unregistered_contact = false
+            unregistered_contact_context = false
+            event_source = "vip"
+        })
+
+        "/vip/captcha_showed"(platform: "/web/mobile", type: TrackType.Event, {
+            mandatory()
+            unregistered_contact = true
+            unregistered_contact_context = false
+            event_source = "technicalSpecs"
+        })
     }
 
     test("Vip web mobile tracking without reviews") {
