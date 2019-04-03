@@ -99,6 +99,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/cards"(platform: "/mobile", type: TrackType.View) {
@@ -137,6 +138,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
 
@@ -149,6 +151,7 @@ trackTests {
             }
 
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
 
             discount = {
                 percent_off = 0.2
@@ -172,6 +175,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/payments/select_method/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "mastercard"
@@ -189,6 +193,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
 
         }
 
@@ -200,6 +205,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/promotions/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
@@ -212,6 +218,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/number/error_more_info"(platform: "/mobile", type: TrackType.View) {}
@@ -259,6 +266,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/card_issuer"(platform: "/mobile", type: TrackType.View) {
@@ -281,6 +289,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/installments"(platform: "/mobile", type: TrackType.View) {
@@ -311,6 +320,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
 
         }
 
@@ -323,6 +333,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/payments/select_method/ticket/name"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "bolbradesco"
@@ -382,6 +393,7 @@ trackTests {
             }
 
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
             url = "https://www.mercadopago.com.ar/ayuda/terminos-y-condiciones_299"
         }
 
@@ -439,6 +451,7 @@ trackTests {
             }
 
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // One tap sin descuento
@@ -486,6 +499,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
 
         }
 
@@ -515,6 +529,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
 
         }
 
@@ -533,6 +548,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
          "/px_checkout/result/unknown"(platform: "/mobile", type: TrackType.View) {
             style = "generic"
@@ -549,6 +565,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {
             style = "generic"
@@ -569,6 +586,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {
             style = "generic"
@@ -590,6 +608,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/generic_error"(platform: "/mobile", type: TrackType.View) {
@@ -623,6 +642,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/review/one_tap/swipe"(platform: "/mobile", type: TrackType.Event) {}
@@ -657,6 +677,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Review Traditional + credit card
@@ -688,7 +709,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
-            session_id="5ff342a5-1437-465e-a6ae-316cd780193a"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Init event:
@@ -716,7 +737,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
-            session_id="5ff342a5-1437-465e-a6ae-316cd780193a"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Payment Selection event
@@ -728,6 +749,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/back"(platform: "/mobile", type: TrackType.Event) {
@@ -738,6 +760,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/ticket/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -748,6 +771,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/ticket/back"(platform: "/mobile", type: TrackType.Event) {
@@ -758,6 +782,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/cards/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -768,6 +793,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/cards/back"(platform: "/mobile", type: TrackType.Event) {
@@ -778,6 +804,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Security code view:
@@ -789,6 +816,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/credit_card/cvv/back"(platform: "/mobile", type: TrackType.Event) {
@@ -799,6 +827,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/debit_card/cvv/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -809,6 +838,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/debit_card/cvv/back"(platform: "/mobile", type: TrackType.Event) {
@@ -819,6 +849,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/prepaid_card/cvv/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -829,6 +860,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/prepaid_card/cvv/back"(platform: "/mobile", type: TrackType.Event) {
@@ -839,6 +871,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Card Form events:
@@ -852,6 +885,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
             payment_method_id = "visa"
         }
 
@@ -863,6 +897,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/number/back"(platform: "/mobile", type: TrackType.Event) {
@@ -873,6 +908,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Name:
@@ -884,6 +920,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/credit_card/name/back"(platform: "/mobile", type: TrackType.Event) {
@@ -894,6 +931,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/debit_card/name/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -904,6 +942,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/debit_card/name/back"(platform: "/mobile", type: TrackType.Event) {
@@ -914,6 +953,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/prepaid_card/name/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -924,6 +964,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/prepaid_card/name/back"(platform: "/mobile", type: TrackType.Event) {
@@ -934,6 +975,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Date:
@@ -945,6 +987,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/credit_card/expiration_date/back"(platform: "/mobile", type: TrackType.Event) {
@@ -955,6 +998,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/debit_card/expiration_date/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -965,6 +1009,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/debit_card/expiration_date/back"(platform: "/mobile", type: TrackType.Event) {
@@ -975,6 +1020,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/prepaid_card/expiration_date/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -985,6 +1031,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/prepaid_card/expiration_date/back"(platform: "/mobile", type: TrackType.Event) {
@@ -995,6 +1042,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // CVV:
@@ -1006,6 +1054,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/credit_card/cvv/back"(platform: "/mobile", type: TrackType.Event) {
@@ -1016,6 +1065,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/debit_card/cvv/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -1026,6 +1076,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/debit_card/cvv/back"(platform: "/mobile", type: TrackType.Event) {
@@ -1036,6 +1087,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/prepaid_card/cvv/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -1046,6 +1098,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/prepaid_card/cvv/back"(platform: "/mobile", type: TrackType.Event) {
@@ -1056,6 +1109,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Documento:
@@ -1067,6 +1121,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/credit_card/document/back"(platform: "/mobile", type: TrackType.Event) {
@@ -1077,6 +1132,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/debit_card/document/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -1087,6 +1143,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/debit_card/document/back"(platform: "/mobile", type: TrackType.Event) {
@@ -1097,6 +1154,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/prepaid_card/document/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -1107,6 +1165,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/prepaid_card/document/back"(platform: "/mobile", type: TrackType.Event) {
@@ -1117,6 +1176,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Terms and Conditions:
@@ -1128,6 +1188,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/promotions/terms_and_conditions/back"(platform: "/mobile", type: TrackType.Event) {
@@ -1138,6 +1199,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Issuers:
@@ -1149,6 +1211,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Installments:
@@ -1160,6 +1223,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Boleto:
@@ -1172,6 +1236,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/ticket/cpf/back"(platform: "/mobile", type: TrackType.Event) {
@@ -1182,6 +1247,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/ticket/name/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -1192,6 +1258,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/ticket/name/back"(platform: "/mobile", type: TrackType.Event) {
@@ -1202,6 +1269,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/ticket/lastname/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -1212,6 +1280,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/ticket/lastname/back"(platform: "/mobile", type: TrackType.Event) {
@@ -1222,6 +1291,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Revisa y confirma:
@@ -1233,6 +1303,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/review/traditional/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -1243,6 +1314,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/review/traditional/change_payment_method"(platform: "/mobile", type: TrackType.Event) {
@@ -1253,6 +1325,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Congrats:
@@ -1265,6 +1338,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/result/success/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -1275,6 +1349,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Unknown
@@ -1286,6 +1361,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/result/unknown/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -1296,6 +1372,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // In process payment
@@ -1307,6 +1384,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/result/further_action_needed/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -1317,6 +1395,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Rejected payment
@@ -1328,6 +1407,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/result/error/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -1338,6 +1418,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Approved business
@@ -1349,6 +1430,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/result/success/secondary_action"(platform: "/mobile", type: TrackType.Event) {
@@ -1359,6 +1441,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Unknown
@@ -1370,6 +1453,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/result/unknown/secondary_action"(platform: "/mobile", type: TrackType.Event) {
@@ -1380,6 +1464,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
          "/px_checkout/result/unknown/change_payment_method"(platform: "/mobile", type: TrackType.Event) {
@@ -1390,6 +1475,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
 
@@ -1402,6 +1488,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/result/further_action_needed/secondary_action"(platform: "/mobile", type: TrackType.Event) {
@@ -1412,6 +1499,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Rejected business
@@ -1423,6 +1511,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/result/error/secondary_action"(platform: "/mobile", type: TrackType.Event) {
@@ -1433,6 +1522,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/result/error/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -1443,6 +1533,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
     }
@@ -1543,6 +1634,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/cards"(platform: "/mobile", type: TrackType.View) {
@@ -1582,6 +1674,7 @@ trackTests {
             }
 
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
 
             collector_id = "12312412"
         }
@@ -1595,6 +1688,7 @@ trackTests {
             }
 
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
 
             discount = {
                 percent_off = 0.2
@@ -1618,6 +1712,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/payments/select_method/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "mastercard"
@@ -1635,6 +1730,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
 
         }
 
@@ -1646,6 +1742,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/promotions/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
@@ -1658,6 +1755,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/number/error_more_info"(platform: "/mobile", type: TrackType.View) {}
@@ -1705,6 +1803,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/card_issuer"(platform: "/mobile", type: TrackType.View) {
@@ -1727,6 +1826,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/installments"(platform: "/mobile", type: TrackType.View) {
@@ -1757,6 +1857,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
 
         }
 
@@ -1768,6 +1869,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/payments/select_method/ticket/name"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "bolbradesco"
@@ -1825,6 +1927,7 @@ trackTests {
             }
 
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
             url = "https://www.mercadopago.com.ar/ayuda/terminos-y-condiciones_299"
         }
 
@@ -1882,6 +1985,7 @@ trackTests {
             }
 
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // One tap sin descuento
@@ -1929,6 +2033,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
 
         }
 
@@ -1958,6 +2063,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
 
         }
 
@@ -1970,6 +2076,7 @@ trackTests {
             }
 
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
 
             discount = {
                 percent_off = 0.2
@@ -1997,6 +2104,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
          "/px_checkout/result/unknown"(platform: "/mobile", type: TrackType.View) {
             style = "generic"
@@ -2013,6 +2121,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {
             style = "generic"
@@ -2033,6 +2142,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {
             style = "generic"
@@ -2054,6 +2164,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/generic_error"(platform: "/mobile", type: TrackType.View) {
@@ -2082,6 +2193,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/result/unknown/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -2092,6 +2204,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
              // Unknown
@@ -2103,6 +2216,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/result/unknown/secondary_action"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
@@ -2112,6 +2226,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
          "/px_checkout/result/unknown/change_payment_method"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
@@ -2121,6 +2236,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/card_association_result/success"(platform: "/mobile", type: TrackType.View) {}
@@ -2138,6 +2254,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/review/one_tap/swipe"(platform: "/mobile", type: TrackType.Event) {}
@@ -2172,6 +2289,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Review Traditional + credit card
@@ -2203,6 +2321,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Init event:
@@ -2229,6 +2348,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Payment Selection event
@@ -2240,6 +2360,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2250,6 +2371,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/ticket/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -2260,6 +2382,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/ticket/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2270,6 +2393,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/cards/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -2280,6 +2404,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/cards/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2290,6 +2415,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Security code view:
@@ -2301,6 +2427,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/credit_card/cvv/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2311,6 +2438,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/debit_card/cvv/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -2321,6 +2449,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/debit_card/cvv/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2331,6 +2460,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/prepaid_card/cvv/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -2341,6 +2471,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/prepaid_card/cvv/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2351,6 +2482,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Card Form events:
@@ -2364,6 +2496,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
             payment_method_id = "visa"
         }
 
@@ -2375,6 +2508,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/number/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2385,6 +2519,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Name:
@@ -2396,6 +2531,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/credit_card/name/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2406,6 +2542,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/debit_card/name/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -2416,6 +2553,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/debit_card/name/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2426,6 +2564,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/prepaid_card/name/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -2436,6 +2575,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/prepaid_card/name/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2446,6 +2586,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Date:
@@ -2457,6 +2598,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/credit_card/expiration_date/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2467,6 +2609,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/debit_card/expiration_date/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -2477,6 +2620,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/debit_card/expiration_date/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2487,6 +2631,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/prepaid_card/expiration_date/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -2497,6 +2642,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/prepaid_card/expiration_date/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2507,6 +2653,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // CVV:
@@ -2518,6 +2665,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/credit_card/cvv/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2528,6 +2676,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/debit_card/cvv/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -2538,6 +2687,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/debit_card/cvv/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2548,6 +2698,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/prepaid_card/cvv/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -2558,6 +2709,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/prepaid_card/cvv/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2568,6 +2720,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Documento:
@@ -2579,6 +2732,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/credit_card/document/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2589,6 +2743,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/debit_card/document/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -2599,6 +2754,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/debit_card/document/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2609,6 +2765,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/prepaid_card/document/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -2619,6 +2776,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/prepaid_card/document/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2629,6 +2787,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Terms and Conditions:
@@ -2640,6 +2799,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/add_payment_method/promotions/terms_and_conditions/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2650,6 +2810,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Issuers:
@@ -2661,6 +2822,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Installments:
@@ -2672,6 +2834,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Boleto:
@@ -2684,6 +2847,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/ticket/cpf/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2694,6 +2858,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/ticket/name/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -2704,6 +2869,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/ticket/name/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2714,6 +2880,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/ticket/lastname/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -2724,6 +2891,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/select_method/ticket/lastname/back"(platform: "/mobile", type: TrackType.Event) {
@@ -2734,6 +2902,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Revisa y confirma:
@@ -2745,6 +2914,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/review/traditional/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -2755,6 +2925,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/review/traditional/change_payment_method"(platform: "/mobile", type: TrackType.Event) {
@@ -2765,6 +2936,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Congrats:
@@ -2777,6 +2949,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/result/success/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -2787,6 +2960,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // In process payment
@@ -2798,6 +2972,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/result/further_action_needed/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -2808,6 +2983,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Rejected payment
@@ -2819,6 +2995,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/result/error/abort"(platform: "/mobile", type: TrackType.Event) {
@@ -2829,6 +3006,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Approved business
@@ -2840,6 +3018,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/result/success/secondary_action"(platform: "/mobile", type: TrackType.Event) {
@@ -2850,6 +3029,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Pending business
@@ -2861,6 +3041,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/result/further_action_needed/secondary_action"(platform: "/mobile", type: TrackType.Event) {
@@ -2871,6 +3052,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Rejected business
@@ -2882,6 +3064,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/result/error/secondary_action"(platform: "/mobile", type: TrackType.Event) {
@@ -2892,6 +3075,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
     }
 }
