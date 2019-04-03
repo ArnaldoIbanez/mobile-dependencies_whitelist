@@ -1,0 +1,65 @@
+ //Events
+    "/bulk_payments/suppliers/contact/"(platform: "/", isAbstract: true) {}
+
+    "/bulk_payments/suppliers/contact/add"(platform: "/",type: TrackType.Event) {
+      type(required:true, type: PropertyType.String, values:["success", "error"], description:"Add Contact Event. Values possibles: Succes or Error")
+      detail(required:false, type: PropertyType.String, description:"Detail of the type of track. Useful for error event, to put a detail of the error.")
+    }
+    "/bulk_payments/suppliers/contact/delete"(platform: "/",type: TrackType.Event) {
+      user_id(required: true, type: PropertyType.Numeric, description: "UserId deleted in this event")
+    }
+    "/bulk_payments/suppliers/contact/select"(platform: "/",type: TrackType.Event) {
+      user_id(required: true, type: PropertyType.Numeric, description: "UserId selected in this event")
+    }
+    "/bulk_payments/suppliers/contact/add_reference"(platform: "/",type: TrackType.Event) {
+      user_id(required: true, type: PropertyType.Numeric, description: "Reference added to this userId")
+      reference(required: true, type: PropertyType.String, description: "The reference added in this event")
+    }
+    "/bulk_payments/suppliers/click_to_review"(platform: "/",type: TrackType.Event) {
+      users(required:true, type: PropertyType.ArrayList(PropertyType.Map(userStructure)), description: 'Users that has been checked to receive a payment')
+    }
+    "/bulk_payments/suppliers/click_to_modify"(platform: "/",type: TrackType.Event) {
+      clicked(required: true, description: "Modify flag")
+    }
+    "/bulk_payments/suppliers/send_invitation"(platform: "/",type: TrackType.Event) {
+      email(required:true, type:PropertyType.String, description: "Email that is going to receive the invitation")
+    }
+
+
+
+// TESTING
+
+"/bulk_payments/suppliers/contact/add"(platform: "/",type: TrackType.Event) {
+          type = "success"
+        }
+        "/bulk_payments/suppliers/contact/add"(platform: "/",type: TrackType.Event) {
+          type = "error"
+          detail = "no se pudo agregar el contacto"
+        }
+        
+        "/bulk_payments/suppliers/contact/delete"(platform: "/",type: TrackType.Event) {
+          user_id = 12345642
+        }
+
+        "/bulk_payments/suppliers/contact/select"(platform: "/",type: TrackType.Event) {
+          user_id = 1234567
+        }
+        "/bulk_payments/suppliers/contact/add_reference"(platform: "/",type: TrackType.Event) {
+          user_id = 1234563
+          reference = "Proveedor 1"
+        }
+        
+        "/bulk_payments/suppliers/click_to_review"(platform: "/",type: TrackType.Event) {
+          users = [ 
+            [user_id: 12345678, payment_amount:12300, payment_reference: "Proveedor 1"],
+            [user_id: 58765432, payment_amount:10303, payment_reference: "Proveedor 2"],
+            [user_id: 98765431, payment_amount:42345, payment_reference: "Proveedor 3"]
+          ]
+        }
+
+        "/bulk_payments/suppliers/click_to_modify"(platform: "/",type: TrackType.Event) {
+          clicked = true
+        }
+        "/bulk_payments/suppliers/send_invitation"(platform: "/",type: TrackType.Event) {
+          email = "mi.invitado@mail.com"
+        }
