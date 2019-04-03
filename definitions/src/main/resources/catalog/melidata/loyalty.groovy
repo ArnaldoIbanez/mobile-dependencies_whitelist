@@ -327,7 +327,7 @@ tracks {
         our_payment_error(required: true, description: "An error from our (with our endpoint) payment post, is not an error creating the payment")
     }
 
-    "/loyalty/partners-landing"(platform: "/", type: TrackType.Event) {
+    "/loyalty/main/partners_landing"(platform: "/", type: TrackType.Event) {
         original_place(required: true, values: ["keep","move"], description: "From where the partners landing was accesed", type: PropertyType.String)
     }
 }
