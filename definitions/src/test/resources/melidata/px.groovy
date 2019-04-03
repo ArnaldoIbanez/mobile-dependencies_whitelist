@@ -688,6 +688,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id="5ff342a5-1437-465e-a6ae-316cd780193a"
         }
 
         // Init event:
@@ -715,6 +716,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id="5ff342a5-1437-465e-a6ae-316cd780193a"
         }
 
         // Payment Selection event
