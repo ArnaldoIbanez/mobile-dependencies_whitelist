@@ -11,6 +11,10 @@ tracks {
         error_type(required: true, type: PropertyType.String, values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"], description: "Types of error pages in acquisition flow.")
     }
 
+    propertyGroups {
+        errorType(error_type)
+    }
+
     //-----------------
     // PREPAID MLA/MLB
     //-----------------
@@ -88,16 +92,16 @@ tracks {
         )
     }
     "/prepaid/acquisition/cellphone"(platform: "/mobile", type: TrackType.View) {
-        error_type
+        errorType
     }
     "/prepaid/acquisition/onboarding"(platform: "/mobile", type: TrackType.View) {
-        error_type
+        errorType
     }
     "/prepaid/acquisition/rootfaq"(platform: "/mobile", type: TrackType.View) {
-        error_type
+        errorType
     }
     "/prepaid/acquisition/detailfaq"(platform: "/mobile", type: TrackType.View) {
-        error_type
+        errorType
     }
 
     // Activation Flow
