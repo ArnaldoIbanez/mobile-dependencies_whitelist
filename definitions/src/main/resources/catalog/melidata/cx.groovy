@@ -79,7 +79,9 @@ tracks {
         seller_profile
         loyalty_level
         user_profile   
-        portal_content_id 
+        portal_content_id
+        portal_has_channels_configured(required: true, type: PropertyType.Boolean,
+            description: "Indicates if the current content has any channels configured")
     }
     "/portal/form"(platform: "/", business: "mercadolibre", type: TrackType.View) {
         portal_contact
@@ -89,6 +91,8 @@ tracks {
         seller_profile
         loyalty_level
         portal_content_id
+        portal_has_channels_configured(required: true, type: PropertyType.Boolean,
+            description: "Indicates if the current content has any channels configured")
     }
     "/portal/folder"(platform: "/", business: "mercadolibre", type: TrackType.View) {
         portal_content_id(required: false, type: PropertyType.Numeric, description: "Indicates the id of the content shown on the page, in case its not the home page")
@@ -98,6 +102,8 @@ tracks {
         seller_profile
         loyalty_level
         user_profile
+        portal_source_id(required: false, type: PropertyType.Numeric,
+            description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
         portal_has_channels_configured(required: false, type: PropertyType.Boolean,
             description: "Indicates if the current content has any channels configured, not required for home page")
     }
@@ -107,6 +113,7 @@ tracks {
         reputation_level
         portal_contact
         loyalty_level
+        portal_has_channels_configured
     }
     "/portal/search"(platform: "/", business: "mercadolibre", isAbstract:  true) {}
     "/portal/folder_rules"(platform: "/", business: "mercadolibre", type: TrackType.View) {}
@@ -139,12 +146,16 @@ tracks {
     "/portal/hub"(platform: "/", business: "mercadopago", type: TrackType.View) {
         portal_contact
         user_profile   
-        portal_content_id 
+        portal_content_id
+        portal_has_channels_configured(required: true, type: PropertyType.Boolean,
+            description: "Indicates if the current content has any channels configured")
     }
     "/portal/form"(platform: "/", business: "mercadopago", type: TrackType.View) {
         portal_contact
         portal_form_id
         portal_content_id
+        portal_has_channels_configured(required: true, type: PropertyType.Boolean,
+            description: "Indicates if the current content has any channels configured")
     }
     "/portal/folder"(platform: "/", business: "mercadopago", type: TrackType.View) {
         portal_content_id(required: false, type: PropertyType.Numeric, description: "Indicates the id of the content shown on the page, in case its not the home page")
@@ -155,6 +166,7 @@ tracks {
     }
     "/portal/create_case"(platform: "/", business: "mercadopago", type: TrackType.View) {
         portal_contact
+        portal_has_channels_configured
     }
     "/portal/search"(platform: "/", business: "mercadopago", isAbstract:  true) {}
     "/portal/folder_rules"(platform: "/", business: "mercadopago", type: TrackType.View) {}
@@ -223,7 +235,7 @@ tracks {
         case_id(required: true, type: PropertyType.Numeric,
             description: "CX case id")
         type(required: true, type: PropertyType.String, 
-            values: ["more_information", "greetings", "recontact"],
+            values: ["new_information", "greetings", "recontact"],
             description: "Contact type")
     }
 }

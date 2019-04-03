@@ -284,6 +284,19 @@ trackTests {
         }
     }
 
+    test("Backoffice pages") {
+        "/myml/invoices/backoffice/search/invoice"(platform: "/", type: TrackType.Event) {
+            search_filter = {
+                invoiceNumber = 234
+            }
+        }
+        "/myml/invoices/backoffice/search/invoicesList"(platform: "/", type: TrackType.Event) {
+             search_filter = {
+                recipientCnpj = 123123
+            }
+        }
+    }
+
     test("Fiscal Information pages") {
         "/myml/fiscal_information/mobile"(platform: "/", type: TrackType.View) {}
         "/myml/fiscal_information/not_found"(platform: "/", type: TrackType.View) {}
@@ -595,6 +608,10 @@ trackTests {
 
         "/myml/purchases/seller" (platform:"/", type: TrackType.View) {
             dataSet()
+        }
+
+        "/myml/purchases/buy_it_again" (platform:"/", type: TrackType.View) {
+            item_id = 'MLA713079054'
         }
 
         "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {

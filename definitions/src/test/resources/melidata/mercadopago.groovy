@@ -516,6 +516,15 @@ trackTests {
         }
     }
 
+    test("MP-MA Point Pro paper rolls request") {
+        "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
+          view = "order"
+        }
+        "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
+          view = "congrats_waiting"
+        }
+    }
+
     test("MP-MA Flow QR Queue Web") {
         "/merchant_acquisition/flows/qr-queue"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/flows/qr-queue/amount"(platform:"/", type: TrackType.View) {
@@ -1159,7 +1168,7 @@ trackTests {
             user_id = "123241234413"
             level ="info"
             trx_id = "as-123241234413"
-           
+
         }
 
 
@@ -2522,11 +2531,15 @@ trackTests {
     }
 
     test("Account recovery flow") {
-        "/auth/account_recovery/canceled"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/recovery_confirmation"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
             is_webview = true
         }
         "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+            is_webview = true
+        }
+        "/auth/account_recovery/landing"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
             is_webview = true
         }
@@ -2538,10 +2551,16 @@ trackTests {
             id = "id--fury"
             is_webview = true
         }
-        "/auth/account_recovery/canceled/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/recovery_confirmation/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
-            target = "go_home_button"
+            target = "confirm_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/recovery_confirmation/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "cancel_button"
             is_webview = true
         }
         "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
@@ -2550,28 +2569,36 @@ trackTests {
             target = "go_home_button"
             is_webview = true
         }
-        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
-            target = "cancel_button"
+            target = "validate_identity_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
             is_webview = true
         }
         "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
-            target = "unlink_button"
-            is_webview = true
-        }
-        "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "cancel_button"
+            target = "continue_button"
             is_webview = true
         }
         "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
+            status_code = "429"
+            is_webview = true
+        }
+        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+            status_code = "403"
             is_webview = true
         }
     }
@@ -2631,6 +2658,34 @@ trackTests {
             domain = "gmail"
             is_google_account_of_different_user = "false"
             authenticator = "emailValidation"
+        }
+    }
+
+    test("Device Attestation"){
+        "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
+            mode = "prefetch_only"
+        }
+
+        "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/request"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/created"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/reuse"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/expired"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/fail"(platform: "/mobile", type: TrackType.Event) {
+            reason = "quota exceeded"
+        }
+
+        "/auth/attestation/nonce/request"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/nonce/created"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/nonce/fail"(platform: "/mobile", type: TrackType.Event) {
+            reason = "missing vendor"
         }
     }
 

@@ -143,10 +143,29 @@ tracks {
         sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
         batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
         item_id(required: false, type: PropertyType.String, description: "Id of item.")
+        variation_id(required: false, type: PropertyType.String, description: "Id of variaton of the item.")
         experiment(required: false, type: PropertyType.Boolean, description: "experiment.")
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/campaigns-acho_reminder"(platform: "/") {
+        campaign_id(required: true, description: "Id of the campaign related to the campaigns notification sent.")
+        test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test.")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+        batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+        item_id(required: false, type: PropertyType.String, description: "Id of item.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/campaigns-recharge_recovery"(platform: "/") {
+        campaign_id(required: false, description: "Id of the campaign related to the campaigns notification sent.")
+        test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test.")
+        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+        batch_id(required: false, type: PropertyType.String, description: "Id of batch.")     
+        experiment(required: false, type: PropertyType.Boolean, description: "experiment.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }    
     "/notification_center/campaigns-ticket_recovery"(platform: "/") {
         campaign_id(required: true, description: "Id of the campaign related to the campaigns notification sent.")
         test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test.")
@@ -238,6 +257,7 @@ tracks {
     }
     "/notification_center/orders-buyer"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.Numeric)
+        experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
     }
     "/notification_center/orders-seller"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.Numeric)
@@ -572,6 +592,16 @@ tracks {
           type(required: false, type: PropertyType.String, description: "type of order notificaction.")
       }
 
+      "/notification/orders_ticket_payment_pending_extend_expiration_general_notice"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+          experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
+      }
+
+      "/notification/orders_ticket_payment_pending_reminder_general_notice"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+          experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
+      }
+
       //Reviews
       "/notification/reviews_reminder"(platform: "/") {}
 
@@ -605,7 +635,15 @@ tracks {
           sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
           item_id(required: true, type: PropertyType.String)
+          variation_id(required: false, type: PropertyType.String, description: "Id of variaton of the item.")
           experiment(required: false, type: PropertyType.Boolean)
+      }
+      "/notification/campaigns_acho_reminder"(platform: "/") {
+          campaign_id(required: true, description: "Id of the campaign related to the campaigns notification sent.")
+          test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+          sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+          batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+          item_id(required: true, type: PropertyType.String)
       }
       "/notification/campaigns_ticket_recovery"(platform: "/") {
           campaign_id(required: true, description: "Id of the campaign related to the campaigns notification sent.")
@@ -628,6 +666,14 @@ tracks {
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
           item_id(required: true, type: PropertyType.String)
       }
+      // Recharge recovery campaigns
+      "/notification/campaigns_recharge_recovery"(platform: "/") {
+          campaign_id(required: true, description: "Id of the campaign related to the campaigns notification sent.")
+          test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+          sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+          batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+          experiment(required: false, type: PropertyType.Boolean)
+      }      
       "/notification/campaigns_download_app"(platform: "/", type: TrackType.Event) {}
       //Freemium SYI
       "/notification/campaigns_syi_freemium"(platform: "/") {

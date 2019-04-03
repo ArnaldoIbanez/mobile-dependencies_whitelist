@@ -147,7 +147,7 @@ tracks {
 
     //Feedback
     "/credits/merchant/enrollment/feedback"(platform: "/", type: TrackType.View) {
-         reason(type: PropertyType.String, required: true, values: ['interested', 'not_interested'], inheritable: false)
+         reason(type: PropertyType.String, required: true, values: ['interested', 'not_interested', 'capped'], inheritable: false)
     }
     "/credits/merchant/enrollment/feedback/congrats"(platform: "/", type: TrackType.View) {}
     "/credits/merchant/enrollment/feedback/error"(platform: "/", type: TrackType.View) {
@@ -200,26 +200,36 @@ tracks {
     "/credits/merchant/money_advance"(platform: "/", type: TrackType.View) {}
 
     //Congrats money advance
-    "/credits/merchant/money_advance/congrats"(platform: "/", type: TrackType.View) {
+    "/credits/merchant/money_advance/congrats"(platform: "/web", type: TrackType.View) {
         status(type: PropertyType.String, required: false, values: ['on_time', 'delayed'])
-        user_status(type: PropertyType.String, required: false, values: ['correct', 'in_default'])
+        user_status(type: PropertyType.String, required: false, values: ['on_time', 'overdue'])
     }
+
+    //Congrats money advance mobile
+    "/credits/merchant/money_advance/congrats"(platform: "/mobile", type: TrackType.View) {}
 
     //Hub money advance
-    "/credits/merchant/money_advance/hub"(platform: "/", type: TrackType.View) {
-        user_status(type: PropertyType.String, required: false, values: ['correct', 'in_default'])
+    "/credits/merchant/money_advance/hub"(platform: "/web", type: TrackType.View) {
+        user_status(type: PropertyType.String, required: false, values: ['on_time', 'overdue'])
     }
 
+    //Hub money advance mobile
+    "/credits/merchant/money_advance/hub"(platform: "/mobile", type: TrackType.View) {}
+
+
     //Summary money advance
-    "/credits/merchant/money_advance/summary"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/money_advance/summary"(platform: "/", type: TrackType.View) {
+    }
 
     //No options money advance
-    "/credits/merchant/money_advance/no_options"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/money_advance/no_options"(platform: "/", type: TrackType.View) {
+    }
 
     // Error money advance
     "/credits/merchant/money_advance/error"(platform: "/", type: TrackType.View) {
         reason(type: PropertyType.String, required: true)
     }
+
 
     /******************************************
      *       End: Money Advance

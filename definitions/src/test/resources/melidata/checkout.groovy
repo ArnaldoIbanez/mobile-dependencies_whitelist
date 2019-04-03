@@ -898,6 +898,12 @@ trackTests {
 
         "/checkout/finish/invalid_sec_code/input#submit"(platform:"/mobile", type:TrackType.Event) { }
 
+        "/checkout/features/bridge"(platform:"/mobile", type:TrackType.Event) {
+            is_experiment_on = true
+            can_navigate_to = false
+            screen = "MapScreen"
+        }
+
         "/checkout/finish/choose_action"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
@@ -1998,6 +2004,7 @@ trackTests {
             nearest_store_distance = 250000
             checkout_flow = "direct"
             flow_type = "buy_it_now"
+            stored_cards_quantity = 3
         }
 
         "/checkout/geolocation"(platform:"/web", type: TrackType.Event) {

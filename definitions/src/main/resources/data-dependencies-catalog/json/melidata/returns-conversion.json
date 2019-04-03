@@ -21,6 +21,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "potential_resolutions",
+        "type": "INTEGER"
+      },
+      {
         "name": "typifications",
         "type": "INTEGER"
       },
