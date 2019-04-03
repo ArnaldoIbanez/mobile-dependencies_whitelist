@@ -62,6 +62,9 @@ trackTests {
         "/asset_management/investment_detail"(platform: "/mobile") {}
         "/asset_management/investment_detail"(platform: "/web") {}
 
+        // Earnings report
+        "/asset_management/investment_reports"(platform: "/web") {}
+
         "/asset_management/landing"(platform: "/web") {}
         "/asset_management/invest"(platform: "/web") {}
         "/asset_management/investment_report"(platform: "/web") {
