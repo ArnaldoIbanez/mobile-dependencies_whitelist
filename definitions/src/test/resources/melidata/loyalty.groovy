@@ -506,4 +506,14 @@ trackTests {
             our_payment_error="Error msg"
         }
     }
+
+    test("Loyalty partners carousel location A/B test"){
+        "/loyalty/partners-landing"(platform: "/", type: TrackType.Event){
+            original_place = "keep"
+        }
+
+        "/loyalty/partners-landing"(platform: "/", type: TrackType.Event){
+            original_place = "move"
+        }
+    }
 }
