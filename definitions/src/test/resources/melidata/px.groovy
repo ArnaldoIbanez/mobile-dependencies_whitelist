@@ -55,6 +55,7 @@ trackTests {
                     }
             ]
             collector_id = 12312412
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/payments/select_method/ticket"(platform: "/mobile", type: TrackType.View) {
             available_methods = [
@@ -180,7 +181,7 @@ trackTests {
         "/px_checkout/payments/select_method/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "mastercard"
             card_id = "1234"
-
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/payments/select_method/prepaid_card/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "mastercard"
@@ -208,7 +209,9 @@ trackTests {
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
-        "/px_checkout/add_payment_method/promotions/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
+        "/px_checkout/add_payment_method/promotions/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
 
         "/px_checkout/add_payment_method/number"(platform: "/mobile", type: TrackType.View) {
             flow_detail = {
@@ -221,44 +224,56 @@ trackTests {
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
-        "/px_checkout/add_payment_method/number/error_more_info"(platform: "/mobile", type: TrackType.View) {}
+        "/px_checkout/add_payment_method/number/error_more_info"(platform: "/mobile", type: TrackType.View) {
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
 
         "/px_checkout/add_payment_method/credit_card/name"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/debit_card/name"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/prepaid_card/name"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/credit_card/expiration_date"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/debit_card/expiration_date"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/prepaid_card/expiration_date"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/credit_card/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/prepaid_card/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/credit_card/document"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/debit_card/document"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/prepaid_card/document"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
-
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
@@ -337,9 +352,11 @@ trackTests {
         }
         "/px_checkout/payments/select_method/ticket/name"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "bolbradesco"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/payments/select_method/ticket/lastname"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "bolbradesco"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
 
@@ -382,6 +399,7 @@ trackTests {
                     }
 
             collector_id = "12312412"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {
@@ -624,12 +642,15 @@ trackTests {
                 url = "get_preference"
                 retry_available = true
             }
-
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
-        "/px_checkout/card_association_result/success"(platform: "/mobile", type: TrackType.View) {}
-        "/px_checkout/card_association_result/error"(platform: "/mobile", type: TrackType.View) {}
-
+        "/px_checkout/card_association_result/success"(platform: "/mobile", type: TrackType.View) {
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+        "/px_checkout/card_association_result/error"(platform: "/mobile", type: TrackType.View) {
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
     }
 
     test("PX - Events") {
@@ -645,7 +666,9 @@ trackTests {
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
-        "/px_checkout/review/one_tap/swipe"(platform: "/mobile", type: TrackType.Event) {}
+        "/px_checkout/review/one_tap/swipe"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
 
         // One tap + credit card
         "/px_checkout/review/confirm"(platform: "/mobile", type: TrackType.Event) {
@@ -662,6 +685,7 @@ trackTests {
                 issuer_id = 12
                 has_esc = true
             }
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // One tap + account money
@@ -695,6 +719,7 @@ trackTests {
                 issuer_id = 12
                 has_esc = true
             }
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Init event + pref id:
@@ -1589,6 +1614,7 @@ trackTests {
                         currency_id = "ARS"
                     }
             ]
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/payments/select_method/ticket"(platform: "/mobile", type: TrackType.View) {
             available_methods = [
@@ -1717,7 +1743,7 @@ trackTests {
         "/px_checkout/payments/select_method/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "mastercard"
             card_id = "1234"
-
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/payments/select_method/prepaid_card/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "mastercard"
@@ -1745,7 +1771,9 @@ trackTests {
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
-        "/px_checkout/add_payment_method/promotions/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
+        "/px_checkout/add_payment_method/promotions/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
 
         "/px_checkout/add_payment_method/number"(platform: "/mobile", type: TrackType.View) {
             flow_detail = {
@@ -1758,40 +1786,53 @@ trackTests {
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
-        "/px_checkout/add_payment_method/number/error_more_info"(platform: "/mobile", type: TrackType.View) {}
+        "/px_checkout/add_payment_method/number/error_more_info"(platform: "/mobile", type: TrackType.View) {
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
 
         "/px_checkout/add_payment_method/credit_card/name"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/debit_card/name"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/prepaid_card/name"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/credit_card/expiration_date"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/debit_card/expiration_date"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/prepaid_card/expiration_date"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/credit_card/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/prepaid_card/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/credit_card/document"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/debit_card/document"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/add_payment_method/prepaid_card/document"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "visa"
@@ -1873,9 +1914,11 @@ trackTests {
         }
         "/px_checkout/payments/select_method/ticket/name"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "bolbradesco"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/payments/select_method/ticket/lastname"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "bolbradesco"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
 
@@ -1916,6 +1959,7 @@ trackTests {
                         campaign_id = 1
                         is_available = true
                     }
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/payments/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {
@@ -2180,7 +2224,7 @@ trackTests {
                 url = "get_preference"
                 retry_available = true
             }
-
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
 
@@ -2239,9 +2283,12 @@ trackTests {
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
-        "/px_checkout/card_association_result/success"(platform: "/mobile", type: TrackType.View) {}
-        "/px_checkout/card_association_result/error"(platform: "/mobile", type: TrackType.View) {}
-
+        "/px_checkout/card_association_result/success"(platform: "/mobile", type: TrackType.View) {
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+        "/px_checkout/card_association_result/error"(platform: "/mobile", type: TrackType.View) {
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
     }
 
     test("PX - Events") {
@@ -2257,7 +2304,9 @@ trackTests {
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
-        "/px_checkout/review/one_tap/swipe"(platform: "/mobile", type: TrackType.Event) {}
+        "/px_checkout/review/one_tap/swipe"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
 
         // One tap + credit card
         "/px_checkout/review/confirm"(platform: "/mobile", type: TrackType.Event) {
@@ -2274,6 +2323,7 @@ trackTests {
                 issuer_id = 12
                 has_esc = true
             }
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // One tap + account money
@@ -2307,6 +2357,7 @@ trackTests {
                 issuer_id = 12
                 has_esc = true
             }
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         // Init event + pref id:
