@@ -7,10 +7,6 @@ tracks {
 
     defaultBusiness = "mercadopago"
 
-    propertyDefinitions {
-        error_type(required: true, type: PropertyType.String, values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"], description: "Types of error pages in acquisition flow.")
-    }
-
     //-----------------
     // PREPAID MLA/MLB
     //-----------------
@@ -88,16 +84,36 @@ tracks {
         )
     }
     "/prepaid/acquisition/cellphone"(platform: "/mobile", type: TrackType.View) {
-        error_type
+        error_type(
+                required: true,
+                type: PropertyType.String,
+                values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
+                description: "Types of error pages in acquisition flow."
+        )
     }
     "/prepaid/acquisition/onboarding"(platform: "/mobile", type: TrackType.View) {
-        error_type
+        error_type(
+                required: true,
+                type: PropertyType.String,
+                values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
+                description: "Types of error pages in acquisition flow."
+        )
     }
     "/prepaid/acquisition/rootfaq"(platform: "/mobile", type: TrackType.View) {
-        error_type
+        error_type(
+                required: true,
+                type: PropertyType.String,
+                values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
+                description: "Types of error pages in acquisition flow."
+        )
     }
     "/prepaid/acquisition/detailfaq"(platform: "/mobile", type: TrackType.View) {
-        error_type
+        error_type(
+                required: true,
+                type: PropertyType.String,
+                values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
+                description: "Types of error pages in acquisition flow."
+        )
     }
 
     // Activation Flow
