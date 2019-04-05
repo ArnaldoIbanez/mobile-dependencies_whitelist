@@ -12,13 +12,13 @@ SUM(CASE WHEN f.warrantyText is not null AND f.saleTermValueId is null THEN 1 EL
 SUM(CASE WHEN f.saleTermValueId = 2230279 AND f.saleTermValueName is not null THEN 1 ELSE 0 END) as EstructuradaFabrica,
 SUM(CASE WHEN f.saleTermValueId = 2230280 AND f.saleTermValueName is not null THEN 1 ELSE 0 END) as EstructuradaVendedor,
 SUM(CASE WHEN f.saleTermValueId = 6150835 AND f.saleTermValueName is null THEN 1 ELSE 0 END) as EstructuradaSinGarantia,
-substr(itemDateCreated, 1, 10) as ds
+substr(itemLastUpdated, 1, 10) as ds
 FROM
 
-(SELECT c.siteId, c.itemId, c.domainId, c.itemCondition, c.warrantyText, c.clientId, c.itemDateCreated, d.saleTermValueId, d.saleTermValueName
+(SELECT c.siteId, c.itemId, c.domainId, c.itemCondition, c.warrantyText, c.clientId, c.itemLastUpdated, d.saleTermValueId, d.saleTermValueName
 FROM
 
-(SELECT sit_site_id as siteId, ite_item_id as itemId, ite_domain_id as domainId, ite_condition as itemCondition, ite_warranty as warrantyText, mapp_app_id as clientId, ite_date_created as itemDateCreated
+(SELECT sit_site_id as siteId, ite_item_id as itemId, ite_domain_id as domainId, ite_condition as itemCondition, ite_warranty as warrantyText, mapp_app_id as clientId, ite_last_updated as itemLastUpdated
 FROM melilake.lk_ite_items
 WHERE ite_buying_mode <> 'classified' AND ite_status = 'active' AND is_test = 'false') c
 
@@ -36,7 +36,7 @@ LEFT JOIN
 ON a.siteId = b.siteId AND a.itemId = b.itemId) d
 
 ON c.siteId = d.siteId AND c.itemId = d.itemId) f
-WHERE CAST(itemDateCreated as string) >= '@param01'
-AND CAST(itemDateCreated as string) < '@param02'
+WHERE CAST(itemLastUpdated as string) >= '@param01'
+AND CAST(itemLastUpdated as string) < '@param02'
 
-GROUP BY substr(itemDateCreated, 1, 10), siteId, domainId, clientId, itemCondition
+GROUP BY substr(itemLastUpdated, 1, 10), siteId, domainId, clientId, itemCondition
