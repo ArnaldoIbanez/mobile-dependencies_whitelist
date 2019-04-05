@@ -543,8 +543,6 @@ trackTests {
         "/sell/update/size_selection_review"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/title"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/title_review"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/shipping_options_me/flex"(platform: "/mobile") {item_id = "MLA123456"}
-        "/sell/update/shipping_options_me_review/flex"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/shipping_options_me"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/shipping_options_me_review"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/sip_landing"(platform: "/mobile") {item_id = "MLA123456"}

@@ -511,8 +511,6 @@ tracks {
     "/sell/update/size_selection_review"(platform: "/", type: TrackType.View) {}
     "/sell/update/title"(platform: "/", type: TrackType.View) {}
     "/sell/update/title_review"(platform: "/", type: TrackType.View) {}
-    "/sell/update/shipping_options_me/flex"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/update/shipping_options_me_review/flex"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping_options_me"(platform: "/", type: TrackType.View) {}
     "/sell/update/shipping_options_me_review"(platform: "/", type: TrackType.View) {}
     "/sell/update/sip_landing"(platform: "/", type: TrackType.View) {}
