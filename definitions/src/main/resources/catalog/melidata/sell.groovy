@@ -434,6 +434,9 @@ tracks {
     "/sell/update/quantity"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/technical_specifications"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/product_identifier"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/shipping/flex/free_shipping_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/shipping/flex/optin"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/shipping/flex_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping_mandatory_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/variations"(platform: "/mobile", type: TrackType.View) {}
@@ -506,6 +509,8 @@ tracks {
     "/sell/update/size_selection_review"(platform: "/", type: TrackType.View) {}
     "/sell/update/title"(platform: "/", type: TrackType.View) {}
     "/sell/update/title_review"(platform: "/", type: TrackType.View) {}
+    "/sell/update/shipping_options_me/flex"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/shipping_options_me_review/flex"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping_options_me"(platform: "/", type: TrackType.View) {}
     "/sell/update/shipping_options_me_review"(platform: "/", type: TrackType.View) {}
     "/sell/update/sip_landing"(platform: "/", type: TrackType.View) {}
