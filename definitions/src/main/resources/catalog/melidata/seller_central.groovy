@@ -265,6 +265,13 @@ tracks {
         user_action(required: false, type: PropertyType.String, description: "Type of user action", values: ["click", "write"])
     }
 
+    "/seller_central/modify/technical_specifications/multivalue"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyGroup
+        quantity(required: true, type: PropertyType.Numeric, description: "Added values")
+        category_domain(required: true, type: PropertyType.String, description: "Domain")
+        hierarchy(required: true, type: PropertyType.String, description: "Attribute type")
+    }
+
     // SETTINGS SECTION
 
     "/seller_central/settings"(platform: "/", type: TrackType.View) {
