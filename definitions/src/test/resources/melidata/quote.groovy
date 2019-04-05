@@ -21,21 +21,21 @@ trackTests {
         }
 
         //quote seller :: Listing - news
-        "/quote/seller/listing/news"(platform: "/web", type: TrackType.Event) {
+        "/quote/seller/listing/news"(platform: "/", type: TrackType.Event) {
             vertical = "services"
             seller_id = 33624088
             action = "go_news"
         }
 
         //quote seller :: Listing - filters
-        "/quote/seller/listing/filters"(platform: "/web", type: TrackType.Event) {
+        "/quote/seller/listing/filters"(platform: "/", type: TrackType.Event) {
             vertical = "services"
             seller_id = 33624088
             action = "search_reset"
         }
 
         //quote seller :: Listing - filters
-        "/quote/seller/listing/filters/modal"(platform: "/web", type: TrackType.Event) {
+        "/quote/seller/listing/filters/modal"(platform: "/", type: TrackType.Event) {
             vertical = "services"
             seller_id = 33624088
             action = "submit_filter"
@@ -89,15 +89,11 @@ trackTests {
             item_id = "MLA698669764"
             category_id = "MLA43718"
             category_path = ["MLA1234", "MLA6789"]
-            buyer_id = 64567088
             quote_demand_id = 698669764
             quote_id = 65732
             seller_id = 33624088
             vertical = "services"
-            price = 15.3
-            quote_demand_status ="answered"
-            quote_status ="sent"
-            currency_id = "ARS"
+
         }
 
         //quote seller :: Quote listing  rows event (go to message)  - Mobile
@@ -437,7 +433,6 @@ trackTests {
             item_id = "MLA698669764"
             quote_demand_id = 698669764
             is_similar = "true"
-
             category_id = "MLA43718"
             category_path = ["MLA1234", "MLA6789"]
             quote_demand_status = "answered"
@@ -447,6 +442,96 @@ trackTests {
             vertical = "services"
             price = 15.3
             currency_id = "ARS"
+
+        }
+        //quote seller :: Input screen view - Create
+        "/quote/seller/create/input_price"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA698669764"
+            quote_demand_id = 698669764
+            is_similar = "true"
+            category_id = "MLA43718"
+            category_path = ["MLA1234", "MLA6789"]
+            quote_demand_status = "answered"
+            quote_status = "sent"
+            seller_id = 33624088
+            buyer_id = 64567088
+            vertical = "services"
+
+
+        }
+        //quote seller :: Similary screen view - Create
+        "/quote/seller/create/edit_price"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA698669764"
+            quote_demand_id = 698669764
+            is_similar = "true"
+            category_id = "MLA43718"
+            category_path = ["MLA1234", "MLA6789"]
+            quote_demand_status = "answered"
+            quote_status = "sent"
+            seller_id = 33624088
+            buyer_id = 64567088
+            vertical = "services"
+
+
+        }
+        //quote seller :: Input screen view - Create
+        "/quote/seller/create/input_conditions"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA698669764"
+            quote_demand_id = 698669764
+            is_similar = "true"
+            category_id = "MLA43718"
+            category_path = ["MLA1234", "MLA6789"]
+            quote_demand_status = "answered"
+            quote_status = "sent"
+            seller_id = 33624088
+            buyer_id = 64567088
+            vertical = "services"
+
+
+        }
+        //quote seller :: Similary screen view - Create
+        "/quote/seller/create/edit_conditions"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA698669764"
+            quote_demand_id = 698669764
+            is_similar = "true"
+            category_id = "MLA43718"
+            category_path = ["MLA1234", "MLA6789"]
+            quote_demand_status = "answered"
+            quote_status = "sent"
+            seller_id = 33624088
+            buyer_id = 64567088
+            vertical = "services"
+
+
+        }
+        //quote seller :: Input screen view - Create
+        "/quote/seller/create/input_expiration_date"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA698669764"
+            quote_demand_id = 698669764
+            is_similar = "true"
+            category_id = "MLA43718"
+            category_path = ["MLA1234", "MLA6789"]
+            quote_demand_status = "answered"
+            quote_status = "sent"
+            seller_id = 33624088
+            buyer_id = 64567088
+            vertical = "services"
+
+
+        }
+        //quote seller :: Similary screen view - Create
+        "/quote/seller/create/edit_expiration_date"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA698669764"
+            quote_demand_id = 698669764
+            is_similar = "true"
+            category_id = "MLA43718"
+            category_path = ["MLA1234", "MLA6789"]
+            quote_demand_status = "answered"
+            quote_status = "sent"
+            seller_id = 33624088
+            buyer_id = 64567088
+            vertical = "services"
+
 
         }
 

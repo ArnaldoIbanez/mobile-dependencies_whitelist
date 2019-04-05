@@ -10,19 +10,19 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
+        buyer_id(required: false, type: PropertyType.Numeric, description: "Buyer id")
         quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
         quote_id(required: false, type: PropertyType.Numeric, description: "Quote id")
         quote_status(required: false, type: PropertyType.String,values: ["sent", "cancelled_by_seller", "accepted","expired","rejected_by_seller"], description: "the status quote")
         price(required: false, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
         currency_id(required: false, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
         quote_demand_status(required: false, type: PropertyType.String, values: ["pending_by_seller", "answered", "rejected_by_seller","accepted"],description: "the status quote demand")
-
+        is_similar(required: false, type: PropertyType.String, description: "Quote Demand id")
 
     }
     propertyGroups {
         quoteSellerGroup(vertical, seller_id)
-        quoteSellerItemGroup(item_id,category_id,category_path,buyer_id,price,currency_id,quote_status, quote_demand_id, quote_id,quote_demand_status)
+        quoteSellerItemGroup(item_id,category_id,category_path,buyer_id,price,currency_id,quote_status, quote_demand_id, quote_id,quote_demand_status,is_similar)
         quoteBuyerGroup(vertical)
     }
 
@@ -39,7 +39,7 @@ tracks {
     }
 
     //Quote Seller :: Listing
-    "/quote/seller/listing"(platform: "/web", type: TrackType.View) {
+    "/quote/seller/listing"(platform: "/", type: TrackType.View) {
     }
 
     //Quote seller :: Listing - rows
@@ -48,22 +48,22 @@ tracks {
     }
 
     //quote seller :: Listing - news
-    "/quote/seller/listing/news"(platform: "/web", type: TrackType.Event) {
+    "/quote/seller/listing/news"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "action click on news")
     }
 
     //quote seller :: Listing - filters Actionbar icon
-    "/quote/seller/listing/filters"(platform: "/web", type: TrackType.Event) {
+    "/quote/seller/listing/filters"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, values: ["filter_intention", "search_submit", "search_reset"], description: "action click on filters)")
     }
 
     //quote seller :: Listing - menu
-    "/quote/seller/listing/menu"(platform: "/web", type: TrackType.Event) {
+    "/quote/seller/listing/menu"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, values: ["cancel", "sent","reject","delete","copy"], description: "action selected from menu quotes")
     }
 
     //quote seller :: Listing - filters screen
-    "/quote/seller/listing/filters/modal"(platform: "/web", type: TrackType.Event) {
+    "/quote/seller/listing/filters/modal"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, values: ["reset", "submit_filter"], description: "filter modal actions ")
     }
 
@@ -176,7 +176,6 @@ tracks {
     //quote seller :: Create quote confirmation button
     "/quote/seller/create/confirmation"(platform: "/mobile", type: TrackType.View) {
         quoteSellerItemGroup
-        is_similar(required: false, type: PropertyType.String, values: ["true", "false"],description: "true/false  is a new quote or is a similar quote")
     }
 
     //quote seller :: Quote Create - confirmation
@@ -205,7 +204,6 @@ tracks {
     //quote seller :: Quote Congrats screenview
     "/quote/seller/create/congrats"(platform: "/", type: TrackType.View) {
         quoteSellerItemGroup
-        is_similar(required: false, type: PropertyType.String, description: "Quote Demand id")
     }
 
     //quote seller :: Quote Congrats - go listing button
@@ -215,6 +213,35 @@ tracks {
 
     //Quote Seller :: Loading screen view - Create
     "/quote/seller/create/loading"(platform: "/mobile", type: TrackType.View) {}
+
+    //Quote Seller :: Input screen view - Create
+    "/quote/seller/create/input_price"(platform: "/mobile", type: TrackType.View) {
+        quoteSellerItemGroup
+    }
+
+    //Quote Seller :: Similary screen view - Create
+    "/quote/seller/create/edit_price"(platform: "/mobile", type: TrackType.View) {
+        quoteSellerItemGroup
+    }
+
+    //Quote Seller ::  Input screen view - Create
+    "/quote/seller/create/input_conditions"(platform: "/mobile", type: TrackType.View) {
+        quoteSellerItemGroup
+    }
+
+    //Quote Seller :: Similary screen view - Create
+    "/quote/seller/create/edit_conditions"(platform: "/mobile", type: TrackType.View) {
+        quoteSellerItemGroup
+    }
+    //Quote Seller :: Input screen view - Create
+    "/quote/seller/create/input_expiration_date"(platform: "/mobile", type: TrackType.View) {
+        quoteSellerItemGroup
+    }
+    //Quote Seller ::  Similary screen view - Create
+    "/quote/seller/create/edit_expiration_date"(platform: "/mobile", type: TrackType.View) {
+        quoteSellerItemGroup
+
+    }
 
 
     /******************************************
