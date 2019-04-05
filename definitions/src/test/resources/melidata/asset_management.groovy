@@ -139,6 +139,7 @@ trackTests {
         }
 
         // Error
+        "/asset_management/network_error"(platform: "/mobile") {}
         "/asset_management/error"(platform: "/mobile") {
             label = "service_error_generic"
         }

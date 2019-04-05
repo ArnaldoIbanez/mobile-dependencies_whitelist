@@ -117,6 +117,7 @@ tracks {
 
     // Errors
     "/asset_management/error"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/network_error"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/stop_investing"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/stop_investing"(platform: "/web", type: TrackType.Event) {}
     "/asset_management/profile"(platform: "/mobile", type: TrackType.Event) {}
