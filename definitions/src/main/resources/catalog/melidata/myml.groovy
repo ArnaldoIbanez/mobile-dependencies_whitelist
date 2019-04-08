@@ -90,14 +90,14 @@ tracks {
 
     "/myml/purchases/list/returns_action"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Indicates the button that have been clicked",
-                values: ['return_item', 'cancel_return', 'change_return_pickup', 'prepare_package', 'return_agencies', 'print_return_label', 'return_not_delivered', 'return_delivered_problem', 'track_return'])
+                values: ['return_item', 'cancel_return', 'change_return_pickup', 'prepare_package', 'return_agencies', 'print_return_label', 'return_not_delivered', 'return_delivered_problem', 'track_return', 'cant_return'])
     }
 
     "/myml/purchases/vop"(platform: "/") {}
 
     "/myml/purchases/vop/returns_action"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Indicates the button that have been clicked",
-                values: ['return_item', 'cancel_return', 'change_return_pickup', 'prepare_package', 'return_agencies', 'print_return_label', 'return_not_delivered', 'return_delivered_problem', 'track_return'])
+                values: ['return_item', 'cancel_return', 'change_return_pickup', 'prepare_package', 'return_agencies', 'print_return_label', 'return_not_delivered', 'return_delivered_problem', 'track_return', 'cant_return'])
     }
 
     "/myml/purchases/detail"(platform: "/") {}
