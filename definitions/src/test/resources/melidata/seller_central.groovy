@@ -447,6 +447,7 @@ trackTests {
     test("structured data multivalue"){
         "/seller_central/modify/technical_specifications/multivalue"(platform: "/", type: TrackType.Event){  
             quantity = 3
+            previous_quantity = 0
             category_domain = "MLA-SHORTS"
             hierarchy = "PRODUCT_IDENTIFIER"
             item_id= "MLA682118081"

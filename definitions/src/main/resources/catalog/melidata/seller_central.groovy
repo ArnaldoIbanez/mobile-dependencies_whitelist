@@ -268,6 +268,7 @@ tracks {
     "/seller_central/modify/technical_specifications/multivalue"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyGroup
         quantity(required: true, type: PropertyType.Numeric, description: "Added values")
+        previous_quantity(required: true, type: PropertyType.Numeric, description: "Previous values")
         category_domain(required: true, type: PropertyType.String, description: "Domain")
         hierarchy(required: true, type: PropertyType.String, description: "Attribute type")
     }
