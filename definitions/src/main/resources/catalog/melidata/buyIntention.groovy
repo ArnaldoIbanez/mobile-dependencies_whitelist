@@ -9,6 +9,15 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    def garexTrackStructure = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String)
+        period(required: true, type: PropertyType.Numeric)
+        cost(required: true, type: PropertyType.Numeric)
+        revenue_share_fee(required: true, type: PropertyType.Numeric)
+        revenue(required: true, type: PropertyType.Numeric)
+        currency_id(required: true, type: PropertyType.String)
+    }
+
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // This tracks will be representing the user intention to buy. ( Meaning clicking the buy button
 // Currently this can be done from several places ( carrito, vip, carrito( from an individual item )
@@ -99,15 +108,6 @@ tracks {
     order_id(required: false, type: PropertyType.Numeric, description: "order_id")
 
     applies_cart_ratio(required: false, type: PropertyType.String, description: "appliesCartRatio")
-
-    def garexTrackStructure = objectSchemaDefinitions {
-        id(required: true, type: PropertyType.String)
-        period(required: true, type: PropertyType.Numeric)
-        cost(required: true, type: PropertyType.Numeric)
-        revenue_share_fee(required: true, type: PropertyType.Numeric)
-        revenue(required: true, type: PropertyType.Numeric)
-        currency_id(required: true, type: PropertyType.String)
-    }
 
     item_with_garex(required: false, type: PropertyType.Boolean, description: 'Item has available warranty')
     total_amount_including_garex(required: false, type: PropertyType.Numeric, description: 'Total amount (include garex if applies)')
