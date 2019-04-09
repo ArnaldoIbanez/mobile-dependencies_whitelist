@@ -115,7 +115,7 @@ tracks {
     "/merchant_acquisition/qr/settings"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/qr/permission-denied"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/qr/web-mobile"(platform:"/", type: TrackType.View) {}
-    
+
     // QR Flow > Events
     "/merchant_acquisition/qr/qr-code/download"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/qr/qr-code/print"(platform:"/", type: TrackType.Event) {}
@@ -749,6 +749,9 @@ tracks {
         discard_reason(required: false, description: "The discarded reason of the notification", values: ["invalid_payload","invalid_user", "settings_disabled"], type: PropertyType.String)
     }
 
+    //Asset Management
+    "/notification/asset_management_warm_up"(platform: "/mobile") {}
+
     //Account
     "/notification/account_fund_approved_ml"(platform: "/mobile") {}
     "/notification/account_fund_approved_mp"(platform: "/mobile") {}
@@ -957,7 +960,7 @@ tracks {
     //END -- MP personalFrontend
 
     //MP frontend
-    
+
     "/fund_account/confirm"(platform: "/web"){}
     "/send_money/confirm"(platform: "/web"){}
     "/money_request/confirm"(platform: "/web"){}

@@ -2036,6 +2036,11 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/asset_management_warm_up"(platform: "/mobile") {
+            news_id = "asset-management_warm_up-12345678"
+            event_type = "shown"
+        }
+
         "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
