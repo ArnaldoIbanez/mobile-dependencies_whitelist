@@ -143,7 +143,7 @@ tracks {
 
         item_with_garex(required: false, type: PropertyType.Boolean, description: 'Item has available warranty')
         total_amount_including_garex(required: false, type: PropertyType.Numeric, description: 'Total amount (include garex if applies)')
-        garex(required: false, type: PropertyType.Map(garexTrackStructure), description: 'Item has available warranty')
+        garex(required: false, type: PropertyType.Map(garexTrackStructure), description: 'User selects a warranty option')
         stored_cards_quantity(required: false, type: PropertyType.Numeric, description: "Stored cards quantity of the buyer")
     }
 

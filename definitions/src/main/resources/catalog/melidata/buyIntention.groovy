@@ -100,9 +100,18 @@ tracks {
 
     applies_cart_ratio(required: false, type: PropertyType.String, description: "appliesCartRatio")
 
+    def garexTrackStructure = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String)
+        period(required: true, type: PropertyType.Numeric)
+        cost(required: true, type: PropertyType.Numeric)
+        revenue_share_fee(required: true, type: PropertyType.Numeric)
+        revenue(required: true, type: PropertyType.Numeric)
+        currency_id(required: true, type: PropertyType.String)
+    }
+
     item_with_garex(required: false, type: PropertyType.Boolean, description: 'Item has available warranty')
     total_amount_including_garex(required: false, type: PropertyType.Numeric, description: 'Total amount (include garex if applies)')
-    garex(required: false, type: PropertyType.Map(garexTrackStructure), description: 'Item has available warranty')
+    garex(required: false, type: PropertyType.Map(garexTrackStructure), description: 'User selects a warranty option')
     stored_cards_quantity(required: false, type: PropertyType.Numeric, description: "Stored cards quantity of the buyer")
 
 }
