@@ -2,7 +2,7 @@ with vips as (
 select application.site_id as sit, device.platform as dev, count(*) as tvip, substr(ds,1,10) as dateS
 from tracks t
 WHERE ds >= '@param01'
-AND   ds < '2019-04-08'
+AND   ds < '@param02'
 AND   application.business = 'mercadolibre'
 AND   application.site_id in ('MLA','MLM','MLB','MPE','MCO','MLC','MLU','MLV')
 and path in ('/vip')
