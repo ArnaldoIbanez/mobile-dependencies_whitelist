@@ -4,7 +4,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    "/email"(platform: "/email", isAbstract: true) {
+    "/email"(platform: "/", isAbstract: true) {
         email_template(required: true)
         event_type(required: true,
                 values: ["send", "open", "cancel", "cancel_old_emails", "processed", "dropped", "delivered", "deferred",
@@ -21,6 +21,7 @@ tracks {
         provider_feedback(required: false, type: PropertyType.Boolean, description: "Used to identify events reported by the " +
                 "Email Service Provider (e.g. Sendgrid), in particular send and open, which might be reported by the provider " +
                 "and also by the emails-api")
+        click_link_id(required: false, type: PropertyType.String, description: "Identifies which link was clicked in the email, in the case of event_type=click")
     }
 
     "/email/orders"(platform: "/email") {
@@ -107,10 +108,10 @@ tracks {
     "/email/checkout/refunded"(platform: "/email"){}
 
     // mails for: showing unsubscribe view
-    "/email/form-optout"(platform: "/email"){}
+    "/email/form-optout"(platform: "/web"){}
 
     // mails for: unsubscribe from emails reception
-    "/email/form-optout/unsubscribe"(platform: "/email", type: TrackType.Event){
+    "/email/form-optout/unsubscribe"(platform: "/web", type: TrackType.Event){
         selected_option(required: true, description: "Selected option in unsubscribe view as cause of unsubscription")
     }
 
