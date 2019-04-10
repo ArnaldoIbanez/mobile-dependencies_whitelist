@@ -185,7 +185,10 @@ metrics {
 
 		countsOn {
 			condition {
-				empty("event_data.total_amount_including_garex", false)
+				and(
+					equals("event_data.congrats_seq",1),
+					empty("event_data.total_amount_including_garex", false)
+				)
 			}
 		}
 	}
@@ -197,7 +200,10 @@ metrics {
 
 		countsOn {
 			condition {
-				empty("event_data.total_amount_including_garex", false)
+				and(
+					equals("event_data.congrats_seq",1),
+					empty("event_data.total_amount_including_garex", false)
+				)
 			}
 		}
 	}
@@ -209,7 +215,10 @@ metrics {
 
 		countsOn {
 			condition {
-				empty("event_data.total_amount_including_garex", false)
+				and(
+					equals("event_data.congrats_seq",1),
+					empty("event_data.total_amount_including_garex", false)
+				)
 			}
 		}
 	}
