@@ -343,6 +343,7 @@ tracks {
         //    free_shipping: true
         //  ]
         //]
+        view_type(required: false, type: PropertyType.String)
     }
     //Select shippingOptions
     "/checkout/shipping/select_option/mercado_envios"(platform: "/mobile") {}
