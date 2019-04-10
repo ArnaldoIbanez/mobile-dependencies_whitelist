@@ -60,6 +60,13 @@ tracks {
     "/advertising/pads2/landing/main_action"(platform: "/web", type: TrackType.Event) {
         button(required: true, description: "Button that redirects to confirm page")
         budget(required: true, description: "Budget related to the landing", inheritable:false)
+        id(required: false, description: "Indicates if the user was redirected to the landing using the main slide of the home")
+        position(required: false, description: "indicates the position of the main slide")
+    }
+
+    "/advertising/pads2/landing/from_main_slider"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
+        id(required: true, description: "Indicates if the user was redirected to the landing using the main slide of the home")
+        position(required: true, description: "indicates the position of the main slide")
     }
 
     "/advertising/pads2/landing/contract_confirmation"(platform: "/web", type: TrackType.View) {
@@ -67,6 +74,8 @@ tracks {
 
     "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/web", type: TrackType.Event) {
         budget(required: true, description: "Budget related to the campaign")
+        id(required: false, description: "Indicates if the user was redirected to the landing using the main slide of the home")
+        position(required: false, description: "indicates the position of the main slide")
     }
 
     "/advertising/pads2/landing/change_budget"(platform: "/web", type: TrackType.Event) {

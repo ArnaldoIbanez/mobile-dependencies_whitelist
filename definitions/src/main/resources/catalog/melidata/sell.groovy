@@ -90,6 +90,9 @@ tracks {
         title_predicted(required: false, description: "Title used to predict category", type: PropertyType.String)
         category_id(required: false, description: "Category Id", type: PropertyType.String)
         category_path(required: false, description: "Category path", type: PropertyType.ArrayList)
+        placement(required: false, description: "Place where track was dispatched")
+        adv_segmentation(required: false, description: "Adevrtasement segmentation ")
+        reputation_level(required: false, description: "Reputation for Pads")
     }
     // Upgrade Off = El upgrade de clasificados
     "/sell/upgradeOff"(platform:"/", type: TrackType.View){
@@ -431,6 +434,11 @@ tracks {
     "/sell/update/quantity"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/technical_specifications"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/product_identifier"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/shipping"(platform: "/mobile", isAbstract: true) {}
+    "/sell/update/shipping/flex"(platform: "/mobile", isAbstract: true) {}
+    "/sell/update/shipping/flex/free_shipping_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/shipping/flex/optin"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/shipping/flex_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping_mandatory_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/variations"(platform: "/mobile", type: TrackType.View) {}

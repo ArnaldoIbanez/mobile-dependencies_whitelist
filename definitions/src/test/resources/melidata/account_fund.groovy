@@ -14,6 +14,10 @@ trackTests {
 
     test("Account Fund - views") {
         "/account_fund/select_method"(platform: "/", type: TrackType.View) {}
+        "/account_fund/select_method/selected"(platform: "/", type: TrackType.Event) {
+            method = "qr"
+        }
+
         "/account_fund/amount"(platform: "/", type: TrackType.View) {}
 
         // Amount presets buttons
@@ -46,6 +50,8 @@ trackTests {
         "/account_fund/cvu/main/bank_selection/select"(platform: "/", type: TrackType.Event) {
             bank = "santander"
         }
+
+        "/account_fund/cvu/main/help"(platform: "/", type: TrackType.Event) {}
         
         "/account_fund/cvu/result"(platform: "/", type: TrackType.View) {
             result_status = "approved"

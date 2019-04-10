@@ -516,6 +516,15 @@ trackTests {
         }
     }
 
+    test("MP-MA Point Pro paper rolls request") {
+        "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
+          view = "order"
+        }
+        "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
+          view = "congrats_waiting"
+        }
+    }
+
     test("MP-MA Flow QR Queue Web") {
         "/merchant_acquisition/flows/qr-queue"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/flows/qr-queue/amount"(platform:"/", type: TrackType.View) {
@@ -524,8 +533,16 @@ trackTests {
         "/merchant_acquisition/flows/qr-queue/amount"(platform:"/", type: TrackType.View) {
             onboarding = false
         }
+
+        "/merchant_acquisition/flows/qr-queue/amount/download"(platform:"/", type: TrackType.Event) { onboarding = true }
+        "/merchant_acquisition/flows/qr-queue/amount/print"(platform:"/", type: TrackType.Event) { onboarding = true }
+        "/merchant_acquisition/flows/qr-queue/amount/replace-amount"(platform:"/", type: TrackType.Event) { onboarding = true }
+
         "/merchant_acquisition/flows/qr-queue/waiting-payment"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/flows/qr-queue/congrats"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-queue/error"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-queue/waiting-payment/retry"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/flows/qr-queue/waiting-payment/extend-time"(platform:"/", type: TrackType.Event) {}
     }
 
     test("MP-MA Flow QR") {
@@ -534,6 +551,8 @@ trackTests {
         "/merchant_acquisition/qr/pending"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/error"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/settings"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/qr/permission-denied"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/qr/web-mobile"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/qr-code/download"(platform:"/", type: TrackType.Event) {}
         "/merchant_acquisition/qr/qr-code/print"(platform:"/", type: TrackType.Event) {}
         "/merchant_acquisition/qr/qr-code/faqs"(platform:"/", type: TrackType.Event) {}
@@ -1145,6 +1164,13 @@ trackTests {
             user_id = "123241234413"
             level ="info"
             data ="{ctr: 2313}"
+        }
+         "/point_payment/flow_tracker/auto_reverse_off"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            trx_id = "as-123241234413"
+
         }
 
 
@@ -2010,6 +2036,11 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/asset_management_warm_up"(platform: "/mobile") {
+            news_id = "asset-management_warm_up-12345678"
+            event_type = "shown"
+        }
+
         "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -2507,11 +2538,15 @@ trackTests {
     }
 
     test("Account recovery flow") {
-        "/auth/account_recovery/canceled"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/recovery_confirmation"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
             is_webview = true
         }
         "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+            is_webview = true
+        }
+        "/auth/account_recovery/landing"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
             is_webview = true
         }
@@ -2523,10 +2558,16 @@ trackTests {
             id = "id--fury"
             is_webview = true
         }
-        "/auth/account_recovery/canceled/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/recovery_confirmation/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
-            target = "go_home_button"
+            target = "confirm_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/recovery_confirmation/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "cancel_button"
             is_webview = true
         }
         "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
@@ -2535,28 +2576,36 @@ trackTests {
             target = "go_home_button"
             is_webview = true
         }
-        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
-            target = "cancel_button"
+            target = "validate_identity_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
             is_webview = true
         }
         "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
-            target = "unlink_button"
-            is_webview = true
-        }
-        "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "cancel_button"
+            target = "continue_button"
             is_webview = true
         }
         "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
+            status_code = "429"
+            is_webview = true
+        }
+        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+            status_code = "403"
             is_webview = true
         }
     }
@@ -2616,6 +2665,34 @@ trackTests {
             domain = "gmail"
             is_google_account_of_different_user = "false"
             authenticator = "emailValidation"
+        }
+    }
+
+    test("Device Attestation"){
+        "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
+            mode = "prefetch_only"
+        }
+
+        "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/request"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/created"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/reuse"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/expired"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/fail"(platform: "/mobile", type: TrackType.Event) {
+            reason = "quota exceeded"
+        }
+
+        "/auth/attestation/nonce/request"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/nonce/created"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/nonce/fail"(platform: "/mobile", type: TrackType.Event) {
+            reason = "missing vendor"
         }
     }
 

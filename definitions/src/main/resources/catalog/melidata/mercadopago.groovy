@@ -59,12 +59,14 @@ tracks {
     "/merchant_acquisition/qr"(platform: "/", isAbstract: true) {}
     "/merchant_acquisition/flows"(platform: "/", isAbstract: true) {}
 
-    // QR Assignment
+    // QR Assignment > Pageviews
     "/merchant_acquisition/flows/qr-assignment"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/qr-assignment/success"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
        status (type: PropertyType.String, required: true, description: "Error Status, ex: invalidAccess, error")
     }
+
+    // QR Assignment > Events
     "/merchant_acquisition/flows/qr-assignment/validate_email"(platform:"/", type: TrackType.Event) {
       valid (type: PropertyType.Boolean, required: true, description: "Ex: true or false")
     }
@@ -72,13 +74,27 @@ tracks {
       qr_content (type: PropertyType.String, required: true, description: "Ex: http://qrContent")
     }
 
-    // QR Queue Web
+    // Point Pro Solicitud Bobinas > Pageviews
+    "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
+      view (type: PropertyType.String, required: true, description: "Type of view", values: ["order", "congrats_waiting", "congrats_success", "access_denied", "error"])
+    }
+
+    // QR Queue Web > Pageviews
     "/merchant_acquisition/flows/qr-queue"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/qr-queue/amount"(platform:"/", type: TrackType.View) {
         onboarding (type: PropertyType.Boolean, required: true, description: "Flag that determines if onboarding was shown. Ex: true / false")
     }
     "/merchant_acquisition/flows/qr-queue/waiting-payment"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/qr-queue/congrats"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/qr-queue/error"(platform:"/", type: TrackType.View) {}
+
+    // QR Queue Web > Events
+    "/merchant_acquisition/flows/qr-queue/amount/download"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/qr-queue/amount/print"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/qr-queue/amount/replace-amount"(platform:"/", type: TrackType.Event) {}
+
+    "/merchant_acquisition/flows/qr-queue/waiting-payment/retry"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/qr-queue/waiting-payment/extend-time"(platform:"/", type: TrackType.Event) {}
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
@@ -97,6 +113,8 @@ tracks {
     "/merchant_acquisition/qr/pending"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/qr/error"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/qr/settings"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/qr/permission-denied"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/qr/web-mobile"(platform:"/", type: TrackType.View) {}
 
     // QR Flow > Events
     "/merchant_acquisition/qr/qr-code/download"(platform:"/", type: TrackType.Event) {}
@@ -298,6 +316,9 @@ tracks {
          devices (required:false, type: PropertyType.String, description: "paired devices")
     }
     "/point_payment/flow_tracker/cancel_qr_charge"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/auto_reverse_off"(platform: "/mobile", type: TrackType.Event) {
+        trx_id (required: true, type: PropertyType.String, description: "trx1234567")
+    }
 
 
     "/settings/point"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
@@ -728,6 +749,9 @@ tracks {
         discard_reason(required: false, description: "The discarded reason of the notification", values: ["invalid_payload","invalid_user", "settings_disabled"], type: PropertyType.String)
     }
 
+    //Asset Management
+    "/notification/asset_management_warm_up"(platform: "/mobile") {}
+
     //Account
     "/notification/account_fund_approved_ml"(platform: "/mobile") {}
     "/notification/account_fund_approved_mp"(platform: "/mobile") {}
@@ -936,7 +960,7 @@ tracks {
     //END -- MP personalFrontend
 
     //MP frontend
-    
+
     "/fund_account/confirm"(platform: "/web"){}
     "/send_money/confirm"(platform: "/web"){}
     "/money_request/confirm"(platform: "/web"){}

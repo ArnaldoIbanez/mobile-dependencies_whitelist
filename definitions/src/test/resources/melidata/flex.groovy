@@ -113,6 +113,7 @@ trackTests {
                             longitude = "-35.56065"
                         }
                         status = "shipped"
+                        low_precition = true
                     },
                     {
                         shipping_id = "342994423"
@@ -123,6 +124,7 @@ trackTests {
                             addresses_info = "Uruguay 756"
                         }
                         status = "not_delivered"
+                        low_precition = false
                     },
                     {
                         shipping_id = "645292393"
@@ -153,6 +155,7 @@ trackTests {
                             longitude = "-35.56065"
                         }
                         status = "shipped"
+                        low_precition = true
                     }
                 ]
             }
@@ -486,6 +489,7 @@ trackTests {
             defaultPacksInfo()
             context = "delivered"
             distance = 1234
+            delivery_id = 123456
         }
 
         //Snackbar error event success

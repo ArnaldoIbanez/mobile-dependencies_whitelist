@@ -242,6 +242,9 @@ tracks {
         user_action(required: false, type: PropertyType.String, description: "Type of user action", values: ["click", "write"])
     }
 
+    "/seller_central/modify/optin_flex_subflow"(platform: "/", type: TrackType.View) {
+        sellerCentralModifyCardsGroup
+    }
 
     "/seller_central/bulk/technical_specifications"(platform: "/", isAbstract: true) {}
     "/seller_central/bulk/technical_specifications/hints"(platform: "/", isAbstract: true) {
@@ -260,6 +263,14 @@ tracks {
 
     "/seller_central/bulk/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event) {
         user_action(required: false, type: PropertyType.String, description: "Type of user action", values: ["click", "write"])
+    }
+
+    "/seller_central/modify/technical_specifications/multivalue"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyGroup
+        quantity(required: true, type: PropertyType.Numeric, description: "Added values")
+        previous_quantity(required: true, type: PropertyType.Numeric, description: "Previous values")
+        category_domain(required: true, type: PropertyType.String, description: "Domain")
+        hierarchy(required: true, type: PropertyType.String, description: "Attribute type")
     }
 
     // SETTINGS SECTION

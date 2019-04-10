@@ -24,7 +24,14 @@ catalog {
             "/email"
     ]
 
-    platformsExperiments = [
+    abPlatforms = [
+            "/web/desktop",
+            "/web/mobile",
+            "/mobile/android",
+            "/mobile/ios"
+    ]
+
+    abPlatformsSubscriptions = [
             "/",
             "/web",
             "/web/desktop",
@@ -32,23 +39,8 @@ catalog {
             "/mobile",
             "/mobile/android",
             "/mobile/ios",
-            "/email",
-            "/multiplatform"
     ]
 
-    platformsTracking = [
-            "/web/desktop",
-            "/web/desktop/forced",
-            "/web/desktop/static",
-            "/web/mobile",
-            "/web/mobile/forced",
-            "/web/mobile/static",
-            "/mobile",
-            "/mobile/android",
-            "/mobile/ios",
-            "/email",
-            "/unknown"
-    ]
 
 
     def marketplace = [

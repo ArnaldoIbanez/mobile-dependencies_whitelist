@@ -131,6 +131,7 @@ tracks {
                       description: "Indicates which tooltip is shown in the VIP at the time, if any. In case it does not show anything, it should be 'none'. E.g: 'credits', 'subscription', 'cart_benefit_free_shipping', etc.")
 
         whatsapp_available(required: false, type: PropertyType.String, description: "determines if whatsapp is available")
+        quote_demand_available(required: false, type: PropertyType.Boolean, description: "determines if an item has quote demand available")
     }
 
     "/vip"(platform: "/web") {
@@ -367,6 +368,24 @@ tracks {
                 description: "Vertical of the item")
         unregistered_contact(required: false, type: PropertyType.Boolean,
                 description: "User is unregister type")
+        unregistered_contact_context(required: false, type: PropertyType.Boolean,
+                description: "User is unregister after returning from email")
+        event_source(required: false, type: PropertyType.String,
+                values: ["vip", "technicalSpecs", "description"],
+                description: "source of the event")
+    }
+
+    "/vip/question_intention"(platform: "/web", type: TrackType.Event) {
+        unregistered_contact(required: true, type: PropertyType.Boolean,
+                description: "User is unregister type")
+        unregistered_contact_context(required: true, type: PropertyType.Boolean,
+                description: "User is unregister after returning from email")
+        event_source(required: true, type: PropertyType.String,
+                values: ["vip", "technicalSpecs", "description"],
+                description: "source of the event")
+    }
+
+    "/vip/captcha_showed"(platform: "/web", type: TrackType.Event) {
     }
 
 
@@ -576,7 +595,7 @@ tracks {
         //Location
             //type: [address | zip_code]
             //value: String
-        shipping_methods(required: true,  type: PropertyType.ArrayList,description: "Shipping Methods")
+            shipping_methods(required: true,  type: PropertyType.ArrayList,description: "Shipping Methods")
     //Shipping Method
         //promise 
         //  from: Integer
@@ -592,7 +611,9 @@ tracks {
         selected_method(required: true, description: "Shipping Methods")
     }
 
-    "/vip/shipping_calculator/cancel"(platform: "/", type: TrackType.Event){
+    "/vip/shipping_calculator/cancel"(platform: "/web", type: TrackType.Event){
+    }
+     "/vip/shipping_calculator/cancel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
     }
 
      "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event){

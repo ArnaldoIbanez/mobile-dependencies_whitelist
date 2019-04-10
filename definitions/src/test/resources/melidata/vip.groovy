@@ -47,6 +47,7 @@ trackTests {
             price_comparison_available = true
             price_comparison_position =  0.75
             whatsapp_available = "false"
+            quote_demand_available = false
         }
 
         "/vip"(platform:"/mobile", {
@@ -194,6 +195,30 @@ trackTests {
         "/vip/quantity"(platform: "/mobile") {
             item_id = "MLA533657947"
         }
+
+        "/vip/question_intention"(platform: "/web/desktop", type: TrackType.Event, {
+            mandatory()
+            optionals()
+            unregistered_contact = false
+            unregistered_contact_context = false
+            event_source = "description"
+        })
+
+        "/vip/question_intention"(platform: "/web/mobile", type: TrackType.Event, {
+            mandatory()
+            unregistered_contact = true
+            unregistered_contact_context = false
+            event_source = "technicalSpecs"
+        })
+
+        "/vip/captcha_showed"(platform: "/web/desktop", type: TrackType.Event, {
+            mandatory()
+            optionals()
+        })
+
+        "/vip/captcha_showed"(platform: "/web/mobile", type: TrackType.Event, {
+            mandatory()
+        })
     }
 
     test("Vip web mobile tracking without reviews") {
@@ -394,6 +419,8 @@ trackTests {
         "/vip/question"(platform: "/", type: TrackType.View){
             item_id = "MLA213512313"
             unregistered_contact = false
+            unregistered_contact_context = false
+            event_source= "description"
         }
     }
 
@@ -684,6 +711,7 @@ trackTests {
             }
         }
 
+
         "/vip/shipping_calculator"(platform: "/", type: TrackType.View) {
             model()
         }
@@ -692,14 +720,32 @@ trackTests {
             model()
             shipping_method()
         }
+        
+        "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {
+        }
+        
+        "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
+             model()
+        }
 
-        "/vip/shipping_calculator/cancel"(platform: "/", type: TrackType.Event) {
+
+        "/vip/shipping_calculator"(platform: "/web/desktop", type: TrackType.View) {
+            model()
+        }
+
+         "/vip/shipping_calculator/select"(platform: "/web/desktop", type: TrackType.Event) {
+            model()
+            shipping_method()
+        }
+
+        "/vip/shipping_calculator/cancel"(platform: "/web/desktop", type: TrackType.Event) {
             model()
         }
         
-        "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {}
+        "/vip/shipping_calculator/modify"(platform: "/web/desktop", type: TrackType.Event) {
+        }
         
-        "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
+        "/vip/shipping_calculator/show_map"(platform: "/web/desktop", type: TrackType.Event) {
              model()
         }
         
@@ -714,12 +760,13 @@ trackTests {
             shipping_method()
         }
 
-        "/vip/shipping_calculator/cancel"(platform: "/mobile/ios", type: TrackType.Event) {
-            model()
+        "/vip/shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) {
         }
-        
-        "/vip/shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) { }
-        
+
+    
+        "/vip/shipping_calculator/cancel"(platform: "/mobile/ios", type: TrackType.Event) {
+        }
+                
         "/vip/shipping_calculator/show_map"(platform: "/mobile/ios", type: TrackType.Event) {
             model()
         }

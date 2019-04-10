@@ -362,6 +362,15 @@ trackTests {
         }
     }
 
+    test("seller central flex subflow"){
+        "/seller_central/modify/optin_flex_subflow"(platform: "/", type: TrackType.View){
+            category_id = "MLA12812"
+            item_id = "MLA776923789"
+            session_id = "416163910-update-79c25d849574"
+            seller_profile = "NEWBIE"
+        }
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central Structured Data
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -432,6 +441,17 @@ trackTests {
             item_id= "MLA682118081"
             session_id = "123-update-abc123"
             hint_id = "REPEATED_ATTRIBUTE"
+        }
+    }
+
+    test("structured data multivalue"){
+        "/seller_central/modify/technical_specifications/multivalue"(platform: "/", type: TrackType.Event){  
+            quantity = 3
+            previous_quantity = 0
+            category_domain = "MLA-SHORTS"
+            hierarchy = "PRODUCT_IDENTIFIER"
+            item_id= "MLA682118081"
+            session_id = "123-update-abc123"
         }
     }
 

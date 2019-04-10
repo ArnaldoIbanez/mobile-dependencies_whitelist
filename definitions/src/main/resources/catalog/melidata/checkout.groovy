@@ -127,8 +127,6 @@ tracks {
         //useAccountMoneyWithAnotherPM
         //availableAccountMoney
 
-        available_subscription(required:false, description:"If the item is elegible for subscription")
-
         loyalty_level(required:false, description:"The loyalty level of the buyer")
 
         investor(required:false, type: PropertyType.String, values:["YES", "NO"], description:"If the user is an investor")
@@ -145,7 +143,8 @@ tracks {
 
         item_with_garex(required: false, type: PropertyType.Boolean, description: 'Item has available warranty')
         total_amount_including_garex(required: false, type: PropertyType.Numeric, description: 'Total amount (include garex if applies)')
-        garex(required: false, type: PropertyType.Map(garexTrackStructure), description: 'Item has available warranty')
+        garex(required: false, type: PropertyType.Map(garexTrackStructure), description: 'User selects a warranty option')
+        stored_cards_quantity(required: false, type: PropertyType.Numeric, description: "Stored cards quantity of the buyer")
     }
 
     /*
@@ -778,6 +777,15 @@ tracks {
     "/checkout/finish/invalid_sec_code/input"(platform: "/mobile") {}
 
     "/checkout/finish/invalid_sec_code/input#submit"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/checkout/features"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {}
+
+    "/checkout/features/bridge"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        is_experiment_on(required: false, type: PropertyType.Boolean, description: "Check if the bridge is on or not")
+        can_navigate_to(required: false, type: PropertyType.Boolean, description: "Check if the navigation is to a internal flow screen")
+        screen(required: false, type: PropertyType.String, "Destination screen name")
+    }
 
     "/checkout/finish"(platform: "/mobile", isAbstract: true) {
         /** **************************************/
