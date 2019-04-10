@@ -124,6 +124,7 @@ tracks {
 
     "/login/auth/challenge/restart"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         challenge(type: PropertyType.String, required: true, description: "Login Step")
+        tracking_id(type: PropertyType.String, required: false, description: "Indicates the id to track the transaction")
     }
 
     "/login/auth/challenge/error"(platform: "/", type: TrackType.View) {
