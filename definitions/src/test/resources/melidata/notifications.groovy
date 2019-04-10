@@ -291,7 +291,7 @@ trackTests {
             latest_news_type= "campaigns-recharge_recovery"
             latest_news_id= "campaigns-recharge_recovery-143816022-MLB1013046714"
             experiment= false
-        }        
+        }
         "/notification_center/compliance_support-validations"(platform: "/mobile"){
             latest_news_type= "compliance_support-validations"
             latest_news_id= "compliance_support-validations-143816022-MLB1013046714"
@@ -347,6 +347,14 @@ trackTests {
         }
         "/notification_center/packages-buyer"(platform: "/mobile"){}
         "/notification_center/packages-seller"(platform: "/mobile"){}
+        "/notification_center/package-seller"(platform: "/mobile") {
+            purchase_id= 1000000016589794
+            pack_id= 2000000032080846
+        }
+        "/notification_center/messages_quotes"(platform: "/mobile") {
+            latest_news_type= "messages_quotes"
+            latest_news_id= "messages-quotes-123-123"
+        }
         "/notification_center/me_flex-optin"(platform: "/mobile"){
             latest_news_type= "me_flex-optin"
             latest_news_id= "me_flex-optin-143816022-MLB1013046714"
@@ -455,6 +463,10 @@ trackTests {
             status = "unread"
             event_type = "open"
             deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
+        }
+        "/notification_center/quotes_new"(platform: "/mobile") {
+            latest_news_type= "quotes_new"
+            latest_news_id= "quotes_new-123-123"
         }
 
         "/notification"(platform: "/mobile") {
@@ -811,6 +823,12 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
             order_id = 12132
+        }
+
+        //Quotes
+        "/notification/quotes_reject"(platform: "/mobile") {
+            news_id = "quotes-reject-123"
+            event_type = "open"
         }
 
         "/notification/orders_cancelled"(platform: "/mobile") {
@@ -1564,6 +1582,12 @@ trackTests {
 
         "/notification/returns_return_cancelled"(platform: "/mobile") {
             news_id = "returns-return_cancelled-1674717959-216070768"
+            event_type = "arrived"
+            order_id = 1703754979
+        }
+
+        "/notification/returns_return_expired"(platform: "/mobile") {
+            news_id = "returns-return_expired-1674717959-216070768"
             event_type = "arrived"
             order_id = 1703754979
         }
