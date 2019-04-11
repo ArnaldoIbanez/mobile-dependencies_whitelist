@@ -586,6 +586,8 @@ tracks {
 
     // Discovery
     "/instore/map"(platform: "/mobile", type: TrackType.View) {
+        location(required: false, inheritable: false, PropertyType.String, description: "a location coming from the deeplink")
+        radius_in_meters(required: false, inheritable: false, PropertyType.Numeric, description: "a radius from the location in the deeplink from where to search for stores")
         type(required: true, inheritable: false, PropertyType.String, description: "type of stores to show on the map")
         tags(required: true, inheritable: false, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the type of stores to show on the map")
     }
