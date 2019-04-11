@@ -582,14 +582,17 @@ trackTests {
         "/wms/stock_audit/cross_counting/confirmation"(platform: "/mobile/android") {
             task_id = 123
             warehouse_id = "BRWT01"
+            address_id = "RS-0-001-001-01-01"
         }
         "/wms/stock_audit/cross_counting/confirmation/confirm"(platform: "/mobile/android") {
             task_id = 123
             warehouse_id = "BRWT01"
+            address_id = "RS-0-001-001-01-01"
         }
         "/wms/stock_audit/cross_counting/confirmation/skip"(platform: "/mobile/android") {
             task_id = 123
             warehouse_id = "BRWT01"
+            address_id = "RS-0-001-001-01-01"
         }
     }
 }
