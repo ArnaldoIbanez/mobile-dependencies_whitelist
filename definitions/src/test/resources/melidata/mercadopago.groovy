@@ -670,6 +670,18 @@ trackTests {
         }
     }
 
+    test("Landing mercadopago payers growth") {
+        "/payers_growth/landings" (platform: "/") {
+            product = "mkt-combustibles"
+        }
+        "/payers_growth/landings" (platform: "/") {
+            product = "shell-box"
+        }
+        "/payers_growth/landings" (platform: "/") {
+            product = "mkt-mostaza"
+        }
+    }
+
     test("MP MLA/MLB/MLM Landing Bundles Point") {
         "/point/landings/landing_bundles_buy"(platform: "/", type: TrackType.Event) {
             quantity = 5
