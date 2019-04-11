@@ -318,17 +318,13 @@ tracks {
         task_id(required: true, type: PropertyType.Numeric, description: "Task id")
         cross_counting(required: false, type: PropertyType.Boolean, description: "Whether is a cross counting")
     }
-
     "/wms/stock_audit/item/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
-
     "/wms/stock_audit/item/restart_task"(platform: "/mobile/android", type: TrackType.Event) {}
 
     "/wms/stock_audit/cross_counting/confirmation"(platform: "/mobile/android", type: TrackType.View) {
         task_id(required: true, type: PropertyType.Numeric, description: "Task id")
     }
-
     "/wms/stock_audit/cross_counting/confirmation/confirm"(platform: "/mobile/android", type: TrackType.Event) {}
-
     "/wms/stock_audit/cross_counting/confirmation/skip"(platform: "/mobile/android", type: TrackType.Event) {}
 
     "/wms/stock_audit/empty_tasks"(platform: "/mobile/android", type: TrackType.View) {}
