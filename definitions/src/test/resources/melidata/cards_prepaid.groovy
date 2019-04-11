@@ -40,7 +40,7 @@ trackTests {
         "/prepaid/acquisition/personal_info/gender"(platform: "/web/mobile") {}
         "/prepaid/acquisition/personal_info/activity"(platform: "/web/mobile") {}
         "/prepaid/acquisition/review"(platform: "/web/desktop") {}
-        "/prepaid/acquisition/review/welcome"(platform: "/web/mobile") {}
+        "/prepaid/acquisition/review/welcome"(platform: "/web/desktop") {}
         "/prepaid/acquisition/need_fund"(platform: "/web/desktop") {}
 
         "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) {congrats_type = "prepaid" }
