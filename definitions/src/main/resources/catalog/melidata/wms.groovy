@@ -295,5 +295,42 @@ tracks {
             description: "Return type selected by the user")
     }
 
+    "/wms/stock_audit/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/stock_audit/confirmation/confirm"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/stock_audit/confirmation/cancel"(platform: "/mobile/android", type: TrackType.Event) {}
 
+    "/wms/stock_audit/scan_address"(platform: "/mobile/android", type: TrackType.View) {
+        task_id(required: true, type: PropertyType.Numeric, description: "Task id")
+        cross_counting(required: false, type: PropertyType.Boolean, description: "Whether is a cross counting")
+    }
+
+    "/wms/stock_audit/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {
+        address_id(required: true, type: PropertyType.String, description: "Address id")
+        task_id(required: true, type: PropertyType.Numeric, description: "Task id")
+        cross_counting(required: false, type: PropertyType.Boolean, description: "Whether is a cross counting")
+    }
+
+    "/wms/stock_audit/scan_inventory/empty_address"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/wms/stock_audit/item"(platform: "/mobile/android", type: TrackType.View) {
+        address_id(required: true, type: PropertyType.String, description: "Address id")
+        inventory_id(required: true, type: PropertyType.String, description: "Inventory id")
+        task_id(required: true, type: PropertyType.Numeric, description: "Task id")
+        cross_counting(required: false, type: PropertyType.Boolean, description: "Whether is a cross counting")
+    }
+
+    "/wms/stock_audit/item/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/wms/stock_audit/item/restart_task"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/wms/stock_audit/cross_counting/confirmation"(platform: "/mobile/android", type: TrackType.View) {
+        task_id(required: true, type: PropertyType.Numeric, description: "Task id")
+    }
+
+    "/wms/stock_audit/cross_counting/confirmation/confirm"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/wms/stock_audit/cross_counting/confirmation/skip"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/wms/stock_audit/empty_tasks"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/stock_audit/empty_tasks/retry"(platform: "/mobile/android", type: TrackType.Event) {}
 }
