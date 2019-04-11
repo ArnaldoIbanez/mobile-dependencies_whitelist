@@ -1,4 +1,5 @@
-SELECT vips_view.sit as site, vips_view.dev as device, vips_view.tvip as total_vips, buy_intention.tvip as amount_buy, cart_intention.tvip as amount_cart, grats_common.tvip as amount_buy_real, grats_cart.tvip as amount_cart_real FROM
+SELECT vips_view.sit as site, vips_view.dev as device, vips_view.tvip as total_vips, buy_intention.tvip as amount_buy, cart_intention.tvip as amount_cart, grats_common.tvip as amount_buy_real, grats_cart.tvip as amount_cart_real, vips_view.dateS as ds
+FROM
         (select application.site_id as sit, device.platform as dev, count(*) as tvip, substr(ds,1,10) as dateS
           from tracks t
           WHERE ds >= '@param01'
