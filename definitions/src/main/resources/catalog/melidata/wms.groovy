@@ -324,7 +324,6 @@ tracks {
     "/wms/stock_audit/cross_counting/confirmation"(platform: "/mobile/android", type: TrackType.View) {
         task_id(required: true, type: PropertyType.Numeric, description: "Task id")
         address_id(required: true, type: PropertyType.String, description: "Address id")
-
     }
     "/wms/stock_audit/cross_counting/confirmation/confirm"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/stock_audit/cross_counting/confirmation/skip"(platform: "/mobile/android", type: TrackType.Event) {}
