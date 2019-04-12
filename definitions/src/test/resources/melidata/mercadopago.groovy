@@ -565,28 +565,6 @@ trackTests {
         "/merchant_acquisition/mydata/success"(platform:"/", type: TrackType.View) {}
     }
 
-    test("Point Flow Congrats Success") {
-        "/point/flows/congrats"(platform:"/", type: TrackType.View) {}
-        "/point/flows/congrats/instructions"(platform:"/", type: TrackType.View) {}
-    }
-
-    test("Point Flow Congrats Events") {
-        "/point/flows/congrats/instructions/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {}
-        "/point/flows/congrats/instructions/prepaid_offer_register"(platform:"/", type: TrackType.Event) {}
-        "/point/flows/congrats/instructions/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {}
-        "/point/flows/congrats/instructions/continue"(platform:"/", type: TrackType.Event) {}
-        "/point/flows/congrats/instructions/unlockprepaid"(platform:"/", type: TrackType.Event) {}
-        "/point/flows/congrats/instructions/followprepaid"(platform:"/", type: TrackType.Event) {}
-        "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {}
-        "/point/flows/congrats/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {}
-        "/point/flows/congrats/prepaid_offer_register"(platform:"/", type: TrackType.Event) {}
-        "/point/flows/congrats/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {}
-        "/point/flows/congrats/continue"(platform:"/", type: TrackType.Event) {}
-        "/point/flows/congrats/unlockprepaid"(platform:"/", type: TrackType.Event) {}
-        "/point/flows/congrats/followprepaid"(platform:"/", type: TrackType.Event) {}
-        "/point/flows/congrats/map"(platform:"/", type: TrackType.Event) {}
-    }
-
     test("Point Flow Congrats Instructions") {
         "/point/flows/congrats/instructions"(platform:"/") {
           payment_id = 4334902696
