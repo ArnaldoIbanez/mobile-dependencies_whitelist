@@ -344,8 +344,7 @@ tracks {
         //  ]
         //]
         // Visual type of shipping options list
-        view_type(required: false, type: PropertyType.String)
-        //view_type values: ["legacy", "grouped"]
+        view_type(required: false, type: PropertyType.String, values: ["legacy", "grouped"])
     }
     //Select shippingOptions
     "/checkout/shipping/select_option/mercado_envios"(platform: "/mobile") {}
