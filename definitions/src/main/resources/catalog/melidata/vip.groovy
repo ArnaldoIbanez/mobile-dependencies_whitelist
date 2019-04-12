@@ -383,6 +383,10 @@ tracks {
         event_source(required: true, type: PropertyType.String,
                 values: ["vip", "technicalSpecs", "description"],
                 description: "source of the event")
+        source(required: false, description: "Source of the referred")
+        item_seller_type(required: false, type: PropertyType.String,
+                description: "Seller type: normal, real_estate_user, etc"
+        )
     }
 
     "/vip/captcha_showed"(platform: "/web", type: TrackType.Event) {

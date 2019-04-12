@@ -209,6 +209,8 @@ trackTests {
             unregistered_contact = true
             unregistered_contact_context = false
             event_source = "technicalSpecs"
+            source = "htmlView"
+            item_seller_type="car_dealer"
         })
 
         "/vip/captcha_showed"(platform: "/web/desktop", type: TrackType.Event, {
