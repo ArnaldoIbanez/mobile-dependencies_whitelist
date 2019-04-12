@@ -65,7 +65,7 @@ tracks {
     "/prepaid/acquisition/personal_info/gender"(platform: "/web/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/personal_info/activity"(platform: "/web/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/review"(platform: "/", type: TrackType.View) {}
-    "/prepaid/acquisition/review/welcome"(platform: "/web/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/review/welcome"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/need_fund"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/congrats"(platform: "/", type: TrackType.View) {
         congrats_type(
