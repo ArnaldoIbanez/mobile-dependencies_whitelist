@@ -551,11 +551,13 @@ trackTests {
         "/wms/stock_audit/scan_inventory"(platform: "/mobile/android") {
             task_id = 123
             address_id = "RS-0-001-001-01-01"
+            cross_counting = false
             warehouse_id = "BRWT01"
         }
         "/wms/stock_audit/scan_inventory/empty_address"(platform: "/mobile/android") {
             task_id = 123
             address_id = "RS-0-001-001-01-01"
+            cross_counting = false
             warehouse_id = "BRWT01"
         }
         "/wms/stock_audit/item"(platform: "/mobile/android") {
