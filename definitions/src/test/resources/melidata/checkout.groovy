@@ -358,6 +358,7 @@ trackTests {
                             free_shipping: false
                     ]
             ]
+            view_type = "grouped"
         }
         "/checkout/shipping/select_option/free_shipping"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -370,6 +371,7 @@ trackTests {
                             free_shipping: true
                     ]
             ]
+            view_type = "grouped"
         }
         "/checkout/shipping/select_option/custom"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -382,6 +384,7 @@ trackTests {
                             free_shipping: false
                     ]
             ]
+            view_type = "grouped"
         }
         "/checkout/shipping/select_contact"(platform:"/mobile", type:TrackType.Event) {
             is_from_preload_address = true

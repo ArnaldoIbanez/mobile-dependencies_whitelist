@@ -343,6 +343,8 @@ tracks {
         //    free_shipping: true
         //  ]
         //]
+        // Visual type of shipping options list
+        view_type(required: false, type: PropertyType.String, values: ["legacy", "grouped"])
     }
     //Select shippingOptions
     "/checkout/shipping/select_option/mercado_envios"(platform: "/mobile") {}
