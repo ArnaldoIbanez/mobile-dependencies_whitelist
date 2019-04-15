@@ -6,7 +6,7 @@ tracks {
     def userStructure = objectSchemaDefinitions {
       user_id(required: true, type: PropertyType.Numeric)
       payment_amount(required: true, type: PropertyType.Numeric)
-      payment_reference(required: true, type: PropertyType.String)
+      payment_reference(required: false, type: PropertyType.String)
     }
 
     def paymentStructure = objectSchemaDefinitions {
