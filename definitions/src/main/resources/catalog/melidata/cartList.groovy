@@ -72,6 +72,10 @@ tracks {
     item_info
 }
 
+"/cart/my_cart/more_seller_items"(platform: "/", type: TrackType.Event) {
+    item_info
+}
+
 "/cart/my_cart/change_quantity"(platform: "/", type: TrackType.Event) {
     item_info
 }
