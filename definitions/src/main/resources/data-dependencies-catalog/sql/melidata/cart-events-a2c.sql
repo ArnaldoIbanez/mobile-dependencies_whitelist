@@ -15,6 +15,7 @@ WHERE ds >= '@param01'
      '/bookmarks/add_to_cart',
      '/cart/my_cart/delete_item',
      'cart/my_cart/delete_item',
+     '/cart/my_cart/more_seller_items'
      '/cart/change_list',
      '/cart/my_cart/save_for_later',
      'cart/my_cart/save_for_later',
