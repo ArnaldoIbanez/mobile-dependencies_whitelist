@@ -158,21 +158,39 @@ tracks {
 
     // Point Flows
     "/point/flows"(platform: "/", isAbstract: true) {}
-
-    // Point Flows Congrats Success > Pageview
-    "/point/flows/congrats"(platform:"/", type: TrackType.View) {}
-    // Point Flows Congrats Instructions > Pageview
-    "/point/flows/congrats/instructions"(platform:"/") {
-      payment_id (required: true, type: PropertyType.Numeric, description: "ID of payment")
-      payment_method (required: true, type: PropertyType.String, description: "Method of payment")
-      device_id (required: true, type: PropertyType.String, description: "ID of Point device")
-      amount (required: true, type: PropertyType.Numeric, description: "Ticket amount")
-      is_guest (required: true, type: PropertyType.String, description: "Guest user flag")
+    "/point/flows/congrats"(platform:"/", type: TrackType.View) {
+        payment_id (required: true, type: PropertyType.Numeric, description: "ID of payment")
+        payment_method (required: true, type: PropertyType.String, description: "Method of payment")
+        device_id (required: true, type: PropertyType.String, description: "ID of Point device")
+        amount (required: true, type: PropertyType.Numeric, description: "Ticket amount")
+        is_guest (required: true, type: PropertyType.Boolean, description: "Guest user flag")
     }
-    // Point Flows Congrats Instructions > Click Events
+
+    "/point/flows/congrats/instructions"(platform:"/", type: TrackType.View) {}
+
+    // Point Flows Events
+    //Congrats ON
+    "/point/flows/congrats/print"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/copy"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/map"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/prepaid_offer_register"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/continue"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/unlockprepaid"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/followprepaid"(platform:"/", type: TrackType.Event) {}
+
+    //congrats OFF
+    "/point/flows/congrats/instructions/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/instructions/prepaid_offer_register"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/instructions/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/instructions/continue"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/instructions/unlockprepaid"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/instructions/followprepaid"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {}
+
 
     //Point Devices
     "/point/landings/landing_bundles_buy"(platform:"/", type: TrackType.Event) {

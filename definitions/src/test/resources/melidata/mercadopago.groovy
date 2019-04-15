@@ -565,17 +565,23 @@ trackTests {
         "/merchant_acquisition/mydata/success"(platform:"/", type: TrackType.View) {}
     }
 
-    test("Point Flow Congrats Success") {
-        "/point/flows/congrats"(platform:"/", type: TrackType.View) {}
-    }
-
     test("Point Flow Congrats Instructions") {
         "/point/flows/congrats/instructions"(platform:"/") {
           payment_id = 4334902696
           payment_method = "bolbradesco"
           device_id = "9"
           amount = 118.11
-          is_guest = "false"
+          is_guest = false
+        }
+    }
+
+    test("Point Flow Congrats") {
+        "/point/flows/congrats"(platform:"/") {
+          payment_id = 4334902696
+          payment_method = "bolbradesco"
+          device_id = "9"
+          amount = 118.11
+          is_guest = false
         }
     }
 
@@ -586,23 +592,133 @@ trackTests {
           payment_method = "bolbradesco"
           device_id = "9"
           amount = 118.11
-          is_guest = "false"
+          is_guest = false
         }
         "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {
           payment_id = 4334902696
           payment_method = "bolbradesco"
           device_id = "9"
           amount = 118.11
-          is_guest = "false"
+          is_guest = false
         }
         "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {
           payment_id = 4334902696
           payment_method = "bolbradesco"
           device_id = "9"
           amount = 118.11
-          is_guest = "false"
+          is_guest = false
+        }
+        "/point/flows/congrats/instructions/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/instructions/prepaid_offer_register"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/instructions/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/instructions/continue"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/instructions/unlockprepaid"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/instructions/followprepaid"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
         }
     }
+
+    test("Point Flow Congrats click events") {
+
+        "/point/flows/congrats/print"(platform:"/", type: TrackType.Event) {
+          payment_id = 4334902696
+          payment_method = "bolbradesco"
+          device_id = "9"
+          amount = 118.11
+          is_guest = false
+        }
+        "/point/flows/congrats/copy"(platform:"/", type: TrackType.Event) {
+          payment_id = 4334902696
+          payment_method = "bolbradesco"
+          device_id = "9"
+          amount = 118.11
+          is_guest = false
+        }
+        "/point/flows/congrats/map"(platform:"/", type: TrackType.Event) {
+          payment_id = 4334902696
+          payment_method = "bolbradesco"
+          device_id = "9"
+          amount = 118.11
+          is_guest = false
+        }
+        "/point/flows/congrats/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/prepaid_offer_register"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/continue"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/unlockprepaid"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/followprepaid"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+    }
+    
     test("Point Friction test") {
         "/pos_mobile"(platform: "/mobile", type: TrackType.Event) {}
         "/pos_mobile/friction"(platform: "/mobile", type: TrackType.Event) {
