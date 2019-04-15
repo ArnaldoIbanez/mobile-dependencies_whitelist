@@ -57,7 +57,7 @@ tracks {
       reference(required: true, type: PropertyType.String, description: "The reference added in this event")
     }
     "/bulk_payments/suppliers/click_to_review"(platform: "/",type: TrackType.Event) {
-      users(required:true, type: PropertyType.ArrayList(PropertyType.Map(userStructure)), description: 'Users that has been checked to receive a payment')
+      users(required:false, type: PropertyType.ArrayList(PropertyType.Map(userStructure)), description: 'Users that has been checked to receive a payment')
     }
     "/bulk_payments/suppliers/click_to_modify"(platform: "/",type: TrackType.Event) {
       clicked(required: true, description: "Modify flag")
