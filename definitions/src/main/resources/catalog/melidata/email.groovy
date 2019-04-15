@@ -18,6 +18,8 @@ tracks {
                 type: PropertyType.String, description: "Email Service Provider which generated this track event")
         communication_id(required: false, type: PropertyType.String, description: "Email campaign id")
         communication_version(required: false, type: PropertyType.String, description: "Email campaign version")
+        segment_id(required: false, type: PropertyType.String, description: "Identifies a segment within a communication")
+        experiment_id(required: false, type: PropertyType.String, description: "Identifies an experiment within a communication")
         provider_feedback(required: false, type: PropertyType.Boolean, description: "Used to identify events reported by the " +
                 "Email Service Provider (e.g. Sendgrid), in particular send and open, which might be reported by the provider " +
                 "and also by the emails-api")

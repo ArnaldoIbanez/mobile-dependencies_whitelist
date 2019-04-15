@@ -169,5 +169,12 @@ trackTests {
             event_type = "click"
             click_link_id = "ITEM-1"
         }
+
+        "/email/generic"(platform: "/email") {
+            defaultTrackInformationSendgridProviderFeedback()
+            segment_id = "default"
+            experiment_id = "group1"
+        }
+
     }
 }
