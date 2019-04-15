@@ -9,7 +9,7 @@ trackTests {
     test("melidata emails track") {
 
         def defaultTrackInformation = {
-            email_id = 123456
+            email_id = "123456"
             subject = "Test"
             email_template = "CHO_PAGO_AGREE"
             event_type = "send"
@@ -36,11 +36,7 @@ trackTests {
         }
 
         def defaultTrackInformationSendgridProviderFeedback = {
-            email_id = 123456
-            subject = "Test"
-            email_template = "REMARKETING"
-            event_type = "send"
-            sent_date = new Date().toString()
+            defaultTrackInformation()
             communication_id = "comm1"
             communication_version = "0.0.1"
             provider = "sendgrid"
@@ -48,11 +44,7 @@ trackTests {
         }
 
         def defaultTrackInformationSendgridEmailsApiFeedback = {
-            email_id = 123456
-            subject = "Test"
-            email_template = "REMARKETING"
-            event_type = "send"
-            sent_date = new Date().toString()
+            defaultTrackInformation()
             communication_id = "comm1"
             communication_version = "0.0.1"
             provider = "sendgrid"
@@ -60,11 +52,7 @@ trackTests {
         }
 
         def defaultTrackInformationIronportEmailsApiFeedback = {
-            email_id = 123456
-            subject = "Test"
-            email_template = "REMARKETING"
-            event_type = "send"
-            sent_date = new Date().toString()
+            defaultTrackInformation()
             communication_id = "comm1"
             communication_version = "0.0.1"
             provider = "ironport"
@@ -155,11 +143,11 @@ trackTests {
             receiver_id = 306162056
         }
 
-        "/email/form-optout"(platform: "/email"){
+        "/email/form-optout"(platform: "/web"){
             defaultTrackInformation()
         }
 
-        "/email/form-optout/unsubscribe"(platform: "/email"){
+        "/email/form-optout/unsubscribe"(platform: "/web"){
             defaultTrackInformation()
             selected_option = 1
         }
@@ -176,5 +164,10 @@ trackTests {
             defaultTrackInformationIronportEmailsApiFeedback()
         }
 
+        "/email/generic"(platform: "/email") {
+            defaultTrackInformationSendgridProviderFeedback()
+            event_type = "click"
+            click_link_id = "ITEM-1"
+        }
     }
 }

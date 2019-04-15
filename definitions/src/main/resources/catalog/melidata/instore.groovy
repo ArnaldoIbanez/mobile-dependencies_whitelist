@@ -285,7 +285,7 @@ tracks {
         context(required: true, PropertyType.String)
     }
 
-    // FTU
+    // Landing
     "/instore/qr_first_time_use"(platform: "/mobile", type: TrackType.View) {}
     "/instore/qr_first_time_use"(platform: "/mobile", isAbstract: true) {}
     "/instore/qr_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {
@@ -299,12 +299,25 @@ tracks {
     "/instore/shell_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {
         view_time_in_millis(required: false, PropertyType.String)
     }
-    "/instore/shell_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {}
-    "/instore/shell_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {}
-
+    "/instore/shell_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
+        view_time_in_millis(required: false, PropertyType.String)
+    }
+    "/instore/shell_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time_in_millis(required: false, PropertyType.String)
+    }
     "/instore/qr_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
         view_time_in_millis(required: false, PropertyType.String)
     }
+    "/instore/landing"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/landing/next"(platform: "/mobile", type: TrackType.Event) {
+        view_time_in_millis(required: false, PropertyType.String)
+    }
+    "/instore/landing/abort"(platform: "/mobile", type: TrackType.Event) {
+         view_time_in_millis(required: false, PropertyType.String)
+    }
+    "/instore/landing/back"(platform: "/mobile", type: TrackType.Event) {
+         view_time_in_millis(required: false, PropertyType.String)
+     }
 
     // Waiting
     "/instore/waiting"(platform: "/mobile", isAbstract: true) {}
@@ -573,6 +586,8 @@ tracks {
 
     // Discovery
     "/instore/map"(platform: "/mobile", type: TrackType.View) {
+        location(required: false, inheritable: false, PropertyType.String, description: "a location coming from the deeplink")
+        radius_in_meters(required: false, inheritable: false, PropertyType.Numeric, description: "a radius from the location in the deeplink from where to search for stores")
         type(required: true, inheritable: false, PropertyType.String, description: "type of stores to show on the map")
         tags(required: true, inheritable: false, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the type of stores to show on the map")
     }

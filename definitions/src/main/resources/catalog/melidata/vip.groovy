@@ -375,6 +375,23 @@ tracks {
                 description: "source of the event")
     }
 
+    "/vip/question_intention"(platform: "/web", type: TrackType.Event) {
+        unregistered_contact(required: true, type: PropertyType.Boolean,
+                description: "User is unregister type")
+        unregistered_contact_context(required: true, type: PropertyType.Boolean,
+                description: "User is unregister after returning from email")
+        event_source(required: true, type: PropertyType.String,
+                values: ["vip", "technicalSpecs", "description"],
+                description: "source of the event")
+        source(required: false, description: "Source of the referred")
+        item_seller_type(required: false, type: PropertyType.String,
+                description: "Seller type: normal, real_estate_user, etc"
+        )
+    }
+
+    "/vip/captcha_showed"(platform: "/web", type: TrackType.Event) {
+    }
+
 
     //TODO chequear con mobile estos tracks
     //  DESCRIPTION

@@ -500,5 +500,12 @@ trackTests {
             error_type = "permission_denied"
             error_message = "example_message"
         }
+
+        //Fake GPS enable
+        "/flex/package/detail/enable_fake_gps"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            context = "delivered"
+        }
     }
 }

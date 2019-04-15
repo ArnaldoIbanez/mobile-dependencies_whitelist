@@ -358,6 +358,7 @@ trackTests {
                             free_shipping: false
                     ]
             ]
+            view_type = "grouped"
         }
         "/checkout/shipping/select_option/free_shipping"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -370,6 +371,7 @@ trackTests {
                             free_shipping: true
                     ]
             ]
+            view_type = "grouped"
         }
         "/checkout/shipping/select_option/custom"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -382,6 +384,7 @@ trackTests {
                             free_shipping: false
                     ]
             ]
+            view_type = "grouped"
         }
         "/checkout/shipping/select_contact"(platform:"/mobile", type:TrackType.Event) {
             is_from_preload_address = true
@@ -2004,6 +2007,7 @@ trackTests {
             nearest_store_distance = 250000
             checkout_flow = "direct"
             flow_type = "buy_it_now"
+            stored_cards_quantity = 3
         }
 
         "/checkout/geolocation"(platform:"/web", type: TrackType.Event) {
