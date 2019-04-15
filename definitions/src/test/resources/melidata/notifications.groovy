@@ -204,6 +204,7 @@ trackTests {
             campaign_id= "campaign1"
             newsgroup_id= "campaigns-acho_reminder-320010629"
             event_type= "open"
+            event_type= "open"
             deeplink= "meli://item?id=MLA645507294"
             type_layout= "standard"
             test_notification= false
@@ -212,6 +213,7 @@ trackTests {
             latest_news_type= "campaigns-acho_reminder"
             latest_news_id= "campaigns-acho_reminder-143816022-MLB1013046714"
             item_id= "MLV515515631"
+            variation_id= "1234"
         }
         "/notification_center/campaigns-ticket_recovery"(platform: "/") {
             campaign_id = "mkt_campaign_ticket_recovery"
@@ -350,6 +352,9 @@ trackTests {
         "/notification_center/package-seller"(platform: "/mobile") {
             purchase_id= 1000000016589794
             pack_id= 2000000032080846
+            shipment_id= 1234
+            latest_news_type= "purchases-payments_approved"
+            latest_news_id= "purchases-payments_approved-1000000016305386"
         }
         "/notification_center/messages_quotes"(platform: "/mobile") {
             latest_news_type= "messages_quotes"
@@ -454,6 +459,9 @@ trackTests {
             latest_news_type= "security-device_authorization_congrats"
             latest_news_id= "security-device_authorization_congrats-1000000016305386"
         }
+
+        "/notification_center/security_recovery_canceled"(platform: "/", type: TrackType.Event) {}
+
         "/notification_center/chargeback-payer"(platform: "/mobile") {
             case_id = "158213000000"
             latest_news_id = "chargeback-buyer-158213000000-init13545"
@@ -1662,6 +1670,10 @@ trackTests {
             event_type = "open"
         }
         "/notification/security_device_authorization"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/security_recovery_canceled"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
         }
