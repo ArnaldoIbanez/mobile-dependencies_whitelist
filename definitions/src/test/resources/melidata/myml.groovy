@@ -610,7 +610,7 @@ trackTests {
             dataSet()
         }
 
-        "/myml/purchases/buy_it_again" (platform:"/", type: TrackType.View) {
+        "/myml/purchases/status/buy_it_again"(platform:"/mobile", type: TrackType.Event) {
             item_id = 'MLA713079054'
         }
 
