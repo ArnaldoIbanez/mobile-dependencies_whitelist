@@ -297,7 +297,7 @@ trackTests {
             }
         }
 
-        "/myml/invoices/backoffice/search/reissue-invoice"(platform: "/", type: TrackType.Event) {
+        "/myml/invoices/backoffice/search/reissueinvoice"(platform: "/", type: TrackType.Event) {
              data = {
                 invoiceId = 123123
             }

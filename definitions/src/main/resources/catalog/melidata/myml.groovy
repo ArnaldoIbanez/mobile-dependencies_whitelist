@@ -825,7 +825,7 @@ tracks {
         search_filter(required: true, description: "Search filter used")
     }
 
-    "/myml/invoices/backoffice/search/reissue-invoice"(platform: "/") {
+    "/myml/invoices/backoffice/search/reissueinvoice"(platform: "/") {
         data(required: true, description: "Reissue invoice in Backoffice")
     }
 
