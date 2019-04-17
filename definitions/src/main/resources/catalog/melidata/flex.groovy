@@ -346,6 +346,7 @@ tracks {
         packsAndLocation
         context(required: true, type: PropertyType.String,  values: ["not_delivered", "delivered"],
                 description: "Indicates whether the event was triggered in the delivered or in the event of non-delivery")
+        delivery_id(required: false, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
 }
