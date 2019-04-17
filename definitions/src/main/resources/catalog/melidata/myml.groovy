@@ -521,6 +521,8 @@ tracks {
         error(required: false, type:  PropertyType.String, description: "Error message that pop to user after request")
         errorValidation(required: false, type:  PropertyType.String, description: "Error message when value is invalid")
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
+        utc_campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        utc_source(required: false, type: PropertyType.String, description: "Campaign source")
     }
 
     //not found
@@ -611,7 +613,10 @@ tracks {
         error(required: false, type: PropertyType.Boolean, description: "State registration saving error")
     }
     //confirm
-    "/myml/invoices/company-info/confirm"(platform: "/") {}
+    "/myml/invoices/company-info/confirm"(platform: "/") {
+        utc_campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        utc_source(required: false, type: PropertyType.String, description: "Campaign source")
+    }
     "/myml/invoices/company-info/confirm/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
         enabled_for_fulfillment(required: true, type:  PropertyType.Boolean, description: "Boolean if seller profile is fulfillment")
@@ -627,7 +632,10 @@ tracks {
     "/myml/invoices/company-info/confirm/help_tooltip/freight"(platform: "/", type: TrackType.Event) {}
 
     //confirm-normal
-    "/myml/invoices/company-info/confirm-normal"(platform: "/") {}
+    "/myml/invoices/company-info/confirm-normal"(platform: "/") {
+        utc_campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        utc_source(required: false, type: PropertyType.String, description: "Campaign source")
+    }
     "/myml/invoices/company-info/confirm-normal/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm-normal/save/request"(platform: "/", type: TrackType.Event) {
         serie(required: true, type:  PropertyType.Numeric, description: "Invoice serie number input")
