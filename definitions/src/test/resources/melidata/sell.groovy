@@ -565,6 +565,9 @@ trackTests {
         "/sell/update/quantity_maximum_free_landing"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/shipping_landing"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/shipping_mandatory_landing"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/shipping/flex/free_shipping_landing"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/shipping/flex/optin"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/shipping/flex_landing"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/technical_specifications"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/product_identifier"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/variations"(platform: "/mobile") {item_id = "MLA123456"}

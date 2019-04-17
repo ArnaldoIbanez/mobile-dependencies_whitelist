@@ -204,6 +204,7 @@ trackTests {
             campaign_id= "campaign1"
             newsgroup_id= "campaigns-acho_reminder-320010629"
             event_type= "open"
+            event_type= "open"
             deeplink= "meli://item?id=MLA645507294"
             type_layout= "standard"
             test_notification= false
@@ -212,6 +213,7 @@ trackTests {
             latest_news_type= "campaigns-acho_reminder"
             latest_news_id= "campaigns-acho_reminder-143816022-MLB1013046714"
             item_id= "MLV515515631"
+            variation_id= "1234"
         }
         "/notification_center/campaigns-ticket_recovery"(platform: "/") {
             campaign_id = "mkt_campaign_ticket_recovery"
@@ -291,7 +293,7 @@ trackTests {
             latest_news_type= "campaigns-recharge_recovery"
             latest_news_id= "campaigns-recharge_recovery-143816022-MLB1013046714"
             experiment= false
-        }        
+        }
         "/notification_center/compliance_support-validations"(platform: "/mobile"){
             latest_news_type= "compliance_support-validations"
             latest_news_id= "compliance_support-validations-143816022-MLB1013046714"
@@ -347,6 +349,17 @@ trackTests {
         }
         "/notification_center/packages-buyer"(platform: "/mobile"){}
         "/notification_center/packages-seller"(platform: "/mobile"){}
+        "/notification_center/package-seller"(platform: "/mobile") {
+            purchase_id= 1000000016589794
+            pack_id= 2000000032080846
+            shipment_id= 1234
+            latest_news_type= "purchases-payments_approved"
+            latest_news_id= "purchases-payments_approved-1000000016305386"
+        }
+        "/notification_center/messages_quotes"(platform: "/mobile") {
+            latest_news_type= "messages_quotes"
+            latest_news_id= "messages-quotes-123-123"
+        }
         "/notification_center/me_flex-optin"(platform: "/mobile"){
             latest_news_type= "me_flex-optin"
             latest_news_id= "me_flex-optin-143816022-MLB1013046714"
@@ -446,6 +459,9 @@ trackTests {
             latest_news_type= "security-device_authorization_congrats"
             latest_news_id= "security-device_authorization_congrats-1000000016305386"
         }
+
+        "/notification_center/security_recovery_canceled"(platform: "/", type: TrackType.Event) {}
+
         "/notification_center/chargeback-payer"(platform: "/mobile") {
             case_id = "158213000000"
             latest_news_id = "chargeback-buyer-158213000000-init13545"
@@ -455,6 +471,10 @@ trackTests {
             status = "unread"
             event_type = "open"
             deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
+        }
+        "/notification_center/quotes_new"(platform: "/mobile") {
+            latest_news_type= "quotes_new"
+            latest_news_id= "quotes_new-123-123"
         }
 
         "/notification"(platform: "/mobile") {
@@ -811,6 +831,12 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
             order_id = 12132
+        }
+
+        //Quotes
+        "/notification/quotes_reject"(platform: "/mobile") {
+            news_id = "quotes-reject-123"
+            event_type = "open"
         }
 
         "/notification/orders_cancelled"(platform: "/mobile") {
@@ -1568,6 +1594,12 @@ trackTests {
             order_id = 1703754979
         }
 
+        "/notification/returns_return_expired"(platform: "/mobile") {
+            news_id = "returns-return_expired-1674717959-216070768"
+            event_type = "arrived"
+            order_id = 1703754979
+        }
+
         "/notification/returns_shipped_seller"(platform: "/mobile") {
             news_id = "returns-shipped_seller-1703067817-269729837"
             event_type = "sent"
@@ -1638,6 +1670,10 @@ trackTests {
             event_type = "open"
         }
         "/notification/security_device_authorization"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/security_recovery_canceled"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
         }

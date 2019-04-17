@@ -76,7 +76,7 @@ tracks {
 
     // Point Pro Solicitud Bobinas > Pageviews
     "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
-      view (type: PropertyType.String, required: true, description: "Type of view", values: ["order", "congrats_waiting", "congrats_success", "access_denied", "error"])
+      view (type: PropertyType.String, required: true, description: "Type of view", values: ["order", "registration", "congrats_waiting", "congrats_success", "access_denied", "error"])
     }
 
     // QR Queue Web > Pageviews
@@ -86,6 +86,15 @@ tracks {
     }
     "/merchant_acquisition/flows/qr-queue/waiting-payment"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/qr-queue/congrats"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/qr-queue/error"(platform:"/", type: TrackType.View) {}
+
+    // QR Queue Web > Events
+    "/merchant_acquisition/flows/qr-queue/amount/download"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/qr-queue/amount/print"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/qr-queue/amount/replace-amount"(platform:"/", type: TrackType.Event) {}
+
+    "/merchant_acquisition/flows/qr-queue/waiting-payment/retry"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/qr-queue/waiting-payment/extend-time"(platform:"/", type: TrackType.Event) {}
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
@@ -104,6 +113,8 @@ tracks {
     "/merchant_acquisition/qr/pending"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/qr/error"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/qr/settings"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/qr/permission-denied"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/qr/web-mobile"(platform:"/", type: TrackType.View) {}
 
     // QR Flow > Events
     "/merchant_acquisition/qr/qr-code/download"(platform:"/", type: TrackType.Event) {}
@@ -147,25 +158,49 @@ tracks {
 
     // Point Flows
     "/point/flows"(platform: "/", isAbstract: true) {}
-
-    // Point Flows Congrats Success > Pageview
-    "/point/flows/congrats"(platform:"/", type: TrackType.View) {}
-    // Point Flows Congrats Instructions > Pageview
-    "/point/flows/congrats/instructions"(platform:"/") {
-      payment_id (required: true, type: PropertyType.Numeric, description: "ID of payment")
-      payment_method (required: true, type: PropertyType.String, description: "Method of payment")
-      device_id (required: true, type: PropertyType.String, description: "ID of Point device")
-      amount (required: true, type: PropertyType.Numeric, description: "Ticket amount")
-      is_guest (required: true, type: PropertyType.String, description: "Guest user flag")
+    "/point/flows/congrats"(platform:"/", type: TrackType.View) {
+        payment_id (required: true, type: PropertyType.Numeric, description: "ID of payment")
+        payment_method (required: true, type: PropertyType.String, description: "Method of payment")
+        device_id (required: true, type: PropertyType.String, description: "ID of Point device")
+        amount (required: true, type: PropertyType.Numeric, description: "Ticket amount")
+        is_guest (required: true, type: PropertyType.Boolean, description: "Guest user flag")
     }
-    // Point Flows Congrats Instructions > Click Events
+
+    "/point/flows/congrats/instructions"(platform:"/", type: TrackType.View) {}
+
+    // Point Flows Events
+    //Congrats ON
+    "/point/flows/congrats/print"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/copy"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/map"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/prepaid_offer_register"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/continue"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/unlockprepaid"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/followprepaid"(platform:"/", type: TrackType.Event) {}
+
+    //congrats OFF
+    "/point/flows/congrats/instructions/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/instructions/prepaid_offer_register"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/instructions/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/instructions/continue"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/instructions/unlockprepaid"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/instructions/followprepaid"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {}
 
+
     //Point Devices
     "/point/landings/landing_bundles_buy"(platform:"/", type: TrackType.Event) {
         quantity (required:true, type: PropertyType.Numeric, description: "bundle quantity")
+    }
+
+    // Payers Growth Landings
+    "/payers_growth"(platform: "/", isAbstract: true) {}
+    "/payers_growth/landings"(platform: "/") {
+        product (type: PropertyType.String, required: true, description: "Product name, example: 'mkt-combustibles'")
     }
 
     // MP Mobile Point
@@ -738,6 +773,9 @@ tracks {
         discard_reason(required: false, description: "The discarded reason of the notification", values: ["invalid_payload","invalid_user", "settings_disabled"], type: PropertyType.String)
     }
 
+    //Asset Management
+    "/notification/asset_management_warm_up"(platform: "/mobile") {}
+
     //Account
     "/notification/account_fund_approved_ml"(platform: "/mobile") {}
     "/notification/account_fund_approved_mp"(platform: "/mobile") {}
@@ -946,7 +984,7 @@ tracks {
     //END -- MP personalFrontend
 
     //MP frontend
-    
+
     "/fund_account/confirm"(platform: "/web"){}
     "/send_money/confirm"(platform: "/web"){}
     "/money_request/confirm"(platform: "/web"){}

@@ -207,7 +207,10 @@ trackTests {
         "/myml/invoices/company-info/ie/save/response"(platform: "/", type: TrackType.Event) {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
-        "/myml/invoices/company-info/confirm"(platform: "/") {}
+        "/myml/invoices/company-info/confirm"(platform: "/") {
+          source = 'fiscalData'
+          campaign = 'adp_xd'
+        }
         "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
             enabled_for_fulfillment = true
             tax_payer_type = "Regime Normal"
@@ -219,7 +222,10 @@ trackTests {
         }
         "/myml/invoices/company-info/confirm/help_tooltip/serie"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/confirm/help_tooltip/freight"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/company-info/confirm-normal"(platform: "/") {}
+        "/myml/invoices/company-info/confirm-normal"(platform: "/") {
+          source = 'fiscalData'
+          campaign = 'adp_xd'
+        }
         "/myml/invoices/company-info/confirm-normal/save/request"(platform: "/", type: TrackType.Event) {
             serie = 5
             include_freight = true
@@ -285,13 +291,19 @@ trackTests {
     }
 
     test("Backoffice pages") {
-        "/myml/invoices/backoffice/search"(platform: "/") {}
         "/myml/invoices/backoffice/search/invoice"(platform: "/", type: TrackType.Event) {
             search_filter = {
                 invoiceNumber = 234
             }
         }
-        "/myml/invoices/backoffice/search/invoicesList"(platform: "/", type: TrackType.Event) {
+
+        "/myml/invoices/backoffice/search/reissue-invoice"(platform: "/", type: TrackType.Event) {
+             data = {
+                invoiceId = 123123
+            }
+        }
+
+        "/myml/invoices/backoffice/search/invoiceslist"(platform: "/", type: TrackType.Event) {
              search_filter = {
                 recipientCnpj = 123123
             }
@@ -611,7 +623,7 @@ trackTests {
             dataSet()
         }
 
-        "/myml/purchases/buy_it_again" (platform:"/", type: TrackType.View) {
+        "/myml/purchases/status/buy_it_again"(platform:"/mobile", type: TrackType.Event) {
             item_id = 'MLA713079054'
         }
 

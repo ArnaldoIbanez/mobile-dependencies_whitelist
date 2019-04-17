@@ -400,7 +400,7 @@ tracks {
      *   Start: Consumers Checkout
      ******************************************/
 
-    "/credits/consumer/administrator/checkout"(platform: "/web/desktop", type: TrackType.View) {
+    "/credits/consumer/administrator/checkout"(platform: "/", type: TrackType.View) {
         summary_status(description: "Current status of the loan summary", type: PropertyType.String, required: false, values: ["empty_state", "on_time", "overdue"])
     }
 

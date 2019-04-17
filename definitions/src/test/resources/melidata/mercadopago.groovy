@@ -533,8 +533,16 @@ trackTests {
         "/merchant_acquisition/flows/qr-queue/amount"(platform:"/", type: TrackType.View) {
             onboarding = false
         }
+
+        "/merchant_acquisition/flows/qr-queue/amount/download"(platform:"/", type: TrackType.Event) { onboarding = true }
+        "/merchant_acquisition/flows/qr-queue/amount/print"(platform:"/", type: TrackType.Event) { onboarding = true }
+        "/merchant_acquisition/flows/qr-queue/amount/replace-amount"(platform:"/", type: TrackType.Event) { onboarding = true }
+
         "/merchant_acquisition/flows/qr-queue/waiting-payment"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/flows/qr-queue/congrats"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-queue/error"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-queue/waiting-payment/retry"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/flows/qr-queue/waiting-payment/extend-time"(platform:"/", type: TrackType.Event) {}
     }
 
     test("MP-MA Flow QR") {
@@ -543,6 +551,8 @@ trackTests {
         "/merchant_acquisition/qr/pending"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/error"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/settings"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/qr/permission-denied"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/qr/web-mobile"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/qr-code/download"(platform:"/", type: TrackType.Event) {}
         "/merchant_acquisition/qr/qr-code/print"(platform:"/", type: TrackType.Event) {}
         "/merchant_acquisition/qr/qr-code/faqs"(platform:"/", type: TrackType.Event) {}
@@ -555,17 +565,23 @@ trackTests {
         "/merchant_acquisition/mydata/success"(platform:"/", type: TrackType.View) {}
     }
 
-    test("Point Flow Congrats Success") {
-        "/point/flows/congrats"(platform:"/", type: TrackType.View) {}
-    }
-
     test("Point Flow Congrats Instructions") {
         "/point/flows/congrats/instructions"(platform:"/") {
           payment_id = 4334902696
           payment_method = "bolbradesco"
           device_id = "9"
           amount = 118.11
-          is_guest = "false"
+          is_guest = false
+        }
+    }
+
+    test("Point Flow Congrats") {
+        "/point/flows/congrats"(platform:"/") {
+          payment_id = 4334902696
+          payment_method = "bolbradesco"
+          device_id = "9"
+          amount = 118.11
+          is_guest = false
         }
     }
 
@@ -576,23 +592,133 @@ trackTests {
           payment_method = "bolbradesco"
           device_id = "9"
           amount = 118.11
-          is_guest = "false"
+          is_guest = false
         }
         "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {
           payment_id = 4334902696
           payment_method = "bolbradesco"
           device_id = "9"
           amount = 118.11
-          is_guest = "false"
+          is_guest = false
         }
         "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {
           payment_id = 4334902696
           payment_method = "bolbradesco"
           device_id = "9"
           amount = 118.11
-          is_guest = "false"
+          is_guest = false
+        }
+        "/point/flows/congrats/instructions/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/instructions/prepaid_offer_register"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/instructions/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/instructions/continue"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/instructions/unlockprepaid"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/instructions/followprepaid"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
         }
     }
+
+    test("Point Flow Congrats click events") {
+
+        "/point/flows/congrats/print"(platform:"/", type: TrackType.Event) {
+          payment_id = 4334902696
+          payment_method = "bolbradesco"
+          device_id = "9"
+          amount = 118.11
+          is_guest = false
+        }
+        "/point/flows/congrats/copy"(platform:"/", type: TrackType.Event) {
+          payment_id = 4334902696
+          payment_method = "bolbradesco"
+          device_id = "9"
+          amount = 118.11
+          is_guest = false
+        }
+        "/point/flows/congrats/map"(platform:"/", type: TrackType.Event) {
+          payment_id = 4334902696
+          payment_method = "bolbradesco"
+          device_id = "9"
+          amount = 118.11
+          is_guest = false
+        }
+        "/point/flows/congrats/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/prepaid_offer_register"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/continue"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/unlockprepaid"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+        "/point/flows/congrats/followprepaid"(platform:"/", type: TrackType.Event) {
+            payment_id = 4334902696
+            payment_method = "bolbradesco"
+            device_id = "9"
+            amount = 118.11
+            is_guest = false
+        }
+    }
+    
     test("Point Friction test") {
         "/pos_mobile"(platform: "/mobile", type: TrackType.Event) {}
         "/pos_mobile/friction"(platform: "/mobile", type: TrackType.Event) {
@@ -657,6 +783,18 @@ trackTests {
         // Landing Bundles - bundle_point_* Depends on site.
         "/point/landings" (platform: "/") {
             product = "bundle_point_mini"
+        }
+    }
+
+    test("Landing mercadopago payers growth") {
+        "/payers_growth/landings" (platform: "/") {
+            product = "mkt-combustibles"
+        }
+        "/payers_growth/landings" (platform: "/") {
+            product = "shell-box"
+        }
+        "/payers_growth/landings" (platform: "/") {
+            product = "mkt-mostaza"
         }
     }
 
@@ -2026,6 +2164,11 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/asset_management_warm_up"(platform: "/mobile") {
+            news_id = "asset-management_warm_up-12345678"
+            event_type = "shown"
+        }
+
         "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -2786,6 +2929,7 @@ trackTests {
         }
         "/login/auth/challenge/restart"(platform: "/mobile", type: TrackType.Event) {
             challenge = "enter_password"
+            tracking_id = "123"
         }
     }
 

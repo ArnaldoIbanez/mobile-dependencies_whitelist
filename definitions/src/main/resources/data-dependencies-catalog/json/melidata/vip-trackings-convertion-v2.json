@@ -5,7 +5,7 @@
     "hernan.herrera@mercadolibre.com",
     "vip_it@mercadolibre.com"
   ],
-  "process_name": "vip_trackings_convertion",
+  "process_name": "vip_trackings_convertion_v2",
   "cron": "00 02 * * *",
   "partition": {
     "name": "ds",
@@ -14,30 +14,38 @@
   "extract": {
     "operation": "append",
     "columns": [
-
       {
-        "name": "vips",
-        "type": "INTEGER"
-      },
-      {
-        "name": "buy",
-        "type": "INTEGER"
-      },
-      {
-        "name": "add_to_cart",
-        "type": "INTEGER"
-      },
-      {
-        "name": "a_device",
+        "name": "site",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "a_site",
+        "name": "device",
         "type": "UNICODE_STRING"
+      },
+      {
+        "name": "total_vips",
+        "type": "INTEGER"
+      },
+      {
+        "name": "amount_buy",
+        "type": "INTEGER"
+      },
+      {
+        "name": "amount_cart",
+        "type": "INTEGER"
+      },
+      {
+        "name": "amount_buy_real",
+        "type": "INTEGER"
+      },
+      {
+        "name": "amount_cart_real",
+        "type": "INTEGER"
       }
+
     ],
     "sql": {
-      "script": "vip/vip-trackings-convertion.sql",
+      "script": "vip/vip-trackings-convertion-v2.sql",
       "parameters": [
         {
           "name": "param01",

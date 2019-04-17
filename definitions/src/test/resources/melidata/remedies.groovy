@@ -23,6 +23,11 @@ trackTests {
             action_type = "internal_navigation"
         }
 
+        "/remedies/resolve_model"(platform: "/mobile") {
+            model_id = "landing"
+            action_type = "internal_navigation"
+        }
+
         "/remedies/business_error"(platform: "/mobile/android") {
             error_message = "telefono incorrecto"
             api_call_identificator = 1
@@ -120,6 +125,11 @@ trackTests {
         "/remedies/resolve_model"(platform: "/mobile") {
             model_id = "landing"
             deeplink = "meli://identity_validation/landing"
+            action_type = "internal_navigation"
+        }
+
+        "/remedies/resolve_model"(platform: "/mobile") {
+            model_id = "landing"
             action_type = "internal_navigation"
         }
 

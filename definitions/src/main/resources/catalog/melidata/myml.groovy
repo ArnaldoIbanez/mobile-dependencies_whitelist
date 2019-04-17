@@ -90,14 +90,14 @@ tracks {
 
     "/myml/purchases/list/returns_action"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Indicates the button that have been clicked",
-                values: ['return_item', 'cancel_return', 'change_return_pickup', 'prepare_package', 'return_agencies', 'print_return_label', 'return_not_delivered', 'return_delivered_problem', 'track_return'])
+                values: ['return_item', 'cancel_return', 'change_return_pickup', 'prepare_package', 'return_agencies', 'print_return_label', 'return_not_delivered', 'return_delivered_problem', 'track_return', 'cant_return'])
     }
 
     "/myml/purchases/vop"(platform: "/") {}
 
     "/myml/purchases/vop/returns_action"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Indicates the button that have been clicked",
-                values: ['return_item', 'cancel_return', 'change_return_pickup', 'prepare_package', 'return_agencies', 'print_return_label', 'return_not_delivered', 'return_delivered_problem', 'track_return'])
+                values: ['return_item', 'cancel_return', 'change_return_pickup', 'prepare_package', 'return_agencies', 'print_return_label', 'return_not_delivered', 'return_delivered_problem', 'track_return', 'cant_return'])
     }
 
     "/myml/purchases/detail"(platform: "/") {}
@@ -150,7 +150,7 @@ tracks {
 
     "/myml/purchases/seller"(platform:"/", type: TrackType.View) {}
 
-    "/myml/purchases/buy_it_again"(platform:"/", type: TrackType.View) {
+    "/myml/purchases/status/buy_it_again"(platform:"/mobile", type: TrackType.Event) {
         item_id(required: true,type: PropertyType.String, description: "Item id")
     }
 
@@ -821,15 +821,16 @@ tracks {
 
     "/myml/invoices/backoffice/search"(platform: "/", isAbstract: true) {}
 
-    "/myml/invoices/backoffice/search/invoice"(platform: "/") {
+    "/myml/invoices/backoffice/search/invoice"(platform: "/", isAbstract: true) {
         search_filter(required: true, description: "Search filter used")
     }
 
-    "/myml/invoices/backoffice/search/invoice/reissue"(platform: "/") {
+    "/myml/invoices/backoffice/search/reissue-invoice"(platform: "/") {
         data(required: true, description: "Reissue invoice in Backoffice")
     }
 
     "/myml/invoices/backoffice/search/invoiceslist"(platform: "/") {
         search_filter(required: true, description: "Search filter used on massive invoices search")
     }
+
 }

@@ -5,13 +5,30 @@ import com.ml.melidata.TrackType
 
 tracks {
     propertyDefinitions {
-        vertical(required: true, type:PropertyType.String, values: ["services"] ,description: "Vertical services")
-        seller_id(required: true, type:PropertyType.Numeric, description: "Seller ID")
+        vertical(required: true, type: PropertyType.String, values: ["services"], description: "Vertical services")
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        item_id(required: true, type: PropertyType.String, description: "Item id")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
+        buyer_id(required: false, type: PropertyType.Numeric, description: "Buyer id")
+        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
+        quote_id(required: false, type: PropertyType.Numeric, description: "Quote id")
+        quote_status(required: false, type: PropertyType.String,values: ["sent", "cancelled_by_seller", "accepted","expired","rejected_by_seller"], description: "the status quote")
+        price(required: false, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
+        currency_id(required: false, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+        quote_demand_status(required: false, type: PropertyType.String, values: ["pending_by_seller", "answered", "rejected_by_seller","accepted"],description: "the status quote demand")
+        is_similar(required: false, type: PropertyType.String, description: "Quote Demand id")
+
     }
     propertyGroups {
         quoteSellerGroup(vertical, seller_id)
+        quoteSellerItemGroup(item_id,category_id,category_path,buyer_id,price,currency_id,quote_status, quote_demand_id, quote_id,quote_demand_status,is_similar)
         quoteBuyerGroup(vertical)
     }
+
+    /******************************************
+     *       Start: Listing Screen
+     ******************************************/
 
     //Quote
     "/quote"(platform: "/", isAbstract: true) {}
@@ -22,143 +39,281 @@ tracks {
     }
 
     //Quote Seller :: Listing
-    "/quote/seller/listing"(platform: "/web", type: TrackType.View) {
+    "/quote/seller/listing"(platform: "/", type: TrackType.View) {
     }
 
     //Quote seller :: Listing - rows
     "/quote/seller/listing"(platform: "/web", type: TrackType.Event) {
-        action(required: false, type:PropertyType.String, description: "rows actions (go_messages, go_quote)")
+        action(required: false, type: PropertyType.String,  values: ["go_messages", "go_quote"],description: "rows actions (go_messages, go_quote)")
     }
 
     //quote seller :: Listing - news
-    "/quote/seller/listing/news"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type:PropertyType.String, description: "action click on news")
+    "/quote/seller/listing/news"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "action click on news")
     }
 
-    //quote seller :: Listing - filters
-    "/quote/seller/listing/filters"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type:PropertyType.String, values: ["filter_intention","search_submit","search_reset"], description: "action click on filters)")
+    //quote seller :: Listing - filters Actionbar icon
+    "/quote/seller/listing/filters"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, values: ["filter_intention", "search_submit", "search_reset"], description: "action click on filters)")
     }
 
     //quote seller :: Listing - menu
-    "/quote/seller/listing/menu"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type:PropertyType.String, description: "action selected from menu quotes(cancel,sent,reject,delete,copy)")
+    "/quote/seller/listing/menu"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, values: ["cancel", "sent","reject","delete","copy"], description: "action selected from menu quotes")
     }
 
-    //quote seller :: Listing - modal
-    "/quote/seller/listing/filters/modal"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type:PropertyType.String,  values: ["reset","submit_filter"], description: "filter modal actions (reset,submit_filter)")
+    //quote seller :: Listing - filters screen
+    "/quote/seller/listing/filters/modal"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, values: ["reset", "submit_filter"], description: "filter modal actions ")
     }
 
     //quote seller :: Quote Detail
-    "/quote/seller/detail"(platform: "/web", type: TrackType.View) {
-        item_id(required: true, type:PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: true, type:PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: true, type:PropertyType.Numeric, description: "Quote Demand id")
-        quote_demand_status(required: true, type: PropertyType.String, description: "the status quote demand")
-        quote_id(required: true, type:PropertyType.Numeric, description: "Quote id")
-        quote_status(required: true, type: PropertyType.String, description: "the status quote")
-        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+    "/quote/seller/listing/detail"(platform: "/mobile", type: TrackType.View) {
+        quoteSellerItemGroup
+    }
+
+    //quote seller ::  Quote listing  rows event (go to detail)   - Mobile
+    "/quote/seller/listing/open_detail"(platform: "/mobile", type: TrackType.Event) {
+        quoteSellerItemGroup
+    }
+    //quote seller :: Quote listing  rows event (go to message)  - Mobile
+    "/quote/seller/listing/go_message"(platform: "/mobile", type: TrackType.Event) {
+        quoteSellerItemGroup
+    }
+
+    //Quote Seller :: Listing - Empty view
+    "/quote/seller/listing/empty"(platform: "/mobile", type: TrackType.View) {}
+
+    //Quote Seller :: Listing - search Actionbar icon
+    "/quote/seller/listing/search"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/quote/seller/onboarding"(platform: "/mobile", type: TrackType.Event) {}
+
+    /******************************************
+     *       End: Listing Screen
+     ******************************************/
+
+    /******************************************
+     *       Start: Detail  Screen
+     ******************************************/
+
+    //quote seller :: Quote Detail
+    "/quote/seller/detail"(platform: "/", type: TrackType.View) {
+        quoteSellerItemGroup
+    }
+
+    //quote seller :: Quote Detail  action  button send message
+    "/quote/seller/detail/send_message"(platform: "/", type: TrackType.Event) {
+        quoteSellerItemGroup
+    }
+
+    //quote seller :: Quote Detail  action  button create similary quote
+    "/quote/seller/detail/create_similary"(platform: "/mobile", type: TrackType.Event) {
+        quoteSellerItemGroup
     }
 
     //quote seller :: Quote Detail - menu
     "/quote/seller/detail/menu"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type:PropertyType.String, description: "action selected from menu quotes(cancel,sent,reject,delete,copy)")
+        action(required: true, type: PropertyType.String, values: ["cancel", "sent","reject","delete","copy"],description: "action selected from menu quotes")
     }
 
-    //quote seller :: Quote Detail - modal
+    ///quote seller :: Quote Messages
     "/quote/seller/detail/messages"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type:PropertyType.String, values: ["show_modal_messages"], description: "show modal messages")
+        action(required: true, type: PropertyType.String, values: ["show_modal_messages"], description: "show modal messages")
     }
+
+    //quote seller :: Quote Detail  action  button cancel
+    "/quote/seller/detail/cancel"(platform: "/mobile", type: TrackType.Event) {
+        quoteSellerItemGroup
+    }
+
+
+    /******************************************
+     *       End: Detail Screen
+     ******************************************/
+
+    /******************************************
+     *       Start: Create Quote Screen
+     ******************************************/
 
     //quote seller :: Quote Messages
     "/quote/seller/messages"(platform: "/web", type: TrackType.View) {
-        item_id(required: true, type:PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: true, type:PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: true, type:PropertyType.Numeric, description: "Quote Demand id")
-        quote_demand_status(required: true, type: PropertyType.String, description: "the status quote demand")
-        quote_id(required: true, type:PropertyType.Numeric, description: "Quote id")
-        quote_status(required: true, type: PropertyType.String, description: "the status quote")
-        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+        quoteSellerItemGroup
     }
 
     //quote seller :: Quote Messages - create
     "/quote/seller/messages"(platform: "/web", type: TrackType.Event) {
-        action(required: false, type:PropertyType.String, description: "Create quote action")
+        action(required: false, type: PropertyType.String, description: "Create quote action")
     }
 
     //quote seller :: Quote Messages - menu
     "/quote/seller/messages/menu"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type:PropertyType.String, description: "action selected from menu quotes(cancel,sent,reject,delete,copy)")
+        action(required: true, type: PropertyType.String, values: ["cancel", "sent","reject","delete","copy"],description: "action selected from menu quotes")
     }
 
     //quote seller :: Quote Create
     "/quote/seller/create"(platform: "/web", type: TrackType.View) {
-        item_id(required: true, type:PropertyType.String, description: "Item id")
+        item_id(required: true, type: PropertyType.String, description: "Item id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: true, type: PropertyType.ArrayList, description: 'the path of the category')
-        buyer_id(required: false, type:PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: false, type:PropertyType.Numeric, description: "Quote Demand id")
+        buyer_id(required: false, type: PropertyType.Numeric, description: "Buyer id")
+        quote_demand_id(required: false, type: PropertyType.Numeric, description: "Quote Demand id")
         quote_demand_status(required: false, type: PropertyType.String, description: "the status quote demand")
-        quote_id(required: false, type:PropertyType.Numeric, description: "Quote id")
+        quote_id(required: false, type: PropertyType.Numeric, description: "Quote id")
         quote_status(required: false, type: PropertyType.String, description: "the status quote")
     }
 
     //quote seller :: Quote Create - steps
     "/quote/seller/create/new"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type:PropertyType.String, values: ["step", "submit"], description: "steps action clicks")
+        action(required: true, type: PropertyType.String, values: ["step", "submit"], description: "steps action clicks")
     }
 
     //quote seller :: Quote Create - modal messages
     "/quote/seller/create/messages"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type:PropertyType.String, values: ["show_modal_messages"], description: "show modal messages action")
+        action(required: true, type: PropertyType.String, values: ["show_modal_messages"], description: "show modal messages action")
     }
 
-    //quote seller :: Quote confirmation
-    "/quote/seller/create/confirmation"(platform: "/web", type: TrackType.View) {
-        quote_demand_id(required: true, type:PropertyType.Numeric, description: "Quote Demand id")
-        quote_demand_status(required: true, type: PropertyType.String, description: "the status quote demand")
-        buyer_id(required: true, type:PropertyType.Numeric, description: "Buyer id")
+    //quote seller :: Create quote confirmation button
+    "/quote/seller/create/confirmation"(platform: "/mobile", type: TrackType.View) {
+        quoteSellerItemGroup
     }
 
     //quote seller :: Quote Create - confirmation
     "/quote/seller/create/confirmation"(platform: "/web", type: TrackType.Event) {
-        action(required: false, type:PropertyType.String, description: "create quote action (send_quote)")
+        action(required: false, type: PropertyType.String, values: ["send_quote"],description: "create quote action (send_quote)")
+    }
+
+    //Quote Seller ::  Quote Create - confirmation send quote button
+    "/quote/seller/create/confirmation/send_quote"(platform: "/", type: TrackType.Event) {
+        quoteSellerItemGroup
+
     }
 
     //quote seller :: Quote Edit
     "/quote/seller/create/edit"(platform: "/web", type: TrackType.View) {
-        quote_demand_id(required: true, type:PropertyType.Numeric, description: "Quote Demand id")
+        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
         quote_demand_status(required: true, type: PropertyType.String, description: "Quote demand status")
-        buyer_id(required: true, type:PropertyType.Numeric, description: "Buyer id")
+        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
     }
 
     //quote seller :: Quote Edit - confirmation
     "/quote/seller/create/edit"(platform: "/web", type: TrackType.Event) {
-        action(required: false, type:PropertyType.String, description: "edit quote (confirmation_edit,cancel_edit)")
+        action(required: false, type: PropertyType.String,values: ["confirmation_edit", "cancel_edit"] ,description: "edit quote (confirmation_edit,cancel_edit)")
     }
 
-    //quote seller :: Quote Congrats
-    "/quote/seller/create/congrats"(platform: "/web", type: TrackType.View) {
-        quote_demand_id(required: true, type:PropertyType.Numeric, description: "Quote Demand id")
-        quote_demand_status(required: true, type: PropertyType.String, description: "the status quote demand")
-        quote_id(required: true, type:PropertyType.Numeric, description: "Quote id")
-        quote_status(required: true, type: PropertyType.String, description: "the status quote")
-        buyer_id(required: true, type:PropertyType.Numeric, description: "Buyer id")
-        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+    //quote seller :: Quote Congrats screenview
+    "/quote/seller/create/congrats"(platform: "/", type: TrackType.View) {
+        quoteSellerItemGroup
     }
 
-    //quote seller :: Quote Congrats - go listing
-    "/quote/seller/create/congrats"(platform: "/web", type: TrackType.Event) {
-        action(required: false, type:PropertyType.String, description: "Go to listing path (go_listing)")
+    //quote seller :: Quote Congrats - go listing button
+    "/quote/seller/create/congrats/go_listing"(platform: "/mobile", type: TrackType.Event) {
+        quoteSellerItemGroup
     }
+
+    //Quote Seller :: Loading screen view - Create
+    "/quote/seller/create/loading"(platform: "/mobile", type: TrackType.View) {}
+
+    //Quote Seller :: Input screen view - Create
+    "/quote/seller/create/input_price"(platform: "/mobile", type: TrackType.View) {
+        quoteSellerItemGroup
+    }
+
+    //Quote Seller :: Similary screen view - Create
+    "/quote/seller/create/edit_price"(platform: "/mobile", type: TrackType.View) {
+        quoteSellerItemGroup
+    }
+
+    //Quote Seller ::  Input screen view - Create
+    "/quote/seller/create/input_conditions"(platform: "/mobile", type: TrackType.View) {
+        quoteSellerItemGroup
+    }
+
+    //Quote Seller :: Similary screen view - Create
+    "/quote/seller/create/edit_conditions"(platform: "/mobile", type: TrackType.View) {
+        quoteSellerItemGroup
+    }
+    //Quote Seller :: Input screen view - Create
+    "/quote/seller/create/input_expiration_date"(platform: "/mobile", type: TrackType.View) {
+        quoteSellerItemGroup
+    }
+    //Quote Seller ::  Similary screen view - Create
+    "/quote/seller/create/edit_expiration_date"(platform: "/mobile", type: TrackType.View) {
+        quoteSellerItemGroup
+
+    }
+
+
+    /******************************************
+     *       End: Detail Screen
+     ******************************************/
+
+    /******************************************
+     *       Start: Cancel Quote  Screen
+     ******************************************/
+
+    //Quote Seller :: Cancel screen view
+    "/quote/seller/cancel"(platform: "/", type: TrackType.View) {
+        quoteSellerItemGroup
+
+    }
+
+    //Quote Seller :: Cancel submit  reason button
+    "/quote/seller/cancel/submit_reason"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.Numeric, description: "cancellation reason id")
+
+    }
+
+    //Quote Seller :: Cancel custom reason
+    "/quote/seller/cancel/custom"(platform: "/", type: TrackType.View) {
+        quoteSellerItemGroup
+
+    }
+
+    //Quote Seller :: Cancel submit  custom reason
+    "/quote/seller/cancel/custom/submit_reason"(platform: "/mobile", type: TrackType.Event) {
+    }
+
+    //Quote Seller :: Cancel congrats  view
+    "/quote/seller/cancel/congrats"(platform: "/mobile", type: TrackType.View) {
+        quoteSellerItemGroup
+        reason_id(required: true, type: PropertyType.Numeric, description: "The currency in which the prices amounts are expressed")
+
+
+    }
+
+    /******************************************
+     *       End: Cancel Screen
+     ******************************************/
+
+    /******************************************
+     *       Start: Reject Quote  Screen
+     ******************************************/
+
+    //Quote Seller :: reject  view
+    "/quote/seller/reject"(platform: "/mobile", type: TrackType.View) {
+        reason_id(required: true, type: PropertyType.Numeric, description: "The currency in which the prices amounts are expressed")
+        quoteSellerItemGroup
+
+    }
+
+    //Quote Seller :: reject submit  reason
+    "/quote/seller/reject/submit_reason"(platform: "/mobile", type: TrackType.Event) {
+    }
+
+    //Quote Seller :: reject congrats  view
+    "/quote/seller/reject/congrats"(platform: "/mobile", type: TrackType.View) {
+        reason_id(required: true, type: PropertyType.Numeric, description: "The currency in which the prices amounts are expressed")
+        quoteSellerItemGroup
+    }
+
+    //Quote Seller :: reject congrats  go to quote buttom
+    "/quote/seller/reject/congrats/go_quotes"(platform: "/mobile", type: TrackType.Event) {
+    }
+
+    /******************************************
+     *       End: reject Screen
+     ******************************************/
 
     //Quote Buyer Tracks
     "/quote/buyer/"(platform: "/", isAbstract: true) {
