@@ -811,13 +811,17 @@ tracks {
     //Backoffice pages
     "/myml/invoices/backoffice"(platform: "/", isAbstract: true) {}
 
-    "/myml/invoices/backoffice/search"(platform: "/") {}
+    "/myml/invoices/backoffice/search"(platform: "/", isAbstract: true) {}
 
     "/myml/invoices/backoffice/search/invoice"(platform: "/") {
-       search_filter(required: true, description: "Search filter used")
+        search_filter(required: true, description: "Search filter used")
     }
 
-    "/myml/invoices/backoffice/search/invoicesList"(platform: "/") {
-       search_filter(required: true, description: "Search filter used on massive invoices search")
+    "/myml/invoices/backoffice/search/invoice/reissue"(platform: "/") {
+        data(required: true, description: "Reissue invoice in Backoffice")
+    }
+
+    "/myml/invoices/backoffice/search/invoiceslist"(platform: "/") {
+        search_filter(required: true, description: "Search filter used on massive invoices search")
     }
 }
