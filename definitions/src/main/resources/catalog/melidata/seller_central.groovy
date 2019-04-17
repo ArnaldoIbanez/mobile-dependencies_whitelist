@@ -273,6 +273,12 @@ tracks {
         hierarchy(required: true, type: PropertyType.String, description: "Attribute type")
     }
 
+    "/seller_central/modify/technical_specifications/suggested"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyGroup
+        category_domain(required: true, type: PropertyType.String, description: "Domain")
+        type(required: true, type: PropertyType.String, description: "Suggestion type")
+    }
+
     // SETTINGS SECTION
 
     "/seller_central/settings"(platform: "/", type: TrackType.View) {
