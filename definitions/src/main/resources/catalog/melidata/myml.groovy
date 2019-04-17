@@ -521,8 +521,8 @@ tracks {
         error(required: false, type:  PropertyType.String, description: "Error message that pop to user after request")
         errorValidation(required: false, type:  PropertyType.String, description: "Error message when value is invalid")
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
-        utc_campaign(required: false, type: PropertyType.String, description: "Campaign description")
-        utc_source(required: false, type: PropertyType.String, description: "Campaign source")
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        source(required: false, type: PropertyType.String, description: "Campaign source")
     }
 
     //not found
@@ -614,8 +614,8 @@ tracks {
     }
     //confirm
     "/myml/invoices/company-info/confirm"(platform: "/") {
-        utc_campaign(required: false, type: PropertyType.String, description: "Campaign description")
-        utc_source(required: false, type: PropertyType.String, description: "Campaign source")
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        source(required: false, type: PropertyType.String, description: "Campaign source")
     }
     "/myml/invoices/company-info/confirm/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
@@ -633,8 +633,8 @@ tracks {
 
     //confirm-normal
     "/myml/invoices/company-info/confirm-normal"(platform: "/") {
-        utc_campaign(required: false, type: PropertyType.String, description: "Campaign description")
-        utc_source(required: false, type: PropertyType.String, description: "Campaign source")
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        source(required: false, type: PropertyType.String, description: "Campaign source")
     }
     "/myml/invoices/company-info/confirm-normal/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm-normal/save/request"(platform: "/", type: TrackType.Event) {
