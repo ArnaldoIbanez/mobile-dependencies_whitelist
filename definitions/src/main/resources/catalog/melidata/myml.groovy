@@ -522,7 +522,7 @@ tracks {
         errorValidation(required: false, type:  PropertyType.String, description: "Error message when value is invalid")
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
         campaign(required: false, type: PropertyType.String, description: "Campaign description")
-        source(required: false, type: PropertyType.String, description: "Campaign source")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
     }
 
     //not found
