@@ -455,6 +455,15 @@ trackTests {
         }
     }
 
+    test("structured data suggested values"){
+        "/seller_central/modify/technical_specifications/suggested"(platform: "/", type: TrackType.Event){  
+            type = "dynamic"
+            category_domain = "MLA-CAMERAS"
+            item_id= "MLA682118081"
+            session_id = "123-update-abc123"
+        }
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central settings
     //------------------------------------------------------------------------------------------------------------------------------------------------------
