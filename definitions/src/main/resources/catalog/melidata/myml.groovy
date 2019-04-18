@@ -615,7 +615,7 @@ tracks {
     //confirm
     "/myml/invoices/company-info/confirm"(platform: "/") {
         campaign(required: false, type: PropertyType.String, description: "Campaign description")
-        source(required: false, type: PropertyType.String, description: "Campaign source")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
     }
     "/myml/invoices/company-info/confirm/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
@@ -634,7 +634,7 @@ tracks {
     //confirm-normal
     "/myml/invoices/company-info/confirm-normal"(platform: "/") {
         campaign(required: false, type: PropertyType.String, description: "Campaign description")
-        source(required: false, type: PropertyType.String, description: "Campaign source")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
     }
     "/myml/invoices/company-info/confirm-normal/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm-normal/save/request"(platform: "/", type: TrackType.Event) {
