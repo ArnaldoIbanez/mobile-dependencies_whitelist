@@ -13,6 +13,7 @@ tracks {
         email_id(required: false)
         subject(required: false)
         sent_date(required: false)
+        mailbox_provider(required: false, type: PropertyType.String, description: "Recipient mailbox provider, e.g. gmail.com, hotmail.com, etc")
         provider(required: false,
                 values: ["ironport","sendgrid","sparkpost"],
                 type: PropertyType.String, description: "Email Service Provider which generated this track event")

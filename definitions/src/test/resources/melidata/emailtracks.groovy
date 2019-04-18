@@ -41,6 +41,7 @@ trackTests {
             communication_version = "0.0.1"
             provider = "sendgrid"
             provider_feedback = true
+            mailbox_provider = 'gmail.com'
         }
 
         def defaultTrackInformationSendgridEmailsApiFeedback = {
@@ -49,6 +50,7 @@ trackTests {
             communication_version = "0.0.1"
             provider = "sendgrid"
             provider_feedback = false
+            mailbox_provider = 'gmail.com'
         }
 
         def defaultTrackInformationIronportEmailsApiFeedback = {
@@ -57,6 +59,7 @@ trackTests {
             communication_version = "0.0.1"
             provider = "ironport"
             provider_feedback = false
+            mailbox_provider = 'gmail.com'
         }
 
         "/email/generic"(platform: "/email") {
