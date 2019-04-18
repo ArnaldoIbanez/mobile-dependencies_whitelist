@@ -165,6 +165,23 @@ trackTests {
             quote_status = "sent"
             quote_demand_id = 698669764
         }
+
+        // Quote  Create  - Congrats
+        "/quote/seller/create/congrats"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_id = 65732
+            quote_status = "sent"
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            price = 300.00
+            currency_id = "CLP"
+            action = "go_listing"
+        }
+
         // Quote  Create  - Congrats
         "/quote/seller/listing"(platform: "/", type: TrackType.View) {
             vertical = "services"
@@ -193,6 +210,13 @@ trackTests {
             vertical = "services"
             seller_id = 33624088
             action = "reset"
+        }
+
+        // Quote  Seller Options Events
+        "/quote/seller/listing/options"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            action = "go_reject"
         }
 
         // Quote  go_quotes_list - uses Case : Two or more demands
