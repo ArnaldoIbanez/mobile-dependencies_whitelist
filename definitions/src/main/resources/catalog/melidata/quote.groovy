@@ -384,7 +384,7 @@ tracks {
         quoteBuyerItemGroup
         currency_id(required: false, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
         price(required: false, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        action(required: false, type: PropertyType.String, values: ["go_message", "contract_quote", "go_contract"], description: "all action click on detail  )")
+        action(required: false, type: PropertyType.String, values: ["go_messages", "contract_quote", "go_contract"], description: "all action click on detail  )")
     }
 
     /***** Quote Demand Detail in Messages ******/

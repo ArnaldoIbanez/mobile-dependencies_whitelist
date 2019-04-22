@@ -658,7 +658,7 @@ trackTests {
             quote_status="sent"
             price=23.4
             currency_id = "ARG"
-            action = "go_message"
+            action = "go_messages"
         }
 
         /***** Quote Demand Detail in Messages ******/
