@@ -208,7 +208,7 @@ trackTests {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
         "/myml/invoices/company-info/confirm"(platform: "/") {
-          source = 'fiscalData'
+          campaign_source = 'fiscalData'
           campaign = 'adp_xd'
         }
         "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
@@ -223,7 +223,7 @@ trackTests {
         "/myml/invoices/company-info/confirm/help_tooltip/serie"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/confirm/help_tooltip/freight"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/confirm-normal"(platform: "/") {
-          source = 'fiscalData'
+          campaign_source = 'fiscalData'
           campaign = 'adp_xd'
         }
         "/myml/invoices/company-info/confirm-normal/save/request"(platform: "/", type: TrackType.Event) {
