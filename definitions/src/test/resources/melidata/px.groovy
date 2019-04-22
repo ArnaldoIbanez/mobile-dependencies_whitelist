@@ -172,7 +172,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
-            reason = "invalid_esc"
+            reason = "esc_cap"
         }
         "/px_checkout/payments/select_method/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "mastercard"
