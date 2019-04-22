@@ -232,6 +232,19 @@ tracks {
         attributable_to(required: true, type: PropertyType.String, description: "User, Phone, Device, network or card", values: ["user", "reader", "network", "device", "card"])
         extra_info(required: false, type: PropertyType.String, description: "Extra info")
     }
+
+    "/pos_seller"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {}
+    "/pos_seller/friction"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
+        context (required: true, type: PropertyType.String, description: "Friction context")
+        message (required: true, type: PropertyType.String, description: "Message shown map (style, title, content & buttons)")
+        attributable_to(required: false, type: PropertyType.String, values: ["user", "reader", "network", "device", "card"], description: "Friction main category reason")
+        extra_info (required: false, type: PropertyType.String, description: "Friction extra data map")
+    }
+    "/pos_seller/friction/device_comm_error"(platform: "/mobile", type: TrackType.Event) {}
+    "/pos_seller/friction/server_comm_error"(platform: "/mobile", type: TrackType.Event) {}
+    "/pos_seller/friction/battery_low_error"(platform: "/mobile", type: TrackType.Event) {}
+    "/pos_seller/friction/reader_update_failed"(platform: "/mobile", type: TrackType.Event) {}
+
     //TODO: The flow_origin field must be changed to mandatory, when all the productive versions send this information
     "/point_payment/main"(platform: "/mobile", type: TrackType.View) {
         flow_origin (required: false, type: PropertyType.String, values: ["point", "qr", "chooser","share_social"])
@@ -344,7 +357,6 @@ tracks {
         trx_id (required: true, type: PropertyType.String, description: "trx1234567")
     }
 
-
     "/settings/point"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
     "/settings/point/settings"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
     "/settings/point/costs_calculator"(platform: "/mobile", type: TrackType.View) {}
@@ -352,6 +364,30 @@ tracks {
     "/settings/point/installment_cost"(platform: "/mobile", type: TrackType.View) {}
     "/settings/point/device_mlb"(platform: "/mobile", type: TrackType.View) {}
     "/settings/pairing"(platform: "/mobile", type: TrackType.View) {}
+
+    "/settings/reader_update"(platform: "/mobile", type: TrackType.View) {
+        poi_id (required: true, type: PropertyType.String, description: "Poi id")
+    }
+    "/settings/reader_update/onboarding"(platform: "/mobile", type: TrackType.View) {
+        poi_id (required: true, type: PropertyType.String, description: "Poi id")
+    }
+    "/settings/reader_update/result"(platform: "/mobile", type: TrackType.View) {
+        poi_id (required: true, type: PropertyType.String, description: "Poi id")
+    }
+    "/settings/reader_update/process_completed"(platform: "/mobile", type: TrackType.Event) {
+        poi_id (required: true, type: PropertyType.String, description: "Poi id")
+        duration (required: true, type: PropertyType.Numeric, description: "Process duration in seconds")
+        previous_version (required: true, type: PropertyType.String, description: "Reader previous firmware version")
+        previous_config (required: true, type: PropertyType.String, description: "Reader previous config version")
+        new_version (required: true, type: PropertyType.String, description: "Reader firmware version updated")
+        new_config (required: true, type: PropertyType.String, description: "Reader config version updated")
+    }
+    "/settings/reader_update/cancel"(platform: "/mobile", type: TrackType.Event) {
+        poi_id (required: true, type: PropertyType.String, description: "Poi id")
+        duration (required: true, type: PropertyType.Numeric, description: "Process duration in seconds before cancel")
+        time_remaining (required: true, type: PropertyType.Numeric, description: "Estimated time remaining before cancel")
+        progress (required: true, type: PropertyType.Numeric, description: "Update progress at cancel")
+    }
 
     "/shortcuts"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
     "/shortcuts/point"(platform: "/mobile", type: TrackType.Event) {}
