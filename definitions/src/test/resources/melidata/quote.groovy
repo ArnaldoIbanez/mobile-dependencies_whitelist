@@ -621,7 +621,6 @@ trackTests {
             category_id= "MLA123214"
             buyer_id=3234
             quote_demand_id=34243
-            quote_id=323423
             quote_demand_status ="answered"
             seller_id=234234
             vertical = "services"
