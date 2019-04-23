@@ -4,7 +4,7 @@
     "melidata_dev@mercadolibre.com"
   ],
   "process_name": "orders_vs_ordercompleted",
-  "cron": "0 5 * * *",
+  "cron": "00 05 * * *",
   "extract": {
     "operation": "append",
     "columns": [
