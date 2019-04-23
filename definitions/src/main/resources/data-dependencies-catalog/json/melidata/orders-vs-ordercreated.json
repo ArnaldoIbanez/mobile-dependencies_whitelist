@@ -13,11 +13,6 @@
     "operation": "append",
     "columns": [
       {
-        "name": "date_created",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
-      {
         "name": "site",
         "type": "UNICODE_STRING"
       },
