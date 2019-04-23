@@ -202,6 +202,7 @@ trackTests {
             quote_demand_status = "answered"
             category_id = "MLA43718"
             buyer_id = 64567088
+            quote_id = 23423423
             quote_status = "accepted"
         }
 
@@ -214,6 +215,7 @@ trackTests {
             quote_demand_status = "answered"
             category_id = "MLA43718"
             buyer_id = 64567088
+            quote_id = 23423423
             quote_status = "accepted"
             action = "go_edit"
         }
@@ -260,9 +262,14 @@ trackTests {
         }
 
         // Quote  Seller Options Events
-        "/quote/seller/listing/options"(platform: "/", type: TrackType.Event) {
+        "/quote/seller/listing/options"(platform: "/web", type: TrackType.Event) {
             vertical = "services"
             seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
             action = "go_reject"
         }
 
@@ -372,11 +379,8 @@ trackTests {
             category_id = "MLA43718"
             buyer_id = 64567088
             quote_demand_id = 698669764
-            quote_status = "sent"
             quote_id = 698669764
             quote_demand_status = "answered"
-            price = 15.3
-            currency_id = "ARG"
         }
 
         //Quote - Cancel Event
@@ -388,10 +392,7 @@ trackTests {
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
-            quote_status = "sent"
             quote_id = 698669764
-            price = 15.3
-            currency_id = "ARG"
             action = "MLA_CANCEL_001"
         }
 
@@ -542,10 +543,12 @@ trackTests {
         //Quote Buyer Tracks
         "/quote/buyer"(platform: "/") {
             vertical = "services"
+            buyer_id = 64567088
         }
 
         "/quote_demand/buyer"(platform: "/",type: TrackType.View) {
             vertical = "services"
+            buyer_id = 64567088
         }
 
         /******  Create Quote Demand **********/
@@ -575,7 +578,6 @@ trackTests {
         "/quote/buyer/listing"(platform: "/", type: TrackType.View) {
             vertical = "services"
             buyer_id= 234234324
-            buying_mode = "classified"
         }
 
         //Demands Listing Events
@@ -584,11 +586,9 @@ trackTests {
             category_id= "MLA123214"
             buyer_id= 234234324
             vertical = "services"
-            buying_mode = "classified"
             quote_demand_id = 234234
             quote_demand_status = "answered"
             action = "go_quote_detail"
-
         }
 
         //Demands Listing Event: Filters
@@ -608,20 +608,22 @@ trackTests {
         /******  Quotes Listing **********/
 
         //Quotes Listing
-        "/quote/buyer/quote_listing"(platform: "/", type: TrackType.View) {
-            buyer_id=234234
-            buying_mode = "classified"
-            quote_demand_id = 234234
+        "/quote/buyer/quote_listing"(platform: "/mobile", type: TrackType.View) {
+            buyer_id=3234
+            seller_id=234234
+            quote_demand_id=34243
             vertical = "services"
         }
 
         //Quotes Listing Event
-        "/quote/buyer/quote_listing"(platform: "/", type: TrackType.Event) {
+        "/quote/buyer/quote_listing"(platform: "/mobile", type: TrackType.Event) {
             item_id = "MLA77777"
             category_id= "MLA123214"
             buyer_id=3234
             quote_demand_id=34243
             quote_demand_status ="answered"
+            quote_id=34243
+            quote_status ="sent"
             seller_id=234234
             vertical = "services"
             action = "go_quote_detail"
