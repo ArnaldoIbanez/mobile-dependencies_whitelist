@@ -289,7 +289,9 @@ tracks {
         source(required: false, description: "Source of the referred")
         unregistered_contact(required: false, type: PropertyType.Boolean, "User is unregister type")
         captcha_showed(required: false, type: PropertyType.Boolean, description: "If captcha is showed")
-
+        item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
     }
 
     "/vip/call_seller"(platform: "/", type: TrackType.Event) {
