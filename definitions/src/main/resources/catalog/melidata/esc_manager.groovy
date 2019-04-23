@@ -38,7 +38,7 @@ tracks {
     // Error events
     "/esc_manager/unavailable"(platform: "/mobile", type: TrackType.Event) {
         externalData
-        key(required: true, type: PropertyType.String , description: "Key being process")
+        key(required: false, type: PropertyType.String , description: "Key being process")
         error_code(required: false, type: PropertyType.String , description: "Error code")
     }
 
