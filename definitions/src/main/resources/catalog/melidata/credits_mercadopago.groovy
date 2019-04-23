@@ -104,7 +104,7 @@ tracks {
         user_type(
             type: PropertyType.String,
             required: true,
-            values: ['capped', 'normal'],
+            values: ['capped', 'default'],
             inheritable: false
         )
     }
