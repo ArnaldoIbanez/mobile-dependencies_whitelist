@@ -760,6 +760,7 @@ trackTests {
             context = "settings/reader_update"
             message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
             attributable_to = "reader"
+            extra_info = [ poi: "CHB123456789012-LE"]
         }
         "/pos_seller/friction/server_comm_error"(platform: "/mobile", type: TrackType.Event) {
             context = "settings/reader_update"
