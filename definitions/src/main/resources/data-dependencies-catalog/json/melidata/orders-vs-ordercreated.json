@@ -5,6 +5,10 @@
   ],
   "process_name": "orders_vs_ordercreated",
   "cron": "00 05 * * *",
+  "partition": {
+    "name": "date_created",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
     "columns": [
