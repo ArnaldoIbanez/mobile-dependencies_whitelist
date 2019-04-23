@@ -3,7 +3,7 @@
     "nicolas.rudolph@mercadolibre.com",
     "melidata_dev@mercadolibre.com"
   ],
-  "process_name": "orders_vs_ordercompleted",
+  "process_name": "orders_vs_ordercreated",
   "cron": "00 05 * * *",
   "extract": {
     "operation": "append",
@@ -31,7 +31,7 @@
       }
     ],
     "sql": {
-      "script": "melidata/orders-vs-ordercompleted.sql",
+      "script": "melidata/orders-vs-ordercreated.sql",
       "parameters": [
         {
           "name": "param01",
