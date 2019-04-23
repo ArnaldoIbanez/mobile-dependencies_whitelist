@@ -758,22 +758,22 @@ trackTests {
     test("Point Seller Friction tests") {
         "/pos_seller/friction/device_comm_error"(platform: "/mobile", type: TrackType.Event) {
             context = "settings/reader_update"
-            message = "{ style: \"dialog\", title: \"Titulo\", content: \"Mensaje de error\", primary_button: \"Reintentar\", secondary_button: \"Volver\" }"
+            message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
             attributable_to = "reader"
         }
         "/pos_seller/friction/server_comm_error"(platform: "/mobile", type: TrackType.Event) {
             context = "settings/reader_update"
-            message = "{ style: \"dialog\", title: \"Titulo\", content: \"Mensaje de error\", primary_button: \"Reintentar\", secondary_button: \"Volver\" }"
+            message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
             attributable_to = "reader"
         }
         "/pos_seller/friction/battery_low_error"(platform: "/mobile", type: TrackType.Event) {
             context = "settings/reader_update"
-            message = "{ style: \"dialog\", title: \"Titulo\", content: \"Mensaje de error\", primary_button: \"Reintentar\", secondary_button: \"Volver\" }"
+            message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
             attributable_to = "reader"
         }
         "/pos_seller/friction/reader_update_failed"(platform: "/mobile", type: TrackType.Event) {
             context = "settings/reader_update"
-            message = "{ style: \"dialog\", title: \"Titulo\", content: \"Mensaje de error\", primary_button: \"Reintentar\", secondary_button: \"Volver\" }"
+            message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
             attributable_to = "device"
         }
     }
@@ -1372,19 +1372,19 @@ trackTests {
     test("Settings Point Reader Update") {
         "/settings/reader_update"(platform: "/mobile", type: TrackType.View) {
             flow = "/settings"
-            poi_id = "CHB123456789012-LE"
+            poi = "CHB123456789012-LE"
         }
         "/settings/reader_update/onboarding"(platform: "/mobile", type: TrackType.View) {
             flow = "/settings"
-            poi_id = "CHB123456789012-LE"
+            poi = "CHB123456789012-LE"
         }
         "/settings/reader_update/result"(platform: "/mobile", type: TrackType.View) {
             flow = "/settings"
-            poi_id = "CHB123456789012-LE"
+            poi = "CHB123456789012-LE"
         }
         "/settings/reader_update/process_completed"(platform: "/mobile", type: TrackType.Event) {
             flow = "/settings"
-            poi_id = "CHB123456789012-LE"
+            poi = "CHB123456789012-LE"
             duration = 120.7
             previous_version = "1.00.02.21"
             previous_config = "MEZZ_Generic_v6"
@@ -1393,7 +1393,7 @@ trackTests {
         }
         "/settings/reader_update/cancel"(platform: "/mobile", type: TrackType.Event) {
             flow = "/settings"
-            poi_id = "CHB123456789012-LE"
+            poi = "CHB123456789012-LE"
             duration = 120.7
             time_remaining = 20.7
             progress = 78.8
