@@ -366,16 +366,16 @@ tracks {
     "/settings/pairing"(platform: "/mobile", type: TrackType.View) {}
 
     "/settings/reader_update"(platform: "/mobile", type: TrackType.View) {
-        poi (required: true, type: PropertyType.String, description: "Poi id")
+        poi (required: true, type: PropertyType.String, description: "Poi (reader serial number)")
     }
     "/settings/reader_update/onboarding"(platform: "/mobile", type: TrackType.View) {
-        poi (required: true, type: PropertyType.String, description: "Poi id")
+        poi (required: true, type: PropertyType.String, description: "Poi (reader serial number)")
     }
     "/settings/reader_update/result"(platform: "/mobile", type: TrackType.View) {
-        poi (required: true, type: PropertyType.String, description: "Poi id")
+        poi (required: true, type: PropertyType.String, description: "Poi (reader serial number)")
     }
     "/settings/reader_update/process_completed"(platform: "/mobile", type: TrackType.Event) {
-        poi (required: true, type: PropertyType.String, description: "Poi id")
+        poi (required: true, type: PropertyType.String, description: "Poi (reader serial number)")
         duration (required: true, type: PropertyType.Numeric, description: "Process duration in seconds")
         previous_version (required: true, type: PropertyType.String, description: "Reader previous firmware version")
         previous_config (required: true, type: PropertyType.String, description: "Reader previous config version")
@@ -383,7 +383,7 @@ tracks {
         new_config (required: true, type: PropertyType.String, description: "Reader config version updated")
     }
     "/settings/reader_update/cancel"(platform: "/mobile", type: TrackType.Event) {
-        poi (required: true, type: PropertyType.String, description: "Poi id")
+        poi (required: true, type: PropertyType.String, description: "Poi (reader serial number)")
         duration (required: true, type: PropertyType.Numeric, description: "Process duration in seconds before cancel")
         time_remaining (required: true, type: PropertyType.Numeric, description: "Estimated time remaining before cancel")
         progress (required: true, type: PropertyType.Numeric, description: "Update progress at cancel")
