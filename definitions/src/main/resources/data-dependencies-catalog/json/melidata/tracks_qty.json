@@ -5,7 +5,7 @@
   "process_name": "tracks_qty",
   "cron": "00 06 * * *",
   "partition": {
-    "name": "ds",
+    "name": "day",
     "type": "DATE",
     "format": "yyyy-MM-dd"
   },
