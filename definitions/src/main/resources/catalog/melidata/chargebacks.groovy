@@ -44,6 +44,9 @@ tracks {
         start_conversation(required: false, type: PropertyType.Boolean)
         select_reason(required: true, type: PropertyType.Boolean)
         flow(required: false, type: PropertyType.String)
+        problem_id(required: true, type: PropertyType.String)
+        payment_status(required: false, type: PropertyType.String)
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
     }
 
     "/chargebacks/payer/send_msj"(platform: "/", type: TrackType.Event) {

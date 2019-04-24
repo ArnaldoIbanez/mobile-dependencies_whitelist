@@ -45,6 +45,7 @@ trackTests {
             select_reason = false
             start_conversation = false
             flow = "CBK"
+            problem_id = "DUPLICATED_PAYMENT"
         }
 
         "/chargebacks/payer/send_msj"(platform: "/", type: TrackType.Event) {
@@ -188,6 +189,7 @@ trackTests {
             select_reason = false
             start_conversation = false
             flow = "CBK"
+            problem_id = "DUPLICATED_PAYMENT"
         }
 
         "/chargebacks/payer/send_msj"(platform: "/",business:"mercadolibre", type: TrackType.Event) {
