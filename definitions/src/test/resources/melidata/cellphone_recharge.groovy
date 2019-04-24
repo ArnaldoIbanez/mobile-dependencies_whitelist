@@ -164,7 +164,9 @@ trackTests {
         "/cellphone_recharge/not-found"(platform: "/web", type: TrackType.View) {
 
         }
-
+        "/set_telephone_number_invalid_country_code"(platform: "/mobile") {
+            category = "VALIDATOR_ERROR"
+        }
 
     }
 
@@ -329,6 +331,9 @@ trackTests {
 
         }
 
+        "/set_telephone_number_invalid_country_code"(platform: "/mobile") {
+            category = "VALIDATOR_ERROR"
+        }
 
 
 
