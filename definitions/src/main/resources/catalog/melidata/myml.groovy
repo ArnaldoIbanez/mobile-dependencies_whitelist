@@ -521,6 +521,8 @@ tracks {
         error(required: false, type:  PropertyType.String, description: "Error message that pop to user after request")
         errorValidation(required: false, type:  PropertyType.String, description: "Error message when value is invalid")
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
     }
 
     //not found
@@ -611,7 +613,10 @@ tracks {
         error(required: false, type: PropertyType.Boolean, description: "State registration saving error")
     }
     //confirm
-    "/myml/invoices/company-info/confirm"(platform: "/") {}
+    "/myml/invoices/company-info/confirm"(platform: "/") {
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
+    }
     "/myml/invoices/company-info/confirm/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
         enabled_for_fulfillment(required: true, type:  PropertyType.Boolean, description: "Boolean if seller profile is fulfillment")
@@ -627,7 +632,10 @@ tracks {
     "/myml/invoices/company-info/confirm/help_tooltip/freight"(platform: "/", type: TrackType.Event) {}
 
     //confirm-normal
-    "/myml/invoices/company-info/confirm-normal"(platform: "/") {}
+    "/myml/invoices/company-info/confirm-normal"(platform: "/") {
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
+    }
     "/myml/invoices/company-info/confirm-normal/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm-normal/save/request"(platform: "/", type: TrackType.Event) {
         serie(required: true, type:  PropertyType.Numeric, description: "Invoice serie number input")
@@ -810,14 +818,19 @@ tracks {
 
     //Backoffice pages
     "/myml/invoices/backoffice"(platform: "/", isAbstract: true) {}
+
     "/myml/invoices/backoffice/search"(platform: "/", isAbstract: true) {}
 
-    "/myml/invoices/backoffice/search/invoice"(platform: "/") {
-       search_filter(required: true, description: "Search filter used")
+    "/myml/invoices/backoffice/search/invoice"(platform: "/", isAbstract: true) {
+        search_filter(required: true, description: "Search filter used")
     }
 
-    "/myml/invoices/backoffice/search/invoicesList"(platform: "/") {
-       search_filter(required: true, description: "Search filter used on massive invoices search")
+    "/myml/invoices/backoffice/search/reissueinvoice"(platform: "/") {
+        data(required: true, description: "Reissue invoice in Backoffice")
+    }
+
+    "/myml/invoices/backoffice/search/invoiceslist"(platform: "/") {
+        search_filter(required: true, description: "Search filter used on massive invoices search")
     }
 
 }
