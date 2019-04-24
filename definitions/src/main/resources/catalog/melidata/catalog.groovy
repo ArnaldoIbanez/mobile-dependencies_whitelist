@@ -81,6 +81,7 @@ catalog {
         include business, "mgm.groovy"
         include business, "mediations.groovy"
         include business, "esc_manager.groovy"
+        include business, "traffic.groovy"
     }
 
     marketplace.each { business ->
