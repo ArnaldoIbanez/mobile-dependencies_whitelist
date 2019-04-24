@@ -194,16 +194,11 @@ tracks {
         action(required: true, type: PropertyType.String, values: ["go_cancel", "go_create_similar", "go_delete"], description: "action click on messages options")
     }
 
-    /***** Listing (Quotes) ******/
-    // Quotes Listing - uses Case : Two or more quotes
-    "/quote/seller/quote_listing"(platform: "/", type: TrackType.View) {
-        demandItemGroup
-    }
-
     // Quote  go_quotes_list - uses Case : Two or more demands
-    "/quote/seller/quote_listing"(platform: "/", type: TrackType.Event) {
-        demandItemGroup
-        action(required: false, type: PropertyType.String, values: ["go_quote_detail"], description: "all action click on quote Listing )")
+    "/quote/seller/quote_listing"(platform: "/mobile", type: TrackType.Event) {
+        quoteItemGroup
+        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
+        action(required: true, type: PropertyType.String, values: ["go_quote_detail"], description: "all action click on quote Listing )")
     }
 
     /***** Quote detail ******/
@@ -367,23 +362,12 @@ tracks {
 
     /***** Quotes Listing ******/
 
-    //Quotes Listing
-    "/quote/buyer/quote_listing"(platform: "/mobile", type: TrackType.View) {
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
-    }
 
     //Quotes Listing Event
     "/quote/buyer/quote_listing"(platform: "/mobile", type: TrackType.Event) {
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
+        quoteItemGroup
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
-        item_id(required: false, type: PropertyType.String, description: "Item id")
-        category_id(required: false, type: PropertyType.String, description: "Item's category id")
-        buyer_id(required: false, type: PropertyType.Numeric, description: "Buyer id")
-        quote_demand_status(required: false, type: PropertyType.String, values: ["pending_by_seller", "answered", "rejected_by_seller", "accepted"], description: "the status quote demand")
-        quote_id(required: false, type: PropertyType.Numeric, description: "Quote id")
-        quote_status(required: false, type: PropertyType.String, values: ["sent", "cancelled_by_seller", "accepted", "expired", "rejected_by_seller"], description: "the status quote")
-        action(required: false, type: PropertyType.String, values: ["go_quote_detail"], description: "all action click on quote listing  )")
+        action(required: true, type: PropertyType.String, values: ["go_quote_detail"], description: "all action click on quote listing  )")
 
     }
 
