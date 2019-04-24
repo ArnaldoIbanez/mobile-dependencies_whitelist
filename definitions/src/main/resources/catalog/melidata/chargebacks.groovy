@@ -24,6 +24,7 @@ tracks {
         case_id(required: true, type: PropertyType.String)
         payment_id(required: true, type: PropertyType.String)
         payer_id(required: true, type: PropertyType.Numeric)
+        category_path(required: false, type: PropertyType.ArrayList)
     }
 
     "/chargebacks/payer/select-remedy"(platform: "/", type: TrackType.View) {
@@ -80,6 +81,7 @@ tracks {
         case_id(required: true, type: PropertyType.String)
         payment_id(required: true, type: PropertyType.String)
         problem_id(required: true, type: PropertyType.String)
+        category_path(required: false, type: PropertyType.ArrayList)
     }
 
     "/chargebacks/payer/attach_main"(platform: "/", type: TrackType.Event) {
@@ -98,6 +100,7 @@ tracks {
             payment_id(required: true, type: PropertyType.String)
             payer_id(required: true, type: PropertyType.Numeric)
             problem_id(required: true, type: PropertyType.String)
+            category_path(required: false, type: PropertyType.ArrayList)
     }
 
     "/chargebacks/payer/pay"(platform: "/", type: TrackType.Event) {
@@ -116,6 +119,7 @@ tracks {
             payment_id(required: true, type: PropertyType.String)
             payer_id(required: true, type: PropertyType.Numeric)
             problem_id(required: true, type: PropertyType.String)
+            category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
     }
 
     "/chargebacks/payer/resolve"(platform: "/", type: TrackType.View) {
@@ -137,6 +141,8 @@ tracks {
             payer_id(required: true, type: PropertyType.Numeric)
             problem_id(required: true, type: PropertyType.String)
             status_repayment(required: true, type: PropertyType.String)
+            payment_status(required: false, type: PropertyType.String)
+            category_path(required: false, type: PropertyType.ArrayList)
     }
 
     "/chargebacks/payer/click-form-link"(platform: "/", type: TrackType.Event) {
@@ -146,5 +152,7 @@ tracks {
         payment_id(required: true, type: PropertyType.String)
         payer_id(required: true, type: PropertyType.Numeric)
         problem_id(required: true, type: PropertyType.String)
+        payment_status(required: false, type: PropertyType.String)
+        category_path(required: false, type: PropertyType.ArrayList)
     }
 }
