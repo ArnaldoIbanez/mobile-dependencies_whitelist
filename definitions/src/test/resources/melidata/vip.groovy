@@ -219,6 +219,33 @@ trackTests {
         "/vip/captcha_showed"(platform: "/web/mobile", type: TrackType.Event, {
             mandatory()
         })
+
+        "/vip/quote_demand_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            mandatory()
+            optionals()
+            item_seller_type = "AB001"
+        }
+
+        "/vip/quote_demand_messages"(platform: "/web/desktop", type: TrackType.Event) {
+            mandatory()
+            optionals()
+            item_seller_type = "AB001"
+        }
+
+        "/vip/quote_demand_intention"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            optionals()
+            from_view="vip"
+            resolution = "high"
+            item_seller_type = "AB001"
+        }
+
+        "/vip/quote_demand_messages"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            optionals()
+            from_view="vip"
+            resolution = "high"
+        }
     }
 
     test("Vip web mobile tracking without reviews") {
