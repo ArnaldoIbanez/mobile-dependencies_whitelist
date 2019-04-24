@@ -3,7 +3,7 @@
     "melidata_dev@mercadolibre.com"
   ],
   "process_name": "tracks_qty",
-  "cron": "00 06 * * *",
+  "cron": "00 05 * * *",
   "partition": {
     "name": "day",
     "type": "DATE",
@@ -22,6 +22,10 @@
       },
       {
         "name": "grails_version",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "server_poolname",
         "type": "UNICODE_STRING"
       },
       {
