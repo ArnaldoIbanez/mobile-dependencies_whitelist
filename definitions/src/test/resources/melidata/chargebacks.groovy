@@ -33,7 +33,7 @@ trackTests {
             category_id = "MLA407408"
             item_id = "MLA673024191"
             payment_id = "3536747103"
-            used_disable = false
+            user_disabled = false
         }
 
         "/chargebacks/payer/attach"(platform: "/", type: TrackType.Event) {
@@ -45,6 +45,7 @@ trackTests {
             select_reason = false
             start_conversation = false
             flow = "CBK"
+            problem_id = "DUPLICATED_PAYMENT"
         }
 
         "/chargebacks/payer/send_msj"(platform: "/", type: TrackType.Event) {
@@ -57,6 +58,8 @@ trackTests {
             start_conversation = false
             attached_doc = true
             flow = "CBK"
+            problem_id = ""
+            payment_status = "CANCELLED"
         }
 
         "/chargebacks/payer/remedy"(platform: "/", type: TrackType.View) {
@@ -64,7 +67,7 @@ trackTests {
             category_id = "MLA407408"
             item_id = "MLA673024191"
             payment_id = "3536747103"
-            used_disable = false
+            user_disabled = false
             problem_id = "DUPLICATED_PAYMENT"
         }
 
@@ -118,8 +121,9 @@ trackTests {
             item_id = "MLA673024191"
             payment_id = "3536747103"
             problem_id = "DUPLICATED_PAYMENT"
-            used_disable = false
+            user_disabled = false
             payment_status = "CANCELLED"
+            category_path = ["MLM1000", "MLM189492", "MLM190998"]
         }
 
         "/chargebacks/payer/pay-again"(platform: "/", type: TrackType.Event) {
@@ -173,7 +177,7 @@ trackTests {
             category_id = "MLA407408"
             item_id = "MLA673024191"
             payment_id = "3536747103"
-            used_disable = false
+            user_disabled = false
         }
 
         "/chargebacks/payer/attach"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
@@ -185,6 +189,7 @@ trackTests {
             select_reason = false
             start_conversation = false
             flow = "CBK"
+            problem_id = "DUPLICATED_PAYMENT"
         }
 
         "/chargebacks/payer/send_msj"(platform: "/",business:"mercadolibre", type: TrackType.Event) {
@@ -197,6 +202,7 @@ trackTests {
             start_conversation = false
             attached_doc = true
             flow = "CBK"
+            problem_id = "DUPLICATED_PAYMENT"
         }
 
         "/chargebacks/payer/remedy"(platform: "/", business:"mercadolibre", type: TrackType.View) {
@@ -204,7 +210,7 @@ trackTests {
             category_id = "MLA407408"
             item_id = "MLA673024191"
             payment_id = "3536747103"
-            used_disable = false
+            user_disabled = false
             problem_id = "DUPLICATED_PAYMENT"
         }
 
@@ -258,8 +264,9 @@ trackTests {
             item_id = "MLA673024191"
             payment_id = "3536747103"
             problem_id = "DUPLICATED_PAYMENT"
-            used_disable = false
+            user_disabled = false
             payment_status = "CANCELLED"
+            category_path = ["MLM1000", "MLM189492", "MLM190998"]
         }
 
         "/chargebacks/payer/pay-again"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
