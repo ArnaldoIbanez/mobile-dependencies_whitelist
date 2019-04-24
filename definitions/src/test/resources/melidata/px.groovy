@@ -567,6 +567,9 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
         }
          "/px_checkout/result/unknown"(platform: "/mobile", type: TrackType.View) {
             style = "generic"
@@ -605,6 +608,9 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
         }
         "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {
             style = "generic"
@@ -627,6 +633,9 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
         }
 
         "/px_checkout/generic_error"(platform: "/mobile", type: TrackType.View) {
@@ -2149,6 +2158,9 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
         }
          "/px_checkout/result/unknown"(platform: "/mobile", type: TrackType.View) {
             style = "generic"
@@ -2187,6 +2199,9 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
         }
         "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {
             style = "generic"
@@ -2209,6 +2224,9 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
         }
 
         "/px_checkout/generic_error"(platform: "/mobile", type: TrackType.View) {
