@@ -11,35 +11,15 @@ tracks {
     "/transport"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
     }
-    "/transport/recents"(platform: "/mobile", type: TrackType.View) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-    }
-    "/transport/packages"(platform: "/mobile", type: TrackType.View) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-    }
-    "/transport/recommended_amount"(platform: "/mobile", type: TrackType.View) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-    }
-    "/transport/card_number"(platform: "/mobile", type: TrackType.View) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-    }
-    "/transport/card_name"(platform: "/mobile", type: TrackType.View) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-    }
-    "/transport/amount"(platform: "/mobile", type: TrackType.View) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-    }
-    "/transport/products"(platform: "/mobile", type: TrackType.View) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-    }
-    "/transport/days_quantity"(platform: "/mobile", type: TrackType.View) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-    }
-    "/transport/carrousel"(platform: "/mobile", type: TrackType.View) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-    }
-    "/transport/topup_helper"(platform: "/mobile", type: TrackType.View) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-    }
+    "/transport/recents"(platform: "/mobile", type: TrackType.View) {}
+    "/transport/packages"(platform: "/mobile", type: TrackType.View) {}
+    "/transport/recommended_amount"(platform: "/mobile", type: TrackType.View) {}
+    "/transport/card_number"(platform: "/mobile", type: TrackType.View) {}
+    "/transport/card_name"(platform: "/mobile", type: TrackType.View) {}
+    "/transport/amount"(platform: "/mobile", type: TrackType.View) {}
+    "/transport/products"(platform: "/mobile", type: TrackType.View) {}
+    "/transport/days_quantity"(platform: "/mobile", type: TrackType.View) {}
+    "/transport/carrousel"(platform: "/mobile", type: TrackType.View) {}
+    "/transport/topup_helper"(platform: "/mobile", type: TrackType.View) {}
 
 }
