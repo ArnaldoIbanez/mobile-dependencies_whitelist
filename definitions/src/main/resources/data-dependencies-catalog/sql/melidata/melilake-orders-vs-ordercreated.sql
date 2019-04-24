@@ -4,10 +4,10 @@ from (
   from melilake.bt_odr_purchase_orders o
   left join (
     select distinct get_json_object(event_data, '$.order_id') as order_id, path
-      from default.tracks where ds >= '@param1'
-        and ds < '@param2'
+      from default.tracks where ds >= '@param01'
+        and ds < '@param02'
         and path='/orders/ordercreated'
   ) t on (cast(o.ord_order_id as string) = t.order_id)
-  where substring(from_unixtime(unix_timestamp(o.ord_created_dt, 'MMM dd, yyyy')),1,10)='@param3' and o.is_test = 'false'
+  where substring(from_unixtime(unix_timestamp(o.ord_created_dt, 'MMM dd, yyyy')),1,10)='@param03' and o.is_test = 'false'
 ) a
-group by a.date_created, site, a.path
+group by a.date_created, a.site, a.path
