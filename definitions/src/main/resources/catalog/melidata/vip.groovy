@@ -623,7 +623,7 @@ tracks {
     }
 
     "/vip/quote_demand_intention"(platform: "/", type: TrackType.Event){
-        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
         from_view(required: false, type: PropertyType.String,
                 values: ["vip", "description", "technicalSpecs", "form", ""],
                 description: "Section where it's coming from"
@@ -631,7 +631,7 @@ tracks {
     }
 
     "/vip/quote_demand_messages"(platform: "/", type: TrackType.Event){
-        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
         from_view(required: false, type: PropertyType.String,
                 values: ["vip", "description", "technicalSpecs", "form", ""],
                 description: "Section where it's coming from"
