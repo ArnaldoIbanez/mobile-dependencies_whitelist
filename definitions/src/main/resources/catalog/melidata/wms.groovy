@@ -33,6 +33,15 @@ tracks {
                 description: "The source of the input data, can be scanner or manual_input")
     }
 
+    "/wms/feedback"(platform: "/mobile/android", type: TrackType.View) {
+        context(required: true, type: PropertyType.String, description: "The context in which this feedback was shown.")
+        type(required: true,
+                type: PropertyType.String,
+                values: ["success", "error", "warning", "locked"],
+                description: "Type of feedback shown.")
+        error_type(required: false, type: PropertyType.String, description: "Optional error type.")
+    }
+
     /* Put away tracks */
 	"/wms/put_away"(platform: "/mobile/android", type: TrackType.View) {
 		put_away_id(required: false, type: PropertyType.String, description: "Put away id")
