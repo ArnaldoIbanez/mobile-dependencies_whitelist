@@ -103,6 +103,12 @@ tracks {
             values: ['default', 'point', 'early_offer'],
             inheritable: false
         )
+        user_type(
+            type: PropertyType.String,
+            required: true,
+            values: ['capped', 'default'],
+            inheritable: false
+        )
     }
 
     //Confirmation modal
