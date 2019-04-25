@@ -461,6 +461,46 @@ trackTests {
             item_id = "MLB1234"
         }
 
+        "/myml/fiscal_information/tax_substitution"(platform: "/", type: TrackType.View) {
+            query_sku = "SKU1234"
+            query_item_id = "MLB1234"
+            query_inbound_id = "INB1234"
+        }
+
+        "/myml/fiscal_information/tax_substitution/btn/backtoinbound"(platform: "/", type: TrackType.Event) {
+            query_sku = "SKU1234"
+            query_item_id = "MLB1234"
+            query_inbound_id = "INB1234"
+        }
+
+        "/myml/fiscal_information/tax_substitution/form/save/request"(platform: "/", type: TrackType.Event) {
+            query_sku = "SKU1234"
+            query_item_id = "MLB1234"
+            query_inbound_id = "INB1234"
+            data = {
+                base_fcp_retained = 0
+                base_retained = 0
+                fcp_retained = 0
+                icms_retained = 0
+            }
+        }
+
+        "/myml/fiscal_information/tax_substitution/form/save/response"(platform: "/", type: TrackType.Event) {
+            query_sku = "SKU1234"
+            query_item_id = "MLB1234"
+            query_inbound_id = "INB1234"
+            error = false
+            data = {
+                tax_information = {}
+                tax_substitution = {
+                    base_fcp_retained = 0
+                    base_retained = 0
+                    fcp_retained = 0
+                    icms_retained = 0
+                }
+            }
+        }
+
         "/myml/fiscal_information/type"(platform: "/", type: TrackType.View) {
             url = "/fiscal-information/item/MLB1234/type"
             item_id = "MLB1234"
