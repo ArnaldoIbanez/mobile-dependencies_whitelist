@@ -357,4 +357,30 @@ tracks {
         inventory_id(required: true, type: PropertyType.String, description: "Inventory id currently being processed.")
     }
     "/wms/wall_in/to_found/confirm"(type: TrackType.Event)
+
+
+    /* Wall out */
+    "/wms/wall_out"(platform: "/mobile/android", isAbstract: true) {}
+
+    "/wms/wall_out/scan_section"(type: TrackType.View) {}
+
+    "/wms/wall_out/scan_slot"(type: TrackType.View) {
+        section_address(required: true, type: PropertyType.String, description: "Wall out section address.")
+    }
+
+    "/wms/wall_out/scan_box"(type: TrackType.View) {
+        slot_address(required: true, type: PropertyType.String, description: "Slot currently being processed.")
+    }
+
+    "/wms/wall_out/to_packing"(type: TrackType.View) {
+        slot_address(required: true, type: PropertyType.String, description: "Slot currently being processed.")
+        box_address(required: true, type: PropertyType.String, description: "Box in use for processing current order.")
+    }
+    "/wms/wall_out/to_packing/confirm"(type: TrackType.Event) {}
+
+    "/wms/wall_out/empty_wall"(type: TrackType.View) {
+        section_address(required: true, type: PropertyType.String, description: "Wall out section address.")
+    }
+    "/wms/wall_out/empty_wall/retry"(type: TrackType.Event) {}
+    
 }
