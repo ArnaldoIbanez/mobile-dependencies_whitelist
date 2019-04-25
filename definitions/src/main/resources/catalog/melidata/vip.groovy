@@ -647,4 +647,20 @@ tracks {
 
     "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
     }
+
+    "/vip/quote_demand_intention"(platform: "/", type: TrackType.Event){
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        from_view(required: false, type: PropertyType.String,
+                values: ["vip", "description", "technicalSpecs", "form"],
+                description: "Section where it's coming from"
+        )
+    }
+
+    "/vip/quote_demand_messages"(platform: "/", type: TrackType.Event){
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        from_view(required: false, type: PropertyType.String,
+                values: ["vip", "description", "technicalSpecs", "form"],
+                description: "Section where it's coming from"
+        )
+    }
 }
