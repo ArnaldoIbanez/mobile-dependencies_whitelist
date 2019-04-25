@@ -453,6 +453,29 @@ tracks {
 
     "/myml/fiscal_information/tax_information/success/btn/listings"(platform: "/", type: TrackType.Event) {}
 
+    // Tax substitution page
+    "/myml/fiscal_information/tax_substitution"(platform: "/", type: TrackType.View) {
+        query_sku(required: true, type: PropertyType.String, description: "Sku of tax information")
+        query_item_id(required: true, type: PropertyType.String, description: "Meli item id")
+        query_inbound_id(required: true, type: PropertyType.String, description: "Inbound id from panel")
+    }
+
+    "/myml/fiscal_information/tax_substitution/btn"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_information/tax_substitution/btn/backtoinbound"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_information/tax_substitution/form"(platform: "/", isAbstract: true) {}
+    "/myml/fiscal_information/tax_substitution/form/save"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_information/tax_substitution/form/save/request"(platform: "/", type: TrackType.Event) {
+        data(required: true, description: "Tax substitution to sending to api")
+    }
+
+    "/myml/fiscal_information/tax_substitution/form/save/response"(platform: "/", type: TrackType.Event) {
+        error(required: true, type: PropertyType.Boolean, description: "Has error on api?")
+        data(required: true, description: "Fiscal information received from api")
+    }
+
     // Type page
     "/myml/fiscal_information/type"(platform: "/", type: TrackType.View) {
         url(required: true, type: PropertyType.String, description: "Page url")
