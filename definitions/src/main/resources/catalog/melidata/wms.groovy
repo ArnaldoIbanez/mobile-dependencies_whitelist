@@ -330,4 +330,31 @@ tracks {
 
     "/wms/stock_audit/empty_tasks"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/stock_audit/empty_tasks/retry"(platform: "/mobile/android", type: TrackType.Event) {}
+
+
+    /* Wall in */
+    "/wms/wall_in"(platform: "/mobile/android", isAbstract: true) {}
+
+    "/wms/wall_in/scan_container"(type: TrackType.View) {}
+    "/wms/wall_in/scan_inventory"(type: TrackType.View) {
+        container_address(required: true, type: PropertyType.String, description: "Wall in container address.")
+    }
+    "/wms/wall_in/scan_inventory/finish_task"(type: TrackType.Event)
+
+    "/wms/wall_in/scan_slot"(type: TrackType.View) {
+        container_address(required: true, type: PropertyType.String, description: "Wall in container address.")
+        inventory_id(required: true, type: PropertyType.String, description: "Inventory id currently being processed.")
+    }
+    "/wms/wall_in/scan_slot/inventory_does_not_fit"(type: TrackType.Event)
+
+    "/wms/wall_in/to_restock"(type: TrackType.View) {
+        container_address(required: true, type: PropertyType.String, description: "Wall in container address.")
+        inventory_id(required: true, type: PropertyType.String, description: "Inventory id currently being processed.")
+    }
+    "/wms/wall_in/to_restock/confirm"(type: TrackType.Event)
+
+    "/wms/wall_in/to_found"(type: TrackType.View) {
+        inventory_id(required: true, type: PropertyType.String, description: "Inventory id currently being processed.")
+    }
+    "/wms/wall_in/to_found/confirm"(type: TrackType.Event)
 }
