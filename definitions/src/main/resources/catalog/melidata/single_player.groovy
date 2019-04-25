@@ -33,11 +33,14 @@ tracks {
         uuid (required:false, description: "the uuid used to identify a set of scans")
         elapsed_time (required:false, description: "the elapsed time between scans")
         barcode_format (required:false, description: "the barcode format")
+        multiscanner(required: false, description: "if scan with multiscanner")
     }
-        "/single_player/billpayments/barcode_reader/read/success"(platform: "/mobile", type: TrackType.Event) {
+
+    "/single_player/billpayments/barcode_reader/read/success"(platform: "/mobile", type: TrackType.Event) {
         is_manual_input (required:false, description: "if response was from scanner or inserted manually")
         utility_response (required:false, description: "the response, we need this to identify the next screen")
     }
+
     "/single_player/billpayments/barcode_reader/read/error"(platform: "/mobile", type: TrackType.Event) {
         is_manual_input (required:false, description: "if response was from scanner or inserted manually")
         utility_response (required:false, description: "the response, we need this to identify the next screen")

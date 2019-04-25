@@ -61,4 +61,8 @@ tracks {
     "/cellphone_recharge/account_money"(platform: "/web", type: TrackType.View) {}
     "/cellphone_recharge/error"(platform: "/web", type: TrackType.View) {}
     "/cellphone_recharge/not-found"(platform: "/web", type: TrackType.View) {}
+
+    "/set_telephone_number_invalid_country_code"(platform: "/mobile", type: TrackType.Event) {
+        category(required: true, type: PropertyType.String, description: "Event Category")
+    }
 }
