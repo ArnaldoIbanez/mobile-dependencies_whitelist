@@ -35,5 +35,23 @@ trackTests {
         "/transport/topup_helper"(platform: "/mobile") {
             flow = "/transport"
         }
+        "/transport/combined_packages"(platform: "/mobile") {
+            flow = "/transport"
+        }
+        "/transport/combined_amount"(platform: "/mobile") {
+            flow = "/transport"
+        }
+        "/transport/validation_points"(platform: "/mobile") {
+            flow = "/transport"
+        }
+        "/transport/no_money"(platform: "/mobile") {
+            flow = "/transport"
+        }
+        "/transport/first_use"(platform: "/mobile") {
+            flow = "/transport"
+        }
+        "/transport/error"(platform: "/mobile") {
+            flow = "/transport"
+        }
     }
 }
