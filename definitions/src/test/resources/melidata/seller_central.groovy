@@ -82,31 +82,31 @@ trackTests {
             reputation_level="yellow"
         }
         "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-            type = "news"           
+            type = "news"
             placement = "publicidad-banner"
             reputation_level="yellow"
         }
         "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-            type = "news"           
+            type = "news"
             placement = "publicidad-banner"
             reputation_level="yellow"
         }
          "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-            type = "news"           
+            type = "news"
             placement = "publicidad-banner"
             adv_segmentation = "winback"
         }
         "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-            type = "news"           
+            type = "news"
             placement = "publicidad-banner"
             adv_segmentation = "winback"
         }
          "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-            type = "news"           
+            type = "news"
             placement = "publicidad-banner"
         }
         "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-            type = "news"           
+            type = "news"
             placement = "publicidad-banner"
         }
     }
@@ -445,7 +445,7 @@ trackTests {
     }
 
     test("structured data multivalue"){
-        "/seller_central/modify/technical_specifications/multivalue"(platform: "/", type: TrackType.Event){  
+        "/seller_central/modify/technical_specifications/multivalue"(platform: "/", type: TrackType.Event){
             quantity = 3
             previous_quantity = 0
             category_domain = "MLA-SHORTS"
@@ -456,11 +456,12 @@ trackTests {
     }
 
     test("structured data suggested values"){
-        "/seller_central/modify/technical_specifications/suggested"(platform: "/", type: TrackType.Event){  
+        "/seller_central/modify/technical_specifications/suggested"(platform: "/", type: TrackType.Event){
             type = "dynamic"
             category_domain = "MLA-CAMERAS"
             item_id= "MLA682118081"
             session_id = "123-update-abc123"
+            hierarchy = "PRODUCT_IDENTIFIER"
         }
     }
 

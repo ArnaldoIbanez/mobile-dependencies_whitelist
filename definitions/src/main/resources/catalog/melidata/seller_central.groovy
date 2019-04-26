@@ -277,6 +277,7 @@ tracks {
         sellerCentralModifyGroup
         category_domain(required: true, type: PropertyType.String, description: "Domain")
         type(required: true, type: PropertyType.String, description: "Suggestion type")
+        hierarchy(required: true, type: PropertyType.String, description: "Attribute type")
     }
 
     // SETTINGS SECTION
