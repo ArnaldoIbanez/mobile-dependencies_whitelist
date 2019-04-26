@@ -62,7 +62,48 @@ tracks {
     "/cellphone_recharge/error"(platform: "/web", type: TrackType.View) {}
     "/cellphone_recharge/not-found"(platform: "/web", type: TrackType.View) {}
 
+    "/set_telephone_number_blacklist"(platform: "/mobile", type: TrackType.Event) {
+        category(required: true, type: PropertyType.String, description: "Event Category")
+        label(required: false, type: PropertyType.String, description: "Optional Description")
+    }
     "/set_telephone_number_invalid_country_code"(platform: "/mobile", type: TrackType.Event) {
         category(required: true, type: PropertyType.String, description: "Event Category")
+        label(required: false, type: PropertyType.String, description: "Optional Description")
+    }
+    "/set_telephone_number_missing_area_code"(platform: "/mobile", type: TrackType.Event) {
+        category(required: true, type: PropertyType.String, description: "Event Category")
+        label(required: false, type: PropertyType.String, description: "Optional Description")
+    }
+    "/set_telephone_number_invalid_area_code"(platform: "/mobile", type: TrackType.Event) {
+        category(required: true, type: PropertyType.String, description: "Event Category")
+        label(required: false, type: PropertyType.String, description: "Optional Description")
+    }
+    "/set_telephone_number_missing_phone_number"(platform: "/mobile", type: TrackType.Event) {
+        category(required: true, type: PropertyType.String, description: "Event Category")
+        label(required: false, type: PropertyType.String, description: "Optional Description")
+    }
+    "/set_telephone_number_invalid_phone_number"(platform: "/mobile", type: TrackType.Event) {
+        category(required: true, type: PropertyType.String, description: "Event Category")
+        label(required: false, type: PropertyType.String, description: "Optional Description")
+    }
+    "/set_telephone_number_short_phone_number"(platform: "/mobile", type: TrackType.Event) {
+        category(required: true, type: PropertyType.String, description: "Event Category")
+        label(required: false, type: PropertyType.String, description: "Optional Description")
+    }
+    "/set_telephone_number_long_phone_number"(platform: "/mobile", type: TrackType.Event) {
+        category(required: true, type: PropertyType.String, description: "Event Category")
+        label(required: false, type: PropertyType.String, description: "Optional Description")
+    }
+    "/set_telephone_number_invalid_sum_up"(platform: "/mobile", type: TrackType.Event) {
+        category(required: true, type: PropertyType.String, description: "Event Category")
+        label(required: false, type: PropertyType.String, description: "Optional Description")
+    }
+    "/set_telephone_number_unknown"(platform: "/mobile", type: TrackType.Event) {
+        category(required: true, type: PropertyType.String, description: "Event Category")
+        label(required: false, type: PropertyType.String, description: "Optional Description")
+    }
+    "/contacts_invalid"(platform: "/mobile", type: TrackType.Event) {
+        category(required: true, type: PropertyType.String, description: "Event Category")
+        label(required: false, type: PropertyType.String, description: "Optional Description")
     }
 }
