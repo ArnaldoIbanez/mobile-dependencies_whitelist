@@ -164,34 +164,34 @@ trackTests {
         "/cellphone_recharge/not-found"(platform: "/web", type: TrackType.View) {
 
         }
-        "/set_telephone_number_blacklist"(platform: "/mobile") {
+        "/set_telephone_number/blacklist"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
-        "/set_telephone_number_invalid_country_code"(platform: "/mobile") {
+        "/set_telephone_number/invalid_country_code"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
-        "/set_telephone_number_missing_area_code"(platform: "/mobile") {
+        "/set_telephone_number/missing_area_code"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
-        "/set_telephone_number_invalid_area_code"(platform: "/mobile") {
+        "/set_telephone_number/invalid_area_code"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
-        "/set_telephone_number_missing_phone_number"(platform: "/mobile") {
+        "/set_telephone_number/missing_phone_number"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
-        "/set_telephone_number_invalid_phone_number"(platform: "/mobile") {
+        "/set_telephone_number/invalid_phone_number"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
-        "/set_telephone_number_short_phone_number"(platform: "/mobile") {
+        "/set_telephone_number/short_phone_number"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
-        "/set_telephone_number_long_phone_number"(platform: "/mobile") {
+        "/set_telephone_number/long_phone_number"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
-        "/set_telephone_number_invalid_sum_up"(platform: "/mobile") {
+        "/set_telephone_number/invalid_sum_up"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
-        "/set_telephone_number_unknown"(platform: "/mobile") {
+        "/set_telephone_number/unknown"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
         "/contacts_invalid"(platform: "/mobile") {
@@ -362,34 +362,34 @@ trackTests {
         }
 
 
-        "/set_telephone_number_blacklist"(platform: "/mobile") {
+        "/set_telephone_number/blacklist"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
-        "/set_telephone_number_invalid_country_code"(platform: "/mobile") {
+        "/set_telephone_number/invalid_country_code"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
-        "/set_telephone_number_missing_area_code"(platform: "/mobile") {
+        "/set_telephone_number/missing_area_code"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
-        "/set_telephone_number_invalid_area_code"(platform: "/mobile") {
+        "/set_telephone_number/invalid_area_code"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
-        "/set_telephone_number_missing_phone_number"(platform: "/mobile") {
+        "/set_telephone_number/missing_phone_number"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
-        "/set_telephone_number_invalid_phone_number"(platform: "/mobile") {
+        "/set_telephone_number/invalid_phone_number"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
-        "/set_telephone_number_short_phone_number"(platform: "/mobile") {
+        "/set_telephone_number/short_phone_number"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
-        "/set_telephone_number_long_phone_number"(platform: "/mobile") {
+        "/set_telephone_number/long_phone_number"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
-        "/set_telephone_number_invalid_sum_up"(platform: "/mobile") {
+        "/set_telephone_number/invalid_sum_up"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
-        "/set_telephone_number_unknown"(platform: "/mobile") {
+        "/set_telephone_number/unknown"(platform: "/mobile") {
             category = "VALIDATOR_ERROR"
         }
         "/contacts_invalid"(platform: "/mobile") {
