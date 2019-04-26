@@ -17,6 +17,7 @@ WHERE ds >= '@param01'
   AND usr.uid IS NOT NULL
   AND usr.user_id IS NOT NULL
   AND usr.user_id != '-1'
+  AND path != '/mobile/bugsnag'
   AND (CASE WHEN device.platform IN ('/web/mobile','/web/desktop') THEN (is_bot(device.user_agent) = false AND device.user_agent IS NOT NULL)
             WHEN device.platform IN ('/mobile/android', '/mobile/ios') THEN device.device_id is not null
             END)
