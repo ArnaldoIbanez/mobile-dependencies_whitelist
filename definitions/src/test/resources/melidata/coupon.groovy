@@ -30,6 +30,7 @@ trackTests {
 
         // Coupon Success Events
         "/coupon/success/button"(platform: "/mobile", type: TrackType.Event) {
+            entity_type = "invalid_code"
             code = "1234ABCD"
             type = "primary"
             action = "retry"
@@ -43,6 +44,7 @@ trackTests {
 
         // Coupon Error Events
         "/coupon/error/button"(platform: "/mobile", type: TrackType.Event) {
+            entity_type = "invalid_code"
             code = "1234ABCD"
             type = "primary"
             action = "retry"
@@ -74,6 +76,7 @@ trackTests {
 
         // Coupon Success Events
         "/coupon/success/button"(platform: "/mobile", type: TrackType.Event) {
+            entity_type = "invalid_code"
             code = "1234ABCD"
             type = "primary"
             action = "retry"
@@ -87,6 +90,7 @@ trackTests {
 
         // Coupon Error Events
         "/coupon/error/button"(platform: "/mobile", type: TrackType.Event) {
+            entity_type = "invalid_code"
             code = "1234ABCD"
             type = "primary"
             action = "retry"

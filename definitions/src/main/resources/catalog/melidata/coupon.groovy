@@ -36,6 +36,7 @@ tracks {
 
     // Coupon Success Events
     "/coupon/success/button"(platform: "/mobile", type: TrackType.Event) {
+        entity_type(required: true, type: PropertyType.String, description: "Which success type are we tracking")
         code(required: true, type: PropertyType.String, description: "Indicates the coupon code")
         type(required: true, type: PropertyType.String, description: "Which action type are we tracking (ex: primary / secondary / tyc)", values: ["primary", "secondary", "tyc"])
         action(required: true, type: PropertyType.String, description: "Which action are we tracking (ex: retry / back_to_root / use_coupon / tyc)", values: ["retry", "back_to_root", "use_coupon", "tyc"])
@@ -49,6 +50,7 @@ tracks {
 
     // Coupon Error Events
     "/coupon/error/button"(platform: "/mobile", type: TrackType.Event) {
+        entity_type(required: true, type: PropertyType.String, description: "Which success type are we tracking")
         code(required: true, type: PropertyType.String, description: "Indicates the coupon code")
         type(required: true, type: PropertyType.String, description: "Which action type are we tracking (ex: primary / secondary / tyc)", values: ["primary", "secondary", "tyc"])
         action(required: true, type: PropertyType.String, description: "Which action are we tracking (ex: retry / back_to_root / use_coupon / tyc)", values: ["retry", "back_to_root", "use_coupon", "tyc"])
