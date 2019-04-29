@@ -80,6 +80,7 @@ catalog {
         include business, "security_settings.groovy"
         include business, "mgm.groovy"
         include business, "mediations.groovy"
+        include business, "coupon.groovy"
     }
 
     marketplace.each { business ->
