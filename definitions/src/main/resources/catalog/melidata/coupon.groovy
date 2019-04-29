@@ -12,17 +12,21 @@ tracks {
 
     // General Path
     "/coupon"(platform: "/", isAbstract: true) {
-        code(required: false, type: PropertyType.String, description: "Indicates the coupon code")
+        code(required: true, type: PropertyType.String, description: "Indicates the coupon code")
     }
 
     // MOBILE
 
 
     // Coupon Input  Screen
-    "/coupon/input"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {}
+    "/coupon/input"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+        code(required: false, type: PropertyType.String, description: "Indicates the coupon code")
+    }
 
     // Coupon Input  Events
-    "/coupon/input/continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/coupon/input/continue"(platform: "/mobile", type: TrackType.Event) {
+        code(required: true, type: PropertyType.String, description: "Indicates the coupon code")
+    }
 
     // Coupon Success Screen
     "/coupon/success"(platform: "/mobile", type: TrackType.View) {
