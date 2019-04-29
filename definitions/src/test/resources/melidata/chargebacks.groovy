@@ -133,7 +133,6 @@ trackTests {
             payment_id = "3536747103"
             problem_id = "DUPLICATED_PAYMENT"
             payer_id = 306162056
-            status_repayment = "CANCELLED"
         }
 
         "/chargebacks/payer/click-form-link"(platform: "/", type: TrackType.Event) {
@@ -276,7 +275,6 @@ trackTests {
             payment_id = "3536747103"
             problem_id = "DUPLICATED_PAYMENT"
             payer_id = 306162056
-            status_repayment = "CANCELLED"
         }
 
         "/chargebacks/payer/click-form-link"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
