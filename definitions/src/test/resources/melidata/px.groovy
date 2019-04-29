@@ -172,10 +172,12 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            reason = "esc_cap"
         }
         "/px_checkout/payments/select_method/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "mastercard"
             card_id = "1234"
+            reason = "saved_card"
 
         }
         "/px_checkout/payments/select_method/prepaid_card/cvv"(platform: "/mobile", type: TrackType.View) {
@@ -189,6 +191,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            reason = "call_for_auth"
 
         }
 
@@ -688,6 +691,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            split_enabled = true
         }
 
         // Init event:
@@ -1616,10 +1620,12 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            reason = "call_for_auth"
         }
         "/px_checkout/payments/select_method/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "mastercard"
             card_id = "1234"
+            reason = "call_for_auth"
 
         }
         "/px_checkout/payments/select_method/prepaid_card/cvv"(platform: "/mobile", type: TrackType.View) {
@@ -1633,6 +1639,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            reason = "call_for_auth"
 
         }
 
@@ -2194,6 +2201,7 @@ trackTests {
             checkout_preference_id = "123"
             esc_enabled = true
             express_enabled = true
+            split_enabled = false
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
@@ -2220,6 +2228,7 @@ trackTests {
             }
             esc_enabled = true
             express_enabled = true
+            split_enabled = true
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"

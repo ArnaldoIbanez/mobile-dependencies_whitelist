@@ -96,24 +96,32 @@ trackTests {
             mandatory()
             listing_type_id = "GOLD"
             item_seller_type = "AB001"
+            deal_ids = []
+            item_condition= "new"
         })
 
         "/vip/contact_seller"(platform: "/web/desktop", type: TrackType.Event, {
             mandatory()
             listing_type_id = "GOLD"
             item_seller_type = "AB001"
+            deal_ids = []
+            item_condition= "new"
         })
 
         "/vip/contact_seller"(platform: "/web/mobile", type: TrackType.Event, {
             mandatory()
             listing_type_id = "GOLD"
             item_seller_type = "AB001"
+            deal_ids = []
+            item_condition= "new"
         })
 
         "/vip/contact_seller"(platform: "/", type: TrackType.Event, {
             mandatory()
             unregistered_contact = false
             captcha_showed = false
+            deal_ids = []
+            item_condition= "new"
         })
 
         "/vip/call_seller"(platform:"/mobile", type: TrackType.Event, {
@@ -221,6 +229,35 @@ trackTests {
         "/vip/captcha_showed"(platform: "/web/mobile", type: TrackType.Event, {
             mandatory()
         })
+
+        "/vip/quote_demand_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            mandatory()
+            optionals()
+            item_seller_type = "AB001"
+        }
+
+        "/vip/quote_demand_messages"(platform: "/web/desktop", type: TrackType.Event) {
+            mandatory()
+            optionals()
+            item_seller_type = "AB001"
+        }
+
+        "/vip/quote_demand_intention"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            optionals()
+            item_seller_type = "AB001"
+            from_view="vip"
+            resolution = "high"
+            
+        }
+
+        "/vip/quote_demand_messages"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            optionals()
+            item_seller_type = "AB001"
+            from_view="vip"
+            resolution = "high"
+        }
     }
 
     test("Vip web mobile tracking without reviews") {

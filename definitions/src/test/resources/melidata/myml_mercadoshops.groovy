@@ -102,6 +102,26 @@ trackTests {
         }
     }
 
+    test("Mercadoshops Admin Dismiss") {
+        "/mercado_shops/admin/dismiss_form"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+        }
+    }
+
+    test("Mercadoshops Admin Dismiss Event") {
+        "/mercado_shops/admin/dismiss"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            reason_id = 1
+            additional_comments = "Additional comment."
+        }
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MYML Mercadoshops Domains Delegation flow
     //------------------------------------------------------------------------------------------------------------------------------------------------------

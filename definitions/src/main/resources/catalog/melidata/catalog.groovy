@@ -80,6 +80,8 @@ catalog {
         include business, "security_settings.groovy"
         include business, "mgm.groovy"
         include business, "mediations.groovy"
+        include business, "esc_manager.groovy"
+        include business, "traffic.groovy"
         include business, "coupon.groovy"
     }
 
@@ -154,6 +156,7 @@ catalog {
         include business, "single_player.groovy"
         include business, "instore.groovy"
         include business, "sube_recharge.groovy"
+        include business, "transport.groovy"
 
     }
 

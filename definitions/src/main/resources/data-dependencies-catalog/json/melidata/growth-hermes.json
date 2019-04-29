@@ -26,6 +26,9 @@
         "name": "communication_version",
         "type": "UNICODE_STRING"
       }, {
+        "name": "segment_id",
+        "type": "UNICODE_STRING"
+      }, {
         "name": "experiment_id",
         "type": "UNICODE_STRING"
       }, {

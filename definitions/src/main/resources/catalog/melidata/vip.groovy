@@ -25,8 +25,12 @@ tracks {
                 values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment"],
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
         free_shipping_benefit(required: false, type: PropertyType.Boolean,
-                description: "Indicates if the user has free shipping for loyalty benefit")
+                description: "Indicates if the user has free shipping or free by loyalty")
         shipping_promise(required: false, description: "Array of shippping promise in the order with following data")
+        free_shipping_benefit_lyl(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the user has free shipping benefit by loyalty")
+        discount_shipping_benefit_lyl(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the user has discount benefit by loyalty")
         //afterDispatch: if unknown or unknown_frame (true/false)
         //min_days: minimum number of days of the promise. (int)
         //max_days: maximun number of days of the promise. (int or null -If it doesn´t apply-)
@@ -37,7 +41,7 @@ tracks {
     propertyGroups {
         add_cart_info(cart_content, add_to_cart_availability, main_action)
         shipping_info(shipping_preference, shipping_mode, free_shipping, local_pick_up, 
-                logistic_type, free_shipping_benefit, shipping_promise)
+                logistic_type, free_shipping_benefit, shipping_promise, free_shipping_benefit_lyl, discount_shipping_benefit_lyl)
     }
 
     //VIP FLOW
@@ -225,6 +229,14 @@ tracks {
         reputation_level(required: false, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Seller's reputation level")
         installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
         has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
+        item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        listing_type_id(required: false, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
+        power_seller_status(required: false, type: PropertyType.String, values: ["silver", "gold", "platinum"],
+                description: "Seller's Mercado Lider level")
         add_cart_info
         shipping_info
     }
@@ -244,6 +256,14 @@ tracks {
         reputation_level(required: false, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Seller's reputation level")
         installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
         has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
+        item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        listing_type_id(required: false, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
+        power_seller_status(required: false, type: PropertyType.String, values: ["silver", "gold", "platinum"],
+                description: "Seller's Mercado Lider level")
         add_cart_info
         shipping_info
     }
@@ -289,7 +309,9 @@ tracks {
         source(required: false, description: "Source of the referred")
         unregistered_contact(required: false, type: PropertyType.Boolean, "User is unregister type")
         captcha_showed(required: false, type: PropertyType.Boolean, description: "If captcha is showed")
-
+        item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
     }
 
     "/vip/call_seller"(platform: "/", type: TrackType.Event) {
@@ -624,5 +646,21 @@ tracks {
     }
 
     "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+    }
+
+    "/vip/quote_demand_intention"(platform: "/", type: TrackType.Event){
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        from_view(required: false, type: PropertyType.String,
+                values: ["vip", "description", "technicalSpecs", "form"],
+                description: "Section where it's coming from"
+        )
+    }
+
+    "/vip/quote_demand_messages"(platform: "/", type: TrackType.Event){
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        from_view(required: false, type: PropertyType.String,
+                values: ["vip", "description", "technicalSpecs", "form"],
+                description: "Section where it's coming from"
+        )
     }
 }

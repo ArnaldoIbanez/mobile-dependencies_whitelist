@@ -49,16 +49,19 @@ tracks {
     "/px_checkout/payments/select_method/credit_card/cvv"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
         payment_method_id(required: false, type: PropertyType.String, description: "Payment method id")
         card_id(required: false, type: PropertyType.String , description: "Card id")
+        reason(require: false, type: PropertyType.String, description: "Why this screen is shown", values: ["esc_cap", "saved_card", "call_for_auth", "disabled_card"]);
         externalData
     }
     "/px_checkout/payments/select_method/debit_card/cvv"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
         payment_method_id(required: false, type: PropertyType.String, description: "Payment method id")
         card_id(required: false, type: PropertyType.String , description: "Card id")
+        reason(require: false, type: PropertyType.String, description: "Why this screen is shown", values: ["esc_cap", "saved_card", "call_for_auth", "disabled_card"]);
         externalData
     }
     "/px_checkout/payments/select_method/prepaid_card/cvv"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
         payment_method_id(required: false, type: PropertyType.String, description: "Payment method id")
         card_id(required: false, type: PropertyType.String , description: "Card id")
+        reason(require: false, type: PropertyType.String, description: "Why this screen is shown", values: ["esc_cap", "saved_card", "call_for_auth", "disabled_card"]);
         externalData
     }
 
@@ -213,7 +216,7 @@ tracks {
         checkout_preference(required: false, description: "Payment preference")
         esc_enabled(required: true, type: PropertyType.Boolean, description: "Has esc feauture")
         express_enabled(required: true, type: PropertyType.Boolean, description: "Has one tap feauture")
-        split_enabled(required: false, type: PropertyType.Boolean, description: "Has split enabled")
+        split_enabled(required: true, type: PropertyType.Boolean, description: "Has split enabled")
     }
 
     // Payment Selection event
