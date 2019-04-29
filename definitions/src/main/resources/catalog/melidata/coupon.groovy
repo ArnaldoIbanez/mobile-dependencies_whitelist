@@ -34,21 +34,21 @@ tracks {
     // Coupon Success Events
     "/coupon/success/button"(platform: "/mobile", type: TrackType.Event) {
         code(required: true, type: PropertyType.String, description: "Indicates the coupon code")
-        type(required: true, type: PropertyType.String, description: "Indicates the button type")
-        action(required: true, type: PropertyType.String, description: "Which action are we tracking (ex: reintentar / volver_al_inicio)")
+        type(required: true, type: PropertyType.String, description: "Which action type are we tracking (ex: primary / secondary / tyc)", values: ["primary", "secondary", "tyc"])
+        action(required: true, type: PropertyType.String, description: "Which action are we tracking (ex: reload / back_to_root / use_coupon / tyc)", values: ["retry", "back_to_root", "use_coupon", "tyc"])
     }
 
     // Coupon Error Screen
     "/coupon/error"(platform: "/mobile", type: TrackType.View) {
         code(required: true, type: PropertyType.String, description: "Indicates the coupon code")
-        type(required: true, type: PropertyType.String, description: "Indicates the error type")
+        type(required: true, type: PropertyType.String, description: "Which error type are we tracking (ex: invalid_code / pending_code)", values: ["invalid_code", "pending_code"])
     }
 
     // Coupon Error Events
     "/coupon/error/button"(platform: "/mobile", type: TrackType.Event) {
         code(required: true, type: PropertyType.String, description: "Indicates the coupon code")
-        type(required: true, type: PropertyType.String, description: "Indicates the button type")
-        action(required: true, type: PropertyType.String, description: "Which action are we tracking (ex: reintentar / volver_al_inicio)")
+        type(required: true, type: PropertyType.String, description: "Which action type are we tracking (ex: primary / secondary / tyc)", values: ["primary", "secondary", "tyc"])
+        action(required: true, type: PropertyType.String, description: "Which action are we tracking (ex: reload / back_to_root / use_coupon / tyc)", values: ["retry", "back_to_root", "use_coupon", "tyc"])
     }
 
 
