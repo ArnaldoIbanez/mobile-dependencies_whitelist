@@ -28,6 +28,9 @@ tracks {
 
     // Coupon Success Screen
     "/coupon/success"(platform: "/mobile", type: TrackType.View) {
+        flow(required: false, type: PropertyType.String, description: "Indicates the flow of screen")
+        entity_id(required: false, type: PropertyType.Numeric, description: "Indicates the entity id")
+        entity_type(required: true, type: PropertyType.String, description: "Which success type are we tracking")
         code(required: true, type: PropertyType.String, description: "Indicates the coupon code")
     }
 
@@ -41,7 +44,7 @@ tracks {
     // Coupon Error Screen
     "/coupon/error"(platform: "/mobile", type: TrackType.View) {
         code(required: true, type: PropertyType.String, description: "Indicates the coupon code")
-        type(required: true, type: PropertyType.String, description: "Which error type are we tracking (ex: invalid_code / pending_code)", values: ["invalid_code", "pending_code"])
+        entity_type(required: true, type: PropertyType.String, description: "Which error type are we tracking")
     }
 
     // Coupon Error Events

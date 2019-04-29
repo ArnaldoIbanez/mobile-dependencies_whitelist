@@ -22,6 +22,9 @@ trackTests {
 
         // Coupon Success Screen
         "/coupon/success"(platform: "/mobile", type: TrackType.View) {
+            flow = "sube"
+            entity_id = 1
+            entity_type = "invalid_code"
             code = "1234ABCD"
         }
 
@@ -35,7 +38,7 @@ trackTests {
         // Coupon Error Screen
         "/coupon/error"(platform: "/mobile", type: TrackType.View) {
             code = "1234ABCD"
-            type = "invalid_code"
+            entity_type = "invalid_code"
         }
 
         // Coupon Error Events
@@ -63,6 +66,9 @@ trackTests {
 
         // Coupon Success Screen
         "/coupon/success"(platform: "/mobile", type: TrackType.View) {
+            flow = "sube"
+            entity_id = 1
+            entity_type = "invalid_code"
             code = "1234ABCD"
         }
 
@@ -76,7 +82,7 @@ trackTests {
         // Coupon Error Screen
         "/coupon/error"(platform: "/mobile", type: TrackType.View) {
             code = "1234ABCD"
-            type = "invalid_code"
+            entity_type = "invalid_code"
         }
 
         // Coupon Error Events
