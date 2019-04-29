@@ -46,6 +46,7 @@ trackTests {
             start_conversation = false
             flow = "CBK"
             problem_id = "DUPLICATED_PAYMENT"
+            user_disabled = false
         }
 
         "/chargebacks/payer/send_msj"(platform: "/", type: TrackType.Event) {
@@ -195,6 +196,7 @@ trackTests {
             start_conversation = false
             flow = "CBK"
             problem_id = "DUPLICATED_PAYMENT"
+            user_disabled = true
         }
 
         "/chargebacks/payer/send_msj"(platform: "/",business:"mercadolibre", type: TrackType.Event) {

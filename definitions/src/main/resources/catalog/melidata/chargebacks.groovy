@@ -33,7 +33,7 @@ tracks {
         item_id(required: false, type: PropertyType.String, description: "Item id")
         case_id(required: true, type: PropertyType.String, description: "CBK case id")
         payment_id(required: true, type: PropertyType.String, description: "Payment id")
-        user_disabled(required: false, type: PropertyType.Boolean, description: "is user disabled")
+        user_disabled(required: true, type: PropertyType.Boolean, description: "is user disabled")
         category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
     }
 
@@ -44,10 +44,10 @@ tracks {
         payment_id(required: true, type: PropertyType.String)
         payer_id(required: true, type: PropertyType.Numeric)
         start_conversation(required: false, type: PropertyType.Boolean)
-        select_reason(required: false, type: PropertyType.Boolean)
+        select_reason(required: true, type: PropertyType.Boolean)
         flow(required: false, type: PropertyType.String)
         problem_id(required: true, type: PropertyType.String)
-        user_disabled(required: false, type: PropertyType.Boolean, description: "is user disabled")
+        user_disabled(required: true, type: PropertyType.Boolean, description: "is user disabled")
         repayment_status(required: false, type: PropertyType.String, description: "Repayment status")
         category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
     }
@@ -61,7 +61,7 @@ tracks {
         problem_id(required: false, type: PropertyType.String)
         repayment_status(required: false, type: PropertyType.String, description: "Repayment status")
         start_conversation(required: false, type: PropertyType.Boolean)
-        select_reason(required: false, type: PropertyType.Boolean)
+        select_reason(required: true, type: PropertyType.Boolean)
         attached_doc(required: false, type: PropertyType.Boolean)
         flow(required: false, type: PropertyType.String)
         category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
