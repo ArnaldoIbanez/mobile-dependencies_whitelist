@@ -1,17 +1,16 @@
 package com.ml.melidata.catalog
 
-import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.tree.TrackValidationResponse
-
-import java.sql.Timestamp
 
 /**
  * Created by apetalas on 13/11/14.
  */
 
-public abstract class Validator {
+public interface Validator {
+    boolean validate(TrackValidationResponse response, String property,Object value, boolean required)
+}
 
-    abstract void validate(TrackValidationResponse response, String property,Object value, boolean required)
+public abstract class ValidatorFactory {
 
     public static CreateValuesValidator(ArrayList<String> values){
         return new ValuesValidator(values)
@@ -30,24 +29,7 @@ public abstract class Validator {
     }
 }
 
-public class ValuesValidator extends Validator{
-
-    private ArrayList<String> values;
-
-    def ValuesValidator(ArrayList<String> values){
-        this.values = values
-    }
-
-
-    void validate(TrackValidationResponse response, String property,Object value, boolean required=true) {
-        if(!required && value == null)
-            return;
-        if(!values.find{va -> va.equals(value)})
-            response.addValidation(false, "Property '${property}' has invalid value '${value}'. (possible values: ${this.values})")
-    }
-}
-
-public class RegexValidator extends Validator{
+public class RegexValidator implements Validator{
 
     private def regex
 
@@ -56,27 +38,28 @@ public class RegexValidator extends Validator{
     }
 
 
-    void validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
+    boolean validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
+        def valid = true
         if(!(value ==~ regex))
             response.addValidation(false, "Property '${property}' has invalid value '${value}'. (value must match with: ${this.regex})")
+            valid = false
+
+        return valid
     }
 }
 
-public class TypeValidator extends Validator {
+public class TypeValidator implements Validator {
 
-    private def PropertyType type = null
+    private def PropertyTypeValidator type = null
 
-    def TypeValidator(PropertyType type){
+    def TypeValidator(PropertyTypeValidator type){
         this.type = type
     }
 
+    boolean validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
 
-    void validate(TrackValidationResponse response, String property, Object value, boolean required=true) {
-
-        if(type?.validate(value))
-            return
-
-        response.addValidation(false, "Property '${property}' has invalid type '${value?.class}'. (value must be: ${type})")
+        if(!required) return true
+        return type?.validate(response, property, value)
     }
 }
 
@@ -84,5 +67,28 @@ public class CategoryValidator extends RegexValidator{
 
     def CategoryValidator() {
         super(/[a-zA-Z]{1,3}[0-9]+/)
+    }
+}
+
+public class ValuesValidator implements Validator{
+
+    private ArrayList<String> values;
+
+    def ValuesValidator(ArrayList<String> values){
+        this.values = values
+    }
+
+
+    boolean validate(TrackValidationResponse response, String property,Object value, boolean required=true) {
+        def valid = true
+
+        if(!required && value == null)
+            return true;
+        if(!values.find{va -> va.equals(value)})
+            response.addValidation(false, "Property '${property}' has invalid value '${value}'. (possible values: ${this.values})")
+            valid = false
+
+        return valid
+
     }
 }
