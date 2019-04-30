@@ -241,12 +241,17 @@ tracks {
         secondary_button(type: PropertyType.String, required: false)
     }
 
+    def PosSellerFrictionExtraInfo = objectSchemaDefinitions {
+        poi(type: PropertyType.String, required: false)
+        progress(type: PropertyType.Numeric, required: false)
+    }
+
     "/pos_seller"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {}
     "/pos_seller/friction"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
         context (required: true, type: PropertyType.String, description: "Friction context")
         message (required: true, type: PropertyType.Map(PosSellerFrictionMessage), description: "Message shown map")
-        attributable_to(required: false, type: PropertyType.String, values: ["user", "reader", "network", "device", "card"], description: "Friction main category reason")
-        extra_info (required: false, type: PropertyType.Map, description: "Friction extra data map")
+        attributable_to(required: true, type: PropertyType.String, values: ["user", "reader", "network", "device", "card", "unknown"], description: "Friction main category reason")
+        extra_info (required: false, type: PropertyType.Map(PosSellerFrictionExtraInfo), description: "Friction extra data map")
     }
     "/pos_seller/friction/device_comm_error"(platform: "/mobile", type: TrackType.Event) {}
     "/pos_seller/friction/server_comm_error"(platform: "/mobile", type: TrackType.Event) {}
