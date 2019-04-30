@@ -102,8 +102,8 @@ trackTests {
         }
     }
 
-    test("Mercadoshops Admin Dismiss") {
-        "/mercado_shops/admin/dismiss_form"(platform: "/", type: TrackType.View) {
+    test("Mercadoshops Admin Deactivate") {
+        "/mercado_shops/admin/deactivate_form"(platform: "/", type: TrackType.View) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
@@ -112,12 +112,12 @@ trackTests {
     }
 
     test("Mercadoshops Admin Dismiss Event") {
-        "/mercado_shops/admin/dismiss"(platform: "/", type: TrackType.Event) {
+        "/mercado_shops/admin/deactivate"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
             ref = ""
-            reason_id = 1
+            reason_id = "REASON_1"
             additional_comments = "Additional comment."
         }
     }
