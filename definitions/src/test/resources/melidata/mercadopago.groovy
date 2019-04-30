@@ -2067,9 +2067,9 @@ trackTests {
         "/new-withdraw/congrats-advance"(platform: "/", type: TrackType.View){}
     }
 
-    test("dashboard") {
-        "/dashboard/home"(platform: "/", type: TrackType.View){}
-        "/dashboard/detail"(platform: "/", type: TrackType.View){
+    test("tfs_dashboard") {
+        "/tfs_dashboard/home"(platform: "/", type: TrackType.View){}
+        "/tfs_dashboard/detail"(platform: "/", type: TrackType.View){
             chart="tpv"
             section="online"
         }
