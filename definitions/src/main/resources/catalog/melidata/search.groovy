@@ -70,6 +70,7 @@ tracks {
         geo_search(required: false, description: "search with geolocation", type: PropertyType.Boolean)
         available_filters(required: true, description: "available filters, sameday and nextday")
         user_zone(required: true, description: "the user zone registered", type: PropertyType.String)
+        is_googlebot(required: false, description: 'is google bot request', PropertyType.Boolean)
     }
 
     "/search"(platform: "/mobile") {
