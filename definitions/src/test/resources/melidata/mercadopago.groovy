@@ -755,6 +755,33 @@ trackTests {
         }
     }
 
+    test("Point Seller Friction tests") {
+        "/pos_seller/friction/device_comm_error"(platform: "/mobile", type: TrackType.Event) {
+            context = "settings/reader_update"
+            message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
+            attributable_to = "reader"
+            extra_info = [ poi: "CHB123456789012-LE", progress: 25.5 ]
+        }
+        "/pos_seller/friction/server_comm_error"(platform: "/mobile", type: TrackType.Event) {
+            context = "settings/reader_update"
+            message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
+            attributable_to = "reader"
+            extra_info = [ poi: "CHB123456789012-LE", progress: 25.5 ]
+        }
+        "/pos_seller/friction/battery_low_error"(platform: "/mobile", type: TrackType.Event) {
+            context = "settings/reader_update"
+            message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
+            attributable_to = "reader"
+            extra_info = [ poi: "CHB123456789012-LE"]
+        }
+        "/pos_seller/friction/reader_update_failed"(platform: "/mobile", type: TrackType.Event) {
+            context = "settings/reader_update"
+            message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
+            attributable_to = "device"
+            extra_info = [ poi: "CHB123456789012-LE", progress: 25.5 ]
+        }
+    }
+
     test("MP-MA Point Landings App Chinese") {
         "/merchant_acquisition/point-landings/app-chinese"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/point-landings/app-chinese/error"(platform:"/", type: TrackType.View) {}
@@ -1344,6 +1371,37 @@ trackTests {
         "/company_info/on_boarding"(platform: "/mobile", type: TrackType.View) {}
 
         "/dashboard"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Settings Point Reader Update") {
+        "/settings/reader_update"(platform: "/mobile", type: TrackType.View) {
+            flow = "/settings"
+            poi = "CHB123456789012-LE"
+        }
+        "/settings/reader_update/onboarding"(platform: "/mobile", type: TrackType.View) {
+            flow = "/settings"
+            poi = "CHB123456789012-LE"
+        }
+        "/settings/reader_update/result"(platform: "/mobile", type: TrackType.View) {
+            flow = "/settings"
+            poi = "CHB123456789012-LE"
+        }
+        "/settings/reader_update/process_completed"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/settings"
+            poi = "CHB123456789012-LE"
+            duration = 120.7
+            previous_version = "1.00.02.21"
+            previous_config = "MEZZ_Generic_v6"
+            new_version = "1.00.03.32"
+            new_config = "MEZZ_Generic_v8"
+        }
+        "/settings/reader_update/cancel"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/settings"
+            poi = "CHB123456789012-LE"
+            duration = 120.7
+            time_remaining = 20.7
+            progress = 78.8
+        }
     }
 
     test("MP Point Standalone") { //BORRAR CUANDO LA APP ESTÉ INHABILITADA
