@@ -87,6 +87,13 @@ tracks {
         subdomain(required: true, type: PropertyType.String)
     }
 
+    "/mercado_shops/admin/dismiss_form"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/admin/dismiss"(platform: "/", type: TrackType.Event){
+        reason_id(required: true, type: PropertyType.Numeric, description: "The reason id that identifies the main reason why the user decided to opt out.")
+        additional_comments(required: false, type: PropertyType.String, description: "Additional comments on why the user decided to opt out.")
+    }
+
     "/mercado_shops/domains/summary"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/domains/subdomain"(platform: "/", type: TrackType.View){}

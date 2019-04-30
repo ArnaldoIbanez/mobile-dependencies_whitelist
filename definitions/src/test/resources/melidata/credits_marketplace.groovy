@@ -120,6 +120,26 @@ trackTests {
             summary_status = 'on_time'
         }
 
+        //Admin Dashboard v2
+
+        //Views
+        "/credits/consumer/administrator_v2"(platform: "/web/desktop") {}
+        "/credits/consumer/administrator_v2/dashboard"(platform: "/web/desktop", type: TrackType.View) {
+            dashboard_status = 'overdue'
+        }
+
+        //Events
+        "/credits/consumer/administrator_v2/payment_intention_all"(platform: "/web/desktop", type: TrackType.Event) {
+            installments_qty = 3
+        }
+        "/credits/consumer/administrator_v2/details_button"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/choose_installments"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/help"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/contact_card"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/suggested_product"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/home"(platform: "/web/desktop", type: TrackType.Event) {}
+
         //Admin History (Compras Finalizadas)
 
         // Views
@@ -129,6 +149,7 @@ trackTests {
         "/credits/consumer/administrator/history/details_button"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/history/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {
         }
+
 
         /******************************************
          *       End: Consumers Administrator
@@ -163,8 +184,28 @@ trackTests {
         }
 
         /******************************************
-         *       Start: Consumers Admin Detail
+         *       End: Consumers Admin Detail
          ******************************************/
+
+        /****************************************************
+         *       Start: Consumers Installment Selection Page
+         ****************************************************/
+
+        //Views
+        "/credits/consumer/administrator_v2/installment_selection"(platform: "/web/desktop", type: TrackType.View) {
+            page_status = 'overdue'
+        }
+
+        //Events
+        "/credits/consumer/administrator_v2/installment_selection/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            total_installments = 3
+            paid_installments = 2
+        }
+        "/credits/consumer/administrator_v2/installment_selection/back_to_dashboard"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        /****************************************************
+         *       End: Consumers Installment Selection Page
+         ****************************************************/
 
         /******************************************
          *       Start: Consumers Push

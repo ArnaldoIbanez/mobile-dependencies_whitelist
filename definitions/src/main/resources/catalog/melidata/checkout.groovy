@@ -591,6 +591,7 @@ tracks {
         coupon(required: false, type: PropertyType.Boolean)
         coupon_discount(required: false, type: PropertyType.Numeric)
     }
+    "/checkout/payment/select_type/back"(platform: "/mobile", type: TrackType.Event) {}
 
     // 2MP switch tracks
     "/checkout/payment/2mp#use"(platform: "/mobile", type: TrackType.Event) {}

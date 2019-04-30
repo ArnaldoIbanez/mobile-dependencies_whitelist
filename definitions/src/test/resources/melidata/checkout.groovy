@@ -754,6 +754,12 @@ trackTests {
             coupon = true
             coupon_discount = 20
         }
+        "/checkout/payment/select_type/back"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+            available_methods = ["visa", "master", "amex", "cash"]
+            coupon = true
+            coupon_discount = 20
+        }
 
         // ESC: Enter the Sec Code to generate an Encrypted Security Code
         "/checkout/payment/encrypted_security_code_add"(platform:"/mobile") {
