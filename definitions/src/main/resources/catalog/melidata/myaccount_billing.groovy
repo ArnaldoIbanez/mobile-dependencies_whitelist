@@ -1,0 +1,17 @@
+import com.ml.melidata.catalog.PropertyType
+import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
+import com.ml.melidata.TrackType
+
+
+tracks {
+
+    //Myaccount_Billing
+    "/myaccount/billing/detail"(type: TrackType.View) {
+        userId(type: PropertyType.Numeric, required: true)
+        openedBill(type: PropertyType.Boolean, required: false)
+        siteId(type: PropertyType.String, required: false)
+    }
+
+    "/myaccount/billing/detail/collapsible"(type: TrackType.Event) {
+    }
+}
