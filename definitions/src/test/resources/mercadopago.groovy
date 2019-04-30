@@ -1729,6 +1729,14 @@ trackTests {
         "/new-withdraw/congrats-advance"(platform: "/", type: TrackType.View){}
     }
 
+    test("dashboard") {
+        "/dashboard/home"(platform: "/", type: TrackType.View){}
+        "/dashboard/detail"(platform: "/", type: TrackType.View){
+            chart="tpv"
+            section="online"
+        }
+    }
+
     test("new-account"){
         "/new-account"(platform: "/"){}
     }
