@@ -709,6 +709,7 @@ tracks {
     }
 
     // Traks for dashboard section
+    "/tfs_dashboard"(platform: "/", isAbstract: true) {}
     "/tfs_dashboard/home"(platform: "/", type: TrackType.View) {}
     "/tfs_dashboard/detail"(platform: "/", type: TrackType.View) {
         chart (required: true, type: PropertyType.String, description: "The chart ID of the detail")
