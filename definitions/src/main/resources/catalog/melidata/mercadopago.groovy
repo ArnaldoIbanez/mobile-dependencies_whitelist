@@ -708,6 +708,13 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
+    // Traks for dashboard section
+    "/dashboard/home"(platform: "/", type: TrackType.View) {}
+    "/dashboard/detail"(platform: "/", type: TrackType.View) {
+        chart (required: true, type: PropertyType.String, description: "The chart ID of the detail")
+        section (required: true, type: PropertyType.String, description: "The section owner of the chart")
+    }
+
     //tracks for new flow (withdraw and new account)
     "/new-withdraw"(platform: "/", type: TrackType.View) {}
     "/new-withdraw/confirm"(platform: "/", type: TrackType.View) {
