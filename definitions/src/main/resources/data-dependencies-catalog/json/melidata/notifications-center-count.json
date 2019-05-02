@@ -4,6 +4,10 @@
   ],
   "process_name": "notifications_center",
   "cron": "00 06 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
     "columns": [{

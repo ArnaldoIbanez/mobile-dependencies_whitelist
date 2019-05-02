@@ -1,6 +1,6 @@
-SELECT COUNT(1) AS total, *
+SELECT COUNT(1) AS total, *, fecha as ds
 FROM (
- SELECT '2019-04-19' AS fecha,
+ SELECT '@param01' AS fecha,
         split(path,'/')[2] AS notification_type,
         jet(event_data,'event_type') AS event_type,
         split(device.platform,'/')[2] AS platform,
@@ -12,8 +12,8 @@ FROM (
  FROM tracks
  WHERE path LIKE '/notification_center/%'
  AND path != '/notification_center/screen'
- AND   ds >= '2019-04-19'
- AND   ds < '2019-04-20'
+ AND   ds >= '@param01'
+ AND   ds < '@param02'
  AND (jest(event_data,'context') is null)
 ) t
 GROUP BY t.fecha, t.notification_type, t.event_type, t.platform, t.os_version, t.site, t.marketplace, t.app_version, t.action_type
