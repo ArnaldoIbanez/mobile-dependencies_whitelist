@@ -16,6 +16,15 @@ tracks {
         shipping_inconsistency(selections, error_code, inconsistency)
     }
 
+    def garexTrackStructure = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String)
+        period(required: true, type: PropertyType.Numeric)
+        cost(required: true, type: PropertyType.Numeric)
+        revenue_share_fee(required: true, type: PropertyType.Numeric)
+        revenue(required: true, type: PropertyType.Numeric)
+        currency_id(required: true, type: PropertyType.String)
+    }
+
     //CHECKOUT FLOW
 
     "/checkout"(platform: "/") {
@@ -118,8 +127,6 @@ tracks {
         //useAccountMoneyWithAnotherPM
         //availableAccountMoney
 
-        available_subscription(required:false, description:"If the item is elegible for subscription")
-
         loyalty_level(required:false, description:"The loyalty level of the buyer")
 
         investor(required:false, type: PropertyType.String, values:["YES", "NO"], description:"If the user is an investor")
@@ -133,6 +140,11 @@ tracks {
         available_methods(required: false, type: PropertyType.ArrayList, description: "Available payment methods for this flow")
         nearest_store_distance(required: false, description: "Distance to the nearest store")
         flow_type(required: false, type: PropertyType.String, description: "Type of operation")
+
+        item_with_garex(required: false, type: PropertyType.Boolean, description: 'Item has available warranty')
+        total_amount_including_garex(required: false, type: PropertyType.Numeric, description: 'Total amount (include garex if applies)')
+        garex(required: false, type: PropertyType.Map(garexTrackStructure), description: 'User selects a warranty option')
+        stored_cards_quantity(required: false, type: PropertyType.Numeric, description: "Stored cards quantity of the buyer")
     }
 
     /*
@@ -266,10 +278,10 @@ tracks {
     "/checkout/shipping/custom_address"(platform: "/mobile", isAbstract: true) {}
     //Input zip_code
     "/checkout/shipping/custom_address/zip_code"(platform: "/mobile") {
-        edit_flow(required = false, type: PropertyType.Boolean, description: "Represents the state of user editing address flow")
+        edit_flow(required: false, type: PropertyType.Boolean, description: "Represents the state of user editing address flow")
     }
     "/checkout/shipping/custom_address/zip_code/back"(platform: "/mobile", type: TrackType.Event) {
-        edit_flow(required = false, type: PropertyType.Boolean, description: "Represents the state of user editing address flow")
+        edit_flow(required: false, type: PropertyType.Boolean, description: "Represents the state of user editing address flow")
     }
     "/checkout/shipping/custom_address/zip_code#zip_code"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
@@ -308,9 +320,11 @@ tracks {
         success(required: false, type: PropertyType.Boolean, description: "API Call when success on loading shipping options")
     }
     //Query zip code
-    "/checkout/shipping/custom_address/zip_code/query"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+    "/checkout/shipping/custom_address/zip_code/query"(platform: "/mobile", type: TrackType.View) {
+        edit_flow(required: false, type: PropertyType.Boolean, description: "Represents the state of user editing address flow")
     }
-    "/checkout/shipping/custom_address/zip_code/query/back"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/shipping/custom_address/zip_code/query/back"(platform: "/mobile", type: TrackType.Event) {
+        edit_flow(required: false, type: PropertyType.Boolean, description: "Represents the state of user editing address flow")
     }
     "/checkout/shipping/custom_address/zip_code/query#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
@@ -329,6 +343,8 @@ tracks {
         //    free_shipping: true
         //  ]
         //]
+        // Visual type of shipping options list
+        view_type(required: false, type: PropertyType.String, values: ["legacy", "grouped"])
     }
     //Select shippingOptions
     "/checkout/shipping/select_option/mercado_envios"(platform: "/mobile") {}
@@ -575,6 +591,7 @@ tracks {
         coupon(required: false, type: PropertyType.Boolean)
         coupon_discount(required: false, type: PropertyType.Numeric)
     }
+    "/checkout/payment/select_type/back"(platform: "/mobile", type: TrackType.Event) {}
 
     // 2MP switch tracks
     "/checkout/payment/2mp#use"(platform: "/mobile", type: TrackType.Event) {}
@@ -621,6 +638,9 @@ tracks {
         status(required: true, type: PropertyType.String)
         checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
     }
+
+    "/checkout/review#submit/abort"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+
     "/checkout/review/quantity#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         old_quantity(required: true, type: PropertyType.Numeric)
@@ -760,6 +780,15 @@ tracks {
     "/checkout/finish/invalid_sec_code/input"(platform: "/mobile") {}
 
     "/checkout/finish/invalid_sec_code/input#submit"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/checkout/features"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {}
+
+    "/checkout/features/bridge"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        is_experiment_on(required: false, type: PropertyType.Boolean, description: "Check if the bridge is on or not")
+        can_navigate_to(required: false, type: PropertyType.Boolean, description: "Check if the navigation is to a internal flow screen")
+        screen(required: false, type: PropertyType.String, "Destination screen name")
+    }
 
     "/checkout/finish"(platform: "/mobile", isAbstract: true) {
         /** **************************************/
@@ -1067,6 +1096,28 @@ tracks {
     "/checkout/review/edit_unique_installment"(platform:"/", type: TrackType.View) {}
     "/checkout/review/edit_first_installment"(platform:"/", type: TrackType.View) {}
     "/checkout/review/edit_second_installment"(platform:"/", type: TrackType.View) {}
+
+
+    /*
+    * GarEx tracks
+    *
+    * GarEx es una entidad que representa la garantia que el usuario elige para su producto
+    * */
+
+
+    "/checkout/garex"(platform:"/web", type: TrackType.View) {}
+    "/checkout/garex/more_info"(platform:"/web", type: TrackType.Event) {}
+    "/checkout/garex/selected_garex"(platform:"/web", type: TrackType.Event) {
+        garex(required: true, type: PropertyType.Map(garexTrackStructure) )
+    }
+    "/checkout/garex/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
+    "/checkout/garex/delete"(platform:"/web", type: TrackType.Event) {
+        garex(required: true, type: PropertyType.Map(garexTrackStructure) )
+    }
+
+    /*
+    * end GarEx tracks
+    * */
 
     /*
     * CHECKOUT V5

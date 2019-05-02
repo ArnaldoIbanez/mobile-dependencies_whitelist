@@ -332,11 +332,15 @@ trackTests {
         "/checkout/shipping/custom_address/zip_code#submit"(platform:"/mobile", type: TrackType.Event) {
             success = true
         }
-        "/checkout/shipping/custom_address/zip_code/query"(platform:"/mobile", type:TrackType.View) {}
+        "/checkout/shipping/custom_address/zip_code/query"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
         "/checkout/shipping/custom_address/zip_code/query#submit"(platform:"/mobile", type: TrackType.Event) {
             query_parameters = "Mexico D.F."
         }
-        "/checkout/shipping/custom_address/zip_code/query/back"(platform:"/mobile", type:TrackType.Event) {}
+        "/checkout/shipping/custom_address/zip_code/query/back"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+        }
         "/checkout/shipping/select_option/mercado_envios"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
             //List of available shippingMethods
@@ -354,6 +358,7 @@ trackTests {
                             free_shipping: false
                     ]
             ]
+            view_type = "grouped"
         }
         "/checkout/shipping/select_option/free_shipping"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -366,6 +371,7 @@ trackTests {
                             free_shipping: true
                     ]
             ]
+            view_type = "grouped"
         }
         "/checkout/shipping/select_option/custom"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -378,6 +384,7 @@ trackTests {
                             free_shipping: false
                     ]
             ]
+            view_type = "grouped"
         }
         "/checkout/shipping/select_contact"(platform:"/mobile", type:TrackType.Event) {
             is_from_preload_address = true
@@ -747,6 +754,12 @@ trackTests {
             coupon = true
             coupon_discount = 20
         }
+        "/checkout/payment/select_type/back"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+            available_methods = ["visa", "master", "amex", "cash"]
+            coupon = true
+            coupon_discount = 20
+        }
 
         // ESC: Enter the Sec Code to generate an Encrypted Security Code
         "/checkout/payment/encrypted_security_code_add"(platform:"/mobile") {
@@ -816,6 +829,9 @@ trackTests {
             status = "success"
             checkout_flow = "direct"
         }
+
+        "/checkout/review#submit/abort"(platform:"/mobile", type:TrackType.Event) {}
+
         "/checkout/review/quantity#submit"(platform:"/mobile", type: TrackType.Event) {
             old_quantity = 4
             selected_quantity = 1
@@ -890,6 +906,12 @@ trackTests {
         }
 
         "/checkout/finish/invalid_sec_code/input#submit"(platform:"/mobile", type:TrackType.Event) { }
+
+        "/checkout/features/bridge"(platform:"/mobile", type:TrackType.Event) {
+            is_experiment_on = true
+            can_navigate_to = false
+            screen = "MapScreen"
+        }
 
         "/checkout/finish/choose_action"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -984,6 +1006,19 @@ trackTests {
             ]
 
             order_id=912391
+        }
+
+        /**
+         * Garex
+         * */
+        "/checkout/"(platform: "/web") {
+            item_with_garex: true
+            total_amount_including_garex: 1869.89
+        }
+
+        "/checkout/"(platform: "/web") {
+            item_with_garex: false
+            total_amount_including_garex: 1699.89
         }
 
         //Checkout Desktop
@@ -1748,6 +1783,35 @@ trackTests {
 
     }
 
+    /*
+    Garex tracks tests
+    * */
+    test('checkout garex') {
+        "/checkout/garex"(platform:"/web", type: TrackType.View) {}
+        "/checkout/garex/more_info"(platform:"/web", type: TrackType.Event) {}
+        "/checkout/garex/selected_garex"(platform:"/web", type: TrackType.Event) {
+            garex = [
+                    "id": "MLA390289_GAR16001",
+                    "period": 24,
+                    "cost": 1234,
+                    "revenue_share_fee": 70,
+                    "revenue": 863.80,
+                    "currency_id": "ARS"
+            ]
+        }
+        "/checkout/garex/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
+        "/checkout/garex/delete"(platform:"/web", type: TrackType.Event) {
+            garex = [
+                    "id": "MLA390289_GAR16001",
+                    "period": 24,
+                    "cost": 1234,
+                    "revenue_share_fee": 70,
+                    "revenue": 863.80,
+                    "currency_id": "ARS"
+            ]
+        }
+    }
+
     test("checkout payment combination inconsistencies") {
         "/checkout/review/discard_payment_combination"(platform: "/mobile", type:TrackType.View) {}
         "/checkout/review/inconsistency/payment_combination/payment"(platform: "/mobile", type:TrackType.View) {}
@@ -1949,6 +2013,7 @@ trackTests {
             nearest_store_distance = 250000
             checkout_flow = "direct"
             flow_type = "buy_it_now"
+            stored_cards_quantity = 3
         }
 
         "/checkout/geolocation"(platform:"/web", type: TrackType.Event) {
@@ -2173,6 +2238,19 @@ trackTests {
             item_status = "inactive"
         }
         "/checkout_recovery/notfound" (platform:"/web/mobile", type: TrackType.View) {
+            item_id = "MLU451705243"
+            item_status = "inactive"
+        }
+
+        "/checkout_recovery" (platform:"/mobile/android", type: TrackType.View) {
+            item_id = "MLU451705243"
+            item_status = "inactive"
+        }
+        "/checkout_recovery/error" (platform:"/mobile/android", type: TrackType.View) {
+            item_id = "MLU451705243"
+            item_status = "inactive"
+        }
+        "/checkout_recovery/notfound" (platform:"/mobile/android", type: TrackType.View) {
             item_id = "MLU451705243"
             item_status = "inactive"
         }

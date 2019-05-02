@@ -110,6 +110,7 @@ tracks {
 
     account_money_info(required:false, type: PropertyType.Map, description: "Map with data of the account money of the buyer")
     loyalty_level(required:false, description:"The loyalty level of the buyer")
+    stored_cards_quantity(required: false, type: PropertyType.Numeric, description: "Stored cards quantity of the buyer")
 }
 
 "/cart/checkout/items_not_available"(platform:"/", type: TrackType.View) {}
@@ -316,6 +317,8 @@ tracks {
 
 "/cart/checkout/payment/select_unique_installment"(platform:"/", type: TrackType.View) {}
 
+"/cart/checkout/payment/select_unique_installment/back"(platform:"/", type: TrackType.Event) {}
+
 "/cart/checkout/payment/select_split_installments"(platform:"/", type: TrackType.View) {}
 
 "/cart/checkout/payment/select_split_installments/select_installment"(platform: "/", type: TrackType.Event) {
@@ -468,6 +471,7 @@ tracks {
     session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
     error(required: true, type: PropertyType.String, description: "Error that was shown to the user")
 }
+"/cart/checkout/payment/input_card/back"(platform:"/mobile", type: TrackType.Event){}
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin Mobile platform

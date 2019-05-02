@@ -42,14 +42,14 @@ tracks {
 
     "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
         placement(required: true, description: "Place where track was dispatched")
-        adv_segmentation(required: true, description: "Adevrtasement segmentation ")
-        reputation_level(required: true, description: "Reputation for Pads")
+        adv_segmentation(required: false, description: "Adevrtasement segmentation ")
+        reputation_level(required: false, description: "Reputation for Pads")
     }
 
     "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
         placement(required: true, description: "Place where track was dispatched")
-        adv_segmentation(required: true, description: "Adevrtasement segmentation ")
-        reputation_level(required: true, description: "Reputation for Pads")
+        adv_segmentation(required: false, description: "Adevrtasement segmentation ")
+        reputation_level(required: false, description: "Reputation for Pads")
     }
 
     "/seller_central/listings/communication/more_info"(platform: "/mobile", type: TrackType.Event) {}
@@ -228,6 +228,7 @@ tracks {
     "/seller_central/modify/technical_specifications/hints"(platform: "/", isAbstract: true) {
         hintsGroup
         category_domain(required: true, type: PropertyType.String, description: "Item category domain")
+        hint_id(required: true, type: PropertyType.String, description: "Id del hint que se mostro, pueden cambiar o generarse nuevos por lo que no conocemos todos los valores posibles.")
     }
 
     "/seller_central/modify/technical_specifications/hints/available"(platform: "/", type: TrackType.Event) {
@@ -241,10 +242,14 @@ tracks {
         user_action(required: false, type: PropertyType.String, description: "Type of user action", values: ["click", "write"])
     }
 
+    "/seller_central/modify/optin_flex_subflow"(platform: "/", type: TrackType.View) {
+        sellerCentralModifyCardsGroup
+    }
 
     "/seller_central/bulk/technical_specifications"(platform: "/", isAbstract: true) {}
     "/seller_central/bulk/technical_specifications/hints"(platform: "/", isAbstract: true) {
         hintsGroup
+        hint_id(required: true, type: PropertyType.String, description: "Id del hint que se mostro, pueden cambiar o generarse nuevos por lo que no conocemos todos los valores posibles.")
         category_domain(required: true, type: PropertyType.String, description: "Item category domain")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
@@ -258,6 +263,21 @@ tracks {
 
     "/seller_central/bulk/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event) {
         user_action(required: false, type: PropertyType.String, description: "Type of user action", values: ["click", "write"])
+    }
+
+    "/seller_central/modify/technical_specifications/multivalue"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyGroup
+        quantity(required: true, type: PropertyType.Numeric, description: "Added values")
+        previous_quantity(required: true, type: PropertyType.Numeric, description: "Previous values")
+        category_domain(required: true, type: PropertyType.String, description: "Domain")
+        hierarchy(required: true, type: PropertyType.String, description: "Attribute type")
+    }
+
+    "/seller_central/modify/technical_specifications/suggested"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyGroup
+        category_domain(required: true, type: PropertyType.String, description: "Domain")
+        type(required: true, type: PropertyType.String, description: "Suggestion type")
+        hierarchy(required: true, type: PropertyType.String, description: "Attribute type")
     }
 
     // SETTINGS SECTION

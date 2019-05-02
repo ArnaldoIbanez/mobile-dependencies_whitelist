@@ -32,6 +32,14 @@ trackTests {
         }
     }
 
+    test("Quotation :: Show select models tracking event") {
+
+        "/quotation/details/show"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLM2222222"
+            source = "primary"
+        }
+    }
+
     test("Quotation :: Show select models tracking") {
 
         "/quotation/models"(platform: "/mobile") {
@@ -75,6 +83,11 @@ trackTests {
             item_id = "MLM2222222"
             model_id = "102B"
             unit_id = "54321"
+        }
+
+        "/quotation/quote_intention"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLM2222222"
+            source = "vip"
         }
     }
 

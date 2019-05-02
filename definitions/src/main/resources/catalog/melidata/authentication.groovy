@@ -56,6 +56,7 @@ tracks {
 
     "/login/auth/success"(platform: "/mobile", type: TrackType.Event) {
         challenge(type: PropertyType.String, required: true, description: "Login step")
+        tracking_id(type: PropertyType.String, required: false, description: "Indicates the id to track the transaction")
         is_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via a One Time Password")
         is_admin_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via an Admin One Time Password")
     }
@@ -124,6 +125,7 @@ tracks {
 
     "/login/auth/challenge/restart"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         challenge(type: PropertyType.String, required: true, description: "Login Step")
+        tracking_id(type: PropertyType.String, required: false, description: "Indicates the id to track the transaction")
     }
 
     "/login/auth/challenge/error"(platform: "/", type: TrackType.View) {
@@ -205,54 +207,76 @@ tracks {
     }
 
     //Account Recovery
-    "/auth/account_recovery"(platform: "/", isAbstract: true) {}
-
-    "/auth/account_recovery/canceled"(platform: "/", type: TrackType.View) {
+    "/auth/account_recovery"(platform: "/", isAbstract: true) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
     }
 
-    "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {
-        id(type: PropertyType.String, required: true, description: "Current transaction id")
-        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
-    }
+    "/auth/account_recovery/recovery_confirmation"(platform: "/", type: TrackType.View) {}
 
-    "/auth/account_recovery/phone_number_verification"(platform: "/", type: TrackType.View) {
-        id(type: PropertyType.String, required: true, description: "Current transaction id")
-        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
-    }
+    "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {}
 
-    "/auth/account_recovery/on_hold"(platform: "/", type: TrackType.View) {
-        id(type: PropertyType.String, required: true, description: "Current transaction id")
-        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
-    }
+    "/auth/account_recovery/landing"(platform: "/", type: TrackType.View) {}
 
-    "/auth/account_recovery/canceled/action"(platform: "/", type: TrackType.Event) {
-        id(type: PropertyType.String, required: true, description: "Current transaction id")
+    "/auth/account_recovery/phone_number_verification"(platform: "/", type: TrackType.View) {}
+
+    "/auth/account_recovery/on_hold"(platform: "/", type: TrackType.View) {}
+
+    "/auth/account_recovery/recovery_confirmation/action"(platform: "/", type: TrackType.Event) {
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
-        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
     }
 
     "/auth/account_recovery/congrats/action"(platform: "/", type: TrackType.Event) {
-        id(type: PropertyType.String, required: true, description: "Current transaction id")
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
-        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
+    }
+
+    "/auth/account_recovery/landing/action"(platform: "/", type: TrackType.View) {
+        event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
+        target(type: PropertyType.String, required: false, description: "Describes element related to user action")
     }
 
     "/auth/account_recovery/phone_number_verification/action"(platform: "/", type: TrackType.Event) {
-        id(type: PropertyType.String, required: true, description: "Current transaction id")
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
-        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
     }
 
     "/auth/account_recovery/on_hold/action"(platform: "/", type: TrackType.Event) {
-        id(type: PropertyType.String, required: true, description: "Current transaction id")
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
-        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
+        status_code(type: PropertyType.String, required: true, description: "Describes relation between this view and current status code")
+    }
+
+    //Attestation App
+    "/auth/attestation"(platform: "/mobile", isAbstract: true) {}
+
+    "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
+        mode(type: PropertyType.String, required: false, description: "In which mode attestation was started" , values:['publish_result', 'prefetch_only', 'cache_only'])
+    }
+
+    "/auth/attestation/signature"(platform: "/mobile", isAbstract: true) {}
+
+    "/auth/attestation/signature/request"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/auth/attestation/signature/created"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/auth/attestation/signature/reuse"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/auth/attestation/signature/expired"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/auth/attestation/signature/fail"(platform: "/mobile", type: TrackType.Event) {
+        reason(type: PropertyType.String, required: true, description: "Failure reason")
+    }
+
+    "/auth/attestation/nonce"(platform: "/mobile", isAbstract: true) {}
+
+    "/auth/attestation/nonce/request"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/auth/attestation/nonce/created"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/auth/attestation/nonce/fail"(platform: "/mobile", type: TrackType.Event) {
+        reason(type: PropertyType.String, required: true, description: "Failure reason")
     }
 
     //SMS Enrollment

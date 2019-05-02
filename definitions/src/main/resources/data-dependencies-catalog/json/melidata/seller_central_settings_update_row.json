@@ -2,7 +2,7 @@
   "users": [
     "luis.olivera@mercadolibre.com"
   ],
-  "process_name": "seller_central_settings_show_row",
+  "process_name": "seller_central_settings_update_row",
   "cron": "00 08 * * *",
   "partition": {
     "name": "ds",
@@ -12,11 +12,11 @@
     "operation": "append",
     "columns": [
       {
-        "name": "Site_id",
-        "type": "UNICODE_STRING"
+        "name": "Quantity",
+        "type": "INTEGER"
       },
       {
-        "name": "User_id",
+        "name": "Site_id",
         "type": "UNICODE_STRING"
       },
       {
@@ -24,15 +24,11 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Prev_value",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "Actual_value",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "Section_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Action_id",
         "type": "UNICODE_STRING"
       }
     ],

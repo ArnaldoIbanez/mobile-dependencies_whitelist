@@ -119,6 +119,7 @@ trackTests {
             user_identification = ["doc_type", "doc_number"]
             available_methods = ["visa", "master", "amex"]
             nearest_store_distance = 250000
+            stored_cards_quantity = 3
         }
 
         "/cart/checkout/review/edit_installments"(platform:"/", type: TrackType.Event) {
@@ -281,6 +282,7 @@ trackTests {
         "/cart/checkout/shipping/add_contact_info"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_contact_info"(platform:"/mobile", dataSet)
         "/cart/checkout/payment/select_unique_installment"(platform:"/", dataSet)
+        "/cart/checkout/payment/select_unique_installment/back"(platform:"/", dataSet)
         "/cart/checkout/payment/select_unique_installment/edit_installment_options"(platform:"/", dataSet)
         "/cart/checkout/payment/select_unique_installment/select_installment"(platform: "/", dataSet)
         "/cart/checkout/payment/select_split_installments"(platform:"/", dataSet)
@@ -386,6 +388,7 @@ trackTests {
             session_id = "1241n1kj2nk14141nl12nl"
             error = "Completa este dato"
         }
+        "/cart/checkout/payment/input_card/back"(platform:"/mobile", type: TrackType.Event, dataSet)
 
         // Cancelarion
         "/cart/checkout/payments_cancelation"(platform:"/mobile", dataSet)

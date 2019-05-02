@@ -1,10 +1,11 @@
 {
   "users": [
-    "luciano.montero@mercadolibre.com",
+    "agustin.romano@mercadolibre.com",
+    "juan.larrambebere@mercadolibre.com",
      "cpg_it@mercadolibre.com"
   ],
-  "process_name": "carousel_cpg_ctr",
-  "cron": "00 07 * * *",
+  "process_name": "carousel_ctr_cpg",
+  "cron": "00 09 * * *",
   "partition": {
         "name": "track_date",
         "type": "DATE",
@@ -15,9 +16,18 @@
     "site": "Sales",
     "columns": [
       {
+        "name": "query",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "platform",
         "type": "UNICODE_STRING"
       },
+      {
+        "name": "place",
+        "type": "UNICODE_STRING"
+      },
+      
       {
         "name": "prints",
         "type": "INTEGER"
@@ -26,9 +36,10 @@
         "name": "clicks",
         "type": "INTEGER"
       }
+      
     ],
     "sql": {
-      "script": "cpg/carousel_cpg_ctr.sql",
+      "script": "cpg/carousel_ctr_cpg.sql",
       "parameters": [
         {
           "name": "param01",

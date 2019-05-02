@@ -11,6 +11,14 @@ trackTests {
 
         // Onboarding
         "/asset_management/onboarding"(platform: "/mobile") {}
+        "/asset_management/start_investing"(platform: "/mobile") {}
+        "/asset_management/know_more"(platform: "/mobile") {}
+
+        // First time
+        "/asset_management/first_time"(platform: "/mobile") {}
+
+        // Blocking screen
+        "/asset_management/blocker"(platform: "/mobile") {}
 
         // Challenges
         "/asset_management/challenge_pep"(platform: "/mobile") {}
@@ -38,6 +46,9 @@ trackTests {
         "/asset_management/challenge_selfie"(platform: "/mobile") {}
         "/asset_management/challenge_selfie_bad_quality"(platform: "/mobile") {}
         "/asset_management/challenge_terms_and_conditions_company"(platform: "/mobile") {}
+        "/asset_management/challenge_address"(platform: "/mobile") {}
+        "/asset_management/challenge_phone"(platform: "/mobile") {}
+        "/asset_management/challenge_single_pep_fatca_so"(platform: "/mobile") {}
 
         // Terms and conditions View
         "/asset_management/terms_and_conditions"(platform: "/mobile") {}
@@ -45,9 +56,36 @@ trackTests {
         // Opt-out
         "/asset_management/opt_out"(platform: "/mobile") {}
         "/asset_management/result_stop_investing"(platform: "/mobile") {}
+        "/asset_management/result_stop_investing"(platform: "/web") {}
 
         // Detail
         "/asset_management/investment_detail"(platform: "/mobile") {}
+        "/asset_management/investment_detail"(platform: "/web") {}
+
+        // Earnings report
+        "/asset_management/investment_reports"(platform: "/web") {}
+
+        "/asset_management/landing"(platform: "/web") {}
+        "/asset_management/invest"(platform: "/web") {}
+        "/asset_management/investment_report"(platform: "/web") {
+            year = "2018"
+            quarter = "1"
+        }
+        "/asset_management/investment_report"(platform: "/web") {
+            year = "2018"
+            quarter = "2"
+        }
+        "/asset_management/investment_report"(platform: "/web") {
+            year = "2018"
+            quarter = "3"
+        }
+        "/asset_management/investment_report"(platform: "/web") {
+            year = "2018"
+            quarter = "4"
+        }
+        "/asset_management/investment_report"(platform: "/web") {
+            year = "2018"
+        }
 
         // Operations
         "/asset_management/movements_detail"(platform: "/mobile") {} // old name
@@ -56,30 +94,35 @@ trackTests {
 
         // Congrats
         "/asset_management/result_investing"(platform: "/mobile") {}
+        "/asset_management/result_investing_company/approved"(platform: "/mobile") {}
+        "/asset_management/result_investing_company/pending"(platform: "/mobile") {}
+        "/asset_management/result_investing_company/rejected"(platform: "/mobile") {}
 
         // Faqs
         "/asset_management/faqs"(platform: "/mobile") {}
-
+        "/asset_management/faqs"(platform: "/web") {}
         "/asset_management/faq"(platform: "/mobile") {}
 
         "/asset_management/url_external"(platform: "/mobile") {
-            label = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
+            url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
             context = "/asset_management/onboarding"
         }
 
         "/asset_management/url_external"(platform: "/mobile") {
-            label = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
+            url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
             context = "/asset_management/faqs"
         }
 
         "/asset_management/url_external"(platform: "/mobile") {
-            label = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
+            url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
             context = "/asset_management/operations"
         }
 
         "/asset_management/clarification"(platform: "/mobile") {
             label = "/asset_management/movements_detail"
         }
+
+        "/asset_management/add_funds"(platform: "/mobile") {}
 
         // Splitter
         "/asset_management/splitter"(platform: "/mobile") {}
@@ -96,6 +139,7 @@ trackTests {
         }
 
         // Error
+        "/asset_management/network_error"(platform: "/mobile") {}
         "/asset_management/error"(platform: "/mobile") {
             label = "service_error_generic"
         }
