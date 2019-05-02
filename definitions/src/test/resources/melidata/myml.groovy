@@ -207,7 +207,10 @@ trackTests {
         "/myml/invoices/company-info/ie/save/response"(platform: "/", type: TrackType.Event) {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
-        "/myml/invoices/company-info/confirm"(platform: "/") {}
+        "/myml/invoices/company-info/confirm"(platform: "/") {
+          campaign_source = 'fiscalData'
+          campaign = 'adp_xd'
+        }
         "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
             enabled_for_fulfillment = true
             tax_payer_type = "Regime Normal"
@@ -219,7 +222,10 @@ trackTests {
         }
         "/myml/invoices/company-info/confirm/help_tooltip/serie"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/confirm/help_tooltip/freight"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/company-info/confirm-normal"(platform: "/") {}
+        "/myml/invoices/company-info/confirm-normal"(platform: "/") {
+          campaign_source = 'fiscalData'
+          campaign = 'adp_xd'
+        }
         "/myml/invoices/company-info/confirm-normal/save/request"(platform: "/", type: TrackType.Event) {
             serie = 5
             include_freight = true
@@ -281,6 +287,26 @@ trackTests {
         }
         "/myml/invoices/order/carrier/save/response"(platform: "/", type: TrackType.Event) {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
+        }
+    }
+
+    test("Backoffice pages") {
+        "/myml/invoices/backoffice/search/invoice"(platform: "/", type: TrackType.Event) {
+            search_filter = {
+                invoiceNumber = 234
+            }
+        }
+
+        "/myml/invoices/backoffice/search/reissueinvoice"(platform: "/", type: TrackType.Event) {
+             data = {
+                invoiceId = 123123
+            }
+        }
+
+        "/myml/invoices/backoffice/search/invoiceslist"(platform: "/", type: TrackType.Event) {
+             search_filter = {
+                recipientCnpj = 123123
+            }
         }
     }
 
@@ -433,6 +459,46 @@ trackTests {
         "/myml/fiscal_information/tax_information/success/btn/listings"(platform: "/", type: TrackType.Event) {
             url = "/fiscal-information/item/MLB1234/tax-information/success"
             item_id = "MLB1234"
+        }
+
+        "/myml/fiscal_information/tax_substitution"(platform: "/", type: TrackType.View) {
+            query_sku = "SKU1234"
+            query_item_id = "MLB1234"
+            query_inbound_id = "INB1234"
+        }
+
+        "/myml/fiscal_information/tax_substitution/btn/backtoinbound"(platform: "/", type: TrackType.Event) {
+            query_sku = "SKU1234"
+            query_item_id = "MLB1234"
+            query_inbound_id = "INB1234"
+        }
+
+        "/myml/fiscal_information/tax_substitution/form/save/request"(platform: "/", type: TrackType.Event) {
+            query_sku = "SKU1234"
+            query_item_id = "MLB1234"
+            query_inbound_id = "INB1234"
+            data = {
+                base_fcp_retained = 0
+                base_retained = 0
+                fcp_retained = 0
+                icms_retained = 0
+            }
+        }
+
+        "/myml/fiscal_information/tax_substitution/form/save/response"(platform: "/", type: TrackType.Event) {
+            query_sku = "SKU1234"
+            query_item_id = "MLB1234"
+            query_inbound_id = "INB1234"
+            error = false
+            data = {
+                tax_information = {}
+                tax_substitution = {
+                    base_fcp_retained = 0
+                    base_retained = 0
+                    fcp_retained = 0
+                    icms_retained = 0
+                }
+            }
         }
 
         "/myml/fiscal_information/type"(platform: "/", type: TrackType.View) {
@@ -597,7 +663,7 @@ trackTests {
             dataSet()
         }
 
-        "/myml/purchases/buy_it_again" (platform:"/", type: TrackType.View) {
+        "/myml/purchases/status/buy_it_again"(platform:"/mobile", type: TrackType.Event) {
             item_id = 'MLA713079054'
         }
 

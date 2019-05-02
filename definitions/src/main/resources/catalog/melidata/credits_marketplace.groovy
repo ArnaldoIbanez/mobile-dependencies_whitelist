@@ -121,6 +121,30 @@ tracks {
     "/credits/consumer/administrator/summary/get_educative"(platform: "/", type: TrackType.Event) {
     }
 
+    //Admin Dashboard v2
+
+    //Page Views
+    "/credits/consumer/administrator_v2"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/administrator_v2/dashboard"(platform: "/", type: TrackType.View) {
+        dashboard_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
+    }
+
+    //Events
+    "/credits/consumer/administrator_v2/payment_intention_all"(platform: "/", type: TrackType.Event) {
+        installments_qty(
+                type: PropertyType.Numeric,
+                required: true,
+                description: "The total number of installments to pay"
+        )
+    }
+    "/credits/consumer/administrator_v2/details_button"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/choose_installments"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/help"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/contact_card"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/educational_landing"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/suggested_product"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/home"(platform: "/", type: TrackType.Event) {}
+
     //Admin History (Compras Finalizadas)
 
     //Page views
@@ -221,8 +245,37 @@ tracks {
     }
 
     /******************************************
-     *       Start: Consumers Admin Detail
+     *       End: Consumers Admin Detail
      ******************************************/
+
+    /****************************************************
+     *       Start: Consumers Installment Selection Page
+     ****************************************************/
+
+    //Page Views
+    "/credits/consumer/administrator_v2/installment_selection"(platform: "/", type: TrackType.View) {
+        page_status(type: PropertyType.String, required: true, values: ["on_time", "overdue"], inheritable: false)
+    }
+
+    //Events
+    "/credits/consumer/administrator_v2/installment_selection/payment_intention"(platform: "/", type: TrackType.Event) {
+        total_installments(
+                type: PropertyType.Numeric,
+                required: true,
+                description: "The total number of payable installments"
+        )
+        paid_installments(
+                type: PropertyType.Numeric,
+                required: true,
+                description: "The selected number of installments to pay"
+        )
+    }
+    "/credits/consumer/administrator_v2/installment_selection/back_to_dashboard"(platform: "/", type: TrackType.Event) {
+    }
+
+    /****************************************************
+     *       End: Consumers Installment Selection Page
+     ****************************************************/
 
     /******************************************
      *       Start: Consumers Enrollment
@@ -400,7 +453,7 @@ tracks {
      *   Start: Consumers Checkout
      ******************************************/
 
-    "/credits/consumer/administrator/checkout"(platform: "/web/desktop", type: TrackType.View) {
+    "/credits/consumer/administrator/checkout"(platform: "/", type: TrackType.View) {
         summary_status(description: "Current status of the loan summary", type: PropertyType.String, required: false, values: ["empty_state", "on_time", "overdue"])
     }
 
@@ -409,7 +462,7 @@ tracks {
      ******************************************/
 
     /******************************************
-    *    Start: Consumers Contacts
+     *    Start: Consumers Contacts
      ******************************************/
 
     //Page Views
@@ -433,34 +486,34 @@ tracks {
      *    Start: Consumers Enhance Adoption
      ******************************************/
 
-     propertyDefinitions {
-         credits_user_mark(
-             type: PropertyType.String,
-             description: "Credits user mark related to consumer adoption",
-             required: true,
-             values: ["open_market", "priority_1", "priority_2"]
-         )
-     }
+    propertyDefinitions {
+        credits_user_mark(
+                type: PropertyType.String,
+                description: "Credits user mark related to consumer adoption",
+                required: true,
+                values: ["open_market", "priority_1", "priority_2"]
+        )
+    }
 
-     propertyGroups {
-         adoption_modal_properties(credits_user_mark, context)
-     }
+    propertyGroups {
+        adoption_modal_properties(credits_user_mark, context)
+    }
 
-     "/credits/consumer/adoption_modal"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
-         adoption_modal_properties
-     }
+    "/credits/consumer/adoption_modal"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+        adoption_modal_properties
+    }
 
-     "/credits/consumer/adoption_modal/understood"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
-         adoption_modal_properties
-     }
+    "/credits/consumer/adoption_modal/understood"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+        adoption_modal_properties
+    }
 
-     "/credits/consumer/adoption_modal/close"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
-         adoption_modal_properties
-     }
+    "/credits/consumer/adoption_modal/close"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+        adoption_modal_properties
+    }
 
-     "/credits/consumer/adoption_modal/go_back"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
-         adoption_modal_properties
-     }
+    "/credits/consumer/adoption_modal/go_back"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+        adoption_modal_properties
+    }
 
     /******************************************
      *    End: Consumers Enhance Adoption

@@ -154,6 +154,7 @@ tracks {
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
         batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
         item_id(required: false, type: PropertyType.String, description: "Id of item.")
+        variation_id(required: false, type: PropertyType.String, description: "Id of variation.")
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -161,11 +162,11 @@ tracks {
         campaign_id(required: false, description: "Id of the campaign related to the campaigns notification sent.")
         test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test.")
         sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
-        batch_id(required: false, type: PropertyType.String, description: "Id of batch.")     
+        batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
         experiment(required: false, type: PropertyType.Boolean, description: "experiment.")
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }    
+    }
     "/notification_center/campaigns-ticket_recovery"(platform: "/") {
         campaign_id(required: true, description: "Id of the campaign related to the campaigns notification sent.")
         test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test.")
@@ -239,6 +240,13 @@ tracks {
     }
     "/notification_center/packages-buyer"(platform: "/", type: TrackType.Event) {}
     "/notification_center/packages-seller"(platform: "/", type: TrackType.Event) {}
+    "/notification_center/package-seller"(platform: "/", type: TrackType.Event) {
+        purchase_id(required: true, type: PropertyType.Numeric)
+        pack_id(required: true, type: PropertyType.Numeric)
+        shipment_id(required: false, description: "Id of shipment.")
+        latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/me_flex-optin"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -272,6 +280,10 @@ tracks {
     }
     "/notification_center/qrviral"(platform: "/", type: TrackType.Event) {
         campaign_id(required: false, description: "Id of the campaign related to the campaigns notification sent.")
+        latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/quotes_new"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -312,8 +324,16 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/security_recovery_canceled"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/chargeback-payer"(platform: "/", type: TrackType.Event) {
         case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/messages_quotes"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -643,6 +663,7 @@ tracks {
           test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+          variation_id(required: false, type: PropertyType.String, description: "Id of variation.")
           item_id(required: true, type: PropertyType.String)
       }
       "/notification/campaigns_ticket_recovery"(platform: "/") {
@@ -673,7 +694,7 @@ tracks {
           sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
           experiment(required: false, type: PropertyType.Boolean)
-      }      
+      }
       "/notification/campaigns_download_app"(platform: "/", type: TrackType.Event) {}
       //Freemium SYI
       "/notification/campaigns_syi_freemium"(platform: "/") {
@@ -710,6 +731,9 @@ tracks {
       }
       "/notification/qrviral_reminder"(platform: "/") {}
       "/notification/qrviral_extension"(platform: "/") {}
+
+      //Quotes
+      "/notification/quotes_reject"(platform: "/") {}
 
       //Listings
       "/notification/listings"(platform: "/") {}
@@ -899,6 +923,9 @@ tracks {
       "/notification/returns_return_cancelled"(platform: "/") {
         order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
       }
+      "/notification/returns_return_expired"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+      }
       "/notification/returns_shipped_seller"(platform: "/") {
           order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
       }
@@ -931,6 +958,7 @@ tracks {
       "/notification/security_account_validation"(platform: "/") {}
       "/notification/security_login_auth"(platform: "/") {}
       "/notification/security_device_authorization"(platform: "/") {}
+      "/notification/security_recovery_canceled"(platform: "/") {}
 
       //Health Check
       "/notification/health_check"(platform: "/") {

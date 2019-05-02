@@ -690,6 +690,8 @@ trackTests {
 
         "/instore/map"(platform: "/mobile", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            location = "-34.612112,-58.366109"
+            radius_in_meters = 1000
             type = "qr"
             tags = "shell"
         }
@@ -1447,6 +1449,8 @@ trackTests {
 
         "/instore/map"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            location = "-34.612112,-58.366109"
+            radius_in_meters = 1000
             type = "qr"
             tags = ["shell"]
         }

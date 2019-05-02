@@ -42,6 +42,21 @@ trackTests {
             }
             attributable_to = "mercadopago"
         }
+
+
+        "/friction"(platform: "/mobile", type: TrackType.Event) {
+            path = "/checkout/review"
+            style = "non_screen"
+            id = "invalid_esc"
+            extra_info = {
+                api_status_code = "code"
+                api_error_message =  "message"
+                api_url = "get_preference"
+                retry_available = true
+            }
+            attributable_to = "mercadopago"
+            session_id = "user_session_id"
+        }
     }
     
 }

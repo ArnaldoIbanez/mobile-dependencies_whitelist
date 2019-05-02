@@ -28,10 +28,6 @@
         "type": "INTEGER"
       },
       {
-        "name": "a_sent_date",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "a_device",
         "type": "UNICODE_STRING"
       },

@@ -163,6 +163,7 @@ trackTests {
             }
             geo_search = false
             user_zone = ""
+            is_googlebot=true
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)

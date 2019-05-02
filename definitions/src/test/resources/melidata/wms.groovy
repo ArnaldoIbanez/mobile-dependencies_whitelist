@@ -364,6 +364,11 @@ trackTests {
             input_data = "CA-0-001-000-00-00"
             source = "scanner"
         }
+        "/wms/feedback"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            context = "/wms/picking/scan_container"
+            type="error"
+        }
         "/wms/put_away/scan_cart/start_put_away"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
@@ -542,6 +547,119 @@ trackTests {
         "/wms/problem_solver_inbound_tasks/returns"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
+        }
+        "/wms/stock_audit/scan_address"(platform: "/mobile/android") {
+            task_id = 123
+            cross_counting = true
+            warehouse_id = "BRWT01"
+        }
+        "/wms/stock_audit/scan_inventory"(platform: "/mobile/android") {
+            task_id = 123
+            address_id = "RS-0-001-001-01-01"
+            cross_counting = false
+            warehouse_id = "BRWT01"
+        }
+        "/wms/stock_audit/scan_inventory/empty_address"(platform: "/mobile/android") {
+            task_id = 123
+            address_id = "RS-0-001-001-01-01"
+            cross_counting = false
+            warehouse_id = "BRWT01"
+        }
+        "/wms/stock_audit/item"(platform: "/mobile/android") {
+            task_id = 123
+            address_id = "RS-0-001-001-01-01"
+            inventory_id = "AAAA11111"
+            cross_counting = true
+            warehouse_id = "BRWT01"
+        }
+        "/wms/stock_audit/item/finish_address"(platform: "/mobile/android") {
+            task_id = 123
+            address_id = "RS-0-001-001-01-01"
+            inventory_id = "AAAA11111"
+            cross_counting = true
+            warehouse_id = "BRWT01"
+        }
+        "/wms/stock_audit/item/restart_task"(platform: "/mobile/android") {
+            task_id = 123
+            address_id = "RS-0-001-001-01-01"
+            inventory_id = "AAAA11111"
+            cross_counting = true
+            warehouse_id = "BRWT01"
+        }
+        "/wms/stock_audit/cross_counting/confirmation"(platform: "/mobile/android") {
+            task_id = 123
+            warehouse_id = "BRWT01"
+            address_id = "RS-0-001-001-01-01"
+        }
+        "/wms/stock_audit/cross_counting/confirmation/confirm"(platform: "/mobile/android") {
+            task_id = 123
+            warehouse_id = "BRWT01"
+            address_id = "RS-0-001-001-01-01"
+        }
+        "/wms/stock_audit/cross_counting/confirmation/skip"(platform: "/mobile/android") {
+            task_id = 123
+            warehouse_id = "BRWT01"
+            address_id = "RS-0-001-001-01-01"
+        }
+        "/wms/wall_in/scan_container"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+        }
+        "/wms/wall_in/scan_inventory"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            container_address = "CA-0-001-000-00-00"
+        }
+        "/wms/wall_in/scan_inventory/finish_task"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            container_address = "CA-0-001-000-00-00"
+        }
+        "/wms/wall_in/to_restock"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            container_address = "CA-0-001-000-00-00"
+            inventory_id = "AAAA11880"
+        }
+        "/wms/wall_in/to_restock/confirm"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            container_address = "CA-0-001-000-00-00"
+            inventory_id = "AAAA11880"
+        }
+        "/wms/wall_in/to_found"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            container_address = "CA-0-001-000-00-00"
+            inventory_id = "AAAA11880"
+        }
+        "/wms/wall_in/to_found/confirm"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            container_address = "CA-0-001-000-00-00"
+            inventory_id = "AAAA11880"
+        }
+        "/wms/wall_out/scan_section"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+        }
+        "/wms/wall_out/scan_slot"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            section_address = "PW-0-001-000-00-00"
+        }
+        "/wms/wall_out/scan_box"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            slot_address = "PW-0-001-000-00-00"
+        }
+        "/wms/wall_out/to_packing"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            slot_address = "PW-0-001-000-00-00"
+            box_address = "BX-0-001-000-00-00"
+        }
+        "/wms/wall_out/to_packing/confirm"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            slot_address = "PW-0-001-000-00-00"
+            box_address = "BX-0-001-000-00-00"
+        }
+        "/wms/wall_out/empty_wall"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            section_address = "PW-0-001-000-00-00"
+        }
+        "/wms/wall_out/empty_wall/retry"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            section_address = "PW-0-001-000-00-00"
         }
     }
 }

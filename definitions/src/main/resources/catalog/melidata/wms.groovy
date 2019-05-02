@@ -33,6 +33,15 @@ tracks {
                 description: "The source of the input data, can be scanner or manual_input")
     }
 
+    "/wms/feedback"(platform: "/mobile/android", type: TrackType.View) {
+        context(required: true, type: PropertyType.String, description: "The context in which this feedback was shown.")
+        type(required: true,
+                type: PropertyType.String,
+                values: ["success", "error", "warning", "locked"],
+                description: "Type of feedback shown.")
+        error_type(required: false, type: PropertyType.String, description: "Optional error type.")
+    }
+
     /* Put away tracks */
 	"/wms/put_away"(platform: "/mobile/android", type: TrackType.View) {
 		put_away_id(required: false, type: PropertyType.String, description: "Put away id")
@@ -295,5 +304,93 @@ tracks {
             description: "Return type selected by the user")
     }
 
+    "/wms/stock_audit/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/stock_audit/confirmation/confirm"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/stock_audit/confirmation/cancel"(platform: "/mobile/android", type: TrackType.Event) {}
 
+    "/wms/stock_audit/scan_address"(platform: "/mobile/android", type: TrackType.View) {
+        task_id(required: true, type: PropertyType.Numeric, description: "Task id")
+        cross_counting(required: true, type: PropertyType.Boolean, description: "Whether is a cross counting")
+    }
+
+    "/wms/stock_audit/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {
+        address_id(required: true, type: PropertyType.String, description: "Address id")
+        task_id(required: true, type: PropertyType.Numeric, description: "Task id")
+        cross_counting(required: true, type: PropertyType.Boolean, description: "Whether is a cross counting")
+    }
+
+    "/wms/stock_audit/scan_inventory/empty_address"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/wms/stock_audit/item"(platform: "/mobile/android", type: TrackType.View) {
+        address_id(required: true, type: PropertyType.String, description: "Address id")
+        inventory_id(required: true, type: PropertyType.String, description: "Inventory id")
+        task_id(required: true, type: PropertyType.Numeric, description: "Task id")
+        cross_counting(required: true, type: PropertyType.Boolean, description: "Whether is a cross counting")
+    }
+    "/wms/stock_audit/item/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/stock_audit/item/restart_task"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/wms/stock_audit/cross_counting/confirmation"(platform: "/mobile/android", type: TrackType.View) {
+        task_id(required: true, type: PropertyType.Numeric, description: "Task id")
+        address_id(required: true, type: PropertyType.String, description: "Address id")
+    }
+    "/wms/stock_audit/cross_counting/confirmation/confirm"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/stock_audit/cross_counting/confirmation/skip"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/wms/stock_audit/empty_tasks"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/stock_audit/empty_tasks/retry"(platform: "/mobile/android", type: TrackType.Event) {}
+
+
+    /* Wall in */
+    "/wms/wall_in"(platform: "/mobile/android", isAbstract: true) {}
+
+    "/wms/wall_in/scan_container"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/wall_in/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {
+        container_address(required: true, type: PropertyType.String, description: "Wall in container address.")
+    }
+    "/wms/wall_in/scan_inventory/finish_task"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/wms/wall_in/scan_slot"(platform: "/mobile/android", type: TrackType.View) {
+        container_address(required: true, type: PropertyType.String, description: "Wall in container address.")
+        inventory_id(required: true, type: PropertyType.String, description: "Inventory id currently being processed.")
+    }
+    "/wms/wall_in/scan_slot/inventory_does_not_fit"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/wms/wall_in/to_restock"(platform: "/mobile/android", type: TrackType.View) {
+        container_address(required: true, type: PropertyType.String, description: "Wall in container address.")
+        inventory_id(required: true, type: PropertyType.String, description: "Inventory id currently being processed.")
+    }
+    "/wms/wall_in/to_restock/confirm"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/wms/wall_in/to_found"(platform: "/mobile/android", type: TrackType.View) {
+        container_address(required: true, type: PropertyType.String, description: "Wall in container address.")
+        inventory_id(required: true, type: PropertyType.String, description: "Inventory id currently being processed.")
+    }
+    "/wms/wall_in/to_found/confirm"(platform: "/mobile/android", type: TrackType.Event) {}
+
+
+    /* Wall out */
+    "/wms/wall_out"(platform: "/mobile/android", isAbstract: true) {}
+
+    "/wms/wall_out/scan_section"(platform: "/mobile/android", type: TrackType.View) {}
+
+    "/wms/wall_out/scan_slot"(platform: "/mobile/android", type: TrackType.View) {
+        section_address(required: true, type: PropertyType.String, description: "Wall out section address.")
+    }
+
+    "/wms/wall_out/scan_box"(platform: "/mobile/android", type: TrackType.View) {
+        slot_address(required: true, type: PropertyType.String, description: "Slot currently being processed.")
+    }
+
+    "/wms/wall_out/to_packing"(platform: "/mobile/android", type: TrackType.View) {
+        slot_address(required: true, type: PropertyType.String, description: "Slot currently being processed.")
+        box_address(required: true, type: PropertyType.String, description: "Box in use for processing current order.")
+    }
+    "/wms/wall_out/to_packing/confirm"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/wms/wall_out/empty_wall"(platform: "/mobile/android", type: TrackType.View) {
+        section_address(required: true, type: PropertyType.String, description: "Wall out section address.")
+    }
+    "/wms/wall_out/empty_wall/retry"(platform: "/mobile/android", type: TrackType.Event) {}
+    
 }

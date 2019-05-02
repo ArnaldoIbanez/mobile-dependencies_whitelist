@@ -90,14 +90,14 @@ tracks {
 
     "/myml/purchases/list/returns_action"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Indicates the button that have been clicked",
-                values: ['return_item', 'cancel_return', 'change_return_pickup', 'prepare_package', 'return_agencies', 'print_return_label', 'return_not_delivered', 'return_delivered_problem', 'track_return'])
+                values: ['return_item', 'cancel_return', 'change_return_pickup', 'prepare_package', 'return_agencies', 'print_return_label', 'return_not_delivered', 'return_delivered_problem', 'track_return', 'cant_return'])
     }
 
     "/myml/purchases/vop"(platform: "/") {}
 
     "/myml/purchases/vop/returns_action"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Indicates the button that have been clicked",
-                values: ['return_item', 'cancel_return', 'change_return_pickup', 'prepare_package', 'return_agencies', 'print_return_label', 'return_not_delivered', 'return_delivered_problem', 'track_return'])
+                values: ['return_item', 'cancel_return', 'change_return_pickup', 'prepare_package', 'return_agencies', 'print_return_label', 'return_not_delivered', 'return_delivered_problem', 'track_return', 'cant_return'])
     }
 
     "/myml/purchases/detail"(platform: "/") {}
@@ -150,7 +150,7 @@ tracks {
 
     "/myml/purchases/seller"(platform:"/", type: TrackType.View) {}
 
-    "/myml/purchases/buy_it_again"(platform:"/", type: TrackType.View) {
+    "/myml/purchases/status/buy_it_again"(platform:"/mobile", type: TrackType.Event) {
         item_id(required: true,type: PropertyType.String, description: "Item id")
     }
 
@@ -453,6 +453,29 @@ tracks {
 
     "/myml/fiscal_information/tax_information/success/btn/listings"(platform: "/", type: TrackType.Event) {}
 
+    // Tax substitution page
+    "/myml/fiscal_information/tax_substitution"(platform: "/", type: TrackType.View) {
+        query_sku(required: true, type: PropertyType.String, description: "Sku of tax information")
+        query_item_id(required: true, type: PropertyType.String, description: "Meli item id")
+        query_inbound_id(required: true, type: PropertyType.String, description: "Inbound id from panel")
+    }
+
+    "/myml/fiscal_information/tax_substitution/btn"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_information/tax_substitution/btn/backtoinbound"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_information/tax_substitution/form"(platform: "/", isAbstract: true) {}
+    "/myml/fiscal_information/tax_substitution/form/save"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_information/tax_substitution/form/save/request"(platform: "/", type: TrackType.Event) {
+        data(required: true, description: "Tax substitution to sending to api")
+    }
+
+    "/myml/fiscal_information/tax_substitution/form/save/response"(platform: "/", type: TrackType.Event) {
+        error(required: true, type: PropertyType.Boolean, description: "Has error on api?")
+        data(required: true, description: "Fiscal information received from api")
+    }
+
     // Type page
     "/myml/fiscal_information/type"(platform: "/", type: TrackType.View) {
         url(required: true, type: PropertyType.String, description: "Page url")
@@ -521,6 +544,8 @@ tracks {
         error(required: false, type:  PropertyType.String, description: "Error message that pop to user after request")
         errorValidation(required: false, type:  PropertyType.String, description: "Error message when value is invalid")
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
     }
 
     //not found
@@ -611,7 +636,10 @@ tracks {
         error(required: false, type: PropertyType.Boolean, description: "State registration saving error")
     }
     //confirm
-    "/myml/invoices/company-info/confirm"(platform: "/") {}
+    "/myml/invoices/company-info/confirm"(platform: "/") {
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
+    }
     "/myml/invoices/company-info/confirm/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
         enabled_for_fulfillment(required: true, type:  PropertyType.Boolean, description: "Boolean if seller profile is fulfillment")
@@ -627,7 +655,10 @@ tracks {
     "/myml/invoices/company-info/confirm/help_tooltip/freight"(platform: "/", type: TrackType.Event) {}
 
     //confirm-normal
-    "/myml/invoices/company-info/confirm-normal"(platform: "/") {}
+    "/myml/invoices/company-info/confirm-normal"(platform: "/") {
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
+    }
     "/myml/invoices/company-info/confirm-normal/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm-normal/save/request"(platform: "/", type: TrackType.Event) {
         serie(required: true, type:  PropertyType.Numeric, description: "Invoice serie number input")
@@ -807,5 +838,22 @@ tracks {
     }
 
     "/myml/invoices/sku/status"(platform: "/") {}
+
+    //Backoffice pages
+    "/myml/invoices/backoffice"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/backoffice/search"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/backoffice/search/invoice"(platform: "/", isAbstract: true) {
+        search_filter(required: true, description: "Search filter used")
+    }
+
+    "/myml/invoices/backoffice/search/reissueinvoice"(platform: "/") {
+        data(required: true, description: "Reissue invoice in Backoffice")
+    }
+
+    "/myml/invoices/backoffice/search/invoiceslist"(platform: "/") {
+        search_filter(required: true, description: "Search filter used on massive invoices search")
+    }
 
 }
