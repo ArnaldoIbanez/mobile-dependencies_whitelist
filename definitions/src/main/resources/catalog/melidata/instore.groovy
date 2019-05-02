@@ -11,7 +11,7 @@ tracks {
     */
 
     "/instore"(platform: "/mobile", isAbstract: true) {
-        session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
         new_session(required: false, PropertyType.Boolean, description: "indicates if a new session_id was created")
     }
 
@@ -164,6 +164,13 @@ tracks {
     "/instore/waiting/gas_jockey/next"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/waiting/gas_jockey/back"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/instore/waiting/gas_add_card"(platform: "/mobile", type: TrackType.View) {
+        skippable(required: false, PropertyType.Boolean, description: "indicates if the add card flow is mandatory")
+    }
+    "/instore/waiting/gas_add_card/add_card"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/gas_add_card/skip"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/gas_add_card/back"(platform: "/mobile", type: TrackType.Event) {}
+
     "/instore/waiting/gas_pump"(platform: "/mobile", type: TrackType.View) {}
     "/instore/waiting/gas_pump/next"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/waiting/gas_pump/back"(platform: "/mobile", type: TrackType.Event) {}
@@ -269,6 +276,8 @@ tracks {
         vending_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
         store_id(required: false, PropertyType.String)
+        total_price(required: false, PropertyType.Numeric)
+        currency(required: false, PropertyType.String)
     }
     "/instore/payment_info"(platform: "/mobile", type: TrackType.Event) {
         payment_info_tag(required: false, "Execute post payment")

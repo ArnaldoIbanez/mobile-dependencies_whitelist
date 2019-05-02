@@ -410,6 +410,37 @@ trackTests {
             pos_id = "65763"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+        "/instore/waiting/gas_add_card"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            skippable = true
+        }
+        "/instore/waiting/gas_add_card/add_card"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            skippable = true
+        }
+        "/instore/waiting/gas_add_card/skip"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            skippable = true
+        }
+        "/instore/waiting/gas_add_card/back"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         "/instore/waiting/gas_pump"(platform: "/mobile", type: TrackType.View) {
             collector_id = "12356"
             brand_name = "YPF"
@@ -651,40 +682,13 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             pos_id = "9355"
             store_id = "12964038"
+            total_price = 150.25
+            currency = "ARS"
         }
 
         "/instore/payment_info"(platform: "/mobile", type: TrackType.Event) {
             payment_info_tag = "Execute post payment"
             remaining_attempts = 2
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-
-        //Deprecated
-        "/instore/waiting"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/waiting/gas_jockey"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/waiting/gas_pump"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/waiting/gas_clock"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/waiting/gastronomy_cashier"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/waiting/gastronomy_order"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/waiting/generic_cashier"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/waiting/generic_ticket"(platform: "/mobile", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/shell_first_time_use"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
@@ -1263,6 +1267,37 @@ trackTests {
             pos_id = "65763"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+        "/instore/waiting/gas_add_card"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            skippable = true
+        }
+        "/instore/waiting/gas_add_card/add_card"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            skippable = true
+        }
+        "/instore/waiting/gas_add_card/skip"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            skippable = true
+        }
+        "/instore/waiting/gas_add_card/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         "/instore/waiting/gas_pump"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             collector_id = "12356"
             brand_name = "YPF"
@@ -1370,46 +1405,48 @@ trackTests {
         }
 
         "/instore/post_payment"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
-                currency_id = "ARS"
-                statement_descriptor = "WWW.MERCADOPAGO.COM"
-                collector_id = "244110353"
-                status = "approved"
-                payment_method_id = "visa"
-                site_id = "MLA"
-                date_created = "2018-11-25T00:10:26.000-0300"
-                status_detail = "accredited"
-                operation_type = "regular_payment"
-                installments = 1
-                id = 4315937273
-                session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-                payer_id = 79063514
-                collector = {
-                    id = 244110353
-                    identification = {
-                        number = "34214555"
-                        type : "DNI"
-                    }
+            currency_id = "ARS"
+            statement_descriptor = "WWW.MERCADOPAGO.COM"
+            collector_id = "244110353"
+            status = "approved"
+            payment_method_id = "visa"
+            site_id = "MLA"
+            date_created = "2018-11-25T00:10:26.000-0300"
+            status_detail = "accredited"
+            operation_type = "regular_payment"
+            installments = 1
+            id = 4315937273
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            payer_id = 79063514
+            collector = {
+                id = 244110353
+                identification = {
+                    number = "34214555"
+                    type : "DNI"
                 }
-                issuer_id = 310
-                payer = {
-                    id = 79063514
-                    identification = {
-                        number = "30114956"
-                        type = "DNI"
-                    }
+            }
+            issuer_id = 310
+            payer = {
+                id = 79063514
+                identification = {
+                    number = "30114956"
+                    type = "DNI"
                 }
-                transaction_amount = 130
-                coupon_amount = 0
-                marketplace = "NONE"
-                external_reference = "nicaragua2"
-                transaction_amount = 560
-                site_id = "MLA"
-                operation_type = "regular_payment"
-                installments = 1
-                vending_id = "12345"
-                session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-                pos_id = "9355"
-                store_id = "12964038"
+            }
+            transaction_amount = 130
+            coupon_amount = 0
+            marketplace = "NONE"
+            external_reference = "nicaragua2"
+            transaction_amount = 560
+            site_id = "MLA"
+            operation_type = "regular_payment"
+            installments = 1
+            vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            pos_id = "9355"
+            store_id = "12964038"
+            total_price = 150.25
+            currency = "ARS"
         }
 
         "/instore/payment_info"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
@@ -1418,34 +1455,6 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
-        // Deprecated
-        "/instore/shell_first_time_use"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/waiting"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/waiting/gas_jockey"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/waiting/gas_pump"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/waiting/gas_clock"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/waiting/gastronomy_cashier"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/waiting/gastronomy_order"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/waiting/generic_cashier"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/waiting/generic_ticket"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
 
         "/instore/map"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
