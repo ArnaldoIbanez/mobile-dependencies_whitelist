@@ -226,7 +226,7 @@ trackTests {
             defaultSearchInformation()
             list_mode = "mosaic"
         }
-        "/search/change_view/apply" (platform: "/desktop", type: TrackType.Event){
+        "/search/change_view/apply" (platform: "/web", type: TrackType.Event){
             defaultSearchInformation()
             list_mode = "mosaic"
         }
