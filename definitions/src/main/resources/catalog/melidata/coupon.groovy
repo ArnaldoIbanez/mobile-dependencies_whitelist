@@ -31,7 +31,7 @@ tracks {
     // Coupon Success Screen
     "/coupon/success"(platform: "/mobile", type: TrackType.View) {
         flow(required: false, type: PropertyType.String, description: "Indicates the flow of screen")
-        entity_id(required: false, type: PropertyType.Numeric, description: "Indicates the entity id")
+        entity_id(required: false, type: PropertyType.String, description: "Indicates the entity id")
         entity_type(required: true, type: PropertyType.String, description: "Which success type are we tracking")
     }
 
