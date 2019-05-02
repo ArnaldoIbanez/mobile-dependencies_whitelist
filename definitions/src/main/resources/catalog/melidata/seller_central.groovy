@@ -368,26 +368,18 @@ tracks {
         id(required: true, type: PropertyType.String, description: "Sort id")
     }
     
-    "/seller_central/sales/list/action"(platform: "/", isAbstract: true) {}
-    "/seller_central/sales/list/action/primary"(platform: "/", type: TrackType.Event) {
+    "/seller_central/sales/list/action"(platform: "/", isAbstract: true) {
         id(required: true, type: PropertyType.String, description: "Action id")
     }
-    "/seller_central/sales/list/action/primary/show"(platform: "/", type: TrackType.Event) {
-        id(required: true, type: PropertyType.String, description: "Action id")
-    }
-    "/seller_central/sales/list/action/secondary"(platform: "/", type: TrackType.Event) {
-        id(required: true, type: PropertyType.String, description: "Action id")
-    }
+    "/seller_central/sales/list/action/primary"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/sales/list/action/primary/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/sales/list/action/secondary"(platform: "/", type: TrackType.Event) {}
 
-    "/seller_central/sales/detail/action"(platform: "/", isAbstract: true) {}
-    "/seller_central/sales/detail/action/primary"(platform: "/", type: TrackType.Event) {
+    "/seller_central/sales/detail/action"(platform: "/", isAbstract: true) {
         id(required: true, type: PropertyType.String, description: "Action id")
     }
-    "/seller_central/sales/detail/action/primary/show"(platform: "/", type: TrackType.Event) {
-        id(required: true, type: PropertyType.String, description: "Action id")
-    }
-    "/seller_central/sales/detail/action/secondary"(platform: "/", type: TrackType.Event) {
-        id(required: true, type: PropertyType.String, description: "Action id")
-    }
-    "/seller_central/sales/detail/action/print"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/sales/detail/action/primary"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/sales/detail/action/primary/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/sales/detail/action/secondary"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/sales/detail/action/print"(platform: "/", parentPropertiesInherated:false, type: TrackType.Event) {}
 }
