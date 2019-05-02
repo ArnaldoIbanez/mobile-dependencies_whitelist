@@ -142,9 +142,11 @@ tracks {
         filter_value_name()
     }
 
-    "/search/change_view"(platform: "/mobile") {}
+    "/search/view_change"(platform: "/"){
+        previous_view(required: true, description: "Previews view mode")
+    }
 
-    "/search/change_view/apply"(platform: "/mobile", type: TrackType.Event) {
+    "/search/change_view/apply"(platform: "/", type: TrackType.Event) {
         list_mode()
     }
 

@@ -226,6 +226,10 @@ trackTests {
             defaultSearchInformation()
             list_mode = "mosaic"
         }
+        "/search/change_view/apply" (platform: "/desktop", type: TrackType.Event){
+            defaultSearchInformation()
+            list_mode = "mosaic"
+        }
         "/search/promoted_items"(platform: "/web") {
             defaultSearchInformation()
             available_filters = []
