@@ -450,7 +450,7 @@ trackTests {
             hint_id = "SUGGEST_KNOWN"
             attribute = "MATERIALS"
             lang = "es"
-            suggested_value_id: "2262161"
+            suggested_value_id = "2262161"
             suggested_value_name = "aluminio"
             written_value = "alu"
             final_value ="alumi"
