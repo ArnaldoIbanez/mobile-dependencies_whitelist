@@ -381,5 +381,5 @@ tracks {
     "/seller_central/sales/detail/action/primary"(platform: "/", type: TrackType.Event) {}
     "/seller_central/sales/detail/action/primary/show"(platform: "/", type: TrackType.Event) {}
     "/seller_central/sales/detail/action/secondary"(platform: "/", type: TrackType.Event) {}
-    "/seller_central/sales/detail/action/print"(platform: "/", parentPropertiesInherated:false, type: TrackType.Event) {}
+    "/seller_central/sales/detail/action/print"(platform: "/", parentPropertiesInherited:false, type: TrackType.Event) {}
 }
