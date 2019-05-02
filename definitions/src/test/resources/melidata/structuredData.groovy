@@ -452,7 +452,7 @@ trackTests {
             lang = "es"
             suggested_value_id: "2262161"
             suggested_value_name = "aluminio"
-            written_value = "alu",
+            written_value = "alu"
             final_value ="alumi"
         }
     }
