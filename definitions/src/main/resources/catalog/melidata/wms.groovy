@@ -222,6 +222,29 @@ tracks {
         navigate_to_home(required: true, type: PropertyType.Boolean, description: "Whether or not the reset event is triggered by the user navigating to the home screen.")
     }
 
+    /* SKU count tracks */
+    "/wms/sku_count"(platform: "/mobile/android", type: TrackType.View, isAbstract: true) {
+        count_id(required: false, type: PropertyType.Numeric, description: "Count id")
+        address_id(required: false, type: PropertyType.String, description: "Address id")
+    }
+    "/wms/sku_count/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/sku_count/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/sku_count/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/sku_count/item"(platform: "/mobile/android", type: TrackType.View) {
+        inventory_id(required: false, type: PropertyType.String, description: "Inventory id")
+        quantity(required: false, type: PropertyType.Numeric, description: "Item quantity")
+    }
+
+    "/wms/sku_count/confirmation/start_count"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/sku_count/scan_inventory/finish_count"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/sku_count/item/finish_count"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/sku_count/scan_inventory/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/sku_count/scan_inventory/finish_count"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/sku_count/item/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/sku_count/item/reset_address"(platform: "/mobile/android", type: TrackType.Event) {
+        navigate_to_home(required: true, type: PropertyType.Boolean, description: "Whether or not the reset event is triggered by the user navigating to the home screen.")
+    }
+
     /* Withdrawals Removal tracks */
     "/wms/withdrawals_removal"(platform: "/mobile/android", type: TrackType.View) {
         removal_id(required: true, type: PropertyType.String, description: "Removal id")
@@ -392,5 +415,4 @@ tracks {
         section_address(required: true, type: PropertyType.String, description: "Wall out section address.")
     }
     "/wms/wall_out/empty_wall/retry"(platform: "/mobile/android", type: TrackType.Event) {}
-    
 }
