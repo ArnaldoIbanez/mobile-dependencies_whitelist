@@ -46,6 +46,8 @@ trackTests {
             loyalty_level = 2
             price_comparison_available = true
             price_comparison_position =  0.75
+            whatsapp_available = "false"
+            quote_demand_available = false
         }
 
         "/vip"(platform:"/mobile", {
@@ -94,18 +96,32 @@ trackTests {
             mandatory()
             listing_type_id = "GOLD"
             item_seller_type = "AB001"
+            deal_ids = []
+            item_condition= "new"
         })
 
         "/vip/contact_seller"(platform: "/web/desktop", type: TrackType.Event, {
             mandatory()
             listing_type_id = "GOLD"
             item_seller_type = "AB001"
+            deal_ids = []
+            item_condition= "new"
         })
 
         "/vip/contact_seller"(platform: "/web/mobile", type: TrackType.Event, {
             mandatory()
             listing_type_id = "GOLD"
             item_seller_type = "AB001"
+            deal_ids = []
+            item_condition= "new"
+        })
+
+        "/vip/contact_seller"(platform: "/", type: TrackType.Event, {
+            mandatory()
+            unregistered_contact = false
+            captcha_showed = false
+            deal_ids = []
+            item_condition= "new"
         })
 
         "/vip/call_seller"(platform:"/mobile", type: TrackType.Event, {
@@ -186,6 +202,61 @@ trackTests {
 
         "/vip/quantity"(platform: "/mobile") {
             item_id = "MLA533657947"
+        }
+
+        "/vip/question_intention"(platform: "/web/desktop", type: TrackType.Event, {
+            mandatory()
+            optionals()
+            unregistered_contact = false
+            unregistered_contact_context = false
+            event_source = "description"
+        })
+
+        "/vip/question_intention"(platform: "/web/mobile", type: TrackType.Event, {
+            mandatory()
+            unregistered_contact = true
+            unregistered_contact_context = false
+            event_source = "technicalSpecs"
+            source = "htmlView"
+            item_seller_type="car_dealer"
+        })
+
+        "/vip/captcha_showed"(platform: "/web/desktop", type: TrackType.Event, {
+            mandatory()
+            optionals()
+        })
+
+        "/vip/captcha_showed"(platform: "/web/mobile", type: TrackType.Event, {
+            mandatory()
+        })
+
+        "/vip/quote_demand_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            mandatory()
+            optionals()
+            item_seller_type = "AB001"
+        }
+
+        "/vip/quote_demand_messages"(platform: "/web/desktop", type: TrackType.Event) {
+            mandatory()
+            optionals()
+            item_seller_type = "AB001"
+        }
+
+        "/vip/quote_demand_intention"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            optionals()
+            item_seller_type = "AB001"
+            from_view="vip"
+            resolution = "high"
+            
+        }
+
+        "/vip/quote_demand_messages"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            optionals()
+            item_seller_type = "AB001"
+            from_view="vip"
+            resolution = "high"
         }
     }
 
@@ -382,7 +453,13 @@ trackTests {
 
         "/vip/question"(platform: "/", type: TrackType.View){
             item_id = "MLA213512313"
+        }
 
+        "/vip/question"(platform: "/", type: TrackType.View){
+            item_id = "MLA213512313"
+            unregistered_contact = false
+            unregistered_contact_context = false
+            event_source= "description"
         }
     }
 
@@ -543,6 +620,7 @@ trackTests {
         def defaultTrackInformation = {
             item_id = "MLA213512313"
             quantity = 1
+            has_variations = true
         }
 
         def cartInformation = {
@@ -614,7 +692,6 @@ trackTests {
             zip_code = 123
             quantity = 2
             has_shipping = false
-            has_stock = false
             shipping_method()
         }
     }
@@ -673,6 +750,7 @@ trackTests {
             }
         }
 
+
         "/vip/shipping_calculator"(platform: "/", type: TrackType.View) {
             model()
         }
@@ -681,14 +759,32 @@ trackTests {
             model()
             shipping_method()
         }
+        
+        "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {
+        }
+        
+        "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
+             model()
+        }
 
-        "/vip/shipping_calculator/cancel"(platform: "/", type: TrackType.Event) {
+
+        "/vip/shipping_calculator"(platform: "/web/desktop", type: TrackType.View) {
+            model()
+        }
+
+         "/vip/shipping_calculator/select"(platform: "/web/desktop", type: TrackType.Event) {
+            model()
+            shipping_method()
+        }
+
+        "/vip/shipping_calculator/cancel"(platform: "/web/desktop", type: TrackType.Event) {
             model()
         }
         
-        "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {}
+        "/vip/shipping_calculator/modify"(platform: "/web/desktop", type: TrackType.Event) {
+        }
         
-        "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
+        "/vip/shipping_calculator/show_map"(platform: "/web/desktop", type: TrackType.Event) {
              model()
         }
         
@@ -703,12 +799,13 @@ trackTests {
             shipping_method()
         }
 
-        "/vip/shipping_calculator/cancel"(platform: "/mobile/ios", type: TrackType.Event) {
-            model()
+        "/vip/shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) {
         }
-        
-        "/vip/shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) { }
-        
+
+    
+        "/vip/shipping_calculator/cancel"(platform: "/mobile/ios", type: TrackType.Event) {
+        }
+                
         "/vip/shipping_calculator/show_map"(platform: "/mobile/ios", type: TrackType.Event) {
             model()
         }

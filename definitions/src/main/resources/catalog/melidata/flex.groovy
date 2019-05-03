@@ -33,6 +33,24 @@ tracks {
         message(required: false, type: PropertyType.String, description: "user feedback")
     }
 
+    "/flex/optin/congrats"(platform: "/", type: TrackType.Event) {
+        view(required: true, type: PropertyType.String, description: "specific view the app returned")
+    }
+
+    "/flex/configuration"(platform: "/", type: TrackType.View) {}
+
+    "/flex/configuration/select_handling_time"(platform: "/", type: TrackType.Event) {
+        handling_time(required: true, type: PropertyType.String, description: "handling time selected by the user")
+    }
+
+    "/flex/configuration/select_zones"(platform: "/", type: TrackType.Event) {
+        zones(required: true, type: PropertyType.ArrayList, description: "Array of areas selected by the user")
+    }
+
+    "/flex/configuration/select_capacity"(platform: "/", type: TrackType.Event) {
+        capacity(required: true, type: PropertyType.String, description: "sales limit selected by the user")
+    }
+
     "/flex/login/name"(platform: "/mobile", type: TrackType.View) {
         location
     }
@@ -265,6 +283,11 @@ tracks {
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
+    "/flex/notification/pass_near_pack_destination"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
     "/flex/package/not_delivered_reason/selection"(platform: "/mobile", type: TrackType.Event) {
         packsAndLocation
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
@@ -299,4 +322,31 @@ tracks {
 
     "/flex/login/select_country"(platform: "/mobile", type: TrackType.View) {
     }
+
+    "/flex/package/detail/out_of_distance_modal"(platform: "/mobile", type: TrackType.View) {
+        packsAndLocation
+        context(required: true, type: PropertyType.String,  values: ["not_delivered", "delivered"],
+                description: "Indicates whether the event was triggered in the delivered or in the event of non-delivery")
+        distance(required: false, type: PropertyType.Numeric, description: "The range to the destination", inheritable:false)
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+    "/flex/package/detail/out_of_distance"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        context(required: true, type: PropertyType.String,  values: ["not_delivered", "delivered"],
+                description: "Indicates whether the event was triggered in the delivered or in the event of non-delivery")
+        error_type(required: true, type: PropertyType.String,  values: ["waiting_time_out", "permission_denied",
+                                                                        "location_result_exception", "location_availability_exception"],
+                description: "Specifies what kind of error happened.")
+        error_message(required: true, type: PropertyType.String,
+                description: "Specifies the message where the error happened.",inheritable:false)
+    }
+
+    "/flex/package/detail/enable_fake_gps"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        context(required: true, type: PropertyType.String,  values: ["not_delivered", "delivered"],
+                description: "Indicates whether the event was triggered in the delivered or in the event of non-delivery")
+        delivery_id(required: false, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
 }

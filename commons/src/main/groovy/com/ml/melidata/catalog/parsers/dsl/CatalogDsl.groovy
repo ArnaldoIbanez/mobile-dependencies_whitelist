@@ -74,4 +74,12 @@ class CatalogDsl {
         }
     }
 
+    def setAbPlatforms(arr) {
+        catalog.addAbPlatforms(arr)
+    }
+
+    def setAbPlatformsSubscriptions(arr) {
+        catalog.addAbPlatformsSubscriptions(arr)
+    }
+
 }

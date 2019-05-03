@@ -159,5 +159,26 @@ tracks {
         badItems(required: false, description:"True if the user has items with few attributes completed.", PropertyType.Boolean)
     }
 
-
+    "/structure_data"(platform: "/", isAbstract: true) {}
+    "/structure_data/product_creator"(platform: "/",isAbstract: true) {}
+    "/structure_data/product_creator/other_domain"(platform: "/", type: TrackType.Event) {
+        bs_user_email(required: true, description: "Email of brightsector user")
+        score(required: true, description: "Score of zordon api")
+        is_same_domain(required: true, description:"Must keep or not in this domain", PropertyType.Boolean)
+        domain_id(required: true, description: "Current domain")
+        suggested_domain(required: true, description: "Suggested domain")
+        item_id(required: true, description: "Item Id")
+        user_action(required: true, description: "Action taken by user")
+    }
+    "/structure_data/product_creator/ignored_hints"(platform: "/", type: TrackType.Event) {
+        bs_user(required: true, description: "Brightsector user")
+        domain_id(required: true, description: "Current domain")
+        hint_id(required: true, description: "Hint Id")
+        attribute(required: true, description: "Attribute Id")
+        lang(required: true, description: "Language")
+        suggested_value_id(required: true, description: "Suggested hint value Id")
+        suggested_value_name(required: true, description: "Suggested hint value name")
+        written_value(required: true, description: "Written attribute value")
+        final_value(required: true, description: "Final attribute value")
+    }
 }

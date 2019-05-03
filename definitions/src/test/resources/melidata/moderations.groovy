@@ -12,6 +12,12 @@ trackTests {
         "/denounce/form"(platform: "/") {}
         "/denounce/form/success"(platform: "/") {}
         "/denounce/form/error"(platform: "/") {}
+        "/denounce/form/go_to_tool"(platform: "/") {
+            context = "modal"
+        }
+        "/denounce/form/go_to_tool_landing"(platform: "/") {
+            context = "announcement"
+        }
 
         "/denounce/error"(platform: "/") {}
 
@@ -36,6 +42,28 @@ trackTests {
         "/pppi/rights/member"(platform: "/") {}
         "/pppi/rights/member/success"(platform: "/") {}
         "/pppi/rights/member/error"(platform: "/") {}
+
+        // Landing
+
+        "/pppi/landings"(platform: "/") {}
+
+        "/pppi/landings/revamp"(platform: "/") {}
+        "/pppi/landings/revamp/go_to_tool"(platform: "/") {
+            context = "headline"
+        }
+        "/pppi/landings/revamp/go_to_contact"(platform: "/") {
+            context = "tool"
+        }
+
+        // Support
+
+        "/pppi/support"(platform: "/") {}
+
+        "/pppi/support/form"(platform: "/") {}
+        "/pppi/support/form/success"(platform: "/") {}
+        "/pppi/support/form/forbidden"(platform: "/") {}
+
+        // Error
 
         "/pppi/error"(platform: "/") {}
 

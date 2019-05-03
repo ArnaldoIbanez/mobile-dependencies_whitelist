@@ -43,6 +43,7 @@ trackTests {
             }
             catalog_product_id="MLA123"
             show_supermarket_carousel=true
+            items_with_logos=["MLA1234", "MLA12345"]
         }
 
         "/search"(platform: "/web",{
@@ -162,6 +163,7 @@ trackTests {
             }
             geo_search = false
             user_zone = ""
+            is_googlebot=true
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)

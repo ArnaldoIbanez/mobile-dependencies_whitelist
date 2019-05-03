@@ -54,6 +54,21 @@ trackTests {
                             ]
                     ]
             ]
+            item_with_garex = true
+            total_amount_including_garex = 1869.89
+            stored_cards_quantity = 3
+        }
+
+        "/buy_intention"(platform:"/mobile/android") {
+            buyIntentionDataSet()
+            context = "checkout_recovery_combo"
+            checkout_flow="direct"
+        }
+        
+        "/buy_intention"(platform:"/mobile/android") {
+            buyIntentionDataSet()
+            context = "cart_combo_reco"
+            checkout_flow="direct"
         }
 
         "/buy_intention"(platform:"/mobile/android") {

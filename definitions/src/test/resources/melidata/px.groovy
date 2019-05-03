@@ -65,7 +65,6 @@ trackTests {
 
                     },
                     {
-                        payment_method_id = "rapipago"
                         payment_method_type = "ticket"
                         extra_info = null
                     }
@@ -173,10 +172,12 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            reason = "esc_cap"
         }
         "/px_checkout/payments/select_method/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "mastercard"
             card_id = "1234"
+            reason = "saved_card"
 
         }
         "/px_checkout/payments/select_method/prepaid_card/cvv"(platform: "/mobile", type: TrackType.View) {
@@ -190,6 +191,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            reason = "call_for_auth"
 
         }
 
@@ -535,6 +537,22 @@ trackTests {
             }
             flow = "/instore"
         }
+         "/px_checkout/result/unknown"(platform: "/mobile", type: TrackType.View) {
+            style = "generic"
+            payment_method_id = "redlink"
+            payment_method_type = "atm"
+            payment_id = 1234
+            payment_status = "approved"
+            payment_status_detail = "approved"
+
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
         "/px_checkout/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {
             style = "generic"
             payment_method_id = "visa"
@@ -673,6 +691,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            split_enabled = true
         }
 
         // Init event:
@@ -692,6 +711,7 @@ trackTests {
             }
             esc_enabled = true
             express_enabled = true
+            split_enabled = false
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
@@ -1217,7 +1237,207 @@ trackTests {
             flow = "/instore"
         }
 
+        "/px_checkout/review/traditional/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
         "/px_checkout/review/traditional/change_payment_method"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        // Congrats:
+        // Approved payment
+        "/px_checkout/result/success/continue"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        "/px_checkout/result/success/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        // Unknown
+          "/px_checkout/result/unknown/continue"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        "/px_checkout/result/unknown/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        // In process payment
+        "/px_checkout/result/further_action_needed/continue"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        "/px_checkout/result/further_action_needed/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        // Rejected payment
+        "/px_checkout/result/error/change_payment_method"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        "/px_checkout/result/error/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        // Approved business
+        "/px_checkout/result/success/primary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        "/px_checkout/result/success/secondary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        // Unknown
+        "/px_checkout/result/unknown/primary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        "/px_checkout/result/unknown/secondary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+         "/px_checkout/result/unknown/change_payment_method"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+
+        // Pending business
+        "/px_checkout/result/further_action_needed/primary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        "/px_checkout/result/further_action_needed/secondary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        // Rejected business
+        "/px_checkout/result/error/primary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        "/px_checkout/result/error/secondary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        "/px_checkout/result/error/abort"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
@@ -1400,10 +1620,12 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            reason = "call_for_auth"
         }
         "/px_checkout/payments/select_method/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "mastercard"
             card_id = "1234"
+            reason = "call_for_auth"
 
         }
         "/px_checkout/payments/select_method/prepaid_card/cvv"(platform: "/mobile", type: TrackType.View) {
@@ -1417,6 +1639,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            reason = "call_for_auth"
 
         }
 
@@ -1543,7 +1766,6 @@ trackTests {
         }
 
         "/px_checkout/payments/select_method/ticket/cpf"(platform: "/mobile", type: TrackType.View) {
-            payment_method_id = "bolbradesco"
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
@@ -1781,6 +2003,22 @@ trackTests {
             }
             flow = "/instore"
         }
+         "/px_checkout/result/unknown"(platform: "/mobile", type: TrackType.View) {
+            style = "generic"
+            payment_method_id = "redlink"
+            payment_method_type = "atm"
+            payment_id = 1234
+            payment_status = "approved"
+            payment_status_detail = "approved"
+
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
         "/px_checkout/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {
             style = "generic"
             payment_method_id = "visa"
@@ -1837,6 +2075,57 @@ trackTests {
                 retry_available = true
             }
 
+        }
+
+
+        // Unknown
+          "/px_checkout/result/unknown/continue"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        "/px_checkout/result/unknown/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+             // Unknown
+        "/px_checkout/result/unknown/primary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+        "/px_checkout/result/unknown/secondary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+         "/px_checkout/result/unknown/change_payment_method"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
         }
 
         "/px_checkout/card_association_result/success"(platform: "/mobile", type: TrackType.View) {}
@@ -1912,6 +2201,7 @@ trackTests {
             checkout_preference_id = "123"
             esc_enabled = true
             express_enabled = true
+            split_enabled = false
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
@@ -1938,6 +2228,7 @@ trackTests {
             }
             esc_enabled = true
             express_enabled = true
+            split_enabled = true
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
@@ -2463,7 +2754,144 @@ trackTests {
             flow = "/instore"
         }
 
+        "/px_checkout/review/traditional/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
         "/px_checkout/review/traditional/change_payment_method"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        // Congrats:
+        // Approved payment
+        "/px_checkout/result/success/continue"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        "/px_checkout/result/success/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        // In process payment
+        "/px_checkout/result/further_action_needed/continue"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        "/px_checkout/result/further_action_needed/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        // Rejected payment
+        "/px_checkout/result/error/change_payment_method"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        "/px_checkout/result/error/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        // Approved business
+        "/px_checkout/result/success/primary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        "/px_checkout/result/success/secondary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        // Pending business
+        "/px_checkout/result/further_action_needed/primary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        "/px_checkout/result/further_action_needed/secondary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        // Rejected business
+        "/px_checkout/result/error/primary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+        }
+
+        "/px_checkout/result/error/secondary_action"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"

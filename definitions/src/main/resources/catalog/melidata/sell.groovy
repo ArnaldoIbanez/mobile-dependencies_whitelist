@@ -86,9 +86,13 @@ tracks {
         category_prediction_score(required: false, description: "Category prediction scores result", type: PropertyType.ArrayList)
         category_prediction_zordon(required: false, description: "Category prediction path result from zordon", type: PropertyType.ArrayList)
         category_prediction_zordon_score(required: false, description: "Category prediction scores result from zordon", type: PropertyType.ArrayList)
+        predictor_chosen(required: false, description: "Which predictor we used to predict category: ZORDON/DEFAULT/etc...", type: PropertyType.String)
         title_predicted(required: false, description: "Title used to predict category", type: PropertyType.String)
         category_id(required: false, description: "Category Id", type: PropertyType.String)
         category_path(required: false, description: "Category path", type: PropertyType.ArrayList)
+        placement(required: false, description: "Place where track was dispatched")
+        adv_segmentation(required: false, description: "Adevrtasement segmentation ")
+        reputation_level(required: false, description: "Reputation for Pads")
     }
     // Upgrade Off = El upgrade de clasificados
     "/sell/upgradeOff"(platform:"/", type: TrackType.View){
@@ -430,6 +434,11 @@ tracks {
     "/sell/update/quantity"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/technical_specifications"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/product_identifier"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/shipping"(platform: "/mobile", isAbstract: true) {}
+    "/sell/update/shipping/flex"(platform: "/mobile", isAbstract: true) {}
+    "/sell/update/shipping/flex/free_shipping_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/shipping/flex/optin"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/shipping/flex_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping_mandatory_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/variations"(platform: "/mobile", type: TrackType.View) {}

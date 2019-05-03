@@ -9,8 +9,18 @@ tracks {
         category (required: false, type: PropertyType.String, description: "The category of the current event") // for backwards compatibility with old tracks
     }
 
+    // First time
+    "/asset_management/first_time"(platform: "/mobile", type: TrackType.View) {}
+
     // Onboarding
     "/asset_management/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/onboarding"(platform: "/web", type: TrackType.View) {}
+    "/asset_management/start_investing"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/know_more"(platform: "/mobile", type: TrackType.Event) {}
+
+    // Blocking screen
+    "/asset_management/blocker"(platform: "/web", type: TrackType.View) {}
+    "/asset_management/blocker"(platform: "/mobile", type: TrackType.View) {}
 
     // Challenges
     "/asset_management/challenge_pep"(platform: "/mobile", type: TrackType.View) {}
@@ -38,7 +48,9 @@ tracks {
     "/asset_management/challenge_identity"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_identity_mismatch"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_birthdate"(platform: "/mobile", type: TrackType.View) {}
-
+    "/asset_management/challenge_address"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_phone"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/challenge_single_pep_fatca_so"(platform: "/mobile", type: TrackType.View) {}
 
     // Terms and conditions view
     "/asset_management/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
@@ -46,28 +58,58 @@ tracks {
     // Opt-out
     "/asset_management/opt_out"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_stop_investing"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/result_stop_investing"(platform: "/web", type: TrackType.View) {}
 
     // Detail
     "/asset_management/investment_detail"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/investment_detail"(platform: "/web", type: TrackType.View) {}
+
+    // Earnings report
+    "/asset_management/investment_reports"(platform: "/web", type: TrackType.View) {}
 
     // Operations
     "/asset_management/movements_detail"(platform: "/mobile", type: TrackType.View) {} // old name
-    "/asset_management/operations"(platform: "/mobile") {} // new name
-    "/asset_management/operations/detail"(platform: "/mobile") {} // specific operation
+    "/asset_management/operations"(platform: "/mobile") {}
+    "/asset_management/operations"(platform: "/web") {}
+    "/asset_management/operations/detail"(platform: "/mobile") {}
+    "/asset_management/operations/detail"(platform: "/web") {}
 
     // Congrats
     "/asset_management/result_investing"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/result_investing"(platform: "/web", type: TrackType.View) {}
+    "/asset_management/result_investing_company"(platform: "/mobile", isAbstract: true) {}
+    "/asset_management/result_investing_company/approved"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/result_investing_company/pending"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/result_investing_company/rejected"(platform: "/mobile", type: TrackType.View) {}
 
     // Faqs
     "/asset_management/faqs"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/faqs"(platform: "/web", type: TrackType.View) {}
     "/asset_management/faq"(platform: "/mobile", type: TrackType.Event) {}
+
+    // Landing Web
+    "/asset_management/landing"(platform: "/web", type: TrackType.View) {}
+    "/asset_management/landing"(platform: "/mobile", type: TrackType.View) {}
+
+    // Pre-landing
+    "/asset_management/invest"(platform: "/web", type: TrackType.View) {}
+
+    // Investment report
+    "/asset_management/investment_report"(platform: "/web", type: TrackType.Event) {
+        year (required: true, type: PropertyType.String, description: "The year of earnings requested")
+        quarter (required: false, type: PropertyType.String, values: ["1", "2", "3", "4"], description: "The requested quarter of the year, if chosen")
+    }
 
     // Clarification show event
     "/asset_management/clarification"(platform: "/mobile", type: TrackType.Event) {}
 
+    // Money-In Specific event
+    "/asset_management/add_funds"(platform: "/mobile", type: TrackType.Event) {}
+
     // WebView events
     "/asset_management/url_external"(platform: "/mobile", type: TrackType.Event) {
         context (required: true, type: PropertyType.String, description: "The context where this event occurred")
+        url (required: true, type: PropertyType.String, description: "The external URL")
     }
 
     // Splitter
@@ -75,7 +117,9 @@ tracks {
 
     // Errors
     "/asset_management/error"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/network_error"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/stop_investing"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/stop_investing"(platform: "/web", type: TrackType.Event) {}
     "/asset_management/profile"(platform: "/mobile", type: TrackType.Event) {}
 
     // Other events
