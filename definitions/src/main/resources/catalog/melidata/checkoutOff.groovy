@@ -5,17 +5,17 @@ import com.ml.melidata.TrackType
 
 tracks {
         "/checkout_off"(platform: "/", isAbstract: true){
-        checkout_flow_id(required: true)
-        product_id(required: true)
-        site(required: true)
-        productive(required: true)
-        collector_nickname(required: false)
-        preference_id(required: false)
-        operation_type(required: false)
-        is_express(required: false)
-        payer_id(required: false)
-        payment_method_id(required: false)
-        payment_type_id(required: false)
+        checkout_flow_id(required: true, description: "Unique ID of the current flow")
+        product_id(required: true, description: "Unique ID of the current flow")
+        site(required: true, description: "Site of the seller")
+        productive(required: true, description: "True if productive flow")
+        collector_nickname(required: false, description: "Seller's nickname")
+        preference_id(required: false, description: "Preference being paid")
+        operation_type(required: false, description: "Operation type, e.g: regular_payment")
+        is_express(required: false, description: "True if the flow was express")
+        payer_id(required: false, description: "Payer id is sent if it is logged")
+        payment_method_id(required: false, description: "Current selected payment method")
+        payment_type_id(required: false, description: "Current selected payment type")
     }
 
     // EVENTS
@@ -61,9 +61,9 @@ tracks {
 
     //Final Views
     "/checkout_off/finish"(platform: "/", isAbstract: true) {
-        payment_installments(required: false)
-        payment_status(required: true)
-        payment_status_detail(required: true)
+        payment_installments(required: false, description: "Installments selected")
+        payment_status(required: true, description: "Payment status (approved, rejected, etc.")
+        payment_status_detail(required: true, description: "Reason for the payment status")
     }
 
     "/checkout_off/finish/approved"(platform: "/", type: TrackType.View) {}
