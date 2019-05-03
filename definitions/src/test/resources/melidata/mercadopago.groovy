@@ -486,6 +486,26 @@ trackTests {
         "/landing/promotions" (platform: "/web") {}
     }
 
+    test("Growth Frontend Login") {
+        "/growth/login"(platform: "/", type: TrackType.View) {
+          view = "split"
+        }
+
+        "/growth/login"(platform: "/", type: TrackType.View) {
+          view = "guest"
+        }
+    }
+
+    test("Point Buying Flow") {
+        "/point/buyingflow/init"(platform: "/", type: TrackType.View) {
+          step = "init"
+          flow_id = "000001"
+          product = "point-i"
+          currency = "R\$"
+          price = 401
+        }
+    }
+
     test("MP-MA Landing QR") {
         "/merchant_acquisition/qr/landing" (platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/qr/landing/promotions"(platform: "/", type: TrackType.Event) {}
