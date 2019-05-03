@@ -506,6 +506,10 @@ trackTests {
 
         "/myml/sales/questions"(platform: "/web") {}
 
+        "/myml/sales/questions/history"(platform: "/mobile"){}
+
+        "/myml/sales/questions/answer_question"(platform: "/mobile"){}
+
         "/myml/sales/shipping" (platform:"/", type: TrackType.View) {
             dataSet()
         }
