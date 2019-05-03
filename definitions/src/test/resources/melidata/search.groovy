@@ -226,6 +226,12 @@ trackTests {
             defaultSearchInformation()
             list_mode = "mosaic"
         }
+        "/search/change_view/apply" (platform: "/web", type: TrackType.Event){
+            defaultSearchInformation()
+            list_mode = "mosaic"
+            available_filters=[{shipping_time_sameday: "250"}]
+            user_zone = ""
+        }
         "/search/promoted_items"(platform: "/web") {
             defaultSearchInformation()
             available_filters = []
