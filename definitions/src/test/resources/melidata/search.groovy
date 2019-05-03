@@ -46,7 +46,7 @@ trackTests {
             items_with_logos=["MLA1234", "MLA12345"]
         }
 
-        "/search"(platform: "/web",{
+        def defaultWebTrack = {
             total=0
             sort_id="relevance"
             view_mode="MOSAIC"
@@ -94,7 +94,7 @@ trackTests {
             results=["232232000", "232232001", "232232002"]
             billboards = ["232232000"]
             geolocation="AR:CABA"
-            landing="base"
+
             layout_forced=true
             pads=[]
             pads_info={
@@ -103,7 +103,17 @@ trackTests {
                 printed_positions_size=0
             }
             user_zone = ""
-        })
+        }
+
+        "/search"(platform: "/web"){
+            defaultWebTrack()
+            landing="base"
+        }
+
+        "/search"(platform: "/web"){
+            defaultWebTrack()
+            landing="official_store"
+        }
 
         "/search"(platform: "/web",{
             total=0
