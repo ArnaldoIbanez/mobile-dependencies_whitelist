@@ -95,6 +95,9 @@ tracks {
     "/instore/error/payment_timeout"(platform: "/mobile", type: TrackType.View) {}
     "/instore/error/payment_timeout/back"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/error/payment_timeout/abort"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/payment_timeout/retry"(platform: "/mobile", type: TrackType.Event) {
+        qr_data(required: true, PropertyType.String)
+    }
 
     "/instore/error/cant_pay_in_different_sites"(platform: "/mobile", type: TrackType.View) {}
     "/instore/error/cant_pay_in_different_sites/back"(platform: "/mobile", type: TrackType.Event) {}
@@ -183,6 +186,7 @@ tracks {
     "/instore/waiting/gastronomy_cashier/back"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/waiting/gastronomy_order"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/gastronomy_order/next"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/waiting/gastronomy_order/back"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/waiting/generic_cashier"(platform: "/mobile", type: TrackType.View) {}
@@ -190,6 +194,7 @@ tracks {
     "/instore/waiting/generic_cashier/back"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/waiting/generic_ticket"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/generic_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/waiting/generic_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/waiting/vending_product_selection"(platform: "/mobile", type: TrackType.View) {}

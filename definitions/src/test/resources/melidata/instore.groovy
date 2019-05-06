@@ -267,6 +267,14 @@ trackTests {
             qr_data = "Any scanned data"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+        "/instore/error/payment_timeout/retry"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         "/instore/error/cant_pay_in_different_sites"(platform: "/mobile", type: TrackType.View) {
             collector_id = "12356"
             store_id = "76840"
@@ -504,6 +512,13 @@ trackTests {
             pos_id = "65763"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+        "/instore/waiting/gastronomy_order/next"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         "/instore/waiting/gastronomy_order/back"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
@@ -533,6 +548,13 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/generic_ticket"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/generic_ticket/next"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
@@ -1069,6 +1091,14 @@ trackTests {
             qr_data = "Any scanned data"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+        "/instore/error/payment_timeout/retry"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         "/instore/error/cant_pay_in_different_sites"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             collector_id = "12356"
             store_id = "76840"
@@ -1361,6 +1391,13 @@ trackTests {
             pos_id = "65763"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+        "/instore/waiting/gastronomy_order/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         "/instore/waiting/gastronomy_order/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
@@ -1390,6 +1427,13 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/waiting/generic_ticket"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/generic_ticket/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
