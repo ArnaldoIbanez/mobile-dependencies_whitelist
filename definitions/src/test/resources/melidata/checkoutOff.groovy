@@ -140,6 +140,11 @@ trackTests {
             defaultProperties()
             finishDefaultProperties()
         }
+
+        "/checkout_off/finish/rejected/call_for_auth/how_to"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
         
         "/checkout_off/finish/rejected/call_for_auth/input_code"(platform: "/web/mobile") {
             defaultProperties()

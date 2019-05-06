@@ -71,5 +71,6 @@ tracks {
     "/checkout_off/finish/rejected"(platform: "/", type: TrackType.View) {}
     "/checkout_off/finish/rejected/call_for_auth"(platform: "/", type: TrackType.View) {}
     "/checkout_off/finish/rejected/call_for_auth/later"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/finish/rejected/call_for_auth/how_to"(platform: "/", type: TrackType.View) {}
     "/checkout_off/finish/rejected/call_for_auth/input_code"(platform: "/", type: TrackType.View) {}
 }
