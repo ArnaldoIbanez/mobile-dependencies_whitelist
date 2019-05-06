@@ -103,6 +103,12 @@ trackTests {
                 printed_positions_size=0
             }
             user_zone = ""
+            pdp_rows= [
+                    [
+                            product_id:"MLA123",
+                            item_id:"MLA1234"
+                    ]
+            ]
         })
 
         "/search"(platform: "/web",{
@@ -164,6 +170,12 @@ trackTests {
             geo_search = false
             user_zone = ""
             is_googlebot=true
+            pdp_rowspdp_rows= [
+                    [
+                            product_id:"MLA123",
+                            item_id:"MLA1234"
+                    ]
+            ]
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
