@@ -62,7 +62,6 @@ tracks {
     //Final Views
     "/checkout_off/finish"(platform: "/", isAbstract: true) {
         payment_installments(required: false, description: "Installments selected")
-        payment_status(required: true, description: "Payment status (approved, rejected, etc.")
         payment_status_detail(required: true, description: "Reason for the payment status")
     }
 

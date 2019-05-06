@@ -24,7 +24,6 @@ trackTests {
 
         def finishDefaultProperties = {
             payment_installments = 3
-            payment_status = "approved"
             payment_status_detail = "accredited"
         }
 
@@ -36,7 +35,6 @@ trackTests {
         }
 
         def finishOnlyRequiredProperties = {
-            payment_status = "approved"
             payment_status_detail = "accredited"
         }
 
