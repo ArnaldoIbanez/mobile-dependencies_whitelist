@@ -826,6 +826,9 @@ tracks {
 
     //Asset Management
     "/notification/asset_management_warm_up"(platform: "/mobile") {}
+    "/notification/asset_management_investing"(platform: "/mobile") {}
+    "/notification/asset_management_pending"(platform: "/mobile") {}
+    "/notification/asset_management_disabled"(platform: "/mobile") {}
 
     //Account
     "/notification/account_fund_approved_ml"(platform: "/mobile") {}

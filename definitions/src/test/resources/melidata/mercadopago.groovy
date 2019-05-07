@@ -2231,7 +2231,22 @@ trackTests {
         }
 
         "/notification/asset_management_warm_up"(platform: "/mobile") {
-            news_id = "asset-management_warm_up-12345678"
+            news_id = "asset-management_warm_up-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/asset_management_pending"(platform: "/mobile") {
+            news_id = "asset-management_pending-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/asset_management_investing"(platform: "/mobile") {
+            news_id = "asset-management_investing-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/asset_management_disabled"(platform: "/mobile") {
+            news_id = "asset-management_disabled-12345678-123123"
             event_type = "shown"
         }
 
