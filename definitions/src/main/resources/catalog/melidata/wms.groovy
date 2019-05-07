@@ -223,7 +223,7 @@ tracks {
     }
 
     /* SKU count tracks */
-    "/wms/sku_count"(platform: "/mobile/android", type: TrackType.View, isAbstract: true) {
+    "/wms/sku_count"(platform: "/mobile/android", isAbstract: true) {
         count_id(required: false, type: PropertyType.Numeric, description: "Count id")
         address_id(required: false, type: PropertyType.String, description: "Address id")
     }
