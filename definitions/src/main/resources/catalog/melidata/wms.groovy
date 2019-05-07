@@ -136,10 +136,36 @@ tracks {
     "/wms/receiving/scan_destination"(platform: "/mobile/android", type: TrackType.View) {
         inbound_id(required: true, type: PropertyType.Numeric, description: "Inbound id")
         receiving_id(required: true, type: PropertyType.Numeric, description: "Receiving id")
-    } 
+    }
     "/wms/receiving/scan_inbound_shipment/start_receiving"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/receiving/scan_destination/finish_receiving"(platform: "/mobile/android", type: TrackType.Event) {}
-	
+
+    /* new Receiving tracks */
+    "/wms/receiving/scan_dock"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/receiving/scan_volume"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/receiving/scan_pallet"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/receiving/scan_inbound_shipment"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/receiving/volume_rejection"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/receiving/volume_rejection/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/receiving/inbound_shipment_rejection"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/receiving/inbound_shipment_rejection/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
+
+    "/wms/receiving/receiving_finished"(platform: "/mobile/android", type: TrackType.Event) {
+        receiving_id(required: true, type: PropertyType.Numeric, description: "Id of the receiving to track")
+    }
+
+    "/wms/receiving/volume_rejection"(platform: "/mobile/android", type: TrackType.Event) {
+        receiving_id(required: true, type: PropertyType.Numeric, description: "Id of the receiving to track")
+        rejection_reason(required: true, type: PropertyType.String, description: "Rejection reason selected to track")
+        volume_label(required: true, type: PropertyType.String, description: "Volume label to track")
+    }
+
+    "/wms/receiving/inbound_shipment_rejection"(platform: "/mobile/android", type: TrackType.Event) {
+        receiving_id(required: true, type: PropertyType.Numeric, description: "Id of the receiving to track")
+        rejection_reason(required: true, type: PropertyType.String, description: "Rejection reason selected to track")
+        inbound_id(required: true, type: PropertyType.String, description: "Inbound Shipment id to track")
+    }
+
     /* Cycle count tracks */
     "/wms/cycle_count"(platform: "/mobile/android", type: TrackType.View, isAbstract: true) {
         cycle_count_id(required: false, type: PropertyType.Numeric, description: "Cycle count id")

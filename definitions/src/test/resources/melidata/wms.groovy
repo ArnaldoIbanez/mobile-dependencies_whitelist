@@ -72,6 +72,69 @@ trackTests {
             inbound_id = 1234
             receiving_id = 1234
         }
+
+        "/wms/receiving/scan_dock"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/receiving/scan_volume"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/receiving/scan_pallet"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/receiving/scan_inbound_shipment"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/receiving/receiving_finished"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            receiving_id = 1234
+        }
+
+        "/wms/receiving/volume_rejection"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            receiving_id = 1234
+            rejection_reason = "key01"
+            volume_label = "1234456/12"
+        }
+
+        "/wms/receiving/inbound_shipment_rejection"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            receiving_id = 1234
+            rejection_reason = "key01"
+            inbound_id = 1234
+        }
+
+        "/wms/receiving/volume_rejection"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/receiving/volume_rejection/confirmation"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/receiving/inbound_shipment_rejection"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/receiving/inbound_shipment_rejection/confirmation"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
         "/wms/put_away"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
