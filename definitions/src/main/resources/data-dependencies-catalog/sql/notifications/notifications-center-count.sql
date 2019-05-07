@@ -1,4 +1,4 @@
-SELECT COUNT(1) AS total, *, fecha as ds
+SELECT COUNT(1) AS total, notification_type, event_type, platform, os_version, site, marketplace, app_version, action_type, fecha as ds
 FROM (
  SELECT '@param01' AS fecha,
         split(path,'/')[2] AS notification_type,
