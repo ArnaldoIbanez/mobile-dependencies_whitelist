@@ -71,7 +71,7 @@ tracks {
         available_filters(required: true, description: "available filters, sameday and nextday")
         user_zone(required: true, description: "the user zone registered", type: PropertyType.String)
         is_googlebot(required: false, description: 'is google bot request', PropertyType.Boolean)
-        pdp_rows(required: true, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
+        pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
     }
 
     "/search"(platform: "/mobile") {
