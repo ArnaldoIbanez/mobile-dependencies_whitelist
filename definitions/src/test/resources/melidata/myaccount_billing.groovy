@@ -15,7 +15,7 @@ trackTests {
 
     test("Bill Detail collapsible") {
         "/myaccount/billing/detail/collapsible"(platform: "/", type: TrackType.Event) {
-            openedBill = true
+            opened_bill = true
             row_type = "Charge"
         }
     }
