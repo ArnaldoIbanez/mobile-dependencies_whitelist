@@ -347,6 +347,12 @@ trackTests {
             latest_news_type= "fraud-identity_validation_reminder"
             latest_news_id= "fraud-identity_validation_reminder-143816022-MLB1013046714"
         }
+
+        "/notification_center/messages_quotes"(platform: "/mobile"){
+            latest_news_type= "messages_quotes"
+            latest_news_id= "messages_quotes-143816022-MLB1013046714"
+        }
+
         "/notification_center/packages-buyer"(platform: "/mobile"){}
         "/notification_center/packages-seller"(platform: "/mobile"){}
         "/notification_center/package-seller"(platform: "/mobile") {
@@ -479,6 +485,17 @@ trackTests {
             latest_news_type= "quotes_new"
             latest_news_id= "quotes_new-123-123"
         }
+
+        "/notification_center/quotes_reject"(platform: "/mobile") {
+            latest_news_type= "quotes_reject"
+            latest_news_id= "quotes_reject-123-123"
+        }
+
+        "/notification_center/quotes_cancel"(platform: "/mobile") {
+            latest_news_type= "quotes_cancel"
+            latest_news_id= "quotes_cancel-123-123"
+        }
+
 
         "/notification"(platform: "/mobile") {
             news_id = "12332323"
@@ -740,6 +757,11 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/messages_quotes"(platform: "/mobile"){
+            news_id = "instore-discover_activities-321953606"
+            event_type = "sent"
+        }
+
         "/notification/me_flex_optin_activation"(platform: "/mobile"){
             news_id = "me_flex-optin_activation-315571651"
             event_type = "sent"
@@ -838,6 +860,16 @@ trackTests {
 
         //Quotes
         "/notification/quotes_reject"(platform: "/mobile") {
+            news_id = "quotes-reject-123"
+            event_type = "open"
+        }
+
+        "/notification/quotes_new"(platform: "/mobile") {
+            news_id = "quotes-reject-123"
+            event_type = "open"
+        }
+
+        "/notification/quotes_cancel"(platform: "/mobile") {
             news_id = "quotes-reject-123"
             event_type = "open"
         }
@@ -1419,7 +1451,6 @@ trackTests {
             news_id = "123"
             event_type = "open"
         }
-
 
         "/notification/moderations_item_warning"(platform: "/mobile") {
             news_id = "123"

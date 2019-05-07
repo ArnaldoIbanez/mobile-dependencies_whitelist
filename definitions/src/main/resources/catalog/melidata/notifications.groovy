@@ -241,8 +241,8 @@ tracks {
     "/notification_center/packages-buyer"(platform: "/", type: TrackType.Event) {}
     "/notification_center/packages-seller"(platform: "/", type: TrackType.Event) {}
     "/notification_center/package-seller"(platform: "/", type: TrackType.Event) {
-        purchase_id(required: true, type: PropertyType.Numeric)
-        pack_id(required: true, type: PropertyType.Numeric)
+        purchase_id(required: false, type: PropertyType.Numeric)
+        pack_id(required: false, type: PropertyType.Numeric)
         shipment_id(required: false, description: "Id of shipment.")
         latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -284,6 +284,14 @@ tracks {
         latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/quotes_new"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/quotes_reject"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/quotes_cancel"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -434,6 +442,9 @@ tracks {
       }
 
       "/notification/instore_discover_activities"(platform: "/") {}
+
+      //Messages
+      "/notification/messages_quotes"(platform: "/") {}
 
       "/notification/messages_new"(platform: "/") {}
 
@@ -734,6 +745,8 @@ tracks {
 
       //Quotes
       "/notification/quotes_reject"(platform: "/") {}
+      "/notification/quotes_new"(platform: "/") {}
+      "/notification/quotes_cancel"(platform: "/") {}
 
       //Listings
       "/notification/listings"(platform: "/") {}
