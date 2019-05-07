@@ -9,17 +9,14 @@ trackTests {
 
     test("Bill Detail") {
         "/myaccount/billing/detail"(platform: "/", type: TrackType.View) {
-            userId = 123
-            openedBill = true
-            siteId = "MLA"
+            opened_bill = true
         }
     }
 
     test("Bill Detail collapsible") {
         "/myaccount/billing/detail/collapsible"(platform: "/", type: TrackType.Event) {
-            userId = 123
             openedBill = true
-            siteId = "MLA"
+            row_type = "Charge"
         }
     }
 }
