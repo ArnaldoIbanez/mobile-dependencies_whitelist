@@ -12,14 +12,16 @@ tracks {
         category_domain(required: false, type: PropertyType.String, description: "Item category domain")
         category_path(required: false, type: PropertyType.ArrayList, description: "Path of category")
         type(required: true, type: PropertyType.String, description: "Type of hint", values: ["info", "actionable"])
-        attribute(required: true, type: PropertyType.String, description: "Id of the attribute")
+        attribute(required: false, type: PropertyType.String, description: "Id of the attribute")
         reputation_level(required: false, type: PropertyType.String, description: "user reputation level")
+        hierarchy(required: true, type: PropertyType.String, description: "Attribute type")
     }
 
     propertyGroups {
         sellerCentralModifyGroup(item_id, session_id)
         sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path)
         sellerCentralSettingsGroup(seller_profile, reputation_level)
+        technicalSpecificationsGroup(category_domain, attribute, hierarchy)
         hintsGroup(type, attribute)
     }
 
@@ -267,17 +269,15 @@ tracks {
 
     "/seller_central/modify/technical_specifications/multivalue"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyGroup
+        technicalSpecificationsGroup
         quantity(required: true, type: PropertyType.Numeric, description: "Added values")
         previous_quantity(required: true, type: PropertyType.Numeric, description: "Previous values")
-        category_domain(required: true, type: PropertyType.String, description: "Domain")
-        hierarchy(required: true, type: PropertyType.String, description: "Attribute type")
     }
 
     "/seller_central/modify/technical_specifications/suggested"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyGroup
-        category_domain(required: true, type: PropertyType.String, description: "Domain")
-        type(required: true, type: PropertyType.String, description: "Suggestion type")
-        hierarchy(required: true, type: PropertyType.String, description: "Attribute type")
+        technicalSpecificationsGroup
+        type(required: true, type: PropertyType.String, description: "Suggestion type", values: ["suggested", "dynamic", "other"])
     }
 
     // SETTINGS SECTION
