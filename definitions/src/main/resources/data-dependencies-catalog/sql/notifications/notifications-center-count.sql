@@ -17,3 +17,4 @@ FROM (
  AND (jest(event_data,'context') is null)
 ) t
 GROUP BY t.fecha, t.notification_type, t.event_type, t.platform, t.os_version, t.site, t.marketplace, t.app_version, t.action_type
+
