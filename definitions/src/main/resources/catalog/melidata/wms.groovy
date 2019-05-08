@@ -140,7 +140,7 @@ tracks {
     "/wms/receiving/scan_inbound_shipment/start_receiving"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/receiving/scan_destination/finish_receiving"(platform: "/mobile/android", type: TrackType.Event) {}
 
-    /* new Receiving tracks */
+    /* new Receiving 2.0 tracks */
     "/wms/receiving/scan_dock"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/receiving/scan_volume"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/receiving/scan_pallet"(platform: "/mobile/android", type: TrackType.View) {}
