@@ -33,7 +33,7 @@ trackTests {
             category_id = "MLA407408"
             item_id = "MLA673024191"
             payment_id = "3536747103"
-            used_disable = false
+            user_disabled = false
         }
 
         "/chargebacks/payer/attach"(platform: "/", type: TrackType.Event) {
@@ -45,6 +45,8 @@ trackTests {
             select_reason = false
             start_conversation = false
             flow = "CBK"
+            problem_id = "DUPLICATED_PAYMENT"
+            user_disabled = false
         }
 
         "/chargebacks/payer/send_msj"(platform: "/", type: TrackType.Event) {
@@ -57,6 +59,9 @@ trackTests {
             start_conversation = false
             attached_doc = true
             flow = "CBK"
+            problem_id = ""
+            repayment_status = "CANCELLED"
+            user_disabled = false
         }
 
         "/chargebacks/payer/remedy"(platform: "/", type: TrackType.View) {
@@ -64,7 +69,7 @@ trackTests {
             category_id = "MLA407408"
             item_id = "MLA673024191"
             payment_id = "3536747103"
-            used_disable = false
+            user_disabled = false
             problem_id = "DUPLICATED_PAYMENT"
         }
 
@@ -74,6 +79,7 @@ trackTests {
             item_id = "MLA673024191"
             payment_id = "3536747103"
             problem_id = "DUPLICATED_PAYMENT"
+            user_disabled = false
         }
 
         "/chargebacks/payer/attach_main"(platform: "/", type: TrackType.Event) {
@@ -92,6 +98,7 @@ trackTests {
             payment_id = "3536747103"
             problem_id = "DUPLICATED_PAYMENT"
             payer_id = 306162056
+            user_disabled = false
         }
 
         "/chargebacks/payer/pay"(platform: "/", type: TrackType.Event) {
@@ -110,6 +117,7 @@ trackTests {
             payment_id = "3536747103"
             problem_id = "DUPLICATED_PAYMENT"
             payer_id = 306162056
+            user_disabled = true
         }
 
         "/chargebacks/payer/resolve"(platform: "/", type: TrackType.View) {
@@ -118,8 +126,9 @@ trackTests {
             item_id = "MLA673024191"
             payment_id = "3536747103"
             problem_id = "DUPLICATED_PAYMENT"
-            used_disable = false
-            payment_status = "CANCELLED"
+            user_disabled = false
+            repayment_status = "CANCELLED"
+            category_path = ["MLM1000", "MLM189492", "MLM190998"]
         }
 
         "/chargebacks/payer/pay-again"(platform: "/", type: TrackType.Event) {
@@ -129,7 +138,7 @@ trackTests {
             payment_id = "3536747103"
             problem_id = "DUPLICATED_PAYMENT"
             payer_id = 306162056
-            status_repayment = "CANCELLED"
+            user_disabled = true
         }
 
         "/chargebacks/payer/click-form-link"(platform: "/", type: TrackType.Event) {
@@ -139,6 +148,7 @@ trackTests {
             payment_id = "3536747103"
             problem_id = "TKO_UNRECOGNIZED_MLB"
             payer_id = 306162056
+            user_disabled = false
         }
 
         /* MercadoLibre*/
@@ -173,7 +183,7 @@ trackTests {
             category_id = "MLA407408"
             item_id = "MLA673024191"
             payment_id = "3536747103"
-            used_disable = false
+            user_disabled = false
         }
 
         "/chargebacks/payer/attach"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
@@ -185,6 +195,8 @@ trackTests {
             select_reason = false
             start_conversation = false
             flow = "CBK"
+            problem_id = "DUPLICATED_PAYMENT"
+            user_disabled = true
         }
 
         "/chargebacks/payer/send_msj"(platform: "/",business:"mercadolibre", type: TrackType.Event) {
@@ -197,6 +209,8 @@ trackTests {
             start_conversation = false
             attached_doc = true
             flow = "CBK"
+            problem_id = "DUPLICATED_PAYMENT"
+            user_disabled = true
         }
 
         "/chargebacks/payer/remedy"(platform: "/", business:"mercadolibre", type: TrackType.View) {
@@ -204,7 +218,7 @@ trackTests {
             category_id = "MLA407408"
             item_id = "MLA673024191"
             payment_id = "3536747103"
-            used_disable = false
+            user_disabled = false
             problem_id = "DUPLICATED_PAYMENT"
         }
 
@@ -214,6 +228,7 @@ trackTests {
             item_id = "MLA673024191"
             payment_id = "3536747103"
             problem_id = "DUPLICATED_PAYMENT"
+            user_disabled = false
         }
 
         "/chargebacks/payer/attach_main"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
@@ -232,6 +247,7 @@ trackTests {
             payment_id = "3536747103"
             problem_id = "DUPLICATED_PAYMENT"
             payer_id = 306162056
+            user_disabled = false
         }
 
         "/chargebacks/payer/pay"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
@@ -250,6 +266,7 @@ trackTests {
             payment_id = "3536747103"
             problem_id = "DUPLICATED_PAYMENT"
             payer_id = 306162056
+            user_disabled = false
         }
 
         "/chargebacks/payer/resolve"(platform: "/", business:"mercadolibre", type: TrackType.View) {
@@ -258,8 +275,9 @@ trackTests {
             item_id = "MLA673024191"
             payment_id = "3536747103"
             problem_id = "DUPLICATED_PAYMENT"
-            used_disable = false
-            payment_status = "CANCELLED"
+            user_disabled = false
+            repayment_status = "CANCELLED"
+            category_path = ["MLM1000", "MLM189492", "MLM190998"]
         }
 
         "/chargebacks/payer/pay-again"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
@@ -269,7 +287,7 @@ trackTests {
             payment_id = "3536747103"
             problem_id = "DUPLICATED_PAYMENT"
             payer_id = 306162056
-            status_repayment = "CANCELLED"
+            user_disabled = false
         }
 
         "/chargebacks/payer/click-form-link"(platform: "/", business:"mercadolibre", type: TrackType.Event) {
@@ -279,6 +297,7 @@ trackTests {
             payment_id = "3536747103"
             problem_id = "TKO_UNRECOGNIZED_MLB"
             payer_id = 306162056
+            user_disabled = true
         }
 
     }

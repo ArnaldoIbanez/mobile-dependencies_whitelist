@@ -83,7 +83,6 @@ trackTests {
             operator_id = "123"
             has_error = false
             recaptcha = false
-            push_control_group_user = false
             old_user_id = "123456"
             old_user_nick = "nick"
         }
@@ -108,11 +107,11 @@ trackTests {
             is_otp = false
             is_admin_otp = false
             operator_id = null
-            push_control_group_user = false
             rememberme_enabled = true
         }
         "/login/auth/success"(platform: "/mobile", type: TrackType.Event) {
             challenge = "password"
+            tracking_id = "123"
             is_otp = true
             is_admin_otp = false
             user_reg_date = "2018"
@@ -162,12 +161,6 @@ trackTests {
             challenge = "pass"
             source = "QUESTION"
             tracking_id = "123"
-        }
-        "/login/auth/push"(platform: "/", type: TrackType.Event) {
-            view = "waiting_view"
-            event_type = "click_go_to_password_button"
-            challenge = "push_authentication"
-            tx = "adHgjskcD01lM6EeLs7zUGgBaA1GiWqF6w_XQUgLJk0QAmdhE"
         }
         "/logout"(platform: "/", type: TrackType.Event) {
             source = "MSL"
@@ -259,11 +252,15 @@ trackTests {
     }
 
     test("Account recovery flow") {
-        "/auth/account_recovery/canceled"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/recovery_confirmation"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
             is_webview = true
         }
         "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+            is_webview = true
+        }
+        "/auth/account_recovery/landing"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
             is_webview = true
         }
@@ -275,10 +272,16 @@ trackTests {
             id = "id--fury"
             is_webview = true
         }
-        "/auth/account_recovery/canceled/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/recovery_confirmation/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
-            target = "go_home_button"
+            target = "confirm_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/recovery_confirmation/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "cancel_button"
             is_webview = true
         }
         "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
@@ -287,28 +290,36 @@ trackTests {
             target = "go_home_button"
             is_webview = true
         }
-        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
-            target = "cancel_button"
+            target = "validate_identity_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
             is_webview = true
         }
         "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
-            target = "unlink_button"
-            is_webview = true
-        }
-        "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "cancel_button"
+            target = "continue_button"
             is_webview = true
         }
         "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
+            status_code = "429"
+            is_webview = true
+        }
+        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+            status_code = "403"
             is_webview = true
         }
     }
@@ -396,6 +407,7 @@ trackTests {
         }
         "/login/auth/challenge/restart"(platform: "/mobile", type: TrackType.Event) {
             challenge = "enter_password"
+            tracking_id = "123"
         }
     }
 
@@ -446,4 +458,70 @@ trackTests {
         }
     }
 
+    test("Device Attestation"){
+        "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
+            mode = "prefetch_only"
+        }
+
+        "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/request"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/created"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/reuse"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/expired"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/fail"(platform: "/mobile", type: TrackType.Event) {
+            reason = "quota exceeded"
+        }
+
+        "/auth/attestation/nonce/request"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/nonce/created"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/nonce/fail"(platform: "/mobile", type: TrackType.Event) {
+            reason = "missing vendor"
+        }
+    }
+
+    test("Device Authorization - Authentication") {
+        "/authenticators/device_authorization/access_request"(platform: "/", type: TrackType.View) {}
+
+        "/authenticators/device_authorization/access_request/fallback"(platform: "/", type: TrackType.View) {}
+
+        "/authenticators/device_authorization/access_answer"(platform: "/", type: TrackType.View) {}
+
+        "/authenticators/device_authorization/access_answer/send"(platform: "/", type: TrackType.Event) {
+            status = "approve"
+        }
+    }
+
+    test("Device Authorization - Enrollment") {
+        "/authenticators/device_authorization/enrollment/greeting"(platform: "/", type: TrackType.View) {
+            section = "security_settings"
+        }
+
+        "/authenticators/device_authorization/enrollment/access_request"(platform: "/", type: TrackType.View) {
+            section = "security_settings"
+        }
+
+        "/authenticators/device_authorization/enrollment/access_request/fallback"(platform: "/", type: TrackType.View) {
+            section = "security_settings"
+        }
+
+        "/authenticators/device_authorization/enrollment/access_answer"(platform: "/", type: TrackType.View) {
+            section = "security_settings"
+        }
+
+        "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
+            section = "security_settings"
+            status = "approve"
+        }
+
+        "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {
+            section = "security_settings"
+        }
+    }
 }
