@@ -163,7 +163,7 @@ tracks {
     "/wms/receiving/inbound_shipment_rejection"(platform: "/mobile/android", type: TrackType.Event) {
         receiving_id(required: true, type: PropertyType.Numeric, description: "Id of the receiving to track")
         rejection_reason(required: true, type: PropertyType.String, description: "Rejection reason selected to track")
-        inbound_id(required: true, type: PropertyType.String, description: "Inbound Shipment id to track")
+        inbound_id(required: true, type: PropertyType.Numeric, description: "Inbound Shipment id to track")
     }
 
     /* Cycle count tracks */
