@@ -222,6 +222,21 @@ metrics {
 			}
 		}
 	}
+	
+	"garex_mla"(description: "Garex MLA", sum_by: ["event_data.total_amount_including_garex"]) {
+		startWith {
+			experiment("buyingflow/garex_mla")
+		}
+
+		countsOn {
+			condition {
+				and(
+					equals("event_data.congrats_seq",1),
+					empty("event_data.total_amount_including_garex", false)
+				)
+			}
+		}
+	}
 
 	"credits_merchant_enrollment_standard_simulator_redesign"(description: "Credits Merchant enrollment new design A/B testing for standard users") {
 		startWith {
