@@ -72,7 +72,7 @@ trackTests {
             inbound_id = 1234
             receiving_id = 1234
         }
-
+        // new receiving
         "/wms/receiving/scan_dock"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
