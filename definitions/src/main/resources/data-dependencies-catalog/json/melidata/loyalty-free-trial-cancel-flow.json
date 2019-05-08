@@ -49,13 +49,13 @@
       {
         "name": "site",
         "type": "UNICODE_STRING"
-      },
-      {
+      }
+    ],
+    "partition": {
         "name": "fecha",
         "format": "yyyy-MM-dd",
         "type": "DATE"
       }
-    ]
   }
 }
 
