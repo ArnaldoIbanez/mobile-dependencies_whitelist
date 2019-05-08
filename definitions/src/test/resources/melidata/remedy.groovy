@@ -3,7 +3,7 @@ package src.test.resources.melidata
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
-    defaultBusiness = "mercadolibre"
+    defaultBusiness = "mercadopago"
 
     test("Remedy") {
 
@@ -75,5 +75,75 @@ trackTests {
         }
 
         "/remedy/profile"(platform: "/mobile") {}
+
+        // Meli tests
+
+        "/remedy/challenge_pep"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_fatca"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_regulated_entity"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_manual_input_dob"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_manual_input_document"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_mismatch"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_cx_pending"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_number_of_attempts_exceeded"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_identity_validation"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_identification_bad_quality"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_country_of_birth"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_review_and_confirm"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_document_type"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_gender"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_terms_and_conditions"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_birthdate"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_company_relationship"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_identification"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_identifier_type"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_identity"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_identity_mismatch"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_nationality"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_selfie"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_selfie_bad_quality"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_terms_and_conditions_company"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_address"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_phone"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_single_pep_fatca_so"(platform: "/mobile", business: "mercadolibre") {}
+
+        "/remedy/url_external"(platform: "/mobile", business: "mercadolibre") {
+            url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
+            context = "/remedy/challenge_pep"
+        }
+
+        "/remedy/url_external"(platform: "/mobile", business: "mercadolibre") {
+            url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
+            context = "/remedy/challenge_review_and_confirm"
+        }
+
+        "/remedy/browser_external"(platform: "/mobile", business: "mercadolibre") {
+            url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
+            context = "/remedy/challenge_pep"
+        }
+
+        "/remedy/browser_external"(platform: "/mobile", business: "mercadolibre") {
+            url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
+            context = "/remedy/challenge_review_and_confirm"
+        }
+
+        // Error
+        "/remedy/error"(platform: "/mobile", business: "mercadolibre") {
+            label = "service_error_generic"
+        }
+        "/remedy/error"(platform: "/mobile", business: "mercadolibre") {
+            label = "service_error"
+        }
+        "/remedy/error"(platform: "/mobile", business: "mercadolibre") {
+            label = "service_error_connection"
+        }
+        "/remedy/error"(platform: "/mobile", business: "mercadolibre") {
+            label = "date_validation_underage"
+        }
+        "/remedy/error"(platform: "/mobile", business: "mercadolibre") {
+            label = "date_validation_invalid"
+        }
+
+        "/remedy/profile"(platform: "/mobile", business: "mercadolibre") {}
     }
 }

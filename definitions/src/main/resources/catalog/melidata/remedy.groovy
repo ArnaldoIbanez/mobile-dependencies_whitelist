@@ -4,6 +4,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    "/remedy"(platform: "/", isAbstract: true) {}
+
     // Challenges
     "/remedy/challenge_pep"(platform: "/mobile", type: TrackType.View) {}
     "/remedy/challenge_fatca"(platform: "/mobile", type: TrackType.View) {}
