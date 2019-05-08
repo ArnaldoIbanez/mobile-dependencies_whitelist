@@ -168,5 +168,36 @@ trackTests {
             remedy_id = "49cdb9b5-9585-42f3-a680-9d44548c9822"
             status = "number_of_attempts_exceeded"
         }
+
+        // Meli tests
+        "/asset_management/onboarding"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/start_investing"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/know_more"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/faq"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/error"(platform: "/mobile", business: "mercadolibre") {
+            label = "service_error_generic"
+        }
+        "/asset_management/error"(platform: "/mobile", business: "mercadolibre") {
+            label = "service_error"
+        }
+        "/asset_management/error"(platform: "/mobile", business: "mercadolibre") {
+            label = "service_error_connection"
+        }
+        "/asset_management/error"(platform: "/mobile", business: "mercadolibre") {
+            label = "date_validation_underage"
+        }
+        "/asset_management/error"(platform: "/mobile", business: "mercadolibre") {
+            label = "date_validation_invalid"
+        }
+        "/asset_management/swipe"(platform: "/mobile", business: "mercadolibre") {
+            label = "first"
+        }
+        "/asset_management/swipe"(platform: "/mobile", business: "mercadolibre") {
+            label = "second"
+        }
+        "/asset_management/swipe"(platform: "/mobile", business: "mercadolibre") {
+            label = "third"
+        }
+
     }
 }
