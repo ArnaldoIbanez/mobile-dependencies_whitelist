@@ -512,16 +512,145 @@ trackTests {
         "/seller_central/sales/detail"(platform: "/", type: TrackType.View) {}
     }
 
+    test("seller central sales search") {
+        "/seller_central/sales/list/search"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("seller central sales onboarding action") {
+        "/seller_central/sales/list/onboarding/action"(platform: "/", type: TrackType.Event) {
+            id = "start"
+            page = 1
+        }
+        "/seller_central/sales/list/onboarding/action"(platform: "/", type: TrackType.Event) {
+            id = "dismiss"
+            page = 2
+        }
+        "/seller_central/sales/list/onboarding/action"(platform: "/", type: TrackType.Event) {
+            id = "close"
+            page = 3
+        }
+    }
+
+    test("seller central sales pagination") {
+        "/seller_central/sales/list/pagination"(platform: "/", type: TrackType.Event) {
+            page = 2
+            total = 10
+        }
+    }
+
+    test("seller central sales action modal open") {
+        "/seller_central/sales/list/modal_action/open"(platform: "/", type: TrackType.Event) {
+            id = "action_modal_id"
+        }
+    }
+
+    test("seller central sales action modal close") {
+        "/seller_central/sales/list/modal_action/close"(platform: "/", type: TrackType.Event) {
+            id = "action_modal_id"
+        }
+    }
+
+    test("seller central sales action modal apply") {
+        "/seller_central/sales/list/modal_action/apply"(platform: "/", type: TrackType.Event) {
+            id = "action_modal_id"
+            option = "option_id"
+        }
+    }
+
     test("seller central sales dashboard tasks") {
         "/seller_central/sales/list/dashboard/tasks"(platform: "/", type: TrackType.Event) {
-            tasks = ["ready", "print"]
+            tasks = ["card_id_1", "card_id_2"]
         }
+    }
+
+    test("seller central sales dashboard open") {
+        "/seller_central/sales/list/dashboard/open"(platform: "/", type: TrackType.Event) {}
+    }
+    
+    test("seller central sales dashboard close") {
+        "/seller_central/sales/list/dashboard/close"(platform: "/", type: TrackType.Event) {}
     }
 
     test("seller central sales dashboard task") {
         "/seller_central/sales/list/dashboard/task"(platform: "/", type: TrackType.Event) {
-            id = "prepare"
+            id = "card_id"
+            count = 5
         }
     }
 
+    test("seller central sales massive action") {
+        "/seller_central/sales/list/massive"(platform: "/", type: TrackType.Event) {
+            id = "massive_action_id"
+            count = 20
+        }
+    }
+
+    test("seller central sales row open") {
+        "/seller_central/sales/list/row/open"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("seller central sales row close") {
+        "/seller_central/sales/detail/row/close"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("seller central sales filters open") {
+        "/seller_central/sales/list/filters/open"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("seller central sales filters action") {
+        "/seller_central/sales/list/filters/action"(platform: "/", type: TrackType.Event) {
+            id = "apply"
+            filters = ["filter_id_1", "filter_id_2"]
+        }
+        "/seller_central/sales/list/filters/action"(platform: "/", type: TrackType.Event) {
+            id = "clear"
+            filters = ["filter_id_1", "filter_id_2"]
+        }
+    }
+
+    test("seller central sales filters sort") {
+        "/seller_central/sales/list/filters/sort"(platform: "/", type: TrackType.Event) {
+            id = "sort_id"
+        }
+    }
+
+    test("seller central sales print action") {
+        "/seller_central/sales/detail/action/print"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("seller central sales list primary action show") {
+        "/seller_central/sales/list/action/primary/show"(platform: "/", type: TrackType.Event) {
+            id = "action_id"
+        }
+    }
+
+    test("seller central sales list primary action") {
+        "/seller_central/sales/list/action/primary"(platform: "/", type: TrackType.Event) {
+            id = "action_id"
+        }
+    }
+
+    test("seller central sales list secondary secondary") {
+        "/seller_central/sales/list/action/secondary"(platform: "/", type: TrackType.Event) {
+            id = "action_id"
+        }
+    }
+
+    test("seller central sales detail primary action show") {
+        "/seller_central/sales/detail/action/primary/show"(platform: "/", type: TrackType.Event) {
+            id = "action_id"
+        }
+    }
+
+    test("seller central sales detail primary action") {
+        "/seller_central/sales/detail/action/primary"(platform: "/", type: TrackType.Event) {
+            id = "action_id"
+        }
+    }
+
+    test("seller central sales detail secondary action") {
+        "/seller_central/sales/detail/action/secondary"(platform: "/", type: TrackType.Event) {
+            id = "action_id"
+        }
+    }
 }

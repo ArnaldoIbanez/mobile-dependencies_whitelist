@@ -67,6 +67,10 @@ tracks {
     "/myml/sales/messages"(platform: "/") {}
 
     "/myml/sales/questions"(platform: "/") {}
+    
+    "/myml/sales/questions/history"(platform: "/mobile") {}
+
+    "/myml/sales/questions/answer_question"(platform: "/mobile") {}
 
     "/myml/sales/questions/response"(platform: "/") {
         unregistered_contact(required: true, type: PropertyType.Boolean, "User is unregister type")
