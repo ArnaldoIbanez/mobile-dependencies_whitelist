@@ -1,7 +1,5 @@
 package src.test.resources.melidata
 
-import com.ml.melidata.TrackType
-
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
@@ -169,6 +167,21 @@ trackTests {
             status = "number_of_attempts_exceeded"
         }
 
+        "/asset_management/browser_external"(platform: "/mobile") {
+            url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
+            context = "/asset_management/onboarding"
+        }
+
+        "/asset_management/browser_external"(platform: "/mobile") {
+            url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
+            context = "/asset_management/faqs"
+        }
+
+        "/asset_management/browser_external"(platform: "/mobile") {
+            url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
+            context = "/asset_management/operations"
+        }
+
         // Meli tests
         "/asset_management/onboarding"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/start_investing"(platform: "/mobile", business: "mercadolibre") {}
@@ -198,6 +211,5 @@ trackTests {
         "/asset_management/swipe"(platform: "/mobile", business: "mercadolibre") {
             label = "third"
         }
-
     }
 }
