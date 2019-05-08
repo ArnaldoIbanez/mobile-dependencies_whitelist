@@ -147,7 +147,7 @@ tracks {
     "/myml/purchases/feedback/congrats"(platform: "/mobile", type: TrackType.View) {}
 
     "/myml/purchases/feedback/congrats#action"(platform: "/mobile", type: TrackType.Event) {
-    	target(required: false, type: PropertyType.String)
+    	target(required: true, type: PropertyType.String)
     }
 
     "/myml/purchases/feedback/error"(platform: "/mobile", type: TrackType.View) {}
@@ -288,7 +288,7 @@ tracks {
     "/myml/sales"(platform: "/mobile", isAbstract: true) {}
     "/myml/sales/detail"(platform: "/mobile", isAbstract: true) {}
     "/myml/sales/detail/flow_selector"(platform: "/mobile", type: TrackType.View) {
-        flow_selected(required: false, type: PropertyType.String, description: "use case selected based on incoming parameters")
+        flow_selected(required: true, type: PropertyType.String, description: "use case selected based on incoming parameters")
     }
     "/myml/sales/detail/deliver_product"(platform: "/mobile", type: TrackType.View) {}
     "/myml/sales/detail/deliver_product#submit"(platform: "/mobile", type: TrackType.Event) {
