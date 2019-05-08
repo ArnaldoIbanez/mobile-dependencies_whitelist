@@ -46,7 +46,7 @@ trackTests {
             items_with_logos=["MLA1234", "MLA12345"]
         }
 
-        "/search"(platform: "/web",{
+        def defaultWebTrack = {
             total=0
             sort_id="relevance"
             view_mode="MOSAIC"
@@ -94,7 +94,7 @@ trackTests {
             results=["232232000", "232232001", "232232002"]
             billboards = ["232232000"]
             geolocation="AR:CABA"
-            landing="base"
+
             layout_forced=true
             pads=[]
             pads_info={
@@ -103,7 +103,23 @@ trackTests {
                 printed_positions_size=0
             }
             user_zone = ""
-        })
+            pdp_rows= [
+                    [
+                            product_id:"MLA123",
+                            item_id:"MLA1234"
+                    ]
+            ]
+        }
+
+        "/search"(platform: "/web"){
+            defaultWebTrack()
+            landing="base"
+        }
+
+        "/search"(platform: "/web"){
+            defaultWebTrack()
+            landing="official_store"
+        }
 
         "/search"(platform: "/web",{
             total=0
@@ -164,6 +180,12 @@ trackTests {
             geo_search = false
             user_zone = ""
             is_googlebot=true
+            pdp_rows= [
+                    [
+                            product_id:"MLA123",
+                            item_id:"MLA1234"
+                    ]
+            ]
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -226,13 +248,19 @@ trackTests {
             defaultSearchInformation()
             list_mode = "mosaic"
         }
+        "/search/change_view/apply" (platform: "/web", type: TrackType.Event){
+            defaultWebTrack()
+            list_mode = "mosaic"
+            available_filters=[{shipping_time_sameday: "250"}]
+            user_zone = ""
+        }
         "/search/promoted_items"(platform: "/web") {
-            defaultSearchInformation()
+            defaultWebTrack()
             available_filters = []
             user_zone = ""
         }
         "/search/promoted_items/show"(platform: "/web") {
-            defaultSearchInformation()
+            defaultWebTrack()
             item_type = "projects"
             available_filters = []
             user_zone = ""
@@ -243,7 +271,7 @@ trackTests {
             move = "forward"
         }
         "/search/billboard/resize"(platform: "/web") {
-            defaultSearchInformation()
+            defaultWebTrack()
             action = "expand"
             available_filters = []
             user_zone = ""
@@ -330,6 +358,7 @@ trackTests {
             category_id="MLA32089"
             query="iphone"
             user_zone = ""
+            pdp_rows = []
 
         }
     }

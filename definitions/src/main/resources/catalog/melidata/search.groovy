@@ -60,7 +60,7 @@ tracks {
         related_searches_info(required: false, description: 'Tracks related searches coverage')
         canonical(required: false, description: 'url: canonical URL for the request; no_follow_tag: if the link rel="canonical" has no follow parameter; if the canonical URL has a mirror category configured')
         autosuggest(required: false, description:'indicates whether clicked autosuggest')
-        landing(required:false, description:'indicates landing base, premium, etc', values: ["base","premium","offical_store","deal", "cpg","officialStore","marketplace"])
+        landing(required:false, description:'indicates landing base, premium, etc', values: ["base","premium","official_store","deal", "cpg","officialStore","marketplace"])
         upper_funnel(required: false, description: 'indicates if advertising query was considered upper funnel')
         geolocation(required: false, description:'geolocation')
         layout_forced(required: false, description:'true if layout is changed by the user')
@@ -71,6 +71,7 @@ tracks {
         available_filters(required: true, description: "available filters, sameday and nextday")
         user_zone(required: true, description: "the user zone registered", type: PropertyType.String)
         is_googlebot(required: false, description: 'is google bot request', PropertyType.Boolean)
+        pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
     }
 
     "/search"(platform: "/mobile") {
@@ -100,6 +101,7 @@ tracks {
         billboard_shown(required: false)
         available_filters(required: false, description: "available filters, sameday and nextday")
         user_zone(required: false, description: "the user zone registered", type: PropertyType.String)
+        pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
@@ -142,17 +144,10 @@ tracks {
         filter_value_name()
     }
 
-    "/search/change_view"(platform: "/mobile") {}
-
-    "/search/change_view/apply"(platform: "/mobile", type: TrackType.Event) {
+    "/search/change_view"(platform: "/",  isAbstract: true) {}
+    
+    "/search/change_view/apply"(platform: "/", type: TrackType.Event) {
         list_mode()
-    }
-
-    "/search/official_stores_carousel"(platform: "/", isAbstract: true) {}
-
-    "/search/official_stores_carousel/click"(platform: "/", type: TrackType.Event) {
-        to_name(required: true, description: 'the name of the official store selected', PropertyType.String)
-        to_position(required: true, description: 'the position of the official store in the carousel', PropertyType.Numeric)
     }
 
     "/search/official_stores_carousel"(platform: "/", isAbstract: true) {}

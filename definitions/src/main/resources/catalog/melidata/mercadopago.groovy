@@ -52,6 +52,25 @@ tracks {
     // MP Promotions
     "/landing/promotions"(platform: "/web"){}
 
+    "/growth"(platform: "/", isAbstract: true) {}
+    "/growth/login"(platform: "/", type: TrackType.View) {
+      view (type: PropertyType.String, required: true, description: "Name of view", values: ["split", "guest"])
+    }
+
+    "/point/buyingflow"(platform: "/", isAbstract: true) {}
+    "/point/buyingflow/init"(platform: "/", type: TrackType.View) {
+      step (type: PropertyType.String, required: true, description: "Initial step")
+      flow_id (type: PropertyType.String, required: true, description: "Flow id.")
+      product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
+      currency (type: PropertyType.String, required: true, description: "Currency")
+      price (type: PropertyType.Numeric, required: true, description: "Price of device")
+      has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
+      coupon_code (type: PropertyType.String, required: false, description: "MGM CuponCode")
+      coupon_type (type: PropertyType.String, required: false, values: ["default", "mgm", "campaign"], description: "Kind of MGM Coupon: default | mgm | campaign")
+      discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
+      price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
+    }
+
     "/point"(platform: "/", isAbstract: true) {}
 
     // Merchant Acquisition
@@ -146,6 +165,7 @@ tracks {
         discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
     }
+    
     "/point/landings/buy"(platform:"/", type: TrackType.Event) {}
 
     // Merchant Acquisition Point Landings: MGM > Events

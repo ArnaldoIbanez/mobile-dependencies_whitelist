@@ -109,7 +109,13 @@ tracks {
     // WebView events
     "/asset_management/url_external"(platform: "/mobile", type: TrackType.Event) {
         context (required: true, type: PropertyType.String, description: "The context where this event occurred")
-        url (required: true, type: PropertyType.String, description: "The external URL")
+        url (required: true, type: PropertyType.String, description: "The external webview URL")
+    }
+
+    // Browser events
+    "/asset_management/browser_external"(platform: "/mobile", type: TrackType.Event) {
+        context (required: true, type: PropertyType.String, description: "The context where this event occurred")
+        url (required: true, type: PropertyType.String, description: "The external browser URL")
     }
 
     // Splitter

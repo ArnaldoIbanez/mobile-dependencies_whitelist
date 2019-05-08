@@ -306,19 +306,80 @@ tracks {
     // SALES SECTION
 
     "/seller_central/sales"(platform: "/", isAbstract: true) {}
-
     "/seller_central/sales/list"(platform: "/", type: TrackType.View) {}
-
     "/seller_central/sales/detail"(platform: "/", type: TrackType.View) {}
 
-    "/seller_central/sales/list/dashboard"(platform: "/", isAbstract: true) {}
+    "/seller_central/sales/list/search"(platform: "/", type: TrackType.Event) {}
 
+    "/seller_central/sales/list/onboarding"(platform: "/", isAbstract: true) {}
+    "/seller_central/sales/list/onboarding/action"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "start"])
+        page(required: false, type: PropertyType.Numeric, description: "Page number")
+    }
+
+    "/seller_central/sales/list/pagination"(platform: "/", type: TrackType.Event) {
+        page(required: true, type: PropertyType.Numeric, description: "Page number")
+        total(required: true, type: PropertyType.Numeric, description: "Total pages number")
+    }
+
+    "/seller_central/sales/list/modal_action"(platform: "/", isAbstract: true) {}
+    "/seller_central/sales/list/modal_action/open"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Action id")
+    }
+    "/seller_central/sales/list/modal_action/close"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Action id")
+    }
+    "/seller_central/sales/list/modal_action/apply"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Action id")
+        option(required: false, type: PropertyType.String, description: "Option selected")
+    }
+
+    "/seller_central/sales/list/dashboard"(platform: "/", isAbstract: true) {}
     "/seller_central/sales/list/dashboard/tasks"(platform: "/", type: TrackType.Event) {
         tasks(required: true, type: PropertyType.ArrayList, description: "List of available tasks")
     }
+    "/seller_central/sales/list/dashboard/open"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/sales/list/dashboard/close"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/sales/list/dashboard/task"(platform: "/", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "Task id")
-        count(required: false, type: PropertyType.Numeric, description: "Task count")
+        count(required: true, type: PropertyType.Numeric, description: "Task count")
     }
+
+    "/seller_central/sales/list/massive"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Action id")
+        count(required: true, type: PropertyType.Numeric, description: "Sale rows count")
+    }
+
+    "/seller_central/sales/list/row"(platform: "/", isAbstract: true) {}
+    "/seller_central/sales/list/row/open"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/sales/detail/row"(platform: "/", isAbstract: true) {}
+    "/seller_central/sales/detail/row/close"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/sales/list/filters"(platform: "/", isAbstract: true) {}
+    "/seller_central/sales/list/filters/open"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/sales/list/filters/action"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Id of the action", values: ["apply", "clear"])
+        filters(required: true, type: PropertyType.ArrayList, description: "List of applied filters")
+    }
+    "/seller_central/sales/list/filters/sort"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Sort id")
+    }
+    
+    "/seller_central/sales/list/action"(platform: "/", isAbstract: true) {
+        id(required: true, type: PropertyType.String, description: "Action id")
+    }
+    "/seller_central/sales/list/action/primary"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/sales/list/action/primary/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/sales/list/action/secondary"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/sales/detail/action"(platform: "/", isAbstract: true) {
+        id(required: true, type: PropertyType.String, description: "Action id")
+    }
+    "/seller_central/sales/detail/action/primary"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/sales/detail/action/primary/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/sales/detail/action/secondary"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/sales/detail/action/print"(platform: "/", parentPropertiesInherited:false, type: TrackType.Event) {}
 }
