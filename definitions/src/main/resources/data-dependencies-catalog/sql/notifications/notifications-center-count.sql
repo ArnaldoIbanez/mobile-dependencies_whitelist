@@ -1,4 +1,4 @@
-SELECT COUNT(1) AS total, *, fecha as ds
+SELECT COUNT(1) AS total, notification_type, event_type, platform, os_version, site, marketplace, app_version, action_type, fecha as ds
 FROM (
  SELECT '@param01' AS fecha,
         split(path,'/')[2] AS notification_type,
@@ -17,3 +17,4 @@ FROM (
  AND (jest(event_data,'context') is null)
 ) t
 GROUP BY t.fecha, t.notification_type, t.event_type, t.platform, t.os_version, t.site, t.marketplace, t.app_version, t.action_type
+
