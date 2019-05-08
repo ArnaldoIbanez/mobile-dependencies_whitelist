@@ -8,11 +8,11 @@ SELECT
     prints.category_id AS `category_id`,
     prints_count as `prints`,
     clicks_count as `clicks`,
-    SUBSTR(prints.dsx, 1, 10) AS `ds`
+    prints.dsx AS `ds`
 
 FROM
 
-(SELECT from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') + 14400, 'yyyy-MM-dd HH') AS `dsx`,
+(SELECT from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') + 14400, 'yyyy-MM-dd') AS `dsx`,
     `jt`.`id` AS `component`,
     `jt2`.`platform` AS `platform`,
     `jt3`.`site_id` AS  `site_id`,
@@ -31,13 +31,14 @@ LATERAL VIEW json_tuple(app.`application`, 'site_id') jt3 AS `site_id`
 WHERE ds >= '@param03 20' AND ds < '@param04 20'
     AND `jt`.`event` = 'print'
     AND `jt`.`id` IS NOT NULL
+    AND (`jt`.`id` != '/home/exhibitors-carousel/element' OR ((`jt`.`element_order` IS NOT NULL) AND (`jt`.`campaign` IS NOT NULL)))
     AND (`jt`.`id` RLIKE '.*(?<=\/element)$' OR `jt`.`id` RLIKE '.*(?<=\/item)$')
-GROUP BY from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') + 14400, 'yyyy-MM-dd HH'), `jt2`.`platform`,`jt3`.`site_id`, `jt`.`id`, `jt`.`element_order`, `jt`.`campaign`, COALESCE(`jt`.`brand_name`, `jt`.`legacy_brand_name`), COALESCE(`jt`.`category_id`, `jt`.`legacy_category_id`)) AS prints
+GROUP BY from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') + 14400, 'yyyy-MM-dd'), `jt2`.`platform`,`jt3`.`site_id`, `jt`.`id`, `jt`.`element_order`, `jt`.`campaign`, COALESCE(`jt`.`brand_name`, `jt`.`legacy_brand_name`), COALESCE(`jt`.`category_id`, `jt`.`legacy_category_id`)) AS prints
 
 LEFT JOIN
 
-(SELECT ds,
-    regexp_extract(`jt`.`id`, '^(\/.*)\/.*$', 1) AS `component`,
+(SELECT SUBSTR(tracks.ds, 1, 10) AS `dsx`,
+    `jt`.`id` AS `component`,
     device.platform AS `platform`,
     application.site_id AS `site_id`,
     `jt`.`element_order` AS `element_order`,
@@ -51,12 +52,13 @@ WHERE ds >= '@param01' AND ds < '@param02'
     AND `type` = 'view'
     AND `path` <> '/recommendations'
     AND `jt`.`id` IS NOT NULL
+    AND (`jt`.`id` != '/home/exhibitors-carousel/element' OR ((`jt`.`element_order` IS NOT NULL) AND (`jt`.`campaign` IS NOT NULL)))
     AND others['intersection_observer_supported'] = 'true'
-GROUP BY ds, device.platform, application.site_id, regexp_extract(`jt`.`id`, '^(\/.*)\/.*$', 1), `jt`.`element_order`, `jt`.`campaign`, `jt`.`brand_name`, `jt`.`category_id`) AS clicks
+GROUP BY SUBSTR(tracks.ds, 1, 10), device.platform, application.site_id, `jt`.`id`, `jt`.`element_order`, `jt`.`campaign`, `jt`.`brand_name`, `jt`.`category_id`) AS clicks
 
 ON
 
-    prints.dsx = clicks.ds AND
+    prints.dsx = clicks.dsx AND
     prints.platform = clicks.platform AND
     prints.site_id = clicks.site_id AND
     prints.component = clicks.component AND

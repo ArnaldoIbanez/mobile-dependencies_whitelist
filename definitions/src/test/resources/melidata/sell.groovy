@@ -184,7 +184,10 @@ trackTests {
             price = 123.456
         }
 
-        "/sell/list/congrats"(platform: "/web/desktop", itemData)
+        "/sell/list/congrats"(platform: "/web/desktop", {
+            itemData
+            predictor_chosen = "ZORDON"
+        })
         "/sell/upgrade_on"(platform: "/web/desktop", itemData)
 
     }
@@ -200,6 +203,17 @@ trackTests {
         }
         "/sell/upgradeOff"(platform: "/", itemData)
     }
+
+    test("Sell Flow view Pages upselling pads"){
+        def itemData = {
+            reputation_level = "platinum"
+            placement = "syi_congrats"
+            adv_segmentation = "1-Active (0-30)"
+        }
+
+        "/sell/list/congrats"(platform: "/web/desktop", itemData)
+    }
+
     test("Sell landing free_listing"){
         def data={
             referer = "1234L"
@@ -551,6 +565,9 @@ trackTests {
         "/sell/update/quantity_maximum_free_landing"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/shipping_landing"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/shipping_mandatory_landing"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/shipping/flex/free_shipping_landing"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/shipping/flex/optin"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/shipping/flex_landing"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/technical_specifications"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/product_identifier"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/variations"(platform: "/mobile") {item_id = "MLA123456"}

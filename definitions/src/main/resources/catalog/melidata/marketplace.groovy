@@ -100,16 +100,6 @@ tracks {
 
     "/seller_reputation/ratings/back"(platform: "/mobile") {}
 
-    "/traffic"(platform: "/", isAbstract: true) {}
-
-    "/traffic/inbound"(platform: "/", isAbstract: true) {}
-
-    "/traffic/inbound/matt"(platform: "/") {
-        tool(type: PropertyType.Numeric, description: "Referrer's ID, this could identify Google, Facebook or any other channel")
-        word(required: false, type: PropertyType.String, description: "This is the name of the marketing campaign.")
-        go(type: PropertyType.String, description: "Destination URL of the marketing campaign.")
-    }
-
     /**
      * DEVICES
      */

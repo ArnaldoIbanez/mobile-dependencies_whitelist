@@ -1,0 +1,258 @@
+package src.test.resources.melidata
+
+import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
+import com.ml.melidata.TrackType;
+
+trackTests {
+    defaultBusiness = "mercadopago"
+
+    test("Checkout Off") {
+
+        def defaultProperties = {
+            checkout_flow_id = "b24bcffe-4b26-46c9-8646-61891dbd978b"
+            collector_nickname = "DUMMY_SELLER"
+            product_id = "BC32A4JU643001OI3920"
+            site = "MLA"
+            productive = true
+            preference_id = "123456-ef5abdf8-6c2f-4f3e-a0b9-56a824203e61"
+            operation_type = "regular_payment"
+            is_express = false
+            payer_id = "654321"
+            payment_method_id = "visa"
+            payment_type_id = "credit_card"
+        }
+
+        def finishDefaultProperties = {
+            payment_installments = 3
+            payment_status_detail = "accredited"
+        }
+
+        def onlyRequiredProperties = {
+            checkout_flow_id = "b24bcffe-4b26-46c9-8646-61891dbd978b"
+            product_id = "BC32A4JU643001OI3920"
+            site = "MLA"
+            productive = true
+        }
+
+        def finishOnlyRequiredProperties = {
+            payment_status_detail = "accredited"
+        }
+
+        // ALL PROPERTIES TESTS
+        // EVENTS
+        "/checkout_off/init"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/checkout_confirmed"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/login"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/logout"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/select_type"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/select_stores"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/select_transfer"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/input_card/main"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/input_card/input_document"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/input_card/input_card_issuer"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        
+        "/checkout_off/payment/input_card/input_security_code"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        
+        "/checkout_off/payment/input_card/select_installment"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/card_express"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        // Tokenizer product final screen.
+        "/checkout_off/payment/processing"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        
+        "/checkout_off/billing/input_info"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/review"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/agencies"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/error"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        //Final Views
+        "/checkout_off/finish/approved"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+        
+        "/checkout_off/finish/pending"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+        
+        "/checkout_off/finish/rejected"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+        
+        "/checkout_off/finish/rejected/call_for_auth"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+        
+        "/checkout_off/finish/rejected/call_for_auth/later"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/finish/rejected/call_for_auth/how_to"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+        
+        "/checkout_off/finish/rejected/call_for_auth/input_code"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        // ONLY REQUIRED TESTS
+        // EVENTS
+        "/checkout_off/init"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/checkout_confirmed"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/login"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/logout"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/select_type"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/select_stores"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/select_transfer"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/input_card/main"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/input_card/input_document"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/input_card/input_card_issuer"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        
+        "/checkout_off/payment/input_card/input_security_code"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        
+        "/checkout_off/payment/input_card/select_installment"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/card_express"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        // Tokenizer product final screen.
+        "/checkout_off/payment/processing"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        
+        "/checkout_off/billing/input_info"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/review"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/agencies"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/error"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        //Final Views
+        "/checkout_off/finish/approved"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+        
+        "/checkout_off/finish/pending"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+        
+        "/checkout_off/finish/rejected"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+        
+        "/checkout_off/finish/rejected/call_for_auth"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+        
+        "/checkout_off/finish/rejected/call_for_auth/later"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+        
+        "/checkout_off/finish/rejected/call_for_auth/input_code"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+    }
+}
