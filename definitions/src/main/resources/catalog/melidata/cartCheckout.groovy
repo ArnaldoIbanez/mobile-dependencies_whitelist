@@ -432,7 +432,7 @@ tracks {
     status(required: false, type: PropertyType.String, description: "The result of the purchase")
 }
 
-//Payment form input tack events:
+//Payment form input tack events
 
 "/cart/checkout/payment/input_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     bin(required: true, type: PropertyType.String, description: "First six digits of card number")
