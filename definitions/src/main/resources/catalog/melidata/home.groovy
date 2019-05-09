@@ -69,6 +69,7 @@ tracks {
     "/home/carousel/lastcard"(platform: "/mobile") {
     }
 
+    "/home/categories"(platform: "/", type: TrackType.View) {}
 
     "/home"(platform: "/", type: TrackType.View) {
         from(required: false,  description: "Who is redirecting")

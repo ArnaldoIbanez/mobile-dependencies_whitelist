@@ -63,6 +63,9 @@ trackTests {
         "/home/carousel/lastcard"(platform: "/mobile") {}
     }
 
+    test("Home Categories Listing") {
+        "/home/categories"(platform: "/", type: TrackType.View) {}
+    }
 
     test("Home Category Tracking") {
         "/home/category"(platform: "/web") {
