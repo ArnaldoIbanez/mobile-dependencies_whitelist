@@ -925,9 +925,10 @@ trackTests {
             flow_selected = "MPA and not ME"
         }
         "/myml/sales/detail/deliver_product"(platform: "/mobile", type: TrackType.View) {}
-        "/myml/sales/detail/deliver_product#submit"(platform: "/mobile", type: TrackType.Event) {
+        "/myml/sales/detail/deliver_product#submit"(platform: "/mobile/android", type: TrackType.Event) {
             action_label = "send_feedback"
         }
+        "/myml/sales/detail/deliver_product#submit"(platform: "/mobile/ios", type: TrackType.Event) {}
         "/myml/sales/detail/date_will_receive_product"(platform: "/mobile", type: TrackType.View) {}
         "/myml/sales/detail/deliver_product/action"(platform: "/mobile", type: TrackType.Event) {
             action_label = "send_feedback"

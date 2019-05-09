@@ -291,7 +291,10 @@ tracks {
         flow_selected(required: true, type: PropertyType.String, description: "use case selected based on incoming parameters")
     }
     "/myml/sales/detail/deliver_product"(platform: "/mobile", type: TrackType.View) {}
-    "/myml/sales/detail/deliver_product#submit"(platform: "/mobile", type: TrackType.Event) {
+    "/myml/sales/detail/deliver_product#submit"(platform: "/mobile/android", type: TrackType.Event) {
+        action_label(required: true, type: PropertyType.String, description: "action selected when submitting: send_feedback or update shipping")
+    }
+    "/myml/sales/detail/deliver_product#submit"(platform: "/mobile/ios", type: TrackType.Event) {
         action_label(required: false, type: PropertyType.String, description: "action selected when submitting: send_feedback or update shipping")
     }
     "/myml/sales/detail/date_will_receive_product"(platform: "/mobile", type: TrackType.View) {}
