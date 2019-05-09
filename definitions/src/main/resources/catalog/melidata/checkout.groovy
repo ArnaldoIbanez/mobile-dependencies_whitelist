@@ -583,9 +583,7 @@ tracks {
         //      without_fee: true
         //    ]
     }
-    "/checkout/payment/consumer_credits/installments/back"(platform: "/mobile", type: TrackType.Event) {
-        available_installments(required: true, type: PropertyType.ArrayList)
-    }
+    "/checkout/payment/consumer_credits/installments/back"(platform: "/mobile", type: TrackType.Event) {}
     // payment promotions screen. Eg: bank promos in MLA
     "/checkout/payment/promotions"(platform: "/mobile") {}
 

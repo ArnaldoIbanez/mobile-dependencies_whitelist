@@ -276,7 +276,7 @@ tracks {
 "/cart/checkout/shipping/select_option"(platform:"/mobile", type: TrackType.View) {}
 
 "/cart/checkout/shipping/select_method_ask_geolocation"(platform:"/mobile", type: TrackType.View) {
-    selections(required: false, type: PropertyType.ArrayList, description: "Available options to select")
+    selections(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Available options to select")
 }
 
 "/cart/checkout/shipping/input_zipcode"(platform:"/mobile", type: TrackType.View) {}
