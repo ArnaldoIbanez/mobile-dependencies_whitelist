@@ -240,6 +240,8 @@ tracks {
         id(required: true, PropertyType.Numeric)
         status(required: true, PropertyType.String)
         status_detail(required: true, PropertyType.String)
+        total_price(required: true, PropertyType.Numeric)
+        currency(required: true, PropertyType.String)
     }
     "/instore/vending/machine_response_final_result"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/vending/machine_response_state"(platform: "/mobile", type: TrackType.Event) {

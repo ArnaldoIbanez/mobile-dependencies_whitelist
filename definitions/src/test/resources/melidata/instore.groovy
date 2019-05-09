@@ -588,6 +588,8 @@ trackTests {
             id = 4315937273
             status = "approved"
             status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
         }
         "/instore/vending/machine_response_final_result"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -600,6 +602,8 @@ trackTests {
             id = 4315937273
             status = "approved"
             status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
         }
         "/instore/vending/st_machine_connection_error"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -612,6 +616,8 @@ trackTests {
             id = 4315937273
             status = "approved"
             status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
         }
         "/instore/vending/machine_response_state"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -625,6 +631,8 @@ trackTests {
             id = 4315937273
             status = "approved"
             status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
         }
         "/instore/vending/st_machine_not_available"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -637,6 +645,8 @@ trackTests {
             id = 4315937273
             status = "approved"
             status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
         }
         "/instore/vending/st_machine_connected"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -649,6 +659,8 @@ trackTests {
             id = 4315937273
             status = "approved"
             status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
         }
         "/instore/vending/response_end_transaction"(platform: "/mobile", type: TrackType.Event) {
             collector_id = "12356"
@@ -663,6 +675,8 @@ trackTests {
             status = "approved"
             status_detail = "accredited"
             item_price = 130
+            total_price = 130
+            currency = "ARS"
         }
         "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
             currency_id = "ARS"
@@ -1198,6 +1212,8 @@ trackTests {
             id = 4315937273
             status = "approved"
             status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
         }
         "/instore/vending/machine_response_final_result"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1210,6 +1226,8 @@ trackTests {
             id = 4315937273
             status = "approved"
             status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
         }
         "/instore/vending/st_machine_connection_error"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1222,6 +1240,8 @@ trackTests {
             id = 4315937273
             status = "approved"
             status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
         }
         "/instore/vending/machine_response_state"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1235,6 +1255,8 @@ trackTests {
             id = 4315937273
             status = "approved"
             status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
         }
         "/instore/vending/st_machine_not_available"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1247,6 +1269,8 @@ trackTests {
             id = 4315937273
             status = "approved"
             status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
         }
         "/instore/vending/st_machine_connected"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1259,6 +1283,8 @@ trackTests {
             id = 4315937273
             status = "approved"
             status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
         }
         "/instore/vending/response_end_transaction"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
@@ -1273,6 +1299,8 @@ trackTests {
             status = "approved"
             status_detail = "accredited"
             item_price = 130
+            total_price = 130
+            currency = "ARS"
         }
 
         // Waiting
