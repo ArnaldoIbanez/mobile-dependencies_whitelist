@@ -40,6 +40,8 @@ tracks {
 
     "/mercado_shops/admin"(platform: "/", type: TrackType.View){}
 
+    "/mercado_shops/admin/welcome"(platform: "/", type: TrackType.View){}
+
     "/mercado_shops/domains"(platform: "/", isAbstract: true) {
         mshopsDomainsGroup
     }
