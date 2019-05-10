@@ -538,28 +538,47 @@ trackTests {
         }
     }
 
-    test("seller central sales action modal open") {
+    test("seller central sales list action modal open") {
         "/seller_central/sales/list/modal_action/open"(platform: "/", type: TrackType.Event) {
             id = "action_modal_id"
         }
     }
 
-    test("seller central sales action modal close") {
+    test("seller central sales list action modal close") {
         "/seller_central/sales/list/modal_action/close"(platform: "/", type: TrackType.Event) {
             id = "action_modal_id"
         }
     }
 
-    test("seller central sales action modal apply") {
+    test("seller central sales list action modal apply") {
         "/seller_central/sales/list/modal_action/apply"(platform: "/", type: TrackType.Event) {
             id = "action_modal_id"
             option = "option_id"
         }
     }
 
+    test("seller central sales detail action modal open") {
+        "/seller_central/sales/detail/modal_action/open"(platform: "/", type: TrackType.Event) {
+            id = "action_modal_id"
+        }
+    }
+
+    test("seller central sales detail action modal close") {
+        "/seller_central/sales/detail/modal_action/close"(platform: "/", type: TrackType.Event) {
+            id = "action_modal_id"
+        }
+    }
+
+    test("seller central sales detail action modal apply") {
+        "/seller_central/sales/detail/modal_action/apply"(platform: "/", type: TrackType.Event) {
+            id = "action_modal_id"
+            option = "option_id"
+        }
+    }
+
     test("seller central sales dashboard tasks") {
-        "/seller_central/sales/list/dashboard/tasks"(platform: "/", type: TrackType.Event) {
-            tasks = ["card_id_1", "card_id_2"]
+        "/seller_central/sales/list/dashboard/show"(platform: "/", type: TrackType.Event) {
+            substates = ["card_id_1", "card_id_2"]
         }
     }
 
@@ -572,8 +591,9 @@ trackTests {
     }
 
     test("seller central sales dashboard task") {
-        "/seller_central/sales/list/dashboard/task"(platform: "/", type: TrackType.Event) {
-            id = "card_id"
+        "/seller_central/sales/list/dashboard/apply"(platform: "/", type: TrackType.Event) {
+            state = "column_id"
+            substate = "card_id"
             count = 5
         }
     }
@@ -601,16 +621,12 @@ trackTests {
         "/seller_central/sales/list/filters/action"(platform: "/", type: TrackType.Event) {
             id = "apply"
             filters = ["filter_id_1", "filter_id_2"]
+            sort = "ASC"
         }
         "/seller_central/sales/list/filters/action"(platform: "/", type: TrackType.Event) {
             id = "clear"
             filters = ["filter_id_1", "filter_id_2"]
-        }
-    }
-
-    test("seller central sales filters sort") {
-        "/seller_central/sales/list/filters/sort"(platform: "/", type: TrackType.Event) {
-            id = "sort_id"
+            sort = "DESC"
         }
     }
 
