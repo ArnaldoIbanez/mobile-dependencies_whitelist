@@ -335,15 +335,16 @@ tracks {
     }
 
     "/seller_central/sales/list/dashboard"(platform: "/", isAbstract: true) {}
-    "/seller_central/sales/list/dashboard/tasks"(platform: "/", type: TrackType.Event) {
-        tasks(required: true, type: PropertyType.ArrayList, description: "List of available tasks")
+    "/seller_central/sales/list/dashboard/show"(platform: "/", type: TrackType.Event) {
+        substates(required: true, type: PropertyType.ArrayList, description: "List of available tasks")
     }
     "/seller_central/sales/list/dashboard/open"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/sales/list/dashboard/close"(platform: "/", type: TrackType.Event) {}
 
-    "/seller_central/sales/list/dashboard/task"(platform: "/", type: TrackType.Event) {
-        id(required: true, type: PropertyType.String, description: "Task id")
+    "/seller_central/sales/list/dashboard/apply"(platform: "/", type: TrackType.Event) {
+        state(required: true, type: PropertyType.String, description: "Column id")
+        substate(required: true, type: PropertyType.String, description: "Card id")
         count(required: true, type: PropertyType.Numeric, description: "Task count")
     }
 
@@ -362,10 +363,8 @@ tracks {
     "/seller_central/sales/list/filters/open"(platform: "/", type: TrackType.Event) {}
     "/seller_central/sales/list/filters/action"(platform: "/", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "Id of the action", values: ["apply", "clear"])
-        filters(required: true, type: PropertyType.ArrayList, description: "List of applied filters")
-    }
-    "/seller_central/sales/list/filters/sort"(platform: "/", type: TrackType.Event) {
-        id(required: true, type: PropertyType.String, description: "Sort id")
+        filters(required: false, type: PropertyType.ArrayList, description: "List of applied filters")
+        sort(required: false, type: PropertyType.String, description: "Sort id")
     }
     
     "/seller_central/sales/list/action"(platform: "/", isAbstract: true) {
@@ -382,4 +381,16 @@ tracks {
     "/seller_central/sales/detail/action/primary/show"(platform: "/", type: TrackType.Event) {}
     "/seller_central/sales/detail/action/secondary"(platform: "/", type: TrackType.Event) {}
     "/seller_central/sales/detail/action/print"(platform: "/", parentPropertiesInherited:false, type: TrackType.Event) {}
+
+    "/seller_central/sales/detail/modal_action"(platform: "/", isAbstract: true) {}
+    "/seller_central/sales/detail/modal_action/open"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Action id")
+    }
+    "/seller_central/sales/detail/modal_action/close"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Action id")
+    }
+    "/seller_central/sales/detail/modal_action/apply"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Action id")
+        option(required: false, type: PropertyType.String, description: "Option selected")
+    }
 }
