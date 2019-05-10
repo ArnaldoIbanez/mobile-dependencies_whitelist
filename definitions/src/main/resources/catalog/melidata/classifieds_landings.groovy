@@ -40,4 +40,5 @@ tracks {
         vertical(required: true, type: PropertyType.String, values: ["services"], description: "Vertical of the item")
         category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
     }
+
 }
