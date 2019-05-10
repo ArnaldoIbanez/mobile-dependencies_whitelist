@@ -92,6 +92,8 @@ tracks {
 
 "/cart/saved_for_later"(platform: "/") {
     cart_ratio(required: false, type: PropertyType.String, values: ["applies", "not_applies"])
+    summary(required: false)
+    resolution(required: false)
 }
 
 "/cart/saved_for_later/open_change_notification"(platform: "/", type: TrackType.Event) {}
