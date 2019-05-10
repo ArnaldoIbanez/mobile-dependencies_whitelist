@@ -139,11 +139,6 @@ tracks {
 
 "/cart/checkout/payment/input_card"(platform:"/", type: TrackType.View) {}
 
-"/cart/checkout/payment/input_card#card_config"(platform: "/", type: TrackType.Event) {
-    bin(required: true, type: PropertyType.String)
-    success(required: true, type: PropertyType.Boolean)
-}
-
 "/cart/checkout/payment/input_card/edit_payment"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/payment/input_card/security_code_tooltip"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/payment/security_code"(platform:"/", type: TrackType.View) {
@@ -280,7 +275,9 @@ tracks {
 
 "/cart/checkout/shipping/select_option"(platform:"/mobile", type: TrackType.View) {}
 
-"/cart/checkout/shipping/select_method_ask_geolocation"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/shipping/select_method_ask_geolocation"(platform:"/mobile", type: TrackType.View) {
+    selections(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Available options to select")
+}
 
 "/cart/checkout/shipping/input_zipcode"(platform:"/mobile", type: TrackType.View) {}
 "/cart/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -435,7 +432,14 @@ tracks {
     status(required: false, type: PropertyType.String, description: "The result of the purchase")
 }
 
-//Payment form input tack events:
+//Payment form input tack events
+
+"/cart/checkout/payment/input_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    bin(required: true, type: PropertyType.String, description: "First six digits of card number")
+    success(required: true, type: PropertyType.Boolean, description: "Success or failure getting card config")
+    session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
+
 "/cart/checkout/payment/input_card/card_number"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
     session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
 }
@@ -496,6 +500,11 @@ tracks {
 }
 
 "/cart/checkout/review/confirm_purchase"(platform:"/web", type: TrackType.Event) {}
+
+"/cart/checkout/payment/input_card#card_config"(platform: "/web", type: TrackType.Event) {
+    bin(required: true, type: PropertyType.String)
+    success(required: true, type: PropertyType.Boolean)
+}
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin Web platform
