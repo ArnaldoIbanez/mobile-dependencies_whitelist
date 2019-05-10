@@ -343,7 +343,7 @@ tracks {
     "/seller_central/sales/list/dashboard/close"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/sales/list/dashboard/apply"(platform: "/", type: TrackType.Event) {
-        state(required: true, type: PropertyType.String, description: "Column id")
+        state(required: false, type: PropertyType.String, description: "Column id")
         substate(required: true, type: PropertyType.String, description: "Card id")
         count(required: true, type: PropertyType.Numeric, description: "Task count")
     }
