@@ -27,6 +27,7 @@ trackTests {
             defaultTrackInformation()
             category_path = ["MLA123", "MLA123"]
         }
+
         "/classifieds/contract/sellers"(platform: "/", type: TrackType.View) {
             defaultTrackInformation()
         }
@@ -38,6 +39,21 @@ trackTests {
             defaultTrackInformation()
         }
         "/classifieds/contract/buyers"(platform: "/", type: TrackType.View) {
+            defaultTrackInformation()
+            category_path = ["MLA123", "MLA123"]
+        }
+
+        "/classifieds/quotes/sellers"(platform: "/", type: TrackType.View) {
+            defaultTrackInformation()
+        }
+        "/classifieds/quotes/sellers"(platform: "/", type: TrackType.View) {
+            defaultTrackInformation()
+            category_path = ["MLA123", "MLA123"]
+        }
+        "/classifieds/quotes/buyers"(platform: "/", type: TrackType.View) {
+            defaultTrackInformation()
+        }
+        "/classifieds/quotes/buyers"(platform: "/", type: TrackType.View) {
             defaultTrackInformation()
             category_path = ["MLA123", "MLA123"]
         }
