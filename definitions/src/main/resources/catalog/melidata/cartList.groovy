@@ -22,6 +22,17 @@ tracks {
         item_info(currency_id, item, unit_price, quantity,quantity_change)
     }
 
+    propertyCost{
+        symbol(required:true, type: PropertyType.String, description:  "Currency symbol")
+        amount(required:true, type: PropertyType.Numeric, description:  "Cost amount")
+    }
+
+    propertySummary {
+        total(required:true, type: PropertyType.Map(propertyCost), description: "Total cost of the items")
+        shipping_total(required:true, type: PropertyType.Map(propertyCost), description: "Total cost of shipping with discount applied")
+        shipping_promoted_amount(required:true, type: PropertyType.Numeric, description:  "Total cost of shipping without discount")
+    }
+
 
 
     "/cart"(platform: "/", isAbstract: true) {
@@ -92,7 +103,7 @@ tracks {
 
 "/cart/saved_for_later"(platform: "/") {
     cart_ratio(required: false, type: PropertyType.String, values: ["applies", "not_applies"])
-    summary(required: false, type: PropertyType.Map, description: "Map with information from the summary: items info, total cost and total shipping cost")
+    summary(required: false, type: PropertyType.Map(propertySummary), description: "Map with information from the summary: total cost, total shipping cost and striked promoted amount if it exists")
     resolution(required: false, type: PropertyType.String, description: "resolution of the device")
 }
 
