@@ -3047,6 +3047,20 @@ trackTests {
         }
     }
 
+    test("Devices Admin") {
+        "/security_settings/devices"(platform: "/", type: TrackType.View) {}
+
+        "/security_settings/devices/action"(platform: "/", type: TrackType.Event) {
+            event_type = "click"
+            target = "unlink_button"
+        }
+
+        "/security_settings/devices/action"(platform: "/", type: TrackType.Event) {
+            event_type = "click"
+            target = "confirm_unlink_button"
+        }
+    }
+
     test("Identity Validation ") {
 
         "/identity-validation/validation_landing"(platform: "/web/mobile") {
