@@ -92,8 +92,8 @@ tracks {
 
 "/cart/saved_for_later"(platform: "/") {
     cart_ratio(required: false, type: PropertyType.String, values: ["applies", "not_applies"])
-    summary(required: false)
-    resolution(required: false)
+    summary(required: false, type: PropertyType.Map, description: "Map with information from the summary: items info, total cost and total shipping cost")
+    resolution(required: false, type: PropertyType.String, description: "resolution of the device")
 }
 
 "/cart/saved_for_later/open_change_notification"(platform: "/", type: TrackType.Event) {}
