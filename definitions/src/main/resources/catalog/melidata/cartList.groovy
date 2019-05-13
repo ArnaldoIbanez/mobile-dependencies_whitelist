@@ -22,12 +22,12 @@ tracks {
         item_info(currency_id, item, unit_price, quantity,quantity_change)
     }
 
-    propertyCost{
+    def propertyCost  = objectSchemaDefinitions {
         symbol(required:true, type: PropertyType.String, description:  "Currency symbol")
         amount(required:true, type: PropertyType.Numeric, description:  "Cost amount")
     }
 
-    propertySummary {
+    def propertySummary  = objectSchemaDefinitions {
         total(required:true, type: PropertyType.Map(propertyCost), description: "Total cost of the items")
         shipping_total(required:true, type: PropertyType.Map(propertyCost), description: "Total cost of shipping with discount applied")
         shipping_promoted_amount(required:true, type: PropertyType.Numeric, description:  "Total cost of shipping without discount")
