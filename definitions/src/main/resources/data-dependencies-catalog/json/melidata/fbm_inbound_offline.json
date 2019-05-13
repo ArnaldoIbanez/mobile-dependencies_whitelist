@@ -38,22 +38,6 @@
         "type": "INTEGER"
     },
     {
-        "name": "DIFFERENT_INVENTORY_DECLARED",
-        "type": "INTEGER"
-    },
-    {
-        "name": "different_inventory_declared",
-        "type": "INTEGER"
-    },
-    {
-        "name": "different_sku_declared",
-        "type": "INTEGER"
-    },
-    {
-        "name": "different_pi_declared",
-        "type": "INTEGER"
-    },
-    {
         "name": "inventory_id_not_created",
         "type": "INTEGER"
     },
@@ -75,6 +59,10 @@
     },
     {
         "name": "invalid_quantity",
+        "type": "INTEGER"
+    },
+    {
+        "name": "missing_quantity",
         "type": "INTEGER"
     },
     {
@@ -135,14 +123,6 @@
     },
     {
         "name": "catalog_attributes",
-        "type": "INTEGER"
-    },
-    {
-        "name": "seller_whitelist",
-        "type": "INTEGER"
-    },
-    {
-        "name": "category_whitelist",
         "type": "INTEGER"
     },
     {

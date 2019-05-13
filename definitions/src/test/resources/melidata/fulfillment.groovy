@@ -54,15 +54,13 @@ trackTests {
             amount_of_rows = 100
             amount_of_errors = 10
             detailed_errors = [
-                different_inventory_declared : 0,
-                different_sku_declared : 0,
-                different_pi_declared : 0,
                 inventory_id_not_created : 0,
                 invalid_product_identifier : 0,
                 invalid_sku : 0,
                 invalid_inventory_id : 0,
                 invalid_variation_id : 0,
                 invalid_quantity : 1,
+                missing_quantity : 1,
                 invalid_status : 1,
                 max_quantity_exceeded : 0,
                 max_quantity_reached : 0,
@@ -78,8 +76,6 @@ trackTests {
                 pppi : 0,
                 under_review : 0,
                 catalog_attributes : 0,
-                seller_whitelist : 0,
-                category_whitelist : 1,
                 seller_blacklist : 1,
                 non_fiscal_data : 1,
                 item_condition_used : 1,

@@ -5,15 +5,13 @@ import com.ml.melidata.TrackType
 tracks {
 
     def offline_error_msg_structure = objectSchemaDefinitions {
-        different_inventory_declared(required: true, type: PropertyType.Numeric)
-        different_sku_declared(required: true, type: PropertyType.Numeric)
-        different_pi_declared(required: true, type: PropertyType.Numeric)
         inventory_id_not_created(required: true, type: PropertyType.Numeric)
         invalid_product_identifier(required: true, type: PropertyType.Numeric)
         invalid_sku(required: true, type: PropertyType.Numeric)
         invalid_inventory_id(required: true, type: PropertyType.Numeric)
         invalid_variation_id(required: true, type: PropertyType.Numeric)
         invalid_quantity(required: true, type: PropertyType.Numeric)
+        missing_quantity(required: true, type: PropertyType.Numeric)
         invalid_status(required: true, type: PropertyType.Numeric)
         max_quantity_exceeded(required: true, type: PropertyType.Numeric)
         max_quantity_reached(required: true, type: PropertyType.Numeric)
@@ -29,8 +27,6 @@ tracks {
         pppi(required: true, type: PropertyType.Numeric)
         under_review(required: true, type: PropertyType.Numeric)
         catalog_attributes(required: true, type: PropertyType.Numeric)
-        seller_whitelist(required: true, type: PropertyType.Numeric)
-        category_whitelist(required: true, type: PropertyType.Numeric)
         seller_blacklist(required: true, type: PropertyType.Numeric)
         non_fiscal_data(required: true, type: PropertyType.Numeric)
         item_condition_used(required: true, type: PropertyType.Numeric)
