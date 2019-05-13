@@ -818,6 +818,12 @@ trackTests {
         }
     }
 
+    test("Main") {
+        "/myml/main"(platform: "/mobile", type: TrackType.Event) {
+            messages = "dummy-message"
+        }
+    }
+
     test("Price Parity Massive Editor") {
         "/myml/market_prices_editor"(platform: "/", type: TrackType.View) {}
 
