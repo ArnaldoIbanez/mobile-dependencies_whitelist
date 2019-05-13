@@ -64,6 +64,11 @@ trackTests {
         "/prepaid/acquisition/onboarding"(platform: "/mobile", type: TrackType.View) { error_type = "identification" }
         "/prepaid/acquisition/rootfaq"(platform: "/mobile", type: TrackType.View) { error_type = "denied" }
         "/prepaid/acquisition/detailfaq"(platform: "/mobile", type: TrackType.View) { error_type = "denied" }
+
+        "/prepaid/acquisition/init-point"(platform: "/mobile", type: TrackType.View) { error_type = "denied" }
+        "/prepaid/acquisition/occupation"(platform: "/mobile", type: TrackType.View) { error_type = "identification" }
+        "/prepaid/acquisition/preview"(platform: "/mobile", type: TrackType.View) { error_type = "denied" }
+        "/prepaid/acquisition/review"(platform: "/mobile", type: TrackType.View) { error_type = "denied" }
     }
 
 
