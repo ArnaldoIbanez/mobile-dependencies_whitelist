@@ -36,6 +36,7 @@ SELECT
 	jet(event_data, 'detailed_errors[failure]') as failure,
 	usr.user_id AS seller,
 	application.site_id AS site
+	substr(ds,1,10) as fecha
 FROM default.tracks 
 WHERE ds >= '@param01'
 AND   ds < '@param02'
