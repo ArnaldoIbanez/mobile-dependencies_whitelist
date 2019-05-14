@@ -1,0 +1,43 @@
+SELECT 
+	jet(event_data,'amount_of_errors') as amount_of_errors,
+	jet(event_data,'amount_of_items') as amount_of_items,
+	jet(event_data,'amount_of_rows') as amount_of_rows,
+	jet(event_data,'amount_of_units') as amount_of_units,
+	jet(event_data,'document_status') as document_status,
+	jet(event_data,'was_created') as was_created,
+	jet(event_data, 'detailed_errors[inventory_id_not_created]') as inventory_id_not_created,
+	jet(event_data, 'detailed_errors[invalid_product_identifier]') as invalid_product_identifier,
+	jet(event_data, 'detailed_errors[invalid_sku]') as invalid_sku,
+	jet(event_data, 'detailed_errors[invalid_inventory_id]') as invalid_inventory_id,
+	jet(event_data, 'detailed_errors[invalid_variation_id]') as invalid_variation_id,
+	jet(event_data, 'detailed_errors[invalid_quantity]') as invalid_quantity,
+	jet(event_data, 'detailed_errors[missing_quantity]') as missing_quantity,
+	jet(event_data, 'detailed_errors[invalid_status]') as invalid_status,
+	jet(event_data, 'detailed_errors[max_quantity_exceeded]') as max_quantity_exceeded,
+	jet(event_data, 'detailed_errors[max_quantity_reached]') as max_quantity_reached,
+	jet(event_data, 'detailed_errors[variation_not_found]') as variation_not_found,
+	jet(event_data, 'detailed_errors[item_not_found]') as item_not_found,
+	jet(event_data, 'detailed_errors[item_duplicated]') as item_duplicated,
+	jet(event_data, 'detailed_errors[multiple_items_found]') as multiple_items_found,
+	jet(event_data, 'detailed_errors[multiple_variations_found]') as multiple_variations_found,
+	jet(event_data, 'detailed_errors[forbidden]') as forbidden,
+	jet(event_data, 'detailed_errors[categories]') as categories,
+	jet(event_data, 'detailed_errors[dimensions]') as dimensions,
+	jet(event_data, 'detailed_errors[pdd]') as pdd,
+	jet(event_data, 'detailed_errors[pppi]') as pppi,
+	jet(event_data, 'detailed_errors[under_review]') as under_review,
+	jet(event_data, 'detailed_errors[catalog_attributes]') as catalog_attributes,
+	jet(event_data, 'detailed_errors[seller_blacklist]') as seller_blacklist,
+	jet(event_data, 'detailed_errors[non_fiscal_data]') as non_fiscal_data,
+	jet(event_data, 'detailed_errors[item_condition_used]') as item_condition_used,
+	jet(event_data, 'detailed_errors[item_status_closed]') as item_status_closed,
+	jet(event_data, 'detailed_errors[invalid_shipping_mode]') as invalid_shipping_mode,
+	jet(event_data, 'detailed_errors[item_listing_type_free]') as item_listing_type_free,
+	jet(event_data, 'detailed_errors[failure]') as failure,
+	usr.user_id AS seller,
+	application.site_id AS site
+	substr(ds,1,10) AS ds
+FROM default.tracks 
+WHERE ds >= '@param01'
+AND   ds < '@param02'
+AND path = '/fbm/panel/inbound/offline/product_selection'
