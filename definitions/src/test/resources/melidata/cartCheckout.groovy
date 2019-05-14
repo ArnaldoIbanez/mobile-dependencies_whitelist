@@ -269,7 +269,7 @@ trackTests {
             dataSet()
             edit_flow = false
         }
-        "/cart/checkout/shipping/input_addres/back"(platform:"/mobile", type:TrackType.Event) {
+        "/cart/checkout/shipping/input_address/back"(platform:"/mobile", type:TrackType.Event) {
             dataSet()
             edit_flow = false
         }
