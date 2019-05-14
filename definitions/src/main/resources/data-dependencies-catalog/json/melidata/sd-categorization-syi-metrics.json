@@ -1,0 +1,120 @@
+{
+    "users": [
+        "categorization@mercadolibre.com"
+    ],
+    "process_name": "sd-categorization-syi-metrics",
+    "cron": "0 6 * * *",
+    "partition": {
+        "name": "ds",
+        "type": "DATE"
+    },
+    "extract": {
+        "operation": "append",
+        "site": "Catalogo",
+        "columns": [
+            {
+                "name": "site_id",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "category_selected_l1",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "category_selected_l2",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "category_selected_l3",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "category_selected_l4",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "category_selected_l5",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "category_selected_l6",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "category_selected_l7",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "category_prediction_l1",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "category_prediction_l2",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "category_prediction_l3",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "category_prediction_l4",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "category_prediction_l5",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "category_prediction_l6",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "category_prediction_l7",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "category_prediction_score_l1",
+                "type": "DOUBLE"
+            },
+            {
+                "name": "category_prediction_score_l2",
+                "type": "DOUBLE"
+            },
+            {
+                "name": "category_prediction_score_l3",
+                "type": "DOUBLE"
+            },
+            {
+                "name": "category_prediction_score_l4",
+                "type": "DOUBLE"
+            },
+            {
+                "name": "category_prediction_score_l5",
+                "type": "DOUBLE"
+            },
+            {
+                "name": "category_prediction_score_l6",
+                "type": "DOUBLE"
+            },
+            {
+                "name": "category_prediction_score_l7",
+                "type": "DOUBLE"
+            }
+        ],
+        "sql": {
+            "script": "sd-categorization/sd-ml-syi-metrics.sql",
+            "parameters": [
+                {
+                    "name": "param01",
+                    "value": "DAY-2",
+                    "format": "yyyy-MM-dd"
+                },
+                {
+                    "name": "param02",
+                    "value": "DAY-1",
+                    "format": "yyyy-MM-dd"
+                }
+            ]
+        }
+    }
+}
