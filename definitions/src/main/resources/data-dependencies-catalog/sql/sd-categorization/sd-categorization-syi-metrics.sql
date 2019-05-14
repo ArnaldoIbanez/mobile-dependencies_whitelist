@@ -21,7 +21,7 @@ get_json_object(event_data, '$.category_prediction_zordon_score[3]') AS category
 get_json_object(event_data, '$.category_prediction_zordon_score[4]') AS category_prediction_score_l5,
 get_json_object(event_data, '$.category_prediction_zordon_score[5]') AS category_prediction_score_l6,
 get_json_object(event_data, '$.category_prediction_zordon_score[6]') AS category_prediction_score_l7,
-application.site_id
+substr(ds,1,10) AS ds
 FROM tracks
 WHERE ds >= '@param01'
 AND ds < '@param02'

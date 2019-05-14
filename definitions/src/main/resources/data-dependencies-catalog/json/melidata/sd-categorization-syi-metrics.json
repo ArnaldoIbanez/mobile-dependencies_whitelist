@@ -5,9 +5,8 @@
     "process_name": "sd-categorization-syi-metrics",
     "cron": "0 6 * * *",
     "partition": {
-        "name": "Sent_date",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
+        "name": "ds",
+        "type": "DATE"
     },
     "extract": {
         "operation": "append",
