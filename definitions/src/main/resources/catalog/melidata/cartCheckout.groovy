@@ -288,6 +288,8 @@ tracks {
     edit_flow(required: true, type: PropertyType.Boolean)
 }
 
+"/cart/checkout/shipping/input_address/back"(platform:"/mobile", type: TrackType.Event) {}
+
 "/cart/checkout/shipping/input_address#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
 }
