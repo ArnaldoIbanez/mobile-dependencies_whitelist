@@ -1,5 +1,4 @@
-SELECT substr(ds,1,10) AS event_date,
-application.site_id AS site_id,
+SELECT application.site_id AS site_id,
 get_json_object(event_data, '$.category_path[0]') AS category_selected_l1,
 get_json_object(event_data, '$.category_path[1]') AS category_selected_l2,
 get_json_object(event_data, '$.category_path[2]') AS category_selected_l3,
