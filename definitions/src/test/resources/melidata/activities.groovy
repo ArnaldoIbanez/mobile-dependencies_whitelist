@@ -71,16 +71,20 @@ trackTests {
         "/activities/detail" (platform: "/mobile", type: TrackType.View) {}
     }
 
-    test("Mercadopago Operation Detail Add Note List Mobile") {
-        "/activities/detail/add_note" (platform: "/mobile", type: TrackType.View) {}
-    }
-
-    test("Mercadopago Operation Detail Add Note List Mobile") {
-        "/activities/detail/add_note" (platform: "/mobile", type: TrackType.View) {}
-    }
-
-    test("Mercadopago Operation Detail List Actions Mobile") {
+    test("Mercadopago Operation Detail List Mobile") {
         "/activities/detail/list" (platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Operation Detail Add Note List Mobile") {
+        "/activities/detail/add_note" (platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Operation Detail Buyer Information Mobile") {
+        "/activities/detail/user_info" (platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Operation Detail Shipping Mobile") {
+        "/activities/detail/shipping" (platform: "/mobile", type: TrackType.View) {}
     }
 
     test("Mercadopago Operation Detail Web View Mobile") {
