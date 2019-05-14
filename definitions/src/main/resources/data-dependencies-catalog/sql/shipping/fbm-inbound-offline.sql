@@ -35,7 +35,7 @@ SELECT
 	jet(event_data, 'detailed_errors[item_listing_type_free]') as item_listing_type_free,
 	jet(event_data, 'detailed_errors[failure]') as failure,
 	usr.user_id AS seller,
-	application.site_id AS site
+	application.site_id AS site,
 	substr(ds,1,10) AS ds
 FROM default.tracks 
 WHERE ds >= '@param01'
