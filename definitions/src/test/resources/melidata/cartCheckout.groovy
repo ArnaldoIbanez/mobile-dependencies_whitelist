@@ -269,6 +269,10 @@ trackTests {
             dataSet()
             edit_flow = false
         }
+        "/cart/checkout/shipping/input_address/back"(platform:"/mobile", type:TrackType.Event) {
+            dataSet()
+            edit_flow = false
+        }
         "/cart/checkout/shipping/input_address#submit"(platform:"/mobile", type:TrackType.Event) {
             session_id = "98f8v98au0af9af0af"
         }
