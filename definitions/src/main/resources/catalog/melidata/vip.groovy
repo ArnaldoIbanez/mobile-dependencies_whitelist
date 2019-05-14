@@ -347,6 +347,9 @@ tracks {
 
     "/vip/similar_vehicles"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event) {}
+
+
     "/vip/map/"(platform: "/mobile") {}
 
     "/vip/payment_method"(platform: "/mobile", parentPropertiesInherited: false) {}
