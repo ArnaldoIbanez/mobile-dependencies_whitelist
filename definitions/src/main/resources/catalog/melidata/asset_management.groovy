@@ -122,7 +122,9 @@ tracks {
     "/asset_management/splitter"(platform: "/mobile", type: TrackType.View) {}
 
     // Errors
-    "/asset_management/error"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/error"(platform: "/mobile", type: TrackType.Event) {
+        verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
+    }
     "/asset_management/network_error"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/stop_investing"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/stop_investing"(platform: "/web", type: TrackType.Event) {}
