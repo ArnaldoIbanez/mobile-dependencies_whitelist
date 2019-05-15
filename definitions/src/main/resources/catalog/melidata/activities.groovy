@@ -44,7 +44,7 @@ tracks {
     // MP Activities List
     "/activities" (platform: "/mobile", isAbstract: true) {}
     "/activities/list" (platform: "/mobile", type: TrackType.View) {}
-    "/activities/list/removefilter" (platform: "/mobile", type: TrackType.Event) {}
+    "/activities/list/remove_filter" (platform: "/mobile", type: TrackType.Event) {}
 
     // MP Activities Filters
     "/activities/filters" (platform: "/mobile", type: TrackType.View) {}
