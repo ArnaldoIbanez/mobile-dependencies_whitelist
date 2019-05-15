@@ -102,7 +102,7 @@
             }
         ],
         "sql": {
-            "script": "sd-categorization/sd-ml-syi-metrics.sql",
+            "script": "sd-categorization/sd-categorization-syi-metrics.sql",
             "parameters": [
                 {
                     "name": "param01",
