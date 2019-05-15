@@ -346,5 +346,8 @@ tracks {
         message(required: true, PropertyType.String, description: "server error description")
         attributable_to(required: true, PropertyType.String)
     }
+    "/instore/my_qr"(platform: "/mobile", type: TrackType.Event) {
+        email(required: true, PropertyType.String)
+    }
 
 }
