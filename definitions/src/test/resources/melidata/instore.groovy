@@ -794,6 +794,11 @@ trackTests {
             attributable_to = "server"
         }
 
+        "/instore/my_qr"(platform: "/mobile", type: TrackType.View) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            email = "testmla@gmail.com"
+        }
+
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Mercado Pago
