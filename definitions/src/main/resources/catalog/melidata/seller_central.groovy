@@ -12,7 +12,7 @@ tracks {
         category_domain(required: false, type: PropertyType.String, description: "Item category domain")
         category_path(required: false, type: PropertyType.ArrayList, description: "Path of category")
         type(required: true, type: PropertyType.String, description: "Type of hint", values: ["info", "actionable"])
-        attribute(required: false, type: PropertyType.String, description: "Id of the attribute")
+        attribute(required: true, type: PropertyType.String, description: "Id of the attribute")
         reputation_level(required: false, type: PropertyType.String, description: "user reputation level")
         hierarchy(required: true, type: PropertyType.String, description: "Attribute type")
     }
