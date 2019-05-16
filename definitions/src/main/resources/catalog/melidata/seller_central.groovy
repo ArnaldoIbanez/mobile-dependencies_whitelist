@@ -4,6 +4,22 @@ import com.ml.melidata.catalog.PropertyType
 
 tracks {
 
+    def winnerData = objectSchemaDefinitions {
+        winner_price(required: true, type: PropertyType.Numeric, description: "The item winner of the buy box price")
+        winner_currency_id(required: true, type: PropertyType.String, description: "The item winner of the buy box currency")
+        winner_premium(required: true, type: PropertyType.Boolean, description: "True if the item winner of the buy box has listing type premium")
+        winner_free_shipping(required: true, type: PropertyType.Boolean, description: "True if the item winner of the buy box has free shipping")
+        winner_flex(required: true, type: PropertyType.Boolean, description: "True if the item winner of the buy box has flex")
+    }
+
+    def itemData = objectSchemaDefinitions {
+        item_price(required: true, type: PropertyType.Numeric, description: "The item price")
+        item_currency_id(required: true, type: PropertyType.String, description: "The item currency")
+        item_premium(required: true, type: PropertyType.Boolean, description: "True if the item has listing type premium")
+        item_free_shipping(required: true, type: PropertyType.Boolean, description: "True if the item has free shipping")
+        item_flex(required: true, type: PropertyType.Boolean, description: "True if the item has flex")
+    }
+
     propertyDefinitions {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
@@ -16,16 +32,8 @@ tracks {
         reputation_level(required: false, type: PropertyType.String, description: "user reputation level")
         item_type(required: true, type: PropertyType.String, description: "product: A PDP item, default: A normal item, associated_products: A item which has at least 1 variation that is associated  with a product", values: ["product", "default", "associated_products"])
 
-        item_price(required: true, type: PropertyType.Numeric, description: "The item price")
-        item_currency_id(required: true, type: PropertyType.String, description: "The item currency")
-        item_premium(required: true, type: PropertyType.Boolean, description: "True if the item has listing type premium")
-        item_free_shipping(required: true, type: PropertyType.Boolean, description: "True if the item has free shipping")
-        item_flex(required: true, type: PropertyType.Boolean, description: "True if the item has flex")
-        winner_price(required: true, type: PropertyType.Numeric, description: "The item winner of the buy box price")
-        winner_currency_id(required: true, type: PropertyType.String, description: "The item winner of the buy box currency")
-        winner_premium(required: true, type: PropertyType.Boolean, description: "True if the item winner of the buy box has listing type premium")
-        winner_free_shipping(required: true, type: PropertyType.Boolean, description: "True if the item winner of the buy box has free shipping")
-        winner_flex(required: true, type: PropertyType.Boolean, description: "True if the item winner of the buy box has flex")
+        item_data(required: true, type: PropertyType.Map(itemData), description: "Item info of the comparison table")
+        winner_data(required: true, type: PropertyType.Map(winnerData), description: "Winner info of the comparison table")
         buy_box_status(required: true, type: PropertyType.String, description: "The actual buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR"])
         new_buy_box_status(required: true, type: PropertyType.String, description: "The new buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR"])
 
@@ -36,7 +44,7 @@ tracks {
     propertyGroups {
         sellerCentralModifyGroup(item_id, session_id, item_type)
         sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path)
-        sellerCentralModifyGroupTableForPdp(item_price, item_currency_id, item_premium, item_free_shipping, item_flex, winner_price, winner_currency_id, winner_premium, winner_free_shipping, winner_flex, buy_box_status, new_buy_box_status)
+        sellerCentralModifyGroupTableForPdp(item_data, winner_data, buy_box_status, new_buy_box_status)
         sellerCentralModifyCardsGroupValue(to, from)
         sellerCentralSettingsGroup(seller_profile, reputation_level)
         hintsGroup(type, attribute)
