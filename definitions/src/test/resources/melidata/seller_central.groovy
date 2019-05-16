@@ -378,18 +378,6 @@ trackTests {
         }
     }
 
-    test("seller central invoice value updated"){
-        "/seller_central/modify/update_invoice"(platform: "/", type: TrackType.Event){
-            item_type = "product"
-            category_id = "MLA390784"
-            item_id = "MLA682118081"
-            session_id = "123-update-abc123"
-            seller_profile = "ADVANCED"
-            from = "NO"
-            to = "SI"
-        }
-    }
-
     test("seller central listing type value updated"){
         "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event){
             item_type = "product"

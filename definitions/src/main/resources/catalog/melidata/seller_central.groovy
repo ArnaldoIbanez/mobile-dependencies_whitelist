@@ -234,11 +234,6 @@ tracks {
         sellerCentralModifyCardsGroupValue
     }
 
-    "/seller_central/modify/update_invoice"(platform: "/", type: TrackType.Event) {
-        sellerCentralModifyCardsGroup
-        sellerCentralModifyCardsGroupValue
-    }
-
     "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
