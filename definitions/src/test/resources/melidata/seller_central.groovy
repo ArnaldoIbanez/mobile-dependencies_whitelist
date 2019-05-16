@@ -330,8 +330,8 @@ trackTests {
         }
     }
 
-    test("seller central price value updated for pdp items"){
-        "/seller_central/modify/product_detail/update_price"(platform: "/", type: TrackType.Event){
+    test("seller central price value updated"){
+        "/seller_central/modify/update_price"(platform: "/", type: TrackType.Event){
             item_type = "product"
             category_id = "MLA390784"
             item_id = "MLA682118081"
@@ -342,8 +342,8 @@ trackTests {
         }
     }
 
-    test("seller central quantity value updated for pdp items"){
-        "/seller_central/modify/product_detail/update_quantity"(platform: "/", type: TrackType.Event){
+    test("seller central quantity value updated"){
+        "/seller_central/modify/update_quantity"(platform: "/", type: TrackType.Event){
             item_type = "product"
             category_id = "MLA390784"
             item_id = "MLA682118081"
@@ -354,8 +354,8 @@ trackTests {
         }
     }
 
-    test("seller central local pickup value updated for pdp items"){
-        "/seller_central/modify/product_detail/update_localpickup_options"(platform: "/", type: TrackType.Event){
+    test("seller central local pickup value updated"){
+        "/seller_central/modify/update_localpickup_options"(platform: "/", type: TrackType.Event){
             item_type = "product"
             category_id = "MLA390784"
             item_id = "MLA682118081"
@@ -366,8 +366,8 @@ trackTests {
         }
     }
 
-    test("seller central warranty value updated for pdp items"){
-        "/seller_central/modify/product_detail/update_warranty"(platform: "/", type: TrackType.Event){
+    test("seller central warranty value updated"){
+        "/seller_central/modify/update_warranty"(platform: "/", type: TrackType.Event){
             item_type = "product"
             category_id = "MLA390784"
             item_id = "MLA682118081"
@@ -378,8 +378,8 @@ trackTests {
         }
     }
 
-    test("seller central invoice value updated for pdp items"){
-        "/seller_central/modify/product_detail/update_invoice"(platform: "/", type: TrackType.Event){
+    test("seller central invoice value updated"){
+        "/seller_central/modify/update_invoice"(platform: "/", type: TrackType.Event){
             item_type = "product"
             category_id = "MLA390784"
             item_id = "MLA682118081"
@@ -390,8 +390,8 @@ trackTests {
         }
     }
 
-    test("seller central listing type value updated for pdp items"){
-        "/seller_central/modify/product_detail/update_listing_types"(platform: "/", type: TrackType.Event){
+    test("seller central listing type value updated"){
+        "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event){
             item_type = "product"
             category_id = "MLA390784"
             item_id = "MLA682118081"
@@ -450,12 +450,12 @@ trackTests {
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
             seller_profile = "ADVANCED"
-            item_price = "1500"
+            item_price = 1500
             item_currency_id = "ARS"
             item_premium = true
             item_free_shipping = true
             item_flex = false
-            winner_price = "1000"
+            winner_price = 1000
             winner_currency_id = "ARS"
             winner_premium = true
             winner_free_shipping = true
@@ -474,12 +474,12 @@ trackTests {
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
             seller_profile = "ADVANCED"
-            item_price = "1500"
+            item_price = 1500
             item_currency_id = "ARS"
             item_premium = true
             item_free_shipping = true
             item_flex = false
-            winner_price = "1000"
+            winner_price = 1000
             winner_currency_id = "ARS"
             winner_premium = true
             winner_free_shipping = true
@@ -498,12 +498,12 @@ trackTests {
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
             seller_profile = "ADVANCED"
-            item_price = "1500"
+            item_price = 1500
             item_currency_id = "ARS"
             item_premium = true
             item_free_shipping = true
             item_flex = false
-            winner_price = "1000"
+            winner_price = 1000
             winner_currency_id = "ARS"
             winner_premium = true
             winner_free_shipping = true
@@ -522,12 +522,12 @@ trackTests {
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
             seller_profile = "ADVANCED"
-            item_price = "1500"
+            item_price = 1500
             item_currency_id = "ARS"
             item_premium = true
             item_free_shipping = true
             item_flex = false
-            winner_price = "1000"
+            winner_price = 1000
             winner_currency_id = "ARS"
             winner_premium = true
             winner_free_shipping = true
@@ -546,12 +546,12 @@ trackTests {
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
             seller_profile = "ADVANCED"
-            item_price = "1500"
+            item_price = 1500
             item_currency_id = "ARS"
             item_premium = true
             item_free_shipping = true
             item_flex = false
-            winner_price = "1000"
+            winner_price = 1000
             winner_currency_id = "ARS"
             winner_premium = true
             winner_free_shipping = true
@@ -570,12 +570,12 @@ trackTests {
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
             seller_profile = "ADVANCED"
-            item_price = "1500"
+            item_price = 1500
             item_currency_id = "ARS"
             item_premium = true
             item_free_shipping = true
             item_flex = false
-            winner_price = "1000"
+            winner_price = 1000
             winner_currency_id = "ARS"
             winner_premium = true
             winner_free_shipping = true
@@ -594,6 +594,7 @@ trackTests {
 
     test("structured data hint available"){
         "/seller_central/modify/technical_specifications/hints/available"(platform: "/", type: TrackType.Event){
+            item_type = "default"
             type = "actionable"
             attribute = "BRAND"
             category_domain= "MLA-CAMERAS"
@@ -605,6 +606,7 @@ trackTests {
 
     test("structured data hint showed"){
         "/seller_central/modify/technical_specifications/hints/showed"(platform: "/", type: TrackType.Event){
+            item_type = "default"
             type = "info"
             attribute = "BRAND"
             category_domain= "MLA-CAMERAS"
@@ -616,6 +618,7 @@ trackTests {
 
     test("structured data hint completed"){
         "/seller_central/modify/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event){
+            item_type = "default"
             type = "actionable"
             user_action = "click"
             attribute = "BRAND"
@@ -663,6 +666,7 @@ trackTests {
 
     test("structured data multivalue"){
         "/seller_central/modify/technical_specifications/multivalue"(platform: "/", type: TrackType.Event){
+            item_type = "default"
             quantity = 3
             previous_quantity = 0
             category_domain = "MLA-SHORTS"
@@ -674,6 +678,7 @@ trackTests {
 
     test("structured data suggested values"){
         "/seller_central/modify/technical_specifications/suggested"(platform: "/", type: TrackType.Event){
+            item_type = "default"
             type = "dynamic"
             category_domain = "MLA-CAMERAS"
             item_id= "MLA682118081"
