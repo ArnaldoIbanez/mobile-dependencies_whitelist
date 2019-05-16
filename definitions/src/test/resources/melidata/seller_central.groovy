@@ -284,6 +284,7 @@ trackTests {
 
     test("seller central render detail"){
         "/seller_central/modify/detail"(platform: "/", type: TrackType.View){
+            item_type = "default"
             category_id = "MLA390784"
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
@@ -295,6 +296,7 @@ trackTests {
 
     test("seller central render variations"){
         "/seller_central/modify/variations"(platform: "/", type: TrackType.View){
+            item_type = "default"
             category_id = "MLA390784"
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
@@ -306,6 +308,7 @@ trackTests {
 
     test("seller central render custom variations"){
         "/seller_central/modify/variations_custom"(platform: "/", type: TrackType.View){
+            item_type = "default"
             category_id = "MLA390784"
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
@@ -317,6 +320,7 @@ trackTests {
 
     test("seller central render listing_type"){
         "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View){
+            item_type = "default"
             category_id = "MLA390784"
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
@@ -326,8 +330,69 @@ trackTests {
         }
     }
 
-    test("seller central listing type value updated"){
-        "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event){
+    test("seller central price value updated for pdp items"){
+        "/seller_central/modify/product_detail/update_price"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            from = "1200"
+            to = "1500"
+        }
+    }
+
+    test("seller central quantity value updated for pdp items"){
+        "/seller_central/modify/product_detail/update_quantity"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            from = "3"
+            to = "4"
+        }
+    }
+
+    test("seller central local pickup value updated for pdp items"){
+        "/seller_central/modify/product_detail/update_localpickup_options"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            from = "NO"
+            to = "SI"
+        }
+    }
+
+    test("seller central warranty value updated for pdp items"){
+        "/seller_central/modify/product_detail/update_warranty"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            from = "WARRANTY_TYPE 6150835"
+            to = "WARRANTY_TYPE 2230280"
+        }
+    }
+
+    test("seller central invoice value updated for pdp items"){
+        "/seller_central/modify/product_detail/update_invoice"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            from = "NO"
+            to = "SI"
+        }
+    }
+
+    test("seller central listing type value updated for pdp items"){
+        "/seller_central/modify/product_detail/update_listing_types"(platform: "/", type: TrackType.Event){
+            item_type = "product"
             category_id = "MLA390784"
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
@@ -339,6 +404,7 @@ trackTests {
 
     test("seller central track to measure health changes"){
         "/seller_central/modify/success"(platform: "/web", type: TrackType.Event){
+            item_type = "default"
             item_id = "MLA12345"
             session_id = "123-update-abc123"
             goals_achieved = ["mercado_envios"]
@@ -365,12 +431,162 @@ trackTests {
 
     test("seller central flex subflow"){
         "/seller_central/modify/optin_flex_subflow"(platform: "/", type: TrackType.View){
+            item_type = "default"
             category_id = "MLA12812"
             item_id = "MLA776923789"
             session_id = "416163910-update-79c25d849574"
             seller_profile = "NEWBIE"
         }
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller central modify pdp items
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("seller central price value updated for pdp items"){
+        "/seller_central/modify/product_detail/update_price"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            item_price = "1500"
+            item_currency_id = "ARS"
+            item_premium = true
+            item_free_shipping = true
+            item_flex = false
+            winner_price = "1000"
+            winner_currency_id = "ARS"
+            winner_premium = true
+            winner_free_shipping = true
+            winner_flex = true
+            buy_box_status = "LOSE"
+            new_buy_box_status = "PENDING"
+            from = "1200"
+            to = "1500"
+        }
+    }
+
+    test("seller central quantity value updated for pdp items"){
+        "/seller_central/modify/product_detail/update_quantity"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            item_price = "1500"
+            item_currency_id = "ARS"
+            item_premium = true
+            item_free_shipping = true
+            item_flex = false
+            winner_price = "1000"
+            winner_currency_id = "ARS"
+            winner_premium = true
+            winner_free_shipping = true
+            winner_flex = true
+            buy_box_status = "LOSE"
+            new_buy_box_status = "PENDING"
+            from = "3"
+            to = "4"
+        }
+    }
+
+    test("seller central local pickup value updated for pdp items"){
+        "/seller_central/modify/product_detail/update_localpickup_options"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            item_price = "1500"
+            item_currency_id = "ARS"
+            item_premium = true
+            item_free_shipping = true
+            item_flex = false
+            winner_price = "1000"
+            winner_currency_id = "ARS"
+            winner_premium = true
+            winner_free_shipping = true
+            winner_flex = true
+            buy_box_status = "LOSE"
+            new_buy_box_status = "PENDING"
+            from = "NO"
+            to = "SI"
+        }
+    }
+
+    test("seller central warranty value updated for pdp items"){
+        "/seller_central/modify/product_detail/update_warranty"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            item_price = "1500"
+            item_currency_id = "ARS"
+            item_premium = true
+            item_free_shipping = true
+            item_flex = false
+            winner_price = "1000"
+            winner_currency_id = "ARS"
+            winner_premium = true
+            winner_free_shipping = true
+            winner_flex = true
+            buy_box_status = "LOSE"
+            new_buy_box_status = "PENDING"
+            from = "WARRANTY_TYPE 6150835"
+            to = "WARRANTY_TYPE 2230280"
+        }
+    }
+
+    test("seller central invoice value updated for pdp items"){
+        "/seller_central/modify/product_detail/update_invoice"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            item_price = "1500"
+            item_currency_id = "ARS"
+            item_premium = true
+            item_free_shipping = true
+            item_flex = false
+            winner_price = "1000"
+            winner_currency_id = "ARS"
+            winner_premium = true
+            winner_free_shipping = true
+            winner_flex = true
+            buy_box_status = "LOSE"
+            new_buy_box_status = "PENDING"
+            from = "NO"
+            to = "SI"
+        }
+    }
+
+    test("seller central listing type value updated for pdp items"){
+        "/seller_central/modify/product_detail/update_listing_types"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            item_price = "1500"
+            item_currency_id = "ARS"
+            item_premium = true
+            item_free_shipping = true
+            item_flex = false
+            winner_price = "1000"
+            winner_currency_id = "ARS"
+            winner_premium = true
+            winner_free_shipping = true
+            winner_flex = true
+            buy_box_status = "LOSE"
+            new_buy_box_status = "PENDING"
+            from = "gold_special"
+            to = "gold_pro"
+        }
+    }
+
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central Structured Data
