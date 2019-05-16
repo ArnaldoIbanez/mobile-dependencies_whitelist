@@ -63,6 +63,7 @@ trackTests {
         "/credits/consumer/payinstallment"(platform: "/web/mobile") {
             status = 'overdue'
         }
+        "/credits/consumer/breaking_landing"(platform: "/web/desktop") {}
 
         //Events
         "/credits/consumer/enrollment/sms_validation/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
