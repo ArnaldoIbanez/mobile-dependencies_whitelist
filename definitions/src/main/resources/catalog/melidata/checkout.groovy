@@ -109,6 +109,7 @@ tracks {
         total_amount_local(serverSide: true)
         total_amount_usd(serverSide: true)
         first_for_order(serverSide: true)
+        new_buyer(serverSide: true)
 
         // Checkout flows
         checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct", "purchase"])
@@ -583,6 +584,7 @@ tracks {
         //      without_fee: true
         //    ]
     }
+    "/checkout/payment/consumer_credits/installments/back"(platform: "/mobile", type: TrackType.Event) {}
     // payment promotions screen. Eg: bank promos in MLA
     "/checkout/payment/promotions"(platform: "/mobile") {}
 

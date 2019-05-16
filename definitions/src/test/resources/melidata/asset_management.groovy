@@ -140,12 +140,15 @@ trackTests {
         "/asset_management/network_error"(platform: "/mobile") {}
         "/asset_management/error"(platform: "/mobile") {
             label = "service_error_generic"
+            verbose = "SE AGOTO EL TIEMPO DE ESPERA"
         }
         "/asset_management/error"(platform: "/mobile") {
             label = "service_error"
+            verbose = "LA CONEXIÓN DE RED SE PERDIÓ"
         }
         "/asset_management/error"(platform: "/mobile") {
             label = "service_error_connection"
+            verbose = "THE JSON APPEARS TO BE MALFORMED"
         }
         "/asset_management/error"(platform: "/mobile") {
             label = "date_validation_underage"
