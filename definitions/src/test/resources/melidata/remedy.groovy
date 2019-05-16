@@ -128,14 +128,18 @@ trackTests {
         }
 
         // Error
+
         "/remedy/error"(platform: "/mobile", business: "mercadolibre") {
             label = "service_error_generic"
+            verbose = "SE AGOTO EL TIEMPO DE ESPERA"
         }
         "/remedy/error"(platform: "/mobile", business: "mercadolibre") {
             label = "service_error"
+            verbose = "THE JSON APPEARS TO BE MALFORMED"
         }
         "/remedy/error"(platform: "/mobile", business: "mercadolibre") {
             label = "service_error_connection"
+            verbose = "LA CONEXIÓN DE RED SE PERDIÓ"
         }
         "/remedy/error"(platform: "/mobile", business: "mercadolibre") {
             label = "date_validation_underage"
