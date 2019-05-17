@@ -20,6 +20,7 @@ tracks {
     "/credits/consumer/myml"(platform: "/", isAbstract: true) {}
     "/credits/consumer/myml/summary"(platform: "/", isAbstract: true) {}
     "/credits/consumer/my_account"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/opensea"(platform: "/", isAbstract: true) {}
 
     "/vip"(platform: "/", isAbstract: true) {}
     "/vip/credits"(platform: "/", isAbstract: true) {}
@@ -63,6 +64,22 @@ tracks {
     /******************************************
      *       End: Consumers Public Landings
      ******************************************/
+
+    /***********************************************
+     *       Start: Consumers Intermediate Landing
+     ***********************************************/
+    //Intermediate Landing
+
+    //Page view
+    "/credits/consumer/opensea/intermediate_landing"(platform: "/mobile", type: TrackType.View) {}
+
+    //Events
+    "/credits/consumer/opensea/intermediate_landing/more_info"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/opensea/intermediate_landing/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+    /*********************************************
+     *       End: Consumers Intermediate Landing
+     *********************************************/
 
     /******************************************
      *       Start: Consumers Administrator
