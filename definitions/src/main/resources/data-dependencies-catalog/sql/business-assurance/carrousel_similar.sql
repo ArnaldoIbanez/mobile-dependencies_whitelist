@@ -1,12 +1,12 @@
 SELECT
-  p.ds AS ds,
   p.platform AS platform,
   p.backend_id AS backend_id,
   p.cnt AS total_vips,
   p.vips_with_bundle AS vips_with_reco,
   c.total_clics AS total_clicks,
   REGEXP_REPLACE (CAST ((p.vips_with_bundle / CAST(p.cnt AS DOUBLE)) * 100 AS STRING), '\\.', ',') AS coverage,
-  REGEXP_REPLACE (CAST (((c.total_clics / CAST(p.vips_with_bundle AS DOUBLE)) * 100) AS STRING), '\\.', ',') AS ctr
+  REGEXP_REPLACE (CAST (((c.total_clics / CAST(p.vips_with_bundle AS DOUBLE)) * 100) AS STRING), '\\.', ',') AS ctr,
+  p.ds AS ds
 FROM (
   SELECT
     device.platform AS platform,

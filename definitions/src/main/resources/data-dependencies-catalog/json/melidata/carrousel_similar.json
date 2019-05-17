@@ -3,16 +3,15 @@
      "federico.carballo@mercadolibre.com",
      "matias.kopp@mercadolibre.com"
   ],
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
   "process_name": "carrousel_similar",
   "cron": "00 08 * * *",
   "extract": {
     "operation": "append",
     "columns": [
-      {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
       {
         "name": "platform",
         "type": "UNICODE_STRING"
@@ -40,6 +39,11 @@
       {
         "name": "ctr",
         "type": "DOUBLE"
+      },
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
       }
     ],
     "sql": {
