@@ -4,6 +4,22 @@ import com.ml.melidata.catalog.PropertyType
 
 tracks {
 
+    def winnerData = objectSchemaDefinitions {
+        winner_price(required: true, type: PropertyType.Numeric, description: "The item winner of the buy box price")
+        winner_currency_id(required: true, type: PropertyType.String, description: "The item winner of the buy box currency")
+        winner_premium(required: true, type: PropertyType.Boolean, description: "True if the item winner of the buy box has listing type premium")
+        winner_free_shipping(required: true, type: PropertyType.Boolean, description: "True if the item winner of the buy box has free shipping")
+        winner_flex(required: true, type: PropertyType.Boolean, description: "True if the item winner of the buy box has flex")
+    }
+
+    def itemData = objectSchemaDefinitions {
+        item_price(required: true, type: PropertyType.Numeric, description: "The item price")
+        item_currency_id(required: true, type: PropertyType.String, description: "The item currency")
+        item_premium(required: true, type: PropertyType.Boolean, description: "True if the item has listing type premium")
+        item_free_shipping(required: true, type: PropertyType.Boolean, description: "True if the item has free shipping")
+        item_flex(required: true, type: PropertyType.Boolean, description: "True if the item has flex")
+    }
+
     propertyDefinitions {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
@@ -14,12 +30,24 @@ tracks {
         type(required: true, type: PropertyType.String, description: "Type of hint", values: ["info", "actionable"])
         attribute(required: true, type: PropertyType.String, description: "Id of the attribute")
         reputation_level(required: false, type: PropertyType.String, description: "user reputation level")
+        item_type(required: false, type: PropertyType.String, description: "product: A PDP item, default: A normal item, associated_products: A item which has at least 1 variation that is associated  with a product", values: ["product", "default", "associated_products"])
+
+        item_data(required: true, type: PropertyType.Map(itemData), description: "Item info of the comparison table")
+        winner_data(required: true, type: PropertyType.Map(winnerData), description: "Winner info of the comparison table")
+        buy_box_status(required: true, type: PropertyType.String, description: "The actual buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR"])
+        new_buy_box_status(required: true, type: PropertyType.String, description: "The new buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR"])
+
+        to(required: false, type: PropertyType.String, description: "The new value of a field, for example quantity, warranty,etc")
+        from(required: false, type: PropertyType.String, description: "The original value of a field, for example quantity, warranty,etc")
+
         hierarchy(required: true, type: PropertyType.String, description: "Attribute type")
     }
 
     propertyGroups {
-        sellerCentralModifyGroup(item_id, session_id)
+        sellerCentralModifyGroup(item_id, session_id, item_type)
         sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path)
+        sellerCentralModifyGroupTableForPdp(item_data, winner_data, buy_box_status, new_buy_box_status)
+        sellerCentralModifyCardsGroupValue(to, from)
         sellerCentralSettingsGroup(seller_profile, reputation_level)
         technicalSpecificationsGroup(category_domain, attribute, hierarchy)
         hintsGroup(type, attribute)
@@ -170,7 +198,12 @@ tracks {
     "/seller_central/bulk/discounts/offline/download/error"(platform: "/", type: TrackType.Event){}
 
     "/seller_central/bulk/discounts/offline/download/warning"(platform: "/", type: TrackType.Event){}
-    //ITEM DETAIL SECTION
+
+
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller central modify
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     "/seller_central/modify"(platform: "/", isAbstract: true) {
         sellerCentralModifyGroup
@@ -192,11 +225,52 @@ tracks {
         sellerCentralModifyCardsGroup
     }
 
+    "/seller_central/modify/update_price"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+    }
+
+    "/seller_central/modify/update_quantity"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+    }
+
+    "/seller_central/modify/update_localpickup_options"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+    }
+
+    "/seller_central/modify/update_warranty"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+    }
+
     "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
-        from(required: true, type: PropertyType.String, description: "Current listing type value")
-        to(required: true, type: PropertyType.String, description: "Updated listing type value")
+        sellerCentralModifyCardsGroupValue
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller central modify pdp items
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/modify/product_detail"(platform: "/", isAbstract: true) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyGroupTableForPdp
+        sellerCentralModifyCardsGroupValue
+    }
+
+    "/seller_central/modify/product_detail/update_price"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/product_detail/update_quantity"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/product_detail/update_localpickup_options"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/product_detail/update_warranty"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/product_detail/update_invoice"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/product_detail/update_listing_types"(platform: "/", type: TrackType.Event) {}
 
     /**
      * La idea es trackear en el snackbar informacion
@@ -224,7 +298,9 @@ tracks {
         is_official_store(required: true, type: PropertyType.Boolean, description: "User is official store")
     }
 
-    //STRUCTURED DATA
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller central Structured Data
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     "/seller_central/modify/technical_specifications"(platform: "/", isAbstract: true) {}
     "/seller_central/modify/technical_specifications/hints"(platform: "/", isAbstract: true) {
