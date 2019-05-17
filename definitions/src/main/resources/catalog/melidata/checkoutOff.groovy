@@ -60,16 +60,15 @@ tracks {
     "/checkout_off/error"(platform: "/", type: TrackType.View) {}
 
     //Final Views
-    "/checkout_off/finish"(platform: "/", isAbstract: true) {
+    "/checkout_off/congrats"(platform: "/", isAbstract: true) {
         payment_installments(required: false, description: "Installments selected")
         payment_status_detail(required: true, description: "Reason for the payment status")
+        payment_status(required: true, description: "Reason for the payment status")
     }
 
-    "/checkout_off/finish/approved"(platform: "/", type: TrackType.View) {}
-    "/checkout_off/finish/pending"(platform: "/", type: TrackType.View) {}
-    "/checkout_off/finish/rejected"(platform: "/", type: TrackType.View) {}
-    "/checkout_off/finish/rejected/call_for_auth"(platform: "/", type: TrackType.View) {}
-    "/checkout_off/finish/rejected/call_for_auth/later"(platform: "/", type: TrackType.View) {}
-    "/checkout_off/finish/rejected/call_for_auth/how_to"(platform: "/", type: TrackType.View) {}
-    "/checkout_off/finish/rejected/call_for_auth/input_code"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/congrats/call_for_auth"(platform: "/", isAbstract: true) {}
+
+    "/checkout_off/congrats/call_for_auth/later"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/congrats/call_for_auth/how_to"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/congrats/call_for_auth/input_code"(platform: "/", type: TrackType.View) {}
 }
