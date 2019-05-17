@@ -685,6 +685,7 @@ trackTests {
             hierarchy = "PRODUCT_IDENTIFIER"
             item_id= "MLA682118081"
             session_id = "123-update-abc123"
+            attribute= "BRAND"
         }
     }
 
@@ -696,6 +697,7 @@ trackTests {
             item_id= "MLA682118081"
             session_id = "123-update-abc123"
             hierarchy = "PRODUCT_IDENTIFIER"
+            attribute = "BRAND"
         }
     }
 

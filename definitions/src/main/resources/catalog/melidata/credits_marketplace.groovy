@@ -296,6 +296,9 @@ tracks {
     "/credits/consumer/enrollment/congrats"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/enrollment/congrats/buy"(platform: "/", type: TrackType.Event) {}
 
+    //BreakingLanding
+    "/credits/consumer/breaking_landing"(platform: "/", type: TrackType.View) {}
+
     /******************************************
      *       End: Consumers Enrollment
      ******************************************/

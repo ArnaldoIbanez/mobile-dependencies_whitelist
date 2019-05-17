@@ -58,7 +58,6 @@ tracks {
 	free_shipping_benefit(required:false, type: PropertyType.Boolean)
     loyalty_level(required:false, type: PropertyType.Numeric)
     is_empty(required:false, type: PropertyType.String)
-    disclaimer_moved_items(required: false, type: PropertyType.String,  values: ["yes", "no"])
 }
 
 "/cart/my_cart"(platform: "/") {

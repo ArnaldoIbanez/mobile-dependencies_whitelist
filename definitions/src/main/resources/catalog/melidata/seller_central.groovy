@@ -39,6 +39,8 @@ tracks {
 
         to(required: false, type: PropertyType.String, description: "The new value of a field, for example quantity, warranty,etc")
         from(required: false, type: PropertyType.String, description: "The original value of a field, for example quantity, warranty,etc")
+
+        hierarchy(required: true, type: PropertyType.String, description: "Attribute type")
     }
 
     propertyGroups {
@@ -47,6 +49,7 @@ tracks {
         sellerCentralModifyGroupTableForPdp(item_data, winner_data, buy_box_status, new_buy_box_status)
         sellerCentralModifyCardsGroupValue(to, from)
         sellerCentralSettingsGroup(seller_profile, reputation_level)
+        technicalSpecificationsGroup(category_domain, attribute, hierarchy)
         hintsGroup(type, attribute)
     }
 
@@ -342,17 +345,15 @@ tracks {
 
     "/seller_central/modify/technical_specifications/multivalue"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyGroup
+        technicalSpecificationsGroup
         quantity(required: true, type: PropertyType.Numeric, description: "Added values")
         previous_quantity(required: true, type: PropertyType.Numeric, description: "Previous values")
-        category_domain(required: true, type: PropertyType.String, description: "Domain")
-        hierarchy(required: true, type: PropertyType.String, description: "Attribute type")
     }
 
     "/seller_central/modify/technical_specifications/suggested"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyGroup
-        category_domain(required: true, type: PropertyType.String, description: "Domain")
-        type(required: true, type: PropertyType.String, description: "Suggestion type")
-        hierarchy(required: true, type: PropertyType.String, description: "Attribute type")
+        technicalSpecificationsGroup
+        type(required: true, type: PropertyType.String, description: "Suggestion type", values: ["suggested", "dynamic", "other"])
     }
 
     // SETTINGS SECTION
