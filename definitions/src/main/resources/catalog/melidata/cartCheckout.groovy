@@ -69,6 +69,7 @@ tracks {
     total_amount(required: true, description: "totalAmount")
     total_amount_local(serverSide: true) // -> Lo completa Melidata automaticamente
     total_amount_usd(serverSide: true) // -> Lo completa Melidata automaticamente
+    new_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
 
     total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
     total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
@@ -287,6 +288,8 @@ tracks {
 "/cart/checkout/shipping/input_address"(platform:"/mobile", type: TrackType.View) {
     edit_flow(required: true, type: PropertyType.Boolean)
 }
+
+"/cart/checkout/shipping/input_address/back"(platform:"/mobile", type: TrackType.Event) {}
 
 "/cart/checkout/shipping/input_address#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")

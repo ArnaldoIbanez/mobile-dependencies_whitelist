@@ -21,10 +21,12 @@ tracks {
 	    //id
 	    //nickname
 	    //loyalty_level
+
+        render_buy_it_again(required: false, type: PropertyType.String, description: "Has render the buy_it_again button")
     }
 
     propertyGroups {
-        mymlGroup(cart_content, CartContent, status, purchase_status, PurchaseStatus, seller, buyer)
+        mymlGroup(cart_content, CartContent, status, purchase_status, PurchaseStatus, seller, buyer, render_buy_it_again)
     }
 
 
