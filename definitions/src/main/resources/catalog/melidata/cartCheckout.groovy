@@ -69,7 +69,6 @@ tracks {
     total_amount(required: true, description: "totalAmount")
     total_amount_local(serverSide: true) // -> Lo completa Melidata automaticamente
     total_amount_usd(serverSide: true) // -> Lo completa Melidata automaticamente
-    new_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
 
     total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
     total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
