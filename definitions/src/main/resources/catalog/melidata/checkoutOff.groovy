@@ -60,7 +60,7 @@ tracks {
     "/checkout_off/error"(platform: "/", type: TrackType.View) {}
 
     //Final Views
-    "/checkout_off/congrats"(platform: "/", isAbstract: true) {
+    "/checkout_off/congrats"(platform: "/", type: TrackType.View) {
         payment_installments(required: false, description: "Installments selected")
         payment_status_detail(required: true, description: "Reason for the payment status")
         payment_status(required: true, description: "Reason for the payment status")
