@@ -794,6 +794,10 @@ trackTests {
             attributable_to = "server"
         }
 
+        "/instore/my_qr"(platform: "/mobile", type: TrackType.View) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+        }
+
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Mercado Pago
@@ -1591,6 +1595,9 @@ trackTests {
             id = "operation_error"
             message = "server error"
             attributable_to = "server"
+        }
+        "/instore/my_qr"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
         }
     }
 
