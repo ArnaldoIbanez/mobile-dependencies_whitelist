@@ -358,6 +358,7 @@ trackTests {
                             free_shipping: false
                     ]
             ]
+            view_type = "grouped"
         }
         "/checkout/shipping/select_option/free_shipping"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -370,6 +371,7 @@ trackTests {
                             free_shipping: true
                     ]
             ]
+            view_type = "grouped"
         }
         "/checkout/shipping/select_option/custom"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -382,6 +384,7 @@ trackTests {
                             free_shipping: false
                     ]
             ]
+            view_type = "grouped"
         }
         "/checkout/shipping/select_contact"(platform:"/mobile", type:TrackType.Event) {
             is_from_preload_address = true
@@ -713,6 +716,16 @@ trackTests {
                     ]
             ]
         }
+        "/checkout/payment/consumer_credits/installments/back"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+            available_installments = [
+                    [
+                            installment: 1,
+                            amount: 20.6,
+                            without_fee: true
+                    ]
+            ]
+        }
         "/checkout/payment/payment_combination/debit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
@@ -746,6 +759,12 @@ trackTests {
         }
 
         "/checkout/payment/select_type"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            available_methods = ["visa", "master", "amex", "cash"]
+            coupon = true
+            coupon_discount = 20
+        }
+        "/checkout/payment/select_type/back"(platform:"/mobile", type:TrackType.Event) {
             checkoutStatus()
             available_methods = ["visa", "master", "amex", "cash"]
             coupon = true

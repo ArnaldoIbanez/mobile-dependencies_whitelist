@@ -21,10 +21,12 @@ tracks {
 	    //id
 	    //nickname
 	    //loyalty_level
+
+        render_buy_it_again(required: false, type: PropertyType.String, description: "Has render the buy_it_again button")
     }
 
     propertyGroups {
-        mymlGroup(cart_content, CartContent, status, purchase_status, PurchaseStatus, seller, buyer)
+        mymlGroup(cart_content, CartContent, status, purchase_status, PurchaseStatus, seller, buyer, render_buy_it_again)
     }
 
 
@@ -67,6 +69,10 @@ tracks {
     "/myml/sales/messages"(platform: "/") {}
 
     "/myml/sales/questions"(platform: "/") {}
+    
+    "/myml/sales/questions/history"(platform: "/mobile") {}
+
+    "/myml/sales/questions/answer_question"(platform: "/mobile") {}
 
     "/myml/sales/questions/response"(platform: "/") {
         unregistered_contact(required: true, type: PropertyType.Boolean, "User is unregister type")
@@ -90,14 +96,14 @@ tracks {
 
     "/myml/purchases/list/returns_action"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Indicates the button that have been clicked",
-                values: ['return_item', 'cancel_return', 'change_return_pickup', 'prepare_package', 'return_agencies', 'print_return_label', 'return_not_delivered', 'return_delivered_problem', 'track_return'])
+                values: ['return_item', 'cancel_return', 'change_return_pickup', 'prepare_package', 'return_agencies', 'print_return_label', 'return_not_delivered', 'return_delivered_problem', 'track_return', 'cant_return'])
     }
 
     "/myml/purchases/vop"(platform: "/") {}
 
     "/myml/purchases/vop/returns_action"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Indicates the button that have been clicked",
-                values: ['return_item', 'cancel_return', 'change_return_pickup', 'prepare_package', 'return_agencies', 'print_return_label', 'return_not_delivered', 'return_delivered_problem', 'track_return'])
+                values: ['return_item', 'cancel_return', 'change_return_pickup', 'prepare_package', 'return_agencies', 'print_return_label', 'return_not_delivered', 'return_delivered_problem', 'track_return', 'cant_return'])
     }
 
     "/myml/purchases/detail"(platform: "/") {}
@@ -123,6 +129,10 @@ tracks {
     "/myml/purchases/messages"(platform: "/") {}
 
     "/myml/purchases/questions"(platform: "/") {}
+
+    "/myml/purchases/questions/asked_questions"(platform: "/mobile") {}
+
+    "/myml/purchases/questions/history"(platform: "/mobile") {}
 
     "/myml/purchases/canceled"(platform:"/", type: TrackType.View) {}
 
@@ -150,7 +160,7 @@ tracks {
 
     "/myml/purchases/seller"(platform:"/", type: TrackType.View) {}
 
-    "/myml/purchases/buy_it_again"(platform:"/", type: TrackType.View) {
+    "/myml/purchases/status/buy_it_again"(platform:"/mobile", type: TrackType.Event) {
         item_id(required: true,type: PropertyType.String, description: "Item id")
     }
 
@@ -176,6 +186,11 @@ tracks {
         adv_segmentation(required: true, description: "Adevrtasement segmentation ")
         reputation_level(required: true, description: "Reputation for Pads")
     }
+
+    "/myml/listings/active"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/listings/closed"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/listings/detail"(platform: "/mobile", type: TrackType.Event) {}
+
     "/myml/bookmarks"(platform: "/web", type: TrackType.View) {}
     "/myml/questions"(platform: "/web", type: TrackType.View) {}
 
@@ -240,21 +255,33 @@ tracks {
     "/myml/suggested_discounts/error/back"(platform: "/mobile", type: TrackType.Event) {}
 
     "/myml/account_balance"(platform: "/mobile", type: TrackType.View) {}
+
     "/myml/account_balance/withdraw"(platform: "/mobile", type: TrackType.Event) {
-        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+        mp_installed(required: false, type:  PropertyType.Boolean, description: "true if MP is installed")
     }
     "/myml/account_balance/send_money"(platform: "/mobile", type: TrackType.Event) {
-        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+        mp_installed(required: false, type:  PropertyType.Boolean, description: "true if MP is installed")
     }
     "/myml/account_balance/cellphone_recharge"(platform: "/mobile", type: TrackType.Event) {
-        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+        mp_installed(required: false, type:  PropertyType.Boolean, description: "true if MP is installed")
     }
     "/myml/account_balance/bill_payments"(platform: "/mobile", type: TrackType.Event) {
-        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+        mp_installed(required: false, type:  PropertyType.Boolean, description: "true if MP is installed")
     }
     "/myml/account_balance/generic_error"(platform: "/mobile", type: TrackType.View) {
         additional_info (required:false, description: "Extra info")
     }
+    "/myml/account_balance/digital_goods"(platform: "/mobile", type: TrackType.View) {}
+
+    "/myml/account_balance/fund_travel_card"(platform: "/mobile", type: TrackType.View) {}
+
+    "/myml/account_balance/gas_station"(platform: "/mobile", type: TrackType.View) {}
+
+    "/myml/account_balance/mp"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/account_balance/mp/install"(platform: "/mobile", type: TrackType.View) {}
+
+    "/myml/account_balance/my_money"(platform: "/mobile", type: TrackType.View) {}
+
     "/myml/account_balance/scan_qr"(platform: "/mobile", type: TrackType.View) {}
 
     "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
@@ -266,8 +293,11 @@ tracks {
         flow_selected(required: true, type: PropertyType.String, description: "use case selected based on incoming parameters")
     }
     "/myml/sales/detail/deliver_product"(platform: "/mobile", type: TrackType.View) {}
-    "/myml/sales/detail/deliver_product#submit"(platform: "/mobile", type: TrackType.Event) {
+    "/myml/sales/detail/deliver_product#submit"(platform: "/mobile/android", type: TrackType.Event) {
         action_label(required: true, type: PropertyType.String, description: "action selected when submitting: send_feedback or update shipping")
+    }
+    "/myml/sales/detail/deliver_product#submit"(platform: "/mobile/ios", type: TrackType.Event) {
+        action_label(required: false, type: PropertyType.String, description: "action selected when submitting: send_feedback or update shipping")
     }
     "/myml/sales/detail/date_will_receive_product"(platform: "/mobile", type: TrackType.View) {}
     "/myml/sales/detail/deliver_product/action"(platform: "/mobile", type: TrackType.Event) {
@@ -279,6 +309,10 @@ tracks {
     "/myml/sales/detail/send_feedback"(platform: "/mobile", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.String)
         success(required: true, type: PropertyType.Boolean)
+    }
+
+    "/myml/main"(platform: "/mobile", type: TrackType.View) {
+        messages(required: false, PropertyType.String)
     }
 
     // Price parity massive items editor
@@ -351,6 +385,7 @@ tracks {
     }
     "/myml/profile/update_success"(platform: "/mobile", type: TrackType.View) {}
     "/myml/profile/review_data/confirm"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/profile/card_details"(platform: "/mobile", type: TrackType.View) {}
     "/myml/company_profile"(platform: "/mobile", type: TrackType.View){}
     "/myml/fiscal_data_edit"(platform: "/mobile", type:TrackType.View){}
 
@@ -453,6 +488,29 @@ tracks {
 
     "/myml/fiscal_information/tax_information/success/btn/listings"(platform: "/", type: TrackType.Event) {}
 
+    // Tax substitution page
+    "/myml/fiscal_information/tax_substitution"(platform: "/", type: TrackType.View) {
+        query_sku(required: true, type: PropertyType.String, description: "Sku of tax information")
+        query_item_id(required: true, type: PropertyType.String, description: "Meli item id")
+        query_inbound_id(required: true, type: PropertyType.String, description: "Inbound id from panel")
+    }
+
+    "/myml/fiscal_information/tax_substitution/btn"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_information/tax_substitution/btn/backtoinbound"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_information/tax_substitution/form"(platform: "/", isAbstract: true) {}
+    "/myml/fiscal_information/tax_substitution/form/save"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_information/tax_substitution/form/save/request"(platform: "/", type: TrackType.Event) {
+        data(required: true, description: "Tax substitution to sending to api")
+    }
+
+    "/myml/fiscal_information/tax_substitution/form/save/response"(platform: "/", type: TrackType.Event) {
+        error(required: true, type: PropertyType.Boolean, description: "Has error on api?")
+        data(required: true, description: "Fiscal information received from api")
+    }
+
     // Type page
     "/myml/fiscal_information/type"(platform: "/", type: TrackType.View) {
         url(required: true, type: PropertyType.String, description: "Page url")
@@ -521,6 +579,8 @@ tracks {
         error(required: false, type:  PropertyType.String, description: "Error message that pop to user after request")
         errorValidation(required: false, type:  PropertyType.String, description: "Error message when value is invalid")
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
     }
 
     //not found
@@ -611,7 +671,10 @@ tracks {
         error(required: false, type: PropertyType.Boolean, description: "State registration saving error")
     }
     //confirm
-    "/myml/invoices/company-info/confirm"(platform: "/") {}
+    "/myml/invoices/company-info/confirm"(platform: "/") {
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
+    }
     "/myml/invoices/company-info/confirm/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
         enabled_for_fulfillment(required: true, type:  PropertyType.Boolean, description: "Boolean if seller profile is fulfillment")
@@ -627,7 +690,10 @@ tracks {
     "/myml/invoices/company-info/confirm/help_tooltip/freight"(platform: "/", type: TrackType.Event) {}
 
     //confirm-normal
-    "/myml/invoices/company-info/confirm-normal"(platform: "/") {}
+    "/myml/invoices/company-info/confirm-normal"(platform: "/") {
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
+    }
     "/myml/invoices/company-info/confirm-normal/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm-normal/save/request"(platform: "/", type: TrackType.Event) {
         serie(required: true, type:  PropertyType.Numeric, description: "Invoice serie number input")
@@ -807,5 +873,42 @@ tracks {
     }
 
     "/myml/invoices/sku/status"(platform: "/") {}
+
+    //Backoffice pages
+    "/myml/invoices/backoffice"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/backoffice/search"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/backoffice/search/invoice"(platform: "/", isAbstract: true) {
+        search_filter(required: true, description: "Search filter used")
+    }
+
+    "/myml/invoices/backoffice/search/reissueinvoice"(platform: "/") {
+        data(required: true, description: "Reissue invoice in Backoffice")
+    }
+
+    "/myml/invoices/backoffice/search/invoiceslist"(platform: "/") {
+        search_filter(required: true, description: "Search filter used on massive invoices search")
+    }
+
+    "/myml/buy_it_again"(platform: "/mobile") {}
+
+    "/myml/account_security"(platform: "/mobile") {}
+
+    "/myml/activity"(platform: "/mobile") {}
+
+    "/myml/activity/list"(platform: "/mobile") {}
+
+    "/myml/bookmarks"(platform: "/mobile") {}
+
+    "/myml/bookmarks/list"(platform: "/mobile") {}
+
+    "/myml/portal_ayuda"(platform: "/mobile") {}
+
+    "/myml/myreputation"(platform: "/mobile") {}
+
+    "/myml/message"(platform: "/mobile") {}
+
+    "/myml/message/activity"(platform: "/mobile") {}
 
 }

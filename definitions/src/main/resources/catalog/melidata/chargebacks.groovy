@@ -16,6 +16,7 @@ tracks {
         case_id(required: true, type: PropertyType.String)
         payment_id(required: true, type: PropertyType.String)
         payer_id(required: true, type: PropertyType.Numeric)
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
     }
     
     "/chargebacks/payer/viewdetail_buy"(platform: "/", type: TrackType.Event) {
@@ -24,6 +25,7 @@ tracks {
         case_id(required: true, type: PropertyType.String)
         payment_id(required: true, type: PropertyType.String)
         payer_id(required: true, type: PropertyType.Numeric)
+        category_path(required: false, type: PropertyType.ArrayList)
     }
 
     "/chargebacks/payer/select-remedy"(platform: "/", type: TrackType.View) {
@@ -31,7 +33,8 @@ tracks {
         item_id(required: false, type: PropertyType.String, description: "Item id")
         case_id(required: true, type: PropertyType.String, description: "CBK case id")
         payment_id(required: true, type: PropertyType.String, description: "Payment id")
-        used_disable(required: false, type: PropertyType.Boolean, description: "is user disable")
+        user_disabled(required: true, type: PropertyType.Boolean, description: "is user disabled")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
     }
 
     "/chargebacks/payer/attach"(platform: "/", type: TrackType.Event) {
@@ -43,6 +46,10 @@ tracks {
         start_conversation(required: false, type: PropertyType.Boolean)
         select_reason(required: true, type: PropertyType.Boolean)
         flow(required: false, type: PropertyType.String)
+        problem_id(required: true, type: PropertyType.String)
+        user_disabled(required: true, type: PropertyType.Boolean, description: "is user disabled")
+        repayment_status(required: false, type: PropertyType.String, description: "Repayment status")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
     }
 
     "/chargebacks/payer/send_msj"(platform: "/", type: TrackType.Event) {
@@ -51,10 +58,14 @@ tracks {
         case_id(required: true, type: PropertyType.String)
         payment_id(required: true, type: PropertyType.String)
         payer_id(required: true, type: PropertyType.Numeric)
+        problem_id(required: false, type: PropertyType.String)
+        repayment_status(required: false, type: PropertyType.String, description: "Repayment status")
         start_conversation(required: false, type: PropertyType.Boolean)
-        select_reason(required: false, type: PropertyType.Boolean)
+        select_reason(required: true, type: PropertyType.Boolean)
         attached_doc(required: false, type: PropertyType.Boolean)
         flow(required: false, type: PropertyType.String)
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
+        user_disabled(required: true, type: PropertyType.Boolean)
     }
 
     "/chargebacks/payer/remedy"(platform: "/", type: TrackType.View) {
@@ -62,8 +73,9 @@ tracks {
         item_id(required: false, type: PropertyType.String, description: "Item id")
         case_id(required: true, type: PropertyType.String, description: "CBK case id")
         payment_id(required: true, type: PropertyType.String, description: "Payment id")
-        used_disable(required: true, type: PropertyType.Boolean, description: "Category id")
+        user_disabled(required: true, type: PropertyType.Boolean, description: "is user disabled")
         problem_id(required: true, type: PropertyType.String, description: "Problem selected by payer")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
     }
 
     "/chargebacks/payer/change_reason"(platform: "/", type: TrackType.Event) {
@@ -72,6 +84,8 @@ tracks {
         case_id(required: true, type: PropertyType.String)
         payment_id(required: true, type: PropertyType.String)
         problem_id(required: true, type: PropertyType.String)
+        user_disabled(required: true, type: PropertyType.Boolean, description: "is user disabled")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
     }
 
     "/chargebacks/payer/attach_main"(platform: "/", type: TrackType.Event) {
@@ -84,30 +98,36 @@ tracks {
     }
 
     "/chargebacks/payer/send"(platform: "/", type: TrackType.Event) {
-            category_id(required: false, type: PropertyType.String)
-            item_id(required: false, type: PropertyType.String)
-            case_id(required: true, type: PropertyType.String)
-            payment_id(required: true, type: PropertyType.String)
-            payer_id(required: true, type: PropertyType.Numeric)
-            problem_id(required: true, type: PropertyType.String)
+        category_id(required: false, type: PropertyType.String)
+        item_id(required: false, type: PropertyType.String)
+        case_id(required: true, type: PropertyType.String)
+        payment_id(required: true, type: PropertyType.String)
+        payer_id(required: true, type: PropertyType.Numeric)
+        problem_id(required: true, type: PropertyType.String)
+        repayment_status(required: false, type: PropertyType.String, description: "Repayment status")
+        user_disabled(required: true, type: PropertyType.Boolean, description: "is user disabled")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
     }
 
     "/chargebacks/payer/pay"(platform: "/", type: TrackType.Event) {
-            category_id(required: false, type: PropertyType.String)
-            item_id(required: false, type: PropertyType.String)
-            case_id(required: true, type: PropertyType.String)
-            payment_id(required: true, type: PropertyType.String)
-            payer_id(required: true, type: PropertyType.Numeric)
-            problem_id(required: true, type: PropertyType.String)
+        category_id(required: false, type: PropertyType.String)
+        item_id(required: false, type: PropertyType.String)
+        case_id(required: true, type: PropertyType.String)
+        payment_id(required: true, type: PropertyType.String)
+        payer_id(required: true, type: PropertyType.Numeric)
+        problem_id(required: true, type: PropertyType.String)
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
     }
 
     "/chargebacks/payer/confirm"(platform: "/", type: TrackType.Event) {
-            category_id(required: false, type: PropertyType.String)
-            item_id(required: false, type: PropertyType.String)
-            case_id(required: true, type: PropertyType.String)
-            payment_id(required: true, type: PropertyType.String)
-            payer_id(required: true, type: PropertyType.Numeric)
-            problem_id(required: true, type: PropertyType.String)
+        category_id(required: false, type: PropertyType.String)
+        item_id(required: false, type: PropertyType.String)
+        case_id(required: true, type: PropertyType.String)
+        payment_id(required: true, type: PropertyType.String)
+        payer_id(required: true, type: PropertyType.Numeric)
+        problem_id(required: true, type: PropertyType.String)
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
+        user_disabled(required: true, type: PropertyType.Boolean, description: "is user disabled")
     }
 
     "/chargebacks/payer/resolve"(platform: "/", type: TrackType.View) {
@@ -115,19 +135,22 @@ tracks {
         item_id(required: false, type: PropertyType.String, description: "Item id")
         case_id(required: true, type: PropertyType.String, description: "CBK case id")
         payment_id(required: true, type: PropertyType.String, description: "Payment id")
-        payment_status(required: false, type: PropertyType.String, description: "Payment status")
-        used_disable(required: true, type: PropertyType.Boolean, description: "Category id")
+        repayment_status(required: false, type: PropertyType.String, description: "Repayment status")
+        user_disabled(required: true, type: PropertyType.Boolean, description: "is user disabled")
         problem_id(required: true, type: PropertyType.String, description: "Problem selected by payer")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
     }
 
     "/chargebacks/payer/pay-again"(platform: "/", type: TrackType.Event) {
-            category_id(required: false, type: PropertyType.String)
-            item_id(required: false, type: PropertyType.String)
-            case_id(required: true, type: PropertyType.String)
-            payment_id(required: true, type: PropertyType.String)
-            payer_id(required: true, type: PropertyType.Numeric)
-            problem_id(required: true, type: PropertyType.String)
-            status_repayment(required: true, type: PropertyType.String)
+        category_id(required: false, type: PropertyType.String)
+        item_id(required: false, type: PropertyType.String)
+        case_id(required: true, type: PropertyType.String)
+        payment_id(required: true, type: PropertyType.String)
+        payer_id(required: true, type: PropertyType.Numeric)
+        problem_id(required: true, type: PropertyType.String)
+        user_disabled(required: true, type: PropertyType.Boolean, description: "is user disabled")
+        repayment_status(required: false, type: PropertyType.String, description: "Repayment status")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
     }
 
     "/chargebacks/payer/click-form-link"(platform: "/", type: TrackType.Event) {
@@ -137,5 +160,8 @@ tracks {
         payment_id(required: true, type: PropertyType.String)
         payer_id(required: true, type: PropertyType.Numeric)
         problem_id(required: true, type: PropertyType.String)
+        user_disabled(required: true, type: PropertyType.Boolean, description: "is user disabled")
+        repayment_status(required: false, type: PropertyType.String, description: "Repayment status")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
     }
 }

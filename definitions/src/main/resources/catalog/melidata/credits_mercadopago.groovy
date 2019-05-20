@@ -103,6 +103,12 @@ tracks {
             values: ['default', 'point', 'early_offer'],
             inheritable: false
         )
+        user_type(
+            type: PropertyType.String,
+            required: true,
+            values: ['capped', 'default'],
+            inheritable: false
+        )
     }
 
     //Confirmation modal
@@ -201,8 +207,8 @@ tracks {
 
     //Congrats money advance
     "/credits/merchant/money_advance/congrats"(platform: "/web", type: TrackType.View) {
-        status(type: PropertyType.String, required: false, values: ['on_time', 'delayed'])
-        user_status(type: PropertyType.String, required: false, values: ['on_time', 'overdue'])
+        status(type: PropertyType.String, required: true, values: ['on_time', 'delayed'])
+        user_status(type: PropertyType.String, required: true, values: ['on_time', 'overdue'])
     }
 
     //Congrats money advance mobile
@@ -210,7 +216,7 @@ tracks {
 
     //Hub money advance
     "/credits/merchant/money_advance/hub"(platform: "/web", type: TrackType.View) {
-        user_status(type: PropertyType.String, required: false, values: ['on_time', 'overdue'])
+        user_status(type: PropertyType.String, required: true, values: ['on_time', 'overdue'])
     }
 
     //Hub money advance mobile

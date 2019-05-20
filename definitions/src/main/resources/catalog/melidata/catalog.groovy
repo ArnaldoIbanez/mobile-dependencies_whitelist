@@ -80,6 +80,9 @@ catalog {
         include business, "security_settings.groovy"
         include business, "mgm.groovy"
         include business, "mediations.groovy"
+        include business, "esc_manager.groovy"
+        include business, "traffic.groovy"
+        include business, "coupon.groovy"
     }
 
     marketplace.each { business ->
@@ -135,6 +138,9 @@ catalog {
         include business, "full.groovy"
         include business, "dynamic_links.groovy"
         include business, "sube_recharge.groovy"
+        include business, "myaccount_billing.groovy"
+        include business, "asset_management.groovy"
+        include business, "remedy.groovy"
     }
 
     mercadopago.each { business ->
@@ -153,7 +159,8 @@ catalog {
         include business, "single_player.groovy"
         include business, "instore.groovy"
         include business, "sube_recharge.groovy"
-
+        include business, "transport.groovy"
+        include business, "remedy.groovy"
     }
 
     mercadoshops.each { business ->

@@ -11,15 +11,18 @@ trackTests {
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'pending'
             product_type = 'default'
+            user_type = 'capped'
         }
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'rejected'
             product_type = 'early_offer'
+            user_type = 'default'
         }
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'approved'
             sub_status = 'review_pending'
             product_type = 'point'
+            user_type = 'default'
         }
         "/credits/merchant/enrollment/credits_conditions"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/preconfirm"(platform: "/web/desktop") {
@@ -130,9 +133,14 @@ trackTests {
 
     test("Money Advance") {
         "/credits/merchant/money_advance"(platform: "/web/desktop") {}
-        "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {}
+        "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {
+            status = 'on_time'
+            user_status = 'on_time'
+        }
         "/credits/merchant/money_advance/congrats"(platform: "/mobile/android") {}
-        "/credits/merchant/money_advance/hub"(platform: "/web/desktop") {}
+        "/credits/merchant/money_advance/hub"(platform: "/web/desktop") {
+            user_status = 'on_time'
+        }
         "/credits/merchant/money_advance/hub"(platform: "/mobile/android") {}
         "/credits/merchant/money_advance/summary"(platform: "/web/desktop") {}
         "/credits/merchant/money_advance/no_options"(platform: "/web/desktop") {}

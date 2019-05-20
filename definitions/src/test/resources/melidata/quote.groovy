@@ -8,468 +8,757 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
-    //SELLER
+    /******************************************
+     *       Start: Seller - Test
+     ******************************************/
     test("Quote :: Show listing seller tracking") {
-        //Quote Seller Tracks
+
+        //Quote Seller Test
         "/quote/seller"(platform: "/") {
-           vertical = "services"
-           seller_id = 33624088
-        }
-
-        //quote seller :: Listing - news
-        "/quote/seller/listing/news"(platform: "/web",type: TrackType.Event) {
             vertical = "services"
             seller_id = 33624088
-            action = "newsAction"
         }
 
-        //quote seller :: Listing - filters
-        "/quote/seller/listing/filters"(platform: "/web",type: TrackType.Event) {
+        /******  Create Quote **********/
+
+        // Quote Create -  Loading
+        "/quote/seller/create/loading"(platform: "/mobile", type: TrackType.View) {
             vertical = "services"
-            seller_id = 33624088
-            action = "search_reset"
         }
 
-        //quote seller :: Listing - menu
-        "/quote/seller/listing/menu"(platform: "/web",type: TrackType.Event) {
+        // Quote  Create - Price form
+        "/quote/seller/create/input_price"(platform: "/mobile", type: TrackType.View) {
             vertical = "services"
             seller_id = 33624088
-            action = "cancel"
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
         }
 
-        //quote seller :: Listing - row
-        "/quote/seller/listing"(platform: "/web",type: TrackType.Event) {
+        // Quote  Create - Expiration date form
+        "/quote/seller/create/input_expiration_date"(platform: "/mobile", type: TrackType.View) {
             vertical = "services"
             seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        // Quote  Create - Conditions  form
+        "/quote/seller/create/input_conditions"(platform: "/mobile", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        /******  Create Similar Quote **********/
+
+        // Quote  Create Similar - Price form
+        "/quote/seller/create/edit_price"(platform: "/mobile", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        // Quote  Create Similar - Expiration date form
+        "/quote/seller/create/edit_expiration_date"(platform: "/mobile", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        // Quote  Create Similar - Conditions  form
+        "/quote/seller/create/edit_conditions"(platform: "/mobile", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        /***** Create Quote (See demand detail and create quote web) ******/
+
+        //Create Quote Web
+        "/quote/seller/create"(platform: "/web", type: TrackType.View) {
+            item_id = "MLA782192768"
+            quote_demand_id = 109654
+            category_id = "MLA91072"
+            vertical = "services"
+            quote_demand_status = "pending_by_seller"
+            seller_id = 427851517
+            buyer_id = 400833138
+        }
+
+        //Create Quote Web - Step Price
+        "/quote/seller/create/new"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLA782192768"
+            quote_demand_id = 109654
+            category_id = "MLA91072"
+            vertical = "services"
+            quote_demand_status = "pending_by_seller"
+            seller_id = 427851517
+            buyer_id = 400833138
+            action = "step_price"
+        }
+
+        //Create Quote (See demand detail)
+        "/quote/seller/create/go_messages"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        "/quote/seller/edit"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+        }
+
+        "/quote/seller/edit/go_messages"(platform: "/mobile", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        // Quote  Create  Edit
+        "/quote/seller/create/edit"(platform: "/web", type: TrackType.View) {
+            item_id = "MLA698669764"
+            quote_demand_id = 698669764
+            category_id = "MLA1540"
+            vertical = "services"
+            quote_demand_status = "answered"
+            seller_id = 33624088
+            buyer_id = 64567088
+        }
+
+        // Quote  Create  Edit Events
+        "/quote/seller/create/edit/action"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLA698669764"
+            quote_demand_id = 698669764
+            category_id = "MLA1540"
+            vertical = "services"
+            quote_demand_status = "answered"
+            seller_id = 33624088
+            buyer_id =  64567088
+            action = "confirmation_edit"
+        }
+
+        /***** Create Quote Confirmation ******/
+
+        // Quote  Create  - Confirmation
+        "/quote/seller/create/confirmation"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        // Quote  Create  - Confirmation Event
+        "/quote/seller/create/confirmation/send_quote"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        /***** Create Quote Confirmation ******/
+
+        // Quote  Create  - Congrats
+        "/quote/seller/create/congrats"(platform: "/", type: TrackType.View) {
+            item_id = "MLA698669764"
+            quote_demand_id = 698669764
+            quote_id = 65732
+            category_id = "MLA1540"
+            vertical = "services"
+            quote_demand_status = "pending_by_seller"
+            quote_status = "sent"
+            seller_id = 33624088
+            buyer_id = 64567088
+            price = 300.00
+            currency_id = "CLP"
+        }
+
+        // Quote  Create  - Congrats
+        "/quote/seller/create/congrats/go_listing"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_id = 65732
+            quote_status = "sent"
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            price = 300.00
+            currency_id = "CLP"
+        }
+
+        // Quote  Create  - Congrats Error
+        "/quote/seller/create/congrats_error"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            quote_demand_id = 23423423
+            quote_demand_status = "answered"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_id = 23423423
+            quote_status = "accepted"
+        }
+
+        // Quote  Create  - Congrats Error
+        "/quote/seller/create/congrats_error/go_edit"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            quote_demand_id = 23423423
+            quote_demand_status = "answered"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_id = 23423423
+            quote_status = "accepted"
+        }
+
+        /***** Quote Demands Listing ******/
+
+        // Quote Listing Seller
+        "/quote/seller/listing"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+        }
+
+        // Quote Listing Seller Events
+        "/quote/seller/listing/action"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
             action = "go_messages"
         }
 
-        //quote seller :: Listing - modal
-        "/quote/seller/listing/filters/modal"(platform: "/web",type: TrackType.Event) {
+        // Quote Listing Seller Events (three dots web listing)
+        "/quote/seller/listing/options"(platform: "/web", type: TrackType.Event) {
             vertical = "services"
             seller_id = 33624088
-            action = "submit_filter"
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            action = "go_reject"
+        }
+
+        // Quote Listing Seller Event News
+        "/quote/seller/listing/cards_actions"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            action = "news"
+        }
+
+        // Quote Listing Seller Event Go Filters
+        "/quote/seller/listing/go_filters"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+        }
+
+        // Quote  Seller Filters Events
+        "/quote/seller/listing/filters"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            action = "reset"
+        }
+
+        // Quote Listing Seller Event Search submit
+        "/quote/seller/listing/search_submit"(platform: "/web", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+        }
+
+        /***** Quotes Listing ******/
+
+        "/quote/seller/quote_listing"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+        }
+
+        "/quote/seller/quote_listing/go_quote_detail"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            quote_id = 698669764
+            quote_status = "sent"
+
+        }
+
+        "/quote/seller/quote_listing/options"(platform: "/web", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            quote_id = 698669764
+            quote_status = "sent"
+            action = "go_messages"
+        }
+
+        /***** Quote Detail ******/
+
+        // Quote Detail
+        "/quote/seller/detail"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            quote_id = 65732
+            quote_status = "accepted"
+            price = 15.3
+            currency_id = "ARG"
+        }
+
+        // Quote Detail Events
+        "/quote/seller/detail/options"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            quote_id = 698669764
+            quote_status = "accepted"
+            price = 15.3
+            currency_id = "ARG"
+            action = "go_messages"
+        }
+
+        /***** Quote Demand Detail in Messages ******/
+
+        // Quote Seller Messages
+        "/quote/seller/messages"(platform: "/web", type: TrackType.View) {
+            seller_id = 33624088
+            vertical = "services"
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        // Quote Seller Messages Events
+        "/quote/seller/messages/create_quote"(platform: "/web", type: TrackType.Event) {
+            seller_id = 33624088
+            vertical = "services"
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        // Quote Seller Messages Options Events
+        "/quote/seller/messages/options"(platform: "/web", type: TrackType.Event) {
+            seller_id = 33624088
+            vertical = "services"
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            action = "go_create_similar"
+        }
+
+        /***** Quote Cancel ******/
+
+        //Quote - Cancel
+        "/quote/seller/cancel"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            quote_id = 698669764
+        }
+
+        //Quote - Cancel Event
+        "/quote/seller/cancel/action"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            quote_id = 698669764
+            action = "MLA_CANCEL_001"
+        }
+
+        //Quote - Cancel Congrats
+        "/quote/seller/cancel/congrats"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            quote_status = "sent"
+            quote_id = 698669764
+            price = 15.3
+            currency_id = "ARG"
+        }
+
+        //Quote - Cancel Congrats Event
+        "/quote/seller/cancel/congrats/go_listing"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            quote_status = "sent"
+            quote_id = 698669764
+            price = 15.3
+            currency_id = "ARG"
+        }
+
+        //Quote - Cancel Congrats Error
+        "/quote/seller/cancel/congrats_error"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            quote_status = "sent"
+            quote_id = 698669764
+            price = 15.3
+            currency_id = "ARG"
+        }
+
+        //Quote - Cancel Congrats Error Event
+        "/quote/seller/cancel/congrats_error/go_listing"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            quote_status = "sent"
+            quote_id = 698669764
+            price = 15.3
+            currency_id = "ARG"
+        }
+
+        /***** Quote Demand Reject ******/
+
+        //Quote - Reject
+        "/quote/seller/reject"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        //Quote - Reject Event
+        "/quote/seller/reject/action"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            action = "MLA_REJECT_001"
+        }
+
+
+        //Quote - Reject Congrats
+        "/quote/seller/reject/congrats"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        //Quote - Congrats Event
+        "/quote/seller/reject/congrats/go_listing"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        //Quote - Reject Congrats Error
+        "/quote/seller/reject/congrats_error"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        //Quote - Reject Congrats Error Event
+        "/quote/seller/reject/congrats_error/go_listing"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
         }
     }
 
-    test("quote :: Show quote Detail tracking") {
-        //quote seller :: Quote Detail
-        "/quote/seller/detail"(platform: "/web") {
-            item_id = "MLA698669764"
-            quote_demand_id = 698669764
-            quote_id = 65732
-            quote_demand_status = "active"
-            quote_status = "active"
-            seller_id = 33624088
-            buyer_id = 64567088
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            vertical = "services"
-            price = 15.3
-            currency_id = "ARS"
-        }
-        //quote seller :: Quote Detail - menu
-        "/quote/seller/detail/menu"(platform: "/web",type: TrackType.Event) {
-            item_id = "MLA698669764"
-            quote_demand_id = 698669764
-            quote_id = 65732
-            quote_demand_status = "active"
-            quote_status = "active"
-            seller_id = 33624088
-            buyer_id = 64567088
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            vertical = "services"
-            price = 15.3
-            currency_id = "ARS"
-            action = "cancel"
-        }
+    /******************************************
+     *       End: Seller - Test
+     ******************************************/
 
-        //quote seller :: Quote Detail - modal
-        "/quote/seller/detail/messages"(platform: "/web",type: TrackType.Event) {
-            item_id = "MLA698669764"
-            quote_demand_id = 698669764
-            quote_id = 65732
-            quote_demand_status = "active"
-            quote_status = "active"
-            seller_id = 33624088
-            buyer_id = 64567088
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            vertical = "services"
-            price = 15.3
-            currency_id = "ARS"
-            action = "show_modal_messages"
-        }
-    }
+    /******************************************
+     *       Start: Buyer - Test
+     ******************************************/
 
-    test("quote :: Show quote Messages tracking") {
-        //quote seller :: Quote Messages
-        "/quote/seller/messages"(platform: "/web") {
-            item_id = "MLA698669764"
-            quote_demand_id = 698669764
-            quote_id = 65732
-            quote_demand_status = "active"
-            quote_status = "active"
-            seller_id = 33624088
-            buyer_id = 64567088
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            vertical = "services"
-            price = 15.3
-            currency_id = "ARS"
-        }
-        //quote seller :: Quote Messages - menu
-        "/quote/seller/messages/menu"(platform: "/web",type: TrackType.Event) {
-            item_id = "MLA698669764"
-            quote_demand_id = 698669764
-            quote_id = 65732
-            quote_demand_status = "active"
-            quote_status = "active"
-            seller_id = 33624088
-            buyer_id = 64567088
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            vertical = "services"
-            price = 15.3
-            currency_id = "ARS"
-            action = "cancel"
-        }
-
-        //quote seller :: Quote Messages - create
-        "/quote/seller/messages"(platform: "/web",type: TrackType.Event) {
-            item_id = "MLA698669764"
-            quote_demand_id = 698669764
-            quote_id = 65732
-            quote_demand_status = "active"
-            quote_status = "active"
-            seller_id = 33624088
-            buyer_id = 64567088
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            vertical = "services"
-            price = 15.3
-            currency_id = "ARS"
-            action = "show_modal_messages"
-        }
-    }
-
-    test("quote :: Show quote Create tracking") {
-        //quote seller :: Quote Create
-        "/quote/seller/create"(platform: "/web") {
-            item_id = "MLA698669764"
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            quote_demand_id = 69866976
-            quote_demand_status = "active"
-            quote_id = 65732
-            quote_status = "active"
-            seller_id = 33624088
-            buyer_id = 64567088
-            vertical = "services"
-        }
-
-        //quote seller :: Quote Create - steps
-        "/quote/seller/create/new"(platform: "/web",type: TrackType.Event) {
-            item_id = "MLA698669764"
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            quote_demand_id = 69866976
-            quote_demand_status = "active"
-            quote_id = 65732
-            quote_status = "active"
-            seller_id = 33624088
-            buyer_id = 64567088
-            vertical = "services"
-            action = "step"
-        }
-        //quote seller :: Quote Create - submit
-        "/quote/seller/create/new"(platform: "/web",type: TrackType.Event) {
-            item_id = "MLA698669764"
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            quote_demand_id = 69866976
-            quote_demand_status = "active"
-            quote_id = 65732
-            quote_status = "active"
-            seller_id = 33624088
-            buyer_id = 64567088
-            vertical = "services"
-            action = "submit"
-        }
-        //quote seller :: Quote Create - modal messages
-        "/quote/seller/create/messages"(platform: "/web",type: TrackType.Event) {
-            item_id = "MLA698669764"
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            quote_demand_id = 69866976
-            quote_demand_status = "active"
-            quote_id = 65732
-            quote_status = "active"
-            seller_id = 33624088
-            buyer_id = 64567088
-            vertical = "services"
-            action = "show_modal_messages"
-        }
-    }
-
-    test("quote :: Quote confirmation tracking") {
-        //quote seller :: Quote confirmation
-        "/quote/seller/create/confirmation"(platform: "/web") {
-            item_id = "MLA698669764"
-            quote_demand_id = 698669764
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            quote_demand_status = "active"
-            buyer_id = 64567088
-            seller_id = 33624088
-            vertical = "services"
-        }
-        //quote seller :: Quote Create - confirmation
-        "/quote/seller/create/confirmation"(platform: "/web",type: TrackType.Event) {
-            item_id = "MLA698669764"
-            quote_demand_id = 698669764
-            quote_demand_status = "active"
-            seller_id = 33624088
-            buyer_id = 64567088
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            vertical = "services"
-            action = "send_quote"
-        }
-
-    }
-
-    test("quote :: quote edit tracking") {
-        //quote seller :: Quote Edit
-        "/quote/seller/create/edit"(platform: "/web") {
-            item_id = "MLA698669764"
-            quote_demand_id = 698669764
-            seller_id = 33624088
-            buyer_id = 64567088
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            vertical = "services"
-        }
-        //quote seller :: Quote Edit - confirmation
-        "/quote/seller/create/edit"(platform: "/web",type: TrackType.Event) {
-            item_id = "MLA698669764"
-            quote_demand_id = 698669764
-            seller_id = 33624088
-            buyer_id = 64567088
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            vertical = "services"
-            action = "confirmation_edit"
-        }
-    }
-
-    test("quote :: Show congrats tracking") {
-        //quote seller :: Quote Congrats
-        "/quote/seller/create/congrats"(platform: "/web") {
-            item_id = "MLA698669764"
-            quote_demand_id = 698669764
-            quote_id = 65732
-            quote_demand_status = "active"
-            quote_status = "active"
-            seller_id = 33624088
-            buyer_id = 64567088
-            category_id = "MLA43718"
-            category_path = ["MLA1234", "MLA6789"]
-            vertical = "services"
-            price = 15.3
-            currency_id = "ARS"
-        }
-        //quote seller :: Quote Congrats - go listing
-        "/quote/seller/create/congrats"(platform: "/web",type: TrackType.Event) {
-            item_id = "MLA698669764"
-            quote_demand_id = 698669764
-            quote_id = 65732
-            quote_demand_status = "active"
-            quote_status = "active"
-            seller_id = 33624088
-            buyer_id = 64567088
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            vertical = "services"
-            price = 15.3
-            currency_id = "ARS"
-            action = "go_listing"
-        }
-    }
-
-   //BUYER
-    test("Quote :: Show buyer tracking") {
+    test("Quote :: buyer tracking") {
         //Quote Buyer Tracks
         "/quote/buyer"(platform: "/") {
             vertical = "services"
+            buyer_id = 64567088
         }
+
+        "/quote_demand/buyer"(platform: "/",type: TrackType.View) {
+            vertical = "services"
+            buyer_id = 64567088
+        }
+
+        /******  Create Quote Demand **********/
+
+        //Create Quote Demand
+        "/quote_demand/buyer/create"(platform: "/",type: TrackType.View) {
+            vertical = "services"
+            category_id= "MLA123214"
+            item_id = "MLA77777"
+            buyer_id= 234234324
+            seller_id = 23423423
+        }
+
+        //Create Quote Demand Event
+        "/quote_demand/buyer/create/submit_quote_demand"(platform: "/",type: TrackType.Event) {
+            vertical = "services"
+            category_id= "MLA123214"
+            item_id = "MLA77777"
+            buyer_id= 234234324
+            seller_id = 23423423
+        }
+
+        /******  Demands Listing **********/
+
+        //Demands Listing
+        "/quote/buyer/listing"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            buyer_id= 234234324
+        }
+
+        //Demands Listing Events
+        "/quote/buyer/listing/action"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA77777"
+            category_id= "MLA123214"
+            buyer_id= 234234324
+            vertical = "services"
+            quote_demand_id = 234234
+            quote_demand_status = "answered"
+            action = "go_quote_detail"
+        }
+
+        "/quote/buyer/listing/action"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA77777"
+            category_id= "MLA123214"
+            buyer_id= 234234324
+            vertical = "services"
+            quote_demand_id = 234234
+            quote_demand_status = "answered"
+            action = "go_messages"
+        }
+
+        //Demands Listing Event: Filters
+        "/quote/buyer/listing/go_filters"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            buyer_id= 234234324
+        }
+
+        //Demands Listing Event: Cards
+        "/quote/buyer/listing/cards_actions"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            buyer_id= 234234324
+            action = "news"
+        }
+
+        //Demands Listing Event: Search submit Web
+        "/quote/buyer/listing/search_submit"(platform: "/web", type: TrackType.Event) {
+            vertical = "services"
+            buyer_id= 234234324
+        }
+
+        //Demands Listing Filters
+        "/quote/buyer/listing/filters"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            buyer_id= 234234324
+            action = "reset"
+        }
+
+        /******  Quotes Listing **********/
+
+        //Quotes Listing Event - Go Detail
+        "/quote/buyer/quote_listing"(platform: "/", type: TrackType.View) {
+            buyer_id=3234
+            vertical = "services"
+        }
+
+        //Quotes Listing Event - Go Detail
+        "/quote/buyer/quote_listing/go_quote_detail"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA77777"
+            category_id= "MLA123214"
+            buyer_id=3234
+            quote_demand_id=34243
+            quote_demand_status ="answered"
+            quote_id=34243
+            quote_status ="sent"
+            seller_id=234234
+            vertical = "services"
+        }
+
+        //Quotes Listing Event - Contract Quote - Web
+        "/quote/buyer/quote_listing/contract_quote"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLA77777"
+            category_id= "MLA123214"
+            buyer_id=3234
+            quote_demand_id=34243
+            quote_demand_status ="answered"
+            quote_id=34243
+            quote_status ="sent"
+            seller_id=234234
+            vertical = "services"
+        }
+
+        /******  Quote Detail **********/
+
+        //Quote Detail
+        "/quote/buyer/detail"(platform: "/", type: TrackType.View) {
+            item_id = "MLA77777"
+            category_id= "MLA123214"
+            buyer_id=3234
+            quote_demand_id=34243
+            quote_id=323423
+            quote_demand_status ="answered"
+            seller_id=234234
+            vertical = "services"
+            quote_status="sent"
+            price=23.4
+            currency_id = "ARG"
+        }
+
+        //Quote Detail Events
+        "/quote/buyer/detail/action"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA77777"
+            category_id= "MLA123214"
+            buyer_id=3234
+            quote_demand_id=34243
+            quote_id=323423
+            quote_demand_status ="answered"
+            seller_id=234234
+            vertical = "services"
+            quote_status="sent"
+            price=23.4
+            currency_id = "ARG"
+            action = "go_messages"
+        }
+
+        /***** Quote Demand Detail in Messages ******/
+
+        //Quote Demand Detail
+        "/quote/buyer/messages"(platform: "/web", type: TrackType.View) {
+            item_id = "MLA782192768"
+            category_id = "MLA91072"
+            vertical = "services"
+            quote_demand_id = 107004
+            quote_demand_status = "answered"
+            seller_id = 427851517
+            buyer_id = 426245022
+        }
+
+        //Quote Demand Detail Event
+        "/quote/buyer/messages/go_detail"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLA782192768"
+            category_id = "MLA91072"
+            vertical = "services"
+            quote_demand_id = 107004
+            quote_demand_status = "answered"
+            seller_id = 427851517
+            buyer_id = 426245022
+        }
+
     }
 
-    test("Quote Buyer :: Listing tracking") {
-        //Quote Buyer :: Listing
-        "/quote/buyer/listing"(platform: "/mobile") {
-            vertical = "services"
-        }
+    /******************************************
+     *       End: Buyer - Test
+     ******************************************/
 
-        //Quote Buyer :: Listing - Filters
-        "/quote/buyer/listing/filters"(platform: "/mobile", type: TrackType.View) {
-            vertical = "services"
-        }
 
-        //Quote Buyer :: Listing - Empty
-        "/quote/buyer/listing/empty"(platform: "/mobile", type: TrackType.View) {
-            vertical = "services"
-            buying_mode = "classified"
-        }
-
-        //Quote Buyer :: Listing - News
-        "/quote/buyer/listing/news"(platform: "/mobile", type: TrackType.Event) {
-            vertical = "services"
-        }
-
-        //Quote Buyer :: Listing - Detail
-        "/quote/buyer/listing/detail"(platform: "/mobile", type: TrackType.View) {
-            buyer_id = 33624088
-            vertical = "services"
-            buying_mode = "classified"
-            demand_id = 123123
-        }
-    }
-
-    test("Quote Buyer :: VIP tracking") {
-        //Quote Buyer :: VIP vencido
-        "/quote/buyer/vip"(platform: "/mobile", type: TrackType.Event) {
-            vertical = "services"
-            buyer_id = 33624088
-            quote_id = "123213"
-            quote_demand_id = "43543"
-            item_id =  "MLA123456"
-            status_quote =  "vencido"
-        }
-
-        //Quote Buyer :: VIP cancelado
-        "/quote/buyer/vip"(platform: "/mobile", type: TrackType.Event) {
-            vertical = "services"
-            buyer_id = 33624088
-            quote_id = "123213"
-            quote_demand_id = "43543"
-            item_id =  "MLA123456"
-            status_quote =  "cancelado"
-        }
-
-        //Quote Buyer :: VIP activo
-        "/quote/buyer/vip"(platform: "/mobile", type: TrackType.Event) {
-            vertical = "services"
-            buyer_id = 33624088
-            quote_id = "123213"
-            quote_demand_id = "43543"
-            item_id =  "MLA123456"
-            status_quote =  "activo"
-        }
-    }
-
-    test("Quote Buyer :: Buying Flow tracking") {
-        //Quote Buyer :: Buying Flow vencido
-        "/quote/buyer/buyingflow"(platform: "/mobile", type: TrackType.Event) {
-            vertical = "services"
-            buyer_id = 33624088
-            quote_id = "123213"
-            quote_demand_id = "43543"
-            item_id =  "MLA123456"
-            status_quote =  "vencido"
-        }
-
-        //Quote Buyer :: Buying Flow cancelado
-        "/quote/buyer/buyingflow"(platform: "/mobile", type: TrackType.Event) {
-            vertical = "services"
-            buyer_id = 33624088
-            quote_id = "123213"
-            quote_demand_id = "43543"
-            item_id =  "MLA123456"
-            status_quote =  "cancelado"
-        }
-
-        //Quote Buyer :: Buying Flow activo
-        "/quote/buyer/buyingflow"(platform: "/mobile", type: TrackType.Event) {
-            vertical = "services"
-            buyer_id = 33624088
-            quote_id = "123213"
-            quote_demand_id = "43543"
-            item_id =  "MLA123456"
-            status_quote =  "activo"
-        }
-    }
-
-    test("Quote Buyer :: Message tracking") {
-        //Quote Buyer :: Message vencido
-        "/quote/buyer/message"(platform: "/mobile", type: TrackType.Event) {
-            vertical = "services"
-            buyer_id = 33624088
-            quote_id = "123213"
-            quote_demand_id = "43543"
-            item_id =  "MLA123456"
-            status_quote =  "vencido"
-        }
-
-        //Quote Buyer :: Message cancelado
-        "/quote/buyer/message"(platform: "/mobile", type: TrackType.Event) {
-            vertical = "services"
-            buyer_id = 33624088
-            quote_id = "123213"
-            quote_demand_id = "43543"
-            item_id =  "MLA123456"
-            status_quote =  "cancelado"
-        }
-
-        //Quote Buyer :: Message activo
-        "/quote/buyer/message"(platform: "/mobile", type: TrackType.Event) {
-            vertical = "services"
-            buyer_id = 33624088
-            quote_id = "123213"
-            quote_demand_id = "43543"
-            item_id =  "MLA123456"
-            status_quote =  "activo"
-        }
-    }
-
-    test("Quote Buyer :: Detail tracking") {
-        //Quote Buyer :: Detail vencido
-        "/quote/buyer/detail"(platform: "/mobile", type: TrackType.View) {
-            vertical = "services"
-            buyer_id = 33624088
-            quote_id = "123213"
-            quote_demand_id = "43543"
-            item_id =  "MLA123456"
-            status_quote =  "vencido"
-        }
-
-        //Quote Buyer :: Detail cancelado
-        "/quote/buyer/detail"(platform: "/mobile", type: TrackType.View) {
-            vertical = "services"
-            buyer_id = 33624088
-            quote_id = "123213"
-            quote_demand_id = "43543"
-            item_id =  "MLA123456"
-            status_quote =  "cancelado"
-        }
-
-        //Quote Buyer :: Detail activo
-        "/quote/buyer/detail"(platform: "/mobile", type: TrackType.View) {
-            vertical = "services"
-            buyer_id = 33624088
-            quote_id = "123213"
-            quote_demand_id = "3543"
-            item_id =  "MLA123456"
-            status_quote =  "activo"
-        }
-    }
-
-    test("Quote Buyer :: OnBoarding tracking") {
-        //Quote Buyer :: OnBoarding
-        "/quote/buyer/onboarding"(platform: "/mobile") {
-            vertical = "services"
-
-        }
-    }
 }

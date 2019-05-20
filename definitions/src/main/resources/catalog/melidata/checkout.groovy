@@ -143,7 +143,7 @@ tracks {
 
         item_with_garex(required: false, type: PropertyType.Boolean, description: 'Item has available warranty')
         total_amount_including_garex(required: false, type: PropertyType.Numeric, description: 'Total amount (include garex if applies)')
-        garex(required: false, type: PropertyType.Map(garexTrackStructure), description: 'Item has available warranty')
+        garex(required: false, type: PropertyType.Map(garexTrackStructure), description: 'User selects a warranty option')
         stored_cards_quantity(required: false, type: PropertyType.Numeric, description: "Stored cards quantity of the buyer")
     }
 
@@ -343,6 +343,8 @@ tracks {
         //    free_shipping: true
         //  ]
         //]
+        // Visual type of shipping options list
+        view_type(required: false, type: PropertyType.String, values: ["legacy", "grouped"])
     }
     //Select shippingOptions
     "/checkout/shipping/select_option/mercado_envios"(platform: "/mobile") {}
@@ -581,6 +583,7 @@ tracks {
         //      without_fee: true
         //    ]
     }
+    "/checkout/payment/consumer_credits/installments/back"(platform: "/mobile", type: TrackType.Event) {}
     // payment promotions screen. Eg: bank promos in MLA
     "/checkout/payment/promotions"(platform: "/mobile") {}
 
@@ -589,6 +592,7 @@ tracks {
         coupon(required: false, type: PropertyType.Boolean)
         coupon_discount(required: false, type: PropertyType.Numeric)
     }
+    "/checkout/payment/select_type/back"(platform: "/mobile", type: TrackType.Event) {}
 
     // 2MP switch tracks
     "/checkout/payment/2mp#use"(platform: "/mobile", type: TrackType.Event) {}

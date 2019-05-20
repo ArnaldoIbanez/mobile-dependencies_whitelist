@@ -70,7 +70,10 @@ tracks {
         from(type: PropertyType.String, required: false, description: "Describes from where the user entered the flow")
         flow(type: PropertyType.String, required: false, description: "The flow the user skipped. Ej. ms_hard_validation")
     }
-    "/identity-validation/congrats"(platform: "/", type: TrackType.View) {}
+    "/identity-validation/congrats"(platform: "/", type: TrackType.View) {
+        from(type: PropertyType.String, required: false, description: "Describes from where the user entered the flow")
+        flow(type: PropertyType.String, required: false, description: "The flow the user skipped. Ej. ms_hard_validation")
+    }
     "/identity-validation/landing_doc"(platform: "/", type: TrackType.View) {}
     "/identity-validation/doc_number"(platform: "/", type: TrackType.View) {}
 }
