@@ -18,8 +18,8 @@ FROM (
   FROM
     tracks t
   WHERE
-    ds >= DATE_FORMAT('@param01' - INTERVAL '5' DAY,'YYYY-MM-dd')
-    AND ds < DATE_FORMAT('@param01','YYYY-MM-dd')
+    ds >= '@param02'
+    AND ds < '@param01'
     AND jest(others['fragment'], 'reco_backend') = 'tagging-searchsimilar_fashion'
     AND path = '/vip'
     AND t.application.site_id = 'MLA'
@@ -43,8 +43,8 @@ FROM (
       count(1) cnt
     FROM tracks
     WHERE path = '/recommendations'
-      AND ds >= DATE_FORMAT('@param01' - INTERVAL '5' DAY,'YYYY-MM-dd')
-      AND ds < DATE_FORMAT('@param01','YYYY-MM-dd')
+      AND ds >= '@param02'
+      AND ds < '@param01'
       AND type = 'view'
       AND application.site_id IN ('MLA')
       AND application.business = 'mercadolibre'
