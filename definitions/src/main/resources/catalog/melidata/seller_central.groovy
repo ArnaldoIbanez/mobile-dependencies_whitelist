@@ -86,6 +86,8 @@ tracks {
 
     "/seller_central/listings/editor"(platform: "/", type: TrackType.Event) {}
 
+    "/seller_central/listings/helpme"(platform: "/", type: TrackType.Event) {}
+
     "/seller_central/listings/filters"(platform: "/mobile", type: TrackType.View) {}
 
     "/seller_central/listings/filters/action"(platform: "/") {
