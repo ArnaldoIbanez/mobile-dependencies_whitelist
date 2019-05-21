@@ -48,6 +48,10 @@ trackTests {
 
         "/home/scroll"(platform: "/mobile") {}
 
+        "/home/page"(platform: "/mobile") {
+            page_number = 2
+        }
+
         "/home/scroll/failure"(platform: "/mobile") {}
 
         "/home/scroll/abort"(platform: "/mobile") {}

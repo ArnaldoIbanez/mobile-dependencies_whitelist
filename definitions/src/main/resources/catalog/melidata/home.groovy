@@ -42,6 +42,10 @@ tracks {
     "/home/pulltorefresh/abort"(platform: "/mobile", type: TrackType.Event) {
     }
 
+    "/home/page"(platform: "/mobile", type: TrackType.Event) {
+        page_number(required: true, type: PropertyType.Numeric)
+    }
+    
     "/home/scroll"(platform: "/mobile", type: TrackType.Event) {
     }
 
