@@ -162,6 +162,17 @@ tracks {
         benefit_id(required: false, description: "Indicates the id of the benefit that corresponds to the modal")
         milestone_id(required: false, description: "Indicates the id of the milestone that corresponds to the modal")
     }
+    
+    // VIP Modal
+    "/loyalty/vip"(platform: "/", isAbstract: true, type: TrackType.View) {}
+    
+    "/loyalty/vip/modal"(platform: "/", type: TrackType.View) {
+        type(required: true, description: "Indicates what kind of modal was opened in VIP", values: ["buy_level", "free_trial"])
+    }
+
+    "/loyalty/vip/modal/action"(platform: "/", type: TrackType.Event) {
+        type(required: true, description: "Indicates the kind of action that was triggered within the modal", values: ["buy_level", "free_trial", "item", "close"])
+    }
 
     // Rewards
 
