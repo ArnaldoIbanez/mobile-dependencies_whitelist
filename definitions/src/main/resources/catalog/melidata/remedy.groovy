@@ -51,6 +51,7 @@ tracks {
     // Errors
     "/remedy/error"(platform: "/mobile", type: TrackType.Event) {
         label (required: false, type: PropertyType.String, description: "The label attached to the current event")
+        verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
     }
     "/remedy/profile"(platform: "/mobile", type: TrackType.Event) {}
 }
