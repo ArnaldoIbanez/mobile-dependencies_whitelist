@@ -168,7 +168,7 @@ tracks {
         type(required: true, description: "Indicates what kind of modal was opened in VIP", values: ["buy_level", "free_trial"])
     }
 
-    "/loyalty/main/modal/action"(platform: "/", type: TrackType.Event) {
+    "/loyalty/vip/modal/action"(platform: "/", type: TrackType.Event) {
         type(required: true, description: "Indicates the kind of action that was triggered within the modal", values: ["buy_level", "free_trial", "item", "close"])
     }
 
