@@ -394,6 +394,18 @@ trackTests {
         }
     }
 
+    test("seller central item condition value updated"){
+        "/seller_central/modify/update_item_condition"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            from = "new"
+            to = "used"
+        }
+    }
+
     test("seller central track to measure health changes"){
         "/seller_central/modify/success"(platform: "/web", type: TrackType.Event){
             item_type = "default"
@@ -442,20 +454,27 @@ trackTests {
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
             seller_profile = "ADVANCED"
-            item_data = [
-                item_price : 1500,
-                item_currency_id : "ARS",
-                item_premium : true,
-                item_free_shipping : true,
-                item_flex : false
+            comparison_table = [
+                    item_data : [
+                            item_price : 1500,
+                            item_currency_id : "ARS",
+                            item_premium : true,
+                            item_free_shipping : true,
+                            item_flex : false
+                    ],
+                    winner_data : [
+                            winner_price : 1000,
+                            winner_currency_id : "ARS",
+                            winner_premium : true,
+                            winner_free_shipping : true,
+                            winner_flex : true
+                    ]
             ]
-            winner_data = [
-                winner_price : 1000,
-                winner_currency_id : "ARS",
-                winner_premium : true,
-                winner_free_shipping : true,
-                winner_flex : true
-            ]
+            product_title = "Motorola G6 64 Gb Blush"
+            product_id = "MLA9707912"
+            products_quantity = 40
+            listing_type = "gold_pro"
+            shipping_local_pickup = "YES"
             buy_box_status = "LOSE"
             new_buy_box_status = "PENDING"
             from = "1200"
@@ -470,20 +489,27 @@ trackTests {
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
             seller_profile = "ADVANCED"
-            item_data = [
-                    item_price : 1500,
-                    item_currency_id : "ARS",
-                    item_premium : true,
-                    item_free_shipping : true,
-                    item_flex : false
+            comparison_table = [
+                    item_data : [
+                            item_price : 1500,
+                            item_currency_id : "ARS",
+                            item_premium : true,
+                            item_free_shipping : true,
+                            item_flex : false
+                    ],
+                    winner_data : [
+                            winner_price : 1000,
+                            winner_currency_id : "ARS",
+                            winner_premium : true,
+                            winner_free_shipping : true,
+                            winner_flex : true
+                    ]
             ]
-            winner_data = [
-                    winner_price : 1000,
-                    winner_currency_id : "ARS",
-                    winner_premium : true,
-                    winner_free_shipping : true,
-                    winner_flex : true
-            ]
+            product_title = "Motorola G6 64 Gb Blush"
+            product_id = "MLA9707912"
+            products_quantity = 40
+            listing_type = "gold_pro"
+            shipping_local_pickup = "YES"
             buy_box_status = "LOSE"
             new_buy_box_status = "PENDING"
             from = "3"
@@ -498,20 +524,27 @@ trackTests {
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
             seller_profile = "ADVANCED"
-            item_data = [
-                    item_price : 1500,
-                    item_currency_id : "ARS",
-                    item_premium : true,
-                    item_free_shipping : true,
-                    item_flex : false
+            comparison_table = [
+                    item_data : [
+                            item_price : 1500,
+                            item_currency_id : "ARS",
+                            item_premium : true,
+                            item_free_shipping : true,
+                            item_flex : false
+                    ],
+                    winner_data : [
+                            winner_price : 1000,
+                            winner_currency_id : "ARS",
+                            winner_premium : true,
+                            winner_free_shipping : true,
+                            winner_flex : true
+                    ]
             ]
-            winner_data = [
-                    winner_price : 1000,
-                    winner_currency_id : "ARS",
-                    winner_premium : true,
-                    winner_free_shipping : true,
-                    winner_flex : true
-            ]
+            product_title = "Motorola G6 64 Gb Blush"
+            product_id = "MLA9707912"
+            products_quantity = 40
+            listing_type = "gold_pro"
+            shipping_local_pickup = "YES"
             buy_box_status = "LOSE"
             new_buy_box_status = "PENDING"
             from = "NO"
@@ -526,20 +559,27 @@ trackTests {
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
             seller_profile = "ADVANCED"
-            item_data = [
-                    item_price : 1500,
-                    item_currency_id : "ARS",
-                    item_premium : true,
-                    item_free_shipping : true,
-                    item_flex : false
+            comparison_table = [
+                    item_data : [
+                            item_price : 1500,
+                            item_currency_id : "ARS",
+                            item_premium : true,
+                            item_free_shipping : true,
+                            item_flex : false
+                    ],
+                    winner_data : [
+                            winner_price : 1000,
+                            winner_currency_id : "ARS",
+                            winner_premium : true,
+                            winner_free_shipping : true,
+                            winner_flex : true
+                    ]
             ]
-            winner_data = [
-                    winner_price : 1000,
-                    winner_currency_id : "ARS",
-                    winner_premium : true,
-                    winner_free_shipping : true,
-                    winner_flex : true
-            ]
+            product_title = "Motorola G6 64 Gb Blush"
+            product_id = "MLA9707912"
+            products_quantity = 40
+            listing_type = "gold_pro"
+            shipping_local_pickup = "YES"
             buy_box_status = "LOSE"
             new_buy_box_status = "PENDING"
             from = "WARRANTY_TYPE 6150835"
@@ -554,20 +594,27 @@ trackTests {
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
             seller_profile = "ADVANCED"
-            item_data = [
-                    item_price : 1500,
-                    item_currency_id : "ARS",
-                    item_premium : true,
-                    item_free_shipping : true,
-                    item_flex : false
+            comparison_table = [
+                    item_data : [
+                            item_price : 1500,
+                            item_currency_id : "ARS",
+                            item_premium : true,
+                            item_free_shipping : true,
+                            item_flex : false
+                    ],
+                    winner_data : [
+                            winner_price : 1000,
+                            winner_currency_id : "ARS",
+                            winner_premium : true,
+                            winner_free_shipping : true,
+                            winner_flex : true
+                    ]
             ]
-            winner_data = [
-                    winner_price : 1000,
-                    winner_currency_id : "ARS",
-                    winner_premium : true,
-                    winner_free_shipping : true,
-                    winner_flex : true
-            ]
+            product_title = "Motorola G6 64 Gb Blush"
+            product_id = "MLA9707912"
+            products_quantity = 40
+            listing_type = "gold_pro"
+            shipping_local_pickup = "YES"
             buy_box_status = "LOSE"
             new_buy_box_status = "PENDING"
             from = "NO"
@@ -582,20 +629,27 @@ trackTests {
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
             seller_profile = "ADVANCED"
-            item_data = [
-                    item_price : 1500,
-                    item_currency_id : "ARS",
-                    item_premium : true,
-                    item_free_shipping : true,
-                    item_flex : false
+            comparison_table = [
+                    item_data : [
+                            item_price : 1500,
+                            item_currency_id : "ARS",
+                            item_premium : true,
+                            item_free_shipping : true,
+                            item_flex : false
+                    ],
+                    winner_data : [
+                            winner_price : 1000,
+                            winner_currency_id : "ARS",
+                            winner_premium : true,
+                            winner_free_shipping : true,
+                            winner_flex : true
+                    ]
             ]
-            winner_data = [
-                    winner_price : 1000,
-                    winner_currency_id : "ARS",
-                    winner_premium : true,
-                    winner_free_shipping : true,
-                    winner_flex : true
-            ]
+            product_title = "Motorola G6 64 Gb Blush"
+            product_id = "MLA9707912"
+            products_quantity = 40
+            listing_type = "gold_pro"
+            shipping_local_pickup = "YES"
             buy_box_status = "LOSE"
             new_buy_box_status = "PENDING"
             from = "gold_special"
