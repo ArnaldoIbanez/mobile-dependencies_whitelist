@@ -84,6 +84,14 @@ metrics {
 		}
 	}
 
+	"new_buyers"(description: "New buyers from feed", compute_order: true) {
+		countsOn {
+			condition {
+				equals("event_data.new_buyer", true)
+			}
+		}
+	}
+
 	"buyingflow/accountmoney_not_bep"(description: "define properties for order_id") {
 		startWith {
 			set_property("order_id", "event_data.order_id")

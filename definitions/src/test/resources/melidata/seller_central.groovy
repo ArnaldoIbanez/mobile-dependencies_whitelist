@@ -115,6 +115,10 @@ trackTests {
         "/seller_central/listings/editor"(platform: "/", type: TrackType.Event) {}
     }
 
+    test("seller central show help me modal") {
+        "/seller_central/listings/helpme"(platform: "/", type: TrackType.Event) {}
+    }
+
     test("seller central listing preferences") {
         "/seller_central/listings/preferences"(platform: "/", type: TrackType.Event) {
             id = "shipping"
