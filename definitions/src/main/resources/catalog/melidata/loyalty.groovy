@@ -164,6 +164,8 @@ tracks {
     }
     
     // VIP Modal
+    "/loyalty/vip"(platform: "/", isAbstract: true, type: TrackType.View) {}
+    
     "/loyalty/vip/modal"(platform: "/", type: TrackType.View) {
         type(required: true, description: "Indicates what kind of modal was opened in VIP", values: ["buy_level", "free_trial"])
     }

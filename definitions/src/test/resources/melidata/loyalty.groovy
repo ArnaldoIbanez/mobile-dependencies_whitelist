@@ -180,7 +180,7 @@ trackTests {
             family_id = 'cobranded'
         })
         
-        "/loyalty/main/modal"(platform: "/", type: TrackType.View, {
+        "/loyalty/vip/modal"(platform: "/", type: TrackType.View, {
             type = "buy_level"
         })
         
