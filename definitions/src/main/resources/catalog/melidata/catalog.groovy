@@ -172,5 +172,6 @@ catalog {
         include business, "flex.groovy"
         include business, "full.groovy"
         include business, "wms.groovy"
+        include business, "logistics.groovy"
     }
 }
