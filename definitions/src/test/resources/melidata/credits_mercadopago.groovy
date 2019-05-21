@@ -11,20 +11,17 @@ trackTests {
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'pending'
             product_type = 'default'
-            user_type = 'capped'
             is_capped_offer= true
         }
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'rejected'
             product_type = 'early_offer'
-            user_type = 'default'
             is_capped_offer= false
         }
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'approved'
             sub_status = 'review_pending'
             product_type = 'point'
-            user_type = 'default'
             is_capped_offer= false
         }
         "/credits/merchant/enrollment/without_proposal"(platform: "/web/desktop") {}
