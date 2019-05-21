@@ -4,8 +4,8 @@ SELECT
   p.cnt AS total_vips,
   p.vips_with_bundle AS vips_with_reco,
   c.total_clics AS total_clicks,
-  REGEXP_REPLACE (CAST ((p.vips_with_bundle / CAST(p.cnt AS DOUBLE)) * 100 AS STRING), '\\.', ',') AS coverage,
-  REGEXP_REPLACE (CAST (((c.total_clics / CAST(p.vips_with_bundle AS DOUBLE)) * 100) AS STRING), '\\.', ',') AS ctr,
+  ((p.vips_with_bundle / CAST(p.cnt AS DOUBLE)) * 100) AS coverage,
+  ((c.total_clics / CAST(p.vips_with_bundle AS DOUBLE)) * 100)  AS ctr,
   p.ds AS ds
 FROM (
   SELECT
