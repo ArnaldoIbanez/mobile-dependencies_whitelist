@@ -145,6 +145,40 @@ trackTests {
         }
     }
 
+    test("Support Widget having Content Type") {
+        "/support/widget/folder"(platform: "/", type: TrackType.View) {
+            portal_content_id = 123
+            portal_content_type = 'FOLDER'
+            portal_source_id = 999
+        }
+        "/support/widget/faq"(platform: "/", type: TrackType.View) {
+            portal_content_id = 987
+            portal_content_type = 'CONTENT'
+            portal_source_id = 123
+            portal_has_channels_configured = true
+        }
+        "/support/widget/faq"(platform: "/", type: TrackType.View) {
+            portal_content_id = 987
+            portal_content_type = 'SHOW_CONTACTS'
+            portal_source_id = 123
+            portal_has_channels_configured = true
+        }
+        "/support/widget/problem"(platform: "/", type: TrackType.View) {
+            portal_content_id = 987
+            portal_content_type = 'SHOW_CONTACTS'
+            portal_source_id = 123
+            portal_problem_id = 456
+            portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
+        }
+        "/support/widget/form"(platform: "/", type: TrackType.View) {
+            portal_form_id = 56
+            portal_content_type = 'SHOW_CONTACTS'
+            portal_source_id = 123
+            portal_content_id = 987
+            portal_problem_id = 456
+        }
+    }
+
     test("Support Cases") {
         "/support/cases/detail"(platform: "/", type: TrackType.View) {
             case_status = "pending"

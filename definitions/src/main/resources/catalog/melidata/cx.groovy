@@ -185,11 +185,14 @@ tracks {
     "/support/widget"(platform: "/", isAbstract:  true) {}
 
     "/support/widget/folder"(platform: "/", type: TrackType.View) {
+        portal_content_id(required: false, type: PropertyType.Numeric, description: "Indicates the id of the content shown on the page, in case its not the home page")
+        portal_content_type(required: false, type: PropertyType.String, description: "Indicates if it's folder or another type. This is very useful for queries involving faqs and contacts. It's optional because the first content list (home) doesn't have a type yet")
         portal_source_id
     }
 
     "/support/widget/faq"(platform: "/", type: TrackType.View) {
         portal_content_id
+        portal_content_type(required: false, type: PropertyType.String, description: "Indicates if it's a simple content or a contact content. It's optional because the migration isn't finished yet, it we'll be mandatory on the future")
         portal_source_id
         portal_has_channels_configured
         portal_problem_id
@@ -199,6 +202,7 @@ tracks {
 
     "/support/widget/problem"(platform: "/", type: TrackType.View) {
         portal_content_id
+        portal_content_type(required: false, type: PropertyType.String, description: "Indicates if it's a simple content or a contact content. It's optional because it's set when there are contact points")
         portal_source_id
         portal_problem_id
         portal_contact
@@ -208,6 +212,7 @@ tracks {
 
     "/support/widget/form"(platform: "/", type: TrackType.View) {
         portal_content_id
+        portal_content_type(required: false, type: PropertyType.String, description: "Indicates if it's a simple content or a contact content. It's optional because the migration isn't finished yet, it we'll be mandatory on the future")
         portal_source_id
         portal_form_id
         portal_problem_id
