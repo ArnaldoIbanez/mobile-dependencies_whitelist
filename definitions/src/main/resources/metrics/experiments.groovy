@@ -31,7 +31,7 @@ metrics {
 		}
 	}
 	
-	"loyalty/buy-level-installments"(description: "define which buy level button to show in VIP modal to see which converts best") {
+	"loyalty/buy_level_installments"(description: "define which buy level button to show in VIP modal to see which converts best") {
         startWith {
             experiment("loyalty/buy-level-installments")
         }
@@ -39,8 +39,9 @@ metrics {
 		countsOn {
 			condition {
 				path("/loyalty/vip/modal/action")
-
-                equals("event_data.type", "buy_level")
+				and(
+                	equals("event_data.type", "buy_level")
+				)
 			}
 		}
 	}
