@@ -20,6 +20,11 @@ tracks {
         item_flex(required: true, type: PropertyType.Boolean, description: "True if the item has flex")
     }
 
+    def comparisonTable = objectSchemaDefinitions {
+        item_data(type: PropertyType.Map(itemData), required: true)
+        winner_data(type: PropertyType.Map(winnerData), required: false)
+    }
+
     propertyDefinitions {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
@@ -32,12 +37,16 @@ tracks {
         reputation_level(required: false, type: PropertyType.String, description: "user reputation level")
         item_type(required: false, type: PropertyType.String, description: "product: A PDP item, default: A normal item, associated_products: A item which has at least 1 variation that is associated  with a product", values: ["product", "default", "associated_products"])
 
-        item_data(required: true, type: PropertyType.Map(itemData), description: "Item info of the comparison table")
-        winner_data(required: true, type: PropertyType.Map(winnerData), description: "Winner info of the comparison table")
-        buy_box_status(required: true, type: PropertyType.String, description: "The actual buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR"])
-        new_buy_box_status(required: true, type: PropertyType.String, description: "The new buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR"])
+        comparison_table(required: true, type: PropertyType.Map(comparisonTable), description: "Information about the winner and the original item")
+        buy_box_status(required: true, type: PropertyType.String, description: "The actual buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR", "OUT"])
+        new_buy_box_status(required: true, type: PropertyType.String, description: "The new buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR", "OUT"])
+        product_title(required: true, type: PropertyType.String, description: "The product title")
+        product_id(required: true, type: PropertyType.String, description: "The product id")
+        products_quantity(required: true, type: PropertyType.Numeric, description: "The product available quantity")
+        listing_type(required: true, type: PropertyType.String, description: "The product listing type")
+        shipping_local_pickup(required: true, type: PropertyType.String, description: "The product local pick up")
 
-        to(required: false, type: PropertyType.String, description: "The new value of a field, for example quantity, warranty,etc")
+        to(required: true, type: PropertyType.String, description: "The new value of a field, for example quantity, warranty,etc")
         from(required: false, type: PropertyType.String, description: "The original value of a field, for example quantity, warranty,etc")
 
         hierarchy(required: true, type: PropertyType.String, description: "Attribute type")
@@ -46,7 +55,7 @@ tracks {
     propertyGroups {
         sellerCentralModifyGroup(item_id, session_id, item_type)
         sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path)
-        sellerCentralModifyGroupTableForPdp(item_data, winner_data, buy_box_status, new_buy_box_status)
+        sellerCentralModifyGroupTableForPdp(comparison_table, buy_box_status, new_buy_box_status, product_title, product_id, products_quantity, listing_type, shipping_local_pickup)
         sellerCentralModifyCardsGroupValue(to, from)
         sellerCentralSettingsGroup(seller_profile, reputation_level)
         technicalSpecificationsGroup(category_domain, attribute, hierarchy)
@@ -252,6 +261,16 @@ tracks {
         sellerCentralModifyCardsGroupValue
     }
 
+    "/seller_central/modify/update_item_condition"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+    }
+
+    "/seller_central/modify/update_shipping_flex"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central modify pdp items
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -273,6 +292,8 @@ tracks {
     "/seller_central/modify/product_detail/update_invoice"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/modify/product_detail/update_listing_types"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/product_detail/update_shipping_flex"(platform: "/", type: TrackType.Event) {}
 
     /**
      * La idea es trackear en el snackbar informacion

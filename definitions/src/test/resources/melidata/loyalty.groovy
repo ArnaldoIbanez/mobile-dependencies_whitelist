@@ -179,6 +179,30 @@ trackTests {
             milestone_id = 'COBRANDED_REQUEST'
             family_id = 'cobranded'
         })
+        
+        "/loyalty/vip/modal"(platform: "/", type: TrackType.View, {
+            type = "buy_level"
+        })
+        
+        "/loyalty/vip/modal"(platform: "/", type: TrackType.View, {
+            type = "free_trial"
+        })
+
+        "/loyalty/vip/modal/action"(platform: "/", type: TrackType.View, {
+            type = "buy_level"
+        })
+        
+        "/loyalty/vip/modal/action"(platform: "/", type: TrackType.View, {
+            type = "free_trial"
+        })
+        
+        "/loyalty/vip/modal/action"(platform: "/", type: TrackType.View, {
+            type = "item"
+        })
+        
+        "/loyalty/vip/modal/action"(platform: "/", type: TrackType.View, {
+            type = "close"
+        })
 
         "/loyalty/milestones"(platform: "/", type: TrackType.View, loyaltyInfo)
     }
