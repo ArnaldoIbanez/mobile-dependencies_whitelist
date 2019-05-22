@@ -394,7 +394,7 @@ trackTests {
         }
     }
 
-    test("seller central item condition value updated"){
+    test("seller central flex value updated"){
         "/seller_central/modify/update_shipping_flex"(platform: "/", type: TrackType.Event){
             item_type = "product"
             category_id = "MLA390784"
@@ -406,7 +406,7 @@ trackTests {
         }
     }
 
-    test("seller central flex value updated"){
+    test("seller central item condition value updated"){
         "/seller_central/modify/update_item_condition"(platform: "/", type: TrackType.Event){
             item_type = "product"
             category_id = "MLA390784"
