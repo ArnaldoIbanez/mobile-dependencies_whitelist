@@ -31,7 +31,7 @@ metrics {
 		}
 	}
 	
-	"loyalty/buy-level-installments"(description: "define which buy level button to show in VIP modal to see which converts best", compute_order: true) {
+	"loyalty/buy-level-installments"(description: "define which buy level button to show in VIP modal to see which converts best") {
         startWith {
             experiment("loyalty/buy-level-installments")
         }
