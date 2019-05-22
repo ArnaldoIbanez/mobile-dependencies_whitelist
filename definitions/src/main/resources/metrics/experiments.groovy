@@ -30,6 +30,20 @@ metrics {
 			}
 		}
 	}
+	
+	"loyalty/buy-level-installments"(description: "define which buy level button to show in VIP modal to see which converts best", compute_order: true) {
+        startWith {
+            experiment("loyalty/buy-level-installments")
+        }
+
+		countsOn {
+			condition {
+				path("/loyalty/vip/modal/action")
+
+                equals("event_data.type", "buy_level")
+			}
+		}
+	}
 
 	// TODO REMOVE WHEN THIS EXPERIMENT IS OVER
 	"orders.InCarrouselCategories"(description: "extend experiment /search/brandCarrousel", parametricName: false, compute_order: true) {
