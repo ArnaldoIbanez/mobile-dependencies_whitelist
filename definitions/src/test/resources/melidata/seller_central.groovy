@@ -395,6 +395,18 @@ trackTests {
     }
 
     test("seller central item condition value updated"){
+        "/seller_central/modify/update_shipping_flex"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            from = "true"
+            to = "false"
+        }
+    }
+
+    test("seller central flex value updated"){
         "/seller_central/modify/update_item_condition"(platform: "/", type: TrackType.Event){
             item_type = "product"
             category_id = "MLA390784"
@@ -654,6 +666,41 @@ trackTests {
             new_buy_box_status = "PENDING"
             from = "gold_special"
             to = "gold_pro"
+        }
+    }
+
+    test("seller central flex value updated for pdp items"){
+        "/seller_central/modify/product_detail/update_shipping_flex"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            comparison_table = [
+                    item_data : [
+                            item_price : 1500,
+                            item_currency_id : "ARS",
+                            item_premium : true,
+                            item_free_shipping : true,
+                            item_flex : false
+                    ],
+                    winner_data : [
+                            winner_price : 1000,
+                            winner_currency_id : "ARS",
+                            winner_premium : true,
+                            winner_free_shipping : true,
+                            winner_flex : true
+                    ]
+            ]
+            product_title = "Motorola G6 64 Gb Blush"
+            product_id = "MLA9707912"
+            products_quantity = 40
+            listing_type = "gold_pro"
+            shipping_local_pickup = "YES"
+            buy_box_status = "LOSE"
+            new_buy_box_status = "PENDING"
+            from = "true"
+            to = "false"
         }
     }
 
