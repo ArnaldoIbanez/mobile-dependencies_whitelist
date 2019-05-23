@@ -733,10 +733,71 @@ tracks {
     // Traks for dashboard section
     "/tfs_dashboard"(platform: "/", isAbstract: true) {}
     "/tfs_dashboard/home"(platform: "/", type: TrackType.View) {}
+    "/tfs_dashboard/home/general"(platform: "/", type: TrackType.View) {}
+    "/tfs_dashboard/home/offline"(platform: "/", type: TrackType.View) {}
+    "/tfs_dashboard/home/online"(platform: "/", type: TrackType.View) {}
     "/tfs_dashboard/detail"(platform: "/", type: TrackType.View) {
-        chart (required: true, type: PropertyType.String, description: "The chart ID of the detail")
+        chart_id (required: true, type: PropertyType.String, description: "The chart ID of the detail")
         section (required: true, type: PropertyType.String, description: "The section owner of the chart")
     }
+    "/tfs_dashboard/compare"(platform: "/", type: TrackType.View) {}
+    "/tfs_dashboard/filters"(platform: "/", type: TrackType.View) {}
+
+    // Events for dashboard section
+    "/tfs_dashboard/tab_selection"(platform: "/", type: TrackType.Event) {
+        section (required: true, type: PropertyType.String, description: "The selected section")
+    }
+    "/tfs_dashboard/hint"(platform: "/", type: TrackType.Event) {
+        chart_id (required: true, type: PropertyType.String, description: "The chart ID of the hint")
+        section (required: true, type: PropertyType.String, description: "The section owner of the hint")
+    }
+    "/tfs_dashboard/home/delta"(platform: "/", type: TrackType.Event) {
+        chart_id (required: true, type: PropertyType.String, description: "The chart ID of the delta")
+        section (required: true, type: PropertyType.String, description: "The section owner of the delta")
+    }
+    "/tfs_dashboard/detail/delta"(platform: "/", type: TrackType.Event) {
+        chart_id (required: true, type: PropertyType.String, description: "The chart ID of the delta")
+        section (required: true, type: PropertyType.String, description: "The section owner of the delta")
+    }
+    "/tfs_dashboard/home/filters_apply"(platform: "/", type: TrackType.Event) {
+        section (required: true, type: PropertyType.String, description: "The section when filter")
+        time_filter (required: false, type: PropertyType.String, description: "Time filter")
+        store_filter (required: false, type: PropertyType.String, description: "Store filter")
+        operator_filter (required: false, type: PropertyType.String, description: "Operator filter")
+        from (required: false, type: PropertyType.String, description: "Date from filter")
+        to (required: false, type: PropertyType.String, description: "Date to filter")
+    }
+    "/tfs_dashboard/detail/filters_apply"(platform: "/", type: TrackType.Event) {
+        chart_id (required: true, type: PropertyType.String, description: "The chart ID when filter")
+        section (required: true, type: PropertyType.String, description: "The section when filter")
+        time_filter (required: false, type: PropertyType.String, description: "Time filter")
+        store_filter (required: false, type: PropertyType.String, description: "Store filter")
+        operator_filter (required: false, type: PropertyType.String, description: "Operator filter")
+        from (required: false, type: PropertyType.String, description: "Date from filter")
+        to (required: false, type: PropertyType.String, description: "Date to filter")
+        compare_from (required: false, type: PropertyType.String, description: "Date from filter")
+        compare_to (required: false, type: PropertyType.String, description: "Date to filter")
+    }
+    "/tfs_dashboard/compare"(platform: "/", type: TrackType.Event) {
+        chart_id (required: true, type: PropertyType.String, description: "The chart ID when compare")
+        section (required: true, type: PropertyType.String, description: "The section when compare")
+    }
+
+    // Errors for dashboard section
+    "/tfs_dashboard/home/error"(platform: "/", type: TrackType.Event) {
+        status_code (required: false, type: PropertyType.Numeric, description: "Error status code")
+    }
+    "/tfs_dashboard/detail/error"(platform: "/", type: TrackType.Event) {
+        chart_id (required: true, type: PropertyType.String, description: "The chart ID when error")
+        section (required: true, type: PropertyType.String, description: "The section when error")
+        status_code (required: false, type: PropertyType.Numeric, description: "Error status code")
+    }
+    "/tfs_dashboard/home/card_error"(platform: "/", type: TrackType.Event) {
+        chart_id (required: true, type: PropertyType.String, description: "The chart ID when error")
+        section (required: true, type: PropertyType.String, description: "The section when error")
+        status_code (required: false, type: PropertyType.Numeric, description: "Error status code")
+    }
+
 
     //tracks for new flow (withdraw and new account)
     "/new-withdraw"(platform: "/", type: TrackType.View) {}
