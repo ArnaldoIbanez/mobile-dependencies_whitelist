@@ -8,7 +8,7 @@ tracks {
     propertyDefinitions {
         flow_detail(required: false, description: "External info")
         flow(required: false, type: PropertyType.String, description: "External flow name")
-        session_id(required: false, type: PropertyType.String, description: "Internal session id")
+        session_id(required: true, type: PropertyType.String, description: "Internal session id")
         collector_id(required: false, description: "Collector external id")
     }
 
@@ -193,9 +193,24 @@ tracks {
         payment_status(required: true, type: PropertyType.String, description: "Payment status")
         payment_status_detail(required: true, type: PropertyType.String, description: "Payment status")
     }
-    "/px_checkout/result/success"(platform: "/mobile", type: TrackType.View) {}
-    "/px_checkout/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {}
-    "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {}
+    "/px_checkout/result/success"(platform: "/mobile", type: TrackType.View) {
+        preference_amount(required: true, type: PropertyType.Numeric, description: "Total amount")
+        currency_id(required: true, type: PropertyType.String, description: "Currency id")
+        discount_coupon_amount(required: false, type: PropertyType.Numeric, description: "Discount coupon amount")
+        has_split_payment(required: true, type: PropertyType.Boolean, description: "Pay with split payment")
+    }
+    "/px_checkout/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {
+        preference_amount(required: true, type: PropertyType.Numeric, description: "Total amount")
+        currency_id(required: true, type: PropertyType.String, description: "Currency id")
+        discount_coupon_amount(required: false, type: PropertyType.Numeric, description: "Discount coupon amount")
+        has_split_payment(required: true, type: PropertyType.Boolean, description: "Pay with split payment")
+    }
+    "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {
+        preference_amount(required: true, type: PropertyType.Numeric, description: "Total amount")
+        currency_id(required: true, type: PropertyType.String, description: "Currency id")
+        discount_coupon_amount(required: false, type: PropertyType.Numeric, description: "Discount coupon amount")
+        has_split_payment(required: true, type: PropertyType.Boolean, description: "Pay with split payment")
+    }
     "/px_checkout/result/unknown"(platform: "/mobile", type: TrackType.View) {}
 
     // Card association result views
