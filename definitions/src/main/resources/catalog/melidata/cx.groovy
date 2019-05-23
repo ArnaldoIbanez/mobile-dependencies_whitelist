@@ -30,7 +30,7 @@ tracks {
                     "REDIRECT", // Content that allows to go outside the cx help
                     "SHOW_CONTACT" // Content that only has buttons to talk with CX
                 ],
-            description: "Indicates if it's a a simple content, a content with contact links to CX, etc. It's optional because the migration isn't finished yet, it we'll be mandatory on the future")
+            description: "Indicates if it's a a simple content, a content with contact links to CX, etc. It's optional just because the migration to the new cx portal has several iterative steps, it's just starting. It we'll be mandatory in the future")
         portal_source_id(required: true, type: PropertyType.Numeric,
             description: "Indicates the source ID for the current page")
         portal_problem_id(required: false, type: PropertyType.Numeric,
