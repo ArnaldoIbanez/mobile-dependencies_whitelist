@@ -59,4 +59,3 @@ FROM (
       AND p.platform = c.platform
       AND p.ds = c.ds
     )
-ORDER BY ds DESC;
