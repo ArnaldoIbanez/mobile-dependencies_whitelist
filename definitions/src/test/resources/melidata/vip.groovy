@@ -242,24 +242,88 @@ trackTests {
             item_seller_type = "AB001"
         }
 
+	  	"/vip/quote_demand_intention"(platform: "/mobile", type: TrackType.Event) {
+	        item_id = "MLA533657947"
+	        category_id = "MLA43718"
+	        buying_mode = "buy_it_now"
+	        category_path = ["MLA1234", "MLA6789"]
+	        vertical = "core"
+	        item_condition = "new"
+	        listing_type_id = "gold_special"
+	        item_status = "active"
+	        seller_id = 131662738
+	        price = 15.3
+	        currency_id = "ARS"
+	        original_price = 18.0
+	        discount_reasons = ["loyalty", "deal"]
+	        optionals()
+	        item_seller_type = "AB001"
+	        from_view="vip"
+	        resolution = "high"
+	    }
+
+        "/vip/quote_demand_messages"(platform: "/mobile", type: TrackType.Event) {
+	        item_id = "MLA533657947"
+	        category_id = "MLA43718"
+	        buying_mode = "buy_it_now"
+	        category_path = ["MLA1234", "MLA6789"]
+	        vertical = "core"
+	        item_condition = "new"
+	        listing_type_id = "gold_special"
+	        item_status = "active"
+	        seller_id = 131662738
+	        price = 15.3
+	        currency_id = "ARS"
+	        original_price = 18.0
+	        discount_reasons = ["loyalty", "deal"]
+	        optionals()
+	        item_seller_type = "AB001"
+	        from_view="vip"
+	        resolution = "high"
+    	}
+
         "/vip/quote_demand_intention"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
+            item_id = "MLA533657947"
+            category_id = "MLA43718"
+            buying_mode = "buy_it_now"
+            category_path = ["MLA1234", "MLA6789"]
+            vertical = "core"
+            item_condition = "new"
+            listing_type_id = "gold_special"
+            item_status = "active"
+            seller_id = 131662738
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+            discount_reasons = ["loyalty", "deal"]
+            deal_ids = ["MLA123"]
             optionals()
             item_seller_type = "AB001"
-            from_view="vip"
+            from_view = "vip"
             resolution = "high"
-            
         }
 
         "/vip/quote_demand_messages"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
+            item_id = "MLA533657947"
+            category_id = "MLA43718"
+            buying_mode = "buy_it_now"
+            category_path = ["MLA1234", "MLA6789"]
+            vertical = "core"
+            item_condition = "new"
+            listing_type_id = "gold_special"
+            item_status = "active"
+            seller_id = 131662738
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+            discount_reasons = ["loyalty", "deal"]
+            deal_ids = []
             optionals()
             item_seller_type = "AB001"
-            from_view="vip"
+            from_view = "vip"
             resolution = "high"
         }
     }
-
     test("Vip web mobile tracking without reviews") {
 
         "/vip"(platform:"/web/mobile") {
