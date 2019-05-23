@@ -434,10 +434,9 @@ tracks {
     }
 
     "/seller_central/sales/list/dashboard"(platform: "/", isAbstract: true) {}
-    "/seller_central/sales/list/dashboard/show"(platform: "/", type: TrackType.Event) {
+    "/seller_central/sales/list/dashboard/open"(platform: "/", type: TrackType.Event) {
         substates(required: true, type: PropertyType.ArrayList, description: "List of available tasks")
     }
-    "/seller_central/sales/list/dashboard/open"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/sales/list/dashboard/close"(platform: "/", type: TrackType.Event) {}
 

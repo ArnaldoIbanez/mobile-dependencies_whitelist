@@ -918,13 +918,9 @@ trackTests {
     }
 
     test("seller central sales dashboard tasks") {
-        "/seller_central/sales/list/dashboard/show"(platform: "/", type: TrackType.Event) {
+        "/seller_central/sales/list/dashboard/open"(platform: "/", type: TrackType.Event) {
             substates = ["card_id_1", "card_id_2"]
         }
-    }
-
-    test("seller central sales dashboard open") {
-        "/seller_central/sales/list/dashboard/open"(platform: "/", type: TrackType.Event) {}
     }
     
     test("seller central sales dashboard close") {
