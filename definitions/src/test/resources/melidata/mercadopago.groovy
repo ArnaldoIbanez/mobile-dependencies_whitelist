@@ -517,21 +517,44 @@ trackTests {
     }
 
     test("MP-MA Flow QR Assignment") {
-        "/merchant_acquisition/flows/qr-assignment"(platform:"/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/qr-assignment/success"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-assignment"(platform:"/", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+        }
+        "/merchant_acquisition/flows/qr-assignment/company_info"(platform:"/", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+        }
+        "/merchant_acquisition/flows/qr-assignment/store_info"(platform:"/", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+        }
+        "/merchant_acquisition/flows/qr-assignment/qr_camera"(platform:"/", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+        }
+        "/merchant_acquisition/flows/qr-assignment/success"(platform:"/", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+            status = 'success'
+        }
         "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
             status = 'invalidAccess'
         }
         "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
             status = 'error'
         }
         "/merchant_acquisition/flows/qr-assignment/validate_email"(platform:"/", type: TrackType.Event) {
+          transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
           valid = true
         }
         "/merchant_acquisition/flows/qr-assignment/validate_email"(platform:"/", type: TrackType.Event) {
+          transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
           valid = false
         }
+        "/merchant_acquisition/flows/qr-assignment/fill_store_address"(platform:"/", type: TrackType.Event) {
+          transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+          get_address_method = 'text'
+        }
         "/merchant_acquisition/flows/qr-assignment/qr_scan"(platform:"/", type: TrackType.Event) {
+          transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
           qr_content = 'http://qr-content'
         }
     }

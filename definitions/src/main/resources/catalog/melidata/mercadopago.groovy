@@ -79,17 +79,37 @@ tracks {
     "/merchant_acquisition/flows"(platform: "/", isAbstract: true) {}
 
     // QR Assignment > Pageviews
-    "/merchant_acquisition/flows/qr-assignment"(platform:"/", type: TrackType.View) {}
-    "/merchant_acquisition/flows/qr-assignment/success"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/qr-assignment"(platform:"/", type: TrackType.View) {
+        transaction_id (type: PropertyType.String, required: true, description:"UUID for transaction tracking")
+    }
+    "/merchant_acquisition/flows/qr-assignment/company_info"(platform:"/", type: TrackType.View) {
+        transaction_id (type: PropertyType.String, required: true, description:"UUID for transaction tracking")
+    }
+    "/merchant_acquisition/flows/qr-assignment/store_info"(platform:"/", type: TrackType.View) {
+        transaction_id (type: PropertyType.String, required: true, description:"UUID for transaction tracking")
+    }
+    "/merchant_acquisition/flows/qr-assignment/qr_camera"(platform:"/", type: TrackType.View) {
+        transaction_id (type: PropertyType.String, required: true, description:"UUID for transaction tracking")
+    }
+    "/merchant_acquisition/flows/qr-assignment/success"(platform:"/", type: TrackType.View) {
+        transaction_id (type: PropertyType.String, required: true, description:"UUID for transaction tracking")
+        status (type: PropertyType.String, required: true, description:"Store create status")
+    }
     "/merchant_acquisition/flows/qr-assignment/error"(platform:"/", type: TrackType.View) {
        status (type: PropertyType.String, required: true, description: "Error Status, ex: invalidAccess, error")
     }
 
     // QR Assignment > Events
     "/merchant_acquisition/flows/qr-assignment/validate_email"(platform:"/", type: TrackType.Event) {
+      transaction_id (type: PropertyType.String, required: true, description:"UUID for transaction tracking")
       valid (type: PropertyType.Boolean, required: true, description: "Ex: true or false")
     }
+    "/merchant_acquisition/flows/qr-assignment/fill_store_address"(platform:"/", type: TrackType.Event) {
+      transaction_id (type: PropertyType.String, required: true, description:"UUID for transaction tracking")
+      get_address_method (type: PropertyType.String, required: true, description: "Ex: [text | gps | map]")
+    }
     "/merchant_acquisition/flows/qr-assignment/qr_scan"(platform:"/", type: TrackType.Event) {
+      transaction_id (type: PropertyType.String, required: true, description:"UUID for transaction tracking")
       qr_content (type: PropertyType.String, required: true, description: "Ex: http://qrContent")
     }
 
