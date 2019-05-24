@@ -1390,12 +1390,11 @@ trackTests {
         "/shortcuts/member_get_member"(platform: "/mobile", type: TrackType.Event) {}
         "/shortcuts/sell_qr"(platform: "/mobile", type: TrackType.Event) {}
         "/shortcuts/open_request"(platform: "/mobile", type: TrackType.Event) {}
-        "/shortcuts/credit_merchant_enrollment"(platform: "/mobile", type: TrackType.Event) {}
-        "/shortcuts/credit_merchant_admin"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/credit_enrollment"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/credit_admin"(platform: "/mobile", type: TrackType.Event) {}
         "/shortcuts/techo"(platform: "/mobile", type: TrackType.Event) {}
         "/shortcuts/antenna_tv"(platform: "/mobile", type: TrackType.Event) {}
         "/shortcuts/money_request_with_qr"(platform: "/mobile", type: TrackType.Event) {}
-        "/shortcuts/buy_credit"(platform: "/mobile", type: TrackType.Event) {}
         "/shortcuts/gas_station"(platform: "/mobile", type: TrackType.Event) {}
         "/shortcuts/transport"(platform: "/mobile", type: TrackType.Event) {}
         "/shortcuts/buy_credit"(platform: "/mobile", type: TrackType.Event) {}
