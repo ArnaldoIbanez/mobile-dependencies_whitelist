@@ -222,11 +222,11 @@ trackTests {
         }
 
         "/search/filters"(platform: "/mobile", defaultSearchInformation)
-        "/search/filters_carousel"(platform: "/web", type: TrackType.Event){
+        /*"/search/filters_carousel"(platform: "/web", type: TrackType.Event){
             defaultSearchInformation()
             name = "9997262-AMLA_7262_2"
             position = 4
-        }
+        }*/
         "/search/back"(platform: "/mobile", defaultSearchInformation)
         "/search/long_press"(platform: "/mobile"){
             item_id = "MLA170232"
