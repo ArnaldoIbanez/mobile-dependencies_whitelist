@@ -779,8 +779,8 @@ tracks {
         compare_to (required: false, type: PropertyType.String, description: "Date to filter")
     }
     "/tfs_dashboard/compare"(platform: "/", type: TrackType.Event) {
-        chart_id (required: true, type: PropertyType.String, description: "The chart ID when compare")
-        section (required: true, type: PropertyType.String, description: "The section when compare")
+        chart_id (required: false, type: PropertyType.String, description: "The chart ID when compare")
+        section (required: false, type: PropertyType.String, description: "The section when compare")
     }
 
     // Errors for dashboard section
