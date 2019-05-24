@@ -26,11 +26,9 @@ trackTests {
         "/front_core/home/show"(platform: "/mobile", type: TrackType.Event) {
             header = [ title : "name" ]
             items = [
-                [
-                    banking: [
-                        ordinal: 1,
-                        type: "banking"
-                    ]
+                banking: [
+                    ordinal: 1,
+                    type: "BANKING"
                 ]
             ]
             backend_tracking_data = [ title: "name" ]
@@ -38,39 +36,39 @@ trackTests {
     }
     
     test("Mercadopago Home Show by Id") {
-        "/front_core/home/show/banking"(platform: "/mobile", type: TrackType.Event) {
+        "/front_core/home/banking"(platform: "/mobile", type: TrackType.Event) {
+            type = "BANKING"
+            ordinal = 1
+        }
+
+        "/front_core/home/main_actions"(platform: "/mobile", type: TrackType.Event) {
+            type = "VERTICAL_LIST"
+            ordinal = 2
+        }
+
+        "/front_core/home/secondary_actions"(platform: "/mobile", type: TrackType.Event) {
+            type = "VERTICAL_LIST"
+            ordinal = 3
+        }
+
+        "/front_core/home/benefits"(platform: "/mobile", type: TrackType.Event) {
             type = "VERTICAL_LIST"
             ordinal = 4
         }
 
-        "/front_core/home/show/main_actions"(platform: "/mobile", type: TrackType.Event) {
+        "/front_core/home/cross_selling"(platform: "/mobile", type: TrackType.Event) {
             type = "VERTICAL_LIST"
-            ordinal = 4
+            ordinal = 5
         }
 
-        "/front_core/home/show/secondary_actions"(platform: "/mobile", type: TrackType.Event) {
+        "/front_core/home/activities"(platform: "/mobile", type: TrackType.Event) {
             type = "VERTICAL_LIST"
-            ordinal = 4
+            ordinal = 6
         }
 
-        "/front_core/home/show/benefits"(platform: "/mobile", type: TrackType.Event) {
+        "/front_core/home/qr_map"(platform: "/mobile", type: TrackType.Event) {
             type = "VERTICAL_LIST"
-            ordinal = 4
-        }
-
-        "/front_core/home/show/cross_selling"(platform: "/mobile", type: TrackType.Event) {
-            type = "VERTICAL_LIST"
-            ordinal = 4
-        }
-
-        "/front_core/home/show/activities"(platform: "/mobile", type: TrackType.Event) {
-            type = "VERTICAL_LIST"
-            ordinal = 4
-        }
-
-        "/front_core/home/show/qr_map"(platform: "/mobile", type: TrackType.Event) {
-            type = "VERTICAL_LIST"
-            ordinal = 4
+            ordinal = 7
         }
     }
 }
