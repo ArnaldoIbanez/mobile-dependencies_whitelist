@@ -19,7 +19,7 @@ where
 GROUP BY
     v2.portal_source_id, 
     v2.portal_content_id, 
-    v2.portal_content_type
+    v2.portal_content_type,
     v2.portal_has_channels_configured,
     application.business,  
     application.site_id,
