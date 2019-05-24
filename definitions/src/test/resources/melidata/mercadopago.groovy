@@ -2120,11 +2120,11 @@ trackTests {
             section="online"
             filters=[
                     [
-                        filter_id: "time_filter"
+                        filter_id: "time_filter",
                         filter_value: "today"
                     ],
                     [
-                        filter_id: "operator_filter"
+                        filter_id: "operator_filter",
                         filter_value: "1342"
                     ]
             ]
@@ -2134,11 +2134,11 @@ trackTests {
             chart_id="tpv"
             filters=[
                     [
-                        filter_id: "time_filter"
+                        filter_id: "time_filter",
                         filter_value: "today"
                     ],
                     [
-                        filter_id: "operator_filter"
+                        filter_id: "operator_filter",
                         filter_value: "1342"
                     ]
             ]
