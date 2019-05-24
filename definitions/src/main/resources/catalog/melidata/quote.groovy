@@ -190,7 +190,7 @@ tracks {
     }
 
     "/quote/seller/listing/filters/action"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, values: ["reset", "submit_filter"], description: "all action click on filters )")
+        action(required: true, type: PropertyType.String, description: "all action click on filters )")
     }
 
     /***** Quote Demand Detail in Messages ******/
@@ -415,7 +415,7 @@ tracks {
     }
 
     "/quote/buyer/listing/filters/action"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, values: ["reset","submit_filter"], description: "all action click on filters")
+        action(required: true, type: PropertyType.String, description: "all action click on filters")
     }
 
     /***** Quotes Listing ******/
