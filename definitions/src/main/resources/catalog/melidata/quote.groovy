@@ -212,7 +212,10 @@ tracks {
     }
 
     // Quote  List - Go detail
-    "/quote/seller/quote_listing"(platform: "/", type: TrackType.View) {}
+    "/quote/seller/quote_listing"(platform: "/", type: TrackType.View) {
+        demandItemGroup
+        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
+    }
 
     // Quote  List - Go detail
     "/quote/seller/quote_listing/go_quote_detail"(platform: "/", type: TrackType.Event) {
