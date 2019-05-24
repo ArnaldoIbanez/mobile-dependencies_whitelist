@@ -2095,7 +2095,7 @@ trackTests {
         "/tfs_dashboard/home/online"(platform: "/", type: TrackType.View){}
         "/tfs_dashboard/home/offline"(platform: "/", type: TrackType.View){}
         "/tfs_dashboard/detail"(platform: "/", type: TrackType.View){
-            chart="tpv"
+            chart_id="tpv"
             section="online"
         }
         "/tfs_dashboard/compare"(platform: "/", type: TrackType.View){}
@@ -2105,15 +2105,15 @@ trackTests {
             section="online"
         }
         "/tfs_dashboard/hint"(platform: "/", type: TrackType.Event){
-            chart="tpv"
+            chart_id="tpv"
             section="online"
         }
         "/tfs_dashboard/home/delta"(platform: "/", type: TrackType.Event){
-            chart="tpv"
+            chart_id="tpv"
             section="online"
         }
         "/tfs_dashboard/detail/delta"(platform: "/", type: TrackType.Event){
-            chart="tpv"
+            chart_id="tpv"
             section="online"
         }
         "/tfs_dashboard/home/filters_apply"(platform: "/", type: TrackType.Event){
@@ -2121,11 +2121,11 @@ trackTests {
         }
         "/tfs_dashboard/detail/filters_apply"(platform: "/", type: TrackType.Event){
             section="online"
-            chart="tpv"
+            chart_id="tpv"
         }
         "/tfs_dashboard/compare"(platform: "/", type: TrackType.Event){
             section="online"
-            chart="tpv"
+            chart_id="tpv"
         }
 
         "/tfs_dashboard/home/error"(platform: "/", type: TrackType.Event){
@@ -2134,12 +2134,12 @@ trackTests {
         "/tfs_dashboard/detail/error"(platform: "/", type: TrackType.Event){
             status_code=404
             section="online"
-            chart="tpv"
+            chart_id="tpv"
         }
         "/tfs_dashboard/home/card_error"(platform: "/", type: TrackType.Event){
             status_code=404
             section="online"
-            chart="tpv"
+            chart_id="tpv"
         }
     }
 
