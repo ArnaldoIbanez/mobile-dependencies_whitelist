@@ -233,7 +233,6 @@ trackTests {
             vertical = "MOTORS"
             loyalty_level = 1
             context = "vip"
-
         }
 
         "/checkout/wrapper"(platform:"/mobile", type:TrackType.View) {}
