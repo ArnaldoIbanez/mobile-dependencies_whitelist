@@ -420,7 +420,10 @@ tracks {
 
     /***** Quotes Listing ******/
 
-    "/quote/buyer/quote_listing"(platform: "/", type: TrackType.View) {}
+    "/quote/buyer/quote_listing"(platform: "/", type: TrackType.View) {
+        quoteItemGroup
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+    }
 
     //Quotes Listing Event
     "/quote/buyer/quote_listing/go_quote_detail"(platform: "/", type: TrackType.Event) {
