@@ -268,6 +268,7 @@ tracks {
 
     "/seller_central/modify/update_shipping_flex"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
     }
 
     "/seller_central/modify/update_size_chart"(platform: "/", type: TrackType.Event) {
