@@ -233,6 +233,7 @@ trackTests {
             vertical = "MOTORS"
             loyalty_level = 1
             context = "vip"
+
         }
 
         "/checkout/wrapper"(platform:"/mobile", type:TrackType.View) {}
@@ -2024,6 +2025,7 @@ trackTests {
             checkout_flow = "direct"
             flow_type = "buy_it_now"
             stored_cards_quantity = 3
+            checkout_flow_reason = "default_case"
         }
 
         "/checkout/geolocation"(platform:"/web", type: TrackType.Event) {

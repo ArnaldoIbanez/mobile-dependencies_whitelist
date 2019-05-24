@@ -145,6 +145,9 @@ tracks {
         total_amount_including_garex(required: false, type: PropertyType.Numeric, description: 'Total amount (include garex if applies)')
         garex(required: false, type: PropertyType.Map(garexTrackStructure), description: 'User selects a warranty option')
         stored_cards_quantity(required: false, type: PropertyType.Numeric, description: "Stored cards quantity of the buyer")
+
+        //Router
+        checkout_flow_reason(required: false, type: PropertyType.String, description:"Reason why the purchase went through cart flow or direct flow" )
     }
 
     /*
