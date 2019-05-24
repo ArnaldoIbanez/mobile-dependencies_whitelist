@@ -13,8 +13,8 @@
     "site": "QA",
     "columns": [
       {
-        "name": "attributesQty",
-        "type": "INTEGER"
+        "name": "itemId",
+        "type": "UNICODE_STRING"
       },
       {
         "name": "newValuesQty",

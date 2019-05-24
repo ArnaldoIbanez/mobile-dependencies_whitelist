@@ -23,7 +23,7 @@ trackTests {
         // Coupon Success Screen
         "/coupon/success"(platform: "/mobile", type: TrackType.View) {
             flow = "sube"
-            entity_id = 1
+            entity_id = "1234567"
             entity_type = "invalid_code"
             code = "1234ABCD"
         }
@@ -69,7 +69,7 @@ trackTests {
         // Coupon Success Screen
         "/coupon/success"(platform: "/mobile", type: TrackType.View) {
             flow = "sube"
-            entity_id = 1
+            entity_id = "1234567"
             entity_type = "invalid_code"
             code = "1234ABCD"
         }

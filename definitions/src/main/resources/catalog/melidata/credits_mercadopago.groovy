@@ -103,13 +103,15 @@ tracks {
             values: ['default', 'point', 'early_offer'],
             inheritable: false
         )
-        user_type(
-            type: PropertyType.String,
+        is_capped_offer(
+            type: PropertyType.Boolean,
             required: true,
-            values: ['capped', 'default'],
             inheritable: false
         )
     }
+
+    //Without Proposal
+    "/credits/merchant/enrollment/without_proposal"(platform: "/", type: TrackType.View) {}
 
     //Confirmation modal
     "/credits/merchant/enrollment/confirmation"(platform: "/", type: TrackType.View) {
@@ -153,9 +155,11 @@ tracks {
 
     //Feedback
     "/credits/merchant/enrollment/feedback"(platform: "/", type: TrackType.View) {
-         reason(type: PropertyType.String, required: true, values: ['interested', 'not_interested', 'capped'], inheritable: false)
+        reason(type: PropertyType.String, required: true, values: ['interested', 'not_interested', 'capped'], inheritable: false)
     }
-    "/credits/merchant/enrollment/feedback/congrats"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/enrollment/feedback/congrats"(platform: "/", type: TrackType.View) {
+        reason(type: PropertyType.String, required: true, values: ['interested', 'not_interested', 'capped'], inheritable: false)
+    }
     "/credits/merchant/enrollment/feedback/error"(platform: "/", type: TrackType.View) {
         reason(type: PropertyType.String, required: false)
     }
@@ -207,8 +211,8 @@ tracks {
 
     //Congrats money advance
     "/credits/merchant/money_advance/congrats"(platform: "/web", type: TrackType.View) {
-        status(type: PropertyType.String, required: false, values: ['on_time', 'delayed'])
-        user_status(type: PropertyType.String, required: false, values: ['on_time', 'overdue'])
+        status(type: PropertyType.String, required: true, values: ['on_time', 'delayed'])
+        user_status(type: PropertyType.String, required: true, values: ['on_time', 'overdue'])
     }
 
     //Congrats money advance mobile
@@ -216,7 +220,7 @@ tracks {
 
     //Hub money advance
     "/credits/merchant/money_advance/hub"(platform: "/web", type: TrackType.View) {
-        user_status(type: PropertyType.String, required: false, values: ['on_time', 'overdue'])
+        user_status(type: PropertyType.String, required: true, values: ['on_time', 'overdue'])
     }
 
     //Hub money advance mobile

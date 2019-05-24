@@ -583,6 +583,7 @@ tracks {
         //      without_fee: true
         //    ]
     }
+    "/checkout/payment/consumer_credits/installments/back"(platform: "/mobile", type: TrackType.Event) {}
     // payment promotions screen. Eg: bank promos in MLA
     "/checkout/payment/promotions"(platform: "/mobile") {}
 
@@ -591,6 +592,7 @@ tracks {
         coupon(required: false, type: PropertyType.Boolean)
         coupon_discount(required: false, type: PropertyType.Numeric)
     }
+    "/checkout/payment/select_type/back"(platform: "/mobile", type: TrackType.Event) {}
 
     // 2MP switch tracks
     "/checkout/payment/2mp#use"(platform: "/mobile", type: TrackType.Event) {}

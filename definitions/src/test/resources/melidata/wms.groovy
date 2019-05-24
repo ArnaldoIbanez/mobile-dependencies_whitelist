@@ -76,6 +76,69 @@ trackTests {
             inbound_id = 1234
             receiving_id = 1234
         }
+        // new receiving
+        "/wms/receiving/scan_dock"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/receiving/scan_volume"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/receiving/scan_pallet"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/receiving/scan_inbound_shipment"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/receiving/volume_rejection"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/receiving/volume_rejection/confirmation"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/receiving/inbound_shipment_rejection"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/receiving/inbound_shipment_rejection/confirmation"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/receiving/receiving_finished"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            receiving_id = 1234
+        }
+
+        "/wms/receiving/volume_rejection"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            receiving_id = 1234
+            rejection_reason = "key01"
+            volume_label = "1234456/12"
+        }
+
+        "/wms/receiving/inbound_shipment_rejection"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            receiving_id = 1234
+            rejection_reason = "key01"
+            inbound_id = 1234
+        }
+
         "/wms/put_away"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
@@ -364,6 +427,11 @@ trackTests {
             input_data = "CA-0-001-000-00-00"
             source = "scanner"
         }
+        "/wms/feedback"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            context = "/wms/picking/scan_container"
+            type="error"
+        }
         "/wms/put_away/scan_cart/start_put_away"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
@@ -595,6 +663,66 @@ trackTests {
             task_id = 123
             warehouse_id = "BRWT01"
             address_id = "RS-0-001-001-01-01"
+        }
+        "/wms/wall_in/scan_container"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+        }
+        "/wms/wall_in/scan_inventory"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            container_address = "CA-0-001-000-00-00"
+        }
+        "/wms/wall_in/scan_inventory/finish_task"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            container_address = "CA-0-001-000-00-00"
+        }
+        "/wms/wall_in/to_restock"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            container_address = "CA-0-001-000-00-00"
+            inventory_id = "AAAA11880"
+        }
+        "/wms/wall_in/to_restock/confirm"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            container_address = "CA-0-001-000-00-00"
+            inventory_id = "AAAA11880"
+        }
+        "/wms/wall_in/to_found"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            container_address = "CA-0-001-000-00-00"
+            inventory_id = "AAAA11880"
+        }
+        "/wms/wall_in/to_found/confirm"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            container_address = "CA-0-001-000-00-00"
+            inventory_id = "AAAA11880"
+        }
+        "/wms/wall_out/scan_section"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+        }
+        "/wms/wall_out/scan_slot"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            section_address = "PW-0-001-000-00-00"
+        }
+        "/wms/wall_out/scan_box"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            slot_address = "PW-0-001-000-00-00"
+        }
+        "/wms/wall_out/to_packing"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            slot_address = "PW-0-001-000-00-00"
+            box_address = "BX-0-001-000-00-00"
+        }
+        "/wms/wall_out/to_packing/confirm"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            slot_address = "PW-0-001-000-00-00"
+            box_address = "BX-0-001-000-00-00"
+        }
+        "/wms/wall_out/empty_wall"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            section_address = "PW-0-001-000-00-00"
+        }
+        "/wms/wall_out/empty_wall/retry"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            section_address = "PW-0-001-000-00-00"
         }
     }
 }

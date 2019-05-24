@@ -52,6 +52,25 @@ tracks {
     // MP Promotions
     "/landing/promotions"(platform: "/web"){}
 
+    "/growth"(platform: "/", isAbstract: true) {}
+    "/growth/login"(platform: "/", type: TrackType.View) {
+      view (type: PropertyType.String, required: true, description: "Name of view", values: ["split", "guest"])
+    }
+
+    "/point/buyingflow"(platform: "/", isAbstract: true) {}
+    "/point/buyingflow/init"(platform: "/", type: TrackType.View) {
+      step (type: PropertyType.String, required: true, description: "Initial step")
+      flow_id (type: PropertyType.String, required: true, description: "Flow id.")
+      product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
+      currency (type: PropertyType.String, required: true, description: "Currency")
+      price (type: PropertyType.Numeric, required: true, description: "Price of device")
+      has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
+      coupon_code (type: PropertyType.String, required: false, description: "MGM CuponCode")
+      coupon_type (type: PropertyType.String, required: false, values: ["default", "mgm", "campaign"], description: "Kind of MGM Coupon: default | mgm | campaign")
+      discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
+      price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
+    }
+
     "/point"(platform: "/", isAbstract: true) {}
 
     // Merchant Acquisition
@@ -92,6 +111,8 @@ tracks {
     "/merchant_acquisition/flows/qr-queue/amount/download"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/flows/qr-queue/amount/print"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/flows/qr-queue/amount/replace-amount"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/qr-queue/amount/pos-changed"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/qr-queue/amount/store-changed"(platform:"/", type: TrackType.Event) {}
 
     "/merchant_acquisition/flows/qr-queue/waiting-payment/retry"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/flows/qr-queue/waiting-payment/extend-time"(platform:"/", type: TrackType.Event) {}
@@ -146,6 +167,7 @@ tracks {
         discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
     }
+    
     "/point/landings/buy"(platform:"/", type: TrackType.Event) {}
 
     // Merchant Acquisition Point Landings: MGM > Events
@@ -232,6 +254,32 @@ tracks {
         attributable_to(required: true, type: PropertyType.String, description: "User, Phone, Device, network or card", values: ["user", "reader", "network", "device", "card"])
         extra_info(required: false, type: PropertyType.String, description: "Extra info")
     }
+
+    def PosSellerFrictionMessage = objectSchemaDefinitions {
+        style(type: PropertyType.String, required: true)
+        title(type: PropertyType.String, required: true)
+        content(type: PropertyType.String, required: true)
+        primary_button(type: PropertyType.String, required: false)
+        secondary_button(type: PropertyType.String, required: false)
+    }
+
+    def PosSellerFrictionExtraInfo = objectSchemaDefinitions {
+        poi(type: PropertyType.String, required: false)
+        progress(type: PropertyType.Numeric, required: false)
+    }
+
+    "/pos_seller"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {}
+    "/pos_seller/friction"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
+        context (required: true, type: PropertyType.String, description: "Friction context")
+        message (required: true, type: PropertyType.Map(PosSellerFrictionMessage), description: "Message shown map")
+        attributable_to(required: true, type: PropertyType.String, values: ["user", "reader", "network", "device", "card", "unknown"], description: "Friction main category reason")
+        extra_info (required: false, type: PropertyType.Map(PosSellerFrictionExtraInfo), description: "Friction extra data map")
+    }
+    "/pos_seller/friction/device_comm_error"(platform: "/mobile", type: TrackType.Event) {}
+    "/pos_seller/friction/server_comm_error"(platform: "/mobile", type: TrackType.Event) {}
+    "/pos_seller/friction/battery_low_error"(platform: "/mobile", type: TrackType.Event) {}
+    "/pos_seller/friction/reader_update_failed"(platform: "/mobile", type: TrackType.Event) {}
+
     //TODO: The flow_origin field must be changed to mandatory, when all the productive versions send this information
     "/point_payment/main"(platform: "/mobile", type: TrackType.View) {
         flow_origin (required: false, type: PropertyType.String, values: ["point", "qr", "chooser","share_social"])
@@ -344,7 +392,6 @@ tracks {
         trx_id (required: true, type: PropertyType.String, description: "trx1234567")
     }
 
-
     "/settings/point"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
     "/settings/point/settings"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
     "/settings/point/costs_calculator"(platform: "/mobile", type: TrackType.View) {}
@@ -352,6 +399,24 @@ tracks {
     "/settings/point/installment_cost"(platform: "/mobile", type: TrackType.View) {}
     "/settings/point/device_mlb"(platform: "/mobile", type: TrackType.View) {}
     "/settings/pairing"(platform: "/mobile", type: TrackType.View) {}
+
+    "/settings/reader_update"(platform: "/mobile", type: TrackType.View) {
+        poi (required: true, type: PropertyType.String, description: "Poi (reader serial number)")
+    }
+    "/settings/reader_update/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/reader_update/result"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/reader_update/process_completed"(platform: "/mobile", type: TrackType.Event) {
+        duration (required: true, type: PropertyType.Numeric, description: "Process duration in seconds")
+        previous_version (required: true, type: PropertyType.String, description: "Reader previous firmware version")
+        previous_config (required: true, type: PropertyType.String, description: "Reader previous config version")
+        new_version (required: true, type: PropertyType.String, description: "Reader firmware version updated")
+        new_config (required: true, type: PropertyType.String, description: "Reader config version updated")
+    }
+    "/settings/reader_update/cancel"(platform: "/mobile", type: TrackType.Event) {
+        duration (required: true, type: PropertyType.Numeric, description: "Process duration in seconds before cancel")
+        time_remaining (required: true, type: PropertyType.Numeric, description: "Estimated time remaining before cancel")
+        progress (required: true, type: PropertyType.Numeric, description: "Update progress at cancel")
+    }
 
     "/shortcuts"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
 
@@ -684,6 +749,14 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
+    // Traks for dashboard section
+    "/tfs_dashboard"(platform: "/", isAbstract: true) {}
+    "/tfs_dashboard/home"(platform: "/", type: TrackType.View) {}
+    "/tfs_dashboard/detail"(platform: "/", type: TrackType.View) {
+        chart (required: true, type: PropertyType.String, description: "The chart ID of the detail")
+        section (required: true, type: PropertyType.String, description: "The section owner of the chart")
+    }
+
     //tracks for new flow (withdraw and new account)
     "/new-withdraw"(platform: "/", type: TrackType.View) {}
     "/new-withdraw/confirm"(platform: "/", type: TrackType.View) {
@@ -794,6 +867,9 @@ tracks {
 
     //Asset Management
     "/notification/asset_management_warm_up"(platform: "/mobile") {}
+    "/notification/asset_management_investing"(platform: "/mobile") {}
+    "/notification/asset_management_pending"(platform: "/mobile") {}
+    "/notification/asset_management_disabled"(platform: "/mobile") {}
 
     //Account
     "/notification/account_fund_approved_ml"(platform: "/mobile") {}

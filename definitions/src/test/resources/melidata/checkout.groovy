@@ -716,6 +716,16 @@ trackTests {
                     ]
             ]
         }
+        "/checkout/payment/consumer_credits/installments/back"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+            available_installments = [
+                    [
+                            installment: 1,
+                            amount: 20.6,
+                            without_fee: true
+                    ]
+            ]
+        }
         "/checkout/payment/payment_combination/debit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
@@ -749,6 +759,12 @@ trackTests {
         }
 
         "/checkout/payment/select_type"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            available_methods = ["visa", "master", "amex", "cash"]
+            coupon = true
+            coupon_discount = 20
+        }
+        "/checkout/payment/select_type/back"(platform:"/mobile", type:TrackType.Event) {
             checkoutStatus()
             available_methods = ["visa", "master", "amex", "cash"]
             coupon = true

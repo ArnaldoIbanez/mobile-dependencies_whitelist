@@ -170,4 +170,15 @@ tracks {
         item_id(required: true, description: "Item Id")
         user_action(required: true, description: "Action taken by user")
     }
+    "/structure_data/product_creator/ignored_hints"(platform: "/", type: TrackType.Event) {
+        bs_user(required: true, description: "Brightsector user")
+        domain_id(required: true, description: "Current domain")
+        hint_id(required: true, description: "Hint Id")
+        attribute(required: true, description: "Attribute Id")
+        lang(required: true, description: "Language")
+        suggested_value_id(required: true, description: "Suggested hint value Id")
+        suggested_value_name(required: true, description: "Suggested hint value name")
+        written_value(required: true, description: "Written attribute value")
+        final_value(required: true, description: "Final attribute value")
+    }
 }

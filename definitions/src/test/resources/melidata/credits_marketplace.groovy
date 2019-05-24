@@ -49,6 +49,22 @@ trackTests {
          *       End: Consumers Public Landings
          ******************************************/
 
+        /***********************************************
+         *       Start: Consumers Intermediate Landing
+         ***********************************************/
+        //Intermediate Landing
+
+        //Page view
+        "/credits/consumer/opensea/intermediate_landing"(platform: "/mobile", type: TrackType.View) {}
+
+        //Events
+        "/credits/consumer/opensea/intermediate_landing/more_info"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/opensea/intermediate_landing/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+        /*********************************************
+         *       End: Consumers Intermediate Landing
+         *********************************************/
+
         /******************************************
          *       Start: Consumers Enrollment
          ******************************************/
@@ -63,6 +79,7 @@ trackTests {
         "/credits/consumer/payinstallment"(platform: "/web/mobile") {
             status = 'overdue'
         }
+        "/credits/consumer/breaking_landing"(platform: "/web/desktop") {}
 
         //Events
         "/credits/consumer/enrollment/sms_validation/cancel"(platform: "/web/desktop", type: TrackType.Event) {}

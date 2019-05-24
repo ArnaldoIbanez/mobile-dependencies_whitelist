@@ -597,6 +597,10 @@ trackTests {
 
         "/myml/sales/questions"(platform: "/web") {}
 
+        "/myml/sales/questions/history"(platform: "/mobile"){}
+
+        "/myml/sales/questions/answer_question"(platform: "/mobile"){}
+      
         "/myml/sales/questions/response"(platform: "/") {
             unregistered_contact = false
         }
@@ -644,6 +648,10 @@ trackTests {
         "/myml/purchases/messages"(platform: "/web") {}
 
         "/myml/purchases/questions"(platform: "/web") {}
+
+        "/myml/purchases/questions/asked_questions"(platform: "/mobile") {}
+    
+        "/myml/purchases/questions/history"(platform: "/mobile") {}
 
         "/myml/purchases/canceled"(platform:"/") {}
 
@@ -735,6 +743,9 @@ trackTests {
         "/myml/listings"(platform: "/web"){
             label = "active"
         }
+        "/myml/listings/active"(platform: "/mobile") {}
+        "/myml/listings/closed"(platform: "/mobile") {}
+        "/myml/listings/detail"(platform: "/mobile") {}
         "/myml/bookmarks"(platform: "/web"){}
         "/myml/questions"(platform: "/web"){}
         "/myml/summary"(platform: "/web"){}
@@ -832,6 +843,7 @@ trackTests {
         }
         "/myml/profile/update_success"(platform: "/mobile"){}
         "/myml/profile/review_data/confirm"(platform: "/mobile"){}
+        "/myml/profile/card_details"(platform: "/mobile") {}
         "/myml/company_profile"(platform: "/mobile"){}
         "/myml/fiscal_data_edit"(platform: "/mobile"){}
     }
@@ -900,6 +912,12 @@ trackTests {
                          }]}
         }
         "/myml/account_balance/scan_qr"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/account_balance/digital_goods"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/account_balance/fund_travel_card"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/account_balance/mp"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/account_balance/mp/install"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/account_balance/my_money"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/account_balance/gas_station"(platform: "/mobile", type: TrackType.View) {}
     }
 
     test("MyMl new reputation flow seller") {
@@ -907,9 +925,10 @@ trackTests {
             flow_selected = "MPA and not ME"
         }
         "/myml/sales/detail/deliver_product"(platform: "/mobile", type: TrackType.View) {}
-        "/myml/sales/detail/deliver_product#submit"(platform: "/mobile", type: TrackType.Event) {
+        "/myml/sales/detail/deliver_product#submit"(platform: "/mobile/android", type: TrackType.Event) {
             action_label = "send_feedback"
         }
+        "/myml/sales/detail/deliver_product#submit"(platform: "/mobile/ios", type: TrackType.Event) {}
         "/myml/sales/detail/date_will_receive_product"(platform: "/mobile", type: TrackType.View) {}
         "/myml/sales/detail/deliver_product/action"(platform: "/mobile", type: TrackType.Event) {
             action_label = "send_feedback"
@@ -920,6 +939,12 @@ trackTests {
         "/myml/sales/detail/send_feedback"(platform: "/mobile", type: TrackType.Event) {
             order_id = "1234"
             success = true
+        }
+    }
+
+    test("Main") {
+        "/myml/main"(platform: "/mobile", type: TrackType.Event) {
+            messages = "dummy-message"
         }
     }
 
@@ -976,5 +1001,35 @@ trackTests {
                 deal_ids= [ ]
             }
         }
+    }
+
+    test("Myml buy_it_again") {
+        "/myml/buy_it_again"(platform: "/mobile") {}        
+    }
+
+    test("Myml buy_it_again") {
+        "/myml/account_security"(platform: "/mobile") {}        
+    }
+
+    test("Myml activity list") {
+        "/myml/activity"(platform: "/mobile") {}        
+        "/myml/activity/list"(platform: "/mobile") {}        
+    }
+    
+    test("Myml bookmarks list") {
+        "/myml/bookmarks/list"(platform: "/mobile") {}        
+    }
+
+    test("Myml portal_ayuda") {
+        "/myml/portal_ayuda"(platform: "/mobile") {}        
+    }
+
+    test("Myml myreputation") {
+        "/myml/myreputation"(platform: "/mobile") {}        
+    }
+
+    test("Myml message activity") {
+        "/myml/message"(platform: "/mobile") {}        
+        "/myml/message/activity"(platform: "/mobile") {}        
     }
 }

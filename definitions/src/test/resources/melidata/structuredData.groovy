@@ -443,4 +443,18 @@ trackTests {
         }
     }
 
+    test("product_creator ignore hints action should be tracked"){
+        "/structure_data/product_creator/ignored_hints"(platform: "/", type: TrackType.Event){
+            bs_user ="jose.rosales@mercadolibre.com"
+            domain_id = "MLA-MOTORCYCLE_HELMETS"
+            hint_id = "SUGGEST_KNOWN"
+            attribute = "MATERIALS"
+            lang = "es"
+            suggested_value_id = "2262161"
+            suggested_value_name = "aluminio"
+            written_value = "alu"
+            final_value ="alumi"
+        }
+    }
+
 }
