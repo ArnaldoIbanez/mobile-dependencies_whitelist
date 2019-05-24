@@ -379,6 +379,12 @@ tracks {
         type(required: true, type: PropertyType.String, description: "Suggestion type", values: ["suggested", "dynamic", "other"])
     }
 
+    "/seller_central/modify/redirect_to_change_of_category"(platform: "/", type: TrackType.Event) {
+        category_domain(required: true, type: PropertyType.String, description: "Item category domain")
+        item_id(required: true, type: PropertyType.String, description: "Id of item used to")
+        session_id(required: true, type: PropertyType.String, description: "Id for user session")
+    }
+
     // SETTINGS SECTION
 
     "/seller_central/settings"(platform: "/", type: TrackType.View) {
