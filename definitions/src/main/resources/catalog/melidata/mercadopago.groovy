@@ -759,24 +759,21 @@ tracks {
         chart_id (required: true, type: PropertyType.String, description: "The chart ID of the delta")
         section (required: true, type: PropertyType.String, description: "The section owner of the delta")
     }
+
+    //filter definition
+    def filter_definition = objectSchemaDefinitions {
+        filter_id (type: PropertyType.String, required: true)
+        filter_value (type: PropertyType.String, required: true)
+    }
+
     "/tfs_dashboard/home/filters_apply"(platform: "/", type: TrackType.Event) {
         section (required: true, type: PropertyType.String, description: "The section when filter")
-        time_filter (required: false, type: PropertyType.String, description: "Time filter")
-        store_filter (required: false, type: PropertyType.String, description: "Store filter")
-        operator_filter (required: false, type: PropertyType.String, description: "Operator filter")
-        from (required: false, type: PropertyType.String, description: "Date from filter")
-        to (required: false, type: PropertyType.String, description: "Date to filter")
+        filters (required: true, type: PropertyType.ArrayList(PropertyType.Map(filter_definition)), description: "Filters")
     }
     "/tfs_dashboard/detail/filters_apply"(platform: "/", type: TrackType.Event) {
         chart_id (required: true, type: PropertyType.String, description: "The chart ID when filter")
         section (required: true, type: PropertyType.String, description: "The section when filter")
-        time_filter (required: false, type: PropertyType.String, description: "Time filter")
-        store_filter (required: false, type: PropertyType.String, description: "Store filter")
-        operator_filter (required: false, type: PropertyType.String, description: "Operator filter")
-        from (required: false, type: PropertyType.String, description: "Date from filter")
-        to (required: false, type: PropertyType.String, description: "Date to filter")
-        compare_from (required: false, type: PropertyType.String, description: "Date from filter")
-        compare_to (required: false, type: PropertyType.String, description: "Date to filter")
+        filters (required: true, type: PropertyType.ArrayList(PropertyType.Map(filter_definition)), description: "Filters")
     }
     "/tfs_dashboard/compare"(platform: "/", type: TrackType.Event) {
         chart_id (required: false, type: PropertyType.String, description: "The chart ID when compare")

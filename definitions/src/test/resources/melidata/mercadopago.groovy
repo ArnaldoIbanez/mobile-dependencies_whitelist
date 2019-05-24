@@ -2118,10 +2118,30 @@ trackTests {
         }
         "/tfs_dashboard/home/filters_apply"(platform: "/", type: TrackType.Event){
             section="online"
+            filters=[
+                    [
+                        filter_id: "time_filter"
+                        filter_value: "today"
+                    ],
+                    [
+                        filter_id: "operator_filter"
+                        filter_value: "1342"
+                    ]
+            ]
         }
         "/tfs_dashboard/detail/filters_apply"(platform: "/", type: TrackType.Event){
             section="online"
             chart_id="tpv"
+            filters=[
+                    [
+                        filter_id: "time_filter"
+                        filter_value: "today"
+                    ],
+                    [
+                        filter_id: "operator_filter"
+                        filter_value: "1342"
+                    ]
+            ]
         }
         "/tfs_dashboard/compare"(platform: "/", type: TrackType.Event){
             section="online"
