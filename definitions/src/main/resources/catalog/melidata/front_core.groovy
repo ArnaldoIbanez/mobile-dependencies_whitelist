@@ -14,7 +14,8 @@ tracks {
 
     "/front_core"(platform: "/mobile", isAbstract: true) {}
 
-    "/front_core/home"(platform: "/mobile", isAbstract: true) {}
+    // Views
+    "/front_core/home"(platform: "/mobile", type: TrackType.View) {}
 
     // Events
     "/front_core/home/pull"(platform: "/mobile", type: TrackType.Event) {
