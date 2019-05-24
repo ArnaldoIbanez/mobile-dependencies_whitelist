@@ -15,7 +15,10 @@ LATERAL VIEW json_tuple(t.event_data, 'portal_source_id', 'portal_content_id', '
 where 
     ds >= '@param01 23' and
     ds < '@param02 23' and 
-    (path LIKE '/support/widget/faq%' OR path LIKE '/support/widget/folder%' OR path LIKE '/portal/faq%')
+    (
+        path LIKE '/support/widget/faq%' OR
+        path LIKE '/portal/faq%'
+    )
 GROUP BY
     v2.portal_source_id, 
     v2.portal_content_id, 
