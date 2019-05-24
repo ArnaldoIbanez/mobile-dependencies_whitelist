@@ -4,8 +4,13 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+
     /*************************
-    *       FRONT CORE       *
+    *    HOME-WALLET TRACKS  *
+    *************************/
+
+    /*************************
+    *    FRONT-CORE TRACKS   *
     *************************/
 
     def headerTitle = objectSchemaDefinitions {
@@ -61,5 +66,43 @@ tracks {
     "/front_core/home/qr_map"(platform: "/mobile", type: TrackType.Event) {
         type(required: true, type: PropertyType.String)
         ordinal(required: true, type: PropertyType.Numeric)
+    }
+
+    /*************************
+    *     ACTIVITY MOBILE    *
+    *************************/
+
+ 
+    "/front_core/activities" (platform: "/mobile", isAbstract: true) {}
+
+    // MP Activities List
+    "/front_core/activities/list" (platform: "/mobile", type: TrackType.View) {}
+    "/front_core/activities/list/remove_filter" (platform: "/mobile", type: TrackType.Event) {}
+
+    // MP Activities Filters
+    "/front_core/activities/filters" (platform: "/mobile", type: TrackType.View) {}
+    "/front_core/activities/filters/options" (platform: "/mobile", type: TrackType.View) {}
+    "/front_core/activities/filters/apply" (platform: "/mobile", type: TrackType.Event) {}
+
+    // MP Activities Opertion Detail
+    "/front_core/activities/detail" (platform: "/mobile", type: TrackType.View) {}
+    "/front_core/activities/detail/add_note" (platform: "/mobile", type: TrackType.View) {}
+    "/front_core/activities/detail/list" (platform: "/mobile", type: TrackType.View) {}
+    "/front_core/activities/detail/user_info" (platform: "/mobile", type: TrackType.View) {}
+    "/front_core/activities/detail/shipping" (platform: "/mobile", type: TrackType.View) {}
+    "/front_core/activities/detail/web_view" (platform: "/mobile", type: TrackType.View) {
+        url(required: true, type: PropertyType.String, description: "The url that will load the webview")
+    }
+
+    // MP Activities Realtime Activities
+    "/front_core/activities/real_time" (platform: "/mobile", isAbstract: true) {}
+
+    "/front_core/activities/real_time/push" (platform: "/mobile", type: TrackType.Event) {
+        activity_id(required: true, type: PropertyType.String, description: "id of the activity")
+        date_created(required: true, type: PropertyType.String, description: "the creation date of the activity")
+    }
+
+    "/front_core/activities/real_time/total" (platform: "/mobile", type: TrackType.Event) {
+        total(required: true, type: PropertyType.Numeric, description: "Total of activities sended")
     }
 }
