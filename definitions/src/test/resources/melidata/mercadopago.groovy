@@ -1333,6 +1333,24 @@ trackTests {
         }
 
         "/shortcuts/point"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/scan_qr"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/cellphone_recharge"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/sube_recharge"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/pay_services"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/send_money"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/member_get_member"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/sell_qr"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/open_request"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/credit_merchant_enrollment"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/credit_merchant_admin"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/techo"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/antenna_tv"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/money_request_with_qr"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/buy_credit"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/gas_station"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/transport"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/buy_credit"(platform: "/mobile", type: TrackType.Event) {}
+        "/shortcuts/coupon"(platform: "/mobile", type: TrackType.Event) {}
 
         "/get_member/point"(platform: "/mobile", type: TrackType.View) {
             flow = "point"
