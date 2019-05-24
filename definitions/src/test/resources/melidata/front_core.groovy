@@ -17,25 +17,60 @@ trackTests {
     }
 
     test("Mercadopago Home Pull") {
-        "/front_core/pull"(platform: "/mobile", type: TrackType.Event) {}
-    }
-
-    test("Mercadopago Home Show") {
-
-        "/front_core/show"(platform: "/mobile", type: TrackType.Event) {
-            header = [title: "nombre"]
-            // items = [
-            //     {
-            //         ordinal = "1"
-            //         id = "banking"
-            //         type = "BANKING"
-            //         item_tracking_data = {
-            //             data = ""
-            //         }
-            //     }
-            // ]
-            // backend_tracking_data = []
+        "/front_core/home/pull"(platform: "/mobile", type: TrackType.Event) {
+            backend_tracking_data = [ title: "name" ]
         }
     }
 
+    test("Mercadopago Home Show") {
+        "/front_core/home/show"(platform: "/mobile", type: TrackType.Event) {
+            header = [ title : "name" ]
+            items = [
+                [
+                    banking: [
+                        ordinal: 1,
+                        type: "banking"
+                    ]
+                ]
+            ]
+            backend_tracking_data = [ title: "name" ]
+        }
+    }
+    
+    test("Mercadopago Home Show by Id") {
+        "/front_core/home/show/banking"(platform: "/mobile", type: TrackType.Event) {
+            type = "VERTICAL_LIST"
+            ordinal = 4
+        }
+
+        "/front_core/home/show/main_actions"(platform: "/mobile", type: TrackType.Event) {
+            type = "VERTICAL_LIST"
+            ordinal = 4
+        }
+
+        "/front_core/home/show/secondary_actions"(platform: "/mobile", type: TrackType.Event) {
+            type = "VERTICAL_LIST"
+            ordinal = 4
+        }
+
+        "/front_core/home/show/benefits"(platform: "/mobile", type: TrackType.Event) {
+            type = "VERTICAL_LIST"
+            ordinal = 4
+        }
+
+        "/front_core/home/show/cross_selling"(platform: "/mobile", type: TrackType.Event) {
+            type = "VERTICAL_LIST"
+            ordinal = 4
+        }
+
+        "/front_core/home/show/activities"(platform: "/mobile", type: TrackType.Event) {
+            type = "VERTICAL_LIST"
+            ordinal = 4
+        }
+
+        "/front_core/home/show/qr_map"(platform: "/mobile", type: TrackType.Event) {
+            type = "VERTICAL_LIST"
+            ordinal = 4
+        }
+    }
 }
