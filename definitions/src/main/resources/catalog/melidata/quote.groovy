@@ -421,7 +421,7 @@ tracks {
     /***** Quotes Listing ******/
 
     "/quote/buyer/quote_listing"(platform: "/", type: TrackType.View) {
-        quoteItemGroup
+        demandItemGroup
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
     }
 

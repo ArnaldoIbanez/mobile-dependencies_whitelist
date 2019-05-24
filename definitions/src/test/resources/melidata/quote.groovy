@@ -707,8 +707,6 @@ trackTests {
             category_id = "MLA43718"
             buyer_id = 64567088
             quote_demand_id = 698669764
-            quote_id = 65732
-            quote_status= "sent"
             quote_demand_status ="answered"
             seller_id = 33624088
             vertical = "services"
