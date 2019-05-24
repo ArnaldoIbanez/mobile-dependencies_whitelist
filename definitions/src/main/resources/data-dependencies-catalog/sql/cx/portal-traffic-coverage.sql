@@ -17,7 +17,6 @@ where
     ds < '@param02 23' and 
     (
         path LIKE '/support/widget/faq%' OR
-        -- path LIKE '/support/widget/folder%' OR -- Esto quedará apagado que se envíe el content type, para asegurar retrocompatibilidad
         path LIKE '/portal/faq%'
     )
 GROUP BY
