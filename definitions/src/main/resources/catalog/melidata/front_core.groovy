@@ -4,73 +4,72 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-
     /*************************
-    *    HOME-WALLET TRACKS  *
+    *    FRONT-CORE TRACKS   *
     *************************/
 
     /*************************
-    *    FRONT-CORE TRACKS   *
+    *       HOME TRACKS      *
     *************************/
 
     def headerTitle = objectSchemaDefinitions {
         title(required: true, type: PropertyType.String)
     }
 
-    "/front_core"(platform: "/mobile", isAbstract: true) {}
+    "/front_core" (platform: "/mobile", isAbstract: true) {}
 
     // Views
-    "/front_core/home"(platform: "/mobile", type: TrackType.View) {}
+    "/front_core/home" (platform: "/mobile", type: TrackType.View) {}
 
     // Events
-    "/front_core/home/pull"(platform: "/mobile", type: TrackType.Event) {
+    "/front_core/home/pull" (platform: "/mobile", type: TrackType.Event) {
         backend_tracking_data(required: true, type: PropertyType.Map)
      }
 
-    "/front_core/home/show"(platform: "/mobile", type: TrackType.Event) {
+    "/front_core/home/show" (platform: "/mobile", type: TrackType.Event) {
         header(required: true, type: PropertyType.Map(headerTitle))
         items(required: true, type: PropertyType.Map)
         backend_tracking_data(required: true, type: PropertyType.Map)
     }
 
-    "/front_core/home/banking"(platform: "/mobile", type: TrackType.Event) {
+    "/front_core/home/banking" (platform: "/mobile", type: TrackType.Event) {
         type(required: true, type: PropertyType.String)
         ordinal(required: true, type: PropertyType.Numeric)
     }
 
-    "/front_core/home/main_actions"(platform: "/mobile", type: TrackType.Event) {
+    "/front_core/home/main_actions" (platform: "/mobile", type: TrackType.Event) {
         type(required: true, type: PropertyType.String)
         ordinal(required: true, type: PropertyType.Numeric)
     }
 
-    "/front_core/home/secondary_actions"(platform: "/mobile", type: TrackType.Event) {
+    "/front_core/home/secondary_actions" (platform: "/mobile", type: TrackType.Event) {
         type(required: true, type: PropertyType.String)
         ordinal(required: true, type: PropertyType.Numeric)
     }
 
-    "/front_core/home/benefits"(platform: "/mobile", type: TrackType.Event) {
+    "/front_core/home/benefits" (platform: "/mobile", type: TrackType.Event) {
         type(required: true, type: PropertyType.String)
         ordinal(required: true, type: PropertyType.Numeric)
     }
 
-    "/front_core/home/cross_selling"(platform: "/mobile", type: TrackType.Event) {
+    "/front_core/home/cross_selling" (platform: "/mobile", type: TrackType.Event) {
         type(required: true, type: PropertyType.String)
         ordinal(required: true, type: PropertyType.Numeric)
     }
 
-    "/front_core/home/activities"(platform: "/mobile", type: TrackType.Event) {
+    "/front_core/home/activities" (platform: "/mobile", type: TrackType.Event) {
         type(required: true, type: PropertyType.String)
         ordinal(required: true, type: PropertyType.Numeric)
     }
 
-    "/front_core/home/qr_map"(platform: "/mobile", type: TrackType.Event) {
+    "/front_core/home/qr_map" (platform: "/mobile", type: TrackType.Event) {
         type(required: true, type: PropertyType.String)
         ordinal(required: true, type: PropertyType.Numeric)
     }
 
-    /*************************
-    *     ACTIVITY MOBILE    *
-    *************************/
+    /********************************
+    *     ACTIVITY MOBILE TRACKS    *
+    *********************************/
 
  
     "/front_core/activities" (platform: "/mobile", isAbstract: true) {}
