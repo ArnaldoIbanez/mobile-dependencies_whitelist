@@ -129,11 +129,6 @@ tracks {
 
     "/search/filters"(platform: "/mobile") {}
 
-    "/search/filters_carousel"(platform: "/", type: TrackType.Event) {
-        name()
-        position()
-    }
-
     "/search/refine"(platform: "/mobile") {}
 
     "/search/refine/apply"(platform: "/mobile", type: TrackType.Event) {}
