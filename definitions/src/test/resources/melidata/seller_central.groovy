@@ -806,8 +806,8 @@ trackTests {
         }
     }
 
-    test("structured data suggested values"){
-        "/seller_central/modify/redirect_to_change_of_category"(platform: "/", type: TrackType.Event){
+    test("structured data change category"){
+        "/seller_central/modify/update_change_category"(platform: "/", type: TrackType.Event){
             category_domain = "MLA-CAMERAS"
             item_id= "MLA682118081"
             session_id = "123-update-abc123"
