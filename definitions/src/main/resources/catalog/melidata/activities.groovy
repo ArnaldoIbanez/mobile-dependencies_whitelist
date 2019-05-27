@@ -35,5 +35,30 @@ tracks {
 
     // MP Activities Export
     "/activities/export"(platform: "/web", type: TrackType.View) {}
+    
+    /********************************
+    *     ACTIVITY MOBILE TRACKS    *
+    *********************************/
+
+    // MP Activities List
+    "/activities" (platform: "/mobile", isAbstract: true) {}
+    "/activities/list" (platform: "/mobile", type: TrackType.View) {}
+    "/activities/list/remove_filter" (platform: "/mobile", type: TrackType.Event) {}
+
+    // MP Activities Filters
+    "/activities/filters" (platform: "/mobile", type: TrackType.View) {}
+    "/activities/filters/options" (platform: "/mobile", type: TrackType.View) {}
+    "/activities/filters/apply" (platform: "/mobile", type: TrackType.Event) {}
+
+    // MP Activities Opertion Detail
+    "/activities/detail" (platform: "/mobile", type: TrackType.View) {}
+    "/activities/detail/add_note" (platform: "/mobile", type: TrackType.View) {}
+    "/activities/detail/list" (platform: "/mobile", type: TrackType.View) {}
+    "/activities/detail/user_info" (platform: "/mobile", type: TrackType.View) {}
+    "/activities/detail/shipping" (platform: "/mobile", type: TrackType.View) {}
+    "/activities/detail/web_view" (platform: "/mobile", type: TrackType.View) {
+        url(required: true, PropertyType.String, description: "The url that will load the webview")
+    }
+    
 }
 
