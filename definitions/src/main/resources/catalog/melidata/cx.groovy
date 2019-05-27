@@ -41,7 +41,7 @@ tracks {
             description: "Indicates the id of the form shown")
         user_type(required: true, 
             description: "The type of User that opened the page", 
-            values: ["car_dealer", "normal", "real_estate_agency", "branch", "franchise", "brand", "unknown"])
+            values: ["CAR_DEALER", "NORMAL", "REAL_ESTATE_AGENCY", "BRANCH", "FRACHISE", "BRAND", "UNKNOWN"])
         reputation_level(required: false, type: PropertyType.String,
             values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"],
             description: "Seller's reputation level")
