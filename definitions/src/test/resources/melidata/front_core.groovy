@@ -27,8 +27,14 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home TAP") {
+        "/wallet/home/tap" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+        }
+    }
+
     test("Mercadopago Home Show") {
-        "/wallet/home/show" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet/home/draw" (platform: "/mobile", type: TrackType.Event) {
             header = "name"
             items = [
                 [
@@ -46,40 +52,5 @@ trackTests {
         }
     }
     
-    test("Mercadopago Home Show by Id") {
-        "/wallet/home/show/banking" (platform: "/mobile", type: TrackType.Event) {
-            type = "BANKING"
-            ordinal = 1
-        }
 
-        "/wallet/home/show/main_actions" (platform: "/mobile", type: TrackType.Event) {
-            type = "MAIN_ACTIONS"
-            ordinal = 2
-        }
-
-        "/wallet/home/show/secondary_actions" (platform: "/mobile", type: TrackType.Event) {
-            type = "SECONDARY_ACTIONS"
-            ordinal = 3
-        }
-
-        "/wallet/home/show/benefits" (platform: "/mobile", type: TrackType.Event) {
-            type = "VERTICAL_LIST"
-            ordinal = 4
-        }
-
-        "/wallet/home/show/cross_selling" (platform: "/mobile", type: TrackType.Event) {
-            type = "CAROUSEL"
-            ordinal = 5
-        }
-
-        "/wallet/home/show/activities" (platform: "/mobile", type: TrackType.Event) {
-            type = "ACTIVITIES"
-            ordinal = 6
-        }
-
-        "/wallet/home/show/qr_map" (platform: "/mobile", type: TrackType.Event) {
-            type = "PROMOTION"
-            ordinal = 7
-        }
-    }
 }

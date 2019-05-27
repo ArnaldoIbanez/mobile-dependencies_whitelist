@@ -28,45 +28,14 @@ tracks {
         backend_tracking_data(required: true, type: PropertyType.Map)
      }
 
-    "/wallet/home/show" (platform: "/mobile", type: TrackType.Event) {
+    "/wallet/home/draw" (platform: "/mobile", type: TrackType.Event) {
         header(required: true, type: PropertyType.String, description: "Contains the header string")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_value_definition)), description: "Contains the sections payload")
         backend_tracking_data(required: true, type: PropertyType.Map)
     }
 
-    "/wallet/home/show/banking" (platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
-        type(required: true, type: PropertyType.String)
-        ordinal(required: true, type: PropertyType.Numeric, description: "The position in the list of sections")
-    }
-
-    "/wallet/home/show/main_actions" (platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
-        type(required: true, type: PropertyType.String)
-        ordinal(required: true, type: PropertyType.Numeric, description: "The position in the list of sections")
-    }
-
-    "/wallet/home/show/secondary_actions" (platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
-        type(required: true, type: PropertyType.String)
-        ordinal(required: true, type: PropertyType.Numeric, description: "The position in the list of sections")
-    }
-
-    "/wallet/home/show/benefits" (platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
-        type(required: true, type: PropertyType.String)
-        ordinal(required: true, type: PropertyType.Numeric, description: "The position in the list of sections")
-    }
-
-    "/wallet/home/show/cross_selling" (platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
-        type(required: true, type: PropertyType.String)
-        ordinal(required: true, type: PropertyType.Numeric, description: "The position in the list of sections")
-    }
-
-    "/wallet/home/show/activities" (platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
-        type(required: true, type: PropertyType.String)
-        ordinal(required: true, type: PropertyType.Numeric, description: "The position in the list of sections")
-    }
-
-    "/wallet/home/show/qr_map" (platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
-        type(required: true, type: PropertyType.String)
-        ordinal(required: true, type: PropertyType.Numeric, description: "The position in the list of sections")
+    "/wallet/home/tap" (platform: "/mobile", type: TrackType.Event) {
+        link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
     }
 
 }
