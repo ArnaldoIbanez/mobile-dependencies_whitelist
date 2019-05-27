@@ -14,6 +14,10 @@ tracks {
         type(required: true, type: PropertyType.String)
     }
 
+    def partial_definition = objectSchemaDefinitions {
+        partial(required: true, type: PropertyType.Boolean)
+    }
+
     "/wallet/home" (platform: "/mobile", isAbstract: true) {}
 
     // Views
@@ -27,7 +31,7 @@ tracks {
     "/wallet/home/draw" (platform: "/mobile", type: TrackType.Event) {
         header(required: true, type: PropertyType.String, description: "Contains the header string")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_value_definition)), description: "Contains the sections payload")
-        backend_tracking_data(required: true, type: PropertyType.Map)
+        backend_tracking_data(required: true, type: PropertyType.Map(partial_definition))
     }
 
     "/wallet/home/tap" (platform: "/mobile", type: TrackType.Event) {

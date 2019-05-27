@@ -23,13 +23,13 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home TAP") {
+    test("Mercadopago Home Tap") {
         "/wallet/home/tap" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
         }
     }
 
-    test("Mercadopago Home Show") {
+    test("Mercadopago Home Draw") {
         "/wallet/home/draw" (platform: "/mobile", type: TrackType.Event) {
             header = "name"
             items = [
