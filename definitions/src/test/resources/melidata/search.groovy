@@ -224,7 +224,7 @@ trackTests {
         "/search/filters"(platform: "/mobile", defaultSearchInformation)
         "/search/filters_carousel"(platform: "/web", type: TrackType.Event){
             defaultWebTrack()
-            name = "9997262-AMLA_7262_2"
+            name = "19"
             position = 4
         }
         "/search/back"(platform: "/mobile", defaultSearchInformation)
