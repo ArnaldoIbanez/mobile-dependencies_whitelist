@@ -4,18 +4,14 @@ import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
 
 
-/*************************
-*       FRONT CORE       *
-*************************/
+/**************************
+* WALLET HOME TEST TRACKS *
+**************************/
 
 
 trackTests {
 
     defaultBusiness = "mercadopago"
-
-    /*************************
-    *    HOME TEST TRACKS    *
-    *************************/
 
     test("Mercadopago Home") {
         "/wallet/home" (platform: "/mobile", type: TrackType.View) {}

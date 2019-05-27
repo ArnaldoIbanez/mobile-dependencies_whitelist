@@ -93,4 +93,17 @@ trackTests {
         }
     }
 
+    test("Mercadopago Operation Detail Send Realtimes Activities Mobile") {
+        "/activities/real_time/push" (platform: "/mobile", type: TrackType.Event) {
+            activity_id = 'merch-123124'
+            date_created = '12/11/19'
+        }
+    }
+
+    test("Mercadopago Operation Detail Number Of Realtimes Activities Mobile") {
+        "/activities/real_time/total" (platform: "/mobile", type: TrackType.Event) {
+            total = 12
+        }
+    }
+
 }

@@ -2,15 +2,11 @@ import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
+/*************************
+*   WALLET HOME TRACKS   *
+*************************/
+
 tracks {
-
-    /*************************
-    *    FRONT-CORE TRACKS   *
-    *************************/
-
-    /*************************
-    *       HOME TRACKS      *
-    *************************/
 
     def item_value_definition = objectSchemaDefinitions {
         id(required: true, type: PropertyType.String)
