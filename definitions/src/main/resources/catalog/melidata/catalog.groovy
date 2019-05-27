@@ -161,6 +161,7 @@ catalog {
         include business, "sube_recharge.groovy"
         include business, "transport.groovy"
         include business, "remedy.groovy"
+        include business, "mplayer.groovy"
     }
 
     mercadoshops.each { business ->
