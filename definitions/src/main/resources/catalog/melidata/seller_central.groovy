@@ -271,6 +271,11 @@ tracks {
         sellerCentralModifyCardsGroupValue
     }
 
+    "/seller_central/modify/update_size_chart"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central modify pdp items
     //------------------------------------------------------------------------------------------------------------------------------------------------------
