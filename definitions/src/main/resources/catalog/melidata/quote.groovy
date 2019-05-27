@@ -13,7 +13,7 @@ tracks {
         quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
         quote_demand_status(required: true, type: PropertyType.String, values: ["pending_by_seller", "answered", "rejected_by_seller", "accepted", "deleted", "cancelled", "expired"], description: "the status quote demand")
         quote_id(required: true, type: PropertyType.Numeric, description: "Quote id")
-        quote_status(required: true, type: PropertyType.String, values: ["sent", "cancelled_by_seller", "accepted", "expired", "rejected_by_seller", "expired"], description: "the status quote")
+        quote_status(required: true, type: PropertyType.String, values: ["sent", "cancelled_by_seller", "accepted", "expired", "rejected_by_seller"], description: "the status quote")
         price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
         currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
 
