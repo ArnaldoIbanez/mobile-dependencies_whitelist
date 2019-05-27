@@ -49,10 +49,6 @@
       {
         "name": "requested_datetime_hour",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "requested_datetime_day",
-        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
