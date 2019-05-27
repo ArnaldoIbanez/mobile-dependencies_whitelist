@@ -40,7 +40,7 @@ trackTests {
                     channels: [:],
                     contact_config: false
             ]
-            user_type = "normal"
+            user_type = "NORMAL"
             reputation_level  = "5_green"
             seller_profile = "ADVANCED"
             loyalty_level = 5
@@ -52,7 +52,7 @@ trackTests {
                     channels: [:],
                     contact_config: false
             ]
-            user_type = "normal"
+            user_type = "NORMAL"
             reputation_level  = "5_green"
             seller_profile = "ADVANCED"
             loyalty_level = 5
@@ -65,7 +65,7 @@ trackTests {
                     channels: [:],
                     contact_config: false
             ]
-            user_type = "normal"
+            user_type = "NORMAL"
             reputation_level  = "5_green"
             portal_form_id = 96
             seller_profile = "ADVANCED"
@@ -78,7 +78,7 @@ trackTests {
                     channels: [:],
                     contact_config: false
             ]
-            user_type = "normal"
+            user_type = "NORMAL"
             reputation_level  = "5_green"
             seller_profile = "ADVANCED"
             loyalty_level = 5
@@ -90,14 +90,14 @@ trackTests {
                     channels: [:],
                     contact_config: false
             ]
-            user_type = "normal"
+            user_type = "NORMAL"
             reputation_level  = "5_green"
             seller_profile = "ADVANCED"
             loyalty_level = 5
             portal_has_channels_configured = true
         }
         "/portal/search/result"(platform: "/", type: TrackType.View) {
-            user_type = "normal"
+            user_type = "NORMAL"
             reputation_level  = "5_green"
             seller_profile = "ADVANCED"
             loyalty_level = 5
@@ -108,7 +108,7 @@ trackTests {
             portal_has_channels_configured = true
         }
         "/portal/search/empty"(platform: "/", type: TrackType.View) {
-            user_type = "normal"
+            user_type = "NORMAL"
             reputation_level  = "5_green"
             seller_profile = "ADVANCED"
             loyalty_level = 5
