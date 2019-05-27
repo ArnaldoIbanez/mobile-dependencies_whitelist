@@ -23,6 +23,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "content_type",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "has_channels",
         "type": "UNICODE_STRING"
       },

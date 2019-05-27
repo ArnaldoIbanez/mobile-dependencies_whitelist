@@ -56,6 +56,7 @@ tracks {
 
     "/login/auth/success"(platform: "/mobile", type: TrackType.Event) {
         challenge(type: PropertyType.String, required: true, description: "Login step")
+        tracking_id(type: PropertyType.String, required: false, description: "Indicates the id to track the transaction")
         is_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via a One Time Password")
         is_admin_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via an Admin One Time Password")
     }
@@ -124,6 +125,7 @@ tracks {
 
     "/login/auth/challenge/restart"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         challenge(type: PropertyType.String, required: true, description: "Login Step")
+        tracking_id(type: PropertyType.String, required: false, description: "Indicates the id to track the transaction")
     }
 
     "/login/auth/challenge/error"(platform: "/", type: TrackType.View) {
@@ -250,7 +252,7 @@ tracks {
     "/auth/attestation"(platform: "/mobile", isAbstract: true) {}
 
     "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
-        mode(type: PropertyType.String, required: true, description: "In which mode attestation was started")
+        mode(type: PropertyType.String, required: false, description: "In which mode attestation was started" , values:['publish_result', 'prefetch_only', 'cache_only'])
     }
 
     "/auth/attestation/signature"(platform: "/mobile", isAbstract: true) {}

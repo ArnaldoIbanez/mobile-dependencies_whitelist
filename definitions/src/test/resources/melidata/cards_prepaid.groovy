@@ -40,7 +40,7 @@ trackTests {
         "/prepaid/acquisition/personal_info/gender"(platform: "/web/mobile") {}
         "/prepaid/acquisition/personal_info/activity"(platform: "/web/mobile") {}
         "/prepaid/acquisition/review"(platform: "/web/desktop") {}
-        "/prepaid/acquisition/review/welcome"(platform: "/web/mobile") {}
+        "/prepaid/acquisition/review/welcome"(platform: "/web/desktop") {}
         "/prepaid/acquisition/need_fund"(platform: "/web/desktop") {}
 
         "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) {congrats_type = "prepaid" }
@@ -59,6 +59,16 @@ trackTests {
         "/prepaid/acquisition/error"(platform: "/web/mobile", type: TrackType.View) { error_type = "juridical" }
         "/prepaid/acquisition/error"(platform: "/web/mobile", type: TrackType.View) { error_type = "identification" }
         "/prepaid/acquisition/error"(platform: "/web/mobile", type: TrackType.View) { error_type = "denied" }
+
+        "/prepaid/acquisition/cellphone"(platform: "/mobile", type: TrackType.View) { error_type = "denied" }
+        "/prepaid/acquisition/onboarding"(platform: "/mobile", type: TrackType.View) { error_type = "identification" }
+        "/prepaid/acquisition/rootfaq"(platform: "/mobile", type: TrackType.View) { error_type = "denied" }
+        "/prepaid/acquisition/detailfaq"(platform: "/mobile", type: TrackType.View) { error_type = "denied" }
+
+        "/prepaid/acquisition/init-point"(platform: "/mobile", type: TrackType.View) { error_type = "denied" }
+        "/prepaid/acquisition/occupation"(platform: "/mobile", type: TrackType.View) { error_type = "identification" }
+        "/prepaid/acquisition/preview"(platform: "/mobile", type: TrackType.View) { error_type = "denied" }
+        "/prepaid/acquisition/review"(platform: "/mobile", type: TrackType.View) { error_type = "denied" }
     }
 
 

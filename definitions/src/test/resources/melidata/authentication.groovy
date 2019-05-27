@@ -111,6 +111,7 @@ trackTests {
         }
         "/login/auth/success"(platform: "/mobile", type: TrackType.Event) {
             challenge = "password"
+            tracking_id = "123"
             is_otp = true
             is_admin_otp = false
             user_reg_date = "2018"
@@ -406,6 +407,7 @@ trackTests {
         }
         "/login/auth/challenge/restart"(platform: "/mobile", type: TrackType.Event) {
             challenge = "enter_password"
+            tracking_id = "123"
         }
     }
 
@@ -458,8 +460,10 @@ trackTests {
 
     test("Device Attestation"){
         "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
-            mode = "prefetch"
+            mode = "prefetch_only"
         }
+
+        "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {}
 
         "/auth/attestation/signature/request"(platform: "/mobile", type: TrackType.Event) {}
 

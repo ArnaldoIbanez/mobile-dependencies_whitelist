@@ -15,6 +15,7 @@
     "/vip/contact_seller",
     "/register/success",
     "/register/failure",
-    "/asset_management/error"
+    "/asset_management/error",
+    "/remedy/error"
   ]
 }

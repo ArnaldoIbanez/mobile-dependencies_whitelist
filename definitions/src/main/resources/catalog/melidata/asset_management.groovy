@@ -14,6 +14,7 @@ tracks {
 
     // Onboarding
     "/asset_management/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/onboarding"(platform: "/web", type: TrackType.View) {}
     "/asset_management/start_investing"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/know_more"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -63,6 +64,9 @@ tracks {
     "/asset_management/investment_detail"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/investment_detail"(platform: "/web", type: TrackType.View) {}
 
+    // Earnings report
+    "/asset_management/investment_reports"(platform: "/web", type: TrackType.View) {}
+
     // Operations
     "/asset_management/movements_detail"(platform: "/mobile", type: TrackType.View) {} // old name
     "/asset_management/operations"(platform: "/mobile") {}
@@ -72,6 +76,7 @@ tracks {
 
     // Congrats
     "/asset_management/result_investing"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/result_investing"(platform: "/web", type: TrackType.View) {}
     "/asset_management/result_investing_company"(platform: "/mobile", isAbstract: true) {}
     "/asset_management/result_investing_company/approved"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_investing_company/pending"(platform: "/mobile", type: TrackType.View) {}
@@ -104,15 +109,25 @@ tracks {
     // WebView events
     "/asset_management/url_external"(platform: "/mobile", type: TrackType.Event) {
         context (required: true, type: PropertyType.String, description: "The context where this event occurred")
-        url (required: true, type: PropertyType.String, description: "The external URL")
+        url (required: true, type: PropertyType.String, description: "The external webview URL")
+    }
+
+    // Browser events
+    "/asset_management/browser_external"(platform: "/mobile", type: TrackType.Event) {
+        context (required: true, type: PropertyType.String, description: "The context where this event occurred")
+        url (required: true, type: PropertyType.String, description: "The external browser URL")
     }
 
     // Splitter
     "/asset_management/splitter"(platform: "/mobile", type: TrackType.View) {}
 
     // Errors
-    "/asset_management/error"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/error"(platform: "/mobile", type: TrackType.Event) {
+        verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
+    }
+    "/asset_management/network_error"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/stop_investing"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/stop_investing"(platform: "/web", type: TrackType.Event) {}
     "/asset_management/profile"(platform: "/mobile", type: TrackType.Event) {}
 
     // Other events

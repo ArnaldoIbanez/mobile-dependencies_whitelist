@@ -150,7 +150,7 @@ tracks {
     // Modals
 
     "/loyalty/main/modal"(platform: "/", type: TrackType.View) {
-        type(required: true, description: "Indicates what kind of modal was opened", values: ["benefit", "milestone", "benefits_per_level"])
+        type(required: true, description: "Indicates what kind of modal was opened", values: ["benefit", "milestone", "family_milestone", "benefits_per_level"])
         benefit_id(required: false, description: "Indicates the id of the benefit that corresponds to the modal")
         milestone_id(required: false, description: "Indicates the id of the milestone that corresponds to the modal")
         family_id(required: false, description: "Indicates the id of the milestone family that corresponds to the modal")
@@ -161,6 +161,17 @@ tracks {
         type(required: true, description: "Indicates the kind of modal whose action was triggered", values: ["benefit", "milestone"])
         benefit_id(required: false, description: "Indicates the id of the benefit that corresponds to the modal")
         milestone_id(required: false, description: "Indicates the id of the milestone that corresponds to the modal")
+    }
+    
+    // VIP Modal
+    "/loyalty/vip"(platform: "/", isAbstract: true, type: TrackType.View) {}
+    
+    "/loyalty/vip/modal"(platform: "/", type: TrackType.View) {
+        type(required: true, description: "Indicates what kind of modal was opened in VIP", values: ["buy_level", "free_trial"])
+    }
+
+    "/loyalty/vip/modal/action"(platform: "/", type: TrackType.Event) {
+        type(required: true, description: "Indicates the kind of action that was triggered within the modal", values: ["buy_level", "free_trial", "item", "close"])
     }
 
     // Rewards
@@ -325,5 +336,9 @@ tracks {
 
     "/loyalty/freetrial/payment/error"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         our_payment_error(required: true, description: "An error from our (with our endpoint) payment post, is not an error creating the payment")
+    }
+
+    "/loyalty/main/partners_landing"(platform: "/", type: TrackType.Event) {
+        original_place(required: true, values: ["keep","move"], description: "From where the partners landing was accesed", type: PropertyType.String)
     }
 }
