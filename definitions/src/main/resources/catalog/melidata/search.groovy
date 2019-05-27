@@ -129,6 +129,11 @@ tracks {
 
     "/search/filters"(platform: "/mobile") {}
 
+    "/search/filters_carousel"(platform: "/web", type: TrackType.Event) {
+        name(required: true, description: "the name of the filter", type: PropertyType.String)
+        position(required: true, description: "the position of the filter in the carousel", type: PropertyType.Numeric)
+    }
+
     "/search/refine"(platform: "/mobile") {}
 
     "/search/refine/apply"(platform: "/mobile", type: TrackType.Event) {}
