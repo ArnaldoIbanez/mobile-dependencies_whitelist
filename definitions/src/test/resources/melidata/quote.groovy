@@ -296,7 +296,12 @@ trackTests {
         }
 
         // Quote  Seller Filters Events
-        "/quote/seller/listing/filters"(platform: "/", type: TrackType.Event) {
+        "/quote/seller/listing/filters"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+        }
+
+        "/quote/seller/listing/filters/action"(platform: "/", type: TrackType.Event) {
             vertical = "services"
             seller_id = 33624088
             action = "reset"
@@ -311,8 +316,13 @@ trackTests {
         /***** Quotes Listing ******/
 
         "/quote/seller/quote_listing"(platform: "/", type: TrackType.View) {
-            vertical = "services"
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status ="answered"
             seller_id = 33624088
+            vertical = "services"
         }
 
         "/quote/seller/quote_listing/go_quote_detail"(platform: "/", type: TrackType.Event) {
@@ -342,6 +352,15 @@ trackTests {
         }
 
         /***** Quote Detail ******/
+        // Quote Detail -  Loading
+        "/quote/seller/details"(platform: "/") {
+            vertical = "services"
+        }
+
+        // Quote Detail -  Loading
+        "/quote/seller/details/loading"(platform: "/mobile", type: TrackType.View) {
+            vertical = "services"
+        }
 
         // Quote Detail
         "/quote/seller/detail"(platform: "/", type: TrackType.View) {
@@ -411,6 +430,10 @@ trackTests {
         }
 
         /***** Quote Cancel ******/
+        // Cancel Quote -  Loading
+        "/quote/seller/cancel/loading"(platform: "/mobile", type: TrackType.View) {
+            vertical = "services"
+        }
 
         //Quote - Cancel
         "/quote/seller/cancel"(platform: "/", type: TrackType.View) {
@@ -498,6 +521,10 @@ trackTests {
         }
 
         /***** Quote Demand Reject ******/
+        // Reject Quote -  Loading
+        "/quote/seller/reject/loading"(platform: "/mobile", type: TrackType.View) {
+            vertical = "services"
+        }
 
         //Quote - Reject
         "/quote/seller/reject"(platform: "/", type: TrackType.View) {
@@ -583,12 +610,20 @@ trackTests {
             buyer_id = 64567088
         }
 
+        "/quote/buyer/quote"(platform: "/") {
+            vertical = "services"
+        }
+
         "/quote_demand/buyer"(platform: "/",type: TrackType.View) {
             vertical = "services"
             buyer_id = 64567088
         }
 
         /******  Create Quote Demand **********/
+        // Quote DemandCreate -  Loading
+        "/quote/buyer/quote/loading"(platform: "/mobile", type: TrackType.View) {
+            vertical = "services"
+        }
 
         //Create Quote Demand
         "/quote_demand/buyer/create"(platform: "/",type: TrackType.View) {
@@ -621,6 +656,7 @@ trackTests {
             item_id = "MLA77777"
             category_id= "MLA123214"
             buyer_id= 234234324
+            seller_id= 234234324
             vertical = "services"
             quote_demand_id = 234234
             quote_demand_status = "answered"
@@ -631,6 +667,7 @@ trackTests {
             item_id = "MLA77777"
             category_id= "MLA123214"
             buyer_id= 234234324
+            seller_id= 234234324
             vertical = "services"
             quote_demand_id = 234234
             quote_demand_status = "answered"
@@ -657,7 +694,11 @@ trackTests {
         }
 
         //Demands Listing Filters
-        "/quote/buyer/listing/filters"(platform: "/", type: TrackType.Event) {
+        "/quote/buyer/listing/filters"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            buyer_id= 234234324
+        }
+        "/quote/buyer/listing/filters/action"(platform: "/", type: TrackType.Event) {
             vertical = "services"
             buyer_id= 234234324
             action = "reset"
@@ -667,8 +708,14 @@ trackTests {
 
         //Quotes Listing Event - Go Detail
         "/quote/buyer/quote_listing"(platform: "/", type: TrackType.View) {
-            buyer_id=3234
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status ="answered"
+            seller_id = 33624088
             vertical = "services"
+
         }
 
         //Quotes Listing Event - Go Detail
