@@ -59,6 +59,16 @@ tracks {
     "/activities/detail/web_view" (platform: "/mobile", type: TrackType.View) {
         url(required: true, PropertyType.String, description: "The url that will load the webview")
     }
+
+    // MP Activities Realtime Activities
+    "/activities/real_time" (platform: "/mobile", isAbstract: true) {}
+    "/activities/real_time/push" (platform: "/mobile", type: TrackType.Event) {
+        activity_id(required: true, type: PropertyType.String, description: "Id of the activity")
+        date_created(required: true, type: PropertyType.String, description: "The creation date of the activity")
+    }
+    "/activities/real_time/total" (platform: "/mobile", type: TrackType.Event) {
+        total(required: true, type: PropertyType.Numeric, description: "Total of activities sended")
+    }
     
 }
 
