@@ -17,7 +17,11 @@ trackTests {
             flow = "/bulk_payments"
         }
         "/bulk_payments/suppliers/init"(platform: "/", type: TrackType.View) {
-          available_contacts = 10
+          available_contacts = [ 
+            [user_id: 12345678, payment_amount:12300, payment_reference: "Proveedor 1"],
+            [user_id: 58765432, payment_amount:10303, payment_reference: "Proveedor 2"],
+            [user_id: 98765431, payment_amount:42345, payment_reference: "Proveedor 3"]
+          ]
           available_balance = 432765
           type = "filled_list"
         }
@@ -57,26 +61,33 @@ trackTests {
         }
         
         "/bulk_payments/suppliers/contact_add"(platform: "/",type: TrackType.Event) {
-          type = "success"
+          status = "success"
         }
         "/bulk_payments/suppliers/contact_add"(platform: "/",type: TrackType.Event) {
-          type = "error"
+          status = "error"
           detail = "no se pudo agregar el contacto"
         }
         
         "/bulk_payments/suppliers/contact_delete"(platform: "/",type: TrackType.Event) {
-          user_id = 12345642
+          status = "success"
+          supplier_id = 12345642
+        }
+        
+        "/bulk_payments/suppliers/contact_delete"(platform: "/",type: TrackType.Event) {
+          status = "error"
+          supplier_id = 12345642
         }
 
         "/bulk_payments/suppliers/contact_select"(platform: "/",type: TrackType.Event) {
-          user_id = 1234567
+          supplier_id = 1234567
         }
         "/bulk_payments/suppliers/contact_add_reference"(platform: "/",type: TrackType.Event) {
-          user_id = 1234563
+          supplier_email = 'supplier1@mp.com'
           reference = "Proveedor 1"
         }
         
         "/bulk_payments/suppliers/click_to_review"(platform: "/",type: TrackType.Event) {
+          status = 'success'
           users = [ 
             [user_id: 12345678, payment_amount:12300, payment_reference: "Proveedor 1"],
             [user_id: 58765432, payment_amount:10303, payment_reference: "Proveedor 2"],
@@ -84,11 +95,9 @@ trackTests {
           ]
         }
 
-        "/bulk_payments/suppliers/click_to_modify"(platform: "/",type: TrackType.Event) {
-          clicked = true
-        }
+        "/bulk_payments/suppliers/click_to_modify"(platform: "/",type: TrackType.Event) {}
         "/bulk_payments/suppliers/send_invitation"(platform: "/",type: TrackType.Event) {
-          email = "mi.invitado@mail.com"
+          status = "success"
         }
     }
 }
