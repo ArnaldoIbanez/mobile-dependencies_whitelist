@@ -8,23 +8,18 @@ tracks {
      * User Onboarding Screen Tracks
      */
 
-    "/user_onboarding"(platform: "/", isAbstract: true) {}
+    "/anses"(platform: "/", isAbstract: true) {}
 
-    "/user_onboarding/terms_and_conditions"(platform: "/", type: TrackType.View) {
-        flow(required: true, description: "The flow type of onboarding")
-    }
+    "/anses/user_onboarding"(platform: "/", isAbstract: true) {}
 
-    "/user_onboarding/webview"(platform: "/", type: TrackType.View) {
-        flow(required: false, description: "The flow type of onboarding")
-    }
+    "/anses/user_onboarding/terms_and_conditions"(platform: "/", type: TrackType.View) {}
 
-    "/user_onboarding/iv_walkthrough"(platform: "/", type: TrackType.View) {
-        flow(required: true, description: "The flow type of onboarding")
-    }
+    "/anses/user_onboarding/webview"(platform: "/", type: TrackType.View) {}
 
-    "/congrats"(platform: "/", type: TrackType.View) {
-        flow(required: true, description: "The flow type of onboarding")
-        result_status(required: false, type: PropertyType.String, description: "Operation result status")
+    "/anses/user_onboarding/iv_walkthrough"(platform: "/", type: TrackType.View) {}
+
+    "/anses/congrats"(platform: "/", type: TrackType.View) {
+        result_status(required: true, type: PropertyType.String, description: "Operation result status")
         status_detail(required: false, type: PropertyType.String, description: "Operation result status detail")
     }
 
@@ -32,7 +27,7 @@ tracks {
      * User Onboarding Events Tracks
      */
 
-    "/user_onboarding/terms_and_conditions"(platform: "/", type: TrackType.Event) {
+    "/anses/user_onboarding/terms_and_conditions"(platform: "/", type: TrackType.Event) {
         terms_and_conditions_row(required: false, description: "When the row is shown")
         terms_and_conditions_checkbox(required: false, description: "When the checkbox is clicked")
     }

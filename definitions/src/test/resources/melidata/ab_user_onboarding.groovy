@@ -13,20 +13,13 @@ trackTests {
          * User Onboarding Screen Tracks
          */
 
-        "/user_onboarding/terms_and_conditions"(platform: "/", type: TrackType.View) {
-            flow = "anses"
-        }
+        "/anses/user_onboarding/terms_and_conditions"(platform: "/", type: TrackType.View) {}
 
-        "/user_onboarding/webview"(platform: "/", type: TrackType.View) {
-            flow = "anses"
-        }
+        "/anses/user_onboarding/webview"(platform: "/", type: TrackType.View) {}
 
-        "/user_onboarding/iv_walkthrough"(platform: "/", type: TrackType.View) {
-            flow = "anses"
-        }
+        "/anses/user_onboarding/iv_walkthrough"(platform: "/", type: TrackType.View) {}
 
-        "/congrats"(platform: "/", type: TrackType.View) {
-            flow = "anses"
+        "/anses/congrats"(platform: "/", type: TrackType.View) {
             result_status = "SUCCESS"
         }
 
@@ -34,7 +27,7 @@ trackTests {
          * User Onboarding Events Tracks
          */
 
-        "/user_onboarding/terms_and_conditions"(platform: "/", type: TrackType.Event) {
+        "/anses/user_onboarding/terms_and_conditions"(platform: "/", type: TrackType.Event) {
             terms_and_conditions_row = true
             terms_and_conditions_checkbox = false
         }
