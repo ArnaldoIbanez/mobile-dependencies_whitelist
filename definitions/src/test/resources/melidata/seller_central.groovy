@@ -869,14 +869,6 @@ trackTests {
         "/seller_central/sales/list"(platform: "/", type: TrackType.View) {}
     }
 
-    test("seller central sales detail view") {
-        "/seller_central/sales/detail"(platform: "/", type: TrackType.View) {}
-    }
-
-    test("seller central sales search") {
-        "/seller_central/sales/list/search"(platform: "/", type: TrackType.Event) {}
-    }
-
     test("seller central sales onboarding action") {
         "/seller_central/sales/list/onboarding/action"(platform: "/", type: TrackType.Event) {
             id = "start"
@@ -892,59 +884,51 @@ trackTests {
         }
     }
 
+    test("seller central sales search") {
+        "/seller_central/sales/list/search"(platform: "/", type: TrackType.Event) {}
+    }
+
     test("seller central sales pagination") {
-        "/seller_central/sales/list/pagination"(platform: "/", type: TrackType.Event) {
+        "/seller_central/sales/list/pagination"(platform: "/web", type: TrackType.Event) {
             page = 2
             total = 10
         }
     }
 
     test("seller central sales list action modal open") {
-        "/seller_central/sales/list/modal_action/open"(platform: "/", type: TrackType.Event) {
+        "/seller_central/sales/list/modal_action/open"(platform: "/web", type: TrackType.Event) {
             id = "action_modal_id"
         }
     }
 
     test("seller central sales list action modal close") {
-        "/seller_central/sales/list/modal_action/close"(platform: "/", type: TrackType.Event) {
+        "/seller_central/sales/list/modal_action/close"(platform: "/web", type: TrackType.Event) {
             id = "action_modal_id"
         }
     }
 
     test("seller central sales list action modal apply") {
-        "/seller_central/sales/list/modal_action/apply"(platform: "/", type: TrackType.Event) {
+        "/seller_central/sales/list/modal_action/apply"(platform: "/web", type: TrackType.Event) {
             id = "action_modal_id"
             option = "option_id"
         }
     }
 
-    test("seller central sales detail action modal open") {
-        "/seller_central/sales/detail/modal_action/open"(platform: "/", type: TrackType.Event) {
-            id = "action_modal_id"
-        }
-    }
-
-    test("seller central sales detail action modal close") {
-        "/seller_central/sales/detail/modal_action/close"(platform: "/", type: TrackType.Event) {
-            id = "action_modal_id"
-        }
-    }
-
-    test("seller central sales detail action modal apply") {
-        "/seller_central/sales/detail/modal_action/apply"(platform: "/", type: TrackType.Event) {
-            id = "action_modal_id"
-            option = "option_id"
-        }
-    }
-
-    test("seller central sales dashboard tasks") {
-        "/seller_central/sales/list/dashboard/open"(platform: "/", type: TrackType.Event) {
+    test("seller central sales web dashboard open") {
+        "/seller_central/sales/list/dashboard/open"(platform: "/web", type: TrackType.Event) {
             substates = ["card_id_1", "card_id_2"]
         }
     }
-    
+
+    test("seller central sales mobile dashboard open") {
+        "/seller_central/sales/list/dashboard/open"(platform: "/mobile", type: TrackType.Event) {
+            state = "state_id"
+            substates = ["card_id_1", "card_id_2"]
+        }
+    }
+
     test("seller central sales dashboard close") {
-        "/seller_central/sales/list/dashboard/close"(platform: "/", type: TrackType.Event) {}
+        "/seller_central/sales/list/dashboard/close"(platform: "/web", type: TrackType.Event) {}
     }
 
     test("seller central sales dashboard task") {
@@ -955,23 +939,12 @@ trackTests {
         }
     }
 
-    test("seller central sales massive action") {
-        "/seller_central/sales/list/massive"(platform: "/", type: TrackType.Event) {
-            id = "massive_action_id"
-            count = 20
-        }
-    }
-
-    test("seller central sales row open") {
-        "/seller_central/sales/list/row/open"(platform: "/", type: TrackType.Event) {}
-    }
-
-    test("seller central sales row close") {
-        "/seller_central/sales/detail/row/close"(platform: "/", type: TrackType.Event) {}
+    test("seller central sales list filters view") {
+        "/seller_central/sales/list/filters"(platform: "/mobile", type: TrackType.View) {}
     }
 
     test("seller central sales filters open") {
-        "/seller_central/sales/list/filters/open"(platform: "/", type: TrackType.Event) {}
+        "/seller_central/sales/list/filters/open"(platform: "/web", type: TrackType.Event) {}
     }
 
     test("seller central sales filters action") {
@@ -987,43 +960,81 @@ trackTests {
         }
     }
 
-    test("seller central sales print action") {
-        "/seller_central/sales/detail/action/print"(platform: "/", type: TrackType.Event) {}
+    test("seller central sales massive action") {
+        "/seller_central/sales/list/massive"(platform: "/web", type: TrackType.Event) {
+            id = "massive_action_id"
+            count = 20
+        }
+    }
+
+    test("seller central sales row open") {
+        "/seller_central/sales/list/row/open"(platform: "/web", type: TrackType.Event) {}
     }
 
     test("seller central sales list primary action show") {
-        "/seller_central/sales/list/action/primary/show"(platform: "/", type: TrackType.Event) {
+        "/seller_central/sales/list/action/primary/show"(platform: "/web", type: TrackType.Event) {
             id = "action_id"
         }
     }
 
     test("seller central sales list primary action") {
-        "/seller_central/sales/list/action/primary"(platform: "/", type: TrackType.Event) {
+        "/seller_central/sales/list/action/primary"(platform: "/web", type: TrackType.Event) {
             id = "action_id"
         }
     }
 
     test("seller central sales list secondary secondary") {
-        "/seller_central/sales/list/action/secondary"(platform: "/", type: TrackType.Event) {
+        "/seller_central/sales/list/action/secondary"(platform: "/web", type: TrackType.Event) {
             id = "action_id"
         }
     }
 
+    test("seller central sales detail view") {
+        "/seller_central/sales/detail"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("seller central sales detail row close") {
+        "/seller_central/sales/detail/row/close"(platform: "/web", type: TrackType.Event) {}
+    }
+
     test("seller central sales detail primary action show") {
-        "/seller_central/sales/detail/action/primary/show"(platform: "/", type: TrackType.Event) {
+        "/seller_central/sales/detail/action/primary/show"(platform: "/web", type: TrackType.Event) {
             id = "action_id"
         }
     }
 
     test("seller central sales detail primary action") {
-        "/seller_central/sales/detail/action/primary"(platform: "/", type: TrackType.Event) {
+        "/seller_central/sales/detail/action/primary"(platform: "/web", type: TrackType.Event) {
             id = "action_id"
         }
     }
 
     test("seller central sales detail secondary action") {
-        "/seller_central/sales/detail/action/secondary"(platform: "/", type: TrackType.Event) {
+        "/seller_central/sales/detail/action/secondary"(platform: "/web", type: TrackType.Event) {
             id = "action_id"
+        }
+    }
+
+    test("seller central sales print action") {
+        "/seller_central/sales/detail/action/print"(platform: "/web", type: TrackType.Event) {}
+    }
+
+    test("seller central sales detail action modal open") {
+        "/seller_central/sales/detail/modal_action/open"(platform: "/web", type: TrackType.Event) {
+            id = "action_modal_id"
+        }
+    }
+
+    test("seller central sales detail action modal close") {
+        "/seller_central/sales/detail/modal_action/close"(platform: "/web", type: TrackType.Event) {
+            id = "action_modal_id"
+        }
+    }
+
+    test("seller central sales detail action modal apply") {
+        "/seller_central/sales/detail/modal_action/apply"(platform: "/web", type: TrackType.Event) {
+            id = "action_modal_id"
+            option = "option_id"
         }
     }
 }
