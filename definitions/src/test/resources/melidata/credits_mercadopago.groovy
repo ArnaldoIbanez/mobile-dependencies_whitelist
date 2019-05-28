@@ -171,12 +171,12 @@ trackTests {
     }
 
     test('Merchant Contacts') {
-        "/credits/merchant/contacts"(platform: "/", type: TrackType.View) {
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
             medium = "email"
             campaign = "engage"
         }
 
-        "/credits/merchant/contacts"(platform: "/", type: TrackType.View) {
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
             medium = "email"
             campaign = "collection"
             stage= "educational"

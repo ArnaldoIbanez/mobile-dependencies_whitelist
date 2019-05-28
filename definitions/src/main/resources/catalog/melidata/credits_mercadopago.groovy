@@ -249,8 +249,7 @@ tracks {
      *    Start: Merchant Contacts
      ******************************************/
 
-    //Page Views
-    "/credits/merchant/contacts"(platform: "/", type: TrackType.View) {
+    "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
         campaign(type: PropertyType.String, required: true)
         medium(type: PropertyType.String, required: true)
         milestone(type: PropertyType.Numeric, required: false)
