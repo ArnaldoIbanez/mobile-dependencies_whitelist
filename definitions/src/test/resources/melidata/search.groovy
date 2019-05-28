@@ -224,7 +224,7 @@ trackTests {
         "/search/filters"(platform: "/mobile", defaultSearchInformation)
         "/search/filters_carousel"(platform: "/web", type: TrackType.Event){
             defaultWebTrack()
-            name = "shoes"
+            filter_name = "shoes"
             position = 4
         }
         "/search/back"(platform: "/mobile", defaultSearchInformation)
