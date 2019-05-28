@@ -418,7 +418,7 @@ trackTests {
         }
     }
 
-    test("seller central item condition value updated"){
+    test("seller central item size_chart value updated"){
         "/seller_central/modify/update_size_chart"(platform: "/", type: TrackType.Event){
             item_type = "product"
             category_id = "MLA390784"
