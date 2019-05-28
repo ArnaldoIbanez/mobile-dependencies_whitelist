@@ -9,13 +9,9 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 tracks {
 
     def item_value_definition = objectSchemaDefinitions {
-        id(required: true, type: PropertyType.String)
-        ordinal(required: true, type: PropertyType.Numeric)
-        type(required: true, type: PropertyType.String)
-    }
-
-    def partial_definition = objectSchemaDefinitions {
-        partial(required: true, type: PropertyType.Boolean)
+        id(required: true, type: PropertyType.String, description: "The id of the section")
+        ordinal(required: true, type: PropertyType.Numeric, description: "The position in the home")
+        type(required: true, type: PropertyType.String, description: "The layout of the view")
     }
 
     "/wallet/home" (platform: "/mobile", isAbstract: true) {}
@@ -29,9 +25,8 @@ tracks {
     "/wallet/home/show" (platform: "/mobile", type: TrackType.Event) {
         header(required: true, type: PropertyType.String, description: "Contains the header text's home")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_value_definition)), description: "Contains the sections payload")
-        backend_tracking_data(required: true, type: PropertyType.Map(partial_definition))
     }
-    
+
     "/wallet/home/tap" (platform: "/mobile", type: TrackType.Event) {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
     }

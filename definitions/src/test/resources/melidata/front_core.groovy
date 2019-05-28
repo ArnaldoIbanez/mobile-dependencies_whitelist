@@ -42,7 +42,6 @@ trackTests {
                     type: "CARROUSEL"
                 ]
             ]
-            backend_tracking_data = [ partial: false ]
         }
     }
     
