@@ -24,16 +24,14 @@ tracks {
     "/wallet/home" (platform: "/mobile", type: TrackType.View) {}
 
     // Events
-    "/wallet/home/pull" (platform: "/mobile", type: TrackType.Event) {
-        backend_tracking_data(required: true, type: PropertyType.Map)
-     }
+    "/wallet/home/pull" (platform: "/mobile", type: TrackType.Event) {}
 
-    "/wallet/home/draw" (platform: "/mobile", type: TrackType.Event) {
-        header(required: true, type: PropertyType.String, description: "Contains the header string")
+    "/wallet/home/show" (platform: "/mobile", type: TrackType.Event) {
+        header(required: true, type: PropertyType.String, description: "Contains the header text's home")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_value_definition)), description: "Contains the sections payload")
         backend_tracking_data(required: true, type: PropertyType.Map(partial_definition))
     }
-
+    
     "/wallet/home/tap" (platform: "/mobile", type: TrackType.Event) {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
     }

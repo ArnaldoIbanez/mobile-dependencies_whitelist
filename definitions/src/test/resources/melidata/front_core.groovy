@@ -18,9 +18,7 @@ trackTests {
     }
 
     test("Mercadopago Home Pull") {
-        "/wallet/home/pull" (platform: "/mobile", type: TrackType.Event) {
-            backend_tracking_data = [ title: "name" ]
-        }
+        "/wallet/home/pull" (platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("Mercadopago Home Tap") {
@@ -29,8 +27,8 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home Draw") {
-        "/wallet/home/draw" (platform: "/mobile", type: TrackType.Event) {
+    test("Mercadopago Home Show") {
+        "/wallet/home/show" (platform: "/mobile", type: TrackType.Event) {
             header = "name"
             items = [
                 [
