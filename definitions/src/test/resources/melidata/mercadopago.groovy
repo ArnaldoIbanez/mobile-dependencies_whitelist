@@ -2681,10 +2681,6 @@ trackTests {
         "/login/auth/success"(platform: "/mobile", type: TrackType.Event) {
             challenge = "password"
             tracking_id = "123"
-            is_otp = true
-            is_admin_otp = false
-            user_reg_date = "2018"
-            user_points = 100
         }
         "/login/auth/failure"(platform: "/web", type: TrackType.Event) {
             challenge = "user"
