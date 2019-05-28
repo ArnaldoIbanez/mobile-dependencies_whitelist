@@ -34,13 +34,11 @@ tracks {
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         vertical(required: true, type: PropertyType.String, values: ["services"], description: "Vertical of the item")
         category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree")
-        sent_from_webview(required: false, PropertyType.Boolean)
     }
     "/classifieds/quotes/buyers"(platform: "/", type: TrackType.View) {
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         vertical(required: true, type: PropertyType.String, values: ["services"], description: "Vertical of the item")
         category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree")
-        sent_from_webview(required: false, PropertyType.Boolean)
     }
 
 }

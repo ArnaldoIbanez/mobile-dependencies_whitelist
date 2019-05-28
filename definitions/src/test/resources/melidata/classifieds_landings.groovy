@@ -39,16 +39,5 @@ trackTests {
             defaultTrackInformation()
             category_path = ["MLA123", "MLA123"]
         }
-
-        "/classifieds/quotes/sellers"(platform: "/", type: TrackType.View) {
-            defaultTrackInformation()
-            category_path = ["MLA123", "MLA123"]
-            sent_from_webview = true
-        }
-        "/classifieds/quotes/buyers"(platform: "/", type: TrackType.View) {
-            defaultTrackInformation()
-            category_path = ["MLA123", "MLA123"]
-            sent_from_webview = true
-        }
     }
 }
