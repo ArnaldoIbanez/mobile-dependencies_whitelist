@@ -245,4 +245,19 @@ tracks {
      *       End: Money Advance
      ******************************************/
 
+    /******************************************
+     *    Start: Merchant Contacts
+     ******************************************/
+
+    //Page Views
+    "/credits/merchant/contacts"(platform: "/", type: TrackType.View) {
+        campaign(type: PropertyType.String, required: true)
+        medium(type: PropertyType.String, required: true)
+        milestone(type: PropertyType.Numeric, required: false)
+        stage(type: PropertyType.String, required: false)
+    }
+
+    /******************************************
+     *   End: Merchant Contacts
+     ******************************************/
 }
