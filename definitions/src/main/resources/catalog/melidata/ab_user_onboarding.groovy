@@ -19,8 +19,8 @@ tracks {
     "/anses/user_onboarding/iv_walkthrough"(platform: "/", type: TrackType.View) {}
 
     "/anses/congrats"(platform: "/", type: TrackType.View) {
-        result_status(required: true, type: PropertyType.String, description: "Operation result status")
-        status_detail(required: false, type: PropertyType.String, description: "Operation result status detail")
+        result_status(required: true, description: "Operation result status")
+        status_detail(required: false, description: "Operation result status detail")
     }
 
     /**

@@ -20,7 +20,7 @@ trackTests {
         "/anses/user_onboarding/iv_walkthrough"(platform: "/", type: TrackType.View) {}
 
         "/anses/congrats"(platform: "/", type: TrackType.View) {
-            result_status = "SUCCESS"
+            result_status = "approved"
         }
 
         /**
