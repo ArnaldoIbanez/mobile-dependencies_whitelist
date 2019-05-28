@@ -8,11 +8,7 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
-    test("Account Fund - views") {
-        "/account_fund/select_method"(platform: "/", type: TrackType.View) {}
-        "/account_fund/select_method/selected"(platform: "/", type: TrackType.Event) {
-            method = "qr"
-        }
+    test("Account Balance User Onboarding - views") {
         /**
          * User Onboarding Screen Tracks
          */
