@@ -4,16 +4,16 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-//    def product_picker_definition = objectSchemaDefinitions {
-//        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
-//        selected(required:true, type: PropertyType.Boolean, description: "indicates if the product picker is selected or not")
-//        disabled(required:true, type: PropertyType.Boolean, description: "indicates if the product picker is disabled or not")
-//    }
-//
-//    def picker_id_definition = objectSchemaDefinitions {
-//        picker_id(required: true, type: PropertyType.String, description: "Picker ID")
-//        products(required: true, PropertyType.ArrayList(PropertyType.Map(product_picker_definition)))
-//    }
+    def product_picker_definition = objectSchemaDefinitions {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        selected(required:true, type: PropertyType.Boolean, description: "indicates if the product picker is selected or not")
+        disabled(required:true, type: PropertyType.Boolean, description: "indicates if the product picker is disabled or not")
+    }
+
+    def picker_id_definition = objectSchemaDefinitions {
+        picker_id(required: true, type: PropertyType.String, description: "Picker ID")
+        products(required: true, PropertyType.ArrayList(PropertyType.Map(product_picker_definition)))
+    }
 
     propertyDefinitions {
         cart_content(required: false, type: PropertyType.Boolean, description: "Indicates if the PDP has cart features")
@@ -64,11 +64,7 @@ tracks {
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
 
         //picker definition
-//        pickers(type: PropertyType.Map(picker_id_definition), description: "Available pickers for the given product")
-        pickers(description: "Available pickers for the given product")
-
-        //TODO: Quitar ya que no aplica para MVP PDP - averiguar valores
-        //buying_mode(required: true, type: PropertyType.String, values: ["buy_it_now", "auction","classified"], description: "Indicates if it's an auction, buy_it_now or classified")
+        pickers(type: PropertyType.Map(picker_id_definition), description: "Available pickers for the given product")
 
         //TODO: agregar en codigo de vpp el category path
         category_path(required: true, type: PropertyType.ArrayList, description: "Category path of the the item")
