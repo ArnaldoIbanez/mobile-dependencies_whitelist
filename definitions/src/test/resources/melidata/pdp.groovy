@@ -26,7 +26,7 @@ trackTests {
         }
 
         //mandatory
-        "/pdp"(type:TrackType.View ,platform: "/", {
+        "/pdp"(platform: "/", {
             catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
             domain_id = "?"
@@ -36,7 +36,7 @@ trackTests {
             item_condition = "new"
             listing_type_id = "gold_special"
             seller_id = 131662738
-            picker = [
+            pickers = [
                     "COLOR" : [
                             [
                                     catalog_product_id: "MLA123",
@@ -124,7 +124,7 @@ trackTests {
         })
 
         //all
-        "/pdp"(type:TrackType.View ,platform: "/", {
+        "/pdp"(platform: "/", {
             catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
             domain_id = "?"
