@@ -7,10 +7,11 @@ tracks {
 
     propertyDefinitions {   
         session_id(required: false, description: "Session id")
+        flow(required: false, description: "Flow name")
     }
 
     propertyGroups {
-        externalData(session_id)
+        externalData(session_id, flow)
     }
 
     // Events:
@@ -22,6 +23,7 @@ tracks {
     "/esc_manager/save"(platform: "/mobile", type: TrackType.Event) {
         externalData
         key(required: true, type: PropertyType.String , description: "Key being saved")
+        esc_length(required: false, type: PropertyType.Numeric, description: "ESC length being saved")
     }
 
     // Delete ESC event

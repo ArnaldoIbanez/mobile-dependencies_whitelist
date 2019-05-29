@@ -12,6 +12,8 @@ trackTests {
         "/esc_manager/save"(platform: "/mobile", type: TrackType.Event) {
             session_id = "id"
             key = "1234"
+            esc_length = 44
+            flow = "/instore"
         }
 
         // Save ESC without session id
@@ -28,6 +30,7 @@ trackTests {
         // Delete without session id
         "/esc_manager/delete"(platform: "/mobile", type: TrackType.Event) {
             key = "1234"
+            flow = "/instore"
         }
 
         // Delete all without session id
@@ -48,6 +51,7 @@ trackTests {
         "/esc_manager/unavailable"(platform: "/mobile", type: TrackType.Event) {
             session_id = "id"
             key = "1234"
+            flow = "/instore"
         }
 
         "/esc_manager/invalid/esc"(platform: "/mobile", type: TrackType.Event) {
@@ -69,6 +73,8 @@ trackTests {
         "/esc_manager/save"(platform: "/mobile", type: TrackType.Event) {
             session_id = "id"
             key = "1234"
+            esc_length = 88
+            flow = "/instore"
         }
 
         // Save ESC without session id
@@ -85,6 +91,7 @@ trackTests {
         // Delete without session id
         "/esc_manager/delete"(platform: "/mobile", type: TrackType.Event) {
             key = "1234"
+            flow = "/instore"
         }
 
         // Delete all without session id
@@ -100,6 +107,7 @@ trackTests {
             session_id = "id"
             key = "1234"
             error_code = "12"
+            flow = "/instore"
         }
 
         "/esc_manager/unavailable"(platform: "/mobile", type: TrackType.Event) {
