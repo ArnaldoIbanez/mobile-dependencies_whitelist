@@ -11,7 +11,7 @@ tracks {
     def item_value_definition = objectSchemaDefinitions {
         id(required: true, type: PropertyType.String, description: "The id of the section")
         ordinal(required: true, type: PropertyType.Numeric, description: "The position in the home")
-        type(required: true, type: PropertyType.String, values: ["BANKING", "MAIN_ACTIONS", "SECONDARY_ACTIONS", "VERTICAL_LIST", "ACTIVITIES", "CARROUSEL", "PROMOTION"], description: "The layout of the view")
+        type(required: true, type: PropertyType.String, description: "The layout of the view")
     }
 
     "/wallet/home" (platform: "/mobile", isAbstract: true) {}

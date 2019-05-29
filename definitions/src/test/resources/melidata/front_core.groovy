@@ -31,6 +31,11 @@ trackTests {
         "/wallet/home/show" (platform: "/mobile", type: TrackType.Event) {
             header = "name"
             items = [
+                [
+                    id: "banking",
+                    ordinal: 1,
+                    type: "BANKING"
+            ]
             ]
         }
     }
