@@ -179,6 +179,30 @@ trackTests {
             milestone_id = 'COBRANDED_REQUEST'
             family_id = 'cobranded'
         })
+        
+        "/loyalty/vip/modal"(platform: "/", type: TrackType.View, {
+            type = "buy_level"
+        })
+        
+        "/loyalty/vip/modal"(platform: "/", type: TrackType.View, {
+            type = "free_trial"
+        })
+
+        "/loyalty/vip/modal/action"(platform: "/", type: TrackType.View, {
+            type = "buy_level"
+        })
+        
+        "/loyalty/vip/modal/action"(platform: "/", type: TrackType.View, {
+            type = "free_trial"
+        })
+        
+        "/loyalty/vip/modal/action"(platform: "/", type: TrackType.View, {
+            type = "item"
+        })
+        
+        "/loyalty/vip/modal/action"(platform: "/", type: TrackType.View, {
+            type = "close"
+        })
 
         "/loyalty/milestones"(platform: "/", type: TrackType.View, loyaltyInfo)
     }
@@ -504,6 +528,16 @@ trackTests {
 
         "/loyalty/freetrial/payment/error"(platform: "/",type: TrackType.Event){
             our_payment_error="Error msg"
+        }
+    }
+
+    test("Loyalty partners carousel location A/B test"){
+        "/loyalty/main/partners_landing"(platform: "/", type: TrackType.Event){
+            original_place = "keep"
+        }
+
+        "/loyalty/main/partners_landing"(platform: "/", type: TrackType.Event){
+            original_place = "move"
         }
     }
 }

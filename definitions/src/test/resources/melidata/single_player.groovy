@@ -24,6 +24,7 @@ trackTests {
             uuid = "the uuid"
             elapsed_time = 3914
             barcode_format = "I25"
+            multiscanner = false
         }
         "/single_player/billpayments/additional_info/send"(platform: "/mobile") {
             additional_info = "{\"parameters\":[\"9999\"],\"payment_id\":23766434}" 
@@ -35,7 +36,7 @@ trackTests {
             is_manual_input = false
             barcode = "50131382801300117000180151"
             utility_response = "{\"id\":23766490, \"status\":\"require_additional_info\", \"show_expired_amount\":false,\"change_payment_method\":false}"
-
+            multiscanner = false
         }
         "/single_player/billpayments/barcode_reader/read/error"(platform: "/mobile") {
             is_manual_input = false

@@ -18,7 +18,7 @@ tracks {
 
     "/remedies/resolve_model"(platform: "/mobile", type: TrackType.Event) {
         model_id(type: PropertyType.String, required: true, description: "Model id to resolve")
-        deeplink(type: PropertyType.String, required: true, description: "The deeplink associated to next activity")
+        deeplink(type: PropertyType.String, required: false, description: "The deeplink associated to next activity")
         action_type(type: PropertyType.String, required: true, description: "Type of action. Ej. internal_navigation")
     }
 

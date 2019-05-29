@@ -178,38 +178,62 @@ metrics {
 		}
 	}
 
-	"garex_mla_notebooks"(description: "Garex MLA Notebooks domain", sum_by: ["event_data.total_amount_with_garex"]) {
+	"garex_mla_notebooks"(description: "Garex MLA Notebooks domain", sum_by: ["event_data.total_amount_including_garex"]) {
 		startWith {
 			experiment("buyingflow/garex_mla_notebooks")
 		}
 
 		countsOn {
 			condition {
-				empty("event_data.total_amount_with_garex", false)
+				and(
+					equals("event_data.congrats_seq",1),
+					empty("event_data.total_amount_including_garex", false)
+				)
 			}
 		}
 	}
 
-	"garex_mla_hair_clippers"(description: "Garex MLA Hair Clippers domain", sum_by: ["event_data.total_amount_with_garex"]) {
+	"garex_mla_hair_clippers"(description: "Garex MLA Hair Clippers domain", sum_by: ["event_data.total_amount_including_garex"]) {
 		startWith {
 			experiment("buyingflow/garex_mla_hair_clippers")
 		}
 
 		countsOn {
 			condition {
-				empty("event_data.total_amount_with_garex", false)
+				and(
+					equals("event_data.congrats_seq",1),
+					empty("event_data.total_amount_including_garex", false)
+				)
 			}
 		}
 	}
 
-	"garex_mla_refrigerators"(description: "Garex MLA Refrigerators domain", sum_by: ["event_data.total_amount_with_garex"]) {
+	"garex_mla_refrigerators"(description: "Garex MLA Refrigerators domain", sum_by: ["event_data.total_amount_including_garex"]) {
 		startWith {
 			experiment("buyingflow/garex_mla_refrigerators")
 		}
 
 		countsOn {
 			condition {
-				empty("event_data.total_amount_with_garex", false)
+				and(
+					equals("event_data.congrats_seq",1),
+					empty("event_data.total_amount_including_garex", false)
+				)
+			}
+		}
+	}
+	
+	"garex_mla"(description: "Garex MLA", sum_by: ["event_data.total_amount_including_garex"]) {
+		startWith {
+			experiment("buyingflow/garex_mla")
+		}
+
+		countsOn {
+			condition {
+				and(
+					equals("event_data.congrats_seq",1),
+					empty("event_data.total_amount_including_garex", false)
+				)
 			}
 		}
 	}
