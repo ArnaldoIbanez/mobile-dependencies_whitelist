@@ -26,7 +26,7 @@ trackTests {
         }
 
         //mandatory
-        "/pdp"(platform: "/", {
+        "/pdp"(type:TrackType.View ,platform: "/", {
             catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
             domain_id = "?"
@@ -124,7 +124,7 @@ trackTests {
         })
 
         //all
-        "/pdp"(platform: "/", {
+        "/pdp"(type:TrackType.View ,platform: "/", {
             catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
             domain_id = "?"

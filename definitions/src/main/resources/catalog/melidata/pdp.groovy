@@ -6,8 +6,8 @@ tracks {
 
     def product_picker_definition = objectSchemaDefinitions {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
-        selected(required:true, type: PropertyType.Boolean, description: "indicates if the product picker is selected or not")
-        disabled(required:true, type: PropertyType.Boolean, description: "indicates if the product picker is disabled or not")
+        selected(required: true, type: PropertyType.Boolean, description: "indicates if the product picker is selected or not")
+        disabled(required: true, type: PropertyType.Boolean, description: "indicates if the product picker is disabled or not")
     }
 
 //    def picker_id_definition = objectSchemaDefinitions {
@@ -64,7 +64,7 @@ tracks {
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
 
         //picker definition
-        picker(type: TrackType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
+        pickers(type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
 
         //TODO: agregar en codigo de vpp el category path
         category_path(required: true, type: PropertyType.ArrayList, description: "Category path of the the item")
