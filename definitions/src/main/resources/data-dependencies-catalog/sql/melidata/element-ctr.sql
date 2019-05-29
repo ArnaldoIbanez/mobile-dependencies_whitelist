@@ -29,7 +29,6 @@ LATERAL VIEW json_tuple(dev.`device`, 'platform') jt2 AS `platform`
 LATERAL VIEW json_tuple(`data`, 'application') app AS `application`
 LATERAL VIEW json_tuple(app.`application`, 'site_id') jt3 AS `site_id`
 WHERE ds >= '@param03 20' AND ds < '@param04 20'
-    AND `jt`.`event` = 'print'
     AND `jt`.`id` IS NOT NULL
     AND (`jt`.`id` != '/home/exhibitors-carousel/element' OR ((`jt`.`element_order` IS NOT NULL) AND (`jt`.`campaign` IS NOT NULL)))
     AND (`jt`.`id` RLIKE '.*(?<=\/element)$' OR `jt`.`id` RLIKE '.*(?<=\/item)$')
@@ -53,7 +52,7 @@ WHERE ds >= '@param01' AND ds < '@param02'
     AND `path` <> '/recommendations'
     AND `jt`.`id` IS NOT NULL
     AND (`jt`.`id` != '/home/exhibitors-carousel/element' OR ((`jt`.`element_order` IS NOT NULL) AND (`jt`.`campaign` IS NOT NULL)))
-    AND others['intersection_observer_supported'] = 'true'
+    AND (device.platform RLIKE '\/mobile\/.*' OR others['intersection_observer_supported'] = 'true')
 GROUP BY SUBSTR(tracks.ds, 1, 10), device.platform, application.site_id, `jt`.`id`, `jt`.`element_order`, `jt`.`campaign`, `jt`.`brand_name`, `jt`.`category_id`) AS clicks
 
 ON

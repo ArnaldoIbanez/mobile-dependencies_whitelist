@@ -410,6 +410,10 @@ tracks {
         externalData
     }
 
+    "/px_checkout/payments/terms_and_conditions/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
     // Issuers:
     "/px_checkout/payments/card_issuer/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
