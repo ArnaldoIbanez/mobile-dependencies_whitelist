@@ -187,7 +187,8 @@ metrics {
 			condition {
 				and(
 					equals("event_data.congrats_seq",1),
-					empty("event_data.total_amount_including_garex", false)
+					empty("event_data.total_amount_including_garex", false),
+					equals("event_data.item_with_garex", true)
 				)
 			}
 		}
@@ -202,7 +203,8 @@ metrics {
 			condition {
 				and(
 						equals("event_data.congrats_seq",1),
-						empty("event_data.total_amount_including_garex", false)
+						empty("event_data.total_amount_including_garex", false),
+						equals("event_data.item_with_garex", true)
 				)
 			}
 		}
