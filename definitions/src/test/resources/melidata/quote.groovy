@@ -593,6 +593,27 @@ trackTests {
             quote_demand_id = 698669764
             quote_demand_status = "answered"
         }
+
+        /***** Listing onBoarding ******/
+
+        //Onboarding View
+        "/quote/seller/onboarding"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+        }
+
+        //Onboarding Skip button click
+        "/quote/seller/onboarding/skip"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+        }
+
+        //Onboarding Understood button click
+        "/quote/seller/onboarding/got_it"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+        }
+
     }
 
     /******************************************
@@ -799,6 +820,26 @@ trackTests {
             quote_demand_status = "answered"
             seller_id = 427851517
             buyer_id = 426245022
+        }
+
+        /***** Listing onBoarding ******/
+
+        //Onboarding View
+        "/quote/buyer/onboarding"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            buyer_id = 33624088
+        }
+
+        //Onboarding Skip button click
+        "/quote/buyer/onboarding/skip"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            buyer_id = 33624088
+        }
+
+        //Onboarding Understood button click
+        "/quote/buyer/onboarding/got_it"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            buyer_id = 33624088
         }
 
     }

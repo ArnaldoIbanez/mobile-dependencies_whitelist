@@ -344,6 +344,17 @@ tracks {
         demandItemGroup
     }
 
+    /***** Listing onBoarding ******/
+
+    //Onboarding View
+    "/quote/seller/onboarding"(platform: "/", type: TrackType.View) {}
+
+    //Onboarding Skip button click
+    "/quote/seller/onboarding/skip"(platform: "/", type: TrackType.Event) {}
+
+    //Onboarding Understood button click
+    "/quote/seller/onboarding/got_it"(platform: "/", type: TrackType.Event) {}
+
     /******************************************
      *       End: Seller
      ******************************************/
@@ -466,6 +477,17 @@ tracks {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         demandItemGroup
     }
+
+    /***** Listing onBoarding ******/
+
+    //Onboarding View
+    "/quote/buyer/onboarding"(platform: "/", type: TrackType.View) {}
+
+    //Onboarding Skip button click
+    "/quote/buyer/onboarding/skip"(platform: "/", type: TrackType.Event) {}
+
+    //Onboarding Understood button click
+    "/quote/buyer/onboarding/got_it"(platform: "/", type: TrackType.Event) {}
 
     /******************************************
      *       End: Buyer
