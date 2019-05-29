@@ -84,9 +84,10 @@ public class ValuesValidator implements Validator{
 
         if(!required && value == null)
             return true;
-        if(!values.find{va -> va.equals(value)})
+        if(!values.find{va -> va.equals(value)}) {
             response.addValidation(false, "Property '${property}' has invalid value '${value}'. (possible values: ${this.values})")
             valid = false
+        }
 
         return valid
 
