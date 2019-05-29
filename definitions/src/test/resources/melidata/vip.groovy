@@ -62,7 +62,7 @@ trackTests {
             available_subscriptions = true
             subscription_discount = 10
             default_tab = "subscription"
-            is_whasapp_installed = true
+            whatsapp_installed = true
         })
 
         "/vip/failure"(platform:"/mobile", {

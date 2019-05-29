@@ -149,7 +149,7 @@ tracks {
     "/vip"(platform: "/mobile") {
         context(required: false)
         resolution(required: false, description: "Indicates if the device has high or low resolution")
-        is_whasapp_installed(required: false, type: PropertyType.Boolean, description: "determines if whatsapp is installed on the device")
+        whatsapp_installed(required: false, type: PropertyType.Boolean, description: "determines if whatsapp is installed on the device")
     }
 
     "/vip/abort"(platform: "/mobile", type: TrackType.Event) {}
