@@ -120,7 +120,7 @@ class ClassicMapProperty implements PropertyTypeValidator {
             }
 
             if(!values.validate(response, property, v)) {
-                response.addComment(". The error ocurred at key with value ${v}")
+                response.addComment(". The error ocurred at value with value ${v}")
                 valid = false
             }
         }
