@@ -4,28 +4,67 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
+    def pickers_data = {
+        [
+                "COLOR" : [
+                        [
+                                catalog_product_id: "MLA123",
+                                selected          : true,
+                                disabled          : false
+                        ],
+                        [
+                                catalog_product_id: "MLA125",
+                                selected          : false,
+                                disabled          : false
+                        ]
+                ],
+                "MEMORY": [
+                        [
+                                catalog_product_id: "MLA123",
+                                selected          : true,
+                                disabled          : false
+                        ],
+                        [
+                                catalog_product_id: "MLA125",
+                                selected          : false,
+                                disabled          : false
+                        ]
+                ]
+        ]
+    }
+
+    def items_data = {
+        [
+                [
+                        item_id              : "MLA787787584",
+                        price                : 8400,
+                        original_price       : 10000,
+                        currency_id          : "ARS",
+                        installment_info     : "6f",
+                        item_condition       : "new",
+                        sold_quantity        : 5,
+                        shipping_conditions  : "discount_gap",
+                        bo_pick_up_conditions: "no_discount",
+                        pushing_puis         : false,
+                        showing_puis         : false,
+                        official_store_id    : 231,
+                        seller_id            : 1234,
+                        seller_name          : "fulano",
+                        available_quantity   : 31,
+                        cart_content         : true,
+                        has_full_filment     : false
+                ],
+                [
+                        item_id              : "MLA7877875184",
+                        shipping_conditions  : "discount_gap",
+                        bo_pick_up_conditions: "no_discount"
+
+                ]
+        ]
+    }
+
     //PDP FLOW
-    test("pdp core tracking") {
-        def cart = {
-            cart_content = true
-        }
-
-        def shipping = {
-            shipping_mode = "not_specified"
-            free_shipping = false
-            local_pick_up = true
-            store_pick_up = true
-            logistic_type = "default"
-            shipping_conditions = "discount_mandatory"
-        }
-
-        def pickup = {
-            showing_puis = true
-            pushing_puis = false
-            bo_pick_up_conditions = "discount_ratio"
-        }
-
-        //mandatory
+    test("pdp mandatory tracking") {
         "/pdp"(platform: "/", {
             catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
@@ -36,34 +75,7 @@ trackTests {
             item_condition = "new"
             listing_type_id = "gold_special"
             seller_id = 131662738
-            pickers = [
-                    "COLOR" : [
-                            [
-                                    catalog_product_id: "MLA123",
-                                    selected          : true,
-                                    disabled          : false
-                            ],
-                            [
-                                    catalog_product_id: "MLA125",
-                                    selected          : false,
-                                    disabled          : false
-                            ]
-                    ],
-                    "MEMORY": [
-                            [
-                                    catalog_product_id: "MLA123",
-                                    selected          : true,
-                                    disabled          : false
-                            ],
-                            [
-                                    catalog_product_id: "MLA125",
-                                    selected          : false,
-                                    disabled          : false
-                            ]
-                    ]
-            ]
-
-//            picker = pickers_data()
+            pickers = pickers_data()
 
             shipping_conditions = "free_other"
             bo_pick_up_conditions = "free_other"
@@ -123,7 +135,37 @@ trackTests {
             domain_id = "celulares"
         })
 
-        //all
+        "/pdp/sellers"(platform: "/", {
+            catalog_parent_id = "MLA11137440"
+            catalog_product_id = "MLA11137441"
+            vertical = "core"
+            domain_id = "MLA-CELLPHONES"
+            pickers = pickers_data()
+            items = items_data()
+        })
+    }
+//            review_rate = 1
+//            loyalty_level = 3
+    test("pdp all tracking") {
+        def cart = {
+            cart_content = true
+        }
+
+        def shipping = {
+            shipping_mode = "not_specified"
+            free_shipping = false
+            local_pick_up = true
+            store_pick_up = true
+            logistic_type = "default"
+            shipping_conditions = "discount_mandatory"
+        }
+
+        def pickup = {
+            showing_puis = true
+            pushing_puis = false
+            bo_pick_up_conditions = "discount_ratio"
+        }
+
         "/pdp"(platform: "/", {
             catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
@@ -134,32 +176,7 @@ trackTests {
             item_condition = "new"
             listing_type_id = "gold_special"
             seller_id = 131662738
-            pickers = [
-                    "COLOR" : [
-                            [
-                                    catalog_product_id: "MLA123",
-                                    selected          : true,
-                                    disabled          : false
-                            ],
-                            [
-                                    catalog_product_id: "MLA125",
-                                    selected          : false,
-                                    disabled          : false
-                            ]
-                    ],
-                    "MEMORY": [
-                            [
-                                    catalog_product_id: "MLA123",
-                                    selected          : true,
-                                    disabled          : false
-                            ],
-                            [
-                                    catalog_product_id: "MLA125",
-                                    selected          : false,
-                                    disabled          : false
-                            ]
-                    ]
-            ]
+            pickers = pickers_data()
 
             catalog_parent_id = "MLA123"
             quantity = 3
@@ -199,6 +216,7 @@ trackTests {
             listing_type_id = "gold_special"
             power_seller_status = "platinum"
             seller_name = "fulanito"
+
             cart()
             shipping()
             pickup()
@@ -222,6 +240,7 @@ trackTests {
             listing_type_id = "gold_special"
             power_seller_status = "platinum"
             seller_name = "fulanito"
+
             cart()
             shipping()
             pickup()
@@ -279,6 +298,18 @@ trackTests {
             seller_name = "fulano"
             official_store_id = 1234
             review_rate = 5
+        })
+
+        "/pdp/sellers"(platform: "/", {
+            catalog_parent_id = "MLA11137440"
+            catalog_product_id = "MLA11137441"
+            vertical = "core"
+            domain_id = "MLA-CELLPHONES"
+            review_rate = 1
+            loyalty_level = 3
+
+            pickers = pickers_data()
+            items = items_data()
         })
     }
 
