@@ -1,6 +1,4 @@
 import com.ml.melidata.catalog.PropertyType
-import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
-import com.ml.melidata.TrackType
 
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
@@ -154,7 +152,7 @@ tracks {
         item_id(required: false, type: PropertyType.String, description: "Item ID")
         quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to buy")
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
-        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Category path of the the item")
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
         vertical(required: false, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
         has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
@@ -191,7 +189,6 @@ tracks {
         picker_disabled(required: false, type: PropertyType.Boolean, description: "Indicates if the selected picker is disabled")
     }
 
-    //todo hacer estos tests que son para mobile
     "/pdp/show_picker_selection_modal"(platform: "/mobile", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         picker_id(required: false, type: PropertyType.String, description: "Product's picker ID")
