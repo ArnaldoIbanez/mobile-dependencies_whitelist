@@ -252,7 +252,7 @@ tracks {
     "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
         campaign(description: "Source of the contact", type: PropertyType.String, required: true, values: ['collection', 'updates', 'engage'])
         medium(description: "Medium of the contact", type: PropertyType.String, required: true, values: ['email'])
-        milestone(description: "Number of days overdue of the contact", type: PropertyType.Numeric, required: false, values: ['-27', '-7', '-5', '-2', '3', '6', '10', '16', '20'])
+        milestone(description: "Number of days overdue of the contact", type: PropertyType.Numeric, required: false, values: [-27, -7, -5, -2, 3, 6, 10, 16, 20])
         stage(description: "Credit stage of the contact", type: PropertyType.String, required: false, values: ['educational', 'to_expire', 'expired_no_charges', 'expired_fixed_charges', 'expired_daily_charges', 'congrats_debit_installment', 'congrats_credited_loan', 'congrats_pending'])
     }
 
