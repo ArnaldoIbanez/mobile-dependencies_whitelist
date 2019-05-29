@@ -393,12 +393,8 @@ tracks {
 
     //Quote Buyer :: Listing event
     "/quote/buyer/listing/action"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
+        demandItemGroup
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_demand_status(required: true, type: PropertyType.String, values: ["pending_by_seller", "answered", "rejected_by_seller", "accepted"], description: "the status quote demand")
         action(required: true, type: PropertyType.String, values: ["go_messages","go_quote_detail","go_quotes_list"], description: "all action click on buyer listing  )")
     }
 
