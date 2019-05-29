@@ -6,16 +6,17 @@ trackTests {
 
     //PDP FLOW
     test("pdp core tracking") {
-//        def products = {
-//            catalog_product_id = "MLA123"
-//            selected = false
-//            disabled = false
-//        }
-//
-//        def pickers = {
-//            pickers_id = "MLA12345"
-//            products = [products()]
-//        }
+        def products_data = {
+            catalog_product_id = "MLA123"
+            selected = false
+            disabled = false
+        }
+
+        def pickers_data = {
+            pickers_id = "MLA12345"
+            products = [products_data()]
+        }
+
         def cart = {
             cart_content = true
         }
@@ -47,7 +48,7 @@ trackTests {
             item_condition = "new"
             listing_type_id = "gold_special"
             seller_id = 131662738
-            pickers = {}
+            pickers = pickers_data()
 
             shipping_conditions= "free_other"
             bo_pick_up_conditions = "free_other"
@@ -118,7 +119,7 @@ trackTests {
             item_condition = "new"
             listing_type_id = "gold_special"
             seller_id = 131662738
-            pickers = {}
+            pickers = pickers_data()
 
             catalog_parent_id = "MLA123"
             quantity = 3
