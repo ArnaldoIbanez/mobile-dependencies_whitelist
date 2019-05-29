@@ -280,6 +280,7 @@ trackTests {
             batch_id= "MLB_PACK_20180508_2"
             latest_news_type= "campaigns-remarketing"
             latest_news_id= "campaigns-remarketing-143816022-MLB1013046714"
+            hash="hash1"
         }
         "/notification_center/campaigns-recharge_recovery"(platform: "/mobile"){
             campaign_id= "campaign1"
@@ -1548,6 +1549,7 @@ trackTests {
             test_notification= false
             sent_date= "20180508"
             batch_id = "MLB_PACK_20180508_2"
+            hash="hash1"
         }
 
         "/notification/packages_new"(platform: "/mobile") {
