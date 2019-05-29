@@ -71,7 +71,7 @@ trackTests {
             optionals()
             cart()
             shipping()
-            pickup ()
+            pickup()
         })
 
         //mandatory
@@ -89,7 +89,31 @@ trackTests {
             bo_pick_up_conditions = "free_loyal"
         })
 
+        "/pdp/quantity_change"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA1234"
+            quantity = 2
+            seller_id = 12345
+        })
 
+        "/pdp/picker_selection"(platform: "/", {
+            catalog_product_id = "MLA1234"
+        })
+
+        "/pdp/other_buying_options"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA112341"
+            seller_id = 2345678
+            item_condition = "used"
+            listing_type_id = "gold_special"
+            product_status = "paused"
+            domain_id = "core"
+        })
+
+        //all
+        //all
+        //all
+        //all
         //all
         "/pdp/buy_action"(platform: "/", {
             catalog_product_id = "MLA1234"
@@ -111,7 +135,7 @@ trackTests {
             seller_name = "fulanito"
             cart()
             shipping()
-            pickup ()
+            pickup()
         })
 
         "/pdp/add_to_cart_action"(platform: "/", {
@@ -134,10 +158,36 @@ trackTests {
             seller_name = "fulanito"
             cart()
             shipping()
-            pickup ()
+            pickup()
         })
 
+        "/pdp/quantity_change"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA1234"
+            quantity = 2
+            seller_id = 12345
+            seller_name = "fulano"
+        })
 
+        "/pdp/picker_selection"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            picker_id = "MLA14545"
+            picker_disabled = false
+        })
+
+        "/pdp/other_buying_options"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA112341"
+            seller_id = 2345678
+            item_condition = "used"
+            listing_type_id = "gold_special"
+            product_status = "paused"
+            domain_id = "core"
+
+            seller_name = "fulano"
+            official_store_id = 1234
+            filter = "new"
+        })
 
 
     }

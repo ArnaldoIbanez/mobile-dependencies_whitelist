@@ -1,4 +1,6 @@
 import com.ml.melidata.catalog.PropertyType
+import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
+import com.ml.melidata.TrackType
 
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
@@ -189,6 +191,7 @@ tracks {
         picker_disabled(required: false, type: PropertyType.Boolean, description: "Indicates if the selected picker is disabled")
     }
 
+    //todo hacer estos tests que son para mobile
     "/pdp/show_picker_selection_modal"(platform: "/mobile", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         picker_id(required: false, type: PropertyType.String, description: "Product's picker ID")

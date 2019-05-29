@@ -141,6 +141,7 @@ catalog {
         include business, "myaccount_billing.groovy"
         include business, "asset_management.groovy"
         include business, "remedy.groovy"
+        include business, "pdp.groovy"
     }
 
     mercadopago.each { business ->
