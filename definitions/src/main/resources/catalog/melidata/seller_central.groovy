@@ -44,7 +44,7 @@ tracks {
         new_competition_status(required: false, type: PropertyType.String, description: "The new buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR", "OUT"])
         catalog_product_id(required: false, type: PropertyType.String, description: "The product id")
         listing_type(required: true, type: PropertyType.String, description: "The product listing type")
-        shipping_local_pickup(required: true, type: PropertyType.String, description: "The product local pick up")
+        shipping_local_pickup(required: true, type: PropertyType.Boolean, description: "The product local pick up")
 
         to(required: true, type: PropertyType.String, description: "The new value of a field, for example quantity, warranty,etc")
         from(required: false, type: PropertyType.String, description: "The original value of a field, for example quantity, warranty,etc")

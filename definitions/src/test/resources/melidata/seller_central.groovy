@@ -295,6 +295,8 @@ trackTests {
             category_domain = "MLA-FRAGRANCES"
             category_path = ["MLA1234", "MLA12345"]
             seller_profile = "ADVANCED"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
         }
     }
 
@@ -307,6 +309,8 @@ trackTests {
             category_domain = "MLA-FRAGRANCES"
             category_path = ["MLA1234", "MLA12345"]
             seller_profile = "ADVANCED"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
         }
     }
 
@@ -319,6 +323,8 @@ trackTests {
             category_domain = "MLA-FRAGRANCES"
             category_path = ["MLA1234", "MLA12345"]
             seller_profile = "ADVANCED"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
         }
     }
 
@@ -331,6 +337,8 @@ trackTests {
             category_domain = "MLA-FRAGRANCES"
             category_path = ["MLA1234", "MLA12345"]
             seller_profile = "ADVANCED"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
         }
     }
 
@@ -343,6 +351,8 @@ trackTests {
             seller_profile = "ADVANCED"
             from = "1200"
             to = "1500"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
         }
     }
 
@@ -355,6 +365,8 @@ trackTests {
             seller_profile = "ADVANCED"
             from = "3"
             to = "4"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
         }
     }
 
@@ -367,6 +379,8 @@ trackTests {
             seller_profile = "ADVANCED"
             from = "NO"
             to = "SI"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
         }
     }
 
@@ -379,6 +393,8 @@ trackTests {
             seller_profile = "ADVANCED"
             from = "WARRANTY_TYPE 6150835"
             to = "WARRANTY_TYPE 2230280"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
         }
     }
 
@@ -391,6 +407,8 @@ trackTests {
             seller_profile = "ADVANCED"
             from = "gold_special"
             to = "gold_pro"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
         }
     }
 
@@ -403,6 +421,8 @@ trackTests {
             seller_profile = "ADVANCED"
             from = "true"
             to = "false"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
         }
     }
 
@@ -415,6 +435,8 @@ trackTests {
             seller_profile = "ADVANCED"
             from = "new"
             to = "used"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
         }
     }
 
@@ -427,6 +449,8 @@ trackTests {
             seller_profile = "ADVANCED"
             from = "-1"
             to = "6270"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
         }
     }
 
@@ -464,6 +488,8 @@ trackTests {
             item_id = "MLA776923789"
             session_id = "416163910-update-79c25d849574"
             seller_profile = "NEWBIE"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
         }
     }
 
@@ -570,6 +596,7 @@ trackTests {
 
     test("structured data change category"){
         "/seller_central/modify/update_change_category"(platform: "/", type: TrackType.Event){
+            item_type = "default"
             category_domain = "MLA-CAMERAS"
             item_id= "MLA682118081"
             session_id = "123-update-abc123"
