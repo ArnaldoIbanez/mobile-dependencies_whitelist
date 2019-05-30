@@ -10,6 +10,7 @@ tracks {
         winner_premium(required: true, type: PropertyType.Boolean, description: "True if the item winner of the buy box has listing type premium")
         winner_free_shipping(required: true, type: PropertyType.Boolean, description: "True if the item winner of the buy box has free shipping")
         winner_flex(required: true, type: PropertyType.Boolean, description: "True if the item winner of the buy box has flex")
+        winner_fulfillment(required: true, PropertyType.Boolean, description: "True if the item winner of the buy box has fulfillment")
     }
 
     def itemData = objectSchemaDefinitions {
@@ -18,6 +19,7 @@ tracks {
         item_premium(required: true, type: PropertyType.Boolean, description: "True if the item has listing type premium")
         item_free_shipping(required: true, type: PropertyType.Boolean, description: "True if the item has free shipping")
         item_flex(required: true, type: PropertyType.Boolean, description: "True if the item has flex")
+        item_fulfillment(required: true, type: PropertyType.Boolean, description: "True if the item has fulfillment")
     }
 
     def comparisonTable = objectSchemaDefinitions {
