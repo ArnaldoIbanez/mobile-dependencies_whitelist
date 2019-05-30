@@ -344,6 +344,17 @@ tracks {
         demandItemGroup
     }
 
+    /***** Listing onBoarding ******/
+
+    //Onboarding View
+    "/quote/seller/onboarding"(platform: "/", type: TrackType.View) {}
+
+    //Onboarding Skip button click
+    "/quote/seller/onboarding/skip"(platform: "/", type: TrackType.Event) {}
+
+    //Onboarding Understood button click
+    "/quote/seller/onboarding/got_it"(platform: "/", type: TrackType.Event) {}
+
     /******************************************
      *       End: Seller
      ******************************************/
@@ -393,12 +404,8 @@ tracks {
 
     //Quote Buyer :: Listing event
     "/quote/buyer/listing/action"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
+        demandItemGroup
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_demand_status(required: true, type: PropertyType.String, values: ["pending_by_seller", "answered", "rejected_by_seller", "accepted"], description: "the status quote demand")
         action(required: true, type: PropertyType.String, values: ["go_messages","go_quote_detail","go_quotes_list"], description: "all action click on buyer listing  )")
     }
 
@@ -470,6 +477,17 @@ tracks {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         demandItemGroup
     }
+
+    /***** Listing onBoarding ******/
+
+    //Onboarding View
+    "/quote/buyer/onboarding"(platform: "/", type: TrackType.View) {}
+
+    //Onboarding Skip button click
+    "/quote/buyer/onboarding/skip"(platform: "/", type: TrackType.Event) {}
+
+    //Onboarding Understood button click
+    "/quote/buyer/onboarding/got_it"(platform: "/", type: TrackType.Event) {}
 
     /******************************************
      *       End: Buyer

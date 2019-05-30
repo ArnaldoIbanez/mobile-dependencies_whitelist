@@ -169,4 +169,19 @@ trackTests {
     test('Merchant Collection') {
         "/credits/merchant/collection"(platform: "/mobile", type: TrackType.Event) {}
     }
+
+    test('Merchant Contacts') {
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "engage"
+        }
+
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "collection"
+            stage= "educational"
+            milestone= -27
+        }
+
+    }
 }
