@@ -39,11 +39,6 @@ tracks {
 
     }
 
-//    def picker_id_definition = objectSchemaDefinitions {
-//        picker_id(required: true, type: PropertyType.String, description: "Picker ID")
-//        products(required: true, PropertyType.ArrayList(PropertyType.Map(product_picker_definition)))
-//    }
-
     propertyDefinitions {
         cart_content(required: false, type: PropertyType.Boolean, description: "Indicates if the PDP has cart features")
 
@@ -86,20 +81,18 @@ tracks {
 
         //Product fields
         catalog_product_id(required: true, type: PropertyType.String, description: "Catalog Product ID")
-        //TODO: agregar en vpp el parent id
         catalog_parent_id(required: false, type: PropertyType.String, description: "Parent Catalog Product ID")
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        //TODO: set to required true when it is fixed in products api
+        category_id(required: false, type: PropertyType.String, description: "Item's category id")
         previous_catalog_product_id(required: false, type: PropertyType.String, description: "Previous Catalog Product ID")
 
         //picker definition
         pickers(required: true, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
 
-        //TODO: agregar en codigo de vpp el category path
-        category_path(required: true, type: PropertyType.ArrayList, description: "Category path of the the item")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Category path of the the item")
         vertical(required: true, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
-//TODO: creo que no tiene sentido esto en pdp
         item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
                 description: "Whether the item is new, used or refurbished")
         listing_type_id(required: true, type: PropertyType.String,
@@ -107,7 +100,6 @@ tracks {
                 description: "Listing type of the item")
 
         // ONLY CORE FIELDS
-        //TODO: revisar
         quantity(required: false, type: PropertyType.Numeric, description: "Available product quantity at this pdp")
         available_quantity(required: false, type: PropertyType.Numeric, description: "Available product quantity at this pdp")
 

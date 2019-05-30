@@ -70,8 +70,8 @@ trackTests {
             catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
             domain_id = "?"
-            category_id = "MLA43718"
-            category_path = ["MLA1234", "MLA6789"]
+//            category_id = "MLA43718" //TODO: uncomment when they are required
+//            category_path = ["MLA1234", "MLA6789"]
             vertical = "core"//todo creo que esto no tiene sentido en pdp
             item_condition = "new"
             listing_type_id = "gold_special"
@@ -145,8 +145,8 @@ trackTests {
             items = items_data()
         })
     }
-//            review_rate = 1
-//            loyalty_level = 3
+
+
     test("pdp all tracking") {
         def cart = {
             cart_content = true
