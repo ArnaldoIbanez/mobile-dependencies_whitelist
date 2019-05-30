@@ -52,6 +52,7 @@ trackTests {
                         seller_name          : "fulano",
                         available_quantity   : 31,
                         cart_content         : true,
+                        logistic_type        : "cross_docking",
                         has_full_filment     : false
                 ],
                 [
@@ -192,6 +193,7 @@ trackTests {
             store_type = "brand"
             installment_info = "6f"
             loyalty_level = 2
+            previous_catalog_product_id = "MLA43720"
 
             cart()
             shipping()

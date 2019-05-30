@@ -33,7 +33,9 @@ tracks {
         available_quantity(required: false, type: PropertyType.Numeric, description: "Available product quantity at this pdp")
         cart_content(required: false, type: PropertyType.Boolean, description: "")
         has_full_filment(required: false, type: PropertyType.Boolean, description: "")
-
+        logistic_type(required: false,
+                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment"],
+                type: PropertyType.String, description: "Indicates the logistic type of the item")
 
     }
 
@@ -89,6 +91,7 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        previous_catalog_product_id(required: false, type: PropertyType.String, description: "Previous Catalog Product ID")
 
         //picker definition
         pickers(required: true, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
