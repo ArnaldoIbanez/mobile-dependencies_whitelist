@@ -9,6 +9,35 @@ tracks {
         selected(required: true, type: PropertyType.Boolean, description: "indicates if the product picker is selected or not")
         disabled(required: true, type: PropertyType.Boolean, description: "indicates if the product picker is disabled or not")
     }
+    def item_info_definition = objectSchemaDefinitions {
+        item_id(required: true, type: PropertyType.String, description: "")
+        price(required: false, type: PropertyType.Numeric, description: "")
+        original_price(required: false, type: PropertyType.Numeric, description: "")
+        currency_id(required: false, type: PropertyType.String, description: "")
+        installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
+        item_condition(required: false, type: PropertyType.String, description: "")
+        sold_quantity(required: false, type: PropertyType.Numeric, description: "")
+        shipping_conditions(required: true, type: PropertyType.String, values: ["no_shipping", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
+                description: "Shipping conditions for product")
+
+        //BRACH_OFFICE CONDITIONS
+        bo_pick_up_conditions(required: true, type: PropertyType.String, values: ["no_bo_pick_up", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
+                description: "Branch office pick up conditions for product")
+
+        //PUIS
+        showing_puis(required: false, type: PropertyType.Boolean, description: "Indicates if PDP BBW is showing PUIS pickup option in pickup row")
+        pushing_puis(required: false, type: PropertyType.Boolean, description: "Indicates PUIS is being pushed over branch office pickup option")
+        official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
+        seller_id(required: false, type: PropertyType.Numeric, description: "")
+        seller_name(required: false, type: PropertyType.String, description: "")
+        available_quantity(required: false, type: PropertyType.Numeric, description: "Available product quantity at this pdp")
+        cart_content(required: false, type: PropertyType.Boolean, description: "")
+        has_full_filment(required: false, type: PropertyType.Boolean, description: "")
+        logistic_type(required: false,
+                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment"],
+                type: PropertyType.String, description: "Indicates the logistic type of the item")
+
+    }
 
 //    def picker_id_definition = objectSchemaDefinitions {
 //        picker_id(required: true, type: PropertyType.String, description: "Picker ID")
@@ -62,14 +91,14 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        previous_catalog_product_id(required: false, type: PropertyType.String, description: "Previous Catalog Product ID")
 
         //picker definition
-        pickers(type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
+        pickers(required: true, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
 
         //TODO: agregar en codigo de vpp el category path
         category_path(required: true, type: PropertyType.ArrayList, description: "Category path of the the item")
-        vertical(required: true, type: PropertyType.String,
-                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        vertical(required: true, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
 //TODO: creo que no tiene sentido esto en pdp
         item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
                 description: "Whether the item is new, used or refurbished")
@@ -271,5 +300,15 @@ tracks {
         review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
     }
 
+    "/pdp/sellers"(platform: "/", parentPropertiesInherited: false) {
+        catalog_parent_id(required: true, type: PropertyType.String, description: "Product ID")
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        vertical(required: true, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
+        review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
+        loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
+        pickers(required: true, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_info_definition)), description: "Items listed on the page")
+    }
 
 }
