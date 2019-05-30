@@ -10,6 +10,7 @@ tracks {
         winner_premium(required: true, type: PropertyType.Boolean, description: "True if the item winner of the buy box has listing type premium")
         winner_free_shipping(required: true, type: PropertyType.Boolean, description: "True if the item winner of the buy box has free shipping")
         winner_flex(required: true, type: PropertyType.Boolean, description: "True if the item winner of the buy box has flex")
+        winner_fulfillment(required: true, PropertyType.Boolean, description: "True if the item winner of the buy box has fulfillment")
     }
 
     def itemData = objectSchemaDefinitions {
@@ -18,6 +19,7 @@ tracks {
         item_premium(required: true, type: PropertyType.Boolean, description: "True if the item has listing type premium")
         item_free_shipping(required: true, type: PropertyType.Boolean, description: "True if the item has free shipping")
         item_flex(required: true, type: PropertyType.Boolean, description: "True if the item has flex")
+        item_fulfillment(required: true, type: PropertyType.Boolean, description: "True if the item has fulfillment")
     }
 
     def comparisonTable = objectSchemaDefinitions {
@@ -35,16 +37,14 @@ tracks {
         type(required: true, type: PropertyType.String, description: "Type of hint", values: ["info", "actionable"])
         attribute(required: true, type: PropertyType.String, description: "Id of the attribute")
         reputation_level(required: false, type: PropertyType.String, description: "user reputation level")
-        item_type(required: false, type: PropertyType.String, description: "product: A PDP item, default: A normal item, associated_products: A item which has at least 1 variation that is associated  with a product", values: ["product", "default", "associated_products"])
+        item_type(required: true, type: PropertyType.String, description: "product: A PDP item, default: A normal item, associated_products: A item which has at least 1 variation that is associated  with a product", values: ["product", "default", "associated_products"])
 
-        comparison_table(required: true, type: PropertyType.Map(comparisonTable), description: "Information about the winner and the original item")
-        buy_box_status(required: true, type: PropertyType.String, description: "The actual buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR", "OUT"])
-        new_buy_box_status(required: true, type: PropertyType.String, description: "The new buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR", "OUT"])
-        product_title(required: true, type: PropertyType.String, description: "The product title")
-        product_id(required: true, type: PropertyType.String, description: "The product id")
-        products_quantity(required: true, type: PropertyType.Numeric, description: "The product available quantity")
+        comparison_table(required: false, type: PropertyType.Map(comparisonTable), description: "Information about the winner and the original item")
+        competition_status(required: false, type: PropertyType.String, description: "The actual buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR", "OUT"])
+        new_competition_status(required: false, type: PropertyType.String, description: "The new buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR", "OUT"])
+        catalog_product_id(required: false, type: PropertyType.String, description: "The product id")
         listing_type(required: true, type: PropertyType.String, description: "The product listing type")
-        shipping_local_pickup(required: true, type: PropertyType.String, description: "The product local pick up")
+        shipping_local_pickup(required: true, type: PropertyType.Boolean, description: "The product local pick up")
 
         to(required: true, type: PropertyType.String, description: "The new value of a field, for example quantity, warranty,etc")
         from(required: false, type: PropertyType.String, description: "The original value of a field, for example quantity, warranty,etc")
@@ -54,8 +54,8 @@ tracks {
 
     propertyGroups {
         sellerCentralModifyGroup(item_id, session_id, item_type)
-        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path)
-        sellerCentralModifyGroupTableForPdp(comparison_table, buy_box_status, new_buy_box_status, product_title, product_id, products_quantity, listing_type, shipping_local_pickup)
+        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup)
+        sellerCentralModifyGroupTableForPdp(comparison_table, competition_status, new_competition_status)
         sellerCentralModifyCardsGroupValue(to, from)
         sellerCentralSettingsGroup(seller_profile, reputation_level)
         technicalSpecificationsGroup(category_domain, attribute, hierarchy)
@@ -275,30 +275,6 @@ tracks {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
     }
-
-    //------------------------------------------------------------------------------------------------------------------------------------------------------
-    // TRACKS Seller central modify pdp items
-    //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-    "/seller_central/modify/product_detail"(platform: "/", isAbstract: true) {
-        sellerCentralModifyCardsGroup
-        sellerCentralModifyGroupTableForPdp
-        sellerCentralModifyCardsGroupValue
-    }
-
-    "/seller_central/modify/product_detail/update_price"(platform: "/", type: TrackType.Event) {}
-
-    "/seller_central/modify/product_detail/update_quantity"(platform: "/", type: TrackType.Event) {}
-
-    "/seller_central/modify/product_detail/update_localpickup_options"(platform: "/", type: TrackType.Event) {}
-
-    "/seller_central/modify/product_detail/update_warranty"(platform: "/", type: TrackType.Event) {}
-
-    "/seller_central/modify/product_detail/update_invoice"(platform: "/", type: TrackType.Event) {}
-
-    "/seller_central/modify/product_detail/update_listing_types"(platform: "/", type: TrackType.Event) {}
-
-    "/seller_central/modify/product_detail/update_shipping_flex"(platform: "/", type: TrackType.Event) {}
 
     /**
      * La idea es trackear en el snackbar informacion
