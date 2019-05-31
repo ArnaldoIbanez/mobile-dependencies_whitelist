@@ -39,4 +39,50 @@ trackTests {
             ]
         }
     }
+
+    test("Mercadopago Discount Benefits Section Show") {
+        "/wallet/home/show/discount_benefits" (platform: "/mobile", type: TrackType.Event) {
+            realestates = [
+                    [
+                        realestate_id : "discount_benefits_advice",
+                        content_id : "mgm_payer",
+                        origin : "user_journey"
+                    ],
+                    [
+                        realestate_id : "discount_benefits_coupon",
+                        content_id : "coupon",
+                        origin : "user_journey"
+                    ]
+            ]
+        }
+    }
+
+    test("Mercadopago Dismissible Row Section Show") {
+        "/wallet/home/show/dismissible_row" (platform: "/mobile", type: TrackType.Event) {
+            realestates = [
+                    [
+                        realestate_id : "dismissible_row",
+                        content_id : "available_acquisition",
+                        origin : "user_journey"
+                    ]
+            ]
+        }
+    }
+
+    test("Mercadopago Cross Selling Section Show") {
+        "/wallet/home/show/cross_selling" (platform: "/mobile", type: TrackType.Event) {
+            realestates = [
+                    [
+                        realestate_id : "cross_selling_home_mp_prepaid",
+                        content_id : "cross_selling_prepaid",
+                        origin : "user_journey"
+                    ],
+                    [
+                        realestate_id : "cross_selling_home_mp_point",
+                        content_id : "cross_selling_point",
+                        origin : "user_journey"
+                    ]
+            ]
+        }
+    }
 }

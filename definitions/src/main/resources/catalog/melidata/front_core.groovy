@@ -31,4 +31,23 @@ tracks {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
     }
 
+    //MerchEngine Sections
+    def realestate = objectSchemaDefinitions {
+        realestate_id(type: PropertyType.String, required: true)
+        content_id(type: PropertyType.String, required: true)
+        origin(type: PropertyType.String, required: true)
+    }
+
+    //Events
+    "/wallet/home/show/discount_benefits" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        realestates(type: PropertyType.ArrayList(PropertyType.Map(realestate)), required:true)
+    }
+
+    "/wallet/home/show/dismissible_row" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        realestates(type: PropertyType.ArrayList(PropertyType.Map(realestate)), required:true)
+    }
+
+    "/wallet/home/show/cross_selling" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        realestates(type: PropertyType.ArrayList(PropertyType.Map(realestate)), required:true)
+    }
 }
