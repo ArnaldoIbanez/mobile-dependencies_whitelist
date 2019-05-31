@@ -40,6 +40,20 @@ trackTests {
         }
     }
 
+    test("Mercadopago Main Actions Section Show") {
+        "/wallet/home/show/main_actions" (platform: "/mobile", type: TrackType.Event) {
+            quantity = 1
+            items = [
+                    [
+                            id: "show_qr",
+                            ordinal: 1,
+                            has_promotion: true,
+                            enabled: false
+                    ]
+            ]
+        }
+    }
+
     test("Mercadopago Secondary Actions Section Show") {
         "/wallet/home/show/secondary_actions" (platform: "/mobile", type: TrackType.Event) {
             realestates_payers = [
