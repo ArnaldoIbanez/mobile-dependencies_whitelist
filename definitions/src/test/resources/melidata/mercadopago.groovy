@@ -2631,6 +2631,259 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification_center"(platform: "/mobile"){}
+        "/notification_center/account_balance-approved_mp"(platform: "/mobile"){
+            newsgroup_id= "account_balance-account_balance-approved_mp-12345678"
+            latest_news_type= "account_balance_approved_mp"
+            latest_news_id= "account_balance-account_balance-approved_mp-12345678"
+            status= "unread"
+        }
+        "/notification_center/account_fund-approved_mp"(platform: "/mobile"){
+            newsgroup_id= "account_fund-approved_mp-12345678"
+            latest_news_id= "account_fund-approved_mp-12345678"
+            latest_news_type= "account_fund_approved_mp"
+            status= "unread"
+        }
+        "/notification_center/account_fund-salary"(platform: "/mobile"){
+            newsgroup_id= "account_fund-salary-12345678"
+            latest_news_id= "account_fund-salary-12345678"
+            latest_news_type= "account_fund_salary"
+            status= "unread"
+        }
+        "/notification_center/asset_management-warm_up"(platform: "/mobile"){
+            newsgroup_id= "asset_management-warm_up-186785675-76283123"
+            latest_news_id= "asset_management-warm_up-186785675-76283123"
+            latest_news_type= "asset_management_warm_up"
+            status= "read"
+        }
+        "/notification_center/billing-mpoff"(platform: "/mobile"){
+            newsgroup_id= "billing-mpoff-186785675-76283123"
+            latest_news_id= "billing-mpoff-186785675-76283123"
+            latest_news_type= "billing_mpoff"
+            status= "read"
+        }
+        "/notification_center/chargeback-payer_intensify_mp"(platform: "/mobile"){
+            newsgroup_id= "chargeback-payer_intensify_mp-186785675-76283123"
+            latest_news_id= "chargeback-payer_intensify_mp-186785675-76283123"
+            latest_news_type= "chargeback_payer_intensify_mp"
+            status= "read"
+        }
+        "/notification_center/chargeback-payer_notify_mp"(platform: "/mobile"){
+            newsgroup_id= "chargeback-payer_notify_mp-186785675-76283123"
+            latest_news_id= "chargeback-payer_notify_mp-186785675-76283123"
+            latest_news_type= "chargeback_payer_notify_mp"
+            status= "read"
+        }
+        "/notification_center/chargeback-payer_start_mp"(platform: "/mobile"){
+            newsgroup_id= "chargeback-payer_start_mp-186785675-76283123"
+            latest_news_id= "chargeback-payer_start_mp-186785675-76283123"
+            latest_news_type= "chargeback_payer_start_mp"
+            status= "read"
+        }
+        "/notification_center/chargeback-payer_ultimatum_mp"(platform: "/mobile"){
+            newsgroup_id= "chargeback-payer_ultimatum_mp-186785675-76283123"
+            latest_news_id= "chargeback-payer_ultimatum_mp-186785675-76283123"
+            latest_news_type= "chargeback_payer_ultimatum_mp"
+            status= "read"
+        }
+        "/notification_center/chargeback-payer_update_mp"(platform: "/mobile"){
+            newsgroup_id= "chargeback-payer_update_mp-186785675-76283123"
+            latest_news_id= "chargeback-payer_update_mp-186785675-76283123"
+            latest_news_type= "chargeback_payer_update_mp"
+            status= "read"
+        }
+        "/notification_center/compliance_support-validations"(platform: "/mobile"){
+            newsgroup_id= "compliance_support-validations-186785675-76283123"
+            latest_news_id= "compliance_support-validations-186785675-76283123"
+            latest_news_type= "compliance_support_validations"
+            status= "read"
+        }
+        "/notification_center/credits_merchants-expired_near_to_daily_charges"(platform: "/mobile"){
+            newsgroup_id= "credits_merchants-expired_near_to_daily_charges-186785675-76283123"
+            latest_news_id= "credits_merchants-expired_near_to_daily_charges-186785675-76283123"
+            latest_news_type= "credits_merchants_expired_near_to_daily_charges"
+            status= "read"
+            installment_id = 123
+        }
+        "/notification_center/credits_merchants-expired_near_to_fixed_charges"(platform: "/mobile"){
+            newsgroup_id= "credits_merchants-expired_near_to_fixed_charges-186785675-76283123"
+            latest_news_id= "credits_merchants-expired_near_to_fixed_charges-186785675-76283123"
+            latest_news_type= "credits_merchants_expired_near_to_fixed_charges"
+            status= "read"
+            installment_id = 123
+        }
+        "/notification_center/credits_merchants-expired_no_charges"(platform: "/mobile"){
+            newsgroup_id= "credits_merchants-expired_no_charges-186785675-76283123"
+            latest_news_id= "credits_merchants-expired_no_charges-186785675-76283123"
+            latest_news_type= "credits_merchants_expired_no_charges"
+            status= "read"
+            installment_id = 123
+        }
+        "/notification_center/credits_merchants-to_expire"(platform: "/mobile"){
+            newsgroup_id= "credits_merchants-to_expire-186785675-76283123"
+            latest_news_id= "credits_merchants-to_expire-186785675-76283123"
+            latest_news_type= "credits_merchants_to_expire"
+            status= "read"
+            installment_id = 123
+        }
+        "/notification_center/credits_merchants-to_expire_not_standard"(platform: "/mobile"){
+            newsgroup_id= "credits_merchants-to_expire_not_standard-186785675-76283123"
+            latest_news_id= "credits_merchants-to_expire_not_standard-186785675-76283123"
+            latest_news_type= "credits_merchants_to_expire_not_standard"
+            status= "read"
+            installment_id = 123
+        }
+        "/notification_center/credits_merchants-to_expire_standard"(platform: "/mobile"){
+            newsgroup_id= "credits_merchants-to_expire_standard-186785675-76283123"
+            latest_news_id= "credits_merchants-to_expire_standard-186785675-76283123"
+            latest_news_type= "credits_merchants_to_expire_standard"
+            status= "read"
+            installment_id = 123
+        }
+        "/notification_center/credits_merchants-educational"(platform: "/mobile"){
+            newsgroup_id= "credits_merchants-educational-186785675-76283123"
+            latest_news_id= "credits_merchants-educational-186785675-76283123"
+            latest_news_type= "credits_merchants_educational"
+            status= "read"
+            loan_id = 123
+        }
+        "/notification_center/fraud-cash_release_iv"(platform: "/mobile"){
+            newsgroup_id= "fraud-cash_release_iv-186785675-76283123"
+            latest_news_id= "fraud-cash_release_iv-186785675-76283123"
+            latest_news_type= "fraud_cash_release_iv"
+            status= "read"
+        }
+        "/notification_center/instore-buyer_qr"(platform: "/mobile"){
+            newsgroup_id= "instore-buyer_qr-186785675-76283123"
+            latest_news_id= "instore-buyer_qr-186785675-76283123"
+            latest_news_type= "instore_buyer_qr"
+            status= "read"
+        }
+        "/notification_center/invite-gift"(platform: "/mobile"){
+            newsgroup_id= "invite-gift-186785675-76283123"
+            latest_news_id= "invite-gift-186785675-76283123"
+            latest_news_type= "invite_gift"
+            status= "read"
+        }
+        "/notification_center/merchants_growth-mgm"(platform: "/mobile"){
+            newsgroup_id= "merchants_growth-mgm-186785675-76283123"
+            latest_news_id= "merchants_growth-mgm-186785675-76283123"
+            latest_news_type= "merchants_growth_mgm"
+            status= "read"
+            gift_reason_id= "MLB_14456"
+        }
+        "/notification_center/money-transfer_request"(platform: "/mobile"){
+            newsgroup_id= "money-transfer_request-186785675-76283123"
+            latest_news_id= "money-transfer_request-186785675-76283123"
+            latest_news_type= "money_transfer_request"
+            status= "read"
+        }
+        "/notification_center/mpcampaigns-campaigns"(platform: "/mobile"){
+            newsgroup_id= "mpcampaigns-campaigns-186785675-76283123"
+            latest_news_id= "mpcampaigns-campaigns-186785675-76283123"
+            latest_news_type= "mpcampaigns_campaigns"
+            status= "read"
+            campaign_id = "mkt_campaign_co"
+            batch_id = "MLB_PACK_20180508_2"
+        }
+        "/notification_center/prepaid_card-delayed_p1"(platform: "/mobile"){
+            newsgroup_id= "prepaid_card-delayed_p1-186785675-76283123"
+            latest_news_id= "prepaid_card-delayed_p1-186785675-76283123"
+            latest_news_type= "prepaid_card_delayed_p1"
+            status= "read"
+        }
+        "/notification_center/prepaid_card-delivered"(platform: "/mobile"){
+            newsgroup_id= "prepaid_card-delivered-186785675-76283123"
+            latest_news_id= "prepaid_card-delivered-186785675-76283123"
+            latest_news_type= "prepaid_card_delivered"
+            status= "read"
+        }
+        "/notification_center/prepaid_card-not_delivered"(platform: "/mobile"){
+            newsgroup_id= "prepaid_card-not_delivered-186785675-76283123"
+            latest_news_id= "prepaid_card-not_delivered-186785675-76283123"
+            latest_news_type= "prepaid_card_not_delivered"
+            status= "read"
+        }
+        "/notification_center/prepaid_card-second_activation_reminder"(platform: "/mobile"){
+            newsgroup_id= "prepaid_card-second_activation_reminder-186785675-76283123"
+            latest_news_id= "prepaid_card-second_activation_reminder-186785675-76283123"
+            latest_news_type= "prepaid_card_second_activation_reminder"
+            status= "read"
+        }
+        "/notification_center/prepaid_card-shipped"(platform: "/mobile"){
+            newsgroup_id= "prepaid_card-shipped-186785675-76283123"
+            latest_news_id= "prepaid_card-shipped-186785675-76283123"
+            latest_news_type= "prepaid_card_shipped"
+            status= "read"
+        }
+        "/notification_center/prepaid_card-third_activation_reminder"(platform: "/mobile"){
+            newsgroup_id= "prepaid_card-third_activation_reminder-186785675-76283123"
+            latest_news_id= "prepaid_card-third_activation_reminder-186785675-76283123"
+            latest_news_type= "prepaid_card_third_activation_reminder"
+            status= "read"
+        }
+        "/notification_center/prepaid_card-transaction_rejected_activation_reminder"(platform: "/mobile"){
+            newsgroup_id= "prepaid_card-transaction_rejected_activation_reminder-186785675-76283123"
+            latest_news_id= "prepaid_card-transaction_rejected_activation_reminder-186785675-76283123"
+            latest_news_type= "prepaid_card_transaction_rejected_activation_reminder"
+            status= "read"
+        }
+        "/notification_center/prepaid_card-transaction_rejected_invalid_pin"(platform: "/mobile"){
+            newsgroup_id= "prepaid_card-transaction_rejected_invalid_pin-186785675-76283123"
+            latest_news_id= "prepaid_card-transaction_rejected_invalid_pin-186785675-76283123"
+            latest_news_type= "prepaid_card_transaction_rejected_invalid_pin"
+            status= "read"
+        }
+        "/notification_center/prepaid_card-transaction_rejected_regulations_bacen_data_incomplete"(platform: "/mobile"){
+            newsgroup_id= "prepaid_card-transaction_rejected_regulations_bacen_data_incomplete-186785675-76283123"
+            latest_news_id= "prepaid_card-transaction_rejected_regulations_bacen_data_incomplete-186785675-76283123"
+            latest_news_type= "prepaid_card_transaction_rejected_regulations_bacen_data_incomplete"
+            status= "read"
+        }
+        "/notification_center/prepaid_card-transaction_rejected_regulations_bacen_invalid_id"(platform: "/mobile"){
+            newsgroup_id= "prepaid_card-transaction_rejected_regulations_bacen_invalid_id-186785675-76283123"
+            latest_news_id= "prepaid_card-transaction_rejected_regulations_bacen_invalid_id-186785675-76283123"
+            latest_news_type= "prepaid_card_transaction_rejected_regulations_bacen_invalid_id"
+            status= "read"
+        }
+        "/notification_center/prepaid_card-waiting_for_withdrawal"(platform: "/mobile"){
+            newsgroup_id= "prepaid_card-waiting_for_withdrawal-186785675-76283123"
+            latest_news_id= "prepaid_card-waiting_for_withdrawal-186785675-76283123"
+            latest_news_type= "prepaid_card_waiting_for_withdrawal"
+            status= "read"
+        }
+        "/notification_center/recurring_recharge-error"(platform: "/mobile"){
+            newsgroup_id= "recurring_recharge-error-186785675-76283123"
+            latest_news_id= "recurring_recharge-error-186785675-76283123"
+            latest_news_type= "recurring_recharge_error"
+            status= "read"
+        }
+        "/notification_center/recurring_recharge-insufficient_balance_error"(platform: "/mobile"){
+            newsgroup_id= "recurring_recharge-insufficient_balance_error-186785675-76283123"
+            latest_news_id= "recurring_recharge-insufficient_balance_error-186785675-76283123"
+            latest_news_type= "recurring_recharge_insufficient_balance_error"
+            status= "read"
+        }
+        "/notification_center/recurring_recharge-second_auth_error"(platform: "/mobile"){
+            newsgroup_id= "recurring_recharge-second_auth_error-186785675-76283123"
+            latest_news_id= "recurring_recharge-second_auth_error-186785675-76283123"
+            latest_news_type= "recurring_recharge_second_auth_error"
+            status= "read"
+        }
+        "/notification_center/wallet_integrator-insufficient_amount"(platform: "/mobile"){
+            newsgroup_id= "wallet_integrator-insufficient_amount-186785675-76283123"
+            latest_news_id= "wallet_integrator-insufficient_amount-186785675-76283123"
+            latest_news_type= "wallet_integrator_insufficient_amount"
+            status= "read"
+        }
+        "/notification_center/wallet_integrator-ticket_acredited"(platform: "/mobile"){
+            newsgroup_id= "wallet_integrator-ticket_acredited-186785675-76283123"
+            latest_news_id= "wallet_integrator-ticket_acredited-186785675-76283123"
+            latest_news_type= "wallet_integrator_ticket_acredited"
+            status= "read"
+        }
+
+
     }
 
 // END -- MPMOBILE TEST
