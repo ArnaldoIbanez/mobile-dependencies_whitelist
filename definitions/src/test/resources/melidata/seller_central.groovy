@@ -65,6 +65,12 @@ trackTests {
         "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
             type = "task"
             id = "MODIFY"
+            action = "show"
+        }
+        "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
+            type = "task"
+            id = "LOW_HEALTH"
+            action = "edit"
         }
         "/seller_central/listings/communication/more_info"(platform: "/mobile", type: TrackType.Event) {
             type = "news"
