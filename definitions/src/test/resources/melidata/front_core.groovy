@@ -40,6 +40,25 @@ trackTests {
         }
     }
 
+    test("Mercadopago Secondary Actions Section Show") {
+        "/wallet/home/show/secondary_actions" (platform: "/mobile", type: TrackType.Event) {
+            realestates_payers = [
+                    [
+                            realestate_id: "secondary_actions_mp_pay_services",
+                            content_id: "pay_services",
+                            origin: "secondary_actions"
+                    ]
+            ]
+            realestates_sellers = [
+                    [
+                            realestate_id: "secondary_actions_mp_charge_with_qr",
+                            content_id: "charge_with_qr",
+                            origin: "secondary_actions"
+                    ]
+            ]
+        }
+    }
+
     test("Mercadopago Discount Benefits Section Show") {
         "/wallet/home/show/discount_benefits" (platform: "/mobile", type: TrackType.Event) {
             realestates = [

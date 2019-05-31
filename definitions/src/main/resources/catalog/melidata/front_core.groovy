@@ -39,6 +39,11 @@ tracks {
     }
 
     //Events
+    "/wallet/home/show/secondary_actions" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        realestates_payers(type: PropertyType.ArrayList(PropertyType.Map(realestate)), required:true)
+        realestates_sellers(type: PropertyType.ArrayList(PropertyType.Map(realestate)), required:true)
+    }
+
     "/wallet/home/show/discount_benefits" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         realestates(type: PropertyType.ArrayList(PropertyType.Map(realestate)), required:true)
     }
