@@ -77,6 +77,7 @@ tracks {
     "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
         id(required: false, type: PropertyType.String, description: "Id of the communication ")
+        action(required:false, type: PropertyType.String, description: "The action used in the communication if applies")
     }
 
     "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
