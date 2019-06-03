@@ -29,6 +29,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "attribute",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "site",
         "type": "UNICODE_STRING"
       }
