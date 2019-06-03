@@ -53,11 +53,11 @@ tracks {
     "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/", type: TrackType.Event) {}
 
     //Voluntary Payment
-    "/credits/merchant/administrator/voluntary_payment"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/administrator/voluntary_payment/congrats"(platform: "/", type: TrackType.View) {
+    "/credits/merchant/voluntary_payment"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/voluntary_payment/congrats"(platform: "/", type: TrackType.View) {
         flow(type: PropertyType.String, required: false, values: ['voluntary_payment'])
     }
-    "/credits/merchant/administrator/voluntary_payment/error"(platform: "/", type: TrackType.View) {
+    "/credits/merchant/voluntary_payment/error"(platform: "/", type: TrackType.View) {
         reason(type: PropertyType.String, required: false, values: ['insufficient_account_money',
                                                                     'lender_cannot_collect_installments',
                                                                     'default'])
