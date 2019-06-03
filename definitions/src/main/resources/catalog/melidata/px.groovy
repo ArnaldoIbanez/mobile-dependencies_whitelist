@@ -8,7 +8,7 @@ tracks {
     propertyDefinitions {
         flow_detail(required: false, description: "External info")
         flow(required: false, type: PropertyType.String, description: "External flow name")
-        session_id(required: true, type: PropertyType.String, description: "Internal session id")
+        session_id(required: false, type: PropertyType.String, description: "Internal session id")
         collector_id(required: false, description: "Collector external id")
     }
 
