@@ -39,10 +39,18 @@ trackTests {
             ]
         }
     }
-    
+
     test("Mercadopago Home Banking Section Show") {
         "/wallet/home/show/banking" (platform: "/mobile", type: TrackType.Event) {
             collapsed = true
+        }
+    }
+
+    test("Mercadopago Home Activities Show") {
+        "/wallet/home/show/activities" (platform: "/mobile", type: TrackType.Event) {
+            quantity = 0
+            is_ftu = true
+            has_footer = false
         }
     }
 
