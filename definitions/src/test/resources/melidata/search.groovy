@@ -225,6 +225,7 @@ trackTests {
         "/search/filters_carousel/click"(platform: "/web", type: TrackType.Event){
             defaultWebTrack()
             filter_name = "shoes"
+            filter = "STYLE"
             position = 4
         }
         "/search/back"(platform: "/mobile", defaultSearchInformation)
