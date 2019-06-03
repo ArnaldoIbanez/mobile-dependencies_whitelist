@@ -34,7 +34,7 @@
         "type": "UNICODE_STRING"
     },
     {
-        "name": "was_created",
+        "name": "inbound_id",
         "type": "INTEGER"
     },
     {
