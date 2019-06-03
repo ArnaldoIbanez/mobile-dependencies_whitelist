@@ -2692,10 +2692,10 @@ trackTests {
             latest_news_type= "chargeback_payer_update_mp"
             status= "read"
         }
-        "/notification_center/compliance_support_validations"(platform: "/mobile"){
+        "/notification_center/compliance_support-validations"(platform: "/mobile"){
             newsgroup_id= "compliance_support-validations-186785675-76283123"
             latest_news_id= "compliance_support-validations-186785675-76283123"
-            latest_news_type= "compliance_support_validations"
+            latest_news_type= "compliance_support-validations"
             status= "read"
         }
         "/notification_center/credits_merchants_expired_near_to_daily_charges"(platform: "/mobile"){
@@ -2719,7 +2719,7 @@ trackTests {
             status= "read"
             installment_id = 123
         }
-        "/notification_center/credits_merchants"(platform: "/mobile"){
+        "/notification_center/credits-merchants"(platform: "/mobile"){
             newsgroup_id= "credits_merchants-to_expire-186785675-76283123"
             latest_news_id= "credits_merchants-to_expire-186785675-76283123"
             latest_news_type= "credits_merchants_to_expire"
@@ -2740,7 +2740,7 @@ trackTests {
             status= "read"
             loan_id = 123
         }
-        "/notification_center/fraud_cash_release_iv"(platform: "/mobile"){
+        "/notification_center/fraud-cash_release_iv"(platform: "/mobile"){
             newsgroup_id= "fraud-cash_release_iv-186785675-76283123"
             latest_news_id= "fraud-cash_release_iv-186785675-76283123"
             latest_news_type= "fraud_cash_release_iv"
@@ -2765,10 +2765,10 @@ trackTests {
             status= "read"
             gift_reason_id= "MLB_14456"
         }
-        "/notification_center/money_transfer_request"(platform: "/mobile"){
+        "/notification_center/money-transfer_request"(platform: "/mobile"){
             newsgroup_id= "money-transfer_request-186785675-76283123"
             latest_news_id= "money-transfer_request-186785675-76283123"
-            latest_news_type= "money_transfer_request"
+            latest_news_type= "money-transfer_request"
             status= "read"
         }
         "/notification_center/mpcampaigns_campaigns"(platform: "/mobile"){
