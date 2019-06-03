@@ -64,17 +64,15 @@ trackTests {
         }
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {}
-        "/credits/merchant/voluntary_payment"(platform: "/web/desktop") {}
-        "/credits/merchant/voluntary_payment/congrats"(platform: "/web/desktop") {
-            flow = 'voluntary_payment'
-        }
-        "/credits/merchant/voluntary_payment/error"(platform: "/web/desktop") {
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
+        "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {}
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
             reason = 'insufficient_account_money'
         }
-        "/credits/merchant/voluntary_payment/error"(platform: "/web/desktop") {
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
             reason = 'lender_cannot_collect_installments'
         }
-        "/credits/merchant/voluntary_payment/error"(platform: "/web/desktop") {
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
             reason = 'default'
         }
         "/credits/merchant/offer"(platform: "/web/desktop", type: TrackType.View) {}
