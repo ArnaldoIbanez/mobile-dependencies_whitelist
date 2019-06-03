@@ -38,6 +38,10 @@
         "type": "INTEGER"
     },
     {
+        "name": "was_recovered",
+        "type": "INTEGER"
+    },
+    {
         "name": "inventory_id_not_created",
         "type": "INTEGER"
     },

@@ -8,6 +8,7 @@ SELECT
 	jest(event_data,'amount_of_units') as amount_of_units,
 	jest(event_data,'document_status') as document_status,
 	jest(event_data,'inbound_id') as inbound_id,
+	jest(event_data,'was_recovered') as was_recovered,
 	jest(event_data, 'detailed_errors.inventory_id_not_created') as inventory_id_not_created,
 	jest(event_data, 'detailed_errors.invalid_product_identifier') as invalid_product_identifier,
 	jest(event_data, 'detailed_errors.invalid_sku') as invalid_sku,
