@@ -42,6 +42,10 @@ tracks {
     "/home/pulltorefresh/abort"(platform: "/mobile", type: TrackType.Event) {
     }
 
+    "/home/page"(platform: "/mobile", type: TrackType.Event) {
+        page_number(required: true, type: PropertyType.Numeric)
+    }
+    
     "/home/scroll"(platform: "/mobile", type: TrackType.Event) {
     }
 
@@ -69,6 +73,7 @@ tracks {
     "/home/carousel/lastcard"(platform: "/mobile") {
     }
 
+    "/home/categories"(platform: "/", type: TrackType.View) {}
 
     "/home"(platform: "/", type: TrackType.View) {
         from(required: false,  description: "Who is redirecting")

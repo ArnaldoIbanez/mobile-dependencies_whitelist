@@ -35,6 +35,7 @@ tracks {
         //Tracks from Search Backend:
         backend_data(required: false)
         official_stores_carousel_shown(required: false, description: 'which TOs are in the carousel', PropertyType.ArrayList)
+        items_with_logos(required: false, description: 'items ids that show the brand logo', PropertyType.ArrayList)
         //ab(required: false, description:'ab testing related. to be deprecated')
         //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
         //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
@@ -59,7 +60,7 @@ tracks {
         related_searches_info(required: false, description: 'Tracks related searches coverage')
         canonical(required: false, description: 'url: canonical URL for the request; no_follow_tag: if the link rel="canonical" has no follow parameter; if the canonical URL has a mirror category configured')
         autosuggest(required: false, description:'indicates whether clicked autosuggest')
-        landing(required:false, description:'indicates landing base, premium, etc', values: ["base","premium","offical_store","deal", "cpg","officialStore","marketplace"])
+        landing(required:false, description:'indicates landing base, premium, etc', values: ["base","premium","official_store","deal", "cpg","officialStore","marketplace"])
         upper_funnel(required: false, description: 'indicates if advertising query was considered upper funnel')
         geolocation(required: false, description:'geolocation')
         layout_forced(required: false, description:'true if layout is changed by the user')
@@ -69,6 +70,8 @@ tracks {
         geo_search(required: false, description: "search with geolocation", type: PropertyType.Boolean)
         available_filters(required: true, description: "available filters, sameday and nextday")
         user_zone(required: true, description: "the user zone registered", type: PropertyType.String)
+        is_googlebot(required: false, description: 'is google bot request', PropertyType.Boolean)
+        pdp_rows(required: true, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
     }
 
     "/search"(platform: "/mobile") {
@@ -98,6 +101,7 @@ tracks {
         billboard_shown(required: false)
         available_filters(required: false, description: "available filters, sameday and nextday")
         user_zone(required: false, description: "the user zone registered", type: PropertyType.String)
+        pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
@@ -125,6 +129,13 @@ tracks {
 
     "/search/filters"(platform: "/mobile") {}
 
+    "/search/filters_carousel"(platform: "/web", isAbstract: true) {}
+    "/search/filters_carousel/click"(platform: "/web", type: TrackType.Event) {
+        filter_name(required: true, description: "the name of the filter", type: PropertyType.String)
+        position(required: true, description: "the position of the filter in the carousel", type: PropertyType.Numeric)
+        filter(required: false, description: "carousel filter id", type: PropertyType.String)
+    }
+
     "/search/refine"(platform: "/mobile") {}
 
     "/search/refine/apply"(platform: "/mobile", type: TrackType.Event) {}
@@ -140,17 +151,10 @@ tracks {
         filter_value_name()
     }
 
-    "/search/change_view"(platform: "/mobile") {}
-
-    "/search/change_view/apply"(platform: "/mobile", type: TrackType.Event) {
+    "/search/change_view"(platform: "/",  isAbstract: true) {}
+    
+    "/search/change_view/apply"(platform: "/", type: TrackType.Event) {
         list_mode()
-    }
-
-    "/search/official_stores_carousel"(platform: "/", isAbstract: true) {}
-
-    "/search/official_stores_carousel/click"(platform: "/", type: TrackType.Event) {
-        to_name(required: true, description: 'the name of the official store selected', PropertyType.String)
-        to_position(required: true, description: 'the position of the official store in the carousel', PropertyType.Numeric)
     }
 
     "/search/official_stores_carousel"(platform: "/", isAbstract: true) {}

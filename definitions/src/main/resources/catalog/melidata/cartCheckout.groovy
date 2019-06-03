@@ -71,7 +71,7 @@ tracks {
     total_amount_usd(serverSide: true) // -> Lo completa Melidata automaticamente
 
     total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
-    total_paid_amount(required: true, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+    total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
 
     //TO-DO: Eliminar cuando /mobile/ios deje de mandar platform
     platform(required: false, deprecated:true)
@@ -110,6 +110,10 @@ tracks {
 
     account_money_info(required:false, type: PropertyType.Map, description: "Map with data of the account money of the buyer")
     loyalty_level(required:false, description:"The loyalty level of the buyer")
+    stored_cards_quantity(required: false, type: PropertyType.Numeric, description: "Stored cards quantity of the buyer")
+
+    //Router
+    checkout_flow_reason(required: false, type: PropertyType.String, description:"Reason why the purchase went through cart flow or direct flow" )
 }
 
 "/cart/checkout/items_not_available"(platform:"/", type: TrackType.View) {}
@@ -137,11 +141,6 @@ tracks {
 "/cart/checkout/payment/view_location/preloaded"(platform:"/", type: TrackType.Event) {}
 
 "/cart/checkout/payment/input_card"(platform:"/", type: TrackType.View) {}
-
-"/cart/checkout/payment/input_card#card_config"(platform: "/", type: TrackType.Event) {
-    bin(required: true, type: PropertyType.String)
-    success(required: true, type: PropertyType.Boolean)
-}
 
 "/cart/checkout/payment/input_card/edit_payment"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/payment/input_card/security_code_tooltip"(platform:"/", type: TrackType.Event) {}
@@ -279,7 +278,9 @@ tracks {
 
 "/cart/checkout/shipping/select_option"(platform:"/mobile", type: TrackType.View) {}
 
-"/cart/checkout/shipping/select_method_ask_geolocation"(platform:"/mobile", type: TrackType.View) {}
+"/cart/checkout/shipping/select_method_ask_geolocation"(platform:"/mobile", type: TrackType.View) {
+    selections(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Available options to select")
+}
 
 "/cart/checkout/shipping/input_zipcode"(platform:"/mobile", type: TrackType.View) {}
 "/cart/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -289,6 +290,8 @@ tracks {
 "/cart/checkout/shipping/input_address"(platform:"/mobile", type: TrackType.View) {
     edit_flow(required: true, type: PropertyType.Boolean)
 }
+
+"/cart/checkout/shipping/input_address/back"(platform:"/mobile", type: TrackType.Event) {}
 
 "/cart/checkout/shipping/input_address#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
@@ -434,7 +437,14 @@ tracks {
     status(required: false, type: PropertyType.String, description: "The result of the purchase")
 }
 
-//Payment form input tack events:
+//Payment form input tack events
+
+"/cart/checkout/payment/input_card#card_config"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    bin(required: true, type: PropertyType.String, description: "First six digits of card number")
+    success(required: true, type: PropertyType.Boolean, description: "Success or failure getting card config")
+    session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+}
+
 "/cart/checkout/payment/input_card/card_number"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
     session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
 }
@@ -495,6 +505,11 @@ tracks {
 }
 
 "/cart/checkout/review/confirm_purchase"(platform:"/web", type: TrackType.Event) {}
+
+"/cart/checkout/payment/input_card#card_config"(platform: "/web", type: TrackType.Event) {
+    bin(required: true, type: PropertyType.String)
+    success(required: true, type: PropertyType.Boolean)
+}
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin Web platform

@@ -203,6 +203,17 @@ trackTests {
         }
         "/sell/upgradeOff"(platform: "/", itemData)
     }
+
+    test("Sell Flow view Pages upselling pads"){
+        def itemData = {
+            reputation_level = "platinum"
+            placement = "syi_congrats"
+            adv_segmentation = "1-Active (0-30)"
+        }
+
+        "/sell/list/congrats"(platform: "/web/desktop", itemData)
+    }
+
     test("Sell landing free_listing"){
         def data={
             referer = "1234L"
@@ -245,6 +256,8 @@ trackTests {
         "/sell/list/draft/listing_types"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/price"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/picture_preview_landing"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/pictures_review/album_selector"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/pictures_review/pictures_selector"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/pictures_review/editor"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/listing_types_review"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/shipping_options_me_review"(platform:"/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
@@ -325,12 +338,16 @@ trackTests {
         "/sell/list/listing_types_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures/gallery"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/pictures/album_selector"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/pictures/pictures_selector"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures/editor"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures/crop"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/picture_uploader/delete"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/picture_uploader/rotate"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures_review/gallery"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/pictures_review/album_selector"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/pictures_review/pictures_selector"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures_review/editor"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures_review/crop"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/picture_preview_landing"(platform: "/mobile", type: TrackType.View){session_id = "214464778-list-d5e5a20b2935"}
@@ -513,6 +530,8 @@ trackTests {
         "/sell/update/pictures/crop/crop_accepted"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures/crop/crop_canceled"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures/gallery"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/pictures/album_selector"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/pictures/pictures_selector"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures/editor"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures/crop"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/picture_uploader/crop/crop_canceled"(platform: "/mobile") {item_id = "MLA123456"}
@@ -549,11 +568,16 @@ trackTests {
         "/sell/update/location"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/picture_preview_landing"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures_variations"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/pictures_variations/album_selector"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/pictures_variations/pictures_selector"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures_variations/editor"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/quantity"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/quantity_maximum_free_landing"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/shipping_landing"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/shipping_mandatory_landing"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/shipping/flex/free_shipping_landing"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/shipping/flex/optin"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/shipping/flex_landing"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/technical_specifications"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/product_identifier"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/variations"(platform: "/mobile") {item_id = "MLA123456"}

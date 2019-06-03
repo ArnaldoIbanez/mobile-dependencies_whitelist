@@ -49,6 +49,22 @@ trackTests {
          *       End: Consumers Public Landings
          ******************************************/
 
+        /***********************************************
+         *       Start: Consumers Intermediate Landing
+         ***********************************************/
+        //Intermediate Landing
+
+        //Page view
+        "/credits/consumer/opensea/intermediate_landing"(platform: "/mobile", type: TrackType.View) {}
+
+        //Events
+        "/credits/consumer/opensea/intermediate_landing/more_info"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/opensea/intermediate_landing/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+        /*********************************************
+         *       End: Consumers Intermediate Landing
+         *********************************************/
+
         /******************************************
          *       Start: Consumers Enrollment
          ******************************************/
@@ -63,6 +79,7 @@ trackTests {
         "/credits/consumer/payinstallment"(platform: "/web/mobile") {
             status = 'overdue'
         }
+        "/credits/consumer/breaking_landing"(platform: "/web/desktop") {}
 
         //Events
         "/credits/consumer/enrollment/sms_validation/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
@@ -84,7 +101,7 @@ trackTests {
             dashboard_status = 'empty_state'
         }
         "/credits/consumer/administrator/summary"(platform: "/mobile", type: TrackType.View) {
-            dashboard_status = 'empty_state'
+            summary_status = 'empty_state'
         }
 
         //Events
@@ -105,17 +122,40 @@ trackTests {
         "/credits/consumer/administrator/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/see_product"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/summary/payment_intention"(platform: "/mobile", type: TrackType.Event) {
-            dashboard_status = 'on_time'
+            summary_status = 'on_time'
         }
         "/credits/consumer/administrator/summary/cx_contact"(platform: "/mobile", type: TrackType.Event) {
-            dashboard_status = 'on_time'
+            summary_status = 'on_time'
         }
         "/credits/consumer/administrator/summary/go_shopping"(platform: "/mobile", type: TrackType.Event) {
-            dashboard_status = 'on_time'
+            summary_status = 'on_time'
         }
         "/credits/consumer/administrator/summary/get_help"(platform: "/mobile", type: TrackType.Event) {
-            dashboard_status = 'on_time'
+            summary_status = 'on_time'
         }
+        "/credits/consumer/administrator/summary/get_educative"(platform: "/mobile", type: TrackType.Event) {
+            summary_status = 'on_time'
+        }
+
+        //Admin Dashboard v2
+
+        //Views
+        "/credits/consumer/administrator_v2"(platform: "/web/desktop") {}
+        "/credits/consumer/administrator_v2/dashboard"(platform: "/web/desktop", type: TrackType.View) {
+            dashboard_status = 'overdue'
+        }
+
+        //Events
+        "/credits/consumer/administrator_v2/payment_intention_all"(platform: "/web/desktop", type: TrackType.Event) {
+            installments_qty = 3
+        }
+        "/credits/consumer/administrator_v2/details_button"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/choose_installments"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/help"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/contact_card"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/suggested_product"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/home"(platform: "/web/desktop", type: TrackType.Event) {}
 
         //Admin History (Compras Finalizadas)
 
@@ -126,6 +166,7 @@ trackTests {
         "/credits/consumer/administrator/history/details_button"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/history/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {
         }
+
 
         /******************************************
          *       End: Consumers Administrator
@@ -160,8 +201,28 @@ trackTests {
         }
 
         /******************************************
-         *       Start: Consumers Admin Detail
+         *       End: Consumers Admin Detail
          ******************************************/
+
+        /****************************************************
+         *       Start: Consumers Installment Selection Page
+         ****************************************************/
+
+        //Views
+        "/credits/consumer/administrator_v2/installment_selection"(platform: "/web/desktop", type: TrackType.View) {
+            page_status = 'overdue'
+        }
+
+        //Events
+        "/credits/consumer/administrator_v2/installment_selection/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            total_installments = 3
+            paid_installments = 2
+        }
+        "/credits/consumer/administrator_v2/installment_selection/back_to_dashboard"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        /****************************************************
+         *       End: Consumers Installment Selection Page
+         ****************************************************/
 
         /******************************************
          *       Start: Consumers Push
@@ -380,5 +441,30 @@ trackTests {
        /******************************************
         *    End: Consumers Enhance Adoption
         ******************************************/
+
+        /******************************************
+         *    Start: Consumers Experiments
+         ******************************************/
+
+        "/credits/consumer/notification"(platform: "/web/desktop") {}
+
+        "/credits/consumer/notification/new_channels_stimulous"(platform: "/web/mobile", type: TrackType.Event) {
+            milestone = -10
+            notification_type = "web"
+        }
+
+        "/credits/consumer/notification/new_channels_stimulous"(platform: "/web/desktop", type: TrackType.Event) {
+            milestone = 0
+            notification_type = "email"
+        }
+
+        "/credits/consumer/notification/new_channels_stimulous"(platform: "/", type: TrackType.Event) {
+            milestone = 45
+            notification_type = "wapp"
+        }
+
+        /******************************************
+         *   End: Consumers Experiments
+         ******************************************/
     }
 }

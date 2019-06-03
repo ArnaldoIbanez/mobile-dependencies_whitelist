@@ -179,6 +179,30 @@ trackTests {
             milestone_id = 'COBRANDED_REQUEST'
             family_id = 'cobranded'
         })
+        
+        "/loyalty/vip/modal"(platform: "/", type: TrackType.View, {
+            type = "buy_level"
+        })
+        
+        "/loyalty/vip/modal"(platform: "/", type: TrackType.View, {
+            type = "free_trial"
+        })
+
+        "/loyalty/vip/modal/action"(platform: "/", type: TrackType.View, {
+            type = "buy_level"
+        })
+        
+        "/loyalty/vip/modal/action"(platform: "/", type: TrackType.View, {
+            type = "free_trial"
+        })
+        
+        "/loyalty/vip/modal/action"(platform: "/", type: TrackType.View, {
+            type = "item"
+        })
+        
+        "/loyalty/vip/modal/action"(platform: "/", type: TrackType.View, {
+            type = "close"
+        })
 
         "/loyalty/milestones"(platform: "/", type: TrackType.View, loyaltyInfo)
     }
@@ -297,6 +321,22 @@ trackTests {
 
     }
 
+    test("Loyalty Free Trial Cancellation"){
+        "/loyalty/freetrial/cancellation/retention_landing"(platform: "/",type: TrackType.Event){
+        }
+        "/loyalty/freetrial/cancellation/not-applicable"(platform: "/",type: TrackType.Event){
+            reason = "already_cancelled"
+        }
+        "/loyalty/freetrial/cancellation/not-applicable"(platform: "/",type: TrackType.Event){
+            reason = "not_in_freetrial"
+        }
+        "/loyalty/freetrial/cancellation/reason_form"(platform: "/",type: TrackType.Event){
+        }
+
+        "/loyalty/freetrial/cancellation/congrats"(platform: "/",type: TrackType.Event){
+        }
+    }
+
     test("partners"){
         "/loyalty/subscribe"(platform: "/", type: TrackType.Event){
             partner_id = "megatlon"
@@ -333,6 +373,17 @@ trackTests {
 
     //  --------------------------------------------- Free-Trials ---------------------------------------------
 
+    test("Loyalty Free Trial Landing"){
+
+        "/loyalty/freetrial/landing"(platform: "/", type: TrackType.View) {
+        }
+
+
+        "/loyalty/freetrial/landing"(platform: "/", type: TrackType.View) {
+            origin = "email"
+        }
+    }
+
     test("Loyalty Free Trials Contention Screen"){
 
         "/loyalty/freetrial"(platform: "/",type: TrackType.View){
@@ -341,11 +392,19 @@ trackTests {
         "/loyalty/freetrial/contention"(platform: "/",type: TrackType.View){
         }
 
+        "/loyalty/freetrial/contention"(platform: "/",type: TrackType.View){
+            from = "primaryButton"
+        }
+
         "/loyalty/freetrial/contention/continue"(platform: "/",type: TrackType.Event){
         }
 
         "/loyalty/freetrial/contention/cancel"(platform: "/",type: TrackType.Event){
             type = "close"
+        }
+
+        "/loyalty/freetrial/contention/cancel"(platform: "/",type: TrackType.Event){
+            type = "dismiss"
         }
     }
 
@@ -354,7 +413,8 @@ trackTests {
         }
 
         "/loyalty/freetrial/cardselection/selected"(platform: "/",type: TrackType.Event){
-            selected = "cardName"
+            cardName = "mastercard"
+            cardPosition = 1
         }
 
         "/loyalty/freetrial/cardselection/continue"(platform: "/",type: TrackType.Event){
@@ -362,6 +422,18 @@ trackTests {
 
         "/loyalty/freetrial/cardselection/cancel"(platform: "/",type: TrackType.Event){
             type = "close"
+        }
+    }
+
+    test("Loyalty Free Trials Set Only CVV"){
+        "/loyalty/freetrial/cardselection/cvv"(platform: "/",type: TrackType.View){
+        }
+
+        "/loyalty/freetrial/cardselection/cvv/continue"(platform: "/",type: TrackType.Event){
+        }
+
+        "/loyalty/freetrial/cardselection/cvv/cancel"(platform: "/",type: TrackType.Event){
+            type = "dismiss"
         }
     }
 
@@ -456,6 +528,16 @@ trackTests {
 
         "/loyalty/freetrial/payment/error"(platform: "/",type: TrackType.Event){
             our_payment_error="Error msg"
+        }
+    }
+
+    test("Loyalty partners carousel location A/B test"){
+        "/loyalty/main/partners_landing"(platform: "/", type: TrackType.Event){
+            original_place = "keep"
+        }
+
+        "/loyalty/main/partners_landing"(platform: "/", type: TrackType.Event){
+            original_place = "move"
         }
     }
 }

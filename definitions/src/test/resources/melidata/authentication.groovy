@@ -111,10 +111,7 @@ trackTests {
         }
         "/login/auth/success"(platform: "/mobile", type: TrackType.Event) {
             challenge = "password"
-            is_otp = true
-            is_admin_otp = false
-            user_reg_date = "2018"
-            user_points = 100
+            tracking_id = "123"
         }
         "/login/auth/failure"(platform: "/web", type: TrackType.Event) {
             challenge = "user"
@@ -251,11 +248,15 @@ trackTests {
     }
 
     test("Account recovery flow") {
-        "/auth/account_recovery/canceled"(platform: "/web", type: TrackType.View) {
+        "/auth/account_recovery/recovery_confirmation"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
             is_webview = true
         }
         "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+            is_webview = true
+        }
+        "/auth/account_recovery/landing"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
             is_webview = true
         }
@@ -267,10 +268,16 @@ trackTests {
             id = "id--fury"
             is_webview = true
         }
-        "/auth/account_recovery/canceled/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/recovery_confirmation/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
-            target = "go_home_button"
+            target = "confirm_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/recovery_confirmation/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "cancel_button"
             is_webview = true
         }
         "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
@@ -279,28 +286,36 @@ trackTests {
             target = "go_home_button"
             is_webview = true
         }
-        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
-            target = "cancel_button"
+            target = "validate_identity_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
             is_webview = true
         }
         "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
-            target = "unlink_button"
-            is_webview = true
-        }
-        "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "cancel_button"
+            target = "continue_button"
             is_webview = true
         }
         "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
+            status_code = "429"
+            is_webview = true
+        }
+        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+            status_code = "403"
             is_webview = true
         }
     }
@@ -388,6 +403,7 @@ trackTests {
         }
         "/login/auth/challenge/restart"(platform: "/mobile", type: TrackType.Event) {
             challenge = "enter_password"
+            tracking_id = "123"
         }
     }
 
@@ -435,6 +451,34 @@ trackTests {
         "/auth/authentication_methods/password/change"(platform: "/", type: TrackType.Event) {
             redirect_url = "https://accountrecovery.mercadolibre.com.ar/collect/userInfo"
             device_profile_id = "abc-123-def-456"
+        }
+    }
+
+    test("Device Attestation"){
+        "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
+            mode = "prefetch_only"
+        }
+
+        "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/request"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/created"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/reuse"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/expired"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/signature/fail"(platform: "/mobile", type: TrackType.Event) {
+            reason = "quota exceeded"
+        }
+
+        "/auth/attestation/nonce/request"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/nonce/created"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/auth/attestation/nonce/fail"(platform: "/mobile", type: TrackType.Event) {
+            reason = "missing vendor"
         }
     }
 

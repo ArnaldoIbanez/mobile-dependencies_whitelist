@@ -119,6 +119,8 @@ trackTests {
             user_identification = ["doc_type", "doc_number"]
             available_methods = ["visa", "master", "amex"]
             nearest_store_distance = 250000
+            stored_cards_quantity = 3
+            checkout_flow_reason = "default_case"
         }
 
         "/cart/checkout/review/edit_installments"(platform:"/", type: TrackType.Event) {
@@ -147,7 +149,7 @@ trackTests {
         "/cart/checkout/payment/view_location/location"(platform:"/", dataSet)
         "/cart/checkout/payment/view_location/preloaded"(platform:"/", dataSet)
         "/cart/checkout/payment/input_card"(platform:"/", dataSet)
-        "/cart/checkout/payment/input_card#card_config"(platform:"/") {
+        "/cart/checkout/payment/input_card#card_config"(platform:"/web") {
             dataSet()
             bin = "1234"
             success = true
@@ -256,12 +258,19 @@ trackTests {
             session_id = "98f8v98au0af9af0af"
         }
         "/cart/checkout/shipping/select_option"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/select_method_ask_geolocation"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/select_method_ask_geolocation"(platform:"/mobile") {
+            dataSet()
+            selections = ["free_shipping", "me2"]
+        }
         "/cart/checkout/shipping/input_zipcode"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/mobile", type:TrackType.Event) {
             session_id = "98f8v98au0af9af0af"
         }
         "/cart/checkout/shipping/input_address"(platform:"/mobile") {
+            dataSet()
+            edit_flow = false
+        }
+        "/cart/checkout/shipping/input_address/back"(platform:"/mobile", type:TrackType.Event) {
             dataSet()
             edit_flow = false
         }
@@ -352,6 +361,12 @@ trackTests {
         }
 
         //Payment form input tack events:
+        "/cart/checkout/payment/input_card#card_config"(platform:"/mobile", type: TrackType.Event){
+            bin = "123456"
+            success = true
+            session_id = "1241n1kj2nk14141nl12nl"
+        }
+
         "/cart/checkout/payment/input_card/card_number"(platform:"/mobile", type: TrackType.Event){
             session_id = "1241n1kj2nk14141nl12nl"
         }

@@ -48,6 +48,10 @@ trackTests {
 
         "/home/scroll"(platform: "/mobile") {}
 
+        "/home/page"(platform: "/mobile") {
+            page_number = 2
+        }
+
         "/home/scroll/failure"(platform: "/mobile") {}
 
         "/home/scroll/abort"(platform: "/mobile") {}
@@ -63,6 +67,9 @@ trackTests {
         "/home/carousel/lastcard"(platform: "/mobile") {}
     }
 
+    test("Home Categories Listing") {
+        "/home/categories"(platform: "/", type: TrackType.View) {}
+    }
 
     test("Home Category Tracking") {
         "/home/category"(platform: "/web") {

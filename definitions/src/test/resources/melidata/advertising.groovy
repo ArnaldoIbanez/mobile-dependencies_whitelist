@@ -71,12 +71,32 @@ trackTests {
             budget = 500
         }
 
+        "/advertising/pads2/landing/main_action"(platform: "/web", type: TrackType.Event) {
+            button = "top"
+            free_trial_ad = true
+            budget = 500
+            id = "adq_pads"
+            position = "home_desktop"
+        }
+
+        "/advertising/pads2/landing/from_main_slider"(platform: "/web", type: TrackType.Event) {
+            id = "adq_pads"
+            position = "home_desktop"
+        }
+
         "/advertising/pads2/landing/contract_confirmation"(platform: "/web", type: TrackType.View) {
             free_trial_ad = true
         }
         "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/web", type: TrackType.Event) {
             budget = "22.22"
             free_trial_ad = true
+        }
+
+        "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/web", type: TrackType.Event) {
+            budget = "22.22"
+            free_trial_ad = true
+            id = "adq_pads"
+            position = "home_desktop"
         }
 
         "/advertising/pads2/landing/contract_confirmation/change_budget"(platform: "/web", type: TrackType.Event) {

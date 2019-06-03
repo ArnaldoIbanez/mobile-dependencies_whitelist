@@ -358,6 +358,7 @@ trackTests {
                             free_shipping: false
                     ]
             ]
+            view_type = "grouped"
         }
         "/checkout/shipping/select_option/free_shipping"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -370,6 +371,7 @@ trackTests {
                             free_shipping: true
                     ]
             ]
+            view_type = "grouped"
         }
         "/checkout/shipping/select_option/custom"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -382,6 +384,7 @@ trackTests {
                             free_shipping: false
                     ]
             ]
+            view_type = "grouped"
         }
         "/checkout/shipping/select_contact"(platform:"/mobile", type:TrackType.Event) {
             is_from_preload_address = true
@@ -713,6 +716,16 @@ trackTests {
                     ]
             ]
         }
+        "/checkout/payment/consumer_credits/installments/back"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+            available_installments = [
+                    [
+                            installment: 1,
+                            amount: 20.6,
+                            without_fee: true
+                    ]
+            ]
+        }
         "/checkout/payment/payment_combination/debit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
@@ -746,6 +759,12 @@ trackTests {
         }
 
         "/checkout/payment/select_type"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            available_methods = ["visa", "master", "amex", "cash"]
+            coupon = true
+            coupon_discount = 20
+        }
+        "/checkout/payment/select_type/back"(platform:"/mobile", type:TrackType.Event) {
             checkoutStatus()
             available_methods = ["visa", "master", "amex", "cash"]
             coupon = true
@@ -897,6 +916,12 @@ trackTests {
         }
 
         "/checkout/finish/invalid_sec_code/input#submit"(platform:"/mobile", type:TrackType.Event) { }
+
+        "/checkout/features/bridge"(platform:"/mobile", type:TrackType.Event) {
+            is_experiment_on = true
+            can_navigate_to = false
+            screen = "MapScreen"
+        }
 
         "/checkout/finish/choose_action"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -1998,6 +2023,8 @@ trackTests {
             nearest_store_distance = 250000
             checkout_flow = "direct"
             flow_type = "buy_it_now"
+            stored_cards_quantity = 3
+            checkout_flow_reason = "default_case"
         }
 
         "/checkout/geolocation"(platform:"/web", type: TrackType.Event) {

@@ -65,6 +65,12 @@ trackTests {
         "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
             type = "task"
             id = "MODIFY"
+            action = "show"
+        }
+        "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
+            type = "task"
+            id = "LOW_HEALTH"
+            action = "edit"
         }
         "/seller_central/listings/communication/more_info"(platform: "/mobile", type: TrackType.Event) {
             type = "news"
@@ -82,37 +88,41 @@ trackTests {
             reputation_level="yellow"
         }
         "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-            type = "news"           
+            type = "news"
             placement = "publicidad-banner"
             reputation_level="yellow"
         }
         "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-            type = "news"           
+            type = "news"
             placement = "publicidad-banner"
             reputation_level="yellow"
         }
          "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-            type = "news"           
+            type = "news"
             placement = "publicidad-banner"
             adv_segmentation = "winback"
         }
         "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-            type = "news"           
+            type = "news"
             placement = "publicidad-banner"
             adv_segmentation = "winback"
         }
          "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-            type = "news"           
+            type = "news"
             placement = "publicidad-banner"
         }
         "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-            type = "news"           
+            type = "news"
             placement = "publicidad-banner"
         }
     }
 
     test("seller central list to bulk editor") {
         "/seller_central/listings/editor"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("seller central show help me modal") {
+        "/seller_central/listings/helpme"(platform: "/", type: TrackType.Event) {}
     }
 
     test("seller central listing preferences") {
@@ -199,7 +209,7 @@ trackTests {
         "/seller_central/bulk/offline/download/error"(platform: "/", type: TrackType.Event) {}
     }
 
-//------------------------------------------------------------------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central Bulk - DISCOUNTS version
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -244,6 +254,7 @@ trackTests {
     test("seller central bulk save") {
         "/seller_central/bulk/discounts/save"(platform: "/", type: TrackType.Event) {}
     }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central Offline - DISCOUNTS version
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -283,61 +294,175 @@ trackTests {
 
     test("seller central render detail"){
         "/seller_central/modify/detail"(platform: "/", type: TrackType.View){
+            item_type = "default"
             category_id = "MLA390784"
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
             category_domain = "MLA-FRAGRANCES"
             category_path = ["MLA1234", "MLA12345"]
             seller_profile = "ADVANCED"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
         }
     }
 
     test("seller central render variations"){
         "/seller_central/modify/variations"(platform: "/", type: TrackType.View){
+            item_type = "default"
             category_id = "MLA390784"
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
             category_domain = "MLA-FRAGRANCES"
             category_path = ["MLA1234", "MLA12345"]
             seller_profile = "ADVANCED"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
         }
     }
 
     test("seller central render custom variations"){
         "/seller_central/modify/variations_custom"(platform: "/", type: TrackType.View){
+            item_type = "default"
             category_id = "MLA390784"
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
             category_domain = "MLA-FRAGRANCES"
             category_path = ["MLA1234", "MLA12345"]
             seller_profile = "ADVANCED"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
         }
     }
 
     test("seller central render listing_type"){
         "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View){
+            item_type = "default"
             category_id = "MLA390784"
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
             category_domain = "MLA-FRAGRANCES"
             category_path = ["MLA1234", "MLA12345"]
             seller_profile = "ADVANCED"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
+        }
+    }
+
+    test("seller central price value updated"){
+        "/seller_central/modify/update_price"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            from = "1200"
+            to = "1500"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
+        }
+    }
+
+    test("seller central quantity value updated"){
+        "/seller_central/modify/update_quantity"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            from = "3"
+            to = "4"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
+        }
+    }
+
+    test("seller central local pickup value updated"){
+        "/seller_central/modify/update_localpickup_options"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            from = "NO"
+            to = "SI"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
+        }
+    }
+
+    test("seller central warranty value updated"){
+        "/seller_central/modify/update_warranty"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            from = "WARRANTY_TYPE 6150835"
+            to = "WARRANTY_TYPE 2230280"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
         }
     }
 
     test("seller central listing type value updated"){
         "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event){
+            item_type = "product"
             category_id = "MLA390784"
             item_id = "MLA682118081"
             session_id = "123-update-abc123"
             seller_profile = "ADVANCED"
             from = "gold_special"
             to = "gold_pro"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
+        }
+    }
+
+    test("seller central flex value updated"){
+        "/seller_central/modify/update_shipping_flex"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            from = "true"
+            to = "false"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
+        }
+    }
+
+    test("seller central item condition value updated"){
+        "/seller_central/modify/update_item_condition"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            from = "new"
+            to = "used"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
+        }
+    }
+
+    test("seller central item size_chart value updated"){
+        "/seller_central/modify/update_size_chart"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            from = "-1"
+            to = "6270"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
         }
     }
 
     test("seller central track to measure health changes"){
         "/seller_central/modify/success"(platform: "/web", type: TrackType.Event){
+            item_type = "default"
             item_id = "MLA12345"
             session_id = "123-update-abc123"
             goals_achieved = ["mercado_envios"]
@@ -362,12 +487,25 @@ trackTests {
         }
     }
 
+    test("seller central flex subflow"){
+        "/seller_central/modify/optin_flex_subflow"(platform: "/", type: TrackType.View){
+            item_type = "default"
+            category_id = "MLA12812"
+            item_id = "MLA776923789"
+            session_id = "416163910-update-79c25d849574"
+            seller_profile = "NEWBIE"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
+        }
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central Structured Data
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     test("structured data hint available"){
         "/seller_central/modify/technical_specifications/hints/available"(platform: "/", type: TrackType.Event){
+            item_type = "default"
             type = "actionable"
             attribute = "BRAND"
             category_domain= "MLA-CAMERAS"
@@ -379,6 +517,7 @@ trackTests {
 
     test("structured data hint showed"){
         "/seller_central/modify/technical_specifications/hints/showed"(platform: "/", type: TrackType.Event){
+            item_type = "default"
             type = "info"
             attribute = "BRAND"
             category_domain= "MLA-CAMERAS"
@@ -390,6 +529,7 @@ trackTests {
 
     test("structured data hint completed"){
         "/seller_central/modify/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event){
+            item_type = "default"
             type = "actionable"
             user_action = "click"
             attribute = "BRAND"
@@ -432,6 +572,40 @@ trackTests {
             item_id= "MLA682118081"
             session_id = "123-update-abc123"
             hint_id = "REPEATED_ATTRIBUTE"
+        }
+    }
+
+    test("structured data multivalue"){
+        "/seller_central/modify/technical_specifications/multivalue"(platform: "/", type: TrackType.Event){
+            item_type = "default"
+            quantity = 3
+            previous_quantity = 0
+            category_domain = "MLA-SHORTS"
+            hierarchy = "PRODUCT_IDENTIFIER"
+            item_id= "MLA682118081"
+            session_id = "123-update-abc123"
+            attribute= "BRAND"
+        }
+    }
+
+    test("structured data suggested values"){
+        "/seller_central/modify/technical_specifications/suggested"(platform: "/", type: TrackType.Event){
+            item_type = "default"
+            type = "dynamic"
+            category_domain = "MLA-CAMERAS"
+            item_id= "MLA682118081"
+            session_id = "123-update-abc123"
+            hierarchy = "PRODUCT_IDENTIFIER"
+            attribute = "BRAND"
+        }
+    }
+
+    test("structured data change category"){
+        "/seller_central/modify/update_change_category"(platform: "/", type: TrackType.Event){
+            item_type = "default"
+            category_domain = "MLA-CAMERAS"
+            item_id= "MLA682118081"
+            session_id = "123-update-abc123"
         }
     }
 
@@ -478,20 +652,172 @@ trackTests {
         "/seller_central/sales/list"(platform: "/", type: TrackType.View) {}
     }
 
+    test("seller central sales onboarding action") {
+        "/seller_central/sales/list/onboarding/action"(platform: "/", type: TrackType.Event) {
+            id = "start"
+            page = 1
+        }
+        "/seller_central/sales/list/onboarding/action"(platform: "/", type: TrackType.Event) {
+            id = "dismiss"
+            page = 2
+        }
+        "/seller_central/sales/list/onboarding/action"(platform: "/", type: TrackType.Event) {
+            id = "close"
+            page = 3
+        }
+    }
+
+    test("seller central sales search") {
+        "/seller_central/sales/list/search"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("seller central sales pagination") {
+        "/seller_central/sales/list/pagination"(platform: "/web", type: TrackType.Event) {
+            page = 2
+            total = 10
+        }
+    }
+
+    test("seller central sales list action modal open") {
+        "/seller_central/sales/list/modal_action/open"(platform: "/web", type: TrackType.Event) {
+            id = "action_modal_id"
+        }
+    }
+
+    test("seller central sales list action modal close") {
+        "/seller_central/sales/list/modal_action/close"(platform: "/web", type: TrackType.Event) {
+            id = "action_modal_id"
+        }
+    }
+
+    test("seller central sales list action modal apply") {
+        "/seller_central/sales/list/modal_action/apply"(platform: "/web", type: TrackType.Event) {
+            id = "action_modal_id"
+            option = "option_id"
+        }
+    }
+
+    test("seller central sales web dashboard open") {
+        "/seller_central/sales/list/dashboard/open"(platform: "/web", type: TrackType.Event) {
+            substates = ["card_id_1", "card_id_2"]
+        }
+    }
+
+    test("seller central sales mobile dashboard open") {
+        "/seller_central/sales/list/dashboard/open"(platform: "/mobile", type: TrackType.Event) {
+            state = "state_id"
+            substates = ["card_id_1", "card_id_2"]
+        }
+    }
+
+    test("seller central sales dashboard close") {
+        "/seller_central/sales/list/dashboard/close"(platform: "/web", type: TrackType.Event) {}
+    }
+
+    test("seller central sales dashboard task") {
+        "/seller_central/sales/list/dashboard/apply"(platform: "/", type: TrackType.Event) {
+            state = "column_id"
+            substate = "card_id"
+            count = 5
+        }
+    }
+
+    test("seller central sales list filters view") {
+        "/seller_central/sales/list/filters"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("seller central sales filters open") {
+        "/seller_central/sales/list/filters/open"(platform: "/web", type: TrackType.Event) {}
+    }
+
+    test("seller central sales filters action") {
+        "/seller_central/sales/list/filters/action"(platform: "/", type: TrackType.Event) {
+            id = "apply"
+            filters = ["filter_id_1", "filter_id_2"]
+            sort = "ASC"
+        }
+        "/seller_central/sales/list/filters/action"(platform: "/", type: TrackType.Event) {
+            id = "clear"
+            filters = ["filter_id_1", "filter_id_2"]
+            sort = "DESC"
+        }
+    }
+
+    test("seller central sales massive action") {
+        "/seller_central/sales/list/massive"(platform: "/web", type: TrackType.Event) {
+            id = "massive_action_id"
+            count = 20
+        }
+    }
+
+    test("seller central sales row open") {
+        "/seller_central/sales/list/row/open"(platform: "/web", type: TrackType.Event) {}
+    }
+
+    test("seller central sales list primary action show") {
+        "/seller_central/sales/list/action/primary/show"(platform: "/web", type: TrackType.Event) {
+            id = "action_id"
+        }
+    }
+
+    test("seller central sales list primary action") {
+        "/seller_central/sales/list/action/primary"(platform: "/web", type: TrackType.Event) {
+            id = "action_id"
+        }
+    }
+
+    test("seller central sales list secondary secondary") {
+        "/seller_central/sales/list/action/secondary"(platform: "/web", type: TrackType.Event) {
+            id = "action_id"
+        }
+    }
+
     test("seller central sales detail view") {
         "/seller_central/sales/detail"(platform: "/", type: TrackType.View) {}
     }
 
-    test("seller central sales dashboard tasks") {
-        "/seller_central/sales/list/dashboard/tasks"(platform: "/", type: TrackType.Event) {
-            tasks = ["ready", "print"]
+    test("seller central sales detail row close") {
+        "/seller_central/sales/detail/row/close"(platform: "/web", type: TrackType.Event) {}
+    }
+
+    test("seller central sales detail primary action show") {
+        "/seller_central/sales/detail/action/primary/show"(platform: "/web", type: TrackType.Event) {
+            id = "action_id"
         }
     }
 
-    test("seller central sales dashboard task") {
-        "/seller_central/sales/list/dashboard/task"(platform: "/", type: TrackType.Event) {
-            id = "prepare"
+    test("seller central sales detail primary action") {
+        "/seller_central/sales/detail/action/primary"(platform: "/web", type: TrackType.Event) {
+            id = "action_id"
         }
     }
 
+    test("seller central sales detail secondary action") {
+        "/seller_central/sales/detail/action/secondary"(platform: "/web", type: TrackType.Event) {
+            id = "action_id"
+        }
+    }
+
+    test("seller central sales print action") {
+        "/seller_central/sales/detail/action/print"(platform: "/web", type: TrackType.Event) {}
+    }
+
+    test("seller central sales detail action modal open") {
+        "/seller_central/sales/detail/modal_action/open"(platform: "/web", type: TrackType.Event) {
+            id = "action_modal_id"
+        }
+    }
+
+    test("seller central sales detail action modal close") {
+        "/seller_central/sales/detail/modal_action/close"(platform: "/web", type: TrackType.Event) {
+            id = "action_modal_id"
+        }
+    }
+
+    test("seller central sales detail action modal apply") {
+        "/seller_central/sales/detail/modal_action/apply"(platform: "/web", type: TrackType.Event) {
+            id = "action_modal_id"
+            option = "option_id"
+        }
+    }
 }

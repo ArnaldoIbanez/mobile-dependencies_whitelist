@@ -1,6 +1,7 @@
 package src.main.resources.catalog.shipping
 
 import com.ml.melidata.catalog.PropertyType
+
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
@@ -52,24 +53,34 @@ tracks {
     "/"(platform: "/api") {}
 
     "/notifications"(platform: "/api") {
+    }
+
+    "/tracking"(platform: "/api") {
+    }
+
+    "/tracking/adapters"(platform: "/api") {
+    }
+
+    "/notifications/tracking"(platform: "/api") {
         notification(type: PropertyType.Map(notification_definition), required: true, description: "Carrier notification")
         shipment_id(type: PropertyType.Numeric, required: true)
     }
 
-    "/notifications/error"(platform: "/api") {
-        response(type: PropertyType.String, required: true, description: "Response to carrier in case of error")
-        status(type: PropertyType.Numeric, required: true, description: "Error code")
-    }
-
-    "/notifications/received"(platform: "/api") {
+    "/notifications/tracking/received"(platform: "/api") {
         notification_id(type: PropertyType.String, required: true, description: "Notification id")
         status(type: PropertyType.Numeric, required: true, description: "Error code")
+        client_id(type: PropertyType.Numeric, required: true, description: "Carrier client id")
     }
 
-    "/notifications/validated"(platform: "/api") {
+    "/notifications/tracking/validated"(platform: "/api") {
     }
 
-    "/notifications/event_processing"(platform: "/api") {
+    "/tracking/adapters/validations"(platform: "/api") {
+        validation_type(type: PropertyType.String, required: true, description: "Pull consumer validation type")
+        shipment_data(required: true, description: "Data sent by the carrier into their pull tracking response")
+    }
+
+    "/notifications/tracking/event_processing"(platform: "/api") {
         action_params(type: PropertyType.Map(action_params_definition), required: true)
         carrier_id(type: PropertyType.Numeric, required: true)
         configuration_filters(type: PropertyType.ArrayList(PropertyType.Map(configuration_filters_definition)), required: true)

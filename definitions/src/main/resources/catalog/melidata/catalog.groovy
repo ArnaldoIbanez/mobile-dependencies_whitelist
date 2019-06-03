@@ -24,7 +24,14 @@ catalog {
             "/email"
     ]
 
-    platformsExperiments = [
+    abPlatforms = [
+            "/web/desktop",
+            "/web/mobile",
+            "/mobile/android",
+            "/mobile/ios"
+    ]
+
+    abPlatformsSubscriptions = [
             "/",
             "/web",
             "/web/desktop",
@@ -32,23 +39,8 @@ catalog {
             "/mobile",
             "/mobile/android",
             "/mobile/ios",
-            "/email",
-            "/multiplatform"
     ]
 
-    platformsTracking = [
-            "/web/desktop",
-            "/web/desktop/forced",
-            "/web/desktop/static",
-            "/web/mobile",
-            "/web/mobile/forced",
-            "/web/mobile/static",
-            "/mobile",
-            "/mobile/android",
-            "/mobile/ios",
-            "/email",
-            "/unknown"
-    ]
 
 
     def marketplace = [
@@ -88,6 +80,9 @@ catalog {
         include business, "security_settings.groovy"
         include business, "mgm.groovy"
         include business, "mediations.groovy"
+        include business, "esc_manager.groovy"
+        include business, "traffic.groovy"
+        include business, "coupon.groovy"
     }
 
     marketplace.each { business ->
@@ -143,11 +138,16 @@ catalog {
         include business, "full.groovy"
         include business, "dynamic_links.groovy"
         include business, "sube_recharge.groovy"
+        include business, "myaccount_billing.groovy"
+        include business, "asset_management.groovy"
+        include business, "remedy.groovy"
+        include business, "pdp.groovy"
     }
 
     mercadopago.each { business ->
         include business, "activities.groovy"
         include business, "account_fund.groovy"
+        include business, "bulk_payments.groovy"
         include business, "mercadopago.groovy"
         include business, "checkoutOff.groovy"
         include business, "credits_mercadopago.groovy"
@@ -161,7 +161,9 @@ catalog {
         include business, "single_player.groovy"
         include business, "instore.groovy"
         include business, "sube_recharge.groovy"
-
+        include business, "transport.groovy"
+        include business, "remedy.groovy"
+        include business, "front_core.groovy"
     }
 
     mercadoshops.each { business ->
@@ -173,5 +175,6 @@ catalog {
         include business, "flex.groovy"
         include business, "full.groovy"
         include business, "wms.groovy"
+        include business, "logistics.groovy"
     }
 }
