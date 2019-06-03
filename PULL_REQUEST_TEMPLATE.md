@@ -35,4 +35,4 @@ Passing SLA validation is not a justification for building bad-tracking. Remembe
 
 
 ## For more info...  
-... you can read our [new-Track guide](https://github.com/mercadolibre/melidata-catalog/wiki/New-Track) and also check our [Tracking style Guide](https://github.com/mercadolibre/melidata-catalog/wiki/Tracking-Style-Guide) 
+... you can read our [New-Track Guide](https://github.com/mercadolibre/melidata-catalog/wiki/New-Track) and also check our [Tracking Style Guide](https://github.com/mercadolibre/melidata-catalog/wiki/Tracking-Style-Guide) 
