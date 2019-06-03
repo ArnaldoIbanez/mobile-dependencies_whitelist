@@ -443,6 +443,79 @@ trackTests {
         ******************************************/
 
         /******************************************
+         *   Start: Personal Loans Adoption
+         ******************************************/
+
+        "/credits/consumer/administrator/summary/go_personal_loan"(platform: "/", type: TrackType.Event) {
+            summary_status = "on_time"
+        }
+
+        "/credits/consumer/personal"(platform: "/", type: TrackType.View) {
+        }
+
+        "/credits/consumer/personal/adoption"(platform: "/", type: TrackType.View) {
+            prepaid = true
+        }
+
+        "/credits/consumer/personal/adoption/onboarding"(platform: "/", type: TrackType.View) {
+            prepaid = false
+            page = 1
+        }
+
+        "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/", type: TrackType.Event) {
+            prepaid = false
+            page = 4
+        }
+
+        "/credits/consumer/personal/adoption/onboarding/close"(platform: "/", type: TrackType.Event) {
+            prepaid = true
+        }
+
+        "/credits/consumer/personal/adoption/simulator"(platform: "/", type: TrackType.View) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review"(platform: "/", type: TrackType.View) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review/general_terms"(platform: "/", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review/particular_terms"(platform: "/", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review/above_confirm"(platform: "/", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review/below_confirm"(platform: "/", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/congrats"(platform: "/", type: TrackType.View) {
+            status = 'no_prepaid'
+        }
+
+        "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/", type: TrackType.Event) {
+            status = 'prepaid_enabled'
+        }
+
+        "/credits/consumer/personal/adoption/congrats/go_prepaid"(platform: "/", type: TrackType.Event) {
+            status = 'prepaid_disabled'
+        }
+        
+        /******************************************
+         *   End: Personal Loans Adoption
+         ******************************************/
+
+        /******************************************
          *    Start: Consumers Experiments
          ******************************************/
 

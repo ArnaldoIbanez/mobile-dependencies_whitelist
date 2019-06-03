@@ -135,6 +135,9 @@ tracks {
     "/credits/consumer/administrator/summary/get_help"(platform: "/", type: TrackType.Event) {
         summary_status(description: "Current status of the loan summary", type: PropertyType.String, required: false, values: ["empty_state", "on_time", "overdue"])
     }
+    "/credits/consumer/administrator/summary/go_personal_loan"(platform: "/", type: TrackType.Event) {
+        summary_status(description: "Current status of the loan summary", type: PropertyType.String, required: false, values: ["empty_state", "on_time", "overdue"])
+    }
     "/credits/consumer/administrator/summary/get_educative"(platform: "/", type: TrackType.Event) {
     }
 
@@ -537,6 +540,52 @@ tracks {
 
     /******************************************
      *    End: Consumers Enhance Adoption
+     ******************************************/
+
+    /******************************************
+     *   Start: Personal Loans Adoption
+     ******************************************/
+    "/credits/consumer/personal"(platform: "/", type: TrackType.View) {}
+
+    "/credits/consumer/personal/adoption"(platform: "/", type: TrackType.View) {
+        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: true)
+    }
+
+    "/credits/consumer/personal/adoption/onboarding"(platform: "/", type: TrackType.View) {
+        page(description: "Onboarding page number", type: PropertyType.Numeric, required: true)
+    }
+
+    "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/consumer/personal/adoption/onboarding/close"(platform: "/", type: TrackType.Event) {
+        page(description: "Onboarding page number", type: PropertyType.Numeric, required: false)
+    }
+
+    "/credits/consumer/personal/adoption/simulator"(platform: "/", type: TrackType.View) {}
+
+    "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/consumer/personal/adoption/review"(platform: "/", type: TrackType.View) {}
+
+    "/credits/consumer/personal/adoption/review/general_terms"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/consumer/personal/adoption/review/particular_terms"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/consumer/personal/adoption/review/above_confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/consumer/personal/adoption/review/below_confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/consumer/personal/adoption/congrats"(platform: "/", type: TrackType.View) {
+        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
+        status(description: "Status of the user prepaid", type: PropertyType.String, required: true, values: ["no_prepaid", "prepaid_enabled", "prepaid_disabled"])
+    }
+
+    "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/consumer/personal/adoption/congrats/go_prepaid"(platform: "/", type: TrackType.Event) {}
+
+    /******************************************
+     *   End: Personal Loans Adoption
      ******************************************/
 
     /******************************************
