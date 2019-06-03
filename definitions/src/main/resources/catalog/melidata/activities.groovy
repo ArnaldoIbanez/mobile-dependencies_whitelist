@@ -57,7 +57,16 @@ tracks {
     "/listing/activities/detail/user_info" (platform: "/mobile", type: TrackType.View) {}
     "/listing/activities/detail/shipping" (platform: "/mobile", type: TrackType.View) {}
     "/listing/activities/detail/web_view" (platform: "/mobile", type: TrackType.View) {
-        url(required: true, PropertyType.String, description: "The url that will load the webview")
+        url(required: true, type: PropertyType.String, description: "The url that will load the webview")
+    }
+
+    "/listing/activities/real_time" (platform: "/mobile", isAbstract: true) {}
+    "/listing/activities/real_time/total" (platform: "/mobile", type: TrackType.View) {
+        activity_id(required: true, type: PropertyType.String, description: "The id's activity")
+        date_created(required: true, type: PropertyType.String, description: "The date it was created")
+    }
+    "/listing/activities/real_time/push" (platform: "/mobile", type: TrackType.View) {
+        total(required: true, type: PropertyType.Numeric, description: "Total realtime activities pushed")
     }
     
 }

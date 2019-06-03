@@ -31,4 +31,18 @@ tracks {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
     }
 
+    "/wallet/home/show/banking" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        collapsed(required: true, type: PropertyType.Boolean, description: "If banking is collapsed")
+    }
+
+    "/wallet/home/banking" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet/home/banking/initial_state" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        collapsed(required: true, type: PropertyType.Boolean, description: "If banking is collapsed")
+    }
+
+    "/wallet/home/banking/collapse" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet/home/banking/expand" (platform: "/mobile", type: TrackType.Event) {}
+
 }
