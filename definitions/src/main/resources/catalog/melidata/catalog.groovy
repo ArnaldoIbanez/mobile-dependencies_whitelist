@@ -141,11 +141,13 @@ catalog {
         include business, "myaccount_billing.groovy"
         include business, "asset_management.groovy"
         include business, "remedy.groovy"
+        include business, "pdp.groovy"
     }
 
     mercadopago.each { business ->
         include business, "activities.groovy"
         include business, "account_fund.groovy"
+        include business, "bulk_payments.groovy"
         include business, "mercadopago.groovy"
         include business, "checkoutOff.groovy"
         include business, "credits_mercadopago.groovy"
@@ -162,6 +164,7 @@ catalog {
         include business, "transport.groovy"
         include business, "remedy.groovy"
         include business, "digital_account.groovy"
+        include business, "front_core.groovy"
     }
 
     mercadoshops.each { business ->

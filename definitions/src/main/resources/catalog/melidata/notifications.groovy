@@ -208,6 +208,7 @@ tracks {
         batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        hash(required: false, type: PropertyType.String, description: "Hash of the message in claim check.")
     }
     "/notification_center/compliance_support-validations"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
@@ -900,6 +901,7 @@ tracks {
           test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+          hash(required: false, type: PropertyType.String, description: "Hash of the message in claim check.")
       }
 
       "/notification/campaigns_control_group"(platform: "/") {
