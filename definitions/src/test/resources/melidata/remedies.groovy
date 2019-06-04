@@ -109,6 +109,42 @@ trackTests {
         "/remedies/activity/picture_confirmation"(platform: "/mobile/android") {}
     }
 
+    test("Remedies web") {
+        "/remedies/landing"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+        }
+        "/remedies/phone_landing"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+        }
+        "/remedies/phone_validation"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+        }
+        "/remedies/documentation_front"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+        }
+        "/remedies/documentation_back"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+        }
+        "/remedies/documentation_number"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+        }
+        "/remedies/selfie"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+        }
+        "/remedies/congrats"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+            congrats_type = "warning"
+        }
+        "/remedies/continue_phone_landing"(platform: "/web/desktop") {
+            flow = "ss_approve_iv_selfie"
+            challenge = "documentation"
+        }
+        "/remedies/continue_phone_congrats"(platform: "/web/desktop") {
+            flow = "ss_approve_iv_selfie"
+            challenge = "documentation"
+        }
+    }
+
     defaultBusiness = "mercadopago"
 
     test("Remedies mobile android") {
@@ -211,6 +247,42 @@ trackTests {
         "/remedies/activity/documentation_number"(platform: "/mobile/android") {}
         "/remedies/activity/custom_camera"(platform: "/mobile/android") {}
         "/remedies/activity/picture_confirmation"(platform: "/mobile/android") {}
+    }
+
+    test("Remedies web") {
+        "/remedies/landing"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+        }
+        "/remedies/phone_landing"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+        }
+        "/remedies/phone_validation"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+        }
+        "/remedies/documentation_front"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+        }
+        "/remedies/documentation_back"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+        }
+        "/remedies/documentation_number"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+        }
+        "/remedies/selfie"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+        }
+        "/remedies/congrats"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+            congrats_type = "warning"
+        }
+        "/remedies/continue_phone_landing"(platform: "/web/desktop") {
+            flow = "ss_approve_iv_selfie"
+            challenge = "documentation"
+        }
+        "/remedies/continue_phone_congrats"(platform: "/web/desktop") {
+            flow = "ss_approve_iv_selfie"
+            challenge = "documentation"
+        }
     }
 
 }
