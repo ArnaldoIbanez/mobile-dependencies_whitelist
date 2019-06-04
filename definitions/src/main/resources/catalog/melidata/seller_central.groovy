@@ -53,8 +53,8 @@ tracks {
     }
 
     propertyGroups {
-        sellerCentralModifyGroup(item_id, session_id)
-        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, item_type)
+        sellerCentralModifyGroup(item_id, session_id, item_type)
+        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup)
         sellerCentralModifyGroupTableForPdp(comparison_table, competition_status, new_competition_status)
         sellerCentralModifyCardsGroupValue(to, from)
         sellerCentralSettingsGroup(seller_profile, reputation_level)

@@ -470,6 +470,7 @@ trackTests {
 
     test("seller central track to measure health changes"){
         "/seller_central/modify/success"(platform: "/web", type: TrackType.Event){
+            item_type = "default"
             item_id = "MLA12345"
             session_id = "123-update-abc123"
             goals_achieved = ["mercado_envios"]
@@ -512,6 +513,7 @@ trackTests {
 
     test("structured data hint available"){
         "/seller_central/modify/technical_specifications/hints/available"(platform: "/", type: TrackType.Event){
+            item_type = "default"
             type = "actionable"
             attribute = "BRAND"
             category_domain= "MLA-CAMERAS"
@@ -523,6 +525,7 @@ trackTests {
 
     test("structured data hint showed"){
         "/seller_central/modify/technical_specifications/hints/showed"(platform: "/", type: TrackType.Event){
+            item_type = "default"
             type = "info"
             attribute = "BRAND"
             category_domain= "MLA-CAMERAS"
@@ -534,6 +537,7 @@ trackTests {
 
     test("structured data hint completed"){
         "/seller_central/modify/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event){
+            item_type = "default"
             type = "actionable"
             user_action = "click"
             attribute = "BRAND"
@@ -581,6 +585,7 @@ trackTests {
 
     test("structured data multivalue"){
         "/seller_central/modify/technical_specifications/multivalue"(platform: "/", type: TrackType.Event){
+            item_type = "default"
             quantity = 3
             previous_quantity = 0
             category_domain = "MLA-SHORTS"
@@ -593,6 +598,7 @@ trackTests {
 
     test("structured data suggested values"){
         "/seller_central/modify/technical_specifications/suggested"(platform: "/", type: TrackType.Event){
+            item_type = "default"
             type = "dynamic"
             category_domain = "MLA-CAMERAS"
             item_id= "MLA682118081"
@@ -604,6 +610,7 @@ trackTests {
 
     test("structured data change category"){
         "/seller_central/modify/update_change_category"(platform: "/", type: TrackType.Event){
+            item_type = "default"
             category_domain = "MLA-CAMERAS"
             item_id= "MLA682118081"
             session_id = "123-update-abc123"
