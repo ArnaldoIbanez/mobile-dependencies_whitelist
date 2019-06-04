@@ -237,8 +237,12 @@ trackTests {
         "/asset_management/result_stop_investing"(platform: "/web", business: "mercadolibre") {}
 
         // Detail
-        "/asset_management/investment_detail"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/investment_detail"(platform: "/web", business: "mercadolibre") {}
+        "/asset_management/investment_detail"(platform: "/mobile", business: "mercadolibre") {
+            empty_state_case = "available_money"
+        }
+        "/asset_management/investment_detail"(platform: "/web", business: "mercadolibre") {
+            empty_state_case = "available_money"
+        }
 
         // Earnings report
         "/asset_management/investment_reports"(platform: "/web", business: "mercadolibre") {}
