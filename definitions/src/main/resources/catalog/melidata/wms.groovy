@@ -484,11 +484,11 @@ tracks {
     "/wms/quarantine/picking/select_problem/other"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/quarantine/picking/select_problem/other/confirm"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/quarantine/picking/select_problem/cancel"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/quarantine/report/confirmation"(platform: "/mobile/android", type: TrackType.View) {
+    "/wms/quarantine/picking/confirmation"(platform: "/mobile/android", type: TrackType.View) {
         problem_type(required: true, type: PropertyType.String, description: "Problem type")
     }
-    "/wms/quarantine/report/confirmation/confirm"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/quarantine/report/confirmation/cancel"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/quarantine/picking/confirmation/confirm"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/quarantine/picking/confirmation/cancel"(platform: "/mobile/android", type: TrackType.Event) {}
 
     /* Transfer */
     "/wms/quarantine/transfer"(platform: "/mobile/android", isAbstract: true) {}

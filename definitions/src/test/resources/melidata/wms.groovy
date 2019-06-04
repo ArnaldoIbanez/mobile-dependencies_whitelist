@@ -811,17 +811,17 @@ trackTests {
             pickup_id = "1234"
             checkpoint_id = "1234"
         } 
-        "/wms/quarantine/report/confirmation"(platform: "/mobile/android") {
+        "/wms/quarantine/picking/confirmation"(platform: "/mobile/android") {
             pickup_id = "1234"
             checkpoint_id = "1234"
             problem_type = "wet"
         } 
-        "/wms/quarantine/report/confirmation/confirm"(platform: "/mobile/android") {
+        "/wms/quarantine/picking/confirmation/confirm"(platform: "/mobile/android") {
             pickup_id = "1234"
             checkpoint_id = "1234"
             problem_type = "wet"
         } 
-        "/wms/quarantine/report/confirmation/cancel"(platform: "/mobile/android") {
+        "/wms/quarantine/picking/confirmation/cancel"(platform: "/mobile/android") {
             pickup_id = "1234"
             checkpoint_id = "1234"
             problem_type = "wet"
