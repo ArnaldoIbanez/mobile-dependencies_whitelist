@@ -69,7 +69,7 @@ trackTests {
         "/pdp"(platform: "/", {
             catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
-            domain_id = "?"
+            domain_id = "MLA-CELLPHONES"
 //            category_id = "MLA43718" //TODO: uncomment when they are required
 //            category_path = ["MLA1234", "MLA6789"]
             vertical = "core"//todo creo que esto no tiene sentido en pdp
@@ -84,6 +84,7 @@ trackTests {
 
         "/pdp/buy_action"(platform: "/", {
             catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
             seller_id = 1234
             shipping_conditions = "free_special"
             bo_pick_up_conditions = "free_other"
@@ -91,6 +92,7 @@ trackTests {
 
         "/pdp/add_to_cart_action"(platform: "/", {
             catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
             seller_id = 1234
             shipping_conditions = "free_loyal"
             bo_pick_up_conditions = "free_loyal"
@@ -170,7 +172,7 @@ trackTests {
         "/pdp"(platform: "/", {
             catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
-            domain_id = "?"
+            domain_id = "MLA-CELLPHONES"
             category_id = "MLA43718"
             category_path = ["MLA1234", "MLA6789"]
             vertical = "core"//todo creo que esto no tiene sentido en pdp
@@ -203,13 +205,14 @@ trackTests {
         "/pdp/buy_action"(platform: "/", {
             catalog_product_id = "MLA1234"
             seller_id = 1234
+            domain_id = "MLA-CELLPHONES"
 
             item_id = "MLA533657947"
             quantity = 3
             category_id = "MLA43718"
             category_path = ["MLA1234", "MLA6789"]
             loyalty_level = 2
-            vertical = "core"//todo creo que esto no tiene sentido en pdp
+            vertical = "core"
             review_rate = 4.6
             official_store_id = 1
             reputation_level = "5_green"
@@ -227,13 +230,14 @@ trackTests {
         "/pdp/add_to_cart_action"(platform: "/", {
             catalog_product_id = "MLA1234"
             seller_id = 1234
+            domain_id = "MLA-CELLPHONES"
 
             item_id = "MLA533657947"
             quantity = 3
             category_id = "MLA43718"
             category_path = ["MLA1234", "MLA6789"]
             loyalty_level = 2
-            vertical = "core"//todo creo que esto no tiene sentido en pdp
+            vertical = "core"
             review_rate = 4.6
             official_store_id = 1
             reputation_level = "5_green"
