@@ -107,14 +107,16 @@ trackTests {
         "/remedies/activity/documentation_number"(platform: "/mobile/android") {}
         "/remedies/activity/custom_camera"(platform: "/mobile/android") {}
         "/remedies/activity/picture_confirmation"(platform: "/mobile/android") {}
+    }
 
+    test("Remedies web") {
         "/remedies/landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
         }
         "/remedies/phone_landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
         }
-        "/remedies/phone<_validation"(platform: "/web") {
+        "/remedies/phone_validation"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
         }
         "/remedies/documentation_front"(platform: "/web") {
@@ -133,11 +135,11 @@ trackTests {
             flow = "ss_approve_iv_selfie"
             congrats_type = "warning"
         }
-        "/remedies/continue_phone_landing"(platform: "/web") {
+        "/remedies/continue_phone_landing"(platform: "/web/desktop") {
             flow = "ss_approve_iv_selfie"
             challenge = "documentation"
         }
-        "/remedies/continue_phone_congrats"(platform: "/web") {
+        "/remedies/continue_phone_congrats"(platform: "/web/desktop") {
             flow = "ss_approve_iv_selfie"
             challenge = "documentation"
         }
@@ -245,14 +247,16 @@ trackTests {
         "/remedies/activity/documentation_number"(platform: "/mobile/android") {}
         "/remedies/activity/custom_camera"(platform: "/mobile/android") {}
         "/remedies/activity/picture_confirmation"(platform: "/mobile/android") {}
+    }
 
+    test("Remedies web") {
         "/remedies/landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
         }
         "/remedies/phone_landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
         }
-        "/remedies/phone<_validation"(platform: "/web") {
+        "/remedies/phone_validation"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
         }
         "/remedies/documentation_front"(platform: "/web") {
@@ -271,15 +275,14 @@ trackTests {
             flow = "ss_approve_iv_selfie"
             congrats_type = "warning"
         }
-        "/remedies/continue_phone_landing"(platform: "/web") {
+        "/remedies/continue_phone_landing"(platform: "/web/desktop") {
             flow = "ss_approve_iv_selfie"
             challenge = "documentation"
         }
-        "/remedies/continue_phone_congrats"(platform: "/web") {
+        "/remedies/continue_phone_congrats"(platform: "/web/desktop") {
             flow = "ss_approve_iv_selfie"
             challenge = "documentation"
         }
-
     }
 
 }
