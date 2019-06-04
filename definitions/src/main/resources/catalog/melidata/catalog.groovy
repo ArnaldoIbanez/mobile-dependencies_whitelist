@@ -164,6 +164,7 @@ catalog {
         include business, "transport.groovy"
         include business, "remedy.groovy"
         include business, "front_core.groovy"
+        include business, "notifications_mercadopago.groovy"
     }
 
     mercadoshops.each { business ->
