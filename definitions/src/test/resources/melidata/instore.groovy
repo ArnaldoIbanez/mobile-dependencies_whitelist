@@ -340,38 +340,28 @@ trackTests {
         // Landing
         "/instore/qr_first_time_use"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            campaign_details = [source: "qr map"]
         }
         "/instore/qr_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            campaign_details = [source: "qr map"]
         }
         "/instore/qr_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            campaign_details = [source: "qr map"]
         }
         "/instore/qr_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            campaign_details = [source: "qr map"]
-            action_details = [tag: "landing_mlm_06_2019"]
         }
 
         "/instore/shell_first_time_use"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            campaign_details = [source: "qr map"]
         }
         "/instore/shell_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            campaign_details = [source: "qr map"]
         }
         "/instore/shell_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            campaign_details = [source: "qr map"]
         }
         "/instore/shell_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            campaign_details = [source: "qr map"]
-            action_details = [tag: "landing_mlm_06_2019"]
         }
 
         "/instore/landing"(platform: "/mobile", type: TrackType.View) {
@@ -1163,38 +1153,28 @@ trackTests {
         // Landing
         "/instore/qr_first_time_use"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            campaign_details = [source: "qr map"]
         }
         "/instore/qr_first_time_use/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            campaign_details = [source: "qr map"]
         }
         "/instore/qr_first_time_use/back"(platform: "/mobile", business:"mercadopago",type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            campaign_details = [source: "qr map"]
         }
         "/instore/qr_first_time_use/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            campaign_details = [source: "qr map"]
-            action_details = [tag: "landing_mlm_06_2019"]
         }
 
         "/instore/shell_first_time_use"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            campaign_details = [source: "qr map"]
         }
         "/instore/shell_first_time_use/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            campaign_details = [source: "qr map"]
         }
         "/instore/shell_first_time_use/back"(platform: "/mobile", business:"mercadopago",type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            campaign_details = [source: "qr map"]
         }
         "/instore/shell_first_time_use/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            campaign_details = [source: "qr map"]
-            action_details = [tag: "landing_mlm_06_2019"]
         }
 
         "/instore/landing"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {

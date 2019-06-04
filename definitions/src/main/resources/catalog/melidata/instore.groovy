@@ -139,23 +139,15 @@ tracks {
 
 
     // Landing
-    "/instore/qr_first_time_use"(platform: "/mobile", type: TrackType.View) {
-        campaign_details(required: false, description: "extra info about campaign like source")
-    }
+    "/instore/qr_first_time_use"(platform: "/mobile", type: TrackType.View) {}
     "/instore/qr_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/qr_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {}
-    "/instore/qr_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {
-        action_details(required: false, description: "extra info about action like tags")
-    }
+    "/instore/qr_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/instore/shell_first_time_use"(platform: "/mobile", type: TrackType.View) {
-        campaign_details(required: false, description: "extra info about campaign like source")
-    }
+    "/instore/shell_first_time_use"(platform: "/mobile", type: TrackType.View) {}
     "/instore/shell_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/shell_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {}
-    "/instore/shell_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {
-        action_details(required: false, description: "extra info about action like tags")
-    }
+    "/instore/shell_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/landing"(platform: "/mobile", type: TrackType.View) {
         campaign(required: false, type: PropertyType.String, description: "the Campaign name send when user open landing campaign")
