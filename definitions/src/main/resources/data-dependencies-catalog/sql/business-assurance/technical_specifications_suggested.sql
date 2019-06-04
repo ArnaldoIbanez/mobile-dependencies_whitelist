@@ -12,4 +12,4 @@ AND application.business = 'mercadolibre'
     AND ds >= '@param01'
     AND ds < '@param02'
     AND type = 'event'
-group by jest(event_data, 'type'), jest(event_data, 'hierarchy'), substr(jest(event_data, 'category_domain'), 5), jest(event_data, 'attribute') attribute, application.site_id, substr(ds,1,10);
+group by jest(event_data, 'type'), jest(event_data, 'hierarchy'), substr(jest(event_data, 'category_domain'), 5), jest(event_data, 'attribute'), application.site_id, substr(ds,1,10);
