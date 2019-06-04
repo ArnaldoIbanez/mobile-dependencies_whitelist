@@ -724,5 +724,194 @@ trackTests {
             warehouse_id = "BRTW01"
             section_address = "PW-0-001-000-00-00"
         }
+
+        "/wms/quarantine/report/scan_address_from"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+        }
+        "/wms/quarantine/report/scan_inventory"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            address_from_id = "CA-0-001-000-00-00"
+        }
+        "/wms/quarantine/report/scan_inventory/cancel"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            address_from_id = "CA-0-001-000-00-00"
+        }
+        "/wms/quarantine/report/scan_inventory/finish_address"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            address_from_id = "CA-0-001-000-00-00"
+        }
+        "/wms/quarantine/report/select_problem"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            address_from_id = "CA-0-001-000-00-00"
+            inventory_id = "AAAA11880"
+        }
+        "/wms/quarantine/report/select_problem/confirm"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            address_from_id = "CA-0-001-000-00-00"
+            inventory_id = "AAAA11880"
+        }
+        "/wms/quarantine/report/select_problem/cancel"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            address_from_id = "CA-0-001-000-00-00"
+            inventory_id = "AAAA11880"
+        }
+        "/wms/quarantine/report/select_problem/other"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            address_from_id = "CA-0-001-000-00-00"
+            inventory_id = "AAAA11880"
+        }
+        "/wms/quarantine/report/select_problem/other/confirm"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            address_from_id = "CA-0-001-000-00-00"
+            inventory_id = "AAAA11880"
+        }
+        "/wms/quarantine/report/confirmation"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            address_from_id = "CA-0-001-000-00-00"
+            inventory_id = "AAAA11880",
+            problem_type = "wet"
+        } 
+        "/wms/quarantine/report/confirmation/confirm"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            address_from_id = "CA-0-001-000-00-00"
+            inventory_id = "AAAA11880",
+            problem_type = "wet"
+        } 
+        "/wms/quarantine/report/confirmation/cancel"(platform: "/mobile/android") {
+            warehouse_id = "BRTW01"
+            address_from_id = "CA-0-001-000-00-00"
+            inventory_id = "AAAA11880",
+            problem_type = "wet"
+        } 
+        "/wms/quarantine/picking/scan_inventory"(platform: "/mobile/android") {
+            pickup_id = "1234"
+            checkpoint_id = "1234"
+        } 
+        "/wms/quarantine/picking/scan_inventory/cancel"(platform: "/mobile/android") {
+            pickup_id = "1234"
+            checkpoint_id = "1234"
+        } 
+        "/wms/quarantine/picking/select_problem"(platform: "/mobile/android") {
+            pickup_id = "1234"
+            checkpoint_id = "1234"
+        } 
+        "/wms/quarantine/picking/select_problem/confirm"(platform: "/mobile/android") {
+            pickup_id = "1234"
+            checkpoint_id = "1234"
+        } 
+        "/wms/quarantine/picking/select_problem/other"(platform: "/mobile/android") {
+            pickup_id = "1234"
+            checkpoint_id = "1234"
+        } 
+        "/wms/quarantine/picking/select_problem/other/confirm"(platform: "/mobile/android") {
+            pickup_id = "1234"
+            checkpoint_id = "1234"
+        } 
+        "/wms/quarantine/picking/select_problem/cancel"(platform: "/mobile/android") {
+            pickup_id = "1234"
+            checkpoint_id = "1234"
+        } 
+        "/wms/quarantine/report/confirmation"(platform: "/mobile/android") {
+            pickup_id = "1234"
+            checkpoint_id = "1234"
+            problem_type = "wet"
+        } 
+        "/wms/quarantine/report/confirmation/confirm"(platform: "/mobile/android") {
+            pickup_id = "1234"
+            checkpoint_id = "1234"
+            problem_type = "wet"
+        } 
+        "/wms/quarantine/report/confirmation/cancel"(platform: "/mobile/android") {
+            pickup_id = "1234"
+            checkpoint_id = "1234"
+            problem_type = "wet"
+        } 
+        "/wms/quarantine/transfer/scan_inventory"(platform: "/mobile/android") {
+            address_from_id = "CA-0-001-000-00-00"
+        } 
+        "/wms/quarantine/transfer/scan_address_destination"(platform: "/mobile/android") {
+            address_from_id = "CA-0-001-000-00-00"
+            inventory_id = "AAAA11880"
+        } 
+        "/wms/quarantine/transfer/select_problem"(platform: "/mobile/android") {
+            address_from_id = "CA-0-001-000-00-00"
+            inventory_id = "AAAA11880"
+            address_destination_id = "RR-0-001-000-00-00"
+        } 
+        "/wms/quarantine/transfer/select_problem/confirm"(platform: "/mobile/android") {
+            address_from_id = "CA-0-001-000-00-00"
+            inventory_id = "AAAA11880"
+            address_destination_id = "RR-0-001-000-00-00"
+        } 
+         "/wms/quarantine/resolve/confirmation"(platform: "/mobile/android") {
+            task_id = 1234
+        } 
+        "/wms/quarantine/resolve/confirmation/confirm"(platform: "/mobile/android") {
+            task_id = 1234
+        } 
+        "/wms/quarantine/resolve/confirmation/cancel"(platform: "/mobile/android") {
+            task_id = 1234
+        } 
+        "/wms/quarantine/resolve/scan_address_from"(platform: "/mobile/android") {
+            task_id = 1234
+        } 
+        "/wms/quarantine/resolve/item"(platform: "/mobile/android") {
+            task_id = 1234
+        } 
+        "/wms/quarantine/resolve/item/not_found"(platform: "/mobile/android") {
+            task_id = 1234
+        } 
+        "/wms/quarantine/resolve/confirm_problem"(platform: "/mobile/android") {
+            task_id = 1234
+        } 
+        "/wms/quarantine/resolve/confirm_problem/continue"(platform: "/mobile/android") {
+            task_id = 1234
+        } 
+        "/wms/quarantine/resolve/select_problem"(platform: "/mobile/android") {
+            task_id = 1234
+        } 
+        "/wms/quarantine/resolve/select_problem/confirm"(platform: "/mobile/android") {
+            task_id = 1234
+        } 
+        "/wms/quarantine/resolve/select_subtype"(platform: "/mobile/android") {
+            task_id = 1234
+            problem_type = "other"
+        } 
+        "/wms/quarantine/resolve/select_subtype/confirm"(platform: "/mobile/android") {
+            task_id = 1234
+            problem_type = "other"
+        } 
+        "/wms/quarantine/resolve/select_subtype/other"(platform: "/mobile/android") {
+            task_id = 1234
+            problem_type = "other"
+        } 
+        "/wms/quarantine/resolve/select_subtype/other/confirm"(platform: "/mobile/android") {
+            task_id = 1234
+            problem_type = "other"
+        } 
+        "/wms/quarantine/resolve/summary"(platform: "/mobile/android") {
+            task_id = 1234
+            problem_type = "other"
+        } 
+        "/wms/quarantine/resolve/summary/confirm"(platform: "/mobile/android") {
+            task_id = 1234
+            problem_type = "other"
+        } 
+        "/wms/quarantine/resolve/scan_address_destination"(platform: "/mobile/android") {
+            task_id = 1234
+            problem_type = "other"
+        } 
+        "/wms/quarantine/resolve/summary"(platform: "/mobile/android") {
+            task_id = 1234
+            problem_type = "other"
+        } 
+        "/wms/quarantine/resolve/summary/confirm"(platform: "/mobile/android") {
+            task_id = 1234
+            problem_type = "damaged"
+            sub_problem_type = "broken"
+        } 
+        "/wms/quarantine/resolve/scan_address_destination"(platform: "/mobile/android") {
+            task_id = 1234
+        } 
     }
 }
