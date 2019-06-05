@@ -88,6 +88,8 @@ trackTests {
             seller_id = 1234
             shipping_conditions = "free_special"
             bo_pick_up_conditions = "free_other"
+            price = 8400
+            currency_id = "ARS"
         })
 
         "/pdp/add_to_cart_action"(platform: "/", {
@@ -96,6 +98,8 @@ trackTests {
             seller_id = 1234
             shipping_conditions = "free_loyal"
             bo_pick_up_conditions = "free_loyal"
+            price = 8400
+            currency_id = "ARS"
         })
 
         "/pdp/quantity_change"(platform: "/", {
@@ -225,6 +229,9 @@ trackTests {
             cart()
             shipping()
             pickup()
+
+            price = 8400
+            currency_id = "ARS"
         })
 
         "/pdp/add_to_cart_action"(platform: "/", {
@@ -250,6 +257,9 @@ trackTests {
             cart()
             shipping()
             pickup()
+
+            price = 8400
+            currency_id = "ARS"
         })
 
         "/pdp/quantity_change"(platform: "/", {
