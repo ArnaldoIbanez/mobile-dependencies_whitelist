@@ -143,6 +143,15 @@ trackTests {
             flow = "ss_approve_iv_selfie"
             challenge = "documentation"
         }
+        "/remedies/detail_landing"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+        }
+        "/remedies/threeds"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+        }
+        "/remedies/company"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -282,6 +291,15 @@ trackTests {
         "/remedies/continue_phone_congrats"(platform: "/web/desktop") {
             flow = "ss_approve_iv_selfie"
             challenge = "documentation"
+        }
+        "/remedies/detail_landing"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+        }
+        "/remedies/threeds"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
+        }
+        "/remedies/company"(platform: "/web") {
+            flow = "ss_approve_iv_selfie"
         }
     }
 
