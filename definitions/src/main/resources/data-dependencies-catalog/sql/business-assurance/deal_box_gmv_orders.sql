@@ -1,4 +1,3 @@
---Box GMV&Ordenes
 select 
  site_deal  as Site, 
  platform_deal as Platform, 
