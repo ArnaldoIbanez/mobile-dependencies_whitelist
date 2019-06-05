@@ -211,6 +211,12 @@ trackTests {
             }
         })
 
+        "/search/color_picker"(platform: "/web"){
+            defaultWebTrack()
+            item_id = "MLM1234"
+            previous_product_id = "MLA101021"
+            product_id = "MLA101022"
+        }
 
         "/search/input"(platform: "/mobile") {}
 
@@ -381,5 +387,4 @@ trackTests {
 
         }
     }
-
 }
