@@ -83,6 +83,7 @@ catalog {
         include business, "esc_manager.groovy"
         include business, "traffic.groovy"
         include business, "coupon.groovy"
+        include business, "notifications.groovy"
     }
 
     marketplace.each { business ->
@@ -109,7 +110,6 @@ catalog {
         include business, "myml.groovy"
         include business, "myml_mercadoshops.groovy"
         include business, "seller_central.groovy"
-        include business, "notifications.groovy"
         include business, "onboarding.groovy"
         include business, "orders_feed.groovy"
         include business, "pushNotifications.groovy"
@@ -164,7 +164,6 @@ catalog {
         include business, "transport.groovy"
         include business, "remedy.groovy"
         include business, "front_core.groovy"
-        include business, "notifications_mercadopago.groovy"
     }
 
     mercadoshops.each { business ->
