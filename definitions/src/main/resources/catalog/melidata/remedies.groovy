@@ -135,4 +135,13 @@ tracks {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         challenge(type: PropertyType.String, required: true, description: "Current challenge")
     }
+    "/remedies/detail_landing"(platform: "/web", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+    }
+    "/remedies/threeds"(platform: "/web", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+    }
+    "/remedies/company"(platform: "/web", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+    }
 }
