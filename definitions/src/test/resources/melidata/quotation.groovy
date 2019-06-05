@@ -34,7 +34,7 @@ trackTests {
 
     test("Quotation unregistered:: Show unregistered details tracking") {
 
-        "/quotation/unregistered/details"(platform: "/web") {
+        "/quotation/details/unregistered"(platform: "/web") {
             item_id = "MLM2222222"
             seller_id = 123456789
             category_id = "MLM170531"
@@ -55,7 +55,7 @@ trackTests {
 
     test("Quotation :: Show select models unregistered tracking event") {
 
-        "/quotation/unregistered/details/show"(platform: "/web", type: TrackType.Event) {
+        "/quotation/details/unregistered/show"(platform: "/web", type: TrackType.Event) {
             item_id = "MLM2222222"
             source = "primary"
         }
@@ -116,17 +116,14 @@ trackTests {
     test("Quotation :: Quote unregistered intention tracking") {
 
         "/quotation/unregistered/quote_intention"(platform: "/web", type: TrackType.Event) {
-            item_id = "MLM2222222"
             source = "vip"
         }
 
         "/quotation/unregistered/quote_intention"(platform: "/web", type: TrackType.Event) {
-            item_id = "MLM2222222"
             source = "congrats"
         }
 
         "/quotation/unregistered/quote_intention"(platform: "/web", type: TrackType.Event) {
-            item_id = "MLM2222222"
             source = "vip_unregistered_form"
         }
     }
@@ -135,7 +132,6 @@ trackTests {
     test("Quotation :: Edit info unregistered quotation tracking") {
 
         "/quotation/unregistered/edit_info"(platform: "/web", type: TrackType.Event) {
-            item_id = "MLM2222222"
             source = "vip"
         }
     }
@@ -194,7 +190,7 @@ trackTests {
 
     test("Quotation :: Show unregistered congrats tracking") {
 
-        "/quotation/unregistered/congrats"(platform: "/web") {
+        "/quotation/congrats/unregistered"(platform: "/web") {
             item_id = "MLM2222222"
             category_id = "MLM170531"
             seller_id = 123456789

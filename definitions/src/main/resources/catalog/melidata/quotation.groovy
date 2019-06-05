@@ -11,14 +11,10 @@ tracks {
         error_type(required: false, type:PropertyType.String)
         model_id(required: false, type:PropertyType.String, "Model Id" )
         unit_id(required: false, type:PropertyType.Numeric, description: "Unit Id")
-        item_id(required: true, type:PropertyType.String, description: "Item id")
-        source(required: true, type:PropertyType.String,description: "Origen de donde se llego al selector de modelos")
-
     }
 
     propertyGroups {
         quotationDetails(seller_id, category_id, vertical, error_type, model_id, unit_id)
-        quotationUnregistered(item_id, source)
     }
     //TODO: Se agregaron al catálogo unos fix con los datos que hoy mandan las apis y los fronts, como estos van a ser refactorizados, queda pendiente volver a ajustar este catálogo y dejarlo con la info correcta.
 
@@ -36,8 +32,7 @@ tracks {
         quotationDetails
     }
 
-    "/quotation/unregistered/details"(platform: "/web") {
-        item_id(required: true, type:PropertyType.String,description: "Item id")
+    "/quotation/details/unregistered"(platform: "/web") {
         quotationDetails
     }
 
@@ -51,9 +46,8 @@ tracks {
         source(required: true, type:PropertyType.String,description: "Origen de donde se llego al selector de modelos")
     }
 
-    "/quotation/unregistered/details/show"(platform: "/web", type: TrackType.Event) {
-        item_id(required: true, type:PropertyType.String,description: "Item id")
-        source(required: true, type:PropertyType.String,description: "Origen de donde se llego al selector de modelos")
+    "/quotation/details/unregistered/show"(platform: "/web", type: TrackType.Event) {
+        source(required: true, type:PropertyType.String,description: "Origen de donde se generó el evento")
     }
 
     //Quotation :: Gallery
@@ -108,8 +102,7 @@ tracks {
         error_type(required: false, type:PropertyType.String)
     }
 
-    "/quotation/unregistered/congrats"(platform: "/web") {
-        item_id(required: true, type:PropertyType.String, description: "Item id")
+    "/quotation/congrats/unregistered"(platform: "/web") {
         seller_id(required: true, type:PropertyType.Numeric)
         unit_id(required: true, type:PropertyType.Numeric, description: "Unit id")
         model_id(required: true, type:PropertyType.String, description: "Model id" )
@@ -148,19 +141,19 @@ tracks {
     }
 
     "/quotation/unregistered_form/show"(platform: "/web") {
-        quotationUnregistered
+        source(required: true, type:PropertyType.String,description: "Origen de donde se generó el evento")
     }
 
     "/quotation/unregistered_form/captcha"{
-        quotationUnregistered
+        source(required: true, type:PropertyType.String,description: "Origen de donde se generó el evento")
     }
 
     "/quotation/unregistered/quote_intention"(platform: "/web", type: TrackType.Event) {
-        quotationUnregistered
+        source(required: true, type:PropertyType.String,description: "Origen de donde se generó el evento")
     }
 
     "/quotation/unregistered/edit_info"(platform: "/web", type: TrackType.Event) {
-        quotationUnregistered
+        source(required: true, type:PropertyType.String,description: "Origen de donde se generó el evento")
     }
 
 }
