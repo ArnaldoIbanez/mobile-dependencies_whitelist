@@ -163,6 +163,7 @@ catalog {
         include business, "sube_recharge.groovy"
         include business, "transport.groovy"
         include business, "remedy.groovy"
+        include business, "digital_account.groovy"
         include business, "front_core.groovy"
     }
 
