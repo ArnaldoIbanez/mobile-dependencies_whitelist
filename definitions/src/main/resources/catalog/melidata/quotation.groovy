@@ -4,11 +4,28 @@ import com.ml.melidata.TrackType
 
 
 tracks {
+    propertyDefinitions {
+        seller_id(required: true, type:PropertyType.Numeric, inheritable: false)
+        category_id(required: false, type:PropertyType.String, description: "Item category id")
+        vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
+        error_type(required: false, type:PropertyType.String)
+        model_id(required: false, type:PropertyType.String, "Model Id" )
+        unit_id(required: false, type:PropertyType.Numeric, description: "Unit Id")
+        item_id(required: true, type:PropertyType.String, description: "Item id")
+        source(required: true, type:PropertyType.String,description: "Origen de donde se llego al selector de modelos")
 
+    }
+
+    propertyGroups {
+        quotationDetails(seller_id, category_id, vertical, error_type, model_id, unit_id)
+        quotationUnregistered(item_id, source)
+    }
     //TODO: Se agregaron al catálogo unos fix con los datos que hoy mandan las apis y los fronts, como estos van a ser refactorizados, queda pendiente volver a ajustar este catálogo y dejarlo con la info correcta.
 
     //Quotation
     "/quotation"(platform: "/", isAbstract: true) {}
+    "/quotation/unregistered"(platform: "/", isAbstract: true) {}
+    "/quotation/unregistered_form"(platform: "/", isAbstract: true) {}
 
     //Quotation :: Details
     "/quotation/details"(platform: "/") {
@@ -16,12 +33,12 @@ tracks {
     }
 
     "/quotation/details"(platform: "/web") {
-        seller_id(required: true, type:PropertyType.Numeric, inheritable: false)
-        category_id(required: false, type:PropertyType.String, description: "Item category id")
-        vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
-        error_type(required: false, type:PropertyType.String)
-        model_id(required: false, type:PropertyType.String, "Model Id" )
-        unit_id(required: false, type:PropertyType.Numeric, description: "Unit Id")
+        quotationDetails
+    }
+
+    "/quotation/unregistered/details"(platform: "/web") {
+        item_id(required: true, type:PropertyType.String,description: "Item id")
+        quotationDetails
     }
 
     "/quotation/details"(platform: "/mobile") {
@@ -31,6 +48,11 @@ tracks {
     }
 
     "/quotation/details/show"(platform: "/web", type: TrackType.Event) {
+        source(required: true, type:PropertyType.String,description: "Origen de donde se llego al selector de modelos")
+    }
+
+    "/quotation/unregistered/details/show"(platform: "/web", type: TrackType.Event) {
+        item_id(required: true, type:PropertyType.String,description: "Item id")
         source(required: true, type:PropertyType.String,description: "Origen de donde se llego al selector de modelos")
     }
 
@@ -86,6 +108,16 @@ tracks {
         error_type(required: false, type:PropertyType.String)
     }
 
+    "/quotation/unregistered/congrats"(platform: "/web") {
+        item_id(required: true, type:PropertyType.String, description: "Item id")
+        seller_id(required: true, type:PropertyType.Numeric)
+        unit_id(required: true, type:PropertyType.Numeric, description: "Unit id")
+        model_id(required: true, type:PropertyType.String, description: "Model id" )
+        category_id(required: false, type:PropertyType.String, description: "Item category id")
+        vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
+        error_type(required: false, type:PropertyType.String)
+    }
+
     "/quotation/congrats"(platform: "/mobile") {
         unit_id(required: true, type:PropertyType.String, description: "Unit id")
     }
@@ -110,4 +142,25 @@ tracks {
         unit_id(required: false, type:PropertyType.Numeric, description: "Unit id")
         model_id(required: false, type:PropertyType.String, description: "Model id")
     }
+
+    "/quotation/unregistered_form"(platform: "/web") {
+        item_id(required: true, type:PropertyType.String,description: "Item id")
+    }
+
+    "/quotation/unregistered_form/show"(platform: "/web") {
+        quotationUnregistered
+    }
+
+    "/quotation/unregistered_form/captcha"{
+        quotationUnregistered
+    }
+
+    "/quotation/unregistered/quote_intention"(platform: "/web", type: TrackType.Event) {
+        quotationUnregistered
+    }
+
+    "/quotation/unregistered/edit_info"(platform: "/web", type: TrackType.Event) {
+        quotationUnregistered
+    }
+
 }
