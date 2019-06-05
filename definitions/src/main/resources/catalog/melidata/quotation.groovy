@@ -11,10 +11,13 @@ tracks {
         error_type(required: false, type:PropertyType.String)
         model_id(required: false, type:PropertyType.String, "Model Id" )
         unit_id(required: false, type:PropertyType.Numeric, description: "Unit Id")
+        item_id(required: true, type:PropertyType.String,description: "Item id")
+        source(required: true, type:PropertyType.String,description: "Origen de donde se generó el evento")
     }
 
     propertyGroups {
         quotationDetails(seller_id, category_id, vertical, error_type, model_id, unit_id)
+        quotationUnregistered(item_id, source)
     }
     //TODO: Se agregaron al catálogo unos fix con los datos que hoy mandan las apis y los fronts, como estos van a ser refactorizados, queda pendiente volver a ajustar este catálogo y dejarlo con la info correcta.
 
@@ -149,11 +152,11 @@ tracks {
     }
 
     "/quotation/unregistered/quote_intention"(platform: "/web", type: TrackType.Event) {
-        source(required: true, type:PropertyType.String,description: "Origen de donde se generó el evento")
+        quotationUnregistered
     }
 
     "/quotation/unregistered/edit_info"(platform: "/web", type: TrackType.Event) {
-        source(required: true, type:PropertyType.String,description: "Origen de donde se generó el evento")
+        quotationUnregistered
     }
 
 }

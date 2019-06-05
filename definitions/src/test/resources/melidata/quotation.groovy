@@ -116,14 +116,17 @@ trackTests {
     test("Quotation :: Quote unregistered intention tracking") {
 
         "/quotation/unregistered/quote_intention"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLM2222222"
             source = "vip"
         }
 
         "/quotation/unregistered/quote_intention"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLM2222222"
             source = "congrats"
         }
 
         "/quotation/unregistered/quote_intention"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLM2222222"
             source = "vip_unregistered_form"
         }
     }
@@ -132,6 +135,7 @@ trackTests {
     test("Quotation :: Edit info unregistered quotation tracking") {
 
         "/quotation/unregistered/edit_info"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLM2222222"
             source = "vip"
         }
     }
