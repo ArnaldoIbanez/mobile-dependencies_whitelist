@@ -50,6 +50,10 @@ trackTests {
         "/cobranded/landing/active_card"(platform: "/web/desktop", type: TrackType.View){}
         "/cobranded/acquisition/summary_date"(platform: "/web/desktop", type: TrackType.View){}
         "/cobranded/acquisition/error/cnpj"(platform: "/web/desktop", type: TrackType.View){} 
+        "/cobranded/acquisition/welcome_signature"(platform: "/web/desktop", type: TrackType.View){}
+        "/cobranded/acquisition/signature"(platform: "/web/desktop", type: TrackType.View){}
+        "/cobranded/acquisition/welcome_work_address"(platform: "/web/desktop", type: TrackType.View){}
+        "/cobranded/acquisition/work_address"(platform: "/web/desktop", type: TrackType.View){}
 
         // View mobile
         "/cobranded/acquisition"(platform: "/web/mobile", type: TrackType.View){}
