@@ -89,7 +89,6 @@ tracks {
     "/prepaid/acquisition/detailfaq"(platform: "/mobile", type: TrackType.View) {} 
 
     //Anses Flow
-    "/prepaid/acquisition/"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/init-point"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/occupation"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/preview"(platform: "/mobile", type: TrackType.View) {}
