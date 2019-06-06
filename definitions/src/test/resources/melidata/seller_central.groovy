@@ -455,7 +455,7 @@ trackTests {
     }
 
     test("seller central item price push winner was updated"){
-        "/seller_central/modify/update_price_push_winner_pdp"(platform: "/", type: TrackType.Event){
+        "/seller_central/modify/update_price_push_winner_pdp"(platform: "/", type: TrackType.Event) {
             item_type = "product"
             category_id = "MLA390784"
             item_id = "MLA682118081"
