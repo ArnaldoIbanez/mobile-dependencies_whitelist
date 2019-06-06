@@ -277,6 +277,11 @@ tracks {
         sellerCentralModifyCardsGroupValue
     }
 
+    "/seller_central/modify/update_price_push_winner_pdp"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+    }
+
     /**
      * La idea es trackear en el snackbar informacion
      * del item original y algunos cambios que se produjeron.
