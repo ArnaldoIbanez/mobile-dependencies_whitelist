@@ -155,7 +155,7 @@ tracks {
     "/seller_central/bulk/shipping"(platform: "/", isAbstract: true) {}
 
     "/seller_central/bulk/shipping/tooltip"(platform: "/", type: TrackType.Event) {
-        itemId(required: true, type: PropertyType.String, description: "id of the item that showed the tooltip")
+        itemId(required: true, type: PropertyType.String, description: "item's id that showed the tooltip")
     }
 
     "/seller_central/bulk/offline"(platform: "/", isAbstract: true) {}
