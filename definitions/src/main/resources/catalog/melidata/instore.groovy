@@ -348,4 +348,33 @@ tracks {
     }
     "/instore/my_qr"(platform: "/mobile", type: TrackType.Event) {}
 
+    // Scale Features
+    // QR Assignment
+    
+    "/instore"(platform:"/web", isAbstract:true) {}
+    "/instore/scale_feature"(platform:"/web", isAbstract:true) {}
+    "/instore/scale_feature/qr-assignment"(platform:"/web", isAbstract:true) {
+        transaction_id (type: PropertyType.String, required: true, description:"UUID for transaction tracking")
+    }
+    "/instore/scale_feature/qr-assignment/start_process"(platform:"/web", type: TrackType.View) {}
+    "/instore/scale_feature/qr-assignment/company_info"(platform:"/web", type: TrackType.View) {}
+    "/instore/scale_feature/qr-assignment/store_info"(platform:"/web", type: TrackType.View) {}
+    "/instore/scale_feature/qr-assignment/qr_camera"(platform:"/web", type: TrackType.View) {}
+    "/instore/scale_feature/qr-assignment/success"(platform:"/web", type: TrackType.View) {
+        status (type: PropertyType.String, required: true, description:"Store create status")
+    }
+    "/instore/scale_feature/qr-assignment/error"(platform:"/web", type: TrackType.View) {
+       status (type: PropertyType.String, required: true, description: "Error Status, ex: invalidAccess, error")
+    }
+
+    "/instore/scale_feature/qr-assignment/validate_email"(platform:"/web", type: TrackType.Event) {
+      valid (type: PropertyType.Boolean, required: true, description: "Ex: true or false")
+    }
+    "/instore/scale_feature/qr-assignment/fill_store_address"(platform:"/web", type: TrackType.Event) {
+      get_address_method (type: PropertyType.String, required: true, description: "Ex: [text | gps | map]")
+    }
+    "/instore/scale_feature/qr-assignment/qr_scan"(platform:"/web", type: TrackType.Event) {
+      qr_content (type: PropertyType.String, required: true, description: "Ex: http://qrContent")
+    }
+
 }
