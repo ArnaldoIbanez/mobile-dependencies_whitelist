@@ -103,8 +103,6 @@ tracks {
         )
     }
 
-
-
     //Track inbound offline product selection
     "/fbm/panel/inbound/offline/product_selection"(platform: "/", type: TrackType.Event) {
         seller_id(
