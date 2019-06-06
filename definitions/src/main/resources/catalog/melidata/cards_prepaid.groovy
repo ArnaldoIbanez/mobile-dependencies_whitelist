@@ -83,52 +83,16 @@ tracks {
             description: "Types of error pages in acquisition flow."
         )
     }
-    "/prepaid/acquisition/cellphone"(platform: "/mobile", type: TrackType.View) {
-        error_type(
-                required: true,
-                type: PropertyType.String,
-                values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
-                description: "Types of error pages in acquisition flow."
-        )
-    }
-    "/prepaid/acquisition/onboarding"(platform: "/mobile", type: TrackType.View) {
-        error_type(
-                required: true,
-                type: PropertyType.String,
-                values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
-                description: "Types of error pages in acquisition flow."
-        )
-    }
-    "/prepaid/acquisition/rootfaq"(platform: "/mobile", type: TrackType.View) {
-        error_type(
-                required: true,
-                type: PropertyType.String,
-                values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
-                description: "Types of error pages in acquisition flow."
-        )
-    }
-    "/prepaid/acquisition/detailfaq"(platform: "/mobile", type: TrackType.View) {
-        error_type(
-                required: true,
-                type: PropertyType.String,
-                values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
-                description: "Types of error pages in acquisition flow."
-        )
-    }
+    "/prepaid/acquisition/cellphone"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/rootfaq"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/detailfaq"(platform: "/mobile", type: TrackType.View) {} 
 
     //Anses Flow
-    "/prepaid/acquisition"(platform: "/mobile", type: TrackType.View) {
-        error_type(
-                required: true,
-                type: PropertyType.String,
-                values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
-                description: "Types of error pages in acquisition flow."
-        )
-    }
+    "/prepaid/acquisition/"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/init-point"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/occupation"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/preview"(platform: "/mobile", type: TrackType.View) {}
-    "/prepaid/acquisition/review"(platform: "/mobile", type: TrackType.View) {}
 
     // Activation Flow
     // MLA => https://www.mercadopago.com.ar/prepaid/activation
