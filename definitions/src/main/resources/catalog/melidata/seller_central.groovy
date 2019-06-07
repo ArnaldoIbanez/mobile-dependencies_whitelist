@@ -222,6 +222,7 @@ tracks {
 
     "/seller_central/modify/detail"(platform: "/", type: TrackType.View) {
         sellerCentralModifyCardsGroup
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/variations"(platform: "/", type: TrackType.View) {
@@ -234,51 +235,61 @@ tracks {
 
     "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View) {
         sellerCentralModifyCardsGroup
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_price"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_quantity"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_localpickup_options"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_warranty"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_item_condition"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_shipping_flex"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_size_chart"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_price_push_winner_pdp"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     /**
