@@ -26,6 +26,9 @@
             items(required: false, type: PropertyType.Numeric, description: "number of items in the cart")
           
         }
+
+
+        "/pos_seller/point"(platform: "/mobile", isAbstract: true) {}
         
         "/pos_seller/new_payment"(platform: "/mobile", type: TrackType.View) {}
 
@@ -50,8 +53,8 @@
 
             payment_method_id(required: true, type: PropertyType.String, description: "payment method id")
             card_read_tag(required: true, type: PropertyType.String, description: "card tag",values:["swipe","chip","nfc"])
-            first_six(required: true, type: PropertyType.Numeric,description: "first six card numbers")
-            last_four(required: true, type: PropertyType.Numeric,description: "last four card numbers")
+            first_six(required: true, type: PropertyType.String,description: "first six card numbers")
+            last_four(required: true, type: PropertyType.String,description: "last four card numbers")
             is_fallback(required: true, type: PropertyType.Boolean,description: "is a payment through fallback")
             has_chip(required: true, type: PropertyType.Boolean, description: "It is a payment by chip")
             request_signature(required: true, type: PropertyType.Boolean, description: "Is the signature necessary")
@@ -69,8 +72,12 @@
             card_readers(required: true, type: PropertyType.String, description: "visible card readers")
         }
 
+        "/pos_seller/point/pairing_cancel"(platform: "/mobile", type: TrackType.Event) {
+            card_readers(required: true, type: PropertyType.String, description: "visible card readers")
+        
+        }
          def PosSellerFrictionMessage = objectSchemaDefinitions {
-            style(type: PropertyType.String, required: true, description: "Style showed, window, dialog, toast.. ", values: ["dialog", "window", "snackbar", "toast", "alert"]))
+            style(type: PropertyType.String, required: true, description: "Style showed, window, dialog, toast.. ", values: ["dialog", "window", "snackbar", "toast", "alert"])
             title(type: PropertyType.String, required: false)
             content(type: PropertyType.String, required: true)
             primary_button(type: PropertyType.String, required: true)
