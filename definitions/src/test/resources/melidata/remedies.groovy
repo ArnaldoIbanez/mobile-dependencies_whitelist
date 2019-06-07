@@ -152,6 +152,7 @@ trackTests {
         "/remedies/company"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
         }
+        "/remedies/center/card"(platform: "/web") {}
     }
 
     defaultBusiness = "mercadopago"
@@ -301,6 +302,7 @@ trackTests {
         "/remedies/company"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
         }
+        "/remedies/center/card"(platform: "/web") {}
     }
 
 }

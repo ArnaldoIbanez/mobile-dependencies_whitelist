@@ -144,4 +144,5 @@ tracks {
     "/remedies/company"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
+    "/remedies/center/card"(platform: "/web", type: TrackType.View) {}
 }
