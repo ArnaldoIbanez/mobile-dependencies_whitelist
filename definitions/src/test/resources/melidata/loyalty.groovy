@@ -386,6 +386,12 @@ trackTests {
 
     test("Loyalty Free Trials Card Selection Screen"){
         "/loyalty/freetrial/cardselection"(platform: "/",type: TrackType.View){
+
+        }
+
+        "/loyalty/freetrial/cardselection"(platform: "/",type: TrackType.View){
+            origin = "vip"
+            item_id = "MLA1234"
         }
 
         "/loyalty/freetrial/cardselection/selected"(platform: "/",type: TrackType.Event){
@@ -500,6 +506,14 @@ trackTests {
             payment = 454353
             payment_status= "approved"
             payment_status_detail= "cc_approved_plugin_pm"
+        }
+
+        "/loyalty/freetrial/payment"(platform: "/",type: TrackType.Event){
+            payment = 454353
+            payment_status= "approved"
+            payment_status_detail= "cc_approved_plugin_pm"
+            origin = "vip"
+            item_id = "MLA1234"
         }
 
         "/loyalty/freetrial/payment/error"(platform: "/",type: TrackType.Event){

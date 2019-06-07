@@ -205,6 +205,8 @@ tracks {
 
     "/loyalty/freetrial/contention"(platform: "/", type: TrackType.View) {
         from(required: false, values: ["primaryButton", "secondaryButton"])
+        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where was the checkout was initiated from.")
+        item_id(required: false, description: "If flow starts from vip || new_vip")
     }
 
     "/loyalty/freetrial/contention/continue"(platform: "/", type: TrackType.Event) {
@@ -216,6 +218,8 @@ tracks {
 
     //  -----------------> Card Selection
     "/loyalty/freetrial/cardselection"(platform: "/", type: TrackType.View) {
+        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where was the checkout was initiated from.")
+        item_id(required: false, description: "If flow starts from vip || new_vip")
     }
 
     "/loyalty/freetrial/cardselection/selected"(platform: "/", type: TrackType.Event) {
@@ -321,6 +325,8 @@ tracks {
         payment(required: true, type: PropertyType.Numeric, description: "Payment ID Number")
         payment_status(required: true, description: "Payment status, like rejected/success/pending/etc...")
         payment_status_detail(required: true, description: "Payment status detail")
+        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where was the checkout was initiated from.")
+        item_id(required: false, description: "If flow starts from vip || new_vip")
     }
 
     "/loyalty/freetrial/payment/error"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
