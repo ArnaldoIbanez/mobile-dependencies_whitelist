@@ -371,6 +371,7 @@ tracks {
         success(required: false, type: PropertyType.Boolean)
         error_codes(required: false, type: PropertyType.ArrayList)
     }
+    "/checkout/shipping/location/new_contact/back"(platform: "/mobile", type: TrackType.Event) {}
 
     //Select address
     "/checkout/shipping/select_address"(platform: "/") {
