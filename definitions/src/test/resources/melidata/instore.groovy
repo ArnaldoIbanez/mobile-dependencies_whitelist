@@ -1601,4 +1601,86 @@ trackTests {
         }
     }
 
+    test("Instore - QR Assignment") {
+        "/instore/scale_feature/qr-assignment/start_process"(platform:"/web", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+        }
+        "/instore/scale_feature/qr-assignment/start_process"(platform:"/web", business:"mercadopago", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+        }
+        "/instore/scale_feature/qr-assignment/company_info"(platform:"/web", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502' 
+        }
+        "/instore/scale_feature/qr-assignment/company_info"(platform:"/web", business:"mercadopago", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502' 
+        }
+        "/instore/scale_feature/qr-assignment/store_info"(platform:"/web", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+        }
+        "/instore/scale_feature/qr-assignment/store_info"(platform:"/web", business:"mercadopago", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+        }
+        "/instore/scale_feature/qr-assignment/qr_camera"(platform:"/web", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+        }
+        "/instore/scale_feature/qr-assignment/qr_camera"(platform:"/web", business:"mercadopago", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+        }
+        "/instore/scale_feature/qr-assignment/success"(platform:"/web", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+            status = 'success'
+        }
+        "/instore/scale_feature/qr-assignment/success"(platform:"/web", business: "mercadopago", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+            status = 'success'
+        }
+        "/instore/scale_feature/qr-assignment/error"(platform:"/web", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+            status = 'invalidAccess'
+        }
+        "/instore/scale_feature/qr-assignment/error"(platform:"/web", business: "mercadopago", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+            status = 'invalidAccess'
+        }
+        "/instore/scale_feature/qr-assignment/error"(platform:"/web", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+            status = 'error'
+        }
+        "/instore/scale_feature/qr-assignment/error"(platform:"/web", business: "mercadopago", type: TrackType.View) {
+            transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+            status = 'error'
+        }
+        "/instore/scale_feature/qr-assignment/validate_email"(platform:"/web", type: TrackType.Event) {
+          transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+          valid = true
+        }
+        "/instore/scale_feature/qr-assignment/validate_email"(platform:"/web", business: "mercadopago", type: TrackType.Event) {
+          transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+          valid = true
+        }
+        "/instore/scale_feature/qr-assignment/validate_email"(platform:"/web", type: TrackType.Event) {
+          transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+          valid = false
+        }
+        "/instore/scale_feature/qr-assignment/validate_email"(platform:"/web", business: "mercadopago", type: TrackType.Event) {
+          transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+          valid = false
+        }
+        "/instore/scale_feature/qr-assignment/fill_store_address"(platform:"/web", type: TrackType.Event) {
+          transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+          get_address_method = 'text'
+        }
+        "/instore/scale_feature/qr-assignment/fill_store_address"(platform:"/web", business: "mercadopago", type: TrackType.Event) {
+          transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+          get_address_method = 'text'
+        }
+        "/instore/scale_feature/qr-assignment/qr_scan"(platform:"/web", type: TrackType.Event) {
+          transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+          qr_content = 'http://qr-content'
+        }
+        "/instore/scale_feature/qr-assignment/qr_scan"(platform:"/web", business: "mercadopago", type: TrackType.Event) {
+          transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
+          qr_content = 'http://qr-content'
+        }
+    }
 }
