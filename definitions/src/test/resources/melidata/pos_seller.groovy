@@ -171,29 +171,29 @@
            message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
            attributable_to = "device"
            extra_info = [ poi: "CHB123456789012-LE", progress: 25.5 ]
-       }
+         }  
 
-        "/pos_seller/friction/pairing"(platform: "/mobile", type: TrackType.Event) {
+         "/pos_seller/friction/pairing"(platform: "/mobile", type: TrackType.Event) {
+          context = "settings/reader_update"
+          message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
+          attributable_to = "device"
+          extra_info = [ poi: "CHB123456789012-LE", progress: 25.5 ]
+         }
+
+         "/pos_seller/friction/waiting_for_card"(platform: "/mobile", type: TrackType.Event) {
+          context = "settings/reader_update"
+          message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
+          attributable_to = "device"
+          extra_info = [ poi: "CHB123456789012-LE", progress: 25.5 ]
+
+         }
+
+         "/pos_seller/friction/card_reader"(platform: "/mobile", type: TrackType.Event) {
          context = "settings/reader_update"
          message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
          attributable_to = "device"
          extra_info = [ poi: "CHB123456789012-LE", progress: 25.5 ]
-     }
-
-     "/pos_seller/friction/waiting_for_card"(platform: "/mobile", type: TrackType.Event) {
-         context = "settings/reader_update"
-         message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
-         attributable_to = "device"
-         extra_info = [ poi: "CHB123456789012-LE", progress: 25.5 ]
-
-     }
-
-     "/pos_seller/friction/card_reader"(platform: "/mobile", type: TrackType.Event) {
-        context = "settings/reader_update"
-        message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
-        attributable_to = "device"
-        extra_info = [ poi: "CHB123456789012-LE", progress: 25.5 ]
-    }
+        }
     }
 
     } 
