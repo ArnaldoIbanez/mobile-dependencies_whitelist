@@ -117,6 +117,22 @@ tracks {
     "/merchant_acquisition/flows/qr-queue/waiting-payment/retry"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/flows/qr-queue/waiting-payment/extend-time"(platform:"/", type: TrackType.Event) {}
 
+    // Point Transfer
+    "/merchant_acquisition/flows/transfer-device"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/transfer-device/success"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/transfer-device/empty"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/transfer-device/error"(platform:"/", type: TrackType.View) {}
+
+    // Point Register
+    "/merchant_acquisition/flows/register-device"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/register-device/success"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/register-device/error"(platform:"/", type: TrackType.View) {}
+
+    // Release Options
+    "/merchant_acquisition/flows/release-options"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/release-options/success"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/release-options/error"(platform:"/", type: TrackType.View) {}
+
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
 
