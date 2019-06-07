@@ -567,6 +567,25 @@ trackTests {
         "/merchant_acquisition/flows/qr-queue/waiting-payment/extend-time"(platform:"/", type: TrackType.Event) {}
     }
 
+    test("MP Point Transfer") {
+        "/merchant_acquisition/flows/transfer-device"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/transfer-device/success"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/transfer-device/empty"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/transfer-device/error"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("MP Point Register") {
+        "/merchant_acquisition/flows/register-device"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/register-device/success"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/register-device/error"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("MP Point Release Options") {
+        "/merchant_acquisition/flows/release-options"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/release-options/success"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/release-options/error"(platform: "/", type: TrackType.View) {}
+    }
+
     test("MP-MA Flow QR") {
         "/merchant_acquisition/qr/onboarding"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/qr-code"(platform:"/", type: TrackType.View) {}
