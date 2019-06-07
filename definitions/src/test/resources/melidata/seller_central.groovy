@@ -52,9 +52,11 @@ trackTests {
         }
         "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
             action = "dismiss"
+            viewId = "inventario"
         }
         "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
             action = "start"
+            page = 1
         }
     }
 
@@ -145,6 +147,7 @@ trackTests {
         }
         "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
             action = "start"
+            viewId = "fulfillment"
         }
         "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
             action = "dismiss"
