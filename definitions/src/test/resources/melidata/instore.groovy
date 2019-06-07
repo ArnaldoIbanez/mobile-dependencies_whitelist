@@ -367,22 +367,22 @@ trackTests {
         "/instore/landing"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             campaign = "Any campaign"
-            campaign_details = [source: "qr map"]
+            campaign_details = [source: "qr map", brand: "shell"]
         }
         "/instore/landing/abort"(platform: "/mobile", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             campaign = "Any campaign"
-            campaign_details = [source: "qr map"]
+            campaign_details = [source: "qr map", brand: "shell"]
         }
         "/instore/landing/back"(platform: "/mobile", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             campaign = "Any campaign"
-            campaign_details = [source: "qr map"]
+            campaign_details = [source: "qr map", brand: "shell"]
         }
         "/instore/landing/next"(platform: "/mobile", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             campaign = "Any campaign"
-            campaign_details = [source: "qr map"]
+            campaign_details = [source: "qr map", brand: "shell"]
             action = "Any action"
             action_details = [tag: "landing_mlm_06_2019"]
         }
@@ -1180,22 +1180,22 @@ trackTests {
         "/instore/landing"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             campaign = "Any campaign"
-            campaign_details = [source: "qr map"]
+            campaign_details = [source: "qr map", brand: "shell"]
         }
         "/instore/landing/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             campaign = "Any campaign"
-            campaign_details = [source: "qr map"]
+            campaign_details = [source: "qr map", brand: "shell"]
         }
         "/instore/landing/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             campaign = "Any campaign"
-            campaign_details = [source: "qr map"]
+            campaign_details = [source: "qr map", brand: "shell"]
         }
         "/instore/landing/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             campaign = "Any campaign"
-            campaign_details = [source: "qr map"]
+            campaign_details = [source: "qr map", brand: "shell"]
             action = "Any action"
             action_details = [tag: "landing_mlm_06_2019"]
         }

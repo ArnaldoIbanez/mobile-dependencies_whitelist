@@ -6,6 +6,15 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    def propertyCampaignDetail  = objectSchemaDefinitions {
+        source(required: false, type: PropertyType.String, description:  "indicates the component that starts capaign")
+        brand(required: false, type: PropertyType.String, description:  "brands associated to capamign")
+    }
+
+    def propertyActionDetail  = objectSchemaDefinitions {
+        tag(required: false, type: PropertyType.String, description:  "brands to filter")
+    }
+
     /**
     * INSTORES Screen Tracks
     */
@@ -151,13 +160,13 @@ tracks {
 
     "/instore/landing"(platform: "/mobile", type: TrackType.View) {
         campaign(required: false, type: PropertyType.String, description: "the Campaign name send when user open landing campaign")
-        campaign_details(required: false, description: "extra info about campaign like source")
+        campaign_details(required: false, PropertyType.Map(propertyCampaignDetail), description: "extra info about campaign like source")
     }
     "/instore/landing/abort"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/landing/back"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/landing/next"(platform: "/mobile", type: TrackType.Event) {
         action(required: false, type: PropertyType.String, description: "the action name send when user select action")
-        action_details(required: false, description: "extra info about action like tags")
+        action_details(required: false, PropertyType.Map(propertyActionDetail), description: "extra info about action like tags")
     }
 
 
