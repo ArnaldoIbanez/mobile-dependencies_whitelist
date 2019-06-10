@@ -112,6 +112,10 @@ tracks {
     "/instore/error/cant_pay_in_different_sites/back"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/error/cant_pay_in_different_sites/abort"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/instore/error/gas_station_pumping_not_started"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/error/gas_station_pumping_not_started/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/gas_station_pumping_not_started/abort"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/gas_station_pumping_not_started/try_again"(platform: "/mobile", type: TrackType.Event) {}
 
     // Permissions
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {
