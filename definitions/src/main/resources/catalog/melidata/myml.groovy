@@ -876,7 +876,13 @@ tracks {
 
     "/myml/invoices/sku/detail"(platform: "/") {}
     "/myml/invoices/sku/detail/action"(platform: "/", type: TrackType.Event) {
-        action(required: false, type: PropertyType.String, description: "Wich action triggered by the user")
+        action(required: true, type: PropertyType.String, values:[
+            "print_danfe",
+            "download_xml",
+            "cancel_nfe",
+            "create_correction_letter",
+            "create_devolution_invoice",
+        ], description: "Wich action triggered by the user")
     }
 
     //Backoffice pages

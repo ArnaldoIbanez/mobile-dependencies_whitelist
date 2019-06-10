@@ -136,7 +136,7 @@ trackTests {
 
         "/myml/invoices/sku/detail"(platform: "/") {}
         "/myml/invoices/sku/detail/action"(platform: "/", type: TrackType.Event) {
-          action = "print_nfe"
+          action = "print_danfe"
         }
     }
 
