@@ -3,7 +3,7 @@
     "rodrigo.castro@mercadolibre.com"
   ],
   "process_name": "registration_conversion",
-  "cron": "",
+  "cron": "00 07 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -38,12 +38,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "2019-05-01",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "2019-06-01",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
       ]

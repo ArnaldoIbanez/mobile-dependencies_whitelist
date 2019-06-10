@@ -25,7 +25,7 @@ WHERE PATH IN ('/checkout/congrats','/cart/checkout/congrats' , '/sell/list/cong
 '/asset_management/add_funds', '/bill_payments', '/withdraw/main', '/shortcuts/scan_qr', '/shortcuts/sube_recharge',
 '/shortcuts/cellphone_recharge', '/shortcuts/pay_services', '/account_fund/payment_types',
 '/bill_payments/help', '/recharge_sube/select_recharge_card', '/cellphone_recharge/recents')
-AND DS >= '@param01' AND DS < '@param02'
+AND DS >= '@param01'
 ORDER BY HORA DESC) OTHERS
 ON REGI.USERS = OTHERS.USERS
 WHERE OTHERS.RANK = 1
