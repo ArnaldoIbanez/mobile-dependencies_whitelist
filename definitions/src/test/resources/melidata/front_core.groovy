@@ -39,4 +39,40 @@ trackTests {
             ]
         }
     }
+
+    test("Mercadopago Home Show Instore generic") {
+        "/wallet/home/show/instore/promotion/generic"(platform: "/mobile", type: TrackType.Event) {
+            header = "name"
+            items = [
+                    [
+                            id: "generic",
+                            ordinal: 4,
+                            type: "PROMOTION"
+                    ]
+            ]
+            header_title = "Any title"
+            link = "Any deeplink"
+            items = ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"]
+            items_size = "3"
+        }
+    }
+
+    test("Mercadopago Home Show Instore qr_map") {
+        "/wallet/home/show/instore/promotion/qr_map"(platform: "/mobile", type: TrackType.Event) {
+            header = "name"
+            items = [
+                    [
+                            id: "qr_map",
+                            ordinal: 4,
+                            type: "PROMOTION"
+                    ]
+            ]
+            header_title = "Any title"
+            link = "Any deeplink"
+            items = ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"]
+            items_size = "3"
+        }
+    }
+
+
 }
