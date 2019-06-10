@@ -1,6 +1,6 @@
 {
   "users": [
-    "categorization@mercadolibre.com"
+    "catalog-navigation@mercadolibre.com"
   ],
   "process_name": "filters-clicks-count",
   "cron": "0 6 * * *",
