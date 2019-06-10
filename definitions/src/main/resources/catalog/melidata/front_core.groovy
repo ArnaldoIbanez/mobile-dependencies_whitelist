@@ -31,10 +31,12 @@ tracks {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
     }
 
+    // TODO: This track will be removed
     "/wallet/home/show/banking" (platform: "/mobile", type: TrackType.Event) {
         collapsed(required: true, type: PropertyType.Boolean, description: "If banking is collapsed")
     }
     
+    // TODO: This track will be removed
     "/wallet/home/show/activities" (platform: "/mobile", type: TrackType.Event) {
         quantity(required: true, type: PropertyType.Numeric, description: "Quantity of activities")
         is_ftu(required: true, type: PropertyType.Boolean, description: "If is present the FTU in activities section")

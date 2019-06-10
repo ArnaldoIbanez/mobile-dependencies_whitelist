@@ -40,12 +40,14 @@ trackTests {
         }
     }
 
+    // TODO: This test will be removed
     test("Mercadopago Home Banking Section Show") {
         "/wallet/home/show/banking" (platform: "/mobile", type: TrackType.Event) {
             collapsed = true
         }
     }
 
+    // TODO: This test will be removed
     test("Mercadopago Home Activities Show") {
         "/wallet/home/show/activities" (platform: "/mobile", type: TrackType.Event) {
             quantity = 0
