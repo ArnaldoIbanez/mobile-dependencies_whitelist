@@ -24,7 +24,7 @@ from
    AND application.site_id in ('MLA','MLB','MLM')
    AND device.platform != '/mobile/ios'
    AND NOT is_bot(device.user_agent)
-   AND CAST(jest(event_data,'offset')
+   AND CAST(jest(event_data,'offset') AS DOUBLE) = 0
    AND jest(event_data,'filters.category') IS NOT NULL) info
 lateral view explode(info.filter) filters as attribute_filter
 WHERE REGEXP_REPLACE(regexp_replace ((attribute_filter),'"',''),'\\{','') not in ('category','notfinalized','blcustomers','condition','city','official_store_id','shipping_cost','state','official_store','seller_type','view_mode','price','neighborhood','installments','power_seller','seller_id','deal','discount_source','adult_content')
