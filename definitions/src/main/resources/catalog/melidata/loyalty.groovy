@@ -89,7 +89,6 @@ tracks {
     }
 
     "/loyalty/buylevel/landing"(platform: "/", type: TrackType.View) {
-        origin(required: false, values: ["marketplace", "loyalty_frontend", "push", "aerolineas"], description: "Where the user came from.")
     }
 
     "/loyalty/buylevel/checkout"(platform: "/", type: TrackType.Event) {
