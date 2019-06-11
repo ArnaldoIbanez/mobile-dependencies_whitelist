@@ -39,6 +39,7 @@ tracks {
         enabled(type: PropertyType.Boolean, required: true, description: "If the item is show enabled")
     }
 
+    // TODO: This track will be removed
     "/wallet/home/show/main_actions" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         quantity(required: true, type: PropertyType.Numeric, description: "The number of main actions displayed")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(main_action_definition)), description: "The items of the view")
@@ -50,19 +51,23 @@ tracks {
         origin(type: PropertyType.String, required: true, description: "The application that returns the content")
     }
 
+    // TODO: This track will be removed
     "/wallet/home/show/secondary_actions" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         realestates_payers(type: PropertyType.ArrayList(PropertyType.Map(realestate)), required:true, description: "Secondary actions payers containers")
         realestates_sellers(type: PropertyType.ArrayList(PropertyType.Map(realestate)), required:true, description: "Secondary actions sellers containers")
     }
 
+    // TODO: This track will be removed
     "/wallet/home/show/discount_benefits" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         realestates(type: PropertyType.ArrayList(PropertyType.Map(realestate)), required:true, description: "Discount benefits containers")
     }
 
+    // TODO: This track will be removed
     "/wallet/home/show/dismissible_row" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         realestates(type: PropertyType.ArrayList(PropertyType.Map(realestate)), required:true, description: "Dismissible row containers")
     }
 
+    // TODO: This track will be removed
     "/wallet/home/show/cross_selling" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         realestates(type: PropertyType.ArrayList(PropertyType.Map(realestate)), required:true, description: "Cross selling containers")
     }

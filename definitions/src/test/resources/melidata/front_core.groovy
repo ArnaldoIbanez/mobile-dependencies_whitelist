@@ -40,6 +40,7 @@ trackTests {
         }
     }
 
+    // TODO: This test will be removed
     test("Mercadopago Main Actions Section Show") {
         "/wallet/home/show/main_actions" (platform: "/mobile", type: TrackType.Event) {
             quantity = 1
@@ -54,6 +55,7 @@ trackTests {
         }
     }
 
+    // TODO: This test will be removed
     test("Mercadopago Secondary Actions Section Show") {
         "/wallet/home/show/secondary_actions" (platform: "/mobile", type: TrackType.Event) {
             realestates_payers = [
@@ -73,6 +75,7 @@ trackTests {
         }
     }
 
+    // TODO: This test will be removed
     test("Mercadopago Discount Benefits Section Show") {
         "/wallet/home/show/discount_benefits" (platform: "/mobile", type: TrackType.Event) {
             realestates = [
@@ -90,6 +93,7 @@ trackTests {
         }
     }
 
+    // TODO: This test will be removed
     test("Mercadopago Dismissible Row Section Show") {
         "/wallet/home/show/dismissible_row" (platform: "/mobile", type: TrackType.Event) {
             realestates = [
@@ -102,6 +106,7 @@ trackTests {
         }
     }
 
+    // TODO: This test will be removed
     test("Mercadopago Cross Selling Section Show") {
         "/wallet/home/show/cross_selling" (platform: "/mobile", type: TrackType.Event) {
             realestates = [
