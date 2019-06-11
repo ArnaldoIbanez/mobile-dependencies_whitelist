@@ -4,6 +4,11 @@
   ],
   "process_name": "registration_conversion",
   "cron": "00 07 * * *",
+  "partition": {
+    "name": "fecha",
+    "type": "date",
+    "format": "yyyy-MM-dd"
+  },
   "extract": {
     "operation": "append",
     "columns": [
@@ -26,11 +31,6 @@
       {
         "name": "source",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "fecha",
-        "type": "date",
-        "format": "yyyy-MM-dd"
       }
     ],
     "sql": {

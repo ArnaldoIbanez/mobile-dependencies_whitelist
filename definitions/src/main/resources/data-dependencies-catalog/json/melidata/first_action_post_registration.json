@@ -4,6 +4,11 @@
   ],
   "process_name": "first_action_post_registration",
   "cron": "00 07 * * *",
+  "partition": {
+    "name": "fecha_registracion",
+    "type": "date",
+    "format": "yyyy-MM-dd"
+  },
   "extract": {
     "operation": "append",
     "columns": [
@@ -26,11 +31,6 @@
       {
         "name": "source",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "fecha_registracion",
-        "type": "date",
-        "format": "yyyy-MM-dd"
       },
       {
         "name": "primera_accion",
