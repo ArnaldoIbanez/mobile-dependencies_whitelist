@@ -233,8 +233,6 @@ trackTests {
             quote_demand_status = "answered"
             category_id = "MLA43718"
             buyer_id = 64567088
-            quote_id = 23423423
-            quote_status = "accepted"
         }
 
         // Quote  Create  - Congrats Error
@@ -246,8 +244,6 @@ trackTests {
             quote_demand_status = "answered"
             category_id = "MLA43718"
             buyer_id = 64567088
-            quote_id = 23423423
-            quote_status = "accepted"
         }
 
         /***** Quote Demands Listing ******/

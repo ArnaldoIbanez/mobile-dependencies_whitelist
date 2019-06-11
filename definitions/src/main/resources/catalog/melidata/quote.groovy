@@ -150,13 +150,13 @@ tracks {
     // Quote  Create  - Congrats Error
     "/quote/seller/create/congrats_error"(platform: "/", type: TrackType.View) {
         buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quoteItemGroup
+        demandItemGroup
     }
 
     // Quote  Create  - Congrats Error Event
     "/quote/seller/create/congrats_error/go_edit"(platform: "/", type: TrackType.Event) {
         buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quoteItemGroup
+        demandItemGroup
     }
 
     /***** Listing (Demands) ******/
