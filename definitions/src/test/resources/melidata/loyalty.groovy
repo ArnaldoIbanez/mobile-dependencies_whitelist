@@ -6,6 +6,15 @@ import com.ml.melidata.TrackType;
 trackTests {
 
     defaultBusiness = "mercadolibre"
+    
+    test("Loyalty parent track") {
+        "/loyalty"(platform:"/", type: TrackType.View) {
+        }
+        
+        "/loyalty"(platform:"/", type: TrackType.View) {
+            origin = "vip"
+        }
+    }
 
     test("Loyalty benefit detail") {
         "/loyalty/score/benefit"(platform: "/", type: TrackType.View) {
@@ -376,11 +385,6 @@ trackTests {
     test("Loyalty Free Trial Landing"){
 
         "/loyalty/freetrial/landing"(platform: "/", type: TrackType.View) {
-        }
-
-
-        "/loyalty/freetrial/landing"(platform: "/", type: TrackType.View) {
-            origin = "email"
         }
     }
 
