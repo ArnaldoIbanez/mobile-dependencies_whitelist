@@ -6,6 +6,15 @@ import com.ml.melidata.TrackType;
 trackTests {
 
     defaultBusiness = "mercadolibre"
+    
+    test("Loyalty parent track") {
+        "/loyalty"(platform:"/", type: TrackType.View) {
+        }
+        
+        "/loyalty"(platform:"/", type: TrackType.View) {
+            origin = "vip"
+        }
+    }
 
     test("Loyalty benefit detail") {
         "/loyalty/score/benefit"(platform: "/", type: TrackType.View) {
@@ -377,11 +386,6 @@ trackTests {
 
         "/loyalty/freetrial/landing"(platform: "/", type: TrackType.View) {
         }
-
-
-        "/loyalty/freetrial/landing"(platform: "/", type: TrackType.View) {
-            origin = "email"
-        }
     }
 
     test("Loyalty Free Trials Contention Screen"){
@@ -394,15 +398,12 @@ trackTests {
 
         "/loyalty/freetrial/contention"(platform: "/",type: TrackType.View){
             from = "primaryButton"
-            origin = 'vip'
         }
 
         "/loyalty/freetrial/contention/continue"(platform: "/",type: TrackType.Event){
-            origin = 'vip'
         }
 
         "/loyalty/freetrial/contention/cancel"(platform: "/",type: TrackType.Event){
-            origin = 'vip'
             type = "close"
         }
 
@@ -422,17 +423,14 @@ trackTests {
         }
 
         "/loyalty/freetrial/cardselection/selected"(platform: "/",type: TrackType.Event){
-            origin = 'vip'
             cardName = "mastercard"
             cardPosition = 1
         }
 
         "/loyalty/freetrial/cardselection/continue"(platform: "/",type: TrackType.Event){
-            origin = 'vip'
         }
 
         "/loyalty/freetrial/cardselection/cancel"(platform: "/",type: TrackType.Event){
-            origin = 'vip'
             type = "close"
         }
     }
@@ -440,17 +438,11 @@ trackTests {
     test("Loyalty Free Trials Set Only CVV"){
         "/loyalty/freetrial/cardselection/cvv"(platform: "/",type: TrackType.View){
         }
-        
-        "/loyalty/freetrial/cardselection/cvv"(platform: "/",type: TrackType.View){
-            origin = 'vip'
-        }
 
         "/loyalty/freetrial/cardselection/cvv/continue"(platform: "/",type: TrackType.Event){
-            origin = 'vip'
         }
 
         "/loyalty/freetrial/cardselection/cvv/cancel"(platform: "/",type: TrackType.Event){
-            origin = 'vip'
             type = "dismiss"
         }
     }
@@ -458,76 +450,57 @@ trackTests {
     test("Loyalty Free Trials New Card Screen"){
         "/loyalty/freetrial/newcard"(platform: "/",type: TrackType.View){
         }
-        
-        "/loyalty/freetrial/newcard"(platform: "/",type: TrackType.View){
-            origin = 'vip'
-        }
 
         "/loyalty/freetrial/newcard/continue"(platform: "/",type: TrackType.Event){
-            origin = 'vip'
         }
 
         "/loyalty/freetrial/newcard/cancel"(platform: "/",type: TrackType.Event){
-            origin = 'vip'
             type = "button"
         }
 
         "/loyalty/freetrial/newcard/cardnumber"(platform: "/",type: TrackType.View){
-            origin = 'vip'
         }
 
         "/loyalty/freetrial/newcard/cardnumber/continue"(platform: "/",type: TrackType.Event){
-            origin = 'vip'
         }
 
         "/loyalty/freetrial/newcard/cardnumber/cancel"(platform: "/",type: TrackType.Event){
-            origin = 'vip'
             type = "close"
         }
 
         "/loyalty/freetrial/newcard/securitycode"(platform: "/",type: TrackType.View){
-            origin = 'vip'
         }
 
         "/loyalty/freetrial/newcard/securitycode/continue"(platform: "/",type: TrackType.Event){
-            origin = 'vip'
         }
 
         "/loyalty/freetrial/newcard/securitycode/cancel"(platform: "/",type: TrackType.Event){
-            origin = 'vip'
             type = "back"
         }
 
         "/loyalty/freetrial/newcard/name"(platform: "/",type: TrackType.View){
-            origin = 'vip'
         }
 
         "/loyalty/freetrial/newcard/name/continue"(platform: "/",type: TrackType.Event){
-            origin = 'vip'
         }
 
         "/loyalty/freetrial/newcard/name/cancel"(platform: "/",type: TrackType.Event){
-            origin = 'vip'
             type  = "back"
         }
 
         "/loyalty/freetrial/newcard/identification"(platform: "/",type: TrackType.View){
-            origin = 'vip'
         }
 
         "/loyalty/freetrial/newcard/identification/continue"(platform: "/",type: TrackType.Event){
-            origin = 'vip'
         }
 
         "/loyalty/freetrial/newcard/identification/cancel"(platform: "/",type: TrackType.Event){
-            origin = 'vip'
             type = "button"
         }
     }
 
     test("Loyalty Free Trials Congrats Screen"){
         "/loyalty/freetrial/congrats"(platform: "/",type: TrackType.View){
-            origin = 'vip'
             congratstype = "warning"
         }
 
@@ -542,15 +515,12 @@ trackTests {
 
     test("Loyalty Free Trials Confirm Screen"){
         "/loyalty/freetrial/confirm"(platform: "/mobile/android",type: TrackType.View){
-            origin = 'vip'
         }
 
         "/loyalty/freetrial/confirm/continue"(platform: "/mobile/android",type: TrackType.Event){
-            origin = 'vip'
         }
 
         "/loyalty/freetrial/confirm/cancel"(platform: "/mobile/android",type: TrackType.Event){
-            origin = 'vip'
             type = "back"
         }
 

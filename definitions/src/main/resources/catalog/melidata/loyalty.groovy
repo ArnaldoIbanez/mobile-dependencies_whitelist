@@ -11,6 +11,7 @@ tracks {
         level(type: PropertyType.Numeric, required: false)
         points(type: PropertyType.Numeric, required: false)
         percentage(type: PropertyType.Numeric, required: false)
+        origin(required: false, values: ["mail", "push", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where was the path flow initiated from.")
     }
 
     "/loyalty/score"(type: TrackType.View) {}
@@ -93,7 +94,6 @@ tracks {
 
     "/loyalty/buylevel/checkout"(platform: "/", type: TrackType.Event) {
         action(required: true, values: ["started", "success", "success_orange", "rejected", "error"], description: "'started' when the CHO starts, success/success_orange/error is when the CHO finish")
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
         item_id(required: false, description: "If flow starts from vip || new_vip")
     }
 
@@ -209,154 +209,122 @@ tracks {
 
     //  -----------------> Free Trial Landing
     "/loyalty/freetrial/landing"(platform: "/", type: TrackType.View) {
-        origin(required: false, values: ["marketplace", "loyalty_frontend", "push", "email"], description: "Where the user came from.")
     }
 
     //  -----------------> Contention Screen
 
     "/loyalty/freetrial/contention"(platform: "/", type: TrackType.View) {
         from(required: false, values: ["primaryButton", "secondaryButton"])
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
         item_id(required: false, description: "If flow starts from vip || new_vip")
     }
 
     "/loyalty/freetrial/contention/continue"(platform: "/", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
     }
 
     "/loyalty/freetrial/contention/cancel"(platform: "/", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
         type(required: true, values: ["button", "back", "close", "dismiss"], description: "Finish flow from button or X or back arrow or dismiss modal", type: PropertyType.String)
     }
 
     //  -----------------> Card Selection
     "/loyalty/freetrial/cardselection"(platform: "/", type: TrackType.View) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
         item_id(required: false, description: "If flow starts from vip || new_vip")
     }
 
     "/loyalty/freetrial/cardselection/selected"(platform: "/", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
         cardName(required: false, description: "Card selected", type: PropertyType.String)
         cardPosition(required: false, description: "Card selected", type: PropertyType.Numeric)
     }
 
     "/loyalty/freetrial/cardselection/continue"(platform: "/", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
     }
 
     "/loyalty/freetrial/cardselection/cancel"(platform: "/", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
         type(required: true, values: ["button", "back", "close", "dismiss"], description: "Finish flow from button or X or back arrow or dismiss modal", type: PropertyType.String)
     }
 
     // -----------------> Choose CVV
     "/loyalty/freetrial/cardselection/cvv"(platform: "/", type: TrackType.View) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
     }
 
     "/loyalty/freetrial/cardselection/cvv/continue"(platform: "/", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
     }
 
-    "/loyalty/freetrial/cardselection/cvv/cancel"(platform: "/", type: TrackType.Event) { 
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
-        type(required: true, values: ["button", "back", "close", "dismiss"], description: "Finish flow from button or X or back arrow or dismiss modal", type: PropertyType.String)
+    "/loyalty/freetrial/cardselection/cvv/cancel"(platform: "/", type: TrackType.Event) {
+      type(required: true, values: ["button", "back", "close", "dismiss"], description: "Finish flow from button or X or back arrow or dismiss modal", type: PropertyType.String)
     }
 
     //  -----------------> New Card Screen/Modal
     "/loyalty/freetrial/newcard"(platform: "/", type: TrackType.View) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
     }
 
     "/loyalty/freetrial/newcard/continue"(platform: "/", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
     }
 
     "/loyalty/freetrial/newcard/cancel"(platform: "/", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
         type(required: true, values: ["button", "back", "close", "dismiss"], description: "Finish flow from button or X or back arrow or dismiss modal", type: PropertyType.String)
     }
 
     "/loyalty/freetrial/newcard/cardnumber"(platform: "/", type: TrackType.View) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
     }
 
     "/loyalty/freetrial/newcard/cardnumber/continue"(platform: "/", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
     }
 
     "/loyalty/freetrial/newcard/cardnumber/cancel"(platform: "/", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
         type(required: true, values: ["button", "back", "close", "dismiss"], description: "Finish flow from button or X or back arrow or dismiss modal", type: PropertyType.String)
     }
 
     "/loyalty/freetrial/newcard/securitycode"(platform: "/", type: TrackType.View) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
     }
 
     "/loyalty/freetrial/newcard/securitycode/continue"(platform: "/", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
     }
 
     "/loyalty/freetrial/newcard/securitycode/cancel"(platform: "/", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
         type(required: true, values: ["button", "back", "close", "dismiss"], description: "Finish flow from button or X or back arrow or dismiss modal", type: PropertyType.String)
     }
 
     "/loyalty/freetrial/newcard/name"(platform: "/", type: TrackType.View) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
     }
 
     "/loyalty/freetrial/newcard/name/continue"(platform: "/", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
     }
 
     "/loyalty/freetrial/newcard/name/cancel"(platform: "/", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
         type(required: true, values: ["button", "back", "close", "dismiss"], description: "Finish flow from button or X or back arrow or dismiss modal", type: PropertyType.String)
     }
 
     "/loyalty/freetrial/newcard/identification"(platform: "/", type: TrackType.View) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
     }
 
     "/loyalty/freetrial/newcard/identification/continue"(platform: "/", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
     }
 
     "/loyalty/freetrial/newcard/identification/cancel"(platform: "/", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
         type(required: true, values: ["button", "back", "close", "dismiss"], description: "Finish flow from button or X or back arrow or dismiss modal", type: PropertyType.String)
     }
 
     //  -----------------> Congrats Screen
     "/loyalty/freetrial/congrats"(platform: "/", type: TrackType.View) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
         congratstype(required: true, values: ["success", "error", "warning"], description: "Congrats type", type: PropertyType.String)
     }
 
     "/loyalty/freetrial/congrats/continue"(platform: "/", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
         congratstype(required: true, values: ["success", "error", "warning"], description: "Congrats type", type: PropertyType.String)
     }
 
     "/loyalty/freetrial/congrats/cancel"(platform: "/", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
         congratstype(required: true, values: ["success", "error", "warning"], description: "Congrats type", type: PropertyType.String)
     }
 
     //  -----------------> Confirm Screen
     "/loyalty/freetrial/confirm"(platform: "/mobile", type: TrackType.View) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
     }
 
     "/loyalty/freetrial/confirm/continue"(platform: "/mobile", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
     }
 
     "/loyalty/freetrial/confirm/cancel"(platform: "/mobile", type: TrackType.Event) {
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
         type(required: true, values: ["button", "back", "close", "dismiss"], description: "Finish flow from button or X or back arrow or dismiss modal", type: PropertyType.String)
     }
 
@@ -365,7 +333,6 @@ tracks {
         payment(required: true, type: PropertyType.Numeric, description: "Payment ID Number")
         payment_status(required: true, description: "Payment status, like rejected/success/pending/etc...")
         payment_status_detail(required: true, description: "Payment status detail")
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where the checkout was initiated from.")
         item_id(required: false, description: "If flow starts from vip || new_vip")
     }
 
