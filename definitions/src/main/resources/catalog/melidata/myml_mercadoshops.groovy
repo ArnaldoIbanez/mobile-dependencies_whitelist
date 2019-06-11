@@ -20,7 +20,7 @@ tracks {
         error_code(required: false, type: PropertyType.String)
 
         ref(
-            required: true,
+            required: false,
             type: PropertyType.String,
             description: "Additional information from where the user is coming"
         )
