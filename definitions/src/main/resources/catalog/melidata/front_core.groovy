@@ -23,12 +23,34 @@ tracks {
     "/wallet/home/pull" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet/home/show" (platform: "/mobile", type: TrackType.Event) {
-        header(required: true, type: PropertyType.String, description: "Contains the header text's home")
-        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_value_definition)), description: "Contains the sections payload")
+        header(required: true, type: PropertyType.String, description: "Contains the header text's home", inheritable: false)
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_value_definition)), description: "Contains the sections payload", inheritable: false)
     }
 
     "/wallet/home/tap" (platform: "/mobile", type: TrackType.Event) {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
     }
+
+    // TODO: This track will be removed
+    "/wallet/home/show/banking" (platform: "/mobile", type: TrackType.Event) {
+        collapsed(required: true, type: PropertyType.Boolean, description: "If banking is collapsed")
+    }
+    
+    // TODO: This track will be removed
+    "/wallet/home/show/activities" (platform: "/mobile", type: TrackType.Event) {
+        quantity(required: true, type: PropertyType.Numeric, description: "Quantity of activities")
+        is_ftu(required: true, type: PropertyType.Boolean, description: "If is present the FTU in activities section")
+        has_footer(required: true, type: PropertyType.Boolean, description: "If has a footer")
+    }
+
+    "/wallet/home/banking" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet/home/banking/initial_state" (platform: "/mobile", type: TrackType.Event) {
+        collapsed(required: true, type: PropertyType.Boolean, description: "If banking is collapsed")
+    }
+
+    "/wallet/home/banking/collapse" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet/home/banking/expand" (platform: "/mobile", type: TrackType.Event) {}
 
 }

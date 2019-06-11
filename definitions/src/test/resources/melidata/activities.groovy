@@ -92,4 +92,17 @@ trackTests {
             url = "https://mercadolibre.com"
         }
     }
+
+    test("Mercadopago Activities Real Time Total Mobile") {
+        "/listing/activities/real_time/total" (platform: "/mobile", type: TrackType.View) {
+            activity_id = "merch-001234"
+            date_created = "2019/09/08"
+        }
+    }
+
+    test("Mercadopago Activities Real Time Push Mobile") {
+        "/listing/activities/real_time/push" (platform: "/mobile", type: TrackType.View) {
+            total = 9
+        }
+    }
 }
