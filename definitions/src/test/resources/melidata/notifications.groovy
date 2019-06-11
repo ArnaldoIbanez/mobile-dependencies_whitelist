@@ -282,6 +282,19 @@ trackTests {
             latest_news_id= "campaigns-remarketing-143816022-MLB1013046714"
             hash="hash1"
         }
+        "/notification_center/campaigns-remarketing-motors"(platform: "/mobile"){
+            campaign_id= "campaign1"
+            newsgroup_id= "campaigns-remarketing-motors-241951421"
+            event_type= "open"
+            deeplink= "meli://item?id=MLA645507294"
+            type_layout= "standard"
+            test_notification= false
+            sent_date= "20180508"
+            batch_id= "MLB_PACK_20180508_2"
+            latest_news_type= "campaigns-remarketing-motors"
+            latest_news_id= "campaigns-remarketing-motors-143816022-MLB1013046714"
+            item_id= "MLU457119874"
+        }
         "/notification_center/campaigns-recharge_recovery"(platform: "/mobile"){
             campaign_id= "campaign1"
             newsgroup_id= "campaigns-recharge_recovery-320010629"
@@ -1550,6 +1563,16 @@ trackTests {
             sent_date= "20180508"
             batch_id = "MLB_PACK_20180508_2"
             hash="hash1"
+        }
+
+        "/notification/campaigns_remarketing-motors"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+            campaign_id= "MLV515515631"
+            test_notification= false
+            sent_date= "20180508"
+            batch_id = "MLB_PACK_20180508_2"
+            item_id = "MLU457119874"
         }
 
         "/notification/packages_new"(platform: "/mobile") {
