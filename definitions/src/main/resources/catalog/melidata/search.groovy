@@ -133,6 +133,13 @@ tracks {
     "/search/filters_carousel/click"(platform: "/web", type: TrackType.Event) {
         filter_name(required: true, description: "the name of the filter", type: PropertyType.String)
         position(required: true, description: "the position of the filter in the carousel", type: PropertyType.Numeric)
+        filter(required: false, description: "carousel filter id", type: PropertyType.String)
+    }
+
+    "/search/color_picker"(platform: "/web") {
+        item_id(required: true, description: "the item id shown for the product", type: PropertyType.String)
+        previous_product_id(required: true, "the product shown before using the picker", type: PropertyType.String)
+        product_id(required: true, description: "the product shown after using the picker", type: PropertyType.String)
     }
 
     "/search/refine"(platform: "/mobile") {}

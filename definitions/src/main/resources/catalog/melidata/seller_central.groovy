@@ -72,11 +72,13 @@ tracks {
     "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "rollback", "start"])
         page(required: false, type: PropertyType.Numeric, description: "Page number")
+        viewId(required:false, type: PropertyType.String, descritpion: "Onboarding id if applies")
     }
 
     "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
         id(required: false, type: PropertyType.String, description: "Id of the communication ")
+        action(required:false, type: PropertyType.String, description: "The action used in the communication if applies")
     }
 
     "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
@@ -124,6 +126,8 @@ tracks {
     "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Id of the action", values:["start","close", "rollback", "dismiss"])
         page(required: false, type: PropertyType.Numeric, description: "Page number")
+        viewId(required:false, type: PropertyType.String, descritpion: "Onboarding id if applies")
+
     }
 
     "/seller_central/bulk/domain"(platform: "/", type: TrackType.Event) {
@@ -141,6 +145,20 @@ tracks {
 
     "/seller_central/bulk/columns"(platform: "/", type: TrackType.Event){
         columns(required: true, type: PropertyType.ArrayList, description: "List of the available columns and his order")
+    }
+
+    "/seller_central/bulk/changes"(platform: "/", isAbstract: true) {}
+
+    "/seller_central/bulk/changes/price"(platform: "/", type: TrackType.Event) {
+        oldValue(required: true, type: PropertyType.String, description: "Old value of the price cell")
+        newValue(required: true, type: PropertyType.String, description: "New value")
+        itemId(required: true, type: PropertyType.String, description: "Id of the modified item")
+    }
+
+    "/seller_central/bulk/shipping"(platform: "/", isAbstract: true) {}
+
+    "/seller_central/bulk/shipping/tooltip"(platform: "/", type: TrackType.Event) {
+        itemId(required: true, type: PropertyType.String, description: "item's id that showed the tooltip")
     }
 
     "/seller_central/bulk/offline"(platform: "/", isAbstract: true) {}
@@ -222,6 +240,7 @@ tracks {
 
     "/seller_central/modify/detail"(platform: "/", type: TrackType.View) {
         sellerCentralModifyCardsGroup
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/variations"(platform: "/", type: TrackType.View) {
@@ -234,46 +253,61 @@ tracks {
 
     "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View) {
         sellerCentralModifyCardsGroup
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_price"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_quantity"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_localpickup_options"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_warranty"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_item_condition"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_shipping_flex"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_size_chart"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
+    }
+
+    "/seller_central/modify/update_price_push_winner_pdp"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     /**

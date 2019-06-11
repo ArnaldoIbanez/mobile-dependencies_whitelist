@@ -11,6 +11,8 @@ tracks {
 
     "/remedies/activity"(platform: "/", isAbstract: true) {}
 
+    "/remedies/center"(platform: "/", isAbstract: true) {}
+
     "/remedies/executed_action"(platform: "/mobile", type: TrackType.Event) {
         executed_action(type: PropertyType.String, required: true, description: "Action executed from component actions")
         extra_params(type: PropertyType.String, required: false, description: "The deeplink params with which the flow was invoked")
@@ -100,4 +102,49 @@ tracks {
     "/remedies/activity/documentation_number"(platform: "/mobile/android", type: TrackType.View) {}
     "/remedies/activity/custom_camera"(platform: "/mobile/android", type: TrackType.View) {}
     "/remedies/activity/picture_confirmation"(platform: "/mobile/android", type: TrackType.View) {}
+
+    // Web desktop and web mobile tracks
+    "/remedies/landing"(platform: "/web", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+    }
+    "/remedies/phone_landing"(platform: "/web", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+    }
+    "/remedies/phone_validation"(platform: "/web", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+    }
+    "/remedies/documentation_front"(platform: "/web", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+    }
+    "/remedies/documentation_back"(platform: "/web", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+    }
+    "/remedies/documentation_number"(platform: "/web", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+    }
+    "/remedies/selfie"(platform: "/web", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+    }
+    "/remedies/congrats"(platform: "/web", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        congrats_type(type: PropertyType.String, required: true, description: "Type of the congrats we show")
+    }
+    "/remedies/continue_phone_landing"(platform: "/web/desktop", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        challenge(type: PropertyType.String, required: true, description: "Current challenge")
+    }
+    "/remedies/continue_phone_congrats"(platform: "/web/desktop", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        challenge(type: PropertyType.String, required: true, description: "Current challenge")
+    }
+    "/remedies/detail_landing"(platform: "/web", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+    }
+    "/remedies/threeds"(platform: "/web", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+    }
+    "/remedies/company"(platform: "/web", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+    }
+    "/remedies/center/card"(platform: "/web", type: TrackType.View) {}
 }

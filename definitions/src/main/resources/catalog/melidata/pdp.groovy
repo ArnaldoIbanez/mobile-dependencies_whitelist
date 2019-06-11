@@ -17,11 +17,11 @@ tracks {
         installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
         item_condition(required: false, type: PropertyType.String, description: "")
         sold_quantity(required: false, type: PropertyType.Numeric, description: "")
-        shipping_conditions(required: true, type: PropertyType.String, values: ["no_shipping", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
+        shipping_conditions(required: false, type: PropertyType.String, values: ["no_shipping", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
                 description: "Shipping conditions for product")
 
         //BRACH_OFFICE CONDITIONS
-        bo_pick_up_conditions(required: true, type: PropertyType.String, values: ["no_bo_pick_up", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
+        bo_pick_up_conditions(required: false, type: PropertyType.String, values: ["no_bo_pick_up", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
                 description: "Branch office pick up conditions for product")
 
         //PUIS
@@ -140,6 +140,7 @@ tracks {
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
         item_id(required: false, type: PropertyType.String, description: "Item ID")
         quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to buy")
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
@@ -162,10 +163,14 @@ tracks {
         pickup_info
         seller_id(required: true, type: PropertyType.Numeric)
         seller_name(required: false, type: PropertyType.String, description: "The name of the seller")
+        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
+        original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
+        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
     }
 
     "/pdp/add_to_cart_action"(platform: "/", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
         item_id(required: false, type: PropertyType.String, description: "Item ID")
         quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to buy")
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
@@ -190,6 +195,9 @@ tracks {
         pickup_info
         seller_id(required: true, type: PropertyType.Numeric)
         seller_name(required: false, type: PropertyType.String, description: "The name of the seller")
+        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
+        original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
+        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
     }
 
     "/pdp/quantity_change"(platform: "/", parentPropertiesInherited: false) {
@@ -302,5 +310,4 @@ tracks {
         pickers(required: true, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_info_definition)), description: "Items listed on the page")
     }
-
 }

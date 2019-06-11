@@ -6,6 +6,15 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    def propertyCampaignDetail  = objectSchemaDefinitions {
+        source(required: false, type: PropertyType.String, description:  "indicates the component that starts capaign")
+        brand(required: false, type: PropertyType.String, description:  "brands associated to capamign")
+    }
+
+    def propertyActionDetail  = objectSchemaDefinitions {
+        tag(required: false, type: PropertyType.String, description:  "brands to filter")
+    }
+
     /**
     * INSTORES Screen Tracks
     */
@@ -140,19 +149,25 @@ tracks {
 
     // Landing
     "/instore/qr_first_time_use"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/qr_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/qr_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/qr_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/qr_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/shell_first_time_use"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/shell_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/shell_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/shell_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/shell_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/instore/landing"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/landing/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/landing"(platform: "/mobile", type: TrackType.View) {
+        campaign(required: false, type: PropertyType.String, description: "the Campaign name send when user open landing campaign")
+        campaign_details(required: false, PropertyType.Map(propertyCampaignDetail), description: "extra info about campaign like source")
+    }
     "/instore/landing/abort"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/landing/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/landing/next"(platform: "/mobile", type: TrackType.Event) {
+        action(required: false, type: PropertyType.String, description: "the action name send when user select action")
+        action_details(required: false, PropertyType.Map(propertyActionDetail), description: "extra info about action like tags")
+    }
 
 
     // Waiting
@@ -341,11 +356,40 @@ tracks {
     }
     "/instore/map/error"(platform: "/mobile", isAbstract: true) {}
     "/instore/map/error/server_error"(platform: "/mobile", type: TrackType.View) {
-        style(required: true, PropertyType.String, descriptio: "how the error is presented to the user (screen, snackbar")
+        style(required: true, PropertyType.String, description: "how the error is presented to the user (screen, snackbar")
         id(required: true, PropertyType.String, description:"an identifer for the type of error")
         message(required: true, PropertyType.String, description: "server error description")
         attributable_to(required: true, PropertyType.String)
     }
     "/instore/my_qr"(platform: "/mobile", type: TrackType.Event) {}
+
+    // Scale Features
+    // QR Assignment
+    
+    "/instore"(platform:"/web", isAbstract:true) {}
+    "/instore/scale_feature"(platform:"/web", isAbstract:true) {}
+    "/instore/scale_feature/qr-assignment"(platform:"/web", isAbstract:true) {
+        transaction_id (type: PropertyType.String, required: true, description:"UUID for transaction tracking")
+    }
+    "/instore/scale_feature/qr-assignment/start_process"(platform:"/web", type: TrackType.View) {}
+    "/instore/scale_feature/qr-assignment/company_info"(platform:"/web", type: TrackType.View) {}
+    "/instore/scale_feature/qr-assignment/store_info"(platform:"/web", type: TrackType.View) {}
+    "/instore/scale_feature/qr-assignment/qr_camera"(platform:"/web", type: TrackType.View) {}
+    "/instore/scale_feature/qr-assignment/success"(platform:"/web", type: TrackType.View) {
+        status (type: PropertyType.String, required: true, description:"Store create status")
+    }
+    "/instore/scale_feature/qr-assignment/error"(platform:"/web", type: TrackType.View) {
+       status (type: PropertyType.String, required: true, description: "Error Status, ex: invalidAccess, error")
+    }
+
+    "/instore/scale_feature/qr-assignment/validate_email"(platform:"/web", type: TrackType.Event) {
+      valid (type: PropertyType.Boolean, required: true, description: "Ex: true or false")
+    }
+    "/instore/scale_feature/qr-assignment/fill_store_address"(platform:"/web", type: TrackType.Event) {
+      get_address_method (type: PropertyType.String, required: true, description: "Ex: [text | gps | map]")
+    }
+    "/instore/scale_feature/qr-assignment/qr_scan"(platform:"/web", type: TrackType.Event) {
+      qr_content (type: PropertyType.String, required: true, description: "Ex: http://qrContent")
+    }
 
 }

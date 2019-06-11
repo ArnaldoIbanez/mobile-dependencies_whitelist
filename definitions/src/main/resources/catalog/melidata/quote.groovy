@@ -386,6 +386,7 @@ tracks {
     //Quote Buyer :: Create Quote
     "/quote_demand/buyer/create"(platform: "/", type: TrackType.View) {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        buyer_id(required: false, type: PropertyType.Numeric, description: "Buyer id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         item_id(required: true, type: PropertyType.String, description: "Item id")
     }
@@ -393,6 +394,7 @@ tracks {
     //Quote Buyer :: Create Quote Event
     "/quote_demand/buyer/create/submit_quote_demand"(platform: "/", type: TrackType.Event) {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        buyer_id(required: false, type: PropertyType.Numeric, description: "Buyer id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         item_id(required: true, type: PropertyType.String, description: "Item id")
     }

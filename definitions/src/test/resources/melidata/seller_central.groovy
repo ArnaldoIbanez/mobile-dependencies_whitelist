@@ -52,9 +52,11 @@ trackTests {
         }
         "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
             action = "dismiss"
+            viewId = "inventario"
         }
         "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
             action = "start"
+            page = 1
         }
     }
 
@@ -65,6 +67,12 @@ trackTests {
         "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
             type = "task"
             id = "MODIFY"
+            action = "show"
+        }
+        "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
+            type = "task"
+            id = "LOW_HEALTH"
+            action = "edit"
         }
         "/seller_central/listings/communication/more_info"(platform: "/mobile", type: TrackType.Event) {
             type = "news"
@@ -139,6 +147,7 @@ trackTests {
         }
         "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
             action = "start"
+            viewId = "fulfillment"
         }
         "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
             action = "dismiss"
@@ -170,6 +179,20 @@ trackTests {
     test("seller central bulk columns") {
         "/seller_central/bulk/columns"(platform: "/", type: TrackType.Event) {
             columns = ["price", "quantity"]
+        }
+    }
+
+    test("seller central bulk changes price") {
+        "/seller_central/bulk/changes/price"(platform: "/", type: TrackType.Event) {
+            oldValue = "20"
+            newValue = "25"
+            itemId = "MLB341920"
+        }
+    }
+
+    test("seller central bulk shipping tooltip") {
+        "/seller_central/bulk/shipping/tooltip"(platform: "/", type: TrackType.Event) {
+            itemId = "MLB341920"
         }
     }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -442,6 +465,20 @@ trackTests {
 
     test("seller central item size_chart value updated"){
         "/seller_central/modify/update_size_chart"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            from = "-1"
+            to = "6270"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
+        }
+    }
+
+    test("seller central item price push winner was updated"){
+        "/seller_central/modify/update_price_push_winner_pdp"(platform: "/", type: TrackType.Event) {
             item_type = "product"
             category_id = "MLA390784"
             item_id = "MLA682118081"

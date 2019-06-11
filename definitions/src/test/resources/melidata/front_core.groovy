@@ -35,7 +35,7 @@ trackTests {
                     id: "banking",
                     ordinal: 1,
                     type: "BANKING"
-            ]
+                ]
             ]
         }
     }
@@ -77,14 +77,14 @@ trackTests {
         "/wallet/home/show/discount_benefits" (platform: "/mobile", type: TrackType.Event) {
             realestates = [
                     [
-                        realestate_id : "discount_benefits_advice",
-                        content_id : "mgm_payer",
-                        origin : "user_journey"
+                            realestate_id : "discount_benefits_advice",
+                            content_id : "mgm_payer",
+                            origin : "user_journey"
                     ],
                     [
-                        realestate_id : "discount_benefits_coupon",
-                        content_id : "coupon",
-                        origin : "user_journey"
+                            realestate_id : "discount_benefits_coupon",
+                            content_id : "coupon",
+                            origin : "user_journey"
                     ]
             ]
         }
@@ -94,9 +94,9 @@ trackTests {
         "/wallet/home/show/dismissible_row" (platform: "/mobile", type: TrackType.Event) {
             realestates = [
                     [
-                        realestate_id : "dismissible_row",
-                        content_id : "available_acquisition",
-                        origin : "user_journey"
+                            realestate_id : "dismissible_row",
+                            content_id : "available_acquisition",
+                            origin : "user_journey"
                     ]
             ]
         }
@@ -106,16 +106,47 @@ trackTests {
         "/wallet/home/show/cross_selling" (platform: "/mobile", type: TrackType.Event) {
             realestates = [
                     [
-                        realestate_id : "cross_selling_home_mp_prepaid",
-                        content_id : "cross_selling_prepaid",
-                        origin : "user_journey"
+                            realestate_id : "cross_selling_home_mp_prepaid",
+                            content_id : "cross_selling_prepaid",
+                            origin : "user_journey"
                     ],
                     [
-                        realestate_id : "cross_selling_home_mp_point",
-                        content_id : "cross_selling_point",
-                        origin : "user_journey"
+                            realestate_id : "cross_selling_home_mp_point",
+                            content_id : "cross_selling_point",
+                            origin : "user_journey"
                     ]
             ]
         }
     }
+
+    // TODO: This test will be removed
+    test("Mercadopago Home Banking Section Show") {
+        "/wallet/home/show/banking" (platform: "/mobile", type: TrackType.Event) {
+            collapsed = true
+        }
+    }
+
+    // TODO: This test will be removed
+    test("Mercadopago Home Activities Show") {
+        "/wallet/home/show/activities" (platform: "/mobile", type: TrackType.Event) {
+            quantity = 0
+            is_ftu = true
+            has_footer = false
+        }
+    }
+
+    test("Mercadopago Home Banking Initial State") {
+        "/wallet/home/banking/initial_state" (platform: "/mobile", type: TrackType.Event) {
+            collapsed = true
+        }
+    }
+
+    test("Mercadopago Home Banking Collapse") {
+        "/wallet/home/banking/collapse" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("Mercadopago Home Banking Expand") {
+        "/wallet/home/banking/expand" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
 }

@@ -664,6 +664,22 @@ trackTests {
             seller_id = 23423423
         }
 
+        //Create Quote Demand
+        "/quote_demand/buyer/create"(platform: "/",type: TrackType.View) {
+            vertical = "services"
+            category_id= "MLA123214"
+            item_id = "MLA77777"
+            seller_id = 23423423
+        }
+
+        //Create Quote Demand Event
+        "/quote_demand/buyer/create/submit_quote_demand"(platform: "/",type: TrackType.Event) {
+            vertical = "services"
+            category_id= "MLA123214"
+            item_id = "MLA77777"
+            seller_id = 23423423
+        }
+
         /******  Demands Listing **********/
 
         //Demands Listing
