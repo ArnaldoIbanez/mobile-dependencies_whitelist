@@ -41,6 +41,23 @@ trackTests {
     }
 
     // TODO: This test will be removed
+    test("Mercadopago Home Show Instore generic") {
+        "/wallet/home/show/instore/promotion/generic"(platform: "/mobile", type: TrackType.Event) {
+            header_title = "Any title"
+            link = "Any deeplink"
+            items = ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"]
+            items_size = 3
+        }
+    }
+    // TODO: This test will be removed
+    test("Mercadopago Home Show Instore qr_map") {
+        "/wallet/home/show/instore/promotion/qr_map"(platform: "/mobile", type: TrackType.Event) {
+            header_title = "Any title"
+            link = "Any deeplink"
+            items = ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"]
+            items_size = 3
+        }
+    }
     test("Mercadopago Main Actions Section Show") {
         "/wallet/home/show/main_actions" (platform: "/mobile", type: TrackType.Event) {
             quantity = 1
@@ -111,16 +128,17 @@ trackTests {
         "/wallet/home/show/cross_selling" (platform: "/mobile", type: TrackType.Event) {
             realestates = [
                     [
-                            realestate_id : "cross_selling_home_mp_prepaid",
-                            content_id : "cross_selling_prepaid",
-                            origin : "user_journey"
+                            realestate_id: "cross_selling_home_mp_prepaid",
+                            content_id   : "cross_selling_prepaid",
+                            origin       : "user_journey"
                     ],
                     [
-                            realestate_id : "cross_selling_home_mp_point",
-                            content_id : "cross_selling_point",
-                            origin : "user_journey"
+                            realestate_id: "cross_selling_home_mp_point",
+                            content_id   : "cross_selling_point",
+                            origin       : "user_journey"
                     ]
             ]
+
         }
     }
 

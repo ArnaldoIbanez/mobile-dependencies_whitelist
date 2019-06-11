@@ -809,6 +809,20 @@ trackTests {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
         }
 
+        //Instore home sections
+        "/instore/home_sections/promotion/generic/show"(platform: "/mobile", type: TrackType.View) {
+            header_title = "Any title"
+            link = "Any deeplink"
+            items = ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"]
+            items_size = 3
+        }
+        "/instore/home_sections/promotion/qr_map/show"(platform: "/mobile", type: TrackType.View) {
+            header_title = "Any title"
+            link = "Any deeplink"
+            items = ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"]
+            items_size = 3
+        }
+
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Mercado Pago
@@ -1704,6 +1718,20 @@ trackTests {
         "/instore/scale_feature/qr-assignment/qr_scan"(platform:"/web", business: "mercadopago", type: TrackType.Event) {
           transaction_id = '4bbce362-14cd-4e22-944e-67789196d502'
           qr_content = 'http://qr-content'
+        }
+
+        //Instore home sections
+        "/instore/home_sections/promotion/generic/show"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            header_title = "Any title"
+            link = "Any deeplink"
+            items = ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"]
+            items_size = 3
+        }
+        "/instore/home_sections/promotion/qr_map/show"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            header_title = "Any title"
+            link = "Any deeplink"
+            items = ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"]
+            items_size = 3
         }
     }
 }

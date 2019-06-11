@@ -31,6 +31,7 @@ tracks {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
     }
 
+
     //Sections
     def main_action_definition = objectSchemaDefinitions {
         id(type: PropertyType.String, required: true, description: "The id of the item")
@@ -69,9 +70,8 @@ tracks {
 
     // TODO: This track will be removed
     "/wallet/home/show/cross_selling" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-        realestates(type: PropertyType.ArrayList(PropertyType.Map(realestate)), required:true, description: "Cross selling containers")
+        realestates(type: PropertyType.ArrayList(PropertyType.Map(realestate)), required: true, description: "Cross selling containers")
     }
-
     // TODO: This track will be removed
     "/wallet/home/show/banking" (platform: "/mobile", type: TrackType.Event) {
         collapsed(required: true, type: PropertyType.Boolean, description: "If banking is collapsed")
@@ -82,6 +82,23 @@ tracks {
         quantity(required: true, type: PropertyType.Numeric, description: "Quantity of activities")
         is_ftu(required: true, type: PropertyType.Boolean, description: "If is present the FTU in activities section")
         has_footer(required: true, type: PropertyType.Boolean, description: "If has a footer")
+    }
+
+    // TODO: This track will be removed
+    // Instore
+    "/wallet/home/show/instore"(platform: "/mobile", isAbstract: true) {}
+    "/wallet/home/show/instore/promotion"(platform: "/mobile", isAbstract: true) {}
+    "/wallet/home/show/instore/promotion/generic"(platform: "/mobile", type: TrackType.Event) {
+        header_title(required: true, PropertyType.String, description: "the title form endpoint or cache")
+        link(required: true, PropertyType.String, description: "the deeplink recived form endpoint or cache")
+        items(required: true, PropertyType.ArrayList(PropertyType.String), description: "the items recived form endpoint or cache")
+        items_size(required: true, PropertyType.Numeric, description: "the size of items recived form endpoint or cache")
+    }
+    "/wallet/home/show/instore/promotion/qr_map"(platform: "/mobile", type: TrackType.Event) {
+        header_title(required: true, PropertyType.String, description: "the title form endpoint or cache")
+        link(required: true, PropertyType.String, description: "the title form endpoint or cache")
+        items(required: true, PropertyType.ArrayList(PropertyType.String), description: "the items recived form endpoint or cache")
+        items_size(required: true, PropertyType.Numeric, description: "the size of items recived form endpoint or cache")
     }
 
     "/wallet/home/banking" (platform: "/mobile", isAbstract: true) {}

@@ -392,4 +392,25 @@ tracks {
       qr_content (type: PropertyType.String, required: true, description: "Ex: http://qrContent")
     }
 
+    //TODO this path will be deprecated in the next release where all show's track will unifique
+    // Instore home sections
+    "/instore/home_sections"(platform: "/mobile", isAbstract: true) {}
+    "/instore/home_sections/promotion"(platform: "/mobile", isAbstract: true) {}
+    "/instore/home_sections/promotion/generic"(platform: "/mobile", isAbstract: true) {}
+    "/instore/home_sections/promotion/generic/show"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, PropertyType.String, description: "suppress session_id for home_sections")
+        header_title(required: true, PropertyType.String, description: "the title form endpoint or cache")
+        link(required: true, PropertyType.String, description: "the deeplink recived form endpoint or cache")
+        items(required: true, PropertyType.ArrayList(PropertyType.String), description: "the items recived form endpoint or cache")
+        items_size(required: true, PropertyType.Numeric, description: "the size of items recived form endpoint or cache")
+    }
+    "/instore/home_sections/promotion/qr_map"(platform: "/mobile", isAbstract: true) {}
+    "/instore/home_sections/promotion/qr_map/show"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, PropertyType.String, description: "suppress session_id for home_sections")
+        header_title(required: true, PropertyType.String, description: "the title form endpoint or cache")
+        link(required: true, PropertyType.String, description: "the title form endpoint or cache")
+        items(required: true, PropertyType.ArrayList(PropertyType.String), description: "the items recived form endpoint or cache")
+        items_size(required: true, PropertyType.Numeric, description: "the size of items recived form endpoint or cache")
+    }
+
 }
