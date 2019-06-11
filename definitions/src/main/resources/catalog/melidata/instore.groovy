@@ -402,7 +402,7 @@ tracks {
         header_title(required: true, PropertyType.String, description: "the title form endpoint or cache")
         link(required: true, PropertyType.String, description: "the deeplink recived form endpoint or cache")
         items(required: true, PropertyType.ArrayList(PropertyType.String), description: "the items recived form endpoint or cache")
-        items_size(required: true, PropertyType.String, description: "the size of items recived form endpoint or cache")
+        items_size(required: true, PropertyType.Numeric, description: "the size of items recived form endpoint or cache")
     }
     "/instore/home_sections/promotion/qr_map"(platform: "/mobile", isAbstract: true) {}
     "/instore/home_sections/promotion/qr_map/show"(platform: "/mobile", type: TrackType.Event) {

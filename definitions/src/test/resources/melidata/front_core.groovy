@@ -46,7 +46,7 @@ trackTests {
             header_title = "Any title"
             link = "Any deeplink"
             items = ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"]
-            items_size = "3"
+            items_size = 3
         }
     }
     // TODO: This test will be removed
@@ -55,7 +55,90 @@ trackTests {
             header_title = "Any title"
             link = "Any deeplink"
             items = ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"]
-            items_size = "3"
+            items_size = 3
+        }
+    }
+    test("Mercadopago Main Actions Section Show") {
+        "/wallet/home/show/main_actions" (platform: "/mobile", type: TrackType.Event) {
+            quantity = 1
+            items = [
+                    [
+                            id: "show_qr",
+                            ordinal: 1,
+                            has_promotion: true,
+                            enabled: false
+                    ]
+            ]
+        }
+    }
+
+    // TODO: This test will be removed
+    test("Mercadopago Secondary Actions Section Show") {
+        "/wallet/home/show/secondary_actions" (platform: "/mobile", type: TrackType.Event) {
+            realestates_payers = [
+                    [
+                            realestate_id: "secondary_actions_mp_pay_services",
+                            content_id: "pay_services",
+                            origin: "secondary_actions"
+                    ]
+            ]
+            realestates_sellers = [
+                    [
+                            realestate_id: "secondary_actions_mp_charge_with_qr",
+                            content_id: "charge_with_qr",
+                            origin: "secondary_actions"
+                    ]
+            ]
+        }
+    }
+
+    // TODO: This test will be removed
+    test("Mercadopago Discount Benefits Section Show") {
+        "/wallet/home/show/discount_benefits" (platform: "/mobile", type: TrackType.Event) {
+            realestates = [
+                    [
+                            realestate_id : "discount_benefits_advice",
+                            content_id : "mgm_payer",
+                            origin : "user_journey"
+                    ],
+                    [
+                            realestate_id : "discount_benefits_coupon",
+                            content_id : "coupon",
+                            origin : "user_journey"
+                    ]
+            ]
+        }
+    }
+
+    // TODO: This test will be removed
+    test("Mercadopago Dismissible Row Section Show") {
+        "/wallet/home/show/dismissible_row" (platform: "/mobile", type: TrackType.Event) {
+            realestates = [
+                    [
+                            realestate_id : "dismissible_row",
+                            content_id : "available_acquisition",
+                            origin : "user_journey"
+                    ]
+            ]
+        }
+    }
+
+    // TODO: This test will be removed
+    test("Mercadopago Cross Selling Section Show") {
+        "/wallet/home/show/cross_selling" (platform: "/mobile", type: TrackType.Event) {
+            realestates = [
+                    [
+                            realestate_id: "cross_selling_home_mp_prepaid",
+                            content_id   : "cross_selling_prepaid",
+                            origin       : "user_journey"
+                    ],
+                    [
+                            realestate_id: "cross_selling_home_mp_point",
+                            content_id   : "cross_selling_point",
+                            origin       : "user_journey"
+                    ]
+            ]
+
         }
     }
 
