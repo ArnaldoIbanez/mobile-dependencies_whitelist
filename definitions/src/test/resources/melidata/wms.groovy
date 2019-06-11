@@ -768,19 +768,19 @@ trackTests {
         "/wms/quarantine/report/confirmation"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             address_from_id = "CA-0-001-000-00-00"
-            inventory_id = "AAAA11880",
+            inventory_id = "AAAA11880"
             problem_type = "wet"
         } 
         "/wms/quarantine/report/confirmation/confirm"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             address_from_id = "CA-0-001-000-00-00"
-            inventory_id = "AAAA11880",
+            inventory_id = "AAAA11880"
             problem_type = "wet"
         } 
         "/wms/quarantine/report/confirmation/cancel"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             address_from_id = "CA-0-001-000-00-00"
-            inventory_id = "AAAA11880",
+            inventory_id = "AAAA11880"
             problem_type = "wet"
         } 
         "/wms/quarantine/picking/scan_inventory"(platform: "/mobile/android") {
