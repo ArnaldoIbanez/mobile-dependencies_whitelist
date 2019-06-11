@@ -210,7 +210,7 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
         hash(required: false, type: PropertyType.String, description: "Hash of the message in claim check.")
     }
-    "/notification_center/campaigns-remarketing-motors"(platform: "/", type: TrackType.Event) {
+    "/notification_center/campaigns-remarketing_motors"(platform: "/", type: TrackType.Event) {
         campaign_id(required: false, description: "Id of the campaign related to the campaigns notification sent.")
         test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test.")
         sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
@@ -913,7 +913,7 @@ tracks {
           hash(required: false, type: PropertyType.String, description: "Hash of the message in claim check.")
       }
 
-      "/notification/campaigns_remarketing-motors"(platform: "/") {
+      "/notification/campaigns_remarketing_motors"(platform: "/") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
         sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
