@@ -31,5 +31,5 @@ WHERE REGEXP_REPLACE(regexp_replace ((attribute_filter),'"',''),'\\{','') not in
 AND NOT ARRAY_CONTAINS(info.autoselects, REGEXP_REPLACE(regexp_replace ((attribute_filter),'"',''),'\\{',''))
 AND attribute_filter NOT LIKE "%999%" and REGEXP_REPLACE(REGEXP_REPLACE(regexp_replace ((attribute_filter),'"',''),'\\{',''),'([a-z]|[a-z]*_[a-z]*||[a-z]*_[a-z]*_[a-z]*)','') != ''
 GROUP BY category, platform, REGEXP_REPLACE(regexp_replace ((attribute_filter),'"',''),'\\{','')) casi
-GROUP BY casi.category, casi.platform,casi.filtro, casi.usages
+GROUP BY casi.category, casi.platform,casi.filtro, casi.usages, ds
 ORDER BY cantidad_usos DESC;
