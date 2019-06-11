@@ -29,7 +29,7 @@ from
 lateral view explode(info.filter) filters as attribute_filter
 WHERE REGEXP_REPLACE(regexp_replace ((attribute_filter),'"',''),'\\{','') not in ('category','notfinalized','blcustomers','condition','city','official_store_id','shipping_cost','state','official_store','seller_type','view_mode','price','neighborhood','installments','power_seller','seller_id','deal','discount_source','adult_content')
 AND NOT ARRAY_CONTAINS(info.autoselects, REGEXP_REPLACE(regexp_replace ((attribute_filter),'"',''),'\\{',''))
-AND attribute_filter NOT LIKE "%999%" and REGEXP_REPLACE(REGEXP_REPLACE(regexp_replace ((attribute_filter),'"',''),'\\{',''),'([a-z]|[a-z]*_[a-z]*||[a-z]*_[a-z]*_[a-z]*)','') != ''
+AND attribute_filter NOT LIKE "%999%" and REGEXP_REPLACE(REGEXP_REPLACE(regexp_replace ta((attribute_filter),'"',''),'\\{',''),'([a-z]|[a-z]*_[a-z]*||[a-z]*_[a-z]*_[a-z]*)','') != ''
 GROUP BY category, platform, REGEXP_REPLACE(regexp_replace ((attribute_filter),'"',''),'\\{','')) casi
 GROUP BY casi.category, casi.platform,casi.filtro, casi.usages, ds
 ORDER BY cantidad_usos DESC;
