@@ -186,6 +186,7 @@ trackTests {
                             item_id:"MLA1234"
                     ]
             ]
+            carousel_filters=["BRAND", "official_store", "STYLE"]
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -209,6 +210,7 @@ trackTests {
                 printed_positions=[]
                 printed_positions_size=0
             }
+            carousel_filters=["BRAND", "official_store", "STYLE"]
         })
 
         "/search/color_picker"(platform: "/web"){
