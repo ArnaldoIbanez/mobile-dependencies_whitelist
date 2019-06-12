@@ -169,6 +169,12 @@ tracks {
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
+    "/flex/package/detail/message_buyer"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        buyer_info(required: false, description: "The receiver data")
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
     "/flex/package/detail/call_buyer"(platform: "/mobile", type: TrackType.Event) {
         packsAndLocation
         buyer_info(required: false, description: "The receiver data")
