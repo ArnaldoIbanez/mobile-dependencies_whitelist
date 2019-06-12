@@ -49,10 +49,27 @@ trackTests {
     
     test("Mercadopago Activities List Mobile") {
         "/listing/activities" (platform: "/mobile", type: TrackType.View) {}
-    }
+    }   
 
+    test("Mercadopago Activities Pull List Mobile") {
+        "/listing/activities/pull" (platform: "/mobile", type: TrackType.Event) {
+            has_changes = true
+        }
+    }
+       
     test("Mercadopago Activity Apply Filters Mobile") {
-        "/listing/activities/filters/apply" (platform: "/mobile", type: TrackType.Event) {}
+        "/listing/activities/filters/apply" (platform: "/mobile", type: TrackType.Event) {
+            items = [
+                [
+                    ordinal: 1,
+                    id: "month"
+                ],
+                [
+                    ordinal: 2,
+                    id: "facet_type_payment"
+                ]
+            ]
+        }
     }
 
     test("Mercadopago Activity Filters List Mobile") {
@@ -61,10 +78,6 @@ trackTests {
 
     test("Mercadopago Activity Filters Options List Mobile") {
         "/listing/activities/filters/options" (platform: "/mobile", type: TrackType.View) {}
-    }
-
-    test("Mercadopago Activity Remove Filters Mobile") {
-        "/listing/activities/remove_filter" (platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("Mercadopago Operation Detail List Mobile") {
@@ -77,6 +90,10 @@ trackTests {
 
     test("Mercadopago Operation Detail Add Note List Mobile") {
         "/listing/activities/detail/add_note" (platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Operation Detail Added Note Mobile") {
+        "/listing/activities/detail/add_note/added" (platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("Mercadopago Operation Detail Buyer Information Mobile") {
