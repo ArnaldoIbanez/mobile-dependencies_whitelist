@@ -391,4 +391,19 @@ trackTests {
         })
 
     }
+
+    //Sellers page FLOW
+    test("Sellers page tracking") {
+        "/pdp/sellers/quantity_change"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            quantity = 2
+            available_quantity = 10
+        })
+
+        "/pdp/sellers/picker_selection"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            picker_id = "COLOR"
+            picker_disabled = false
+        })
+    }
 }
