@@ -310,4 +310,16 @@ tracks {
         pickers(required: true, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_info_definition)), description: "Items listed on the page")
     }
+
+    "/pdp/sellers/quantity_change"(platform: "/", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Catalog product id")
+        quantity(required: true, type: PropertyType.Numeric, description: "Quantity of the product that the user is trying to buy or add to cart")
+        available_quantity(required: true, type: PropertyType.Numeric, description: "Max Available quantity for the selected product")
+    }
+
+    "/pdp/sellers/picker_selection"(platform: "/", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        picker_id(required: true, type: PropertyType.String, description: "Product's picker ID")
+        picker_disabled(required: false, type: PropertyType.Boolean, description: "Indicates if the selected picker is disabled")
+    }
 }
