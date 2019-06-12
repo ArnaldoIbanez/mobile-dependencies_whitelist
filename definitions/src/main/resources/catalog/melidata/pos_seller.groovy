@@ -77,7 +77,7 @@
         
         }
          def PosSellerFrictionMessage = objectSchemaDefinitions {
-            style(type: PropertyType.String, required: true, description: "Style showed, window, dialog, toast.. ", values: ["dialog", "window", "snackbar", "toast", "alert"])
+            style(type: PropertyType.String, required: true, description: "Style showed, window, dialog, toast.. ", values: ["dialog", "screen", "snackbar-alert"])
             title(type: PropertyType.String, required: false)
             content(type: PropertyType.String, required: true)
             primary_button(type: PropertyType.String, required: true)
@@ -192,6 +192,11 @@
 
         "/pos_seller/friction/card_reader"(platform: "/mobile", type: TrackType.Event) {
            extra_info (required: false, type: PropertyType.Map(PosSellerCardFrictionExtraInfo), description: "Friction extra data map") 
+        }
+
+        "/pos_seller/friction/pairing"(platform: "/mobile", type: TrackType.Event) {
+            extra_info (required: false, type: PropertyType.Map(PosSellerWaitingCardFrictionExtraInfo), description: "Friction extra data map")
+        
         }
       
 }
