@@ -8,10 +8,32 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    def balance_definition = objectSchemaDefinitions {
+        pendingBalance(required: true, PropertyType.Boolean, description: "Unavailable balance")
+        balanceHistogram(required: true, PropertyType.Numeric, description: "Balance segmentation")
+    }
+    def cards_definition = objectSchemaDefinitions {
+        prepaid(required: true, PropertyType.Boolean, description: "Unavailable balance")
+        quantity(required: true, PropertyType.Numeric, description: "Quantity of cards")
+    }
+
     def item_value_definition = objectSchemaDefinitions {
         id(required: true, type: PropertyType.String, description: "The id of the section")
         ordinal(required: true, type: PropertyType.Numeric, description: "The position in the home")
         type(required: true, type: PropertyType.String, description: "The layout of the view")
+    }
+    
+    def main_action_definition = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true, description: "The id of the item")
+        ordinal(type: PropertyType.Numeric, required: true, description: "The position in the section")
+        has_promotion(type: PropertyType.Boolean, required: true, description: "If has a label of promotion")
+        enabled(type: PropertyType.Boolean, required: true, description: "If the item is show enabled")
+    }
+
+    def realestate = objectSchemaDefinitions {
+        realestate_id(type: PropertyType.String, required: true, description: "The container where we show contents")
+        content_id(type: PropertyType.String, required: true, description: "The identification of shown content")
+        origin(type: PropertyType.String, required: true, description: "The application that returns the content")
     }
 
     "/wallet/home" (platform: "/mobile", isAbstract: true) {}
@@ -31,25 +53,11 @@ tracks {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
     }
 
-
     //Sections
-    def main_action_definition = objectSchemaDefinitions {
-        id(type: PropertyType.String, required: true, description: "The id of the item")
-        ordinal(type: PropertyType.Numeric, required: true, description: "The position in the section")
-        has_promotion(type: PropertyType.Boolean, required: true, description: "If has a label of promotion")
-        enabled(type: PropertyType.Boolean, required: true, description: "If the item is show enabled")
-    }
-
     // TODO: This track will be removed
     "/wallet/home/show/main_actions" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         quantity(required: true, type: PropertyType.Numeric, description: "The number of main actions displayed")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(main_action_definition)), description: "The items of the view")
-    }
-
-    def realestate = objectSchemaDefinitions {
-        realestate_id(type: PropertyType.String, required: true, description: "The container where we show contents")
-        content_id(type: PropertyType.String, required: true, description: "The identification of shown content")
-        origin(type: PropertyType.String, required: true, description: "The application that returns the content")
     }
 
     // TODO: This track will be removed
@@ -75,6 +83,8 @@ tracks {
     // TODO: This track will be removed
     "/wallet/home/show/banking" (platform: "/mobile", type: TrackType.Event) {
         collapsed(required: true, type: PropertyType.Boolean, description: "If banking is collapsed")
+        balance(required: false, type: PropertyType.Map(balance_definition), description: "The balance section information")
+        cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
     }
 
     // TODO: This track will be removed
@@ -105,6 +115,8 @@ tracks {
 
     "/wallet/home/banking/initial_state" (platform: "/mobile", type: TrackType.Event) {
         collapsed(required: true, type: PropertyType.Boolean, description: "If banking is collapsed")
+        balance(required: false, type: PropertyType.Map(balance_definition), description: "The balance section information")
+        cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
     }
 
     "/wallet/home/banking/collapse" (platform: "/mobile", type: TrackType.Event) {}
