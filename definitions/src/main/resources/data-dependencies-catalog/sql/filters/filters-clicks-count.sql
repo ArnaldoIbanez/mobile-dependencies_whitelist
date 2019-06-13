@@ -23,7 +23,6 @@ WHERE ds >= '@param01'
   AND ds < '@param02'
   AND path = '/search'
   AND type = 'view'
-  AND application.site_id in ('MLA','MLB','MLM')
   AND device.platform != '/mobile/ios'
   AND NOT is_bot(device.user_agent)
   AND CAST(jest(event_data,'offset') AS DOUBLE) = 0
