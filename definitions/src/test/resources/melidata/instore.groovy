@@ -312,6 +312,38 @@ trackTests {
             qr_data = "Any scanned data"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+        "/instore/error/cant_resolve_qr"(platform: "/mobile", type: TrackType.View) {
+            error = "Any resolve error"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_resolve_qr/retry"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_start_checkout"(platform: "/mobile", type: TrackType.View {
+            error = "Any checkout error"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_start_checkout/retry"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_get_waiting_preference"(platform: "/mobile", type: TrackType.View {
+            error = "Any preference error"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_get_waiting_preference/retry"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_set_required_data"(platform: "/mobile", type: TrackType.View {
+            error = "Any required data error"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_set_required_data/retry"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_execute_required_action"(platform: "/mobile", type: TrackType.View) {
+            error = "Any error"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
 
         // Amount
         "/instore/amount/price_list"(platform: "/mobile", type: TrackType.View) {
@@ -1179,6 +1211,38 @@ trackTests {
         }
         "/instore/error/gas_station_pumping_not_started/try_again"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_resolve_qr"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            error = "Any resolve error"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_resolve_qr/retry"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_start_checkout"(platform: "/mobile", business:"mercadopago", type: TrackType.View {
+            error = "Any checkout error"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_start_checkout/retry"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_get_waiting_preference"(platform: "/mobile", business:"mercadopago", type: TrackType.View {
+            error = "Any preference error"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_get_waiting_preference/retry"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_set_required_data"(platform: "/mobile", business:"mercadopago", type: TrackType.View {
+            error = "Any required data error"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_set_required_data/retry"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/cant_execute_required_action"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            error = "Any error"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
