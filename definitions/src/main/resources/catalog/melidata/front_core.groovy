@@ -9,8 +9,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 tracks {
 
     def balance_definition = objectSchemaDefinitions {
-        pendingBalance(required: true, PropertyType.Boolean, description: "Unavailable balance")
-        balanceHistogram(required: true, PropertyType.Numeric, description: "Balance segmentation")
+        pending_balance(required: true, PropertyType.Boolean, description: "Unavailable balance")
+        balance_histogram(required: true, PropertyType.Numeric, description: "Balance segmentation")
     }
     def cards_definition = objectSchemaDefinitions {
         prepaid(required: true, PropertyType.Boolean, description: "Unavailable balance")
