@@ -181,4 +181,20 @@ tracks {
         written_value(required: true, description: "Written attribute value")
         final_value(required: true, description: "Final attribute value")
     }
+    "/structure_data/product_reviewer"(platform: "/",isAbstract: true) {}
+    "/structure_data/product_reviewer/review"(platform: "/", type: TrackType.Event) {
+         review_id(required: true, description: "Review Id", type: PropertyType.String)
+         review_version(required: true, description: "Reviews version", type: PropertyType.Numeric)
+         sheet_id(required: true, description: "Sheet reviewed", type: PropertyType.String)
+         domain_id(required: true, description: "Sheets domain reviewed", type: PropertyType.String)
+         publication_id(required: true, description: "Item reviewed", type: PropertyType.String)
+         review_status(required: true, description: "Reviews result", values: ["APPROVED", "REJECTED", "PENDING"], type: PropertyType.String) 
+         action_tag(required: true, description: "Publications tag", values: ["ADD", "REP", "NPP"], type: PropertyType.String) 
+         time(required: true, description: "Time reviewing the item", type: PropertyType.Numeric)
+         date(required: true, description: "Reviews date", type: PropertyType.String)
+         user_id(required: true, description: "User id", type: PropertyType.String)
+         user_initials(required: true, description: "User initials", type: PropertyType.String)
+         sections_comments(required: true, description: "Reviews comments", type: PropertyType.String)
+         errors_codes(required: true, description: "Reviews errors codes", type: PropertyType.String)
+     }
 }

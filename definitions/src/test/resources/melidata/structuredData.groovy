@@ -457,4 +457,22 @@ trackTests {
         }
     }
 
+    test("product_reviewer review should be tracked") {
+        "/structure_data/product_reviewer/review"(platform: "/", type: TrackType.Event) {
+            review_id = "MLM123456-414124-23233-43434"
+            review_version = 1
+            sheet_id = "MLM123456"
+            domain_id = "MLM-BACKPACKS"
+            publication_id = "MLM721126131"
+            review_status = "REJECTED"
+            action_tag = "NPP"
+            time = 4000
+            date = "14/06/2019 14:41:00"
+            user_id = "fake@email.com"
+            user_initials = "FKE"
+            sections_comments = '{ "action_source": 1, "association": 2, "attributes": 3 }'
+            errors_codes = '{ "E-ADS": 1, "E-COM": 2, "E-FOR": 3 }'
+        }
+    }
+
 }
