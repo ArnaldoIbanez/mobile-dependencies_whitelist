@@ -142,10 +142,19 @@ trackTests {
         }
     }
 
+
     // TODO: This test will be removed
     test("Mercadopago Home Banking Section Show") {
         "/wallet/home/show/banking" (platform: "/mobile", type: TrackType.Event) {
             collapsed = true
+            balance : [
+                pendingBalance: false,
+                balanceHistogram: 6
+            ]
+            cards : [
+                prepaid: false,
+                quantity: 9
+            ]
         }
     }
 
@@ -161,6 +170,14 @@ trackTests {
     test("Mercadopago Home Banking Initial State") {
         "/wallet/home/banking/initial_state" (platform: "/mobile", type: TrackType.Event) {
             collapsed = true
+            balance : [
+                pendingBalance: false,
+                balanceHistogram: 6
+            ]
+            cards : [
+                prepaid: false,
+                quantity: 9
+            ]
         }
     }
 
