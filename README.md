@@ -25,10 +25,20 @@ If you want to understand how the catalog works please check [catalog's tree str
 
 [Documentation](https://github.com/mercadolibre/melidata-all/wiki/Hive-BI-Integration)
 
+## Requirement
+
+Download JDK 8 (u212) and set JAVA_HOME variable. In your terminal, run:
+
+```
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home
+```
+
+If your JAVA_HOME is set to JDK 9+, it might trigger incompatibility problems.
+
 ## Testing the catalog
 
 If you want to run the tests, you should execute **```make test```**
 
 If you want to run the tests for a specific catalog, you should execute **```make test CATALOG=${catalogName}```** with the catalogName capitalized
 
-If you want to run all available tests **```make test CATALOG=${All}```**
+If you want to run all available tests **```make test CATALOG=${All}```** 
