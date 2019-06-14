@@ -50,6 +50,16 @@ tracks {
         from(required: false, type: PropertyType.String, description: "The original value of a field, for example quantity, warranty,etc")
 
         hierarchy(required: true, type: PropertyType.String, description: "Attribute type")
+
+        original_catalog_product_id(required: true, type: PropertyType.String, description: "The original item catalog product id")
+        selected_catalog_product_id(required: false, type: PropertyType.String, description: "The optined item catalog product id")
+        variation_id(required: false, type: PropertyType.Numeric, description: "The variation id of the original item")
+        has_variations_already_opt_in(required: true, type: PropertyType.Boolean, description: "True if the item has a variation optined")
+        invalid_product_cause(required: false, type: PropertyType.String, description: "The invalid product causes")
+        opt_in_item_id(required: false, type: PropertyType.String, description: "The optined item id")
+        children_catalog_products_ids(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The list of the children catalog products ids")
+        has_variations(required: true, type: PropertyType.Boolean, description: "True if the item has variations")
+        task_id(required: true, type: PropertyType.String, description: "The task id that has been modified")
     }
 
     propertyGroups {
@@ -60,6 +70,9 @@ tracks {
         sellerCentralSettingsGroup(seller_profile, reputation_level)
         technicalSpecificationsGroup(category_domain, attribute, hierarchy)
         hintsGroup(type, attribute)
+
+        sellerCentralCatalogOptinGroup(item_id, session_id, category_id, category_domain, original_catalog_product_id, variation_id, has_variations_already_opt_in, children_catalog_products_ids, has_variations, seller_profile, reputation_level, selected_catalog_product_id, opt_in_item_id, invalid_product_cause)
+        sellerCentralCatalogOptinTaskGroup(task_id, to, from)
     }
 
     //LISTING SECTION
@@ -509,4 +522,29 @@ tracks {
     "/seller_central/sales/detail/modal_action/apply"(platform: "/web", type: TrackType.Event) {
         option(required: false, type: PropertyType.String, description: "Option selected")
     }
+
+    // CATALOG OPTIN SECTION
+
+    "/seller_central/catalog"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/catalog/optin"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroup
+    }
+
+    "/seller_central/catalog/invalid_product"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroup
+    }
+
+    "/seller_central/catalog/congrats"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroup
+    }
+
+    "/seller_central/catalog/optin/confirm"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroup
+        sellerCentralCatalogOptinTaskGroup
+    }
+
+
 }
+
+
