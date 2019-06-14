@@ -301,9 +301,9 @@ trackTests {
         //Message buyer action event success
         "/flex/package/message_buyer"(platform:"/mobile", type: TrackType.Event) {
             defaultSinglePack()
-            buyer_info = {
-                buyer_id = "34434535"
-            }
+            buyer_info = [
+                buyer_id: "34434535"
+            ]
             delivery_id = 123456
         }
 
@@ -317,18 +317,18 @@ trackTests {
         //Message buyer action from detail event success
         "/flex/package/detail/message_buyer"(platform:"/mobile", type: TrackType.Event) {
             defaultSinglePack()
-            buyer_info = {
-                buyer_id = "34434535"
-            }
+            buyer_info = [
+                buyer_id: "34434535"
+            ]
             delivery_id = 123456
         }
 
         //Call buyer action event success
         "/flex/package/detail/call_buyer"(platform:"/mobile", type: TrackType.Event) {
             defaultSinglePack()
-            buyer_info = {
-                buyer_id = "34434535"
-            }
+            buyer_info = [
+                buyer_id: "34434535"
+            ]
             delivery_id = 123456
         }
 
