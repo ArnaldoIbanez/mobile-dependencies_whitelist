@@ -30,7 +30,7 @@ If you want to understand how the catalog works please check [catalog's tree str
 Download JDK 8 (u212) and set JAVA_HOME variable. In your terminal, run:
 
 ```
-JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home
 ```
 
 If your JAVA_HOME is set to JDK 9+, it might trigger incompatibility problems.
@@ -42,3 +42,7 @@ If you want to run the tests, you should execute **```make test```**
 If you want to run the tests for a specific catalog, you should execute **```make test CATALOG=${catalogName}```** with the catalogName capitalized
 
 If you want to run all available tests **```make test CATALOG=${All}```** 
+
+## Tracking domain
+
+After merging your new tracking tags, you can check them at http://melidata.ml.com/pages/index.html#/filters/wms-teste
