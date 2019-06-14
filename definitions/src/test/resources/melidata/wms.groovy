@@ -139,6 +139,13 @@ trackTests {
             inbound_id = 1234
         }
 
+        "/wms/receiving/device/printer/mobile/reprint"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            receiving_id = 1234
+            volume_label = "1234/12"
+        }
+
         "/wms/put_away"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
