@@ -14,7 +14,6 @@ tracks {
     }
     "/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
         campaign (required: true, type: PropertyType.String, description: "Indicates the id of the campaign")
-        osName (required: true, type: PropertyType.String, description: "Indicate the operative system of device")
         extra_params (required: false, type: PropertyType.String, description: "Extra information that comes on query parameters")
     }
     "/stop_landing/button"(platform: "/web", type: TrackType.Event) {

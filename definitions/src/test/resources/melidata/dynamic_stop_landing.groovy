@@ -26,17 +26,14 @@ trackTests {
 		}
 		"/stop_landing/redirect"(platform: '/web'){
 			campaign = 'sube'
-			osName = 'android'
 			extra_params = 'booster_id=1234&media=whatsapp'
 		}
 		"/stop_landing/redirect"(platform: '/web'){
 			campaign = 'copa_america'
-			osName = 'ios'
 			extra_params = 'booster_id=1234'
 		}
 		"/stop_landing/redirect"(platform: '/web'){
 			campaign = 'copa_america'
-			osName = 'ios'
 		}
 		"/stop_landing/button"(platform: '/web'){
 			campaign = 'copa_america'
@@ -63,17 +60,14 @@ trackTests {
 		}
 		"/stop_landing/redirect"(platform: '/web'){
 			campaign = 'sube'
-			osName = 'android'
 			extra_params = 'booster_id=1234&media=whatsapp'
 		}
 		"/stop_landing/redirect"(platform: '/web'){
 			campaign = 'copa_america'
-			osName = 'ios'
 			extra_params = 'booster_id=1234'
 		}
 		"/stop_landing/redirect"(platform: '/web'){
 			campaign = 'copa_america'
-			osName = 'ios'
 		}
 		"/stop_landing/button"(platform: '/web'){
 			campaign = 'copa_america'
