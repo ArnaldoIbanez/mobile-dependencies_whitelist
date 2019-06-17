@@ -194,6 +194,7 @@ tracks {
          date(required: true, description: "Reviews date", type: PropertyType.String)
          user_id(required: true, description: "User id", type: PropertyType.String)
          user_initials(required: true, description: "User initials", type: PropertyType.String)
+         bs_user_email(required: true, description: "Bright Sector user email", type: PropertyType.String)
          sections_comments(required: true, description: "Reviews comments", type: PropertyType.String)
          errors_codes(required: true, description: "Reviews errors codes", type: PropertyType.String)
      }

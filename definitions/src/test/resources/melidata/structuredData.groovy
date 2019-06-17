@@ -468,8 +468,9 @@ trackTests {
             action_tag = "NPP"
             time = 4000
             date = "14/06/2019 14:41:00"
-            user_id = "fake@email.com"
+            user_id = "32323123123a"
             user_initials = "FKE"
+            bs_user_email = "fake@email.com"
             sections_comments = '{ "action_source": 1, "association": 2, "attributes": 3 }'
             errors_codes = '{ "E-ADS": 1, "E-COM": 2, "E-FOR": 3 }'
         }
