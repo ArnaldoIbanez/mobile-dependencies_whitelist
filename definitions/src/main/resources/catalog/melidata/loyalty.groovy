@@ -204,6 +204,7 @@ tracks {
     //  --------------------------------------------- Free-Trials ---------------------------------------------
 
     "/loyalty/freetrial/"(platform: "/", isAbstract: true) {
+        item_id(required: false, description: "If flow starts from vip || new_vip", type: PropertyType.String)
     }
 
     //  -----------------> Free Trial Landing
@@ -214,7 +215,6 @@ tracks {
 
     "/loyalty/freetrial/contention"(platform: "/", type: TrackType.View) {
         from(required: false, values: ["primaryButton", "secondaryButton"])
-        item_id(required: false, description: "If flow starts from vip || new_vip")
     }
 
     "/loyalty/freetrial/contention/continue"(platform: "/", type: TrackType.Event) {
@@ -226,7 +226,6 @@ tracks {
 
     //  -----------------> Card Selection
     "/loyalty/freetrial/cardselection"(platform: "/", type: TrackType.View) {
-        item_id(required: false, description: "If flow starts from vip || new_vip")
     }
 
     "/loyalty/freetrial/cardselection/selected"(platform: "/", type: TrackType.Event) {
@@ -332,11 +331,11 @@ tracks {
         payment(required: true, type: PropertyType.Numeric, description: "Payment ID Number")
         payment_status(required: true, description: "Payment status, like rejected/success/pending/etc...")
         payment_status_detail(required: true, description: "Payment status detail")
-        item_id(required: false, description: "If flow starts from vip || new_vip")
     }
 
     "/loyalty/freetrial/payment/error"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         our_payment_error(required: true, description: "An error from our (with our endpoint) payment post, is not an error creating the payment")
+        item_id(required: false, description: "If flow starts from vip || new_vip", type: PropertyType.String)
     }
 
     "/loyalty/main/partners_landing"(platform: "/", type: TrackType.Event) {

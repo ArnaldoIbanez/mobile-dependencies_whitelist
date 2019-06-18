@@ -391,6 +391,7 @@ trackTests {
     test("Loyalty Free Trials Contention Screen"){
 
         "/loyalty/freetrial"(platform: "/",type: TrackType.View){
+            item_id = "MLA10101010"
         }
 
         "/loyalty/freetrial/contention"(platform: "/",type: TrackType.View){
@@ -414,7 +415,7 @@ trackTests {
 
     test("Loyalty Free Trials Card Selection Screen"){
         "/loyalty/freetrial/cardselection"(platform: "/",type: TrackType.View){
-
+            item_id = "MLA10101010"
         }
 
         "/loyalty/freetrial/cardselection"(platform: "/",type: TrackType.View){
@@ -437,6 +438,7 @@ trackTests {
 
     test("Loyalty Free Trials Set Only CVV"){
         "/loyalty/freetrial/cardselection/cvv"(platform: "/",type: TrackType.View){
+            origin = "marketplace"
         }
 
         "/loyalty/freetrial/cardselection/cvv/continue"(platform: "/",type: TrackType.Event){
@@ -449,6 +451,7 @@ trackTests {
 
     test("Loyalty Free Trials New Card Screen"){
         "/loyalty/freetrial/newcard"(platform: "/",type: TrackType.View){
+            item_id = "MLA10101010"
         }
 
         "/loyalty/freetrial/newcard/continue"(platform: "/",type: TrackType.Event){
@@ -501,20 +504,24 @@ trackTests {
 
     test("Loyalty Free Trials Congrats Screen"){
         "/loyalty/freetrial/congrats"(platform: "/",type: TrackType.View){
+            item_id = "MLA10101010"
             congratstype = "warning"
         }
 
         "/loyalty/freetrial/congrats/continue"(platform: "/",type: TrackType.Event){
+            item_id = "MLA10101010"
             congratstype = "success"
         }
 
         "/loyalty/freetrial/congrats/cancel"(platform: "/",type: TrackType.Event){
+            item_id = "MLA10101010"
             congratstype = "error"
         }
     }
 
     test("Loyalty Free Trials Confirm Screen"){
         "/loyalty/freetrial/confirm"(platform: "/mobile/android",type: TrackType.View){
+            item_id = "MLA10101010"
         }
 
         "/loyalty/freetrial/confirm/continue"(platform: "/mobile/android",type: TrackType.Event){
@@ -534,6 +541,7 @@ trackTests {
             payment = 454353
             payment_status= "approved"
             payment_status_detail= "cc_approved_plugin_pm"
+            item_id = "MLA10101010"
         }
 
         "/loyalty/freetrial/payment"(platform: "/",type: TrackType.Event){
@@ -546,6 +554,7 @@ trackTests {
 
         "/loyalty/freetrial/payment/error"(platform: "/",type: TrackType.Event){
             our_payment_error="Error msg"
+            item_id = "MLA10101010"
         }
     }
 
