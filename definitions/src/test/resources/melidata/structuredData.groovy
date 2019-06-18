@@ -433,7 +433,6 @@ trackTests {
 
     test("product_creator new other domain action should be tracked"){
         "/structure_data/product_creator/other_domain"(platform: "/", type: TrackType.Event){
-            bs_user_email ="jose.rosales@mercadolibre.com"
             score = 0.9913573265075684
             is_same_domain = true
             domain_id = "MLA-MOTORCYCLE_HELMETS"
@@ -445,7 +444,6 @@ trackTests {
 
     test("product_creator ignore hints action should be tracked"){
         "/structure_data/product_creator/ignored_hints"(platform: "/", type: TrackType.Event){
-            bs_user ="jose.rosales@mercadolibre.com"
             domain_id = "MLA-MOTORCYCLE_HELMETS"
             hint_id = "SUGGEST_KNOWN"
             attribute = "MATERIALS"
@@ -466,11 +464,7 @@ trackTests {
             publication_id = "MLM721126131"
             review_status = "REJECTED"
             action_tag = "NPP"
-            time = 4000
-            date = "14/06/2019 14:41:00"
-            user_id = "32323123123a"
-            user_initials = "FKE"
-            bs_user_email = "fake@email.com"
+            time = 4000        
             sections_comments = '{ "action_source": 1, "association": 2, "attributes": 3 }'
             errors_codes = '{ "E-ADS": 1, "E-COM": 2, "E-FOR": 3 }'
         }

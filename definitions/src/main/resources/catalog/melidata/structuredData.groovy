@@ -162,7 +162,6 @@ tracks {
     "/structure_data"(platform: "/", isAbstract: true) {}
     "/structure_data/product_creator"(platform: "/",isAbstract: true) {}
     "/structure_data/product_creator/other_domain"(platform: "/", type: TrackType.Event) {
-        bs_user_email(required: true, description: "Email of brightsector user")
         score(required: true, description: "Score of zordon api")
         is_same_domain(required: true, description:"Must keep or not in this domain", PropertyType.Boolean)
         domain_id(required: true, description: "Current domain")
@@ -171,7 +170,6 @@ tracks {
         user_action(required: true, description: "Action taken by user")
     }
     "/structure_data/product_creator/ignored_hints"(platform: "/", type: TrackType.Event) {
-        bs_user(required: true, description: "Brightsector user")
         domain_id(required: true, description: "Current domain")
         hint_id(required: true, description: "Hint Id")
         attribute(required: true, description: "Attribute Id")
@@ -186,15 +184,11 @@ tracks {
          review_id(required: true, description: "Review Id", type: PropertyType.String)
          review_version(required: true, description: "Reviews version", type: PropertyType.Numeric)
          sheet_id(required: true, description: "Sheet reviewed", type: PropertyType.String)
-         domain_id(required: true, description: "Sheets domain reviewed", type: PropertyType.String)
-         publication_id(required: true, description: "Item reviewed", type: PropertyType.String)
+         domain_id(required: true, description: "Sheets domain ID reviewed", type: PropertyType.String)
+         publication_id(required: true, description: "Item ID reviewed", type: PropertyType.String)
          review_status(required: true, description: "Reviews result", values: ["APPROVED", "REJECTED", "PENDING"], type: PropertyType.String) 
          action_tag(required: true, description: "Publications tag", values: ["ADD", "REP", "NPP"], type: PropertyType.String) 
          time(required: true, description: "Time reviewing the item", type: PropertyType.Numeric)
-         date(required: true, description: "Reviews date", type: PropertyType.String)
-         user_id(required: true, description: "User id", type: PropertyType.String)
-         user_initials(required: true, description: "User initials", type: PropertyType.String)
-         bs_user_email(required: true, description: "Bright Sector user email", type: PropertyType.String)
          sections_comments(required: true, description: "Reviews comments", type: PropertyType.String)
          errors_codes(required: true, description: "Reviews errors codes", type: PropertyType.String)
      }
