@@ -439,6 +439,7 @@ trackTests {
             suggested_domain = "MOTORCYCLE_HELMETS"
             item_id = "MLA763560508"
             user_action = "OTHER_DOMAIN"
+            user_initials = "FKE"
         }
     }
 
@@ -452,6 +453,7 @@ trackTests {
             suggested_value_name = "aluminio"
             written_value = "alu"
             final_value ="alumi"
+            user_initials = "FKE"
         }
     }
 
@@ -467,6 +469,7 @@ trackTests {
             time = 4000        
             sections_comments = '{ "action_source": 1, "association": 2, "attributes": 3 }'
             errors_codes = '{ "E-ADS": 1, "E-COM": 2, "E-FOR": 3 }'
+            user_initials = "FKE"
         }
     }
 
