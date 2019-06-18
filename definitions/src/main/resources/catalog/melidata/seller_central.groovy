@@ -531,11 +531,11 @@ tracks {
         sellerCentralCatalogOptinGroup
     }
 
-    "/seller_central/catalog/invalid_product"(platform: "/web", type: TrackType.View) {
+    "/seller_central/catalog/optin/invalid_product"(platform: "/web", type: TrackType.View) {
         sellerCentralCatalogOptinGroup
     }
 
-    "/seller_central/catalog/congrats"(platform: "/web", type: TrackType.View) {
+    "/seller_central/catalog/optin/congrats"(platform: "/web", type: TrackType.View) {
         sellerCentralCatalogOptinGroup
     }
 

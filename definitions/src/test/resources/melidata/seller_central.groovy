@@ -881,7 +881,7 @@ trackTests {
     }
 
     test("seller central catalog invalid product page view") {
-        "/seller_central/catalog/invalid_product"(platform: "/web", type: TrackType.View) {
+        "/seller_central/catalog/optin/invalid_product"(platform: "/web", type: TrackType.View) {
             item_id = "MLA123"
             session_id = "123-product_optin-abc123"
             category_id = "MLA390784"
@@ -900,7 +900,7 @@ trackTests {
     }
 
     test("seller central catalog congrats page view") {
-        "/seller_central/catalog/congrats"(platform: "/web", type: TrackType.View) {
+        "/seller_central/catalog/optin/congrats"(platform: "/web", type: TrackType.View) {
             item_id = "MLA123"
             session_id = "123-product_optin-abc123"
             category_id = "MLA390784"
