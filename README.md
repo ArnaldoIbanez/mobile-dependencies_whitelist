@@ -2,7 +2,7 @@
 
 [![Build Status](http://216.33.196.24/drone/api/badge/github.com/mercadolibre/melidata-catalog/status.svg?branch=master)](http://drone.melicloud.com/github.com/mercadolibre/melidata-catalog)
 
-#### CONTENT
+### CONTENT
 
 [1 - Description](#description)
 
@@ -17,17 +17,17 @@
 [6 - Contact](#contact)
 
 
-#### DESCRIPTION
+### DESCRIPTION
 
 This repository contains all the definitions for the information tracked in *melidata* platform. The catalog serves as a central repository to governate our data, know what are we tracking and how.
 
-#### DISCLAIMER
+### DISCLAIMER
 
 - Always remember to define how your tracking "should be" not "as it is". We want this catalog to represent "the tracking we want" and not "the one we have". The catalog helps us to keep governance on our data and making it more predictable and easy to exploit
 
 - Before making PR. Try to follow other definition examples and make sure your data is not already tracked.
 
-#### REQUIREMENT
+### REQUIREMENT
 
 Download JDK 8 (u212) and set JAVA_HOME variable. In your terminal, run:
 
@@ -37,7 +37,7 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Hom
 
 If your JAVA_HOME is set to JDK 9+, it might trigger incompatibility problems.
 
-#### TESTING
+### TESTING
 
 If you want to run the tests, you should execute **```make test```**
 
@@ -45,7 +45,7 @@ If you want to run the tests for a specific catalog, you should execute **```mak
 
 If you want to run all available tests **```make test CATALOG=${All}```** 
 
-#### REFERENCES
+### REFERENCES
 
 1. [Melidata Architecture](https://docs.google.com/document/d/1hDP_2iB3lNnKcsbsuQAdvCEentABMEF6sbbV-C6MUTM/edit?usp=sharing)
 
@@ -59,7 +59,7 @@ If you want to run all available tests **```make test CATALOG=${All}```**
 
 6. [FAQ](https://github.com/mercadolibre/melidata-catalog/wiki/FAQ) 
 
-#### CONTACT
+### CONTACT
 
 Martin Ciruzzi <martin.ciruzzi@mercadolibre.com>
 
