@@ -71,11 +71,11 @@ tracks {
 
     "/listing/activities/real_time" (platform: "/mobile", isAbstract: true) {}
     "/listing/activities/real_time/total" (platform: "/mobile", type: TrackType.View) {
-        activity_id(required: true, type: PropertyType.String, description: "The id's activity")
-        date_created(required: true, type: PropertyType.String, description: "The date it was created")
+        total(required: false, type: PropertyType.Numeric, description: "Total realtime activities pushed")        
     }
     "/listing/activities/real_time/push" (platform: "/mobile", type: TrackType.View) {
-        total(required: true, type: PropertyType.Numeric, description: "Total realtime activities pushed")
+        activity_id(required: true, type: PropertyType.String, description: "The id's activity")
+        date_created(required: true, type: PropertyType.String, description: "The date it was created")
     }
     
 }
