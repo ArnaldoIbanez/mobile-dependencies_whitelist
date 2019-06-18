@@ -114,7 +114,7 @@ tracks {
         status(
             required: true,
             type: PropertyType.String,
-            values: ["on_track", "delayed", "to_collect", "not_delivered"],
+            values: ["on_track", "delayed", "to_collect", "not_delivered", "soon_deliver"],
             description: "Shipment tracking status."
         )
     }
