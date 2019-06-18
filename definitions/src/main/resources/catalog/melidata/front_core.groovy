@@ -82,7 +82,7 @@ tracks {
     }
     // TODO: This track will be removed
     "/wallet/home/show/banking" (platform: "/mobile", type: TrackType.Event) {
-        collapsed(required: true, type: PropertyType.Boolean, description: "If banking is collapsed")
+        collapsed(required: false, type: PropertyType.Boolean, description: "If banking is collapsed")
         balance(required: false, type: PropertyType.Map(balance_definition), description: "The balance section information")
         cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
     }
@@ -119,7 +119,13 @@ tracks {
         cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
     }
 
-    "/wallet/home/banking/collapse" (platform: "/mobile", type: TrackType.Event) {}
+    "/wallet/home/banking/collapse" (platform: "/mobile", type: TrackType.Event) {
+        balance(required: false, type: PropertyType.Map(balance_definition), description: "The balance section information")
+        cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
+    }
 
-    "/wallet/home/banking/expand" (platform: "/mobile", type: TrackType.Event) {}
+    "/wallet/home/banking/expand" (platform: "/mobile", type: TrackType.Event) {
+        balance(required: false, type: PropertyType.Map(balance_definition), description: "The balance section information")
+        cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
+    }
 }
