@@ -180,8 +180,8 @@ tracks {
     }
 
     "/wms/receiving/device/printer/mobile/reprint"(platform: "/mobile/android", type: TrackType.Event) {
-        receiving_id(required: false, type: PropertyType.Numeric, description: "Id of the receiving to track")
-        volume_label(required: false, type: PropertyType.String, description: "Volume label to track")
+        receiving_id(required: true, type: PropertyType.Numeric, description: "Id of the receiving to track")
+        volume_label(required: true, type: PropertyType.String, description: "Volume label to track")
     }
 
     /* Cycle count tracks */
