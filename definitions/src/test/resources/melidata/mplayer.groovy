@@ -29,7 +29,6 @@ trackTests {
             destination = "whatsapp"
         }
 
-        "/mplayer/send_money/friend_invite/invite_success"(platform: "/mobile") {}
         "/mplayer/send_money/friend_invite/back_to_home"(platform: "/mobile") {}
 
         "/mplayer/send_money/result/success"(platform: "/mobile") {

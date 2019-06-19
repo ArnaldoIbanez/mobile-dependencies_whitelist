@@ -29,7 +29,6 @@ tracks {
         source(required: false, PropertyType.String)
         destination(required: false, PropertyType.String)
     }
-    "/mplayer/send_money/friend_invite/invite_success"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/send_money/friend_invite/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
     // PX
