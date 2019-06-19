@@ -22,7 +22,7 @@ tracks {
         local_pick_up(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has local pick up")
         logistic_type(required: false,
-                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment"],
+                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment", "self_service"],
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
         free_shipping_benefit(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has free shipping or free by loyalty")
@@ -149,6 +149,7 @@ tracks {
     "/vip"(platform: "/mobile") {
         context(required: false)
         resolution(required: false, description: "Indicates if the device has high or low resolution")
+        whatsapp_installed(required: false, type: PropertyType.Boolean, description: "determines if whatsapp is installed on the device")
     }
 
     "/vip/abort"(platform: "/mobile", type: TrackType.Event) {}

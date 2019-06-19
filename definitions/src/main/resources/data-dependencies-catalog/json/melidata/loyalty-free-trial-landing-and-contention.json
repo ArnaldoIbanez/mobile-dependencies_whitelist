@@ -1,7 +1,7 @@
 {  
    "cron":"00 07 * * *",
    "users":[  
-      "guido.maceira@mercadolibre.com, jonathan.cortese@mercadolibre.com"
+      "loyalty_dev@mercadolibre.com"
    ],
    "process_name":"loyalty-free-trial-landing-and-contention",
    "extract":{  

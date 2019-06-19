@@ -186,6 +186,7 @@ trackTests {
                             item_id:"MLA1234"
                     ]
             ]
+            carousel_filters=["BRAND", "official_store", "STYLE"]
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -209,8 +210,15 @@ trackTests {
                 printed_positions=[]
                 printed_positions_size=0
             }
+            carousel_filters=["BRAND", "official_store", "STYLE"]
         })
 
+        "/search/color_picker"(platform: "/web"){
+            defaultWebTrack()
+            item_id = "MLM1234"
+            previous_product_id = "MLA101021"
+            product_id = "MLA101022"
+        }
 
         "/search/input"(platform: "/mobile") {}
 
@@ -222,6 +230,12 @@ trackTests {
         }
 
         "/search/filters"(platform: "/mobile", defaultSearchInformation)
+        "/search/filters_carousel/click"(platform: "/web", type: TrackType.Event){
+            defaultWebTrack()
+            filter_name = "shoes"
+            filter = "STYLE"
+            position = 4
+        }
         "/search/back"(platform: "/mobile", defaultSearchInformation)
         "/search/long_press"(platform: "/mobile"){
             item_id = "MLA170232"
@@ -375,5 +389,4 @@ trackTests {
 
         }
     }
-
 }

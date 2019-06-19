@@ -19,6 +19,11 @@ class PropertyType {
         return new MapProperty(nestedProperties)
     }
 
+    static Map(PropertyTypeValidator keys, PropertyTypeValidator values) {
+
+        return new ClassicMapProperty(keys, values)
+    }
+
     static ArrayList(PropertyTypeValidator propertyType) {
 
         return new ArrayListProperty(propertyType)
@@ -91,6 +96,36 @@ class MapProperty implements PropertyTypeValidator {
 
         return valid
 
+    }
+
+}
+
+class ClassicMapProperty implements PropertyTypeValidator {
+    PropertyTypeValidator keys
+    PropertyTypeValidator values
+
+    ClassicMapProperty(PropertyTypeValidator keys, PropertyTypeValidator values) {
+        this.keys = keys
+        this.values = values
+    }
+
+    boolean validate(TrackValidationResponse response, String property, Object value) {
+
+        def valid = true
+
+        value.each { k, v ->
+            if(!keys.validate(response, property, k)) {
+                response.addComment(". The error ocurred at key with value ${k}")
+                valid = false
+            }
+
+            if(!values.validate(response, property, v)) {
+                response.addComment(". The error ocurred at value with value ${v}")
+                valid = false
+            }
+        }
+
+        return valid
     }
 
 }

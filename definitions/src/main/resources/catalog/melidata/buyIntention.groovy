@@ -51,7 +51,7 @@ tracks {
     //unit_price
 
     total_amount(required: true, type: PropertyType.Numeric, description: "totalAmount")
-    context(required:true, description: "Indicates from where the buy_intention was initiated. Where did the user pressed de 'COMPRAR' button", values: ["vip", "saved_for_later", "cart", "cart_item", "vip_combo", "item_add", "UNKNOWN", "cart_combo_reco", "checkout_recovery_combo"])
+    context(required:true, description: "Indicates from where the buy_intention was initiated. Where did the user pressed de 'COMPRAR' button", values: ["vip", "pdp", "saved_for_later", "cart", "cart_item", "vip_combo", "item_add", "UNKNOWN", "cart_combo_reco", "checkout_recovery_combo"])
     checkout_flow(required: true, type: PropertyType.String, values: ["subscription", "direct","cart", "contract", "reservation", "subscription", "direct"],  description: "The type of CHO that is starting by this buy intention. Reservation/contracts CHO's are excluded by the moment")
 
     //tracks específicos del flujo de checkout. TODO CHECK si hace sentido que lo mandemos o podemos dejar un track más limpio

@@ -103,8 +103,6 @@ tracks {
         )
     }
 
-
-
     //Track inbound offline product selection
     "/fbm/panel/inbound/offline/product_selection"(platform: "/", type: TrackType.Event) {
         seller_id(
@@ -112,10 +110,15 @@ tracks {
             type: PropertyType.Numeric,
             description: "Id of user"
         )
-        was_created(
+        inbound_id(
+            required: false,
+            type: PropertyType.Boolean,
+            description: "Indicate id of generated inbound"
+        )
+        was_recovered(
             required: true,
             type: PropertyType.Boolean,
-            description: "Indicate if inbound was created"
+            description: "Indicate if inbound was recovered"
         )
         document_status(
             required: true,

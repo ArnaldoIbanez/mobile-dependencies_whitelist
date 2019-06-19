@@ -269,4 +269,19 @@ metrics {
 			}
 		}
 	}
+
+	"seller_central/goal_achieved"(description: "Goal achieved") {
+		startWith {
+			experiment("sell/health-goals_order")
+		}
+
+		countsOn {
+			condition {
+				path("/seller_central/modify/success")
+				and(
+					empty("event_data.goals_achieved", false)
+				)
+			}
+		}
+	}
 }
