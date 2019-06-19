@@ -586,6 +586,14 @@ trackTests {
         "/merchant_acquisition/flows/release-options/error"(platform: "/", type: TrackType.View) {}
     }
 
+    test("MP Micrositio Reseller") {
+        "/merchant_acquisition/flows/resellers"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/resellers/vendas"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/resellers/beneficios"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/resellers/metricas"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/resellers/pos-vendas"(platform: "/", type: TrackType.View) {}
+    }
+
     test("MP-MA Flow QR") {
         "/merchant_acquisition/qr/onboarding"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/qr-code"(platform:"/", type: TrackType.View) {}
