@@ -21,14 +21,16 @@ trackTests {
 
          "/mplayer/send_money/manual_amount/continue"(platform: "/mobile") {
             transaction_amount = 100
-            reason = "the reason"
+            has_reason = true
         }
 
         "/mplayer/send_money/friend_invite/invite_pressed"(platform: "/mobile") {
-            is_contact = true
             source = "phone"
             destination = "whatsapp"
         }
+
+        "/mplayer/send_money/friend_invite/invite_success"(platform: "/mobile") {}
+        "/mplayer/send_money/friend_invite/back_to_home"(platform: "/mobile") {}
 
         "/mplayer/send_money/result/success"(platform: "/mobile") {
             is_contact = true

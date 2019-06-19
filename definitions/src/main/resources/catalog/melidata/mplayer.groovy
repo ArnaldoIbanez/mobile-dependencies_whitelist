@@ -23,13 +23,14 @@ tracks {
     }
     "/mplayer/send_money/manual_amount/continue"(platform: "/mobile", type: TrackType.Event) {
         transaction_amount(required: false, PropertyType.Numeric)
-        reason(required: false, PropertyType.String)
+        has_reason(required: false, PropertyType.Boolean)
     }
     "/mplayer/send_money/friend_invite/invite_pressed"(platform: "/mobile", type: TrackType.Event) {
-        is_contact(required: false, PropertyType.Boolean)
         source(required: false, PropertyType.String)
         destination(required: false, PropertyType.String)
     }
+    "/mplayer/send_money/friend_invite/invite_success"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/send_money/friend_invite/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
     // PX
     "/mplayer/send_money/result"(platform: "/mobile", isAbstract: true) {}
