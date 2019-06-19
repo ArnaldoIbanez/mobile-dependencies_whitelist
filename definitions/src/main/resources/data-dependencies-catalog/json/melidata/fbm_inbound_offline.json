@@ -14,6 +14,14 @@
     "operation": "append",
     "columns": [
     {
+        "name": "seller",
+        "type": "INTEGER"
+    },
+    {
+        "name": "site",
+        "type": "UNICODE_STRING"
+    },
+    {
         "name": "amount_of_errors",
         "type": "INTEGER"
     },
@@ -156,14 +164,6 @@
     {
         "name": "failure",
         "type": "INTEGER"
-    },
-    {
-        "name": "seller",
-        "type": "INTEGER"
-    },
-    {
-        "name": "site",
-        "type": "UNICODE_STRING"
     }
 ],
     "sql": {

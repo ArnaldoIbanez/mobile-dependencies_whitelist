@@ -99,7 +99,7 @@ trackTests {
             placement = "publicidad-banner"
             reputation_level="yellow"
         }
-         "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
+        "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
             type = "news"
             placement = "publicidad-banner"
             adv_segmentation = "winback"
@@ -109,7 +109,7 @@ trackTests {
             placement = "publicidad-banner"
             adv_segmentation = "winback"
         }
-         "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
+        "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
             type = "news"
             placement = "publicidad-banner"
         }
@@ -851,4 +851,93 @@ trackTests {
             option = "option_id"
         }
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller central Catalog Optin
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("seller central catalog optin") {
+        "/seller_central/catalog"(platform: "/web", type: TrackType.View) {}
+    }
+
+
+    test("seller central catalog optin page view") {
+        "/seller_central/catalog/optin"(platform: "/web", type: TrackType.View) {
+            item_id = "MLA123"
+            session_id = "123-product_optin-abc123"
+            category_id = "MLA390784"
+            category_domain = "MLA-FRAGRANCES"
+            original_catalog_product_id = "MLA1055"
+            variation_id = 1234567
+            has_variations_already_opt_in = true
+            children_catalog_products_ids = ["MLA1055"]
+            has_variations = true
+            seller_profile = "ADVANCED"
+            reputation_level= "yellow"
+            selected_catalog_product_id = "MLA1055"
+            opt_in_item_id = "MLA234567"
+            invalid_product_cause = "INVALID_CARRIER"
+        }
+    }
+
+    test("seller central catalog invalid product page view") {
+        "/seller_central/catalog/optin/invalid_product"(platform: "/web", type: TrackType.View) {
+            item_id = "MLA123"
+            session_id = "123-product_optin-abc123"
+            category_id = "MLA390784"
+            category_domain = "MLA-FRAGRANCES"
+            original_catalog_product_id = "MLA1055"
+            variation_id = 1234567
+            has_variations_already_opt_in = true
+            children_catalog_products_ids = ["MLA1055"]
+            has_variations = true
+            seller_profile = "ADVANCED"
+            reputation_level= "yellow"
+            selected_catalog_product_id = "MLA1055"
+            opt_in_item_id = "MLA234567"
+            invalid_product_cause = "INVALID_CARRIER"
+        }
+    }
+
+    test("seller central catalog congrats page view") {
+        "/seller_central/catalog/optin/congrats"(platform: "/web", type: TrackType.View) {
+            item_id = "MLA123"
+            session_id = "123-product_optin-abc123"
+            category_id = "MLA390784"
+            category_domain = "MLA-FRAGRANCES"
+            original_catalog_product_id = "MLA1055"
+            variation_id = 1234567
+            has_variations_already_opt_in = true
+            children_catalog_products_ids = ["MLA1055"]
+            has_variations = true
+            seller_profile = "ADVANCED"
+            reputation_level= "yellow"
+            selected_catalog_product_id = "MLA1055"
+            opt_in_item_id = "MLA234567"
+            invalid_product_cause = "INVALID_CARRIER"
+        }
+    }
+
+    test("seller central catalog optin confirm card event") {
+        "/seller_central/catalog/optin/confirm"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLA123"
+            session_id = "123-product_optin-abc123"
+            category_id = "MLA390784"
+            category_domain = "MLA-FRAGRANCES"
+            original_catalog_product_id = "MLA1055"
+            variation_id = 1234567
+            has_variations_already_opt_in = true
+            children_catalog_products_ids = ["MLA1055"]
+            has_variations = true
+            seller_profile = "ADVANCED"
+            reputation_level= "yellow"
+            selected_catalog_product_id = "MLA1055"
+            opt_in_item_id = "MLA234567"
+            invalid_product_cause = "INVALID_CARRIER"
+            task_id = "product_picker"
+            to = "MLA1074"
+        }
+    }
+
 }
+

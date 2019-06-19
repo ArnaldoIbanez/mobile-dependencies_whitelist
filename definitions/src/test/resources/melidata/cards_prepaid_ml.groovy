@@ -92,6 +92,7 @@ trackTests {
         "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "delayed" }
         "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "to_collect" }
         "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "not_delivered" }
+        "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "soon_deliver" }
     }
 
 

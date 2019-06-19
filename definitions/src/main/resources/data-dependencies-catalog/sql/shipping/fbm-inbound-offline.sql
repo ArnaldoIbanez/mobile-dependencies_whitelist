@@ -1,7 +1,6 @@
 SELECT 
 	usr.user_id AS seller,
 	application.site_id AS site,
-	substr(ds,1,10) AS ds,
 	jest(event_data,'amount_of_errors') as amount_of_errors,
 	jest(event_data,'amount_of_items') as amount_of_items,
 	jest(event_data,'amount_of_rows') as amount_of_rows,
@@ -37,7 +36,8 @@ SELECT
 	jest(event_data, 'detailed_errors.item_status_closed') as item_status_closed,
 	jest(event_data, 'detailed_errors.invalid_shipping_mode') as invalid_shipping_mode,
 	jest(event_data, 'detailed_errors.item_listing_type_free') as item_listing_type_free,
-	jest(event_data, 'detailed_errors.failure') as failure
+	jest(event_data, 'detailed_errors.failure') as failure,
+	substr(ds,1,10) AS ds
 FROM default.tracks 
 WHERE ds >= '@param01'
 AND   ds < '@param02'

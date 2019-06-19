@@ -112,6 +112,34 @@ tracks {
     "/instore/error/cant_pay_in_different_sites/back"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/error/cant_pay_in_different_sites/abort"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/instore/error/gas_station_pumping_not_started"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/error/gas_station_pumping_not_started/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/gas_station_pumping_not_started/abort"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/gas_station_pumping_not_started/try_again"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/error/cant_resolve_qr"(platform: "/mobile", type: TrackType.Event) {
+        error(required: true, PropertyType.String, description: "error type", inheritable: false)
+    }
+    "/instore/error/cant_resolve_qr/retry"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/error/cant_start_checkout"(platform: "/mobile", type: TrackType.Event) {
+        error(required: true, PropertyType.String, description: "error type", inheritable: false)
+    }
+    "/instore/error/cant_start_checkout/retry"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/error/cant_get_waiting_preference"(platform: "/mobile", type: TrackType.Event) {
+        error(required: true, PropertyType.String, description: "error type", inheritable: false)
+    }
+    "/instore/error/cant_get_waiting_preference/retry"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/error/cant_set_required_data"(platform: "/mobile", type: TrackType.Event) {
+        error(required: true, PropertyType.String, description: "error type", inheritable: false)
+    }
+    "/instore/error/cant_set_required_data/retry"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/error/cant_execute_required_action"(platform: "/mobile", type: TrackType.Event) {
+        error(required: true, PropertyType.String, description: "error type", inheritable: false)
+    }
 
     // Permissions
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {
