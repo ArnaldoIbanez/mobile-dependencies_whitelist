@@ -131,6 +131,37 @@ trackTests {
         }
     }
 
+    test("Mercadoshops Admin Dismiss Event") {
+        "/mercado_shops/admin/deactivate"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            reason_id = "REASON_1"
+            additional_comments = "Additional comment."
+        }
+    }
+
+    test("Mercadoshops Admin Onboarding) {
+        "/mercado_shops/admin/onboarding"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            trigger = "MODAL"
+        }
+    }
+
+    test("Mercadoshops Admin Onboarding Steps) {
+        "/mercado_shops/admin/onboarding/steps"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            scope = "Step1"
+        }
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MYML Mercadoshops Domains Delegation flow
     //------------------------------------------------------------------------------------------------------------------------------------------------------
