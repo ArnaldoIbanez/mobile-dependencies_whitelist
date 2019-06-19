@@ -135,10 +135,10 @@ tracks {
 
     // Micrositio - reseller
     "/merchant_acquisition/flows/resellers"(platform:"/", type: TrackType.View) {}
-    "/merchant_acquisition/flows/resellers/vendas"(platform:"/", type: TrackType.View) {}
-    "/merchant_acquisition/flows/resellers/beneficios"(platform:"/", type: TrackType.View) {}
-    "/merchant_acquisition/flows/resellers/metricas"(platform:"/", type: TrackType.View) {}
-    "/merchant_acquisition/flows/resellers/pos-vendas"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/sales"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/benefits"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/metrics"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/after_sales"(platform:"/", type: TrackType.View) {}
 
 
     // QR Landing > Pageviews
