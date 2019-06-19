@@ -102,7 +102,6 @@ tracks {
             type: PropertyType.String,
             values: ['MODAL', 'ICON']
         )
-        mshopsEventGroup
     }
 
     "/mercado_shops/admin/onboarding/steps"(platform: "/", type: TrackType.Event){
@@ -111,7 +110,6 @@ tracks {
             type: PropertyType.String,
             description: "Name of step"
         )
-        mshopsEventGroup
     }
 
     "/mercado_shops/domains/summary"(platform: "/", type: TrackType.View){}

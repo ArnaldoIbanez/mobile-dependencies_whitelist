@@ -142,7 +142,7 @@ trackTests {
         }
     }
 
-    test("Mercadoshops Admin Onboarding) {
+    test("Mercadoshops Admin Onboarding") {
         "/mercado_shops/admin/onboarding"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
@@ -152,13 +152,14 @@ trackTests {
         }
     }
 
-    test("Mercadoshops Admin Onboarding Steps) {
+    test("Mercadoshops Admin Onboarding Steps") {
         "/mercado_shops/admin/onboarding/steps"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
             ref = ""
-            scope = "Step1"
+            scope = "STEP_1"
+            trigger = "ICON"
         }
     }
 
