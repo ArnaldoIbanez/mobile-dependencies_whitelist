@@ -61,6 +61,4 @@ If you want to run all available tests **```make test CATALOG=${All}```**
 
 ### CONTACT
 
-Martin Ciruzzi <martin.ciruzzi@mercadolibre.com>
-
-Iván Rufino <ivan.rufino@mercadolibre.com>
+<melidata_dev@mercadolibre.com>
