@@ -90,33 +90,33 @@
         }
        
 
+       propertyDefinitions {
+          flow_origin(required: true, type: PropertyType.String, description: "flow origin",values: ["shortcut", "menu"])
+          payment_method_type(required: false, type: PropertyType.String, description: "card type",values: ["credit", "debit"])
+          mode(required: true, false: PropertyType.String, description: "flow origin",values: ["cart", "amount"])
+          payment_channel(required: true, type: PropertyType.String , description:  "payment channel selected by the user",values:["qr","point","share_social","cash","chooser"])
+          amount(required: true, type: PropertyType.Numeric, description: "payment amount")
+          currency(required: true, type: PropertyType.String, description: "payment currency")
+          installments(required: false, type: PropertyType.Numeric, description: "installments")
+          description (required: false, type: PropertyType.String, description: "payment description")
+          discount(required: false, type: PropertyType.Numeric, description: "payment discount")
+          discount_type(required: false, type: PropertyType.String,description: "discount type", values:["percentage","amount" ])
+          items(required: false, type: PropertyType.Numeric, description: "number of items in the cart")
+        }
+ 
+        propertyGroups {
+        paymentData(flow_origin, payment_method_type, mode,payment_channel,amount,currency,installments,description,discount,discount_type,items)
+        }
+
+   
         def PosSellerStartFrictionExtraInfo = objectSchemaDefinitions {
             flow_origin(required: true, type: PropertyType.String, description: "flow origin",values: ["shortcut", "menu"])
-            payment_method_type(required: false, type: PropertyType.String, description: "card type",values: ["credit", "debit"])
-            mode(required: true, false: PropertyType.String, description: "flow origin",values: ["cart", "amount"])
-            payment_channel(required: true, type: PropertyType.String , description:  "payment channel selected by the user",values:["qr","point","share_social","cash","chooser"])
-            amount(required: true, type: PropertyType.Numeric, description: "payment amount")
-            currency(required: true, type: PropertyType.String, description: "payment currency")
-            installments(required: false, type: PropertyType.Numeric, description: "installments")
-            description (required: false, type: PropertyType.String, description: "payment description")
-            discount(required: false, type: PropertyType.Numeric, description: "payment discount")
-            discount_type(required: false, type: PropertyType.String,description: "discount type", values:["percentage","amount" ])
-            items(required: false, type: PropertyType.Numeric, description: "number of items in the cart")
+            paymentData
         }
 
          def PosSellerWaitingCardFrictionExtraInfo = objectSchemaDefinitions {
             error_type(PropertyType.String, required: true)
-            flow_origin(required: true, type: PropertyType.String, description: "flow origin",values: ["shortcut", "menu"])
-            payment_method_type(required: false, type: PropertyType.String, description: "card type",values: ["credit", "debit"])
-            mode(required: true, type: PropertyType.String, description: "flow origin",values: ["cart", "amount"])
-            payment_channel(required: true, type: PropertyType.String , description:  "payment channel selected by the user",values:["qr","point","share_social","cash","chooser"])
-            amount(required: true, type: PropertyType.Numeric, description: "payment amount")
-            currency(required: true, type: PropertyType.String, description: "payment currency")
-            installments(required: false, type: PropertyType.Numeric, description: "installments")
-            description (required: true, type: PropertyType.String, description: "payment description")
-            discount(required: false, type: PropertyType.Numeric, description: "payment discount")
-            discount_type(required: false, type: PropertyType.String,description: "discount type", values:["percentage","amount" ])
-            items(required: false, type: PropertyType.Numeric, description: "number of items in the cart")
+            paymentData
             poi_id(required: false, type: PropertyType.String, description: "poi device id")
             
         }
@@ -129,18 +129,8 @@
 
         def PosSellerCardFrictionExtraInfo = objectSchemaDefinitions {
             error_type(PropertyType.String, required: true)
-            flow_origin(required: true, type: PropertyType.String, description: "flow origin",values: ["shortcut", "menu"])
-            payment_method_type(required: true, type: PropertyType.String, description: "card type",values: ["credit", "debit"])
+            paymentData
             poi_id(required: true, type: PropertyType.String, description: "poi device id")
-            mode(required: true, type: PropertyType.String, description: "flow origin",values: ["cart", "amount"])
-            payment_channel(required: true, type: PropertyType.String , description:  "payment channel selected by the user",values:["qr","point","share_social","cash","chooser"])
-            amount(required: true, type: PropertyType.Numeric, description: "payment amount")
-            currency(required: true, type: PropertyType.String, description: "payment currency")
-            installments(required: false, type: PropertyType.Numeric, description: "installments")
-            description (required: false, type: PropertyType.String, description: "payment description")
-            discount(required: false, type: PropertyType.Numeric, description: "payment discount")
-            discount_type(required: false, type: PropertyType.String,description: "discount type", values:["percentage","amount" ])
-            items(required: false, type: PropertyType.Numeric, description: "number of items in the cart")
             card_read_tag(required: false, type: PropertyType.String, description: "card tag",values:["swipe","chip","nfc"])
             first_six(required: false, type: PropertyType.String,description: "first six card numbers")
             last_four(required: false, type: PropertyType.String,description: "last four card numbers")
