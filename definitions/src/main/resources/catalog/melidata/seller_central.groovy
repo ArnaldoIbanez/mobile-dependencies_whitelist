@@ -71,7 +71,7 @@ tracks {
         technicalSpecificationsGroup(category_domain, attribute, hierarchy)
         hintsGroup(type, attribute)
 
-        sellerCentralCatalogOptinGroup(item_id, session_id, category_id, category_domain, original_catalog_product_id, variation_id, has_variations_already_opt_in, children_catalog_products_ids, has_variations, seller_profile, reputation_level, selected_catalog_product_id, opt_in_item_id, invalid_product_cause)
+        sellerCentralCatalogOptinGroup(item_id, session_id, category_id, category_path, category_domain, original_catalog_product_id, variation_id, has_variations_already_opt_in, children_catalog_products_ids, has_variations, seller_profile, reputation_level, selected_catalog_product_id, opt_in_item_id, invalid_product_cause)
         sellerCentralCatalogOptinTaskGroup(task_id, to, from)
     }
 
