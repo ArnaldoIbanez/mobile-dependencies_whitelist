@@ -91,9 +91,6 @@
        
 
         def PosSellerStartFrictionExtraInfo = objectSchemaDefinitions {
-            error_type(PropertyType.String, required: true)
-            http_status(PropertyType.String, required: false)
-            http_message(PropertyType.String, required: false)
             flow_origin(required: true, type: PropertyType.String, description: "flow origin",values: ["shortcut", "menu"])
             payment_method_type(required: false, type: PropertyType.String, description: "card type",values: ["credit", "debit"])
             mode(required: true, false: PropertyType.String, description: "flow origin",values: ["cart", "amount"])
@@ -101,7 +98,7 @@
             amount(required: true, type: PropertyType.Numeric, description: "payment amount")
             currency(required: true, type: PropertyType.String, description: "payment currency")
             installments(required: false, type: PropertyType.Numeric, description: "installments")
-            description (required: true, type: PropertyType.String, description: "payment description")
+            description (required: false, type: PropertyType.String, description: "payment description")
             discount(required: false, type: PropertyType.Numeric, description: "payment discount")
             discount_type(required: false, type: PropertyType.String,description: "discount type", values:["percentage","amount" ])
             items(required: false, type: PropertyType.Numeric, description: "number of items in the cart")
@@ -109,8 +106,6 @@
 
          def PosSellerWaitingCardFrictionExtraInfo = objectSchemaDefinitions {
             error_type(PropertyType.String, required: true)
-            http_status(PropertyType.String, required: false)
-            http_message(PropertyType.String, required: false)
             flow_origin(required: true, type: PropertyType.String, description: "flow origin",values: ["shortcut", "menu"])
             payment_method_type(required: false, type: PropertyType.String, description: "card type",values: ["credit", "debit"])
             mode(required: true, type: PropertyType.String, description: "flow origin",values: ["cart", "amount"])
@@ -128,25 +123,21 @@
 
         def PosSellerPairingFrictionExtraInfo = objectSchemaDefinitions {
             error_type(PropertyType.String, required: true)
-            error_message(PropertyType.String, required: false)
             card_readers(PropertyType.String, required: false)
             card_reader_selected(required: false, type: PropertyType.String)
         }
 
         def PosSellerCardFrictionExtraInfo = objectSchemaDefinitions {
-            error_type(PropertyType.String, required: false)
-            http_status(PropertyType.String, required: false)
-            http_message(PropertyType.String, required: false)
+            error_type(PropertyType.String, required: true)
             flow_origin(required: true, type: PropertyType.String, description: "flow origin",values: ["shortcut", "menu"])
             payment_method_type(required: true, type: PropertyType.String, description: "card type",values: ["credit", "debit"])
             poi_id(required: true, type: PropertyType.String, description: "poi device id")
-            poi_type(required: true, type: PropertyType.String, description: "poi device type")
             mode(required: true, type: PropertyType.String, description: "flow origin",values: ["cart", "amount"])
             payment_channel(required: true, type: PropertyType.String , description:  "payment channel selected by the user",values:["qr","point","share_social","cash","chooser"])
             amount(required: true, type: PropertyType.Numeric, description: "payment amount")
             currency(required: true, type: PropertyType.String, description: "payment currency")
             installments(required: false, type: PropertyType.Numeric, description: "installments")
-            description (required: true, type: PropertyType.String, description: "payment description")
+            description (required: false, type: PropertyType.String, description: "payment description")
             discount(required: false, type: PropertyType.Numeric, description: "payment discount")
             discount_type(required: false, type: PropertyType.String,description: "discount type", values:["percentage","amount" ])
             items(required: false, type: PropertyType.Numeric, description: "number of items in the cart")
@@ -156,6 +147,7 @@
             is_fallback(required: false, type: PropertyType.Boolean,description: "is a payment through fallback")
             has_chip(required: false, type: PropertyType.Boolean, description: "It is a payment by chip")
             request_signature(required: false, type: PropertyType.Boolean, description: "Is the signature necessary")
+            error_message(PropertyType.String, required: false)
         }
 
         "/pos_seller/friction"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
@@ -168,35 +160,28 @@
 
 
         "/pos_seller/friction/device_comm_error"(platform: "/mobile", type: TrackType.Event) {
-             extra_info (required: false, type: PropertyType.Map(PosSellerOTAFrictionExtraInfo), description: "Friction extra data map")
+             extra_info (required: true, type: PropertyType.Map(PosSellerOTAFrictionExtraInfo), description: "Friction extra data map")
         }
         "/pos_seller/friction/server_comm_error"(platform: "/mobile", type: TrackType.Event) {
-             extra_info (required: false, type: PropertyType.Map(PosSellerOTAFrictionExtraInfo), description: "Friction extra data map")
+             extra_info (required: true, type: PropertyType.Map(PosSellerOTAFrictionExtraInfo), description: "Friction extra data map")
         }
         "/pos_seller/friction/battery_low_error"(platform: "/mobile", type: TrackType.Event) {
-             extra_info (required: false, type: PropertyType.Map(PosSellerOTAFrictionExtraInfo), description: "Friction extra data map")
+             extra_info (required: true, type: PropertyType.Map(PosSellerOTAFrictionExtraInfo), description: "Friction extra data map")
         }
         "/pos_seller/friction/reader_update_failed"(platform: "/mobile", type: TrackType.Event) {
-             extra_info (required: false, type: PropertyType.Map(PosSellerOTAFrictionExtraInfo), description: "Friction extra data map")
+             extra_info (required: true, type: PropertyType.Map(PosSellerOTAFrictionExtraInfo), description: "Friction extra data map")
         }
         "/pos_seller/friction/start"(platform: "/mobile", type: TrackType.Event) {
-              extra_info (required: false, type: PropertyType.Map(PosSellerStartFrictionExtraInfo), description: "Friction extra data map")
+              extra_info (required: true, type: PropertyType.Map(PosSellerStartFrictionExtraInfo), description: "Friction extra data map")
         }
         "/pos_seller/friction/pairing"(platform: "/mobile", type: TrackType.Event) {
-            extra_info (required: false, type: PropertyType.Map(PosSellerPairingFrictionExtraInfo), description: "Friction extra data map")
+            extra_info (required: true, type: PropertyType.Map(PosSellerPairingFrictionExtraInfo), description: "Friction extra data map")
         }
-        "/pos_seller/friction/waiting_for_card"(platform: "/mobile", type: TrackType.Event) {
-            extra_info (required: false, type: PropertyType.Map(PosSellerWaitingCardFrictionExtraInfo), description: "Friction extra data map")
-        
-        }
-
+       
         "/pos_seller/friction/card_reader"(platform: "/mobile", type: TrackType.Event) {
-           extra_info (required: false, type: PropertyType.Map(PosSellerCardFrictionExtraInfo), description: "Friction extra data map") 
+           extra_info (required: true, type: PropertyType.Map(PosSellerCardFrictionExtraInfo), description: "Friction extra data map") 
         }
 
-        "/pos_seller/friction/pairing"(platform: "/mobile", type: TrackType.Event) {
-            extra_info (required: false, type: PropertyType.Map(PosSellerWaitingCardFrictionExtraInfo), description: "Friction extra data map")
-        
-        }
+       
       
 }

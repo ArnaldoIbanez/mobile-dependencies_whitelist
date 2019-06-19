@@ -95,7 +95,7 @@
 
         test("waiting for card event") {
             "/pos_seller/point/waiting_for_card"(platform: "/mobile", type: TrackType.Event) {
-                payment_method_type= "credit"
+                payment_method_type= "credit_card"
                 poi_id= "BBPOS10101" 
                 installments= 3
                 flow_id= "UUID"
@@ -167,40 +167,28 @@
          }
 
          "/pos_seller/friction/start"(platform: "/mobile", type: TrackType.Event) {
-           context = "pos_seller/start"
+           context = "pos_seller/calculator"
            message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
            attributable_to = "device"
-           extra_info = [ poi: "CHB123456789012-LE", progress: 25.5 ]
+           extra_info = [ flow_origin: "shortcut", mode: "cart", payment_channel: "point", amount: 2.0 ,currency:"ARS" ]
          }  
 
          "/pos_seller/friction/pairing"(platform: "/mobile", type: TrackType.Event) {
           context = "pos_seller/pairing"
           message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
           attributable_to = "device"
-          extra_info = [ poi: "CHB123456789012-LE", progress: 25.5 ]
-         }
-
-         "/pos_seller/friction/waiting_for_card"(platform: "/mobile", type: TrackType.Event) {
-          context = "pos_seller/waiting_for_card"
-          message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
-          attributable_to = "device"
-          extra_info = [ poi: "CHB123456789012-LE", progress: 25.5 ]
-
+          extra_info = [ card_readers: "CHB123456789012-LE", card_reader_selected: "CHB123456789012-LE", error_type: "pairing"]
          }
 
          "/pos_seller/friction/card_reader"(platform: "/mobile", type: TrackType.Event) {
          context = "pos_seller/card_reader"
          message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
          attributable_to = "device"
-         extra_info = [ poi: "CHB123456789012-LE", progress: 25.5 ]
+         extra_info = [ flow_origin: "shortcut", mode: "cart", payment_channel: "point", amount: 2.0 ,currency:"ARS",error_type: "card_reader", payment_method_type: "credit", 
+                        poi_id: "CHB123456789012-LE", description: "venta presencial"]
         }
 
-        "/pos_seller/friction/pairing"(platform: "/mobile", type: TrackType.Event) {
-         context = "pos_seller/point/pairing"
-         message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
-         attributable_to = "device"
-         extra_info = [ poi: "CHB123456789012-LE", progress: 25.5 ]
-        }
+
     }
 
     } 
