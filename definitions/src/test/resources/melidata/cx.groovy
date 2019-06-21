@@ -147,7 +147,7 @@ trackTests {
             portal_content_id = 987
             portal_problem_id = 456
         }
-        "/support/widget/create_case"(platform: "/", type: TrackType.View) {
+        "/support/widget/create_case"(platform: "/", type: TrackType.Event) {
             portal_form_id = 56
             portal_source_id = 123
             portal_content_id = 987
@@ -192,7 +192,7 @@ trackTests {
             portal_content_id = 987
             portal_problem_id = 456
         }
-        "/support/widget/create_case"(platform: "/", type: TrackType.View) {
+        "/support/widget/create_case"(platform: "/", type: TrackType.Event) {
             portal_form_id = 56
             portal_content_type = 'SHOW_CONTACT'
             portal_source_id = 123
@@ -312,7 +312,7 @@ trackTests {
             portal_content_id = 987
             portal_problem_id = 456
         }
-        "/support/widget/create_case"(platform: "/", type: TrackType.View) {
+        "/support/widget/create_case"(platform: "/", type: TrackType.Event) {
             portal_form_id = 56
             portal_source_id = 123
             portal_content_id = 987
