@@ -118,7 +118,7 @@ tracks {
     "/instore/error/gas_station_pumping_not_started/try_again"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/error/cant_resolve_qr"(platform: "/mobile", type: TrackType.Event) {
-        error(required: true, PropertyType.String, description: "error type", inheritable: false)
+        error(required: false, PropertyType.String, description: "error type", inheritable: false)
     }
     "/instore/error/cant_resolve_qr/retry"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -128,12 +128,12 @@ tracks {
     "/instore/error/cant_start_checkout/retry"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/error/cant_get_waiting_preference"(platform: "/mobile", type: TrackType.Event) {
-        error(required: true, PropertyType.String, description: "error type", inheritable: false)
+        error(required: false, PropertyType.String, description: "error type", inheritable: false)
     }
     "/instore/error/cant_get_waiting_preference/retry"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/error/cant_set_required_data"(platform: "/mobile", type: TrackType.Event) {
-        error(required: true, PropertyType.String, description: "error type", inheritable: false)
+        error(required: false, PropertyType.String, description: "error type", inheritable: false)
     }
     "/instore/error/cant_set_required_data/retry"(platform: "/mobile", type: TrackType.Event) {}
 
