@@ -96,6 +96,22 @@ tracks {
         additional_comments(required: false, type: PropertyType.String, description: "Additional comments on why the user decided to opt out.")
     }
 
+    "/mercado_shops/admin/onboarding"(platform: "/", type: TrackType.Event){
+        trigger(
+            required: true,
+            type: PropertyType.String,
+            values: ['MODAL', 'ICON']
+        )
+    }
+
+    "/mercado_shops/admin/onboarding/steps"(platform: "/", type: TrackType.Event){
+        scope(
+            required: true,
+            type: PropertyType.String,
+            description: "Name of step"
+        )
+    }
+
     "/mercado_shops/domains/summary"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/domains/subdomain"(platform: "/", type: TrackType.View){}
