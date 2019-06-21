@@ -31,6 +31,7 @@ tracks {
         pads_info(required: false, description: "Info from the pads returned for listings")
         catalog_product_id(required: false, description: "Id of the product, only if the product header is showna", PropertyType.String)
         show_supermarket_carousel(required: false, description: "search with supermarket carousel", type: PropertyType.Boolean)
+        show_apparel_carousel(required: false, description: "search with apparel carousel", type: PropertyType.Boolean)
 
         //Tracks from Search Backend:
         backend_data(required: false)
