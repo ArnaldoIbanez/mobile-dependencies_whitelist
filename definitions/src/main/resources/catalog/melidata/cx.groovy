@@ -234,7 +234,7 @@ tracks {
         portal_problem_id
     }
 
-    "/support/widget/create_case"(platform: "/", type: TrackType.View) {
+    "/support/widget/create_case"(platform: "/", type: TrackType.Event) {
         portal_content_id
         portalContentTypeOptionalGroup
         portal_source_id
