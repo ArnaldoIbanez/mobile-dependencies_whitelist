@@ -43,6 +43,7 @@ trackTests {
             }
             catalog_product_id="MLA123"
             show_supermarket_carousel=true
+            show_apparel_carousel=false
             items_with_logos=["MLA1234", "MLA12345"]
         }
 

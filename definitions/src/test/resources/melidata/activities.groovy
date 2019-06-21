@@ -76,6 +76,10 @@ trackTests {
         "/listing/activities/filters" (platform: "/mobile", type: TrackType.View) {}
     }
 
+    test("Mercadopago Remove Filters List Mobile") {
+        "/listing/activities/removefilter" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
     test("Mercadopago Activity Filters Options List Mobile") {
         "/listing/activities/filters/options" (platform: "/mobile", type: TrackType.View) {}
     }
