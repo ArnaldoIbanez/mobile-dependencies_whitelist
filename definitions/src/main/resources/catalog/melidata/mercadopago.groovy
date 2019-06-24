@@ -15,7 +15,7 @@ import com.ml.melidata.TrackType
 * - apply: when a criteria is applied
 * - post: create a new entity
 */
-
+/**/
 tracks {
 
     "/"(platform: "/", isAbstract: true) {
@@ -132,6 +132,14 @@ tracks {
     "/merchant_acquisition/flows/release-options"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/release-options/success"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/release-options/error"(platform:"/", type: TrackType.View) {}
+
+    // Micrositio - reseller
+    "/merchant_acquisition/flows/resellers"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/sales"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/benefits"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/metrics"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/after_sales"(platform:"/", type: TrackType.View) {}
+
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}

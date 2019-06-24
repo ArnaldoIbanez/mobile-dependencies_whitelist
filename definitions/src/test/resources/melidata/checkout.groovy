@@ -426,6 +426,9 @@ trackTests {
             contact_name = "Juan"
             contact_phone = "555-5555"
         }
+        "/checkout/shipping/location/new_contact/back"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
        "/checkout/shipping/location/new_contact#submit"(platform:"/mobile", type:TrackType.Event) {
             success = true
             session_id = "1241n1kj2nk14141nl12nl"

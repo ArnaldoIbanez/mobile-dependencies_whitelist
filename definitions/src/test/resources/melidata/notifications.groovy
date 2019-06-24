@@ -281,6 +281,19 @@ trackTests {
             latest_news_id= "campaigns-remarketing-143816022-MLB1013046714"
             hash="hash1"
         }
+        "/notification_center/campaigns-remarketing_motors"(platform: "/mobile"){
+            campaign_id= "campaign1"
+            newsgroup_id= "campaigns-remarketing_motors-241951421"
+            event_type= "open"
+            deeplink= "meli://item?id=MLA645507294"
+            type_layout= "standard"
+            test_notification= false
+            sent_date= "20180508"
+            batch_id= "MLB_PACK_20180508_2"
+            latest_news_type= "campaigns-remarketing_motors"
+            latest_news_id= "campaigns-remarketing_motors-143816022-MLB1013046714"
+            item_id= "MLU457119874"
+        }
         "/notification_center/campaigns-recharge_recovery"(platform: "/mobile"){
             campaign_id= "campaign1"
             newsgroup_id= "campaigns-recharge_recovery-320010629"
@@ -678,6 +691,48 @@ trackTests {
             latest_news_id= "wallet_integrator-ticket_acredited-186785675-76283123"
             latest_news_type= "wallet_integrator_ticket_acredited"
             status= "read"
+        }
+
+        "/notification_center/seller_journey_congrats"(platform: "/mobile"){
+            latest_news_id= "seller_journey-congrats-343447578-3"
+            step_id= 123
+            event_type= "create"
+        }
+        "/notification_center/seller_journey_keep_it_up"(platform: "/mobile"){
+            latest_news_id= "seller_journey-keep_it_up-343447578-3"
+            step_id= 123
+            event_type= "create"
+        }
+        "/notification_center/seller_journey_work_harder"(platform: "/mobile"){
+            latest_news_id= "seller_journey-work_harder-343447578-3"
+            step_id= 123
+            event_type= "create"
+        }
+        "/notification_center/seller_journey_do_something"(platform: "/mobile"){
+            latest_news_id= "seller_journey-do_something-343447578-3"
+            step_id= 123
+            event_type= "create"
+        }
+
+        "/notification/seller_journey_congrats"(platform: "/mobile"){
+            latest_news_id= "seller_journey-congrats-343447578-3"
+            step_id= 123
+            event_type= "sent"
+        }
+        "/notification/seller_journey_keep_it_up"(platform: "/mobile"){
+            latest_news_id= "seller_journey-keep_it_up-343447578-3"
+            step_id= 123
+            event_type= "sent"
+        }
+        "/notification/seller_journey_work_harder"(platform: "/mobile"){
+            latest_news_id= "seller_journey-work_harder-343447578-3"
+            step_id= 123
+            event_type= "sent"
+        }
+        "/notification/seller_journey_do_something"(platform: "/mobile"){
+            latest_news_id= "seller_journey-do_something-343447578-3"
+            step_id= 123
+            event_type= "sent"
         }
 
 
@@ -1733,6 +1788,16 @@ trackTests {
             sent_date= "20180508"
             batch_id = "MLB_PACK_20180508_2"
             hash="hash1"
+        }
+
+        "/notification/campaigns_remarketing_motors"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+            campaign_id= "MLV515515631"
+            test_notification= false
+            sent_date= "20180508"
+            batch_id = "MLB_PACK_20180508_2"
+            item_id = "MLU457119874"
         }
 
         "/notification/packages_new"(platform: "/mobile") {
@@ -2528,6 +2593,19 @@ trackTests {
             latest_news_id= "campaigns-remarketing-143816022-MLB1013046714"
             hash="hash1"
         }
+        "/notification_center/campaigns-remarketing_motors"(platform: "/mobile"){
+            campaign_id= "campaign1"
+            newsgroup_id= "campaigns-remarketing_motors-241951421"
+            event_type= "open"
+            deeplink= "meli://item?id=MLA645507294"
+            type_layout= "standard"
+            test_notification= false
+            sent_date= "20180508"
+            batch_id= "MLB_PACK_20180508_2"
+            latest_news_type= "campaigns-remarketing_motors"
+            latest_news_id= "campaigns-remarketing_motors-143816022-MLB1013046714"
+            item_id= "MLU457119874"
+        }
         "/notification_center/campaigns-recharge_recovery"(platform: "/mobile"){
             campaign_id= "campaign1"
             newsgroup_id= "campaigns-recharge_recovery-320010629"
@@ -2927,6 +3005,47 @@ trackTests {
             status= "read"
         }
 
+        "/notification_center/seller_journey_congrats"(platform: "/mobile"){
+            latest_news_id= "seller_journey-congrats-343447578-3"
+            step_id= 123
+            event_type= "create"
+        }
+        "/notification_center/seller_journey_keep_it_up"(platform: "/mobile"){
+            latest_news_id= "seller_journey-keep_it_up-343447578-3"
+            step_id= 123
+            event_type= "create"
+        }
+        "/notification_center/seller_journey_work_harder"(platform: "/mobile"){
+            latest_news_id= "seller_journey-work_harder-343447578-3"
+            step_id= 123
+            event_type= "create"
+        }
+        "/notification_center/seller_journey_do_something"(platform: "/mobile"){
+            latest_news_id= "seller_journey-do_something-343447578-3"
+            step_id= 123
+            event_type= "create"
+        }
+
+        "/notification/seller_journey_congrats"(platform: "/mobile"){
+            latest_news_id= "seller_journey-congrats-343447578-3"
+            step_id= 123
+            event_type= "sent"
+        }
+        "/notification/seller_journey_keep_it_up"(platform: "/mobile"){
+            latest_news_id= "seller_journey-keep_it_up-343447578-3"
+            step_id= 123
+            event_type= "sent"
+        }
+        "/notification/seller_journey_work_harder"(platform: "/mobile"){
+            latest_news_id= "seller_journey-work_harder-343447578-3"
+            step_id= 123
+            event_type= "sent"
+        }
+        "/notification/seller_journey_do_something"(platform: "/mobile"){
+            latest_news_id= "seller_journey-do_something-343447578-3"
+            step_id= 123
+            event_type= "sent"
+        }
 
         "/notification"(platform: "/mobile") {
             news_id = "12332323"
@@ -3980,6 +4099,16 @@ trackTests {
             sent_date= "20180508"
             batch_id = "MLB_PACK_20180508_2"
             hash="hash1"
+        }
+
+        "/notification/campaigns_remarketing_motors"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+            campaign_id= "MLV515515631"
+            test_notification= false
+            sent_date= "20180508"
+            batch_id = "MLB_PACK_20180508_2"
+            item_id = "MLU457119874"
         }
 
         "/notification/packages_new"(platform: "/mobile") {
