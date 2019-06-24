@@ -48,10 +48,10 @@ trackTests {
         "/money_in/px/success"(platform: "/", type: TrackType.View) {}
 
         //Onboarding
-        "/money_in/onboarding/adicione_dinero"(platform: "/", type: TrackType.View) {}
-        "/money_in/onboarding/simplifique_pagos"(platform: "/", type: TrackType.View) {}
-        "/money_in/onboarding/reciba_rendimientos"(platform: "/", type: TrackType.View) {}
-        "/money_in/onboarding/use_tarjeta_mp"(platform: "/", type: TrackType.View) {}
+        "/money_in/onboarding/add_money"(platform: "/", type: TrackType.View) {}
+        "/money_in/onboarding/simplify_payments"(platform: "/", type: TrackType.View) {}
+        "/money_in/onboarding/invest_money"(platform: "/", type: TrackType.View) {}
+        "/money_in/onboarding/use_mp_card"(platform: "/", type: TrackType.View) {}
 
         "/money_in/onboarding/enter"(platform: "/", type: TrackType.Event) {}
         "/money_in/onboarding/close"(platform: "/", type: TrackType.Event) {}
