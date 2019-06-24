@@ -247,14 +247,14 @@ tracks {
     "/checkout/shipping"(platform: "/", type: TrackType.View) {
     }
 
-    // First Visit
-    // Page
-    //"/checkout/shipping/address_profile"(platform: "/", type: TrackType.View, isAbstract: true) {}
+    //First Visit
+    //Page
+    "/checkout/shipping/address_profile"(platform: "/", type: TrackType.View) {}
 
-    // Event
-    //"/checkout/shipping/address_profile/delivered_time"(platform: "/", type: TrackType.Event) {
-    //    label(required: false, type: PropertyType.String)
-    //}
+    //Event
+    "/checkout/shipping/address_profile/delivered_time"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+       label(required: false, type: PropertyType.String)
+    }
 
     //Fallback/Custom shipping
     "/checkout/shipping/select_method"(platform: "/mobile") {
