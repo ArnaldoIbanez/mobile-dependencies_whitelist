@@ -31,6 +31,7 @@ tracks {
         pads_info(required: false, description: "Info from the pads returned for listings")
         catalog_product_id(required: false, description: "Id of the product, only if the product header is showna", PropertyType.String)
         show_supermarket_carousel(required: false, description: "search with supermarket carousel", type: PropertyType.Boolean)
+        show_apparel_carousel(required: false, description: "search with apparel carousel", type: PropertyType.Boolean)
 
         //Tracks from Search Backend:
         backend_data(required: false)
@@ -72,7 +73,7 @@ tracks {
         user_zone(required: true, description: "the user zone registered", type: PropertyType.String)
         is_googlebot(required: false, description: 'is google bot request', PropertyType.Boolean)
         pdp_rows(required: true, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
-        carousel_filters(required: false, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
+        carousel_filters(required: true, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
     }
 
     "/search"(platform: "/mobile") {

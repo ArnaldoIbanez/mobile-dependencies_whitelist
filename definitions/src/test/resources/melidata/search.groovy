@@ -43,6 +43,7 @@ trackTests {
             }
             catalog_product_id="MLA123"
             show_supermarket_carousel=true
+            show_apparel_carousel=false
             items_with_logos=["MLA1234", "MLA12345"]
         }
 
@@ -109,6 +110,7 @@ trackTests {
                             item_id:"MLA1234"
                     ]
             ]
+            carousel_filters = []
         }
 
         "/search"(platform: "/web"){
@@ -373,7 +375,7 @@ trackTests {
             query="iphone"
             user_zone = ""
             pdp_rows = []
-
+            carousel_filters = []
         }
     }
 

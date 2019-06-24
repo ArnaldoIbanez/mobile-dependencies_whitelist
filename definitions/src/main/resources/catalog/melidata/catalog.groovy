@@ -167,6 +167,7 @@ catalog {
         include business, "digital_account.groovy"
         include business, "front_core.groovy"
         include business, "mplayer.groovy"
+        include business, "pos_seller.groovy"
     }
 
     mercadoshops.each { business ->

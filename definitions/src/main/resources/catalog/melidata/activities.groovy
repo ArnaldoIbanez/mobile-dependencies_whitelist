@@ -54,6 +54,7 @@ tracks {
     // MP Activities Filters
     "/listing/activities/filters" (platform: "/mobile", type: TrackType.View) {}
     "/listing/activities/filters/options" (platform: "/mobile", type: TrackType.View) {}
+    "/listing/activities/removefilter" (platform: "/mobile", type: TrackType.Event) {}
     "/listing/activities/filters/apply" (platform: "/mobile", type: TrackType.Event) {
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(filter_definition)), description: "The filters applied")
     }

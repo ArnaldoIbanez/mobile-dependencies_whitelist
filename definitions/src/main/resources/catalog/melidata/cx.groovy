@@ -198,9 +198,11 @@ tracks {
 
     "/support/widget/folder"(platform: "/", type: TrackType.View) {
         portal_content_id(required: false, type: PropertyType.Numeric, description: "Indicates the id of the content shown on the page, in case its not the home page")
-        portal_has_channels_configured(required: false, type: PropertyType.Boolean,
-            description: "Indicates if the current content has any channels configured, not required for home page")
         portalContentTypeOptionalGroup
+        portal_source_id
+    }
+
+    "/support/widget/folder_rules"(platform: "/", type: TrackType.View) {
         portal_source_id
     }
 
@@ -225,6 +227,14 @@ tracks {
     }
 
     "/support/widget/form"(platform: "/", type: TrackType.View) {
+        portal_content_id
+        portalContentTypeOptionalGroup
+        portal_source_id
+        portal_form_id
+        portal_problem_id
+    }
+
+    "/support/widget/create_case"(platform: "/", type: TrackType.Event) {
         portal_content_id
         portalContentTypeOptionalGroup
         portal_source_id
