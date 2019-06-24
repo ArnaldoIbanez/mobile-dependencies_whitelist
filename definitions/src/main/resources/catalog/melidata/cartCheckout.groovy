@@ -229,6 +229,16 @@ tracks {
     total_amount(required: false, description: "totalAmount")
 }
 
+// First Visit
+// Page
+"/cart/checkout/shipping/address_profile"(platform: "/", type: TrackType.View) {
+}
+
+// Event
+"/cart/checkout/shipping/address_profile/delivered_time"(platform: "/", type: TrackType.Event) {
+    label(required: false, type: PropertyType.String)
+}
+
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin All platforms
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
