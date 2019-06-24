@@ -799,6 +799,16 @@ tracks {
           sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
       }
+
+       //Marketplace Discounts
+      "/notification/campaigns_marketplace_discounts"(platform: "/") {
+          campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+          test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+          sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+          item_id(required: true, type: PropertyType.String)
+          batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+      }
+
       "/notification/campaigns_checkout_recovery"(platform: "/") {
           campaign_id(required: true, description: "Id of the campaign related to the campaigns notification sent.")
           test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
