@@ -73,7 +73,7 @@ tracks {
         user_zone(required: true, description: "the user zone registered", type: PropertyType.String)
         is_googlebot(required: false, description: 'is google bot request', PropertyType.Boolean)
         pdp_rows(required: true, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
-        carousel_filters(required: false, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
+        carousel_filters(required: true, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
     }
 
     "/search"(platform: "/mobile") {
