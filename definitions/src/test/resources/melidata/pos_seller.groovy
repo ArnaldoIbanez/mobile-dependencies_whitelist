@@ -36,6 +36,28 @@
                 amount = "100"
                 currency =  "ARS"
             }
+
+
+
+            "/pos_seller/congrats"(platform: "/mobile", type: TrackType.View) {
+                flow_id= "UUID"
+                description= "nuevo cobro"
+                amount= 20.00
+                flow_origin= "shortcut"
+                mode= "cart"
+                payment_channel= "point"
+                discount= 10 
+                discount_type= "percentage"    
+                items= 3
+                payment_method_id ="visa"
+                card_read_tag = "swipe"
+                first_six = "11111"
+                last_four = "3245" 
+                is_fallback = true
+                has_chip = false
+                request_signature = true
+            }
+
         }
 
 
@@ -184,7 +206,7 @@
          context = "pos_seller/card_reader"
          message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
          attributable_to = "device"
-         extra_info = [ flow_origin: "shortcut", mode: "cart", payment_channel: "point", amount: 2.0 ,currency:"ARS",error_type: "card_reader", payment_method_type: "credit", 
+         extra_info = [ flow_origin: "shortcut", mode: "cart", payment_channel: "point", amount: 2.0 ,currency:"ARS",error_type: "card_reader", payment_method_type: "credit_card", 
                         poi_id: "CHB123456789012-LE", description: "venta presencial"]
         }
 
