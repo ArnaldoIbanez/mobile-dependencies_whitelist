@@ -70,8 +70,6 @@
             request_signature(required: true, type: PropertyType.Boolean, description: "Is the signature necessary")
         }
         
-        }
-
         "/pos_seller/point/pairing_scan"(platform: "/mobile", type: TrackType.Event) {}
 
         "/pos_seller/point/pairing_start"(platform: "/mobile", type: TrackType.Event) {
