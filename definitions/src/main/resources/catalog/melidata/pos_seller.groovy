@@ -27,6 +27,15 @@
           
         }
 
+        "/pos_seller/congrats"(platform: "/mobile", type: TrackType.View) {
+            payment_method_id(required: true, type: PropertyType.String, description: "payment method id")
+            card_read_tag(required: true, type: PropertyType.String, description: "card tag",values:["swipe","chip","nfc"])
+            first_six(required: true, type: PropertyType.String,description: "first six card numbers")
+            last_four(required: true, type: PropertyType.String,description: "last four card numbers")
+            is_fallback(required: true, type: PropertyType.Boolean,description: "is a payment through fallback")
+            has_chip(required: false, type: PropertyType.Boolean, description: "It is a payment by chip")
+            request_signature(required: true, type: PropertyType.Boolean, description: "Is the signature necessary")
+        }
 
         "/pos_seller/point"(platform: "/mobile", isAbstract: true) {}
         
@@ -50,17 +59,6 @@
 
         // end payment
         "/pos_seller/end"(platform: "/mobile", type: TrackType.Event) {
-
-            payment_method_id(required: true, type: PropertyType.String, description: "payment method id")
-            card_read_tag(required: true, type: PropertyType.String, description: "card tag",values:["swipe","chip","nfc"])
-            first_six(required: true, type: PropertyType.String,description: "first six card numbers")
-            last_four(required: true, type: PropertyType.String,description: "last four card numbers")
-            is_fallback(required: true, type: PropertyType.Boolean,description: "is a payment through fallback")
-            has_chip(required: false, type: PropertyType.Boolean, description: "It is a payment by chip")
-            request_signature(required: true, type: PropertyType.Boolean, description: "Is the signature necessary")
-        }
-
-        "/pos_seller/congrats"(platform: "/mobile", type: TrackType.Event) {
             payment_method_id(required: true, type: PropertyType.String, description: "payment method id")
             card_read_tag(required: true, type: PropertyType.String, description: "card tag",values:["swipe","chip","nfc"])
             first_six(required: true, type: PropertyType.String,description: "first six card numbers")
