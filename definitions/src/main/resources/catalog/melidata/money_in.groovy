@@ -37,10 +37,10 @@ tracks {
     "/money_in/onboarding"(platform: "/", isAbstract: true) {}
 
     //Onboarding
-    "/money_in/onboarding/step_1"(platform: "/", type: TrackType.View) {}
-    "/money_in/onboarding/step_2"(platform: "/", type: TrackType.View) {}
-    "/money_in/onboarding/step_3"(platform: "/", type: TrackType.View) {}
-    "/money_in/onboarding/step_4"(platform: "/", type: TrackType.View) {}
+    "/money_in/onboarding/adicione_dinero"(platform: "/", type: TrackType.View) {}
+    "/money_in/onboarding/simplifique_pagos"(platform: "/", type: TrackType.View) {}
+    "/money_in/onboarding/reciba_rendimientos"(platform: "/", type: TrackType.View) {}
+    "/money_in/onboarding/use_tarjeta_mp"(platform: "/", type: TrackType.View) {}
 
     "/money_in/onboarding/enter"(platform: "/", type: TrackType.Event) {}
     "/money_in/onboarding/close"(platform: "/", type: TrackType.Event) {}
