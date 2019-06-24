@@ -137,7 +137,6 @@
         def PosSellerPairingFrictionExtraInfo = objectSchemaDefinitions {
             error_type(PropertyType.String, required: true)
             card_readers(PropertyType.String, required: false)
-            paymentData
             card_reader_selected(required: false, type: PropertyType.String)
         }
 
