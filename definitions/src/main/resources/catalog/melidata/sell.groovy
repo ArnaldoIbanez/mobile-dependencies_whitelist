@@ -87,6 +87,9 @@ tracks {
         category_prediction_zordon(required: false, description: "Category prediction path result from zordon", type: PropertyType.ArrayList)
         category_prediction_zordon_score(required: false, description: "Category prediction scores result from zordon", type: PropertyType.ArrayList)
         predictor_chosen(required: false, description: "Which predictor we used to predict category: ZORDON/DEFAULT/etc...", type: PropertyType.String)
+        attributes_values_predicted(required: false, description: "Attributes values that we predict by matchers", type: PropertyType.ArrayList)
+        attributes_ids_predicted(required: false, description: "Attributes ids that we predict by matchers", type: PropertyType.ArrayList)
+        attributes_selected_in_tree(required: false, description: "Attributes values selected by user", type: PropertyType.ArrayList)
         title_predicted(required: false, description: "Title used to predict category", type: PropertyType.String)
         category_id(required: false, description: "Category Id", type: PropertyType.String)
         category_path(required: false, description: "Category path", type: PropertyType.ArrayList)
@@ -133,6 +136,8 @@ tracks {
     "/sell/list/draft/listing_types"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/price"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/picture_preview_landing"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/pictures_review/album_selector"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/pictures_review/pictures_selector"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures_review/editor"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/listing_types_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/shipping_options_me_review"(platform:"/mobile", type: TrackType.View){}
@@ -283,12 +288,16 @@ tracks {
     "/sell/list/listing_types_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures/gallery"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures/album_selector"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/pictures/pictures_selector"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures/editor"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
         album_name(required: false, description: "Album name", type: PropertyType.String)
     }
     "/sell/list/pictures_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures_review/gallery"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_review/album_selector"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/pictures_review/pictures_selector"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures_review/editor"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures_review/crop"(platform: "/", type: TrackType.View) {}
     "/sell/list/price"(platform: "/mobile", type: TrackType.View) {}
@@ -442,6 +451,8 @@ tracks {
     "/sell/update/shipping_mandatory_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/variations"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/pictures_variations"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/pictures_variations/album_selector"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/pictures_variations/pictures_selector"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/pictures_variations/editor"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/sip/publish"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/sip/publish/pictures_fail"(platform: "/mobile", type: TrackType.Event) {
@@ -479,6 +490,8 @@ tracks {
     "/sell/update/updateing_types_review"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures/gallery"(platform: "/", type: TrackType.View) {}
+    "/sell/update/pictures/album_selector"(platform: "/", type: TrackType.View) {}
+    "/sell/update/pictures/pictures_selector"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures/editor"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures/crop"(platform: "/", type: TrackType.View) {}
     "/sell/update/variations_pi"(platform: "/mobile", type: TrackType.View) {}

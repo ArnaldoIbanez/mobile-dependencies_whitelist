@@ -11,11 +11,12 @@ tracks {
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
         quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_demand_status(required: true, type: PropertyType.String, values: ["pending_by_seller", "answered", "rejected_by_seller", "accepted"], description: "the status quote demand")
+        quote_demand_status(required: true, type: PropertyType.String, values: ["pending_by_seller", "answered", "rejected_by_seller", "accepted", "deleted", "cancelled", "expired"], description: "the status quote demand")
         quote_id(required: true, type: PropertyType.Numeric, description: "Quote id")
         quote_status(required: true, type: PropertyType.String, values: ["sent", "cancelled_by_seller", "accepted", "expired", "rejected_by_seller"], description: "the status quote")
         price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
         currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+        action(required: true, type: PropertyType.String, values: ["go_messages", "go_reject", "go_contract", "go_cancel", "go_create_similar", "go_delete", "go_quote_detail", "go_quotes_list", "contract_quote"], description: "available actions in options")
 
 
     }
@@ -24,6 +25,7 @@ tracks {
         quoteBuyerGroup(vertical, buyer_id)
         demandItemGroup(item_id, category_id, buyer_id, quote_demand_id, quote_demand_status)
         quoteItemGroup(item_id,category_id,quote_demand_id,quote_demand_status,quote_id,quote_status)
+        actionGroup(action)
     }
 
     //Quote
@@ -148,13 +150,13 @@ tracks {
     // Quote  Create  - Congrats Error
     "/quote/seller/create/congrats_error"(platform: "/", type: TrackType.View) {
         buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quoteItemGroup
+        demandItemGroup
     }
 
     // Quote  Create  - Congrats Error Event
     "/quote/seller/create/congrats_error/go_edit"(platform: "/", type: TrackType.Event) {
         buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quoteItemGroup
+        demandItemGroup
     }
 
     /***** Listing (Demands) ******/
@@ -165,7 +167,7 @@ tracks {
     // Demands Listing Rows Events
     "/quote/seller/listing/action"(platform: "/", type: TrackType.Event) {
         demandItemGroup
-        action(required: true, type: PropertyType.String, values: ["go_messages", "go_quote_detail", "go_quotes_list"], description: "all action click on demands listing row")
+        actionGroup
     }
 
     // Demands Listing Cards Events
@@ -182,12 +184,15 @@ tracks {
     // Demands Listing Options Events
     "/quote/seller/listing/options"(platform: "/web", type: TrackType.Event) {
         demandItemGroup
-        action(required: true, type: PropertyType.String, values: ["go_messages", "go_reject", "go_contract", "go_cancel", "go_create_similar", "go_delete"], description: "all actions when click the three dots web options")
+        actionGroup
     }
 
     // Demands Listing Filters Events
-    "/quote/seller/listing/filters"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, values: ["reset", "submit_filter"], description: "all action click on filters )")
+    "/quote/seller/listing/filters"(platform: "/", type: TrackType.View) {
+    }
+
+    "/quote/seller/listing/filters/action"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "all action click on filters )")
     }
 
     /***** Quote Demand Detail in Messages ******/
@@ -205,11 +210,14 @@ tracks {
     // Demand Detail in Messages Event Options
     "/quote/seller/messages/options"(platform: "/web", type: TrackType.Event) {
         demandItemGroup
-        action(required: true, type: PropertyType.String, values: ["go_messages", "go_reject", "go_contract", "go_cancel", "go_create_similar", "go_delete"], description: "action click on messages options")
+        actionGroup
     }
 
     // Quote  List - Go detail
-    "/quote/seller/quote_listing"(platform: "/", type: TrackType.View) {}
+    "/quote/seller/quote_listing"(platform: "/", type: TrackType.View) {
+        demandItemGroup
+        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
+    }
 
     // Quote  List - Go detail
     "/quote/seller/quote_listing/go_quote_detail"(platform: "/", type: TrackType.Event) {
@@ -221,10 +229,19 @@ tracks {
     "/quote/seller/quote_listing/options"(platform: "/web", type: TrackType.Event) {
         quoteItemGroup
         buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        action(required: true, type: PropertyType.String, values: ["go_messages", "go_contract", "go_cancel", "go_create_similar", "go_delete"], description: "all action click on quote Listing options")
+        actionGroup
     }
 
     /***** Quote detail ******/
+    "/quote/seller/details"(platform: "/", parentPropertiesInherited: false) {
+        vertical(required: true, type: PropertyType.String, values: ["services"], description: "Vertical services")
+    }
+
+    // Quote Detail -  Loading
+    "/quote/seller/details/loading"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+        vertical(required: true, type: PropertyType.String, values: ["services"], description: "Vertical services")
+    }
+
     // Quote Detail
     "/quote/seller/detail"(platform: "/", type: TrackType.View) {
         quoteItemGroup
@@ -239,10 +256,14 @@ tracks {
         buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
         currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
         price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        action(required: true, type: PropertyType.String, values: ["go_messages", "go_reject", "go_contract", "go_cancel", "go_create_similar", "go_delete"], description: "all action click on detail )")
+        actionGroup
     }
 
     /***** Cancel Quote ******/
+    // Cancel Quote -  Loading
+    "/quote/seller/cancel/loading"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+        vertical(required: true, type: PropertyType.String, values: ["services"], description: "Vertical services")
+    }
 
     //Quote - Cancel View
     "/quote/seller/cancel"(platform: "/", type: TrackType.View) {
@@ -290,6 +311,10 @@ tracks {
     }
 
     /***** Reject Demand ******/
+    // Reject Quote Demand -  Loading
+    "/quote/seller/reject/loading"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+        vertical(required: true, type: PropertyType.String, values: ["services"], description: "Vertical services")
+    }
 
     //Quote - Reject View
     "/quote/seller/reject"(platform: "/", type: TrackType.View) {
@@ -321,6 +346,17 @@ tracks {
         demandItemGroup
     }
 
+    /***** Listing onBoarding ******/
+
+    //Onboarding View
+    "/quote/seller/onboarding"(platform: "/", type: TrackType.View) {}
+
+    //Onboarding Skip button click
+    "/quote/seller/onboarding/skip"(platform: "/", type: TrackType.Event) {}
+
+    //Onboarding Understood button click
+    "/quote/seller/onboarding/got_it"(platform: "/", type: TrackType.Event) {}
+
     /******************************************
      *       End: Seller
      ******************************************/
@@ -334,16 +370,25 @@ tracks {
         quoteBuyerGroup
     }
 
+    "/quote/buyer/quote"(platform: "/", parentPropertiesInherited: false) {
+        vertical(required: true, type: PropertyType.String, values: ["services"], description: "Vertical services")
+    }
+
     //Quote Demand Buyer Tracks
     "/quote_demand/buyer"(platform: "/", type: TrackType.View) {
         quoteBuyerGroup
      }
 
     /***** Create Quote Demand ******/
+    // Create Quote Demand -  Loading
+    "/quote/buyer/quote/loading"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+        vertical(required: true, type: PropertyType.String, values: ["services"], description: "Vertical services")
+    }
 
     //Quote Buyer :: Create Quote
     "/quote_demand/buyer/create"(platform: "/", type: TrackType.View) {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        buyer_id(required: false, type: PropertyType.Numeric, description: "Buyer id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         item_id(required: true, type: PropertyType.String, description: "Item id")
     }
@@ -351,6 +396,7 @@ tracks {
     //Quote Buyer :: Create Quote Event
     "/quote_demand/buyer/create/submit_quote_demand"(platform: "/", type: TrackType.Event) {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        buyer_id(required: false, type: PropertyType.Numeric, description: "Buyer id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         item_id(required: true, type: PropertyType.String, description: "Item id")
     }
@@ -362,12 +408,9 @@ tracks {
 
     //Quote Buyer :: Listing event
     "/quote/buyer/listing/action"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
-        quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
-        quote_demand_status(required: true, type: PropertyType.String, values: ["pending_by_seller", "answered", "rejected_by_seller", "accepted"], description: "the status quote demand")
-        action(required: true, type: PropertyType.String, values: ["go_messages","go_quote_detail","go_quotes_list"], description: "all action click on buyer listing  )")
+        demandItemGroup
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        actionGroup
     }
 
     //Quote Buyer :: Go Filters
@@ -382,13 +425,19 @@ tracks {
     }
 
     //Quote Buyer :: Filters Events
-    "/quote/buyer/listing/filters"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, values: ["reset","submit_filter"], description: "all action click on filters")
+    "/quote/buyer/listing/filters"(platform: "/", type: TrackType.View) {
+    }
+
+    "/quote/buyer/listing/filters/action"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "all action click on filters")
     }
 
     /***** Quotes Listing ******/
 
-    "/quote/buyer/quote_listing"(platform: "/", type: TrackType.View) {}
+    "/quote/buyer/quote_listing"(platform: "/", type: TrackType.View) {
+        demandItemGroup
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+    }
 
     //Quotes Listing Event
     "/quote/buyer/quote_listing/go_quote_detail"(platform: "/", type: TrackType.Event) {
@@ -416,7 +465,7 @@ tracks {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
         price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user")
-        action(required: true, type: PropertyType.String, values: ["go_messages", "contract_quote", "go_contract"], description: "all action click on detail  )")
+        actionGroup
     }
 
     /***** Quote Demand Detail in Messages ******/
@@ -432,6 +481,17 @@ tracks {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         demandItemGroup
     }
+
+    /***** Listing onBoarding ******/
+
+    //Onboarding View
+    "/quote/buyer/onboarding"(platform: "/", type: TrackType.View) {}
+
+    //Onboarding Skip button click
+    "/quote/buyer/onboarding/skip"(platform: "/", type: TrackType.Event) {}
+
+    //Onboarding Understood button click
+    "/quote/buyer/onboarding/got_it"(platform: "/", type: TrackType.Event) {}
 
     /******************************************
      *       End: Buyer

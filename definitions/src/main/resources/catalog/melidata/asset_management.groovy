@@ -61,8 +61,9 @@ tracks {
     "/asset_management/result_stop_investing"(platform: "/web", type: TrackType.View) {}
 
     // Detail
-    "/asset_management/investment_detail"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/investment_detail"(platform: "/web", type: TrackType.View) {}
+    "/asset_management/investment_detail"(platform: "/", type: TrackType.View) {
+        empty_state_case (required: false, type: PropertyType.String, description: "The empty state case")
+    }
 
     // Earnings report
     "/asset_management/investment_reports"(platform: "/web", type: TrackType.View) {}

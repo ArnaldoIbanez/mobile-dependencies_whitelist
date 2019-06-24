@@ -6,6 +6,15 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    def propertyCampaignDetail  = objectSchemaDefinitions {
+        source(required: false, type: PropertyType.String, description:  "indicates the component that starts capaign")
+        brand(required: false, type: PropertyType.String, description:  "brands associated to capamign")
+    }
+
+    def propertyActionDetail  = objectSchemaDefinitions {
+        tag(required: false, type: PropertyType.String, description:  "brands to filter")
+    }
+
     /**
     * INSTORES Screen Tracks
     */
@@ -103,6 +112,34 @@ tracks {
     "/instore/error/cant_pay_in_different_sites/back"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/error/cant_pay_in_different_sites/abort"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/instore/error/gas_station_pumping_not_started"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/error/gas_station_pumping_not_started/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/gas_station_pumping_not_started/abort"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/gas_station_pumping_not_started/try_again"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/error/cant_resolve_qr"(platform: "/mobile", type: TrackType.Event) {
+        error(required: false, PropertyType.String, description: "error type", inheritable: false)
+    }
+    "/instore/error/cant_resolve_qr/retry"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/error/cant_start_checkout"(platform: "/mobile", type: TrackType.Event) {
+        error(required: true, PropertyType.String, description: "error type", inheritable: false)
+    }
+    "/instore/error/cant_start_checkout/retry"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/error/cant_get_waiting_preference"(platform: "/mobile", type: TrackType.Event) {
+        error(required: false, PropertyType.String, description: "error type", inheritable: false)
+    }
+    "/instore/error/cant_get_waiting_preference/retry"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/error/cant_set_required_data"(platform: "/mobile", type: TrackType.Event) {
+        error(required: false, PropertyType.String, description: "error type", inheritable: false)
+    }
+    "/instore/error/cant_set_required_data/retry"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/error/cant_execute_required_action"(platform: "/mobile", type: TrackType.Event) {
+        error(required: true, PropertyType.String, description: "error type", inheritable: false)
+    }
 
     // Permissions
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {
@@ -140,19 +177,25 @@ tracks {
 
     // Landing
     "/instore/qr_first_time_use"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/qr_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/qr_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/qr_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/qr_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/shell_first_time_use"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/shell_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/shell_first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/shell_first_time_use/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/shell_first_time_use/next"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/instore/landing"(platform: "/mobile", type: TrackType.View) {}
-    "/instore/landing/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/landing"(platform: "/mobile", type: TrackType.View) {
+        campaign(required: false, type: PropertyType.String, description: "the Campaign name send when user open landing campaign")
+        campaign_details(required: false, PropertyType.Map(propertyCampaignDetail), description: "extra info about campaign like source")
+    }
     "/instore/landing/abort"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/landing/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/landing/next"(platform: "/mobile", type: TrackType.Event) {
+        action(required: false, type: PropertyType.String, description: "the action name send when user select action")
+        action_details(required: false, PropertyType.Map(propertyActionDetail), description: "extra info about action like tags")
+    }
 
 
     // Waiting
@@ -341,10 +384,61 @@ tracks {
     }
     "/instore/map/error"(platform: "/mobile", isAbstract: true) {}
     "/instore/map/error/server_error"(platform: "/mobile", type: TrackType.View) {
-        style(required: true, PropertyType.String, descriptio: "how the error is presented to the user (screen, snackbar")
+        style(required: true, PropertyType.String, description: "how the error is presented to the user (screen, snackbar")
         id(required: true, PropertyType.String, description:"an identifer for the type of error")
         message(required: true, PropertyType.String, description: "server error description")
         attributable_to(required: true, PropertyType.String)
+    }
+    "/instore/my_qr"(platform: "/mobile", type: TrackType.Event) {}
+
+    // Scale Features
+    // QR Assignment
+    
+    "/instore"(platform:"/web", isAbstract:true) {}
+    "/instore/scale_feature"(platform:"/web", isAbstract:true) {}
+    "/instore/scale_feature/qr-assignment"(platform:"/web", isAbstract:true) {
+        transaction_id (type: PropertyType.String, required: true, description:"UUID for transaction tracking")
+    }
+    "/instore/scale_feature/qr-assignment/start_process"(platform:"/web", type: TrackType.View) {}
+    "/instore/scale_feature/qr-assignment/company_info"(platform:"/web", type: TrackType.View) {}
+    "/instore/scale_feature/qr-assignment/store_info"(platform:"/web", type: TrackType.View) {}
+    "/instore/scale_feature/qr-assignment/qr_camera"(platform:"/web", type: TrackType.View) {}
+    "/instore/scale_feature/qr-assignment/success"(platform:"/web", type: TrackType.View) {
+        status (type: PropertyType.String, required: true, description:"Store create status")
+    }
+    "/instore/scale_feature/qr-assignment/error"(platform:"/web", type: TrackType.View) {
+       status (type: PropertyType.String, required: true, description: "Error Status, ex: invalidAccess, error")
+    }
+
+    "/instore/scale_feature/qr-assignment/validate_email"(platform:"/web", type: TrackType.Event) {
+      valid (type: PropertyType.Boolean, required: true, description: "Ex: true or false")
+    }
+    "/instore/scale_feature/qr-assignment/fill_store_address"(platform:"/web", type: TrackType.Event) {
+      get_address_method (type: PropertyType.String, required: true, description: "Ex: [text | gps | map]")
+    }
+    "/instore/scale_feature/qr-assignment/qr_scan"(platform:"/web", type: TrackType.Event) {
+      qr_content (type: PropertyType.String, required: true, description: "Ex: http://qrContent")
+    }
+
+    //TODO this path will be deprecated in the next release where all show's track will unifique
+    // Instore home sections
+    "/instore/home_sections"(platform: "/mobile", isAbstract: true) {}
+    "/instore/home_sections/promotion"(platform: "/mobile", isAbstract: true) {}
+    "/instore/home_sections/promotion/generic"(platform: "/mobile", isAbstract: true) {}
+    "/instore/home_sections/promotion/generic/show"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, PropertyType.String, description: "suppress session_id for home_sections")
+        header_title(required: true, PropertyType.String, description: "the title form endpoint or cache")
+        link(required: true, PropertyType.String, description: "the deeplink recived form endpoint or cache")
+        items(required: true, PropertyType.ArrayList(PropertyType.String), description: "the items recived form endpoint or cache")
+        items_size(required: true, PropertyType.Numeric, description: "the size of items recived form endpoint or cache")
+    }
+    "/instore/home_sections/promotion/qr_map"(platform: "/mobile", isAbstract: true) {}
+    "/instore/home_sections/promotion/qr_map/show"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, PropertyType.String, description: "suppress session_id for home_sections")
+        header_title(required: true, PropertyType.String, description: "the title form endpoint or cache")
+        link(required: true, PropertyType.String, description: "the title form endpoint or cache")
+        items(required: true, PropertyType.ArrayList(PropertyType.String), description: "the items recived form endpoint or cache")
+        items_size(required: true, PropertyType.Numeric, description: "the size of items recived form endpoint or cache")
     }
 
 }

@@ -426,6 +426,9 @@ trackTests {
             contact_name = "Juan"
             contact_phone = "555-5555"
         }
+        "/checkout/shipping/location/new_contact/back"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
        "/checkout/shipping/location/new_contact#submit"(platform:"/mobile", type:TrackType.Event) {
             success = true
             session_id = "1241n1kj2nk14141nl12nl"
@@ -2024,6 +2027,7 @@ trackTests {
             checkout_flow = "direct"
             flow_type = "buy_it_now"
             stored_cards_quantity = 3
+            checkout_flow_reason = "default_case"
         }
 
         "/checkout/geolocation"(platform:"/web", type: TrackType.Event) {

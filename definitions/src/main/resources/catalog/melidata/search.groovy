@@ -31,6 +31,7 @@ tracks {
         pads_info(required: false, description: "Info from the pads returned for listings")
         catalog_product_id(required: false, description: "Id of the product, only if the product header is showna", PropertyType.String)
         show_supermarket_carousel(required: false, description: "search with supermarket carousel", type: PropertyType.Boolean)
+        show_apparel_carousel(required: false, description: "search with apparel carousel", type: PropertyType.Boolean)
 
         //Tracks from Search Backend:
         backend_data(required: false)
@@ -71,7 +72,8 @@ tracks {
         available_filters(required: true, description: "available filters, sameday and nextday")
         user_zone(required: true, description: "the user zone registered", type: PropertyType.String)
         is_googlebot(required: false, description: 'is google bot request', PropertyType.Boolean)
-        pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
+        pdp_rows(required: true, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
+        carousel_filters(required: true, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
     }
 
     "/search"(platform: "/mobile") {
@@ -102,6 +104,7 @@ tracks {
         available_filters(required: false, description: "available filters, sameday and nextday")
         user_zone(required: false, description: "the user zone registered", type: PropertyType.String)
         pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
+        carousel_filters(required: false, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
@@ -128,6 +131,19 @@ tracks {
     }
 
     "/search/filters"(platform: "/mobile") {}
+
+    "/search/filters_carousel"(platform: "/web", isAbstract: true) {}
+    "/search/filters_carousel/click"(platform: "/web", type: TrackType.Event) {
+        filter_name(required: true, description: "the name of the filter", type: PropertyType.String)
+        position(required: true, description: "the position of the filter in the carousel", type: PropertyType.Numeric)
+        filter(required: false, description: "carousel filter id", type: PropertyType.String)
+    }
+
+    "/search/color_picker"(platform: "/web") {
+        item_id(required: true, description: "the item id shown for the product", type: PropertyType.String)
+        previous_product_id(required: true, "the product shown before using the picker", type: PropertyType.String)
+        product_id(required: true, description: "the product shown after using the picker", type: PropertyType.String)
+    }
 
     "/search/refine"(platform: "/mobile") {}
 

@@ -20,7 +20,7 @@ tracks {
         error_code(required: false, type: PropertyType.String)
 
         ref(
-            required: true,
+            required: false,
             type: PropertyType.String,
             description: "Additional information from where the user is coming"
         )
@@ -94,6 +94,22 @@ tracks {
     "/mercado_shops/admin/deactivate"(platform: "/", type: TrackType.Event){
         reason_id(required: true, type: PropertyType.String, description: "The reason id that identifies the main reason why the user decided to opt out.")
         additional_comments(required: false, type: PropertyType.String, description: "Additional comments on why the user decided to opt out.")
+    }
+
+    "/mercado_shops/admin/onboarding"(platform: "/", type: TrackType.Event){
+        trigger(
+            required: true,
+            type: PropertyType.String,
+            values: ['MODAL', 'ICON']
+        )
+    }
+
+    "/mercado_shops/admin/onboarding/steps"(platform: "/", type: TrackType.Event){
+        scope(
+            required: true,
+            type: PropertyType.String,
+            description: "Name of step"
+        )
     }
 
     "/mercado_shops/domains/summary"(platform: "/", type: TrackType.View){}

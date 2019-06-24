@@ -120,6 +120,7 @@ trackTests {
             available_methods = ["visa", "master", "amex"]
             nearest_store_distance = 250000
             stored_cards_quantity = 3
+            checkout_flow_reason = "default_case"
         }
 
         "/cart/checkout/review/edit_installments"(platform:"/", type: TrackType.Event) {

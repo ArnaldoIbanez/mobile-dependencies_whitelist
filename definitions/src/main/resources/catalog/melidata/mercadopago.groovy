@@ -15,7 +15,7 @@ import com.ml.melidata.TrackType
 * - apply: when a criteria is applied
 * - post: create a new entity
 */
-
+/**/
 tracks {
 
     "/"(platform: "/", isAbstract: true) {
@@ -116,6 +116,30 @@ tracks {
 
     "/merchant_acquisition/flows/qr-queue/waiting-payment/retry"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/flows/qr-queue/waiting-payment/extend-time"(platform:"/", type: TrackType.Event) {}
+
+    // Point Transfer
+    "/merchant_acquisition/flows/transfer-device"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/transfer-device/success"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/transfer-device/empty"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/transfer-device/error"(platform:"/", type: TrackType.View) {}
+
+    // Point Register
+    "/merchant_acquisition/flows/register-device"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/register-device/success"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/register-device/error"(platform:"/", type: TrackType.View) {}
+
+    // Release Options
+    "/merchant_acquisition/flows/release-options"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/release-options/success"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/release-options/error"(platform:"/", type: TrackType.View) {}
+
+    // Micrositio - reseller
+    "/merchant_acquisition/flows/resellers"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/sales"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/benefits"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/metrics"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/after_sales"(platform:"/", type: TrackType.View) {}
+
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
@@ -419,7 +443,25 @@ tracks {
     }
 
     "/shortcuts"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+
     "/shortcuts/point"(platform: "/mobile", type: TrackType.Event) {}
+    "/shortcuts/scan_qr"(platform: "/mobile", type: TrackType.Event) {}
+    "/shortcuts/cellphone_recharge"(platform: "/mobile", type: TrackType.Event) {}
+    "/shortcuts/sube_recharge"(platform: "/mobile", type: TrackType.Event) {}
+    "/shortcuts/pay_services"(platform: "/mobile", type: TrackType.Event) {}
+    "/shortcuts/send_money"(platform: "/mobile", type: TrackType.Event) {}
+    "/shortcuts/member_get_member"(platform: "/mobile", type: TrackType.Event) {}
+    "/shortcuts/sell_qr"(platform: "/mobile", type: TrackType.Event) {}
+    "/shortcuts/open_request"(platform: "/mobile", type: TrackType.Event) {}
+    "/shortcuts/credit_enrollment"(platform: "/mobile", type: TrackType.Event) {}
+    "/shortcuts/credit_admin"(platform: "/mobile", type: TrackType.Event) {}
+    "/shortcuts/techo"(platform: "/mobile", type: TrackType.Event) {}
+    "/shortcuts/antenna_tv"(platform: "/mobile", type: TrackType.Event) {}
+    "/shortcuts/money_request_with_qr"(platform: "/mobile", type: TrackType.Event) {}
+    "/shortcuts/buy_credit"(platform: "/mobile", type: TrackType.Event) {}
+    "/shortcuts/gas_station"(platform: "/mobile", type: TrackType.Event) {}
+    "/shortcuts/transport"(platform: "/mobile", type: TrackType.Event) {}
+    "/shortcuts/coupon"(platform: "/mobile", type: TrackType.Event) {}
 
     "/get_member/point"(platform: "/mobile", type: TrackType.View) {}
 
@@ -733,10 +775,68 @@ tracks {
     // Traks for dashboard section
     "/tfs_dashboard"(platform: "/", isAbstract: true) {}
     "/tfs_dashboard/home"(platform: "/", type: TrackType.View) {}
+    "/tfs_dashboard/home/general"(platform: "/", type: TrackType.View) {}
+    "/tfs_dashboard/home/offline"(platform: "/", type: TrackType.View) {}
+    "/tfs_dashboard/home/online"(platform: "/", type: TrackType.View) {}
     "/tfs_dashboard/detail"(platform: "/", type: TrackType.View) {
-        chart (required: true, type: PropertyType.String, description: "The chart ID of the detail")
+        chart_id (required: true, type: PropertyType.String, description: "The chart ID of the detail")
         section (required: true, type: PropertyType.String, description: "The section owner of the chart")
     }
+    "/tfs_dashboard/compare"(platform: "/", type: TrackType.View) {}
+    "/tfs_dashboard/filters"(platform: "/", type: TrackType.View) {}
+
+    // Events for dashboard section
+    "/tfs_dashboard/tab_selection"(platform: "/", type: TrackType.Event) {
+        section (required: true, type: PropertyType.String, description: "The selected section")
+    }
+    "/tfs_dashboard/hint"(platform: "/", type: TrackType.Event) {
+        chart_id (required: true, type: PropertyType.String, description: "The chart ID of the hint")
+        section (required: true, type: PropertyType.String, description: "The section owner of the hint")
+    }
+    "/tfs_dashboard/home/delta"(platform: "/", type: TrackType.Event) {
+        chart_id (required: true, type: PropertyType.String, description: "The chart ID of the delta")
+        section (required: true, type: PropertyType.String, description: "The section owner of the delta")
+    }
+    "/tfs_dashboard/detail/delta"(platform: "/", type: TrackType.Event) {
+        chart_id (required: true, type: PropertyType.String, description: "The chart ID of the delta")
+        section (required: true, type: PropertyType.String, description: "The section owner of the delta")
+    }
+
+    //filter definition
+    def filter_definition = objectSchemaDefinitions {
+        filter_id (type: PropertyType.String, required: true)
+        filter_value (type: PropertyType.String, required: true)
+    }
+
+    "/tfs_dashboard/home/filters_apply"(platform: "/", type: TrackType.Event) {
+        section (required: true, type: PropertyType.String, description: "The section when filter")
+        filters (required: true, type: PropertyType.ArrayList(PropertyType.Map(filter_definition)), description: "Filters")
+    }
+    "/tfs_dashboard/detail/filters_apply"(platform: "/", type: TrackType.Event) {
+        chart_id (required: true, type: PropertyType.String, description: "The chart ID when filter")
+        section (required: true, type: PropertyType.String, description: "The section when filter")
+        filters (required: true, type: PropertyType.ArrayList(PropertyType.Map(filter_definition)), description: "Filters")
+    }
+    "/tfs_dashboard/compare"(platform: "/", type: TrackType.Event) {
+        chart_id (required: false, type: PropertyType.String, description: "The chart ID when compare")
+        section (required: false, type: PropertyType.String, description: "The section when compare")
+    }
+
+    // Errors for dashboard section
+    "/tfs_dashboard/home/error"(platform: "/", type: TrackType.Event) {
+        status_code (required: false, type: PropertyType.Numeric, description: "Error status code")
+    }
+    "/tfs_dashboard/detail/error"(platform: "/", type: TrackType.Event) {
+        chart_id (required: true, type: PropertyType.String, description: "The chart ID when error")
+        section (required: true, type: PropertyType.String, description: "The section when error")
+        status_code (required: false, type: PropertyType.Numeric, description: "Error status code")
+    }
+    "/tfs_dashboard/home/card_error"(platform: "/", type: TrackType.Event) {
+        chart_id (required: true, type: PropertyType.String, description: "The chart ID when error")
+        section (required: true, type: PropertyType.String, description: "The section when error")
+        status_code (required: false, type: PropertyType.Numeric, description: "Error status code")
+    }
+
 
     //tracks for new flow (withdraw and new account)
     "/new-withdraw"(platform: "/", type: TrackType.View) {}
@@ -817,174 +917,6 @@ tracks {
     "/associate_phone/sync_phone"(platform: "/mobile") {}
     "/associate_phone/verify_pin"(platform: "/mobile") {}
     "/associate_phone/synced_phone"(platform: "/mobile") {}
-
-    /**
-     * NOTIFICATIONS
-     * disclaimer: when the action_type is set, the event_type should be always 'open'
-     **/
-    "/notification"(platform: "/mobile") {
-        event_type(required: true,
-                values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "purged_token"],
-        description: "Type of notification event")
-
-        notification_type(required: false,
-                values: ["deep_linking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"])
-
-        news_id(required: false, description: "Identifier of the notification generated")
-
-        notification_created_error(required: false, description: "The notification created error", type: PropertyType.String)
-
-        device_id(required: false, description: "The real device_id, may differ from device field")
-
-        //For event_type:autodismiss, indicates why the notification was dismissed
-        source(required: false, values: ["notification_center","logout","overwrite","dismiss_notification"])
-
-        context(required: false, type: PropertyType.String)
-
-        notification_style(required: false, description: "The notification style used when displaying the notification to the user.")
-
-        discard_reason(required: false, description: "The discarded reason of the notification", values: ["invalid_payload","invalid_user", "settings_disabled"], type: PropertyType.String)
-    }
-
-    //Asset Management
-    "/notification/asset_management_warm_up"(platform: "/mobile") {}
-    "/notification/asset_management_investing"(platform: "/mobile") {}
-    "/notification/asset_management_pending"(platform: "/mobile") {}
-    "/notification/asset_management_disabled"(platform: "/mobile") {}
-
-    //Account
-    "/notification/account_fund_approved_ml"(platform: "/mobile") {}
-    "/notification/account_fund_approved_mp"(platform: "/mobile") {}
-    "/notification/account_fund_salary"(platform: "/mobile") {}
-    "/notification/account_balance_approved_mp"(platform: "/mobile") {}
-    "/notification/account_balance_approved_ml"(platform: "/mobile") {}
-
-    //Campañas
-    "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
-        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
-        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
-    }
-    "/notification/mpcampaigns_control_group"(platform: "/mobile") {
-        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
-        deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
-        sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
-    }
-    "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
-        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
-        deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
-        sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
-    }
-    "/notification/mpcampaigns_mpcampaignsinfo"(platform: "/mobile") {
-        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
-        deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
-        sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
-    }
-
-    //Credits Merchants
-    "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
-        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
-    }
-    "/notification/credits_merchants_expired_second_notice"(platform: "/mobile") {
-        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
-    }
-    "/notification/credits_merchants_expired_third_notice"(platform: "/mobile") {
-        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
-    }
-    "/notification/credits_merchants_about_to_expire_first_notice"(platform: "/mobile") {
-        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
-    }
-    "/notification/credits_merchants_expired_no_charges"(platform: "/mobile") {
-        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
-    }
-    "/notification/credits_merchants_to_expire"(platform: "/mobile") {
-        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
-    }
-    "/notification/credits_merchants_expired_near_to_fixed_charges"(platform: "/mobile") {
-        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
-    }
-    "/notification/credits_merchants_expired_near_to_daily_charges"(platform: "/mobile") {
-        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
-    }
-    "/notification/credits_merchants_to_expire_standard"(platform: "/mobile") {
-        installment_id(required: true, type: PropertyType.Numeric)
-    }
-    "/notification/credits_merchants_to_expire_not_standard"(platform: "/mobile") {
-        installment_id(required: true, type: PropertyType.Numeric)
-    }
-    "/notification/credits_merchants_educational"(platform: "/mobile") {
-        loan_id(required: true, type: PropertyType.Numeric)
-    }
-
-    //Compliance Support
-    "/notification/compliance_support_validations"(platform: "/mobile") {}
-
-    //Fraud
-    "/notification/fraud_cash_release_iv"(platform: "/mobile") {}
-
-    //Health Check
-    "/notification/health_check"(platform: "/mobile") {
-        original_news_id( required: false, type: PropertyType.String, description: "Original identifier of the notification generated" )
-    }
-
-    //Inivite Gift
-    "/notification/invite_gift"(platform: "/mobile") {}
-
-    //Messages New
-    "/notification/messages_new"(platform: "/mobile") {}
-
-    //Money
-    "/notification/money_transfer_received"(platform: "/mobile") {}
-    "/notification/money_transfer_request"(platform: "/mobile") {}
-
-    //Loyalty
-    "/notification/loyalty_milestone"(platform: "/mobile") {}
-
-    //Prepaid
-    "/notification/prepaid_card_shipped"(platform: "/mobile") {}
-    "/notification/prepaid_card_waiting_for_withdrawal"(platform: "/mobile") {}
-    "/notification/prepaid_card_delivered"(platform: "/mobile") {}
-    "/notification/prepaid_card_delayed_p1"(platform: "/mobile") {}
-    "/notification/prepaid_card_not_delivered"(platform: "/mobile") {}
-    "/notification/prepaid_card_third_activation_reminder"(platform: "/mobile") {}
-    "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {}
-    "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {}
-    "/notification/prepaid_card_transaction_rejected_invalid_pin"(platform: "/mobile") {}
-
-    //Point
-    "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {}
-    "/notification/point_shipping_shipped"(platform: "/mobile") {}
-    "/notification/point_shipping_not_delivered"(platform: "/mobile") {}
-    "/notification/point_shipping_waiting_for_withdrawal"(platform: "/mobile") {}
-    "/notification/point_shipping_delayed_p1"(platform: "/mobile") {}
-    "/notification/point_shipping_delayed_p4_p8"(platform: "/mobile") {}
-    "/notification/point_shipping_ready_to_ship_delayed"(platform: "/mobile") {}
-
-    //Recurring Recharge
-    "/notification/recurring_recharge_insufficient_balance_error"(platform: "/mobile") {}
-
-    //Security
-    "/notification/security_event_feedback"(platform: "/mobile") {}
-
-    //Questions
-    "/notification/questions_new"(platform: "/mobile") {
-        question_id(required: true, type: PropertyType.Numeric)
-    }
-
-    //Seller QR
-    "/notification/seller_qr_payment_received"(platform: "/mobile") {}
-    "/notification/seller_integrations_new_payment"(platform: "/mobile") {}
-    "/notification/seller_integrations_erase_name"(platform: "/mobile") {}
-
-    //Orders New
-    "/notification/orders_new"(platform: "/mobile") {
-        order_id(required: true, type: PropertyType.Numeric)
-    }
-
-    //Wallet
-    "/notification/wallet_integrator_insufficient_amount"(platform: "/mobile") {}
-
-    //Withdraw
-    "/notification/withdraw_approved_contingency"(platform: "/mobile") {}
 
     //Digital Goods
      "/digital_goods"(platform: "/mobile", isAbstract: true) {

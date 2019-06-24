@@ -99,6 +99,66 @@
             {
                 "name": "category_prediction_score_l7",
                 "type": "DOUBLE"
+            },
+            {
+                "name": "attributes_ids_predicted_1",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "attributes_ids_predicted_2",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "attributes_ids_predicted_3",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "attributes_ids_predicted_4",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "attributes_ids_predicted_5",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "attributes_values_predicted_1",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "attributes_values_predicted_2",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "attributes_values_predicted_3",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "attributes_values_predicted_4",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "attributes_values_predicted_5",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "attributes_selected_in_tree_1",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "attributes_selected_in_tree_2",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "attributes_selected_in_tree_3",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "attributes_selected_in_tree_4",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "attributes_selected_in_tree_5",
+                "type": "UNICODE_STRING"
             }
         ],
         "sql": {
@@ -106,12 +166,12 @@
             "parameters": [
                 {
                     "name": "param01",
-                    "value": "DAY-2",
+                    "value": "DAY-1",
                     "format": "yyyy-MM-dd"
                 },
                 {
                     "name": "param02",
-                    "value": "DAY-1",
+                    "value": "DAY-0",
                     "format": "yyyy-MM-dd"
                 }
             ]

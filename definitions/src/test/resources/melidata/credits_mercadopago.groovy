@@ -11,19 +11,20 @@ trackTests {
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'pending'
             product_type = 'default'
-            user_type = 'capped'
+            is_capped_offer= true
         }
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'rejected'
             product_type = 'early_offer'
-            user_type = 'default'
+            is_capped_offer= false
         }
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'approved'
             sub_status = 'review_pending'
             product_type = 'point'
-            user_type = 'default'
+            is_capped_offer= false
         }
+        "/credits/merchant/enrollment/without_proposal"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/credits_conditions"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/preconfirm"(platform: "/web/desktop") {
             amount = 200000
@@ -70,7 +71,15 @@ trackTests {
         "/credits/merchant/enrollment/feedback"(platform: "/web/desktop") {
             reason = 'capped'
         }
-        "/credits/merchant/enrollment/feedback/congrats"(platform: "/web/desktop") {}
+        "/credits/merchant/enrollment/feedback/congrats"(platform: "/web/desktop") {
+            reason = 'interested'
+        }
+        "/credits/merchant/enrollment/feedback/congrats"(platform: "/web/desktop") {
+            reason = 'not_interested'
+        }
+        "/credits/merchant/enrollment/feedback/congrats"(platform: "/web/desktop") {
+            reason = 'capped'
+        }
         "/credits/merchant/enrollment/feedback/error"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/error/accept"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/choose_amount"(platform: "/web/desktop", type: TrackType.Event) {
@@ -109,17 +118,17 @@ trackTests {
         "/credits/merchant/administrator/error"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {}
-        "/credits/merchant/administrator/voluntary_payment"(platform: "/web/desktop") {}
-        "/credits/merchant/administrator/voluntary_payment/congrats"(platform: "/web/desktop") {
+        "/credits/merchant/voluntary_payment"(platform: "/web/desktop") {}
+        "/credits/merchant/voluntary_payment/congrats"(platform: "/web/desktop") {
             flow = 'voluntary_payment'
         }
-        "/credits/merchant/administrator/voluntary_payment/error"(platform: "/web/desktop") {
+        "/credits/merchant/voluntary_payment/error"(platform: "/web/desktop") {
             reason = 'insufficient_account_money'
         }
-        "/credits/merchant/administrator/voluntary_payment/error"(platform: "/web/desktop") {
+        "/credits/merchant/voluntary_payment/error"(platform: "/web/desktop") {
             reason = 'lender_cannot_collect_installments'
         }
-        "/credits/merchant/administrator/voluntary_payment/error"(platform: "/web/desktop") {
+        "/credits/merchant/voluntary_payment/error"(platform: "/web/desktop") {
             reason = 'default'
         }
         "/credits/merchant/offer"(platform: "/web/desktop", type: TrackType.View) {}
@@ -159,5 +168,20 @@ trackTests {
 
     test('Merchant Collection') {
         "/credits/merchant/collection"(platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test('Merchant Contacts') {
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "engage"
+        }
+
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "collection"
+            stage= "educational"
+            milestone= -27
+        }
+
     }
 }

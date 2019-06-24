@@ -25,6 +25,7 @@ trackTests {
         def finishDefaultProperties = {
             payment_installments = 3
             payment_status_detail = "accredited"
+            payment_status = "approved"
         }
 
         def onlyRequiredProperties = {
@@ -36,6 +37,7 @@ trackTests {
 
         def finishOnlyRequiredProperties = {
             payment_status_detail = "accredited"
+            payment_status = "approved"
         }
 
         // ALL PROPERTIES TESTS
@@ -114,37 +116,22 @@ trackTests {
         }
 
         //Final Views
-        "/checkout_off/finish/approved"(platform: "/web/mobile") {
+        "/checkout_off/congrats"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
-        
-        "/checkout_off/finish/pending"(platform: "/web/mobile") {
-            defaultProperties()
-            finishDefaultProperties()
-        }
-        
-        "/checkout_off/finish/rejected"(platform: "/web/mobile") {
-            defaultProperties()
-            finishDefaultProperties()
-        }
-        
-        "/checkout_off/finish/rejected/call_for_auth"(platform: "/web/mobile") {
-            defaultProperties()
-            finishDefaultProperties()
-        }
-        
-        "/checkout_off/finish/rejected/call_for_auth/later"(platform: "/web/mobile") {
+                
+        "/checkout_off/congrats/call_for_auth/later"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
 
-        "/checkout_off/finish/rejected/call_for_auth/how_to"(platform: "/web/mobile") {
+        "/checkout_off/congrats/call_for_auth/how_to"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
         
-        "/checkout_off/finish/rejected/call_for_auth/input_code"(platform: "/web/mobile") {
+        "/checkout_off/congrats/call_for_auth/input_code"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
@@ -225,32 +212,22 @@ trackTests {
         }
 
         //Final Views
-        "/checkout_off/finish/approved"(platform: "/web/mobile") {
+        "/checkout_off/congrats"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+                
+        "/checkout_off/congrats/call_for_auth/later"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/call_for_auth/how_to"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
         }
         
-        "/checkout_off/finish/pending"(platform: "/web/mobile") {
-            onlyRequiredProperties()
-            finishOnlyRequiredProperties()
-        }
-        
-        "/checkout_off/finish/rejected"(platform: "/web/mobile") {
-            onlyRequiredProperties()
-            finishOnlyRequiredProperties()
-        }
-        
-        "/checkout_off/finish/rejected/call_for_auth"(platform: "/web/mobile") {
-            onlyRequiredProperties()
-            finishOnlyRequiredProperties()
-        }
-        
-        "/checkout_off/finish/rejected/call_for_auth/later"(platform: "/web/mobile") {
-            onlyRequiredProperties()
-            finishOnlyRequiredProperties()
-        }
-        
-        "/checkout_off/finish/rejected/call_for_auth/input_code"(platform: "/web/mobile") {
+        "/checkout_off/congrats/call_for_auth/input_code"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
         }

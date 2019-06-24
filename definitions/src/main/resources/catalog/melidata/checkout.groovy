@@ -109,7 +109,6 @@ tracks {
         total_amount_local(serverSide: true)
         total_amount_usd(serverSide: true)
         first_for_order(serverSide: true)
-        new_buyer(serverSide: true)
 
         // Checkout flows
         checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct", "purchase"])
@@ -146,6 +145,9 @@ tracks {
         total_amount_including_garex(required: false, type: PropertyType.Numeric, description: 'Total amount (include garex if applies)')
         garex(required: false, type: PropertyType.Map(garexTrackStructure), description: 'User selects a warranty option')
         stored_cards_quantity(required: false, type: PropertyType.Numeric, description: "Stored cards quantity of the buyer")
+
+        //Router
+        checkout_flow_reason(required: false, type: PropertyType.String, description:"Reason why the purchase went through cart flow or direct flow" )
     }
 
     /*
@@ -388,6 +390,7 @@ tracks {
         success(required: false, type: PropertyType.Boolean)
         error_codes(required: false, type: PropertyType.ArrayList)
     }
+    "/checkout/shipping/location/new_contact/back"(platform: "/mobile", type: TrackType.Event) {}
 
     //Select address
     "/checkout/shipping/select_address"(platform: "/") {

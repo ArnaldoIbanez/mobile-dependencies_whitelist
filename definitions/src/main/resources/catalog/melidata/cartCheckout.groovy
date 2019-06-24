@@ -69,7 +69,6 @@ tracks {
     total_amount(required: true, description: "totalAmount")
     total_amount_local(serverSide: true) // -> Lo completa Melidata automaticamente
     total_amount_usd(serverSide: true) // -> Lo completa Melidata automaticamente
-    new_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
 
     total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
     total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
@@ -112,6 +111,9 @@ tracks {
     account_money_info(required:false, type: PropertyType.Map, description: "Map with data of the account money of the buyer")
     loyalty_level(required:false, description:"The loyalty level of the buyer")
     stored_cards_quantity(required: false, type: PropertyType.Numeric, description: "Stored cards quantity of the buyer")
+
+    //Router
+    checkout_flow_reason(required: false, type: PropertyType.String, description:"Reason why the purchase went through cart flow or direct flow" )
 }
 
 "/cart/checkout/items_not_available"(platform:"/", type: TrackType.View) {}
