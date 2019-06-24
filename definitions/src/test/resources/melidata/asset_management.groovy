@@ -10,6 +10,7 @@ trackTests {
         // Onboarding
         "/asset_management/onboarding"(platform: "/mobile") {}
         "/asset_management/onboarding_bcra"(platform: "/mobile") {}
+        "/asset_management/onboarding_bcra"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/start_investing"(platform: "/mobile") {}
         "/asset_management/know_more"(platform: "/mobile") {}
         "/asset_management/optin"(platform: "/mobile") {}
