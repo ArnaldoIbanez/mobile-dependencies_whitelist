@@ -38,6 +38,12 @@ tracks {
 
     "/mercado_shops/optin"(platform: "/", type: TrackType.View){}
 
+    "/mercado_shops/migration"(platform: "/", type: TrackType.Event){
+        is_migration_banner(required: false, type: PropertyType.Boolean)
+        is_confirmation_banner(required: false, type: PropertyType.Boolean)
+        is_show_dday_banner(required: false, type: PropertyType.Boolean)
+    }
+
     "/mercado_shops/admin"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/admin/welcome"(platform: "/", type: TrackType.View){}
