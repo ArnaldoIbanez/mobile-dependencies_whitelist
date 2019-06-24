@@ -249,13 +249,12 @@ tracks {
 
     // First Visit
     // Page
-    "/checkout/shipping/address_profile"(platform: "/", type: TrackType.View) {
-    }
+    //"/checkout/shipping/address_profile"(platform: "/", type: TrackType.View, isAbstract: true) {}
 
     // Event
-    "/checkout/shipping/address_profile/delivered_time"(platform: "/", type: TrackType.Event) {
-        label(required: false, type: PropertyType.String)
-    }
+    //"/checkout/shipping/address_profile/delivered_time"(platform: "/", type: TrackType.Event) {
+    //    label(required: false, type: PropertyType.String)
+    //}
 
     //Fallback/Custom shipping
     "/checkout/shipping/select_method"(platform: "/mobile") {

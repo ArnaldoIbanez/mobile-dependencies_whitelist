@@ -235,6 +235,17 @@ trackTests {
         "/cart/checkout/finish/call_for_auth/input_code"(platform:"/", dataSet)
         "/cart/checkout/loading"(platform: "/", dataSet)
         "/cart/checkout/shipping"(platform:"/mobile", dataSet)
+
+
+        // First Visit
+        // Page
+        "/cart/checkout/shipping/address_profile"(platform:"/mobile", dataSet)
+
+        // Event 
+        "/cart/checkout/shipping/address_profile/delivered_time"(platform:"/mobile", type:TrackType.Event) {
+            label = "laboral"
+        }
+
         "/cart/checkout/shipping/edit_address"(platform:"/mobile", type:TrackType.Event) {
             session_id = "98f8v98au0af9af0af"
         }
@@ -309,6 +320,15 @@ trackTests {
 
         "/cart/checkout/shipping"(platform:"/web", type:TrackType.View) {
             dataSet()
+        }
+
+        // First Visit
+        // Page
+        "/cart/checkout/shipping/address_profile"(platform:"/web", dataSet)
+
+        // Event 
+        "/cart/checkout/shipping/address_profile/delivered_time"(platform:"/web", type:TrackType.Event) {
+            label = "laboral"
         }
 
         "/cart/checkout/shipping/confirm_geolocation"(platform:"/web", dataSet)
