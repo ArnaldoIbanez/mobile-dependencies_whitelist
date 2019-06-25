@@ -36,6 +36,7 @@ trackTests {
         "/remedy/challenge_address"(platform: "/mobile") {}
         "/remedy/challenge_phone"(platform: "/mobile") {}
         "/remedy/challenge_single_pep_fatca_so"(platform: "/mobile") {}
+        "/remedy/challenge_kyc_name_mismatch"(platform: "/mobile") {}
 
         "/remedy/url_external"(platform: "/mobile") {
             url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
@@ -109,6 +110,7 @@ trackTests {
         "/remedy/challenge_address"(platform: "/mobile", business: "mercadolibre") {}
         "/remedy/challenge_phone"(platform: "/mobile", business: "mercadolibre") {}
         "/remedy/challenge_single_pep_fatca_so"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_kyc_name_mismatch"(platform: "/mobile", business: "mercadolibre") {}
 
         "/remedy/url_external"(platform: "/mobile", business: "mercadolibre") {
             url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
@@ -152,5 +154,33 @@ trackTests {
         }
 
         "/remedy/profile"(platform: "/mobile", business: "mercadolibre") {}
+
+        "/remedy/identity_handler"(platform: "/mobile") {
+            remedy_id = "49cdb9b5-9585-42f3-a680-9d44548c8888"
+        }
+
+        "/remedy/identity_handler"(platform: "/mobile") {
+            remedy_id = "49cdb9b5-9585-42f3-a680-9d44548c9822"
+            status = "mismatch"
+        }
+
+        "/remedy/identity_handler"(platform: "/mobile") {
+            remedy_id = "49cdb9b5-9585-42f3-a680-9d44548c9822"
+            status = "number_of_attempts_exceeded"
+        }
+
+        "/remedy/identity_handler"(platform: "/mobile", business: "mercadolibre") {
+            remedy_id = "49cdb9b5-9585-42f3-a680-9d44548c8888"
+        }
+
+        "/remedy/identity_handler"(platform: "/mobile", business: "mercadolibre") {
+            remedy_id = "49cdb9b5-9585-42f3-a680-9d44548c9822"
+            status = "mismatch"
+        }
+
+        "/remedy/identity_handler"(platform: "/mobile", business: "mercadolibre") {
+            remedy_id = "49cdb9b5-9585-42f3-a680-9d44548c9822"
+            status = "number_of_attempts_exceeded"
+        }
     }
 }
