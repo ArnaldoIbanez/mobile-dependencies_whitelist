@@ -88,27 +88,23 @@ tracks {
     }
 
     //Upselling
-
-    "/advertising/pads2/manager/upselling"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/upselling"(platform: "/", isAbstract: true) {
         budget_new(required: true, description: "New budget assigned to the user")
     }
 
-    "/advertising/pads2/manager/upselling/modal/show"(platform: "/web", type: TrackType.Event) {
-    }
+    "/advertising/pads2/manager/upselling/banner"(platform: "/", isAbstract: true) {}
+    "/advertising/pads2/manager/upselling/modal"(platform: "/", isAbstract: true) {}
 
-    "/advertising/pads2/manager/upselling/modal/go"(platform: "/web", type: TrackType.Event) {
-    }
+    "/advertising/pads2/manager/upselling/modal/show"(platform: "/web", type: TrackType.View) {}
 
-    "/advertising/pads2/manager/upselling/modal/close"(platform: "/web", type: TrackType.Event) {
-    }
+    "/advertising/pads2/manager/upselling/modal/go"(platform: "/web", type: TrackType.Event) {}
 
-    "/advertising/pads2/manager/upselling/banner/show"(platform: "/web", type: TrackType.Event) {
-    }
+    "/advertising/pads2/manager/upselling/modal/close"(platform: "/web", type: TrackType.Event) {}
 
-    "/advertising/pads2/manager/upselling/banner/go"(platform: "/web", type: TrackType.Event) {
-    }
+    "/advertising/pads2/manager/upselling/banner/show"(platform: "/web", type: TrackType.View) {}
 
-    "/advertising/pads2/manager/upselling/banner/close"(platform: "/web", type: TrackType.Event) {
-    }
+    "/advertising/pads2/manager/upselling/banner/go"(platform: "/web", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/upselling/banner/close"(platform: "/web", type: TrackType.Event) {}
 
 }

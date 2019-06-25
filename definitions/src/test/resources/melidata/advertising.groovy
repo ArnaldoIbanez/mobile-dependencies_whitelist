@@ -114,7 +114,7 @@ trackTests {
     }
 
     test("Advertising upselling") {
-        "/advertising/pads2/manager/upselling/modal/show"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/manager/upselling/modal/show"(platform: "/web", type: TrackType.View) {
             campaign_id = "2222222"
             status = "active"
             budget = "500"
@@ -135,7 +135,7 @@ trackTests {
             budget_new = "1000"
         }
 
-        "/advertising/pads2/manager/upselling/banner/show"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/manager/upselling/banner/show"(platform: "/web", type: TrackType.View) {
             campaign_id = "2222222"
             status = "active"
             budget = "500"
