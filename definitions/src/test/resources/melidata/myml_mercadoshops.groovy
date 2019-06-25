@@ -34,9 +34,7 @@ trackTests {
             is_confirmation_banner = false
             is_show_dday_banner = false
         }
-    }
 
-    test("Mercadoshops Migration") {
         "/mercado_shops/migration"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
