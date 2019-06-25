@@ -38,11 +38,11 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "oldValue",
+        "name": "newValue",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "newValue",
+        "name": "oldValue",
         "type": "UNICODE_STRING"
       },
       {
