@@ -40,7 +40,6 @@ tracks {
 
     // Views
     "/wallet/home" (platform: "/mobile", type: TrackType.View) {}
-    //This track is deprecated.
     "/home_wallet" (platform: "/mobile", type: TrackType.View) {}
 
     // Events
