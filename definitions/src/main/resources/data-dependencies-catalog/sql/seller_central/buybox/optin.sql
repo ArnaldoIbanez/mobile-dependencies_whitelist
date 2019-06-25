@@ -16,6 +16,8 @@ FROM tracks
 WHERE tracks.path LIKE '/seller_central/catalog/optin%'
 AND ds >= '@param01' AND ds < '@param02'
 AND application.business='mercadolibre'
+AND usr.user_nick NOT LIKE 'TETE%'
+AND usr.user_nick NOT LIKE '%TEST%'
 GROUP BY path,
 siteId,
 jest(event_data,'category_domain'),
