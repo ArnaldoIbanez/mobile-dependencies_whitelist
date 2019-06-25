@@ -507,7 +507,6 @@ trackTests {
         }
 
         "/vip/free_shipping_cart_available"(platform: "/web", type:TrackType.Event){
-            defaultTrackInformation()
         }
 
         "/vip/description"(platform: "/web", type: TrackType.View){
