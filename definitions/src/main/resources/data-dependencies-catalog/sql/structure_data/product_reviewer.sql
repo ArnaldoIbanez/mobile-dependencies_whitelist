@@ -1,18 +1,18 @@
 SELECT 
-  A.review_id,
-  A.review_version,
-  A.review_status,
-  A.domain_id,
-  A.publication_id,
-  A.sheet_id,
-  A.time,
-  A.user_initials,
-  A.action_tag,
-  A.error_desc,
-  A.error_value,
-  A.comments_desc,
-  A.comments_value,
-  substr(A.ds,1,10) AS ds
+  A.review_id as review_id,
+  A.review_version as review_version,
+  A.review_status as review_status,
+  A.domain_id as domain_id,
+  A.publication_id as publication_id,
+  A.sheet_id as sheet_id,
+  A.time as time,
+  A.user_initials as user_initials,
+  A.action_tag as action_tag,
+  A.error_desc as error_desc,
+  A.error_value as error_value,
+  A.comments_desc as comments_desc,
+  A.comments_value as comments_value,
+  substr(A.ds,1,10) as ds
 FROM (
   SELECT
     ds,
