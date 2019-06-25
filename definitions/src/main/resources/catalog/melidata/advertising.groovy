@@ -88,46 +88,27 @@ tracks {
     }
 
     //Upselling
-    "/advertising/pads2/manager/upselling/modal/show"(platform: "/web", type: TrackType.Event) {
-        campaign_id(required: true, description: "Id related to the campaign")
-        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
-        budget(required: true, description: "Current budget related to the campaign")
+
+    "/advertising/pads2/manager/upselling"(platform: "/web", type: TrackType.Event) {
         budget_new(required: true, description: "New budget assigned to the user")
+    }
+
+    "/advertising/pads2/manager/upselling/modal/show"(platform: "/web", type: TrackType.Event) {
     }
 
     "/advertising/pads2/manager/upselling/modal/go"(platform: "/web", type: TrackType.Event) {
-        campaign_id(required: true, description: "Id related to the campaign")
-        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
-        budget(required: true, description: "Current budget related to the campaign")
-        budget_new(required: true, description: "New budget assigned to the user")
     }
 
     "/advertising/pads2/manager/upselling/modal/close"(platform: "/web", type: TrackType.Event) {
-        campaign_id(required: true, description: "Id related to the campaign")
-        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
-        budget(required: true, description: "Current budget related to the campaign")
-        budget_new(required: true, description: "New budget assigned to the user")
     }
 
     "/advertising/pads2/manager/upselling/banner/show"(platform: "/web", type: TrackType.Event) {
-        campaign_id(required: true, description: "Id related to the campaign")
-        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
-        budget(required: true, description: "Current budget related to the campaign")
-        budget_new(required: true, description: "New budget assigned to the user")
     }
 
     "/advertising/pads2/manager/upselling/banner/go"(platform: "/web", type: TrackType.Event) {
-        campaign_id(required: true, description: "Id related to the campaign")
-        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
-        budget(required: true, description: "Current budget related to the campaign")
-        budget_new(required: true, description: "New budget assigned to the user")
     }
 
     "/advertising/pads2/manager/upselling/banner/close"(platform: "/web", type: TrackType.Event) {
-        campaign_id(required: true, description: "Id related to the campaign")
-        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
-        budget(required: true, description: "Current budget related to the campaign")
-        budget_new(required: true, description: "New budget assigned to the user")
     }
 
 }
