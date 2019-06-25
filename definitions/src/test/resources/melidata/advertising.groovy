@@ -115,32 +115,44 @@ trackTests {
 
     test("Advertising upselling") {
         "/advertising/pads2/manager/upselling/modal/show"(platform: "/web", type: TrackType.Event) {
-            budget_old = "500"
+            campaign_id = "2222222"
+            status = "active"
+            budget = "500"
             budget_new = "1000"
         }
 
         "/advertising/pads2/manager/upselling/modal/go"(platform: "/web", type: TrackType.Event) {
-            budget_old = "500"
+            campaign_id = "2222222"
+            status = "active"
+            budget = "500"
             budget_new = "1000"
         }
 
         "/advertising/pads2/manager/upselling/modal/close"(platform: "/web", type: TrackType.Event) {
-            budget_old = "500"
+            campaign_id = "2222222"
+            status = "active"
+            budget = "500"
             budget_new = "1000"
         }
 
         "/advertising/pads2/manager/upselling/banner/show"(platform: "/web", type: TrackType.Event) {
-            budget_old = "500"
+            campaign_id = "2222222"
+            status = "active"
+            budget = "500"
             budget_new = "1000"
         }
 
         "/advertising/pads2/manager/upselling/banner/go"(platform: "/web", type: TrackType.Event) {
-            budget_old = "500"
+            campaign_id = "2222222"
+            status = "active"
+            budget = "500"
             budget_new = "1000"
         }
 
         "/advertising/pads2/manager/upselling/banner/close"(platform: "/web", type: TrackType.Event) {
-            budget_old = "500"
+            campaign_id = "2222222"
+            status = "active"
+            budget = "500"
             budget_new = "1000"
         }
     }
