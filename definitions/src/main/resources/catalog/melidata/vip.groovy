@@ -555,7 +555,7 @@ tracks {
                 values: ["services"],
                 description: "Vertical of the item")
     }
-    "/vip/free_shipping_cart_available"(platform: "/web", parentPropertiesInherited:false, type: TrackType.Event){}
+    "/vip/free_shipping_cart_available"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event){}
 
     // RESERVATION
 
