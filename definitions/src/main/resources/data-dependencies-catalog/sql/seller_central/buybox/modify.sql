@@ -12,7 +12,7 @@ jest(event_data,'seller_profile') as sellerProfile,
 jest(event_data,'item_id') as itemId,
 substr(ds,1,10) as ds,
 FROM tracks
-WHERE tracks.path = '/seller_central/modify/detail' OR tracks.path LIKE '/seller_central/modify/update_%'
+WHERE (tracks.path = '/seller_central/modify/detail' OR tracks.path LIKE '/seller_central/modify/update_%')
 AND jest(event_data,'item_type') = 'product'
 AND ds >= '@param01' AND ds < '@param02'
 AND application.business='mercadolibre'
