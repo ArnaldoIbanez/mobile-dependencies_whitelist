@@ -30,6 +30,9 @@ trackTests {
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
             ref = "myml_menu"
+            is_migration_banner = false
+            is_confirmation_banner = false
+            is_show_dday_banner = false
         }
     }
 
