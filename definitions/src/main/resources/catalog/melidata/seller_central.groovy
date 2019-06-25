@@ -88,6 +88,11 @@ tracks {
         viewId(required:false, type: PropertyType.String, descritpion: "Onboarding id if applies")
     }
 
+    "/seller_central/listings/onboarding/pdp"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Id of the action", values: ["show", "accept", "cancel"])
+    }
+
+
     "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
         id(required: false, type: PropertyType.String, description: "Id of the communication ")
