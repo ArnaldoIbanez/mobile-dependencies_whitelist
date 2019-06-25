@@ -40,6 +40,7 @@ tracks {
 
     // Views
     "/wallet/home" (platform: "/mobile", type: TrackType.View) {}
+    "/home_wallet" (platform: "/mobile", type: TrackType.View) {}
 
     // Events
     "/wallet/home/pull" (platform: "/mobile", type: TrackType.Event) {}

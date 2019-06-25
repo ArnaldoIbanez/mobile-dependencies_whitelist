@@ -189,4 +189,8 @@ trackTests {
         "/wallet/home/banking/expand" (platform: "/mobile", type: TrackType.Event) {}
     }
 
+        test("Mercadopago Home activity shown") {
+        "/home_wallet" (platform: "/mobile", type: TrackType.View) {}
+    }
+
 }
