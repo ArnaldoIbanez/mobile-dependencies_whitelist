@@ -99,6 +99,8 @@ tracks {
         reservation_price(required: false, description: "Price of the reservation")
         quotation_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item can be quoted (cotizado)")
+        quotation_limit_reached(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the user can not quote the item because he reached the maximum quotations")
         comparator_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if clasi item has model comparator available")
         gallery_pattern(required: false, type: PropertyType.String,
