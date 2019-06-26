@@ -4,7 +4,7 @@
     "gabriel.bertolo@mercadolibre.com",
     "sebastian.murawczik@mercadolibre.com"
   ],
-  "process_name": "fbm_panel_inbound_unit_input_change_processed_data",
+  "process_name": "fbm_inbound_unit_input_change",
   "cron": "00 07 * * *",
   "partition": {
     "name": "ds",
