@@ -153,6 +153,13 @@ trackTests {
             flow = "ss_approve_iv_selfie"
         }
         "/remedies/center/card"(platform: "/web") {}
+
+        "/remedies/camera_component"(platform: "/web") {
+            devices = 2
+        }
+        "/remedies/captured_image"(platform: "/web") {
+            is_landscape = false
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -303,6 +310,13 @@ trackTests {
             flow = "ss_approve_iv_selfie"
         }
         "/remedies/center/card"(platform: "/web") {}
+
+        "/remedies/camera_component"(platform: "/web") {
+            devices = 1
+        }
+        "/remedies/captured_image"(platform: "/web") {
+            is_landscape = true
+        }
     }
 
 }
