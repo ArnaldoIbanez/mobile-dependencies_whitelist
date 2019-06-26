@@ -144,6 +144,8 @@ tracks {
                 values: ["plain_text", "html", "both", "none"])
         max_size_gallery(required: false, type: PropertyType.String, description: "Max_size of first picture gallery")
         contract_available(required: false, type: PropertyType.Boolean)
+        gallery_dimension(required: false, type: PropertyType.String, values: ["wide", "square", "artsinfoto"],
+                description: "Indicates the gallery dimension format")
     }
 
     "/vip"(platform: "/mobile") {
