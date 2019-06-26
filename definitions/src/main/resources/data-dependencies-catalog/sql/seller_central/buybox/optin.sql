@@ -10,8 +10,8 @@ jest(event_data,'invalid_product_cause') as invalidCause,
 jest(event_data,'has_variations') as hasVariations,
 jest(event_data,'has_variations_already_opt_in') as hasVariationsOptIn,
 jest(event_data,'seller_profile') as sellerProfile,
-COUNT(DISTINCT path, session_id) as total
-substr(ds,1,10) as ds,
+COUNT(DISTINCT path, session_id) as total,
+substr(ds,1,10) as ds
 FROM tracks
 WHERE tracks.path LIKE '/seller_central/catalog/optin%'
 AND ds >= '@param01' AND ds < '@param02'
