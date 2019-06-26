@@ -257,6 +257,12 @@ trackTests {
             item_id = "MLA21233"
             register_type = "person"
         }
+        "/register/form"(platform:"/mobile") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+        }
 
         "/register/form"(platform:"/mobile") {
             app = "normal"
