@@ -160,6 +160,7 @@ catalog {
         include business, "collaborators.groovy"
         include business, "asset_management.groovy"
         include business, "single_player.groovy"
+        include business, "antenna.groovy"
         include business, "instore.groovy"
         include business, "sube_recharge.groovy"
         include business, "transport.groovy"
