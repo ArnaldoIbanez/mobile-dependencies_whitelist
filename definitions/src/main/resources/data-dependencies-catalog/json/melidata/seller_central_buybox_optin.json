@@ -62,7 +62,7 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Total",
+        "name": "total",
         "type": "INTEGER"
       }
     ],
