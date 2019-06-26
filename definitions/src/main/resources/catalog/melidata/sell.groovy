@@ -666,10 +666,9 @@ tracks {
     "/sell/hub/services"(platform: "/web", type: TrackType.Event) {}
 
 
-    "/sell/item_data"(platform: "/web", isAbstract: true) {
+    "/sell/item_data"(platform: "/web", type: TrackType.View) {
         sellGroup
     }
-    "/sell/item_data"(platform: "/web", type: TrackType.View) {}
     "/sell/item_data/title"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/title/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/title/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -694,10 +693,9 @@ tracks {
     "/sell/item_data/technical_specifications/confirm"(platform: "/web", type: TrackType.Event) {}
 
 
-    "/sell/item_conditions"(platform: "/web", isAbstract: true) {
+    "/sell/item_conditions"(platform: "/web", type: TrackType.View) {
         sellGroup
     }
-    "/sell/item_conditions"(platform: "/web", type: TrackType.View) {}
     "/sell/item_conditions/price_and_currency"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/price_and_currency/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/price_and_currency/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -726,10 +724,8 @@ tracks {
     "/sell/item_conditions/video/confirm"(platform: "/web", type: TrackType.Event) {}
 
 
-    "/sell/congrats"(platform: "/web", isAbstract: true) {
-        sellGroup
-    }
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
+        sellGroup
         item_id(required: false, type: PropertyType.String)
     }
     "/sell/congrats/show"(platform: "/web", type: TrackType.Event) {}
@@ -737,10 +733,9 @@ tracks {
     "/sell/congrats/listing_types/show"(platform: "/web", type: TrackType.Event) {}
 
 
-    "/sell/sip"(platform: "/web", isAbstract: true) {
+    "/sell/sip"(platform: "/web", type: TrackType.View) {
         sellGroup
     }
-    "/sell/sip"(platform: "/web", type: TrackType.View) {}
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}
     "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event) {}
 }
