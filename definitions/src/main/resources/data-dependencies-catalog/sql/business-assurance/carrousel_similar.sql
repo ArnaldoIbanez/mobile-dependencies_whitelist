@@ -6,11 +6,12 @@ SELECT
   c.total_clics AS total_clicks,
   ((p.vips_with_bundle / CAST(p.cnt AS DOUBLE)) * 100) AS coverage,
   ((c.total_clics / CAST(p.vips_with_bundle AS DOUBLE)) * 100)  AS ctr,
+  c.site_id as site_id,
   p.ds AS ds
 FROM (
   SELECT
     device.platform AS platform,
-    application.site_id AS site_id,
+    t.application.site_id AS site_id,
     jest(others['fragment'], 'reco_client') AS client,
     jest(others['fragment'], 'reco_backend') AS backend_id,
     count(1) total_clics,
@@ -22,13 +23,13 @@ FROM (
     AND ds < '@param01'
     AND jest(others['fragment'], 'reco_backend') = 'tagging-searchsimilar_fashion'
     AND path = '/vip'
-    AND t.application.site_id = 'MLA'
+    AND t.application.site_id in ('MLA','MLB','MLM')
     AND jest(others['fragment'], 'reco_client') IS NOT NULL
     AND jest(others['fragment'], 'reco_client') = 'vip'
     AND NOT is_bot(device.user_agent)
     AND (device.platform = '/web/desktop' OR device.platform = '/web/mobile')
   GROUP BY device.platform,
-    application.site_id,
+    t.application.site_id,
     jest(others['fragment'], 'reco_client'),
     jest(others['fragment'], 'reco_backend'),
     substr(t.ds, 1, 10)
@@ -46,7 +47,7 @@ FROM (
       AND ds >= '@param02'
       AND ds < '@param01'
       AND type = 'view'
-      AND application.site_id IN ('MLA')
+      AND application.site_id IN ('MLA','MLB','MLM')
       AND application.business = 'mercadolibre'
       AND NOT is_bot(device.user_agent)
       AND jest(event_data, 'recommendations.client') = 'vip'
@@ -58,4 +59,5 @@ FROM (
     p.backend_id = c.backend_id 
       AND p.platform = c.platform
       AND p.ds = c.ds
+      AND p.site_id = c.site_id
     )
