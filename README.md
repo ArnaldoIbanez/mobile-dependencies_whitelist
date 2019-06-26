@@ -51,7 +51,7 @@ If you want to run all available tests **```make test CATALOG=${All}```**
 
 2. [Metrics Definitions](https://github.com/mercadolibre/melidata-catalog/wiki/New-Metric)
 
-3. [Cronned Queries Definitions](https://github.com/mercadolibre/melidata-all/wiki/Hive-BI-Integration)
+3. [Cronned Queries Definitions](https://sites.google.com/mercadolibre.com/melidata/custom-data/bi-integration)
 
 4. [Tracking health check](https://github.com/mercadolibre/melidata-catalog/wiki/Catalog-health-check)
 
