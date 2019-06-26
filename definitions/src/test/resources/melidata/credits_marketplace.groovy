@@ -186,7 +186,7 @@ trackTests {
         "/credits/consumer/administrator/detail/see_loan_conditions"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/detail/see_tac"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/detail/see_voucher"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/consumer/administrator/detail/see_ccb"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/detail/see_contract"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/detail/download_plan"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/detail/get_help"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/detail/purchase_detail"(platform: "/web/desktop", type: TrackType.Event) {}
@@ -441,6 +441,79 @@ trackTests {
        /******************************************
         *    End: Consumers Enhance Adoption
         ******************************************/
+
+        /******************************************
+         *   Start: Personal Loans Adoption
+         ******************************************/
+
+        "/credits/consumer/administrator/summary/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {
+            summary_status = "on_time"
+        }
+
+        "/credits/consumer/personal"(platform: "/mobile", type: TrackType.View) {
+        }
+
+        "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
+            prepaid = true
+        }
+
+        "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
+            prepaid = false
+            page = 1
+        }
+
+        "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+            page = 4
+        }
+
+        "/credits/consumer/personal/adoption/onboarding/close"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = true
+        }
+
+        "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review"(platform: "/mobile", type: TrackType.View) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review/general_terms"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review/particular_terms"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review/above_confirm"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review/below_confirm"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/congrats"(platform: "/mobile", type: TrackType.View) {
+            status = 'no_prepaid'
+        }
+
+        "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/mobile", type: TrackType.Event) {
+            status = 'prepaid_enabled'
+        }
+
+        "/credits/consumer/personal/adoption/congrats/go_prepaid"(platform: "/mobile", type: TrackType.Event) {
+            status = 'prepaid_disabled'
+        }
+
+        /******************************************
+         *   End: Personal Loans Adoption
+         ******************************************/
 
         /******************************************
          *    Start: Consumers Experiments

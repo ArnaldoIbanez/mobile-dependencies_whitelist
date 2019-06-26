@@ -21,7 +21,6 @@ LATERAL VIEW json_tuple(dev.`device`, 'platform') jt2 AS `platform`
 LATERAL VIEW json_tuple(`data`, 'application') app AS `application`
 LATERAL VIEW json_tuple(app.`application`, 'site_id') jt3 AS `site_id`
 WHERE ds >= '@param03 20' AND ds < '@param04 20'
-    AND `jt`.`event` = 'print'
     AND `jt`.`id` IS NOT NULL
     AND `jt`.`id` RLIKE '.*(?<!\/element)$'
     AND `jt`.`id` RLIKE '.*(?<!\/item)$'
@@ -40,7 +39,7 @@ WHERE ds >= '@param01' AND ds < '@param02'
     AND `type` = 'view'
     AND `path` <> '/recommendations'
     AND `jt`.`id` IS NOT NULL
-    AND others['intersection_observer_supported'] = 'true'
+    AND (device.platform RLIKE '\/mobile\/.*' OR others['intersection_observer_supported'] = 'true')
 GROUP BY ds, device.platform, application.site_id, regexp_extract(`jt`.`id`, '^(\/.*)\/.*$', 1)) AS clicks
 
 ON

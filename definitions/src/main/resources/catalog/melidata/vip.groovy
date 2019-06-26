@@ -22,7 +22,7 @@ tracks {
         local_pick_up(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has local pick up")
         logistic_type(required: false,
-                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment"],
+                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment", "self_service"],
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
         free_shipping_benefit(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has free shipping or free by loyalty")
@@ -149,6 +149,7 @@ tracks {
     "/vip"(platform: "/mobile") {
         context(required: false)
         resolution(required: false, description: "Indicates if the device has high or low resolution")
+        whatsapp_installed(required: false, type: PropertyType.Boolean, description: "determines if whatsapp is installed on the device")
     }
 
     "/vip/abort"(platform: "/mobile", type: TrackType.Event) {}
@@ -651,16 +652,18 @@ tracks {
     "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
     }
 
-    "/vip/quote_demand_intention"(platform: "/", type: TrackType.Event){
+    "/vip/quote_demand_intention"(platform: "/", type: TrackType.Event) {
         item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
         from_view(required: false, type: PropertyType.String,
                 values: ["vip", "description", "technicalSpecs", "form"],
                 description: "Section where it's coming from"
         )
     }
 
-    "/vip/quote_demand_messages"(platform: "/", type: TrackType.Event){
+    "/vip/quote_demand_messages"(platform: "/", type: TrackType.Event) {
         item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
         from_view(required: false, type: PropertyType.String,
                 values: ["vip", "description", "technicalSpecs", "form"],
                 description: "Section where it's coming from"

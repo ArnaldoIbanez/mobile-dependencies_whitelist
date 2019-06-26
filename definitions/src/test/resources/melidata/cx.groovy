@@ -40,7 +40,7 @@ trackTests {
                     channels: [:],
                     contact_config: false
             ]
-            user_type = "normal"
+            user_type = "NORMAL"
             reputation_level  = "5_green"
             seller_profile = "ADVANCED"
             loyalty_level = 5
@@ -52,7 +52,7 @@ trackTests {
                     channels: [:],
                     contact_config: false
             ]
-            user_type = "normal"
+            user_type = "NORMAL"
             reputation_level  = "5_green"
             seller_profile = "ADVANCED"
             loyalty_level = 5
@@ -65,7 +65,7 @@ trackTests {
                     channels: [:],
                     contact_config: false
             ]
-            user_type = "normal"
+            user_type = "NORMAL"
             reputation_level  = "5_green"
             portal_form_id = 96
             seller_profile = "ADVANCED"
@@ -78,7 +78,7 @@ trackTests {
                     channels: [:],
                     contact_config: false
             ]
-            user_type = "normal"
+            user_type = "NORMAL"
             reputation_level  = "5_green"
             seller_profile = "ADVANCED"
             loyalty_level = 5
@@ -90,14 +90,14 @@ trackTests {
                     channels: [:],
                     contact_config: false
             ]
-            user_type = "normal"
+            user_type = "NORMAL"
             reputation_level  = "5_green"
             seller_profile = "ADVANCED"
             loyalty_level = 5
             portal_has_channels_configured = true
         }
         "/portal/search/result"(platform: "/", type: TrackType.View) {
-            user_type = "normal"
+            user_type = "NORMAL"
             reputation_level  = "5_green"
             seller_profile = "ADVANCED"
             loyalty_level = 5
@@ -108,7 +108,7 @@ trackTests {
             portal_has_channels_configured = true
         }
         "/portal/search/empty"(platform: "/", type: TrackType.View) {
-            user_type = "normal"
+            user_type = "NORMAL"
             reputation_level  = "5_green"
             seller_profile = "ADVANCED"
             loyalty_level = 5
@@ -124,6 +124,10 @@ trackTests {
 
     test("Support Widget") {
         "/support/widget/folder"(platform: "/", type: TrackType.View) {
+            portal_content_id = 987
+            portal_source_id = 999
+        }
+        "/support/widget/folder_rules"(platform: "/", type: TrackType.View) {
             portal_source_id = 999
         }
         "/support/widget/faq"(platform: "/", type: TrackType.View) {
@@ -139,6 +143,58 @@ trackTests {
         }
         "/support/widget/form"(platform: "/", type: TrackType.View) {
             portal_form_id = 56
+            portal_source_id = 123
+            portal_content_id = 987
+            portal_problem_id = 456
+        }
+        "/support/widget/create_case"(platform: "/", type: TrackType.Event) {
+            portal_form_id = 56
+            portal_source_id = 123
+            portal_content_id = 987
+            portal_problem_id = 456
+        }
+    }
+
+    test("Support Widget having Content Type") {
+        "/support/widget/folder"(platform: "/", type: TrackType.View) {
+            portal_content_id = 123
+            portal_content_type = 'HOME'
+            portal_source_id = 999
+        }
+        "/support/widget/folder"(platform: "/", type: TrackType.View) {
+            portal_content_id = 123
+            portal_content_type = 'FOLDER'
+            portal_source_id = 999
+        }
+        "/support/widget/faq"(platform: "/", type: TrackType.View) {
+            portal_content_id = 987
+            portal_content_type = 'RENDER'
+            portal_source_id = 123
+            portal_has_channels_configured = true
+        }
+        "/support/widget/faq"(platform: "/", type: TrackType.View) {
+            portal_content_id = 987
+            portal_content_type = 'SHOW_CONTACT'
+            portal_source_id = 123
+            portal_has_channels_configured = true
+        }
+        "/support/widget/problem"(platform: "/", type: TrackType.View) {
+            portal_content_id = 987
+            portal_content_type = 'REDIRECT'
+            portal_source_id = 123
+            portal_problem_id = 456
+            portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
+        }
+        "/support/widget/form"(platform: "/", type: TrackType.View) {
+            portal_form_id = 56
+            portal_content_type = 'SHOW_CONTACT'
+            portal_source_id = 123
+            portal_content_id = 987
+            portal_problem_id = 456
+        }
+        "/support/widget/create_case"(platform: "/", type: TrackType.Event) {
+            portal_form_id = 56
+            portal_content_type = 'SHOW_CONTACT'
             portal_source_id = 123
             portal_content_id = 987
             portal_problem_id = 456
@@ -233,6 +289,10 @@ trackTests {
 
     test("Support Widget") {
         "/support/widget/folder"(platform: "/", type: TrackType.View) {
+            portal_content_id = 987
+            portal_source_id = 999
+        }
+        "/support/widget/folder_rules"(platform: "/", type: TrackType.View) {
             portal_source_id = 999
         }
         "/support/widget/faq"(platform: "/", type: TrackType.View) {
@@ -247,6 +307,12 @@ trackTests {
             portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
         }
         "/support/widget/form"(platform: "/", type: TrackType.View) {
+            portal_form_id = 56
+            portal_source_id = 123
+            portal_content_id = 987
+            portal_problem_id = 456
+        }
+        "/support/widget/create_case"(platform: "/", type: TrackType.Event) {
             portal_form_id = 56
             portal_source_id = 123
             portal_content_id = 987

@@ -53,11 +53,11 @@ tracks {
     "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/", type: TrackType.Event) {}
 
     //Voluntary Payment
-    "/credits/merchant/administrator/voluntary_payment"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/administrator/voluntary_payment/congrats"(platform: "/", type: TrackType.View) {
+    "/credits/merchant/voluntary_payment"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/voluntary_payment/congrats"(platform: "/", type: TrackType.View) {
         flow(type: PropertyType.String, required: false, values: ['voluntary_payment'])
     }
-    "/credits/merchant/administrator/voluntary_payment/error"(platform: "/", type: TrackType.View) {
+    "/credits/merchant/voluntary_payment/error"(platform: "/", type: TrackType.View) {
         reason(type: PropertyType.String, required: false, values: ['insufficient_account_money',
                                                                     'lender_cannot_collect_installments',
                                                                     'default'])
@@ -245,4 +245,18 @@ tracks {
      *       End: Money Advance
      ******************************************/
 
+    /******************************************
+     *    Start: Merchant Contacts
+     ******************************************/
+
+    "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+        campaign(description: "Source of the contact", type: PropertyType.String, required: true, values: ['collection', 'updates', 'engage'])
+        medium(description: "Medium of the contact", type: PropertyType.String, required: true, values: ['email'])
+        milestone(description: "Number of days overdue of the contact", type: PropertyType.Numeric, required: false, values: [-27, -7, -5, -2, 3, 6, 10, 16, 20])
+        stage(description: "Credit stage of the contact", type: PropertyType.String, required: false, values: ['educational', 'to_expire', 'expired_no_charges', 'expired_fixed_charges', 'expired_daily_charges', 'congrats_debit_installment', 'congrats_credited_loan', 'congrats_pending'])
+    }
+
+    /******************************************
+     *   End: Merchant Contacts
+     ******************************************/
 }

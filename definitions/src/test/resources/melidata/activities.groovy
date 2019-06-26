@@ -43,53 +43,87 @@ trackTests {
         "/activities/export" (platform: "/web", type: TrackType.View) {}
     }
 
-    /*************************
-    *     ACTIVITY MOBILE    *
-    *************************/
-
+    /************************************
+    *    ACTIVITY MOBILE TEST TRACKS    *
+    ************************************/
+    
     test("Mercadopago Activities List Mobile") {
-        "/activities/list" (platform: "/mobile", type: TrackType.View) {}
-    }
+        "/listing/activities" (platform: "/mobile", type: TrackType.View) {}
+    }   
 
+    test("Mercadopago Activities Pull List Mobile") {
+        "/listing/activities/pull" (platform: "/mobile", type: TrackType.Event) {
+            has_changes = true
+        }
+    }
+       
     test("Mercadopago Activity Apply Filters Mobile") {
-        "/activities/filters/apply" (platform: "/mobile", type: TrackType.Event) {}
+        "/listing/activities/filters/apply" (platform: "/mobile", type: TrackType.Event) {
+            items = [
+                [
+                    ordinal: 1,
+                    id: "month"
+                ],
+                [
+                    ordinal: 2,
+                    id: "facet_type_payment"
+                ]
+            ]
+        }
     }
 
     test("Mercadopago Activity Filters List Mobile") {
-        "/activities/filters" (platform: "/mobile", type: TrackType.View) {}
+        "/listing/activities/filters" (platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Remove Filters List Mobile") {
+        "/listing/activities/removefilter" (platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("Mercadopago Activity Filters Options List Mobile") {
-        "/activities/filters/options" (platform: "/mobile", type: TrackType.View) {}
-    }
-
-    test("Mercadopago Activity Remove Filters Mobile") {
-        "/activities/list/remove_filter" (platform: "/mobile", type: TrackType.Event) {}
+        "/listing/activities/filters/options" (platform: "/mobile", type: TrackType.View) {}
     }
 
     test("Mercadopago Operation Detail List Mobile") {
-        "/activities/detail" (platform: "/mobile", type: TrackType.View) {}
+        "/listing/activities/detail" (platform: "/mobile", type: TrackType.View) {}
     }
 
     test("Mercadopago Operation Detail List Mobile") {
-        "/activities/detail/list" (platform: "/mobile", type: TrackType.View) {}
+        "/listing/activities/detail/list" (platform: "/mobile", type: TrackType.View) {}
     }
 
     test("Mercadopago Operation Detail Add Note List Mobile") {
-        "/activities/detail/add_note" (platform: "/mobile", type: TrackType.View) {}
+        "/listing/activities/detail/add_note" (platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Operation Detail Added Note Mobile") {
+        "/listing/activities/detail/add_note/added" (platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("Mercadopago Operation Detail Buyer Information Mobile") {
-        "/activities/detail/user_info" (platform: "/mobile", type: TrackType.View) {}
+        "/listing/activities/detail/user_info" (platform: "/mobile", type: TrackType.View) {}
     }
 
     test("Mercadopago Operation Detail Shipping Mobile") {
-        "/activities/detail/shipping" (platform: "/mobile", type: TrackType.View) {}
+        "/listing/activities/detail/shipping" (platform: "/mobile", type: TrackType.View) {}
     }
 
     test("Mercadopago Operation Detail Web View Mobile") {
-        "/activities/detail/web_view" (platform: "/mobile", type: TrackType.View) {
+        "/listing/activities/detail/web_view" (platform: "/mobile", type: TrackType.View) {
             url = "https://mercadolibre.com"
+        }
+    }
+
+    test("Mercadopago Activities Real Time Total Mobile") {
+        "/listing/activities/real_time/total" (platform: "/mobile", type: TrackType.View) {
+            total = 9
+        }
+    }
+
+    test("Mercadopago Activities Real Time Push Mobile") {
+        "/listing/activities/real_time/push" (platform: "/mobile", type: TrackType.View) {
+            activity_id = "merch-001234"
+            date_created = "2019/09/08"
         }
     }
 }

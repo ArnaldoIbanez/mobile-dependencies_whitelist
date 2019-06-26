@@ -21,6 +21,31 @@ trackTests {
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Mercado Shops Migration
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("Mercadoshops Migration") {
+        "/mercado_shops/migration"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = "myml_menu"
+            is_migration_banner = false
+            is_confirmation_banner = false
+            is_show_dday_banner = false
+        }
+
+        "/mercado_shops/migration"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            is_migration_banner = true
+            is_confirmation_banner = true
+            is_show_dday_banner = true
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MYML Mercadoshops Admin
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -128,6 +153,27 @@ trackTests {
             ref = ""
             reason_id = "REASON_1"
             additional_comments = "Additional comment."
+        }
+    }
+
+    test("Mercadoshops Admin Onboarding") {
+        "/mercado_shops/admin/onboarding"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            trigger = "MODAL"
+        }
+    }
+
+    test("Mercadoshops Admin Onboarding Steps") {
+        "/mercado_shops/admin/onboarding/steps"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            scope = "STEP_1"
+            trigger = "ICON"
         }
     }
 

@@ -20,7 +20,7 @@ tracks {
         error_code(required: false, type: PropertyType.String)
 
         ref(
-            required: true,
+            required: false,
             type: PropertyType.String,
             description: "Additional information from where the user is coming"
         )
@@ -37,6 +37,12 @@ tracks {
     }
 
     "/mercado_shops/optin"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/migration"(platform: "/", type: TrackType.Event){
+        is_migration_banner(required: true, type: PropertyType.Boolean, description: "Banner Migration is being shown")
+        is_confirmation_banner(required: true, type: PropertyType.Boolean, description: "Banner Confirmation is being shown")
+        is_show_dday_banner(required: true, type: PropertyType.Boolean, description: "Banner DDay is being shown")
+    }
 
     "/mercado_shops/admin"(platform: "/", type: TrackType.View){}
 
@@ -94,6 +100,22 @@ tracks {
     "/mercado_shops/admin/deactivate"(platform: "/", type: TrackType.Event){
         reason_id(required: true, type: PropertyType.String, description: "The reason id that identifies the main reason why the user decided to opt out.")
         additional_comments(required: false, type: PropertyType.String, description: "Additional comments on why the user decided to opt out.")
+    }
+
+    "/mercado_shops/admin/onboarding"(platform: "/", type: TrackType.Event){
+        trigger(
+            required: true,
+            type: PropertyType.String,
+            values: ['MODAL', 'ICON']
+        )
+    }
+
+    "/mercado_shops/admin/onboarding/steps"(platform: "/", type: TrackType.Event){
+        scope(
+            required: true,
+            type: PropertyType.String,
+            description: "Name of step"
+        )
     }
 
     "/mercado_shops/domains/summary"(platform: "/", type: TrackType.View){}

@@ -426,6 +426,9 @@ trackTests {
             contact_name = "Juan"
             contact_phone = "555-5555"
         }
+        "/checkout/shipping/location/new_contact/back"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
        "/checkout/shipping/location/new_contact#submit"(platform:"/mobile", type:TrackType.Event) {
             success = true
             session_id = "1241n1kj2nk14141nl12nl"
@@ -517,6 +520,14 @@ trackTests {
             ]
         }
         //
+        
+        "/checkout/shipping/address_profile"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
+
+        "/checkout/shipping/address_profile/delivered_time"(platform: "/web", type: TrackType.Event) {
+            label = "laboral"
+        }
 
         "/checkout/payment/preload_credit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -2024,6 +2035,7 @@ trackTests {
             checkout_flow = "direct"
             flow_type = "buy_it_now"
             stored_cards_quantity = 3
+            checkout_flow_reason = "default_case"
         }
 
         "/checkout/geolocation"(platform:"/web", type: TrackType.Event) {
@@ -2170,6 +2182,12 @@ trackTests {
         "/checkout/shipping/select_option/agency_pickup"(platform:"/web", dataSet)
         "/checkout/shipping/select_option/send_to_my_address"(platform:"/web", dataSet)
         "/checkout/shipping/store_selection"(platform:"/web", dataSet)
+
+        "/checkout/shipping/address_profile"(platform:"/web", dataSet)
+        "/checkout/shipping/address_profile/delivered_time"(platform: "/web", type: TrackType.Event) {
+            label = "laboral"
+        }
+
         // Map v2
         "/checkout/shipping/puis/select_store"(platform: "/web", dataSet)
         "/checkout/shipping/select_store"(platform: "/web", dataSet)
