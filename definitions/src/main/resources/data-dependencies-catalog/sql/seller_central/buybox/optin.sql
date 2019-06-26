@@ -10,7 +10,7 @@ jest(event_data,'invalid_product_cause') as invalidCause,
 jest(event_data,'has_variations') as hasVariations,
 jest(event_data,'has_variations_already_opt_in') as hasVariationsOptIn,
 jest(event_data,'seller_profile') as sellerProfile,
-COUNT(DISTINCT path, session_id) as total,
+COUNT(DISTINCT tracks.path, jest(event_data,'session_id')) as total,
 substr(ds,1,10) as ds
 FROM tracks
 WHERE tracks.path LIKE '/seller_central/catalog/optin%'
@@ -18,7 +18,8 @@ AND ds >= '@param01' AND ds < '@param02'
 AND application.business='mercadolibre'
 AND usr.user_nick NOT LIKE 'TETE%'
 AND usr.user_nick NOT LIKE '%TEST%'
-GROUP BY path,
+GROUP BY ds,
+tracks.path,
 application.site_id,
 jest(event_data,'category_domain'),
 jest(event_data,'original_catalog_product_id'),
