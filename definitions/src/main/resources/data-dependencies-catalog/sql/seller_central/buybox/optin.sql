@@ -19,7 +19,7 @@ AND application.business='mercadolibre'
 AND usr.user_nick NOT LIKE 'TETE%'
 AND usr.user_nick NOT LIKE '%TEST%'
 GROUP BY path,
-siteId,
+application.site_id,
 jest(event_data,'category_domain'),
 jest(event_data,'original_catalog_product_id'),
 jest(event_data,'selected_catalog_product_id'),
