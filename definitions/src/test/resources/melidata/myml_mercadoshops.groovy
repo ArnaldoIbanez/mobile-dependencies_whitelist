@@ -273,4 +273,24 @@ trackTests {
             success = true
         }
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS MYML Mercadoshops migration flow
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("Mercadoshops Migration flow events") {
+        "/mercado_shops/admin/confirm_migration"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            scope = "editor"
+        }
+        "/mercado_shops/optin/step"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            index = 9124
+            step = "fourth-step"
+        }
+    }
 }
