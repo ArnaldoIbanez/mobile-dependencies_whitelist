@@ -632,6 +632,10 @@ trackTests {
     test("Landing for donwload app at web mobile"){
         "/sell/landing_download_app"(platform: "/web/mobile"){}
         "/sell/landing_download_app/download_intention"(platform: "/web/mobile"){}
+        "/sell/landing_hub"(platform: "/web/mobile", type: TrackType.View){}
+        "/sell/landing_hub/sell_intention"(platform: "/web/mobile", type: TrackType.Event){
+            vertical = "CORE"
+        }
     }
 
     test("Mobile flow - complete technical specifications"){
