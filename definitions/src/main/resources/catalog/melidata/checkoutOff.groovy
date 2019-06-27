@@ -46,6 +46,7 @@ tracks {
     "/checkout_off/payment/card_express"(platform: "/", type: TrackType.View) {}
     
     // Groups consumer credits data collection views
+    "/checkout_off/payment/input_credits"(platform: "/", isAbstract: true) {}
     "/checkout_off/payment/input_credits/select_installment"(platform: "/", type: TrackType.View) {}    
 
     // Tokenizer product final screen.
