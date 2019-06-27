@@ -251,6 +251,15 @@ tracks {
 
 "/cart/checkout/shipping"(platform:"/mobile", type: TrackType.View) {}
 
+// First Visit
+// Page
+"/cart/checkout/shipping/address_profile"(platform: "/mobile", type: TrackType.View) {}
+
+// Event
+"/cart/checkout/shipping/address_profile/delivered_time"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    label(required: false, type: PropertyType.String)
+}
+
 "/cart/checkout/shipping/edit_address"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
 }
@@ -492,6 +501,15 @@ tracks {
 
 "/cart/checkout/shipping"(platform:"/web", type: TrackType.View) {
     total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+}
+
+// First Visit
+// Page
+"/cart/checkout/shipping/address_profile"(platform: "/web", type: TrackType.View) {}
+
+// Event
+"/cart/checkout/shipping/address_profile/delivered_time"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+    label(required: false, type: PropertyType.String)
 }
 
 "/cart/checkout/shipping/confirm_geolocation"(platform:"/web", type: TrackType.View) {}

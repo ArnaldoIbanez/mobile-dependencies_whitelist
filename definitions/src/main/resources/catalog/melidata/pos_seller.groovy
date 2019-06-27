@@ -47,6 +47,13 @@
 
         "/pos_seller/point/pairing"(platform: "/mobile", type: TrackType.View) {}
 
+        "/pos_seller/onboarding"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false) {
+            payment_channel(required: true, type: PropertyType.String, description: "payment channel selected by the user", values: ["qr","point","share_social","cash","chooser"])
+        }
+
+       "/pos_seller/onboarding/pricing"(platform: "/mobile", type: TrackType.View) {}
+
+
         /**
         * pos seller event tracks
         */
@@ -84,6 +91,12 @@
             card_readers(required: true, type: PropertyType.String, description: "visible card readers")
         
         }
+
+         "/pos_seller/onboarding/pricing_confirmation"(platform: "/mobile", type: TrackType.Event) {
+            processing_fee(required: true, type: PropertyType.Numeric,description: "Processing fee selected by the user")
+            release_days(required: true, type: PropertyType.String,description: "Release days selected by the user")
+        }
+
          def PosSellerFrictionMessage = objectSchemaDefinitions {
             style(type: PropertyType.String, required: true, description: "Style showed, window, dialog, toast.. ", values: ["dialog", "screen", "snackbar-alert"])
             title(type: PropertyType.String, required: false)

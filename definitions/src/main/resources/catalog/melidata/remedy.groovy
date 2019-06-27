@@ -35,6 +35,12 @@ tracks {
     "/remedy/challenge_address"(platform: "/mobile", type: TrackType.View) {}
     "/remedy/challenge_phone"(platform: "/mobile", type: TrackType.View) {}
     "/remedy/challenge_single_pep_fatca_so"(platform: "/mobile", type: TrackType.View) {}
+    "/remedy/challenge_kyc_name_mismatch"(platform: "/mobile", type: TrackType.View) {}
+
+    "/remedy/identity_handler"(platform: "/mobile", type: TrackType.Event) {
+        remedy_id (required: true, type: PropertyType.String)
+        status (required: false, type: PropertyType.String)
+    }
 
     // WebView events
     "/remedy/url_external"(platform: "/mobile", type: TrackType.Event) {

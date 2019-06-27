@@ -36,10 +36,18 @@ tracks {
         origin(type: PropertyType.String, required: true, description: "The application that returns the content")
     }
 
+    def action = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true, description: "The container where we show contents")
+        ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
+        has_promotion(type: PropertyType.Boolean, required: true, description: "The application that returns the content")
+    }
+
     "/wallet/home" (platform: "/mobile", isAbstract: true) {}
+    "/wallet/home/secondary_actions" (platform: "/mobile", isAbstract: true) {}
 
     // Views
     "/wallet/home" (platform: "/mobile", type: TrackType.View) {}
+    "/home_wallet" (platform: "/mobile", type: TrackType.View) {}
 
     // Events
     "/wallet/home/pull" (platform: "/mobile", type: TrackType.Event) {}
@@ -64,6 +72,13 @@ tracks {
     "/wallet/home/show/secondary_actions" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         realestates_payers(type: PropertyType.ArrayList(PropertyType.Map(realestate)), required:true, description: "Secondary actions payers containers")
         realestates_sellers(type: PropertyType.ArrayList(PropertyType.Map(realestate)), required:true, description: "Secondary actions sellers containers")
+    }
+
+    "/wallet/home/secondary_actions/toggle" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        id(required: true, PropertyType.String, description: "the tab ID")
+        quantity(required: true, PropertyType.String, description: "secondary actions quantity")
+        is_showing_aware(required: true, type: PropertyType.Boolean, description: "If secondary actions is showing the aware")
+        actions(type: PropertyType.ArrayList(PropertyType.Map(action)), required: true, description: "Secondaty action actions")
     }
 
     // TODO: This track will be removed

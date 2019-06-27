@@ -38,6 +38,12 @@ tracks {
 
     "/mercado_shops/optin"(platform: "/", type: TrackType.View){}
 
+    "/mercado_shops/migration"(platform: "/", type: TrackType.Event){
+        is_migration_banner(required: true, type: PropertyType.Boolean, description: "Banner Migration is being shown")
+        is_confirmation_banner(required: true, type: PropertyType.Boolean, description: "Banner Confirmation is being shown")
+        is_show_dday_banner(required: true, type: PropertyType.Boolean, description: "Banner DDay is being shown")
+    }
+
     "/mercado_shops/admin"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/admin/welcome"(platform: "/", type: TrackType.View){}
@@ -142,5 +148,14 @@ tracks {
 
     "/mercado_shops/domains/delegation_cancel"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/confirm_migration"(platform: "/", type: TrackType.Event){
+        scope(required: true, type: PropertyType.String, values: ['editor', 'domains'])
+    }
+    
+    "/mercado_shops/optin/step"(platform: "/", type: TrackType.Event){
+        step(required: true, type: PropertyType.String)
+        index(required: true, type: PropertyType.Numeric)
     }
 }

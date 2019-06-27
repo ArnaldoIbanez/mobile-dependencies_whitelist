@@ -14,9 +14,11 @@ tracks {
 
     // Onboarding
     "/asset_management/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/onboarding_bcra"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/onboarding"(platform: "/web", type: TrackType.View) {}
     "/asset_management/start_investing"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/know_more"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/optin"(platform: "/mobile", type: TrackType.Event) {}
 
     // Blocking screen
     "/asset_management/blocker"(platform: "/web", type: TrackType.View) {}

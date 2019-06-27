@@ -21,6 +21,31 @@ trackTests {
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Mercado Shops Migration
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("Mercadoshops Migration") {
+        "/mercado_shops/migration"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = "myml_menu"
+            is_migration_banner = false
+            is_confirmation_banner = false
+            is_show_dday_banner = false
+        }
+
+        "/mercado_shops/migration"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            is_migration_banner = true
+            is_confirmation_banner = true
+            is_show_dday_banner = true
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MYML Mercadoshops Admin
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -246,6 +271,26 @@ trackTests {
             delegation_status = "ACTIVE"
             ref = ""
             success = true
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS MYML Mercadoshops migration flow
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("Mercadoshops Migration flow events") {
+        "/mercado_shops/admin/confirm_migration"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            scope = "editor"
+        }
+        "/mercado_shops/optin/step"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            index = 9124
+            step = "fourth-step"
         }
     }
 }

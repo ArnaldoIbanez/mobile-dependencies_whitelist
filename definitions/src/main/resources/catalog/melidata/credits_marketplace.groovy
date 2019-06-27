@@ -212,7 +212,7 @@ tracks {
     "/credits/consumer/administrator/detail/see_loan_conditions"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/detail/see_tac"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/detail/see_voucher"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumer/administrator/detail/see_ccb"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/detail/see_contract"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/detail/download_plan"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/detail/get_help"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/detail/purchase_detail"(platform: "/", type: TrackType.Event) {}
