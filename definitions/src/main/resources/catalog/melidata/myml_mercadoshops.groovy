@@ -151,6 +151,6 @@ tracks {
     }
 
     "/mercado_shops/migration/confirm-shop"(platform: "/", type: TrackType.Event){
-        scope(required: true, type: PropertyType.String, values: ["editor", "domains"])
+        scope(required: true, type: PropertyType.String, values: ['editor', 'domains'])
     }
 }
