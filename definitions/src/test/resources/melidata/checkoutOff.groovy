@@ -94,6 +94,10 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/input_credits/select_installment"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         // Tokenizer product final screen.
         "/checkout_off/payment/processing"(platform: "/web/mobile") {
             defaultProperties()
@@ -190,6 +194,10 @@ trackTests {
             onlyRequiredProperties()
         }
 
+        "/checkout_off/payment/input_credits/select_installment"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        
         // Tokenizer product final screen.
         "/checkout_off/payment/processing"(platform: "/web/mobile") {
             onlyRequiredProperties()
