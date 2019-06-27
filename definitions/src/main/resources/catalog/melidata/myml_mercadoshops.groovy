@@ -149,4 +149,8 @@ tracks {
     "/mercado_shops/domains/delegation_cancel"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
+
+    "/mercado_shops/migration/confirm-shop"(platform: "/", type: TrackType.Event){
+        scope(required: true, type: PropertyType.String, values: ["editor", "domains"])
+    }
 }
