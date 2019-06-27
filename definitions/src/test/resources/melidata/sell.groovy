@@ -662,38 +662,6 @@ trackTests {
             session_id = "123-update-abc123"
         }
     }
-    test("SYI v4 hub core vertical"){
-        "/sell/hub/core"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
-            seller_profile = "ADVANCED"
-            seller_segment = "professional_sellers"
-            session_id = "123-update-abc123"
-        }
-    }
-    test("SYI v4 hub motors vertical"){
-        "/sell/hub/motors"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
-            seller_profile = "ADVANCED"
-            seller_segment = "professional_sellers"
-            session_id = "123-update-abc123"
-        }
-    }
-    test("SYI v4 hub real state vertical"){
-        "/sell/hub/real_state"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
-            seller_profile = "ADVANCED"
-            seller_segment = "professional_sellers"
-            session_id = "123-update-abc123"
-        }
-    }
-    test("SYI v4 hub services vertical"){
-        "/sell/hub/services"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
-            seller_profile = "ADVANCED"
-            seller_segment = "professional_sellers"
-            session_id = "123-update-abc123"
-        }
-    }
     test("SYI v4 render item_data"){
         "/sell/item_data"(platform: "/web", type: TrackType.View){
             category_id = "MLA390784"

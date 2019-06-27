@@ -660,14 +660,9 @@ tracks {
     "/sell/draft"(platform: "/web", type: TrackType.View) {}
 
 
-    "/sell/hub"(platform: "/web", isAbstract: true) {
+    "/sell/hub"(platform: "/web", type: TrackType.View) {
         sellGroup
     }
-    "/sell/hub"(platform: "/web", type: TrackType.View) {}
-    "/sell/hub/core"(platform: "/web", type: TrackType.Event) {}
-    "/sell/hub/motors"(platform: "/web", type: TrackType.Event) {}
-    "/sell/hub/real_state"(platform: "/web", type: TrackType.Event) {}
-    "/sell/hub/services"(platform: "/web", type: TrackType.Event) {}
 
 
     "/sell/item_data"(platform: "/web", type: TrackType.View) {
