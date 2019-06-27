@@ -41,8 +41,6 @@ tracks {
         item_id(type: PropertyType.String, description: "Item", required:false)
         captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:true)
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:true)
-        errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
-        errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
     }
 
     "/register/optin"(platform: "/web", type: TrackType.View) {
@@ -124,8 +122,6 @@ tracks {
         source(type: PropertyType.String, description: "Source (on mobile is facebook/email, on web at the moment is only email)", required:false)
         captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:false)
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:false)
-        errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
-        errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
     }
     "/register/form/email-suggest"(platform: "/mobile", type: TrackType.Event){}
 
