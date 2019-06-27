@@ -150,7 +150,7 @@ tracks {
         mshopsEventGroup
     }
 
-    "/mercado_shops/admin/migration/confirm-shop"(platform: "/", type: TrackType.Event){
+    "/mercado_shops/admin/confirm_migration"(platform: "/", type: TrackType.Event){
         scope(required: true, type: PropertyType.String, values: ['editor', 'domains'])
     }
     
