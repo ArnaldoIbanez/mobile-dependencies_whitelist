@@ -91,6 +91,18 @@ metrics {
 			}
 		}
 	}
+	
+	"new_and_recovered_buyers"(description: "New buyer and buyers without more than 1-year buys", compute_order: true) {
+		countsOn {
+			or(
+				equals("event_data.buyer_profile", "new_buyer"),
+				equals("event_data.buyer_profile", "recovered_buyer")	
+			)
+		}
+		openBy {
+				"event_data.loyalty_buyer"(default: "default")
+		}
+	}
 
 	"buyingflow/accountmoney_not_bep"(description: "define properties for order_id") {
 		startWith {
