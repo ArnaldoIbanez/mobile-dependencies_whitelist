@@ -26,4 +26,12 @@ trackTests {
             target = "confirm_unlink_button"
         }
     }
+
+    test("Change Password") {
+        "/security_settings/password"(platform: "/", type: TrackType.View) {}
+
+        "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
+            password_security = 2
+        }
+    }
 }

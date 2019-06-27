@@ -2842,6 +2842,14 @@ trackTests {
         }
     }
 
+    test("Change Password") {
+        "/security_settings/password"(platform: "/", type: TrackType.View) {}
+
+        "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
+            password_security = 2
+        }
+    }
+
     test("Identity Validation ") {
 
         "/identity-validation/validation_landing"(platform: "/web/mobile") {

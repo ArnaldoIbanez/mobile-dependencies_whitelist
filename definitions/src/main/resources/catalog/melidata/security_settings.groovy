@@ -21,4 +21,11 @@ tracks {
         event_type(type: PropertyType.String, required: true, values: ["click"], description: "User clicked a button in the Devices Admin page")
         target(type: PropertyType.String, required: true, values: ["unlink_button", "confirm_unlink_button"], description: "Button clicked by the user in the Devices Admin page")
     }
+
+    // Change Password
+    "/security_settings/password"(platform: "/", type: TrackType.View) {}
+
+    "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
+        password_security(type: PropertyType.Numeric, required: true, description: "Level of security of the new password")
+    }
 }
