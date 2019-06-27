@@ -119,7 +119,7 @@ tracks {
         item_id(type: PropertyType.String, required:false, description: "Item" )
         // TODO: In the future register_type might be "required: true". We have to do some changes for that
         register_type(type: PropertyType.String, required: false, description: "User type", values: ["person", "company"])
-        source(type: PropertyType.String, description: "Source (on mobile is facebook/email, on web at the moment is only email)", required:false)
+        source(type: PropertyType.String, description: "Source", required:false, values:["email","facebook"])
         captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:false)
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:false)
     }
