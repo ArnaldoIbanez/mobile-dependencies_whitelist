@@ -153,6 +153,7 @@ tracks {
     "/mercado_shops/migration/confirm-shop"(platform: "/", type: TrackType.Event){
         scope(required: true, type: PropertyType.String, values: ['editor', 'domains'])
     }
+    
     "/mercado_shops/optin/step"(platform: "/", type: TrackType.Event){
         step(required: true, type: PropertyType.String)
         index(required: true, type: PropertyType.Numeric)
