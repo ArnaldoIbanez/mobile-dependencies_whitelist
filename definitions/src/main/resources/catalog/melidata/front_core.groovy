@@ -12,6 +12,7 @@ tracks {
         pending_balance(required: true, PropertyType.Boolean, description: "Unavailable balance")
         balance_histogram(required: true, PropertyType.Numeric, description: "Balance segmentation")
     }
+
     def cards_definition = objectSchemaDefinitions {
         prepaid(required: true, PropertyType.Boolean, description: "Unavailable balance")
         quantity(required: true, PropertyType.Numeric, description: "Quantity of cards")
@@ -43,6 +44,7 @@ tracks {
     }
 
     "/wallet/home" (platform: "/mobile", isAbstract: true) {}
+    "/home_wallet/drawer" (platform: "/mobile", isAbstract: true) {}
     "/wallet/home/secondary_actions" (platform: "/mobile", isAbstract: true) {}
 
     // Views
@@ -58,6 +60,10 @@ tracks {
     }
 
     "/wallet/home/tap" (platform: "/mobile", type: TrackType.Event) {
+        link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
+    }
+
+    "/home_wallet/drawer/tap" (platform: "/mobile", type: TrackType.Event) {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
     }
 

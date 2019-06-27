@@ -27,6 +27,13 @@ trackTests {
         }
     }
 
+    test("Mercadopago Drawer Tap") {
+        "/home_wallet/drawer/tap" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://pay_section"
+        }
+    }
+
+
     test("Mercadopago Home Show") {
         "/wallet/home/show" (platform: "/mobile", type: TrackType.Event) {
             header = "name"
