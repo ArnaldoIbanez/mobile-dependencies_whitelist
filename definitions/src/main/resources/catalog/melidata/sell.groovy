@@ -6,9 +6,9 @@ import com.ml.melidata.TrackType
 tracks {
 
     propertyDefinitions {
-        category_id(required: false, type: PropertyType.String)
+        category_id(required: false, type: PropertyType.String, description: "Item's category id")
         seller_profile(required: false, type: PropertyType.String, description: "Type of seller")
-        seller_segment(required: false, type: PropertyType.String)
+        seller_segment(required: false, type: PropertyType.String, description: "Seller segment by GMV")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
     }
 
