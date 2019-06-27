@@ -3,7 +3,7 @@
       "leandro.molina@mercadolibre.cl"
   ],
   "process_name": "classi_integradores_phone2",
-  "cron": "00 07 * * *",
+  "cron": "00 05 * * *",
   "partition": {
         "name": "ds",
         "type": "DATE"
