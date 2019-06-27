@@ -92,7 +92,7 @@ metrics {
 		}
 	}
 	
-	"new_and_recovered_buyers"(description: "New buyer and buyers without more than 1-year buys", compute_order: true) {
+	"inactive_buyer"(description: "New buyer and buyers without more than 1-year buys (New & Recovered buyers)", compute_order: true) {
 		countsOn {
 			or(
 				equals("event_data.buyer_profile", "new_buyer"),
