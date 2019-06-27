@@ -279,7 +279,7 @@ trackTests {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     test("Mercadoshops Migration flow events") {
-        "/mercado_shops/migration/confirm-shop"(platform: "/", type: TrackType.Event){
+        "/mercado_shops/admin/migration/confirm-shop"(platform: "/", type: TrackType.Event){
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
