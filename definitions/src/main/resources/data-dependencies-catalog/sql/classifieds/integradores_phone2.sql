@@ -1,7 +1,7 @@
 SELECT count(distinct(it.ite_item_id)), it.sit_site_id, bvitem.vertical, it.mapp_app_id, bvitem.whatsapp, bvitem.ds
 FROM melilake.lk_ite_items it,
     melilake.lk_ite_item_address ad,
-    (SELECT distinct bv.item as id, bv.vertical, jest(bv.event_data, '$.whatsapp_available') as whatsapp, substr(bv.ds,1,10) as ds
+    (SELECT distinct bv.item as id, bv.vertical, jest(bv.event_data, 'whatsapp_available') as whatsapp, substr(bv.ds,1,10) as ds
     FROM melilake.bt_vip bv
     WHERE bv.sit_site_id in ('MLA','MLB','MLM','MCO')
         AND bv.device_platform in ('/web/mobile','/web/mobile/static')
