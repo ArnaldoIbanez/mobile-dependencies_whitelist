@@ -61,7 +61,11 @@
         }
 
 
-
+    test ("Onboarding views") {
+            "/pos_seller/onboarding/pricing"(platform: "/mobile", type: TrackType.View) {
+                payment_channel =  "point"
+            }
+        }
 
 
 
@@ -155,6 +159,14 @@
                 card_reader_selected= "010101020292"
 
             }
+        }
+
+        test("Point pricing screen confirmation event") {
+            "/pos_seller/onboarding/pricing_confirmation"(platform: "/mobile", type: TrackType.Event) {
+                payment_channel= "point"
+                processing_fee= 2.74
+                release_days= "En 14 días"
+             }
         }
 
 
