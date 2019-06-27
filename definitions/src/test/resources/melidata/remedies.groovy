@@ -154,7 +154,7 @@ trackTests {
         }
         "/remedies/center/card"(platform: "/web") {}
 
-        "/remedies/camera_component"(platform: "/web") {
+        "/remedies/opened_camera_component"(platform: "/web") {
             devices = 2
         }
         "/remedies/captured_image"(platform: "/web") {
@@ -311,7 +311,7 @@ trackTests {
         }
         "/remedies/center/card"(platform: "/web") {}
 
-        "/remedies/camera_component"(platform: "/web") {
+        "/remedies/opened_camera_component"(platform: "/web") {
             devices = 1
         }
         "/remedies/captured_image"(platform: "/web") {

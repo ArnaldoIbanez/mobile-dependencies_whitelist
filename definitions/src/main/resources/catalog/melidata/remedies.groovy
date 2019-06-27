@@ -148,7 +148,7 @@ tracks {
     }
     "/remedies/center/card"(platform: "/web", type: TrackType.View) {}
 
-    "/remedies/camera_component"(platform: "/web", type: TrackType.Event) {
+    "/remedies/opened_camera_component"(platform: "/web", type: TrackType.Event) {
         devices(type: PropertyType.Numeric, required: true, description: "The number of camera devices the user has")
     }
     "/remedies/captured_image"(platform: "/web", type: TrackType.Event) {
