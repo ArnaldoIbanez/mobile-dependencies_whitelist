@@ -60,6 +60,19 @@ trackTests {
         }
     }
 
+    test("seller central listing onboarding pdp") {
+        "/seller_central/listings/onboarding/pdp"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("seller central listing onboarding pdp action") {
+        "/seller_central/listings/onboarding/pdp/action"(platform: "/", type: TrackType.Event) {
+            action = "accept"
+        }
+        "/seller_central/listings/onboarding/pdp/action"(platform: "/", type: TrackType.Event) {
+            action = "cancel"
+        }
+    }
+
     test("seller central listing communications") {
         "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
             type = "news"
