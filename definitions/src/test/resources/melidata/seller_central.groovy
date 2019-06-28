@@ -61,10 +61,14 @@ trackTests {
     }
 
     test("seller central listing onboarding pdp") {
-        "/seller_central/listings/onboarding/pdp"(platform: "/", type: TrackType.Event) {
-            action = "show"
+        "/seller_central/listings/onboarding/pdp"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("seller central listing onboarding pdp action") {
+        "/seller_central/listings/onboarding/pdp/action"(platform: "/", type: TrackType.Event) {
+            action = "accept"
         }
-        "/seller_central/listings/onboarding/pdp"(platform: "/", type: TrackType.Event) {
+        "/seller_central/listings/onboarding/pdp/action"(platform: "/", type: TrackType.Event) {
             action = "cancel"
         }
     }
