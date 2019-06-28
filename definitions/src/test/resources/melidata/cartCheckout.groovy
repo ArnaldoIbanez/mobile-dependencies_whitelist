@@ -341,6 +341,9 @@ trackTests {
         }
         "/cart/checkout/payment/security_code"(platform:"/web", dataSet)
 
+        // Step Curp Credits MLM
+        "/cart/checkout/payment/curp"(platform:"/web", dataSet)
+
         //2MP
         //Switch
         "/cart/checkout/payment/2mp#use"(platform: "/mobile", type:TrackType.Event) {

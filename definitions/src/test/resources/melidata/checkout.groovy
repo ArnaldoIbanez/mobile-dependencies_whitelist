@@ -2254,6 +2254,8 @@ trackTests {
             frequency_before = "WEEKS_3"
         }
 
+         // Step Curp Credits MLM
+        "/checkout/payment/curp"(platform:"/web", dataSet)
     }
 
     test("Checkout recovery with recos - push notification flow") {
