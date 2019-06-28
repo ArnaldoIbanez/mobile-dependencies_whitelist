@@ -627,9 +627,7 @@ tracks {
     "/sell/landing_download_app"(platform: "/web/mobile", type: TrackType.View){
         vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
     }
-    "/sell/landing_download_app/download_intention"(platform: "/web/mobile", type: TrackType.Event){
-        vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
-    }
+    "/sell/landing_download_app/download_intention"(platform: "/web/mobile", type: TrackType.Event){}
     "/sell/landing_hub"(platform: "/web/mobile", type: TrackType.View){}
     "/sell/landing_hub/sell_intention"(platform: "/web/mobile", type: TrackType.Event){
         vertical(required: true, description: "Item Vertical: core/service/motor/real_estate/etc...")
