@@ -148,10 +148,12 @@ tracks {
     }
     "/remedies/center/card"(platform: "/web", type: TrackType.View) {}
 
-    "/remedies/opened_camera_component"(platform: "/web", type: TrackType.Event) {
+    "/remedies/camera"(platform: "/web", isAbstract: true) {}
+
+    "/remedies/camera/open_camera"(platform: "/web", type: TrackType.Event) {
         devices(type: PropertyType.Numeric, required: true, description: "The number of camera devices the user has")
     }
-    "/remedies/captured_image"(platform: "/web", type: TrackType.Event) {
+    "/remedies/camera/capture_image"(platform: "/web", type: TrackType.Event) {
         is_landscape(type: PropertyType.Boolean, required: true, description: "Indicates if the picture was taken on landscape mode")
     }
 }

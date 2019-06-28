@@ -154,10 +154,10 @@ trackTests {
         }
         "/remedies/center/card"(platform: "/web") {}
 
-        "/remedies/opened_camera_component"(platform: "/web") {
+        "/remedies/camera/open_camera"(platform: "/web") {
             devices = 2
         }
-        "/remedies/captured_image"(platform: "/web") {
+        "/remedies/camera/capture_image"(platform: "/web") {
             is_landscape = false
         }
     }
@@ -311,10 +311,10 @@ trackTests {
         }
         "/remedies/center/card"(platform: "/web") {}
 
-        "/remedies/opened_camera_component"(platform: "/web") {
+        "/remedies/camera/open_camera"(platform: "/web") {
             devices = 1
         }
-        "/remedies/captured_image"(platform: "/web") {
+        "/remedies/camera/capture_image"(platform: "/web") {
             is_landscape = true
         }
     }
