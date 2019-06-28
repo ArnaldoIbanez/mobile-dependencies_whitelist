@@ -87,8 +87,20 @@ metrics {
 	"new_buyers"(description: "New buyers from feed", compute_order: true) {
 		countsOn {
 			condition {
-				equals("event_data.new_buyer", true)
+				equals("event_data.buyer_profile", "new_buyer")
 			}
+		}
+	}
+	
+	"inactive_buyer"(description: "New buyer and buyers without more than 1-year buys (New & Recovered buyers)", compute_order: true) {
+		countsOn {
+			or(
+				equals("event_data.buyer_profile", "new_buyer"),
+				equals("event_data.buyer_profile", "recovered_buyer")	
+			)
+		}
+		openBy {
+				"event_data.loyalty_buyer"(default: "default")
 		}
 	}
 
