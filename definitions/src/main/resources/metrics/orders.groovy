@@ -84,19 +84,19 @@ metrics {
 		}
 	}
 
-	"new_buyers"(description: "New buyers from feed", compute_order: true) {
+	"orders_new_buyers"(description: "New buyers from feed", compute_order: true) {
 		countsOn {
 			condition {
-				equals("event_data.buyer_profile", "new_buyer")
+				equals("event_data.buyer_segment", "new_buyer")
 			}
 		}
 	}
 	
-	"inactive_buyer"(description: "New buyer and buyers without more than 1-year buys (New & Recovered buyers)", compute_order: true) {
+	"orders_inactive_buyers"(description: "New buyer and buyers without more than 1-year buys (New & Recovered buyers)", compute_order: true) {
 		countsOn {
 			or(
-				equals("event_data.buyer_profile", "new_buyer"),
-				equals("event_data.buyer_profile", "recovered_buyer")	
+				equals("event_data.buyer_segment", "new_buyer"),
+				equals("event_data.buyer_segment", "recovered_buyer")	
 			)
 		}
 		openBy {
