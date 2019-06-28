@@ -166,6 +166,7 @@ catalog {
         include business, "remedy.groovy"
         include business, "digital_account.groovy"
         include business, "front_core.groovy"
+        include business, "mplayer.groovy"
         include business, "money_in.groovy"
         include business, "pos_seller.groovy"
     }
