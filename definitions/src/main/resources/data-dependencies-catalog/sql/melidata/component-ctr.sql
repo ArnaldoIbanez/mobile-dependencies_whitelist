@@ -2,9 +2,9 @@ SELECT
     prints.component AS `component`,
     prints.platform AS `device_type`,
     prints.site_id AS `site_id`,
-    prints_count as `prints`,
+    prints_count AS `prints`,
     clicks_count AS `clicks`,
-    prints.dsx AS `ds`
+    SUBSTR(prints.dsx, 1, 10) AS `ds`
 
 FROM
 

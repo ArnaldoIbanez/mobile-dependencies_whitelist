@@ -6,9 +6,9 @@ SELECT
     prints.campaign AS `campaign`,
     prints.brand_name AS `brand_name`,
     prints.category_id AS `category_id`,
-    prints_count as `prints`,
-    clicks_count as `clicks`,
-    prints.dsx AS `ds`
+    prints_count AS `prints`,
+    clicks_count AS `clicks`,
+    SUBSTR(prints.dsx, 1, 10) AS `ds`
 
 FROM
 
