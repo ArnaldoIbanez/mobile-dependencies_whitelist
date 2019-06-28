@@ -87,7 +87,7 @@ metrics {
 	"new_buyers"(description: "New buyers from feed", compute_order: true) {
 		countsOn {
 			condition {
-				equals("event_data.new_buyer", true)
+				equals("event_data.buyer_profile", "new_buyer")
 			}
 		}
 	}
