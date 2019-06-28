@@ -4,9 +4,13 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
     defaultBusiness = "mercadopago"
+    /**
+        MultiPlayer MoneyTransfer tracks
+    **/
 
     test("MoneyTransfer") {
 
+        // Send Money
         "/mplayer/send_money/contact_picker"(platform: "/mobile") {}
         "/mplayer/send_money/manual_amount"(platform: "/mobile") {}
         "/mplayer/send_money/friend_invite"(platform: "/mobile") {}
@@ -43,6 +47,18 @@ trackTests {
             error = "Algo salio mal"
             is_contact = false
             source = "phone"
+        }
+
+        // Money Request
+        "/mplayer/money_request/contact_picker"(platform: "/mobile") {}
+        "/mplayer/money_request/manual_amount"(platform: "/mobile") {}
+
+        "/mplayer/money_request/contact_picker/invalid_nickname"(platform: "/mobile") {}
+
+        "/mplayer/money_request/contact_picker/select_contact"(platform: "/mobile") {
+            input_type = "manual"
+            source = "phone"
+            is_recent = false
         }
 
     }
