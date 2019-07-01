@@ -767,6 +767,11 @@ tracks {
           experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
       }
 
+      "/notification/orders_ticket_payment_pending_close_expiration_general_notice"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+          experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
+      }
+
       "/notification/orders_ticket_payment_pending_reminder_general_notice"(platform: "/") {
           order_id(required: true, type: PropertyType.Numeric)
           experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")

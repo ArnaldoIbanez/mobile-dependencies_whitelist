@@ -1172,6 +1172,14 @@ trackTests {
             device_id = "f140e3faf4c6ee7d"
             order_id = 1957429460
         }
+        "/notification/orders_ticket_payment_pending_close_expiration_general_notice"(platform: "/mobile") {
+            news_id = "orders-ticket_payment_pending_close_expiration_general_notice-1957429460"
+            event_type = "dismiss"
+            experiment_id = "TICKET_RECOVERY_MLA_20190312_PROD"
+            notification_style = "c"
+            device_id = "f140e3faf4c6ee7d"
+            order_id = 1957429460
+        }
         "/notification/orders_ticket_payment_pending_reminder_general_notice"(platform: "/mobile") {
             news_id = "orders-ticket_payment_pending_reminder_general_notice-1957429460"
             event_type = "dismiss"
@@ -3488,6 +3496,14 @@ trackTests {
         }
         "/notification/orders_ticket_payment_pending_extend_expiration_general_notice"(platform: "/mobile") {
             news_id = "orders-ticket_payment_pending_extend_expiration_general_notice-1957429460"
+            event_type = "dismiss"
+            experiment_id = "TICKET_RECOVERY_MLA_20190312_PROD"
+            notification_style = "c"
+            device_id = "f140e3faf4c6ee7d"
+            order_id = 1957429460
+        }
+        "/notification/orders_ticket_payment_pending_close_expiration_general_notice"(platform: "/mobile") {
+            news_id = "orders-ticket_payment_pending_close_expiration_general_notice-1957429460"
             event_type = "dismiss"
             experiment_id = "TICKET_RECOVERY_MLA_20190312_PROD"
             notification_style = "c"
