@@ -3,7 +3,7 @@
       "leandro.molina@mercadolibre.cl"
   ],
   "process_name": "classi_integradores_phone2",
-  "cron": "00 05 * * *",
+  "cron": "00 07 * * *",
   "partition": {
         "name": "ds",
         "type": "DATE"
@@ -38,12 +38,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "DAY-2",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         }
       ]
