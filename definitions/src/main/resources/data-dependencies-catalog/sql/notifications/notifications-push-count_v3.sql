@@ -1,6 +1,6 @@
 SELECT summary.business AS marketplace, summary.event AS event, summary.site_id AS site_id, summary.path as path, sum(summary.total) AS total, summary.fecha AS ds
 FROM
-(SELECT application.business AS business, '@send_date' AS fecha, jest(event_data, 'event_type') AS event, application.site_id as site_id, path, 1 AS total
+( SELECT application.business AS business, '@send_date' AS fecha, jest(event_data, 'event_type') AS event, application.site_id as site_id, path, 1 AS total
   FROM tracks
   WHERE ds >= '@send_date'
   AND ds < '@one_day_after_send_date'
@@ -22,7 +22,7 @@ FROM
       AND jest(event_data, 'news_id') IS NOT null
       AND device.platform = '/mobile/android'
       AND application.business IN ('mercadopago', 'mercadolibre')
-      AND jest(event_data, 'event_type') IN ('sent')
+      AND jest(event_data, 'event_type') IN ('sent', 'resent')
   ) sents ON sents.event_id = CONCAT(application.business, '-',jest(event_data, 'device_id'),'-', jest(event_data, 'news_id'))
   WHERE ds >= '@send_date'
   AND ds < '@three_days_after_send_date'
@@ -49,7 +49,7 @@ FROM
       AND jest(event_data, 'news_id') IS NOT null
       AND device.platform = '/mobile/android'
       AND application.business IN ('mercadopago', 'mercadolibre')
-      AND jest(event_data, 'event_type') IN ('sent')
+      AND jest(event_data, 'event_type') IN ('sent', 'resent')
   ) sents ON sents.event_id = CONCAT(application.business, '-',jest(event_data, 'device_id'),'-', jest(event_data, 'news_id'))
   LEFT JOIN (
       SELECT CONCAT(application.business, '-',device.device_id,'-', jest(event_data, 'news_id')) AS event_id
@@ -82,27 +82,26 @@ FROM
   AND arrives.event_id IS null
   GROUP BY application.business, '@send_date', 'track_without_arrived', application.site_id, path
   UNION ALL
-  SELECT application.business AS business, '@send_date' AS fecha, 'dead_devices' AS event, application.site_id as site_id, path, 1 AS total
+  SELECT application.business AS business, '@send_date' AS fecha, jest(event_data, 'event_type') AS event, application.site_id as site_id, path, 1 AS total
   FROM tracks
-  LEFT JOIN (
-    SELECT CONCAT(application.business, '-',jest(event_data, 'device_id')) AS activity
-    FROM tracks
-    WHERE ds >= '@send_date'
-    AND ds < '@three_days_after_send_date'
-    AND path LIKE '/notification/%'
-    AND jest(event_data, 'device_id') IS NOT null
-    AND device.platform = '/mobile/android'
-    AND application.business IN ('mercadopago', 'mercadolibre')
-    AND jest(event_data, 'event_type') NOT IN ('sent')
-  ) activity ON activity.activity = CONCAT(application.business, '-',device.device_id)
+  INNER JOIN (
+      SELECT CONCAT(application.business, '-',device.device_id,'-', jest(event_data, 'news_id')) AS event_id
+      FROM tracks
+      WHERE ds >= '@send_date'
+      AND ds < '@one_day_after_send_date'
+      AND path LIKE '/notification/%'
+      AND jest(event_data, 'news_id') IS NOT null
+      AND device.platform = '/mobile/android'
+      AND application.business IN ('mercadopago', 'mercadolibre')
+      AND jest(event_data, 'event_type') IN ('sent')
+  ) sent ON sent.event_id = CONCAT(application.business, '-',device.device_id,'-', jest(event_data, 'news_id'))
   WHERE ds >= '@send_date'
   AND ds < '@one_day_after_send_date'
   AND path LIKE '/notification/%'
   AND jest(event_data, 'news_id') IS NOT null
   AND device.platform = '/mobile/android'
   AND application.business in ('mercadopago', 'mercadolibre')
-  AND jest(event_data, 'event_type') IN ('sent')
-  AND activity.activity IS NULL
-  GROUP BY application.business, '@send_date', 'dead_devices', device.device_id, application.site_id, path
+  AND jest(event_data, 'event_type') IN ('resent')
+  GROUP BY application.business, jest(event_data, 'news_id'), device.device_id, jest(event_data, 'event_type'), application.site_id, path
 ) summary
 GROUP BY summary.business, summary.event, summary.fecha, summary.site_id, summary.path
