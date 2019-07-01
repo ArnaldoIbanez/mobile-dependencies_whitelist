@@ -60,6 +60,12 @@ trackTests {
         }
 
         /******  Create Similar Quote **********/
+        "/quote/seller/create-similar"(platform: "/") {}
+
+        // Quote Create -  Loading
+        "/quote/seller/create-similar/loading"(platform: "/mobile", type: TrackType.View) {
+            vertical = "services"
+        }
 
         // Quote  Create Similar - Price form
         "/quote/seller/create/edit_price"(platform: "/mobile", type: TrackType.View) {

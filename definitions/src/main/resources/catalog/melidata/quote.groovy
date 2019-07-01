@@ -79,6 +79,14 @@ tracks {
     }
 
     /***** Create Similar Quote Mobile ******/
+    // Quote Create -  Loading
+    "/quote/seller/create-similar"(platform: "/", parentPropertiesInherited: false) {}
+    
+    // Quote Create -  Loading
+    "/quote/seller/create-similar/loading"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+        vertical(required: true, type: PropertyType.String, values: ["services"], description: "Vertical services")
+    }
+
     // Quote  Create  Similar- Price form
     "/quote/seller/create/edit_price"(platform: "/mobile", type: TrackType.View) {
         demandItemGroup
