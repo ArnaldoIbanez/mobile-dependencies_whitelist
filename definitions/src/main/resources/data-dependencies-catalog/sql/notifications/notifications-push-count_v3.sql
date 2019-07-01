@@ -94,7 +94,7 @@ FROM
       AND device.platform = '/mobile/android'
       AND application.business IN ('mercadopago', 'mercadolibre')
       AND jest(event_data, 'event_type') IN ('sent')
-  ) resent ON resent.event_id = CONCAT(application.business, '-',device.device_id,'-', jest(event_data, 'news_id'))
+  ) sent ON sent.event_id = CONCAT(application.business, '-',device.device_id,'-', jest(event_data, 'news_id'))
   WHERE ds >= '@send_date'
   AND ds < '@one_day_after_send_date'
   AND path LIKE '/notification/%'
