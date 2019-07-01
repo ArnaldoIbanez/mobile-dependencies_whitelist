@@ -42,7 +42,10 @@ trackTests {
         "/prepaid/acquisition/review"(platform: "/web/desktop") {}
         "/prepaid/acquisition/review/welcome"(platform: "/web/mobile") {}
         "/prepaid/acquisition/need_fund"(platform: "/web/desktop") {}
-
+        "/prepaid/acquisition/legal_representative" (platform: "/") {}
+        "/prepaid/acquisition/no_complies" (platform: "/") {}
+        "/prepaid/acquisition/welcome_company" (platform: "/") {}
+        
         "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) {congrats_type = "prepaid" }
         "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) {congrats_type = "prepaid_delay" }
         "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) {congrats_type = "prepaid_point_different_address" }
