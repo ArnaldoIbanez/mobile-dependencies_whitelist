@@ -19,10 +19,24 @@ trackTests {
         "/seller_central/listings/list/promos"(platform: "/", type: TrackType.Event) {}
     }
 
+    test("seller central listing item_description") {
+        "/seller_central/listings/list/item_description"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("seller central listing health") {
+        "/seller_central/listings/list/health"(platform: "/", type: TrackType.Event) {
+            helth_id = "ID"
+        }
+    }
+
     test("seller central listing action") {
         "/seller_central/listings/action"(platform: "/", type: TrackType.Event) {
             action_id = "MODIFY"
         }
+    }
+
+    test("seller central listing secondary_actions") {
+        "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
     }
 
     test("seller central listing filters view") {

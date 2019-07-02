@@ -139,6 +139,17 @@ tracks {
     //LISTING SECTION - TABS
     "/seller_central/listings/list/promos"(platform: "/", type: TrackType.Event) {}
 
+    //LISTING - Item Description
+    "/seller_central/listings/list/item_description"(platform: "/", type: TrackType.Event) {}
+    
+    //    //LISTING - Item Description
+    "/seller_central/listings/list/health"(platform: "/", type: TrackType.Event) {
+        helth_id(required: true, type: PropertyType.String, description: "Health id")
+    }
+
+    //LISTING - Secondary Actions Click
+    "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
+
     //BULK SECTION
 
     "/seller_central/bulk"(platform: "/", isAbstract: true) {}
