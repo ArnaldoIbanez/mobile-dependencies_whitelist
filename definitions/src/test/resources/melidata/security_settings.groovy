@@ -28,7 +28,13 @@ trackTests {
     }
 
     test("Change Password") {
-        "/security_settings/password"(platform: "/", type: TrackType.View) {}
+        "/security_settings/password"(platform: "/", type: TrackType.View) {
+            context = "feedback"
+        }
+
+        "/security_settings/password"(platform: "/", type: TrackType.View) {
+            context = "security_settings"
+        }
 
         "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
             password_security = 2
