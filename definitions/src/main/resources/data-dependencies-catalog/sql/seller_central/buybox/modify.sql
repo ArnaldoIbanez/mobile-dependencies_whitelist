@@ -10,6 +10,9 @@ jest(event_data,'listing_type') as listingType,
 jest(event_data,'shipping_local_pickup') as shippingLocalPickup,
 jest(event_data,'seller_profile') as sellerProfile,
 jest(event_data,'item_id') as itemId,
+usr.user_nick as userNick,
+jest(event_data,'winner_item_id') as winnerItemId,
+jest(event_data,'price_to_win') as priceToWin,
 substr(ds,1,10) as ds
 FROM tracks
 WHERE (tracks.path = '/seller_central/modify/detail' OR tracks.path LIKE '/seller_central/modify/update_%')

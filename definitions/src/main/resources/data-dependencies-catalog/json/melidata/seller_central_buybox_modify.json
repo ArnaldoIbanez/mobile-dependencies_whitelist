@@ -10,7 +10,7 @@
     "format": "yyyy-MM-dd"
   },
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "site": "QA",
     "columns": [
       {
@@ -60,6 +60,18 @@
       {
         "name": "itemId",
         "type": "UNICODE_STRING"
+      },
+      {
+        "name": "userNick",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "winnerItemId",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "priceToWin",
+        "type": "INTEGER"
       }
     ],
     "sql": {
