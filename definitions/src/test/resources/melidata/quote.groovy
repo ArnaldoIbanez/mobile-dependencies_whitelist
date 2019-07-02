@@ -60,10 +60,10 @@ trackTests {
         }
 
         /******  Create Similar Quote **********/
-        "/quote/seller/create-similar"(platform: "/") {}
+        "/quote/seller/create_similar"(platform: "/") {}
 
         // Quote Create -  Loading
-        "/quote/seller/create-similar/loading"(platform: "/mobile", type: TrackType.View) {
+        "/quote/seller/create_similar/loading"(platform: "/mobile", type: TrackType.View) {
             vertical = "services"
         }
 

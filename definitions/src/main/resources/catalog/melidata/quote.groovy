@@ -80,10 +80,10 @@ tracks {
 
     /***** Create Similar Quote Mobile ******/
     // Quote Create -  Loading
-    "/quote/seller/create-similar"(platform: "/", parentPropertiesInherited: false) {}
+    "/quote/seller/create_similar"(platform: "/", parentPropertiesInherited: false) {}
     
     // Quote Create -  Loading
-    "/quote/seller/create-similar/loading"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+    "/quote/seller/create_similar/loading"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
         vertical(required: true, type: PropertyType.String, values: ["services"], description: "Vertical services")
     }
 
