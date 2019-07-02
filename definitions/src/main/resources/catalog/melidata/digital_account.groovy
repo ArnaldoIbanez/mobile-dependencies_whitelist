@@ -44,11 +44,11 @@ tracks {
      * Digital Wallet Events Tracks
      */
 
-    "/digital_wallet/show_video"(platform: "/", type: TrackType.Event) {
-        show_video_section(required: true, description: "Section from which the event comes")
+    "/digital_wallet/click_show_video"(platform: "/", type: TrackType.Event) {
+        section(required: true, description: "Section from which the event comes", type: PropertyType.String)
     }
 
     "/digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
-        click_download_app_section_store(required: true, description: "Section from which the event comes and Store (Google Play or App Store)")
+        section_store(required: true, description: "Section from which the event comes and Store (Google Play or App Store)", type: PropertyType.String)
     }
 }

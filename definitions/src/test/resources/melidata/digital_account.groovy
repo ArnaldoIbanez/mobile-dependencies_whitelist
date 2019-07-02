@@ -44,12 +44,12 @@ trackTests {
          * Digital Wallet Events Tracks
          */
 
-        "/digital_wallet/show_video"(platform: "/", type: TrackType.Event) {
-            show_video_section = "facilities_recharge"
+        "/digital_wallet/click_show_video"(platform: "/", type: TrackType.Event) {
+            section = "facilities_recharge"
         }
 
         "/digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
-            click_download_app_section_store = "hero_playstore"
+            section_store = "hero_playstore"
         }
     }
 }
