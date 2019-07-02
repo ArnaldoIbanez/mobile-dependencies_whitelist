@@ -193,6 +193,8 @@ tracks {
     congrats_seq(serverSide: true) // Lo completa Melidata automaticamente
     first_for_order(serverSide: true) // Lo completa Melidata automaticamente
     status(required: false, type: PropertyType.String)
+    buyer_segment(serverSide: true) // -> Lo completa Melidata automaticamente
+    loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
 }
 
 "/cart/checkout/congrats/keep_buying"(platform:"/", type: TrackType.Event) {}

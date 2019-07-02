@@ -763,6 +763,8 @@ tracks {
         status(required: false, type: PropertyType.String)
         purchase_status(required: false, type: PropertyType.String, values: ["payment_required", "payment_in_process", "partially_paid", "paid", "pending_cancel", "cancelled", "confirmed"], description: "Status of the purchase")
         purchase_id(required: false, type: PropertyType.Numeric, description: "Id of the purchase")
+        buyer_segment(serverSide: true) // -> Lo completa Melidata automaticamente
+        loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
     }
 
     "/checkout/congrats/recommendations"(platform: "/", type: TrackType.View) {}
