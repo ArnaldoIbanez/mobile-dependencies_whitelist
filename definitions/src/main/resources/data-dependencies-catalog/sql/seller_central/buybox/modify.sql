@@ -13,6 +13,7 @@ jest(event_data,'item_id') as itemId,
 usr.user_nick as userNick,
 jest(event_data,'winner_item_id') as winnerItemId,
 jest(event_data,'price_to_win') as priceToWin,
+jest(event_data,'session_id') as sessionId,
 substr(ds,1,10) as ds
 FROM tracks
 WHERE (tracks.path = '/seller_central/modify/detail' OR tracks.path LIKE '/seller_central/modify/update_%')

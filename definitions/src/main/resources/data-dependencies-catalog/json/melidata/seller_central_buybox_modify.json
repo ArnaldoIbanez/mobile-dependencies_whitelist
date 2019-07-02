@@ -72,6 +72,10 @@
       {
         "name": "priceToWin",
         "type": "INTEGER"
+      },
+      {
+        "name": "sessionId",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
