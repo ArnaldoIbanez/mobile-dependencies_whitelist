@@ -25,7 +25,7 @@ trackTests {
 
     test("seller central listing health") {
         "/seller_central/listings/list/health"(platform: "/", type: TrackType.Event) {
-            helth_id = "ID"
+            health_id = "ID"
         }
     }
 

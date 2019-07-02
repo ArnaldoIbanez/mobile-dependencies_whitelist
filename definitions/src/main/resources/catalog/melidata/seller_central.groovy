@@ -144,7 +144,7 @@ tracks {
     
     //    //LISTING - Item Description
     "/seller_central/listings/list/health"(platform: "/", type: TrackType.Event) {
-        helth_id(required: true, type: PropertyType.String, description: "Health id")
+        health_id(required: true, type: PropertyType.String, description: "Health id")
     }
 
     //LISTING - Secondary Actions Click
