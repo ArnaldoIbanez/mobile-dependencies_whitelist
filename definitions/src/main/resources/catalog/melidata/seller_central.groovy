@@ -45,6 +45,8 @@ tracks {
         catalog_product_id(required: false, type: PropertyType.String, description: "The product id")
         listing_type(required: true, type: PropertyType.String, description: "The product listing type")
         shipping_local_pickup(required: true, type: PropertyType.Boolean, description: "The product local pick up")
+        winner_item_id(required: false, type: PropertyType.String, description: "The item id of the winner")
+        price_to_win(required: false, type: PropertyType.Numeric, description: "The price to win that we suggest to the user")
 
         to(required: true, type: PropertyType.String, description: "The new value of a field, for example quantity, warranty,etc")
         from(required: false, type: PropertyType.String, description: "The original value of a field, for example quantity, warranty,etc")
@@ -65,7 +67,7 @@ tracks {
     propertyGroups {
         sellerCentralModifyGroup(item_id, session_id, item_type)
         sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup)
-        sellerCentralModifyGroupTableForPdp(comparison_table, competition_status, new_competition_status)
+        sellerCentralModifyGroupTableForPdp(comparison_table, competition_status, new_competition_status, winner_item_id, price_to_win)
         sellerCentralModifyCardsGroupValue(to, from)
         sellerCentralSettingsGroup(seller_profile, reputation_level)
         technicalSpecificationsGroup(category_domain, attribute, hierarchy)
