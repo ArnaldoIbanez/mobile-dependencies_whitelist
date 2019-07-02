@@ -100,9 +100,6 @@ metrics {
 					equals("event_data.buyer_segment", "recovered_buyer")	
 				)
 			}
-			openBy {
-					"event_data.loyalty_buyer"(default: "default")
-			}
 		}
 	}
 
