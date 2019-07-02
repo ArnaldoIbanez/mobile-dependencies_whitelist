@@ -94,13 +94,15 @@ metrics {
 	
 	"orders_inactive_buyers"(description: "New buyer and buyers without more than 1-year buys (New & Recovered buyers)", compute_order: true) {
 		countsOn {
-			or(
-				equals("event_data.buyer_segment", "new_buyer"),
-				equals("event_data.buyer_segment", "recovered_buyer")	
-			)
-		}
-		openBy {
-				"event_data.loyalty_buyer"(default: "default")
+			condition {
+				or(
+					equals("event_data.buyer_segment", "new_buyer"),
+					equals("event_data.buyer_segment", "recovered_buyer")	
+				)
+			}
+			openBy {
+					"event_data.loyalty_buyer"(default: "default")
+			}
 		}
 	}
 
