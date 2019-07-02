@@ -32,4 +32,24 @@ trackTests {
             terms_and_conditions_checkbox = false
         }
     }
+
+    test("Digital Wallet") {
+        /**
+         * Digital Wallet Screen Tracks
+         */
+
+        "/digital_wallet/index"(platform: "/", type: TrackType.View) {}
+
+        /**
+         * Digital Wallet Events Tracks
+         */
+
+        "/digital_wallet/show_video"(platform: "/", type: TrackType.Event) {
+            show_video_section = "facilities_recharge"
+        }
+
+        "/digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
+            click_download_app_section_store = "hero_playstore"
+        }
+    }
 }
