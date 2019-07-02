@@ -69,7 +69,7 @@ tracks {
     "/myml/sales/messages"(platform: "/") {}
 
     "/myml/sales/questions"(platform: "/") {}
-    
+
     "/myml/sales/questions/history"(platform: "/mobile") {}
 
     "/myml/sales/questions/answer_question"(platform: "/mobile") {}
@@ -725,7 +725,7 @@ tracks {
         message(required: false, type: PropertyType.String, description: "Error message that pops on page on error")
     }
     "/myml/invoices/company-info/success"(platform: "/") {}
-  
+
     //tax-rules-information
     "/myml/invoices/company-info/tax-rules-information"(platform: "/") {}
 
@@ -873,6 +873,17 @@ tracks {
     }
 
     "/myml/invoices/sku/status"(platform: "/") {}
+
+    "/myml/invoices/sku/detail"(platform: "/") {}
+    "/myml/invoices/sku/detail/action"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, values:[
+            "print_danfe",
+            "download_xml",
+            "cancel_nfe",
+            "create_correction_letter",
+            "create_devolution_invoice",
+        ], description: "Wich action triggered by the user")
+    }
 
     //Backoffice pages
     "/myml/invoices/backoffice"(platform: "/", isAbstract: true) {}

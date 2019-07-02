@@ -179,6 +179,11 @@ tracks {
         inbound_id(required: false, type: PropertyType.Numeric, description: "Inbound Shipment id to track")
     }
 
+    "/wms/receiving/device/printer/mobile/reprint"(platform: "/mobile/android", type: TrackType.Event) {
+        receiving_id(required: true, type: PropertyType.Numeric, description: "Id of the receiving to track")
+        volume_label(required: true, type: PropertyType.String, description: "Volume label to track")
+    }
+
     /* Cycle count tracks */
     "/wms/cycle_count"(platform: "/mobile/android", type: TrackType.View, isAbstract: true) {
         count_id(required: false, type: PropertyType.Numeric, description: "Count id")

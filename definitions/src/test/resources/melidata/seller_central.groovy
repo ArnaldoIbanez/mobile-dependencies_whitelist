@@ -52,9 +52,24 @@ trackTests {
         }
         "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
             action = "dismiss"
+            viewId = "inventario"
         }
         "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
             action = "start"
+            page = 1
+        }
+    }
+
+    test("seller central listing onboarding pdp") {
+        "/seller_central/listings/onboarding/pdp"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("seller central listing onboarding pdp action") {
+        "/seller_central/listings/onboarding/pdp/action"(platform: "/", type: TrackType.Event) {
+            action = "accept"
+        }
+        "/seller_central/listings/onboarding/pdp/action"(platform: "/", type: TrackType.Event) {
+            action = "cancel"
         }
     }
 
@@ -97,7 +112,7 @@ trackTests {
             placement = "publicidad-banner"
             reputation_level="yellow"
         }
-         "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
+        "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
             type = "news"
             placement = "publicidad-banner"
             adv_segmentation = "winback"
@@ -107,7 +122,7 @@ trackTests {
             placement = "publicidad-banner"
             adv_segmentation = "winback"
         }
-         "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
+        "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
             type = "news"
             placement = "publicidad-banner"
         }
@@ -145,6 +160,7 @@ trackTests {
         }
         "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
             action = "start"
+            viewId = "fulfillment"
         }
         "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
             action = "dismiss"
@@ -176,6 +192,20 @@ trackTests {
     test("seller central bulk columns") {
         "/seller_central/bulk/columns"(platform: "/", type: TrackType.Event) {
             columns = ["price", "quantity"]
+        }
+    }
+
+    test("seller central bulk changes price") {
+        "/seller_central/bulk/changes/price"(platform: "/", type: TrackType.Event) {
+            oldValue = "20"
+            newValue = "25"
+            itemId = "MLB341920"
+        }
+    }
+
+    test("seller central bulk shipping tooltip") {
+        "/seller_central/bulk/shipping/tooltip"(platform: "/", type: TrackType.Event) {
+            itemId = "MLB341920"
         }
     }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -448,6 +478,20 @@ trackTests {
 
     test("seller central item size_chart value updated"){
         "/seller_central/modify/update_size_chart"(platform: "/", type: TrackType.Event){
+            item_type = "product"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            seller_profile = "ADVANCED"
+            from = "-1"
+            to = "6270"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
+        }
+    }
+
+    test("seller central item price push winner was updated"){
+        "/seller_central/modify/update_price_push_winner_pdp"(platform: "/", type: TrackType.Event) {
             item_type = "product"
             category_id = "MLA390784"
             item_id = "MLA682118081"
@@ -820,4 +864,93 @@ trackTests {
             option = "option_id"
         }
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller central Catalog Optin
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("seller central catalog optin") {
+        "/seller_central/catalog"(platform: "/web", type: TrackType.View) {}
+    }
+
+
+    test("seller central catalog optin page view") {
+        "/seller_central/catalog/optin"(platform: "/web", type: TrackType.View) {
+            item_id = "MLA123"
+            session_id = "123-product_optin-abc123"
+            category_id = "MLA390784"
+            category_domain = "MLA-FRAGRANCES"
+            original_catalog_product_id = "MLA1055"
+            variation_id = 1234567
+            has_variations_already_opt_in = true
+            children_catalog_products_ids = ["MLA1055"]
+            has_variations = true
+            seller_profile = "ADVANCED"
+            reputation_level= "yellow"
+            selected_catalog_product_id = "MLA1055"
+            opt_in_item_id = "MLA234567"
+            invalid_product_cause = "INVALID_CARRIER"
+        }
+    }
+
+    test("seller central catalog invalid product page view") {
+        "/seller_central/catalog/optin/invalid_product"(platform: "/web", type: TrackType.View) {
+            item_id = "MLA123"
+            session_id = "123-product_optin-abc123"
+            category_id = "MLA390784"
+            category_domain = "MLA-FRAGRANCES"
+            original_catalog_product_id = "MLA1055"
+            variation_id = 1234567
+            has_variations_already_opt_in = true
+            children_catalog_products_ids = ["MLA1055"]
+            has_variations = true
+            seller_profile = "ADVANCED"
+            reputation_level= "yellow"
+            selected_catalog_product_id = "MLA1055"
+            opt_in_item_id = "MLA234567"
+            invalid_product_cause = "INVALID_CARRIER"
+        }
+    }
+
+    test("seller central catalog congrats page view") {
+        "/seller_central/catalog/optin/congrats"(platform: "/web", type: TrackType.View) {
+            item_id = "MLA123"
+            session_id = "123-product_optin-abc123"
+            category_id = "MLA390784"
+            category_domain = "MLA-FRAGRANCES"
+            original_catalog_product_id = "MLA1055"
+            variation_id = 1234567
+            has_variations_already_opt_in = true
+            children_catalog_products_ids = ["MLA1055"]
+            has_variations = true
+            seller_profile = "ADVANCED"
+            reputation_level= "yellow"
+            selected_catalog_product_id = "MLA1055"
+            opt_in_item_id = "MLA234567"
+            invalid_product_cause = "INVALID_CARRIER"
+        }
+    }
+
+    test("seller central catalog optin confirm card event") {
+        "/seller_central/catalog/optin/confirm"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLA123"
+            session_id = "123-product_optin-abc123"
+            category_id = "MLA390784"
+            category_domain = "MLA-FRAGRANCES"
+            original_catalog_product_id = "MLA1055"
+            variation_id = 1234567
+            has_variations_already_opt_in = true
+            children_catalog_products_ids = ["MLA1055"]
+            has_variations = true
+            seller_profile = "ADVANCED"
+            reputation_level= "yellow"
+            selected_catalog_product_id = "MLA1055"
+            opt_in_item_id = "MLA234567"
+            invalid_product_cause = "INVALID_CARRIER"
+            task_id = "product_picker"
+            to = "MLA1074"
+        }
+    }
+
 }
+

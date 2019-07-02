@@ -22,7 +22,7 @@ tracks {
         local_pick_up(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has local pick up")
         logistic_type(required: false,
-                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment"],
+                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment", "self_service"],
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
         free_shipping_benefit(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has free shipping or free by loyalty")
@@ -99,6 +99,8 @@ tracks {
         reservation_price(required: false, description: "Price of the reservation")
         quotation_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item can be quoted (cotizado)")
+        quotation_limit_reached(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the user can not quote the item because he reached the maximum quotations")
         comparator_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if clasi item has model comparator available")
         gallery_pattern(required: false, type: PropertyType.String,
@@ -144,6 +146,8 @@ tracks {
                 values: ["plain_text", "html", "both", "none"])
         max_size_gallery(required: false, type: PropertyType.String, description: "Max_size of first picture gallery")
         contract_available(required: false, type: PropertyType.Boolean)
+        gallery_dimension(required: false, type: PropertyType.String, values: ["wide", "square", "artsinfoto"],
+                description: "Indicates the gallery dimension format")
     }
 
     "/vip"(platform: "/mobile") {
@@ -555,7 +559,7 @@ tracks {
                 values: ["services"],
                 description: "Vertical of the item")
     }
-    "/vip/free_shipping_cart_available"(platform: "/web", type: TrackType.Event){}
+    "/vip/free_shipping_cart_available"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event){}
 
     // RESERVATION
 
@@ -669,4 +673,20 @@ tracks {
                 description: "Section where it's coming from"
         )
     }
+
+    "/vip/public_similar_intention"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: true, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        listing_type_id(required: true, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        source(required: true, description: "specify the platform and the freemium text type")
+    }
+
 }

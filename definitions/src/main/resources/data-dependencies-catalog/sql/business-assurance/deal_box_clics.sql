@@ -7,7 +7,6 @@ jest(others['fragment'],'V') AS deal_Position,
 jest(others['fragment'], 'DEAL_ID') as deal_id, 
 count(1) as clics_totales, 
 count(distinct(usr.uid)) as Usuarios_Unicos, 
-count(usr.uid) as usuarios_unicos,
 substr(ds,1,10) as Fecha
 from tracks
 where  ds >= '@param01' and ds < '@param02' and others['fragment'] like '%DEAL_ID%'

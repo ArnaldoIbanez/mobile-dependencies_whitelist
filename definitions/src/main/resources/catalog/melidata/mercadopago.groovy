@@ -15,7 +15,7 @@ import com.ml.melidata.TrackType
 * - apply: when a criteria is applied
 * - post: create a new entity
 */
-
+/**/
 tracks {
 
     "/"(platform: "/", isAbstract: true) {
@@ -116,6 +116,30 @@ tracks {
 
     "/merchant_acquisition/flows/qr-queue/waiting-payment/retry"(platform:"/", type: TrackType.Event) {}
     "/merchant_acquisition/flows/qr-queue/waiting-payment/extend-time"(platform:"/", type: TrackType.Event) {}
+
+    // Point Transfer
+    "/merchant_acquisition/flows/transfer-device"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/transfer-device/success"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/transfer-device/empty"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/transfer-device/error"(platform:"/", type: TrackType.View) {}
+
+    // Point Register
+    "/merchant_acquisition/flows/register-device"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/register-device/success"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/register-device/error"(platform:"/", type: TrackType.View) {}
+
+    // Release Options
+    "/merchant_acquisition/flows/release-options"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/release-options/success"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/release-options/error"(platform:"/", type: TrackType.View) {}
+
+    // Micrositio - reseller
+    "/merchant_acquisition/flows/resellers"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/sales"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/benefits"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/metrics"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/after_sales"(platform:"/", type: TrackType.View) {}
+
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}

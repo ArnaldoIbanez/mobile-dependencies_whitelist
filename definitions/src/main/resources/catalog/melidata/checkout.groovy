@@ -247,6 +247,15 @@ tracks {
     "/checkout/shipping"(platform: "/", type: TrackType.View) {
     }
 
+    //First Visit
+    //Page
+    "/checkout/shipping/address_profile"(platform: "/", type: TrackType.View) {}
+
+    //Event
+    "/checkout/shipping/address_profile/delivered_time"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+       label(required: false, type: PropertyType.String)
+    }
+
     //Fallback/Custom shipping
     "/checkout/shipping/select_method"(platform: "/mobile") {
         //View specific data
@@ -390,6 +399,7 @@ tracks {
         success(required: false, type: PropertyType.Boolean)
         error_codes(required: false, type: PropertyType.ArrayList)
     }
+    "/checkout/shipping/location/new_contact/back"(platform: "/mobile", type: TrackType.Event) {}
 
     //Select address
     "/checkout/shipping/select_address"(platform: "/") {
@@ -617,6 +627,9 @@ tracks {
     "/checkout/payment/invalid_coupon"(platform:"/mobile", type: TrackType.Event) {}
     "/checkout/payment/expired_coupon"(platform:"/mobile", type: TrackType.Event) {}
     "/checkout/payment/add_another_coupon/delete_coupon"(platform:"/mobile", type: TrackType.Event) {}
+
+    // Step Curp Credits MLM
+    "/checkout/payment/curp"(platform:"/web", type: TrackType.View) {}
 
     // ESC: Enter the Sec Code to generate an Encrypted Security Code
     "/checkout/payment/encrypted_security_code_add"(platform:"/mobile") {}

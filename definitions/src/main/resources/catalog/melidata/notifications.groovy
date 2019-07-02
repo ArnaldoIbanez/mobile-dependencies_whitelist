@@ -210,6 +210,15 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
         hash(required: false, type: PropertyType.String, description: "Hash of the message in claim check.")
     }
+    "/notification_center/campaigns-remarketing_motors"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id of the campaign related to the campaigns notification sent.")
+        test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test.")
+        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+        batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        item_id(required: true, type: PropertyType.String, description:"Item Id.")
+    }
     "/notification_center/compliance_support-validations"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -459,12 +468,29 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
+    "/notification_center/seller_journey_congrats"(platform: "/", type: TrackType.Event){
+        latest_news_id(required: true , type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
+    }
+    "/notification_center/seller_journey_keep_it_up"(platform: "/", type: TrackType.Event){
+        latest_news_id(required: true , type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
+    }
+    "/notification_center/seller_journey_work_harder"(platform: "/", type: TrackType.Event){
+        latest_news_id(required: true , type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
+    }
+    "/notification_center/seller_journey_do_something"(platform: "/", type: TrackType.Event){
+        latest_news_id(required: true , type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
+    }
+
       /**
        * NOTIFICATIONS TRAY
        **/
       "/notification"(platform: "/") {
           event_type(required: true,
-                  values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel","purged_token", "swipe"],
+                  values: ["sent", "resent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel","purged_token", "swipe"],
           description: "Type of notification event")
           action_type(required: false,
                   values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"])
@@ -741,6 +767,11 @@ tracks {
           experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
       }
 
+      "/notification/orders_ticket_payment_pending_close_expiration_general_notice"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+          experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
+      }
+
       "/notification/orders_ticket_payment_pending_reminder_general_notice"(platform: "/") {
           order_id(required: true, type: PropertyType.Numeric)
           experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
@@ -773,6 +804,16 @@ tracks {
           sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
       }
+
+       //Marketplace Discounts
+      "/notification/campaigns_marketplace_discounts"(platform: "/") {
+          campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+          test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+          sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+          item_id(required: true, type: PropertyType.String)
+          batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+      }
+
       "/notification/campaigns_checkout_recovery"(platform: "/") {
           campaign_id(required: true, description: "Id of the campaign related to the campaigns notification sent.")
           test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
@@ -1016,6 +1057,14 @@ tracks {
           hash(required: false, type: PropertyType.String, description: "Hash of the message in claim check.")
       }
 
+      "/notification/campaigns_remarketing_motors"(platform: "/") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+        batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+        item_id(required: true, type: PropertyType.String, description: "Item Id.")
+      }
+
       "/notification/campaigns_control_group"(platform: "/") {
           campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
           test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
@@ -1149,6 +1198,23 @@ tracks {
     }
     "/notification/credits_merchants_to_expire_not_standard"(platform: "/mobile") {
         installment_id(required: true, type: PropertyType.Numeric)
+    }
+
+    "/notification/seller_journey_congrats"(platform: "/mobile"){
+        latest_news_id(required: true , type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
+    }
+    "/notification/seller_journey_keep_it_up"(platform: "/mobile"){
+        latest_news_id(required: true , type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
+    }
+    "/notification/seller_journey_work_harder"(platform: "/mobile"){
+        latest_news_id(required: true , type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
+    }
+    "/notification/seller_journey_do_something"(platform: "/mobile"){
+        latest_news_id(required: true , type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
     }
 
     //Inivite Gift

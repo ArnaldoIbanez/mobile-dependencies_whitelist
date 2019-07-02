@@ -507,7 +507,6 @@ trackTests {
         }
 
         "/vip/free_shipping_cart_available"(platform: "/web", type:TrackType.Event){
-            defaultTrackInformation()
         }
 
         "/vip/description"(platform: "/web", type: TrackType.View){
@@ -875,6 +874,28 @@ trackTests {
         }
                 
         "/vip/shipping_calculator/show_map"(platform: "/mobile/ios", type: TrackType.Event) {
+            model()
+        }
+    }
+
+    test("VIP public similar intention"){
+        def model = {
+            category_id = "MLC24350"
+            category_path = [
+                "MLC1743",
+                "MLC1744",
+                "MLC6619",
+                "MLC24350"
+            ]
+            item_id = "MLC493108266"
+            item_condition = "used"
+            vertical = "motors"
+            listing_type_id = "gold_premium"
+            item_seller_type = "normal"
+            source = "desktop-navigation-non-free"
+        }
+
+        "/vip/public_similar_intention"(platform: "/web", type: TrackType.Event) {
             model()
         }
     }

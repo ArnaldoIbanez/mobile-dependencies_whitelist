@@ -83,52 +83,15 @@ tracks {
             description: "Types of error pages in acquisition flow."
         )
     }
-    "/prepaid/acquisition/cellphone"(platform: "/mobile", type: TrackType.View) {
-        error_type(
-                required: true,
-                type: PropertyType.String,
-                values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
-                description: "Types of error pages in acquisition flow."
-        )
-    }
-    "/prepaid/acquisition/onboarding"(platform: "/mobile", type: TrackType.View) {
-        error_type(
-                required: true,
-                type: PropertyType.String,
-                values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
-                description: "Types of error pages in acquisition flow."
-        )
-    }
-    "/prepaid/acquisition/rootfaq"(platform: "/mobile", type: TrackType.View) {
-        error_type(
-                required: true,
-                type: PropertyType.String,
-                values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
-                description: "Types of error pages in acquisition flow."
-        )
-    }
-    "/prepaid/acquisition/detailfaq"(platform: "/mobile", type: TrackType.View) {
-        error_type(
-                required: true,
-                type: PropertyType.String,
-                values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
-                description: "Types of error pages in acquisition flow."
-        )
-    }
+    "/prepaid/acquisition/cellphone"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/rootfaq"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/detailfaq"(platform: "/mobile", type: TrackType.View) {} 
 
     //Anses Flow
-    "/prepaid/acquisition"(platform: "/mobile", type: TrackType.View) {
-        error_type(
-                required: true,
-                type: PropertyType.String,
-                values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
-                description: "Types of error pages in acquisition flow."
-        )
-    }
     "/prepaid/acquisition/init-point"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/occupation"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/preview"(platform: "/mobile", type: TrackType.View) {}
-    "/prepaid/acquisition/review"(platform: "/mobile", type: TrackType.View) {}
 
     // CNPJ MLB Flow
     "/prepaid/acquisition/legal_representative" (platform: "/", type: TrackType.View) {}
@@ -156,7 +119,7 @@ tracks {
         status(
             required: true,
             type: PropertyType.String,
-            values: ["on_track", "delayed", "to_collect", "not_delivered"],
+            values: ["on_track", "delayed", "to_collect", "not_delivered", "soon_deliver"],
             description: "Shipment tracking status."
         )
     }

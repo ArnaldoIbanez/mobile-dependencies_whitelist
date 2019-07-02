@@ -257,6 +257,12 @@ trackTests {
             item_id = "MLA21233"
             register_type = "person"
         }
+        "/register/form"(platform:"/mobile") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+        }
 
         "/register/form"(platform:"/mobile") {
             app = "normal"
@@ -565,6 +571,33 @@ trackTests {
         "/merchant_acquisition/flows/qr-queue/error"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/flows/qr-queue/waiting-payment/retry"(platform:"/", type: TrackType.Event) {}
         "/merchant_acquisition/flows/qr-queue/waiting-payment/extend-time"(platform:"/", type: TrackType.Event) {}
+    }
+
+    test("MP Point Transfer") {
+        "/merchant_acquisition/flows/transfer-device"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/transfer-device/success"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/transfer-device/empty"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/transfer-device/error"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("MP Point Register") {
+        "/merchant_acquisition/flows/register-device"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/register-device/success"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/register-device/error"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("MP Point Release Options") {
+        "/merchant_acquisition/flows/release-options"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/release-options/success"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/release-options/error"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("MP Micrositio Reseller") {
+        "/merchant_acquisition/flows/resellers"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/resellers/sales"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/resellers/benefits"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/resellers/metrics"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/resellers/after_sales"(platform: "/", type: TrackType.View) {}
     }
 
     test("MP-MA Flow QR") {
@@ -2806,6 +2839,20 @@ trackTests {
         "/security_settings/devices/action"(platform: "/", type: TrackType.Event) {
             event_type = "click"
             target = "confirm_unlink_button"
+        }
+    }
+
+    test("Change Password") {
+        "/security_settings/password"(platform: "/", type: TrackType.View) {
+            context = "feedback"
+        }
+
+        "/security_settings/password"(platform: "/", type: TrackType.View) {
+            context = "security_settings"
+        }
+
+        "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
+            password_security = 2
         }
     }
 

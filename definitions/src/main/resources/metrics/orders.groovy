@@ -84,10 +84,21 @@ metrics {
 		}
 	}
 
-	"new_buyers"(description: "New buyers from feed", compute_order: true) {
+	"orders_new_buyers"(description: "New buyers from feed", compute_order: true) {
 		countsOn {
 			condition {
-				equals("event_data.new_buyer", true)
+				equals("event_data.buyer_segment", "new_buyer")
+			}
+		}
+	}
+	
+	"orders_inactive_buyers"(description: "New buyer and buyers without more than 1-year buys (New & Recovered buyers)", compute_order: true) {
+		countsOn {
+			condition {
+				or(
+					equals("event_data.buyer_segment", "new_buyer"),
+					equals("event_data.buyer_segment", "recovered_buyer")	
+				)
 			}
 		}
 	}
