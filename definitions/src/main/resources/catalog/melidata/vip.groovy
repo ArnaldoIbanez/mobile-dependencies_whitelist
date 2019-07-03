@@ -136,6 +136,7 @@ tracks {
 
         whatsapp_available(required: false, type: PropertyType.String, description: "determines if whatsapp is available")
         quote_demand_available(required: false, type: PropertyType.Boolean, description: "determines if an item has quote demand available")
+        new_wording_free(required: false, type: PropertyType.Boolean, description: "determines if the new free wording is available" )
     }
 
     "/vip"(platform: "/web") {
