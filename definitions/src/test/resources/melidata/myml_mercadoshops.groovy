@@ -26,12 +26,7 @@ trackTests {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     test("Mercadoshops Landing") {
-        "/mercado_shops/landing"(platform: "/", type: TrackType.View) {
-            shop_id = 158689680
-            shop_domain = "www.mercadoshops.com.ar"
-            shop_name = "Test Shop"
-            ref = "myml_menu"
-        }
+        "/mercado_shops/landing"(platform: "/", type: TrackType.View) {}
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------

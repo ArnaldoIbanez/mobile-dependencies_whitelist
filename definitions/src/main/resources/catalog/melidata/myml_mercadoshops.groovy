@@ -4,11 +4,11 @@ import com.ml.melidata.TrackType
 
 tracks {
     propertyDefinitions {
-        shop_id(required: true, type: PropertyType.Numeric)
-        shop_domain(required: true, type: PropertyType.String)
-        shop_name(required: true, type: PropertyType.String)
+        shop_id(required: false, type: PropertyType.Numeric)
+        shop_domain(required: false, type: PropertyType.String)
+        shop_name(required: false, type: PropertyType.String)
         delegation_status(
-            required: true,
+            required: false,
             type: PropertyType.String,
             values: [
                 'NOT_DELEGATED', 'REGISTERED', 'CHECK_FOR_TOTAL_DELEGATION', 'CHECK_FOR_PARTIAL_DELEGATION',
@@ -16,7 +16,7 @@ tracks {
                 'ERROR', 'DELEGATION_ERROR', 'ACTIVE'
             ]
         )
-        success(required: true, type: PropertyType.Boolean, description: "The request was fulfilled successfully")
+        success(required: false, type: PropertyType.Boolean, description: "The request was fulfilled successfully")
         error_code(required: false, type: PropertyType.String)
 
         ref(
