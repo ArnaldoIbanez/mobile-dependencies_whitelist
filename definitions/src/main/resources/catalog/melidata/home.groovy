@@ -93,7 +93,34 @@ tracks {
     // Motors page view
     "/home/category/motors"(platform: "/", type: TrackType.View) {}
 
-    "/home/navigation"(platform: "/web", type: TrackType.View) {}
+    "/home/navigation"(platform: "/", type: TrackType.View) {}
+
+     // RealEstate Portal Inmobiliario Sections
+    "/home/bookmarks"(platform: "/", type: TrackType.View) {}
+
+    "/home/bookmarks/recommendation"(platform: "/", type: TrackType.View) {}
+
+    "/home/help"(platform: "/", type: TrackType.View) {}
+
+    "/home/pricing"(platform: "/", type: TrackType.View) {}
+
+    "/home/pricing/fsbo"(platform: "/", type: TrackType.View) {}
+
+    "/home/pricing/professional"(platform: "/", type: TrackType.View) {}
+
+    "/home/pricing/development"(platform: "/", type: TrackType.View) {}
+
+    "/home/property"(platform: "/", type: TrackType.View) {}
+
+    "/home/property/recommendation"(platform: "/", type: TrackType.View) {}
+
+    "/home/development"(platform: "/", type: TrackType.View) {}
+
+    "/home/development/recommendation"(platform: "/", type: TrackType.View) {}
+
+    "/home/landing"(platform: "/", type: TrackType.View) {}
+
+    "/home/navigation/recommendation"(platform: "/", type: TrackType.View) {}
 
     // Apparel
     "/home/category/apparel"(platform: "/", isAbstract: true) {

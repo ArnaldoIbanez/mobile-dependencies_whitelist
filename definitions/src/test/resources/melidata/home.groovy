@@ -13,8 +13,25 @@ trackTests {
         }
     }
     
-    test("Home Navigation") {
+     test("Home Navigation") {
         "/home/navigation"(platform: "/web/mobile") {}
+        "/home/navigation"(platform: "/", type: TrackType.View) {}
+        "/home/navigation/recommendation"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Home Portal Inmobiliario") {
+        "/home/bookmarks"(platform: "/", type: TrackType.View) {}
+        "/home/bookmarks/recommendation"(platform: "/", type: TrackType.View) {}
+        "/home/help"(platform: "/", type: TrackType.View) {}
+        "/home/pricing"(platform: "/", type: TrackType.View) {}
+        "/home/pricing/fsbo"(platform: "/", type: TrackType.View) {}
+        "/home/pricing/professional"(platform: "/", type: TrackType.View) {}
+        "/home/pricing/development"(platform: "/", type: TrackType.View) {}
+        "/home/property"(platform: "/", type: TrackType.View) {}
+        "/home/property/recommendation"(platform: "/", type: TrackType.View) {}
+        "/home/development"(platform: "/", type: TrackType.View) {}
+        "/home/development/recommendation"(platform: "/", type: TrackType.View) {}
+        "/home/landing"(platform: "/", type: TrackType.View) {}
     }
 
     test("Home core tracking") {
