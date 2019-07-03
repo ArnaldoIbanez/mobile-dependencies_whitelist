@@ -9,9 +9,32 @@ trackTests {
 
     test("Recommendations click see more tracks") {
         "/recommendations/see_more"(platform: "/", type: TrackType.Event) {
-            backend_id = "prod.recommendations-algorithm-product"
-            client = "pdp_similar"
+            recommendations = {
+                backend_id = "prod.recommendations-algorithm-product"
+                client = "pdp_similar"
+                track_info = [
+                        has_recommendations: true,
+                        model_id : "p2p-p2i-dmm-mp2v-no-live-request",
+                        model_version : "v8",
+                        backend_id : "prod.recommendations-algorithm-product",
+                ]
+            }
         }
+    }
+
+    test("Recommendations view") {
+        "/recommendations/view"(platform: "/", {
+            recommendations = {
+                backend_id = "prod.recommendations-algorithm-product"
+                client = "pdp_similar"
+                track_info = [
+                        has_recommendations: true,
+                        model_id : "p2p-p2i-dmm-mp2v-no-live-request",
+                        model_version : "v8",
+                        backend_id : "prod.recommendations-algorithm-product",
+                ]
+            }
+        })
     }
 
     test("Recommendations add to cart tracks") {

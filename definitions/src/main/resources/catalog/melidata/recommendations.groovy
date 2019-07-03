@@ -9,16 +9,38 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    def track_info_definition = objectSchemaDefinitions {
+        has_recommendations(required: true, type: PropertyType.Boolean, description: "Has recommended items")
+        model_id(required: false, type: PropertyType.String, description: "Model which generated the recommendation")
+        model_version(required: false, type: PropertyType.String, description: "Version of the model / training data")
+        has_errors(required: false, type: PropertyType.Boolean, description: "The recommendation has to be hidden because it has errors.")
+        backend_id(required: true, type: PropertyType.String, description: "Unique string that identifies the backend used to create the recommendation")
+    }
+
+    def recos_info = objectSchemaDefinitions {
+        backend_id(required: true, type: PropertyType.String, description: "Unique string that identifies the backend used to create the recommendation")
+        client(required: true, type: PropertyType.String, description: "Unique string that identifies the spot")
+        track_info(required: true, type: PropertyType.Map)
+        has_errors(required: false, type: PropertyType.Boolean, description: "The recommendation has to be hidden because it has errors.")
+        hidden_by_client(required: false, type: PropertyType.Boolean, description: "The client hide the recommendation")
+        recommendation_id(required: false, type: PropertyType.String, description: "Unique string that identifies the recommendation from were the item comes from")
+    }
+
     propertyDefinitions {
         backend_id(required: true, type: PropertyType.String, description: "Unique string that identifies the backend used to create the recommendation")
+
         client(required: true, type: PropertyType.String, description: "Unique string that identifies the spot")
         direct(required: true, type: PropertyType.Boolean, description: "Boolean flag to indicate if we have a direct CHO A2c")
         items(required: true, type: PropertyType.ArrayList, description: "Item ids that are being added")
         recommendation_id(required: true, type: PropertyType.String, description: "Unique string that identifies the recommendation from were the item comes from")
         shipping_benefit(required: false, type: PropertyType.String, values: ["none", "free", "save"], description: "Recommendations shipping benefit, indicates if shipping is free, has savings or does not have any benefit")
+
+        track_info(required: true, type: PropertyType.Map)
     }
 
+
     propertyGroups {
+        track_info(has_recommendations, backend_id)
         add_cart_info(backend_id, client, direct, items, recommendation_id, shipping_benefit)
         see_more(backend_id, client)
     }
@@ -28,7 +50,11 @@ tracks {
     }
 
     "/recommendations/see_more"(platform: "/", type: TrackType.Event) {
-        see_more
+        recommendations(recos_info)
+    }
+
+    "/recommendations/view"(platform: "/") {
+        recommendations(recos_info)
     }
 
 }
