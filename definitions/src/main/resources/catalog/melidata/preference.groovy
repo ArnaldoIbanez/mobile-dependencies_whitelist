@@ -20,8 +20,7 @@ tracks {
 
     // Init event
     "/preference/init"(platform: "/mobile", type: TrackType.Event) {
-        url(required: false, type: PropertyType.String , description: "Preference url")
-        pref_id(required: false, type: PropertyType.String, description: "Preference id")
-        short_id(required: false, type: PropertyType.String, description: "Short id")
+        origin(required: true, type: PropertyType.String, description: "How it was initialized")
+        pref_id(required: true, type: PropertyType.String, description: "Preference id")
     }
 }
