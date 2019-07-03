@@ -61,4 +61,14 @@ tracks {
 
     "/single_player/billpayments/checkout_px"(platform: "/mobile", isAbstract: true) {}
     "/single_player/billpayments/checkout_px/start"(platform: "/mobile", type: TrackType.Event) {}
+
+    /**
+    * Singe player Antenna Screen Tracks
+    */
+    "/single_player/antenna"(platform: "/mobile", isAbstract: true) {}
+
+    "/single_player/antenna/manual_input"(platform: "/mobile", type: TrackType.View) {
+        company (required: false, description: "Name of the company")
+    }
+    "/single_player/antenna/topup_helper" (platform: "/mobile", type:TrackType.View) {}
 }
