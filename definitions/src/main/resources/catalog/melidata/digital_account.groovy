@@ -37,9 +37,7 @@ tracks {
      * Digital Wallet Screen Tracks
      */
 
-    "/digital_wallet"(platform: "/", isAbstract: true) {}
-
-    "/digital_wallet/index"(platform: "/", type: TrackType.View) {}
+    "/digital_wallet"(platform: "/", type: TrackType.View) {}
 
     /**
      * Digital Wallet Events Tracks
@@ -52,5 +50,5 @@ tracks {
     "/digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
         section_store(required: true, description: "Section from which the event comes and Store (Google Play or App Store)", type: PropertyType.String)
     }
-    
+
 }

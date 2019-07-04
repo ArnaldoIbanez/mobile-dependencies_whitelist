@@ -38,7 +38,7 @@ trackTests {
          * Digital Wallet Screen Tracks
          */
 
-        "/digital_wallet/index"(platform: "/", type: TrackType.View) {}
+        "/digital_wallet"(platform: "/", type: TrackType.View) {}
 
         /**
          * Digital Wallet Events Tracks
