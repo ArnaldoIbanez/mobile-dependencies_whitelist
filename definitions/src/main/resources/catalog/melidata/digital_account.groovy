@@ -50,4 +50,5 @@ tracks {
     "/digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
         section_store(required: true, description: "Section from which the event comes and Store (Google Play or App Store)", type: PropertyType.String)
     }
+    
 }
