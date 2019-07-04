@@ -90,11 +90,11 @@ metrics {
 				or(
 					and (
 						equals("path", "/orders/ordercreated"),
-						equals("event_data.is_carrito", false)
+						equals("event_data.is_carrito", false),
 						equals("event_data.buyer_segment", "new_buyer")
 					),
 					and (
-						equals("path","/purchases/purchasecreated")
+						equals("path","/purchases/purchasecreated"),
 						equals("event_data.buyer_segment", "new_buyer")
 					)
 				)
@@ -108,16 +108,16 @@ metrics {
 				or(
 					and (
 						equals("path", "/orders/ordercreated"),
-						equals("event_data.is_carrito", false)
+						equals("event_data.is_carrito", false),
 						or(
-							equals("event_data.buyer_segment", "new_buyer")
+							equals("event_data.buyer_segment", "new_buyer"),
 							equals("event_data.buyer_segment", "recovered_buyer")
 						)
 					),
 					and (
-						equals("path","/purchases/purchasecreated")
+						equals("path","/purchases/purchasecreated"),
 						or(
-							equals("event_data.buyer_segment", "new_buyer")
+							equals("event_data.buyer_segment", "new_buyer"),
 							equals("event_data.buyer_segment", "recovered_buyer")
 						)
 					)
@@ -132,11 +132,11 @@ metrics {
 				or(
 					and (
 						equals("path", "/orders/ordercreated"),
-						equals("event_data.is_carrito", false)
+						equals("event_data.is_carrito", false),
 						equals("event_data.buyer_segment", "active_buyer")
 					),
 					and (
-						equals("path","/purchases/purchasecreated")
+						equals("path","/purchases/purchasecreated"),
 						equals("event_data.buyer_segment", "active_buyer")
 					)
 				)
