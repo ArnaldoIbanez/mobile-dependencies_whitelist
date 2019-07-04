@@ -43,13 +43,10 @@ tracks {
         items(required: true, type: PropertyType.ArrayList, description: "Item ids that are being added")
         recommendation_id(required: true, type: PropertyType.String, description: "Unique string that identifies the recommendation from were the item comes from")
         shipping_benefit(required: false, type: PropertyType.String, values: ["none", "free", "save"], description: "Recommendations shipping benefit, indicates if shipping is free, has savings or does not have any benefit")
-
-        track_info(required: true, type: PropertyType.Map(track_info_definition))
     }
 
 
     propertyGroups {
-        track_info(has_recommendations, backend_id)
         add_cart_info(backend_id, client, direct, items, recommendation_id, shipping_benefit)
         see_more(backend_id, client)
     }
