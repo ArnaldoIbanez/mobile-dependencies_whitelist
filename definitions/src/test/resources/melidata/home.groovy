@@ -14,7 +14,6 @@ trackTests {
     }
     
      test("Home Navigation") {
-        "/home/navigation"(platform: "/web/mobile") {}
         "/home/navigation"(platform: "/", type: TrackType.View) {}
         "/home/navigation/recommendation"(platform: "/", type: TrackType.View) {}
     }
