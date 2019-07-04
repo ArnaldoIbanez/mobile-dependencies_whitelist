@@ -13,6 +13,7 @@ SELECT substr
 FROM tracks
 WHERE path = '/credits/consumer/administrator_v2/installment_selection/payment_intention'
   AND ds >= '@param01'
+  AND ds < '@param02'
 GROUP BY substr
              (ds, 1, 10),
          path,
@@ -37,6 +38,7 @@ SELECT substr
 FROM tracks
 WHERE path = '/credits/consumer/administrator_v2/dashboard'
   AND ds >= '@param01'
+  AND ds < '@param02'
 GROUP BY substr
              (ds, 1, 10),
          path,
@@ -58,6 +60,7 @@ SELECT substr
 FROM tracks
 WHERE path = '/credits/consumer/administrator_v2/payment_intention_all'
   AND ds >= '@param01'
+  AND ds < '@param02'
 GROUP BY substr
              (ds, 1, 10),
          path,
@@ -79,6 +82,7 @@ SELECT substr
 FROM tracks
 WHERE path = '/credits/consumer/administrator_v2/installment_selection'
   AND ds >= '@param01'
+  AND ds < '@param02'
 GROUP BY substr
              (ds, 1, 10),
          path,
