@@ -16,13 +16,13 @@ tracks {
         has_errors(required: false, type: PropertyType.Boolean, description: "The recommendation has to be hidden because it has errors.")
         backend_id(required: true, type: PropertyType.String, description: "Unique string that identifies the backend used to create the recommendation")
         empty_result_cause(required: false, type: PropertyType.String, description: "Explanation for the empty result.")
-        trigger(required: false)
-        recommended_items(required: false)
-        train_date(required: false, type: PropertyType.String)
+        trigger(required: false, description: "Starting point for the recommendation. Usually the VIP item.")
+        recommended_items(required: false, description: "Items that this recommendation has.")
+        train_date(required: false, type: PropertyType.String, description: "Model metadata.")
         multiget(required: false, type: PropertyType.Boolean, description: "Data fetched via multiget api call")
-        recommendation_source(required: false, type: PropertyType.String)
-        combo_type(required: false, type: PropertyType.String)
-        combo_free_shipping(required: false, type: PropertyType.Boolean)
+        recommendation_source(required: false, type: PropertyType.String, description: "Model metadata.")
+        combo_type(required: false, type: PropertyType.String, description: "Type of combo generated")
+        combo_free_shipping(required: false, type: PropertyType.Boolean, description: "This combo offers free-shipping if fully purchased")
 
     }
 
