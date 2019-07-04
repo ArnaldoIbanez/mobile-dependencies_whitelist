@@ -15,22 +15,29 @@ trackTests {
     
      test("Home Navigation") {
         "/home/navigation"(platform: "/", type: TrackType.View) {}
-        "/home/navigation/recommendation"(platform: "/", type: TrackType.View) {}
     }
 
     test("Home Portal Inmobiliario") {
-        "/home/bookmarks"(platform: "/", type: TrackType.View) {}
-        "/home/bookmarks/recommendation"(platform: "/", type: TrackType.View) {}
-        "/home/help"(platform: "/", type: TrackType.View) {}
-        "/home/pricing"(platform: "/", type: TrackType.View) {}
-        "/home/pricing/fsbo"(platform: "/", type: TrackType.View) {}
-        "/home/pricing/professional"(platform: "/", type: TrackType.View) {}
-        "/home/pricing/development"(platform: "/", type: TrackType.View) {}
-        "/home/property"(platform: "/", type: TrackType.View) {}
-        "/home/property/recommendation"(platform: "/", type: TrackType.View) {}
-        "/home/development"(platform: "/", type: TrackType.View) {}
-        "/home/development/recommendation"(platform: "/", type: TrackType.View) {}
-        "/home/landing"(platform: "/", type: TrackType.View) {}
+        def dataSet = {
+            category_id = 'MLC1459'
+            category_path = ['MLC1459']
+        }
+
+        "/home/category/real_estate"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/bookmarks"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/bookmarks/recommendation"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/help"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/pricing"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/pricing/fsbo"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/pricing/professional"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/pricing/development"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/property"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/property/recommendation"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/development"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/development/recommendation"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/navigation"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/navigation/recommendation"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/landing"(platform: "/", type: TrackType.View, dataSet)
     }
 
     test("Home core tracking") {
