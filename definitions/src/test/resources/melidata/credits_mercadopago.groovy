@@ -25,15 +25,6 @@ trackTests {
             is_capped_offer= false
         }
         "/credits/merchant/enrollment/without_proposal"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/credits_conditions"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/preconfirm"(platform: "/web/desktop") {
-            amount = 200000
-            installments = 9
-        }
-        "/credits/merchant/enrollment/load_documents"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/review"(platform: "/web/desktop") {}
-
-        "/credits/merchant/enrollment/preconfirm"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/confirmation"(platform: "/web/desktop") {
             amount = 200000
             installments = 9
@@ -58,10 +49,6 @@ trackTests {
         "/credits/merchant/enrollment/testimonials"(platform: "/web/desktop") {
             brand = 'interfuerzas'
         }
-        "/credits/merchant/enrollment/feedback/interested"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/feedback/not_interested"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/feedback/success"(platform: "/web/desktop") {}
-
         "/credits/merchant/enrollment/feedback"(platform: "/web/desktop") {
             reason = 'interested'
         }
@@ -81,22 +68,6 @@ trackTests {
             reason = 'capped'
         }
         "/credits/merchant/enrollment/feedback/error"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/error/accept"(platform: "/web/desktop") {}
-        "/credits/merchant/enrollment/choose_amount"(platform: "/web/desktop", type: TrackType.Event) {
-            amount = 200000
-        }
-         "/credits/merchant/enrollment/choose_installment"(platform: "/web/desktop", type: TrackType.Event) {
-            installment = 9
-         }
-        "/credits/merchant/enrollment/ask_us"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant/enrollment/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant/enrollment/load_documents/user_type"(platform: "/web/desktop", type: TrackType.Event) {
-            type = 'moral'
-        }
-        "/credits/merchant/enrollment/load_documents/cancel"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant/enrollment/error/try_it_again"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant/enrollment/error/contact_us"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant/enrollment/withdrawal"(platform: "/web/desktop", type: TrackType.Event) {}
     }
 
     test("Merchant Credits Administrator") {
@@ -106,6 +77,7 @@ trackTests {
         "/credits/merchant/administrator"(platform: "/") {
             status = 'overdue'
         }
+        "/credits/merchant/administrator/error"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             status = 'on_time'
         }
@@ -115,7 +87,6 @@ trackTests {
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             status = 'finished'
         }
-        "/credits/merchant/administrator/error"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
@@ -129,45 +100,51 @@ trackTests {
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
             reason = 'default'
         }
-        "/credits/merchant/offer"(platform: "/web/desktop", type: TrackType.View) {}
-        "/credits/merchant/no_offer"(platform: "/web/desktop", type: TrackType.View) {}
-        "/credits/merchant/admin_on_time"(platform: "/web/desktop", type: TrackType.View) {}
-        "/credits/merchant/admin_late_pay"(platform: "/web/desktop", type: TrackType.View) {}
-        "/credits/merchant/hero_cta"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant/second_offer_cta"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/merchant/help"(platform: "/web/desktop", type: TrackType.Event) {}
     }
 
     test("Money Advance") {
-        "/credits/merchant/money_advance"(platform: "/web/desktop") {}
+        "/credits/merchant/money_advance/hub"(platform: "/web/desktop") {
+            user_status = 'on_time'
+        }
+        "/credits/merchant/money_advance/hub"(platform: "/web/desktop") {
+            user_status = 'overdue'
+        }
+        "/credits/merchant/money_advance/hub"(platform: "/mobile/android") {}
+        "/credits/merchant/money_advance/summary"(platform: "/web/desktop") {}
         "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {
             status = 'on_time'
             user_status = 'on_time'
         }
-        "/credits/merchant/money_advance/congrats"(platform: "/mobile/android") {}
-        "/credits/merchant/money_advance/hub"(platform: "/web/desktop") {
-            user_status = 'on_time'
+        "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {
+            status = 'delayed'
+            user_status = 'overdue'
         }
-        "/credits/merchant/money_advance/hub"(platform: "/mobile/android") {}
-        "/credits/merchant/money_advance/summary"(platform: "/web/desktop") {}
+        "/credits/merchant/money_advance/congrats"(platform: "/mobile/android") {}
         "/credits/merchant/money_advance/no_options"(platform: "/web/desktop") {}
         "/credits/merchant/money_advance/error"(platform: "/web/desktop") {
-            reason = 'default'
+            reason = 'bad_request'
+        }
+        "/credits/merchant/money_advance/error"(platform: "/web/desktop") {
+            reason = 'internal_server_error'
+        }
+        "/credits/merchant/money_advance/error"(platform: "/web/desktop") {
+            reason = 'unknown'
         }
     }
 
     test("Merchant Public Landing") {
-        "/credits/merchant/offer"(platform: "/web/desktop") {}
-        "/credits/merchant/no_offer"(platform: "/web/desktop") {}
         "/credits/merchant/public_landing"(platform: "/web/desktop") {
             user_profile = 'offer'
+        }
+        "/credits/merchant/public_landing"(platform: "/web/desktop") {
+            user_profile = 'no_offer'
         }
     }
 
     test('Merchant Collection') {
         "/credits/merchant/collection"(platform: "/mobile", type: TrackType.Event) {}
     }
-
+    
     test('Merchant Contacts') {
         "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
             medium = "email"
