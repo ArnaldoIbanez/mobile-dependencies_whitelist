@@ -141,7 +141,7 @@ tracks {
     "/merchant_acquisition/flows/resellers/after_sales"(platform:"/", type: TrackType.View) {}
     
     // Share MGM > Pageviews
-    "/merchant_acquisition/flows/"(platform:"/", isAbstract: true) {}
+    "/merchant_acquisition/flows"(platform:"/", isAbstract: true) {}
     "/merchant_acquisition/flows/share_mgm"(platform:"/", isAbstract: true) {}
     "/merchant_acquisition/flows/share_mgm/device"(platform:"/", isAbstract: true) {}
 

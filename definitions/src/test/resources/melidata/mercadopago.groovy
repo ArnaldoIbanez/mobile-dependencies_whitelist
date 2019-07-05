@@ -543,9 +543,7 @@ trackTests {
     }
 
     test("MP Share MGM Web") {
-        "/merchant_acquisition/flows/"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/flows/share_mgm"(platform:"/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/share_mgm/device"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/flows/share_mgm/about_share"(platform:"/", type: TrackType.Event) {}
         "/merchant_acquisition/flows/share_mgm/device/email"(platform:"/", type: TrackType.Event) {}
 
