@@ -300,6 +300,16 @@ trackTests {
                     ]
                 ]
             ] 
+            prepaid_banner = [
+                ordinal: 3,
+                realestates: [
+                    [
+                        realestate_id: "dismissible_row",
+                        content_id: "available_acquisition",
+                        origin: "customer_journey"
+                    ]
+                ]
+            ]
 
         }
     }

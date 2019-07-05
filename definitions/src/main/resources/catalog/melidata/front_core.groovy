@@ -25,10 +25,10 @@ tracks {
     def banking_definition = objectSchemaDefinitions {
         ordinal(required: true, type: PropertyType.Numeric, description: "The position in the home")
         collapsed(required: true, type: PropertyType.Boolean, description: "If banking is collapsed")
-        balance(required: true, type: PropertyType.Map(balance_definition), description: "The balance section information")
-        cards(required: true, type: PropertyType.Map(cards_definition), description: "The cards section information")
-        assets(required: true, type: PropertyType.Map(cards_definition), description: "The cards section information")
-        credits(required: true, type: PropertyType.Map(cards_definition), description: "The cards section information")
+        balance(required: false, type: PropertyType.Map(balance_definition), description: "The balance section information")
+        cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
+        assets(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
+        credits(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
     }
 
     def item_value_definition = objectSchemaDefinitions {
@@ -50,11 +50,15 @@ tracks {
         items(required: false, type: PropertyType.ArrayList(PropertyType.Map(main_action_definition)), description: "The cards section information")
     }
 
+    def banner_definition = objectSchemaDefinitions {
+        ordinal(required: true, type: PropertyType.Numeric, description: "The position in the home")
+        realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)), description: "The realestate information")
+    }
 
     def realestate = objectSchemaDefinitions {
         realestate_id(type: PropertyType.String, required: true, description: "The container where we show contents")
         content_id(type: PropertyType.String, required: true, description: "The identification of shown content")
-        origin(type: PropertyType.String, required: true, description: "The application that returns the content")
+        origin(type: PropertyType.String, required: false, description: "The application that returns the content")
     }
 
     def action = objectSchemaDefinitions {
@@ -214,7 +218,7 @@ tracks {
         header(required: true, type: PropertyType.String, description: "Contains the header text's home", inheritable: false)
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
-
+        prepaid_banner(required: false, type: PropertyType.Map(banner_definition), description: "The main actions section information")
     }
 
 }
