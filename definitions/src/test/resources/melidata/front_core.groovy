@@ -8,7 +8,6 @@ import com.ml.melidata.catalog.PropertyType
 * WALLET HOME TEST TRACKS *
 **************************/
 
-
 trackTests {
 
     defaultBusiness = "mercadopago"
@@ -217,6 +216,91 @@ trackTests {
                     has_promotion   :   false
                 ]
             ]
+        }
+    }
+
+    /*****************************
+    * WALLET HOME TEST TRACKS V2 *
+    *****************************/
+
+    test("Mercadopago Home") {
+        "/wallet_home" (platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Home Pull") {
+        "/wallet_home/pull" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("Mercadopago Home Tap") {
+        "/wallet_home/tap" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+        }
+    }
+
+    test("Mercadopago Home Secondary actions toggle") {
+        "/wallet_home/secondary_actions/toggle" (platform: "/mobile", type: TrackType.Event) {
+            id= "payer"
+            quantity= "6"
+            is_showing_aware= true
+            actions= [ 
+                [
+                    id              :   "recharge_phone",
+                    ordinal         :   1,
+                    has_promotion   :   false
+                ],
+                [
+                    id              :   "pay_services",
+                    ordinal         :   2,
+                    has_promotion   :   false
+                ]
+            ]
+        }
+    }
+
+    test("Mercadopago Home Banking Collapse") {
+        "/wallet_home/banking/collapse" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("Mercadopago Home Banking Expand") {
+        "/wallet_home/banking/expand" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("Mercadopago Drawer Tap") {
+        "/wallet_home/drawer/tap" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://pay_section"
+        }
+    }
+
+    test("Mercadopago Home Show") {
+        "/wallet_home/home" (platform: "/mobile", type: TrackType.Event) {
+            header = "name"
+            banking = [  
+                ordinal: 1,
+                collapsed: true,
+                balance: [
+                    pending_balance: false,
+                    balance_histogram: 6
+                ],
+                cards: [
+                    prepaid: false,
+                    quantity: 9
+                ],
+                assets: [],
+                credits: []
+            ]
+            main_actions = [
+                ordinal: 2,
+                quantity: 3,
+                items: [
+                    [
+                    id              : "scan_qr",
+                    ordinal         : 1,
+                    has_promotion   : false,
+                    enabled         : true
+                    ]
+                ]
+            ] 
+
         }
     }
 

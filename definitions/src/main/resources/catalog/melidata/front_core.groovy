@@ -9,13 +9,26 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 tracks {
 
     def balance_definition = objectSchemaDefinitions {
-        pending_balance(required: true, PropertyType.Boolean, description: "Unavailable balance")
-        balance_histogram(required: true, PropertyType.Numeric, description: "Balance segmentation")
+        pending_balance(required: true, type: PropertyType.Boolean, description: "Unavailable balance")
+        balance_histogram(required: true, type: PropertyType.Numeric, description: "Balance segmentation")
     }
 
     def cards_definition = objectSchemaDefinitions {
-        prepaid(required: true, PropertyType.Boolean, description: "Unavailable balance")
-        quantity(required: true, PropertyType.Numeric, description: "Quantity of cards")
+        prepaid(required: true, type: PropertyType.Boolean, description: "Unavailable balance")
+        quantity(required: true, type: PropertyType.Numeric, description: "Quantity of cards")
+    }
+
+    def assets_definition = objectSchemaDefinitions {}
+
+    def credits_definition = objectSchemaDefinitions {}
+
+    def banking_definition = objectSchemaDefinitions {
+        ordinal(required: true, type: PropertyType.Numeric, description: "The position in the home")
+        collapsed(required: true, type: PropertyType.Boolean, description: "If banking is collapsed")
+        balance(required: true, type: PropertyType.Map(balance_definition), description: "The balance section information")
+        cards(required: true, type: PropertyType.Map(cards_definition), description: "The cards section information")
+        assets(required: true, type: PropertyType.Map(cards_definition), description: "The cards section information")
+        credits(required: true, type: PropertyType.Map(cards_definition), description: "The cards section information")
     }
 
     def item_value_definition = objectSchemaDefinitions {
@@ -30,6 +43,13 @@ tracks {
         has_promotion(type: PropertyType.Boolean, required: true, description: "If has a label of promotion")
         enabled(type: PropertyType.Boolean, required: true, description: "If the item is show enabled")
     }
+
+    def main_actions_definition = objectSchemaDefinitions {
+        ordinal(required: true, type: PropertyType.Numeric, description: "The position in the home")
+        quantity(required: true, type: PropertyType.Numeric, description: "Quantity of main actions")
+        items(required: false, type: PropertyType.ArrayList(PropertyType.Map(main_action_definition)), description: "The cards section information")
+    }
+
 
     def realestate = objectSchemaDefinitions {
         realestate_id(type: PropertyType.String, required: true, description: "The container where we show contents")
@@ -149,4 +169,52 @@ tracks {
         balance(required: false, type: PropertyType.Map(balance_definition), description: "The balance section information")
         cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
     }
+
+    /*************************
+    * WALLET HOME TRACKS v2  *
+    *************************/
+
+    "/wallet_home" (platform: "/mobile", isAbstract: true) {}
+    "/wallet_home/drawer" (platform: "/mobile", isAbstract: true) {}
+    "/wallet_home/secondary_actions" (platform: "/mobile", isAbstract: true) {}
+    "/wallet_home/banking" (platform: "/mobile", isAbstract: true) {}
+
+    //Views
+    "/wallet_home" (platform: "/mobile", type: TrackType.View) {}
+
+    //Events
+    "/wallet_home/pull" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/tap" (platform: "/mobile", type: TrackType.Event) {
+        link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
+    }
+
+    "/wallet_home/drawer/tap" (platform: "/mobile", type: TrackType.Event) {
+        link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
+    }
+
+    "/wallet_home/secondary_actions/toggle" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        id(required: true, PropertyType.String, description: "the tab ID")
+        quantity(required: true, PropertyType.String, description: "secondary actions quantity")
+        is_showing_aware(required: true, type: PropertyType.Boolean, description: "If secondary actions is showing the aware")
+        actions(type: PropertyType.ArrayList(PropertyType.Map(action)), required: true, description: "Secondaty action actions")
+    }
+
+    "/wallet_home/banking/collapse" (platform: "/mobile", type: TrackType.Event) {
+        balance(required: false, type: PropertyType.Map(balance_definition), description: "The balance section information")
+        cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
+    }
+
+    "/wallet_home/banking/expand" (platform: "/mobile", type: TrackType.Event) {
+        balance(required: false, type: PropertyType.Map(balance_definition), description: "The balance section information")
+        cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
+    }
+
+    "/wallet_home/home" (platform: "/mobile", type: TrackType.Event) {
+        header(required: true, type: PropertyType.String, description: "Contains the header text's home", inheritable: false)
+        banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
+        main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
+
+    }
+
 }
