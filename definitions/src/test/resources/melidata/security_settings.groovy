@@ -37,7 +37,7 @@ trackTests {
         }
 
         "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
-            password_security = 2
+            context = "forgot"
         }
     }
 }
