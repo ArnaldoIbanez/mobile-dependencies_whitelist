@@ -239,6 +239,9 @@ tracks {
      *       Start: Money Advance
      ******************************************/
 
+    //Money Advance
+    "/credits/merchant/money_advance"(platform: "/", isAbstract: true) {}
+    
     //Congrats money advance
     "/credits/merchant/money_advance/congrats"(platform: "/web", type: TrackType.View) {
         status(
