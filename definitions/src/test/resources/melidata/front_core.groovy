@@ -337,7 +337,26 @@ trackTests {
                     ]
                 ]
             ]
-            
+            cross_selling= [
+                ordinal: 6,
+                realestates: [
+                    [
+                        realestate_id: "secondary_actions_mp_pay_services",
+                        content_id: "secondary_actions_mp_recharge_default",
+                        origin: "campaigns"
+                    ]
+                ]
+            ]
+
+
+
+
+
+
+
+
+
+
 
 
         }

@@ -227,6 +227,7 @@ tracks {
         prepaid_banner(required: false, type: PropertyType.Map(realestate_definition), description: "The banner section information")
         secondary_actions(required: false, type: PropertyType.Map(secondary_actions_definition), description: "The secondary actions section information")
         benefits(required: false, type: PropertyType.Map(realestate_definition), description: "The benefits section information")
+        cross_selling(required: false, type: PropertyType.Map(realestate_definition), description: "The cross_selling section information")
 
     }
 
