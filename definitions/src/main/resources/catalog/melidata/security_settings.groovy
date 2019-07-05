@@ -24,10 +24,8 @@ tracks {
 
     // Change Password
     "/security_settings/password"(platform: "/", type: TrackType.View) {
-        context(type: PropertyType.String, required: true, inheritable: false, description: "Point of access of change password view")
+        context(type: PropertyType.String, required: true, description: "Point of access of change password view")
     }
 
-    "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
-        password_security(type: PropertyType.Numeric, required: true, description: "Level of security of the new password")
-    }
+    "/security_settings/password/success"(platform: "/", type: TrackType.Event) {}
 }
