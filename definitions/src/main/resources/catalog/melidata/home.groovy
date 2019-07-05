@@ -93,7 +93,38 @@ tracks {
     // Motors page view
     "/home/category/motors"(platform: "/", type: TrackType.View) {}
 
-    "/home/navigation"(platform: "/web", type: TrackType.View) {}
+    "/home/navigation"(platform: "/", type: TrackType.View) {}
+
+     // RealEstate Portal Inmobiliario Sections
+    "/home/category/real_estate"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/bookmarks"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/bookmarks/recommendation"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/help"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/pricing"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/pricing/fsbo"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/pricing/professional"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/pricing/development"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/property"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/property/recommendation"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/development"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/development/recommendation"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/landing"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/navigation"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/navigation/recommendation"(platform: "/", type: TrackType.View) {}
 
     // Apparel
     "/home/category/apparel"(platform: "/", isAbstract: true) {
