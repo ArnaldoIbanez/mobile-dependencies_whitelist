@@ -546,14 +546,14 @@ trackTests {
         "/merchant_acquisition/flows/"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/flows/share_mgm"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/flows/share_mgm/device"(platform:"/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/share_mgm/about-share"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/flows/share_mgm/about_share"(platform:"/", type: TrackType.Event) {}
         "/merchant_acquisition/flows/share_mgm/device/email"(platform:"/", type: TrackType.Event) {}
 
-        "/merchant_acquisition/flows/share_mgm/share-device-button"(platform:"/", type: TrackType.Event) {
+        "/merchant_acquisition/flows/share_mgm/share_device_button"(platform:"/", type: TrackType.Event) {
           product = "point-h"
         }
 
-        "/merchant_acquisition/flows/share_mgm/more-info-device"(platform:"/", type: TrackType.Event) {
+        "/merchant_acquisition/flows/share_mgm/more_info_device"(platform:"/", type: TrackType.Event) {
           product = "point-h"
         }
 
