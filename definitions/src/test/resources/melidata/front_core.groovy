@@ -310,7 +310,23 @@ trackTests {
                     ]
                 ]
             ]
-
+            secondary_actions = [
+                ordinal: 4,
+                realestates_payers: [
+                    [ 
+                        realestate_id: "secondary_actions_mp_pay_services",
+                        content_id: "secondary_actions_mp_pay_services_MARZO_20",
+                        origin: "campaigns"
+                    ]
+                ],
+                realestates_sellers: [
+                    [
+                        realestate_id: "secondary_actions_mp_pay_services",
+                        content_id: "secondary_actions_mp_pay_services_MARZO_20",
+                        origin: "campaigns"
+                    ]
+                ]
+            ]
         }
     }
 

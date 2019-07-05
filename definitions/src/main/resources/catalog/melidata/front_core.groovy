@@ -55,6 +55,12 @@ tracks {
         realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)), description: "The realestate information")
     }
 
+    def secondary_actions_definition = objectSchemaDefinitions {
+        ordinal(required: true, type: PropertyType.Numeric, description: "The position in the home")
+        realestates_payers(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)), description: "The realestate payers information")
+        realestates_sellers(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)), description: "The realestate sellers information")
+    }
+
     def realestate = objectSchemaDefinitions {
         realestate_id(type: PropertyType.String, required: true, description: "The container where we show contents")
         content_id(type: PropertyType.String, required: true, description: "The identification of shown content")
@@ -218,7 +224,9 @@ tracks {
         header(required: true, type: PropertyType.String, description: "Contains the header text's home", inheritable: false)
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
-        prepaid_banner(required: false, type: PropertyType.Map(banner_definition), description: "The main actions section information")
+        prepaid_banner(required: false, type: PropertyType.Map(banner_definition), description: "The banner section information")
+        secondary_actions(required: false, type: PropertyType.Map(secondary_actions_definition), description: "The secondary actions section information")
+
     }
 
 }
