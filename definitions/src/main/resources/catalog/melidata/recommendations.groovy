@@ -23,7 +23,11 @@ tracks {
         recommendation_source(required: false, type: PropertyType.String, description: "Model metadata.")
         combo_type(required: false, type: PropertyType.String, description: "Type of combo generated")
         combo_free_shipping(required: false, type: PropertyType.Boolean, description: "This combo offers free-shipping if fully purchased")
-
+        combo_total_shipping_cost(required: false, type: PropertyType.Numeric, description: "Shipping cost for this combo")
+        combo_shipping_save(required: false, type: PropertyType.Numeric, description: "Amount saved on shipping for this combo")
+        combo_shipping_promise_type(required: false, type: PropertyType.String, description: "Shipping promise for this combo")
+        combo_direct_checkout(required: false, type: PropertyType.Boolean, description: "Combo has direct checkout instead of cart")
+        combo_shipping_save_enabled(required: false, type: PropertyType.Boolean, description: "This combo has shipping savings")
     }
 
     def recos_info = objectSchemaDefinitions {
@@ -56,11 +60,11 @@ tracks {
     }
 
     "/recommendations/see_more"(platform: "/", type: TrackType.Event) {
-        recommendations(recos_info)
+        recommendations(type: PropertyType.Map(recos_info), description: "Tracking info for recommendations component.", required: true)
     }
 
     "/recommendations/view"(platform: "/") {
-        recommendations(recos_info)
+        recommendations(type: PropertyType.Map(recos_info), description: "Tracking info for recommendations component.", required: true)
     }
 
 }

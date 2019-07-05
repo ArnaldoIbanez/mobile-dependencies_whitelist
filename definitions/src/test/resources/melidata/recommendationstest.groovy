@@ -9,13 +9,13 @@ trackTests {
 
     test("Recommendations Track Combo") {
         "/recommendations/view"(platform: "/") {
-            recommendations = {
-                hidden_by_client = false
-                client = "vip_combo"
-                has_errors = false
-                recommendation_id = "a8c57607-5664-4a70-9f76-eda5094b46a7"
-                backend_id = "mp2v-combos-multiseller-v5-without-promise"
-                track_info = [
+            recommendations = [
+                hidden_by_client : false,
+                client : "vip_combo",
+                has_errors : false,
+                recommendation_id : "a8c57607-5664-4a70-9f76-eda5094b46a7",
+                backend_id : "mp2v-combos-multiseller-v5-without-promise",
+                track_info : [
                     "has_recommendations"        : true,
                     "backend_id"                 : "prod-mla.recommendations-combo-api",
                     "model_id"                   : "mp2v-combos-multiseller-v5-without-promise",
@@ -66,17 +66,17 @@ trackTests {
                         ]
                     ]
                 ]
-            }
+            ]
         }
     }
 
     test("Recommendations Track carrousel") {
         "/recommendations/view"(platform: "/") {
-            recommendations = {
-                recommendation_id = "fa9c9ae3-609e-4d75-8db2-1f335ca7cb47"
-                backend_id = "machinalis-seller-items"
-                client = "vip-seller_items-above"
-                track_info = [
+            recommendations = [
+                recommendation_id : "fa9c9ae3-609e-4d75-8db2-1f335ca7cb47",
+                backend_id : "machinalis-seller-items",
+                client : "vip-seller_items-above",
+                track_info : [
                     "model_id": "machinalis-sellers-baseline",
                     "model_version": "0.0.2+120be36",
                     "train_date": "2019-07-03T03:26:47.919492",
@@ -98,38 +98,38 @@ trackTests {
                         ]
                     ]
                 ]
-            }
+            ]
         }
     }
 
     test("Recommendations click see more tracks") {
         "/recommendations/see_more"(platform: "/", type: TrackType.Event) {
-            recommendations = {
-                backend_id = "prod.recommendations-algorithm-product"
-                client = "pdp_similar"
-                track_info = [
+            recommendations = [
+                backend_id : "prod.recommendations-algorithm-product",
+                client : "pdp_similar",
+                track_info : [
                         has_recommendations: true,
                         model_id : "p2p-p2i-dmm-mp2v-no-live-request",
                         model_version : "v8",
                         backend_id : "prod.recommendations-algorithm-product",
                 ]
-            }
+            ]
         }
     }
 
     test("Recommendations view") {
-        "/recommendations/view"(platform: "/", {
-            recommendations = {
-                backend_id = "prod.recommendations-algorithm-product"
-                client = "pdp_similar"
-                track_info = [
+        "/recommendations/view"(platform: "/") {
+            recommendations = [
+                backend_id : "prod.recommendations-algorithm-product",
+                client : "pdp_similar",
+                track_info : [
                         has_recommendations: true,
                         model_id : "p2p-p2i-dmm-mp2v-no-live-request",
                         model_version : "v8",
                         backend_id : "prod.recommendations-algorithm-product",
                 ]
-            }
-        })
+            ]
+        }
     }
 
     test("Recommendations add to cart tracks") {
