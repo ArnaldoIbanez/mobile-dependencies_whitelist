@@ -9,6 +9,7 @@ tracks {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         item_id(required: true, type: PropertyType.String, description: "Item id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree")
         buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
         quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
         quote_demand_status(required: true, type: PropertyType.String, values: ["pending_by_seller", "answered", "rejected_by_seller", "accepted", "deleted", "cancelled", "expired"], description: "the status quote demand")
@@ -23,8 +24,8 @@ tracks {
     propertyGroups {
         quoteSellerGroup(vertical, seller_id)
         quoteBuyerGroup(vertical, buyer_id)
-        demandItemGroup(item_id, category_id, buyer_id, quote_demand_id, quote_demand_status)
-        quoteItemGroup(item_id,category_id,quote_demand_id,quote_demand_status,quote_id,quote_status)
+        demandItemGroup(item_id, category_id, category_path, buyer_id, quote_demand_id, quote_demand_status)
+        quoteItemGroup(item_id,category_id, category_path, quote_demand_id,quote_demand_status,quote_id,quote_status)
         actionGroup(action)
     }
 
@@ -398,6 +399,7 @@ tracks {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         buyer_id(required: false, type: PropertyType.Numeric, description: "Buyer id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree")
         item_id(required: true, type: PropertyType.String, description: "Item id")
     }
 
@@ -406,6 +408,7 @@ tracks {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         buyer_id(required: false, type: PropertyType.Numeric, description: "Buyer id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree")
         item_id(required: true, type: PropertyType.String, description: "Item id")
     }
 
