@@ -305,7 +305,7 @@ tracks {
                 description: "Item ID"
         )
         from_view(required: false, type: PropertyType.String,
-                values: ["vip", "description", "technicalSpecs", "form", "unitsAvailable", "vip_unitsAvailable", ""],
+                values: ["vip", "description", "technicalSpecs", "form", "unitsAvailable", "vipUnitsAvailable", ""],
                 description: "Section where it's coming from"
         )
         vertical(required: false, description: "Vertical name over show phone event is displayed")
@@ -714,10 +714,9 @@ tracks {
         buying_mode(required: false, type: PropertyType.String, values: ["classified"],
                 description: "Indicates if it's an auction, buy_it_now or classified")
         from_view(required: false, type: PropertyType.String,
-                values: ["vip", "description", "technicalSpecs", "form", "unitsAvailable", "vip_unitsAvailable", ""],
+                values: ["vip", "description", "technicalSpecs", "form", "unitsAvailable", "vipUnitsAvailable", ""],
                 description: "Section where it's coming from"
         )
-
         item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
                 description: "Whether the item is new, used or refurbished")
         listing_type_id(required: false, type: PropertyType.String,
