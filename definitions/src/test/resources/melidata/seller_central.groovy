@@ -725,6 +725,21 @@ trackTests {
         }
     }
 
+    test("seller central sales nfe onboarding action") {
+        "/seller_central/sales/list/nfe_onboarding/action"(platform: "/", type: TrackType.Event) {
+            id = "start"
+            page = 1
+        }
+        "/seller_central/sales/list/nfe_onboarding/action"(platform: "/", type: TrackType.Event) {
+            id = "dismiss"
+            page = 2
+        }
+        "/seller_central/sales/list/nfe_onboarding/action"(platform: "/", type: TrackType.Event) {
+            id = "close"
+            page = 3
+        }
+    }
+
     test("seller central sales search") {
         "/seller_central/sales/list/search"(platform: "/", type: TrackType.Event) {}
     }
