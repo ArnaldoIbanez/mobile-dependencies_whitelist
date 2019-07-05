@@ -73,6 +73,13 @@ tracks {
         has_promotion(type: PropertyType.Boolean, required: true, description: "The application that returns the content")
     }
 
+    def activities_definition = objectSchemaDefinitions {
+        ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
+        quantity(type: PropertyType.Numeric, required: true, description: "Quantity of activities")
+        is_ftu(type: PropertyType.Boolean, required: true, description: "Whether it is an ftu or not")
+        has_footer(type: PropertyType.Boolean, required: true, description: "whether it has a footer or not")
+    }
+
     "/wallet/home" (platform: "/mobile", isAbstract: true) {}
     "/home_wallet/drawer" (platform: "/mobile", isAbstract: true) {}
     "/wallet/home/secondary_actions" (platform: "/mobile", isAbstract: true) {}
@@ -228,6 +235,7 @@ tracks {
         secondary_actions(required: false, type: PropertyType.Map(secondary_actions_definition), description: "The secondary actions section information")
         benefits(required: false, type: PropertyType.Map(realestate_definition), description: "The benefits section information")
         cross_selling(required: false, type: PropertyType.Map(realestate_definition), description: "The cross_selling section information")
+        activities(required: false, type: PropertyType.Map(activities_definition), description: "The activities section information")
 
     }
 

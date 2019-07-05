@@ -347,6 +347,13 @@ trackTests {
                     ]
                 ]
             ]
+            activities= [
+                ordinal: 7,
+                quantity: 3,
+                is_ftu: false,
+                has_footer: true
+            ]
+
 
 
 
