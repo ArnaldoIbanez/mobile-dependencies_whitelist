@@ -1,6 +1,4 @@
-SELECT substr
-           (ds, 1, 10)                        AS date_sent,
-       path,
+SELECT path,
        jest
            (event_data, 'total_installments') AS quantity,
        jest
@@ -9,7 +7,9 @@ SELECT substr
        count
            (*)                                AS total,
        device.platform                        AS platform,
-       application.site_id                    AS site_id
+       application.site_id                    AS site_id,
+       substr
+           (ds, 1, 10)                        AS date_sent
 FROM tracks
 WHERE path = '/credits/consumer/administrator_v2/installment_selection/payment_intention'
   AND ds >= '@param01'
@@ -24,9 +24,7 @@ HAVING jest
            (event_data, 'total_installments') >= jest
            (event_data, 'paid_installments')
 UNION
-SELECT substr
-           (ds, 1, 10)                      AS date_sent,
-       path,
+SELECT path,
        ''                                   AS quantity,
        ''                                   AS paid_installments,
        jest
@@ -34,7 +32,9 @@ SELECT substr
        count
            (*)                              AS total,
        device.platform                      AS platform,
-       application.site_id                  AS site_id
+       application.site_id                  AS site_id,
+       substr
+           (ds, 1, 10)                      AS date_sent
 FROM tracks
 WHERE path = '/credits/consumer/administrator_v2/dashboard'
   AND ds >= '@param01'
@@ -46,9 +46,7 @@ GROUP BY substr
          device.platform,
          application.site_id
 UNION
-SELECT substr
-           (ds, 1, 10)                      AS date_sent,
-       path,
+SELECT path,
        jest
            (event_data, 'installments_qty') AS quantity,
        ''                                   AS paid_installments,
@@ -56,7 +54,9 @@ SELECT substr
        count
            (*)                              AS total,
        device.platform                      AS platform,
-       application.site_id                  AS site_id
+       application.site_id                  AS site_id,
+       substr
+           (ds, 1, 10)                      AS date_sent
 FROM tracks
 WHERE path = '/credits/consumer/administrator_v2/payment_intention_all'
   AND ds >= '@param01'
@@ -68,9 +68,7 @@ GROUP BY substr
          device.platform,
          application.site_id
 UNION
-SELECT substr
-           (ds, 1, 10)                 AS date_sent,
-       path,
+SELECT path,
        ''                              AS quantity,
        ''                              AS paid_installments,
        jest
@@ -78,7 +76,9 @@ SELECT substr
        COUNT
            (*)                         AS total,
        device.platform                 AS platform,
-       application.site_id             AS site_id
+       application.site_id             AS site_id,
+       substr
+           (ds, 1, 10)                 AS date_sent
 FROM tracks
 WHERE path = '/credits/consumer/administrator_v2/installment_selection'
   AND ds >= '@param01'
