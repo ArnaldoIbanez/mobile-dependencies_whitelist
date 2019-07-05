@@ -141,24 +141,25 @@ tracks {
     "/merchant_acquisition/flows/resellers/after_sales"(platform:"/", type: TrackType.View) {}
     
     // Share MGM > Pageviews
-    "/merchant_acquisition/flows/share_mgm"(platform:"/", type: TrackType.View) {}
-    "/merchant_acquisition/flows/share_mgm/error"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/"(platform:"/", isAbstract: true) {}
+    "/merchant_acquisition/flows/share_mgm"(platform:"/", isAbstract: true) {}
+    "/merchant_acquisition/flows/share_mgm/device"(platform:"/", isAbstract: true) {}
 
     // Share MGM > Events
+    "/merchant_acquisition/flows/share_mgm/device/email"(platform: "/", type: TrackType.Event) {}
     "/merchant_acquisition/flows/share_mgm/about-share"(platform:"/", type: TrackType.Event) {}
-    "/merchant_acquisition/flows/share_mgm/device/email"(platform: "/"), type: TrackType.Event {}
     "/merchant_acquisition/flows/share_mgm/share-device-button"(platform:"/", type: TrackType.Event) {
       product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
     }
     "/merchant_acquisition/flows/share_mgm/more-info-device"(platform:"/", type: TrackType.Event) {
       product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
     }
-    "/merchant_acquisition/flows/share_mgm/device/invite"(platform: "/"), type: TrackType.Event {
+    "/merchant_acquisition/flows/share_mgm/device/invite"(platform: "/", type: TrackType.Event) {
       media (type: PropertyType.String, required: true, description: "In which channel did the user shared the coupon (ex: Whatsapp)")
       product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
     }
-    "/merchant_acquisition/flows/share_mgm/banner"(platform: "/"), type: TrackType.Event {
-      name (type: PropertyType.String, required: true, description: "Name of banner (ex: Kit promotional)")
+    "/merchant_acquisition/flows/share_mgm/banner"(platform: "/", type: TrackType.Event) {
+      name (type: PropertyType.String, required: false, description: "Name of banner (ex: Kit promotional)")
     }
 
     // QR Landing > Pageviews

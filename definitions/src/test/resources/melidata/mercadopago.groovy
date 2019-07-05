@@ -542,6 +542,31 @@ trackTests {
         }
     }
 
+    test("MP Share MGM Web") {
+        "/merchant_acquisition/flows/"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/share_mgm"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/share_mgm/device"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/share_mgm/about-share"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/flows/share_mgm/device/email"(platform:"/", type: TrackType.Event) {}
+
+        "/merchant_acquisition/flows/share_mgm/share-device-button"(platform:"/", type: TrackType.Event) {
+          product = "point-h"
+        }
+
+        "/merchant_acquisition/flows/share_mgm/more-info-device"(platform:"/", type: TrackType.Event) {
+          product = "point-h"
+        }
+
+        "/merchant_acquisition/flows/share_mgm/device/invite"(platform:"/", type: TrackType.Event) {
+          media = "whastapp"
+          product = "point-h"
+        }
+
+        "/merchant_acquisition/flows/share_mgm/banner"(platform:"/", type: TrackType.Event) {
+          name = "Kit promotional"
+        }
+    }
+
     test("MP-MA Point Pro paper rolls request") {
         "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
           view = "order"
@@ -3166,5 +3191,4 @@ trackTests {
         "/stores/pos/create"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/pos/update"(platform: "/web/mobile", type: TrackType.View) {}
     }
-
 }
