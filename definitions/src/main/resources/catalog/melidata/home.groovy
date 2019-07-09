@@ -120,11 +120,15 @@ tracks {
 
     "/home/category/real_estate/development/recommendation"(platform: "/", type: TrackType.View) {}
 
-    "/home/category/real_estate/landing"(platform: "/", type: TrackType.View) {}
+    "/home/category/real_estate/landing"(platform: "/", type: TrackType.View){
+        name(required: false, descripton:"Landing's name", type:PropertyType.String)
+    }
 
     "/home/category/real_estate/navigation"(platform: "/", type: TrackType.View) {}
 
     "/home/category/real_estate/navigation/recommendation"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/map"(platform: "/", type: TrackType.View) {}
 
     // Apparel
     "/home/category/apparel"(platform: "/", isAbstract: true) {
