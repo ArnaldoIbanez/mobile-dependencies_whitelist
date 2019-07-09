@@ -166,6 +166,8 @@ trackTests {
         "/remedies/camera/capture_image"(platform: "/web") {
             is_landscape = false
         }
+        "/remedies/camera/pick_from_gallery"(platform: "/web") {}
+        "/remedies/camera/unavailable"(platform: "/web") {}
     }
 
     defaultBusiness = "mercadopago"
@@ -330,6 +332,8 @@ trackTests {
         "/remedies/camera/capture_image"(platform: "/web") {
             is_landscape = true
         }
+        "/remedies/camera/pick_from_gallery"(platform: "/web") {}
+        "/remedies/camera/unavailable"(platform: "/web") {}
     }
 
 }
