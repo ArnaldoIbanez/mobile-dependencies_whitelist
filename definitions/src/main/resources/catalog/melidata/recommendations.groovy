@@ -10,11 +10,11 @@ import com.ml.melidata.TrackType
 tracks {
 
     def track_info_definition = objectSchemaDefinitions {
-        has_recommendations(required: true, type: PropertyType.Boolean, description: "Has recommended items")
+        has_recommendations(required: false, type: PropertyType.Boolean, description: "Has recommended items")
         model_id(required: false, type: PropertyType.String, description: "Model which generated the recommendation")
         model_version(required: false, type: PropertyType.String, description: "Version of the model / training data")
         has_errors(required: false, type: PropertyType.Boolean, description: "The recommendation has to be hidden because it has errors.")
-        backend_id(required: true, type: PropertyType.String, description: "Unique string that identifies the backend used to create the recommendation")
+        backend_id(required: false, type: PropertyType.String, description: "Unique string that identifies the backend used to create the recommendation")
         empty_result_cause(required: false, type: PropertyType.String, description: "Explanation for the empty result.")
         trigger(required: false, description: "Starting point for the recommendation. Usually the VIP item.")
         recommended_items(required: false, description: "Items that this recommendation has.")
@@ -31,9 +31,13 @@ tracks {
     }
 
     def recos_info = objectSchemaDefinitions {
-        backend_id(required: true, type: PropertyType.String, description: "Unique string that identifies the backend used to create the recommendation")
+        backend_id(required: false, type: PropertyType.String, description: "Unique string that identifies the backend used to create the recommendation")
         client(required: true, type: PropertyType.String, description: "Unique string that identifies the spot")
-        track_info(required: true, type: PropertyType.Map(track_info_definition))
+
+        // track_info es un objeto opaco que no se maneja en frontend.
+        // lo utilizan los modelos para reentrenarse, y cada backend tiene su propia estructura.
+        track_info(required: true, type: PropertyType.Map)
+
         has_errors(required: false, type: PropertyType.Boolean, description: "The recommendation has to be hidden because it has errors.")
         hidden_by_client(required: false, type: PropertyType.Boolean, description: "The client hide the recommendation")
         recommendation_id(required: false, type: PropertyType.String, description: "Unique string that identifies the recommendation from were the item comes from")
