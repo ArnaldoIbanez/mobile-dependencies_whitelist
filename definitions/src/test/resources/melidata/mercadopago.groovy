@@ -478,6 +478,10 @@ trackTests {
         "/landing/sellers/social" (platform: "/web") {}
     }
 
+    test("Landing mercadopago sellers mss") {
+        "/landing/sellers/mss" (platform: "/web") {}
+    }
+
     test("Landing mercadopago buyers") {
         "/landing/buyers" (platform: "/web") {}
     }

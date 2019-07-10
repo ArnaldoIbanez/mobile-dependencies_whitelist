@@ -46,6 +46,9 @@ tracks {
     // MP Sellers Social
     "/landing/sellers/social"(platform: "/web"){}
 
+    // MP Sellers Merchant Services
+    "/landing/sellers/mss"(platform: "/web"){}
+
     // MP Buyers
     "/landing/buyers"(platform: "/web"){}
 
