@@ -51,7 +51,7 @@ trackTests {
             trackData()
             warehouse_id = "BRWT01"
         }
-        
+
         "/wms/receiving/scan_inbound_shipment"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
@@ -61,7 +61,7 @@ trackTests {
             warehouse_id = "BRWT01"
             inbound_id = 1234
             receiving_id = 1234
-        } 
+        }
         "/wms/receiving/scan_inbound_shipment/start_receiving"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
@@ -116,13 +116,13 @@ trackTests {
         "/wms/receiving/receiving_finished"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
-            receiving_id = 1234
+            receiving_id = "1234abc"
         }
 
         "/wms/receiving/volume_rejection"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
-            receiving_id = 1234
+            receiving_id = "1234abv"
             rejection_reason = "key01"
             volume_label = "1234456/12"
         }
@@ -130,7 +130,7 @@ trackTests {
         "/wms/receiving/inbound_shipment_rejection"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
-            receiving_id = 1234
+            receiving_id = "1234abc"
             rejection_reason = "key01"
             inbound_id = 1234
         }
@@ -431,7 +431,7 @@ trackTests {
             is_retry = true
             idempotency_key = "AbCdFgHi"
         }
-    
+
         "/wms/put_away/scan_inventory/cancel_put_away"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
@@ -445,7 +445,7 @@ trackTests {
             put_away_id = "1234"
             check_in_id = "4567"
             cart_address = "CA-0-001-000-00-00"
-        }  
+        }
         "/wms/inbound_audit/confirmation/start_audit"(platform: "/mobile/android") {
             trackDataForAudit()
             warehouse_id = "BRWT01"
