@@ -87,6 +87,7 @@
         "/pos_seller/end"(platform: "/mobile", type: TrackType.Event) {
             cardData
             payment_method_id(required: true, type: PropertyType.String, description: "payment method id")
+            payment_id(required: true, type: PropertyType.String, description: "payment id")
         }
 
         // device pairing
@@ -197,6 +198,7 @@
             is_fallback(required: false, type: PropertyType.Boolean,description: "is a payment through fallback")
             has_chip(required: false, type: PropertyType.Boolean, description: "It is a payment by chip")
             request_signature(required: false, type: PropertyType.Boolean, description: "Is the signature necessary")
+            payment_id(required: false, type: PropertyType.String, description: "payment id")
             error_message(PropertyType.String, required: false)
         }
 
