@@ -244,6 +244,18 @@ tracks {
         benefits(required: false, type: PropertyType.Map(realestate_definition), description: "The benefits section information")
         cross_selling(required: false, type: PropertyType.Map(realestate_definition), description: "The cross_selling section information")
         activities(required: false, type: PropertyType.Map(activities_definition), description: "The activities section information")
-        qr_map(required: true, type: PropertyType.Map(qr_map_definition), description: "The qr_map section information")
+        qr_map(required: false, type: PropertyType.Map(qr_map_definition), description: "The qr_map section information")
+    }
+
+    "/wallet_home/update" (platform: "/mobile", type: TrackType.Event) {
+        header(required: true, type: PropertyType.String, description: "Contains the header text's home", inheritable: false)
+        banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
+        main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
+        prepaid_banner(required: false, type: PropertyType.Map(realestate_definition), description: "The banner section information")
+        secondary_actions(required: false, type: PropertyType.Map(secondary_actions_definition), description: "The secondary actions section information")
+        benefits(required: false, type: PropertyType.Map(realestate_definition), description: "The benefits section information")
+        cross_selling(required: false, type: PropertyType.Map(realestate_definition), description: "The cross_selling section information")
+        activities(required: false, type: PropertyType.Map(activities_definition), description: "The activities section information")
+        qr_map(required: false, type: PropertyType.Map(qr_map_definition), description: "The qr_map section information")
     }
 }

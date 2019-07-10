@@ -363,4 +363,95 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Update") {
+        "/wallet_home/update" (platform: "/mobile", type: TrackType.Event) {
+            header = "name"
+            banking = [  
+                ordinal: 1,
+                collapsed: true,
+                balance: [
+                    pending_balance: false,
+                    balance_histogram: 6
+                ],
+                cards: [
+                    prepaid: false,
+                    quantity: 9
+                ],
+                assets: [],
+                credits: []
+            ]
+            main_actions = [
+                ordinal: 2,
+                quantity: 3,
+                items: [
+                    [
+                    id              : "scan_qr",
+                    ordinal         : 1,
+                    has_promotion   : false,
+                    enabled         : true
+                    ]
+                ]
+            ] 
+            prepaid_banner = [
+                ordinal: 3,
+                realestates: [
+                    [
+                        realestate_id: "dismissible_row",
+                        content_id: "available_acquisition",
+                        origin: "customer_journey"
+                    ]
+                ]
+            ]
+            secondary_actions = [
+                ordinal: 4,
+                realestates_payers: [
+                    [ 
+                        realestate_id: "secondary_actions_mp_pay_services",
+                        content_id: "secondary_actions_mp_pay_services_MARZO_20",
+                        origin: "campaigns"
+                    ]
+                ],
+                realestates_sellers: [
+                    [
+                        realestate_id: "secondary_actions_mp_pay_services",
+                        content_id: "secondary_actions_mp_pay_services_MARZO_20",
+                        origin: "campaigns"
+                    ]
+                ]
+            ]
+            benefits= [
+                ordinal: 5,
+                realestates: [
+                    [
+                        realestate_id: "secondary_actions_mp_pay_services",
+                        content_id: "secondary_actions_mp_recharge_default",
+                        origin: "campaigns"
+                    ]
+                ]
+            ]
+            cross_selling= [
+                ordinal: 6,
+                realestates: [
+                    [
+                        realestate_id: "secondary_actions_mp_pay_services",
+                        content_id: "secondary_actions_mp_recharge_default",
+                        origin: "campaigns"
+                    ]
+                ]
+            ]
+            activities= [
+                ordinal: 7,
+                quantity: 3,
+                is_ftu: false,
+                has_footer: true
+            ]
+            qr_map= [
+                ordinal: 8,
+                header_title: "¡Pagá con QR en tus locales favoritos!",
+                items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
+                items_size: 3,
+                link: "mercadopago://discovery/map?from=home_instore_map_section"              
+            ]
+        }
+    }
 }
