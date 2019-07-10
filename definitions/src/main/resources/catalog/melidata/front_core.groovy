@@ -27,8 +27,8 @@ tracks {
         collapsed(required: true, type: PropertyType.Boolean, description: "If banking is collapsed")
         balance(required: false, type: PropertyType.Map(balance_definition), description: "The balance section information")
         cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
-        assets(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
-        credits(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
+        assets(required: false, type: PropertyType.Map(cards_definition), description: "The assets section information")
+        credits(required: false, type: PropertyType.Map(cards_definition), description: "The credits section information")
     }
 
     def item_value_definition = objectSchemaDefinitions {
@@ -47,7 +47,7 @@ tracks {
     def main_actions_definition = objectSchemaDefinitions {
         ordinal(required: true, type: PropertyType.Numeric, description: "The position in the home")
         quantity(required: true, type: PropertyType.Numeric, description: "Quantity of main actions")
-        items(required: false, type: PropertyType.ArrayList(PropertyType.Map(main_action_definition)), description: "The cards section information")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(main_action_definition)), description: "The main action items information")
     }
 
     def realestate_definition = objectSchemaDefinitions {
