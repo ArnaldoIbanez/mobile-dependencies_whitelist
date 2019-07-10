@@ -27,14 +27,24 @@
           
         }
 
-        "/pos_seller/congrats"(platform: "/mobile", type: TrackType.View) {
-            payment_method_id(required: true, type: PropertyType.String, description: "payment method id")
+
+        propertyDefinitions {
             card_read_tag(required: true, type: PropertyType.String, description: "card tag",values:["swipe","chip","nfc"])
             first_six(required: true, type: PropertyType.String,description: "first six card numbers")
             last_four(required: true, type: PropertyType.String,description: "last four card numbers")
             is_fallback(required: true, type: PropertyType.Boolean,description: "is a payment through fallback")
             has_chip(required: false, type: PropertyType.Boolean, description: "It is a payment by chip")
             request_signature(required: true, type: PropertyType.Boolean, description: "Is the signature necessary")
+        }
+ 
+        propertyGroups {
+        cardData(card_read_tag, first_six, last_four, is_fallback, has_chip, request_signature)
+        }
+
+
+        "/pos_seller/congrats"(platform: "/mobile", type: TrackType.View) {
+            payment_method_id(required: true, type: PropertyType.String, description: "payment method id")
+            cardData
         }
 
         "/pos_seller/point"(platform: "/mobile", isAbstract: true) {}
@@ -47,10 +57,18 @@
 
         "/pos_seller/point/pairing"(platform: "/mobile", type: TrackType.View) {}
 
+        "/pos_seller/point/idempotency"(platform: "/mobile", isAbstract: true) {
+            cardData
+        }
+
+        "/pos_seller/point/duplicated_payment_warning"(platform: "/mobile", isAbstract: true) {
+            cardData
+            idempotency(required: true, type: PropertyType.Boolean, description: "came form idempotency flow")
+        }
+
         /**
         * pos seller event tracks
         */
-
 
         // start new payment
         "/pos_seller/start"(platform: "/mobile", type: TrackType.Event) {}
@@ -59,15 +77,11 @@
 
         // end payment
         "/pos_seller/end"(platform: "/mobile", type: TrackType.Event) {
+            cardData
             payment_method_id(required: true, type: PropertyType.String, description: "payment method id")
-            card_read_tag(required: true, type: PropertyType.String, description: "card tag",values:["swipe","chip","nfc"])
-            first_six(required: true, type: PropertyType.String,description: "first six card numbers")
-            last_four(required: true, type: PropertyType.String,description: "last four card numbers")
-            is_fallback(required: true, type: PropertyType.Boolean,description: "is a payment through fallback")
-            has_chip(required: false, type: PropertyType.Boolean, description: "It is a payment by chip")
-            request_signature(required: true, type: PropertyType.Boolean, description: "Is the signature necessary")
         }
-        
+
+        // device pairing
         "/pos_seller/point/pairing_scan"(platform: "/mobile", type: TrackType.Event) {}
 
         "/pos_seller/point/pairing_start"(platform: "/mobile", type: TrackType.Event) {
@@ -84,6 +98,29 @@
             card_readers(required: true, type: PropertyType.String, description: "visible card readers")
         
         }
+
+        // post payment
+        "/pos_seller/point/post_payment"(platform: "/mobile", type: TrackType.Event) {
+            ignore_duplicate(required: true, type: PropertyType.Boolean, description: "force duplicated payment")
+            idempotency(required: true, type: PropertyType.Boolean, description: "came form idempotency flow")
+            cardData
+        
+        }
+
+        //idempotencie
+        "/pos_seller/point/duplicated_payment_warning_exit"(platform: "/mobile", type: TrackType.Event) {
+            cardData     
+        }
+
+        "/pos_seller/point/idempotency_exit"(platform: "/mobile", type: TrackType.Event) {
+            cardData
+        }
+
+
+        /**
+        * pos seller Frictions
+        */
+
          def PosSellerFrictionMessage = objectSchemaDefinitions {
             style(type: PropertyType.String, required: true, description: "Style showed, window, dialog, toast.. ", values: ["dialog", "screen", "snackbar-alert"])
             title(type: PropertyType.String, required: false)
