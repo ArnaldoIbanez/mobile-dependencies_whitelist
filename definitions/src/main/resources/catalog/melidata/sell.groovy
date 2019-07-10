@@ -692,7 +692,21 @@ tracks {
     "/sell/item_data/technical_specifications"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/technical_specifications/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/technical_specifications/confirm"(platform: "/web", type: TrackType.Event) {}
-
+    "/sell/item_data/multivalue"(platform: "/web", type: TrackType.Event) {
+        card(required: false, description: "Card", type: PropertyType.String)
+        category_domain(required: false, description: "Category Domain", type: PropertyType.String)
+        attribute_id(required: true, type: PropertyType.String, description: "Id of the attribute")
+        hierarchy(required: false, description: "Hierarchy attribute", values:["CHILD_DEPENDENT", "CHILD_PK", "FAMILY", "ITEM", "PARENT_PK", "PRODUCT_IDENTIFIER"], PropertyType.String)
+        quantity(required: true, type: PropertyType.Numeric, description: "Added values")
+        previous_quantity(required: true, type: PropertyType.Numeric, description: "Previous values")
+    }
+    "/sell/item_data/autocomplete"(platform: "/web", type: TrackType.Event) {
+        card(required: false, description: "Card", type: PropertyType.String)
+        category_domain(required: false, description: "Category Domain", type: PropertyType.String)
+        attribute_id(required: true, type: PropertyType.String, description: "Id of the attribute")
+        hierarchy(required: false, description: "Hierarchy attribute", values:["CHILD_DEPENDENT", "CHILD_PK", "FAMILY", "ITEM", "PARENT_PK", "PRODUCT_IDENTIFIER"], PropertyType.String)
+        type(required: true, type: PropertyType.String, description: "Suggestion type", values: ["suggested", "dynamic", "other"])
+    }
 
     "/sell/item_conditions"(platform: "/web", type: TrackType.View) {
         sellGroup

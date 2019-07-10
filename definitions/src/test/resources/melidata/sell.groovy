@@ -796,6 +796,33 @@ trackTests {
             session_id = "123-update-abc123"
         }
     }
+    test("SYI v4 set multivalue input"){
+        "/sell/item_data/multivalue"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            card = "technical_specifications"
+            category_domain = "SMARTPHONES"
+            attribute_id = "MLA12345678"
+            hierarchy = "FAMILY"
+            quantity = 3
+            previous_quantity = 0
+        }
+    }
+    test("SYI v4 set autocomplete input"){
+        "/sell/item_data/autocomplete"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            card = "technical_specifications"
+            category_domain = "SMARTPHONES"
+            attribute_id = "MLA12345678"
+            hierarchy = "FAMILY"
+            type = "suggested"
+        }
+    }
     test("SYI v4 render item_conditions"){
         "/sell/item_conditions"(platform: "/web", type: TrackType.View){
             category_id = "MLA390784"
