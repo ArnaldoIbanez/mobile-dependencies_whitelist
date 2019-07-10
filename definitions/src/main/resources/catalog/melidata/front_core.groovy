@@ -80,6 +80,14 @@ tracks {
         has_footer(type: PropertyType.Boolean, required: true, description: "whether it has a footer or not")
     }
 
+    def qr_map_definition = objectSchemaDefinitions {
+        ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
+        header_title(type: PropertyType.String, required: true, description: "The container header title")
+        items(required: true, PropertyType.ArrayList(PropertyType.String), description: "the items recived form endpoint or cache")
+        items_size(type: PropertyType.Numeric, required: true, description: "The items size")
+        link(type: PropertyType.String, required: true, description: "The link to execute")
+    }
+
     "/wallet/home" (platform: "/mobile", isAbstract: true) {}
     "/home_wallet/drawer" (platform: "/mobile", isAbstract: true) {}
     "/wallet/home/secondary_actions" (platform: "/mobile", isAbstract: true) {}
@@ -236,7 +244,6 @@ tracks {
         benefits(required: false, type: PropertyType.Map(realestate_definition), description: "The benefits section information")
         cross_selling(required: false, type: PropertyType.Map(realestate_definition), description: "The cross_selling section information")
         activities(required: false, type: PropertyType.Map(activities_definition), description: "The activities section information")
-
+        qr_map(required: true, type: PropertyType.Map(qr_map_definition), description: "The qr_map section information")
     }
-
 }
