@@ -9,7 +9,7 @@ tracks {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         item_id(required: true, type: PropertyType.String, description: "Item id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
         buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
         quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
         quote_demand_status(required: true, type: PropertyType.String, values: ["pending_by_seller", "answered", "rejected_by_seller", "accepted", "deleted", "cancelled", "expired"], description: "the status quote demand")
@@ -399,7 +399,7 @@ tracks {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         buyer_id(required: false, type: PropertyType.Numeric, description: "Buyer id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
         item_id(required: true, type: PropertyType.String, description: "Item id")
     }
 
@@ -408,7 +408,7 @@ tracks {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         buyer_id(required: false, type: PropertyType.Numeric, description: "Buyer id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
         item_id(required: true, type: PropertyType.String, description: "Item id")
     }
 
