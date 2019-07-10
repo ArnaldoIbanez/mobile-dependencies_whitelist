@@ -19,10 +19,24 @@ trackTests {
         "/seller_central/listings/list/promos"(platform: "/", type: TrackType.Event) {}
     }
 
+    test("seller central listing item_description") {
+        "/seller_central/listings/list/item_description"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("seller central listing health") {
+        "/seller_central/listings/list/health"(platform: "/", type: TrackType.Event) {
+            health_id = "ID"
+        }
+    }
+
     test("seller central listing action") {
         "/seller_central/listings/action"(platform: "/", type: TrackType.Event) {
             action_id = "MODIFY"
         }
+    }
+
+    test("seller central listing secondary_actions") {
+        "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
     }
 
     test("seller central listing filters view") {
@@ -57,6 +71,19 @@ trackTests {
         "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
             action = "start"
             page = 1
+        }
+    }
+
+    test("seller central listing onboarding pdp") {
+        "/seller_central/listings/onboarding/pdp"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("seller central listing onboarding pdp action") {
+        "/seller_central/listings/onboarding/pdp/action"(platform: "/", type: TrackType.Event) {
+            action = "accept"
+        }
+        "/seller_central/listings/onboarding/pdp/action"(platform: "/", type: TrackType.Event) {
+            action = "cancel"
         }
     }
 

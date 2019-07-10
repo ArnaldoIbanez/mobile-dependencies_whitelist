@@ -110,6 +110,7 @@ trackTests {
                             item_id:"MLA1234"
                     ]
             ]
+            carousel_filters = []
         }
 
         "/search"(platform: "/web"){
@@ -374,7 +375,7 @@ trackTests {
             query="iphone"
             user_zone = ""
             pdp_rows = []
-
+            carousel_filters = []
         }
     }
 

@@ -30,13 +30,6 @@ class S3Controller {
         this.bucket = bucket
         this.credentials = new BasicAWSCredentials(accessKey, secretKey)
         ClientConfiguration config = new ClientConfiguration();
-        if(System.getenv().containsKey("proxyHost")){
-            config.setProxyHost(System.getenv().get("proxyHost"))
-        }
-        if(System.getenv().containsKey("proxyPort")){
-            config.setProxyPort(Integer.parseInt(System.getenv().get("proxyPort")))
-        }
-
         s3 = new AmazonS3Client(credentials, config)
     }
 

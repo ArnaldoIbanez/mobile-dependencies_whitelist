@@ -48,6 +48,7 @@ trackTests {
             price_comparison_position =  0.75
             whatsapp_available = "false"
             quote_demand_available = false
+            new_wording_free = false
         }
 
         "/vip"(platform:"/mobile", {
@@ -507,7 +508,6 @@ trackTests {
         }
 
         "/vip/free_shipping_cart_available"(platform: "/web", type:TrackType.Event){
-            defaultTrackInformation()
         }
 
         "/vip/description"(platform: "/web", type: TrackType.View){
@@ -876,6 +876,87 @@ trackTests {
                 
         "/vip/shipping_calculator/show_map"(platform: "/mobile/ios", type: TrackType.Event) {
             model()
+        }
+    }
+
+    test("VIP public similar intention"){
+        def model = {
+            category_id = "MLC24350"
+            category_path = [
+                "MLC1743",
+                "MLC1744",
+                "MLC6619",
+                "MLC24350"
+            ]
+            item_id = "MLC493108266"
+            item_condition = "used"
+            vertical = "motors"
+            listing_type_id = "gold_premium"
+            item_seller_type = "normal"
+            source = "desktop-navigation-non-free"
+        }
+
+        "/vip/public_similar_intention"(platform: "/web", type: TrackType.Event) {
+            model()
+        }
+    }
+
+    test("VIP Units available section for projects RE"){
+        def properties = {
+            vertical = "realEstate"
+            from_view = "unitsAvailable"
+            seller_id =  430012134
+            item_seller_type = "real_estate_agency"
+            listing_type_id = "silver"
+            category_id = "MLA401803"
+            item_status = "active"
+            item_id = "MLA792156560"
+            item_condition = "new"
+            category_path = [
+                "MLA1459",
+                "MLA1493",
+                "MLA1495",
+                "MLA401803"
+            ]
+            buying_mode = "classified"
+        }
+
+        "/vip/units_available"(platform: "/mobile", type: TrackType.View){
+            properties()
+        }
+
+
+        "/vip/contact_seller"(platform: "/mobile", type: TrackType.Event){
+            properties()
+        }
+    }
+
+    test("VIP Facilities section for projects RE"){
+        def properties = {
+            vertical = "realEstate"
+            from_view = "technicalSpecs"
+            seller_id =  430012134
+            item_seller_type = "real_estate_agency"
+            listing_type_id = "silver"
+            category_id = "MLA401803"
+            item_status = "active"
+            item_id = "MLA792156560"
+            item_condition = "new"
+            category_path = [
+                "MLA1459",
+                "MLA1493",
+                "MLA1495",
+                "MLA401803"
+            ]
+            buying_mode = "classified"
+        }
+
+        "/vip/technical_specs"(platform: "/mobile", type: TrackType.View){
+            properties()
+        }
+
+        "/vip/contact_seller"(platform: "/mobile", type: TrackType.Event){
+            properties()
         }
     }
 }

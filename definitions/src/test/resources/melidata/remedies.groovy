@@ -152,7 +152,20 @@ trackTests {
         "/remedies/company"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
         }
-        "/remedies/center/card"(platform: "/web") {}
+        "/remedies/center/card"(platform: "/web") {
+            status = "landing"
+        }
+
+        "/remedies/center/row"(platform: "/mobile") {
+            status = "landing"
+        }
+
+        "/remedies/camera/open_camera"(platform: "/web") {
+            devices = 2
+        }
+        "/remedies/camera/capture_image"(platform: "/web") {
+            is_landscape = false
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -302,7 +315,21 @@ trackTests {
         "/remedies/company"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
         }
-        "/remedies/center/card"(platform: "/web") {}
+        
+        "/remedies/center/card"(platform: "/web") {
+            status = "landing"
+        }
+
+        "/remedies/center/row"(platform: "/mobile") {
+            status = "landing"
+        }
+
+        "/remedies/camera/open_camera"(platform: "/web") {
+            devices = 1
+        }
+        "/remedies/camera/capture_image"(platform: "/web") {
+            is_landscape = true
+        }
     }
 
 }

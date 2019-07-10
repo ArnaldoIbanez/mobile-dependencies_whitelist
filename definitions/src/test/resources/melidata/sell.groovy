@@ -630,8 +630,18 @@ trackTests {
     }
 
     test("Landing for donwload app at web mobile"){
-        "/sell/landing_download_app"(platform: "/web/mobile"){}
-        "/sell/landing_download_app/download_intention"(platform: "/web/mobile"){}
+        "/sell/landing_download_app"(platform: "/web/mobile", type: TrackType.View){
+            vertical = "core"
+        }
+        "/sell/landing_download_app"(platform: "/web/mobile", type: TrackType.View){}
+        "/sell/landing_download_app/download_intention"(platform: "/web/mobile", type: TrackType.Event){
+            vertical = "services"
+        }
+        "/sell/landing_download_app/download_intention"(platform: "/web/mobile", type: TrackType.Event){}
+        "/sell/landing_hub"(platform: "/web/mobile", type: TrackType.View){}
+        "/sell/landing_hub/sell_intention"(platform: "/web/mobile", type: TrackType.Event){
+            vertical = "realEstate"
+        }
     }
 
     test("Mobile flow - complete technical specifications"){
@@ -644,4 +654,324 @@ trackTests {
         "/sell/complete_technical_specifications/congrats_has_more"(platform: "/mobile"){item_id = "MLA123456"}
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS SYI v4
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    test("SYI v4 render draft"){
+        "/sell/draft"(platform: "/web", type: TrackType.View){}
+    }
+    test("SYI v4 render hub"){
+        "/sell/hub"(platform: "/web", type: TrackType.View){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 render item_data"){
+        "/sell/item_data"(platform: "/web", type: TrackType.View){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 title card showed"){
+        "/sell/item_data/title/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 title card confirmed"){
+        "/sell/item_data/title/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 category card showed"){
+        "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 category card confirmed"){
+        "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 wrong category"){
+        "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 consequences modal showed"){
+        "/sell/item_data/consequences_modal/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 consequences modal confirmed"){
+        "/sell/item_data/consequences_modal/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 pks card showed"){
+        "/sell/item_data/pks/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 pks card confirmed"){
+        "/sell/item_data/pks/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 item condition card showed"){
+        "/sell/item_data/item_condition/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 item condition card confirmed"){
+        "/sell/item_data/item_condition/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 specifications card showed"){
+        "/sell/item_data/specifications/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 specifications card confirmed"){
+        "/sell/item_data/specifications/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 technical specifications card showed"){
+        "/sell/item_data/technical_specifications/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 technical specifications card confirmed"){
+        "/sell/item_data/technical_specifications/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 render item_conditions"){
+        "/sell/item_conditions"(platform: "/web", type: TrackType.View){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 price and currency card showed"){
+        "/sell/item_conditions/price_and_currency/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 price and currency card confirmed"){
+        "/sell/item_conditions/price_and_currency/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 listing types card showed"){
+        "/sell/item_conditions/listing_types/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            has_free = true
+        }
+    }
+    test("SYI v4 listing types card confirmed"){
+        "/sell/item_conditions/listing_types/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 consequences modal showed"){
+        "/sell/item_conditions/consequences_modal/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 consequences modal confirmed"){
+        "/sell/item_conditions/consequences_modal/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 calculator showed"){
+        "/sell/item_conditions/calculator/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 calculator hide"){
+        "/sell/item_conditions/calculator/hide"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 warranty card showed"){
+        "/sell/item_conditions/warranty/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 warranty card confirmed"){
+        "/sell/item_conditions/warranty/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 manufacturing time card showed"){
+        "/sell/item_conditions/manufacturing_time/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 manufacturing time card confirmed"){
+        "/sell/item_conditions/manufacturing_time/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 description card showed"){
+        "/sell/item_conditions/description/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 description card confirmed"){
+        "/sell/item_conditions/description/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 video card showed"){
+        "/sell/item_conditions/video/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 video card confirmed"){
+        "/sell/item_conditions/video/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 render congrats"){
+        "/sell/congrats"(platform: "/web", type: TrackType.View){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            item_id = "MLA123456789"
+        }
+    }
+    test("SYI v4 congrats card showed"){
+        "/sell/congrats/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 listing types card showed"){
+        "/sell/congrats/listing_types/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 render sip"){
+        "/sell/sip"(platform: "/web", type: TrackType.View){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 calculator showed"){
+        "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
 }

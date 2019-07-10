@@ -490,7 +490,7 @@ tracks {
        **/
       "/notification"(platform: "/") {
           event_type(required: true,
-                  values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel","purged_token", "swipe"],
+                  values: ["sent", "resent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel","purged_token", "swipe"],
           description: "Type of notification event")
           action_type(required: false,
                   values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"])
@@ -763,6 +763,11 @@ tracks {
       }
 
       "/notification/orders_ticket_payment_pending_extend_expiration_general_notice"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+          experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
+      }
+
+      "/notification/orders_ticket_payment_pending_close_expiration_general_notice"(platform: "/") {
           order_id(required: true, type: PropertyType.Numeric)
           experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
       }

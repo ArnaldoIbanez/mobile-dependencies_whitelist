@@ -27,6 +27,13 @@ trackTests {
         }
     }
 
+    test("Mercadopago Drawer Tap") {
+        "/home_wallet/drawer/tap" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://pay_section"
+        }
+    }
+
+
     test("Mercadopago Home Show") {
         "/wallet/home/show" (platform: "/mobile", type: TrackType.Event) {
             header = "name"
@@ -187,6 +194,30 @@ trackTests {
 
     test("Mercadopago Home Banking Expand") {
         "/wallet/home/banking/expand" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("Mercadopago Home activity shown") {
+        "/home_wallet" (platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Home Secondary actions toggle") {
+        "/wallet/home/secondary_actions/toggle" (platform: "/mobile", type: TrackType.Event) {
+            id= "payer"
+            quantity= "6"
+            is_showing_aware= true
+            actions= [ 
+                [
+                    id              :   "recharge_phone",
+                    ordinal         :   1,
+                    has_promotion   :   false
+                ],
+                [
+                    id              :   "pay_services",
+                    ordinal         :   2,
+                    has_promotion   :   false
+                ]
+            ]
+        }
     }
 
 }

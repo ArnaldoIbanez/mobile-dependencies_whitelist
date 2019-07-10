@@ -45,6 +45,8 @@ tracks {
         catalog_product_id(required: false, type: PropertyType.String, description: "The product id")
         listing_type(required: true, type: PropertyType.String, description: "The product listing type")
         shipping_local_pickup(required: true, type: PropertyType.Boolean, description: "The product local pick up")
+        winner_item_id(required: false, type: PropertyType.String, description: "The item id of the winner")
+        price_to_win(required: false, type: PropertyType.Numeric, description: "The price to win that we suggest to the user")
 
         to(required: true, type: PropertyType.String, description: "The new value of a field, for example quantity, warranty,etc")
         from(required: false, type: PropertyType.String, description: "The original value of a field, for example quantity, warranty,etc")
@@ -65,7 +67,7 @@ tracks {
     propertyGroups {
         sellerCentralModifyGroup(item_id, session_id, item_type)
         sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup)
-        sellerCentralModifyGroupTableForPdp(comparison_table, competition_status, new_competition_status)
+        sellerCentralModifyGroupTableForPdp(comparison_table, competition_status, new_competition_status, winner_item_id, price_to_win)
         sellerCentralModifyCardsGroupValue(to, from)
         sellerCentralSettingsGroup(seller_profile, reputation_level)
         technicalSpecificationsGroup(category_domain, attribute, hierarchy)
@@ -86,6 +88,12 @@ tracks {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "rollback", "start"])
         page(required: false, type: PropertyType.Numeric, description: "Page number")
         viewId(required:false, type: PropertyType.String, descritpion: "Onboarding id if applies")
+    }
+
+    "/seller_central/listings/onboarding/pdp"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/listings/onboarding/pdp/action"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Id of the action", values: ["accept", "cancel"])
     }
 
     "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
@@ -130,6 +138,17 @@ tracks {
 
     //LISTING SECTION - TABS
     "/seller_central/listings/list/promos"(platform: "/", type: TrackType.Event) {}
+
+    //LISTING - Item Description
+    "/seller_central/listings/list/item_description"(platform: "/", type: TrackType.Event) {}
+    
+    //    //LISTING - Item Description
+    "/seller_central/listings/list/health"(platform: "/", type: TrackType.Event) {
+        health_id(required: true, type: PropertyType.String, description: "Health id")
+    }
+
+    //LISTING - Secondary Actions Click
+    "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
 
     //BULK SECTION
 

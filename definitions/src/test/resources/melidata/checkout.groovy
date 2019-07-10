@@ -520,6 +520,14 @@ trackTests {
             ]
         }
         //
+        
+        "/checkout/shipping/address_profile"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
+
+        "/checkout/shipping/address_profile/delivered_time"(platform: "/web", type: TrackType.Event) {
+            label = "laboral"
+        }
 
         "/checkout/payment/preload_credit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -2174,6 +2182,12 @@ trackTests {
         "/checkout/shipping/select_option/agency_pickup"(platform:"/web", dataSet)
         "/checkout/shipping/select_option/send_to_my_address"(platform:"/web", dataSet)
         "/checkout/shipping/store_selection"(platform:"/web", dataSet)
+
+        "/checkout/shipping/address_profile"(platform:"/web", dataSet)
+        "/checkout/shipping/address_profile/delivered_time"(platform: "/web", type: TrackType.Event) {
+            label = "laboral"
+        }
+
         // Map v2
         "/checkout/shipping/puis/select_store"(platform: "/web", dataSet)
         "/checkout/shipping/select_store"(platform: "/web", dataSet)
@@ -2240,6 +2254,8 @@ trackTests {
             frequency_before = "WEEKS_3"
         }
 
+         // Step Curp Credits MLM
+        "/checkout/payment/curp"(platform:"/web", dataSet)
     }
 
     test("Checkout recovery with recos - push notification flow") {

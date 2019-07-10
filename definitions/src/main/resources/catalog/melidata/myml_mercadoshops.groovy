@@ -38,6 +38,28 @@ tracks {
 
     "/mercado_shops/optin"(platform: "/", type: TrackType.View){}
 
+    "/mercado_shops/landing"(platform: "/", type: TrackType.View){
+        shop_id(required: false, type: PropertyType.Numeric)
+        shop_domain(required: false, type: PropertyType.String)
+        shop_name(required: false, type: PropertyType.String)
+        delegation_status(
+                required: false,
+                type: PropertyType.String,
+                values: [
+                        'NOT_DELEGATED', 'REGISTERED', 'CHECK_FOR_TOTAL_DELEGATION', 'CHECK_FOR_PARTIAL_DELEGATION',
+                        'DELEGATION_OK', 'CERTIFICATE_OK', 'CERTIFICATE_ERROR', 'NAVIGATION_OK', 'NAVIGATION_ERROR',
+                        'ERROR', 'DELEGATION_ERROR', 'ACTIVE'
+                ]
+        )
+        success(required: false, type: PropertyType.Boolean, description: "The request was fulfilled successfully")
+    }
+
+    "/mercado_shops/migration"(platform: "/", type: TrackType.Event){
+        is_migration_banner(required: true, type: PropertyType.Boolean, description: "Banner Migration is being shown")
+        is_confirmation_banner(required: true, type: PropertyType.Boolean, description: "Banner Confirmation is being shown")
+        is_show_dday_banner(required: true, type: PropertyType.Boolean, description: "Banner DDay is being shown")
+    }
+
     "/mercado_shops/admin"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/admin/welcome"(platform: "/", type: TrackType.View){}
@@ -142,5 +164,14 @@ tracks {
 
     "/mercado_shops/domains/delegation_cancel"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/confirm_migration"(platform: "/", type: TrackType.Event){
+        scope(required: true, type: PropertyType.String, values: ['editor', 'domains'])
+    }
+    
+    "/mercado_shops/optin/step"(platform: "/", type: TrackType.Event){
+        step(required: true, type: PropertyType.String)
+        index(required: true, type: PropertyType.Numeric)
     }
 }

@@ -103,6 +103,11 @@ tracks {
     "/remedies/activity/custom_camera"(platform: "/mobile/android", type: TrackType.View) {}
     "/remedies/activity/picture_confirmation"(platform: "/mobile/android", type: TrackType.View) {}
 
+    // Mobile tracks
+    "/remedies/center/row"(platform: "/mobile", type: TrackType.View) {
+        status(type: PropertyType.String, required: true, description: "Remedy center status of user")
+    }
+
     // Web desktop and web mobile tracks
     "/remedies/landing"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
@@ -146,5 +151,16 @@ tracks {
     "/remedies/company"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
-    "/remedies/center/card"(platform: "/web", type: TrackType.View) {}
+    "/remedies/center/card"(platform: "/web", type: TrackType.View) {
+        status(type: PropertyType.String, required: true, description: "Remedy center status of user")
+    }
+
+    "/remedies/camera"(platform: "/web", isAbstract: true) {}
+
+    "/remedies/camera/open_camera"(platform: "/web", type: TrackType.Event) {
+        devices(type: PropertyType.Numeric, required: true, description: "The number of camera devices the user has")
+    }
+    "/remedies/camera/capture_image"(platform: "/web", type: TrackType.Event) {
+        is_landscape(type: PropertyType.Boolean, required: true, description: "Indicates if the picture was taken on landscape mode")
+    }
 }

@@ -37,7 +37,7 @@ tracks {
     "/register/form"(platform: "/web", type: TrackType.View) {
         app(type: PropertyType.String, description: "Current Flow", required:true)
         origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
-        source(type: PropertyType.String, description: "Source (on mobile is facebook/email, on web at the moment is only email)", required:true)
+        source(type: PropertyType.String, description: "Source", required:true, values:["email","facebook","facebook_to_email"])
         item_id(type: PropertyType.String, description: "Item", required:false)
         captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:true)
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:true)
@@ -45,7 +45,7 @@ tracks {
 
     "/register/optin"(platform: "/web", type: TrackType.View) {
         app(type: PropertyType.String, description: "Current Flow", required:true)
-        source(type: PropertyType.String, description: "Source (on mobile is facebook/email, on web at the moment is only email)", required:true)
+        source(type: PropertyType.String, description: "Source", required:true, values:["email","facebook","facebook_to_email"])
         item_id(type: PropertyType.String, description: "Item", required:false)
         captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:true)
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:true)
@@ -80,7 +80,14 @@ tracks {
     }
 
     "/register/success"(platform: "/web", type: TrackType.Event) {
-        source(type: PropertyType.String, required:true, description: "Source (on mobile is facebook/email, on web at the moment is only email)")
+        source(type: PropertyType.String, required:true, description: "Source", values:["email","facebook","facebook_to_email"])
+        app(type: PropertyType.String, required:true, description: "Current Flow")
+        captcha_showed(type: PropertyType.Boolean, required:true, description: "If captcha is showed")
+        prog_reg_version(type: PropertyType.Numeric, required:true, description: "Version of progressive registration, if is 0 is normal registration")
+    }
+
+    "/register/successful-update"(platform: "/web", type: TrackType.Event) {
+        source(type: PropertyType.String, required:true, description: "Source", values:["email","facebook","facebook_to_email"])
         app(type: PropertyType.String, required:true, description: "Current Flow")
         captcha_showed(type: PropertyType.Boolean, required:true, description: "If captcha is showed")
         prog_reg_version(type: PropertyType.Numeric, required:true, description: "Version of progressive registration, if is 0 is normal registration")
@@ -112,6 +119,9 @@ tracks {
         item_id(type: PropertyType.String, required:false, description: "Item" )
         // TODO: In the future register_type might be "required: true". We have to do some changes for that
         register_type(type: PropertyType.String, required: false, description: "User type", values: ["person", "company"])
+        source(type: PropertyType.String, description: "Source", required:false, values:["email","facebook","facebook_to_email"])
+        captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:false)
+        prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:false)
     }
     "/register/form/email-suggest"(platform: "/mobile", type: TrackType.Event){}
 
@@ -122,7 +132,7 @@ tracks {
     "/register/form/challenge/solve"(platform: "/mobile", type: TrackType.Event){}
 
     "/register/success"(platform: "/mobile", type: TrackType.Event){
-        source(type: PropertyType.String, description: "Source (on mobile is facebook/email, on web at the moment is only email)", required:false)
+        source(type: PropertyType.String, description: "Source", required:false, values:["email","facebook","facebook_to_email"])
         app(type: PropertyType.String, required:false, description: "Current Flow")
     }
 

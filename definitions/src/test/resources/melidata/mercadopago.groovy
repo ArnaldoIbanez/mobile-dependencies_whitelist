@@ -257,6 +257,12 @@ trackTests {
             item_id = "MLA21233"
             register_type = "person"
         }
+        "/register/form"(platform:"/mobile") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+        }
 
         "/register/form"(platform:"/mobile") {
             app = "normal"
@@ -2833,6 +2839,20 @@ trackTests {
         "/security_settings/devices/action"(platform: "/", type: TrackType.Event) {
             event_type = "click"
             target = "confirm_unlink_button"
+        }
+    }
+
+    test("Change Password") {
+        "/security_settings/password"(platform: "/", type: TrackType.View) {
+            context = "feedback"
+        }
+
+        "/security_settings/password"(platform: "/", type: TrackType.View) {
+            context = "security_settings"
+        }
+
+        "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
+            context = "forgot"
         }
     }
 

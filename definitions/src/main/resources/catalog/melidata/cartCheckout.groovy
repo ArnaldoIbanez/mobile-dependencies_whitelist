@@ -193,6 +193,8 @@ tracks {
     congrats_seq(serverSide: true) // Lo completa Melidata automaticamente
     first_for_order(serverSide: true) // Lo completa Melidata automaticamente
     status(required: false, type: PropertyType.String)
+    buyer_segment(serverSide: true) // -> Lo completa Melidata automaticamente
+    loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
 }
 
 "/cart/checkout/congrats/keep_buying"(platform:"/", type: TrackType.Event) {}
@@ -250,6 +252,15 @@ tracks {
 }
 
 "/cart/checkout/shipping"(platform:"/mobile", type: TrackType.View) {}
+
+// First Visit
+// Page
+"/cart/checkout/shipping/address_profile"(platform: "/mobile", type: TrackType.View) {}
+
+// Event
+"/cart/checkout/shipping/address_profile/delivered_time"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    label(required: false, type: PropertyType.String)
+}
 
 "/cart/checkout/shipping/edit_address"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
@@ -411,6 +422,9 @@ tracks {
 // 2MP Cancelation
 "/cart/checkout/payments_cancelation"(platform: "/mobile", type: TrackType.View) {}
 
+// Step Curp Credits MLM
+"/cart/checkout/payment/curp"(platform:"/web", type: TrackType.View) {}
+
 // ESC: Enter the Sec Code to generate an Encrypted Security Code
 "/cart/checkout/payment/encrypted_security_code_add"(platform:"/mobile", type: TrackType.View) {}
 
@@ -492,6 +506,15 @@ tracks {
 
 "/cart/checkout/shipping"(platform:"/web", type: TrackType.View) {
     total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
+}
+
+// First Visit
+// Page
+"/cart/checkout/shipping/address_profile"(platform: "/web", type: TrackType.View) {}
+
+// Event
+"/cart/checkout/shipping/address_profile/delivered_time"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+    label(required: false, type: PropertyType.String)
 }
 
 "/cart/checkout/shipping/confirm_geolocation"(platform:"/web", type: TrackType.View) {}

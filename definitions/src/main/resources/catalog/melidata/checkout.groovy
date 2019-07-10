@@ -247,6 +247,15 @@ tracks {
     "/checkout/shipping"(platform: "/", type: TrackType.View) {
     }
 
+    //First Visit
+    //Page
+    "/checkout/shipping/address_profile"(platform: "/", type: TrackType.View) {}
+
+    //Event
+    "/checkout/shipping/address_profile/delivered_time"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+       label(required: false, type: PropertyType.String)
+    }
+
     //Fallback/Custom shipping
     "/checkout/shipping/select_method"(platform: "/mobile") {
         //View specific data
@@ -619,6 +628,9 @@ tracks {
     "/checkout/payment/expired_coupon"(platform:"/mobile", type: TrackType.Event) {}
     "/checkout/payment/add_another_coupon/delete_coupon"(platform:"/mobile", type: TrackType.Event) {}
 
+    // Step Curp Credits MLM
+    "/checkout/payment/curp"(platform:"/web", type: TrackType.View) {}
+
     // ESC: Enter the Sec Code to generate an Encrypted Security Code
     "/checkout/payment/encrypted_security_code_add"(platform:"/mobile") {}
     "/checkout/payment/encrypted_security_code_add#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -763,6 +775,8 @@ tracks {
         status(required: false, type: PropertyType.String)
         purchase_status(required: false, type: PropertyType.String, values: ["payment_required", "payment_in_process", "partially_paid", "paid", "pending_cancel", "cancelled", "confirmed"], description: "Status of the purchase")
         purchase_id(required: false, type: PropertyType.Numeric, description: "Id of the purchase")
+        buyer_segment(serverSide: true) // -> Lo completa Melidata automaticamente
+        loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
     }
 
     "/checkout/congrats/recommendations"(platform: "/", type: TrackType.View) {}
