@@ -389,7 +389,9 @@ tracks {
         message(required: true, PropertyType.String, description: "server error description")
         attributable_to(required: true, PropertyType.String)
     }
-    "/instore/my_qr"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/my_qr"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, PropertyType.String, description: "this flow is outside instore, does not have session_id")
+    }
 
     // Scale Features
     // QR Assignment
