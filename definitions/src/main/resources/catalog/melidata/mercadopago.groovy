@@ -46,6 +46,9 @@ tracks {
     // MP Sellers Social
     "/landing/sellers/social"(platform: "/web"){}
 
+    // MP Sellers Merchant Services
+    "/landing/sellers/mss"(platform: "/web"){}
+
     // MP Buyers
     "/landing/buyers"(platform: "/web"){}
 
@@ -139,6 +142,12 @@ tracks {
     "/merchant_acquisition/flows/resellers/benefits"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/resellers/metrics"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/resellers/after_sales"(platform:"/", type: TrackType.View) {}
+
+    // Associar Point - Micrositio - reseller
+    "/merchant_acquisition/flows/resellers/point_register"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/point_register/associate"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/point_register/success"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/point_register/no_account"(platform:"/", type: TrackType.View) {}
 
 
     // QR Landing > Pageviews
