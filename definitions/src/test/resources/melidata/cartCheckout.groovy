@@ -342,7 +342,7 @@ trackTests {
         "/cart/checkout/payment/security_code"(platform:"/web", dataSet)
 
         // Step Curp Credits MLM
-        "/cart/checkout/payment/curp"(platform:"/web", dataSet)
+        "/cart/checkout/payment/curp"(platform:"/", dataSet)
 
         //2MP
         //Switch
@@ -460,6 +460,9 @@ trackTests {
         }
 
         "/cart/checkout/finish/choose_action"(platform: "/", dataSet)
+         // Step Curp Credits MLM
+        "/cart/checkout/payment/curp/not_my_curp"(platform: "/mobile", type: TrackType.Event) {}
+
     }
 
 

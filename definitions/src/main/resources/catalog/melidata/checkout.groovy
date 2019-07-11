@@ -629,7 +629,8 @@ tracks {
     "/checkout/payment/add_another_coupon/delete_coupon"(platform:"/mobile", type: TrackType.Event) {}
 
     // Step Curp Credits MLM
-    "/checkout/payment/curp"(platform:"/web", type: TrackType.View) {}
+    "/checkout/payment/curp"(platform:"/", type: TrackType.View) {}
+    "/checkout/payment/curp/not_my_curp"(platform:"/mobile", type: TrackType.Event) {}
 
     // ESC: Enter the Sec Code to generate an Encrypted Security Code
     "/checkout/payment/encrypted_security_code_add"(platform:"/mobile") {}
