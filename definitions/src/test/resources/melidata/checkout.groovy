@@ -972,6 +972,8 @@ trackTests {
             payment_method = "telecomm"
             agencies = 10
         }
+         // Step Curp Credits MLM
+        "/checkout/payment/curp/not_my_curp"(platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("checkout congrats"){
@@ -2255,7 +2257,7 @@ trackTests {
         }
 
          // Step Curp Credits MLM
-        "/checkout/payment/curp"(platform:"/web", dataSet)
+        "/checkout/payment/curp"(platform:"/", dataSet)
     }
 
     test("Checkout recovery with recos - push notification flow") {
