@@ -807,6 +807,7 @@ trackTests {
             hierarchy = "FAMILY"
             quantity = 3
             previous_quantity = 0
+            container = "technical_specifications"
         }
     }
     test("SYI v4 set autocomplete input"){
@@ -819,6 +820,7 @@ trackTests {
             attribute_id = "MLA12345678"
             hierarchy = "FAMILY"
             type = "suggested"
+            container = "technical_specifications"
         }
     }
     test("SYI v4 render item_conditions"){

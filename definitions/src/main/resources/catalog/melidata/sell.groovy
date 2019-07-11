@@ -698,14 +698,14 @@ tracks {
         hierarchy(required: false, description: "Hierarchy attribute", values:["CHILD_DEPENDENT", "CHILD_PK", "FAMILY", "ITEM", "PARENT_PK", "PRODUCT_IDENTIFIER"], PropertyType.String)
         quantity(required: true, type: PropertyType.Numeric, description: "Added values")
         previous_quantity(required: true, type: PropertyType.Numeric, description: "Previous values")
-        card(required: false, description: "Card", type: PropertyType.String)
+        container(required: true, description: "Id or name of the container (card, modal, other) where you are", type: PropertyType.String)
     }
     "/sell/item_data/autocomplete"(platform: "/web", type: TrackType.Event) {
         category_domain(required: true, description: "Category Domain", type: PropertyType.String)
         attribute_id(required: true, type: PropertyType.String, description: "Id of the attribute")
         hierarchy(required: false, description: "Hierarchy attribute", values:["CHILD_DEPENDENT", "CHILD_PK", "FAMILY", "ITEM", "PARENT_PK", "PRODUCT_IDENTIFIER"], PropertyType.String)
         type(required: true, type: PropertyType.String, description: "Suggestion type", values: ["suggested", "dynamic", "other"])
-        card(required: false, description: "Card", type: PropertyType.String)
+        container(required: true, description: "Id or name of the container (card, modal, other) where you are", type: PropertyType.String)
     }
 
     "/sell/item_conditions"(platform: "/web", type: TrackType.View) {
