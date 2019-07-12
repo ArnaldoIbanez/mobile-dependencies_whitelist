@@ -973,7 +973,8 @@ trackTests {
             agencies = 10
         }
          // Step Curp Credits MLM
-        "/checkout/payment/curp/not_my_curp"(platform: "/mobile", type: TrackType.Event) {}
+        "/checkout/payment/curp/not_my_curp"(platform: "/", type: TrackType.Event) {}
+        "/checkout/payment/curp/view_authorization"(platform: "/", type: TrackType.Event) {}
     }
 
     test("checkout congrats"){
