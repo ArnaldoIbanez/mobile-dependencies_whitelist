@@ -84,7 +84,6 @@ tracks {
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
         header_title(type: PropertyType.String, required: true, description: "The container header title")
         items(required: true, PropertyType.ArrayList(PropertyType.String), description: "the items recived form endpoint or cache")
-        items_size(type: PropertyType.Numeric, required: true, description: "The items size")
         link(type: PropertyType.String, required: true, description: "The link to execute")
     }
 

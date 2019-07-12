@@ -357,7 +357,6 @@ trackTests {
                 ordinal: 8,
                 header_title: "¡Pagá con QR en tus locales favoritos!",
                 items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
-                items_size: 3,
                 link: "mercadopago://discovery/map?from=home_instore_map_section"              
             ]
         }
@@ -449,7 +448,6 @@ trackTests {
                 ordinal: 8,
                 header_title: "¡Pagá con QR en tus locales favoritos!",
                 items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
-                items_size: 3,
                 link: "mercadopago://discovery/map?from=home_instore_map_section"              
             ]
         }
