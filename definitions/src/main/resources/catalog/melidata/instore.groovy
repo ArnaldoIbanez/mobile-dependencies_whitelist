@@ -141,6 +141,10 @@ tracks {
         error(required: true, PropertyType.String, description: "error type", inheritable: false)
     }
 
+    "/instore/error/no_response_received"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/error/no_response_received/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/no_response_received/abort"(platform: "/mobile", type: TrackType.Event) {}
+
     // Permissions
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
