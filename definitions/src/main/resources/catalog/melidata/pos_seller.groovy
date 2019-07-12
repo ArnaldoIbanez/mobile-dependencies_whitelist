@@ -49,11 +49,11 @@
 
         "/pos_seller/point"(platform: "/mobile", isAbstract: true) {}
         
-        "/pos_seller/new_payment"(platform: "/mobile", type: TrackType.View) {}
+        "/pos_seller/new_payment"(platform: "/", type: TrackType.View) {}
 
-        "/pos_seller/chooser"(platform: "/mobile", type: TrackType.View) {}
+        "/pos_seller/chooser"(platform: "/", type: TrackType.View) {}
 
-        "/pos_seller/point/card_reader"(platform: "/mobile", type: TrackType.View) {}
+        "/pos_seller/point/card_reader"(platform: "/", type: TrackType.View) {}
 
         "/pos_seller/point/pairing"(platform: "/mobile", type: TrackType.View) {}
 
@@ -243,19 +243,10 @@
 
         // ----------- WEB -------------
 
-       /**
-        * pos seller web screen tracks
-        */
-        
-        "/pos_seller/new_payment"(platform: "/web", type: TrackType.View) {}
-
-        "/pos_seller/chooser"(platform: "/web", type: TrackType.View) {}
-
-        "/pos_seller/point/card_reader"(platform: "/web", type: TrackType.View) {}
-
         /**
         * pos seller web event tracks
         */
+        
         "/pos_seller/start"(platform: "/web", type: TrackType.Event) {
             paymentDataWeb
         }
