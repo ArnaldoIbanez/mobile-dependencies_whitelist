@@ -333,6 +333,8 @@ tracks {
         listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
         source(required: false, description: "Source of the referred")
+        from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
+        event_source(required: false, type: PropertyType.String, description: "source of the event")
     }
 
     "/vip/show_phone"(platform: "/", type: TrackType.Event) {
@@ -357,6 +359,16 @@ tracks {
 
     "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/vip/contact_whatsapp"(platform: "/web/mobile", type: TrackType.Event) {
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+        event_source(required: false, type: PropertyType.String, description: "source of the event")
+        from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
+        source(required: false, description: "Source of the referred")
+        contract_available(required: false, type: PropertyType.Boolean)
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        description_type(required: false, description: "Description type: plain text, html, both, none",
+            values: ["plain_text", "html", "both", "none"])
+    }
 
     "/vip/map/"(platform: "/mobile") {}
 

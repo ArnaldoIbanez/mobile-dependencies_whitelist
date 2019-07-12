@@ -130,18 +130,24 @@ trackTests {
             mandatory()
             listing_type_id = "GOLD"
             item_seller_type = "AB001"
+            from_view="vip"
+            event_source="description"
         })
 
         "/vip/call_seller"(platform:"/web/desktop", type: TrackType.Event, {
             mandatory()
             listing_type_id = "GOLD"
             item_seller_type = "AB001"
+            from_view="vip"
+            event_source="description"
         })
 
         "/vip/call_seller"(platform:"/web/mobile", type: TrackType.Event, {
             mandatory()
             listing_type_id = "GOLD"
             item_seller_type = "AB001"
+            from_view="vip"
+            event_source="description"
         })
 
         "/vip/show_phone"(platform: "/mobile", type: TrackType.Event, {
@@ -507,6 +513,23 @@ trackTests {
             defaultTrackInformation()
         }
 
+        "/vip/contact_whatsapp"(platform: "/web/mobile", type: TrackType.Event) {
+            defaultTrackInformation()
+            contract_available=false
+            comparator_available=false
+            gallery_pattern="XXXXXXXXXXX"
+            price_comparison_available=false
+            price_comparison_position=null
+            whatsapp_available=true
+            quote_demand_available=false
+            description_type="plain_text"
+            new_wording_free=true
+            item_seller_type="normal"
+            event_source="button"
+            from_view="vip"
+            source=""
+        }
+        
         "/vip/free_shipping_cart_available"(platform: "/web", type:TrackType.Event){
         }
 
