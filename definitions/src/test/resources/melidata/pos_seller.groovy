@@ -9,26 +9,11 @@
                         test("start views") {
 
 
-                            "/pos_seller/new_payment"(platform: "/mobile", type: TrackType.View) {
-                                flow_id =  "UUID1213"
-                                flow_origin = "shortcut"
-                                amount = "100"
-                                currency =  "ARS"
-                            }
+                            "/pos_seller/new_payment"(platform: "/", type: TrackType.View) {}
 
-                            "/pos_seller/chooser"(platform: "/mobile", type: TrackType.View) {
-                                flow_id =  "UUID1213"
-                                flow_origin = "shortcut"
-                                amount = "100"
-                                currency =  "ARS"
-                            }
+                            "/pos_seller/chooser"(platform: "/", type: TrackType.View) {}
 
-                            "/pos_seller/point/card_reader"(platform: "/mobile", type: TrackType.View) {
-                                flow_id =  "UUID1213"
-                                flow_origin = "shortcut"
-                                amount = "100"
-                                currency =  "ARS"
-                            }
+                            "/pos_seller/point/card_reader"(platform: "/", type: TrackType.View) {}
 
                             "/pos_seller/point/pairing"(platform: "/mobile", type: TrackType.View) {
                                 flow_id =  "UUID1213"
@@ -323,15 +308,6 @@
                     }
 
                     // WEB
-                    test("pos seller web views") {
-                        
-                        "/pos_seller/new_payment"(platform: "/web", type: TrackType.View) {}
-
-                        "/pos_seller/chooser"(platform: "/web", type: TrackType.View) {}
-
-                        "/pos_seller/point/card_reader"(platform: "/web", type: TrackType.View) {}
-                    }
-
                     test("pos seller web events") {
                         
                         "/pos_seller/start"(platform: "/web", type: TrackType.Event) {
