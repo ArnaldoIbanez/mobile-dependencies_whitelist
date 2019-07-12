@@ -427,6 +427,10 @@ tracks {
 "/cart/checkout/payment/curp/not_my_curp"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {}
 "/cart/checkout/payment/curp/view_authorization"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {}
 
+//Credits Review
+"/cart/checkout/review/credits_cover"(platform:"/", type: TrackType.Event) {}
+"/cart/checkout/review/credits_terms_and_conditions"(platform:"/", type: TrackType.Event) {}
+
 // ESC: Enter the Sec Code to generate an Encrypted Security Code
 "/cart/checkout/payment/encrypted_security_code_add"(platform:"/mobile", type: TrackType.View) {}
 

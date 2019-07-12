@@ -633,6 +633,10 @@ tracks {
     "/checkout/payment/curp/not_my_curp"(platform:"/", type: TrackType.Event) {}
     "/checkout/payment/curp/view_authorization"(platform:"/", type: TrackType.Event) {}
 
+    //Credits Review
+    "/checkout/review/credits_cover"(platform:"/", type: TrackType.Event) {}
+    "/checkout/review/credits_terms_and_conditions"(platform:"/", type: TrackType.Event) {}
+
     // ESC: Enter the Sec Code to generate an Encrypted Security Code
     "/checkout/payment/encrypted_security_code_add"(platform:"/mobile") {}
     "/checkout/payment/encrypted_security_code_add#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
