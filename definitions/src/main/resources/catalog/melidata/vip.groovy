@@ -146,6 +146,8 @@ tracks {
         contract_available(required: false, type: PropertyType.Boolean)
         gallery_dimension(required: false, type: PropertyType.String, values: ["wide", "square", "artsinfoto"],
                 description: "Indicates the gallery dimension format")
+        catalog_listing(required: true, type: PropertyType.Boolean, description: "Item's catalog listing")
+        catalog_domain(required: false, type: PropertyType.String, description: "Item's domain id")
     }
 
     "/vip"(platform: "/mobile") {
