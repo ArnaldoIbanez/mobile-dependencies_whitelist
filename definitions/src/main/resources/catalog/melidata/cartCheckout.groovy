@@ -423,7 +423,8 @@ tracks {
 "/cart/checkout/payments_cancelation"(platform: "/mobile", type: TrackType.View) {}
 
 // Step Curp Credits MLM
-"/cart/checkout/payment/curp"(platform:"/web", type: TrackType.View) {}
+"/cart/checkout/payment/curp"(platform:"/", type: TrackType.View) {}
+"/cart/checkout/payment/curp/not_my_curp"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
 
 // ESC: Enter the Sec Code to generate an Encrypted Security Code
 "/cart/checkout/payment/encrypted_security_code_add"(platform:"/mobile", type: TrackType.View) {}
