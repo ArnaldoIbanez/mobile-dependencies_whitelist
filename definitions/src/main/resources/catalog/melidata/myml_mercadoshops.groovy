@@ -64,7 +64,7 @@ tracks {
 
     "/mercado_shops/admin/welcome"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/admin/welcome/accept"(platform: "/", type: TrackType.Event){} 
+    "/mercado_shops/admin/welcome/accept"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/admin/welcome/cancel"(platform: "/", type: TrackType.Event){}
 
