@@ -234,7 +234,7 @@ tracks {
         cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
     }
 
-    "/wallet_home/home" (platform: "/mobile", type: TrackType.Event) {
+    "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
         header(required: true, type: PropertyType.String, description: "Contains the header text's home", inheritable: false)
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
@@ -246,7 +246,7 @@ tracks {
         qr_map(required: false, type: PropertyType.Map(qr_map_definition), description: "The qr_map section information")
     }
 
-    "/wallet_home/update" (platform: "/mobile", type: TrackType.Event) {
+    "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
         header(required: true, type: PropertyType.String, description: "Contains the header text's home", inheritable: false)
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")

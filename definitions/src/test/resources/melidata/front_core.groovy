@@ -272,7 +272,7 @@ trackTests {
     }
 
     test("Mercadopago Home Show") {
-        "/wallet_home/home" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
             header = "name"
             banking = [  
                 ordinal: 1,
@@ -363,7 +363,7 @@ trackTests {
     }
 
     test("Mercadopago Home Update") {
-        "/wallet_home/update" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
             header = "name"
             banking = [  
                 ordinal: 1,
