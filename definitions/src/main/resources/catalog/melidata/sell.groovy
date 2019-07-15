@@ -665,6 +665,9 @@ tracks {
     "/sell/hub"(platform: "/web", type: TrackType.View) {
         sellGroup
     }
+    "/sell/hub/select_vertical"(platform: "/web", type: TrackType.Event) {
+        vertical(required: true, description: "item vertical", values:["core", "motors", "real_state", "services"], type: PropertyType.String)
+    }
 
 
     "/sell/item_data"(platform: "/web", type: TrackType.View) {
@@ -686,6 +689,9 @@ tracks {
     "/sell/item_data/item_condition"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/item_condition/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/item_condition/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/variations"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/variations/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/variations/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/specifications"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/specifications/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/specifications/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -725,6 +731,15 @@ tracks {
     "/sell/item_conditions/calculator"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/calculator/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/calculator/hide"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/shipping"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/shipping/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/shipping/hide"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/localpickup"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/localpickup/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/localpickup/hide"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/payment_methods"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/payment_methods/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/payment_methods/hide"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/warranty"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/warranty/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/warranty/confirm"(platform: "/web", type: TrackType.Event) {}
