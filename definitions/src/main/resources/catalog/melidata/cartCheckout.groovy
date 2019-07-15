@@ -422,6 +422,7 @@ tracks {
 // 2MP Cancelation
 "/cart/checkout/payments_cancelation"(platform: "/mobile", type: TrackType.View) {}
 
+    
 // Step Curp Credits MLM
 "/cart/checkout/payment/curp"(platform:"/", type: TrackType.View) {}
 "/cart/checkout/payment/curp/not_my_curp"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {}
