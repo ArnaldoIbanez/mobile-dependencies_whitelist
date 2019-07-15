@@ -142,7 +142,7 @@ tracks {
     
     // Share MGM Web > Pageviews
     "/merchant_acquisition/flows"(platform:"/", isAbstract: true) {}
-    "/merchant_acquisition/flows/share_mgm"(platform:"/", isAbstract: true) {}
+    "/merchant_acquisition/flows/share_mgm"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/share_mgm/device"(platform:"/", isAbstract: true) {}
 
     // Share MGM Web > Events
