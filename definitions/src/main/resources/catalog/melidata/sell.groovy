@@ -733,13 +733,13 @@ tracks {
     "/sell/item_conditions/calculator/hide"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/shipping"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/shipping/show"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_conditions/shipping/hide"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/shipping/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/localpickup"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/localpickup/show"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_conditions/localpickup/hide"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/localpickup/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/payment_methods"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/payment_methods/show"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_conditions/payment_methods/hide"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/payment_methods/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/warranty"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/warranty/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/warranty/confirm"(platform: "/web", type: TrackType.Event) {}
