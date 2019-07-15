@@ -454,7 +454,10 @@ trackTests {
         }
     }
 
-    test("Native Sell Modify Steps"){
+    test("Native Sell Modify Steps") {
+        "/sell/update/attribute"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA123456"
+        }
         "/sell/update/sip"(platform: "/mobile") {
             item_id = "MLA123456"
             has_selected_pictures = false
@@ -584,7 +587,6 @@ trackTests {
         "/sell/update/variations_pi"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/statistics"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/free_shipping"(platform: "/mobile") {item_id = "MLA123456"}
-
     }
 
     test("Modal attributes pseudo obligatory - List"){
