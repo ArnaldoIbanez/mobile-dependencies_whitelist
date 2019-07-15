@@ -160,7 +160,6 @@ tracks {
     }
 
     //BULK SECTION
-
     "/seller_central/bulk"(platform: "/", isAbstract: true) {}
     "/seller_central/bulk/list"(platform: "/", type: TrackType.View) {}
 
