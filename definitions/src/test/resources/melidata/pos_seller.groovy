@@ -9,26 +9,11 @@
                         test("start views") {
 
 
-                            "/pos_seller/new_payment"(platform: "/mobile", type: TrackType.View) {
-                                flow_id =  "UUID1213"
-                                flow_origin = "shortcut"
-                                amount = "100"
-                                currency =  "ARS"
-                            }
+                            "/pos_seller/new_payment"(platform: "/", type: TrackType.View) {}
 
-                            "/pos_seller/chooser"(platform: "/mobile", type: TrackType.View) {
-                                flow_id =  "UUID1213"
-                                flow_origin = "shortcut"
-                                amount = "100"
-                                currency =  "ARS"
-                            }
+                            "/pos_seller/chooser"(platform: "/", type: TrackType.View) {}
 
-                            "/pos_seller/point/card_reader"(platform: "/mobile", type: TrackType.View) {
-                                flow_id =  "UUID1213"
-                                flow_origin = "shortcut"
-                                amount = "100"
-                                currency =  "ARS"
-                            }
+                            "/pos_seller/point/card_reader"(platform: "/", type: TrackType.View) {}
 
                             "/pos_seller/point/pairing"(platform: "/mobile", type: TrackType.View) {
                                 flow_id =  "UUID1213"
@@ -320,6 +305,64 @@
                          extra_info = [ flow_origin: "shortcut", mode: "cart", payment_channel: "point", amount: 2.0 ,currency:"ARS",error_type: "card_reader", payment_method_type: "credit_card", 
                                         poi_id: "CHB123456789012-LE", description: "venta presencial"]
                         }
+                    }
+
+                    // WEB
+                    test("pos seller web events") {
+                        
+                        "/pos_seller/start"(platform: "/web", type: TrackType.Event) {
+                            flow_id= "UUID"
+                            amount= 2.00
+                            items= 1
+                            mode= "amount"
+                            payment_channel= "point"
+                            currency =  "ARS"
+                            store= "13040339"
+                            pos= "13040340"
+                        }
+
+                        "/pos_seller/point/waiting_for_card"(platform: "/web", type: TrackType.Event) {
+                            flow_id= "UUID"
+                            amount= 2.00
+                            items= 1
+                            mode= "amount"
+                            payment_channel= "point"
+                            currency =  "ARS"
+                            store= "13040339"
+                            pos= "13040340"
+                            payment_method_type= "credit_card"
+                            installments= 3
+                        }
+
+                        "/pos_seller/point/end"(platform: "/web", type: TrackType.Event) {
+                            flow_id= "UUID"
+                            amount= 2.00
+                            items= 1
+                            mode= "amount"
+                            payment_channel= "point"
+                            currency =  "ARS"
+                            store= "13040339"
+                            pos= "13040340"
+                            payment_method_type= "credit_card"
+                            installments= 3
+                        }
+
+                        "/pos_seller/friction/card_reader"(platform: "/web", type: TrackType.Event) {
+                            context = "/pos_seller/point/card_reader"
+                            message = [ style: "screen", title: "Titulo", content: "Mensaje de error", primary_button: "Iniciar un nuevo cobro", secondary_button: "Volver" ]
+                            extra_info = [ 
+                                flow_id: "UUID",
+                                amount: 2.00,
+                                items: 1,
+                                mode: "amount",
+                                payment_channel: "point",
+                                currency:  "ARS",
+                                store: "13040339",
+                                pos: "13040340",
+                                payment_method_type: "credit_card",
+                                installments: 3, 
+                                error_type: "card_reader"]
+                            }
                     }
 
 } 
