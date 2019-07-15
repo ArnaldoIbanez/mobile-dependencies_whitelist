@@ -163,4 +163,6 @@ tracks {
     "/remedies/camera/capture_image"(platform: "/web", type: TrackType.Event) {
         is_landscape(type: PropertyType.Boolean, required: true, description: "Indicates if the picture was taken on landscape mode")
     }
+    "/remedies/camera/pick_from_gallery"(platform: "/web", type: TrackType.Event) {}
+    "/remedies/camera/unavailable"(platform: "/web", type: TrackType.Event) {}
 }
