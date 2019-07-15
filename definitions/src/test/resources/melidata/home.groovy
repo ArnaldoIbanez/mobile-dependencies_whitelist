@@ -27,6 +27,8 @@ trackTests {
         "/home/category/real_estate/bookmarks"(platform: "/", type: TrackType.View, dataSet)
         "/home/category/real_estate/bookmarks/recommendation"(platform: "/", type: TrackType.View, dataSet)
         "/home/category/real_estate/help"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/tyc"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/about"(platform: "/", type: TrackType.View, dataSet)
         "/home/category/real_estate/pricing"(platform: "/", type: TrackType.View, dataSet)
         "/home/category/real_estate/pricing/fsbo"(platform: "/", type: TrackType.View, dataSet)
         "/home/category/real_estate/pricing/professional"(platform: "/", type: TrackType.View, dataSet)
@@ -37,7 +39,12 @@ trackTests {
         "/home/category/real_estate/development/recommendation"(platform: "/", type: TrackType.View, dataSet)
         "/home/category/real_estate/navigation"(platform: "/", type: TrackType.View, dataSet)
         "/home/category/real_estate/navigation/recommendation"(platform: "/", type: TrackType.View, dataSet)
-        "/home/category/real_estate/landing"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/map"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/landing"(platform: "/"){
+            id = 'absal'
+            category_id = 'MLC1459'
+            category_path = ['MLC1459']
+        }
     }
 
     test("Home core tracking") {

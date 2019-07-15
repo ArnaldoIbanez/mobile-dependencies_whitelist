@@ -104,6 +104,10 @@ tracks {
 
     "/home/category/real_estate/help"(platform: "/", type: TrackType.View) {}
 
+    "/home/category/real_estate/tyc"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/about"(platform: "/", type: TrackType.View) {}
+
     "/home/category/real_estate/pricing"(platform: "/", type: TrackType.View) {}
 
     "/home/category/real_estate/pricing/fsbo"(platform: "/", type: TrackType.View) {}
@@ -120,11 +124,15 @@ tracks {
 
     "/home/category/real_estate/development/recommendation"(platform: "/", type: TrackType.View) {}
 
-    "/home/category/real_estate/landing"(platform: "/", type: TrackType.View) {}
+    "/home/category/real_estate/landing"(platform: "/", type: TrackType.View){
+       id(required: true, type:PropertyType.String, description: "Landing's id" )
+    }
 
     "/home/category/real_estate/navigation"(platform: "/", type: TrackType.View) {}
 
     "/home/category/real_estate/navigation/recommendation"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/map"(platform: "/", type: TrackType.View) {}
 
     // Apparel
     "/home/category/apparel"(platform: "/", isAbstract: true) {
