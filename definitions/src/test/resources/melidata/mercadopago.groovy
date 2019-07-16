@@ -548,6 +548,7 @@ trackTests {
 
     test("Share MGM Web") {
         "/merchant_acquisition/flows/share_mgm"(platform:"/", type: TrackType.View) {}
+
         "/merchant_acquisition/flows/share_mgm/about_share"(platform:"/", type: TrackType.Event) {}
 
         "/merchant_acquisition/flows/share_mgm/share_device_button"(platform:"/", type: TrackType.Event) {
@@ -562,6 +563,8 @@ trackTests {
           media = "whastapp"
           product = "point-h"
         }
+
+        "/merchant_acquisition/flows/share_mgm/device/invite/send_email"(platform: "/", type: TrackType.Event) {}
 
         "/merchant_acquisition/flows/share_mgm/banner"(platform:"/", type: TrackType.Event) {
           name = "Kit promotional"
