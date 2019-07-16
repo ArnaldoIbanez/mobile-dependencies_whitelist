@@ -162,6 +162,8 @@ tracks {
 
     "/myml/purchases/status/buy_it_again"(platform:"/mobile", type: TrackType.Event) {
         item_id(required: true,type: PropertyType.String, description: "Item id")
+        buy_it_again_experiment(required: true,type: PropertyType.String, description: "Is the user in the experiment")
+        buy_it_again_lead_checkout(required: true,type: PropertyType.String, description: "Is the button going to redirect to checkout")
     }
 
     "/myml"(platform: "/", isAbstract: true) {}
