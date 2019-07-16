@@ -160,6 +160,14 @@ trackTests {
         }
     }
 
+    test("seller central listing quantity +info") {
+        "/seller_central/listings/quantity/info"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("seller central listing inventory moderation remedy") {
+        "/seller_central/listings/inventory_status/remedy"(platform: "/", type: TrackType.Event) {}
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central Bulk
     //------------------------------------------------------------------------------------------------------------------------------------------------------
