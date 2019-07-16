@@ -149,6 +149,7 @@
                                 is_fallback = true
                                 has_chip = false
                                 request_signature = true
+                                payment_id = "123456123456"
                             }
 
                         }
