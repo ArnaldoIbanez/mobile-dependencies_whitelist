@@ -80,6 +80,8 @@ tracks {
     //LISTING SECTION
     "/seller_central"(platform: "/", isAbstract: true) {}
     "/seller_central/listings"(platform: "/", isAbstract: true) {}
+    "/seller_central/listings/quantity"(platform: "/", isAbstract: true) {}
+    "/seller_central/listings/inventory_status"(platform: "/", isAbstract: true) {}
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
       view_id(required:false, type: PropertyType.String, descritpion: "View that has been called")
     }
@@ -143,6 +145,15 @@ tracks {
 
     "/seller_central/listings/preferences"(platform: "/", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "Preference id", values:["shipping", "advertising"])
+    }
+
+    "/seller_central/listings/quantity/info"(platform: "/", type: TrackType.Event) {
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
+    }
+
+    "/seller_central/listings/inventory_status/remedy"(platform: "/", type: TrackType.Event) {
+        id(required:true, type: PropertyType.String, descritpion: "Id of the remedy applied to solve moderation")
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
     //LISTING SECTION - TABS
