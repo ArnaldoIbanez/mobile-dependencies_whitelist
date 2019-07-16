@@ -24,7 +24,8 @@
             discount(required: false, type: PropertyType.Numeric, description: "payment discount")
             discount_type(required: false, type: PropertyType.String,description: "discount type", values:["percentage","amount" ])
             items(required: false, type: PropertyType.Numeric, description: "number of items in the cart")
-          
+            store(required: false, type: PropertyType.String, description: "store/branch name")
+            pos(required: false, type: PropertyType.String, description: "cashier name")
         }
 
 
@@ -69,6 +70,7 @@
 
         "/pos_seller/onboarding"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false) {
             payment_channel(required: true, type: PropertyType.String, description: "payment channel selected by the user", values: ["qr","point","share_social","cash","chooser"])
+            flow_id (required: false, type: PropertyType.String, description: "Flow id.")
         }
 
        "/pos_seller/onboarding/pricing"(platform: "/mobile", type: TrackType.View) {}
