@@ -149,19 +149,23 @@ tracks {
     "/merchant_acquisition/flows/share_mgm/device"(platform:"/", isAbstract: true) {}
 
     // Share MGM Web > Events
-    "/merchant_acquisition/flows/share_mgm/device/email"(platform: "/", type: TrackType.Event) {}
-    "/merchant_acquisition/flows/share_mgm/device/send_email"(platform: "/", type: TrackType.Event) {}
     "/merchant_acquisition/flows/share_mgm/about_share"(platform:"/", type: TrackType.Event) {}
+
     "/merchant_acquisition/flows/share_mgm/share_device_button"(platform:"/", type: TrackType.Event) {
       product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
     }
+
     "/merchant_acquisition/flows/share_mgm/more_info_device"(platform:"/", type: TrackType.Event) {
       product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
     }
+
     "/merchant_acquisition/flows/share_mgm/device/invite"(platform: "/", type: TrackType.Event) {
       media (type: PropertyType.String, required: true, description: "In which channel did the user shared the coupon (ex: Whatsapp)")
       product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
     }
+
+    "/merchant_acquisition/flows/share_mgm/device/invite/send_email"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {}
+
     "/merchant_acquisition/flows/share_mgm/banner"(platform: "/", type: TrackType.Event) {
       name (type: PropertyType.String, required: false, description: "Name of banner (ex: Kit promotional)")
     }
