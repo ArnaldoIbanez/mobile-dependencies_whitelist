@@ -17,7 +17,7 @@ tracks {
         installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
         item_condition(required: false, type: PropertyType.String, description: "")
         sold_quantity(required: false, type: PropertyType.Numeric, description: "")
-        shipping_conditions(required: false, type: PropertyType.String, values: ["no_shipping", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
+        shipping_conditions(required: false, type: PropertyType.String, values: ["no_me", "me_non_free", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
                 description: "Shipping conditions for product")
 
         //BRACH_OFFICE CONDITIONS
@@ -56,7 +56,7 @@ tracks {
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
 
         //SHIPPING CONDITIONS
-        shipping_conditions(required: true, type: PropertyType.String, values: ["no_shipping", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
+        shipping_conditions(required: true, type: PropertyType.String, values: ["no_me", "me_non_free", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
                 description: "Shipping conditions for product")
 
         //BRACH_OFFICE CONDITIONS
