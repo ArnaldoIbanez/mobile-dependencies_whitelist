@@ -144,18 +144,18 @@ tracks {
     "/merchant_acquisition/flows/resellers/after_sales"(platform:"/", type: TrackType.View) {}
     
     // Share MGM Web > Pageviews
-    "/merchant_acquisition/flows"(platform:"/", isAbstract: true) {}
-    "/merchant_acquisition/flows/share_mgm"(platform:"/", type: TrackType.View) {}
-    "/merchant_acquisition/flows/share_mgm/device"(platform:"/", isAbstract: true) {}
+    "/merchant_acquisition/flows"(platform: "/", isAbstract: true) {}
+    "/merchant_acquisition/flows/share_mgm"(platform: "/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/share_mgm/device"(platform: "/", isAbstract: true) {}
 
     // Share MGM Web > Events
-    "/merchant_acquisition/flows/share_mgm/about_share"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/share_mgm/about_share"(platform: "/", type: TrackType.Event) {}
 
-    "/merchant_acquisition/flows/share_mgm/share_device_button"(platform:"/", type: TrackType.Event) {
+    "/merchant_acquisition/flows/share_mgm/share_device_button"(platform: "/", type: TrackType.Event) {
       product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
     }
 
-    "/merchant_acquisition/flows/share_mgm/more_info_device"(platform:"/", type: TrackType.Event) {
+    "/merchant_acquisition/flows/share_mgm/more_info_device"(platform: "/", type: TrackType.Event) {
       product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
     }
 
@@ -167,7 +167,7 @@ tracks {
     "/merchant_acquisition/flows/share_mgm/device/invite/send_email"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {}
 
     "/merchant_acquisition/flows/share_mgm/banner"(platform: "/", type: TrackType.Event) {
-      name (type: PropertyType.String, required: false, description: "Name of banner (ex: Kit promotional)")
+      banner_name (type: PropertyType.String, required: true, description: "Name of banner (ex: Kit promotional)")
     }
 
     // Associar Point - Micrositio - reseller

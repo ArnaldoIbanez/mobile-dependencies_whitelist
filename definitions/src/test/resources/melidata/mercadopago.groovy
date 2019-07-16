@@ -567,7 +567,7 @@ trackTests {
         "/merchant_acquisition/flows/share_mgm/device/invite/send_email"(platform: "/", type: TrackType.Event) {}
 
         "/merchant_acquisition/flows/share_mgm/banner"(platform:"/", type: TrackType.Event) {
-          name = "Kit promotional"
+          banner_name = "Kit promotional"
         }
     }
 
