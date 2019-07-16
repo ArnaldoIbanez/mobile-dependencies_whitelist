@@ -165,7 +165,9 @@ trackTests {
     }
 
     test("seller central listing inventory moderation remedy") {
-        "/seller_central/listings/inventory_status/remedy"(platform: "/", type: TrackType.Event) {}
+        "/seller_central/listings/inventory_status/remedy"(platform: "/", type: TrackType.Event) {
+            id = "reactivate"
+        }
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------

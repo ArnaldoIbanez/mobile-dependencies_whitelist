@@ -152,7 +152,7 @@ tracks {
     }
 
     "/seller_central/listings/inventory_status/remedy"(platform: "/", type: TrackType.Event) {
-        id(required:false, type: PropertyType.String, descritpion: "Id of the remedy applied to solve moderation")
+        id(required:true, type: PropertyType.String, descritpion: "Id of the remedy applied to solve moderation")
         view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
