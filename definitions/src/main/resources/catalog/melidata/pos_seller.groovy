@@ -24,7 +24,8 @@
             discount(required: false, type: PropertyType.Numeric, description: "payment discount")
             discount_type(required: false, type: PropertyType.String,description: "discount type", values:["percentage","amount" ])
             items(required: false, type: PropertyType.Numeric, description: "number of items in the cart")
-          
+            store(required: false, type: PropertyType.String, description: "store/branch name")
+            pos(required: false, type: PropertyType.String, description: "cashier name")
         }
 
 
@@ -69,6 +70,7 @@
 
         "/pos_seller/onboarding"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false) {
             payment_channel(required: true, type: PropertyType.String, description: "payment channel selected by the user", values: ["qr","point","share_social","cash","chooser"])
+            flow_id (required: false, type: PropertyType.String, description: "Flow id.")
         }
 
        "/pos_seller/onboarding/pricing"(platform: "/mobile", type: TrackType.View) {}
@@ -87,6 +89,7 @@
         "/pos_seller/end"(platform: "/mobile", type: TrackType.Event) {
             cardData
             payment_method_id(required: true, type: PropertyType.String, description: "payment method id")
+            payment_id(required: true, type: PropertyType.String, description: "payment id")
         }
 
         // device pairing
@@ -200,6 +203,7 @@
             is_fallback(required: false, type: PropertyType.Boolean,description: "is a payment through fallback")
             has_chip(required: false, type: PropertyType.Boolean, description: "It is a payment by chip")
             request_signature(required: false, type: PropertyType.Boolean, description: "Is the signature necessary")
+            payment_id(required: false, type: PropertyType.String, description: "payment id")
             error_message(PropertyType.String, required: false)
         }
 
