@@ -80,7 +80,11 @@ tracks {
     //LISTING SECTION
     "/seller_central"(platform: "/", isAbstract: true) {}
     "/seller_central/listings"(platform: "/", isAbstract: true) {}
-    "/seller_central/listings/list"(platform: "/", type: TrackType.View) {}
+    "/seller_central/listings/quantity"(platform: "/", isAbstract: true) {}
+    "/seller_central/listings/inventory_status"(platform: "/", isAbstract: true) {}
+    "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
+      view_id(required:false, type: PropertyType.String, descritpion: "View that has been called")
+    }
 
     "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}
 
@@ -100,18 +104,21 @@ tracks {
         type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
         id(required: false, type: PropertyType.String, description: "Id of the communication ")
         action(required:false, type: PropertyType.String, description: "The action used in the communication if applies")
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
         placement(required: true, description: "Place where track was dispatched")
         adv_segmentation(required: false, description: "Adevrtasement segmentation ")
         reputation_level(required: false, description: "Reputation for Pads")
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
         placement(required: true, description: "Place where track was dispatched")
         adv_segmentation(required: false, description: "Adevrtasement segmentation ")
         reputation_level(required: false, description: "Reputation for Pads")
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/more_info"(platform: "/mobile", type: TrackType.Event) {}
@@ -124,16 +131,29 @@ tracks {
 
     "/seller_central/listings/filters/action"(platform: "/") {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["apply", "clear"])
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
-    "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
+    }
 
     "/seller_central/listings/action"(platform: "/", type: TrackType.Event) {
         action_id(required: true, type: PropertyType.String, description: "Action id")
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
     "/seller_central/listings/preferences"(platform: "/", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "Preference id", values:["shipping", "advertising"])
+    }
+
+    "/seller_central/listings/quantity/info"(platform: "/", type: TrackType.Event) {
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
+    }
+
+    "/seller_central/listings/inventory_status/remedy"(platform: "/", type: TrackType.Event) {
+        id(required:true, type: PropertyType.String, descritpion: "Id of the remedy applied to solve moderation")
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
     //LISTING SECTION - TABS
@@ -141,17 +161,16 @@ tracks {
 
     //LISTING - Item Description
     "/seller_central/listings/list/item_description"(platform: "/", type: TrackType.Event) {}
-    
-    //    //LISTING - Item Description
     "/seller_central/listings/list/health"(platform: "/", type: TrackType.Event) {
         health_id(required: true, type: PropertyType.String, description: "Health id")
     }
 
     //LISTING - Secondary Actions Click
-    "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
+    }
 
     //BULK SECTION
-
     "/seller_central/bulk"(platform: "/", isAbstract: true) {}
     "/seller_central/bulk/list"(platform: "/", type: TrackType.View) {}
 

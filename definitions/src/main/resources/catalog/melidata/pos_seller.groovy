@@ -49,11 +49,11 @@
 
         "/pos_seller/point"(platform: "/mobile", isAbstract: true) {}
         
-        "/pos_seller/new_payment"(platform: "/mobile", type: TrackType.View) {}
+        "/pos_seller/new_payment"(platform: "/", type: TrackType.View) {}
 
-        "/pos_seller/chooser"(platform: "/mobile", type: TrackType.View) {}
+        "/pos_seller/chooser"(platform: "/", type: TrackType.View) {}
 
-        "/pos_seller/point/card_reader"(platform: "/mobile", type: TrackType.View) {}
+        "/pos_seller/point/card_reader"(platform: "/", type: TrackType.View) {}
 
         "/pos_seller/point/pairing"(platform: "/mobile", type: TrackType.View) {}
 
@@ -151,6 +151,7 @@
 
        propertyDefinitions {
           flow_origin(required: true, type: PropertyType.String, description: "flow origin",values: ["shortcut", "menu"])
+          flow_id (required: true, type: PropertyType.String, description: "Flow id.")
           payment_method_type(required: false, type: PropertyType.String, description: "card type",values: ["credit_card", "debit_card"])
           mode(required: true, false: PropertyType.String, description: "flow origin",values: ["cart", "amount"])
           payment_channel(required: true, type: PropertyType.String , description:  "payment channel selected by the user",values:["qr","point","share_social","cash","chooser"])
@@ -162,13 +163,15 @@
           discount_type(required: false, type: PropertyType.String,description: "discount type", values:["percentage","amount" ])
           items(required: false, type: PropertyType.Numeric, description: "number of items in the cart")
           payment_method_id(required: false, type: PropertyType.String, description: "payment method id")
+          store(required: true, type: PropertyType.String, description: "store id")
+          pos(required: true, type: PropertyType.String, description: "pos id")
         }
  
         propertyGroups {
         paymentData(flow_origin, payment_method_type, mode,payment_channel,amount,currency,installments,description,discount,discount_type,items,payment_method_id)
+        paymentDataWeb(flow_id, amount, items, mode, payment_channel, currency, store, pos, installments, payment_method_type)
         }
 
-   
         def PosSellerStartFrictionExtraInfo = objectSchemaDefinitions {
             flow_origin(required: true, type: PropertyType.String, description: "flow origin",values: ["shortcut", "menu"])
             paymentData
@@ -198,6 +201,11 @@
             has_chip(required: false, type: PropertyType.Boolean, description: "It is a payment by chip")
             request_signature(required: false, type: PropertyType.Boolean, description: "Is the signature necessary")
             error_message(PropertyType.String, required: false)
+        }
+
+        def PosSellerCardFrictionExtraInfoWeb = objectSchemaDefinitions {
+            error_type(PropertyType.String, required: true)
+            paymentDataWeb
         }
 
         "/pos_seller/friction"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
@@ -232,6 +240,25 @@
            extra_info (required: true, type: PropertyType.Map(PosSellerCardFrictionExtraInfo), description: "Friction extra data map") 
         }
 
-       
-      
+
+        // ----------- WEB -------------
+
+        /**
+        * pos seller web event tracks
+        */
+        
+        "/pos_seller/start"(platform: "/web", type: TrackType.Event) {
+            paymentDataWeb
+        }
+        "/pos_seller/point/waiting_for_card"(platform: "/web", type: TrackType.Event) {
+            paymentDataWeb
+        }
+        "/pos_seller/point/end"(platform: "/web", type: TrackType.Event) {
+            paymentDataWeb
+        }
+        "/pos_seller/friction/card_reader"(platform: "/web", type: TrackType.Event) {
+            context (required: true, type: PropertyType.String, description: "Friction context")
+            message (required: true, type: PropertyType.Map(PosSellerFrictionMessage), description: "Message shown map")
+            extra_info (required: true, type: PropertyType.Map(PosSellerCardFrictionExtraInfoWeb), description: "Friction extra data map")
+        }
 }

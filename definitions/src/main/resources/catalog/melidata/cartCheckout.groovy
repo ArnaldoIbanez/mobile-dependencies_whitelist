@@ -3,8 +3,6 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 tracks {
@@ -422,9 +420,15 @@ tracks {
 // 2MP Cancelation
 "/cart/checkout/payments_cancelation"(platform: "/mobile", type: TrackType.View) {}
 
+    
 // Step Curp Credits MLM
 "/cart/checkout/payment/curp"(platform:"/", type: TrackType.View) {}
-"/cart/checkout/payment/curp/not_my_curp"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+"/cart/checkout/payment/curp/not_my_curp"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {}
+"/cart/checkout/payment/curp/view_authorization"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {}
+
+//Credits Review
+"/cart/checkout/review/credits_cover"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {}
+"/cart/checkout/review/credits_terms_and_conditions"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {}
 
 // ESC: Enter the Sec Code to generate an Encrypted Security Code
 "/cart/checkout/payment/encrypted_security_code_add"(platform:"/mobile", type: TrackType.View) {}

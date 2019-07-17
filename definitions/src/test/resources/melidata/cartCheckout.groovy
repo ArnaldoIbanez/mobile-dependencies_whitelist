@@ -461,8 +461,12 @@ trackTests {
 
         "/cart/checkout/finish/choose_action"(platform: "/", dataSet)
          // Step Curp Credits MLM
-        "/cart/checkout/payment/curp/not_my_curp"(platform: "/mobile", type: TrackType.Event) {}
-
+        "/cart/checkout/payment/curp/not_my_curp"(platform: "/", type: TrackType.Event) {}
+        "/cart/checkout/payment/curp/view_authorization"(platform: "/", type: TrackType.Event) {}
+        
+        //Credits Review
+        "/cart/checkout/review/credits_cover"(platform:"/", type: TrackType.Event) {}
+        "/cart/checkout/review/credits_terms_and_conditions"(platform:"/", type: TrackType.Event) {}
     }
 
 
