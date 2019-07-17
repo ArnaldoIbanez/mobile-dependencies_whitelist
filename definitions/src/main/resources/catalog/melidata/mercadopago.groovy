@@ -821,7 +821,7 @@ tracks {
     }
     "/tfs_dashboard/compare"(platform: "/", type: TrackType.View) {}
     "/tfs_dashboard/filters"(platform: "/", type: TrackType.View) {}
-
+ 
     // Events for dashboard section
     "/tfs_dashboard/tab_selection"(platform: "/", type: TrackType.Event) {
         section (required: true, type: PropertyType.String, description: "The selected section")
