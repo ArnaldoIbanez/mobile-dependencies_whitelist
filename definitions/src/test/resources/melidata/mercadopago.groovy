@@ -2181,6 +2181,7 @@ trackTests {
         "/tfs_dashboard/home/general"(platform: "/", type: TrackType.View){}
         "/tfs_dashboard/home/online"(platform: "/", type: TrackType.View){}
         "/tfs_dashboard/home/offline"(platform: "/", type: TrackType.View){}
+        "/tfs_dashboard/home/meli"(platform: "/", type: TrackType.View){}
         "/tfs_dashboard/detail"(platform: "/", type: TrackType.View){
             chart_id="tpv"
             section="online"
