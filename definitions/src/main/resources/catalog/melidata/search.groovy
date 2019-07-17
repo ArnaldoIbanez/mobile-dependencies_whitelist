@@ -74,7 +74,7 @@ tracks {
         is_googlebot(required: false, description: 'is google bot request', PropertyType.Boolean)
         pdp_rows(required: true, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
         carousel_filters(required: true, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
-        pdp_tracking_info(required: false, description: 'pdp products info', PropertyType.Map)
+        pdp_tracking_info(required: false, description: 'pdp products info', PropertyType.Map(PropertyType.String, PropertyType.String))
     }
 
     "/search"(platform: "/mobile") {
