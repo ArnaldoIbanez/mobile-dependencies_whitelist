@@ -147,6 +147,7 @@ catalog {
 
     mercadopago.each { business ->
         include business, "activities.groovy"
+        include business, "mpfrontcore.groovy"
         include business, "account_fund.groovy"
         include business, "bulk_payments.groovy"
         include business, "mercadopago.groovy"
