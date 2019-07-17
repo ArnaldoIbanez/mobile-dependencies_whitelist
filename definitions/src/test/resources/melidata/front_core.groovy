@@ -452,4 +452,15 @@ trackTests {
             ]
         }
     }
+
+    //Notification Center
+    test("Mercadopago Home Notification Center Show") {
+        "/wallet_home/notification/show" (platform: "/mobile", type: TrackType.View) {}
+    }
+
+        test("Mercadopago Home Notification Center Tap") {
+        "/wallet_home/notification/tap" (platform: "/mobile", type: TrackType.Event) {
+            badge_count = 2
+        }
+    }
 }

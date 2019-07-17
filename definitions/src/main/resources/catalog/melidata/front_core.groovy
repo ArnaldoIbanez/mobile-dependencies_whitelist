@@ -257,4 +257,14 @@ tracks {
         activities(required: false, type: PropertyType.Map(activities_definition), description: "The activities section information")
         qr_map(required: false, type: PropertyType.Map(qr_map_definition), description: "The qr_map section information")
     }
+
+    //Notification Center
+    "/wallet_home/notification" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet_home/notification/show" (platform: "/mobile", type: TrackType.View) {}
+
+    "/wallet_home/notification/tap" (platform: "/mobile", type: TrackType.Event) {
+        badge_count(required: true, type: PropertyType.Numeric, description: "The amount of notifications that is been showed in the notification label icon")
+    }
+
 }
