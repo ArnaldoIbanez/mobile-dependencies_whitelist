@@ -146,7 +146,7 @@ tracks {
         contract_available(required: false, type: PropertyType.Boolean)
         gallery_dimension(required: false, type: PropertyType.String, values: ["wide", "square", "artsinfoto"],
                 description: "Indicates the gallery dimension format")
-        catalog_listing(required: true, inheritable: false, type: PropertyType.Boolean, description: "Item's catalog listing")
+        catalog_listing(required: false, type: PropertyType.Boolean, description: "Item's catalog listing")
         domain_id(required: false, type: PropertyType.String, description: "Item's domain id")
     }
 
