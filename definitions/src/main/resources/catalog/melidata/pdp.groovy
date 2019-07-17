@@ -322,4 +322,5 @@ tracks {
         picker_id(required: true, type: PropertyType.String, description: "Product's picker ID")
         picker_disabled(required: false, type: PropertyType.Boolean, description: "Indicates if the selected picker is disabled")
     }
+    
 }
