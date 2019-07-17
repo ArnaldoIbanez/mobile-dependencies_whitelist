@@ -668,6 +668,15 @@ trackTests {
             session_id = "123-update-abc123"
         }
     }
+    test("SYI v4 hub vertical selection"){
+        "/sell/hub/select_vertical"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+        }
+    }
     test("SYI v4 render item_data"){
         "/sell/item_data"(platform: "/web", type: TrackType.View){
             category_id = "MLA390784"
@@ -758,6 +767,22 @@ trackTests {
     }
     test("SYI v4 item condition card confirmed"){
         "/sell/item_data/item_condition/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 item variations card showed"){
+        "/sell/item_data/variations/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 item variations card confirmed"){
+        "/sell/item_data/variations/confirm"(platform: "/web", type: TrackType.Event){
             category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
@@ -896,6 +921,54 @@ trackTests {
             session_id = "123-update-abc123"
         }
     }
+    test("SYI v4 shipping card showed"){
+        "/sell/item_conditions/shipping/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 shipping card confirmed"){
+        "/sell/item_conditions/shipping/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 localpickup card showed"){
+        "/sell/item_conditions/localpickup/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 localpickup card confirmed"){
+        "/sell/item_conditions/localpickup/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 payment_methods card showed"){
+        "/sell/item_conditions/payment_methods/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 payment_methods card confirmed"){
+        "/sell/item_conditions/payment_methods/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
     test("SYI v4 warranty card showed"){
         "/sell/item_conditions/warranty/show"(platform: "/web", type: TrackType.Event){
             category_id = "MLA390784"
@@ -985,6 +1058,7 @@ trackTests {
             session_id = "123-update-abc123"
         }
     }
+
     test("SYI v4 render sip"){
         "/sell/sip"(platform: "/web", type: TrackType.View){
             category_id = "MLA390784"
@@ -993,6 +1067,7 @@ trackTests {
             session_id = "123-update-abc123"
         }
     }
+
     test("SYI v4 calculator showed"){
         "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event){
             category_id = "MLA390784"
