@@ -7,6 +7,7 @@ tracks {
 
     propertyDefinitions {
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
         seller_profile(required: true, type: PropertyType.String, description: "Type of seller")
         seller_segment(required: true, type: PropertyType.String, description: "Seller segment by GMV")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
