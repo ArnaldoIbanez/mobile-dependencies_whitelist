@@ -814,13 +814,14 @@ tracks {
     "/tfs_dashboard/home/general"(platform: "/", type: TrackType.View) {}
     "/tfs_dashboard/home/offline"(platform: "/", type: TrackType.View) {}
     "/tfs_dashboard/home/online"(platform: "/", type: TrackType.View) {}
+    "/tfs_dashboard/home/meli"(platform: "/", type: TrackType.View) {}
     "/tfs_dashboard/detail"(platform: "/", type: TrackType.View) {
         chart_id (required: true, type: PropertyType.String, description: "The chart ID of the detail")
         section (required: true, type: PropertyType.String, description: "The section owner of the chart")
     }
     "/tfs_dashboard/compare"(platform: "/", type: TrackType.View) {}
     "/tfs_dashboard/filters"(platform: "/", type: TrackType.View) {}
-
+ 
     // Events for dashboard section
     "/tfs_dashboard/tab_selection"(platform: "/", type: TrackType.Event) {
         section (required: true, type: PropertyType.String, description: "The selected section")
