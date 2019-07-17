@@ -28,8 +28,4 @@ tracks {
 
     // MP Activities Export
     "/activities/export"(platform: "/web", type: TrackType.View) {}
-
-    /*************************
-    *        LANDINGS        *
-    *************************/
 }
