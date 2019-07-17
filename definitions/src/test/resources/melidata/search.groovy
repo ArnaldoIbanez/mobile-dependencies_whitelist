@@ -111,6 +111,12 @@ trackTests {
                     ]
             ]
             carousel_filters = []
+            pdp_tracking_info = [
+                    "MLA1234": "shown",
+                    "MLA12345": "no_winner",
+                    "MLA123456": "inactive",
+                    "MLA1234567": "low_score"
+            ]
         }
 
         "/search"(platform: "/web"){
