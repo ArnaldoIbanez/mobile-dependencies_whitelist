@@ -1066,6 +1066,7 @@ trackTests {
             session_id = "123-update-abc123"
         }
     }
+
     test("SYI v4 calculator showed"){
         "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event){
             category_id = "MLA390784"
