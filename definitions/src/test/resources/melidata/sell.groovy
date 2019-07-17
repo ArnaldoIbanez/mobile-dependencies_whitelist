@@ -1058,6 +1058,7 @@ trackTests {
             session_id = "123-update-abc123"
         }
     }
+
     test("SYI v4 render sip"){
         "/sell/sip"(platform: "/web", type: TrackType.View){
             category_id = "MLA390784"
