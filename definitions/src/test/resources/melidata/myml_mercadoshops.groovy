@@ -76,6 +76,22 @@ trackTests {
         }
     }
 
+    test("Mercadoshops Welcome Modal Accept") {
+        "/mercado_shops/admin/welcome/accept"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+    }
+
+    test("Mercadoshops Welcome Modal Cancel") {
+        "/mercado_shops/admin/welcome/cancel"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+    }
+
     test("Mercadoshops Admin Sidebars") {
         "/mercado_shops/admin/sidebar"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
