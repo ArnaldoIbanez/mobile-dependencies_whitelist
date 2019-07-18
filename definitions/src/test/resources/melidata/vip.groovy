@@ -131,7 +131,8 @@ trackTests {
             listing_type_id = "GOLD"
             item_seller_type = "AB001"
             from_view="vip"
-            event_source="description"
+            event_source="modal"
+            source=""
         })
 
         "/vip/call_seller"(platform:"/web/desktop", type: TrackType.Event, {
@@ -139,7 +140,7 @@ trackTests {
             listing_type_id = "GOLD"
             item_seller_type = "AB001"
             from_view="vip"
-            event_source="description"
+            event_source="button"
         })
 
         "/vip/call_seller"(platform:"/web/mobile", type: TrackType.Event, {
@@ -147,7 +148,27 @@ trackTests {
             listing_type_id = "GOLD"
             item_seller_type = "AB001"
             from_view="vip"
-            event_source="description"
+            event_source="link"
+        })
+
+        "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event, {
+            mandatory()
+        })
+
+        "/vip/contact_whatsapp"(platform: "/web", type: TrackType.Event, {
+            mandatory()
+            item_seller_type="normal"
+            event_source="button"
+            from_view="vip"
+            source="param"
+        })
+
+        "/vip/contact_whatsapp"(platform: "/web/mobile", type: TrackType.Event, {
+            mandatory()
+            item_seller_type="normal"
+            event_source="button"
+            from_view="vip"
+            source="param"
         })
 
         "/vip/show_phone"(platform: "/mobile", type: TrackType.Event, {
@@ -507,27 +528,6 @@ trackTests {
 
         "/vip/similar_vehicles"(platform: "/mobile", type: TrackType.Event) {
             defaultTrackInformation()
-        }
-
-        "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event) {
-            defaultTrackInformation()
-        }
-
-        "/vip/contact_whatsapp"(platform: "/web/mobile", type: TrackType.Event) {
-            defaultTrackInformation()
-            contract_available=false
-            comparator_available=false
-            gallery_pattern="XXXXXXXXXXX"
-            price_comparison_available=false
-            price_comparison_position=null
-            whatsapp_available=true
-            quote_demand_available=false
-            description_type="plain_text"
-            new_wording_free=true
-            item_seller_type="normal"
-            event_source="button"
-            from_view="vip"
-            source=""
         }
         
         "/vip/free_shipping_cart_available"(platform: "/web", type:TrackType.Event){

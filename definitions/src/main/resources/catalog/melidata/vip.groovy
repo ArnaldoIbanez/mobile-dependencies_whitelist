@@ -323,32 +323,35 @@ tracks {
     }
 
     "/vip/call_seller"(platform: "/", type: TrackType.Event) {
-        category_id(required: false, type: PropertyType.String,
-                description: "Item's category ID"
-        )
-        item_id(required: true, type: PropertyType.String,
-                description: "Item ID"
-        )
-        vertical(required: false, description: "Vertical name over show phone event is displayed")
+        category_id(required: true, type: PropertyType.String, description: "Item's category ID")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        vertical(required: true, description: "Vertical name over show phone event is displayed")
         listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
-        source(required: false, description: "Source of the referred")
+        event_source(required: false, type: PropertyType.String, description: "source of the event", values: ["button", "link", "modal"])
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
-        event_source(required: false, type: PropertyType.String, description: "source of the event")
+        source(required: false, description: "Source of the referred by params")
     }
 
+    "/vip/contact_whatsapp"(platform: "/", type: TrackType.Event) {
+        category_id(required: true, type: PropertyType.String, description: "Item's category ID")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        vertical(required: true, description: "Vertical name over show phone event is displayed")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+        event_source(required: false, type: PropertyType.String, description: "source of the event", values: ["button", "link", "modal"])
+        from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
+        source(required: false, description: "Source of the referred")
+    }
+
+    "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event) {}
+
     "/vip/show_phone"(platform: "/", type: TrackType.Event) {
-        category_id(required: false, type: PropertyType.String,
-                description: "Item's category ID"
-        )
-        item_id(required: true, type: PropertyType.String,
-                description: "Item ID"
-        )
+        category_id(required: false, type: PropertyType.String, description: "Item's category ID")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
         vertical(required: false, description: "Vertical name over show phone event is displayed")
         listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
-        source(required: false, description: "Source of the referred")
-        event_source(required: false, description: "source of the event")
+        source(required: false, description: "Source of the referred by params")
     }
 
     "/vip/coordinate_availability"(platform: "/mobile", type: TrackType.Event) {}
@@ -356,19 +359,6 @@ tracks {
     "/vip/contract_intention"(platform: "/mobile", type: TrackType.Event) {}
 
     "/vip/similar_vehicles"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/vip/contact_whatsapp"(platform: "/web/mobile", type: TrackType.Event) {
-        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
-        event_source(required: false, type: PropertyType.String, description: "source of the event")
-        from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
-        source(required: false, description: "Source of the referred")
-        contract_available(required: false, type: PropertyType.Boolean)
-        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
-        description_type(required: false, description: "Description type: plain text, html, both, none",
-            values: ["plain_text", "html", "both", "none"])
-    }
 
     "/vip/map/"(platform: "/mobile") {}
 
