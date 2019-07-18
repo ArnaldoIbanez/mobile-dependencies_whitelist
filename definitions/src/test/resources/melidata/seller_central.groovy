@@ -676,7 +676,45 @@ trackTests {
             session_id = "123-update-abc123"
         }
     }
+    
+    test("structured data hidden attributes (open)"){
+        "/seller_central/modify/technical_specifications/hidden_attributes/open"(platform: "/", type: TrackType.Event){
+            session_id = "123-update-abc123"
+            seller_id = 415920446
+            item_id = "MLA682118081"
+            item_type = "default"
+            category_domain = "MLA-CAMERAS"
+            times_showed = 1
+            attributes = 3
+            type = "CONFIRM"
+        }
+    }
 
+    test("structured data hidden attributes (add)"){
+        "/seller_central/modify/technical_specifications/hidden_attributes/add"(platform: "/", type: TrackType.Event){
+            session_id = "123-update-abc123"
+            seller_id = 415920446
+            item_id = "MLA682118081"
+            item_type = "default"
+            category_domain = "MLA-CAMERAS"
+            attribute = "BRAND"
+            type = "CONFIRM"
+        }
+    }
+
+    test("structured data hidden attributes (change)"){
+        "/seller_central/modify/technical_specifications/hidden_attributes/change"(platform: "/", type: TrackType.Event){
+            session_id = "123-update-abc123"
+            seller_id = 415920446
+            item_id = "MLA682118081"
+            item_type = "default"
+            category_domain = "MLA-CAMERAS"
+            attribute = "BRAND"
+            value = "Sony"
+            type = "CONFIRM"
+        }
+    }
+    
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central settings
     //------------------------------------------------------------------------------------------------------------------------------------------------------
