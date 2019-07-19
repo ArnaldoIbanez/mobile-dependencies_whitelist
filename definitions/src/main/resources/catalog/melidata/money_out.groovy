@@ -7,6 +7,8 @@ tracks {
         Money Out Tracks
     **/
     "/money_out"(platform: "/", isAbstract: true) {}
+    "/money_out/cashout"(platform: "/", isAbstract: true) {}
+    "/money_out/money_out/cashout/onboarding"(platform: "/", isAbstract: true) {}
 
     // Cashout ticket tracks
     "/money_out/cashout/ticket"(platform: "/", type: TrackType.View) {}
