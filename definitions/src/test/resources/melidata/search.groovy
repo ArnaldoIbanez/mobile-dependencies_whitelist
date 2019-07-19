@@ -195,6 +195,12 @@ trackTests {
                     ]
             ]
             carousel_filters=["BRAND", "official_store", "STYLE"]
+            pdp_tracking_info = [
+                    "MLA1234": "shown",
+                    "MLA12345": "no_winner",
+                    "MLA123456": "inactive",
+                    "MLA1234567": "low_score"
+            ]
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -382,6 +388,12 @@ trackTests {
             user_zone = ""
             pdp_rows = []
             carousel_filters = []
+            pdp_tracking_info = [
+                    "MLA1234": "shown",
+                    "MLA12345": "no_winner",
+                    "MLA123456": "inactive",
+                    "MLA1234567": "low_score"
+            ]
         }
     }
 
