@@ -12,7 +12,11 @@ trackTests {
         Money Out Tracks
     **/
 
-    test("Money Out - views") {
+    test("Money Out - views") { 
+
+     "/money_out"(platform: "/", type: TrackType.View) {}
+     "/money_out/cashout"(platform: "/", type: TrackType.View) {}
+     "/money_out/cashout/onboarding"(platform: "/", type: TrackType.View) {}
 
      // Cashout ticket tracks
      "/money_out/cashout/ticket"(platform: "/", type: TrackType.View) {}
