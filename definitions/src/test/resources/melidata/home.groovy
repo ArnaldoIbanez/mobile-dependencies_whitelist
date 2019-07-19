@@ -156,6 +156,20 @@ trackTests {
 
     }
 
+    test("Home Server Side") {
+        def dataSet = {
+            component_count = 25
+            newbie = true
+            home_version = 'new'
+            is_logged = true
+        }
+        def dataSet2 = {
+            component_count = 25
+        }
+        "/backend/home"(platform: "/web/mobile", dataSet)
+        "/korriban"(platform: "/web/desktop", dataSet2)
+    }
+
     test("Supermarket home tracking") {
         "/home/supermarket"(platform: "/") {}
     }
