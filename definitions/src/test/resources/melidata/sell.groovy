@@ -287,7 +287,6 @@ trackTests {
         "/sell/list/draft/technical_specifications"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/product_identifier"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/hub"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/walkthrough"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/hub_old"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/sip"(platform: "/mobile" ) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -454,7 +453,10 @@ trackTests {
         }
     }
 
-    test("Native Sell Modify Steps"){
+    test("Native Sell Modify Steps") {
+        "/sell/update/attribute"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA123456"
+        }
         "/sell/update/sip"(platform: "/mobile") {
             item_id = "MLA123456"
             has_selected_pictures = false
@@ -584,7 +586,6 @@ trackTests {
         "/sell/update/variations_pi"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/statistics"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/free_shipping"(platform: "/mobile") {item_id = "MLA123456"}
-
     }
 
     test("Modal attributes pseudo obligatory - List"){

@@ -64,6 +64,10 @@ tracks {
 
     "/mercado_shops/admin/welcome"(platform: "/", type: TrackType.View){}
 
+    "/mercado_shops/admin/welcome/accept"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/admin/welcome/cancel"(platform: "/", type: TrackType.Event){}
+
     "/mercado_shops/domains"(platform: "/", isAbstract: true) {
         mshopsDomainsGroup
     }
@@ -169,7 +173,7 @@ tracks {
     "/mercado_shops/admin/confirm_migration"(platform: "/", type: TrackType.Event){
         scope(required: true, type: PropertyType.String, values: ['editor', 'domains'])
     }
-    
+
     "/mercado_shops/optin/step"(platform: "/", type: TrackType.Event){
         step(required: true, type: PropertyType.String)
         index(required: true, type: PropertyType.Numeric)
