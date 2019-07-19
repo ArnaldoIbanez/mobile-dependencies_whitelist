@@ -36,8 +36,8 @@ trackTests {
      }
 
      "/money_out/calculator/continue"(platform: "/", type: TrackType.Event) {
-         money_out_method = "cashout"
-        preset = "500"
+        money_out_method = "cashout"
+        amount = "500"
      }
 
      // Cashout onboarding

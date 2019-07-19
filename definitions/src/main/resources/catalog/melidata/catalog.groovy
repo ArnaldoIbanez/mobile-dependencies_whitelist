@@ -168,6 +168,7 @@ catalog {
         include business, "front_core.groovy"
         include business, "mplayer.groovy"
         include business, "money_in.groovy"
+        include business, "money_out.groovy"
         include business, "pos_seller.groovy"
         include business, "preference.groovy"
     }
