@@ -75,6 +75,7 @@ tracks {
         pdp_rows(required: true, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
         carousel_filters(required: true, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
         pdp_tracking_info(required: false, description: 'pdp products info', PropertyType.Map(PropertyType.String, PropertyType.String))
+        is_in_seo_whitelist(required: false, description: 'is request in seo whitelist', PropertyType.Boolean)
     }
 
     "/search"(platform: "/mobile") {
