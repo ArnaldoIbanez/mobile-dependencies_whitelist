@@ -45,6 +45,11 @@ tracks {
 
     "/checkout_off/payment/card_express"(platform: "/", type: TrackType.View) {}
     
+    // Split payments paths    
+    "/checkout_off/payment/card"(platform: "/", isAbstract: true) {}
+    "/checkout_off/payment/card/split_first"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/card/split_second"(platform: "/", type: TrackType.View) {}
+
     // Groups consumer credits data collection views
     "/checkout_off/payment/input_credits"(platform: "/", isAbstract: true) {}
     "/checkout_off/payment/input_credits/select_installment"(platform: "/", type: TrackType.View) {}    
