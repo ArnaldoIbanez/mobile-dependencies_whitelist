@@ -307,6 +307,10 @@ tracks {
         sellerCentralModifyGroupTableForPdp
     }
 
+    "/seller_central/modify/subflow"(platform: "/", type: TrackType.View) {
+        sellerCentralModifyCardsGroup
+    }
+
     "/seller_central/modify/update_price"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue

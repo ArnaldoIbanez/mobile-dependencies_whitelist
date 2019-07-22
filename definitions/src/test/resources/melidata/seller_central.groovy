@@ -402,6 +402,20 @@ trackTests {
         }
     }
 
+    test("seller central render subflow"){
+        "/seller_central/modify/subflow"(platform: "/", type: TrackType.View){
+            item_type = "default"
+            category_id = "MLA390784"
+            item_id = "MLA682118081"
+            session_id = "123-update-abc123"
+            category_domain = "MLA-FRAGRANCES"
+            category_path = ["MLA1234", "MLA12345"]
+            seller_profile = "ADVANCED"
+            listing_type = "gold_pro"
+            shipping_local_pickup = true
+        }
+    }
+
     test("seller central price value updated"){
         "/seller_central/modify/update_price"(platform: "/", type: TrackType.Event){
             item_type = "product"

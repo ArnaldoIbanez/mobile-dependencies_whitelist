@@ -14,7 +14,7 @@ tracks {
     }
 
     propertyGroups {
-        sellGroup(category_id, seller_profile, seller_segment, session_id)
+        sellGroup(category_id, category_path, seller_profile, seller_segment, session_id)
     }
 
     // Sell
