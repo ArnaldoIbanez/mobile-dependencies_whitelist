@@ -264,7 +264,7 @@ tracks {
     "/wallet_home/notification/show" (platform: "/mobile", type: TrackType.View) {}
 
     "/wallet_home/notification/tap" (platform: "/mobile", type: TrackType.Event) {
-        badge_count(required: true, type: PropertyType.Numeric, description: "The amount of notifications that is been showed in the notification label icon")
+        badge_count(required: true, type: PropertyType.Numeric, description: "The amount of notifications that's been showed in the notification label icon")
     }
 
 }
