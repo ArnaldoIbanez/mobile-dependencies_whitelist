@@ -262,11 +262,11 @@ tracks {
     "/wallet_home/notification" (platform: "/mobile", isAbstract: true) {}
 
     "/wallet_home/notification/show" (platform: "/mobile", type: TrackType.View) {
-        badge_count(required: true, type: PropertyType.Numeric, description: "The amount of notifications that's been showed in the initial load of the notification center")
+        badge_count(required: true, type: PropertyType.Numeric, description: "The amount of notifications that's been showed in the initial load notification label icon")
     }
 
     "/wallet_home/notification/tap" (platform: "/mobile", type: TrackType.Event) {
-        badge_count(required: true, type: PropertyType.Numeric, description: "The amount of notifications that's been showed in the notification center label icon")
+        badge_count(required: true, type: PropertyType.Numeric, description: "The amount of notifications that's been showed in the notification label icon")
     }
 
 }
