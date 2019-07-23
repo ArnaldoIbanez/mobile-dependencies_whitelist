@@ -102,7 +102,7 @@ trackTests {
             result_status = "rejected"
             status_detail = "call_for_auth"
         }
-        "/recharge_sube/redirect_sube_app_accredit_payment"(platform: "/mobile", type: TrackType.Event) {
+        "/recharge_sube/redirect_sube_app"(platform: "/mobile", type: TrackType.Event) {
             flow = "/recharge_sube"
             from = "/deep_link"
         }
@@ -205,7 +205,7 @@ trackTests {
             result_status = "rejected"
             status_detail = "call_for_auth"
         }
-        "/recharge_sube/redirect_sube_app_accredit_payment"(platform: "/mobile", type: TrackType.Event) {
+        "/recharge_sube/redirect_sube_app"(platform: "/mobile", type: TrackType.Event) {
             flow = "/recharge_sube"
             from = "/deep_link"
         }
