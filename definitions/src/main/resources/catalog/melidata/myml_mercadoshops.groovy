@@ -178,4 +178,8 @@ tracks {
         step(required: true, type: PropertyType.String)
         index(required: true, type: PropertyType.Numeric)
     }
+       
+    "/mercado_shops/marketing"(platform: "/", isAbstract: true) {}
+
+    "/mercado_shops/marketing/summary"(platform: "/", type: TrackType.View){}
 }
