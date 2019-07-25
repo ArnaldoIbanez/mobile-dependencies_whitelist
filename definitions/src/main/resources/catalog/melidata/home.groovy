@@ -176,14 +176,14 @@ tracks {
     "/home/supermarket"(platform: "/", type: TrackType.View) {}
     
     //Server Side
-    "/backend/home"(platform: "/", type: TrackType.Event) {
+    "/backend/home"(platform: "/", type: TrackType.Event, isAbstract: false) {
         component_count(required: true, type: PropertyType.Numeric)
         newbie(required: true, type: PropertyType.Boolean)
         home_version(required: true, type: PropertyType.String)
         is_logged(required: true, type: PropertyType.Boolean)
     }
     
-    "/korriban"(platform:"/", type: TrackType.Event){
+    "/korriban"(platform:"/", type: TrackType.Event, isAbstract: false){
         component_count(required: true, type: PropertyType.Numeric)
     }
 }
