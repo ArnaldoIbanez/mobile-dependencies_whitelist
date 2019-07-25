@@ -133,6 +133,11 @@ tracks {
     }
 
     "/search/filters"(platform: "/mobile") {}
+    
+    "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event) {}
+    
+    "/search/breadcrumb/apply"(platform: "/mobile", type: TrackType.Event) {}
+
 
     "/search/filters_carousel"(platform: "/web", isAbstract: true) {}
     "/search/filters_carousel/click"(platform: "/web", type: TrackType.Event) {
@@ -142,6 +147,7 @@ tracks {
     }
 
     "/search/color_picker"(platform: "/web") {
+        
         item_id(required: true, description: "the item id shown for the product", type: PropertyType.String)
         previous_product_id(required: true, "the product shown before using the picker", type: PropertyType.String)
         product_id(required: true, description: "the product shown after using the picker", type: PropertyType.String)
