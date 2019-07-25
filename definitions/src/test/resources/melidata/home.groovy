@@ -90,6 +90,7 @@ trackTests {
             position = 1
             section = "history"
             tag_id = "MLB681933310"
+            is_modal = true
         })
 
         "/home/carousel/firstto"(platform: "/mobile") {}

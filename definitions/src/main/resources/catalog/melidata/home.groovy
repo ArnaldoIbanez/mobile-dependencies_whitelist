@@ -186,4 +186,4 @@ tracks {
     "/korriban"(platform:"/", type: TrackType.Event){
         component_count(required: true, type: PropertyType.Numeric)
     }
-}  {"newbie":false,"home.version":"new","is_logged":true}
+    
