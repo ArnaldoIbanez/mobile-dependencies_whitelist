@@ -98,6 +98,14 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/card/split_first"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/card/split_second"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         // Tokenizer product final screen.
         "/checkout_off/payment/processing"(platform: "/web/mobile") {
             defaultProperties()
