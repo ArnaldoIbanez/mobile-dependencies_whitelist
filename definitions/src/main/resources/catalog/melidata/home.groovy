@@ -62,6 +62,7 @@ tracks {
         position(type: PropertyType.Numeric)
         section()
         tag_id()
+        is_modal(required: false, type: PropertyType.Boolean)
     }
 
     "/home/carousel"(platform: "/mobile", isAbstract: true) {
@@ -173,4 +174,18 @@ tracks {
 
     // Supermarket
     "/home/supermarket"(platform: "/", type: TrackType.View) {}
-}  
+    
+    //Server Side
+    "/backend"(platform: "/", type: TrackType.Event, isAbstract : true) {}
+
+    "/backend/home"(platform: "/", type: TrackType.Event) {
+        component_count(required: true, type: PropertyType.Numeric)
+        newbie(required: true, type: PropertyType.Boolean)
+        home_version(required: true, type: PropertyType.String)
+        is_logged(required: true, type: PropertyType.Boolean)
+    }
+    
+    "/korriban"(platform:"/", type: TrackType.Event){
+        component_count(required: true, type: PropertyType.Numeric)
+    }
+}

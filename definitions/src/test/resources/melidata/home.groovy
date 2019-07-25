@@ -90,6 +90,7 @@ trackTests {
             position = 1
             section = "history"
             tag_id = "MLB681933310"
+            is_modal = true
         })
 
         "/home/carousel/firstto"(platform: "/mobile") {}
@@ -154,6 +155,20 @@ trackTests {
         "/home/category/motors"(platform: "/web/mobile", dataSet)
         "/home/category/motors"(platform: "/web/desktop", dataSet)
 
+    }
+
+    test("Home Server Side") {
+        def dataSet = {
+            component_count = 25
+            newbie = true
+            home_version = 'new'
+            is_logged = true
+        }
+        def dataSet2 = {
+            component_count = 25
+        }
+        "/backend/home"(platform: "/web/mobile", dataSet)
+        "/korriban"(platform: "/web/desktop", dataSet2)
     }
 
     test("Supermarket home tracking") {
