@@ -58,7 +58,6 @@ trackTests {
             total_amount_including_garex = 1869.89
             stored_cards_quantity = 3
         }
-
         "/buy_intention"(platform:"/mobile/android") {
             buyIntentionDataSet()
             context = "checkout_recovery_combo"
@@ -154,7 +153,6 @@ trackTests {
             buyIntentionDataSet()
             context = "garex"
             checkout_flow="cart"
-
         }
 
     }
