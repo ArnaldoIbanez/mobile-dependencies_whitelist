@@ -246,9 +246,12 @@ trackTests {
             position = 4
         }
         
-        "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event){}
         
+        "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event){
+            defaultSearchInformation()
+        }
         "/search/breadcrumb/apply"(platform: "/mobile", type: TrackType.Event){
+            defaultSearchInformation()
             filter_id="9997262-AMLA_7262_2"
         }
         
