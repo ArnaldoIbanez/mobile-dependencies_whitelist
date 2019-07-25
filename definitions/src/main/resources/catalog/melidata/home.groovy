@@ -176,14 +176,16 @@ tracks {
     "/home/supermarket"(platform: "/", type: TrackType.View) {}
     
     //Server Side
-    "/backend/home"(platform: "/", type: TrackType.Event, isAbstract: false) {
+    "/backend"(platform: "/", type: TrackType.Event, isAbstract : true) {}
+
+    "/backend/home"(platform: "/", type: TrackType.Event) {
         component_count(required: true, type: PropertyType.Numeric)
         newbie(required: true, type: PropertyType.Boolean)
         home_version(required: true, type: PropertyType.String)
         is_logged(required: true, type: PropertyType.Boolean)
     }
     
-    "/korriban"(platform:"/", type: TrackType.Event, isAbstract: false){
+    "/korriban"(platform:"/", type: TrackType.Event){
         component_count(required: true, type: PropertyType.Numeric)
     }
 }
