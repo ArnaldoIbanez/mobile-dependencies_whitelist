@@ -681,6 +681,8 @@ trackTests {
 
         "/myml/purchases/status/buy_it_again"(platform:"/mobile", type: TrackType.Event) {
             item_id = 'MLA713079054'
+            buy_it_again_experiment = 'Yes'
+            buy_it_again_lead_checkout = 'No'
         }
 
         "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {

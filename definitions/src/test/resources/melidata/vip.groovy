@@ -900,4 +900,63 @@ trackTests {
             model()
         }
     }
+
+    test("VIP Units available section for projects RE"){
+        def properties = {
+            vertical = "realEstate"
+            from_view = "unitsAvailable"
+            seller_id =  430012134
+            item_seller_type = "real_estate_agency"
+            listing_type_id = "silver"
+            category_id = "MLA401803"
+            item_status = "active"
+            item_id = "MLA792156560"
+            item_condition = "new"
+            category_path = [
+                "MLA1459",
+                "MLA1493",
+                "MLA1495",
+                "MLA401803"
+            ]
+            buying_mode = "classified"
+        }
+
+        "/vip/units_available"(platform: "/mobile", type: TrackType.View){
+            properties()
+        }
+
+
+        "/vip/contact_seller"(platform: "/mobile", type: TrackType.Event){
+            properties()
+        }
+    }
+
+    test("VIP Facilities section for projects RE"){
+        def properties = {
+            vertical = "realEstate"
+            from_view = "technicalSpecs"
+            seller_id =  430012134
+            item_seller_type = "real_estate_agency"
+            listing_type_id = "silver"
+            category_id = "MLA401803"
+            item_status = "active"
+            item_id = "MLA792156560"
+            item_condition = "new"
+            category_path = [
+                "MLA1459",
+                "MLA1493",
+                "MLA1495",
+                "MLA401803"
+            ]
+            buying_mode = "classified"
+        }
+
+        "/vip/technical_specs"(platform: "/mobile", type: TrackType.View){
+            properties()
+        }
+
+        "/vip/contact_seller"(platform: "/mobile", type: TrackType.Event){
+            properties()
+        }
+    }
 }

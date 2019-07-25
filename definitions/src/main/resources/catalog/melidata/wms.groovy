@@ -71,9 +71,9 @@ tracks {
         address_id(required: false, type: PropertyType.String, description: "Address id")
         damaged_quantity(required: false, type: PropertyType.Numeric, description: "Damaged quantity")
         quantity(required: false, type: PropertyType.Numeric, description: "Item quantity")
-        from_count_around(required: false, 
-            type: PropertyType.String, 
-            values: ["true", "false"], 
+        from_count_around(required: false,
+            type: PropertyType.String,
+            values: ["true", "false"],
             description: "From count around")
     }
     "/wms/inbound_audit/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
@@ -102,19 +102,19 @@ tracks {
     "/wms/picking/scan_container"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/picking/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/picking/item"(platform: "/mobile/android", type: TrackType.View) {
-        inventory_id(required: false, type: PropertyType.String, 
+        inventory_id(required: false, type: PropertyType.String,
             description: "Id of the picked up item")
-        destination_address(required: false, type: PropertyType.String, 
+        destination_address(required: false, type: PropertyType.String,
             description: "Address to where the item is picked up")
-        checkpoint_status(required: false, type: PropertyType.String, 
+        checkpoint_status(required: false, type: PropertyType.String,
             description: "Status of the current checkpoint")
     }
     "/wms/picking/scan_destination"(platform: "/mobile/android", type: TrackType.View) {
-        inventory_id(required: false, type: PropertyType.String, 
+        inventory_id(required: false, type: PropertyType.String,
             description: "Id of the picked up item")
-        destination_address(required: false, type: PropertyType.String, 
+        destination_address(required: false, type: PropertyType.String,
             description: "Address to where the item is picked up")
-        checkpoint_status(required: false, type: PropertyType.String, 
+        checkpoint_status(required: false, type: PropertyType.String,
             description: "Status of the current checkpoint")
     }
     "/wms/picking/change_floor_confirmation"(platform: "/mobile/android", type: TrackType.View) {}
@@ -164,17 +164,17 @@ tracks {
     "/wms/receiving/inbound_shipment_rejection/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
 
     "/wms/receiving/receiving_finished"(platform: "/mobile/android", type: TrackType.Event) {
-        receiving_id(required: true, type: PropertyType.Numeric, description: "Id of the receiving to track")
+        receiving_id(required: true, type: PropertyType.String, description: "Id of the receiving to track")
     }
 
     "/wms/receiving/volume_rejection"(platform: "/mobile/android", type: TrackType.Event) {
-        receiving_id(required: false, type: PropertyType.Numeric, description: "Id of the receiving to track")
+        receiving_id(required: false, type: PropertyType.String, description: "Id of the receiving to track")
         rejection_reason(required: false, type: PropertyType.String, description: "Rejection reason selected to track")
         volume_label(required: false, type: PropertyType.String, description: "Volume label to track")
     }
 
     "/wms/receiving/inbound_shipment_rejection"(platform: "/mobile/android", type: TrackType.Event) {
-        receiving_id(required: false, type: PropertyType.Numeric, description: "Id of the receiving to track")
+        receiving_id(required: false, type: PropertyType.String, description: "Id of the receiving to track")
         rejection_reason(required: false, type: PropertyType.String, description: "Rejection reason selected to track")
         inbound_id(required: false, type: PropertyType.Numeric, description: "Inbound Shipment id to track")
     }
@@ -325,7 +325,7 @@ tracks {
     }
     "/wms/problem_solver_inbound_tasks/take/scan_destination"(platform: "/mobile/android", type: TrackType.View) {
         inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
-        destination_address(required: false, type: PropertyType.String, 
+        destination_address(required: false, type: PropertyType.String,
             description: "Address to put the items. Is sent after the scan action")
     }
 
@@ -333,28 +333,28 @@ tracks {
     "/wms/problem_solver_inbound_tasks/returns"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/problem_solver_inbound_tasks/returns/scan_destination"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/problem_solver_inbound_tasks/returns/scan_inbound_shipment"(platform: "/mobile/android", type: TrackType.View) {
-        destination_address(required: false, type: PropertyType.String, 
+        destination_address(required: false, type: PropertyType.String,
             description: "Address to put the items. Is sent after the scan action")
     }
     "/wms/problem_solver_inbound_tasks/returns/single_selection"(platform: "/mobile/android", type: TrackType.View) {
         inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
-        destination_address(required: false, type: PropertyType.String, 
+        destination_address(required: false, type: PropertyType.String,
             description: "Address to put the items. Is sent after the scan action")
     }
 
     "/wms/problem_solver_inbound_tasks/returns/single_selection/confirmation"(platform: "/mobile/android", type: TrackType.Event) {
         inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
-        destination_address(required: false, type: PropertyType.String, 
+        destination_address(required: false, type: PropertyType.String,
             description: "Address to put the items. Is sent after the scan action")
-        return_type(required: false, type: PropertyType.String, 
+        return_type(required: false, type: PropertyType.String,
             description: "Return type selected by the user")
     }
 
     "/wms/problem_solver_inbound_tasks/returns/scan_stage_in_destination"(platform: "/mobile/android", type: TrackType.View) {
         inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
-        destination_address(required: false, type: PropertyType.String, 
+        destination_address(required: false, type: PropertyType.String,
             description: "Address to put the items. Is sent after the scan action")
-        return_type(required: false, type: PropertyType.String, 
+        return_type(required: false, type: PropertyType.String,
             description: "Return type selected by the user")
     }
 

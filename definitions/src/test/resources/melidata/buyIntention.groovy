@@ -96,6 +96,42 @@ trackTests {
 
         }
 
+        "/buy_intention"(platform:"/mobile/android") {
+            buyIntentionDataSet()
+            context = "home_cart-overview"
+            checkout_flow="direct"
+        }
+
+        "/buy_intention"(platform:"/mobile/ios") {
+            buyIntentionDataSet()
+            context = "home_cart-overview"
+            checkout_flow="direct"
+        }
+
+        "/buy_intention"(platform:"/mobile/android") {
+            buyIntentionDataSet()
+            context = "home_dropout"
+            checkout_flow="direct"
+        }
+
+        "/buy_intention"(platform:"/mobile/ios") {
+            buyIntentionDataSet()
+            context = "home_dropout"
+            checkout_flow="direct"
+        }
+
+        "/buy_intention"(platform:"/mobile/android") {
+            buyIntentionDataSet()
+            context = "home_last-buy"
+            checkout_flow="direct"
+        }
+
+        "/buy_intention"(platform:"/mobile/ios") {
+            buyIntentionDataSet()
+            context = "home_last-buy"
+            checkout_flow="direct"
+        }
+
     }
 
 }

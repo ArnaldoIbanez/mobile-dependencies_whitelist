@@ -38,6 +38,12 @@ trackTests {
 
         "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
             context = "forgot"
+            delete_sessions = false
+        }
+
+        "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
+            context = "feedback"
+            delete_sessions = true
         }
     }
 }
