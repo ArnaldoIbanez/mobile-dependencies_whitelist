@@ -134,6 +134,8 @@ tracks {
 
     "/search/filters"(platform: "/mobile") {}
     
+    "/search/breadcrumb"(platform: "/mobile", isAbstract: true) {}
+    
     "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event) {
         limit(required: false, description: "the max number of items returned", type: PropertyType.Numeric)
         offset(required: false, description: "the number of items skipped on the search", type: PropertyType.Numeric)
