@@ -245,6 +245,16 @@ trackTests {
             filter = "STYLE"
             position = 4
         }
+        
+        
+        "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event){
+            defaultSearchInformation()
+        }
+        "/search/breadcrumb/apply"(platform: "/mobile", type: TrackType.Event){
+            defaultSearchInformation()
+            filter_id="9997262-AMLA_7262_2"
+        }
+        
         "/search/back"(platform: "/mobile", defaultSearchInformation)
         "/search/long_press"(platform: "/mobile"){
             item_id = "MLA170232"
@@ -353,7 +363,6 @@ trackTests {
             query="iphone"
         }
     }
-
 
     test("Search carousel next"){
         "/search/carousel"(platform: "/web") {
