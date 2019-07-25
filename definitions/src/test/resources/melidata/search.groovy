@@ -245,6 +245,13 @@ trackTests {
             filter = "STYLE"
             position = 4
         }
+        
+        "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event){}
+        
+        "/search/breadcrumb/apply"(platform: "/mobile", type: TrackType.Event){
+            filter_id="9997262-AMLA_7262_2"
+        }
+        
         "/search/back"(platform: "/mobile", defaultSearchInformation)
         "/search/long_press"(platform: "/mobile"){
             item_id = "MLA170232"
