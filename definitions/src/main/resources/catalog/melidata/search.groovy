@@ -134,10 +134,18 @@ tracks {
 
     "/search/filters"(platform: "/mobile") {}
     
-    "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event) {}
+    "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event) {
+        limit(required: false, description: "the max number of items returned", type: PropertyType.Numeric)
+        offset(required: false, description: "the number of items skipped on the search", type: PropertyType.Numeric)
+        total(required: false, description: "amount of search items returned", type: PropertyType.Numeric)
+    }
     
-    "/search/breadcrumb/apply"(platform: "/mobile", type: TrackType.Event) {}
-
+    "/search/breadcrumb/apply"(platform: "/mobile", type: TrackType.Event) {
+        filter_id()
+        limit(required: false, description: "the max number of items returned", type: PropertyType.Numeric)
+        offset(required: false, description: "the number of items skipped on the search", type: PropertyType.Numeric)
+        total(required: false, description: "amount of search items returned", type: PropertyType.Numeric)
+    }
 
     "/search/filters_carousel"(platform: "/web", isAbstract: true) {}
     "/search/filters_carousel/click"(platform: "/web", type: TrackType.Event) {
