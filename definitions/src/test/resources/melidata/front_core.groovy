@@ -234,6 +234,7 @@ trackTests {
     test("Mercadopago Home Tap") {
         "/wallet_home/tap" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
+            section_id="main_actions"
         }
     }
 
