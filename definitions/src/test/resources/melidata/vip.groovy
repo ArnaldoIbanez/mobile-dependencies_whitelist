@@ -418,6 +418,7 @@ trackTests {
             seller_id = 131662738
             power_seller_status = "platinum"
             deal_ids = ["MLA100"]
+            catalog_listing = false
         }
 
         "/vip"(platform:"/web", dataSet)
