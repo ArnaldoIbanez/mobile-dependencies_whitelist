@@ -355,6 +355,33 @@ tracks {
         demandItemGroup
     }
 
+    /***** Delete Demand ******/
+    // Delete Quote Demand -  Loading
+    "/quote/seller/delete/loading"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+        vertical(required: true, type: PropertyType.String, values: ["services"], description: "Vertical services")
+    }
+
+    //Quote - Delete View
+    "/quote/seller/delete"(platform: "/", type: TrackType.View) {
+        demandItemGroup
+    }
+    //Quote - Delete Event
+    "/quote/seller/delete/action"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "delete reason selected")
+    }
+
+    //Quote - Delete Congrats
+    "/quote/seller/delete/congrats"(platform: "/", type: TrackType.View) {}
+
+    //Quote - Delete Congrats Event
+    "/quote/seller/delete/congrats/go_listing"(platform: "/", type: TrackType.Event) {}
+
+    //Quote - Delete Congrats Error
+    "/quote/seller/delete/congrats_error"(platform: "/", type: TrackType.View) {}
+
+    //Quote - Delete Congrats Error Event
+    "/quote/seller/delete/congrats_error/go_listing"(platform: "/", type: TrackType.Event) {}
+
     /***** Listing onBoarding ******/
 
     //Onboarding View

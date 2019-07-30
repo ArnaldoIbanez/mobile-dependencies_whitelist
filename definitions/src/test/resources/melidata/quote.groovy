@@ -304,6 +304,19 @@ trackTests {
             action = "go_reject"
         }
 
+        // Quote Listing Seller Events (three dots web listing)
+        "/quote/seller/listing/options"(platform: "/web", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            action = "go_delete"
+        }
+
         // Quote Listing Seller Event News
         "/quote/seller/listing/cards_actions"(platform: "/", type: TrackType.Event) {
             vertical = "services"
@@ -457,6 +470,19 @@ trackTests {
             quote_demand_id = 698669764
             quote_demand_status = "answered"
             action = "go_create_similar"
+        }
+
+        // Quote Seller Messages Options Events
+        "/quote/seller/messages/options"(platform: "/web", type: TrackType.Event) {
+            seller_id = 33624088
+            vertical = "services"
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            action = "go_delete"
         }
 
         /***** Quote Cancel ******/
@@ -626,6 +652,86 @@ trackTests {
 
         //Quote - Reject Congrats Error Event
         "/quote/seller/reject/congrats_error/go_listing"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        /***** Quote Demand Delete ******/
+        // Delete Quote -  Loading
+        "/quote/seller/delete/loading"(platform: "/mobile", type: TrackType.View) {
+            vertical = "services"
+        }
+
+        //Quote - Delete
+        "/quote/seller/delete"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        //Quote - Delete Event
+        "/quote/seller/delete/action"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            action = "MLA_DELETE_001"
+        }
+
+
+        //Quote - Delete Congrats
+        "/quote/seller/delete/congrats"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        //Quote - Delete Congrats Event
+        "/quote/seller/delete/congrats/go_listing"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        //Quote - Delete Congrats Error
+        "/quote/seller/delete/congrats_error"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        //Quote - Delete Congrats Error Event
+        "/quote/seller/delete/congrats_error/go_listing"(platform: "/", type: TrackType.Event) {
             vertical = "services"
             seller_id = 33624088
             item_id = "MLA698669764"
