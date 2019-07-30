@@ -497,12 +497,13 @@ trackTests {
     }
 
     test("Point Buying Flow") {
-        "/point/buyingflow/init"(platform: "/", type: TrackType.View) {
-          step = "init"
+        "/point/buyingflow"(platform: "/", type: TrackType.View) {
+          view = "init"
           flow_id = "000001"
           product = "point-i"
           currency = "R\$"
           price = 401
+          is_guest = true
         }
     }
 
