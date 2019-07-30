@@ -906,12 +906,12 @@ tracks {
 
     //Opt-in pages
     
-    "/myml/invoices/opt-in"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/opt_in"(platform: "/", isAbstract: true) {}
 
-    "/myml/invoices/opt-in/difal"(platform: "/") {}
+    "/myml/invoices/opt_in/difal"(platform: "/") {}
 
-    "/myml/invoices/opt-in/difal/button"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/opt-in/difal/button/save"(platform: "/") {}
+    "/myml/invoices/opt_in/difal/button"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/opt_in/difal/button/save"(platform: "/") {}
 
     //:::: SELLER - INVOICES
 
